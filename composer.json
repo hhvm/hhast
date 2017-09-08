@@ -1,0 +1,5 @@
+{
+    "require-dev": {
+        "facebook/hack-codegen": "dev-master"
+    }
+}
