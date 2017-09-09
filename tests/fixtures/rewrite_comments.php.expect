@@ -1,0 +1,21 @@
+<?hh
+/**
+ * Copyright (c) 2016, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the 'hack' directory of this source tree. An additional
+ * grant of patent rights can be found in the PATENTS file in the same
+ * directory.
+ *
+ */
+
+/* blah blah blah */
+abstract class FooBar {
+  public function whatever(array<mixed> $stuff, ?array $things) : this {
+    // blah blah blah
+    // blah blah blah
+    // blah blah blah
+    $this->doStuff /* blah blah blah */ ($inputs, $things);
+  }
+} // blah blah blah

@@ -1,0 +1,23 @@
+<?hh
+/**
+ * Copyright (c) 2016, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the 'hack' directory of this source tree. An additional
+ * grant of patent rights can be found in the PATENTS file in the same
+ * directory.
+ *
+ */
+
+/**
+ * Here's a big delimited comment.
+ */
+abstract class FooBar {
+  public function whatever(array<mixed> $stuff, ?array $things) : this {
+    // Some single line comments
+    // Some single line comments
+    // Some single line comments
+    $this->doStuff /* small delimited comment */ ($inputs, $things);
+  }
+} // One final comment

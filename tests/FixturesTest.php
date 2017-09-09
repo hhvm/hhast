@@ -18,6 +18,8 @@ use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str};
 
 final class FixturesTest extends \PHPUnit\Framework\TestCase {
+  /** Add a comment just before the try body and just inside
+   * the catch body */
   public function testInsert(): void {
     $original = HHAST\from_file(
       __DIR__.'/fixtures/insert.php.in',
@@ -40,11 +42,34 @@ final class FixturesTest extends \PHPUnit\Framework\TestCase {
     $this->assertMatches($code, 'insert.php.expect');
   }
 
+  public function testRewriteComments(): void {
+    $rewriter = (HHAST\EditableSyntax $node, $_parents) ==> {
+      if ($node instanceof HHAST\SingleLineComment) {
+        return $node->with_text('// blah blah blah');
+      }
+      if ($node instanceof HHAST\DelimitedComment) {
+        if (Str\contains($node->text(), 'Copyright')) {
+          return $node;
+        }
+        return $node->with_text('/* blah blah blah */');
+      }
+      return $node;
+    };
+
+    $code = HHAST\from_file(
+      __DIR__.'/fixtures/rewrite_comments.php.in',
+    )
+      ->rewrite($rewriter)
+      ->full_text();
+    $this->assertMatches($code, 'rewrite_comments.php.expect');
+  }
+
   private function assertMatches(
     string $code,
     string $expect_file,
   ): void {
     $expect_file = __DIR__.'/fixtures/'.$expect_file;
+
     file_put_contents(
       Str\strip_suffix($expect_file, '.expect').'.out',
       $code,
