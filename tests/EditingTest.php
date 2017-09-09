@@ -64,18 +64,44 @@ final class EditingTest extends \PHPUnit\Framework\TestCase {
     $this->assertMatches($code, 'rewrite_comments.php.expect');
   }
 
+  public function testRemove(): void {
+    $ast = HHAST\from_file(__DIR__.'/fixtures/remove.php.in');
+
+    // Remove all try statements
+    $ast = $ast->remove_where(
+      ($node, $_parents) ==> $node instanceof HHAST\TryStatement,
+    );
+
+    // Remove first method
+    $methods = $ast->of_class(HHAST\MethodishDeclaration::class);
+    $ast = $ast->without(C\firstx($methods));
+
+    $this->assertMatches(
+      $ast->full_text(),
+      'remove.php.expect',
+    );
+  }
+
   private function assertMatches(
     string $code,
     string $expect_file,
   ): void {
     $expect_file = __DIR__.'/fixtures/'.$expect_file;
+    $out_file = Str\strip_suffix($expect_file, '.expect').'.out';
+    $in_file = Str\strip_suffix($expect_file, '.expect').'.in';
 
     file_put_contents(
       Str\strip_suffix($expect_file, '.expect').'.out',
       $code,
     );
     if (!file_exists($expect_file)) {
+      printf("\n===== NEW TEST: %s =====\n", $expect_file);
+      printf("----- %s -----\n", $in_file);
+      print(file_get_contents($in_file));
+      printf("----- %s -----\n", $out_file);
       print($code);
+      print("----- END -----\n");
+
       $this->markTestIncomplete($expect_file.' does not exist');
     }
     expect($code)->toBeSame(file_get_contents($expect_file));
