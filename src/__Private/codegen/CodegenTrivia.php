@@ -16,28 +16,32 @@ final class CodegenTrivia extends CodegenBase {
   public function generate(): void {
     $cg = $this->getCodegenFactory();
 
-    $file = $cg->codegenFile($this->getOutputDirectory().'/Trivia.php')
+    $file = $cg
+      ->codegenFile($this->getOutputDirectory().'/Trivia.php')
       ->setNamespace('Facebook\\HHAST');
 
     foreach ($this->getSchema()['trivia'] as $trivia) {
       $file->addClass(
-        $cg->codegenClass($trivia['trivia_kind_name'])
+        $cg
+          ->codegenClass($trivia['trivia_kind_name'])
           ->setIsFinal()
           ->setExtends('EditableTrivia')
           ->setConstructor(
-            $cg->codegenConstructor()
+            $cg
+              ->codegenConstructor()
               ->addParameter('string $text')
               ->setBodyf(
                 'parent::__construct(%s, $text);',
                 var_export($trivia['trivia_type_name'], true),
-              )
+              ),
           )
           ->addMethod(
-            $cg->codegenMethod('with_text')
+            $cg
+              ->codegenMethod('with_text')
               ->addParameter('string $text')
               ->setReturnType('this')
-              ->setBody('return new self($text);')
-          )
+              ->setBody('return new self($text);'),
+          ),
       );
     }
 

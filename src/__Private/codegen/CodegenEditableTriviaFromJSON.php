@@ -18,17 +18,21 @@ final class CodegenEditableTriviaFromJSON extends CodegenBase {
   public function generate(): void {
     $cg = $this->getCodegenFactory();
 
-    $cg->codegenFile($this->getOutputDirectory().'/editable_trivia_from_json.php')
+    $cg
+      ->codegenFile($this->getOutputDirectory().
+        '/editable_trivia_from_json.php')
       ->setNamespace('Facebook\\HHAST\\__Private')
       ->useNamespace('Facebook\\HHAST')
       ->addFunction(
-        $cg->codegenFunction('editable_trivia_from_json')
+        $cg
+          ->codegenFunction('editable_trivia_from_json')
           ->setReturnType('HHAST\\EditableTrivia')
           ->addParameter('array<string, mixed> $json')
           ->addParameter('int $position')
           ->addParameter('string $source')
           ->setBody(
-            $cg->codegenHackBuilder()
+            $cg
+              ->codegenHackBuilder()
               ->addAssignment(
                 '$trivia_text',
                 'substr($source, $position, $json[\'width\'])',
@@ -37,21 +41,24 @@ final class CodegenEditableTriviaFromJSON extends CodegenBase {
               ->startSwitch('(string) $json[\'kind\']')
               ->addCaseBlocks(
                 new Vector($this->getSchema()['trivia']),
-                ($trivia, $body) ==> { $body
-                  ->addCase(var_export($trivia['trivia_type_name'], true))
-                  ->addReturnf(
-                    'new HHAST\\%s($trivia_text)',
-                    $trivia['trivia_kind_name'],
-                  )
-                  ->unindent();
+                ($trivia, $body) ==> {
+                  $body
+                    ->addCase(var_export($trivia['trivia_type_name'], true))
+                    ->addReturnf(
+                      'new HHAST\\%s($trivia_text)',
+                      $trivia['trivia_kind_name'],
+                    )
+                    ->unindent();
                 },
               )
               ->addDefault()
-              ->addLine('throw new \\Exception(\'unexpected JSON kind: \'.(string) $json[\'kind\']);')
+              ->addLine(
+                'throw new \\Exception(\'unexpected JSON kind: \'.(string) $json[\'kind\']);',
+              )
               ->endDefault()
               ->endSwitch_()
-              ->getCode()
-          )
+              ->getCode(),
+          ),
       )
       ->save();
   }

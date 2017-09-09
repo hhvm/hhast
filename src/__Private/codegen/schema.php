@@ -13,19 +13,12 @@
 
 namespace Facebook\HHAST\__Private\Schema;
 
-type TTrivia = shape(
-  'trivia_kind_name' => string,
-  'trivia_type_name' => string,
-);
+type TTrivia =
+  shape('trivia_kind_name' => string, 'trivia_type_name' => string);
 
-type TToken = shape(
-  'token_kind' => string,
-  'token_text' => ?string,
-);
+type TToken = shape('token_kind' => string, 'token_text' => ?string);
 
-type TASTField = shape(
-  'field_name' => string,
-);
+type TASTField = shape('field_name' => string);
 
 type TAST = shape(
   'kind_name' => string,
@@ -37,6 +30,6 @@ type TAST = shape(
 
 type TSchema = shape(
   'trivia' => array<TTrivia>,
-  'tokens'=> array<TToken>,
+  'tokens' => array<TToken>,
   'AST' => array<TAST>,
 );

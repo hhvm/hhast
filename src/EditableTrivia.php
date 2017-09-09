@@ -14,7 +14,7 @@ namespace Facebook\HHAST;
 
 abstract class EditableTrivia extends EditableSyntax {
   private string $_text;
-  public function __construct(string $trivia_kind , string $text) {
+  public function __construct(string $trivia_kind, string $text) {
     parent::__construct($trivia_kind);
     $this->_text = $text;
   }

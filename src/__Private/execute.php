@@ -17,18 +17,14 @@ use namespace HH\Lib\Vec;
 // A wrapper around the built-in exec with a nicer signature.
 // * returns a result rather than filling an out-parameter
 // * throws on error
-function execute(
-  string ...$args
-) : vec<string> {
-  $command = Vec\map(
-    $args,
-    $arg ==> escapeshellarg($arg),
-  ) |> implode(' ', $$);
+function execute(string ...$args): vec<string> {
+  $command = Vec\map($args, $arg ==> escapeshellarg($arg)) |> implode(' ', $$);
 
   $results = array();
   $exit_code = null;
   exec($command, $results, $exit_code);
   if ($exit_code !== 0)
-    throw new \Exception("execute of '$command' failed with code '$exit_code'.");
+    throw
+      new \Exception("execute of '$command' failed with code '$exit_code'.");
   return vec($results);
 }

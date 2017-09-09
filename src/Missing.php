@@ -30,7 +30,11 @@ final class Missing extends EditableSyntax {
     return new self();
   }
 
-  public static function from_json(array<string, mixed> $_json, int $_position, string $_source): this {
+  public static function from_json(
+    array<string, mixed> $_json,
+    int $_position,
+    string $_source,
+  ): this {
     return self::getInstance();
   }
 

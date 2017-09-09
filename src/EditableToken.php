@@ -24,14 +24,14 @@ abstract class EditableToken extends EditableSyntax {
     string $token_kind,
     EditableSyntax $leading,
     EditableSyntax $trailing,
-    string $text) {
+    string $text,
+  ) {
     parent::__construct('token');
     $this->_token_kind = $token_kind;
     $this->_leading = $leading;
     $this->_trailing = $trailing;
     $this->_text = $text;
-    $this->_width = strlen($text) +
-      $leading->width() + $trailing->width();
+    $this->_width = strlen($text) + $leading->width() + $trailing->width();
   }
 
   public function token_kind(): string {
@@ -60,16 +60,16 @@ abstract class EditableToken extends EditableSyntax {
   }
 
   public function full_text(): string {
-    return $this->leading()->full_text() .
-      $this->text() .
+    return $this->leading()->full_text().
+      $this->text().
       $this->trailing()->full_text();
   }
 
-  public abstract function with_leading(
-    EditableSyntax $leading): EditableToken;
+  public abstract function with_leading(EditableSyntax $leading): EditableToken;
 
   public abstract function with_trailing(
-    EditableSyntax $trailing): EditableToken;
+    EditableSyntax $trailing,
+  ): EditableToken;
 
   private static function factory(
     string $token_kind,
@@ -77,12 +77,18 @@ abstract class EditableToken extends EditableSyntax {
     EditableSyntax $trailing,
     string $token_text,
   ): EditableToken {
-    return __Private\editable_token_from_data($token_kind, $leading, $trailing, $token_text);
+    return __Private\editable_token_from_data(
+      $token_kind,
+      $leading,
+      $trailing,
+      $token_text,
+    );
   }
 
   public function rewrite(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null): EditableSyntax {
+    ?Traversable<EditableSyntax> $parents = null,
+  ): EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $new_parents = $parents;
     $new_parents[] = $this;
@@ -91,18 +97,26 @@ abstract class EditableToken extends EditableSyntax {
     if ($leading === $this->leading() && $trailing === $this->trailing())
       return $rewriter($this, $parents ?? []);
     else
-      return $rewriter(EditableToken::factory(
-        $this->token_kind(), $leading, $trailing,
-        $this->text()), $parents ?? []);
+      return $rewriter(
+        EditableToken::factory(
+          $this->token_kind(),
+          $leading,
+          $trailing,
+          $this->text(),
+        ),
+        $parents ?? [],
+      );
   }
 
   public function reduce<TAccumulator>(
-    (function
-      ( EditableSyntax,
-        TAccumulator,
-        array<EditableSyntax>): TAccumulator) $reducer,
+    (function(
+      EditableSyntax,
+      TAccumulator,
+      array<EditableSyntax>,
+    ): TAccumulator) $reducer,
     TAccumulator $accumulator,
-    ?array<EditableSyntax> $parents = null): TAccumulator {
+    ?array<EditableSyntax> $parents = null,
+  ): TAccumulator {
     $accumulator = $this->leading()->reduce($reducer, $accumulator);
     $accumulator = $reducer($this, $accumulator, $parents ?? []);
     $accumulator = $this->trailing()->reduce($reducer, $accumulator);
@@ -118,7 +132,8 @@ abstract class EditableToken extends EditableSyntax {
       /* HH_IGNORE_ERROR[4110] */ $json['leading'],
       ($j, $p) ==> EditableSyntax::from_json($j, $p, $source),
       ($j, $p) ==> $j->width + $p,
-      $position);
+      $position,
+    );
 
     $leading = EditableList::to_list($leading_list);
     $token_position = $position + $leading->width();
@@ -129,9 +144,14 @@ abstract class EditableToken extends EditableSyntax {
       /* HH_IGNORE_ERROR[4110] */ $json['trailing'],
       ($j, $p) ==> EditableSyntax::from_json($j, $p, $source),
       ($j, $p) ==> $j->width + $p,
-      $trailing_position);
+      $trailing_position,
+    );
     $trailing = EditableList::to_list($trailing_list);
     return EditableToken::factory(
-      /* HH_IGNORE_ERROR[4110] */ $json['kind'], $leading, $trailing, $token_text);
+      /* HH_IGNORE_ERROR[4110] */ $json['kind'],
+      $leading,
+      $trailing,
+      $token_text,
+    );
   }
 }

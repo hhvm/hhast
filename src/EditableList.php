@@ -14,7 +14,8 @@ namespace Facebook\HHAST;
 
 use namespace HH\Lib\{C, Vec};
 
-final class EditableList extends EditableSyntax implements \ArrayAccess<int, EditableSyntax> {
+final class EditableList extends EditableSyntax
+  implements \ArrayAccess<int, EditableSyntax> {
   private vec<EditableSyntax> $_children;
   public function __construct(Traversable<EditableSyntax> $children) {
     parent::__construct('list');
@@ -52,7 +53,8 @@ final class EditableList extends EditableSyntax implements \ArrayAccess<int, Edi
   /* TODO: Getter by index? */
 
   public static function to_list(
-    Traversable<EditableSyntax> $syntax_list): EditableSyntax {
+    Traversable<EditableSyntax> $syntax_list,
+  ): EditableSyntax {
     $syntax_list = vec($syntax_list);
     if (C\count($syntax_list) === 0)
       return Missing::getInstance();
@@ -62,21 +64,24 @@ final class EditableList extends EditableSyntax implements \ArrayAccess<int, Edi
 
   public static function concatenate_lists(
     EditableSyntax $left,
-    EditableSyntax $right): EditableSyntax {
+    EditableSyntax $right,
+  ): EditableSyntax {
     if ($left->is_missing())
       return $right;
     if ($right->is_missing())
       return $left;
-    return new EditableList(
-      Vec\concat($left->to_vec(), $right->to_vec()));
+    return new EditableList(Vec\concat($left->to_vec(), $right->to_vec()));
   }
 
-  public static function from_json(array<string, mixed> $json, int $position, string $source): this {
+  public static function from_json(
+    array<string, mixed> $json,
+    int $position,
+    string $source,
+  ): this {
     // TODO Implement array map
     $children = [];
     $current_position = $position;
-    foreach(/* UNSAFE_EXPR */$json['elements'] as $element)
-    {
+    foreach (/* UNSAFE_EXPR */$json['elements'] as $element) {
       $child = EditableSyntax::from_json($element, $current_position, $source);
       array_push($children, $child);
       $current_position += $child->width();
@@ -94,19 +99,15 @@ final class EditableList extends EditableSyntax implements \ArrayAccess<int, Edi
     $new_children = vec[];
     $new_parents = $parents;
     $new_parents[] = $this;
-    foreach ($this->children() as $child)
-    {
+    foreach ($this->children() as $child) {
       $new_child = $child->rewrite($rewriter, $new_parents);
       if ($new_child != $child)
         $dirty = true;
-      if ($new_child != null)
-      {
-        if ($new_child->is_list())
-        {
-          foreach($new_child->children() as $n)
+      if ($new_child != null) {
+        if ($new_child->is_list()) {
+          foreach ($new_child->children() as $n)
             array_push($new_children, $n);
-        }
-        else
+        } else
           array_push($new_children, $new_child);
       }
     }

@@ -15,7 +15,8 @@ namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
 
 abstract class EditableSyntax implements \ArrayAccess<int, EditableSyntax> {
-  const type TRewriter = (function(EditableSyntax, ?Traversable<EditableSyntax>): EditableSyntax);
+  const type TRewriter =
+    (function(EditableSyntax, ?Traversable<EditableSyntax>): EditableSyntax);
 
   private string $_syntax_kind;
   protected ?int $_width;
@@ -31,11 +32,11 @@ abstract class EditableSyntax implements \ArrayAccess<int, EditableSyntax> {
     return $this;
   }
 
-  public function offsetSet (int $offset, EditableSyntax $value): void {
+  public function offsetSet(int $offset, EditableSyntax $value): void {
     invariant_violation('unimplemented');
   }
 
-  public function offsetUnset (int $offset): void {
+  public function offsetUnset(int $offset): void {
     invariant_violation('unimplemented');
   }
 
@@ -47,29 +48,30 @@ abstract class EditableSyntax implements \ArrayAccess<int, EditableSyntax> {
 
   public function preorder(): Traversable<EditableSyntax> {
     yield $this;
-    foreach($this->children() as $child)
-      foreach($child->preorder() as $descendant)
+    foreach ($this->children() as $child)
+      foreach ($child->preorder() as $descendant)
         yield $descendant;
   }
 
-  private function _parented_preorder(Traversable<EditableSyntax> $parents):
-    Traversable<(EditableSyntax, Traversable<EditableSyntax>)> {
+  private function _parented_preorder(
+    Traversable<EditableSyntax> $parents,
+  ): Traversable<(EditableSyntax, Traversable<EditableSyntax>)> {
     $new_parents = $parents;
     array_push($new_parents, $this);
     yield tuple($this, $parents);
-    foreach($this->children() as $child)
-      foreach($child->_parented_preorder($new_parents) as $descendant)
+    foreach ($this->children() as $child)
+      foreach ($child->_parented_preorder($new_parents) as $descendant)
         yield $descendant;
   }
 
-  public function parented_preorder():
-    Traversable<(EditableSyntax, Traversable<EditableSyntax>)> {
+  public function parented_preorder(
+  ): Traversable<(EditableSyntax, Traversable<EditableSyntax>)> {
     return $this->_parented_preorder([]);
   }
 
   public function postorder(): Traversable<EditableSyntax> {
-    foreach($this->children() as $child)
-      foreach($child->preorder() as $descendant)
+    foreach ($this->children() as $child)
+      foreach ($child->preorder() as $descendant)
         yield $descendant;
     yield $this;
   }
@@ -113,7 +115,11 @@ abstract class EditableSyntax implements \ArrayAccess<int, EditableSyntax> {
     return $s;
   }
 
-  public static function from_json(array<string, mixed> $json, int $position, string $source): EditableSyntax {
+  public static function from_json(
+    array<string, mixed> $json,
+    int $position,
+    string $source,
+  ): EditableSyntax {
     return __Private\editable_syntax_from_json($json, $position, $source);
   }
 
@@ -122,15 +128,17 @@ abstract class EditableSyntax implements \ArrayAccess<int, EditableSyntax> {
   }
 
   public function reduce<TAccumulator>(
-    (function
-      ( EditableSyntax,
-        TAccumulator,
-        array<EditableSyntax>): TAccumulator) $reducer,
+    (function(
+      EditableSyntax,
+      TAccumulator,
+      array<EditableSyntax>,
+    ): TAccumulator) $reducer,
     TAccumulator $accumulator,
-    ?array<EditableSyntax> $parents = null): TAccumulator {
+    ?array<EditableSyntax> $parents = null,
+  ): TAccumulator {
     $new_parents = $parents ?? [];
     array_push($new_parents, $this);
-    foreach($this->children() as $child) {
+    foreach ($this->children() as $child) {
       $accumulator = $child->reduce($reducer, $accumulator, $new_parents);
     }
     return $reducer($this, $accumulator, $parents ?? []);
@@ -139,13 +147,14 @@ abstract class EditableSyntax implements \ArrayAccess<int, EditableSyntax> {
   // Returns all the parents (and the node itself) of the first node
   // that matches a predicate, or [] if there is no such node.
   public function find_with_parents(
-    (function(EditableSyntax):bool) $predicate,
-    ?array<EditableSyntax> $parents = null): array<EditableSyntax> {
+    (function(EditableSyntax): bool) $predicate,
+    ?array<EditableSyntax> $parents = null,
+  ): array<EditableSyntax> {
     $new_parents = $parents ?? [];
     array_push($new_parents, $this);
     if ($predicate($this))
       return $new_parents;
-    foreach($this->children() as $child) {
+    foreach ($this->children() as $child) {
       $result = $child->find_with_parents($predicate, $new_parents);
       if (count($result) != 0)
         return $result;
@@ -155,8 +164,8 @@ abstract class EditableSyntax implements \ArrayAccess<int, EditableSyntax> {
 
   // Returns a list of nodes that match a predicate.
   public function filter(
-    (function(EditableSyntax, ?array<EditableSyntax>):bool) $predicate):
-      array<EditableSyntax> {
+    (function(EditableSyntax, ?array<EditableSyntax>): bool) $predicate,
+  ): array<EditableSyntax> {
     $reducer = ($node, $acc, $parents) ==> {
       if ($predicate($node, $parents))
         array_push($acc, $node);
@@ -166,17 +175,18 @@ abstract class EditableSyntax implements \ArrayAccess<int, EditableSyntax> {
   }
 
   public function of_syntax_kind(string $kind): Traversable<EditableSyntax> {
-    foreach($this->preorder() as $child)
+    foreach ($this->preorder() as $child)
       if ($child->syntax_kind() === $kind)
         yield $child;
   }
 
   public function remove_where(
-    (function(EditableSyntax, ?Traversable<EditableSyntax>):bool) $predicate):
-      EditableSyntax {
+    (function(EditableSyntax, ?Traversable<EditableSyntax>): bool) $predicate,
+  ): EditableSyntax {
     return $this->rewrite(
       ($node, $parents) ==>
-        $predicate($node, $parents) ? Missing::getInstance() : $node);
+        $predicate($node, $parents) ? Missing::getInstance() : $node,
+    );
   }
 
   public function without(EditableSyntax $target): EditableSyntax {
@@ -185,16 +195,17 @@ abstract class EditableSyntax implements \ArrayAccess<int, EditableSyntax> {
 
   public function replace(
     EditableSyntax $new_node,
-    EditableSyntax $target): EditableSyntax {
+    EditableSyntax $target,
+  ): EditableSyntax {
     return $this->rewrite(
-      ($node, $parents) ==> $node === $target ? $new_node : $node);
+      ($node, $parents) ==> $node === $target ? $new_node : $node,
+    );
   }
 
   public function leftmost_token(): ?EditableSyntax {
     if ($this->is_token())
       return $this;
-    foreach($this->children() as $child)
-    {
+    foreach ($this->children() as $child) {
       if (!$child->is_missing())
         return $child->leftmost_token();
     }
@@ -215,7 +226,8 @@ abstract class EditableSyntax implements \ArrayAccess<int, EditableSyntax> {
 
   public function insert_before(
     EditableSyntax $new_node,
-    EditableSyntax $target): EditableSyntax {
+    EditableSyntax $target,
+  ): EditableSyntax {
     // Inserting before missing is an error.
     if ($target->is_missing())
       throw new \Exception('Target must not be missing in insert_before.');
@@ -228,26 +240,26 @@ abstract class EditableSyntax implements \ArrayAccess<int, EditableSyntax> {
       $token = $target->is_token() ? $target : $target->leftmost_token();
       if ($token === null)
         throw new \Exception('Unable to find token to insert trivia.');
-      $token = TypeAssert::isInstanceOf(
-        EditableToken::class,
-        $token,
-      );
+      $token = TypeAssert::isInstanceOf(EditableToken::class, $token);
 
       // Inserting trivia before token is inserting to the right end of
       // the leading trivia.
-      $new_leading = EditableList::concatenate_lists(
-        $token->leading(), $new_node);
+      $new_leading =
+        EditableList::concatenate_lists($token->leading(), $new_node);
       $new_token = $token->with_leading($new_leading);
       return $this->replace($new_token, $token);
     }
 
     return $this->replace(
-      EditableList::concatenate_lists($new_node, $target), $target);
+      EditableList::concatenate_lists($new_node, $target),
+      $target,
+    );
   }
 
   public function insert_after(
     EditableSyntax $new_node,
-    EditableSyntax $target): EditableSyntax {
+    EditableSyntax $target,
+  ): EditableSyntax {
 
     // Inserting after missing is an error.
     if ($target->is_missing())
@@ -262,21 +274,20 @@ abstract class EditableSyntax implements \ArrayAccess<int, EditableSyntax> {
       if ($token === null)
         throw new \Exception('Unable to find token to insert trivia.');
 
-      $token = TypeAssert::isInstanceOf(
-        EditableToken::class,
-        $token,
-      );
+      $token = TypeAssert::isInstanceOf(EditableToken::class, $token);
 
       // Inserting trivia after token is inserting to the left end of
       // the trailing trivia.
-      $new_trailing = EditableList::concatenate_lists(
-        $new_node, $token->trailing());
+      $new_trailing =
+        EditableList::concatenate_lists($new_node, $token->trailing());
       $new_token = $token->with_trailing($new_trailing);
       return $this->replace($new_token, $token);
     }
 
     return $this->replace(
-      EditableList::concatenate_lists($target, $new_node), $target);
+      EditableList::concatenate_lists($target, $new_node),
+      $target,
+    );
   }
 
   abstract public function rewrite(

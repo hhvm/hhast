@@ -21,11 +21,13 @@ final class CodegenTokens extends CodegenBase {
     $classes = vec[];
 
     foreach ($tokens['noText'] as $token) {
-      $classes[] = $cg->codegenClass($token['token_kind'].'Token')
+      $classes[] = $cg
+        ->codegenClass($token['token_kind'].'Token')
         ->setIsFinal()
         ->setExtends('EditableToken')
         ->setConstructor(
-          $cg->codegenConstructor()
+          $cg
+            ->codegenConstructor()
             ->addParameter('EditableSyntax $leading')
             ->addParameter('EditableSyntax $trailing')
             ->setBody(
@@ -33,28 +35,32 @@ final class CodegenTokens extends CodegenBase {
                 'parent::__construct(%s, $leading, $trailing, \'\');',
                 var_export($token['token_kind'], true),
               ),
-            )
+            ),
         )
         ->addMethod(
-          $cg->codegenMethod('with_leading')
+          $cg
+            ->codegenMethod('with_leading')
             ->addParameter('EditableSyntax $leading')
             ->setReturnType('this')
-            ->setBody('return new self($leading, $this->trailing());')
+            ->setBody('return new self($leading, $this->trailing());'),
         )
         ->addMethod(
-          $cg->codegenMethod('with_trailing')
+          $cg
+            ->codegenMethod('with_trailing')
             ->addParameter('EditableSyntax $trailing')
             ->setReturnType('this')
-            ->setBody('return new self($this->leading(), $trailing);')
+            ->setBody('return new self($this->leading(), $trailing);'),
         );
     }
 
     foreach ($tokens['fixedText'] as $token) {
-      $classes[] = $cg->codegenClass($token['token_kind'].'Token')
+      $classes[] = $cg
+        ->codegenClass($token['token_kind'].'Token')
         ->setIsFinal()
         ->setExtends('EditableToken')
         ->setConstructor(
-          $cg->codegenConstructor()
+          $cg
+            ->codegenConstructor()
             ->addParameter('EditableSyntax $leading')
             ->addParameter('EditableSyntax $trailing')
             ->setBody(
@@ -63,28 +69,32 @@ final class CodegenTokens extends CodegenBase {
                 var_export($token['token_text'], true),
                 var_export($token['token_text'], true),
               ),
-            )
+            ),
         )
         ->addMethod(
-          $cg->codegenMethod('with_leading')
+          $cg
+            ->codegenMethod('with_leading')
             ->addParameter('EditableSyntax $leading')
             ->setReturnType('this')
-            ->setBody('return new self($leading, $this->trailing());')
+            ->setBody('return new self($leading, $this->trailing());'),
         )
         ->addMethod(
-          $cg->codegenMethod('with_trailing')
+          $cg
+            ->codegenMethod('with_trailing')
             ->addParameter('EditableSyntax $trailing')
             ->setReturnType('this')
-            ->setBody('return new self($this->leading(), $trailing);')
+            ->setBody('return new self($this->leading(), $trailing);'),
         );
     }
 
     foreach ($tokens['variableText'] as $token) {
-      $classes[] = $cg->codegenClass($token['token_kind'].'Token')
+      $classes[] = $cg
+        ->codegenClass($token['token_kind'].'Token')
         ->setIsFinal()
         ->setExtends('EditableToken')
         ->setConstructor(
-          $cg->codegenConstructor()
+          $cg
+            ->codegenConstructor()
             ->addParameter('EditableSyntax $leading')
             ->addParameter('EditableSyntax $trailing')
             ->addParameter('string $text')
@@ -93,29 +103,39 @@ final class CodegenTokens extends CodegenBase {
                 'parent::__construct(%s, $leading, $trailing, $text);',
                 var_export($token['token_kind'], true),
               ),
-            )
+            ),
         )
         ->addMethod(
-          $cg->codegenMethod('with_text')
+          $cg
+            ->codegenMethod('with_text')
             ->addParameter('string $text')
             ->setReturnType('this')
-            ->setBody('return new self($this->leading(), $this->trailing(), $text);')
+            ->setBody(
+              'return new self($this->leading(), $this->trailing(), $text);',
+            ),
         )
         ->addMethod(
-          $cg->codegenMethod('with_leading')
+          $cg
+            ->codegenMethod('with_leading')
             ->addParameter('EditableSyntax $leading')
             ->setReturnType('this')
-            ->setBody('return new self($leading, $this->trailing(), $this->text());')
+            ->setBody(
+              'return new self($leading, $this->trailing(), $this->text());',
+            ),
         )
         ->addMethod(
-          $cg->codegenMethod('with_trailing')
+          $cg
+            ->codegenMethod('with_trailing')
             ->addParameter('EditableSyntax $trailing')
             ->setReturnType('this')
-            ->setBody('return new self($this->leading(), $trailing, $this->text());')
+            ->setBody(
+              'return new self($this->leading(), $trailing, $this->text());',
+            ),
         );
     }
 
-    $file = $cg->codegenFile($this->getOutputDirectory().'/Tokens.php')
+    $file = $cg
+      ->codegenFile($this->getOutputDirectory().'/Tokens.php')
       ->setNamespace('Facebook\\HHAST');
     foreach ($classes as $class) {
       $file->addClass($class);

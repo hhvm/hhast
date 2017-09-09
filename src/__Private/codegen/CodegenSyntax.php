@@ -43,7 +43,8 @@ final class CodegenSyntax extends CodegenBase {
   private function generateClass(Schema\TAST $syntax): CodegenClass {
     $cg = $this->getCodegenFactory();
 
-    $class = $cg->codegenClass($syntax['kind_name'])
+    $class = $cg
+      ->codegenClass($syntax['kind_name'])
       ->setIsFinal()
       ->setExtends('EditableSyntax')
       ->setConstructor($this->generateConstructor($syntax))
@@ -53,18 +54,23 @@ final class CodegenSyntax extends CodegenBase {
 
     foreach ($syntax['fields'] as $field) {
       $class
-        ->addVar($cg->codegenMemberVar('_'.$field['field_name'])->setType('EditableSyntax'))
+        ->addVar($cg
+          ->codegenMemberVar('_'.$field['field_name'])
+          ->setType('EditableSyntax'))
         ->addMethod(
-          $cg->codegenMethod($field['field_name'])
+          $cg
+            ->codegenMethod($field['field_name'])
             ->setReturnType('EditableSyntax')
-            ->setBodyf('return $this->_%s;', $field['field_name'])
+            ->setBodyf('return $this->_%s;', $field['field_name']),
         )
         ->addMethod(
-          $cg->codegenMethod('with_'.$field['field_name'])
+          $cg
+            ->codegenMethod('with_'.$field['field_name'])
             ->setReturnType('this')
             ->addParameter('EditableSyntax $value')
             ->setBody(
-              $cg->codegenHackBuilder()
+              $cg
+                ->codegenHackBuilder()
                 ->add('return new ')
                 ->addMultilineCall(
                   'self',
@@ -72,24 +78,30 @@ final class CodegenSyntax extends CodegenBase {
                     $syntax['fields'],
                     $inner ==> $inner['field_name'] == $field['field_name']
                       ? '$value'
-                      : '$this->_'.$inner['field_name']
-                  )
+                      : '$this->_'.$inner['field_name'],
+                  ),
                 )
-                ->getCode()
-            )
+                ->getCode(),
+            ),
         );
     }
 
     return $class;
   }
 
-  private function generateConstructor(Schema\TAST $syntax): CodegenConstructor {
+  private function generateConstructor(
+    Schema\TAST $syntax,
+  ): CodegenConstructor {
     $cg = $this->getCodegenFactory();
 
     $c = $cg->codegenConstructor();
 
-    $body = $cg->codegenHackBuilder()
-      ->addLinef('parent::__construct(%s);', var_export($syntax['type_name'], true));
+    $body = $cg
+      ->codegenHackBuilder()
+      ->addLinef(
+        'parent::__construct(%s);',
+        var_export($syntax['type_name'], true),
+      );
 
     foreach ($syntax['fields'] as $field) {
       $c->addParameterf('EditableSyntax $%s', $field['field_name']);
@@ -121,15 +133,13 @@ final class CodegenSyntax extends CodegenBase {
             ),
             '$position',
             '$source',
-          ]
-      )
-      ->addLinef(
-        '$position += $%s->width();',
-        $field['field_name'],
-      );
+          ],
+        )
+        ->addLinef('$position += $%s->width();', $field['field_name']);
     }
 
-    return $cg->codegenMethod('from_json')
+    return $cg
+      ->codegenMethod('from_json')
       ->setIsStatic()
       ->addParameter('array<string, mixed> $json')
       ->addParameter('int $position')
@@ -139,92 +149,88 @@ final class CodegenSyntax extends CodegenBase {
         $body
           ->addMultilineCall(
             'return new self',
-            Vec\map(
-              $syntax['fields'],
-              $field ==> '$'.$field['field_name'],
-            ),
+            Vec\map($syntax['fields'], $field ==> '$'.$field['field_name']),
           )
-          ->getCode()
+          ->getCode(),
       );
   }
 
   private function generateChildrenMethod(Schema\TAST $syntax): CodegenMethod {
     $cg = $this->getCodegenFactory();
 
-    return $cg->codegenMethod('children')
+    return $cg
+      ->codegenMethod('children')
       ->setReturnType('Traversable<EditableSyntax>')
       ->setBody(
-        $cg->codegenHackBuilder()->addLines(
-          Vec\map(
-            $syntax['fields'],
-            $field ==> 'yield $this->_'.$field['field_name'].';',
-          ),
-        )->getCode(),
+        $cg
+          ->codegenHackBuilder()
+          ->addLines(
+            Vec\map(
+              $syntax['fields'],
+              $field ==> 'yield $this->_'.$field['field_name'].';',
+            ),
+          )
+          ->getCode(),
       );
   }
 
   private function generateRewriteMethod(Schema\TAST $syntax): CodegenMethod {
     $cg = $this->getCodegenFactory();
 
-    $fields = Vec\map(
-      $syntax['fields'],
-      $field ==> $field['field_name'],
-    );
+    $fields = Vec\map($syntax['fields'], $field ==> $field['field_name']);
 
-    return $cg->codegenMethod('rewrite')
+    return $cg
+      ->codegenMethod('rewrite')
       ->setReturnType('EditableSyntax')
       ->addParameter('self::TRewriter $rewriter')
       ->addParameter('?Traversable<EditableSyntax> $parents = null')
-      ->setBody($cg->codegenHackBuilder()
-        ->addLine('$parents = $parents === null ? vec[] : vec($parents);')
-        ->addLine('$child_parents = $parents;')
-        ->addLine('$child_parents[] = $this;')
-        ->addLines(
-          Vec\map(
-            $fields,
-            $field ==> sprintf(
-              '$%s = $this->%s()->rewrite($rewriter, $child_parents);',
-              $field,
-              $field,
-            ),
-          ),
-        )
-        ->addLine('if (')
-        ->indent()
-        ->addLines(
-          Vec\map(
-            $fields,
-            $field ==> sprintf(
-              '$%s === $this->%s() &&',
-              $field,
-              $field
+      ->setBody(
+        $cg
+          ->codegenHackBuilder()
+          ->addLine('$parents = $parents === null ? vec[] : vec($parents);')
+          ->addLine('$child_parents = $parents;')
+          ->addLine('$child_parents[] = $this;')
+          ->addLines(
+            Vec\map(
+              $fields,
+              $field ==> sprintf(
+                '$%s = $this->%s()->rewrite($rewriter, $child_parents);',
+                $field,
+                $field,
+              ),
             ),
           )
-          |> ($lines ==> {
-            $idx = C\last_keyx($lines);
-            $lines[$idx] = Str\strip_suffix($lines[$idx], ' &&');
-            return $lines;
-          })($$)
-        )
-        ->unindent()
-        ->addLine(') {')
-        ->indent()
-        ->addLine('$node = $this;')
-        ->unindent()
-        ->addLine('} else {')
-        ->indent()
-        ->add('$node = ')
-        ->addMultilineCall(
-          'new self',
-          Vec\map(
-            $fields,
-            $field ==> '$'.$field,
-          ),
-        )
-        ->unindent()
-        ->addLine('}')
-        ->addLine('return $rewriter($node, $parents);')
-        ->getCode()
+          ->addLine('if (')
+          ->indent()
+          ->addLines(
+            Vec\map(
+              $fields,
+              $field ==> sprintf('$%s === $this->%s() &&', $field, $field),
+            )
+            |> (
+              $lines ==> {
+                $idx = C\last_keyx($lines);
+                $lines[$idx] = Str\strip_suffix($lines[$idx], ' &&');
+                return $lines;
+              }
+            )($$),
+          )
+          ->unindent()
+          ->addLine(') {')
+          ->indent()
+          ->addLine('$node = $this;')
+          ->unindent()
+          ->addLine('} else {')
+          ->indent()
+          ->add('$node = ')
+          ->addMultilineCall(
+            'new self',
+            Vec\map($fields, $field ==> '$'.$field),
+          )
+          ->unindent()
+          ->addLine('}')
+          ->addLine('return $rewriter($node, $parents);')
+          ->getCode(),
       );
   }
 }

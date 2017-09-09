@@ -12,10 +12,7 @@
 
 namespace Facebook\HHAST\__Private;
 
-use type Facebook\HackCodegen\{
-  HackCodegenConfig,
-  HackCodegenFactory
-};
+use type Facebook\HackCodegen\{HackCodegenConfig, HackCodegenFactory};
 
 use namespace HH\Lib\{C, Dict};
 
@@ -37,16 +34,14 @@ abstract class CodegenBase {
     return $this->schema;
   }
 
-  protected function getSchemaTokens(): shape(
+  protected function getSchemaTokens(
+  ): shape(
     'noText' => vec<Schema\TToken>,
     'fixedText' => vec<Schema\TToken>,
     'variableText' => vec<Schema\TToken>,
   ) {
-    $ret = shape(
-      'noText' => vec[],
-      'fixedText' => vec[],
-      'variableText' => vec[],
-    );
+    $ret =
+      shape('noText' => vec[], 'fixedText' => vec[], 'variableText' => vec[]);
 
     $asts = $this->getSchemaASTByKindName();
 
@@ -66,18 +61,10 @@ abstract class CodegenBase {
   }
 
   private function getSchemaASTByKindName(): dict<string, Schema\TAST> {
-    return Dict\pull(
-      $this->schema['AST'],
-      $v ==> $v,
-      $v ==> $v['kind_name'],
-    );
+    return Dict\pull($this->schema['AST'], $v ==> $v, $v ==> $v['kind_name']);
   }
 
   protected static function getHandWrittenSyntaxKinds(): keyset<string> {
-    return keyset[
-      'Missing',
-      'SyntaxList',
-      'Token',
-    ];
+    return keyset['Missing', 'SyntaxList', 'Token'];
   }
 }

@@ -10,7 +10,7 @@
  *
  */
 
- namespace Facebook\HHAST;
+namespace Facebook\HHAST;
 
 function from_json(array<string, mixed> $json): EditableSyntax {
   return EditableSyntax::from_json(
@@ -21,21 +21,17 @@ function from_json(array<string, mixed> $json): EditableSyntax {
 }
 
 function parse_file_to_json(string $file): array<string, mixed> {
-  $results = __Private\execute(
-    'hh_parse',
-    '--full-fidelity-json',
-    $file,
-  );
+  $results = __Private\execute('hh_parse', '--full-fidelity-json', $file);
   $json = json_decode($results[0], /* as array = */ true);
   return $json;
 }
 
-function parse_file_to_editable(string $file) : EditableSyntax {
+function parse_file_to_editable(string $file): EditableSyntax {
   $json = parse_file_to_json($file);
   return from_json($json);
 }
 
-function parse_text_to_json(string $text) : array<string, mixed> {
+function parse_text_to_json(string $text): array<string, mixed> {
   $file = tempnam("/tmp", "");
   $handle = fopen($file, "w");
   fwrite($handle, $text);
@@ -45,7 +41,7 @@ function parse_text_to_json(string $text) : array<string, mixed> {
   return $json;
 }
 
-function parse_text_to_editable(string $text) : EditableSyntax {
+function parse_text_to_editable(string $text): EditableSyntax {
   $json = parse_text_to_json($text);
   return from_json($json);
 }
