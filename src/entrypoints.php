@@ -20,28 +20,28 @@ function from_json(array<string, mixed> $json): EditableSyntax {
   );
 }
 
-function parse_file_to_json(string $file): array<string, mixed> {
+function json_from_file(string $file): array<string, mixed> {
   $results = __Private\execute('hh_parse', '--full-fidelity-json', $file);
   $json = json_decode($results[0], /* as array = */ true);
   return $json;
 }
 
-function parse_file_to_editable(string $file): EditableSyntax {
-  $json = parse_file_to_json($file);
+function from_file(string $file): EditableSyntax {
+  $json = json_from_file($file);
   return from_json($json);
 }
 
-function parse_text_to_json(string $text): array<string, mixed> {
+function json_from_text(string $text): array<string, mixed> {
   $file = tempnam("/tmp", "");
   $handle = fopen($file, "w");
   fwrite($handle, $text);
   fclose($handle);
-  $json = parse_file_to_json($file);
+  $json = json_from_file($file);
   unlink($file);
   return $json;
 }
 
-function parse_text_to_editable(string $text): EditableSyntax {
-  $json = parse_text_to_json($text);
+function from_code(string $text): EditableSyntax {
+  $json = json_from_text($text);
   return from_json($json);
 }
