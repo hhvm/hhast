@@ -17,7 +17,7 @@ use function Facebook\FBExpect\expect;
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str};
 
-final class FixturesTest extends \PHPUnit\Framework\TestCase {
+final class EditingTest extends \PHPUnit\Framework\TestCase {
   /** Add a comment just before the try body and just inside
    * the catch body */
   public function testInsert(): void {
