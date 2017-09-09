@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3685c23659cd2dff8182f1f3a4495048>>
+ * @generated SignedSource<<fa3fcd6fd512a6af49fe8d99696cb825>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -47,14 +47,14 @@ function editable_syntax_from_json(
       return HHAST\Script::from_json($json, $position, $source);
     case 'simple_type_specifier':
       return HHAST\SimpleTypeSpecifier::from_json($json, $position, $source);
-    case 'literal_expression':
+    case 'literal':
       return HHAST\LiteralExpression::from_json($json, $position, $source);
-    case 'variable_expression':
+    case 'variable':
       return HHAST\VariableExpression::from_json($json, $position, $source);
-    case 'qualified_name_expression':
+    case 'qualified_name':
       return
         HHAST\QualifiedNameExpression::from_json($json, $position, $source);
-    case 'pipe_variable_expression':
+    case 'pipe_variable':
       return HHAST\PipeVariableExpression::from_json($json, $position, $source);
     case 'enum_declaration':
       return HHAST\EnumDeclaration::from_json($json, $position, $source);

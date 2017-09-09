@@ -73,7 +73,7 @@ final class CodegenEditableSyntaxFromJSON extends CodegenBase {
                 ),
                 ($ast, $body) ==> {
                   $body
-                    ->addCase($ast['type_name'], HackBuilderValues::export())
+                    ->addCase($ast['description'], HackBuilderValues::export())
                     ->addReturnf(
                       'HHAST\\%s::from_json($json, $position, $source)',
                       $ast['kind_name'],
