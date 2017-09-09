@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ca5650bc14c8d39347210e61b34ef96c>>
+ * @generated SignedSource<<f2941f35b93c67ae4adb8a5fb4c74dc2>>
  */
 namespace Facebook\HHAST;
 
@@ -2965,7 +2965,7 @@ final class ErrorTokenToken extends EditableToken {
     EditableSyntax $trailing,
     string $text,
   ) {
-    parent::__construct('ErrorToken', $leading, $trailing, $text);
+    parent::__construct('error_token', $leading, $trailing, $text);
   }
 
   public function with_text(string $text): this {
@@ -2988,7 +2988,7 @@ final class NameToken extends EditableToken {
     EditableSyntax $trailing,
     string $text,
   ) {
-    parent::__construct('Name', $leading, $trailing, $text);
+    parent::__construct('name', $leading, $trailing, $text);
   }
 
   public function with_text(string $text): this {
@@ -3011,7 +3011,7 @@ final class QualifiedNameToken extends EditableToken {
     EditableSyntax $trailing,
     string $text,
   ) {
-    parent::__construct('QualifiedName', $leading, $trailing, $text);
+    parent::__construct('qualified_name', $leading, $trailing, $text);
   }
 
   public function with_text(string $text): this {
@@ -3034,7 +3034,7 @@ final class VariableToken extends EditableToken {
     EditableSyntax $trailing,
     string $text,
   ) {
-    parent::__construct('Variable', $leading, $trailing, $text);
+    parent::__construct('variable', $leading, $trailing, $text);
   }
 
   public function with_text(string $text): this {
@@ -3057,7 +3057,7 @@ final class NamespacePrefixToken extends EditableToken {
     EditableSyntax $trailing,
     string $text,
   ) {
-    parent::__construct('NamespacePrefix', $leading, $trailing, $text);
+    parent::__construct('namespace_prefix', $leading, $trailing, $text);
   }
 
   public function with_text(string $text): this {
@@ -3080,7 +3080,7 @@ final class DecimalLiteralToken extends EditableToken {
     EditableSyntax $trailing,
     string $text,
   ) {
-    parent::__construct('DecimalLiteral', $leading, $trailing, $text);
+    parent::__construct('decimal_literal', $leading, $trailing, $text);
   }
 
   public function with_text(string $text): this {
@@ -3103,7 +3103,7 @@ final class OctalLiteralToken extends EditableToken {
     EditableSyntax $trailing,
     string $text,
   ) {
-    parent::__construct('OctalLiteral', $leading, $trailing, $text);
+    parent::__construct('octal_literal', $leading, $trailing, $text);
   }
 
   public function with_text(string $text): this {
@@ -3126,7 +3126,7 @@ final class HexadecimalLiteralToken extends EditableToken {
     EditableSyntax $trailing,
     string $text,
   ) {
-    parent::__construct('HexadecimalLiteral', $leading, $trailing, $text);
+    parent::__construct('hexadecimal_literal', $leading, $trailing, $text);
   }
 
   public function with_text(string $text): this {
@@ -3149,7 +3149,7 @@ final class BinaryLiteralToken extends EditableToken {
     EditableSyntax $trailing,
     string $text,
   ) {
-    parent::__construct('BinaryLiteral', $leading, $trailing, $text);
+    parent::__construct('binary_literal', $leading, $trailing, $text);
   }
 
   public function with_text(string $text): this {
@@ -3172,7 +3172,7 @@ final class FloatingLiteralToken extends EditableToken {
     EditableSyntax $trailing,
     string $text,
   ) {
-    parent::__construct('FloatingLiteral', $leading, $trailing, $text);
+    parent::__construct('floating_literal', $leading, $trailing, $text);
   }
 
   public function with_text(string $text): this {
@@ -3195,7 +3195,7 @@ final class ExecutionStringToken extends EditableToken {
     EditableSyntax $trailing,
     string $text,
   ) {
-    parent::__construct('ExecutionString', $leading, $trailing, $text);
+    parent::__construct('execution_string', $leading, $trailing, $text);
   }
 
   public function with_text(string $text): this {
@@ -3219,7 +3219,7 @@ final class SingleQuotedStringLiteralToken extends EditableToken {
     string $text,
   ) {
     parent::__construct(
-      'SingleQuotedStringLiteral',
+      'single_quoted_string_literal',
       $leading,
       $trailing,
       $text,
@@ -3247,7 +3247,7 @@ final class DoubleQuotedStringLiteralToken extends EditableToken {
     string $text,
   ) {
     parent::__construct(
-      'DoubleQuotedStringLiteral',
+      'double_quoted_string_literal',
       $leading,
       $trailing,
       $text,
@@ -3275,7 +3275,7 @@ final class DoubleQuotedStringLiteralHeadToken extends EditableToken {
     string $text,
   ) {
     parent::__construct(
-      'DoubleQuotedStringLiteralHead',
+      'double_quoted_string_literal_head',
       $leading,
       $trailing,
       $text,
@@ -3302,7 +3302,7 @@ final class StringLiteralBodyToken extends EditableToken {
     EditableSyntax $trailing,
     string $text,
   ) {
-    parent::__construct('StringLiteralBody', $leading, $trailing, $text);
+    parent::__construct('string_literal_body', $leading, $trailing, $text);
   }
 
   public function with_text(string $text): this {
@@ -3326,7 +3326,7 @@ final class DoubleQuotedStringLiteralTailToken extends EditableToken {
     string $text,
   ) {
     parent::__construct(
-      'DoubleQuotedStringLiteralTail',
+      'double_quoted_string_literal_tail',
       $leading,
       $trailing,
       $text,
@@ -3353,7 +3353,7 @@ final class HeredocStringLiteralToken extends EditableToken {
     EditableSyntax $trailing,
     string $text,
   ) {
-    parent::__construct('HeredocStringLiteral', $leading, $trailing, $text);
+    parent::__construct('heredoc_string_literal', $leading, $trailing, $text);
   }
 
   public function with_text(string $text): this {
@@ -3376,7 +3376,12 @@ final class HeredocStringLiteralHeadToken extends EditableToken {
     EditableSyntax $trailing,
     string $text,
   ) {
-    parent::__construct('HeredocStringLiteralHead', $leading, $trailing, $text);
+    parent::__construct(
+      'heredoc_string_literal_head',
+      $leading,
+      $trailing,
+      $text,
+    );
   }
 
   public function with_text(string $text): this {
@@ -3399,7 +3404,12 @@ final class HeredocStringLiteralTailToken extends EditableToken {
     EditableSyntax $trailing,
     string $text,
   ) {
-    parent::__construct('HeredocStringLiteralTail', $leading, $trailing, $text);
+    parent::__construct(
+      'heredoc_string_literal_tail',
+      $leading,
+      $trailing,
+      $text,
+    );
   }
 
   public function with_text(string $text): this {
@@ -3422,7 +3432,7 @@ final class NowdocStringLiteralToken extends EditableToken {
     EditableSyntax $trailing,
     string $text,
   ) {
-    parent::__construct('NowdocStringLiteral', $leading, $trailing, $text);
+    parent::__construct('nowdoc_string_literal', $leading, $trailing, $text);
   }
 
   public function with_text(string $text): this {
@@ -3445,7 +3455,7 @@ final class BooleanLiteralToken extends EditableToken {
     EditableSyntax $trailing,
     string $text,
   ) {
-    parent::__construct('BooleanLiteral', $leading, $trailing, $text);
+    parent::__construct('boolean_literal', $leading, $trailing, $text);
   }
 
   public function with_text(string $text): this {
@@ -3468,7 +3478,7 @@ final class XHPCategoryNameToken extends EditableToken {
     EditableSyntax $trailing,
     string $text,
   ) {
-    parent::__construct('XHPCategoryName', $leading, $trailing, $text);
+    parent::__construct('XHP_category_name', $leading, $trailing, $text);
   }
 
   public function with_text(string $text): this {
@@ -3491,7 +3501,7 @@ final class XHPElementNameToken extends EditableToken {
     EditableSyntax $trailing,
     string $text,
   ) {
-    parent::__construct('XHPElementName', $leading, $trailing, $text);
+    parent::__construct('XHP_element_name', $leading, $trailing, $text);
   }
 
   public function with_text(string $text): this {
@@ -3514,7 +3524,7 @@ final class XHPClassNameToken extends EditableToken {
     EditableSyntax $trailing,
     string $text,
   ) {
-    parent::__construct('XHPClassName', $leading, $trailing, $text);
+    parent::__construct('XHP_class_name', $leading, $trailing, $text);
   }
 
   public function with_text(string $text): this {
@@ -3537,7 +3547,7 @@ final class XHPStringLiteralToken extends EditableToken {
     EditableSyntax $trailing,
     string $text,
   ) {
-    parent::__construct('XHPStringLiteral', $leading, $trailing, $text);
+    parent::__construct('XHP_string_literal', $leading, $trailing, $text);
   }
 
   public function with_text(string $text): this {
@@ -3560,7 +3570,7 @@ final class XHPBodyToken extends EditableToken {
     EditableSyntax $trailing,
     string $text,
   ) {
-    parent::__construct('XHPBody', $leading, $trailing, $text);
+    parent::__construct('XHP_body', $leading, $trailing, $text);
   }
 
   public function with_text(string $text): this {
@@ -3583,7 +3593,7 @@ final class XHPCommentToken extends EditableToken {
     EditableSyntax $trailing,
     string $text,
   ) {
-    parent::__construct('XHPComment', $leading, $trailing, $text);
+    parent::__construct('XHP_comment', $leading, $trailing, $text);
   }
 
   public function with_text(string $text): this {
@@ -3606,7 +3616,7 @@ final class MarkupToken extends EditableToken {
     EditableSyntax $trailing,
     string $text,
   ) {
-    parent::__construct('Markup', $leading, $trailing, $text);
+    parent::__construct('markup', $leading, $trailing, $text);
   }
 
   public function with_text(string $text): this {

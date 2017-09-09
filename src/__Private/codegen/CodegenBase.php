@@ -18,7 +18,7 @@ use type Facebook\HackCodegen\{
   HackfmtFormatter
 };
 
-use namespace HH\Lib\{C, Dict};
+use namespace HH\Lib\{C, Dict, Str};
 
 abstract class CodegenBase {
   final public function __construct(private Schema\TSchema $schema) {
@@ -72,5 +72,14 @@ abstract class CodegenBase {
 
   protected static function getHandWrittenSyntaxKinds(): keyset<string> {
     return keyset['Missing', 'SyntaxList', 'Token'];
+  }
+
+  protected static function underscored(string $in): string {
+    return preg_replace_callback(
+      '/[A-Z][a-z]+/',
+      $matches ==> '_'.Str\lowercase($matches[0]),
+      $in,
+    )
+      |> Str\strip_prefix($$, '_');
   }
 }

@@ -101,7 +101,7 @@ final class CodegenTokens extends CodegenBase {
             ->setBody(
               sprintf(
                 'parent::__construct(%s, $leading, $trailing, $text);',
-                var_export($token['token_kind'], true),
+                var_export(self::underscored($token['token_kind']), true),
               ),
             ),
         )
