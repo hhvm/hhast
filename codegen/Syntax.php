@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a20353c55ab68bc8b393b4d617ff87d8>>
+ * @generated SignedSource<<dd7eedd47c2295af51d34847c94b5c48>>
  */
 namespace Facebook\HHAST;
 
@@ -41,9 +41,7 @@ final class EndOfFile extends EditableSyntax {
     $child_parents = $parents;
     $child_parents[] = $this;
     $token = $this->token()->rewrite($rewriter, $child_parents);
-    if (
-      $token === $this->token()
-    ) {
+    if ($token === $this->token()) {
       $node = $this;
     } else {
       $node = new self($token);
@@ -95,9 +93,7 @@ final class Script extends EditableSyntax {
     $child_parents = $parents;
     $child_parents[] = $this;
     $declarations = $this->declarations()->rewrite($rewriter, $child_parents);
-    if (
-      $declarations === $this->declarations()
-    ) {
+    if ($declarations === $this->declarations()) {
       $node = $this;
     } else {
       $node = new self($declarations);
@@ -149,9 +145,7 @@ final class SimpleTypeSpecifier extends EditableSyntax {
     $child_parents = $parents;
     $child_parents[] = $this;
     $specifier = $this->specifier()->rewrite($rewriter, $child_parents);
-    if (
-      $specifier === $this->specifier()
-    ) {
+    if ($specifier === $this->specifier()) {
       $node = $this;
     } else {
       $node = new self($specifier);
@@ -203,9 +197,7 @@ final class LiteralExpression extends EditableSyntax {
     $child_parents = $parents;
     $child_parents[] = $this;
     $expression = $this->expression()->rewrite($rewriter, $child_parents);
-    if (
-      $expression === $this->expression()
-    ) {
+    if ($expression === $this->expression()) {
       $node = $this;
     } else {
       $node = new self($expression);
@@ -257,9 +249,7 @@ final class VariableExpression extends EditableSyntax {
     $child_parents = $parents;
     $child_parents[] = $this;
     $expression = $this->expression()->rewrite($rewriter, $child_parents);
-    if (
-      $expression === $this->expression()
-    ) {
+    if ($expression === $this->expression()) {
       $node = $this;
     } else {
       $node = new self($expression);
@@ -311,9 +301,7 @@ final class QualifiedNameExpression extends EditableSyntax {
     $child_parents = $parents;
     $child_parents[] = $this;
     $expression = $this->expression()->rewrite($rewriter, $child_parents);
-    if (
-      $expression === $this->expression()
-    ) {
+    if ($expression === $this->expression()) {
       $node = $this;
     } else {
       $node = new self($expression);
@@ -365,9 +353,7 @@ final class PipeVariableExpression extends EditableSyntax {
     $child_parents = $parents;
     $child_parents[] = $this;
     $expression = $this->expression()->rewrite($rewriter, $child_parents);
-    if (
-      $expression === $this->expression()
-    ) {
+    if ($expression === $this->expression()) {
       $node = $this;
     } else {
       $node = new self($expression);
@@ -510,7 +496,8 @@ final class EnumDeclaration extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $attribute_spec = $this->attribute_spec()->rewrite($rewriter, $child_parents);
+    $attribute_spec =
+      $this->attribute_spec()->rewrite($rewriter, $child_parents);
     $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
     $name = $this->name()->rewrite($rewriter, $child_parents);
     $colon = $this->colon()->rewrite($rewriter, $child_parents);
@@ -941,10 +928,12 @@ final class AliasDeclaration extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $attribute_spec = $this->attribute_spec()->rewrite($rewriter, $child_parents);
+    $attribute_spec =
+      $this->attribute_spec()->rewrite($rewriter, $child_parents);
     $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
     $name = $this->name()->rewrite($rewriter, $child_parents);
-    $generic_parameter = $this->generic_parameter()->rewrite($rewriter, $child_parents);
+    $generic_parameter =
+      $this->generic_parameter()->rewrite($rewriter, $child_parents);
     $constraint = $this->constraint()->rewrite($rewriter, $child_parents);
     $equal = $this->equal()->rewrite($rewriter, $child_parents);
     $type = $this->type()->rewrite($rewriter, $child_parents);
@@ -1200,7 +1189,8 @@ final class PropertyDeclaration extends EditableSyntax {
   }
 
   public function with_modifiers(EditableSyntax $value): this {
-    return new self($value, $this->_type, $this->_declarators, $this->_semicolon);
+    return
+      new self($value, $this->_type, $this->_declarators, $this->_semicolon);
   }
 
   public function type(): EditableSyntax {
@@ -1208,7 +1198,12 @@ final class PropertyDeclaration extends EditableSyntax {
   }
 
   public function with_type(EditableSyntax $value): this {
-    return new self($this->_modifiers, $value, $this->_declarators, $this->_semicolon);
+    return new self(
+      $this->_modifiers,
+      $value,
+      $this->_declarators,
+      $this->_semicolon,
+    );
   }
 
   public function declarators(): EditableSyntax {
@@ -1224,7 +1219,8 @@ final class PropertyDeclaration extends EditableSyntax {
   }
 
   public function with_semicolon(EditableSyntax $value): this {
-    return new self($this->_modifiers, $this->_type, $this->_declarators, $value);
+    return
+      new self($this->_modifiers, $this->_type, $this->_declarators, $value);
   }
 }
 
@@ -1276,10 +1272,7 @@ final class PropertyDeclarator extends EditableSyntax {
     $child_parents[] = $this;
     $name = $this->name()->rewrite($rewriter, $child_parents);
     $initializer = $this->initializer()->rewrite($rewriter, $child_parents);
-    if (
-      $name === $this->name() &&
-      $initializer === $this->initializer()
-    ) {
+    if ($name === $this->name() && $initializer === $this->initializer()) {
       $node = $this;
     } else {
       $node = new self($name, $initializer);
@@ -1531,9 +1524,7 @@ final class NamespaceEmptyBody extends EditableSyntax {
     $child_parents = $parents;
     $child_parents[] = $this;
     $semicolon = $this->semicolon()->rewrite($rewriter, $child_parents);
-    if (
-      $semicolon === $this->semicolon()
-    ) {
+    if ($semicolon === $this->semicolon()) {
       $node = $this;
     } else {
       $node = new self($semicolon);
@@ -1646,7 +1637,8 @@ final class NamespaceUseDeclaration extends EditableSyntax {
   }
 
   public function with_kind(EditableSyntax $value): this {
-    return new self($this->_keyword, $value, $this->_clauses, $this->_semicolon);
+    return
+      new self($this->_keyword, $value, $this->_clauses, $this->_semicolon);
   }
 
   public function clauses(): EditableSyntax {
@@ -2086,8 +2078,10 @@ final class FunctionDeclaration extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $attribute_spec = $this->attribute_spec()->rewrite($rewriter, $child_parents);
-    $declaration_header = $this->declaration_header()->rewrite($rewriter, $child_parents);
+    $attribute_spec =
+      $this->attribute_spec()->rewrite($rewriter, $child_parents);
+    $declaration_header =
+      $this->declaration_header()->rewrite($rewriter, $child_parents);
     $body = $this->body()->rewrite($rewriter, $child_parents);
     if (
       $attribute_spec === $this->attribute_spec() &&
@@ -2206,7 +2200,9 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     );
     $position += $name->width();
     $type_parameter_list = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['function_declaration_header_type_parameter_list'],
+      /* UNSAFE_EXPR */ $json[
+        'function_declaration_header_type_parameter_list'
+      ],
       $position,
       $source,
     );
@@ -2290,9 +2286,11 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
     $ampersand = $this->ampersand()->rewrite($rewriter, $child_parents);
     $name = $this->name()->rewrite($rewriter, $child_parents);
-    $type_parameter_list = $this->type_parameter_list()->rewrite($rewriter, $child_parents);
+    $type_parameter_list =
+      $this->type_parameter_list()->rewrite($rewriter, $child_parents);
     $left_paren = $this->left_paren()->rewrite($rewriter, $child_parents);
-    $parameter_list = $this->parameter_list()->rewrite($rewriter, $child_parents);
+    $parameter_list =
+      $this->parameter_list()->rewrite($rewriter, $child_parents);
     $right_paren = $this->right_paren()->rewrite($rewriter, $child_parents);
     $colon = $this->colon()->rewrite($rewriter, $child_parents);
     $type = $this->type()->rewrite($rewriter, $child_parents);
@@ -2633,8 +2631,7 @@ final class WhereClause extends EditableSyntax {
     $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
     $constraints = $this->constraints()->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $constraints === $this->constraints()
+      $keyword === $this->keyword() && $constraints === $this->constraints()
     ) {
       $node = $this;
     } else {
@@ -2840,7 +2837,8 @@ final class MethodishDeclaration extends EditableSyntax {
     $child_parents[] = $this;
     $attribute = $this->attribute()->rewrite($rewriter, $child_parents);
     $modifiers = $this->modifiers()->rewrite($rewriter, $child_parents);
-    $function_decl_header = $this->function_decl_header()->rewrite($rewriter, $child_parents);
+    $function_decl_header =
+      $this->function_decl_header()->rewrite($rewriter, $child_parents);
     $function_body = $this->function_body()->rewrite($rewriter, $child_parents);
     $semicolon = $this->semicolon()->rewrite($rewriter, $child_parents);
     if (
@@ -3075,11 +3073,15 @@ final class ClassishDeclaration extends EditableSyntax {
     $modifiers = $this->modifiers()->rewrite($rewriter, $child_parents);
     $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
     $name = $this->name()->rewrite($rewriter, $child_parents);
-    $type_parameters = $this->type_parameters()->rewrite($rewriter, $child_parents);
-    $extends_keyword = $this->extends_keyword()->rewrite($rewriter, $child_parents);
+    $type_parameters =
+      $this->type_parameters()->rewrite($rewriter, $child_parents);
+    $extends_keyword =
+      $this->extends_keyword()->rewrite($rewriter, $child_parents);
     $extends_list = $this->extends_list()->rewrite($rewriter, $child_parents);
-    $implements_keyword = $this->implements_keyword()->rewrite($rewriter, $child_parents);
-    $implements_list = $this->implements_list()->rewrite($rewriter, $child_parents);
+    $implements_keyword =
+      $this->implements_keyword()->rewrite($rewriter, $child_parents);
+    $implements_list =
+      $this->implements_list()->rewrite($rewriter, $child_parents);
     $body = $this->body()->rewrite($rewriter, $child_parents);
     if (
       $attribute === $this->attribute() &&
@@ -3421,19 +3423,25 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
     string $source,
   ): this {
     $aliasing_name = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['trait_use_conflict_resolution_item_aliasing_name'],
+      /* UNSAFE_EXPR */ $json[
+        'trait_use_conflict_resolution_item_aliasing_name'
+      ],
       $position,
       $source,
     );
     $position += $aliasing_name->width();
     $aliasing_keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['trait_use_conflict_resolution_item_aliasing_keyword'],
+      /* UNSAFE_EXPR */ $json[
+        'trait_use_conflict_resolution_item_aliasing_keyword'
+      ],
       $position,
       $source,
     );
     $position += $aliasing_keyword->width();
     $aliased_names = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['trait_use_conflict_resolution_item_aliased_names'],
+      /* UNSAFE_EXPR */ $json[
+        'trait_use_conflict_resolution_item_aliased_names'
+      ],
       $position,
       $source,
     );
@@ -3455,7 +3463,8 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
     $child_parents = $parents;
     $child_parents[] = $this;
     $aliasing_name = $this->aliasing_name()->rewrite($rewriter, $child_parents);
-    $aliasing_keyword = $this->aliasing_keyword()->rewrite($rewriter, $child_parents);
+    $aliasing_keyword =
+      $this->aliasing_keyword()->rewrite($rewriter, $child_parents);
     $aliased_names = $this->aliased_names()->rewrite($rewriter, $child_parents);
     if (
       $aliasing_name === $this->aliasing_name() &&
@@ -3930,13 +3939,8 @@ final class ConstDeclaration extends EditableSyntax {
       $source,
     );
     $position += $semicolon->width();
-    return new self(
-      $abstract,
-      $keyword,
-      $type_specifier,
-      $declarators,
-      $semicolon,
-    );
+    return
+      new self($abstract, $keyword, $type_specifier, $declarators, $semicolon);
   }
 
   public function children(): Traversable<EditableSyntax> {
@@ -3956,7 +3960,8 @@ final class ConstDeclaration extends EditableSyntax {
     $child_parents[] = $this;
     $abstract = $this->abstract()->rewrite($rewriter, $child_parents);
     $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $type_specifier = $this->type_specifier()->rewrite($rewriter, $child_parents);
+    $type_specifier =
+      $this->type_specifier()->rewrite($rewriter, $child_parents);
     $declarators = $this->declarators()->rewrite($rewriter, $child_parents);
     $semicolon = $this->semicolon()->rewrite($rewriter, $child_parents);
     if (
@@ -4098,10 +4103,7 @@ final class ConstantDeclarator extends EditableSyntax {
     $child_parents[] = $this;
     $name = $this->name()->rewrite($rewriter, $child_parents);
     $initializer = $this->initializer()->rewrite($rewriter, $child_parents);
-    if (
-      $name === $this->name() &&
-      $initializer === $this->initializer()
-    ) {
+    if ($name === $this->name() && $initializer === $this->initializer()) {
       $node = $this;
     } else {
       $node = new self($name, $initializer);
@@ -4245,9 +4247,11 @@ final class TypeConstDeclaration extends EditableSyntax {
     $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
     $type_keyword = $this->type_keyword()->rewrite($rewriter, $child_parents);
     $name = $this->name()->rewrite($rewriter, $child_parents);
-    $type_constraint = $this->type_constraint()->rewrite($rewriter, $child_parents);
+    $type_constraint =
+      $this->type_constraint()->rewrite($rewriter, $child_parents);
     $equal = $this->equal()->rewrite($rewriter, $child_parents);
-    $type_specifier = $this->type_specifier()->rewrite($rewriter, $child_parents);
+    $type_specifier =
+      $this->type_specifier()->rewrite($rewriter, $child_parents);
     $semicolon = $this->semicolon()->rewrite($rewriter, $child_parents);
     if (
       $abstract === $this->abstract() &&
@@ -4461,8 +4465,7 @@ final class DecoratedExpression extends EditableSyntax {
     $decorator = $this->decorator()->rewrite($rewriter, $child_parents);
     $expression = $this->expression()->rewrite($rewriter, $child_parents);
     if (
-      $decorator === $this->decorator() &&
-      $expression === $this->expression()
+      $decorator === $this->decorator() && $expression === $this->expression()
     ) {
       $node = $this;
     } else {
@@ -4689,9 +4692,7 @@ final class VariadicParameter extends EditableSyntax {
     $child_parents = $parents;
     $child_parents[] = $this;
     $ellipsis = $this->ellipsis()->rewrite($rewriter, $child_parents);
-    if (
-      $ellipsis === $this->ellipsis()
-    ) {
+    if ($ellipsis === $this->ellipsis()) {
       $node = $this;
     } else {
       $node = new self($ellipsis);
@@ -4764,9 +4765,11 @@ final class AttributeSpecification extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $left_double_angle = $this->left_double_angle()->rewrite($rewriter, $child_parents);
+    $left_double_angle =
+      $this->left_double_angle()->rewrite($rewriter, $child_parents);
     $attributes = $this->attributes()->rewrite($rewriter, $child_parents);
-    $right_double_angle = $this->right_double_angle()->rewrite($rewriter, $child_parents);
+    $right_double_angle =
+      $this->right_double_angle()->rewrite($rewriter, $child_parents);
     if (
       $left_double_angle === $this->left_double_angle() &&
       $attributes === $this->attributes() &&
@@ -4792,7 +4795,8 @@ final class AttributeSpecification extends EditableSyntax {
   }
 
   public function with_attributes(EditableSyntax $value): this {
-    return new self($this->_left_double_angle, $value, $this->_right_double_angle);
+    return
+      new self($this->_left_double_angle, $value, $this->_right_double_angle);
   }
 
   public function right_double_angle(): EditableSyntax {
@@ -4892,7 +4896,8 @@ final class Attribute extends EditableSyntax {
   }
 
   public function with_name(EditableSyntax $value): this {
-    return new self($value, $this->_left_paren, $this->_values, $this->_right_paren);
+    return
+      new self($value, $this->_left_paren, $this->_values, $this->_right_paren);
   }
 
   public function left_paren(): EditableSyntax {
@@ -4908,7 +4913,8 @@ final class Attribute extends EditableSyntax {
   }
 
   public function with_values(EditableSyntax $value): this {
-    return new self($this->_name, $this->_left_paren, $value, $this->_right_paren);
+    return
+      new self($this->_name, $this->_left_paren, $value, $this->_right_paren);
   }
 
   public function right_paren(): EditableSyntax {
@@ -4968,10 +4974,7 @@ final class InclusionExpression extends EditableSyntax {
     $child_parents[] = $this;
     $require = $this->require()->rewrite($rewriter, $child_parents);
     $filename = $this->filename()->rewrite($rewriter, $child_parents);
-    if (
-      $require === $this->require() &&
-      $filename === $this->filename()
-    ) {
+    if ($require === $this->require() && $filename === $this->filename()) {
       $node = $this;
     } else {
       $node = new self($require, $filename);
@@ -5045,8 +5048,7 @@ final class InclusionDirective extends EditableSyntax {
     $expression = $this->expression()->rewrite($rewriter, $child_parents);
     $semicolon = $this->semicolon()->rewrite($rewriter, $child_parents);
     if (
-      $expression === $this->expression() &&
-      $semicolon === $this->semicolon()
+      $expression === $this->expression() && $semicolon === $this->semicolon()
     ) {
       $node = $this;
     } else {
@@ -5217,8 +5219,7 @@ final class ExpressionStatement extends EditableSyntax {
     $expression = $this->expression()->rewrite($rewriter, $child_parents);
     $semicolon = $this->semicolon()->rewrite($rewriter, $child_parents);
     if (
-      $expression === $this->expression() &&
-      $semicolon === $this->semicolon()
+      $expression === $this->expression() && $semicolon === $this->semicolon()
     ) {
       $node = $this;
     } else {
@@ -5406,7 +5407,8 @@ final class MarkupSuffix extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $less_than_question = $this->less_than_question()->rewrite($rewriter, $child_parents);
+    $less_than_question =
+      $this->less_than_question()->rewrite($rewriter, $child_parents);
     $name = $this->name()->rewrite($rewriter, $child_parents);
     if (
       $less_than_question === $this->less_than_question() &&
@@ -5494,13 +5496,8 @@ final class UnsetStatement extends EditableSyntax {
       $source,
     );
     $position += $semicolon->width();
-    return new self(
-      $keyword,
-      $left_paren,
-      $variables,
-      $right_paren,
-      $semicolon,
-    );
+    return
+      new self($keyword, $left_paren, $variables, $right_paren, $semicolon);
   }
 
   public function children(): Traversable<EditableSyntax> {
@@ -5532,7 +5529,8 @@ final class UnsetStatement extends EditableSyntax {
     ) {
       $node = $this;
     } else {
-      $node = new self($keyword, $left_paren, $variables, $right_paren, $semicolon);
+      $node =
+        new self($keyword, $left_paren, $variables, $right_paren, $semicolon);
     }
     return $rewriter($node, $parents);
   }
@@ -5883,7 +5881,8 @@ final class IfStatement extends EditableSyntax {
     $condition = $this->condition()->rewrite($rewriter, $child_parents);
     $right_paren = $this->right_paren()->rewrite($rewriter, $child_parents);
     $statement = $this->statement()->rewrite($rewriter, $child_parents);
-    $elseif_clauses = $this->elseif_clauses()->rewrite($rewriter, $child_parents);
+    $elseif_clauses =
+      $this->elseif_clauses()->rewrite($rewriter, $child_parents);
     $else_clause = $this->else_clause()->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
@@ -6080,13 +6079,8 @@ final class ElseifClause extends EditableSyntax {
       $source,
     );
     $position += $statement->width();
-    return new self(
-      $keyword,
-      $left_paren,
-      $condition,
-      $right_paren,
-      $statement,
-    );
+    return
+      new self($keyword, $left_paren, $condition, $right_paren, $statement);
   }
 
   public function children(): Traversable<EditableSyntax> {
@@ -6118,7 +6112,8 @@ final class ElseifClause extends EditableSyntax {
     ) {
       $node = $this;
     } else {
-      $node = new self($keyword, $left_paren, $condition, $right_paren, $statement);
+      $node =
+        new self($keyword, $left_paren, $condition, $right_paren, $statement);
     }
     return $rewriter($node, $parents);
   }
@@ -6242,10 +6237,7 @@ final class ElseClause extends EditableSyntax {
     $child_parents[] = $this;
     $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
     $statement = $this->statement()->rewrite($rewriter, $child_parents);
-    if (
-      $keyword === $this->keyword() &&
-      $statement === $this->statement()
-    ) {
+    if ($keyword === $this->keyword() && $statement === $this->statement()) {
       $node = $this;
     } else {
       $node = new self($keyword, $statement);
@@ -6319,12 +6311,8 @@ final class TryStatement extends EditableSyntax {
       $source,
     );
     $position += $finally_clause->width();
-    return new self(
-      $keyword,
-      $compound_statement,
-      $catch_clauses,
-      $finally_clause,
-    );
+    return
+      new self($keyword, $compound_statement, $catch_clauses, $finally_clause);
   }
 
   public function children(): Traversable<EditableSyntax> {
@@ -6342,9 +6330,11 @@ final class TryStatement extends EditableSyntax {
     $child_parents = $parents;
     $child_parents[] = $this;
     $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $compound_statement = $this->compound_statement()->rewrite($rewriter, $child_parents);
+    $compound_statement =
+      $this->compound_statement()->rewrite($rewriter, $child_parents);
     $catch_clauses = $this->catch_clauses()->rewrite($rewriter, $child_parents);
-    $finally_clause = $this->finally_clause()->rewrite($rewriter, $child_parents);
+    $finally_clause =
+      $this->finally_clause()->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $compound_statement === $this->compound_statement() &&
@@ -6483,14 +6473,8 @@ final class CatchClause extends EditableSyntax {
       $source,
     );
     $position += $body->width();
-    return new self(
-      $keyword,
-      $left_paren,
-      $type,
-      $variable,
-      $right_paren,
-      $body,
-    );
+    return
+      new self($keyword, $left_paren, $type, $variable, $right_paren, $body);
   }
 
   public function children(): Traversable<EditableSyntax> {
@@ -6525,7 +6509,8 @@ final class CatchClause extends EditableSyntax {
     ) {
       $node = $this;
     } else {
-      $node = new self($keyword, $left_paren, $type, $variable, $right_paren, $body);
+      $node =
+        new self($keyword, $left_paren, $type, $variable, $right_paren, $body);
     }
     return $rewriter($node, $parents);
   }
@@ -6666,10 +6651,7 @@ final class FinallyClause extends EditableSyntax {
     $child_parents[] = $this;
     $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
     $body = $this->body()->rewrite($rewriter, $child_parents);
-    if (
-      $keyword === $this->keyword() &&
-      $body === $this->body()
-    ) {
+    if ($keyword === $this->keyword() && $body === $this->body()) {
       $node = $this;
     } else {
       $node = new self($keyword, $body);
@@ -7071,9 +7053,11 @@ final class ForStatement extends EditableSyntax {
     $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
     $left_paren = $this->left_paren()->rewrite($rewriter, $child_parents);
     $initializer = $this->initializer()->rewrite($rewriter, $child_parents);
-    $first_semicolon = $this->first_semicolon()->rewrite($rewriter, $child_parents);
+    $first_semicolon =
+      $this->first_semicolon()->rewrite($rewriter, $child_parents);
     $control = $this->control()->rewrite($rewriter, $child_parents);
-    $second_semicolon = $this->second_semicolon()->rewrite($rewriter, $child_parents);
+    $second_semicolon =
+      $this->second_semicolon()->rewrite($rewriter, $child_parents);
     $end_of_loop = $this->end_of_loop()->rewrite($rewriter, $child_parents);
     $right_paren = $this->right_paren()->rewrite($rewriter, $child_parents);
     $body = $this->body()->rewrite($rewriter, $child_parents);
@@ -8028,10 +8012,7 @@ final class SwitchFallthrough extends EditableSyntax {
     $child_parents[] = $this;
     $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
     $semicolon = $this->semicolon()->rewrite($rewriter, $child_parents);
-    if (
-      $keyword === $this->keyword() &&
-      $semicolon === $this->semicolon()
-    ) {
+    if ($keyword === $this->keyword() && $semicolon === $this->semicolon()) {
       $node = $this;
     } else {
       $node = new self($keyword, $semicolon);
@@ -8197,10 +8178,7 @@ final class DefaultLabel extends EditableSyntax {
     $child_parents[] = $this;
     $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
     $colon = $this->colon()->rewrite($rewriter, $child_parents);
-    if (
-      $keyword === $this->keyword() &&
-      $colon === $this->colon()
-    ) {
+    if ($keyword === $this->keyword() && $colon === $this->colon()) {
       $node = $this;
     } else {
       $node = new self($keyword, $colon);
@@ -8366,10 +8344,7 @@ final class GotoLabel extends EditableSyntax {
     $child_parents[] = $this;
     $name = $this->name()->rewrite($rewriter, $child_parents);
     $colon = $this->colon()->rewrite($rewriter, $child_parents);
-    if (
-      $name === $this->name() &&
-      $colon === $this->colon()
-    ) {
+    if ($name === $this->name() && $colon === $this->colon()) {
       $node = $this;
     } else {
       $node = new self($name, $colon);
@@ -8834,7 +8809,8 @@ final class FunctionStaticStatement extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $static_keyword = $this->static_keyword()->rewrite($rewriter, $child_parents);
+    $static_keyword =
+      $this->static_keyword()->rewrite($rewriter, $child_parents);
     $declarations = $this->declarations()->rewrite($rewriter, $child_parents);
     $semicolon = $this->semicolon()->rewrite($rewriter, $child_parents);
     if (
@@ -8922,10 +8898,7 @@ final class StaticDeclarator extends EditableSyntax {
     $child_parents[] = $this;
     $name = $this->name()->rewrite($rewriter, $child_parents);
     $initializer = $this->initializer()->rewrite($rewriter, $child_parents);
-    if (
-      $name === $this->name() &&
-      $initializer === $this->initializer()
-    ) {
+    if ($name === $this->name() && $initializer === $this->initializer()) {
       $node = $this;
     } else {
       $node = new self($name, $initializer);
@@ -9187,10 +9160,7 @@ final class SimpleInitializer extends EditableSyntax {
     $child_parents[] = $this;
     $equal = $this->equal()->rewrite($rewriter, $child_parents);
     $value = $this->value()->rewrite($rewriter, $child_parents);
-    if (
-      $equal === $this->equal() &&
-      $value === $this->value()
-    ) {
+    if ($equal === $this->equal() && $value === $this->value()) {
       $node = $this;
     } else {
       $node = new self($equal, $value);
@@ -9363,10 +9333,13 @@ final class AnonymousFunction extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $static_keyword = $this->static_keyword()->rewrite($rewriter, $child_parents);
+    $static_keyword =
+      $this->static_keyword()->rewrite($rewriter, $child_parents);
     $async_keyword = $this->async_keyword()->rewrite($rewriter, $child_parents);
-    $coroutine_keyword = $this->coroutine_keyword()->rewrite($rewriter, $child_parents);
-    $function_keyword = $this->function_keyword()->rewrite($rewriter, $child_parents);
+    $coroutine_keyword =
+      $this->coroutine_keyword()->rewrite($rewriter, $child_parents);
+    $function_keyword =
+      $this->function_keyword()->rewrite($rewriter, $child_parents);
     $left_paren = $this->left_paren()->rewrite($rewriter, $child_parents);
     $parameters = $this->parameters()->rewrite($rewriter, $child_parents);
     $right_paren = $this->right_paren()->rewrite($rewriter, $child_parents);
@@ -9715,7 +9688,12 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
-    return new self($value, $this->_left_paren, $this->_variables, $this->_right_paren);
+    return new self(
+      $value,
+      $this->_left_paren,
+      $this->_variables,
+      $this->_right_paren,
+    );
   }
 
   public function left_paren(): EditableSyntax {
@@ -9723,7 +9701,8 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
   }
 
   public function with_left_paren(EditableSyntax $value): this {
-    return new self($this->_keyword, $value, $this->_variables, $this->_right_paren);
+    return
+      new self($this->_keyword, $value, $this->_variables, $this->_right_paren);
   }
 
   public function variables(): EditableSyntax {
@@ -9731,7 +9710,12 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
   }
 
   public function with_variables(EditableSyntax $value): this {
-    return new self($this->_keyword, $this->_left_paren, $value, $this->_right_paren);
+    return new self(
+      $this->_keyword,
+      $this->_left_paren,
+      $value,
+      $this->_right_paren,
+    );
   }
 
   public function right_paren(): EditableSyntax {
@@ -9739,7 +9723,8 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
   }
 
   public function with_right_paren(EditableSyntax $value): this {
-    return new self($this->_keyword, $this->_left_paren, $this->_variables, $value);
+    return
+      new self($this->_keyword, $this->_left_paren, $this->_variables, $value);
   }
 }
 
@@ -9857,7 +9842,13 @@ final class LambdaExpression extends EditableSyntax {
   }
 
   public function with_coroutine(EditableSyntax $value): this {
-    return new self($this->_async, $value, $this->_signature, $this->_arrow, $this->_body);
+    return new self(
+      $this->_async,
+      $value,
+      $this->_signature,
+      $this->_arrow,
+      $this->_body,
+    );
   }
 
   public function signature(): EditableSyntax {
@@ -9865,7 +9856,13 @@ final class LambdaExpression extends EditableSyntax {
   }
 
   public function with_signature(EditableSyntax $value): this {
-    return new self($this->_async, $this->_coroutine, $value, $this->_arrow, $this->_body);
+    return new self(
+      $this->_async,
+      $this->_coroutine,
+      $value,
+      $this->_arrow,
+      $this->_body,
+    );
   }
 
   public function arrow(): EditableSyntax {
@@ -10159,7 +10156,12 @@ final class CastExpression extends EditableSyntax {
   }
 
   public function with_type(EditableSyntax $value): this {
-    return new self($this->_left_paren, $value, $this->_right_paren, $this->_operand);
+    return new self(
+      $this->_left_paren,
+      $value,
+      $this->_right_paren,
+      $this->_operand,
+    );
   }
 
   public function right_paren(): EditableSyntax {
@@ -10175,7 +10177,8 @@ final class CastExpression extends EditableSyntax {
   }
 
   public function with_operand(EditableSyntax $value): this {
-    return new self($this->_left_paren, $this->_type, $this->_right_paren, $value);
+    return
+      new self($this->_left_paren, $this->_type, $this->_right_paren, $value);
   }
 }
 
@@ -10611,10 +10614,7 @@ final class YieldExpression extends EditableSyntax {
     $child_parents[] = $this;
     $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
     $operand = $this->operand()->rewrite($rewriter, $child_parents);
-    if (
-      $keyword === $this->keyword() &&
-      $operand === $this->operand()
-    ) {
+    if ($keyword === $this->keyword() && $operand === $this->operand()) {
       $node = $this;
     } else {
       $node = new self($keyword, $operand);
@@ -10687,10 +10687,7 @@ final class PrefixUnaryExpression extends EditableSyntax {
     $child_parents[] = $this;
     $operator = $this->operator()->rewrite($rewriter, $child_parents);
     $operand = $this->operand()->rewrite($rewriter, $child_parents);
-    if (
-      $operator === $this->operator() &&
-      $operand === $this->operand()
-    ) {
+    if ($operator === $this->operator() && $operand === $this->operand()) {
       $node = $this;
     } else {
       $node = new self($operator, $operand);
@@ -10763,10 +10760,7 @@ final class PostfixUnaryExpression extends EditableSyntax {
     $child_parents[] = $this;
     $operand = $this->operand()->rewrite($rewriter, $child_parents);
     $operator = $this->operator()->rewrite($rewriter, $child_parents);
-    if (
-      $operand === $this->operand() &&
-      $operator === $this->operator()
-    ) {
+    if ($operand === $this->operand() && $operator === $this->operator()) {
       $node = $this;
     } else {
       $node = new self($operand, $operator);
@@ -11237,7 +11231,12 @@ final class EvalExpression extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
-    return new self($value, $this->_left_paren, $this->_argument, $this->_right_paren);
+    return new self(
+      $value,
+      $this->_left_paren,
+      $this->_argument,
+      $this->_right_paren,
+    );
   }
 
   public function left_paren(): EditableSyntax {
@@ -11245,7 +11244,8 @@ final class EvalExpression extends EditableSyntax {
   }
 
   public function with_left_paren(EditableSyntax $value): this {
-    return new self($this->_keyword, $value, $this->_argument, $this->_right_paren);
+    return
+      new self($this->_keyword, $value, $this->_argument, $this->_right_paren);
   }
 
   public function argument(): EditableSyntax {
@@ -11253,7 +11253,12 @@ final class EvalExpression extends EditableSyntax {
   }
 
   public function with_argument(EditableSyntax $value): this {
-    return new self($this->_keyword, $this->_left_paren, $value, $this->_right_paren);
+    return new self(
+      $this->_keyword,
+      $this->_left_paren,
+      $value,
+      $this->_right_paren,
+    );
   }
 
   public function right_paren(): EditableSyntax {
@@ -11261,7 +11266,8 @@ final class EvalExpression extends EditableSyntax {
   }
 
   public function with_right_paren(EditableSyntax $value): this {
-    return new self($this->_keyword, $this->_left_paren, $this->_argument, $value);
+    return
+      new self($this->_keyword, $this->_left_paren, $this->_argument, $value);
   }
 }
 
@@ -11353,7 +11359,12 @@ final class EmptyExpression extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
-    return new self($value, $this->_left_paren, $this->_argument, $this->_right_paren);
+    return new self(
+      $value,
+      $this->_left_paren,
+      $this->_argument,
+      $this->_right_paren,
+    );
   }
 
   public function left_paren(): EditableSyntax {
@@ -11361,7 +11372,8 @@ final class EmptyExpression extends EditableSyntax {
   }
 
   public function with_left_paren(EditableSyntax $value): this {
-    return new self($this->_keyword, $value, $this->_argument, $this->_right_paren);
+    return
+      new self($this->_keyword, $value, $this->_argument, $this->_right_paren);
   }
 
   public function argument(): EditableSyntax {
@@ -11369,7 +11381,12 @@ final class EmptyExpression extends EditableSyntax {
   }
 
   public function with_argument(EditableSyntax $value): this {
-    return new self($this->_keyword, $this->_left_paren, $value, $this->_right_paren);
+    return new self(
+      $this->_keyword,
+      $this->_left_paren,
+      $value,
+      $this->_right_paren,
+    );
   }
 
   public function right_paren(): EditableSyntax {
@@ -11377,7 +11394,8 @@ final class EmptyExpression extends EditableSyntax {
   }
 
   public function with_right_paren(EditableSyntax $value): this {
-    return new self($this->_keyword, $this->_left_paren, $this->_argument, $value);
+    return
+      new self($this->_keyword, $this->_left_paren, $this->_argument, $value);
   }
 }
 
@@ -11482,7 +11500,12 @@ final class DefineExpression extends EditableSyntax {
   }
 
   public function with_left_paren(EditableSyntax $value): this {
-    return new self($this->_keyword, $value, $this->_argument_list, $this->_right_paren);
+    return new self(
+      $this->_keyword,
+      $value,
+      $this->_argument_list,
+      $this->_right_paren,
+    );
   }
 
   public function argument_list(): EditableSyntax {
@@ -11490,7 +11513,12 @@ final class DefineExpression extends EditableSyntax {
   }
 
   public function with_argument_list(EditableSyntax $value): this {
-    return new self($this->_keyword, $this->_left_paren, $value, $this->_right_paren);
+    return new self(
+      $this->_keyword,
+      $this->_left_paren,
+      $value,
+      $this->_right_paren,
+    );
   }
 
   public function right_paren(): EditableSyntax {
@@ -11498,7 +11526,12 @@ final class DefineExpression extends EditableSyntax {
   }
 
   public function with_right_paren(EditableSyntax $value): this {
-    return new self($this->_keyword, $this->_left_paren, $this->_argument_list, $value);
+    return new self(
+      $this->_keyword,
+      $this->_left_paren,
+      $this->_argument_list,
+      $value,
+    );
   }
 }
 
@@ -11603,7 +11636,12 @@ final class IssetExpression extends EditableSyntax {
   }
 
   public function with_left_paren(EditableSyntax $value): this {
-    return new self($this->_keyword, $value, $this->_argument_list, $this->_right_paren);
+    return new self(
+      $this->_keyword,
+      $value,
+      $this->_argument_list,
+      $this->_right_paren,
+    );
   }
 
   public function argument_list(): EditableSyntax {
@@ -11611,7 +11649,12 @@ final class IssetExpression extends EditableSyntax {
   }
 
   public function with_argument_list(EditableSyntax $value): this {
-    return new self($this->_keyword, $this->_left_paren, $value, $this->_right_paren);
+    return new self(
+      $this->_keyword,
+      $this->_left_paren,
+      $value,
+      $this->_right_paren,
+    );
   }
 
   public function right_paren(): EditableSyntax {
@@ -11619,7 +11662,12 @@ final class IssetExpression extends EditableSyntax {
   }
 
   public function with_right_paren(EditableSyntax $value): this {
-    return new self($this->_keyword, $this->_left_paren, $this->_argument_list, $value);
+    return new self(
+      $this->_keyword,
+      $this->_left_paren,
+      $this->_argument_list,
+      $value,
+    );
   }
 }
 
@@ -11724,7 +11772,12 @@ final class FunctionCallExpression extends EditableSyntax {
   }
 
   public function with_left_paren(EditableSyntax $value): this {
-    return new self($this->_receiver, $value, $this->_argument_list, $this->_right_paren);
+    return new self(
+      $this->_receiver,
+      $value,
+      $this->_argument_list,
+      $this->_right_paren,
+    );
   }
 
   public function argument_list(): EditableSyntax {
@@ -11732,7 +11785,12 @@ final class FunctionCallExpression extends EditableSyntax {
   }
 
   public function with_argument_list(EditableSyntax $value): this {
-    return new self($this->_receiver, $this->_left_paren, $value, $this->_right_paren);
+    return new self(
+      $this->_receiver,
+      $this->_left_paren,
+      $value,
+      $this->_right_paren,
+    );
   }
 
   public function right_paren(): EditableSyntax {
@@ -11740,7 +11798,12 @@ final class FunctionCallExpression extends EditableSyntax {
   }
 
   public function with_right_paren(EditableSyntax $value): this {
-    return new self($this->_receiver, $this->_left_paren, $this->_argument_list, $value);
+    return new self(
+      $this->_receiver,
+      $this->_left_paren,
+      $this->_argument_list,
+      $value,
+    );
   }
 }
 
@@ -12120,7 +12183,12 @@ final class ListExpression extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
-    return new self($value, $this->_left_paren, $this->_members, $this->_right_paren);
+    return new self(
+      $value,
+      $this->_left_paren,
+      $this->_members,
+      $this->_right_paren,
+    );
   }
 
   public function left_paren(): EditableSyntax {
@@ -12128,7 +12196,8 @@ final class ListExpression extends EditableSyntax {
   }
 
   public function with_left_paren(EditableSyntax $value): this {
-    return new self($this->_keyword, $value, $this->_members, $this->_right_paren);
+    return
+      new self($this->_keyword, $value, $this->_members, $this->_right_paren);
   }
 
   public function members(): EditableSyntax {
@@ -12136,7 +12205,12 @@ final class ListExpression extends EditableSyntax {
   }
 
   public function with_members(EditableSyntax $value): this {
-    return new self($this->_keyword, $this->_left_paren, $value, $this->_right_paren);
+    return new self(
+      $this->_keyword,
+      $this->_left_paren,
+      $value,
+      $this->_right_paren,
+    );
   }
 
   public function right_paren(): EditableSyntax {
@@ -12144,7 +12218,8 @@ final class ListExpression extends EditableSyntax {
   }
 
   public function with_right_paren(EditableSyntax $value): this {
-    return new self($this->_keyword, $this->_left_paren, $this->_members, $value);
+    return
+      new self($this->_keyword, $this->_left_paren, $this->_members, $value);
   }
 }
 
@@ -12236,7 +12311,12 @@ final class CollectionLiteralExpression extends EditableSyntax {
   }
 
   public function with_name(EditableSyntax $value): this {
-    return new self($value, $this->_left_brace, $this->_initializers, $this->_right_brace);
+    return new self(
+      $value,
+      $this->_left_brace,
+      $this->_initializers,
+      $this->_right_brace,
+    );
   }
 
   public function left_brace(): EditableSyntax {
@@ -12244,7 +12324,8 @@ final class CollectionLiteralExpression extends EditableSyntax {
   }
 
   public function with_left_brace(EditableSyntax $value): this {
-    return new self($this->_name, $value, $this->_initializers, $this->_right_brace);
+    return
+      new self($this->_name, $value, $this->_initializers, $this->_right_brace);
   }
 
   public function initializers(): EditableSyntax {
@@ -12252,7 +12333,8 @@ final class CollectionLiteralExpression extends EditableSyntax {
   }
 
   public function with_initializers(EditableSyntax $value): this {
-    return new self($this->_name, $this->_left_brace, $value, $this->_right_brace);
+    return
+      new self($this->_name, $this->_left_brace, $value, $this->_right_brace);
   }
 
   public function right_brace(): EditableSyntax {
@@ -12260,7 +12342,8 @@ final class CollectionLiteralExpression extends EditableSyntax {
   }
 
   public function with_right_brace(EditableSyntax $value): this {
-    return new self($this->_name, $this->_left_brace, $this->_initializers, $value);
+    return
+      new self($this->_name, $this->_left_brace, $this->_initializers, $value);
   }
 }
 
@@ -12322,13 +12405,8 @@ final class ObjectCreationExpression extends EditableSyntax {
       $source,
     );
     $position += $right_paren->width();
-    return new self(
-      $new_keyword,
-      $type,
-      $left_paren,
-      $argument_list,
-      $right_paren,
-    );
+    return
+      new self($new_keyword, $type, $left_paren, $argument_list, $right_paren);
   }
 
   public function children(): Traversable<EditableSyntax> {
@@ -12626,7 +12704,12 @@ final class ArrayIntrinsicExpression extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
-    return new self($value, $this->_left_paren, $this->_members, $this->_right_paren);
+    return new self(
+      $value,
+      $this->_left_paren,
+      $this->_members,
+      $this->_right_paren,
+    );
   }
 
   public function left_paren(): EditableSyntax {
@@ -12634,7 +12717,8 @@ final class ArrayIntrinsicExpression extends EditableSyntax {
   }
 
   public function with_left_paren(EditableSyntax $value): this {
-    return new self($this->_keyword, $value, $this->_members, $this->_right_paren);
+    return
+      new self($this->_keyword, $value, $this->_members, $this->_right_paren);
   }
 
   public function members(): EditableSyntax {
@@ -12642,7 +12726,12 @@ final class ArrayIntrinsicExpression extends EditableSyntax {
   }
 
   public function with_members(EditableSyntax $value): this {
-    return new self($this->_keyword, $this->_left_paren, $value, $this->_right_paren);
+    return new self(
+      $this->_keyword,
+      $this->_left_paren,
+      $value,
+      $this->_right_paren,
+    );
   }
 
   public function right_paren(): EditableSyntax {
@@ -12650,7 +12739,8 @@ final class ArrayIntrinsicExpression extends EditableSyntax {
   }
 
   public function with_right_paren(EditableSyntax $value): this {
-    return new self($this->_keyword, $this->_left_paren, $this->_members, $value);
+    return
+      new self($this->_keyword, $this->_left_paren, $this->_members, $value);
   }
 }
 
@@ -12742,7 +12832,12 @@ final class DarrayIntrinsicExpression extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
-    return new self($value, $this->_left_bracket, $this->_members, $this->_right_bracket);
+    return new self(
+      $value,
+      $this->_left_bracket,
+      $this->_members,
+      $this->_right_bracket,
+    );
   }
 
   public function left_bracket(): EditableSyntax {
@@ -12750,7 +12845,8 @@ final class DarrayIntrinsicExpression extends EditableSyntax {
   }
 
   public function with_left_bracket(EditableSyntax $value): this {
-    return new self($this->_keyword, $value, $this->_members, $this->_right_bracket);
+    return
+      new self($this->_keyword, $value, $this->_members, $this->_right_bracket);
   }
 
   public function members(): EditableSyntax {
@@ -12758,7 +12854,12 @@ final class DarrayIntrinsicExpression extends EditableSyntax {
   }
 
   public function with_members(EditableSyntax $value): this {
-    return new self($this->_keyword, $this->_left_bracket, $value, $this->_right_bracket);
+    return new self(
+      $this->_keyword,
+      $this->_left_bracket,
+      $value,
+      $this->_right_bracket,
+    );
   }
 
   public function right_bracket(): EditableSyntax {
@@ -12766,7 +12867,8 @@ final class DarrayIntrinsicExpression extends EditableSyntax {
   }
 
   public function with_right_bracket(EditableSyntax $value): this {
-    return new self($this->_keyword, $this->_left_bracket, $this->_members, $value);
+    return
+      new self($this->_keyword, $this->_left_bracket, $this->_members, $value);
   }
 }
 
@@ -12858,7 +12960,12 @@ final class DictionaryIntrinsicExpression extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
-    return new self($value, $this->_left_bracket, $this->_members, $this->_right_bracket);
+    return new self(
+      $value,
+      $this->_left_bracket,
+      $this->_members,
+      $this->_right_bracket,
+    );
   }
 
   public function left_bracket(): EditableSyntax {
@@ -12866,7 +12973,8 @@ final class DictionaryIntrinsicExpression extends EditableSyntax {
   }
 
   public function with_left_bracket(EditableSyntax $value): this {
-    return new self($this->_keyword, $value, $this->_members, $this->_right_bracket);
+    return
+      new self($this->_keyword, $value, $this->_members, $this->_right_bracket);
   }
 
   public function members(): EditableSyntax {
@@ -12874,7 +12982,12 @@ final class DictionaryIntrinsicExpression extends EditableSyntax {
   }
 
   public function with_members(EditableSyntax $value): this {
-    return new self($this->_keyword, $this->_left_bracket, $value, $this->_right_bracket);
+    return new self(
+      $this->_keyword,
+      $this->_left_bracket,
+      $value,
+      $this->_right_bracket,
+    );
   }
 
   public function right_bracket(): EditableSyntax {
@@ -12882,7 +12995,8 @@ final class DictionaryIntrinsicExpression extends EditableSyntax {
   }
 
   public function with_right_bracket(EditableSyntax $value): this {
-    return new self($this->_keyword, $this->_left_bracket, $this->_members, $value);
+    return
+      new self($this->_keyword, $this->_left_bracket, $this->_members, $value);
   }
 }
 
@@ -12974,7 +13088,12 @@ final class KeysetIntrinsicExpression extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
-    return new self($value, $this->_left_bracket, $this->_members, $this->_right_bracket);
+    return new self(
+      $value,
+      $this->_left_bracket,
+      $this->_members,
+      $this->_right_bracket,
+    );
   }
 
   public function left_bracket(): EditableSyntax {
@@ -12982,7 +13101,8 @@ final class KeysetIntrinsicExpression extends EditableSyntax {
   }
 
   public function with_left_bracket(EditableSyntax $value): this {
-    return new self($this->_keyword, $value, $this->_members, $this->_right_bracket);
+    return
+      new self($this->_keyword, $value, $this->_members, $this->_right_bracket);
   }
 
   public function members(): EditableSyntax {
@@ -12990,7 +13110,12 @@ final class KeysetIntrinsicExpression extends EditableSyntax {
   }
 
   public function with_members(EditableSyntax $value): this {
-    return new self($this->_keyword, $this->_left_bracket, $value, $this->_right_bracket);
+    return new self(
+      $this->_keyword,
+      $this->_left_bracket,
+      $value,
+      $this->_right_bracket,
+    );
   }
 
   public function right_bracket(): EditableSyntax {
@@ -12998,7 +13123,8 @@ final class KeysetIntrinsicExpression extends EditableSyntax {
   }
 
   public function with_right_bracket(EditableSyntax $value): this {
-    return new self($this->_keyword, $this->_left_bracket, $this->_members, $value);
+    return
+      new self($this->_keyword, $this->_left_bracket, $this->_members, $value);
   }
 }
 
@@ -13090,7 +13216,12 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
-    return new self($value, $this->_left_bracket, $this->_members, $this->_right_bracket);
+    return new self(
+      $value,
+      $this->_left_bracket,
+      $this->_members,
+      $this->_right_bracket,
+    );
   }
 
   public function left_bracket(): EditableSyntax {
@@ -13098,7 +13229,8 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
   }
 
   public function with_left_bracket(EditableSyntax $value): this {
-    return new self($this->_keyword, $value, $this->_members, $this->_right_bracket);
+    return
+      new self($this->_keyword, $value, $this->_members, $this->_right_bracket);
   }
 
   public function members(): EditableSyntax {
@@ -13106,7 +13238,12 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
   }
 
   public function with_members(EditableSyntax $value): this {
-    return new self($this->_keyword, $this->_left_bracket, $value, $this->_right_bracket);
+    return new self(
+      $this->_keyword,
+      $this->_left_bracket,
+      $value,
+      $this->_right_bracket,
+    );
   }
 
   public function right_bracket(): EditableSyntax {
@@ -13114,7 +13251,8 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
   }
 
   public function with_right_bracket(EditableSyntax $value): this {
-    return new self($this->_keyword, $this->_left_bracket, $this->_members, $value);
+    return
+      new self($this->_keyword, $this->_left_bracket, $this->_members, $value);
   }
 }
 
@@ -13206,7 +13344,12 @@ final class VectorIntrinsicExpression extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
-    return new self($value, $this->_left_bracket, $this->_members, $this->_right_bracket);
+    return new self(
+      $value,
+      $this->_left_bracket,
+      $this->_members,
+      $this->_right_bracket,
+    );
   }
 
   public function left_bracket(): EditableSyntax {
@@ -13214,7 +13357,8 @@ final class VectorIntrinsicExpression extends EditableSyntax {
   }
 
   public function with_left_bracket(EditableSyntax $value): this {
-    return new self($this->_keyword, $value, $this->_members, $this->_right_bracket);
+    return
+      new self($this->_keyword, $value, $this->_members, $this->_right_bracket);
   }
 
   public function members(): EditableSyntax {
@@ -13222,7 +13366,12 @@ final class VectorIntrinsicExpression extends EditableSyntax {
   }
 
   public function with_members(EditableSyntax $value): this {
-    return new self($this->_keyword, $this->_left_bracket, $value, $this->_right_bracket);
+    return new self(
+      $this->_keyword,
+      $this->_left_bracket,
+      $value,
+      $this->_right_bracket,
+    );
   }
 
   public function right_bracket(): EditableSyntax {
@@ -13230,7 +13379,8 @@ final class VectorIntrinsicExpression extends EditableSyntax {
   }
 
   public function with_right_bracket(EditableSyntax $value): this {
-    return new self($this->_keyword, $this->_left_bracket, $this->_members, $value);
+    return
+      new self($this->_keyword, $this->_left_bracket, $this->_members, $value);
   }
 }
 
@@ -13418,7 +13568,12 @@ final class SubscriptExpression extends EditableSyntax {
   }
 
   public function with_receiver(EditableSyntax $value): this {
-    return new self($value, $this->_left_bracket, $this->_index, $this->_right_bracket);
+    return new self(
+      $value,
+      $this->_left_bracket,
+      $this->_index,
+      $this->_right_bracket,
+    );
   }
 
   public function left_bracket(): EditableSyntax {
@@ -13426,7 +13581,8 @@ final class SubscriptExpression extends EditableSyntax {
   }
 
   public function with_left_bracket(EditableSyntax $value): this {
-    return new self($this->_receiver, $value, $this->_index, $this->_right_bracket);
+    return
+      new self($this->_receiver, $value, $this->_index, $this->_right_bracket);
   }
 
   public function index(): EditableSyntax {
@@ -13434,7 +13590,12 @@ final class SubscriptExpression extends EditableSyntax {
   }
 
   public function with_index(EditableSyntax $value): this {
-    return new self($this->_receiver, $this->_left_bracket, $value, $this->_right_bracket);
+    return new self(
+      $this->_receiver,
+      $this->_left_bracket,
+      $value,
+      $this->_right_bracket,
+    );
   }
 
   public function right_bracket(): EditableSyntax {
@@ -13442,7 +13603,8 @@ final class SubscriptExpression extends EditableSyntax {
   }
 
   public function with_right_bracket(EditableSyntax $value): this {
-    return new self($this->_receiver, $this->_left_bracket, $this->_index, $value);
+    return
+      new self($this->_receiver, $this->_left_bracket, $this->_index, $value);
   }
 }
 
@@ -13534,7 +13696,12 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
   }
 
   public function with_receiver(EditableSyntax $value): this {
-    return new self($value, $this->_left_bracket, $this->_index, $this->_right_bracket);
+    return new self(
+      $value,
+      $this->_left_bracket,
+      $this->_index,
+      $this->_right_bracket,
+    );
   }
 
   public function left_bracket(): EditableSyntax {
@@ -13542,7 +13709,8 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
   }
 
   public function with_left_bracket(EditableSyntax $value): this {
-    return new self($this->_receiver, $value, $this->_index, $this->_right_bracket);
+    return
+      new self($this->_receiver, $value, $this->_index, $this->_right_bracket);
   }
 
   public function index(): EditableSyntax {
@@ -13550,7 +13718,12 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
   }
 
   public function with_index(EditableSyntax $value): this {
-    return new self($this->_receiver, $this->_left_bracket, $value, $this->_right_bracket);
+    return new self(
+      $this->_receiver,
+      $this->_left_bracket,
+      $value,
+      $this->_right_bracket,
+    );
   }
 
   public function right_bracket(): EditableSyntax {
@@ -13558,7 +13731,8 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
   }
 
   public function with_right_bracket(EditableSyntax $value): this {
-    return new self($this->_receiver, $this->_left_bracket, $this->_index, $value);
+    return
+      new self($this->_receiver, $this->_left_bracket, $this->_index, $value);
   }
 }
 
@@ -13597,7 +13771,9 @@ final class AwaitableCreationExpression extends EditableSyntax {
     );
     $position += $coroutine->width();
     $compound_statement = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['awaitable_creation_expression_compound_statement'],
+      /* UNSAFE_EXPR */ $json[
+        'awaitable_creation_expression_compound_statement'
+      ],
       $position,
       $source,
     );
@@ -13620,7 +13796,8 @@ final class AwaitableCreationExpression extends EditableSyntax {
     $child_parents[] = $this;
     $async = $this->async()->rewrite($rewriter, $child_parents);
     $coroutine = $this->coroutine()->rewrite($rewriter, $child_parents);
-    $compound_statement = $this->compound_statement()->rewrite($rewriter, $child_parents);
+    $compound_statement =
+      $this->compound_statement()->rewrite($rewriter, $child_parents);
     if (
       $async === $this->async() &&
       $coroutine === $this->coroutine() &&
@@ -14034,7 +14211,8 @@ final class XHPEnumType extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
-    return new self($value, $this->_left_brace, $this->_values, $this->_right_brace);
+    return
+      new self($value, $this->_left_brace, $this->_values, $this->_right_brace);
   }
 
   public function left_brace(): EditableSyntax {
@@ -14042,7 +14220,8 @@ final class XHPEnumType extends EditableSyntax {
   }
 
   public function with_left_brace(EditableSyntax $value): this {
-    return new self($this->_keyword, $value, $this->_values, $this->_right_brace);
+    return
+      new self($this->_keyword, $value, $this->_values, $this->_right_brace);
   }
 
   public function values(): EditableSyntax {
@@ -14050,7 +14229,12 @@ final class XHPEnumType extends EditableSyntax {
   }
 
   public function with_values(EditableSyntax $value): this {
-    return new self($this->_keyword, $this->_left_brace, $value, $this->_right_brace);
+    return new self(
+      $this->_keyword,
+      $this->_left_brace,
+      $value,
+      $this->_right_brace,
+    );
   }
 
   public function right_brace(): EditableSyntax {
@@ -14058,7 +14242,8 @@ final class XHPEnumType extends EditableSyntax {
   }
 
   public function with_right_brace(EditableSyntax $value): this {
-    return new self($this->_keyword, $this->_left_brace, $this->_values, $value);
+    return
+      new self($this->_keyword, $this->_left_brace, $this->_values, $value);
   }
 }
 
@@ -14107,10 +14292,7 @@ final class XHPRequired extends EditableSyntax {
     $child_parents[] = $this;
     $at = $this->at()->rewrite($rewriter, $child_parents);
     $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    if (
-      $at === $this->at() &&
-      $keyword === $this->keyword()
-    ) {
+    if ($at === $this->at() && $keyword === $this->keyword()) {
       $node = $this;
     } else {
       $node = new self($at, $keyword);
@@ -14319,7 +14501,8 @@ final class XHPClassAttribute extends EditableSyntax {
   }
 
   public function with_type(EditableSyntax $value): this {
-    return new self($value, $this->_name, $this->_initializer, $this->_required);
+    return
+      new self($value, $this->_name, $this->_initializer, $this->_required);
   }
 
   public function name(): EditableSyntax {
@@ -14327,7 +14510,8 @@ final class XHPClassAttribute extends EditableSyntax {
   }
 
   public function with_name(EditableSyntax $value): this {
-    return new self($this->_type, $value, $this->_initializer, $this->_required);
+    return
+      new self($this->_type, $value, $this->_initializer, $this->_required);
   }
 
   public function initializer(): EditableSyntax {
@@ -14382,9 +14566,7 @@ final class XHPSimpleClassAttribute extends EditableSyntax {
     $child_parents = $parents;
     $child_parents[] = $this;
     $type = $this->type()->rewrite($rewriter, $child_parents);
-    if (
-      $type === $this->type()
-    ) {
+    if ($type === $this->type()) {
       $node = $this;
     } else {
       $node = new self($type);
@@ -14585,7 +14767,8 @@ final class XHPOpen extends EditableSyntax {
   }
 
   public function with_left_angle(EditableSyntax $value): this {
-    return new self($value, $this->_name, $this->_attributes, $this->_right_angle);
+    return
+      new self($value, $this->_name, $this->_attributes, $this->_right_angle);
   }
 
   public function name(): EditableSyntax {
@@ -14593,7 +14776,12 @@ final class XHPOpen extends EditableSyntax {
   }
 
   public function with_name(EditableSyntax $value): this {
-    return new self($this->_left_angle, $value, $this->_attributes, $this->_right_angle);
+    return new self(
+      $this->_left_angle,
+      $value,
+      $this->_attributes,
+      $this->_right_angle,
+    );
   }
 
   public function attributes(): EditableSyntax {
@@ -14601,7 +14789,8 @@ final class XHPOpen extends EditableSyntax {
   }
 
   public function with_attributes(EditableSyntax $value): this {
-    return new self($this->_left_angle, $this->_name, $value, $this->_right_angle);
+    return
+      new self($this->_left_angle, $this->_name, $value, $this->_right_angle);
   }
 
   public function right_angle(): EditableSyntax {
@@ -14609,7 +14798,8 @@ final class XHPOpen extends EditableSyntax {
   }
 
   public function with_right_angle(EditableSyntax $value): this {
-    return new self($this->_left_angle, $this->_name, $this->_attributes, $value);
+    return
+      new self($this->_left_angle, $this->_name, $this->_attributes, $value);
   }
 }
 
@@ -14959,13 +15149,8 @@ final class VectorTypeSpecifier extends EditableSyntax {
       $source,
     );
     $position += $right_angle->width();
-    return new self(
-      $keyword,
-      $left_angle,
-      $type,
-      $trailing_comma,
-      $right_angle,
-    );
+    return
+      new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
   }
 
   public function children(): Traversable<EditableSyntax> {
@@ -14986,7 +15171,8 @@ final class VectorTypeSpecifier extends EditableSyntax {
     $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
     $left_angle = $this->left_angle()->rewrite($rewriter, $child_parents);
     $type = $this->type()->rewrite($rewriter, $child_parents);
-    $trailing_comma = $this->trailing_comma()->rewrite($rewriter, $child_parents);
+    $trailing_comma =
+      $this->trailing_comma()->rewrite($rewriter, $child_parents);
     $right_angle = $this->right_angle()->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
@@ -14997,7 +15183,8 @@ final class VectorTypeSpecifier extends EditableSyntax {
     ) {
       $node = $this;
     } else {
-      $node = new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
+      $node =
+        new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
     }
     return $rewriter($node, $parents);
   }
@@ -15131,13 +15318,8 @@ final class KeysetTypeSpecifier extends EditableSyntax {
       $source,
     );
     $position += $right_angle->width();
-    return new self(
-      $keyword,
-      $left_angle,
-      $type,
-      $trailing_comma,
-      $right_angle,
-    );
+    return
+      new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
   }
 
   public function children(): Traversable<EditableSyntax> {
@@ -15158,7 +15340,8 @@ final class KeysetTypeSpecifier extends EditableSyntax {
     $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
     $left_angle = $this->left_angle()->rewrite($rewriter, $child_parents);
     $type = $this->type()->rewrite($rewriter, $child_parents);
-    $trailing_comma = $this->trailing_comma()->rewrite($rewriter, $child_parents);
+    $trailing_comma =
+      $this->trailing_comma()->rewrite($rewriter, $child_parents);
     $right_angle = $this->right_angle()->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
@@ -15169,7 +15352,8 @@ final class KeysetTypeSpecifier extends EditableSyntax {
     ) {
       $node = $this;
     } else {
-      $node = new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
+      $node =
+        new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
     }
     return $rewriter($node, $parents);
   }
@@ -15333,7 +15517,8 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
-    return new self($value, $this->_left_angle, $this->_types, $this->_right_angle);
+    return
+      new self($value, $this->_left_angle, $this->_types, $this->_right_angle);
   }
 
   public function left_angle(): EditableSyntax {
@@ -15341,7 +15526,8 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
   }
 
   public function with_left_angle(EditableSyntax $value): this {
-    return new self($this->_keyword, $value, $this->_types, $this->_right_angle);
+    return
+      new self($this->_keyword, $value, $this->_types, $this->_right_angle);
   }
 
   public function types(): EditableSyntax {
@@ -15349,7 +15535,12 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
   }
 
   public function with_types(EditableSyntax $value): this {
-    return new self($this->_keyword, $this->_left_angle, $value, $this->_right_angle);
+    return new self(
+      $this->_keyword,
+      $this->_left_angle,
+      $value,
+      $this->_right_angle,
+    );
   }
 
   public function right_angle(): EditableSyntax {
@@ -15419,13 +15610,8 @@ final class VarrayTypeSpecifier extends EditableSyntax {
       $source,
     );
     $position += $right_angle->width();
-    return new self(
-      $keyword,
-      $left_angle,
-      $type,
-      $trailing_comma,
-      $right_angle,
-    );
+    return
+      new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
   }
 
   public function children(): Traversable<EditableSyntax> {
@@ -15446,7 +15632,8 @@ final class VarrayTypeSpecifier extends EditableSyntax {
     $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
     $left_angle = $this->left_angle()->rewrite($rewriter, $child_parents);
     $type = $this->type()->rewrite($rewriter, $child_parents);
-    $trailing_comma = $this->trailing_comma()->rewrite($rewriter, $child_parents);
+    $trailing_comma =
+      $this->trailing_comma()->rewrite($rewriter, $child_parents);
     $right_angle = $this->right_angle()->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
@@ -15457,7 +15644,8 @@ final class VarrayTypeSpecifier extends EditableSyntax {
     ) {
       $node = $this;
     } else {
-      $node = new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
+      $node =
+        new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
     }
     return $rewriter($node, $parents);
   }
@@ -15621,7 +15809,8 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
-    return new self($value, $this->_left_angle, $this->_type, $this->_right_angle);
+    return
+      new self($value, $this->_left_angle, $this->_type, $this->_right_angle);
   }
 
   public function left_angle(): EditableSyntax {
@@ -15637,7 +15826,12 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
   }
 
   public function with_type(EditableSyntax $value): this {
-    return new self($this->_keyword, $this->_left_angle, $value, $this->_right_angle);
+    return new self(
+      $this->_keyword,
+      $this->_left_angle,
+      $value,
+      $this->_right_angle,
+    );
   }
 
   public function right_angle(): EditableSyntax {
@@ -15790,10 +15984,7 @@ final class TypeConstraint extends EditableSyntax {
     $child_parents[] = $this;
     $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
     $type = $this->type()->rewrite($rewriter, $child_parents);
-    if (
-      $keyword === $this->keyword() &&
-      $type === $this->type()
-    ) {
+    if ($keyword === $this->keyword() && $type === $this->type()) {
       $node = $this;
     } else {
       $node = new self($keyword, $type);
@@ -15927,7 +16118,8 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     $key = $this->key()->rewrite($rewriter, $child_parents);
     $comma = $this->comma()->rewrite($rewriter, $child_parents);
     $value = $this->value()->rewrite($rewriter, $child_parents);
-    $trailing_comma = $this->trailing_comma()->rewrite($rewriter, $child_parents);
+    $trailing_comma =
+      $this->trailing_comma()->rewrite($rewriter, $child_parents);
     $right_angle = $this->right_angle()->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
@@ -16168,7 +16360,8 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     ) {
       $node = $this;
     } else {
-      $node = new self($keyword, $left_angle, $key, $comma, $value, $right_angle);
+      $node =
+        new self($keyword, $left_angle, $key, $comma, $value, $right_angle);
     }
     return $rewriter($node, $parents);
   }
@@ -16352,7 +16545,12 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
-    return new self($value, $this->_left_angle, $this->_members, $this->_right_angle);
+    return new self(
+      $value,
+      $this->_left_angle,
+      $this->_members,
+      $this->_right_angle,
+    );
   }
 
   public function left_angle(): EditableSyntax {
@@ -16360,7 +16558,8 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
   }
 
   public function with_left_angle(EditableSyntax $value): this {
-    return new self($this->_keyword, $value, $this->_members, $this->_right_angle);
+    return
+      new self($this->_keyword, $value, $this->_members, $this->_right_angle);
   }
 
   public function members(): EditableSyntax {
@@ -16368,7 +16567,12 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
   }
 
   public function with_members(EditableSyntax $value): this {
-    return new self($this->_keyword, $this->_left_angle, $value, $this->_right_angle);
+    return new self(
+      $this->_keyword,
+      $this->_left_angle,
+      $value,
+      $this->_right_angle,
+    );
   }
 
   public function right_angle(): EditableSyntax {
@@ -16376,7 +16580,8 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
   }
 
   public function with_right_angle(EditableSyntax $value): this {
-    return new self($this->_keyword, $this->_left_angle, $this->_members, $value);
+    return
+      new self($this->_keyword, $this->_left_angle, $this->_members, $value);
   }
 }
 
@@ -16506,15 +16711,21 @@ final class ClosureTypeSpecifier extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $outer_left_paren = $this->outer_left_paren()->rewrite($rewriter, $child_parents);
+    $outer_left_paren =
+      $this->outer_left_paren()->rewrite($rewriter, $child_parents);
     $coroutine = $this->coroutine()->rewrite($rewriter, $child_parents);
-    $function_keyword = $this->function_keyword()->rewrite($rewriter, $child_parents);
-    $inner_left_paren = $this->inner_left_paren()->rewrite($rewriter, $child_parents);
-    $parameter_types = $this->parameter_types()->rewrite($rewriter, $child_parents);
-    $inner_right_paren = $this->inner_right_paren()->rewrite($rewriter, $child_parents);
+    $function_keyword =
+      $this->function_keyword()->rewrite($rewriter, $child_parents);
+    $inner_left_paren =
+      $this->inner_left_paren()->rewrite($rewriter, $child_parents);
+    $parameter_types =
+      $this->parameter_types()->rewrite($rewriter, $child_parents);
+    $inner_right_paren =
+      $this->inner_right_paren()->rewrite($rewriter, $child_parents);
     $colon = $this->colon()->rewrite($rewriter, $child_parents);
     $return_type = $this->return_type()->rewrite($rewriter, $child_parents);
-    $outer_right_paren = $this->outer_right_paren()->rewrite($rewriter, $child_parents);
+    $outer_right_paren =
+      $this->outer_right_paren()->rewrite($rewriter, $child_parents);
     if (
       $outer_left_paren === $this->outer_left_paren() &&
       $coroutine === $this->coroutine() &&
@@ -16764,13 +16975,8 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
       $source,
     );
     $position += $right_angle->width();
-    return new self(
-      $keyword,
-      $left_angle,
-      $type,
-      $trailing_comma,
-      $right_angle,
-    );
+    return
+      new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
   }
 
   public function children(): Traversable<EditableSyntax> {
@@ -16791,7 +16997,8 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
     $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
     $left_angle = $this->left_angle()->rewrite($rewriter, $child_parents);
     $type = $this->type()->rewrite($rewriter, $child_parents);
-    $trailing_comma = $this->trailing_comma()->rewrite($rewriter, $child_parents);
+    $trailing_comma =
+      $this->trailing_comma()->rewrite($rewriter, $child_parents);
     $right_angle = $this->right_angle()->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
@@ -16802,7 +17009,8 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
     ) {
       $node = $this;
     } else {
-      $node = new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
+      $node =
+        new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
     }
     return $rewriter($node, $parents);
   }
@@ -17344,7 +17552,8 @@ final class ShapeExpression extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
-    return new self($value, $this->_left_paren, $this->_fields, $this->_right_paren);
+    return
+      new self($value, $this->_left_paren, $this->_fields, $this->_right_paren);
   }
 
   public function left_paren(): EditableSyntax {
@@ -17352,7 +17561,8 @@ final class ShapeExpression extends EditableSyntax {
   }
 
   public function with_left_paren(EditableSyntax $value): this {
-    return new self($this->_keyword, $value, $this->_fields, $this->_right_paren);
+    return
+      new self($this->_keyword, $value, $this->_fields, $this->_right_paren);
   }
 
   public function fields(): EditableSyntax {
@@ -17360,7 +17570,12 @@ final class ShapeExpression extends EditableSyntax {
   }
 
   public function with_fields(EditableSyntax $value): this {
-    return new self($this->_keyword, $this->_left_paren, $value, $this->_right_paren);
+    return new self(
+      $this->_keyword,
+      $this->_left_paren,
+      $value,
+      $this->_right_paren,
+    );
   }
 
   public function right_paren(): EditableSyntax {
@@ -17368,7 +17583,8 @@ final class ShapeExpression extends EditableSyntax {
   }
 
   public function with_right_paren(EditableSyntax $value): this {
-    return new self($this->_keyword, $this->_left_paren, $this->_fields, $value);
+    return
+      new self($this->_keyword, $this->_left_paren, $this->_fields, $value);
   }
 }
 
@@ -17460,7 +17676,8 @@ final class TupleExpression extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
-    return new self($value, $this->_left_paren, $this->_items, $this->_right_paren);
+    return
+      new self($value, $this->_left_paren, $this->_items, $this->_right_paren);
   }
 
   public function left_paren(): EditableSyntax {
@@ -17468,7 +17685,8 @@ final class TupleExpression extends EditableSyntax {
   }
 
   public function with_left_paren(EditableSyntax $value): this {
-    return new self($this->_keyword, $value, $this->_items, $this->_right_paren);
+    return
+      new self($this->_keyword, $value, $this->_items, $this->_right_paren);
   }
 
   public function items(): EditableSyntax {
@@ -17476,7 +17694,12 @@ final class TupleExpression extends EditableSyntax {
   }
 
   public function with_items(EditableSyntax $value): this {
-    return new self($this->_keyword, $this->_left_paren, $value, $this->_right_paren);
+    return new self(
+      $this->_keyword,
+      $this->_left_paren,
+      $value,
+      $this->_right_paren,
+    );
   }
 
   public function right_paren(): EditableSyntax {
@@ -17609,10 +17832,7 @@ final class NullableTypeSpecifier extends EditableSyntax {
     $child_parents[] = $this;
     $question = $this->question()->rewrite($rewriter, $child_parents);
     $type = $this->type()->rewrite($rewriter, $child_parents);
-    if (
-      $question === $this->question() &&
-      $type === $this->type()
-    ) {
+    if ($question === $this->question() && $type === $this->type()) {
       $node = $this;
     } else {
       $node = new self($question, $type);
@@ -17682,10 +17902,7 @@ final class SoftTypeSpecifier extends EditableSyntax {
     $child_parents[] = $this;
     $at = $this->at()->rewrite($rewriter, $child_parents);
     $type = $this->type()->rewrite($rewriter, $child_parents);
-    if (
-      $at === $this->at() &&
-      $type === $this->type()
-    ) {
+    if ($at === $this->at() && $type === $this->type()) {
       $node = $this;
     } else {
       $node = new self($at, $type);
@@ -18033,9 +18250,7 @@ final class ErrorSyntax extends EditableSyntax {
     $child_parents = $parents;
     $child_parents[] = $this;
     $error = $this->error()->rewrite($rewriter, $child_parents);
-    if (
-      $error === $this->error()
-    ) {
+    if ($error === $this->error()) {
       $node = $this;
     } else {
       $node = new self($error);
@@ -18097,10 +18312,7 @@ final class ListItem extends EditableSyntax {
     $child_parents[] = $this;
     $item = $this->item()->rewrite($rewriter, $child_parents);
     $separator = $this->separator()->rewrite($rewriter, $child_parents);
-    if (
-      $item === $this->item() &&
-      $separator === $this->separator()
-    ) {
+    if ($item === $this->item() && $separator === $this->separator()) {
       $node = $this;
     } else {
       $node = new self($item, $separator);

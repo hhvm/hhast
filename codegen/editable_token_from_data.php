@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6810c80ae1cc0ed52bb8b0acf280827a>>
+ * @generated SignedSource<<21aff7d654d2c6db37884908901a6f3a>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -357,7 +357,8 @@ function editable_token_from_data(
     case 'octal_literal':
       return new HHAST\OctalLiteralToken($leading, $trailing, $token_text);
     case 'hexadecimal_literal':
-      return new HHAST\HexadecimalLiteralToken($leading, $trailing, $token_text);
+      return
+        new HHAST\HexadecimalLiteralToken($leading, $trailing, $token_text);
     case 'binary_literal':
       return new HHAST\BinaryLiteralToken($leading, $trailing, $token_text);
     case 'floating_literal':
@@ -365,23 +366,49 @@ function editable_token_from_data(
     case 'execution_string':
       return new HHAST\ExecutionStringToken($leading, $trailing, $token_text);
     case 'single_quoted_string_literal':
-      return new HHAST\SingleQuotedStringLiteralToken($leading, $trailing, $token_text);
+      return new HHAST\SingleQuotedStringLiteralToken(
+        $leading,
+        $trailing,
+        $token_text,
+      );
     case 'double_quoted_string_literal':
-      return new HHAST\DoubleQuotedStringLiteralToken($leading, $trailing, $token_text);
+      return new HHAST\DoubleQuotedStringLiteralToken(
+        $leading,
+        $trailing,
+        $token_text,
+      );
     case 'double_quoted_string_literal_head':
-      return new HHAST\DoubleQuotedStringLiteralHeadToken($leading, $trailing, $token_text);
+      return new HHAST\DoubleQuotedStringLiteralHeadToken(
+        $leading,
+        $trailing,
+        $token_text,
+      );
     case 'string_literal_body':
       return new HHAST\StringLiteralBodyToken($leading, $trailing, $token_text);
     case 'double_quoted_string_literal_tail':
-      return new HHAST\DoubleQuotedStringLiteralTailToken($leading, $trailing, $token_text);
+      return new HHAST\DoubleQuotedStringLiteralTailToken(
+        $leading,
+        $trailing,
+        $token_text,
+      );
     case 'heredoc_string_literal':
-      return new HHAST\HeredocStringLiteralToken($leading, $trailing, $token_text);
+      return
+        new HHAST\HeredocStringLiteralToken($leading, $trailing, $token_text);
     case 'heredoc_string_literal_head':
-      return new HHAST\HeredocStringLiteralHeadToken($leading, $trailing, $token_text);
+      return new HHAST\HeredocStringLiteralHeadToken(
+        $leading,
+        $trailing,
+        $token_text,
+      );
     case 'heredoc_string_literal_tail':
-      return new HHAST\HeredocStringLiteralTailToken($leading, $trailing, $token_text);
+      return new HHAST\HeredocStringLiteralTailToken(
+        $leading,
+        $trailing,
+        $token_text,
+      );
     case 'nowdoc_string_literal':
-      return new HHAST\NowdocStringLiteralToken($leading, $trailing, $token_text);
+      return
+        new HHAST\NowdocStringLiteralToken($leading, $trailing, $token_text);
     case 'boolean_literal':
       return new HHAST\BooleanLiteralToken($leading, $trailing, $token_text);
     case 'XHP_category_name':

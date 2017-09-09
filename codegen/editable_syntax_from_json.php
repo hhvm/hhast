@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<221c8f47e145771f2ffe34f335069743>>
+ * @generated SignedSource<<3685c23659cd2dff8182f1f3a4495048>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -12,9 +12,13 @@ function editable_syntax_from_json(
   int $position,
   string $source,
 ): HHAST\EditableSyntax {
-  switch ((string) $json['kind']) {
+  switch ((string)$json['kind']) {
     case 'token':
-      return HHAST\EditableToken::from_json(/* HH_IGNORE_ERROR[4110] */ $json['token'], $position, $source);
+      return HHAST\EditableToken::from_json(/* HH_IGNORE_ERROR[4110] */
+        $json['token'],
+        $position,
+        $source,
+      );
     case 'list':
       return HHAST\EditableList::from_json($json, $position, $source);
     case 'missing':
@@ -48,7 +52,8 @@ function editable_syntax_from_json(
     case 'variable_expression':
       return HHAST\VariableExpression::from_json($json, $position, $source);
     case 'qualified_name_expression':
-      return HHAST\QualifiedNameExpression::from_json($json, $position, $source);
+      return
+        HHAST\QualifiedNameExpression::from_json($json, $position, $source);
     case 'pipe_variable_expression':
       return HHAST\PipeVariableExpression::from_json($json, $position, $source);
     case 'enum_declaration':
@@ -68,15 +73,21 @@ function editable_syntax_from_json(
     case 'namespace_empty_body':
       return HHAST\NamespaceEmptyBody::from_json($json, $position, $source);
     case 'namespace_use_declaration':
-      return HHAST\NamespaceUseDeclaration::from_json($json, $position, $source);
+      return
+        HHAST\NamespaceUseDeclaration::from_json($json, $position, $source);
     case 'namespace_group_use_declaration':
-      return HHAST\NamespaceGroupUseDeclaration::from_json($json, $position, $source);
+      return HHAST\NamespaceGroupUseDeclaration::from_json(
+        $json,
+        $position,
+        $source,
+      );
     case 'namespace_use_clause':
       return HHAST\NamespaceUseClause::from_json($json, $position, $source);
     case 'function_declaration':
       return HHAST\FunctionDeclaration::from_json($json, $position, $source);
     case 'function_declaration_header':
-      return HHAST\FunctionDeclarationHeader::from_json($json, $position, $source);
+      return
+        HHAST\FunctionDeclarationHeader::from_json($json, $position, $source);
     case 'where_clause':
       return HHAST\WhereClause::from_json($json, $position, $source);
     case 'where_constraint':
@@ -88,9 +99,14 @@ function editable_syntax_from_json(
     case 'classish_body':
       return HHAST\ClassishBody::from_json($json, $position, $source);
     case 'trait_use_conflict_resolution_item':
-      return HHAST\TraitUseConflictResolutionItem::from_json($json, $position, $source);
+      return HHAST\TraitUseConflictResolutionItem::from_json(
+        $json,
+        $position,
+        $source,
+      );
     case 'trait_use_conflict_resolution':
-      return HHAST\TraitUseConflictResolution::from_json($json, $position, $source);
+      return
+        HHAST\TraitUseConflictResolution::from_json($json, $position, $source);
     case 'trait_use':
       return HHAST\TraitUse::from_json($json, $position, $source);
     case 'require_clause':
@@ -168,7 +184,8 @@ function editable_syntax_from_json(
     case 'continue_statement':
       return HHAST\ContinueStatement::from_json($json, $position, $source);
     case 'function_static_statement':
-      return HHAST\FunctionStaticStatement::from_json($json, $position, $source);
+      return
+        HHAST\FunctionStaticStatement::from_json($json, $position, $source);
     case 'static_declarator':
       return HHAST\StaticDeclarator::from_json($json, $position, $source);
     case 'echo_statement':
@@ -180,7 +197,8 @@ function editable_syntax_from_json(
     case 'anonymous_function':
       return HHAST\AnonymousFunction::from_json($json, $position, $source);
     case 'anonymous_function_use_clause':
-      return HHAST\AnonymousFunctionUseClause::from_json($json, $position, $source);
+      return
+        HHAST\AnonymousFunctionUseClause::from_json($json, $position, $source);
     case 'lambda_expression':
       return HHAST\LambdaExpression::from_json($json, $position, $source);
     case 'lambda_signature':
@@ -188,13 +206,23 @@ function editable_syntax_from_json(
     case 'cast_expression':
       return HHAST\CastExpression::from_json($json, $position, $source);
     case 'scope_resolution_expression':
-      return HHAST\ScopeResolutionExpression::from_json($json, $position, $source);
+      return
+        HHAST\ScopeResolutionExpression::from_json($json, $position, $source);
     case 'member_selection_expression':
-      return HHAST\MemberSelectionExpression::from_json($json, $position, $source);
+      return
+        HHAST\MemberSelectionExpression::from_json($json, $position, $source);
     case 'safe_member_selection_expression':
-      return HHAST\SafeMemberSelectionExpression::from_json($json, $position, $source);
+      return HHAST\SafeMemberSelectionExpression::from_json(
+        $json,
+        $position,
+        $source,
+      );
     case 'embedded_member_selection_expression':
-      return HHAST\EmbeddedMemberSelectionExpression::from_json($json, $position, $source);
+      return HHAST\EmbeddedMemberSelectionExpression::from_json(
+        $json,
+        $position,
+        $source,
+      );
     case 'yield_expression':
       return HHAST\YieldExpression::from_json($json, $position, $source);
     case 'prefix_unary_expression':
@@ -218,43 +246,63 @@ function editable_syntax_from_json(
     case 'function_call_expression':
       return HHAST\FunctionCallExpression::from_json($json, $position, $source);
     case 'parenthesized_expression':
-      return HHAST\ParenthesizedExpression::from_json($json, $position, $source);
+      return
+        HHAST\ParenthesizedExpression::from_json($json, $position, $source);
     case 'braced_expression':
       return HHAST\BracedExpression::from_json($json, $position, $source);
     case 'embedded_braced_expression':
-      return HHAST\EmbeddedBracedExpression::from_json($json, $position, $source);
+      return
+        HHAST\EmbeddedBracedExpression::from_json($json, $position, $source);
     case 'list_expression':
       return HHAST\ListExpression::from_json($json, $position, $source);
     case 'collection_literal_expression':
-      return HHAST\CollectionLiteralExpression::from_json($json, $position, $source);
+      return
+        HHAST\CollectionLiteralExpression::from_json($json, $position, $source);
     case 'object_creation_expression':
-      return HHAST\ObjectCreationExpression::from_json($json, $position, $source);
+      return
+        HHAST\ObjectCreationExpression::from_json($json, $position, $source);
     case 'array_creation_expression':
-      return HHAST\ArrayCreationExpression::from_json($json, $position, $source);
+      return
+        HHAST\ArrayCreationExpression::from_json($json, $position, $source);
     case 'array_intrinsic_expression':
-      return HHAST\ArrayIntrinsicExpression::from_json($json, $position, $source);
+      return
+        HHAST\ArrayIntrinsicExpression::from_json($json, $position, $source);
     case 'darray_intrinsic_expression':
-      return HHAST\DarrayIntrinsicExpression::from_json($json, $position, $source);
+      return
+        HHAST\DarrayIntrinsicExpression::from_json($json, $position, $source);
     case 'dictionary_intrinsic_expression':
-      return HHAST\DictionaryIntrinsicExpression::from_json($json, $position, $source);
+      return HHAST\DictionaryIntrinsicExpression::from_json(
+        $json,
+        $position,
+        $source,
+      );
     case 'keyset_intrinsic_expression':
-      return HHAST\KeysetIntrinsicExpression::from_json($json, $position, $source);
+      return
+        HHAST\KeysetIntrinsicExpression::from_json($json, $position, $source);
     case 'varray_intrinsic_expression':
-      return HHAST\VarrayIntrinsicExpression::from_json($json, $position, $source);
+      return
+        HHAST\VarrayIntrinsicExpression::from_json($json, $position, $source);
     case 'vector_intrinsic_expression':
-      return HHAST\VectorIntrinsicExpression::from_json($json, $position, $source);
+      return
+        HHAST\VectorIntrinsicExpression::from_json($json, $position, $source);
     case 'element_initializer':
       return HHAST\ElementInitializer::from_json($json, $position, $source);
     case 'subscript_expression':
       return HHAST\SubscriptExpression::from_json($json, $position, $source);
     case 'embedded_subscript_expression':
-      return HHAST\EmbeddedSubscriptExpression::from_json($json, $position, $source);
+      return
+        HHAST\EmbeddedSubscriptExpression::from_json($json, $position, $source);
     case 'awaitable_creation_expression':
-      return HHAST\AwaitableCreationExpression::from_json($json, $position, $source);
+      return
+        HHAST\AwaitableCreationExpression::from_json($json, $position, $source);
     case 'xhp_children_declaration':
       return HHAST\XHPChildrenDeclaration::from_json($json, $position, $source);
     case 'xhp_children_parenthesized_list':
-      return HHAST\XHPChildrenParenthesizedList::from_json($json, $position, $source);
+      return HHAST\XHPChildrenParenthesizedList::from_json(
+        $json,
+        $position,
+        $source,
+      );
     case 'xhp_category_declaration':
       return HHAST\XHPCategoryDeclaration::from_json($json, $position, $source);
     case 'xhp_enum_type':
@@ -262,11 +310,16 @@ function editable_syntax_from_json(
     case 'xhp_required':
       return HHAST\XHPRequired::from_json($json, $position, $source);
     case 'xhp_class_attribute_declaration':
-      return HHAST\XHPClassAttributeDeclaration::from_json($json, $position, $source);
+      return HHAST\XHPClassAttributeDeclaration::from_json(
+        $json,
+        $position,
+        $source,
+      );
     case 'xhp_class_attribute':
       return HHAST\XHPClassAttribute::from_json($json, $position, $source);
     case 'xhp_simple_class_attribute':
-      return HHAST\XHPSimpleClassAttribute::from_json($json, $position, $source);
+      return
+        HHAST\XHPSimpleClassAttribute::from_json($json, $position, $source);
     case 'xhp_attribute':
       return HHAST\XHPAttribute::from_json($json, $position, $source);
     case 'xhp_open':
@@ -282,11 +335,13 @@ function editable_syntax_from_json(
     case 'keyset_type_specifier':
       return HHAST\KeysetTypeSpecifier::from_json($json, $position, $source);
     case 'tuple_type_explicit_specifier':
-      return HHAST\TupleTypeExplicitSpecifier::from_json($json, $position, $source);
+      return
+        HHAST\TupleTypeExplicitSpecifier::from_json($json, $position, $source);
     case 'varray_type_specifier':
       return HHAST\VarrayTypeSpecifier::from_json($json, $position, $source);
     case 'vector_array_type_specifier':
-      return HHAST\VectorArrayTypeSpecifier::from_json($json, $position, $source);
+      return
+        HHAST\VectorArrayTypeSpecifier::from_json($json, $position, $source);
     case 'type_parameter':
       return HHAST\TypeParameter::from_json($json, $position, $source);
     case 'type_constraint':
@@ -296,7 +351,8 @@ function editable_syntax_from_json(
     case 'map_array_type_specifier':
       return HHAST\MapArrayTypeSpecifier::from_json($json, $position, $source);
     case 'dictionary_type_specifier':
-      return HHAST\DictionaryTypeSpecifier::from_json($json, $position, $source);
+      return
+        HHAST\DictionaryTypeSpecifier::from_json($json, $position, $source);
     case 'closure_type_specifier':
       return HHAST\ClosureTypeSpecifier::from_json($json, $position, $source);
     case 'classname_type_specifier':
@@ -328,6 +384,6 @@ function editable_syntax_from_json(
     case 'list_item':
       return HHAST\ListItem::from_json($json, $position, $source);
     default:
-      throw new \Exception('unexpected JSON kind: '.(string) $json['kind']);
+      throw new \Exception('unexpected JSON kind: '.(string)$json['kind']);
   }
 }

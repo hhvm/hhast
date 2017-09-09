@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8c55cf8747db51aa7eb2f47fad041cd8>>
+ * @generated SignedSource<<ca5650bc14c8d39347210e61b34ef96c>>
  */
 namespace Facebook\HHAST;
 
@@ -3218,7 +3218,12 @@ final class SingleQuotedStringLiteralToken extends EditableToken {
     EditableSyntax $trailing,
     string $text,
   ) {
-    parent::__construct('SingleQuotedStringLiteral', $leading, $trailing, $text);
+    parent::__construct(
+      'SingleQuotedStringLiteral',
+      $leading,
+      $trailing,
+      $text,
+    );
   }
 
   public function with_text(string $text): this {
@@ -3241,7 +3246,12 @@ final class DoubleQuotedStringLiteralToken extends EditableToken {
     EditableSyntax $trailing,
     string $text,
   ) {
-    parent::__construct('DoubleQuotedStringLiteral', $leading, $trailing, $text);
+    parent::__construct(
+      'DoubleQuotedStringLiteral',
+      $leading,
+      $trailing,
+      $text,
+    );
   }
 
   public function with_text(string $text): this {
@@ -3264,7 +3274,12 @@ final class DoubleQuotedStringLiteralHeadToken extends EditableToken {
     EditableSyntax $trailing,
     string $text,
   ) {
-    parent::__construct('DoubleQuotedStringLiteralHead', $leading, $trailing, $text);
+    parent::__construct(
+      'DoubleQuotedStringLiteralHead',
+      $leading,
+      $trailing,
+      $text,
+    );
   }
 
   public function with_text(string $text): this {
@@ -3310,7 +3325,12 @@ final class DoubleQuotedStringLiteralTailToken extends EditableToken {
     EditableSyntax $trailing,
     string $text,
   ) {
-    parent::__construct('DoubleQuotedStringLiteralTail', $leading, $trailing, $text);
+    parent::__construct(
+      'DoubleQuotedStringLiteralTail',
+      $leading,
+      $trailing,
+      $text,
+    );
   }
 
   public function with_text(string $text): this {

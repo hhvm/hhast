@@ -12,7 +12,11 @@
 
 namespace Facebook\HHAST\__Private;
 
-use type Facebook\HackCodegen\{HackCodegenConfig, HackCodegenFactory};
+use type Facebook\HackCodegen\{
+  HackCodegenConfig,
+  HackCodegenFactory,
+  HackfmtFormatter
+};
 
 use namespace HH\Lib\{C, Dict};
 
@@ -27,7 +31,9 @@ abstract class CodegenBase {
   }
 
   final protected function getCodegenFactory(): HackCodegenFactory {
-    return new HackCodegenFactory(new HackCodegenConfig());
+    return new HackCodegenFactory(
+      (new HackCodegenConfig())->withFormatter(new HackfmtFormatter())
+    );
   }
 
   final protected function getSchema(): Schema\TSchema {
