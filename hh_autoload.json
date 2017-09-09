@@ -2,5 +2,8 @@
   "roots": [
     "codegen/",
     "src/"
+  ],
+  "devRoots": [
+    "tests/"
   ]
 }
