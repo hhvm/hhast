@@ -14,6 +14,8 @@ namespace Facebook\HHAST\__Private;
 
 use namespace HH\Lib\C;
 
+use type Facebook\HackCodegen\HackBuilderValues;
+
 final class CodegenEditableSyntaxFromJSON extends CodegenBase {
   public function generate(): void {
     $cg = $this->getCodegenFactory();
@@ -34,24 +36,27 @@ final class CodegenEditableSyntaxFromJSON extends CodegenBase {
             $cg
               ->codegenHackBuilder()
               ->startSwitch('(string) $json[\'kind\']')
-              ->addCase('\'token\'')
+              ->addCase('token', HackBuilderValues::export())
               ->addReturnf(
                 'HHAST\\EditableToken::from_json(/* HH_IGNORE_ERROR[4110] */ $json[\'token\'], $position, $source)',
               )
               ->unindent()
-              ->addCase('\'list\'')
+              ->addCase('list', HackBuilderValues::export())
               ->addReturnf(
                 'HHAST\\EditableList::from_json($json, $position, $source)',
               )
               ->unindent()
-              ->addCase('\'missing\'')
+              ->addCase('missing', HackBuilderValues::export())
               ->addReturnf('HHAST\\Missing::getInstance()')
               ->unindent()
               ->addCaseBlocks(
-                new Vector($this->getSchema()['trivia']),
+                $this->getSchema()['trivia'],
                 ($trivia, $body) ==> {
                   $body
-                    ->addCase(var_export($trivia['trivia_type_name'], true))
+                    ->addCase(
+                      $trivia['trivia_type_name'],
+                      HackBuilderValues::export(),
+                    )
                     ->addReturnf(
                       'HHAST\\%s::from_json($json, $position, $source)',
                       $trivia['trivia_kind_name'],
@@ -68,7 +73,7 @@ final class CodegenEditableSyntaxFromJSON extends CodegenBase {
                 ),
                 ($ast, $body) ==> {
                   $body
-                    ->addCase(var_export($ast['type_name'], true))
+                    ->addCase($ast['type_name'], HackBuilderValues::export())
                     ->addReturnf(
                       'HHAST\\%s::from_json($json, $position, $source)',
                       $ast['kind_name'],
@@ -81,7 +86,7 @@ final class CodegenEditableSyntaxFromJSON extends CodegenBase {
                 'throw new \\Exception(\'unexpected JSON kind: \'.(string) $json[\'kind\']);',
               )
               ->endDefault()
-              ->endSwitch_()
+              ->endSwitch()
               ->getCode(),
           ),
       )

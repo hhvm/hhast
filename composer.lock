@@ -104,18 +104,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/hack-codegen.git",
-                "reference": "e8075c8d2f830d90786461d36d8146f98c054e76"
+                "reference": "cff826fb574923d3973d411d01358a24c2ad5da7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/hack-codegen/zipball/e8075c8d2f830d90786461d36d8146f98c054e76",
-                "reference": "e8075c8d2f830d90786461d36d8146f98c054e76",
+                "url": "https://api.github.com/repos/hhvm/hack-codegen/zipball/cff826fb574923d3973d411d01358a24c2ad5da7",
+                "reference": "cff826fb574923d3973d411d01358a24c2ad5da7",
                 "shasum": ""
             },
             "require": {
                 "facebook/hhvm-autoload": "^1.4",
                 "hhvm": "^3.21",
-                "hhvm/hsl": "^0.2"
+                "hhvm/hsl": "<1.0 >=0.3"
             },
             "require-dev": {
                 "91carriage/phpunit-hhi": "^5.6",
@@ -161,7 +161,7 @@
                 "code generation",
                 "hack"
             ],
-            "time": "2017-09-08 18:34:05"
+            "time": "2017-09-09T20:54:33+00:00"
         },
         {
             "name": "facebook/hhvm-autoload",
@@ -249,16 +249,16 @@
         },
         {
             "name": "hhvm/hsl",
-            "version": "v0.2",
+            "version": "v0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/hsl.git",
-                "reference": "1cde7b351cc84a216a21dbe9570a4662fd738467"
+                "reference": "69c536bcfdd1ee0d50e37ef87ec69a13a73b62f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/hsl/zipball/1cde7b351cc84a216a21dbe9570a4662fd738467",
-                "reference": "1cde7b351cc84a216a21dbe9570a4662fd738467",
+                "url": "https://api.github.com/repos/hhvm/hsl/zipball/69c536bcfdd1ee0d50e37ef87ec69a13a73b62f3",
+                "reference": "69c536bcfdd1ee0d50e37ef87ec69a13a73b62f3",
                 "shasum": ""
             },
             "require": {
@@ -273,7 +273,7 @@
             "type": "library",
             "notification-url": "https://packagist.org/downloads/",
             "description": "The Hack Standard Library",
-            "time": "2017-08-18T01:08:01+00:00"
+            "time": "2017-09-08T00:53:44+00:00"
         },
         {
             "name": "hhvm/type-assert",

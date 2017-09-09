@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<30ea23a867e6231ec4977369f62dd2e4>>
+ * @generated SignedSource<<221c8f47e145771f2ffe34f335069743>>
  */
 namespace Facebook\HHAST\__Private;
-use Facebook\HHAST;
+use namespace Facebook\HHAST;
 
 function editable_syntax_from_json(
   array<string, mixed> $json,

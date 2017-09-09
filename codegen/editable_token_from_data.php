@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ac8474848c404a3bae0187158b6f4c0b>>
+ * @generated SignedSource<<6810c80ae1cc0ed52bb8b0acf280827a>>
  */
 namespace Facebook\HHAST\__Private;
-use Facebook\HHAST;
+use namespace Facebook\HHAST;
 
 function editable_token_from_data(
   string $token_kind,

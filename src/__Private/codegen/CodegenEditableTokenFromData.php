@@ -12,6 +12,7 @@
 
 namespace Facebook\HHAST\__Private;
 
+use type Facebook\HackCodegen\HackBuilderValues;
 use namespace HH\Lib\Str;
 
 final class CodegenEditableTokenFromData extends CodegenBase {
@@ -37,17 +38,17 @@ final class CodegenEditableTokenFromData extends CodegenBase {
               ->codegenHackBuilder()
               ->startSwitch('$token_kind')
               ->addCaseBlocks(
-                new Vector($tokens['noText']),
+                $tokens['noText'],
                 ($token, $body) ==> {
                   $body
                     ->addCase(
-                      var_export(self::underscored($token['token_kind']), true),
+                      self::underscored($token['token_kind']),
+                      HackBuilderValues::export(),
                     )
-                    ->addReturnf(
+                    ->returnCasef(
                       'new HHAST\\%sToken($leading, $trailing)',
                       $token['token_kind'],
-                    )
-                    ->unindent();
+                    );
                 },
               )
               ->addCaseBlocks(
@@ -55,13 +56,13 @@ final class CodegenEditableTokenFromData extends CodegenBase {
                 ($token, $body) ==> {
                   $body
                     ->addCase(
-                      var_export(self::underscored($token['token_kind']), true),
+                      self::underscored($token['token_kind']),
+                      HackBuilderValues::export(),
                     )
-                    ->addReturnf(
+                    ->returnCasef(
                       'new HHAST\\%sToken($leading, $trailing)',
                       $token['token_kind'],
-                    )
-                    ->unindent();
+                    );
                 },
               )
               ->addCaseBlocks(
@@ -69,13 +70,13 @@ final class CodegenEditableTokenFromData extends CodegenBase {
                 ($token, $body) ==> {
                   $body
                     ->addCase(
-                      var_export(self::underscored($token['token_kind']), true),
+                      self::underscored($token['token_kind']),
+                      HackBuilderValues::export(),
                     )
-                    ->addReturnf(
+                    ->returnCasef(
                       'new HHAST\\%sToken($leading, $trailing, $token_text)',
                       $token['token_kind'],
-                    )
-                    ->unindent();
+                    );
                 },
               )
               ->addDefault()
@@ -83,7 +84,7 @@ final class CodegenEditableTokenFromData extends CodegenBase {
                 'throw new \\Exception(\'unexpected token kind: \'.$token_kind);',
               )
               ->endDefault()
-              ->endSwitch_()
+              ->endSwitch()
               ->getCode(),
           ),
       )

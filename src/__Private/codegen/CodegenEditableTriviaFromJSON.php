@@ -43,12 +43,14 @@ final class CodegenEditableTriviaFromJSON extends CodegenBase {
                 new Vector($this->getSchema()['trivia']),
                 ($trivia, $body) ==> {
                   $body
-                    ->addCase(var_export($trivia['trivia_type_name'], true))
-                    ->addReturnf(
+                    ->addCase(
+                      $trivia['trivia_type_name'],
+                      HackBuilderValues::export(),
+                    )
+                    ->returnCasef(
                       'new HHAST\\%s($trivia_text)',
                       $trivia['trivia_kind_name'],
-                    )
-                    ->unindent();
+                    );
                 },
               )
               ->addDefault()
@@ -56,7 +58,7 @@ final class CodegenEditableTriviaFromJSON extends CodegenBase {
                 'throw new \\Exception(\'unexpected JSON kind: \'.(string) $json[\'kind\']);',
               )
               ->endDefault()
-              ->endSwitch_()
+              ->endSwitch()
               ->getCode(),
           ),
       )

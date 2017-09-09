@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<021c314b3372496122c4d9f02c969df3>>
+ * @generated SignedSource<<08af87520bc7eea61cfd081b2b308892>>
  */
 namespace Facebook\HHAST\__Private;
-use Facebook\HHAST;
+use namespace Facebook\HHAST;
 
 function editable_trivia_from_json(
   array<string, mixed> $json,
