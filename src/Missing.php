@@ -13,7 +13,7 @@
 namespace Facebook\HHAST;
 
 final class Missing extends EditableSyntax {
-  private function __construct() {
+  public function __construct() {
     parent::__construct('missing');
   }
 
