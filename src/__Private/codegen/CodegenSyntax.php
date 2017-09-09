@@ -128,7 +128,7 @@ final class CodegenSyntax extends CodegenBase {
           vec[
             sprintf(
               '/* UNSAFE_EXPR */ $json[\'%s_%s\']',
-              $syntax['type_name'],
+              $syntax['prefix'],
               $field['field_name'],
             ),
             '$position',

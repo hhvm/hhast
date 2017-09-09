@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dd7eedd47c2295af51d34847c94b5c48>>
+ * @generated SignedSource<<7a6a5b8d61d91a6a60fb815482cad95d>>
  */
 namespace Facebook\HHAST;
 
@@ -125,7 +125,7 @@ final class SimpleTypeSpecifier extends EditableSyntax {
     string $source,
   ): this {
     $specifier = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['simple_type_specifier_specifier'],
+      /* UNSAFE_EXPR */ $json['simple_type_specifier'],
       $position,
       $source,
     );
@@ -177,7 +177,7 @@ final class LiteralExpression extends EditableSyntax {
     string $source,
   ): this {
     $expression = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['literal_expression_expression'],
+      /* UNSAFE_EXPR */ $json['literal_expression'],
       $position,
       $source,
     );
@@ -229,7 +229,7 @@ final class VariableExpression extends EditableSyntax {
     string $source,
   ): this {
     $expression = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['variable_expression_expression'],
+      /* UNSAFE_EXPR */ $json['variable_expression'],
       $position,
       $source,
     );
@@ -281,7 +281,7 @@ final class QualifiedNameExpression extends EditableSyntax {
     string $source,
   ): this {
     $expression = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['qualified_name_expression_expression'],
+      /* UNSAFE_EXPR */ $json['qualified_name_expression'],
       $position,
       $source,
     );
@@ -333,7 +333,7 @@ final class PipeVariableExpression extends EditableSyntax {
     string $source,
   ): this {
     $expression = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['pipe_variable_expression_expression'],
+      /* UNSAFE_EXPR */ $json['pipe_variable_expression'],
       $position,
       $source,
     );
@@ -411,55 +411,55 @@ final class EnumDeclaration extends EditableSyntax {
     string $source,
   ): this {
     $attribute_spec = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['enum_declaration_attribute_spec'],
+      /* UNSAFE_EXPR */ $json['enum_attribute_spec'],
       $position,
       $source,
     );
     $position += $attribute_spec->width();
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['enum_declaration_keyword'],
+      /* UNSAFE_EXPR */ $json['enum_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $name = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['enum_declaration_name'],
+      /* UNSAFE_EXPR */ $json['enum_name'],
       $position,
       $source,
     );
     $position += $name->width();
     $colon = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['enum_declaration_colon'],
+      /* UNSAFE_EXPR */ $json['enum_colon'],
       $position,
       $source,
     );
     $position += $colon->width();
     $base = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['enum_declaration_base'],
+      /* UNSAFE_EXPR */ $json['enum_base'],
       $position,
       $source,
     );
     $position += $base->width();
     $type = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['enum_declaration_type'],
+      /* UNSAFE_EXPR */ $json['enum_type'],
       $position,
       $source,
     );
     $position += $type->width();
     $left_brace = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['enum_declaration_left_brace'],
+      /* UNSAFE_EXPR */ $json['enum_left_brace'],
       $position,
       $source,
     );
     $position += $left_brace->width();
     $enumerators = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['enum_declaration_enumerators'],
+      /* UNSAFE_EXPR */ $json['enum_enumerators'],
       $position,
       $source,
     );
     $position += $enumerators->width();
     $right_brace = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['enum_declaration_right_brace'],
+      /* UNSAFE_EXPR */ $json['enum_right_brace'],
       $position,
       $source,
     );
@@ -851,49 +851,49 @@ final class AliasDeclaration extends EditableSyntax {
     string $source,
   ): this {
     $attribute_spec = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['alias_declaration_attribute_spec'],
+      /* UNSAFE_EXPR */ $json['alias_attribute_spec'],
       $position,
       $source,
     );
     $position += $attribute_spec->width();
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['alias_declaration_keyword'],
+      /* UNSAFE_EXPR */ $json['alias_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $name = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['alias_declaration_name'],
+      /* UNSAFE_EXPR */ $json['alias_name'],
       $position,
       $source,
     );
     $position += $name->width();
     $generic_parameter = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['alias_declaration_generic_parameter'],
+      /* UNSAFE_EXPR */ $json['alias_generic_parameter'],
       $position,
       $source,
     );
     $position += $generic_parameter->width();
     $constraint = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['alias_declaration_constraint'],
+      /* UNSAFE_EXPR */ $json['alias_constraint'],
       $position,
       $source,
     );
     $position += $constraint->width();
     $equal = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['alias_declaration_equal'],
+      /* UNSAFE_EXPR */ $json['alias_equal'],
       $position,
       $source,
     );
     $position += $equal->width();
     $type = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['alias_declaration_type'],
+      /* UNSAFE_EXPR */ $json['alias_type'],
       $position,
       $source,
     );
     $position += $type->width();
     $semicolon = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['alias_declaration_semicolon'],
+      /* UNSAFE_EXPR */ $json['alias_semicolon'],
       $position,
       $source,
     );
@@ -1127,25 +1127,25 @@ final class PropertyDeclaration extends EditableSyntax {
     string $source,
   ): this {
     $modifiers = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['property_declaration_modifiers'],
+      /* UNSAFE_EXPR */ $json['property_modifiers'],
       $position,
       $source,
     );
     $position += $modifiers->width();
     $type = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['property_declaration_type'],
+      /* UNSAFE_EXPR */ $json['property_type'],
       $position,
       $source,
     );
     $position += $type->width();
     $declarators = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['property_declaration_declarators'],
+      /* UNSAFE_EXPR */ $json['property_declarators'],
       $position,
       $source,
     );
     $position += $declarators->width();
     $semicolon = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['property_declaration_semicolon'],
+      /* UNSAFE_EXPR */ $json['property_semicolon'],
       $position,
       $source,
     );
@@ -1244,13 +1244,13 @@ final class PropertyDeclarator extends EditableSyntax {
     string $source,
   ): this {
     $name = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['property_declarator_name'],
+      /* UNSAFE_EXPR */ $json['property_name'],
       $position,
       $source,
     );
     $position += $name->width();
     $initializer = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['property_declarator_initializer'],
+      /* UNSAFE_EXPR */ $json['property_initializer'],
       $position,
       $source,
     );
@@ -1320,19 +1320,19 @@ final class NamespaceDeclaration extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['namespace_declaration_keyword'],
+      /* UNSAFE_EXPR */ $json['namespace_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $name = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['namespace_declaration_name'],
+      /* UNSAFE_EXPR */ $json['namespace_name'],
       $position,
       $source,
     );
     $position += $name->width();
     $body = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['namespace_declaration_body'],
+      /* UNSAFE_EXPR */ $json['namespace_body'],
       $position,
       $source,
     );
@@ -1416,19 +1416,19 @@ final class NamespaceBody extends EditableSyntax {
     string $source,
   ): this {
     $left_brace = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['namespace_body_left_brace'],
+      /* UNSAFE_EXPR */ $json['namespace_left_brace'],
       $position,
       $source,
     );
     $position += $left_brace->width();
     $declarations = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['namespace_body_declarations'],
+      /* UNSAFE_EXPR */ $json['namespace_declarations'],
       $position,
       $source,
     );
     $position += $declarations->width();
     $right_brace = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['namespace_body_right_brace'],
+      /* UNSAFE_EXPR */ $json['namespace_right_brace'],
       $position,
       $source,
     );
@@ -1504,7 +1504,7 @@ final class NamespaceEmptyBody extends EditableSyntax {
     string $source,
   ): this {
     $semicolon = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['namespace_empty_body_semicolon'],
+      /* UNSAFE_EXPR */ $json['namespace_semicolon'],
       $position,
       $source,
     );
@@ -1567,25 +1567,25 @@ final class NamespaceUseDeclaration extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['namespace_use_declaration_keyword'],
+      /* UNSAFE_EXPR */ $json['namespace_use_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $kind = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['namespace_use_declaration_kind'],
+      /* UNSAFE_EXPR */ $json['namespace_use_kind'],
       $position,
       $source,
     );
     $position += $kind->width();
     $clauses = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['namespace_use_declaration_clauses'],
+      /* UNSAFE_EXPR */ $json['namespace_use_clauses'],
       $position,
       $source,
     );
     $position += $clauses->width();
     $semicolon = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['namespace_use_declaration_semicolon'],
+      /* UNSAFE_EXPR */ $json['namespace_use_semicolon'],
       $position,
       $source,
     );
@@ -1693,43 +1693,43 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['namespace_group_use_declaration_keyword'],
+      /* UNSAFE_EXPR */ $json['namespace_group_use_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $kind = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['namespace_group_use_declaration_kind'],
+      /* UNSAFE_EXPR */ $json['namespace_group_use_kind'],
       $position,
       $source,
     );
     $position += $kind->width();
     $prefix = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['namespace_group_use_declaration_prefix'],
+      /* UNSAFE_EXPR */ $json['namespace_group_use_prefix'],
       $position,
       $source,
     );
     $position += $prefix->width();
     $left_brace = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['namespace_group_use_declaration_left_brace'],
+      /* UNSAFE_EXPR */ $json['namespace_group_use_left_brace'],
       $position,
       $source,
     );
     $position += $left_brace->width();
     $clauses = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['namespace_group_use_declaration_clauses'],
+      /* UNSAFE_EXPR */ $json['namespace_group_use_clauses'],
       $position,
       $source,
     );
     $position += $clauses->width();
     $right_brace = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['namespace_group_use_declaration_right_brace'],
+      /* UNSAFE_EXPR */ $json['namespace_group_use_right_brace'],
       $position,
       $source,
     );
     $position += $right_brace->width();
     $semicolon = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['namespace_group_use_declaration_semicolon'],
+      /* UNSAFE_EXPR */ $json['namespace_group_use_semicolon'],
       $position,
       $source,
     );
@@ -1932,25 +1932,25 @@ final class NamespaceUseClause extends EditableSyntax {
     string $source,
   ): this {
     $clause_kind = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['namespace_use_clause_clause_kind'],
+      /* UNSAFE_EXPR */ $json['namespace_use_clause_kind'],
       $position,
       $source,
     );
     $position += $clause_kind->width();
     $name = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['namespace_use_clause_name'],
+      /* UNSAFE_EXPR */ $json['namespace_use_name'],
       $position,
       $source,
     );
     $position += $name->width();
     $as = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['namespace_use_clause_as'],
+      /* UNSAFE_EXPR */ $json['namespace_use_as'],
       $position,
       $source,
     );
     $position += $as->width();
     $alias = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['namespace_use_clause_alias'],
+      /* UNSAFE_EXPR */ $json['namespace_use_alias'],
       $position,
       $source,
     );
@@ -2045,19 +2045,19 @@ final class FunctionDeclaration extends EditableSyntax {
     string $source,
   ): this {
     $attribute_spec = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['function_declaration_attribute_spec'],
+      /* UNSAFE_EXPR */ $json['function_attribute_spec'],
       $position,
       $source,
     );
     $position += $attribute_spec->width();
     $declaration_header = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['function_declaration_declaration_header'],
+      /* UNSAFE_EXPR */ $json['function_declaration_header'],
       $position,
       $source,
     );
     $position += $declaration_header->width();
     $body = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['function_declaration_body'],
+      /* UNSAFE_EXPR */ $json['function_body'],
       $position,
       $source,
     );
@@ -2170,75 +2170,73 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     string $source,
   ): this {
     $async = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['function_declaration_header_async'],
+      /* UNSAFE_EXPR */ $json['function_async'],
       $position,
       $source,
     );
     $position += $async->width();
     $coroutine = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['function_declaration_header_coroutine'],
+      /* UNSAFE_EXPR */ $json['function_coroutine'],
       $position,
       $source,
     );
     $position += $coroutine->width();
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['function_declaration_header_keyword'],
+      /* UNSAFE_EXPR */ $json['function_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $ampersand = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['function_declaration_header_ampersand'],
+      /* UNSAFE_EXPR */ $json['function_ampersand'],
       $position,
       $source,
     );
     $position += $ampersand->width();
     $name = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['function_declaration_header_name'],
+      /* UNSAFE_EXPR */ $json['function_name'],
       $position,
       $source,
     );
     $position += $name->width();
     $type_parameter_list = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json[
-        'function_declaration_header_type_parameter_list'
-      ],
+      /* UNSAFE_EXPR */ $json['function_type_parameter_list'],
       $position,
       $source,
     );
     $position += $type_parameter_list->width();
     $left_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['function_declaration_header_left_paren'],
+      /* UNSAFE_EXPR */ $json['function_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->width();
     $parameter_list = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['function_declaration_header_parameter_list'],
+      /* UNSAFE_EXPR */ $json['function_parameter_list'],
       $position,
       $source,
     );
     $position += $parameter_list->width();
     $right_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['function_declaration_header_right_paren'],
+      /* UNSAFE_EXPR */ $json['function_right_paren'],
       $position,
       $source,
     );
     $position += $right_paren->width();
     $colon = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['function_declaration_header_colon'],
+      /* UNSAFE_EXPR */ $json['function_colon'],
       $position,
       $source,
     );
     $position += $colon->width();
     $type = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['function_declaration_header_type'],
+      /* UNSAFE_EXPR */ $json['function_type'],
       $position,
       $source,
     );
     $position += $type->width();
     $where_clause = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['function_declaration_header_where_clause'],
+      /* UNSAFE_EXPR */ $json['function_where_clause'],
       $position,
       $source,
     );
@@ -2782,31 +2780,31 @@ final class MethodishDeclaration extends EditableSyntax {
     string $source,
   ): this {
     $attribute = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['methodish_declaration_attribute'],
+      /* UNSAFE_EXPR */ $json['methodish_attribute'],
       $position,
       $source,
     );
     $position += $attribute->width();
     $modifiers = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['methodish_declaration_modifiers'],
+      /* UNSAFE_EXPR */ $json['methodish_modifiers'],
       $position,
       $source,
     );
     $position += $modifiers->width();
     $function_decl_header = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['methodish_declaration_function_decl_header'],
+      /* UNSAFE_EXPR */ $json['methodish_function_decl_header'],
       $position,
       $source,
     );
     $position += $function_decl_header->width();
     $function_body = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['methodish_declaration_function_body'],
+      /* UNSAFE_EXPR */ $json['methodish_function_body'],
       $position,
       $source,
     );
     $position += $function_body->width();
     $semicolon = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['methodish_declaration_semicolon'],
+      /* UNSAFE_EXPR */ $json['methodish_semicolon'],
       $position,
       $source,
     );
@@ -2976,61 +2974,61 @@ final class ClassishDeclaration extends EditableSyntax {
     string $source,
   ): this {
     $attribute = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['classish_declaration_attribute'],
+      /* UNSAFE_EXPR */ $json['classish_attribute'],
       $position,
       $source,
     );
     $position += $attribute->width();
     $modifiers = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['classish_declaration_modifiers'],
+      /* UNSAFE_EXPR */ $json['classish_modifiers'],
       $position,
       $source,
     );
     $position += $modifiers->width();
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['classish_declaration_keyword'],
+      /* UNSAFE_EXPR */ $json['classish_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $name = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['classish_declaration_name'],
+      /* UNSAFE_EXPR */ $json['classish_name'],
       $position,
       $source,
     );
     $position += $name->width();
     $type_parameters = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['classish_declaration_type_parameters'],
+      /* UNSAFE_EXPR */ $json['classish_type_parameters'],
       $position,
       $source,
     );
     $position += $type_parameters->width();
     $extends_keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['classish_declaration_extends_keyword'],
+      /* UNSAFE_EXPR */ $json['classish_extends_keyword'],
       $position,
       $source,
     );
     $position += $extends_keyword->width();
     $extends_list = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['classish_declaration_extends_list'],
+      /* UNSAFE_EXPR */ $json['classish_extends_list'],
       $position,
       $source,
     );
     $position += $extends_list->width();
     $implements_keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['classish_declaration_implements_keyword'],
+      /* UNSAFE_EXPR */ $json['classish_implements_keyword'],
       $position,
       $source,
     );
     $position += $implements_keyword->width();
     $implements_list = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['classish_declaration_implements_list'],
+      /* UNSAFE_EXPR */ $json['classish_implements_list'],
       $position,
       $source,
     );
     $position += $implements_list->width();
     $body = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['classish_declaration_body'],
+      /* UNSAFE_EXPR */ $json['classish_body'],
       $position,
       $source,
     );
@@ -3791,25 +3789,25 @@ final class RequireClause extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['require_clause_keyword'],
+      /* UNSAFE_EXPR */ $json['require_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $kind = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['require_clause_kind'],
+      /* UNSAFE_EXPR */ $json['require_kind'],
       $position,
       $source,
     );
     $position += $kind->width();
     $name = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['require_clause_name'],
+      /* UNSAFE_EXPR */ $json['require_name'],
       $position,
       $source,
     );
     $position += $name->width();
     $semicolon = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['require_clause_semicolon'],
+      /* UNSAFE_EXPR */ $json['require_semicolon'],
       $position,
       $source,
     );
@@ -3910,31 +3908,31 @@ final class ConstDeclaration extends EditableSyntax {
     string $source,
   ): this {
     $abstract = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['const_declaration_abstract'],
+      /* UNSAFE_EXPR */ $json['const_abstract'],
       $position,
       $source,
     );
     $position += $abstract->width();
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['const_declaration_keyword'],
+      /* UNSAFE_EXPR */ $json['const_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $type_specifier = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['const_declaration_type_specifier'],
+      /* UNSAFE_EXPR */ $json['const_type_specifier'],
       $position,
       $source,
     );
     $position += $type_specifier->width();
     $declarators = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['const_declaration_declarators'],
+      /* UNSAFE_EXPR */ $json['const_declarators'],
       $position,
       $source,
     );
     $position += $declarators->width();
     $semicolon = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['const_declaration_semicolon'],
+      /* UNSAFE_EXPR */ $json['const_semicolon'],
       $position,
       $source,
     );
@@ -4166,49 +4164,49 @@ final class TypeConstDeclaration extends EditableSyntax {
     string $source,
   ): this {
     $abstract = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['type_const_declaration_abstract'],
+      /* UNSAFE_EXPR */ $json['type_const_abstract'],
       $position,
       $source,
     );
     $position += $abstract->width();
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['type_const_declaration_keyword'],
+      /* UNSAFE_EXPR */ $json['type_const_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $type_keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['type_const_declaration_type_keyword'],
+      /* UNSAFE_EXPR */ $json['type_const_type_keyword'],
       $position,
       $source,
     );
     $position += $type_keyword->width();
     $name = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['type_const_declaration_name'],
+      /* UNSAFE_EXPR */ $json['type_const_name'],
       $position,
       $source,
     );
     $position += $name->width();
     $type_constraint = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['type_const_declaration_type_constraint'],
+      /* UNSAFE_EXPR */ $json['type_const_type_constraint'],
       $position,
       $source,
     );
     $position += $type_constraint->width();
     $equal = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['type_const_declaration_equal'],
+      /* UNSAFE_EXPR */ $json['type_const_equal'],
       $position,
       $source,
     );
     $position += $equal->width();
     $type_specifier = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['type_const_declaration_type_specifier'],
+      /* UNSAFE_EXPR */ $json['type_const_type_specifier'],
       $position,
       $source,
     );
     $position += $type_specifier->width();
     $semicolon = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['type_const_declaration_semicolon'],
+      /* UNSAFE_EXPR */ $json['type_const_semicolon'],
       $position,
       $source,
     );
@@ -4520,31 +4518,31 @@ final class ParameterDeclaration extends EditableSyntax {
     string $source,
   ): this {
     $attribute = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['parameter_declaration_attribute'],
+      /* UNSAFE_EXPR */ $json['parameter_attribute'],
       $position,
       $source,
     );
     $position += $attribute->width();
     $visibility = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['parameter_declaration_visibility'],
+      /* UNSAFE_EXPR */ $json['parameter_visibility'],
       $position,
       $source,
     );
     $position += $visibility->width();
     $type = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['parameter_declaration_type'],
+      /* UNSAFE_EXPR */ $json['parameter_type'],
       $position,
       $source,
     );
     $position += $type->width();
     $name = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['parameter_declaration_name'],
+      /* UNSAFE_EXPR */ $json['parameter_name'],
       $position,
       $source,
     );
     $position += $name->width();
     $default_value = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['parameter_declaration_default_value'],
+      /* UNSAFE_EXPR */ $json['parameter_default_value'],
       $position,
       $source,
     );
@@ -4946,13 +4944,13 @@ final class InclusionExpression extends EditableSyntax {
     string $source,
   ): this {
     $require = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['inclusion_expression_require'],
+      /* UNSAFE_EXPR */ $json['inclusion_require'],
       $position,
       $source,
     );
     $position += $require->width();
     $filename = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['inclusion_expression_filename'],
+      /* UNSAFE_EXPR */ $json['inclusion_filename'],
       $position,
       $source,
     );
@@ -5019,13 +5017,13 @@ final class InclusionDirective extends EditableSyntax {
     string $source,
   ): this {
     $expression = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['inclusion_directive_expression'],
+      /* UNSAFE_EXPR */ $json['inclusion_expression'],
       $position,
       $source,
     );
     $position += $expression->width();
     $semicolon = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['inclusion_directive_semicolon'],
+      /* UNSAFE_EXPR */ $json['inclusion_semicolon'],
       $position,
       $source,
     );
@@ -5097,19 +5095,19 @@ final class CompoundStatement extends EditableSyntax {
     string $source,
   ): this {
     $left_brace = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['compound_statement_left_brace'],
+      /* UNSAFE_EXPR */ $json['compound_left_brace'],
       $position,
       $source,
     );
     $position += $left_brace->width();
     $statements = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['compound_statement_statements'],
+      /* UNSAFE_EXPR */ $json['compound_statements'],
       $position,
       $source,
     );
     $position += $statements->width();
     $right_brace = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['compound_statement_right_brace'],
+      /* UNSAFE_EXPR */ $json['compound_right_brace'],
       $position,
       $source,
     );
@@ -5271,25 +5269,25 @@ final class MarkupSection extends EditableSyntax {
     string $source,
   ): this {
     $prefix = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['markup_section_prefix'],
+      /* UNSAFE_EXPR */ $json['markup_prefix'],
       $position,
       $source,
     );
     $position += $prefix->width();
     $text = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['markup_section_text'],
+      /* UNSAFE_EXPR */ $json['markup_text'],
       $position,
       $source,
     );
     $position += $text->width();
     $suffix = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['markup_section_suffix'],
+      /* UNSAFE_EXPR */ $json['markup_suffix'],
       $position,
       $source,
     );
     $position += $suffix->width();
     $expression = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['markup_section_expression'],
+      /* UNSAFE_EXPR */ $json['markup_expression'],
       $position,
       $source,
     );
@@ -5467,31 +5465,31 @@ final class UnsetStatement extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['unset_statement_keyword'],
+      /* UNSAFE_EXPR */ $json['unset_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $left_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['unset_statement_left_paren'],
+      /* UNSAFE_EXPR */ $json['unset_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->width();
     $variables = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['unset_statement_variables'],
+      /* UNSAFE_EXPR */ $json['unset_variables'],
       $position,
       $source,
     );
     $position += $variables->width();
     $right_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['unset_statement_right_paren'],
+      /* UNSAFE_EXPR */ $json['unset_right_paren'],
       $position,
       $source,
     );
     $position += $right_paren->width();
     $semicolon = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['unset_statement_semicolon'],
+      /* UNSAFE_EXPR */ $json['unset_semicolon'],
       $position,
       $source,
     );
@@ -5635,31 +5633,31 @@ final class WhileStatement extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['while_statement_keyword'],
+      /* UNSAFE_EXPR */ $json['while_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $left_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['while_statement_left_paren'],
+      /* UNSAFE_EXPR */ $json['while_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->width();
     $condition = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['while_statement_condition'],
+      /* UNSAFE_EXPR */ $json['while_condition'],
       $position,
       $source,
     );
     $position += $condition->width();
     $right_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['while_statement_right_paren'],
+      /* UNSAFE_EXPR */ $json['while_right_paren'],
       $position,
       $source,
     );
     $position += $right_paren->width();
     $body = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['while_statement_body'],
+      /* UNSAFE_EXPR */ $json['while_body'],
       $position,
       $source,
     );
@@ -5807,43 +5805,43 @@ final class IfStatement extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['if_statement_keyword'],
+      /* UNSAFE_EXPR */ $json['if_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $left_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['if_statement_left_paren'],
+      /* UNSAFE_EXPR */ $json['if_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->width();
     $condition = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['if_statement_condition'],
+      /* UNSAFE_EXPR */ $json['if_condition'],
       $position,
       $source,
     );
     $position += $condition->width();
     $right_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['if_statement_right_paren'],
+      /* UNSAFE_EXPR */ $json['if_right_paren'],
       $position,
       $source,
     );
     $position += $right_paren->width();
     $statement = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['if_statement_statement'],
+      /* UNSAFE_EXPR */ $json['if_statement'],
       $position,
       $source,
     );
     $position += $statement->width();
     $elseif_clauses = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['if_statement_elseif_clauses'],
+      /* UNSAFE_EXPR */ $json['if_elseif_clauses'],
       $position,
       $source,
     );
     $position += $elseif_clauses->width();
     $else_clause = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['if_statement_else_clause'],
+      /* UNSAFE_EXPR */ $json['if_else_clause'],
       $position,
       $source,
     );
@@ -6050,31 +6048,31 @@ final class ElseifClause extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['elseif_clause_keyword'],
+      /* UNSAFE_EXPR */ $json['elseif_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $left_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['elseif_clause_left_paren'],
+      /* UNSAFE_EXPR */ $json['elseif_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->width();
     $condition = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['elseif_clause_condition'],
+      /* UNSAFE_EXPR */ $json['elseif_condition'],
       $position,
       $source,
     );
     $position += $condition->width();
     $right_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['elseif_clause_right_paren'],
+      /* UNSAFE_EXPR */ $json['elseif_right_paren'],
       $position,
       $source,
     );
     $position += $right_paren->width();
     $statement = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['elseif_clause_statement'],
+      /* UNSAFE_EXPR */ $json['elseif_statement'],
       $position,
       $source,
     );
@@ -6209,13 +6207,13 @@ final class ElseClause extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['else_clause_keyword'],
+      /* UNSAFE_EXPR */ $json['else_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $statement = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['else_clause_statement'],
+      /* UNSAFE_EXPR */ $json['else_statement'],
       $position,
       $source,
     );
@@ -6288,25 +6286,25 @@ final class TryStatement extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['try_statement_keyword'],
+      /* UNSAFE_EXPR */ $json['try_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $compound_statement = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['try_statement_compound_statement'],
+      /* UNSAFE_EXPR */ $json['try_compound_statement'],
       $position,
       $source,
     );
     $position += $compound_statement->width();
     $catch_clauses = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['try_statement_catch_clauses'],
+      /* UNSAFE_EXPR */ $json['try_catch_clauses'],
       $position,
       $source,
     );
     $position += $catch_clauses->width();
     $finally_clause = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['try_statement_finally_clause'],
+      /* UNSAFE_EXPR */ $json['try_finally_clause'],
       $position,
       $source,
     );
@@ -6438,37 +6436,37 @@ final class CatchClause extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['catch_clause_keyword'],
+      /* UNSAFE_EXPR */ $json['catch_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $left_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['catch_clause_left_paren'],
+      /* UNSAFE_EXPR */ $json['catch_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->width();
     $type = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['catch_clause_type'],
+      /* UNSAFE_EXPR */ $json['catch_type'],
       $position,
       $source,
     );
     $position += $type->width();
     $variable = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['catch_clause_variable'],
+      /* UNSAFE_EXPR */ $json['catch_variable'],
       $position,
       $source,
     );
     $position += $variable->width();
     $right_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['catch_clause_right_paren'],
+      /* UNSAFE_EXPR */ $json['catch_right_paren'],
       $position,
       $source,
     );
     $position += $right_paren->width();
     $body = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['catch_clause_body'],
+      /* UNSAFE_EXPR */ $json['catch_body'],
       $position,
       $source,
     );
@@ -6623,13 +6621,13 @@ final class FinallyClause extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['finally_clause_keyword'],
+      /* UNSAFE_EXPR */ $json['finally_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $body = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['finally_clause_body'],
+      /* UNSAFE_EXPR */ $json['finally_body'],
       $position,
       $source,
     );
@@ -6711,43 +6709,43 @@ final class DoStatement extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['do_statement_keyword'],
+      /* UNSAFE_EXPR */ $json['do_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $body = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['do_statement_body'],
+      /* UNSAFE_EXPR */ $json['do_body'],
       $position,
       $source,
     );
     $position += $body->width();
     $while_keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['do_statement_while_keyword'],
+      /* UNSAFE_EXPR */ $json['do_while_keyword'],
       $position,
       $source,
     );
     $position += $while_keyword->width();
     $left_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['do_statement_left_paren'],
+      /* UNSAFE_EXPR */ $json['do_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->width();
     $condition = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['do_statement_condition'],
+      /* UNSAFE_EXPR */ $json['do_condition'],
       $position,
       $source,
     );
     $position += $condition->width();
     $right_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['do_statement_right_paren'],
+      /* UNSAFE_EXPR */ $json['do_right_paren'],
       $position,
       $source,
     );
     $position += $right_paren->width();
     $semicolon = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['do_statement_semicolon'],
+      /* UNSAFE_EXPR */ $json['do_semicolon'],
       $position,
       $source,
     );
@@ -6965,55 +6963,55 @@ final class ForStatement extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['for_statement_keyword'],
+      /* UNSAFE_EXPR */ $json['for_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $left_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['for_statement_left_paren'],
+      /* UNSAFE_EXPR */ $json['for_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->width();
     $initializer = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['for_statement_initializer'],
+      /* UNSAFE_EXPR */ $json['for_initializer'],
       $position,
       $source,
     );
     $position += $initializer->width();
     $first_semicolon = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['for_statement_first_semicolon'],
+      /* UNSAFE_EXPR */ $json['for_first_semicolon'],
       $position,
       $source,
     );
     $position += $first_semicolon->width();
     $control = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['for_statement_control'],
+      /* UNSAFE_EXPR */ $json['for_control'],
       $position,
       $source,
     );
     $position += $control->width();
     $second_semicolon = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['for_statement_second_semicolon'],
+      /* UNSAFE_EXPR */ $json['for_second_semicolon'],
       $position,
       $source,
     );
     $position += $second_semicolon->width();
     $end_of_loop = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['for_statement_end_of_loop'],
+      /* UNSAFE_EXPR */ $json['for_end_of_loop'],
       $position,
       $source,
     );
     $position += $end_of_loop->width();
     $right_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['for_statement_right_paren'],
+      /* UNSAFE_EXPR */ $json['for_right_paren'],
       $position,
       $source,
     );
     $position += $right_paren->width();
     $body = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['for_statement_body'],
+      /* UNSAFE_EXPR */ $json['for_body'],
       $position,
       $source,
     );
@@ -7296,61 +7294,61 @@ final class ForeachStatement extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['foreach_statement_keyword'],
+      /* UNSAFE_EXPR */ $json['foreach_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $left_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['foreach_statement_left_paren'],
+      /* UNSAFE_EXPR */ $json['foreach_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->width();
     $collection = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['foreach_statement_collection'],
+      /* UNSAFE_EXPR */ $json['foreach_collection'],
       $position,
       $source,
     );
     $position += $collection->width();
     $await_keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['foreach_statement_await_keyword'],
+      /* UNSAFE_EXPR */ $json['foreach_await_keyword'],
       $position,
       $source,
     );
     $position += $await_keyword->width();
     $as = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['foreach_statement_as'],
+      /* UNSAFE_EXPR */ $json['foreach_as'],
       $position,
       $source,
     );
     $position += $as->width();
     $key = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['foreach_statement_key'],
+      /* UNSAFE_EXPR */ $json['foreach_key'],
       $position,
       $source,
     );
     $position += $key->width();
     $arrow = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['foreach_statement_arrow'],
+      /* UNSAFE_EXPR */ $json['foreach_arrow'],
       $position,
       $source,
     );
     $position += $arrow->width();
     $value = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['foreach_statement_value'],
+      /* UNSAFE_EXPR */ $json['foreach_value'],
       $position,
       $source,
     );
     $position += $value->width();
     $right_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['foreach_statement_right_paren'],
+      /* UNSAFE_EXPR */ $json['foreach_right_paren'],
       $position,
       $source,
     );
     $position += $right_paren->width();
     $body = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['foreach_statement_body'],
+      /* UNSAFE_EXPR */ $json['foreach_body'],
       $position,
       $source,
     );
@@ -7655,43 +7653,43 @@ final class SwitchStatement extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['switch_statement_keyword'],
+      /* UNSAFE_EXPR */ $json['switch_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $left_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['switch_statement_left_paren'],
+      /* UNSAFE_EXPR */ $json['switch_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->width();
     $expression = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['switch_statement_expression'],
+      /* UNSAFE_EXPR */ $json['switch_expression'],
       $position,
       $source,
     );
     $position += $expression->width();
     $right_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['switch_statement_right_paren'],
+      /* UNSAFE_EXPR */ $json['switch_right_paren'],
       $position,
       $source,
     );
     $position += $right_paren->width();
     $left_brace = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['switch_statement_left_brace'],
+      /* UNSAFE_EXPR */ $json['switch_left_brace'],
       $position,
       $source,
     );
     $position += $left_brace->width();
     $sections = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['switch_statement_sections'],
+      /* UNSAFE_EXPR */ $json['switch_sections'],
       $position,
       $source,
     );
     $position += $sections->width();
     $right_brace = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['switch_statement_right_brace'],
+      /* UNSAFE_EXPR */ $json['switch_right_brace'],
       $position,
       $source,
     );
@@ -7984,13 +7982,13 @@ final class SwitchFallthrough extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['switch_fallthrough_keyword'],
+      /* UNSAFE_EXPR */ $json['fallthrough_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $semicolon = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['switch_fallthrough_semicolon'],
+      /* UNSAFE_EXPR */ $json['fallthrough_semicolon'],
       $position,
       $source,
     );
@@ -8060,19 +8058,19 @@ final class CaseLabel extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['case_label_keyword'],
+      /* UNSAFE_EXPR */ $json['case_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $expression = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['case_label_expression'],
+      /* UNSAFE_EXPR */ $json['case_expression'],
       $position,
       $source,
     );
     $position += $expression->width();
     $colon = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['case_label_colon'],
+      /* UNSAFE_EXPR */ $json['case_colon'],
       $position,
       $source,
     );
@@ -8150,13 +8148,13 @@ final class DefaultLabel extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['default_label_keyword'],
+      /* UNSAFE_EXPR */ $json['default_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $colon = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['default_label_colon'],
+      /* UNSAFE_EXPR */ $json['default_colon'],
       $position,
       $source,
     );
@@ -8226,19 +8224,19 @@ final class ReturnStatement extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['return_statement_keyword'],
+      /* UNSAFE_EXPR */ $json['return_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $expression = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['return_statement_expression'],
+      /* UNSAFE_EXPR */ $json['return_expression'],
       $position,
       $source,
     );
     $position += $expression->width();
     $semicolon = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['return_statement_semicolon'],
+      /* UNSAFE_EXPR */ $json['return_semicolon'],
       $position,
       $source,
     );
@@ -8488,19 +8486,19 @@ final class ThrowStatement extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['throw_statement_keyword'],
+      /* UNSAFE_EXPR */ $json['throw_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $expression = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['throw_statement_expression'],
+      /* UNSAFE_EXPR */ $json['throw_expression'],
       $position,
       $source,
     );
     $position += $expression->width();
     $semicolon = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['throw_statement_semicolon'],
+      /* UNSAFE_EXPR */ $json['throw_semicolon'],
       $position,
       $source,
     );
@@ -8584,19 +8582,19 @@ final class BreakStatement extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['break_statement_keyword'],
+      /* UNSAFE_EXPR */ $json['break_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $level = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['break_statement_level'],
+      /* UNSAFE_EXPR */ $json['break_level'],
       $position,
       $source,
     );
     $position += $level->width();
     $semicolon = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['break_statement_semicolon'],
+      /* UNSAFE_EXPR */ $json['break_semicolon'],
       $position,
       $source,
     );
@@ -8680,19 +8678,19 @@ final class ContinueStatement extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['continue_statement_keyword'],
+      /* UNSAFE_EXPR */ $json['continue_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $level = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['continue_statement_level'],
+      /* UNSAFE_EXPR */ $json['continue_level'],
       $position,
       $source,
     );
     $position += $level->width();
     $semicolon = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['continue_statement_semicolon'],
+      /* UNSAFE_EXPR */ $json['continue_semicolon'],
       $position,
       $source,
     );
@@ -8776,19 +8774,19 @@ final class FunctionStaticStatement extends EditableSyntax {
     string $source,
   ): this {
     $static_keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['function_static_statement_static_keyword'],
+      /* UNSAFE_EXPR */ $json['static_static_keyword'],
       $position,
       $source,
     );
     $position += $static_keyword->width();
     $declarations = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['function_static_statement_declarations'],
+      /* UNSAFE_EXPR */ $json['static_declarations'],
       $position,
       $source,
     );
     $position += $declarations->width();
     $semicolon = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['function_static_statement_semicolon'],
+      /* UNSAFE_EXPR */ $json['static_semicolon'],
       $position,
       $source,
     );
@@ -8870,13 +8868,13 @@ final class StaticDeclarator extends EditableSyntax {
     string $source,
   ): this {
     $name = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['static_declarator_name'],
+      /* UNSAFE_EXPR */ $json['static_name'],
       $position,
       $source,
     );
     $position += $name->width();
     $initializer = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['static_declarator_initializer'],
+      /* UNSAFE_EXPR */ $json['static_initializer'],
       $position,
       $source,
     );
@@ -8946,19 +8944,19 @@ final class EchoStatement extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['echo_statement_keyword'],
+      /* UNSAFE_EXPR */ $json['echo_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $expressions = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['echo_statement_expressions'],
+      /* UNSAFE_EXPR */ $json['echo_expressions'],
       $position,
       $source,
     );
     $position += $expressions->width();
     $semicolon = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['echo_statement_semicolon'],
+      /* UNSAFE_EXPR */ $json['echo_semicolon'],
       $position,
       $source,
     );
@@ -9042,19 +9040,19 @@ final class GlobalStatement extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['global_statement_keyword'],
+      /* UNSAFE_EXPR */ $json['global_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $variables = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['global_statement_variables'],
+      /* UNSAFE_EXPR */ $json['global_variables'],
       $position,
       $source,
     );
     $position += $variables->width();
     $semicolon = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['global_statement_semicolon'],
+      /* UNSAFE_EXPR */ $json['global_semicolon'],
       $position,
       $source,
     );
@@ -9232,67 +9230,67 @@ final class AnonymousFunction extends EditableSyntax {
     string $source,
   ): this {
     $static_keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['anonymous_function_static_keyword'],
+      /* UNSAFE_EXPR */ $json['anonymous_static_keyword'],
       $position,
       $source,
     );
     $position += $static_keyword->width();
     $async_keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['anonymous_function_async_keyword'],
+      /* UNSAFE_EXPR */ $json['anonymous_async_keyword'],
       $position,
       $source,
     );
     $position += $async_keyword->width();
     $coroutine_keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['anonymous_function_coroutine_keyword'],
+      /* UNSAFE_EXPR */ $json['anonymous_coroutine_keyword'],
       $position,
       $source,
     );
     $position += $coroutine_keyword->width();
     $function_keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['anonymous_function_function_keyword'],
+      /* UNSAFE_EXPR */ $json['anonymous_function_keyword'],
       $position,
       $source,
     );
     $position += $function_keyword->width();
     $left_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['anonymous_function_left_paren'],
+      /* UNSAFE_EXPR */ $json['anonymous_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->width();
     $parameters = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['anonymous_function_parameters'],
+      /* UNSAFE_EXPR */ $json['anonymous_parameters'],
       $position,
       $source,
     );
     $position += $parameters->width();
     $right_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['anonymous_function_right_paren'],
+      /* UNSAFE_EXPR */ $json['anonymous_right_paren'],
       $position,
       $source,
     );
     $position += $right_paren->width();
     $colon = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['anonymous_function_colon'],
+      /* UNSAFE_EXPR */ $json['anonymous_colon'],
       $position,
       $source,
     );
     $position += $colon->width();
     $type = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['anonymous_function_type'],
+      /* UNSAFE_EXPR */ $json['anonymous_type'],
       $position,
       $source,
     );
     $position += $type->width();
     $use = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['anonymous_function_use'],
+      /* UNSAFE_EXPR */ $json['anonymous_use'],
       $position,
       $source,
     );
     $position += $use->width();
     $body = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['anonymous_function_body'],
+      /* UNSAFE_EXPR */ $json['anonymous_body'],
       $position,
       $source,
     );
@@ -9626,25 +9624,25 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['anonymous_function_use_clause_keyword'],
+      /* UNSAFE_EXPR */ $json['anonymous_use_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $left_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['anonymous_function_use_clause_left_paren'],
+      /* UNSAFE_EXPR */ $json['anonymous_use_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->width();
     $variables = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['anonymous_function_use_clause_variables'],
+      /* UNSAFE_EXPR */ $json['anonymous_use_variables'],
       $position,
       $source,
     );
     $position += $variables->width();
     $right_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['anonymous_function_use_clause_right_paren'],
+      /* UNSAFE_EXPR */ $json['anonymous_use_right_paren'],
       $position,
       $source,
     );
@@ -9757,31 +9755,31 @@ final class LambdaExpression extends EditableSyntax {
     string $source,
   ): this {
     $async = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['lambda_expression_async'],
+      /* UNSAFE_EXPR */ $json['lambda_async'],
       $position,
       $source,
     );
     $position += $async->width();
     $coroutine = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['lambda_expression_coroutine'],
+      /* UNSAFE_EXPR */ $json['lambda_coroutine'],
       $position,
       $source,
     );
     $position += $coroutine->width();
     $signature = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['lambda_expression_signature'],
+      /* UNSAFE_EXPR */ $json['lambda_signature'],
       $position,
       $source,
     );
     $position += $signature->width();
     $arrow = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['lambda_expression_arrow'],
+      /* UNSAFE_EXPR */ $json['lambda_arrow'],
       $position,
       $source,
     );
     $position += $arrow->width();
     $body = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['lambda_expression_body'],
+      /* UNSAFE_EXPR */ $json['lambda_body'],
       $position,
       $source,
     );
@@ -9923,31 +9921,31 @@ final class LambdaSignature extends EditableSyntax {
     string $source,
   ): this {
     $left_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['lambda_signature_left_paren'],
+      /* UNSAFE_EXPR */ $json['lambda_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->width();
     $parameters = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['lambda_signature_parameters'],
+      /* UNSAFE_EXPR */ $json['lambda_parameters'],
       $position,
       $source,
     );
     $position += $parameters->width();
     $right_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['lambda_signature_right_paren'],
+      /* UNSAFE_EXPR */ $json['lambda_right_paren'],
       $position,
       $source,
     );
     $position += $right_paren->width();
     $colon = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['lambda_signature_colon'],
+      /* UNSAFE_EXPR */ $json['lambda_colon'],
       $position,
       $source,
     );
     $position += $colon->width();
     $type = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['lambda_signature_type'],
+      /* UNSAFE_EXPR */ $json['lambda_type'],
       $position,
       $source,
     );
@@ -10086,25 +10084,25 @@ final class CastExpression extends EditableSyntax {
     string $source,
   ): this {
     $left_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['cast_expression_left_paren'],
+      /* UNSAFE_EXPR */ $json['cast_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->width();
     $type = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['cast_expression_type'],
+      /* UNSAFE_EXPR */ $json['cast_type'],
       $position,
       $source,
     );
     $position += $type->width();
     $right_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['cast_expression_right_paren'],
+      /* UNSAFE_EXPR */ $json['cast_right_paren'],
       $position,
       $source,
     );
     $position += $right_paren->width();
     $operand = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['cast_expression_operand'],
+      /* UNSAFE_EXPR */ $json['cast_operand'],
       $position,
       $source,
     );
@@ -10205,19 +10203,19 @@ final class ScopeResolutionExpression extends EditableSyntax {
     string $source,
   ): this {
     $qualifier = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['scope_resolution_expression_qualifier'],
+      /* UNSAFE_EXPR */ $json['scope_resolution_qualifier'],
       $position,
       $source,
     );
     $position += $qualifier->width();
     $operator = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['scope_resolution_expression_operator'],
+      /* UNSAFE_EXPR */ $json['scope_resolution_operator'],
       $position,
       $source,
     );
     $position += $operator->width();
     $name = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['scope_resolution_expression_name'],
+      /* UNSAFE_EXPR */ $json['scope_resolution_name'],
       $position,
       $source,
     );
@@ -10301,19 +10299,19 @@ final class MemberSelectionExpression extends EditableSyntax {
     string $source,
   ): this {
     $object = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['member_selection_expression_object'],
+      /* UNSAFE_EXPR */ $json['member_object'],
       $position,
       $source,
     );
     $position += $object->width();
     $operator = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['member_selection_expression_operator'],
+      /* UNSAFE_EXPR */ $json['member_operator'],
       $position,
       $source,
     );
     $position += $operator->width();
     $name = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['member_selection_expression_name'],
+      /* UNSAFE_EXPR */ $json['member_name'],
       $position,
       $source,
     );
@@ -10397,19 +10395,19 @@ final class SafeMemberSelectionExpression extends EditableSyntax {
     string $source,
   ): this {
     $object = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['safe_member_selection_expression_object'],
+      /* UNSAFE_EXPR */ $json['safe_member_object'],
       $position,
       $source,
     );
     $position += $object->width();
     $operator = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['safe_member_selection_expression_operator'],
+      /* UNSAFE_EXPR */ $json['safe_member_operator'],
       $position,
       $source,
     );
     $position += $operator->width();
     $name = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['safe_member_selection_expression_name'],
+      /* UNSAFE_EXPR */ $json['safe_member_name'],
       $position,
       $source,
     );
@@ -10493,19 +10491,19 @@ final class EmbeddedMemberSelectionExpression extends EditableSyntax {
     string $source,
   ): this {
     $object = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['embedded_member_selection_expression_object'],
+      /* UNSAFE_EXPR */ $json['embedded_member_object'],
       $position,
       $source,
     );
     $position += $object->width();
     $operator = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['embedded_member_selection_expression_operator'],
+      /* UNSAFE_EXPR */ $json['embedded_member_operator'],
       $position,
       $source,
     );
     $position += $operator->width();
     $name = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['embedded_member_selection_expression_name'],
+      /* UNSAFE_EXPR */ $json['embedded_member_name'],
       $position,
       $source,
     );
@@ -10586,13 +10584,13 @@ final class YieldExpression extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['yield_expression_keyword'],
+      /* UNSAFE_EXPR */ $json['yield_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $operand = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['yield_expression_operand'],
+      /* UNSAFE_EXPR */ $json['yield_operand'],
       $position,
       $source,
     );
@@ -10659,13 +10657,13 @@ final class PrefixUnaryExpression extends EditableSyntax {
     string $source,
   ): this {
     $operator = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['prefix_unary_expression_operator'],
+      /* UNSAFE_EXPR */ $json['prefix_unary_operator'],
       $position,
       $source,
     );
     $position += $operator->width();
     $operand = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['prefix_unary_expression_operand'],
+      /* UNSAFE_EXPR */ $json['prefix_unary_operand'],
       $position,
       $source,
     );
@@ -10732,13 +10730,13 @@ final class PostfixUnaryExpression extends EditableSyntax {
     string $source,
   ): this {
     $operand = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['postfix_unary_expression_operand'],
+      /* UNSAFE_EXPR */ $json['postfix_unary_operand'],
       $position,
       $source,
     );
     $position += $operand->width();
     $operator = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['postfix_unary_expression_operator'],
+      /* UNSAFE_EXPR */ $json['postfix_unary_operator'],
       $position,
       $source,
     );
@@ -10808,19 +10806,19 @@ final class BinaryExpression extends EditableSyntax {
     string $source,
   ): this {
     $left_operand = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['binary_expression_left_operand'],
+      /* UNSAFE_EXPR */ $json['binary_left_operand'],
       $position,
       $source,
     );
     $position += $left_operand->width();
     $operator = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['binary_expression_operator'],
+      /* UNSAFE_EXPR */ $json['binary_operator'],
       $position,
       $source,
     );
     $position += $operator->width();
     $right_operand = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['binary_expression_right_operand'],
+      /* UNSAFE_EXPR */ $json['binary_right_operand'],
       $position,
       $source,
     );
@@ -10904,19 +10902,19 @@ final class InstanceofExpression extends EditableSyntax {
     string $source,
   ): this {
     $left_operand = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['instanceof_expression_left_operand'],
+      /* UNSAFE_EXPR */ $json['instanceof_left_operand'],
       $position,
       $source,
     );
     $position += $left_operand->width();
     $operator = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['instanceof_expression_operator'],
+      /* UNSAFE_EXPR */ $json['instanceof_operator'],
       $position,
       $source,
     );
     $position += $operator->width();
     $right_operand = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['instanceof_expression_right_operand'],
+      /* UNSAFE_EXPR */ $json['instanceof_right_operand'],
       $position,
       $source,
     );
@@ -11006,31 +11004,31 @@ final class ConditionalExpression extends EditableSyntax {
     string $source,
   ): this {
     $test = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['conditional_expression_test'],
+      /* UNSAFE_EXPR */ $json['conditional_test'],
       $position,
       $source,
     );
     $position += $test->width();
     $question = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['conditional_expression_question'],
+      /* UNSAFE_EXPR */ $json['conditional_question'],
       $position,
       $source,
     );
     $position += $question->width();
     $consequence = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['conditional_expression_consequence'],
+      /* UNSAFE_EXPR */ $json['conditional_consequence'],
       $position,
       $source,
     );
     $position += $consequence->width();
     $colon = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['conditional_expression_colon'],
+      /* UNSAFE_EXPR */ $json['conditional_colon'],
       $position,
       $source,
     );
     $position += $colon->width();
     $alternative = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['conditional_expression_alternative'],
+      /* UNSAFE_EXPR */ $json['conditional_alternative'],
       $position,
       $source,
     );
@@ -11169,25 +11167,25 @@ final class EvalExpression extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['eval_expression_keyword'],
+      /* UNSAFE_EXPR */ $json['eval_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $left_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['eval_expression_left_paren'],
+      /* UNSAFE_EXPR */ $json['eval_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->width();
     $argument = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['eval_expression_argument'],
+      /* UNSAFE_EXPR */ $json['eval_argument'],
       $position,
       $source,
     );
     $position += $argument->width();
     $right_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['eval_expression_right_paren'],
+      /* UNSAFE_EXPR */ $json['eval_right_paren'],
       $position,
       $source,
     );
@@ -11297,25 +11295,25 @@ final class EmptyExpression extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['empty_expression_keyword'],
+      /* UNSAFE_EXPR */ $json['empty_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $left_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['empty_expression_left_paren'],
+      /* UNSAFE_EXPR */ $json['empty_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->width();
     $argument = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['empty_expression_argument'],
+      /* UNSAFE_EXPR */ $json['empty_argument'],
       $position,
       $source,
     );
     $position += $argument->width();
     $right_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['empty_expression_right_paren'],
+      /* UNSAFE_EXPR */ $json['empty_right_paren'],
       $position,
       $source,
     );
@@ -11425,25 +11423,25 @@ final class DefineExpression extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['define_expression_keyword'],
+      /* UNSAFE_EXPR */ $json['define_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $left_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['define_expression_left_paren'],
+      /* UNSAFE_EXPR */ $json['define_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->width();
     $argument_list = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['define_expression_argument_list'],
+      /* UNSAFE_EXPR */ $json['define_argument_list'],
       $position,
       $source,
     );
     $position += $argument_list->width();
     $right_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['define_expression_right_paren'],
+      /* UNSAFE_EXPR */ $json['define_right_paren'],
       $position,
       $source,
     );
@@ -11561,25 +11559,25 @@ final class IssetExpression extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['isset_expression_keyword'],
+      /* UNSAFE_EXPR */ $json['isset_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $left_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['isset_expression_left_paren'],
+      /* UNSAFE_EXPR */ $json['isset_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->width();
     $argument_list = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['isset_expression_argument_list'],
+      /* UNSAFE_EXPR */ $json['isset_argument_list'],
       $position,
       $source,
     );
     $position += $argument_list->width();
     $right_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['isset_expression_right_paren'],
+      /* UNSAFE_EXPR */ $json['isset_right_paren'],
       $position,
       $source,
     );
@@ -11697,25 +11695,25 @@ final class FunctionCallExpression extends EditableSyntax {
     string $source,
   ): this {
     $receiver = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['function_call_expression_receiver'],
+      /* UNSAFE_EXPR */ $json['function_call_receiver'],
       $position,
       $source,
     );
     $position += $receiver->width();
     $left_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['function_call_expression_left_paren'],
+      /* UNSAFE_EXPR */ $json['function_call_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->width();
     $argument_list = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['function_call_expression_argument_list'],
+      /* UNSAFE_EXPR */ $json['function_call_argument_list'],
       $position,
       $source,
     );
     $position += $argument_list->width();
     $right_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['function_call_expression_right_paren'],
+      /* UNSAFE_EXPR */ $json['function_call_right_paren'],
       $position,
       $source,
     );
@@ -12121,25 +12119,25 @@ final class ListExpression extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['list_expression_keyword'],
+      /* UNSAFE_EXPR */ $json['list_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $left_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['list_expression_left_paren'],
+      /* UNSAFE_EXPR */ $json['list_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->width();
     $members = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['list_expression_members'],
+      /* UNSAFE_EXPR */ $json['list_members'],
       $position,
       $source,
     );
     $position += $members->width();
     $right_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['list_expression_right_paren'],
+      /* UNSAFE_EXPR */ $json['list_right_paren'],
       $position,
       $source,
     );
@@ -12249,25 +12247,25 @@ final class CollectionLiteralExpression extends EditableSyntax {
     string $source,
   ): this {
     $name = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['collection_literal_expression_name'],
+      /* UNSAFE_EXPR */ $json['collection_literal_name'],
       $position,
       $source,
     );
     $position += $name->width();
     $left_brace = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['collection_literal_expression_left_brace'],
+      /* UNSAFE_EXPR */ $json['collection_literal_left_brace'],
       $position,
       $source,
     );
     $position += $left_brace->width();
     $initializers = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['collection_literal_expression_initializers'],
+      /* UNSAFE_EXPR */ $json['collection_literal_initializers'],
       $position,
       $source,
     );
     $position += $initializers->width();
     $right_brace = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['collection_literal_expression_right_brace'],
+      /* UNSAFE_EXPR */ $json['collection_literal_right_brace'],
       $position,
       $source,
     );
@@ -12376,31 +12374,31 @@ final class ObjectCreationExpression extends EditableSyntax {
     string $source,
   ): this {
     $new_keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['object_creation_expression_new_keyword'],
+      /* UNSAFE_EXPR */ $json['object_creation_new_keyword'],
       $position,
       $source,
     );
     $position += $new_keyword->width();
     $type = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['object_creation_expression_type'],
+      /* UNSAFE_EXPR */ $json['object_creation_type'],
       $position,
       $source,
     );
     $position += $type->width();
     $left_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['object_creation_expression_left_paren'],
+      /* UNSAFE_EXPR */ $json['object_creation_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->width();
     $argument_list = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['object_creation_expression_argument_list'],
+      /* UNSAFE_EXPR */ $json['object_creation_argument_list'],
       $position,
       $source,
     );
     $position += $argument_list->width();
     $right_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['object_creation_expression_right_paren'],
+      /* UNSAFE_EXPR */ $json['object_creation_right_paren'],
       $position,
       $source,
     );
@@ -12543,19 +12541,19 @@ final class ArrayCreationExpression extends EditableSyntax {
     string $source,
   ): this {
     $left_bracket = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['array_creation_expression_left_bracket'],
+      /* UNSAFE_EXPR */ $json['array_creation_left_bracket'],
       $position,
       $source,
     );
     $position += $left_bracket->width();
     $members = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['array_creation_expression_members'],
+      /* UNSAFE_EXPR */ $json['array_creation_members'],
       $position,
       $source,
     );
     $position += $members->width();
     $right_bracket = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['array_creation_expression_right_bracket'],
+      /* UNSAFE_EXPR */ $json['array_creation_right_bracket'],
       $position,
       $source,
     );
@@ -12642,25 +12640,25 @@ final class ArrayIntrinsicExpression extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['array_intrinsic_expression_keyword'],
+      /* UNSAFE_EXPR */ $json['array_intrinsic_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $left_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['array_intrinsic_expression_left_paren'],
+      /* UNSAFE_EXPR */ $json['array_intrinsic_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->width();
     $members = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['array_intrinsic_expression_members'],
+      /* UNSAFE_EXPR */ $json['array_intrinsic_members'],
       $position,
       $source,
     );
     $position += $members->width();
     $right_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['array_intrinsic_expression_right_paren'],
+      /* UNSAFE_EXPR */ $json['array_intrinsic_right_paren'],
       $position,
       $source,
     );
@@ -12770,25 +12768,25 @@ final class DarrayIntrinsicExpression extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['darray_intrinsic_expression_keyword'],
+      /* UNSAFE_EXPR */ $json['darray_intrinsic_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $left_bracket = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['darray_intrinsic_expression_left_bracket'],
+      /* UNSAFE_EXPR */ $json['darray_intrinsic_left_bracket'],
       $position,
       $source,
     );
     $position += $left_bracket->width();
     $members = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['darray_intrinsic_expression_members'],
+      /* UNSAFE_EXPR */ $json['darray_intrinsic_members'],
       $position,
       $source,
     );
     $position += $members->width();
     $right_bracket = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['darray_intrinsic_expression_right_bracket'],
+      /* UNSAFE_EXPR */ $json['darray_intrinsic_right_bracket'],
       $position,
       $source,
     );
@@ -12898,25 +12896,25 @@ final class DictionaryIntrinsicExpression extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['dictionary_intrinsic_expression_keyword'],
+      /* UNSAFE_EXPR */ $json['dictionary_intrinsic_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $left_bracket = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['dictionary_intrinsic_expression_left_bracket'],
+      /* UNSAFE_EXPR */ $json['dictionary_intrinsic_left_bracket'],
       $position,
       $source,
     );
     $position += $left_bracket->width();
     $members = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['dictionary_intrinsic_expression_members'],
+      /* UNSAFE_EXPR */ $json['dictionary_intrinsic_members'],
       $position,
       $source,
     );
     $position += $members->width();
     $right_bracket = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['dictionary_intrinsic_expression_right_bracket'],
+      /* UNSAFE_EXPR */ $json['dictionary_intrinsic_right_bracket'],
       $position,
       $source,
     );
@@ -13026,25 +13024,25 @@ final class KeysetIntrinsicExpression extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['keyset_intrinsic_expression_keyword'],
+      /* UNSAFE_EXPR */ $json['keyset_intrinsic_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $left_bracket = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['keyset_intrinsic_expression_left_bracket'],
+      /* UNSAFE_EXPR */ $json['keyset_intrinsic_left_bracket'],
       $position,
       $source,
     );
     $position += $left_bracket->width();
     $members = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['keyset_intrinsic_expression_members'],
+      /* UNSAFE_EXPR */ $json['keyset_intrinsic_members'],
       $position,
       $source,
     );
     $position += $members->width();
     $right_bracket = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['keyset_intrinsic_expression_right_bracket'],
+      /* UNSAFE_EXPR */ $json['keyset_intrinsic_right_bracket'],
       $position,
       $source,
     );
@@ -13154,25 +13152,25 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['varray_intrinsic_expression_keyword'],
+      /* UNSAFE_EXPR */ $json['varray_intrinsic_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $left_bracket = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['varray_intrinsic_expression_left_bracket'],
+      /* UNSAFE_EXPR */ $json['varray_intrinsic_left_bracket'],
       $position,
       $source,
     );
     $position += $left_bracket->width();
     $members = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['varray_intrinsic_expression_members'],
+      /* UNSAFE_EXPR */ $json['varray_intrinsic_members'],
       $position,
       $source,
     );
     $position += $members->width();
     $right_bracket = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['varray_intrinsic_expression_right_bracket'],
+      /* UNSAFE_EXPR */ $json['varray_intrinsic_right_bracket'],
       $position,
       $source,
     );
@@ -13282,25 +13280,25 @@ final class VectorIntrinsicExpression extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['vector_intrinsic_expression_keyword'],
+      /* UNSAFE_EXPR */ $json['vector_intrinsic_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $left_bracket = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['vector_intrinsic_expression_left_bracket'],
+      /* UNSAFE_EXPR */ $json['vector_intrinsic_left_bracket'],
       $position,
       $source,
     );
     $position += $left_bracket->width();
     $members = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['vector_intrinsic_expression_members'],
+      /* UNSAFE_EXPR */ $json['vector_intrinsic_members'],
       $position,
       $source,
     );
     $position += $members->width();
     $right_bracket = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['vector_intrinsic_expression_right_bracket'],
+      /* UNSAFE_EXPR */ $json['vector_intrinsic_right_bracket'],
       $position,
       $source,
     );
@@ -13407,19 +13405,19 @@ final class ElementInitializer extends EditableSyntax {
     string $source,
   ): this {
     $key = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['element_initializer_key'],
+      /* UNSAFE_EXPR */ $json['element_key'],
       $position,
       $source,
     );
     $position += $key->width();
     $arrow = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['element_initializer_arrow'],
+      /* UNSAFE_EXPR */ $json['element_arrow'],
       $position,
       $source,
     );
     $position += $arrow->width();
     $value = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['element_initializer_value'],
+      /* UNSAFE_EXPR */ $json['element_value'],
       $position,
       $source,
     );
@@ -13506,25 +13504,25 @@ final class SubscriptExpression extends EditableSyntax {
     string $source,
   ): this {
     $receiver = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['subscript_expression_receiver'],
+      /* UNSAFE_EXPR */ $json['subscript_receiver'],
       $position,
       $source,
     );
     $position += $receiver->width();
     $left_bracket = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['subscript_expression_left_bracket'],
+      /* UNSAFE_EXPR */ $json['subscript_left_bracket'],
       $position,
       $source,
     );
     $position += $left_bracket->width();
     $index = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['subscript_expression_index'],
+      /* UNSAFE_EXPR */ $json['subscript_index'],
       $position,
       $source,
     );
     $position += $index->width();
     $right_bracket = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['subscript_expression_right_bracket'],
+      /* UNSAFE_EXPR */ $json['subscript_right_bracket'],
       $position,
       $source,
     );
@@ -13634,25 +13632,25 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
     string $source,
   ): this {
     $receiver = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['embedded_subscript_expression_receiver'],
+      /* UNSAFE_EXPR */ $json['embedded_subscript_receiver'],
       $position,
       $source,
     );
     $position += $receiver->width();
     $left_bracket = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['embedded_subscript_expression_left_bracket'],
+      /* UNSAFE_EXPR */ $json['embedded_subscript_left_bracket'],
       $position,
       $source,
     );
     $position += $left_bracket->width();
     $index = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['embedded_subscript_expression_index'],
+      /* UNSAFE_EXPR */ $json['embedded_subscript_index'],
       $position,
       $source,
     );
     $position += $index->width();
     $right_bracket = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['embedded_subscript_expression_right_bracket'],
+      /* UNSAFE_EXPR */ $json['embedded_subscript_right_bracket'],
       $position,
       $source,
     );
@@ -13759,21 +13757,19 @@ final class AwaitableCreationExpression extends EditableSyntax {
     string $source,
   ): this {
     $async = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['awaitable_creation_expression_async'],
+      /* UNSAFE_EXPR */ $json['awaitable_async'],
       $position,
       $source,
     );
     $position += $async->width();
     $coroutine = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['awaitable_creation_expression_coroutine'],
+      /* UNSAFE_EXPR */ $json['awaitable_coroutine'],
       $position,
       $source,
     );
     $position += $coroutine->width();
     $compound_statement = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json[
-        'awaitable_creation_expression_compound_statement'
-      ],
+      /* UNSAFE_EXPR */ $json['awaitable_compound_statement'],
       $position,
       $source,
     );
@@ -13858,19 +13854,19 @@ final class XHPChildrenDeclaration extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['xhp_children_declaration_keyword'],
+      /* UNSAFE_EXPR */ $json['xhp_children_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $expression = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['xhp_children_declaration_expression'],
+      /* UNSAFE_EXPR */ $json['xhp_children_expression'],
       $position,
       $source,
     );
     $position += $expression->width();
     $semicolon = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['xhp_children_declaration_semicolon'],
+      /* UNSAFE_EXPR */ $json['xhp_children_semicolon'],
       $position,
       $source,
     );
@@ -13954,19 +13950,19 @@ final class XHPChildrenParenthesizedList extends EditableSyntax {
     string $source,
   ): this {
     $left_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['xhp_children_parenthesized_list_left_paren'],
+      /* UNSAFE_EXPR */ $json['xhp_children_list_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->width();
     $xhp_children = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['xhp_children_parenthesized_list_xhp_children'],
+      /* UNSAFE_EXPR */ $json['xhp_children_list_xhp_children'],
       $position,
       $source,
     );
     $position += $xhp_children->width();
     $right_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['xhp_children_parenthesized_list_right_paren'],
+      /* UNSAFE_EXPR */ $json['xhp_children_list_right_paren'],
       $position,
       $source,
     );
@@ -14050,19 +14046,19 @@ final class XHPCategoryDeclaration extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['xhp_category_declaration_keyword'],
+      /* UNSAFE_EXPR */ $json['xhp_category_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $categories = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['xhp_category_declaration_categories'],
+      /* UNSAFE_EXPR */ $json['xhp_category_categories'],
       $position,
       $source,
     );
     $position += $categories->width();
     $semicolon = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['xhp_category_declaration_semicolon'],
+      /* UNSAFE_EXPR */ $json['xhp_category_semicolon'],
       $position,
       $source,
     );
@@ -14149,25 +14145,25 @@ final class XHPEnumType extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['xhp_enum_type_keyword'],
+      /* UNSAFE_EXPR */ $json['xhp_enum_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $left_brace = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['xhp_enum_type_left_brace'],
+      /* UNSAFE_EXPR */ $json['xhp_enum_left_brace'],
       $position,
       $source,
     );
     $position += $left_brace->width();
     $values = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['xhp_enum_type_values'],
+      /* UNSAFE_EXPR */ $json['xhp_enum_values'],
       $position,
       $source,
     );
     $position += $values->width();
     $right_brace = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['xhp_enum_type_right_brace'],
+      /* UNSAFE_EXPR */ $json['xhp_enum_right_brace'],
       $position,
       $source,
     );
@@ -14340,19 +14336,19 @@ final class XHPClassAttributeDeclaration extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['xhp_class_attribute_declaration_keyword'],
+      /* UNSAFE_EXPR */ $json['xhp_attribute_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $attributes = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['xhp_class_attribute_declaration_attributes'],
+      /* UNSAFE_EXPR */ $json['xhp_attribute_attributes'],
       $position,
       $source,
     );
     $position += $attributes->width();
     $semicolon = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['xhp_class_attribute_declaration_semicolon'],
+      /* UNSAFE_EXPR */ $json['xhp_attribute_semicolon'],
       $position,
       $source,
     );
@@ -14439,25 +14435,25 @@ final class XHPClassAttribute extends EditableSyntax {
     string $source,
   ): this {
     $type = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['xhp_class_attribute_type'],
+      /* UNSAFE_EXPR */ $json['xhp_attribute_decl_type'],
       $position,
       $source,
     );
     $position += $type->width();
     $name = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['xhp_class_attribute_name'],
+      /* UNSAFE_EXPR */ $json['xhp_attribute_decl_name'],
       $position,
       $source,
     );
     $position += $name->width();
     $initializer = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['xhp_class_attribute_initializer'],
+      /* UNSAFE_EXPR */ $json['xhp_attribute_decl_initializer'],
       $position,
       $source,
     );
     $position += $initializer->width();
     $required = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['xhp_class_attribute_required'],
+      /* UNSAFE_EXPR */ $json['xhp_attribute_decl_required'],
       $position,
       $source,
     );
@@ -14826,19 +14822,19 @@ final class XHPExpression extends EditableSyntax {
     string $source,
   ): this {
     $open = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['xhp_expression_open'],
+      /* UNSAFE_EXPR */ $json['xhp_open'],
       $position,
       $source,
     );
     $position += $open->width();
     $body = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['xhp_expression_body'],
+      /* UNSAFE_EXPR */ $json['xhp_body'],
       $position,
       $source,
     );
     $position += $body->width();
     $close = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['xhp_expression_close'],
+      /* UNSAFE_EXPR */ $json['xhp_close'],
       $position,
       $source,
     );
@@ -15120,31 +15116,31 @@ final class VectorTypeSpecifier extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['vector_type_specifier_keyword'],
+      /* UNSAFE_EXPR */ $json['vector_type_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $left_angle = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['vector_type_specifier_left_angle'],
+      /* UNSAFE_EXPR */ $json['vector_type_left_angle'],
       $position,
       $source,
     );
     $position += $left_angle->width();
     $type = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['vector_type_specifier_type'],
+      /* UNSAFE_EXPR */ $json['vector_type_type'],
       $position,
       $source,
     );
     $position += $type->width();
     $trailing_comma = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['vector_type_specifier_trailing_comma'],
+      /* UNSAFE_EXPR */ $json['vector_type_trailing_comma'],
       $position,
       $source,
     );
     $position += $trailing_comma->width();
     $right_angle = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['vector_type_specifier_right_angle'],
+      /* UNSAFE_EXPR */ $json['vector_type_right_angle'],
       $position,
       $source,
     );
@@ -15289,31 +15285,31 @@ final class KeysetTypeSpecifier extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['keyset_type_specifier_keyword'],
+      /* UNSAFE_EXPR */ $json['keyset_type_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $left_angle = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['keyset_type_specifier_left_angle'],
+      /* UNSAFE_EXPR */ $json['keyset_type_left_angle'],
       $position,
       $source,
     );
     $position += $left_angle->width();
     $type = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['keyset_type_specifier_type'],
+      /* UNSAFE_EXPR */ $json['keyset_type_type'],
       $position,
       $source,
     );
     $position += $type->width();
     $trailing_comma = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['keyset_type_specifier_trailing_comma'],
+      /* UNSAFE_EXPR */ $json['keyset_type_trailing_comma'],
       $position,
       $source,
     );
     $position += $trailing_comma->width();
     $right_angle = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['keyset_type_specifier_right_angle'],
+      /* UNSAFE_EXPR */ $json['keyset_type_right_angle'],
       $position,
       $source,
     );
@@ -15455,25 +15451,25 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['tuple_type_explicit_specifier_keyword'],
+      /* UNSAFE_EXPR */ $json['tuple_type_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $left_angle = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['tuple_type_explicit_specifier_left_angle'],
+      /* UNSAFE_EXPR */ $json['tuple_type_left_angle'],
       $position,
       $source,
     );
     $position += $left_angle->width();
     $types = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['tuple_type_explicit_specifier_types'],
+      /* UNSAFE_EXPR */ $json['tuple_type_types'],
       $position,
       $source,
     );
     $position += $types->width();
     $right_angle = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['tuple_type_explicit_specifier_right_angle'],
+      /* UNSAFE_EXPR */ $json['tuple_type_right_angle'],
       $position,
       $source,
     );
@@ -15581,31 +15577,31 @@ final class VarrayTypeSpecifier extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['varray_type_specifier_keyword'],
+      /* UNSAFE_EXPR */ $json['varray_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $left_angle = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['varray_type_specifier_left_angle'],
+      /* UNSAFE_EXPR */ $json['varray_left_angle'],
       $position,
       $source,
     );
     $position += $left_angle->width();
     $type = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['varray_type_specifier_type'],
+      /* UNSAFE_EXPR */ $json['varray_type'],
       $position,
       $source,
     );
     $position += $type->width();
     $trailing_comma = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['varray_type_specifier_trailing_comma'],
+      /* UNSAFE_EXPR */ $json['varray_trailing_comma'],
       $position,
       $source,
     );
     $position += $trailing_comma->width();
     $right_angle = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['varray_type_specifier_right_angle'],
+      /* UNSAFE_EXPR */ $json['varray_right_angle'],
       $position,
       $source,
     );
@@ -15747,25 +15743,25 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['vector_array_type_specifier_keyword'],
+      /* UNSAFE_EXPR */ $json['vector_array_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $left_angle = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['vector_array_type_specifier_left_angle'],
+      /* UNSAFE_EXPR */ $json['vector_array_left_angle'],
       $position,
       $source,
     );
     $position += $left_angle->width();
     $type = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['vector_array_type_specifier_type'],
+      /* UNSAFE_EXPR */ $json['vector_array_type'],
       $position,
       $source,
     );
     $position += $type->width();
     $right_angle = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['vector_array_type_specifier_right_angle'],
+      /* UNSAFE_EXPR */ $json['vector_array_right_angle'],
       $position,
       $source,
     );
@@ -15866,19 +15862,19 @@ final class TypeParameter extends EditableSyntax {
     string $source,
   ): this {
     $variance = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['type_parameter_variance'],
+      /* UNSAFE_EXPR */ $json['type_variance'],
       $position,
       $source,
     );
     $position += $variance->width();
     $name = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['type_parameter_name'],
+      /* UNSAFE_EXPR */ $json['type_name'],
       $position,
       $source,
     );
     $position += $name->width();
     $constraints = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['type_parameter_constraints'],
+      /* UNSAFE_EXPR */ $json['type_constraints'],
       $position,
       $source,
     );
@@ -15956,13 +15952,13 @@ final class TypeConstraint extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['type_constraint_keyword'],
+      /* UNSAFE_EXPR */ $json['constraint_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $type = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['type_constraint_type'],
+      /* UNSAFE_EXPR */ $json['constraint_type'],
       $position,
       $source,
     );
@@ -16044,43 +16040,43 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['darray_type_specifier_keyword'],
+      /* UNSAFE_EXPR */ $json['darray_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $left_angle = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['darray_type_specifier_left_angle'],
+      /* UNSAFE_EXPR */ $json['darray_left_angle'],
       $position,
       $source,
     );
     $position += $left_angle->width();
     $key = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['darray_type_specifier_key'],
+      /* UNSAFE_EXPR */ $json['darray_key'],
       $position,
       $source,
     );
     $position += $key->width();
     $comma = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['darray_type_specifier_comma'],
+      /* UNSAFE_EXPR */ $json['darray_comma'],
       $position,
       $source,
     );
     $position += $comma->width();
     $value = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['darray_type_specifier_value'],
+      /* UNSAFE_EXPR */ $json['darray_value'],
       $position,
       $source,
     );
     $position += $value->width();
     $trailing_comma = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['darray_type_specifier_trailing_comma'],
+      /* UNSAFE_EXPR */ $json['darray_trailing_comma'],
       $position,
       $source,
     );
     $position += $trailing_comma->width();
     $right_angle = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['darray_type_specifier_right_angle'],
+      /* UNSAFE_EXPR */ $json['darray_right_angle'],
       $position,
       $source,
     );
@@ -16290,37 +16286,37 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['map_array_type_specifier_keyword'],
+      /* UNSAFE_EXPR */ $json['map_array_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $left_angle = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['map_array_type_specifier_left_angle'],
+      /* UNSAFE_EXPR */ $json['map_array_left_angle'],
       $position,
       $source,
     );
     $position += $left_angle->width();
     $key = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['map_array_type_specifier_key'],
+      /* UNSAFE_EXPR */ $json['map_array_key'],
       $position,
       $source,
     );
     $position += $key->width();
     $comma = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['map_array_type_specifier_comma'],
+      /* UNSAFE_EXPR */ $json['map_array_comma'],
       $position,
       $source,
     );
     $position += $comma->width();
     $value = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['map_array_type_specifier_value'],
+      /* UNSAFE_EXPR */ $json['map_array_value'],
       $position,
       $source,
     );
     $position += $value->width();
     $right_angle = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['map_array_type_specifier_right_angle'],
+      /* UNSAFE_EXPR */ $json['map_array_right_angle'],
       $position,
       $source,
     );
@@ -16483,25 +16479,25 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['dictionary_type_specifier_keyword'],
+      /* UNSAFE_EXPR */ $json['dictionary_type_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $left_angle = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['dictionary_type_specifier_left_angle'],
+      /* UNSAFE_EXPR */ $json['dictionary_type_left_angle'],
       $position,
       $source,
     );
     $position += $left_angle->width();
     $members = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['dictionary_type_specifier_members'],
+      /* UNSAFE_EXPR */ $json['dictionary_type_members'],
       $position,
       $source,
     );
     $position += $members->width();
     $right_angle = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['dictionary_type_specifier_right_angle'],
+      /* UNSAFE_EXPR */ $json['dictionary_type_right_angle'],
       $position,
       $source,
     );
@@ -16626,55 +16622,55 @@ final class ClosureTypeSpecifier extends EditableSyntax {
     string $source,
   ): this {
     $outer_left_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['closure_type_specifier_outer_left_paren'],
+      /* UNSAFE_EXPR */ $json['closure_outer_left_paren'],
       $position,
       $source,
     );
     $position += $outer_left_paren->width();
     $coroutine = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['closure_type_specifier_coroutine'],
+      /* UNSAFE_EXPR */ $json['closure_coroutine'],
       $position,
       $source,
     );
     $position += $coroutine->width();
     $function_keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['closure_type_specifier_function_keyword'],
+      /* UNSAFE_EXPR */ $json['closure_function_keyword'],
       $position,
       $source,
     );
     $position += $function_keyword->width();
     $inner_left_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['closure_type_specifier_inner_left_paren'],
+      /* UNSAFE_EXPR */ $json['closure_inner_left_paren'],
       $position,
       $source,
     );
     $position += $inner_left_paren->width();
     $parameter_types = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['closure_type_specifier_parameter_types'],
+      /* UNSAFE_EXPR */ $json['closure_parameter_types'],
       $position,
       $source,
     );
     $position += $parameter_types->width();
     $inner_right_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['closure_type_specifier_inner_right_paren'],
+      /* UNSAFE_EXPR */ $json['closure_inner_right_paren'],
       $position,
       $source,
     );
     $position += $inner_right_paren->width();
     $colon = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['closure_type_specifier_colon'],
+      /* UNSAFE_EXPR */ $json['closure_colon'],
       $position,
       $source,
     );
     $position += $colon->width();
     $return_type = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['closure_type_specifier_return_type'],
+      /* UNSAFE_EXPR */ $json['closure_return_type'],
       $position,
       $source,
     );
     $position += $return_type->width();
     $outer_right_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['closure_type_specifier_outer_right_paren'],
+      /* UNSAFE_EXPR */ $json['closure_outer_right_paren'],
       $position,
       $source,
     );
@@ -16946,31 +16942,31 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['classname_type_specifier_keyword'],
+      /* UNSAFE_EXPR */ $json['classname_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $left_angle = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['classname_type_specifier_left_angle'],
+      /* UNSAFE_EXPR */ $json['classname_left_angle'],
       $position,
       $source,
     );
     $position += $left_angle->width();
     $type = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['classname_type_specifier_type'],
+      /* UNSAFE_EXPR */ $json['classname_type'],
       $position,
       $source,
     );
     $position += $type->width();
     $trailing_comma = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['classname_type_specifier_trailing_comma'],
+      /* UNSAFE_EXPR */ $json['classname_trailing_comma'],
       $position,
       $source,
     );
     $position += $trailing_comma->width();
     $right_angle = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['classname_type_specifier_right_angle'],
+      /* UNSAFE_EXPR */ $json['classname_right_angle'],
       $position,
       $source,
     );
@@ -17112,25 +17108,25 @@ final class FieldSpecifier extends EditableSyntax {
     string $source,
   ): this {
     $question = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['field_specifier_question'],
+      /* UNSAFE_EXPR */ $json['field_question'],
       $position,
       $source,
     );
     $position += $question->width();
     $name = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['field_specifier_name'],
+      /* UNSAFE_EXPR */ $json['field_name'],
       $position,
       $source,
     );
     $position += $name->width();
     $arrow = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['field_specifier_arrow'],
+      /* UNSAFE_EXPR */ $json['field_arrow'],
       $position,
       $source,
     );
     $position += $arrow->width();
     $type = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['field_specifier_type'],
+      /* UNSAFE_EXPR */ $json['field_type'],
       $position,
       $source,
     );
@@ -17327,31 +17323,31 @@ final class ShapeTypeSpecifier extends EditableSyntax {
     string $source,
   ): this {
     $keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['shape_type_specifier_keyword'],
+      /* UNSAFE_EXPR */ $json['shape_type_keyword'],
       $position,
       $source,
     );
     $position += $keyword->width();
     $left_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['shape_type_specifier_left_paren'],
+      /* UNSAFE_EXPR */ $json['shape_type_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->width();
     $fields = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['shape_type_specifier_fields'],
+      /* UNSAFE_EXPR */ $json['shape_type_fields'],
       $position,
       $source,
     );
     $position += $fields->width();
     $ellipsis = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['shape_type_specifier_ellipsis'],
+      /* UNSAFE_EXPR */ $json['shape_type_ellipsis'],
       $position,
       $source,
     );
     $position += $ellipsis->width();
     $right_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['shape_type_specifier_right_paren'],
+      /* UNSAFE_EXPR */ $json['shape_type_right_paren'],
       $position,
       $source,
     );
@@ -17731,13 +17727,13 @@ final class GenericTypeSpecifier extends EditableSyntax {
     string $source,
   ): this {
     $class_type = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['generic_type_specifier_class_type'],
+      /* UNSAFE_EXPR */ $json['generic_class_type'],
       $position,
       $source,
     );
     $position += $class_type->width();
     $argument_list = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['generic_type_specifier_argument_list'],
+      /* UNSAFE_EXPR */ $json['generic_argument_list'],
       $position,
       $source,
     );
@@ -17804,13 +17800,13 @@ final class NullableTypeSpecifier extends EditableSyntax {
     string $source,
   ): this {
     $question = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['nullable_type_specifier_question'],
+      /* UNSAFE_EXPR */ $json['nullable_question'],
       $position,
       $source,
     );
     $position += $question->width();
     $type = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['nullable_type_specifier_type'],
+      /* UNSAFE_EXPR */ $json['nullable_type'],
       $position,
       $source,
     );
@@ -17874,13 +17870,13 @@ final class SoftTypeSpecifier extends EditableSyntax {
     string $source,
   ): this {
     $at = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['soft_type_specifier_at'],
+      /* UNSAFE_EXPR */ $json['soft_at'],
       $position,
       $source,
     );
     $position += $at->width();
     $type = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['soft_type_specifier_type'],
+      /* UNSAFE_EXPR */ $json['soft_type'],
       $position,
       $source,
     );
@@ -18142,19 +18138,19 @@ final class TupleTypeSpecifier extends EditableSyntax {
     string $source,
   ): this {
     $left_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['tuple_type_specifier_left_paren'],
+      /* UNSAFE_EXPR */ $json['tuple_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->width();
     $types = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['tuple_type_specifier_types'],
+      /* UNSAFE_EXPR */ $json['tuple_types'],
       $position,
       $source,
     );
     $position += $types->width();
     $right_paren = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['tuple_type_specifier_right_paren'],
+      /* UNSAFE_EXPR */ $json['tuple_right_paren'],
       $position,
       $source,
     );
@@ -18284,13 +18280,13 @@ final class ListItem extends EditableSyntax {
     string $source,
   ): this {
     $item = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['list_item_item'],
+      /* UNSAFE_EXPR */ $json['list_item'],
       $position,
       $source,
     );
     $position += $item->width();
     $separator = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json['list_item_separator'],
+      /* UNSAFE_EXPR */ $json['list_separator'],
       $position,
       $source,
     );
