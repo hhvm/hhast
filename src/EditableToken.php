@@ -131,7 +131,7 @@ abstract class EditableToken extends EditableSyntax {
     $leading_list = __Private\fold_map(
       /* HH_IGNORE_ERROR[4110] */ $json['leading'],
       ($j, $p) ==> EditableSyntax::from_json($j, $p, $source),
-      ($j, $p) ==> $j->width + $p,
+      ($j, $p) ==> $j['width'] + $p,
       $position,
     );
 
@@ -143,7 +143,7 @@ abstract class EditableToken extends EditableSyntax {
     $trailing_list = __Private\fold_map(
       /* HH_IGNORE_ERROR[4110] */ $json['trailing'],
       ($j, $p) ==> EditableSyntax::from_json($j, $p, $source),
-      ($j, $p) ==> $j->width + $p,
+      ($j, $p) ==> $j['width'] + $p,
       $trailing_position,
     );
     $trailing = EditableList::to_list($trailing_list);
