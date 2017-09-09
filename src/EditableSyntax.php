@@ -14,7 +14,7 @@ namespace Facebook\HHAST;
 
 use type Facebook\TypeAssert\TypeAssert;
 
-abstract class EditableSyntax implements \ArrayAccess<int, EditableSyntax> {
+abstract class EditableSyntax implements \ArrayAccess<mixed, mixed> {
   const type TRewriter =
     (function(EditableSyntax, ?Traversable<EditableSyntax>): EditableSyntax);
 
@@ -24,19 +24,19 @@ abstract class EditableSyntax implements \ArrayAccess<int, EditableSyntax> {
     $this->_syntax_kind = $syntax_kind;
   }
 
-  public function offsetExists(int $offset): bool {
+  public function offsetExists(mixed $offset): bool {
     return $offset === 0;
   }
 
-  public function offsetGet(int $offset): EditableSyntax {
+  public function offsetGet(mixed $offset): EditableSyntax {
     return $this;
   }
 
-  public function offsetSet(int $offset, EditableSyntax $value): void {
+  public function offsetSet(mixed $offset, mixed $value): void {
     invariant_violation('unimplemented');
   }
 
-  public function offsetUnset(int $offset): void {
+  public function offsetUnset(mixed $offset): void {
     invariant_violation('unimplemented');
   }
 
@@ -178,6 +178,16 @@ abstract class EditableSyntax implements \ArrayAccess<int, EditableSyntax> {
     foreach ($this->preorder() as $child)
       if ($child->syntax_kind() === $kind)
         yield $child;
+  }
+
+  public function of_class<T as EditableSyntax>(
+    classname<T> $what,
+  ): Traversable<T> {
+    foreach ($this->preorder() as $child) {
+      if ($child instanceof $what) {
+        yield $child;
+      }
+    }
   }
 
   public function remove_where(
