@@ -56,7 +56,7 @@ final class CodegenEditableTokenFromData extends CodegenBase {
                 ($token, $body) ==> {
                   $body
                     ->addCase(
-                      self::underscored($token['token_kind']),
+                      $token['token_text'],
                       HackBuilderValues::export(),
                     )
                     ->returnCasef(

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<21aff7d654d2c6db37884908901a6f3a>>
+ * @generated SignedSource<<bedb872c85ad0aa840830cdf35e2f4e2>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -52,7 +52,7 @@ function editable_token_from_data(
       return new HHAST\CloneToken($leading, $trailing);
     case 'const':
       return new HHAST\ConstToken($leading, $trailing);
-    case 'construct':
+    case '__construct':
       return new HHAST\ConstructToken($leading, $trailing);
     case 'continue':
       return new HHAST\ContinueToken($leading, $trailing);
@@ -64,7 +64,7 @@ function editable_token_from_data(
       return new HHAST\DefaultToken($leading, $trailing);
     case 'define':
       return new HHAST\DefineToken($leading, $trailing);
-    case 'destruct':
+    case '__destruct':
       return new HHAST\DestructToken($leading, $trailing);
     case 'dict':
       return new HHAST\DictToken($leading, $trailing);
@@ -208,139 +208,139 @@ function editable_token_from_data(
       return new HHAST\XorToken($leading, $trailing);
     case 'yield':
       return new HHAST\YieldToken($leading, $trailing);
-    case 'left_bracket':
+    case '[':
       return new HHAST\LeftBracketToken($leading, $trailing);
-    case 'right_bracket':
+    case ']':
       return new HHAST\RightBracketToken($leading, $trailing);
-    case 'left_paren':
+    case '(':
       return new HHAST\LeftParenToken($leading, $trailing);
-    case 'right_paren':
+    case ')':
       return new HHAST\RightParenToken($leading, $trailing);
-    case 'left_brace':
+    case '{':
       return new HHAST\LeftBraceToken($leading, $trailing);
-    case 'right_brace':
+    case '}':
       return new HHAST\RightBraceToken($leading, $trailing);
-    case 'dot':
+    case '.':
       return new HHAST\DotToken($leading, $trailing);
-    case 'minus_greater_than':
+    case '->':
       return new HHAST\MinusGreaterThanToken($leading, $trailing);
-    case 'plus_plus':
+    case '++':
       return new HHAST\PlusPlusToken($leading, $trailing);
-    case 'minus_minus':
+    case '--':
       return new HHAST\MinusMinusToken($leading, $trailing);
-    case 'star_star':
+    case '**':
       return new HHAST\StarStarToken($leading, $trailing);
-    case 'star':
+    case '*':
       return new HHAST\StarToken($leading, $trailing);
-    case 'plus':
+    case '+':
       return new HHAST\PlusToken($leading, $trailing);
-    case 'minus':
+    case '-':
       return new HHAST\MinusToken($leading, $trailing);
-    case 'tilde':
+    case '~':
       return new HHAST\TildeToken($leading, $trailing);
-    case 'exclamation':
+    case '!':
       return new HHAST\ExclamationToken($leading, $trailing);
-    case 'dollar':
+    case '$':
       return new HHAST\DollarToken($leading, $trailing);
-    case 'slash':
+    case '/':
       return new HHAST\SlashToken($leading, $trailing);
-    case 'percent':
+    case '%':
       return new HHAST\PercentToken($leading, $trailing);
-    case 'less_than_greater_than':
+    case '<>':
       return new HHAST\LessThanGreaterThanToken($leading, $trailing);
-    case 'less_than_equal_greater_than':
+    case '<=>':
       return new HHAST\LessThanEqualGreaterThanToken($leading, $trailing);
-    case 'less_than_less_than':
+    case '<<':
       return new HHAST\LessThanLessThanToken($leading, $trailing);
-    case 'greater_than_greater_than':
+    case '>>':
       return new HHAST\GreaterThanGreaterThanToken($leading, $trailing);
-    case 'less_than':
+    case '<':
       return new HHAST\LessThanToken($leading, $trailing);
-    case 'greater_than':
+    case '>':
       return new HHAST\GreaterThanToken($leading, $trailing);
-    case 'less_than_equal':
+    case '<=':
       return new HHAST\LessThanEqualToken($leading, $trailing);
-    case 'greater_than_equal':
+    case '>=':
       return new HHAST\GreaterThanEqualToken($leading, $trailing);
-    case 'equal_equal':
+    case '==':
       return new HHAST\EqualEqualToken($leading, $trailing);
-    case 'equal_equal_equal':
+    case '===':
       return new HHAST\EqualEqualEqualToken($leading, $trailing);
-    case 'exclamation_equal':
+    case '!=':
       return new HHAST\ExclamationEqualToken($leading, $trailing);
-    case 'exclamation_equal_equal':
+    case '!==':
       return new HHAST\ExclamationEqualEqualToken($leading, $trailing);
-    case 'carat':
+    case '^':
       return new HHAST\CaratToken($leading, $trailing);
-    case 'bar':
+    case '|':
       return new HHAST\BarToken($leading, $trailing);
-    case 'ampersand':
+    case '&':
       return new HHAST\AmpersandToken($leading, $trailing);
-    case 'ampersand_ampersand':
+    case '&&':
       return new HHAST\AmpersandAmpersandToken($leading, $trailing);
-    case 'bar_bar':
+    case '||':
       return new HHAST\BarBarToken($leading, $trailing);
-    case 'question':
+    case '?':
       return new HHAST\QuestionToken($leading, $trailing);
-    case 'question_question':
+    case '??':
       return new HHAST\QuestionQuestionToken($leading, $trailing);
-    case 'colon':
+    case ':':
       return new HHAST\ColonToken($leading, $trailing);
-    case 'semicolon':
+    case ';':
       return new HHAST\SemicolonToken($leading, $trailing);
-    case 'equal':
+    case '=':
       return new HHAST\EqualToken($leading, $trailing);
-    case 'star_star_equal':
+    case '**=':
       return new HHAST\StarStarEqualToken($leading, $trailing);
-    case 'star_equal':
+    case '*=':
       return new HHAST\StarEqualToken($leading, $trailing);
-    case 'slash_equal':
+    case '/=':
       return new HHAST\SlashEqualToken($leading, $trailing);
-    case 'percent_equal':
+    case '%=':
       return new HHAST\PercentEqualToken($leading, $trailing);
-    case 'plus_equal':
+    case '+=':
       return new HHAST\PlusEqualToken($leading, $trailing);
-    case 'minus_equal':
+    case '-=':
       return new HHAST\MinusEqualToken($leading, $trailing);
-    case 'dot_equal':
+    case '.=':
       return new HHAST\DotEqualToken($leading, $trailing);
-    case 'less_than_less_than_equal':
+    case '<<=':
       return new HHAST\LessThanLessThanEqualToken($leading, $trailing);
-    case 'greater_than_greater_than_equal':
+    case '>>=':
       return new HHAST\GreaterThanGreaterThanEqualToken($leading, $trailing);
-    case 'ampersand_equal':
+    case '&=':
       return new HHAST\AmpersandEqualToken($leading, $trailing);
-    case 'carat_equal':
+    case '^=':
       return new HHAST\CaratEqualToken($leading, $trailing);
-    case 'bar_equal':
+    case '|=':
       return new HHAST\BarEqualToken($leading, $trailing);
-    case 'comma':
+    case ',':
       return new HHAST\CommaToken($leading, $trailing);
-    case 'at':
+    case '@':
       return new HHAST\AtToken($leading, $trailing);
-    case 'colon_colon':
+    case '::':
       return new HHAST\ColonColonToken($leading, $trailing);
-    case 'equal_greater_than':
+    case '=>':
       return new HHAST\EqualGreaterThanToken($leading, $trailing);
-    case 'equal_equal_greater_than':
+    case '==>':
       return new HHAST\EqualEqualGreaterThanToken($leading, $trailing);
-    case 'question_minus_greater_than':
+    case '?->':
       return new HHAST\QuestionMinusGreaterThanToken($leading, $trailing);
-    case 'dot_dot_dot':
+    case '...':
       return new HHAST\DotDotDotToken($leading, $trailing);
-    case 'dollar_dollar':
+    case '$$':
       return new HHAST\DollarDollarToken($leading, $trailing);
-    case 'bar_greater_than':
+    case '|>':
       return new HHAST\BarGreaterThanToken($leading, $trailing);
-    case 'null_literal':
+    case 'null':
       return new HHAST\NullLiteralToken($leading, $trailing);
-    case 'slash_greater_than':
+    case '/>':
       return new HHAST\SlashGreaterThanToken($leading, $trailing);
-    case 'less_than_slash':
+    case '</':
       return new HHAST\LessThanSlashToken($leading, $trailing);
-    case 'less_than_question':
+    case '<?':
       return new HHAST\LessThanQuestionToken($leading, $trailing);
-    case 'question_greater_than':
+    case '?>':
       return new HHAST\QuestionGreaterThanToken($leading, $trailing);
     case 'error_token':
       return new HHAST\ErrorTokenToken($leading, $trailing, $token_text);
