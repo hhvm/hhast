@@ -48,11 +48,11 @@ final class CodegenRelations extends CodegenBase {
 
     $cg = $this->getCodegenFactory();
 
-    $cg->codegenFile($this->getOutputDirectory().'/relationships.php')
+    $cg->codegenFile($this->getOutputDirectory().'/inferred_relationships.php')
       ->setNamespace('Facebook\\HHAST\\__Private')
       ->setPseudoMainHeader(
         $cg->codegenHackBuilder()
-          ->add('const dict<string, keyset<string>> SCHEMA_RELATIONSHIPS = ')
+          ->add('const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = ')
           ->addValue(
             $result,
             HackBuilderValues::dict(
@@ -73,7 +73,7 @@ final class CodegenRelations extends CodegenBase {
     $hhvm_dirs = keyset[
       'quick',
       'slow',
-      'zend/good',
+      'zend/good/',
     ];
 
     $hhvm_tests =
@@ -158,7 +158,8 @@ final class CodegenRelations extends CodegenBase {
     string $file,
   ): dict<string, keyset<string>> {
     try {
-      $ast = HHAST\from_file($file);
+      /* HH_IGNORE_ERROR[4110] making assumptions about JSON */
+      $ast = $this->flatten(HHAST\json_from_file($file)['parse_tree']);
     } catch (\Exception $_) {
       if (!Str\contains(file_get_contents($file), '<?php')) {
         fprintf(STDERR, "Failed to parse %s\n", $file);
@@ -168,33 +169,81 @@ final class CodegenRelations extends CodegenBase {
 
     $out = dict[];
 
-    $schemas = $this->getSchemaASTByKindName();
-    foreach ($ast->preorder() as $node) {
-      $kind = Str\strip_prefix(
-        get_class($node),
-        'Facebook\\HHAST\\',
-      );
+    $schemas = Dict\pull(
+      $this->getSchema()['AST'],
+      $schema ==> $schema,
+      $schema ==> $schema['type_name'],
+    );
+
+    foreach ($ast as $node) {
+      $kind = (string) $node['kind'];
       if (!C\contains_key($schemas, $kind)) {
         continue;
       }
       $schema = $schemas[$kind];
 
-      $node_fields = dict($node->children());
-      $kind = $node->syntax_kind();
-
       foreach ($schema['fields'] as $field) {
-        $field = $field['field_name'];
-        if (C\contains_key($node_fields, $field)) {
+        $field = $schema['prefix'].'_'.$field['field_name'];
+        if (C\contains_key($node, $field)) {
           $key = $kind.'.'.$field;
           if (!C\contains_key($out, $key)) {
             $out[$key] = keyset[];
           }
 
-          $child = $node_fields[$field];
-          $out[$key][] = $child->syntax_kind();
+          $child = $node[$field];
+          /* HH_IGNORE_ERROR[4005] making assumptions about JSON struct */
+          $child_kind = (string) $child['kind'];
+          if ($child_kind === 'token') {
+            /* HH_IGNORE_ERROR[4005] making assumptions about JSON struct */
+            $child_kind = 'token:' . (string) $child['token']['kind'];
+          }
+          $out[$key][] = $child_kind;
         }
       }
     }
     return $out;
+  }
+
+  public function flatten(
+    array<string, mixed> $json,
+  ): Traversable<array<string, mixed>> {
+    // UNSAFE_BLOCK making assumptions about JSON struct
+    yield $json;
+
+    $kind = (string) $json['kind'];
+    $schemas = Dict\pull(
+      $this->getSchema()['AST'],
+      $schema ==> $schema,
+      $schema ==> $schema['type_name'],
+    );
+
+    switch ($kind) {
+      case 'token':
+        yield $json['token'];
+        break;
+      case 'list':
+        foreach ($json['elements'] as $item) {
+          foreach ($this->flatten($item) as $inner) {
+            yield $inner;
+          }
+        }
+        break;
+      case 'missing':
+        return;
+      default:
+        $schema = $schemas[$kind] ?? null;
+        if ($schema === null) {
+          return;
+        }
+        foreach ($schema['fields'] as $field) {
+          $field = $schema['prefix'].'_'.$field['field_name'];
+          $content = $json[$field] ?? null;
+          if ($content !== null) {
+            foreach ($this->flatten($content) as $inner) {
+              yield $inner;
+            }
+          }
+        }
+    }
   }
 }

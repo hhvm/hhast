@@ -14,12 +14,6 @@
 namespace Facebook\HHAST\__Private;
 
 use type Facebook\TypeAssert\TypeAssert;
-use type Facebook\HackCodegen\{
-  HackBuilderKeys,
-  HackBuilderValues,
-  HackCodegenConfig,
-  HackCodegenFactory
-};
 
 use namespace HH\Lib\{C, Dict, Str, Vec};
 use type Facebook\HHAST\__Private\Schema\TSchema as TSchema;
@@ -32,10 +26,13 @@ final class UpdateCodegen {
   public function __construct(private self::TSchema $schema) {
   }
 
-  <<__Memoize>>
+  public function generateRelations(
+    string $hhvm_root,
+  ): void {
+    (new CodegenRelations($hhvm_root, $this->schema))->generate();
+  }
 
-
-  public function generateAll(): void {
+  public function generateQuick(): void {
     $generators = keyset[
       CodegenEditableSyntaxFromJSON::class,
       CodegenEditableTokenFromData::class,
@@ -47,8 +44,6 @@ final class UpdateCodegen {
     foreach ($generators as $generator) {
       (new $generator($this->schema))->generate();
     }
-
-    (new CodegenRelations('/Users/fred/code/hhvm',$this->schema))->generate();
   }
 
   public static function fromFile(string $path): this {
@@ -64,4 +59,16 @@ final class UpdateCodegen {
   }
 }
 
-UpdateCodegen::fromFile(__DIR__.'/../codegen/schema.json')->generateAll();
+$arg = $argv[1] ?? null;
+if ($arg === '--help') {
+  printf("Usage: %s [HHVM_PATH]\n", $argv[0]);
+  print("  Regenerates most codegen.\n");
+  print("  If HHVM_PATH is specified, inferred relationships will be updated.\n");
+  exit(0);
+}
+
+$updater = UpdateCodegen::fromFile(__DIR__.'/../codegen/schema.json');
+if ($arg !== null) {
+  $updater->generateRelations($arg);
+}
+$updater->generateQuick();
