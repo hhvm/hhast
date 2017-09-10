@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b47c8995b56e1bea267126a042faa4b4>>
+ * @generated SignedSource<<608489feead8b6c9022f9ecb95c549d7>>
  */
 namespace Facebook\HHAST;
 
@@ -15,13 +15,6 @@ final class WhiteSpace extends EditableTrivia {
   public function with_text(string $text): this {
     return new self($text);
   }
-
-  public function rewrite_children(
-    self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
-  ): this {
-    return $this;
-  }
 }
 
 final class EndOfLine extends EditableTrivia {
@@ -32,13 +25,6 @@ final class EndOfLine extends EditableTrivia {
 
   public function with_text(string $text): this {
     return new self($text);
-  }
-
-  public function rewrite_children(
-    self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
-  ): this {
-    return $this;
   }
 }
 
@@ -51,13 +37,6 @@ final class DelimitedComment extends EditableTrivia {
   public function with_text(string $text): this {
     return new self($text);
   }
-
-  public function rewrite_children(
-    self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
-  ): this {
-    return $this;
-  }
 }
 
 final class SingleLineComment extends EditableTrivia {
@@ -68,13 +47,6 @@ final class SingleLineComment extends EditableTrivia {
 
   public function with_text(string $text): this {
     return new self($text);
-  }
-
-  public function rewrite_children(
-    self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
-  ): this {
-    return $this;
   }
 }
 
@@ -87,13 +59,6 @@ final class Unsafe extends EditableTrivia {
   public function with_text(string $text): this {
     return new self($text);
   }
-
-  public function rewrite_children(
-    self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
-  ): this {
-    return $this;
-  }
 }
 
 final class UnsafeExpression extends EditableTrivia {
@@ -104,13 +69,6 @@ final class UnsafeExpression extends EditableTrivia {
 
   public function with_text(string $text): this {
     return new self($text);
-  }
-
-  public function rewrite_children(
-    self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
-  ): this {
-    return $this;
   }
 }
 
@@ -123,13 +81,6 @@ final class FixMe extends EditableTrivia {
   public function with_text(string $text): this {
     return new self($text);
   }
-
-  public function rewrite_children(
-    self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
-  ): this {
-    return $this;
-  }
 }
 
 final class IgnoreError extends EditableTrivia {
@@ -141,13 +92,6 @@ final class IgnoreError extends EditableTrivia {
   public function with_text(string $text): this {
     return new self($text);
   }
-
-  public function rewrite_children(
-    self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
-  ): this {
-    return $this;
-  }
 }
 
 final class FallThrough extends EditableTrivia {
@@ -158,12 +102,5 @@ final class FallThrough extends EditableTrivia {
 
   public function with_text(string $text): this {
     return new self($text);
-  }
-
-  public function rewrite_children(
-    self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
-  ): this {
-    return $this;
   }
 }
