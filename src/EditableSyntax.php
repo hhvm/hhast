@@ -13,6 +13,7 @@
 namespace Facebook\HHAST;
 
 use type Facebook\TypeAssert\TypeAssert;
+use namespace HH\Lib\Vec;
 
 abstract class EditableSyntax implements \ArrayAccess<mixed, mixed> {
   const type TRewriter =
@@ -182,12 +183,11 @@ abstract class EditableSyntax implements \ArrayAccess<mixed, mixed> {
 
   public function of_class<T as EditableSyntax>(
     classname<T> $what,
-  ): Traversable<T> {
-    foreach ($this->preorder() as $child) {
-      if ($child instanceof $what) {
-        yield $child;
-      }
-    }
+  ): vec<T> {
+    return Vec\map(
+      $this->preorder(),
+      $child ==> $child instanceof $what ? $child : null,
+    ) |> Vec\filter_nulls($$);
   }
 
   public function remove_where(
@@ -212,9 +212,15 @@ abstract class EditableSyntax implements \ArrayAccess<mixed, mixed> {
     );
   }
 
-  public function leftmost_token(): ?EditableSyntax {
-    if ($this->is_token())
+  public function leftmost_tokenx(): EditableToken {
+    return TypeAssert::isNotNull($this->leftmost_token());
+  }
+
+  public function leftmost_token(): ?EditableToken {
+    if ($this instanceof EditableToken) {
       return $this;
+    }
+
     foreach ($this->children() as $child) {
       if (!$child->is_missing())
         return $child->leftmost_token();
@@ -222,9 +228,14 @@ abstract class EditableSyntax implements \ArrayAccess<mixed, mixed> {
     return null;
   }
 
-  public function rightmost_token(): ?EditableSyntax {
-    if ($this->is_token())
+  public function rightmost_tokenx(): EditableToken {
+    return TypeAssert::isNotNull($this->rightmost_token());
+  }
+
+  public function rightmost_token(): ?EditableToken {
+    if ($this instanceof EditableToken) {
       return $this;
+    }
 
     // TODO: Better way to reverse a sequence?
     foreach (array_reverse(iterator_to_array($this->children())) as $child) {

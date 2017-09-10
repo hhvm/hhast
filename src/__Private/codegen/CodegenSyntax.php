@@ -243,7 +243,7 @@ final class CodegenSyntax extends CodegenBase {
           ->addLines(
             Vec\map(
               $fields,
-              $field ==> sprintf('$%s === $this->%s() &&', $field, $field),
+              $field ==> sprintf('$%s === $this->_%s &&', $field, $field),
             )
             |> (
               $lines ==> {
@@ -285,7 +285,7 @@ final class CodegenSyntax extends CodegenBase {
     $specs = INFERRED_RELATIONSHIPS;
     if (!C\contains_key($specs, $key)) {
       return shape(
-        'class' => 'EditableToken',
+        'class' => 'EditableSyntax',
         'nullable' => false,
       );
     }
@@ -297,7 +297,7 @@ final class CodegenSyntax extends CodegenBase {
     }
     if (C\count($children) !== 1) {
       return shape(
-        'class' => 'EditableToken',
+        'class' => 'EditableSyntax',
         'nullable' => false,
       );
     }
@@ -347,7 +347,7 @@ final class CodegenSyntax extends CodegenBase {
     if ($token !== null) {
       return $token['token_kind'].'Token';
     }
-    
+
     $token = C\find(
       $tokens,
       $token ==> self::underscored($token['token_kind']) === $child,

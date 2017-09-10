@@ -121,8 +121,6 @@ final class EditableList extends EditableSyntax
     if ($dirty) {
       if (count($new_children) === 0)
         $result = Missing::getInstance();
-      else if (count($new_children) === 1)
-        $result = $new_children[0];
       else
         $result = new EditableList($new_children);
     }

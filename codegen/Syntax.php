@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c1f5d41b14b928e957905f5a8bdcebf5>>
+ * @generated SignedSource<<7502634c9a5a5e1db2d768e281736e02>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -42,7 +42,7 @@ final class EndOfFile extends EditableSyntax {
     $child_parents = $parents;
     $child_parents[] = $this;
     $token = $this->_token->rewrite($rewriter, $child_parents);
-    if ($token === $this->token()) {
+    if ($token === $this->_token) {
       $node = $this;
     } else {
       $node = new self($token);
@@ -102,7 +102,7 @@ final class Script extends EditableSyntax {
     $child_parents = $parents;
     $child_parents[] = $this;
     $declarations = $this->_declarations->rewrite($rewriter, $child_parents);
-    if ($declarations === $this->declarations()) {
+    if ($declarations === $this->_declarations) {
       $node = $this;
     } else {
       $node = new self($declarations);
@@ -162,7 +162,7 @@ final class SimpleTypeSpecifier extends EditableSyntax {
     $child_parents = $parents;
     $child_parents[] = $this;
     $specifier = $this->_specifier->rewrite($rewriter, $child_parents);
-    if ($specifier === $this->specifier()) {
+    if ($specifier === $this->_specifier) {
       $node = $this;
     } else {
       $node = new self($specifier);
@@ -170,12 +170,12 @@ final class SimpleTypeSpecifier extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function specifier(): EditableToken {
+  public function specifier(): EditableSyntax {
     return $this->specifierx();
   }
 
-  public function specifierx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_specifier);
+  public function specifierx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_specifier);
   }
 
   public function raw_specifier(): EditableSyntax {
@@ -222,7 +222,7 @@ final class LiteralExpression extends EditableSyntax {
     $child_parents = $parents;
     $child_parents[] = $this;
     $expression = $this->_expression->rewrite($rewriter, $child_parents);
-    if ($expression === $this->expression()) {
+    if ($expression === $this->_expression) {
       $node = $this;
     } else {
       $node = new self($expression);
@@ -230,12 +230,12 @@ final class LiteralExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function expression(): EditableToken {
+  public function expression(): EditableSyntax {
     return $this->expressionx();
   }
 
-  public function expressionx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_expression);
+  public function expressionx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
   }
 
   public function raw_expression(): EditableSyntax {
@@ -282,7 +282,7 @@ final class VariableExpression extends EditableSyntax {
     $child_parents = $parents;
     $child_parents[] = $this;
     $expression = $this->_expression->rewrite($rewriter, $child_parents);
-    if ($expression === $this->expression()) {
+    if ($expression === $this->_expression) {
       $node = $this;
     } else {
       $node = new self($expression);
@@ -290,12 +290,12 @@ final class VariableExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function expression(): EditableToken {
+  public function expression(): EditableSyntax {
     return $this->expressionx();
   }
 
-  public function expressionx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_expression);
+  public function expressionx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
   }
 
   public function raw_expression(): EditableSyntax {
@@ -342,7 +342,7 @@ final class QualifiedNameExpression extends EditableSyntax {
     $child_parents = $parents;
     $child_parents[] = $this;
     $expression = $this->_expression->rewrite($rewriter, $child_parents);
-    if ($expression === $this->expression()) {
+    if ($expression === $this->_expression) {
       $node = $this;
     } else {
       $node = new self($expression);
@@ -350,12 +350,12 @@ final class QualifiedNameExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function expression(): EditableToken {
+  public function expression(): EditableSyntax {
     return $this->expressionx();
   }
 
-  public function expressionx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_expression);
+  public function expressionx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
   }
 
   public function raw_expression(): EditableSyntax {
@@ -402,7 +402,7 @@ final class PipeVariableExpression extends EditableSyntax {
     $child_parents = $parents;
     $child_parents[] = $this;
     $expression = $this->_expression->rewrite($rewriter, $child_parents);
-    if ($expression === $this->expression()) {
+    if ($expression === $this->_expression) {
       $node = $this;
     } else {
       $node = new self($expression);
@@ -410,12 +410,12 @@ final class PipeVariableExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function expression(): EditableToken {
+  public function expression(): EditableSyntax {
     return $this->expressionx();
   }
 
-  public function expressionx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_expression);
+  public function expressionx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
   }
 
   public function raw_expression(): EditableSyntax {
@@ -564,15 +564,15 @@ final class EnumDeclaration extends EditableSyntax {
     $enumerators = $this->_enumerators->rewrite($rewriter, $child_parents);
     $right_brace = $this->_right_brace->rewrite($rewriter, $child_parents);
     if (
-      $attribute_spec === $this->attribute_spec() &&
-      $keyword === $this->keyword() &&
-      $name === $this->name() &&
-      $colon === $this->colon() &&
-      $base === $this->base() &&
-      $type === $this->type() &&
-      $left_brace === $this->left_brace() &&
-      $enumerators === $this->enumerators() &&
-      $right_brace === $this->right_brace()
+      $attribute_spec === $this->_attribute_spec &&
+      $keyword === $this->_keyword &&
+      $name === $this->_name &&
+      $colon === $this->_colon &&
+      $base === $this->_base &&
+      $type === $this->_type &&
+      $left_brace === $this->_left_brace &&
+      $enumerators === $this->_enumerators &&
+      $right_brace === $this->_right_brace
     ) {
       $node = $this;
     } else {
@@ -591,13 +591,13 @@ final class EnumDeclaration extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function attribute_spec(): EditableToken {
+  public function attribute_spec(): EditableSyntax {
     return $this->attribute_specx();
   }
 
-  public function attribute_specx(): EditableToken {
+  public function attribute_specx(): EditableSyntax {
     return
-      TypeAssert::isInstanceOf(EditableToken::class, $this->_attribute_spec);
+      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_attribute_spec);
   }
 
   public function raw_attribute_spec(): EditableSyntax {
@@ -696,12 +696,12 @@ final class EnumDeclaration extends EditableSyntax {
     );
   }
 
-  public function base(): EditableToken {
+  public function base(): EditableSyntax {
     return $this->basex();
   }
 
-  public function basex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_base);
+  public function basex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_base);
   }
 
   public function raw_base(): EditableSyntax {
@@ -903,10 +903,10 @@ final class Enumerator extends EditableSyntax {
     $value = $this->_value->rewrite($rewriter, $child_parents);
     $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
-      $name === $this->name() &&
-      $equal === $this->equal() &&
-      $value === $this->value() &&
-      $semicolon === $this->semicolon()
+      $name === $this->_name &&
+      $equal === $this->_equal &&
+      $value === $this->_value &&
+      $semicolon === $this->_semicolon
     ) {
       $node = $this;
     } else {
@@ -947,12 +947,12 @@ final class Enumerator extends EditableSyntax {
     return new self($this->_name, $value, $this->_value, $this->_semicolon);
   }
 
-  public function value(): EditableToken {
+  public function value(): EditableSyntax {
     return $this->valuex();
   }
 
-  public function valuex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_value);
+  public function valuex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_value);
   }
 
   public function raw_value(): EditableSyntax {
@@ -1106,14 +1106,14 @@ final class AliasDeclaration extends EditableSyntax {
     $type = $this->_type->rewrite($rewriter, $child_parents);
     $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
-      $attribute_spec === $this->attribute_spec() &&
-      $keyword === $this->keyword() &&
-      $name === $this->name() &&
-      $generic_parameter === $this->generic_parameter() &&
-      $constraint === $this->constraint() &&
-      $equal === $this->equal() &&
-      $type === $this->type() &&
-      $semicolon === $this->semicolon()
+      $attribute_spec === $this->_attribute_spec &&
+      $keyword === $this->_keyword &&
+      $name === $this->_name &&
+      $generic_parameter === $this->_generic_parameter &&
+      $constraint === $this->_constraint &&
+      $equal === $this->_equal &&
+      $type === $this->_type &&
+      $semicolon === $this->_semicolon
     ) {
       $node = $this;
     } else {
@@ -1164,12 +1164,12 @@ final class AliasDeclaration extends EditableSyntax {
     );
   }
 
-  public function keyword(): EditableToken {
+  public function keyword(): EditableSyntax {
     return $this->keywordx();
   }
 
-  public function keywordx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_keyword);
+  public function keywordx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_keyword);
   }
 
   public function raw_keyword(): EditableSyntax {
@@ -1303,12 +1303,12 @@ final class AliasDeclaration extends EditableSyntax {
     );
   }
 
-  public function type(): EditableToken {
+  public function type(): EditableSyntax {
     return $this->typex();
   }
 
-  public function typex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_type);
+  public function typex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
 
   public function raw_type(): EditableSyntax {
@@ -1425,10 +1425,10 @@ final class PropertyDeclaration extends EditableSyntax {
     $declarators = $this->_declarators->rewrite($rewriter, $child_parents);
     $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
-      $modifiers === $this->modifiers() &&
-      $type === $this->type() &&
-      $declarators === $this->declarators() &&
-      $semicolon === $this->semicolon()
+      $modifiers === $this->_modifiers &&
+      $type === $this->_type &&
+      $declarators === $this->_declarators &&
+      $semicolon === $this->_semicolon
     ) {
       $node = $this;
     } else {
@@ -1437,12 +1437,12 @@ final class PropertyDeclaration extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function modifiers(): EditableToken {
+  public function modifiers(): EditableSyntax {
     return $this->modifiersx();
   }
 
-  public function modifiersx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_modifiers);
+  public function modifiersx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_modifiers);
   }
 
   public function raw_modifiers(): EditableSyntax {
@@ -1454,12 +1454,12 @@ final class PropertyDeclaration extends EditableSyntax {
       new self($value, $this->_type, $this->_declarators, $this->_semicolon);
   }
 
-  public function type(): EditableToken {
+  public function type(): EditableSyntax {
     return $this->typex();
   }
 
-  public function typex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_type);
+  public function typex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
 
   public function raw_type(): EditableSyntax {
@@ -1559,7 +1559,7 @@ final class PropertyDeclarator extends EditableSyntax {
     $child_parents[] = $this;
     $name = $this->_name->rewrite($rewriter, $child_parents);
     $initializer = $this->_initializer->rewrite($rewriter, $child_parents);
-    if ($name === $this->name() && $initializer === $this->initializer()) {
+    if ($name === $this->_name && $initializer === $this->_initializer) {
       $node = $this;
     } else {
       $node = new self($name, $initializer);
@@ -1665,9 +1665,9 @@ final class NamespaceDeclaration extends EditableSyntax {
     $name = $this->_name->rewrite($rewriter, $child_parents);
     $body = $this->_body->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $name === $this->name() &&
-      $body === $this->body()
+      $keyword === $this->_keyword &&
+      $name === $this->_name &&
+      $body === $this->_body
     ) {
       $node = $this;
     } else {
@@ -1692,12 +1692,12 @@ final class NamespaceDeclaration extends EditableSyntax {
     return new self($value, $this->_name, $this->_body);
   }
 
-  public function name(): EditableToken {
+  public function name(): EditableSyntax {
     return $this->namex();
   }
 
-  public function namex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+  public function namex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }
 
   public function raw_name(): EditableSyntax {
@@ -1708,12 +1708,12 @@ final class NamespaceDeclaration extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_body);
   }
 
-  public function body(): EditableToken {
+  public function body(): EditableSyntax {
     return $this->bodyx();
   }
 
-  public function bodyx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_body);
+  public function bodyx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_body);
   }
 
   public function raw_body(): EditableSyntax {
@@ -1785,9 +1785,9 @@ final class NamespaceBody extends EditableSyntax {
     $declarations = $this->_declarations->rewrite($rewriter, $child_parents);
     $right_brace = $this->_right_brace->rewrite($rewriter, $child_parents);
     if (
-      $left_brace === $this->left_brace() &&
-      $declarations === $this->declarations() &&
-      $right_brace === $this->right_brace()
+      $left_brace === $this->_left_brace &&
+      $declarations === $this->_declarations &&
+      $right_brace === $this->_right_brace
     ) {
       $node = $this;
     } else {
@@ -1885,7 +1885,7 @@ final class NamespaceEmptyBody extends EditableSyntax {
     $child_parents = $parents;
     $child_parents[] = $this;
     $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
-    if ($semicolon === $this->semicolon()) {
+    if ($semicolon === $this->_semicolon) {
       $node = $this;
     } else {
       $node = new self($semicolon);
@@ -1981,10 +1981,10 @@ final class NamespaceUseDeclaration extends EditableSyntax {
     $clauses = $this->_clauses->rewrite($rewriter, $child_parents);
     $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $kind === $this->kind() &&
-      $clauses === $this->clauses() &&
-      $semicolon === $this->semicolon()
+      $keyword === $this->_keyword &&
+      $kind === $this->_kind &&
+      $clauses === $this->_clauses &&
+      $semicolon === $this->_semicolon
     ) {
       $node = $this;
     } else {
@@ -2009,12 +2009,12 @@ final class NamespaceUseDeclaration extends EditableSyntax {
     return new self($value, $this->_kind, $this->_clauses, $this->_semicolon);
   }
 
-  public function kind(): EditableToken {
+  public function kind(): EditableSyntax {
     return $this->kindx();
   }
 
-  public function kindx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_kind);
+  public function kindx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_kind);
   }
 
   public function raw_kind(): EditableSyntax {
@@ -2173,13 +2173,13 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
     $right_brace = $this->_right_brace->rewrite($rewriter, $child_parents);
     $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $kind === $this->kind() &&
-      $prefix === $this->prefix() &&
-      $left_brace === $this->left_brace() &&
-      $clauses === $this->clauses() &&
-      $right_brace === $this->right_brace() &&
-      $semicolon === $this->semicolon()
+      $keyword === $this->_keyword &&
+      $kind === $this->_kind &&
+      $prefix === $this->_prefix &&
+      $left_brace === $this->_left_brace &&
+      $clauses === $this->_clauses &&
+      $right_brace === $this->_right_brace &&
+      $semicolon === $this->_semicolon
     ) {
       $node = $this;
     } else {
@@ -2220,12 +2220,12 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
     );
   }
 
-  public function kind(): EditableToken {
+  public function kind(): EditableSyntax {
     return $this->kindx();
   }
 
-  public function kindx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_kind);
+  public function kindx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_kind);
   }
 
   public function raw_kind(): EditableSyntax {
@@ -2442,10 +2442,10 @@ final class NamespaceUseClause extends EditableSyntax {
     $as = $this->_as->rewrite($rewriter, $child_parents);
     $alias = $this->_alias->rewrite($rewriter, $child_parents);
     if (
-      $clause_kind === $this->clause_kind() &&
-      $name === $this->name() &&
-      $as === $this->as() &&
-      $alias === $this->alias()
+      $clause_kind === $this->_clause_kind &&
+      $name === $this->_name &&
+      $as === $this->_as &&
+      $alias === $this->_alias
     ) {
       $node = $this;
     } else {
@@ -2454,12 +2454,12 @@ final class NamespaceUseClause extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function clause_kind(): EditableToken {
+  public function clause_kind(): EditableSyntax {
     return $this->clause_kindx();
   }
 
-  public function clause_kindx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_clause_kind);
+  public function clause_kindx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_clause_kind);
   }
 
   public function raw_clause_kind(): EditableSyntax {
@@ -2470,12 +2470,12 @@ final class NamespaceUseClause extends EditableSyntax {
     return new self($value, $this->_name, $this->_as, $this->_alias);
   }
 
-  public function name(): EditableToken {
+  public function name(): EditableSyntax {
     return $this->namex();
   }
 
-  public function namex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+  public function namex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }
 
   public function raw_name(): EditableSyntax {
@@ -2585,9 +2585,9 @@ final class FunctionDeclaration extends EditableSyntax {
       $this->_declaration_header->rewrite($rewriter, $child_parents);
     $body = $this->_body->rewrite($rewriter, $child_parents);
     if (
-      $attribute_spec === $this->attribute_spec() &&
-      $declaration_header === $this->declaration_header() &&
-      $body === $this->body()
+      $attribute_spec === $this->_attribute_spec &&
+      $declaration_header === $this->_declaration_header &&
+      $body === $this->_body
     ) {
       $node = $this;
     } else {
@@ -2639,12 +2639,12 @@ final class FunctionDeclaration extends EditableSyntax {
     return new self($this->_attribute_spec, $value, $this->_body);
   }
 
-  public function body(): EditableToken {
+  public function body(): EditableSyntax {
     return $this->bodyx();
   }
 
-  public function bodyx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_body);
+  public function bodyx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_body);
   }
 
   public function raw_body(): EditableSyntax {
@@ -2830,18 +2830,18 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     $type = $this->_type->rewrite($rewriter, $child_parents);
     $where_clause = $this->_where_clause->rewrite($rewriter, $child_parents);
     if (
-      $async === $this->async() &&
-      $coroutine === $this->coroutine() &&
-      $keyword === $this->keyword() &&
-      $ampersand === $this->ampersand() &&
-      $name === $this->name() &&
-      $type_parameter_list === $this->type_parameter_list() &&
-      $left_paren === $this->left_paren() &&
-      $parameter_list === $this->parameter_list() &&
-      $right_paren === $this->right_paren() &&
-      $colon === $this->colon() &&
-      $type === $this->type() &&
-      $where_clause === $this->where_clause()
+      $async === $this->_async &&
+      $coroutine === $this->_coroutine &&
+      $keyword === $this->_keyword &&
+      $ampersand === $this->_ampersand &&
+      $name === $this->_name &&
+      $type_parameter_list === $this->_type_parameter_list &&
+      $left_paren === $this->_left_paren &&
+      $parameter_list === $this->_parameter_list &&
+      $right_paren === $this->_right_paren &&
+      $colon === $this->_colon &&
+      $type === $this->_type &&
+      $where_clause === $this->_where_clause
     ) {
       $node = $this;
     } else {
@@ -2894,12 +2894,12 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     );
   }
 
-  public function coroutine(): EditableToken {
+  public function coroutine(): EditableSyntax {
     return $this->coroutinex();
   }
 
-  public function coroutinex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_coroutine);
+  public function coroutinex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_coroutine);
   }
 
   public function raw_coroutine(): EditableSyntax {
@@ -2985,12 +2985,12 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     );
   }
 
-  public function name(): EditableToken {
+  public function name(): EditableSyntax {
     return $this->namex();
   }
 
-  public function namex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+  public function namex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }
 
   public function raw_name(): EditableSyntax {
@@ -3177,12 +3177,12 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     );
   }
 
-  public function type(): EditableToken {
+  public function type(): EditableSyntax {
     return $this->typex();
   }
 
-  public function typex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_type);
+  public function typex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
 
   public function raw_type(): EditableSyntax {
@@ -3286,9 +3286,7 @@ final class WhereClause extends EditableSyntax {
     $child_parents[] = $this;
     $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
     $constraints = $this->_constraints->rewrite($rewriter, $child_parents);
-    if (
-      $keyword === $this->keyword() && $constraints === $this->constraints()
-    ) {
+    if ($keyword === $this->_keyword && $constraints === $this->_constraints) {
       $node = $this;
     } else {
       $node = new self($keyword, $constraints);
@@ -3389,9 +3387,9 @@ final class WhereConstraint extends EditableSyntax {
     $operator = $this->_operator->rewrite($rewriter, $child_parents);
     $right_type = $this->_right_type->rewrite($rewriter, $child_parents);
     if (
-      $left_type === $this->left_type() &&
-      $operator === $this->operator() &&
-      $right_type === $this->right_type()
+      $left_type === $this->_left_type &&
+      $operator === $this->_operator &&
+      $right_type === $this->_right_type
     ) {
       $node = $this;
     } else {
@@ -3400,12 +3398,12 @@ final class WhereConstraint extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function left_type(): EditableToken {
+  public function left_type(): EditableSyntax {
     return $this->left_typex();
   }
 
-  public function left_typex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_left_type);
+  public function left_typex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_type);
   }
 
   public function raw_left_type(): EditableSyntax {
@@ -3416,12 +3414,12 @@ final class WhereConstraint extends EditableSyntax {
     return new self($value, $this->_operator, $this->_right_type);
   }
 
-  public function operator(): EditableToken {
+  public function operator(): EditableSyntax {
     return $this->operatorx();
   }
 
-  public function operatorx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_operator);
+  public function operatorx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operator);
   }
 
   public function raw_operator(): EditableSyntax {
@@ -3432,12 +3430,12 @@ final class WhereConstraint extends EditableSyntax {
     return new self($this->_left_type, $value, $this->_right_type);
   }
 
-  public function right_type(): EditableToken {
+  public function right_type(): EditableSyntax {
     return $this->right_typex();
   }
 
-  public function right_typex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_right_type);
+  public function right_typex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_type);
   }
 
   public function raw_right_type(): EditableSyntax {
@@ -3538,11 +3536,11 @@ final class MethodishDeclaration extends EditableSyntax {
     $function_body = $this->_function_body->rewrite($rewriter, $child_parents);
     $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
-      $attribute === $this->attribute() &&
-      $modifiers === $this->modifiers() &&
-      $function_decl_header === $this->function_decl_header() &&
-      $function_body === $this->function_body() &&
-      $semicolon === $this->semicolon()
+      $attribute === $this->_attribute &&
+      $modifiers === $this->_modifiers &&
+      $function_decl_header === $this->_function_decl_header &&
+      $function_body === $this->_function_body &&
+      $semicolon === $this->_semicolon
     ) {
       $node = $this;
     } else {
@@ -3636,13 +3634,13 @@ final class MethodishDeclaration extends EditableSyntax {
     );
   }
 
-  public function function_body(): EditableToken {
+  public function function_body(): EditableSyntax {
     return $this->function_bodyx();
   }
 
-  public function function_bodyx(): EditableToken {
+  public function function_bodyx(): EditableSyntax {
     return
-      TypeAssert::isInstanceOf(EditableToken::class, $this->_function_body);
+      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_function_body);
   }
 
   public function raw_function_body(): EditableSyntax {
@@ -3836,16 +3834,16 @@ final class ClassishDeclaration extends EditableSyntax {
       $this->_implements_list->rewrite($rewriter, $child_parents);
     $body = $this->_body->rewrite($rewriter, $child_parents);
     if (
-      $attribute === $this->attribute() &&
-      $modifiers === $this->modifiers() &&
-      $keyword === $this->keyword() &&
-      $name === $this->name() &&
-      $type_parameters === $this->type_parameters() &&
-      $extends_keyword === $this->extends_keyword() &&
-      $extends_list === $this->extends_list() &&
-      $implements_keyword === $this->implements_keyword() &&
-      $implements_list === $this->implements_list() &&
-      $body === $this->body()
+      $attribute === $this->_attribute &&
+      $modifiers === $this->_modifiers &&
+      $keyword === $this->_keyword &&
+      $name === $this->_name &&
+      $type_parameters === $this->_type_parameters &&
+      $extends_keyword === $this->_extends_keyword &&
+      $extends_list === $this->_extends_list &&
+      $implements_keyword === $this->_implements_keyword &&
+      $implements_list === $this->_implements_list &&
+      $body === $this->_body
     ) {
       $node = $this;
     } else {
@@ -3929,12 +3927,12 @@ final class ClassishDeclaration extends EditableSyntax {
     );
   }
 
-  public function keyword(): EditableToken {
+  public function keyword(): EditableSyntax {
     return $this->keywordx();
   }
 
-  public function keywordx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_keyword);
+  public function keywordx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_keyword);
   }
 
   public function raw_keyword(): EditableSyntax {
@@ -3956,12 +3954,12 @@ final class ClassishDeclaration extends EditableSyntax {
     );
   }
 
-  public function name(): EditableToken {
+  public function name(): EditableSyntax {
     return $this->namex();
   }
 
-  public function namex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+  public function namex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }
 
   public function raw_name(): EditableSyntax {
@@ -4228,9 +4226,9 @@ final class ClassishBody extends EditableSyntax {
     $elements = $this->_elements->rewrite($rewriter, $child_parents);
     $right_brace = $this->_right_brace->rewrite($rewriter, $child_parents);
     if (
-      $left_brace === $this->left_brace() &&
-      $elements === $this->elements() &&
-      $right_brace === $this->right_brace()
+      $left_brace === $this->_left_brace &&
+      $elements === $this->_elements &&
+      $right_brace === $this->_right_brace
     ) {
       $node = $this;
     } else {
@@ -4362,9 +4360,9 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
       $this->_aliasing_keyword->rewrite($rewriter, $child_parents);
     $aliased_names = $this->_aliased_names->rewrite($rewriter, $child_parents);
     if (
-      $aliasing_name === $this->aliasing_name() &&
-      $aliasing_keyword === $this->aliasing_keyword() &&
-      $aliased_names === $this->aliased_names()
+      $aliasing_name === $this->_aliasing_name &&
+      $aliasing_keyword === $this->_aliasing_keyword &&
+      $aliased_names === $this->_aliased_names
     ) {
       $node = $this;
     } else {
@@ -4373,13 +4371,13 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function aliasing_name(): EditableToken {
+  public function aliasing_name(): EditableSyntax {
     return $this->aliasing_namex();
   }
 
-  public function aliasing_namex(): EditableToken {
+  public function aliasing_namex(): EditableSyntax {
     return
-      TypeAssert::isInstanceOf(EditableToken::class, $this->_aliasing_name);
+      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_aliasing_name);
   }
 
   public function raw_aliasing_name(): EditableSyntax {
@@ -4390,13 +4388,13 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
     return new self($value, $this->_aliasing_keyword, $this->_aliased_names);
   }
 
-  public function aliasing_keyword(): EditableToken {
+  public function aliasing_keyword(): EditableSyntax {
     return $this->aliasing_keywordx();
   }
 
-  public function aliasing_keywordx(): EditableToken {
+  public function aliasing_keywordx(): EditableSyntax {
     return
-      TypeAssert::isInstanceOf(EditableToken::class, $this->_aliasing_keyword);
+      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_aliasing_keyword);
   }
 
   public function raw_aliasing_keyword(): EditableSyntax {
@@ -4506,11 +4504,11 @@ final class TraitUseConflictResolution extends EditableSyntax {
     $clauses = $this->_clauses->rewrite($rewriter, $child_parents);
     $right_brace = $this->_right_brace->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $names === $this->names() &&
-      $left_brace === $this->left_brace() &&
-      $clauses === $this->clauses() &&
-      $right_brace === $this->right_brace()
+      $keyword === $this->_keyword &&
+      $names === $this->_names &&
+      $left_brace === $this->_left_brace &&
+      $clauses === $this->_clauses &&
+      $right_brace === $this->_right_brace
     ) {
       $node = $this;
     } else {
@@ -4693,9 +4691,9 @@ final class TraitUse extends EditableSyntax {
     $names = $this->_names->rewrite($rewriter, $child_parents);
     $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $names === $this->names() &&
-      $semicolon === $this->semicolon()
+      $keyword === $this->_keyword &&
+      $names === $this->_names &&
+      $semicolon === $this->_semicolon
     ) {
       $node = $this;
     } else {
@@ -4824,10 +4822,10 @@ final class RequireClause extends EditableSyntax {
     $name = $this->_name->rewrite($rewriter, $child_parents);
     $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $kind === $this->kind() &&
-      $name === $this->name() &&
-      $semicolon === $this->semicolon()
+      $keyword === $this->_keyword &&
+      $kind === $this->_kind &&
+      $name === $this->_name &&
+      $semicolon === $this->_semicolon
     ) {
       $node = $this;
     } else {
@@ -4852,12 +4850,12 @@ final class RequireClause extends EditableSyntax {
     return new self($value, $this->_kind, $this->_name, $this->_semicolon);
   }
 
-  public function kind(): EditableToken {
+  public function kind(): EditableSyntax {
     return $this->kindx();
   }
 
-  public function kindx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_kind);
+  public function kindx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_kind);
   }
 
   public function raw_kind(): EditableSyntax {
@@ -4868,12 +4866,12 @@ final class RequireClause extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_name, $this->_semicolon);
   }
 
-  public function name(): EditableToken {
+  public function name(): EditableSyntax {
     return $this->namex();
   }
 
-  public function namex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+  public function namex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }
 
   public function raw_name(): EditableSyntax {
@@ -4985,11 +4983,11 @@ final class ConstDeclaration extends EditableSyntax {
     $declarators = $this->_declarators->rewrite($rewriter, $child_parents);
     $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
-      $abstract === $this->abstract() &&
-      $keyword === $this->keyword() &&
-      $type_specifier === $this->type_specifier() &&
-      $declarators === $this->declarators() &&
-      $semicolon === $this->semicolon()
+      $abstract === $this->_abstract &&
+      $keyword === $this->_keyword &&
+      $type_specifier === $this->_type_specifier &&
+      $declarators === $this->_declarators &&
+      $semicolon === $this->_semicolon
     ) {
       $node = $this;
     } else {
@@ -5050,13 +5048,13 @@ final class ConstDeclaration extends EditableSyntax {
     );
   }
 
-  public function type_specifier(): EditableToken {
+  public function type_specifier(): EditableSyntax {
     return $this->type_specifierx();
   }
 
-  public function type_specifierx(): EditableToken {
+  public function type_specifierx(): EditableSyntax {
     return
-      TypeAssert::isInstanceOf(EditableToken::class, $this->_type_specifier);
+      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type_specifier);
   }
 
   public function raw_type_specifier(): EditableSyntax {
@@ -5166,7 +5164,7 @@ final class ConstantDeclarator extends EditableSyntax {
     $child_parents[] = $this;
     $name = $this->_name->rewrite($rewriter, $child_parents);
     $initializer = $this->_initializer->rewrite($rewriter, $child_parents);
-    if ($name === $this->name() && $initializer === $this->initializer()) {
+    if ($name === $this->_name && $initializer === $this->_initializer) {
       $node = $this;
     } else {
       $node = new self($name, $initializer);
@@ -5336,14 +5334,14 @@ final class TypeConstDeclaration extends EditableSyntax {
       $this->_type_specifier->rewrite($rewriter, $child_parents);
     $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
-      $abstract === $this->abstract() &&
-      $keyword === $this->keyword() &&
-      $type_keyword === $this->type_keyword() &&
-      $name === $this->name() &&
-      $type_constraint === $this->type_constraint() &&
-      $equal === $this->equal() &&
-      $type_specifier === $this->type_specifier() &&
-      $semicolon === $this->semicolon()
+      $abstract === $this->_abstract &&
+      $keyword === $this->_keyword &&
+      $type_keyword === $this->_type_keyword &&
+      $name === $this->_name &&
+      $type_constraint === $this->_type_constraint &&
+      $equal === $this->_equal &&
+      $type_specifier === $this->_type_specifier &&
+      $semicolon === $this->_semicolon
     ) {
       $node = $this;
     } else {
@@ -5523,13 +5521,13 @@ final class TypeConstDeclaration extends EditableSyntax {
     );
   }
 
-  public function type_specifier(): EditableToken {
+  public function type_specifier(): EditableSyntax {
     return $this->type_specifierx();
   }
 
-  public function type_specifierx(): EditableToken {
+  public function type_specifierx(): EditableSyntax {
     return
-      TypeAssert::isInstanceOf(EditableToken::class, $this->_type_specifier);
+      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type_specifier);
   }
 
   public function raw_type_specifier(): EditableSyntax {
@@ -5626,7 +5624,7 @@ final class DecoratedExpression extends EditableSyntax {
     $decorator = $this->_decorator->rewrite($rewriter, $child_parents);
     $expression = $this->_expression->rewrite($rewriter, $child_parents);
     if (
-      $decorator === $this->decorator() && $expression === $this->expression()
+      $decorator === $this->_decorator && $expression === $this->_expression
     ) {
       $node = $this;
     } else {
@@ -5635,12 +5633,12 @@ final class DecoratedExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function decorator(): EditableToken {
+  public function decorator(): EditableSyntax {
     return $this->decoratorx();
   }
 
-  public function decoratorx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_decorator);
+  public function decoratorx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_decorator);
   }
 
   public function raw_decorator(): EditableSyntax {
@@ -5651,12 +5649,12 @@ final class DecoratedExpression extends EditableSyntax {
     return new self($value, $this->_expression);
   }
 
-  public function expression(): EditableToken {
+  public function expression(): EditableSyntax {
     return $this->expressionx();
   }
 
-  public function expressionx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_expression);
+  public function expressionx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
   }
 
   public function raw_expression(): EditableSyntax {
@@ -5750,11 +5748,11 @@ final class ParameterDeclaration extends EditableSyntax {
     $name = $this->_name->rewrite($rewriter, $child_parents);
     $default_value = $this->_default_value->rewrite($rewriter, $child_parents);
     if (
-      $attribute === $this->attribute() &&
-      $visibility === $this->visibility() &&
-      $type === $this->type() &&
-      $name === $this->name() &&
-      $default_value === $this->default_value()
+      $attribute === $this->_attribute &&
+      $visibility === $this->_visibility &&
+      $type === $this->_type &&
+      $name === $this->_name &&
+      $default_value === $this->_default_value
     ) {
       $node = $this;
     } else {
@@ -5793,12 +5791,12 @@ final class ParameterDeclaration extends EditableSyntax {
     );
   }
 
-  public function visibility(): EditableToken {
+  public function visibility(): EditableSyntax {
     return $this->visibilityx();
   }
 
-  public function visibilityx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_visibility);
+  public function visibilityx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_visibility);
   }
 
   public function raw_visibility(): EditableSyntax {
@@ -5815,12 +5813,12 @@ final class ParameterDeclaration extends EditableSyntax {
     );
   }
 
-  public function type(): EditableToken {
+  public function type(): EditableSyntax {
     return $this->typex();
   }
 
-  public function typex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_type);
+  public function typex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
 
   public function raw_type(): EditableSyntax {
@@ -5837,12 +5835,12 @@ final class ParameterDeclaration extends EditableSyntax {
     );
   }
 
-  public function name(): EditableToken {
+  public function name(): EditableSyntax {
     return $this->namex();
   }
 
-  public function namex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+  public function namex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }
 
   public function raw_name(): EditableSyntax {
@@ -5923,7 +5921,7 @@ final class VariadicParameter extends EditableSyntax {
     $child_parents = $parents;
     $child_parents[] = $this;
     $ellipsis = $this->_ellipsis->rewrite($rewriter, $child_parents);
-    if ($ellipsis === $this->ellipsis()) {
+    if ($ellipsis === $this->_ellipsis) {
       $node = $this;
     } else {
       $node = new self($ellipsis);
@@ -6010,9 +6008,9 @@ final class AttributeSpecification extends EditableSyntax {
     $right_double_angle =
       $this->_right_double_angle->rewrite($rewriter, $child_parents);
     if (
-      $left_double_angle === $this->left_double_angle() &&
-      $attributes === $this->attributes() &&
-      $right_double_angle === $this->right_double_angle()
+      $left_double_angle === $this->_left_double_angle &&
+      $attributes === $this->_attributes &&
+      $right_double_angle === $this->_right_double_angle
     ) {
       $node = $this;
     } else {
@@ -6148,10 +6146,10 @@ final class Attribute extends EditableSyntax {
     $values = $this->_values->rewrite($rewriter, $child_parents);
     $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     if (
-      $name === $this->name() &&
-      $left_paren === $this->left_paren() &&
-      $values === $this->values() &&
-      $right_paren === $this->right_paren()
+      $name === $this->_name &&
+      $left_paren === $this->_left_paren &&
+      $values === $this->_values &&
+      $right_paren === $this->_right_paren
     ) {
       $node = $this;
     } else {
@@ -6282,7 +6280,7 @@ final class InclusionExpression extends EditableSyntax {
     $child_parents[] = $this;
     $require = $this->_require->rewrite($rewriter, $child_parents);
     $filename = $this->_filename->rewrite($rewriter, $child_parents);
-    if ($require === $this->require() && $filename === $this->filename()) {
+    if ($require === $this->_require && $filename === $this->_filename) {
       $node = $this;
     } else {
       $node = new self($require, $filename);
@@ -6290,12 +6288,12 @@ final class InclusionExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function require(): EditableToken {
+  public function require(): EditableSyntax {
     return $this->requirex();
   }
 
-  public function requirex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_require);
+  public function requirex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_require);
   }
 
   public function raw_require(): EditableSyntax {
@@ -6306,12 +6304,12 @@ final class InclusionExpression extends EditableSyntax {
     return new self($value, $this->_filename);
   }
 
-  public function filename(): EditableToken {
+  public function filename(): EditableSyntax {
     return $this->filenamex();
   }
 
-  public function filenamex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_filename);
+  public function filenamex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_filename);
   }
 
   public function raw_filename(): EditableSyntax {
@@ -6372,7 +6370,7 @@ final class InclusionDirective extends EditableSyntax {
     $expression = $this->_expression->rewrite($rewriter, $child_parents);
     $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
-      $expression === $this->expression() && $semicolon === $this->semicolon()
+      $expression === $this->_expression && $semicolon === $this->_semicolon
     ) {
       $node = $this;
     } else {
@@ -6475,9 +6473,9 @@ final class CompoundStatement extends EditableSyntax {
     $statements = $this->_statements->rewrite($rewriter, $child_parents);
     $right_brace = $this->_right_brace->rewrite($rewriter, $child_parents);
     if (
-      $left_brace === $this->left_brace() &&
-      $statements === $this->statements() &&
-      $right_brace === $this->right_brace()
+      $left_brace === $this->_left_brace &&
+      $statements === $this->_statements &&
+      $right_brace === $this->_right_brace
     ) {
       $node = $this;
     } else {
@@ -6591,7 +6589,7 @@ final class ExpressionStatement extends EditableSyntax {
     $expression = $this->_expression->rewrite($rewriter, $child_parents);
     $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
-      $expression === $this->expression() && $semicolon === $this->semicolon()
+      $expression === $this->_expression && $semicolon === $this->_semicolon
     ) {
       $node = $this;
     } else {
@@ -6600,12 +6598,12 @@ final class ExpressionStatement extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function expression(): EditableToken {
+  public function expression(): EditableSyntax {
     return $this->expressionx();
   }
 
-  public function expressionx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_expression);
+  public function expressionx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
   }
 
   public function raw_expression(): EditableSyntax {
@@ -6706,10 +6704,10 @@ final class MarkupSection extends EditableSyntax {
     $suffix = $this->_suffix->rewrite($rewriter, $child_parents);
     $expression = $this->_expression->rewrite($rewriter, $child_parents);
     if (
-      $prefix === $this->prefix() &&
-      $text === $this->text() &&
-      $suffix === $this->suffix() &&
-      $expression === $this->expression()
+      $prefix === $this->_prefix &&
+      $text === $this->_text &&
+      $suffix === $this->_suffix &&
+      $expression === $this->_expression
     ) {
       $node = $this;
     } else {
@@ -6849,8 +6847,8 @@ final class MarkupSuffix extends EditableSyntax {
       $this->_less_than_question->rewrite($rewriter, $child_parents);
     $name = $this->_name->rewrite($rewriter, $child_parents);
     if (
-      $less_than_question === $this->less_than_question() &&
-      $name === $this->name()
+      $less_than_question === $this->_less_than_question &&
+      $name === $this->_name
     ) {
       $node = $this;
     } else {
@@ -6878,12 +6876,12 @@ final class MarkupSuffix extends EditableSyntax {
     return new self($value, $this->_name);
   }
 
-  public function name(): EditableToken {
+  public function name(): EditableSyntax {
     return $this->namex();
   }
 
-  public function namex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+  public function namex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }
 
   public function raw_name(): EditableSyntax {
@@ -6978,11 +6976,11 @@ final class UnsetStatement extends EditableSyntax {
     $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $left_paren === $this->left_paren() &&
-      $variables === $this->variables() &&
-      $right_paren === $this->right_paren() &&
-      $semicolon === $this->semicolon()
+      $keyword === $this->_keyword &&
+      $left_paren === $this->_left_paren &&
+      $variables === $this->_variables &&
+      $right_paren === $this->_right_paren &&
+      $semicolon === $this->_semicolon
     ) {
       $node = $this;
     } else {
@@ -7190,11 +7188,11 @@ final class WhileStatement extends EditableSyntax {
     $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     $body = $this->_body->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $left_paren === $this->left_paren() &&
-      $condition === $this->condition() &&
-      $right_paren === $this->right_paren() &&
-      $body === $this->body()
+      $keyword === $this->_keyword &&
+      $left_paren === $this->_left_paren &&
+      $condition === $this->_condition &&
+      $right_paren === $this->_right_paren &&
+      $body === $this->_body
     ) {
       $node = $this;
     } else {
@@ -7247,12 +7245,12 @@ final class WhileStatement extends EditableSyntax {
     );
   }
 
-  public function condition(): EditableToken {
+  public function condition(): EditableSyntax {
     return $this->conditionx();
   }
 
-  public function conditionx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_condition);
+  public function conditionx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_condition);
   }
 
   public function raw_condition(): EditableSyntax {
@@ -7292,12 +7290,12 @@ final class WhileStatement extends EditableSyntax {
     );
   }
 
-  public function body(): EditableToken {
+  public function body(): EditableSyntax {
     return $this->bodyx();
   }
 
-  public function bodyx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_body);
+  public function bodyx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_body);
   }
 
   public function raw_body(): EditableSyntax {
@@ -7428,13 +7426,13 @@ final class IfStatement extends EditableSyntax {
       $this->_elseif_clauses->rewrite($rewriter, $child_parents);
     $else_clause = $this->_else_clause->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $left_paren === $this->left_paren() &&
-      $condition === $this->condition() &&
-      $right_paren === $this->right_paren() &&
-      $statement === $this->statement() &&
-      $elseif_clauses === $this->elseif_clauses() &&
-      $else_clause === $this->else_clause()
+      $keyword === $this->_keyword &&
+      $left_paren === $this->_left_paren &&
+      $condition === $this->_condition &&
+      $right_paren === $this->_right_paren &&
+      $statement === $this->_statement &&
+      $elseif_clauses === $this->_elseif_clauses &&
+      $else_clause === $this->_else_clause
     ) {
       $node = $this;
     } else {
@@ -7499,12 +7497,12 @@ final class IfStatement extends EditableSyntax {
     );
   }
 
-  public function condition(): EditableToken {
+  public function condition(): EditableSyntax {
     return $this->conditionx();
   }
 
-  public function conditionx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_condition);
+  public function conditionx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_condition);
   }
 
   public function raw_condition(): EditableSyntax {
@@ -7550,12 +7548,12 @@ final class IfStatement extends EditableSyntax {
     );
   }
 
-  public function statement(): EditableToken {
+  public function statement(): EditableSyntax {
     return $this->statementx();
   }
 
-  public function statementx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_statement);
+  public function statementx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_statement);
   }
 
   public function raw_statement(): EditableSyntax {
@@ -7711,11 +7709,11 @@ final class ElseifClause extends EditableSyntax {
     $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     $statement = $this->_statement->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $left_paren === $this->left_paren() &&
-      $condition === $this->condition() &&
-      $right_paren === $this->right_paren() &&
-      $statement === $this->statement()
+      $keyword === $this->_keyword &&
+      $left_paren === $this->_left_paren &&
+      $condition === $this->_condition &&
+      $right_paren === $this->_right_paren &&
+      $statement === $this->_statement
     ) {
       $node = $this;
     } else {
@@ -7769,12 +7767,12 @@ final class ElseifClause extends EditableSyntax {
     );
   }
 
-  public function condition(): EditableToken {
+  public function condition(): EditableSyntax {
     return $this->conditionx();
   }
 
-  public function conditionx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_condition);
+  public function conditionx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_condition);
   }
 
   public function raw_condition(): EditableSyntax {
@@ -7814,12 +7812,12 @@ final class ElseifClause extends EditableSyntax {
     );
   }
 
-  public function statement(): EditableToken {
+  public function statement(): EditableSyntax {
     return $this->statementx();
   }
 
-  public function statementx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_statement);
+  public function statementx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_statement);
   }
 
   public function raw_statement(): EditableSyntax {
@@ -7885,7 +7883,7 @@ final class ElseClause extends EditableSyntax {
     $child_parents[] = $this;
     $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
     $statement = $this->_statement->rewrite($rewriter, $child_parents);
-    if ($keyword === $this->keyword() && $statement === $this->statement()) {
+    if ($keyword === $this->_keyword && $statement === $this->_statement) {
       $node = $this;
     } else {
       $node = new self($keyword, $statement);
@@ -7909,12 +7907,12 @@ final class ElseClause extends EditableSyntax {
     return new self($value, $this->_statement);
   }
 
-  public function statement(): EditableToken {
+  public function statement(): EditableSyntax {
     return $this->statementx();
   }
 
-  public function statementx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_statement);
+  public function statementx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_statement);
   }
 
   public function raw_statement(): EditableSyntax {
@@ -8000,10 +7998,10 @@ final class TryStatement extends EditableSyntax {
     $finally_clause =
       $this->_finally_clause->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $compound_statement === $this->compound_statement() &&
-      $catch_clauses === $this->catch_clauses() &&
-      $finally_clause === $this->finally_clause()
+      $keyword === $this->_keyword &&
+      $compound_statement === $this->_compound_statement &&
+      $catch_clauses === $this->_catch_clauses &&
+      $finally_clause === $this->_finally_clause
     ) {
       $node = $this;
     } else {
@@ -8204,12 +8202,12 @@ final class CatchClause extends EditableSyntax {
     $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     $body = $this->_body->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $left_paren === $this->left_paren() &&
-      $type === $this->type() &&
-      $variable === $this->variable() &&
-      $right_paren === $this->right_paren() &&
-      $body === $this->body()
+      $keyword === $this->_keyword &&
+      $left_paren === $this->_left_paren &&
+      $type === $this->_type &&
+      $variable === $this->_variable &&
+      $right_paren === $this->_right_paren &&
+      $body === $this->_body
     ) {
       $node = $this;
     } else {
@@ -8265,12 +8263,12 @@ final class CatchClause extends EditableSyntax {
     );
   }
 
-  public function type(): EditableToken {
+  public function type(): EditableSyntax {
     return $this->typex();
   }
 
-  public function typex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_type);
+  public function typex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
 
   public function raw_type(): EditableSyntax {
@@ -8408,7 +8406,7 @@ final class FinallyClause extends EditableSyntax {
     $child_parents[] = $this;
     $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
     $body = $this->_body->rewrite($rewriter, $child_parents);
-    if ($keyword === $this->keyword() && $body === $this->body()) {
+    if ($keyword === $this->_keyword && $body === $this->_body) {
       $node = $this;
     } else {
       $node = new self($keyword, $body);
@@ -8561,13 +8559,13 @@ final class DoStatement extends EditableSyntax {
     $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $body === $this->body() &&
-      $while_keyword === $this->while_keyword() &&
-      $left_paren === $this->left_paren() &&
-      $condition === $this->condition() &&
-      $right_paren === $this->right_paren() &&
-      $semicolon === $this->semicolon()
+      $keyword === $this->_keyword &&
+      $body === $this->_body &&
+      $while_keyword === $this->_while_keyword &&
+      $left_paren === $this->_left_paren &&
+      $condition === $this->_condition &&
+      $right_paren === $this->_right_paren &&
+      $semicolon === $this->_semicolon
     ) {
       $node = $this;
     } else {
@@ -8608,12 +8606,12 @@ final class DoStatement extends EditableSyntax {
     );
   }
 
-  public function body(): EditableToken {
+  public function body(): EditableSyntax {
     return $this->bodyx();
   }
 
-  public function bodyx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_body);
+  public function bodyx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_body);
   }
 
   public function raw_body(): EditableSyntax {
@@ -8680,12 +8678,12 @@ final class DoStatement extends EditableSyntax {
     );
   }
 
-  public function condition(): EditableToken {
+  public function condition(): EditableSyntax {
     return $this->conditionx();
   }
 
-  public function conditionx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_condition);
+  public function conditionx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_condition);
   }
 
   public function raw_condition(): EditableSyntax {
@@ -8892,15 +8890,15 @@ final class ForStatement extends EditableSyntax {
     $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     $body = $this->_body->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $left_paren === $this->left_paren() &&
-      $initializer === $this->initializer() &&
-      $first_semicolon === $this->first_semicolon() &&
-      $control === $this->control() &&
-      $second_semicolon === $this->second_semicolon() &&
-      $end_of_loop === $this->end_of_loop() &&
-      $right_paren === $this->right_paren() &&
-      $body === $this->body()
+      $keyword === $this->_keyword &&
+      $left_paren === $this->_left_paren &&
+      $initializer === $this->_initializer &&
+      $first_semicolon === $this->_first_semicolon &&
+      $control === $this->_control &&
+      $second_semicolon === $this->_second_semicolon &&
+      $end_of_loop === $this->_end_of_loop &&
+      $right_paren === $this->_right_paren &&
+      $body === $this->_body
     ) {
       $node = $this;
     } else {
@@ -9136,12 +9134,12 @@ final class ForStatement extends EditableSyntax {
     );
   }
 
-  public function body(): EditableToken {
+  public function body(): EditableSyntax {
     return $this->bodyx();
   }
 
-  public function bodyx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_body);
+  public function bodyx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_body);
   }
 
   public function raw_body(): EditableSyntax {
@@ -9311,16 +9309,16 @@ final class ForeachStatement extends EditableSyntax {
     $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     $body = $this->_body->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $left_paren === $this->left_paren() &&
-      $collection === $this->collection() &&
-      $await_keyword === $this->await_keyword() &&
-      $as === $this->as() &&
-      $key === $this->key() &&
-      $arrow === $this->arrow() &&
-      $value === $this->value() &&
-      $right_paren === $this->right_paren() &&
-      $body === $this->body()
+      $keyword === $this->_keyword &&
+      $left_paren === $this->_left_paren &&
+      $collection === $this->_collection &&
+      $await_keyword === $this->_await_keyword &&
+      $as === $this->_as &&
+      $key === $this->_key &&
+      $arrow === $this->_arrow &&
+      $value === $this->_value &&
+      $right_paren === $this->_right_paren &&
+      $body === $this->_body
     ) {
       $node = $this;
     } else {
@@ -9394,12 +9392,12 @@ final class ForeachStatement extends EditableSyntax {
     );
   }
 
-  public function collection(): EditableToken {
+  public function collection(): EditableSyntax {
     return $this->collectionx();
   }
 
-  public function collectionx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_collection);
+  public function collectionx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_collection);
   }
 
   public function raw_collection(): EditableSyntax {
@@ -9477,12 +9475,12 @@ final class ForeachStatement extends EditableSyntax {
     );
   }
 
-  public function key(): EditableToken {
+  public function key(): EditableSyntax {
     return $this->keyx();
   }
 
-  public function keyx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_key);
+  public function keyx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_key);
   }
 
   public function raw_key(): EditableSyntax {
@@ -9534,12 +9532,12 @@ final class ForeachStatement extends EditableSyntax {
     );
   }
 
-  public function value(): EditableToken {
+  public function value(): EditableSyntax {
     return $this->valuex();
   }
 
-  public function valuex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_value);
+  public function valuex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_value);
   }
 
   public function raw_value(): EditableSyntax {
@@ -9589,12 +9587,12 @@ final class ForeachStatement extends EditableSyntax {
     );
   }
 
-  public function body(): EditableToken {
+  public function body(): EditableSyntax {
     return $this->bodyx();
   }
 
-  public function bodyx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_body);
+  public function bodyx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_body);
   }
 
   public function raw_body(): EditableSyntax {
@@ -9729,13 +9727,13 @@ final class SwitchStatement extends EditableSyntax {
     $sections = $this->_sections->rewrite($rewriter, $child_parents);
     $right_brace = $this->_right_brace->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $left_paren === $this->left_paren() &&
-      $expression === $this->expression() &&
-      $right_paren === $this->right_paren() &&
-      $left_brace === $this->left_brace() &&
-      $sections === $this->sections() &&
-      $right_brace === $this->right_brace()
+      $keyword === $this->_keyword &&
+      $left_paren === $this->_left_paren &&
+      $expression === $this->_expression &&
+      $right_paren === $this->_right_paren &&
+      $left_brace === $this->_left_brace &&
+      $sections === $this->_sections &&
+      $right_brace === $this->_right_brace
     ) {
       $node = $this;
     } else {
@@ -9800,12 +9798,12 @@ final class SwitchStatement extends EditableSyntax {
     );
   }
 
-  public function expression(): EditableToken {
+  public function expression(): EditableSyntax {
     return $this->expressionx();
   }
 
-  public function expressionx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_expression);
+  public function expressionx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
   }
 
   public function raw_expression(): EditableSyntax {
@@ -9989,9 +9987,9 @@ final class SwitchSection extends EditableSyntax {
     $statements = $this->_statements->rewrite($rewriter, $child_parents);
     $fallthrough = $this->_fallthrough->rewrite($rewriter, $child_parents);
     if (
-      $labels === $this->labels() &&
-      $statements === $this->statements() &&
-      $fallthrough === $this->fallthrough()
+      $labels === $this->_labels &&
+      $statements === $this->_statements &&
+      $fallthrough === $this->_fallthrough
     ) {
       $node = $this;
     } else {
@@ -10036,12 +10034,12 @@ final class SwitchSection extends EditableSyntax {
     return new self($this->_labels, $value, $this->_fallthrough);
   }
 
-  public function fallthrough(): EditableToken {
+  public function fallthrough(): EditableSyntax {
     return $this->fallthroughx();
   }
 
-  public function fallthroughx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_fallthrough);
+  public function fallthroughx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_fallthrough);
   }
 
   public function raw_fallthrough(): EditableSyntax {
@@ -10101,7 +10099,7 @@ final class SwitchFallthrough extends EditableSyntax {
     $child_parents[] = $this;
     $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
     $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
-    if ($keyword === $this->keyword() && $semicolon === $this->semicolon()) {
+    if ($keyword === $this->_keyword && $semicolon === $this->_semicolon) {
       $node = $this;
     } else {
       $node = new self($keyword, $semicolon);
@@ -10109,12 +10107,12 @@ final class SwitchFallthrough extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableToken {
+  public function keyword(): EditableSyntax {
     return $this->keywordx();
   }
 
-  public function keywordx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_keyword);
+  public function keywordx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_keyword);
   }
 
   public function raw_keyword(): EditableSyntax {
@@ -10125,12 +10123,12 @@ final class SwitchFallthrough extends EditableSyntax {
     return new self($value, $this->_semicolon);
   }
 
-  public function semicolon(): EditableToken {
+  public function semicolon(): EditableSyntax {
     return $this->semicolonx();
   }
 
-  public function semicolonx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_semicolon);
+  public function semicolonx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_semicolon);
   }
 
   public function raw_semicolon(): EditableSyntax {
@@ -10202,9 +10200,9 @@ final class CaseLabel extends EditableSyntax {
     $expression = $this->_expression->rewrite($rewriter, $child_parents);
     $colon = $this->_colon->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $expression === $this->expression() &&
-      $colon === $this->colon()
+      $keyword === $this->_keyword &&
+      $expression === $this->_expression &&
+      $colon === $this->_colon
     ) {
       $node = $this;
     } else {
@@ -10229,12 +10227,12 @@ final class CaseLabel extends EditableSyntax {
     return new self($value, $this->_expression, $this->_colon);
   }
 
-  public function expression(): EditableToken {
+  public function expression(): EditableSyntax {
     return $this->expressionx();
   }
 
-  public function expressionx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_expression);
+  public function expressionx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
   }
 
   public function raw_expression(): EditableSyntax {
@@ -10245,12 +10243,12 @@ final class CaseLabel extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_colon);
   }
 
-  public function colon(): EditableToken {
+  public function colon(): EditableSyntax {
     return $this->colonx();
   }
 
-  public function colonx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_colon);
+  public function colonx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_colon);
   }
 
   public function raw_colon(): EditableSyntax {
@@ -10307,7 +10305,7 @@ final class DefaultLabel extends EditableSyntax {
     $child_parents[] = $this;
     $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
     $colon = $this->_colon->rewrite($rewriter, $child_parents);
-    if ($keyword === $this->keyword() && $colon === $this->colon()) {
+    if ($keyword === $this->_keyword && $colon === $this->_colon) {
       $node = $this;
     } else {
       $node = new self($keyword, $colon);
@@ -10331,12 +10329,12 @@ final class DefaultLabel extends EditableSyntax {
     return new self($value, $this->_colon);
   }
 
-  public function colon(): EditableToken {
+  public function colon(): EditableSyntax {
     return $this->colonx();
   }
 
-  public function colonx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_colon);
+  public function colonx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_colon);
   }
 
   public function raw_colon(): EditableSyntax {
@@ -10408,9 +10406,9 @@ final class ReturnStatement extends EditableSyntax {
     $expression = $this->_expression->rewrite($rewriter, $child_parents);
     $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $expression === $this->expression() &&
-      $semicolon === $this->semicolon()
+      $keyword === $this->_keyword &&
+      $expression === $this->_expression &&
+      $semicolon === $this->_semicolon
     ) {
       $node = $this;
     } else {
@@ -10435,12 +10433,12 @@ final class ReturnStatement extends EditableSyntax {
     return new self($value, $this->_expression, $this->_semicolon);
   }
 
-  public function expression(): EditableToken {
+  public function expression(): EditableSyntax {
     return $this->expressionx();
   }
 
-  public function expressionx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_expression);
+  public function expressionx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
   }
 
   public function raw_expression(): EditableSyntax {
@@ -10515,7 +10513,7 @@ final class GotoLabel extends EditableSyntax {
     $child_parents[] = $this;
     $name = $this->_name->rewrite($rewriter, $child_parents);
     $colon = $this->_colon->rewrite($rewriter, $child_parents);
-    if ($name === $this->name() && $colon === $this->colon()) {
+    if ($name === $this->_name && $colon === $this->_colon) {
       $node = $this;
     } else {
       $node = new self($name, $colon);
@@ -10616,9 +10614,9 @@ final class GotoStatement extends EditableSyntax {
     $label_name = $this->_label_name->rewrite($rewriter, $child_parents);
     $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $label_name === $this->label_name() &&
-      $semicolon === $this->semicolon()
+      $keyword === $this->_keyword &&
+      $label_name === $this->_label_name &&
+      $semicolon === $this->_semicolon
     ) {
       $node = $this;
     } else {
@@ -10736,9 +10734,9 @@ final class ThrowStatement extends EditableSyntax {
     $expression = $this->_expression->rewrite($rewriter, $child_parents);
     $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $expression === $this->expression() &&
-      $semicolon === $this->semicolon()
+      $keyword === $this->_keyword &&
+      $expression === $this->_expression &&
+      $semicolon === $this->_semicolon
     ) {
       $node = $this;
     } else {
@@ -10763,12 +10761,12 @@ final class ThrowStatement extends EditableSyntax {
     return new self($value, $this->_expression, $this->_semicolon);
   }
 
-  public function expression(): EditableToken {
+  public function expression(): EditableSyntax {
     return $this->expressionx();
   }
 
-  public function expressionx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_expression);
+  public function expressionx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
   }
 
   public function raw_expression(): EditableSyntax {
@@ -10856,9 +10854,9 @@ final class BreakStatement extends EditableSyntax {
     $level = $this->_level->rewrite($rewriter, $child_parents);
     $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $level === $this->level() &&
-      $semicolon === $this->semicolon()
+      $keyword === $this->_keyword &&
+      $level === $this->_level &&
+      $semicolon === $this->_semicolon
     ) {
       $node = $this;
     } else {
@@ -10883,12 +10881,12 @@ final class BreakStatement extends EditableSyntax {
     return new self($value, $this->_level, $this->_semicolon);
   }
 
-  public function level(): EditableToken {
+  public function level(): EditableSyntax {
     return $this->levelx();
   }
 
-  public function levelx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_level);
+  public function levelx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_level);
   }
 
   public function raw_level(): EditableSyntax {
@@ -10976,9 +10974,9 @@ final class ContinueStatement extends EditableSyntax {
     $level = $this->_level->rewrite($rewriter, $child_parents);
     $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $level === $this->level() &&
-      $semicolon === $this->semicolon()
+      $keyword === $this->_keyword &&
+      $level === $this->_level &&
+      $semicolon === $this->_semicolon
     ) {
       $node = $this;
     } else {
@@ -11003,12 +11001,12 @@ final class ContinueStatement extends EditableSyntax {
     return new self($value, $this->_level, $this->_semicolon);
   }
 
-  public function level(): EditableToken {
+  public function level(): EditableSyntax {
     return $this->levelx();
   }
 
-  public function levelx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_level);
+  public function levelx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_level);
   }
 
   public function raw_level(): EditableSyntax {
@@ -11097,9 +11095,9 @@ final class FunctionStaticStatement extends EditableSyntax {
     $declarations = $this->_declarations->rewrite($rewriter, $child_parents);
     $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
-      $static_keyword === $this->static_keyword() &&
-      $declarations === $this->declarations() &&
-      $semicolon === $this->semicolon()
+      $static_keyword === $this->_static_keyword &&
+      $declarations === $this->_declarations &&
+      $semicolon === $this->_semicolon
     ) {
       $node = $this;
     } else {
@@ -11207,7 +11205,7 @@ final class StaticDeclarator extends EditableSyntax {
     $child_parents[] = $this;
     $name = $this->_name->rewrite($rewriter, $child_parents);
     $initializer = $this->_initializer->rewrite($rewriter, $child_parents);
-    if ($name === $this->name() && $initializer === $this->initializer()) {
+    if ($name === $this->_name && $initializer === $this->_initializer) {
       $node = $this;
     } else {
       $node = new self($name, $initializer);
@@ -11313,9 +11311,9 @@ final class EchoStatement extends EditableSyntax {
     $expressions = $this->_expressions->rewrite($rewriter, $child_parents);
     $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $expressions === $this->expressions() &&
-      $semicolon === $this->semicolon()
+      $keyword === $this->_keyword &&
+      $expressions === $this->_expressions &&
+      $semicolon === $this->_semicolon
     ) {
       $node = $this;
     } else {
@@ -11435,9 +11433,9 @@ final class GlobalStatement extends EditableSyntax {
     $variables = $this->_variables->rewrite($rewriter, $child_parents);
     $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $variables === $this->variables() &&
-      $semicolon === $this->semicolon()
+      $keyword === $this->_keyword &&
+      $variables === $this->_variables &&
+      $semicolon === $this->_semicolon
     ) {
       $node = $this;
     } else {
@@ -11540,7 +11538,7 @@ final class SimpleInitializer extends EditableSyntax {
     $child_parents[] = $this;
     $equal = $this->_equal->rewrite($rewriter, $child_parents);
     $value = $this->_value->rewrite($rewriter, $child_parents);
-    if ($equal === $this->equal() && $value === $this->value()) {
+    if ($equal === $this->_equal && $value === $this->_value) {
       $node = $this;
     } else {
       $node = new self($equal, $value);
@@ -11564,12 +11562,12 @@ final class SimpleInitializer extends EditableSyntax {
     return new self($value, $this->_value);
   }
 
-  public function value(): EditableToken {
+  public function value(): EditableSyntax {
     return $this->valuex();
   }
 
-  public function valuex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_value);
+  public function valuex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_value);
   }
 
   public function raw_value(): EditableSyntax {
@@ -11744,17 +11742,17 @@ final class AnonymousFunction extends EditableSyntax {
     $use = $this->_use->rewrite($rewriter, $child_parents);
     $body = $this->_body->rewrite($rewriter, $child_parents);
     if (
-      $static_keyword === $this->static_keyword() &&
-      $async_keyword === $this->async_keyword() &&
-      $coroutine_keyword === $this->coroutine_keyword() &&
-      $function_keyword === $this->function_keyword() &&
-      $left_paren === $this->left_paren() &&
-      $parameters === $this->parameters() &&
-      $right_paren === $this->right_paren() &&
-      $colon === $this->colon() &&
-      $type === $this->type() &&
-      $use === $this->use() &&
-      $body === $this->body()
+      $static_keyword === $this->_static_keyword &&
+      $async_keyword === $this->_async_keyword &&
+      $coroutine_keyword === $this->_coroutine_keyword &&
+      $function_keyword === $this->_function_keyword &&
+      $left_paren === $this->_left_paren &&
+      $parameters === $this->_parameters &&
+      $right_paren === $this->_right_paren &&
+      $colon === $this->_colon &&
+      $type === $this->_type &&
+      $use === $this->_use &&
+      $body === $this->_body
     ) {
       $node = $this;
     } else {
@@ -11835,13 +11833,15 @@ final class AnonymousFunction extends EditableSyntax {
     );
   }
 
-  public function coroutine_keyword(): EditableToken {
+  public function coroutine_keyword(): EditableSyntax {
     return $this->coroutine_keywordx();
   }
 
-  public function coroutine_keywordx(): EditableToken {
-    return
-      TypeAssert::isInstanceOf(EditableToken::class, $this->_coroutine_keyword);
+  public function coroutine_keywordx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(
+      EditableSyntax::class,
+      $this->_coroutine_keyword,
+    );
   }
 
   public function raw_coroutine_keyword(): EditableSyntax {
@@ -12014,12 +12014,12 @@ final class AnonymousFunction extends EditableSyntax {
     );
   }
 
-  public function type(): EditableToken {
+  public function type(): EditableSyntax {
     return $this->typex();
   }
 
-  public function typex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_type);
+  public function typex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
 
   public function raw_type(): EditableSyntax {
@@ -12176,10 +12176,10 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
     $variables = $this->_variables->rewrite($rewriter, $child_parents);
     $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $left_paren === $this->left_paren() &&
-      $variables === $this->variables() &&
-      $right_paren === $this->right_paren()
+      $keyword === $this->_keyword &&
+      $left_paren === $this->_left_paren &&
+      $variables === $this->_variables &&
+      $right_paren === $this->_right_paren
     ) {
       $node = $this;
     } else {
@@ -12348,11 +12348,11 @@ final class LambdaExpression extends EditableSyntax {
     $arrow = $this->_arrow->rewrite($rewriter, $child_parents);
     $body = $this->_body->rewrite($rewriter, $child_parents);
     if (
-      $async === $this->async() &&
-      $coroutine === $this->coroutine() &&
-      $signature === $this->signature() &&
-      $arrow === $this->arrow() &&
-      $body === $this->body()
+      $async === $this->_async &&
+      $coroutine === $this->_coroutine &&
+      $signature === $this->_signature &&
+      $arrow === $this->_arrow &&
+      $body === $this->_body
     ) {
       $node = $this;
     } else {
@@ -12385,12 +12385,12 @@ final class LambdaExpression extends EditableSyntax {
     );
   }
 
-  public function coroutine(): EditableToken {
+  public function coroutine(): EditableSyntax {
     return $this->coroutinex();
   }
 
-  public function coroutinex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_coroutine);
+  public function coroutinex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_coroutine);
   }
 
   public function raw_coroutine(): EditableSyntax {
@@ -12407,12 +12407,12 @@ final class LambdaExpression extends EditableSyntax {
     );
   }
 
-  public function signature(): EditableToken {
+  public function signature(): EditableSyntax {
     return $this->signaturex();
   }
 
-  public function signaturex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_signature);
+  public function signaturex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_signature);
   }
 
   public function raw_signature(): EditableSyntax {
@@ -12459,12 +12459,12 @@ final class LambdaExpression extends EditableSyntax {
     );
   }
 
-  public function body(): EditableToken {
+  public function body(): EditableSyntax {
     return $this->bodyx();
   }
 
-  public function bodyx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_body);
+  public function bodyx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_body);
   }
 
   public function raw_body(): EditableSyntax {
@@ -12564,11 +12564,11 @@ final class LambdaSignature extends EditableSyntax {
     $colon = $this->_colon->rewrite($rewriter, $child_parents);
     $type = $this->_type->rewrite($rewriter, $child_parents);
     if (
-      $left_paren === $this->left_paren() &&
-      $parameters === $this->parameters() &&
-      $right_paren === $this->right_paren() &&
-      $colon === $this->colon() &&
-      $type === $this->type()
+      $left_paren === $this->_left_paren &&
+      $parameters === $this->_parameters &&
+      $right_paren === $this->_right_paren &&
+      $colon === $this->_colon &&
+      $type === $this->_type
     ) {
       $node = $this;
     } else {
@@ -12674,12 +12674,12 @@ final class LambdaSignature extends EditableSyntax {
     );
   }
 
-  public function type(): EditableToken {
+  public function type(): EditableSyntax {
     return $this->typex();
   }
 
-  public function typex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_type);
+  public function typex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
 
   public function raw_type(): EditableSyntax {
@@ -12768,10 +12768,10 @@ final class CastExpression extends EditableSyntax {
     $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     $operand = $this->_operand->rewrite($rewriter, $child_parents);
     if (
-      $left_paren === $this->left_paren() &&
-      $type === $this->type() &&
-      $right_paren === $this->right_paren() &&
-      $operand === $this->operand()
+      $left_paren === $this->_left_paren &&
+      $type === $this->_type &&
+      $right_paren === $this->_right_paren &&
+      $operand === $this->_operand
     ) {
       $node = $this;
     } else {
@@ -12796,12 +12796,12 @@ final class CastExpression extends EditableSyntax {
     return new self($value, $this->_type, $this->_right_paren, $this->_operand);
   }
 
-  public function type(): EditableToken {
+  public function type(): EditableSyntax {
     return $this->typex();
   }
 
-  public function typex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_type);
+  public function typex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
 
   public function raw_type(): EditableSyntax {
@@ -12834,12 +12834,12 @@ final class CastExpression extends EditableSyntax {
     return new self($this->_left_paren, $this->_type, $value, $this->_operand);
   }
 
-  public function operand(): EditableToken {
+  public function operand(): EditableSyntax {
     return $this->operandx();
   }
 
-  public function operandx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_operand);
+  public function operandx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operand);
   }
 
   public function raw_operand(): EditableSyntax {
@@ -12912,9 +12912,9 @@ final class ScopeResolutionExpression extends EditableSyntax {
     $operator = $this->_operator->rewrite($rewriter, $child_parents);
     $name = $this->_name->rewrite($rewriter, $child_parents);
     if (
-      $qualifier === $this->qualifier() &&
-      $operator === $this->operator() &&
-      $name === $this->name()
+      $qualifier === $this->_qualifier &&
+      $operator === $this->_operator &&
+      $name === $this->_name
     ) {
       $node = $this;
     } else {
@@ -12923,12 +12923,12 @@ final class ScopeResolutionExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function qualifier(): EditableToken {
+  public function qualifier(): EditableSyntax {
     return $this->qualifierx();
   }
 
-  public function qualifierx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_qualifier);
+  public function qualifierx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_qualifier);
   }
 
   public function raw_qualifier(): EditableSyntax {
@@ -12955,12 +12955,12 @@ final class ScopeResolutionExpression extends EditableSyntax {
     return new self($this->_qualifier, $value, $this->_name);
   }
 
-  public function name(): EditableToken {
+  public function name(): EditableSyntax {
     return $this->namex();
   }
 
-  public function namex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+  public function namex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }
 
   public function raw_name(): EditableSyntax {
@@ -13032,9 +13032,9 @@ final class MemberSelectionExpression extends EditableSyntax {
     $operator = $this->_operator->rewrite($rewriter, $child_parents);
     $name = $this->_name->rewrite($rewriter, $child_parents);
     if (
-      $object === $this->object() &&
-      $operator === $this->operator() &&
-      $name === $this->name()
+      $object === $this->_object &&
+      $operator === $this->_operator &&
+      $name === $this->_name
     ) {
       $node = $this;
     } else {
@@ -13043,12 +13043,12 @@ final class MemberSelectionExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function object(): EditableToken {
+  public function object(): EditableSyntax {
     return $this->objectx();
   }
 
-  public function objectx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_object);
+  public function objectx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_object);
   }
 
   public function raw_object(): EditableSyntax {
@@ -13076,12 +13076,12 @@ final class MemberSelectionExpression extends EditableSyntax {
     return new self($this->_object, $value, $this->_name);
   }
 
-  public function name(): EditableToken {
+  public function name(): EditableSyntax {
     return $this->namex();
   }
 
-  public function namex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+  public function namex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }
 
   public function raw_name(): EditableSyntax {
@@ -13153,9 +13153,9 @@ final class SafeMemberSelectionExpression extends EditableSyntax {
     $operator = $this->_operator->rewrite($rewriter, $child_parents);
     $name = $this->_name->rewrite($rewriter, $child_parents);
     if (
-      $object === $this->object() &&
-      $operator === $this->operator() &&
-      $name === $this->name()
+      $object === $this->_object &&
+      $operator === $this->_operator &&
+      $name === $this->_name
     ) {
       $node = $this;
     } else {
@@ -13164,12 +13164,12 @@ final class SafeMemberSelectionExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function object(): EditableToken {
+  public function object(): EditableSyntax {
     return $this->objectx();
   }
 
-  public function objectx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_object);
+  public function objectx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_object);
   }
 
   public function raw_object(): EditableSyntax {
@@ -13199,12 +13199,12 @@ final class SafeMemberSelectionExpression extends EditableSyntax {
     return new self($this->_object, $value, $this->_name);
   }
 
-  public function name(): EditableToken {
+  public function name(): EditableSyntax {
     return $this->namex();
   }
 
-  public function namex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+  public function namex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }
 
   public function raw_name(): EditableSyntax {
@@ -13276,9 +13276,9 @@ final class EmbeddedMemberSelectionExpression extends EditableSyntax {
     $operator = $this->_operator->rewrite($rewriter, $child_parents);
     $name = $this->_name->rewrite($rewriter, $child_parents);
     if (
-      $object === $this->object() &&
-      $operator === $this->operator() &&
-      $name === $this->name()
+      $object === $this->_object &&
+      $operator === $this->_operator &&
+      $name === $this->_name
     ) {
       $node = $this;
     } else {
@@ -13287,12 +13287,12 @@ final class EmbeddedMemberSelectionExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function object(): EditableToken {
+  public function object(): EditableSyntax {
     return $this->objectx();
   }
 
-  public function objectx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_object);
+  public function objectx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_object);
   }
 
   public function raw_object(): EditableSyntax {
@@ -13303,12 +13303,12 @@ final class EmbeddedMemberSelectionExpression extends EditableSyntax {
     return new self($value, $this->_operator, $this->_name);
   }
 
-  public function operator(): EditableToken {
+  public function operator(): EditableSyntax {
     return $this->operatorx();
   }
 
-  public function operatorx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_operator);
+  public function operatorx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operator);
   }
 
   public function raw_operator(): EditableSyntax {
@@ -13319,12 +13319,12 @@ final class EmbeddedMemberSelectionExpression extends EditableSyntax {
     return new self($this->_object, $value, $this->_name);
   }
 
-  public function name(): EditableToken {
+  public function name(): EditableSyntax {
     return $this->namex();
   }
 
-  public function namex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+  public function namex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }
 
   public function raw_name(): EditableSyntax {
@@ -13384,7 +13384,7 @@ final class YieldExpression extends EditableSyntax {
     $child_parents[] = $this;
     $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
     $operand = $this->_operand->rewrite($rewriter, $child_parents);
-    if ($keyword === $this->keyword() && $operand === $this->operand()) {
+    if ($keyword === $this->_keyword && $operand === $this->_operand) {
       $node = $this;
     } else {
       $node = new self($keyword, $operand);
@@ -13408,12 +13408,12 @@ final class YieldExpression extends EditableSyntax {
     return new self($value, $this->_operand);
   }
 
-  public function operand(): EditableToken {
+  public function operand(): EditableSyntax {
     return $this->operandx();
   }
 
-  public function operandx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_operand);
+  public function operandx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operand);
   }
 
   public function raw_operand(): EditableSyntax {
@@ -13473,7 +13473,7 @@ final class PrefixUnaryExpression extends EditableSyntax {
     $child_parents[] = $this;
     $operator = $this->_operator->rewrite($rewriter, $child_parents);
     $operand = $this->_operand->rewrite($rewriter, $child_parents);
-    if ($operator === $this->operator() && $operand === $this->operand()) {
+    if ($operator === $this->_operator && $operand === $this->_operand) {
       $node = $this;
     } else {
       $node = new self($operator, $operand);
@@ -13481,12 +13481,12 @@ final class PrefixUnaryExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function operator(): EditableToken {
+  public function operator(): EditableSyntax {
     return $this->operatorx();
   }
 
-  public function operatorx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_operator);
+  public function operatorx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operator);
   }
 
   public function raw_operator(): EditableSyntax {
@@ -13497,12 +13497,12 @@ final class PrefixUnaryExpression extends EditableSyntax {
     return new self($value, $this->_operand);
   }
 
-  public function operand(): EditableToken {
+  public function operand(): EditableSyntax {
     return $this->operandx();
   }
 
-  public function operandx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_operand);
+  public function operandx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operand);
   }
 
   public function raw_operand(): EditableSyntax {
@@ -13562,7 +13562,7 @@ final class PostfixUnaryExpression extends EditableSyntax {
     $child_parents[] = $this;
     $operand = $this->_operand->rewrite($rewriter, $child_parents);
     $operator = $this->_operator->rewrite($rewriter, $child_parents);
-    if ($operand === $this->operand() && $operator === $this->operator()) {
+    if ($operand === $this->_operand && $operator === $this->_operator) {
       $node = $this;
     } else {
       $node = new self($operand, $operator);
@@ -13570,12 +13570,12 @@ final class PostfixUnaryExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function operand(): EditableToken {
+  public function operand(): EditableSyntax {
     return $this->operandx();
   }
 
-  public function operandx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_operand);
+  public function operandx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operand);
   }
 
   public function raw_operand(): EditableSyntax {
@@ -13586,12 +13586,12 @@ final class PostfixUnaryExpression extends EditableSyntax {
     return new self($value, $this->_operator);
   }
 
-  public function operator(): EditableToken {
+  public function operator(): EditableSyntax {
     return $this->operatorx();
   }
 
-  public function operatorx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_operator);
+  public function operatorx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operator);
   }
 
   public function raw_operator(): EditableSyntax {
@@ -13663,9 +13663,9 @@ final class BinaryExpression extends EditableSyntax {
     $operator = $this->_operator->rewrite($rewriter, $child_parents);
     $right_operand = $this->_right_operand->rewrite($rewriter, $child_parents);
     if (
-      $left_operand === $this->left_operand() &&
-      $operator === $this->operator() &&
-      $right_operand === $this->right_operand()
+      $left_operand === $this->_left_operand &&
+      $operator === $this->_operator &&
+      $right_operand === $this->_right_operand
     ) {
       $node = $this;
     } else {
@@ -13674,12 +13674,13 @@ final class BinaryExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function left_operand(): EditableToken {
+  public function left_operand(): EditableSyntax {
     return $this->left_operandx();
   }
 
-  public function left_operandx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_left_operand);
+  public function left_operandx(): EditableSyntax {
+    return
+      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_operand);
   }
 
   public function raw_left_operand(): EditableSyntax {
@@ -13690,12 +13691,12 @@ final class BinaryExpression extends EditableSyntax {
     return new self($value, $this->_operator, $this->_right_operand);
   }
 
-  public function operator(): EditableToken {
+  public function operator(): EditableSyntax {
     return $this->operatorx();
   }
 
-  public function operatorx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_operator);
+  public function operatorx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operator);
   }
 
   public function raw_operator(): EditableSyntax {
@@ -13706,13 +13707,13 @@ final class BinaryExpression extends EditableSyntax {
     return new self($this->_left_operand, $value, $this->_right_operand);
   }
 
-  public function right_operand(): EditableToken {
+  public function right_operand(): EditableSyntax {
     return $this->right_operandx();
   }
 
-  public function right_operandx(): EditableToken {
+  public function right_operandx(): EditableSyntax {
     return
-      TypeAssert::isInstanceOf(EditableToken::class, $this->_right_operand);
+      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_operand);
   }
 
   public function raw_right_operand(): EditableSyntax {
@@ -13784,9 +13785,9 @@ final class InstanceofExpression extends EditableSyntax {
     $operator = $this->_operator->rewrite($rewriter, $child_parents);
     $right_operand = $this->_right_operand->rewrite($rewriter, $child_parents);
     if (
-      $left_operand === $this->left_operand() &&
-      $operator === $this->operator() &&
-      $right_operand === $this->right_operand()
+      $left_operand === $this->_left_operand &&
+      $operator === $this->_operator &&
+      $right_operand === $this->_right_operand
     ) {
       $node = $this;
     } else {
@@ -13795,12 +13796,13 @@ final class InstanceofExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function left_operand(): EditableToken {
+  public function left_operand(): EditableSyntax {
     return $this->left_operandx();
   }
 
-  public function left_operandx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_left_operand);
+  public function left_operandx(): EditableSyntax {
+    return
+      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_operand);
   }
 
   public function raw_left_operand(): EditableSyntax {
@@ -13827,13 +13829,13 @@ final class InstanceofExpression extends EditableSyntax {
     return new self($this->_left_operand, $value, $this->_right_operand);
   }
 
-  public function right_operand(): EditableToken {
+  public function right_operand(): EditableSyntax {
     return $this->right_operandx();
   }
 
-  public function right_operandx(): EditableToken {
+  public function right_operandx(): EditableSyntax {
     return
-      TypeAssert::isInstanceOf(EditableToken::class, $this->_right_operand);
+      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_operand);
   }
 
   public function raw_right_operand(): EditableSyntax {
@@ -13927,11 +13929,11 @@ final class ConditionalExpression extends EditableSyntax {
     $colon = $this->_colon->rewrite($rewriter, $child_parents);
     $alternative = $this->_alternative->rewrite($rewriter, $child_parents);
     if (
-      $test === $this->test() &&
-      $question === $this->question() &&
-      $consequence === $this->consequence() &&
-      $colon === $this->colon() &&
-      $alternative === $this->alternative()
+      $test === $this->_test &&
+      $question === $this->_question &&
+      $consequence === $this->_consequence &&
+      $colon === $this->_colon &&
+      $alternative === $this->_alternative
     ) {
       $node = $this;
     } else {
@@ -13940,12 +13942,12 @@ final class ConditionalExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function test(): EditableToken {
+  public function test(): EditableSyntax {
     return $this->testx();
   }
 
-  public function testx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_test);
+  public function testx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_test);
   }
 
   public function raw_test(): EditableSyntax {
@@ -13984,12 +13986,12 @@ final class ConditionalExpression extends EditableSyntax {
     );
   }
 
-  public function consequence(): EditableToken {
+  public function consequence(): EditableSyntax {
     return $this->consequencex();
   }
 
-  public function consequencex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_consequence);
+  public function consequencex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_consequence);
   }
 
   public function raw_consequence(): EditableSyntax {
@@ -14030,12 +14032,12 @@ final class ConditionalExpression extends EditableSyntax {
     );
   }
 
-  public function alternative(): EditableToken {
+  public function alternative(): EditableSyntax {
     return $this->alternativex();
   }
 
-  public function alternativex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_alternative);
+  public function alternativex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_alternative);
   }
 
   public function raw_alternative(): EditableSyntax {
@@ -14124,10 +14126,10 @@ final class EvalExpression extends EditableSyntax {
     $argument = $this->_argument->rewrite($rewriter, $child_parents);
     $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $left_paren === $this->left_paren() &&
-      $argument === $this->argument() &&
-      $right_paren === $this->right_paren()
+      $keyword === $this->_keyword &&
+      $left_paren === $this->_left_paren &&
+      $argument === $this->_argument &&
+      $right_paren === $this->_right_paren
     ) {
       $node = $this;
     } else {
@@ -14174,12 +14176,12 @@ final class EvalExpression extends EditableSyntax {
       new self($this->_keyword, $value, $this->_argument, $this->_right_paren);
   }
 
-  public function argument(): EditableToken {
+  public function argument(): EditableSyntax {
     return $this->argumentx();
   }
 
-  public function argumentx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_argument);
+  public function argumentx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_argument);
   }
 
   public function raw_argument(): EditableSyntax {
@@ -14285,10 +14287,10 @@ final class EmptyExpression extends EditableSyntax {
     $argument = $this->_argument->rewrite($rewriter, $child_parents);
     $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $left_paren === $this->left_paren() &&
-      $argument === $this->argument() &&
-      $right_paren === $this->right_paren()
+      $keyword === $this->_keyword &&
+      $left_paren === $this->_left_paren &&
+      $argument === $this->_argument &&
+      $right_paren === $this->_right_paren
     ) {
       $node = $this;
     } else {
@@ -14335,12 +14337,12 @@ final class EmptyExpression extends EditableSyntax {
       new self($this->_keyword, $value, $this->_argument, $this->_right_paren);
   }
 
-  public function argument(): EditableToken {
+  public function argument(): EditableSyntax {
     return $this->argumentx();
   }
 
-  public function argumentx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_argument);
+  public function argumentx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_argument);
   }
 
   public function raw_argument(): EditableSyntax {
@@ -14446,10 +14448,10 @@ final class DefineExpression extends EditableSyntax {
     $argument_list = $this->_argument_list->rewrite($rewriter, $child_parents);
     $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $left_paren === $this->left_paren() &&
-      $argument_list === $this->argument_list() &&
-      $right_paren === $this->right_paren()
+      $keyword === $this->_keyword &&
+      $left_paren === $this->_left_paren &&
+      $argument_list === $this->_argument_list &&
+      $right_paren === $this->_right_paren
     ) {
       $node = $this;
     } else {
@@ -14617,10 +14619,10 @@ final class IssetExpression extends EditableSyntax {
     $argument_list = $this->_argument_list->rewrite($rewriter, $child_parents);
     $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $left_paren === $this->left_paren() &&
-      $argument_list === $this->argument_list() &&
-      $right_paren === $this->right_paren()
+      $keyword === $this->_keyword &&
+      $left_paren === $this->_left_paren &&
+      $argument_list === $this->_argument_list &&
+      $right_paren === $this->_right_paren
     ) {
       $node = $this;
     } else {
@@ -14786,10 +14788,10 @@ final class FunctionCallExpression extends EditableSyntax {
     $argument_list = $this->_argument_list->rewrite($rewriter, $child_parents);
     $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     if (
-      $receiver === $this->receiver() &&
-      $left_paren === $this->left_paren() &&
-      $argument_list === $this->argument_list() &&
-      $right_paren === $this->right_paren()
+      $receiver === $this->_receiver &&
+      $left_paren === $this->_left_paren &&
+      $argument_list === $this->_argument_list &&
+      $right_paren === $this->_right_paren
     ) {
       $node = $this;
     } else {
@@ -14798,12 +14800,12 @@ final class FunctionCallExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function receiver(): EditableToken {
+  public function receiver(): EditableSyntax {
     return $this->receiverx();
   }
 
-  public function receiverx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_receiver);
+  public function receiverx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_receiver);
   }
 
   public function raw_receiver(): EditableSyntax {
@@ -14950,9 +14952,9 @@ final class ParenthesizedExpression extends EditableSyntax {
     $expression = $this->_expression->rewrite($rewriter, $child_parents);
     $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     if (
-      $left_paren === $this->left_paren() &&
-      $expression === $this->expression() &&
-      $right_paren === $this->right_paren()
+      $left_paren === $this->_left_paren &&
+      $expression === $this->_expression &&
+      $right_paren === $this->_right_paren
     ) {
       $node = $this;
     } else {
@@ -14977,12 +14979,12 @@ final class ParenthesizedExpression extends EditableSyntax {
     return new self($value, $this->_expression, $this->_right_paren);
   }
 
-  public function expression(): EditableToken {
+  public function expression(): EditableSyntax {
     return $this->expressionx();
   }
 
-  public function expressionx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_expression);
+  public function expressionx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
   }
 
   public function raw_expression(): EditableSyntax {
@@ -15073,9 +15075,9 @@ final class BracedExpression extends EditableSyntax {
     $expression = $this->_expression->rewrite($rewriter, $child_parents);
     $right_brace = $this->_right_brace->rewrite($rewriter, $child_parents);
     if (
-      $left_brace === $this->left_brace() &&
-      $expression === $this->expression() &&
-      $right_brace === $this->right_brace()
+      $left_brace === $this->_left_brace &&
+      $expression === $this->_expression &&
+      $right_brace === $this->_right_brace
     ) {
       $node = $this;
     } else {
@@ -15100,12 +15102,12 @@ final class BracedExpression extends EditableSyntax {
     return new self($value, $this->_expression, $this->_right_brace);
   }
 
-  public function expression(): EditableToken {
+  public function expression(): EditableSyntax {
     return $this->expressionx();
   }
 
-  public function expressionx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_expression);
+  public function expressionx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
   }
 
   public function raw_expression(): EditableSyntax {
@@ -15194,9 +15196,9 @@ final class EmbeddedBracedExpression extends EditableSyntax {
     $expression = $this->_expression->rewrite($rewriter, $child_parents);
     $right_brace = $this->_right_brace->rewrite($rewriter, $child_parents);
     if (
-      $left_brace === $this->left_brace() &&
-      $expression === $this->expression() &&
-      $right_brace === $this->right_brace()
+      $left_brace === $this->_left_brace &&
+      $expression === $this->_expression &&
+      $right_brace === $this->_right_brace
     ) {
       $node = $this;
     } else {
@@ -15205,12 +15207,12 @@ final class EmbeddedBracedExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function left_brace(): EditableToken {
+  public function left_brace(): EditableSyntax {
     return $this->left_bracex();
   }
 
-  public function left_bracex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_left_brace);
+  public function left_bracex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_brace);
   }
 
   public function raw_left_brace(): EditableSyntax {
@@ -15221,12 +15223,12 @@ final class EmbeddedBracedExpression extends EditableSyntax {
     return new self($value, $this->_expression, $this->_right_brace);
   }
 
-  public function expression(): EditableToken {
+  public function expression(): EditableSyntax {
     return $this->expressionx();
   }
 
-  public function expressionx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_expression);
+  public function expressionx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
   }
 
   public function raw_expression(): EditableSyntax {
@@ -15237,12 +15239,12 @@ final class EmbeddedBracedExpression extends EditableSyntax {
     return new self($this->_left_brace, $value, $this->_right_brace);
   }
 
-  public function right_brace(): EditableToken {
+  public function right_brace(): EditableSyntax {
     return $this->right_bracex();
   }
 
-  public function right_bracex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_right_brace);
+  public function right_bracex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_brace);
   }
 
   public function raw_right_brace(): EditableSyntax {
@@ -15325,10 +15327,10 @@ final class ListExpression extends EditableSyntax {
     $members = $this->_members->rewrite($rewriter, $child_parents);
     $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $left_paren === $this->left_paren() &&
-      $members === $this->members() &&
-      $right_paren === $this->right_paren()
+      $keyword === $this->_keyword &&
+      $left_paren === $this->_left_paren &&
+      $members === $this->_members &&
+      $right_paren === $this->_right_paren
     ) {
       $node = $this;
     } else {
@@ -15488,10 +15490,10 @@ final class CollectionLiteralExpression extends EditableSyntax {
     $initializers = $this->_initializers->rewrite($rewriter, $child_parents);
     $right_brace = $this->_right_brace->rewrite($rewriter, $child_parents);
     if (
-      $name === $this->name() &&
-      $left_brace === $this->left_brace() &&
-      $initializers === $this->initializers() &&
-      $right_brace === $this->right_brace()
+      $name === $this->_name &&
+      $left_brace === $this->_left_brace &&
+      $initializers === $this->_initializers &&
+      $right_brace === $this->_right_brace
     ) {
       $node = $this;
     } else {
@@ -15500,12 +15502,12 @@ final class CollectionLiteralExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function name(): EditableToken {
+  public function name(): EditableSyntax {
     return $this->namex();
   }
 
-  public function namex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+  public function namex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }
 
   public function raw_name(): EditableSyntax {
@@ -15661,11 +15663,11 @@ final class ObjectCreationExpression extends EditableSyntax {
     $argument_list = $this->_argument_list->rewrite($rewriter, $child_parents);
     $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     if (
-      $new_keyword === $this->new_keyword() &&
-      $type === $this->type() &&
-      $left_paren === $this->left_paren() &&
-      $argument_list === $this->argument_list() &&
-      $right_paren === $this->right_paren()
+      $new_keyword === $this->_new_keyword &&
+      $type === $this->_type &&
+      $left_paren === $this->_left_paren &&
+      $argument_list === $this->_argument_list &&
+      $right_paren === $this->_right_paren
     ) {
       $node = $this;
     } else {
@@ -15702,12 +15704,12 @@ final class ObjectCreationExpression extends EditableSyntax {
     );
   }
 
-  public function type(): EditableToken {
+  public function type(): EditableSyntax {
     return $this->typex();
   }
 
-  public function typex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_type);
+  public function typex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
 
   public function raw_type(): EditableSyntax {
@@ -15858,9 +15860,9 @@ final class ArrayCreationExpression extends EditableSyntax {
     $members = $this->_members->rewrite($rewriter, $child_parents);
     $right_bracket = $this->_right_bracket->rewrite($rewriter, $child_parents);
     if (
-      $left_bracket === $this->left_bracket() &&
-      $members === $this->members() &&
-      $right_bracket === $this->right_bracket()
+      $left_bracket === $this->_left_bracket &&
+      $members === $this->_members &&
+      $right_bracket === $this->_right_bracket
     ) {
       $node = $this;
     } else {
@@ -15993,10 +15995,10 @@ final class ArrayIntrinsicExpression extends EditableSyntax {
     $members = $this->_members->rewrite($rewriter, $child_parents);
     $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $left_paren === $this->left_paren() &&
-      $members === $this->members() &&
-      $right_paren === $this->right_paren()
+      $keyword === $this->_keyword &&
+      $left_paren === $this->_left_paren &&
+      $members === $this->_members &&
+      $right_paren === $this->_right_paren
     ) {
       $node = $this;
     } else {
@@ -16158,10 +16160,10 @@ final class DarrayIntrinsicExpression extends EditableSyntax {
     $members = $this->_members->rewrite($rewriter, $child_parents);
     $right_bracket = $this->_right_bracket->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $left_bracket === $this->left_bracket() &&
-      $members === $this->members() &&
-      $right_bracket === $this->right_bracket()
+      $keyword === $this->_keyword &&
+      $left_bracket === $this->_left_bracket &&
+      $members === $this->_members &&
+      $right_bracket === $this->_right_bracket
     ) {
       $node = $this;
     } else {
@@ -16322,10 +16324,10 @@ final class DictionaryIntrinsicExpression extends EditableSyntax {
     $members = $this->_members->rewrite($rewriter, $child_parents);
     $right_bracket = $this->_right_bracket->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $left_bracket === $this->left_bracket() &&
-      $members === $this->members() &&
-      $right_bracket === $this->right_bracket()
+      $keyword === $this->_keyword &&
+      $left_bracket === $this->_left_bracket &&
+      $members === $this->_members &&
+      $right_bracket === $this->_right_bracket
     ) {
       $node = $this;
     } else {
@@ -16486,10 +16488,10 @@ final class KeysetIntrinsicExpression extends EditableSyntax {
     $members = $this->_members->rewrite($rewriter, $child_parents);
     $right_bracket = $this->_right_bracket->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $left_bracket === $this->left_bracket() &&
-      $members === $this->members() &&
-      $right_bracket === $this->right_bracket()
+      $keyword === $this->_keyword &&
+      $left_bracket === $this->_left_bracket &&
+      $members === $this->_members &&
+      $right_bracket === $this->_right_bracket
     ) {
       $node = $this;
     } else {
@@ -16650,10 +16652,10 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
     $members = $this->_members->rewrite($rewriter, $child_parents);
     $right_bracket = $this->_right_bracket->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $left_bracket === $this->left_bracket() &&
-      $members === $this->members() &&
-      $right_bracket === $this->right_bracket()
+      $keyword === $this->_keyword &&
+      $left_bracket === $this->_left_bracket &&
+      $members === $this->_members &&
+      $right_bracket === $this->_right_bracket
     ) {
       $node = $this;
     } else {
@@ -16814,10 +16816,10 @@ final class VectorIntrinsicExpression extends EditableSyntax {
     $members = $this->_members->rewrite($rewriter, $child_parents);
     $right_bracket = $this->_right_bracket->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $left_bracket === $this->left_bracket() &&
-      $members === $this->members() &&
-      $right_bracket === $this->right_bracket()
+      $keyword === $this->_keyword &&
+      $left_bracket === $this->_left_bracket &&
+      $members === $this->_members &&
+      $right_bracket === $this->_right_bracket
     ) {
       $node = $this;
     } else {
@@ -16967,9 +16969,9 @@ final class ElementInitializer extends EditableSyntax {
     $arrow = $this->_arrow->rewrite($rewriter, $child_parents);
     $value = $this->_value->rewrite($rewriter, $child_parents);
     if (
-      $key === $this->key() &&
-      $arrow === $this->arrow() &&
-      $value === $this->value()
+      $key === $this->_key &&
+      $arrow === $this->_arrow &&
+      $value === $this->_value
     ) {
       $node = $this;
     } else {
@@ -16978,12 +16980,12 @@ final class ElementInitializer extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function key(): EditableToken {
+  public function key(): EditableSyntax {
     return $this->keyx();
   }
 
-  public function keyx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_key);
+  public function keyx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_key);
   }
 
   public function raw_key(): EditableSyntax {
@@ -17011,12 +17013,12 @@ final class ElementInitializer extends EditableSyntax {
     return new self($this->_key, $value, $this->_value);
   }
 
-  public function value(): EditableToken {
+  public function value(): EditableSyntax {
     return $this->valuex();
   }
 
-  public function valuex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_value);
+  public function valuex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_value);
   }
 
   public function raw_value(): EditableSyntax {
@@ -17099,10 +17101,10 @@ final class SubscriptExpression extends EditableSyntax {
     $index = $this->_index->rewrite($rewriter, $child_parents);
     $right_bracket = $this->_right_bracket->rewrite($rewriter, $child_parents);
     if (
-      $receiver === $this->receiver() &&
-      $left_bracket === $this->left_bracket() &&
-      $index === $this->index() &&
-      $right_bracket === $this->right_bracket()
+      $receiver === $this->_receiver &&
+      $left_bracket === $this->_left_bracket &&
+      $index === $this->_index &&
+      $right_bracket === $this->_right_bracket
     ) {
       $node = $this;
     } else {
@@ -17111,12 +17113,12 @@ final class SubscriptExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function receiver(): EditableToken {
+  public function receiver(): EditableSyntax {
     return $this->receiverx();
   }
 
-  public function receiverx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_receiver);
+  public function receiverx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_receiver);
   }
 
   public function raw_receiver(): EditableSyntax {
@@ -17132,12 +17134,13 @@ final class SubscriptExpression extends EditableSyntax {
     );
   }
 
-  public function left_bracket(): EditableToken {
+  public function left_bracket(): EditableSyntax {
     return $this->left_bracketx();
   }
 
-  public function left_bracketx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_left_bracket);
+  public function left_bracketx(): EditableSyntax {
+    return
+      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_bracket);
   }
 
   public function raw_left_bracket(): EditableSyntax {
@@ -17149,12 +17152,12 @@ final class SubscriptExpression extends EditableSyntax {
       new self($this->_receiver, $value, $this->_index, $this->_right_bracket);
   }
 
-  public function index(): EditableToken {
+  public function index(): EditableSyntax {
     return $this->indexx();
   }
 
-  public function indexx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_index);
+  public function indexx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_index);
   }
 
   public function raw_index(): EditableSyntax {
@@ -17170,13 +17173,13 @@ final class SubscriptExpression extends EditableSyntax {
     );
   }
 
-  public function right_bracket(): EditableToken {
+  public function right_bracket(): EditableSyntax {
     return $this->right_bracketx();
   }
 
-  public function right_bracketx(): EditableToken {
+  public function right_bracketx(): EditableSyntax {
     return
-      TypeAssert::isInstanceOf(EditableToken::class, $this->_right_bracket);
+      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_bracket);
   }
 
   public function raw_right_bracket(): EditableSyntax {
@@ -17260,10 +17263,10 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
     $index = $this->_index->rewrite($rewriter, $child_parents);
     $right_bracket = $this->_right_bracket->rewrite($rewriter, $child_parents);
     if (
-      $receiver === $this->receiver() &&
-      $left_bracket === $this->left_bracket() &&
-      $index === $this->index() &&
-      $right_bracket === $this->right_bracket()
+      $receiver === $this->_receiver &&
+      $left_bracket === $this->_left_bracket &&
+      $index === $this->_index &&
+      $right_bracket === $this->_right_bracket
     ) {
       $node = $this;
     } else {
@@ -17272,12 +17275,12 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function receiver(): EditableToken {
+  public function receiver(): EditableSyntax {
     return $this->receiverx();
   }
 
-  public function receiverx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_receiver);
+  public function receiverx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_receiver);
   }
 
   public function raw_receiver(): EditableSyntax {
@@ -17293,12 +17296,13 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
     );
   }
 
-  public function left_bracket(): EditableToken {
+  public function left_bracket(): EditableSyntax {
     return $this->left_bracketx();
   }
 
-  public function left_bracketx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_left_bracket);
+  public function left_bracketx(): EditableSyntax {
+    return
+      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_bracket);
   }
 
   public function raw_left_bracket(): EditableSyntax {
@@ -17310,12 +17314,12 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
       new self($this->_receiver, $value, $this->_index, $this->_right_bracket);
   }
 
-  public function index(): EditableToken {
+  public function index(): EditableSyntax {
     return $this->indexx();
   }
 
-  public function indexx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_index);
+  public function indexx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_index);
   }
 
   public function raw_index(): EditableSyntax {
@@ -17331,13 +17335,13 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
     );
   }
 
-  public function right_bracket(): EditableToken {
+  public function right_bracket(): EditableSyntax {
     return $this->right_bracketx();
   }
 
-  public function right_bracketx(): EditableToken {
+  public function right_bracketx(): EditableSyntax {
     return
-      TypeAssert::isInstanceOf(EditableToken::class, $this->_right_bracket);
+      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_bracket);
   }
 
   public function raw_right_bracket(): EditableSyntax {
@@ -17411,9 +17415,9 @@ final class AwaitableCreationExpression extends EditableSyntax {
     $compound_statement =
       $this->_compound_statement->rewrite($rewriter, $child_parents);
     if (
-      $async === $this->async() &&
-      $coroutine === $this->coroutine() &&
-      $compound_statement === $this->compound_statement()
+      $async === $this->_async &&
+      $coroutine === $this->_coroutine &&
+      $compound_statement === $this->_compound_statement
     ) {
       $node = $this;
     } else {
@@ -17438,12 +17442,12 @@ final class AwaitableCreationExpression extends EditableSyntax {
     return new self($value, $this->_coroutine, $this->_compound_statement);
   }
 
-  public function coroutine(): EditableToken {
+  public function coroutine(): EditableSyntax {
     return $this->coroutinex();
   }
 
-  public function coroutinex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_coroutine);
+  public function coroutinex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_coroutine);
   }
 
   public function raw_coroutine(): EditableSyntax {
@@ -17534,9 +17538,9 @@ final class XHPChildrenDeclaration extends EditableSyntax {
     $expression = $this->_expression->rewrite($rewriter, $child_parents);
     $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $expression === $this->expression() &&
-      $semicolon === $this->semicolon()
+      $keyword === $this->_keyword &&
+      $expression === $this->_expression &&
+      $semicolon === $this->_semicolon
     ) {
       $node = $this;
     } else {
@@ -17545,12 +17549,12 @@ final class XHPChildrenDeclaration extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableToken {
+  public function keyword(): EditableSyntax {
     return $this->keywordx();
   }
 
-  public function keywordx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_keyword);
+  public function keywordx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_keyword);
   }
 
   public function raw_keyword(): EditableSyntax {
@@ -17561,12 +17565,12 @@ final class XHPChildrenDeclaration extends EditableSyntax {
     return new self($value, $this->_expression, $this->_semicolon);
   }
 
-  public function expression(): EditableToken {
+  public function expression(): EditableSyntax {
     return $this->expressionx();
   }
 
-  public function expressionx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_expression);
+  public function expressionx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
   }
 
   public function raw_expression(): EditableSyntax {
@@ -17577,12 +17581,12 @@ final class XHPChildrenDeclaration extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_semicolon);
   }
 
-  public function semicolon(): EditableToken {
+  public function semicolon(): EditableSyntax {
     return $this->semicolonx();
   }
 
-  public function semicolonx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_semicolon);
+  public function semicolonx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_semicolon);
   }
 
   public function raw_semicolon(): EditableSyntax {
@@ -17654,9 +17658,9 @@ final class XHPChildrenParenthesizedList extends EditableSyntax {
     $xhp_children = $this->_xhp_children->rewrite($rewriter, $child_parents);
     $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     if (
-      $left_paren === $this->left_paren() &&
-      $xhp_children === $this->xhp_children() &&
-      $right_paren === $this->right_paren()
+      $left_paren === $this->_left_paren &&
+      $xhp_children === $this->_xhp_children &&
+      $right_paren === $this->_right_paren
     ) {
       $node = $this;
     } else {
@@ -17665,12 +17669,12 @@ final class XHPChildrenParenthesizedList extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function left_paren(): EditableToken {
+  public function left_paren(): EditableSyntax {
     return $this->left_parenx();
   }
 
-  public function left_parenx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_left_paren);
+  public function left_parenx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_paren);
   }
 
   public function raw_left_paren(): EditableSyntax {
@@ -17681,12 +17685,13 @@ final class XHPChildrenParenthesizedList extends EditableSyntax {
     return new self($value, $this->_xhp_children, $this->_right_paren);
   }
 
-  public function xhp_children(): EditableToken {
+  public function xhp_children(): EditableSyntax {
     return $this->xhp_childrenx();
   }
 
-  public function xhp_childrenx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_xhp_children);
+  public function xhp_childrenx(): EditableSyntax {
+    return
+      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_xhp_children);
   }
 
   public function raw_xhp_children(): EditableSyntax {
@@ -17697,12 +17702,12 @@ final class XHPChildrenParenthesizedList extends EditableSyntax {
     return new self($this->_left_paren, $value, $this->_right_paren);
   }
 
-  public function right_paren(): EditableToken {
+  public function right_paren(): EditableSyntax {
     return $this->right_parenx();
   }
 
-  public function right_parenx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_right_paren);
+  public function right_parenx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_paren);
   }
 
   public function raw_right_paren(): EditableSyntax {
@@ -17774,9 +17779,9 @@ final class XHPCategoryDeclaration extends EditableSyntax {
     $categories = $this->_categories->rewrite($rewriter, $child_parents);
     $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $categories === $this->categories() &&
-      $semicolon === $this->semicolon()
+      $keyword === $this->_keyword &&
+      $categories === $this->_categories &&
+      $semicolon === $this->_semicolon
     ) {
       $node = $this;
     } else {
@@ -17905,10 +17910,10 @@ final class XHPEnumType extends EditableSyntax {
     $values = $this->_values->rewrite($rewriter, $child_parents);
     $right_brace = $this->_right_brace->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $left_brace === $this->left_brace() &&
-      $values === $this->values() &&
-      $right_brace === $this->right_brace()
+      $keyword === $this->_keyword &&
+      $left_brace === $this->_left_brace &&
+      $values === $this->_values &&
+      $right_brace === $this->_right_brace
     ) {
       $node = $this;
     } else {
@@ -18036,7 +18041,7 @@ final class XHPRequired extends EditableSyntax {
     $child_parents[] = $this;
     $at = $this->_at->rewrite($rewriter, $child_parents);
     $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    if ($at === $this->at() && $keyword === $this->keyword()) {
+    if ($at === $this->_at && $keyword === $this->_keyword) {
       $node = $this;
     } else {
       $node = new self($at, $keyword);
@@ -18137,9 +18142,9 @@ final class XHPClassAttributeDeclaration extends EditableSyntax {
     $attributes = $this->_attributes->rewrite($rewriter, $child_parents);
     $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $attributes === $this->attributes() &&
-      $semicolon === $this->semicolon()
+      $keyword === $this->_keyword &&
+      $attributes === $this->_attributes &&
+      $semicolon === $this->_semicolon
     ) {
       $node = $this;
     } else {
@@ -18268,10 +18273,10 @@ final class XHPClassAttribute extends EditableSyntax {
     $initializer = $this->_initializer->rewrite($rewriter, $child_parents);
     $required = $this->_required->rewrite($rewriter, $child_parents);
     if (
-      $type === $this->type() &&
-      $name === $this->name() &&
-      $initializer === $this->initializer() &&
-      $required === $this->required()
+      $type === $this->_type &&
+      $name === $this->_name &&
+      $initializer === $this->_initializer &&
+      $required === $this->_required
     ) {
       $node = $this;
     } else {
@@ -18280,12 +18285,12 @@ final class XHPClassAttribute extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function type(): EditableToken {
+  public function type(): EditableSyntax {
     return $this->typex();
   }
 
-  public function typex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_type);
+  public function typex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
 
   public function raw_type(): EditableSyntax {
@@ -18387,7 +18392,7 @@ final class XHPSimpleClassAttribute extends EditableSyntax {
     $child_parents = $parents;
     $child_parents[] = $this;
     $type = $this->_type->rewrite($rewriter, $child_parents);
-    if ($type === $this->type()) {
+    if ($type === $this->_type) {
       $node = $this;
     } else {
       $node = new self($type);
@@ -18472,9 +18477,9 @@ final class XHPAttribute extends EditableSyntax {
     $equal = $this->_equal->rewrite($rewriter, $child_parents);
     $expression = $this->_expression->rewrite($rewriter, $child_parents);
     if (
-      $name === $this->name() &&
-      $equal === $this->equal() &&
-      $expression === $this->expression()
+      $name === $this->_name &&
+      $equal === $this->_equal &&
+      $expression === $this->_expression
     ) {
       $node = $this;
     } else {
@@ -18517,12 +18522,12 @@ final class XHPAttribute extends EditableSyntax {
     return new self($this->_name, $value, $this->_expression);
   }
 
-  public function expression(): EditableToken {
+  public function expression(): EditableSyntax {
     return $this->expressionx();
   }
 
-  public function expressionx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_expression);
+  public function expressionx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
   }
 
   public function raw_expression(): EditableSyntax {
@@ -18605,10 +18610,10 @@ final class XHPOpen extends EditableSyntax {
     $attributes = $this->_attributes->rewrite($rewriter, $child_parents);
     $right_angle = $this->_right_angle->rewrite($rewriter, $child_parents);
     if (
-      $left_angle === $this->left_angle() &&
-      $name === $this->name() &&
-      $attributes === $this->attributes() &&
-      $right_angle === $this->right_angle()
+      $left_angle === $this->_left_angle &&
+      $name === $this->_name &&
+      $attributes === $this->_attributes &&
+      $right_angle === $this->_right_angle
     ) {
       $node = $this;
     } else {
@@ -18674,12 +18679,12 @@ final class XHPOpen extends EditableSyntax {
       new self($this->_left_angle, $this->_name, $value, $this->_right_angle);
   }
 
-  public function right_angle(): EditableToken {
+  public function right_angle(): EditableSyntax {
     return $this->right_anglex();
   }
 
-  public function right_anglex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_right_angle);
+  public function right_anglex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_angle);
   }
 
   public function raw_right_angle(): EditableSyntax {
@@ -18752,9 +18757,9 @@ final class XHPExpression extends EditableSyntax {
     $body = $this->_body->rewrite($rewriter, $child_parents);
     $close = $this->_close->rewrite($rewriter, $child_parents);
     if (
-      $open === $this->open() &&
-      $body === $this->body() &&
-      $close === $this->close()
+      $open === $this->_open &&
+      $body === $this->_body &&
+      $close === $this->_close
     ) {
       $node = $this;
     } else {
@@ -18876,9 +18881,9 @@ final class XHPClose extends EditableSyntax {
     $name = $this->_name->rewrite($rewriter, $child_parents);
     $right_angle = $this->_right_angle->rewrite($rewriter, $child_parents);
     if (
-      $left_angle === $this->left_angle() &&
-      $name === $this->name() &&
-      $right_angle === $this->right_angle()
+      $left_angle === $this->_left_angle &&
+      $name === $this->_name &&
+      $right_angle === $this->_right_angle
     ) {
       $node = $this;
     } else {
@@ -18887,12 +18892,12 @@ final class XHPClose extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function left_angle(): EditableToken {
+  public function left_angle(): EditableSyntax {
     return $this->left_anglex();
   }
 
-  public function left_anglex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_left_angle);
+  public function left_anglex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_angle);
   }
 
   public function raw_left_angle(): EditableSyntax {
@@ -19001,9 +19006,9 @@ final class TypeConstant extends EditableSyntax {
     $separator = $this->_separator->rewrite($rewriter, $child_parents);
     $right_type = $this->_right_type->rewrite($rewriter, $child_parents);
     if (
-      $left_type === $this->left_type() &&
-      $separator === $this->separator() &&
-      $right_type === $this->right_type()
+      $left_type === $this->_left_type &&
+      $separator === $this->_separator &&
+      $right_type === $this->_right_type
     ) {
       $node = $this;
     } else {
@@ -19012,12 +19017,12 @@ final class TypeConstant extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function left_type(): EditableToken {
+  public function left_type(): EditableSyntax {
     return $this->left_typex();
   }
 
-  public function left_typex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_left_type);
+  public function left_typex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_type);
   }
 
   public function raw_left_type(): EditableSyntax {
@@ -19145,11 +19150,11 @@ final class VectorTypeSpecifier extends EditableSyntax {
       $this->_trailing_comma->rewrite($rewriter, $child_parents);
     $right_angle = $this->_right_angle->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $left_angle === $this->left_angle() &&
-      $type === $this->type() &&
-      $trailing_comma === $this->trailing_comma() &&
-      $right_angle === $this->right_angle()
+      $keyword === $this->_keyword &&
+      $left_angle === $this->_left_angle &&
+      $type === $this->_type &&
+      $trailing_comma === $this->_trailing_comma &&
+      $right_angle === $this->_right_angle
     ) {
       $node = $this;
     } else {
@@ -19203,12 +19208,12 @@ final class VectorTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function type(): EditableToken {
+  public function type(): EditableSyntax {
     return $this->typex();
   }
 
-  public function typex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_type);
+  public function typex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
 
   public function raw_type(): EditableSyntax {
@@ -19225,13 +19230,13 @@ final class VectorTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function trailing_comma(): EditableToken {
+  public function trailing_comma(): EditableSyntax {
     return $this->trailing_commax();
   }
 
-  public function trailing_commax(): EditableToken {
+  public function trailing_commax(): EditableSyntax {
     return
-      TypeAssert::isInstanceOf(EditableToken::class, $this->_trailing_comma);
+      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_trailing_comma);
   }
 
   public function raw_trailing_comma(): EditableSyntax {
@@ -19356,11 +19361,11 @@ final class KeysetTypeSpecifier extends EditableSyntax {
       $this->_trailing_comma->rewrite($rewriter, $child_parents);
     $right_angle = $this->_right_angle->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $left_angle === $this->left_angle() &&
-      $type === $this->type() &&
-      $trailing_comma === $this->trailing_comma() &&
-      $right_angle === $this->right_angle()
+      $keyword === $this->_keyword &&
+      $left_angle === $this->_left_angle &&
+      $type === $this->_type &&
+      $trailing_comma === $this->_trailing_comma &&
+      $right_angle === $this->_right_angle
     ) {
       $node = $this;
     } else {
@@ -19436,13 +19441,13 @@ final class KeysetTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function trailing_comma(): EditableToken {
+  public function trailing_comma(): EditableSyntax {
     return $this->trailing_commax();
   }
 
-  public function trailing_commax(): EditableToken {
+  public function trailing_commax(): EditableSyntax {
     return
-      TypeAssert::isInstanceOf(EditableToken::class, $this->_trailing_comma);
+      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_trailing_comma);
   }
 
   public function raw_trailing_comma(): EditableSyntax {
@@ -19554,10 +19559,10 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
     $types = $this->_types->rewrite($rewriter, $child_parents);
     $right_angle = $this->_right_angle->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $left_angle === $this->left_angle() &&
-      $types === $this->types() &&
-      $right_angle === $this->right_angle()
+      $keyword === $this->_keyword &&
+      $left_angle === $this->_left_angle &&
+      $types === $this->_types &&
+      $right_angle === $this->_right_angle
     ) {
       $node = $this;
     } else {
@@ -19566,12 +19571,12 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableToken {
+  public function keyword(): EditableSyntax {
     return $this->keywordx();
   }
 
-  public function keywordx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_keyword);
+  public function keywordx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_keyword);
   }
 
   public function raw_keyword(): EditableSyntax {
@@ -19583,12 +19588,12 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
       new self($value, $this->_left_angle, $this->_types, $this->_right_angle);
   }
 
-  public function left_angle(): EditableToken {
+  public function left_angle(): EditableSyntax {
     return $this->left_anglex();
   }
 
-  public function left_anglex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_left_angle);
+  public function left_anglex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_angle);
   }
 
   public function raw_left_angle(): EditableSyntax {
@@ -19600,12 +19605,12 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
       new self($this->_keyword, $value, $this->_types, $this->_right_angle);
   }
 
-  public function types(): EditableToken {
+  public function types(): EditableSyntax {
     return $this->typesx();
   }
 
-  public function typesx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_types);
+  public function typesx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_types);
   }
 
   public function raw_types(): EditableSyntax {
@@ -19621,12 +19626,12 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
     );
   }
 
-  public function right_angle(): EditableToken {
+  public function right_angle(): EditableSyntax {
     return $this->right_anglex();
   }
 
-  public function right_anglex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_right_angle);
+  public function right_anglex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_angle);
   }
 
   public function raw_right_angle(): EditableSyntax {
@@ -19722,11 +19727,11 @@ final class VarrayTypeSpecifier extends EditableSyntax {
       $this->_trailing_comma->rewrite($rewriter, $child_parents);
     $right_angle = $this->_right_angle->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $left_angle === $this->left_angle() &&
-      $type === $this->type() &&
-      $trailing_comma === $this->trailing_comma() &&
-      $right_angle === $this->right_angle()
+      $keyword === $this->_keyword &&
+      $left_angle === $this->_left_angle &&
+      $type === $this->_type &&
+      $trailing_comma === $this->_trailing_comma &&
+      $right_angle === $this->_right_angle
     ) {
       $node = $this;
     } else {
@@ -19802,13 +19807,13 @@ final class VarrayTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function trailing_comma(): EditableToken {
+  public function trailing_comma(): EditableSyntax {
     return $this->trailing_commax();
   }
 
-  public function trailing_commax(): EditableToken {
+  public function trailing_commax(): EditableSyntax {
     return
-      TypeAssert::isInstanceOf(EditableToken::class, $this->_trailing_comma);
+      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_trailing_comma);
   }
 
   public function raw_trailing_comma(): EditableSyntax {
@@ -19920,10 +19925,10 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
     $type = $this->_type->rewrite($rewriter, $child_parents);
     $right_angle = $this->_right_angle->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $left_angle === $this->left_angle() &&
-      $type === $this->type() &&
-      $right_angle === $this->right_angle()
+      $keyword === $this->_keyword &&
+      $left_angle === $this->_left_angle &&
+      $type === $this->_type &&
+      $right_angle === $this->_right_angle
     ) {
       $node = $this;
     } else {
@@ -19965,12 +19970,12 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_type, $this->_right_angle);
   }
 
-  public function type(): EditableToken {
+  public function type(): EditableSyntax {
     return $this->typex();
   }
 
-  public function typex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_type);
+  public function typex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
 
   public function raw_type(): EditableSyntax {
@@ -20064,9 +20069,9 @@ final class TypeParameter extends EditableSyntax {
     $name = $this->_name->rewrite($rewriter, $child_parents);
     $constraints = $this->_constraints->rewrite($rewriter, $child_parents);
     if (
-      $variance === $this->variance() &&
-      $name === $this->name() &&
-      $constraints === $this->constraints()
+      $variance === $this->_variance &&
+      $name === $this->_name &&
+      $constraints === $this->_constraints
     ) {
       $node = $this;
     } else {
@@ -20075,12 +20080,12 @@ final class TypeParameter extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function variance(): EditableToken {
+  public function variance(): EditableSyntax {
     return $this->variancex();
   }
 
-  public function variancex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_variance);
+  public function variancex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_variance);
   }
 
   public function raw_variance(): EditableSyntax {
@@ -20171,7 +20176,7 @@ final class TypeConstraint extends EditableSyntax {
     $child_parents[] = $this;
     $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
     $type = $this->_type->rewrite($rewriter, $child_parents);
-    if ($keyword === $this->keyword() && $type === $this->type()) {
+    if ($keyword === $this->_keyword && $type === $this->_type) {
       $node = $this;
     } else {
       $node = new self($keyword, $type);
@@ -20179,12 +20184,12 @@ final class TypeConstraint extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableToken {
+  public function keyword(): EditableSyntax {
     return $this->keywordx();
   }
 
-  public function keywordx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_keyword);
+  public function keywordx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_keyword);
   }
 
   public function raw_keyword(): EditableSyntax {
@@ -20195,12 +20200,12 @@ final class TypeConstraint extends EditableSyntax {
     return new self($value, $this->_type);
   }
 
-  public function type(): EditableToken {
+  public function type(): EditableSyntax {
     return $this->typex();
   }
 
-  public function typex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_type);
+  public function typex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
 
   public function raw_type(): EditableSyntax {
@@ -20325,13 +20330,13 @@ final class DarrayTypeSpecifier extends EditableSyntax {
       $this->_trailing_comma->rewrite($rewriter, $child_parents);
     $right_angle = $this->_right_angle->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $left_angle === $this->left_angle() &&
-      $key === $this->key() &&
-      $comma === $this->comma() &&
-      $value === $this->value() &&
-      $trailing_comma === $this->trailing_comma() &&
-      $right_angle === $this->right_angle()
+      $keyword === $this->_keyword &&
+      $left_angle === $this->_left_angle &&
+      $key === $this->_key &&
+      $comma === $this->_comma &&
+      $value === $this->_value &&
+      $trailing_comma === $this->_trailing_comma &&
+      $right_angle === $this->_right_angle
     ) {
       $node = $this;
     } else {
@@ -20468,13 +20473,13 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function trailing_comma(): EditableToken {
+  public function trailing_comma(): EditableSyntax {
     return $this->trailing_commax();
   }
 
-  public function trailing_commax(): EditableToken {
+  public function trailing_commax(): EditableSyntax {
     return
-      TypeAssert::isInstanceOf(EditableToken::class, $this->_trailing_comma);
+      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_trailing_comma);
   }
 
   public function raw_trailing_comma(): EditableSyntax {
@@ -20612,12 +20617,12 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     $value = $this->_value->rewrite($rewriter, $child_parents);
     $right_angle = $this->_right_angle->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $left_angle === $this->left_angle() &&
-      $key === $this->key() &&
-      $comma === $this->comma() &&
-      $value === $this->value() &&
-      $right_angle === $this->right_angle()
+      $keyword === $this->_keyword &&
+      $left_angle === $this->_left_angle &&
+      $key === $this->_key &&
+      $comma === $this->_comma &&
+      $value === $this->_value &&
+      $right_angle === $this->_right_angle
     ) {
       $node = $this;
     } else {
@@ -20719,12 +20724,12 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function value(): EditableToken {
+  public function value(): EditableSyntax {
     return $this->valuex();
   }
 
-  public function valuex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_value);
+  public function valuex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_value);
   }
 
   public function raw_value(): EditableSyntax {
@@ -20840,10 +20845,10 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
     $members = $this->_members->rewrite($rewriter, $child_parents);
     $right_angle = $this->_right_angle->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $left_angle === $this->left_angle() &&
-      $members === $this->members() &&
-      $right_angle === $this->right_angle()
+      $keyword === $this->_keyword &&
+      $left_angle === $this->_left_angle &&
+      $members === $this->_members &&
+      $right_angle === $this->_right_angle
     ) {
       $node = $this;
     } else {
@@ -21072,15 +21077,15 @@ final class ClosureTypeSpecifier extends EditableSyntax {
     $outer_right_paren =
       $this->_outer_right_paren->rewrite($rewriter, $child_parents);
     if (
-      $outer_left_paren === $this->outer_left_paren() &&
-      $coroutine === $this->coroutine() &&
-      $function_keyword === $this->function_keyword() &&
-      $inner_left_paren === $this->inner_left_paren() &&
-      $parameter_types === $this->parameter_types() &&
-      $inner_right_paren === $this->inner_right_paren() &&
-      $colon === $this->colon() &&
-      $return_type === $this->return_type() &&
-      $outer_right_paren === $this->outer_right_paren()
+      $outer_left_paren === $this->_outer_left_paren &&
+      $coroutine === $this->_coroutine &&
+      $function_keyword === $this->_function_keyword &&
+      $inner_left_paren === $this->_inner_left_paren &&
+      $parameter_types === $this->_parameter_types &&
+      $inner_right_paren === $this->_inner_right_paren &&
+      $colon === $this->_colon &&
+      $return_type === $this->_return_type &&
+      $outer_right_paren === $this->_outer_right_paren
     ) {
       $node = $this;
     } else {
@@ -21126,12 +21131,12 @@ final class ClosureTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function coroutine(): EditableToken {
+  public function coroutine(): EditableSyntax {
     return $this->coroutinex();
   }
 
-  public function coroutinex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_coroutine);
+  public function coroutinex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_coroutine);
   }
 
   public function raw_coroutine(): EditableSyntax {
@@ -21290,12 +21295,12 @@ final class ClosureTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function return_type(): EditableToken {
+  public function return_type(): EditableSyntax {
     return $this->return_typex();
   }
 
-  public function return_typex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_return_type);
+  public function return_typex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_return_type);
   }
 
   public function raw_return_type(): EditableSyntax {
@@ -21430,11 +21435,11 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
       $this->_trailing_comma->rewrite($rewriter, $child_parents);
     $right_angle = $this->_right_angle->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $left_angle === $this->left_angle() &&
-      $type === $this->type() &&
-      $trailing_comma === $this->trailing_comma() &&
-      $right_angle === $this->right_angle()
+      $keyword === $this->_keyword &&
+      $left_angle === $this->_left_angle &&
+      $type === $this->_type &&
+      $trailing_comma === $this->_trailing_comma &&
+      $right_angle === $this->_right_angle
     ) {
       $node = $this;
     } else {
@@ -21490,12 +21495,12 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function type(): EditableToken {
+  public function type(): EditableSyntax {
     return $this->typex();
   }
 
-  public function typex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_type);
+  public function typex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
 
   public function raw_type(): EditableSyntax {
@@ -21512,13 +21517,13 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function trailing_comma(): EditableToken {
+  public function trailing_comma(): EditableSyntax {
     return $this->trailing_commax();
   }
 
-  public function trailing_commax(): EditableToken {
+  public function trailing_commax(): EditableSyntax {
     return
-      TypeAssert::isInstanceOf(EditableToken::class, $this->_trailing_comma);
+      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_trailing_comma);
   }
 
   public function raw_trailing_comma(): EditableSyntax {
@@ -21632,10 +21637,10 @@ final class FieldSpecifier extends EditableSyntax {
     $arrow = $this->_arrow->rewrite($rewriter, $child_parents);
     $type = $this->_type->rewrite($rewriter, $child_parents);
     if (
-      $question === $this->question() &&
-      $name === $this->name() &&
-      $arrow === $this->arrow() &&
-      $type === $this->type()
+      $question === $this->_question &&
+      $name === $this->_name &&
+      $arrow === $this->_arrow &&
+      $type === $this->_type
     ) {
       $node = $this;
     } else {
@@ -21662,12 +21667,12 @@ final class FieldSpecifier extends EditableSyntax {
     return new self($value, $this->_name, $this->_arrow, $this->_type);
   }
 
-  public function name(): EditableToken {
+  public function name(): EditableSyntax {
     return $this->namex();
   }
 
-  public function namex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+  public function namex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }
 
   public function raw_name(): EditableSyntax {
@@ -21695,12 +21700,12 @@ final class FieldSpecifier extends EditableSyntax {
     return new self($this->_question, $this->_name, $value, $this->_type);
   }
 
-  public function type(): EditableToken {
+  public function type(): EditableSyntax {
     return $this->typex();
   }
 
-  public function typex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_type);
+  public function typex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
 
   public function raw_type(): EditableSyntax {
@@ -21772,9 +21777,9 @@ final class FieldInitializer extends EditableSyntax {
     $arrow = $this->_arrow->rewrite($rewriter, $child_parents);
     $value = $this->_value->rewrite($rewriter, $child_parents);
     if (
-      $name === $this->name() &&
-      $arrow === $this->arrow() &&
-      $value === $this->value()
+      $name === $this->_name &&
+      $arrow === $this->_arrow &&
+      $value === $this->_value
     ) {
       $node = $this;
     } else {
@@ -21783,12 +21788,12 @@ final class FieldInitializer extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function name(): EditableToken {
+  public function name(): EditableSyntax {
     return $this->namex();
   }
 
-  public function namex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+  public function namex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }
 
   public function raw_name(): EditableSyntax {
@@ -21816,12 +21821,12 @@ final class FieldInitializer extends EditableSyntax {
     return new self($this->_name, $value, $this->_value);
   }
 
-  public function value(): EditableToken {
+  public function value(): EditableSyntax {
     return $this->valuex();
   }
 
-  public function valuex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_value);
+  public function valuex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_value);
   }
 
   public function raw_value(): EditableSyntax {
@@ -21915,11 +21920,11 @@ final class ShapeTypeSpecifier extends EditableSyntax {
     $ellipsis = $this->_ellipsis->rewrite($rewriter, $child_parents);
     $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $left_paren === $this->left_paren() &&
-      $fields === $this->fields() &&
-      $ellipsis === $this->ellipsis() &&
-      $right_paren === $this->right_paren()
+      $keyword === $this->_keyword &&
+      $left_paren === $this->_left_paren &&
+      $fields === $this->_fields &&
+      $ellipsis === $this->_ellipsis &&
+      $right_paren === $this->_right_paren
     ) {
       $node = $this;
     } else {
@@ -22115,10 +22120,10 @@ final class ShapeExpression extends EditableSyntax {
     $fields = $this->_fields->rewrite($rewriter, $child_parents);
     $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $left_paren === $this->left_paren() &&
-      $fields === $this->fields() &&
-      $right_paren === $this->right_paren()
+      $keyword === $this->_keyword &&
+      $left_paren === $this->_left_paren &&
+      $fields === $this->_fields &&
+      $right_paren === $this->_right_paren
     ) {
       $node = $this;
     } else {
@@ -22274,10 +22279,10 @@ final class TupleExpression extends EditableSyntax {
     $items = $this->_items->rewrite($rewriter, $child_parents);
     $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     if (
-      $keyword === $this->keyword() &&
-      $left_paren === $this->left_paren() &&
-      $items === $this->items() &&
-      $right_paren === $this->right_paren()
+      $keyword === $this->_keyword &&
+      $left_paren === $this->_left_paren &&
+      $items === $this->_items &&
+      $right_paren === $this->_right_paren
     ) {
       $node = $this;
     } else {
@@ -22408,8 +22413,8 @@ final class GenericTypeSpecifier extends EditableSyntax {
     $class_type = $this->_class_type->rewrite($rewriter, $child_parents);
     $argument_list = $this->_argument_list->rewrite($rewriter, $child_parents);
     if (
-      $class_type === $this->class_type() &&
-      $argument_list === $this->argument_list()
+      $class_type === $this->_class_type &&
+      $argument_list === $this->_argument_list
     ) {
       $node = $this;
     } else {
@@ -22418,12 +22423,12 @@ final class GenericTypeSpecifier extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function class_type(): EditableToken {
+  public function class_type(): EditableSyntax {
     return $this->class_typex();
   }
 
-  public function class_typex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_class_type);
+  public function class_typex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_class_type);
   }
 
   public function raw_class_type(): EditableSyntax {
@@ -22497,7 +22502,7 @@ final class NullableTypeSpecifier extends EditableSyntax {
     $child_parents[] = $this;
     $question = $this->_question->rewrite($rewriter, $child_parents);
     $type = $this->_type->rewrite($rewriter, $child_parents);
-    if ($question === $this->question() && $type === $this->type()) {
+    if ($question === $this->_question && $type === $this->_type) {
       $node = $this;
     } else {
       $node = new self($question, $type);
@@ -22521,12 +22526,12 @@ final class NullableTypeSpecifier extends EditableSyntax {
     return new self($value, $this->_type);
   }
 
-  public function type(): EditableToken {
+  public function type(): EditableSyntax {
     return $this->typex();
   }
 
-  public function typex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_type);
+  public function typex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
 
   public function raw_type(): EditableSyntax {
@@ -22583,7 +22588,7 @@ final class SoftTypeSpecifier extends EditableSyntax {
     $child_parents[] = $this;
     $at = $this->_at->rewrite($rewriter, $child_parents);
     $type = $this->_type->rewrite($rewriter, $child_parents);
-    if ($at === $this->at() && $type === $this->type()) {
+    if ($at === $this->_at && $type === $this->_type) {
       $node = $this;
     } else {
       $node = new self($at, $type);
@@ -22607,12 +22612,12 @@ final class SoftTypeSpecifier extends EditableSyntax {
     return new self($value, $this->_type);
   }
 
-  public function type(): EditableToken {
+  public function type(): EditableSyntax {
     return $this->typex();
   }
 
-  public function typex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_type);
+  public function typex(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
 
   public function raw_type(): EditableSyntax {
@@ -22684,9 +22689,9 @@ final class TypeArguments extends EditableSyntax {
     $types = $this->_types->rewrite($rewriter, $child_parents);
     $right_angle = $this->_right_angle->rewrite($rewriter, $child_parents);
     if (
-      $left_angle === $this->left_angle() &&
-      $types === $this->types() &&
-      $right_angle === $this->right_angle()
+      $left_angle === $this->_left_angle &&
+      $types === $this->_types &&
+      $right_angle === $this->_right_angle
     ) {
       $node = $this;
     } else {
@@ -22807,9 +22812,9 @@ final class TypeParameters extends EditableSyntax {
     $parameters = $this->_parameters->rewrite($rewriter, $child_parents);
     $right_angle = $this->_right_angle->rewrite($rewriter, $child_parents);
     if (
-      $left_angle === $this->left_angle() &&
-      $parameters === $this->parameters() &&
-      $right_angle === $this->right_angle()
+      $left_angle === $this->_left_angle &&
+      $parameters === $this->_parameters &&
+      $right_angle === $this->_right_angle
     ) {
       $node = $this;
     } else {
@@ -22928,9 +22933,9 @@ final class TupleTypeSpecifier extends EditableSyntax {
     $types = $this->_types->rewrite($rewriter, $child_parents);
     $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     if (
-      $left_paren === $this->left_paren() &&
-      $types === $this->types() &&
-      $right_paren === $this->right_paren()
+      $left_paren === $this->_left_paren &&
+      $types === $this->_types &&
+      $right_paren === $this->_right_paren
     ) {
       $node = $this;
     } else {
@@ -23024,7 +23029,7 @@ final class ErrorSyntax extends EditableSyntax {
     $child_parents = $parents;
     $child_parents[] = $this;
     $error = $this->_error->rewrite($rewriter, $child_parents);
-    if ($error === $this->error()) {
+    if ($error === $this->_error) {
       $node = $this;
     } else {
       $node = new self($error);
@@ -23032,12 +23037,12 @@ final class ErrorSyntax extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function error(): EditableToken {
+  public function error(): EditableSyntax {
     return $this->errorx();
   }
 
-  public function errorx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_error);
+  public function errorx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_error);
   }
 
   public function raw_error(): EditableSyntax {
@@ -23094,7 +23099,7 @@ final class ListItem extends EditableSyntax {
     $child_parents[] = $this;
     $item = $this->_item->rewrite($rewriter, $child_parents);
     $separator = $this->_separator->rewrite($rewriter, $child_parents);
-    if ($item === $this->item() && $separator === $this->separator()) {
+    if ($item === $this->_item && $separator === $this->_separator) {
       $node = $this;
     } else {
       $node = new self($item, $separator);
@@ -23102,12 +23107,12 @@ final class ListItem extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function item(): EditableToken {
+  public function item(): EditableSyntax {
     return $this->itemx();
   }
 
-  public function itemx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_item);
+  public function itemx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_item);
   }
 
   public function raw_item(): EditableSyntax {
@@ -23118,12 +23123,12 @@ final class ListItem extends EditableSyntax {
     return new self($value, $this->_separator);
   }
 
-  public function separator(): EditableToken {
+  public function separator(): EditableSyntax {
     return $this->separatorx();
   }
 
-  public function separatorx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_separator);
+  public function separatorx(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_separator);
   }
 
   public function raw_separator(): EditableSyntax {

@@ -45,3 +45,7 @@ final class Missing extends EditableSyntax {
     return $rewriter($this, $parents ?? vec[]);
   }
 }
+
+function Missing(): Missing {
+  return Missing::getInstance();
+}
