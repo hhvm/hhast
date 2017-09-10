@@ -206,8 +206,8 @@ abstract class EditableSyntax implements \ArrayAccess<mixed, mixed> {
   public function replace(
     EditableSyntax $new_node,
     EditableSyntax $target,
-  ): EditableSyntax {
-    return $this->rewrite(
+  ): this {
+    return $this->rewrite_children(
       ($node, $parents) ==> $node === $target ? $new_node : $node,
     );
   }
@@ -248,7 +248,7 @@ abstract class EditableSyntax implements \ArrayAccess<mixed, mixed> {
   public function insert_before(
     EditableSyntax $new_node,
     EditableSyntax $target,
-  ): EditableSyntax {
+  ): this {
     // Inserting before missing is an error.
     if ($target->is_missing())
       throw new \Exception('Target must not be missing in insert_before.');
@@ -280,7 +280,7 @@ abstract class EditableSyntax implements \ArrayAccess<mixed, mixed> {
   public function insert_after(
     EditableSyntax $new_node,
     EditableSyntax $target,
-  ): EditableSyntax {
+  ): this {
 
     // Inserting after missing is an error.
     if ($target->is_missing())

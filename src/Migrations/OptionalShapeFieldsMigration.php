@@ -39,7 +39,6 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
         $name,
       ) |> $shape->replace($$, $field);
     }
-    assert($shape instanceof HHAST\ShapeTypeSpecifier);
     return $shape;
   }
 
@@ -83,7 +82,6 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
       $rightmost,
     );
 
-    assert($shape instanceof HHAST\ShapeTypeSpecifier);
     return $shape;
   }
 
@@ -99,7 +97,6 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
         ),
         $shape->right_paren(),
       );
-      assert($shape instanceof HHAST\ShapeTypeSpecifier);
       return $shape;
     }
 
@@ -116,7 +113,6 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
       $shape->right_parenx(),
     );
 
-    assert($shape instanceof HHAST\ShapeTypeSpecifier);
     return $shape;
   }
 
