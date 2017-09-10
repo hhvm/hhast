@@ -123,4 +123,31 @@ final class RewritingTest extends TestCase {
     expect($orig)->toNotBeSame($new);
     expect($new->full_text())->toBeSame('/* bar */ $var');
   }
+
+  public function testEmptyingList(): void {
+    $orig = new HHAST\VariableToken(
+      new HHAST\EditableList(
+        vec[
+          new HHAST\DelimitedComment('/* foo */'),
+          new HHAST\WhiteSpace(' '),
+        ],
+      ),
+      HHAST\Missing(),
+      '$var',
+    );
+
+    $new = $orig->rewrite(
+      ($node, $parents) ==> {
+        if (!$node instanceof HHAST\EditableTrivia) {
+          return $node;
+        }
+        return HHAST\Missing();
+      }
+    )
+      |> expect($$)->toBeInstanceOf(HHAST\VariableToken::class);
+
+
+    expect($new->leading())
+      ->toBeInstanceOf(HHAST\Missing::class);
+  }
 }

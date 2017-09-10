@@ -300,7 +300,7 @@ abstract class EditableSyntax {
     ?Traversable<EditableSyntax> $parents = null,
   ): this ;
 
-  final public function rewrite(
+  public function rewrite(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
   ): EditableSyntax {
