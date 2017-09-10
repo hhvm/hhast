@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7b190bae0e796894ab44a6a725fe8700>>
+ * @generated SignedSource<<b5bc35da0fbf118299a8b4f8eef3fbc5>>
  */
 namespace Facebook\HHAST;
 
@@ -40,7 +40,7 @@ final class EndOfFile extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $token = $this->token()->rewrite($rewriter, $child_parents);
+    $token = $this->_token->rewrite($rewriter, $child_parents);
     if ($token === $this->token()) {
       $node = $this;
     } else {
@@ -92,7 +92,7 @@ final class Script extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $declarations = $this->declarations()->rewrite($rewriter, $child_parents);
+    $declarations = $this->_declarations->rewrite($rewriter, $child_parents);
     if ($declarations === $this->declarations()) {
       $node = $this;
     } else {
@@ -144,7 +144,7 @@ final class SimpleTypeSpecifier extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $specifier = $this->specifier()->rewrite($rewriter, $child_parents);
+    $specifier = $this->_specifier->rewrite($rewriter, $child_parents);
     if ($specifier === $this->specifier()) {
       $node = $this;
     } else {
@@ -196,7 +196,7 @@ final class LiteralExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $expression = $this->expression()->rewrite($rewriter, $child_parents);
+    $expression = $this->_expression->rewrite($rewriter, $child_parents);
     if ($expression === $this->expression()) {
       $node = $this;
     } else {
@@ -248,7 +248,7 @@ final class VariableExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $expression = $this->expression()->rewrite($rewriter, $child_parents);
+    $expression = $this->_expression->rewrite($rewriter, $child_parents);
     if ($expression === $this->expression()) {
       $node = $this;
     } else {
@@ -300,7 +300,7 @@ final class QualifiedNameExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $expression = $this->expression()->rewrite($rewriter, $child_parents);
+    $expression = $this->_expression->rewrite($rewriter, $child_parents);
     if ($expression === $this->expression()) {
       $node = $this;
     } else {
@@ -352,7 +352,7 @@ final class PipeVariableExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $expression = $this->expression()->rewrite($rewriter, $child_parents);
+    $expression = $this->_expression->rewrite($rewriter, $child_parents);
     if ($expression === $this->expression()) {
       $node = $this;
     } else {
@@ -497,15 +497,15 @@ final class EnumDeclaration extends EditableSyntax {
     $child_parents = $parents;
     $child_parents[] = $this;
     $attribute_spec =
-      $this->attribute_spec()->rewrite($rewriter, $child_parents);
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $name = $this->name()->rewrite($rewriter, $child_parents);
-    $colon = $this->colon()->rewrite($rewriter, $child_parents);
-    $base = $this->base()->rewrite($rewriter, $child_parents);
-    $type = $this->type()->rewrite($rewriter, $child_parents);
-    $left_brace = $this->left_brace()->rewrite($rewriter, $child_parents);
-    $enumerators = $this->enumerators()->rewrite($rewriter, $child_parents);
-    $right_brace = $this->right_brace()->rewrite($rewriter, $child_parents);
+      $this->_attribute_spec->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $name = $this->_name->rewrite($rewriter, $child_parents);
+    $colon = $this->_colon->rewrite($rewriter, $child_parents);
+    $base = $this->_base->rewrite($rewriter, $child_parents);
+    $type = $this->_type->rewrite($rewriter, $child_parents);
+    $left_brace = $this->_left_brace->rewrite($rewriter, $child_parents);
+    $enumerators = $this->_enumerators->rewrite($rewriter, $child_parents);
+    $right_brace = $this->_right_brace->rewrite($rewriter, $child_parents);
     if (
       $attribute_spec === $this->attribute_spec() &&
       $keyword === $this->keyword() &&
@@ -763,10 +763,10 @@ final class Enumerator extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $name = $this->name()->rewrite($rewriter, $child_parents);
-    $equal = $this->equal()->rewrite($rewriter, $child_parents);
-    $value = $this->value()->rewrite($rewriter, $child_parents);
-    $semicolon = $this->semicolon()->rewrite($rewriter, $child_parents);
+    $name = $this->_name->rewrite($rewriter, $child_parents);
+    $equal = $this->_equal->rewrite($rewriter, $child_parents);
+    $value = $this->_value->rewrite($rewriter, $child_parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
       $name === $this->name() &&
       $equal === $this->equal() &&
@@ -929,15 +929,15 @@ final class AliasDeclaration extends EditableSyntax {
     $child_parents = $parents;
     $child_parents[] = $this;
     $attribute_spec =
-      $this->attribute_spec()->rewrite($rewriter, $child_parents);
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $name = $this->name()->rewrite($rewriter, $child_parents);
+      $this->_attribute_spec->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $name = $this->_name->rewrite($rewriter, $child_parents);
     $generic_parameter =
-      $this->generic_parameter()->rewrite($rewriter, $child_parents);
-    $constraint = $this->constraint()->rewrite($rewriter, $child_parents);
-    $equal = $this->equal()->rewrite($rewriter, $child_parents);
-    $type = $this->type()->rewrite($rewriter, $child_parents);
-    $semicolon = $this->semicolon()->rewrite($rewriter, $child_parents);
+      $this->_generic_parameter->rewrite($rewriter, $child_parents);
+    $constraint = $this->_constraint->rewrite($rewriter, $child_parents);
+    $equal = $this->_equal->rewrite($rewriter, $child_parents);
+    $type = $this->_type->rewrite($rewriter, $child_parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
       $attribute_spec === $this->attribute_spec() &&
       $keyword === $this->keyword() &&
@@ -1167,10 +1167,10 @@ final class PropertyDeclaration extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $modifiers = $this->modifiers()->rewrite($rewriter, $child_parents);
-    $type = $this->type()->rewrite($rewriter, $child_parents);
-    $declarators = $this->declarators()->rewrite($rewriter, $child_parents);
-    $semicolon = $this->semicolon()->rewrite($rewriter, $child_parents);
+    $modifiers = $this->_modifiers->rewrite($rewriter, $child_parents);
+    $type = $this->_type->rewrite($rewriter, $child_parents);
+    $declarators = $this->_declarators->rewrite($rewriter, $child_parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
       $modifiers === $this->modifiers() &&
       $type === $this->type() &&
@@ -1270,8 +1270,8 @@ final class PropertyDeclarator extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $name = $this->name()->rewrite($rewriter, $child_parents);
-    $initializer = $this->initializer()->rewrite($rewriter, $child_parents);
+    $name = $this->_name->rewrite($rewriter, $child_parents);
+    $initializer = $this->_initializer->rewrite($rewriter, $child_parents);
     if ($name === $this->name() && $initializer === $this->initializer()) {
       $node = $this;
     } else {
@@ -1353,9 +1353,9 @@ final class NamespaceDeclaration extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $name = $this->name()->rewrite($rewriter, $child_parents);
-    $body = $this->body()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $name = $this->_name->rewrite($rewriter, $child_parents);
+    $body = $this->_body->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $name === $this->name() &&
@@ -1449,9 +1449,9 @@ final class NamespaceBody extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $left_brace = $this->left_brace()->rewrite($rewriter, $child_parents);
-    $declarations = $this->declarations()->rewrite($rewriter, $child_parents);
-    $right_brace = $this->right_brace()->rewrite($rewriter, $child_parents);
+    $left_brace = $this->_left_brace->rewrite($rewriter, $child_parents);
+    $declarations = $this->_declarations->rewrite($rewriter, $child_parents);
+    $right_brace = $this->_right_brace->rewrite($rewriter, $child_parents);
     if (
       $left_brace === $this->left_brace() &&
       $declarations === $this->declarations() &&
@@ -1523,7 +1523,7 @@ final class NamespaceEmptyBody extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $semicolon = $this->semicolon()->rewrite($rewriter, $child_parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if ($semicolon === $this->semicolon()) {
       $node = $this;
     } else {
@@ -1607,10 +1607,10 @@ final class NamespaceUseDeclaration extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $kind = $this->kind()->rewrite($rewriter, $child_parents);
-    $clauses = $this->clauses()->rewrite($rewriter, $child_parents);
-    $semicolon = $this->semicolon()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $kind = $this->_kind->rewrite($rewriter, $child_parents);
+    $clauses = $this->_clauses->rewrite($rewriter, $child_parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $kind === $this->kind() &&
@@ -1762,13 +1762,13 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $kind = $this->kind()->rewrite($rewriter, $child_parents);
-    $prefix = $this->prefix()->rewrite($rewriter, $child_parents);
-    $left_brace = $this->left_brace()->rewrite($rewriter, $child_parents);
-    $clauses = $this->clauses()->rewrite($rewriter, $child_parents);
-    $right_brace = $this->right_brace()->rewrite($rewriter, $child_parents);
-    $semicolon = $this->semicolon()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $kind = $this->_kind->rewrite($rewriter, $child_parents);
+    $prefix = $this->_prefix->rewrite($rewriter, $child_parents);
+    $left_brace = $this->_left_brace->rewrite($rewriter, $child_parents);
+    $clauses = $this->_clauses->rewrite($rewriter, $child_parents);
+    $right_brace = $this->_right_brace->rewrite($rewriter, $child_parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $kind === $this->kind() &&
@@ -1972,10 +1972,10 @@ final class NamespaceUseClause extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $clause_kind = $this->clause_kind()->rewrite($rewriter, $child_parents);
-    $name = $this->name()->rewrite($rewriter, $child_parents);
-    $as = $this->as()->rewrite($rewriter, $child_parents);
-    $alias = $this->alias()->rewrite($rewriter, $child_parents);
+    $clause_kind = $this->_clause_kind->rewrite($rewriter, $child_parents);
+    $name = $this->_name->rewrite($rewriter, $child_parents);
+    $as = $this->_as->rewrite($rewriter, $child_parents);
+    $alias = $this->_alias->rewrite($rewriter, $child_parents);
     if (
       $clause_kind === $this->clause_kind() &&
       $name === $this->name() &&
@@ -2079,10 +2079,10 @@ final class FunctionDeclaration extends EditableSyntax {
     $child_parents = $parents;
     $child_parents[] = $this;
     $attribute_spec =
-      $this->attribute_spec()->rewrite($rewriter, $child_parents);
+      $this->_attribute_spec->rewrite($rewriter, $child_parents);
     $declaration_header =
-      $this->declaration_header()->rewrite($rewriter, $child_parents);
-    $body = $this->body()->rewrite($rewriter, $child_parents);
+      $this->_declaration_header->rewrite($rewriter, $child_parents);
+    $body = $this->_body->rewrite($rewriter, $child_parents);
     if (
       $attribute_spec === $this->attribute_spec() &&
       $declaration_header === $this->declaration_header() &&
@@ -2279,20 +2279,20 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $async = $this->async()->rewrite($rewriter, $child_parents);
-    $coroutine = $this->coroutine()->rewrite($rewriter, $child_parents);
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $ampersand = $this->ampersand()->rewrite($rewriter, $child_parents);
-    $name = $this->name()->rewrite($rewriter, $child_parents);
+    $async = $this->_async->rewrite($rewriter, $child_parents);
+    $coroutine = $this->_coroutine->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $ampersand = $this->_ampersand->rewrite($rewriter, $child_parents);
+    $name = $this->_name->rewrite($rewriter, $child_parents);
     $type_parameter_list =
-      $this->type_parameter_list()->rewrite($rewriter, $child_parents);
-    $left_paren = $this->left_paren()->rewrite($rewriter, $child_parents);
+      $this->_type_parameter_list->rewrite($rewriter, $child_parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
     $parameter_list =
-      $this->parameter_list()->rewrite($rewriter, $child_parents);
-    $right_paren = $this->right_paren()->rewrite($rewriter, $child_parents);
-    $colon = $this->colon()->rewrite($rewriter, $child_parents);
-    $type = $this->type()->rewrite($rewriter, $child_parents);
-    $where_clause = $this->where_clause()->rewrite($rewriter, $child_parents);
+      $this->_parameter_list->rewrite($rewriter, $child_parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
+    $colon = $this->_colon->rewrite($rewriter, $child_parents);
+    $type = $this->_type->rewrite($rewriter, $child_parents);
+    $where_clause = $this->_where_clause->rewrite($rewriter, $child_parents);
     if (
       $async === $this->async() &&
       $coroutine === $this->coroutine() &&
@@ -2626,8 +2626,8 @@ final class WhereClause extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $constraints = $this->constraints()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $constraints = $this->_constraints->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() && $constraints === $this->constraints()
     ) {
@@ -2711,9 +2711,9 @@ final class WhereConstraint extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $left_type = $this->left_type()->rewrite($rewriter, $child_parents);
-    $operator = $this->operator()->rewrite($rewriter, $child_parents);
-    $right_type = $this->right_type()->rewrite($rewriter, $child_parents);
+    $left_type = $this->_left_type->rewrite($rewriter, $child_parents);
+    $operator = $this->_operator->rewrite($rewriter, $child_parents);
+    $right_type = $this->_right_type->rewrite($rewriter, $child_parents);
     if (
       $left_type === $this->left_type() &&
       $operator === $this->operator() &&
@@ -2833,12 +2833,12 @@ final class MethodishDeclaration extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $attribute = $this->attribute()->rewrite($rewriter, $child_parents);
-    $modifiers = $this->modifiers()->rewrite($rewriter, $child_parents);
+    $attribute = $this->_attribute->rewrite($rewriter, $child_parents);
+    $modifiers = $this->_modifiers->rewrite($rewriter, $child_parents);
     $function_decl_header =
-      $this->function_decl_header()->rewrite($rewriter, $child_parents);
-    $function_body = $this->function_body()->rewrite($rewriter, $child_parents);
-    $semicolon = $this->semicolon()->rewrite($rewriter, $child_parents);
+      $this->_function_decl_header->rewrite($rewriter, $child_parents);
+    $function_body = $this->_function_body->rewrite($rewriter, $child_parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
       $attribute === $this->attribute() &&
       $modifiers === $this->modifiers() &&
@@ -3067,20 +3067,20 @@ final class ClassishDeclaration extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $attribute = $this->attribute()->rewrite($rewriter, $child_parents);
-    $modifiers = $this->modifiers()->rewrite($rewriter, $child_parents);
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $name = $this->name()->rewrite($rewriter, $child_parents);
+    $attribute = $this->_attribute->rewrite($rewriter, $child_parents);
+    $modifiers = $this->_modifiers->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $name = $this->_name->rewrite($rewriter, $child_parents);
     $type_parameters =
-      $this->type_parameters()->rewrite($rewriter, $child_parents);
+      $this->_type_parameters->rewrite($rewriter, $child_parents);
     $extends_keyword =
-      $this->extends_keyword()->rewrite($rewriter, $child_parents);
-    $extends_list = $this->extends_list()->rewrite($rewriter, $child_parents);
+      $this->_extends_keyword->rewrite($rewriter, $child_parents);
+    $extends_list = $this->_extends_list->rewrite($rewriter, $child_parents);
     $implements_keyword =
-      $this->implements_keyword()->rewrite($rewriter, $child_parents);
+      $this->_implements_keyword->rewrite($rewriter, $child_parents);
     $implements_list =
-      $this->implements_list()->rewrite($rewriter, $child_parents);
-    $body = $this->body()->rewrite($rewriter, $child_parents);
+      $this->_implements_list->rewrite($rewriter, $child_parents);
+    $body = $this->_body->rewrite($rewriter, $child_parents);
     if (
       $attribute === $this->attribute() &&
       $modifiers === $this->modifiers() &&
@@ -3358,9 +3358,9 @@ final class ClassishBody extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $left_brace = $this->left_brace()->rewrite($rewriter, $child_parents);
-    $elements = $this->elements()->rewrite($rewriter, $child_parents);
-    $right_brace = $this->right_brace()->rewrite($rewriter, $child_parents);
+    $left_brace = $this->_left_brace->rewrite($rewriter, $child_parents);
+    $elements = $this->_elements->rewrite($rewriter, $child_parents);
+    $right_brace = $this->_right_brace->rewrite($rewriter, $child_parents);
     if (
       $left_brace === $this->left_brace() &&
       $elements === $this->elements() &&
@@ -3460,10 +3460,10 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $aliasing_name = $this->aliasing_name()->rewrite($rewriter, $child_parents);
+    $aliasing_name = $this->_aliasing_name->rewrite($rewriter, $child_parents);
     $aliasing_keyword =
-      $this->aliasing_keyword()->rewrite($rewriter, $child_parents);
-    $aliased_names = $this->aliased_names()->rewrite($rewriter, $child_parents);
+      $this->_aliasing_keyword->rewrite($rewriter, $child_parents);
+    $aliased_names = $this->_aliased_names->rewrite($rewriter, $child_parents);
     if (
       $aliasing_name === $this->aliasing_name() &&
       $aliasing_keyword === $this->aliasing_keyword() &&
@@ -3577,11 +3577,11 @@ final class TraitUseConflictResolution extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $names = $this->names()->rewrite($rewriter, $child_parents);
-    $left_brace = $this->left_brace()->rewrite($rewriter, $child_parents);
-    $clauses = $this->clauses()->rewrite($rewriter, $child_parents);
-    $right_brace = $this->right_brace()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $names = $this->_names->rewrite($rewriter, $child_parents);
+    $left_brace = $this->_left_brace->rewrite($rewriter, $child_parents);
+    $clauses = $this->_clauses->rewrite($rewriter, $child_parents);
+    $right_brace = $this->_right_brace->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $names === $this->names() &&
@@ -3723,9 +3723,9 @@ final class TraitUse extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $names = $this->names()->rewrite($rewriter, $child_parents);
-    $semicolon = $this->semicolon()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $names = $this->_names->rewrite($rewriter, $child_parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $names === $this->names() &&
@@ -3829,10 +3829,10 @@ final class RequireClause extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $kind = $this->kind()->rewrite($rewriter, $child_parents);
-    $name = $this->name()->rewrite($rewriter, $child_parents);
-    $semicolon = $this->semicolon()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $kind = $this->_kind->rewrite($rewriter, $child_parents);
+    $name = $this->_name->rewrite($rewriter, $child_parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $kind === $this->kind() &&
@@ -3956,12 +3956,12 @@ final class ConstDeclaration extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $abstract = $this->abstract()->rewrite($rewriter, $child_parents);
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
+    $abstract = $this->_abstract->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
     $type_specifier =
-      $this->type_specifier()->rewrite($rewriter, $child_parents);
-    $declarators = $this->declarators()->rewrite($rewriter, $child_parents);
-    $semicolon = $this->semicolon()->rewrite($rewriter, $child_parents);
+      $this->_type_specifier->rewrite($rewriter, $child_parents);
+    $declarators = $this->_declarators->rewrite($rewriter, $child_parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
       $abstract === $this->abstract() &&
       $keyword === $this->keyword() &&
@@ -4099,8 +4099,8 @@ final class ConstantDeclarator extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $name = $this->name()->rewrite($rewriter, $child_parents);
-    $initializer = $this->initializer()->rewrite($rewriter, $child_parents);
+    $name = $this->_name->rewrite($rewriter, $child_parents);
+    $initializer = $this->_initializer->rewrite($rewriter, $child_parents);
     if ($name === $this->name() && $initializer === $this->initializer()) {
       $node = $this;
     } else {
@@ -4241,16 +4241,16 @@ final class TypeConstDeclaration extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $abstract = $this->abstract()->rewrite($rewriter, $child_parents);
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $type_keyword = $this->type_keyword()->rewrite($rewriter, $child_parents);
-    $name = $this->name()->rewrite($rewriter, $child_parents);
+    $abstract = $this->_abstract->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $type_keyword = $this->_type_keyword->rewrite($rewriter, $child_parents);
+    $name = $this->_name->rewrite($rewriter, $child_parents);
     $type_constraint =
-      $this->type_constraint()->rewrite($rewriter, $child_parents);
-    $equal = $this->equal()->rewrite($rewriter, $child_parents);
+      $this->_type_constraint->rewrite($rewriter, $child_parents);
+    $equal = $this->_equal->rewrite($rewriter, $child_parents);
     $type_specifier =
-      $this->type_specifier()->rewrite($rewriter, $child_parents);
-    $semicolon = $this->semicolon()->rewrite($rewriter, $child_parents);
+      $this->_type_specifier->rewrite($rewriter, $child_parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
       $abstract === $this->abstract() &&
       $keyword === $this->keyword() &&
@@ -4460,8 +4460,8 @@ final class DecoratedExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $decorator = $this->decorator()->rewrite($rewriter, $child_parents);
-    $expression = $this->expression()->rewrite($rewriter, $child_parents);
+    $decorator = $this->_decorator->rewrite($rewriter, $child_parents);
+    $expression = $this->_expression->rewrite($rewriter, $child_parents);
     if (
       $decorator === $this->decorator() && $expression === $this->expression()
     ) {
@@ -4565,11 +4565,11 @@ final class ParameterDeclaration extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $attribute = $this->attribute()->rewrite($rewriter, $child_parents);
-    $visibility = $this->visibility()->rewrite($rewriter, $child_parents);
-    $type = $this->type()->rewrite($rewriter, $child_parents);
-    $name = $this->name()->rewrite($rewriter, $child_parents);
-    $default_value = $this->default_value()->rewrite($rewriter, $child_parents);
+    $attribute = $this->_attribute->rewrite($rewriter, $child_parents);
+    $visibility = $this->_visibility->rewrite($rewriter, $child_parents);
+    $type = $this->_type->rewrite($rewriter, $child_parents);
+    $name = $this->_name->rewrite($rewriter, $child_parents);
+    $default_value = $this->_default_value->rewrite($rewriter, $child_parents);
     if (
       $attribute === $this->attribute() &&
       $visibility === $this->visibility() &&
@@ -4689,7 +4689,7 @@ final class VariadicParameter extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $ellipsis = $this->ellipsis()->rewrite($rewriter, $child_parents);
+    $ellipsis = $this->_ellipsis->rewrite($rewriter, $child_parents);
     if ($ellipsis === $this->ellipsis()) {
       $node = $this;
     } else {
@@ -4764,10 +4764,10 @@ final class AttributeSpecification extends EditableSyntax {
     $child_parents = $parents;
     $child_parents[] = $this;
     $left_double_angle =
-      $this->left_double_angle()->rewrite($rewriter, $child_parents);
-    $attributes = $this->attributes()->rewrite($rewriter, $child_parents);
+      $this->_left_double_angle->rewrite($rewriter, $child_parents);
+    $attributes = $this->_attributes->rewrite($rewriter, $child_parents);
     $right_double_angle =
-      $this->right_double_angle()->rewrite($rewriter, $child_parents);
+      $this->_right_double_angle->rewrite($rewriter, $child_parents);
     if (
       $left_double_angle === $this->left_double_angle() &&
       $attributes === $this->attributes() &&
@@ -4872,10 +4872,10 @@ final class Attribute extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $name = $this->name()->rewrite($rewriter, $child_parents);
-    $left_paren = $this->left_paren()->rewrite($rewriter, $child_parents);
-    $values = $this->values()->rewrite($rewriter, $child_parents);
-    $right_paren = $this->right_paren()->rewrite($rewriter, $child_parents);
+    $name = $this->_name->rewrite($rewriter, $child_parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
+    $values = $this->_values->rewrite($rewriter, $child_parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     if (
       $name === $this->name() &&
       $left_paren === $this->left_paren() &&
@@ -4970,8 +4970,8 @@ final class InclusionExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $require = $this->require()->rewrite($rewriter, $child_parents);
-    $filename = $this->filename()->rewrite($rewriter, $child_parents);
+    $require = $this->_require->rewrite($rewriter, $child_parents);
+    $filename = $this->_filename->rewrite($rewriter, $child_parents);
     if ($require === $this->require() && $filename === $this->filename()) {
       $node = $this;
     } else {
@@ -5043,8 +5043,8 @@ final class InclusionDirective extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $expression = $this->expression()->rewrite($rewriter, $child_parents);
-    $semicolon = $this->semicolon()->rewrite($rewriter, $child_parents);
+    $expression = $this->_expression->rewrite($rewriter, $child_parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
       $expression === $this->expression() && $semicolon === $this->semicolon()
     ) {
@@ -5128,9 +5128,9 @@ final class CompoundStatement extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $left_brace = $this->left_brace()->rewrite($rewriter, $child_parents);
-    $statements = $this->statements()->rewrite($rewriter, $child_parents);
-    $right_brace = $this->right_brace()->rewrite($rewriter, $child_parents);
+    $left_brace = $this->_left_brace->rewrite($rewriter, $child_parents);
+    $statements = $this->_statements->rewrite($rewriter, $child_parents);
+    $right_brace = $this->_right_brace->rewrite($rewriter, $child_parents);
     if (
       $left_brace === $this->left_brace() &&
       $statements === $this->statements() &&
@@ -5214,8 +5214,8 @@ final class ExpressionStatement extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $expression = $this->expression()->rewrite($rewriter, $child_parents);
-    $semicolon = $this->semicolon()->rewrite($rewriter, $child_parents);
+    $expression = $this->_expression->rewrite($rewriter, $child_parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
       $expression === $this->expression() && $semicolon === $this->semicolon()
     ) {
@@ -5309,10 +5309,10 @@ final class MarkupSection extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $prefix = $this->prefix()->rewrite($rewriter, $child_parents);
-    $text = $this->text()->rewrite($rewriter, $child_parents);
-    $suffix = $this->suffix()->rewrite($rewriter, $child_parents);
-    $expression = $this->expression()->rewrite($rewriter, $child_parents);
+    $prefix = $this->_prefix->rewrite($rewriter, $child_parents);
+    $text = $this->_text->rewrite($rewriter, $child_parents);
+    $suffix = $this->_suffix->rewrite($rewriter, $child_parents);
+    $expression = $this->_expression->rewrite($rewriter, $child_parents);
     if (
       $prefix === $this->prefix() &&
       $text === $this->text() &&
@@ -5406,8 +5406,8 @@ final class MarkupSuffix extends EditableSyntax {
     $child_parents = $parents;
     $child_parents[] = $this;
     $less_than_question =
-      $this->less_than_question()->rewrite($rewriter, $child_parents);
-    $name = $this->name()->rewrite($rewriter, $child_parents);
+      $this->_less_than_question->rewrite($rewriter, $child_parents);
+    $name = $this->_name->rewrite($rewriter, $child_parents);
     if (
       $less_than_question === $this->less_than_question() &&
       $name === $this->name()
@@ -5513,11 +5513,11 @@ final class UnsetStatement extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $left_paren = $this->left_paren()->rewrite($rewriter, $child_parents);
-    $variables = $this->variables()->rewrite($rewriter, $child_parents);
-    $right_paren = $this->right_paren()->rewrite($rewriter, $child_parents);
-    $semicolon = $this->semicolon()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
+    $variables = $this->_variables->rewrite($rewriter, $child_parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $left_paren === $this->left_paren() &&
@@ -5680,11 +5680,11 @@ final class WhileStatement extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $left_paren = $this->left_paren()->rewrite($rewriter, $child_parents);
-    $condition = $this->condition()->rewrite($rewriter, $child_parents);
-    $right_paren = $this->right_paren()->rewrite($rewriter, $child_parents);
-    $body = $this->body()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
+    $condition = $this->_condition->rewrite($rewriter, $child_parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
+    $body = $this->_body->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $left_paren === $this->left_paren() &&
@@ -5874,14 +5874,14 @@ final class IfStatement extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $left_paren = $this->left_paren()->rewrite($rewriter, $child_parents);
-    $condition = $this->condition()->rewrite($rewriter, $child_parents);
-    $right_paren = $this->right_paren()->rewrite($rewriter, $child_parents);
-    $statement = $this->statement()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
+    $condition = $this->_condition->rewrite($rewriter, $child_parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
+    $statement = $this->_statement->rewrite($rewriter, $child_parents);
     $elseif_clauses =
-      $this->elseif_clauses()->rewrite($rewriter, $child_parents);
-    $else_clause = $this->else_clause()->rewrite($rewriter, $child_parents);
+      $this->_elseif_clauses->rewrite($rewriter, $child_parents);
+    $else_clause = $this->_else_clause->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $left_paren === $this->left_paren() &&
@@ -6096,11 +6096,11 @@ final class ElseifClause extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $left_paren = $this->left_paren()->rewrite($rewriter, $child_parents);
-    $condition = $this->condition()->rewrite($rewriter, $child_parents);
-    $right_paren = $this->right_paren()->rewrite($rewriter, $child_parents);
-    $statement = $this->statement()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
+    $condition = $this->_condition->rewrite($rewriter, $child_parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
+    $statement = $this->_statement->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $left_paren === $this->left_paren() &&
@@ -6233,8 +6233,8 @@ final class ElseClause extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $statement = $this->statement()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $statement = $this->_statement->rewrite($rewriter, $child_parents);
     if ($keyword === $this->keyword() && $statement === $this->statement()) {
       $node = $this;
     } else {
@@ -6327,12 +6327,12 @@ final class TryStatement extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
     $compound_statement =
-      $this->compound_statement()->rewrite($rewriter, $child_parents);
-    $catch_clauses = $this->catch_clauses()->rewrite($rewriter, $child_parents);
+      $this->_compound_statement->rewrite($rewriter, $child_parents);
+    $catch_clauses = $this->_catch_clauses->rewrite($rewriter, $child_parents);
     $finally_clause =
-      $this->finally_clause()->rewrite($rewriter, $child_parents);
+      $this->_finally_clause->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $compound_statement === $this->compound_statement() &&
@@ -6491,12 +6491,12 @@ final class CatchClause extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $left_paren = $this->left_paren()->rewrite($rewriter, $child_parents);
-    $type = $this->type()->rewrite($rewriter, $child_parents);
-    $variable = $this->variable()->rewrite($rewriter, $child_parents);
-    $right_paren = $this->right_paren()->rewrite($rewriter, $child_parents);
-    $body = $this->body()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
+    $type = $this->_type->rewrite($rewriter, $child_parents);
+    $variable = $this->_variable->rewrite($rewriter, $child_parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
+    $body = $this->_body->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $left_paren === $this->left_paren() &&
@@ -6647,8 +6647,8 @@ final class FinallyClause extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $body = $this->body()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $body = $this->_body->rewrite($rewriter, $child_parents);
     if ($keyword === $this->keyword() && $body === $this->body()) {
       $node = $this;
     } else {
@@ -6778,13 +6778,13 @@ final class DoStatement extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $body = $this->body()->rewrite($rewriter, $child_parents);
-    $while_keyword = $this->while_keyword()->rewrite($rewriter, $child_parents);
-    $left_paren = $this->left_paren()->rewrite($rewriter, $child_parents);
-    $condition = $this->condition()->rewrite($rewriter, $child_parents);
-    $right_paren = $this->right_paren()->rewrite($rewriter, $child_parents);
-    $semicolon = $this->semicolon()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $body = $this->_body->rewrite($rewriter, $child_parents);
+    $while_keyword = $this->_while_keyword->rewrite($rewriter, $child_parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
+    $condition = $this->_condition->rewrite($rewriter, $child_parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $body === $this->body() &&
@@ -7048,17 +7048,17 @@ final class ForStatement extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $left_paren = $this->left_paren()->rewrite($rewriter, $child_parents);
-    $initializer = $this->initializer()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
+    $initializer = $this->_initializer->rewrite($rewriter, $child_parents);
     $first_semicolon =
-      $this->first_semicolon()->rewrite($rewriter, $child_parents);
-    $control = $this->control()->rewrite($rewriter, $child_parents);
+      $this->_first_semicolon->rewrite($rewriter, $child_parents);
+    $control = $this->_control->rewrite($rewriter, $child_parents);
     $second_semicolon =
-      $this->second_semicolon()->rewrite($rewriter, $child_parents);
-    $end_of_loop = $this->end_of_loop()->rewrite($rewriter, $child_parents);
-    $right_paren = $this->right_paren()->rewrite($rewriter, $child_parents);
-    $body = $this->body()->rewrite($rewriter, $child_parents);
+      $this->_second_semicolon->rewrite($rewriter, $child_parents);
+    $end_of_loop = $this->_end_of_loop->rewrite($rewriter, $child_parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
+    $body = $this->_body->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $left_paren === $this->left_paren() &&
@@ -7387,16 +7387,16 @@ final class ForeachStatement extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $left_paren = $this->left_paren()->rewrite($rewriter, $child_parents);
-    $collection = $this->collection()->rewrite($rewriter, $child_parents);
-    $await_keyword = $this->await_keyword()->rewrite($rewriter, $child_parents);
-    $as = $this->as()->rewrite($rewriter, $child_parents);
-    $key = $this->key()->rewrite($rewriter, $child_parents);
-    $arrow = $this->arrow()->rewrite($rewriter, $child_parents);
-    $value = $this->value()->rewrite($rewriter, $child_parents);
-    $right_paren = $this->right_paren()->rewrite($rewriter, $child_parents);
-    $body = $this->body()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
+    $collection = $this->_collection->rewrite($rewriter, $child_parents);
+    $await_keyword = $this->_await_keyword->rewrite($rewriter, $child_parents);
+    $as = $this->_as->rewrite($rewriter, $child_parents);
+    $key = $this->_key->rewrite($rewriter, $child_parents);
+    $arrow = $this->_arrow->rewrite($rewriter, $child_parents);
+    $value = $this->_value->rewrite($rewriter, $child_parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
+    $body = $this->_body->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $left_paren === $this->left_paren() &&
@@ -7722,13 +7722,13 @@ final class SwitchStatement extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $left_paren = $this->left_paren()->rewrite($rewriter, $child_parents);
-    $expression = $this->expression()->rewrite($rewriter, $child_parents);
-    $right_paren = $this->right_paren()->rewrite($rewriter, $child_parents);
-    $left_brace = $this->left_brace()->rewrite($rewriter, $child_parents);
-    $sections = $this->sections()->rewrite($rewriter, $child_parents);
-    $right_brace = $this->right_brace()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
+    $expression = $this->_expression->rewrite($rewriter, $child_parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
+    $left_brace = $this->_left_brace->rewrite($rewriter, $child_parents);
+    $sections = $this->_sections->rewrite($rewriter, $child_parents);
+    $right_brace = $this->_right_brace->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $left_paren === $this->left_paren() &&
@@ -7922,9 +7922,9 @@ final class SwitchSection extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $labels = $this->labels()->rewrite($rewriter, $child_parents);
-    $statements = $this->statements()->rewrite($rewriter, $child_parents);
-    $fallthrough = $this->fallthrough()->rewrite($rewriter, $child_parents);
+    $labels = $this->_labels->rewrite($rewriter, $child_parents);
+    $statements = $this->_statements->rewrite($rewriter, $child_parents);
+    $fallthrough = $this->_fallthrough->rewrite($rewriter, $child_parents);
     if (
       $labels === $this->labels() &&
       $statements === $this->statements() &&
@@ -8008,8 +8008,8 @@ final class SwitchFallthrough extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $semicolon = $this->semicolon()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if ($keyword === $this->keyword() && $semicolon === $this->semicolon()) {
       $node = $this;
     } else {
@@ -8091,9 +8091,9 @@ final class CaseLabel extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $expression = $this->expression()->rewrite($rewriter, $child_parents);
-    $colon = $this->colon()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $expression = $this->_expression->rewrite($rewriter, $child_parents);
+    $colon = $this->_colon->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $expression === $this->expression() &&
@@ -8174,8 +8174,8 @@ final class DefaultLabel extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $colon = $this->colon()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $colon = $this->_colon->rewrite($rewriter, $child_parents);
     if ($keyword === $this->keyword() && $colon === $this->colon()) {
       $node = $this;
     } else {
@@ -8257,9 +8257,9 @@ final class ReturnStatement extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $expression = $this->expression()->rewrite($rewriter, $child_parents);
-    $semicolon = $this->semicolon()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $expression = $this->_expression->rewrite($rewriter, $child_parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $expression === $this->expression() &&
@@ -8340,8 +8340,8 @@ final class GotoLabel extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $name = $this->name()->rewrite($rewriter, $child_parents);
-    $colon = $this->colon()->rewrite($rewriter, $child_parents);
+    $name = $this->_name->rewrite($rewriter, $child_parents);
+    $colon = $this->_colon->rewrite($rewriter, $child_parents);
     if ($name === $this->name() && $colon === $this->colon()) {
       $node = $this;
     } else {
@@ -8423,9 +8423,9 @@ final class GotoStatement extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $label_name = $this->label_name()->rewrite($rewriter, $child_parents);
-    $semicolon = $this->semicolon()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $label_name = $this->_label_name->rewrite($rewriter, $child_parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $label_name === $this->label_name() &&
@@ -8519,9 +8519,9 @@ final class ThrowStatement extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $expression = $this->expression()->rewrite($rewriter, $child_parents);
-    $semicolon = $this->semicolon()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $expression = $this->_expression->rewrite($rewriter, $child_parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $expression === $this->expression() &&
@@ -8615,9 +8615,9 @@ final class BreakStatement extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $level = $this->level()->rewrite($rewriter, $child_parents);
-    $semicolon = $this->semicolon()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $level = $this->_level->rewrite($rewriter, $child_parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $level === $this->level() &&
@@ -8711,9 +8711,9 @@ final class ContinueStatement extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $level = $this->level()->rewrite($rewriter, $child_parents);
-    $semicolon = $this->semicolon()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $level = $this->_level->rewrite($rewriter, $child_parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $level === $this->level() &&
@@ -8808,9 +8808,9 @@ final class FunctionStaticStatement extends EditableSyntax {
     $child_parents = $parents;
     $child_parents[] = $this;
     $static_keyword =
-      $this->static_keyword()->rewrite($rewriter, $child_parents);
-    $declarations = $this->declarations()->rewrite($rewriter, $child_parents);
-    $semicolon = $this->semicolon()->rewrite($rewriter, $child_parents);
+      $this->_static_keyword->rewrite($rewriter, $child_parents);
+    $declarations = $this->_declarations->rewrite($rewriter, $child_parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
       $static_keyword === $this->static_keyword() &&
       $declarations === $this->declarations() &&
@@ -8894,8 +8894,8 @@ final class StaticDeclarator extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $name = $this->name()->rewrite($rewriter, $child_parents);
-    $initializer = $this->initializer()->rewrite($rewriter, $child_parents);
+    $name = $this->_name->rewrite($rewriter, $child_parents);
+    $initializer = $this->_initializer->rewrite($rewriter, $child_parents);
     if ($name === $this->name() && $initializer === $this->initializer()) {
       $node = $this;
     } else {
@@ -8977,9 +8977,9 @@ final class EchoStatement extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $expressions = $this->expressions()->rewrite($rewriter, $child_parents);
-    $semicolon = $this->semicolon()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $expressions = $this->_expressions->rewrite($rewriter, $child_parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $expressions === $this->expressions() &&
@@ -9073,9 +9073,9 @@ final class GlobalStatement extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $variables = $this->variables()->rewrite($rewriter, $child_parents);
-    $semicolon = $this->semicolon()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $variables = $this->_variables->rewrite($rewriter, $child_parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $variables === $this->variables() &&
@@ -9156,8 +9156,8 @@ final class SimpleInitializer extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $equal = $this->equal()->rewrite($rewriter, $child_parents);
-    $value = $this->value()->rewrite($rewriter, $child_parents);
+    $equal = $this->_equal->rewrite($rewriter, $child_parents);
+    $value = $this->_value->rewrite($rewriter, $child_parents);
     if ($equal === $this->equal() && $value === $this->value()) {
       $node = $this;
     } else {
@@ -9332,19 +9332,19 @@ final class AnonymousFunction extends EditableSyntax {
     $child_parents = $parents;
     $child_parents[] = $this;
     $static_keyword =
-      $this->static_keyword()->rewrite($rewriter, $child_parents);
-    $async_keyword = $this->async_keyword()->rewrite($rewriter, $child_parents);
+      $this->_static_keyword->rewrite($rewriter, $child_parents);
+    $async_keyword = $this->_async_keyword->rewrite($rewriter, $child_parents);
     $coroutine_keyword =
-      $this->coroutine_keyword()->rewrite($rewriter, $child_parents);
+      $this->_coroutine_keyword->rewrite($rewriter, $child_parents);
     $function_keyword =
-      $this->function_keyword()->rewrite($rewriter, $child_parents);
-    $left_paren = $this->left_paren()->rewrite($rewriter, $child_parents);
-    $parameters = $this->parameters()->rewrite($rewriter, $child_parents);
-    $right_paren = $this->right_paren()->rewrite($rewriter, $child_parents);
-    $colon = $this->colon()->rewrite($rewriter, $child_parents);
-    $type = $this->type()->rewrite($rewriter, $child_parents);
-    $use = $this->use()->rewrite($rewriter, $child_parents);
-    $body = $this->body()->rewrite($rewriter, $child_parents);
+      $this->_function_keyword->rewrite($rewriter, $child_parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
+    $parameters = $this->_parameters->rewrite($rewriter, $child_parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
+    $colon = $this->_colon->rewrite($rewriter, $child_parents);
+    $type = $this->_type->rewrite($rewriter, $child_parents);
+    $use = $this->_use->rewrite($rewriter, $child_parents);
+    $body = $this->_body->rewrite($rewriter, $child_parents);
     if (
       $static_keyword === $this->static_keyword() &&
       $async_keyword === $this->async_keyword() &&
@@ -9664,10 +9664,10 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $left_paren = $this->left_paren()->rewrite($rewriter, $child_parents);
-    $variables = $this->variables()->rewrite($rewriter, $child_parents);
-    $right_paren = $this->right_paren()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
+    $variables = $this->_variables->rewrite($rewriter, $child_parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $left_paren === $this->left_paren() &&
@@ -9802,11 +9802,11 @@ final class LambdaExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $async = $this->async()->rewrite($rewriter, $child_parents);
-    $coroutine = $this->coroutine()->rewrite($rewriter, $child_parents);
-    $signature = $this->signature()->rewrite($rewriter, $child_parents);
-    $arrow = $this->arrow()->rewrite($rewriter, $child_parents);
-    $body = $this->body()->rewrite($rewriter, $child_parents);
+    $async = $this->_async->rewrite($rewriter, $child_parents);
+    $coroutine = $this->_coroutine->rewrite($rewriter, $child_parents);
+    $signature = $this->_signature->rewrite($rewriter, $child_parents);
+    $arrow = $this->_arrow->rewrite($rewriter, $child_parents);
+    $body = $this->_body->rewrite($rewriter, $child_parents);
     if (
       $async === $this->async() &&
       $coroutine === $this->coroutine() &&
@@ -9968,11 +9968,11 @@ final class LambdaSignature extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $left_paren = $this->left_paren()->rewrite($rewriter, $child_parents);
-    $parameters = $this->parameters()->rewrite($rewriter, $child_parents);
-    $right_paren = $this->right_paren()->rewrite($rewriter, $child_parents);
-    $colon = $this->colon()->rewrite($rewriter, $child_parents);
-    $type = $this->type()->rewrite($rewriter, $child_parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
+    $parameters = $this->_parameters->rewrite($rewriter, $child_parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
+    $colon = $this->_colon->rewrite($rewriter, $child_parents);
+    $type = $this->_type->rewrite($rewriter, $child_parents);
     if (
       $left_paren === $this->left_paren() &&
       $parameters === $this->parameters() &&
@@ -10124,10 +10124,10 @@ final class CastExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $left_paren = $this->left_paren()->rewrite($rewriter, $child_parents);
-    $type = $this->type()->rewrite($rewriter, $child_parents);
-    $right_paren = $this->right_paren()->rewrite($rewriter, $child_parents);
-    $operand = $this->operand()->rewrite($rewriter, $child_parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
+    $type = $this->_type->rewrite($rewriter, $child_parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
+    $operand = $this->_operand->rewrite($rewriter, $child_parents);
     if (
       $left_paren === $this->left_paren() &&
       $type === $this->type() &&
@@ -10236,9 +10236,9 @@ final class ScopeResolutionExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $qualifier = $this->qualifier()->rewrite($rewriter, $child_parents);
-    $operator = $this->operator()->rewrite($rewriter, $child_parents);
-    $name = $this->name()->rewrite($rewriter, $child_parents);
+    $qualifier = $this->_qualifier->rewrite($rewriter, $child_parents);
+    $operator = $this->_operator->rewrite($rewriter, $child_parents);
+    $name = $this->_name->rewrite($rewriter, $child_parents);
     if (
       $qualifier === $this->qualifier() &&
       $operator === $this->operator() &&
@@ -10332,9 +10332,9 @@ final class MemberSelectionExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $object = $this->object()->rewrite($rewriter, $child_parents);
-    $operator = $this->operator()->rewrite($rewriter, $child_parents);
-    $name = $this->name()->rewrite($rewriter, $child_parents);
+    $object = $this->_object->rewrite($rewriter, $child_parents);
+    $operator = $this->_operator->rewrite($rewriter, $child_parents);
+    $name = $this->_name->rewrite($rewriter, $child_parents);
     if (
       $object === $this->object() &&
       $operator === $this->operator() &&
@@ -10428,9 +10428,9 @@ final class SafeMemberSelectionExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $object = $this->object()->rewrite($rewriter, $child_parents);
-    $operator = $this->operator()->rewrite($rewriter, $child_parents);
-    $name = $this->name()->rewrite($rewriter, $child_parents);
+    $object = $this->_object->rewrite($rewriter, $child_parents);
+    $operator = $this->_operator->rewrite($rewriter, $child_parents);
+    $name = $this->_name->rewrite($rewriter, $child_parents);
     if (
       $object === $this->object() &&
       $operator === $this->operator() &&
@@ -10524,9 +10524,9 @@ final class EmbeddedMemberSelectionExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $object = $this->object()->rewrite($rewriter, $child_parents);
-    $operator = $this->operator()->rewrite($rewriter, $child_parents);
-    $name = $this->name()->rewrite($rewriter, $child_parents);
+    $object = $this->_object->rewrite($rewriter, $child_parents);
+    $operator = $this->_operator->rewrite($rewriter, $child_parents);
+    $name = $this->_name->rewrite($rewriter, $child_parents);
     if (
       $object === $this->object() &&
       $operator === $this->operator() &&
@@ -10610,8 +10610,8 @@ final class YieldExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $operand = $this->operand()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $operand = $this->_operand->rewrite($rewriter, $child_parents);
     if ($keyword === $this->keyword() && $operand === $this->operand()) {
       $node = $this;
     } else {
@@ -10683,8 +10683,8 @@ final class PrefixUnaryExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $operator = $this->operator()->rewrite($rewriter, $child_parents);
-    $operand = $this->operand()->rewrite($rewriter, $child_parents);
+    $operator = $this->_operator->rewrite($rewriter, $child_parents);
+    $operand = $this->_operand->rewrite($rewriter, $child_parents);
     if ($operator === $this->operator() && $operand === $this->operand()) {
       $node = $this;
     } else {
@@ -10756,8 +10756,8 @@ final class PostfixUnaryExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $operand = $this->operand()->rewrite($rewriter, $child_parents);
-    $operator = $this->operator()->rewrite($rewriter, $child_parents);
+    $operand = $this->_operand->rewrite($rewriter, $child_parents);
+    $operator = $this->_operator->rewrite($rewriter, $child_parents);
     if ($operand === $this->operand() && $operator === $this->operator()) {
       $node = $this;
     } else {
@@ -10839,9 +10839,9 @@ final class BinaryExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $left_operand = $this->left_operand()->rewrite($rewriter, $child_parents);
-    $operator = $this->operator()->rewrite($rewriter, $child_parents);
-    $right_operand = $this->right_operand()->rewrite($rewriter, $child_parents);
+    $left_operand = $this->_left_operand->rewrite($rewriter, $child_parents);
+    $operator = $this->_operator->rewrite($rewriter, $child_parents);
+    $right_operand = $this->_right_operand->rewrite($rewriter, $child_parents);
     if (
       $left_operand === $this->left_operand() &&
       $operator === $this->operator() &&
@@ -10935,9 +10935,9 @@ final class InstanceofExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $left_operand = $this->left_operand()->rewrite($rewriter, $child_parents);
-    $operator = $this->operator()->rewrite($rewriter, $child_parents);
-    $right_operand = $this->right_operand()->rewrite($rewriter, $child_parents);
+    $left_operand = $this->_left_operand->rewrite($rewriter, $child_parents);
+    $operator = $this->_operator->rewrite($rewriter, $child_parents);
+    $right_operand = $this->_right_operand->rewrite($rewriter, $child_parents);
     if (
       $left_operand === $this->left_operand() &&
       $operator === $this->operator() &&
@@ -11051,11 +11051,11 @@ final class ConditionalExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $test = $this->test()->rewrite($rewriter, $child_parents);
-    $question = $this->question()->rewrite($rewriter, $child_parents);
-    $consequence = $this->consequence()->rewrite($rewriter, $child_parents);
-    $colon = $this->colon()->rewrite($rewriter, $child_parents);
-    $alternative = $this->alternative()->rewrite($rewriter, $child_parents);
+    $test = $this->_test->rewrite($rewriter, $child_parents);
+    $question = $this->_question->rewrite($rewriter, $child_parents);
+    $consequence = $this->_consequence->rewrite($rewriter, $child_parents);
+    $colon = $this->_colon->rewrite($rewriter, $child_parents);
+    $alternative = $this->_alternative->rewrite($rewriter, $child_parents);
     if (
       $test === $this->test() &&
       $question === $this->question() &&
@@ -11207,10 +11207,10 @@ final class EvalExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $left_paren = $this->left_paren()->rewrite($rewriter, $child_parents);
-    $argument = $this->argument()->rewrite($rewriter, $child_parents);
-    $right_paren = $this->right_paren()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
+    $argument = $this->_argument->rewrite($rewriter, $child_parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $left_paren === $this->left_paren() &&
@@ -11335,10 +11335,10 @@ final class EmptyExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $left_paren = $this->left_paren()->rewrite($rewriter, $child_parents);
-    $argument = $this->argument()->rewrite($rewriter, $child_parents);
-    $right_paren = $this->right_paren()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
+    $argument = $this->_argument->rewrite($rewriter, $child_parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $left_paren === $this->left_paren() &&
@@ -11463,10 +11463,10 @@ final class DefineExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $left_paren = $this->left_paren()->rewrite($rewriter, $child_parents);
-    $argument_list = $this->argument_list()->rewrite($rewriter, $child_parents);
-    $right_paren = $this->right_paren()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
+    $argument_list = $this->_argument_list->rewrite($rewriter, $child_parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $left_paren === $this->left_paren() &&
@@ -11599,10 +11599,10 @@ final class IssetExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $left_paren = $this->left_paren()->rewrite($rewriter, $child_parents);
-    $argument_list = $this->argument_list()->rewrite($rewriter, $child_parents);
-    $right_paren = $this->right_paren()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
+    $argument_list = $this->_argument_list->rewrite($rewriter, $child_parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $left_paren === $this->left_paren() &&
@@ -11735,10 +11735,10 @@ final class FunctionCallExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $receiver = $this->receiver()->rewrite($rewriter, $child_parents);
-    $left_paren = $this->left_paren()->rewrite($rewriter, $child_parents);
-    $argument_list = $this->argument_list()->rewrite($rewriter, $child_parents);
-    $right_paren = $this->right_paren()->rewrite($rewriter, $child_parents);
+    $receiver = $this->_receiver->rewrite($rewriter, $child_parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
+    $argument_list = $this->_argument_list->rewrite($rewriter, $child_parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     if (
       $receiver === $this->receiver() &&
       $left_paren === $this->left_paren() &&
@@ -11861,9 +11861,9 @@ final class ParenthesizedExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $left_paren = $this->left_paren()->rewrite($rewriter, $child_parents);
-    $expression = $this->expression()->rewrite($rewriter, $child_parents);
-    $right_paren = $this->right_paren()->rewrite($rewriter, $child_parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
+    $expression = $this->_expression->rewrite($rewriter, $child_parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     if (
       $left_paren === $this->left_paren() &&
       $expression === $this->expression() &&
@@ -11957,9 +11957,9 @@ final class BracedExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $left_brace = $this->left_brace()->rewrite($rewriter, $child_parents);
-    $expression = $this->expression()->rewrite($rewriter, $child_parents);
-    $right_brace = $this->right_brace()->rewrite($rewriter, $child_parents);
+    $left_brace = $this->_left_brace->rewrite($rewriter, $child_parents);
+    $expression = $this->_expression->rewrite($rewriter, $child_parents);
+    $right_brace = $this->_right_brace->rewrite($rewriter, $child_parents);
     if (
       $left_brace === $this->left_brace() &&
       $expression === $this->expression() &&
@@ -12053,9 +12053,9 @@ final class EmbeddedBracedExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $left_brace = $this->left_brace()->rewrite($rewriter, $child_parents);
-    $expression = $this->expression()->rewrite($rewriter, $child_parents);
-    $right_brace = $this->right_brace()->rewrite($rewriter, $child_parents);
+    $left_brace = $this->_left_brace->rewrite($rewriter, $child_parents);
+    $expression = $this->_expression->rewrite($rewriter, $child_parents);
+    $right_brace = $this->_right_brace->rewrite($rewriter, $child_parents);
     if (
       $left_brace === $this->left_brace() &&
       $expression === $this->expression() &&
@@ -12159,10 +12159,10 @@ final class ListExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $left_paren = $this->left_paren()->rewrite($rewriter, $child_parents);
-    $members = $this->members()->rewrite($rewriter, $child_parents);
-    $right_paren = $this->right_paren()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
+    $members = $this->_members->rewrite($rewriter, $child_parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $left_paren === $this->left_paren() &&
@@ -12287,10 +12287,10 @@ final class CollectionLiteralExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $name = $this->name()->rewrite($rewriter, $child_parents);
-    $left_brace = $this->left_brace()->rewrite($rewriter, $child_parents);
-    $initializers = $this->initializers()->rewrite($rewriter, $child_parents);
-    $right_brace = $this->right_brace()->rewrite($rewriter, $child_parents);
+    $name = $this->_name->rewrite($rewriter, $child_parents);
+    $left_brace = $this->_left_brace->rewrite($rewriter, $child_parents);
+    $initializers = $this->_initializers->rewrite($rewriter, $child_parents);
+    $right_brace = $this->_right_brace->rewrite($rewriter, $child_parents);
     if (
       $name === $this->name() &&
       $left_brace === $this->left_brace() &&
@@ -12422,11 +12422,11 @@ final class ObjectCreationExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $new_keyword = $this->new_keyword()->rewrite($rewriter, $child_parents);
-    $type = $this->type()->rewrite($rewriter, $child_parents);
-    $left_paren = $this->left_paren()->rewrite($rewriter, $child_parents);
-    $argument_list = $this->argument_list()->rewrite($rewriter, $child_parents);
-    $right_paren = $this->right_paren()->rewrite($rewriter, $child_parents);
+    $new_keyword = $this->_new_keyword->rewrite($rewriter, $child_parents);
+    $type = $this->_type->rewrite($rewriter, $child_parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
+    $argument_list = $this->_argument_list->rewrite($rewriter, $child_parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     if (
       $new_keyword === $this->new_keyword() &&
       $type === $this->type() &&
@@ -12574,9 +12574,9 @@ final class ArrayCreationExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $left_bracket = $this->left_bracket()->rewrite($rewriter, $child_parents);
-    $members = $this->members()->rewrite($rewriter, $child_parents);
-    $right_bracket = $this->right_bracket()->rewrite($rewriter, $child_parents);
+    $left_bracket = $this->_left_bracket->rewrite($rewriter, $child_parents);
+    $members = $this->_members->rewrite($rewriter, $child_parents);
+    $right_bracket = $this->_right_bracket->rewrite($rewriter, $child_parents);
     if (
       $left_bracket === $this->left_bracket() &&
       $members === $this->members() &&
@@ -12680,10 +12680,10 @@ final class ArrayIntrinsicExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $left_paren = $this->left_paren()->rewrite($rewriter, $child_parents);
-    $members = $this->members()->rewrite($rewriter, $child_parents);
-    $right_paren = $this->right_paren()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
+    $members = $this->_members->rewrite($rewriter, $child_parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $left_paren === $this->left_paren() &&
@@ -12808,10 +12808,10 @@ final class DarrayIntrinsicExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $left_bracket = $this->left_bracket()->rewrite($rewriter, $child_parents);
-    $members = $this->members()->rewrite($rewriter, $child_parents);
-    $right_bracket = $this->right_bracket()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $left_bracket = $this->_left_bracket->rewrite($rewriter, $child_parents);
+    $members = $this->_members->rewrite($rewriter, $child_parents);
+    $right_bracket = $this->_right_bracket->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $left_bracket === $this->left_bracket() &&
@@ -12936,10 +12936,10 @@ final class DictionaryIntrinsicExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $left_bracket = $this->left_bracket()->rewrite($rewriter, $child_parents);
-    $members = $this->members()->rewrite($rewriter, $child_parents);
-    $right_bracket = $this->right_bracket()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $left_bracket = $this->_left_bracket->rewrite($rewriter, $child_parents);
+    $members = $this->_members->rewrite($rewriter, $child_parents);
+    $right_bracket = $this->_right_bracket->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $left_bracket === $this->left_bracket() &&
@@ -13064,10 +13064,10 @@ final class KeysetIntrinsicExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $left_bracket = $this->left_bracket()->rewrite($rewriter, $child_parents);
-    $members = $this->members()->rewrite($rewriter, $child_parents);
-    $right_bracket = $this->right_bracket()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $left_bracket = $this->_left_bracket->rewrite($rewriter, $child_parents);
+    $members = $this->_members->rewrite($rewriter, $child_parents);
+    $right_bracket = $this->_right_bracket->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $left_bracket === $this->left_bracket() &&
@@ -13192,10 +13192,10 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $left_bracket = $this->left_bracket()->rewrite($rewriter, $child_parents);
-    $members = $this->members()->rewrite($rewriter, $child_parents);
-    $right_bracket = $this->right_bracket()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $left_bracket = $this->_left_bracket->rewrite($rewriter, $child_parents);
+    $members = $this->_members->rewrite($rewriter, $child_parents);
+    $right_bracket = $this->_right_bracket->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $left_bracket === $this->left_bracket() &&
@@ -13320,10 +13320,10 @@ final class VectorIntrinsicExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $left_bracket = $this->left_bracket()->rewrite($rewriter, $child_parents);
-    $members = $this->members()->rewrite($rewriter, $child_parents);
-    $right_bracket = $this->right_bracket()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $left_bracket = $this->_left_bracket->rewrite($rewriter, $child_parents);
+    $members = $this->_members->rewrite($rewriter, $child_parents);
+    $right_bracket = $this->_right_bracket->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $left_bracket === $this->left_bracket() &&
@@ -13438,9 +13438,9 @@ final class ElementInitializer extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $key = $this->key()->rewrite($rewriter, $child_parents);
-    $arrow = $this->arrow()->rewrite($rewriter, $child_parents);
-    $value = $this->value()->rewrite($rewriter, $child_parents);
+    $key = $this->_key->rewrite($rewriter, $child_parents);
+    $arrow = $this->_arrow->rewrite($rewriter, $child_parents);
+    $value = $this->_value->rewrite($rewriter, $child_parents);
     if (
       $key === $this->key() &&
       $arrow === $this->arrow() &&
@@ -13544,10 +13544,10 @@ final class SubscriptExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $receiver = $this->receiver()->rewrite($rewriter, $child_parents);
-    $left_bracket = $this->left_bracket()->rewrite($rewriter, $child_parents);
-    $index = $this->index()->rewrite($rewriter, $child_parents);
-    $right_bracket = $this->right_bracket()->rewrite($rewriter, $child_parents);
+    $receiver = $this->_receiver->rewrite($rewriter, $child_parents);
+    $left_bracket = $this->_left_bracket->rewrite($rewriter, $child_parents);
+    $index = $this->_index->rewrite($rewriter, $child_parents);
+    $right_bracket = $this->_right_bracket->rewrite($rewriter, $child_parents);
     if (
       $receiver === $this->receiver() &&
       $left_bracket === $this->left_bracket() &&
@@ -13672,10 +13672,10 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $receiver = $this->receiver()->rewrite($rewriter, $child_parents);
-    $left_bracket = $this->left_bracket()->rewrite($rewriter, $child_parents);
-    $index = $this->index()->rewrite($rewriter, $child_parents);
-    $right_bracket = $this->right_bracket()->rewrite($rewriter, $child_parents);
+    $receiver = $this->_receiver->rewrite($rewriter, $child_parents);
+    $left_bracket = $this->_left_bracket->rewrite($rewriter, $child_parents);
+    $index = $this->_index->rewrite($rewriter, $child_parents);
+    $right_bracket = $this->_right_bracket->rewrite($rewriter, $child_parents);
     if (
       $receiver === $this->receiver() &&
       $left_bracket === $this->left_bracket() &&
@@ -13790,10 +13790,10 @@ final class AwaitableCreationExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $async = $this->async()->rewrite($rewriter, $child_parents);
-    $coroutine = $this->coroutine()->rewrite($rewriter, $child_parents);
+    $async = $this->_async->rewrite($rewriter, $child_parents);
+    $coroutine = $this->_coroutine->rewrite($rewriter, $child_parents);
     $compound_statement =
-      $this->compound_statement()->rewrite($rewriter, $child_parents);
+      $this->_compound_statement->rewrite($rewriter, $child_parents);
     if (
       $async === $this->async() &&
       $coroutine === $this->coroutine() &&
@@ -13887,9 +13887,9 @@ final class XHPChildrenDeclaration extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $expression = $this->expression()->rewrite($rewriter, $child_parents);
-    $semicolon = $this->semicolon()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $expression = $this->_expression->rewrite($rewriter, $child_parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $expression === $this->expression() &&
@@ -13983,9 +13983,9 @@ final class XHPChildrenParenthesizedList extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $left_paren = $this->left_paren()->rewrite($rewriter, $child_parents);
-    $xhp_children = $this->xhp_children()->rewrite($rewriter, $child_parents);
-    $right_paren = $this->right_paren()->rewrite($rewriter, $child_parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
+    $xhp_children = $this->_xhp_children->rewrite($rewriter, $child_parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     if (
       $left_paren === $this->left_paren() &&
       $xhp_children === $this->xhp_children() &&
@@ -14079,9 +14079,9 @@ final class XHPCategoryDeclaration extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $categories = $this->categories()->rewrite($rewriter, $child_parents);
-    $semicolon = $this->semicolon()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $categories = $this->_categories->rewrite($rewriter, $child_parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $categories === $this->categories() &&
@@ -14185,10 +14185,10 @@ final class XHPEnumType extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $left_brace = $this->left_brace()->rewrite($rewriter, $child_parents);
-    $values = $this->values()->rewrite($rewriter, $child_parents);
-    $right_brace = $this->right_brace()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $left_brace = $this->_left_brace->rewrite($rewriter, $child_parents);
+    $values = $this->_values->rewrite($rewriter, $child_parents);
+    $right_brace = $this->_right_brace->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $left_brace === $this->left_brace() &&
@@ -14286,8 +14286,8 @@ final class XHPRequired extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $at = $this->at()->rewrite($rewriter, $child_parents);
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
+    $at = $this->_at->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
     if ($at === $this->at() && $keyword === $this->keyword()) {
       $node = $this;
     } else {
@@ -14369,9 +14369,9 @@ final class XHPClassAttributeDeclaration extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $attributes = $this->attributes()->rewrite($rewriter, $child_parents);
-    $semicolon = $this->semicolon()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $attributes = $this->_attributes->rewrite($rewriter, $child_parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $attributes === $this->attributes() &&
@@ -14475,10 +14475,10 @@ final class XHPClassAttribute extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $type = $this->type()->rewrite($rewriter, $child_parents);
-    $name = $this->name()->rewrite($rewriter, $child_parents);
-    $initializer = $this->initializer()->rewrite($rewriter, $child_parents);
-    $required = $this->required()->rewrite($rewriter, $child_parents);
+    $type = $this->_type->rewrite($rewriter, $child_parents);
+    $name = $this->_name->rewrite($rewriter, $child_parents);
+    $initializer = $this->_initializer->rewrite($rewriter, $child_parents);
+    $required = $this->_required->rewrite($rewriter, $child_parents);
     if (
       $type === $this->type() &&
       $name === $this->name() &&
@@ -14561,7 +14561,7 @@ final class XHPSimpleClassAttribute extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $type = $this->type()->rewrite($rewriter, $child_parents);
+    $type = $this->_type->rewrite($rewriter, $child_parents);
     if ($type === $this->type()) {
       $node = $this;
     } else {
@@ -14635,9 +14635,9 @@ final class XHPAttribute extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $name = $this->name()->rewrite($rewriter, $child_parents);
-    $equal = $this->equal()->rewrite($rewriter, $child_parents);
-    $expression = $this->expression()->rewrite($rewriter, $child_parents);
+    $name = $this->_name->rewrite($rewriter, $child_parents);
+    $equal = $this->_equal->rewrite($rewriter, $child_parents);
+    $expression = $this->_expression->rewrite($rewriter, $child_parents);
     if (
       $name === $this->name() &&
       $equal === $this->equal() &&
@@ -14741,10 +14741,10 @@ final class XHPOpen extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $left_angle = $this->left_angle()->rewrite($rewriter, $child_parents);
-    $name = $this->name()->rewrite($rewriter, $child_parents);
-    $attributes = $this->attributes()->rewrite($rewriter, $child_parents);
-    $right_angle = $this->right_angle()->rewrite($rewriter, $child_parents);
+    $left_angle = $this->_left_angle->rewrite($rewriter, $child_parents);
+    $name = $this->_name->rewrite($rewriter, $child_parents);
+    $attributes = $this->_attributes->rewrite($rewriter, $child_parents);
+    $right_angle = $this->_right_angle->rewrite($rewriter, $child_parents);
     if (
       $left_angle === $this->left_angle() &&
       $name === $this->name() &&
@@ -14855,9 +14855,9 @@ final class XHPExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $open = $this->open()->rewrite($rewriter, $child_parents);
-    $body = $this->body()->rewrite($rewriter, $child_parents);
-    $close = $this->close()->rewrite($rewriter, $child_parents);
+    $open = $this->_open->rewrite($rewriter, $child_parents);
+    $body = $this->_body->rewrite($rewriter, $child_parents);
+    $close = $this->_close->rewrite($rewriter, $child_parents);
     if (
       $open === $this->open() &&
       $body === $this->body() &&
@@ -14951,9 +14951,9 @@ final class XHPClose extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $left_angle = $this->left_angle()->rewrite($rewriter, $child_parents);
-    $name = $this->name()->rewrite($rewriter, $child_parents);
-    $right_angle = $this->right_angle()->rewrite($rewriter, $child_parents);
+    $left_angle = $this->_left_angle->rewrite($rewriter, $child_parents);
+    $name = $this->_name->rewrite($rewriter, $child_parents);
+    $right_angle = $this->_right_angle->rewrite($rewriter, $child_parents);
     if (
       $left_angle === $this->left_angle() &&
       $name === $this->name() &&
@@ -15047,9 +15047,9 @@ final class TypeConstant extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $left_type = $this->left_type()->rewrite($rewriter, $child_parents);
-    $separator = $this->separator()->rewrite($rewriter, $child_parents);
-    $right_type = $this->right_type()->rewrite($rewriter, $child_parents);
+    $left_type = $this->_left_type->rewrite($rewriter, $child_parents);
+    $separator = $this->_separator->rewrite($rewriter, $child_parents);
+    $right_type = $this->_right_type->rewrite($rewriter, $child_parents);
     if (
       $left_type === $this->left_type() &&
       $separator === $this->separator() &&
@@ -15164,12 +15164,12 @@ final class VectorTypeSpecifier extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $left_angle = $this->left_angle()->rewrite($rewriter, $child_parents);
-    $type = $this->type()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $left_angle = $this->_left_angle->rewrite($rewriter, $child_parents);
+    $type = $this->_type->rewrite($rewriter, $child_parents);
     $trailing_comma =
-      $this->trailing_comma()->rewrite($rewriter, $child_parents);
-    $right_angle = $this->right_angle()->rewrite($rewriter, $child_parents);
+      $this->_trailing_comma->rewrite($rewriter, $child_parents);
+    $right_angle = $this->_right_angle->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $left_angle === $this->left_angle() &&
@@ -15333,12 +15333,12 @@ final class KeysetTypeSpecifier extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $left_angle = $this->left_angle()->rewrite($rewriter, $child_parents);
-    $type = $this->type()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $left_angle = $this->_left_angle->rewrite($rewriter, $child_parents);
+    $type = $this->_type->rewrite($rewriter, $child_parents);
     $trailing_comma =
-      $this->trailing_comma()->rewrite($rewriter, $child_parents);
-    $right_angle = $this->right_angle()->rewrite($rewriter, $child_parents);
+      $this->_trailing_comma->rewrite($rewriter, $child_parents);
+    $right_angle = $this->_right_angle->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $left_angle === $this->left_angle() &&
@@ -15491,10 +15491,10 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $left_angle = $this->left_angle()->rewrite($rewriter, $child_parents);
-    $types = $this->types()->rewrite($rewriter, $child_parents);
-    $right_angle = $this->right_angle()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $left_angle = $this->_left_angle->rewrite($rewriter, $child_parents);
+    $types = $this->_types->rewrite($rewriter, $child_parents);
+    $right_angle = $this->_right_angle->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $left_angle === $this->left_angle() &&
@@ -15625,12 +15625,12 @@ final class VarrayTypeSpecifier extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $left_angle = $this->left_angle()->rewrite($rewriter, $child_parents);
-    $type = $this->type()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $left_angle = $this->_left_angle->rewrite($rewriter, $child_parents);
+    $type = $this->_type->rewrite($rewriter, $child_parents);
     $trailing_comma =
-      $this->trailing_comma()->rewrite($rewriter, $child_parents);
-    $right_angle = $this->right_angle()->rewrite($rewriter, $child_parents);
+      $this->_trailing_comma->rewrite($rewriter, $child_parents);
+    $right_angle = $this->_right_angle->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $left_angle === $this->left_angle() &&
@@ -15783,10 +15783,10 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $left_angle = $this->left_angle()->rewrite($rewriter, $child_parents);
-    $type = $this->type()->rewrite($rewriter, $child_parents);
-    $right_angle = $this->right_angle()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $left_angle = $this->_left_angle->rewrite($rewriter, $child_parents);
+    $type = $this->_type->rewrite($rewriter, $child_parents);
+    $right_angle = $this->_right_angle->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $left_angle === $this->left_angle() &&
@@ -15895,9 +15895,9 @@ final class TypeParameter extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $variance = $this->variance()->rewrite($rewriter, $child_parents);
-    $name = $this->name()->rewrite($rewriter, $child_parents);
-    $constraints = $this->constraints()->rewrite($rewriter, $child_parents);
+    $variance = $this->_variance->rewrite($rewriter, $child_parents);
+    $name = $this->_name->rewrite($rewriter, $child_parents);
+    $constraints = $this->_constraints->rewrite($rewriter, $child_parents);
     if (
       $variance === $this->variance() &&
       $name === $this->name() &&
@@ -15978,8 +15978,8 @@ final class TypeConstraint extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $type = $this->type()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $type = $this->_type->rewrite($rewriter, $child_parents);
     if ($keyword === $this->keyword() && $type === $this->type()) {
       $node = $this;
     } else {
@@ -16109,14 +16109,14 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $left_angle = $this->left_angle()->rewrite($rewriter, $child_parents);
-    $key = $this->key()->rewrite($rewriter, $child_parents);
-    $comma = $this->comma()->rewrite($rewriter, $child_parents);
-    $value = $this->value()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $left_angle = $this->_left_angle->rewrite($rewriter, $child_parents);
+    $key = $this->_key->rewrite($rewriter, $child_parents);
+    $comma = $this->_comma->rewrite($rewriter, $child_parents);
+    $value = $this->_value->rewrite($rewriter, $child_parents);
     $trailing_comma =
-      $this->trailing_comma()->rewrite($rewriter, $child_parents);
-    $right_angle = $this->right_angle()->rewrite($rewriter, $child_parents);
+      $this->_trailing_comma->rewrite($rewriter, $child_parents);
+    $right_angle = $this->_right_angle->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $left_angle === $this->left_angle() &&
@@ -16340,12 +16340,12 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $left_angle = $this->left_angle()->rewrite($rewriter, $child_parents);
-    $key = $this->key()->rewrite($rewriter, $child_parents);
-    $comma = $this->comma()->rewrite($rewriter, $child_parents);
-    $value = $this->value()->rewrite($rewriter, $child_parents);
-    $right_angle = $this->right_angle()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $left_angle = $this->_left_angle->rewrite($rewriter, $child_parents);
+    $key = $this->_key->rewrite($rewriter, $child_parents);
+    $comma = $this->_comma->rewrite($rewriter, $child_parents);
+    $value = $this->_value->rewrite($rewriter, $child_parents);
+    $right_angle = $this->_right_angle->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $left_angle === $this->left_angle() &&
@@ -16519,10 +16519,10 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $left_angle = $this->left_angle()->rewrite($rewriter, $child_parents);
-    $members = $this->members()->rewrite($rewriter, $child_parents);
-    $right_angle = $this->right_angle()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $left_angle = $this->_left_angle->rewrite($rewriter, $child_parents);
+    $members = $this->_members->rewrite($rewriter, $child_parents);
+    $right_angle = $this->_right_angle->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $left_angle === $this->left_angle() &&
@@ -16708,20 +16708,20 @@ final class ClosureTypeSpecifier extends EditableSyntax {
     $child_parents = $parents;
     $child_parents[] = $this;
     $outer_left_paren =
-      $this->outer_left_paren()->rewrite($rewriter, $child_parents);
-    $coroutine = $this->coroutine()->rewrite($rewriter, $child_parents);
+      $this->_outer_left_paren->rewrite($rewriter, $child_parents);
+    $coroutine = $this->_coroutine->rewrite($rewriter, $child_parents);
     $function_keyword =
-      $this->function_keyword()->rewrite($rewriter, $child_parents);
+      $this->_function_keyword->rewrite($rewriter, $child_parents);
     $inner_left_paren =
-      $this->inner_left_paren()->rewrite($rewriter, $child_parents);
+      $this->_inner_left_paren->rewrite($rewriter, $child_parents);
     $parameter_types =
-      $this->parameter_types()->rewrite($rewriter, $child_parents);
+      $this->_parameter_types->rewrite($rewriter, $child_parents);
     $inner_right_paren =
-      $this->inner_right_paren()->rewrite($rewriter, $child_parents);
-    $colon = $this->colon()->rewrite($rewriter, $child_parents);
-    $return_type = $this->return_type()->rewrite($rewriter, $child_parents);
+      $this->_inner_right_paren->rewrite($rewriter, $child_parents);
+    $colon = $this->_colon->rewrite($rewriter, $child_parents);
+    $return_type = $this->_return_type->rewrite($rewriter, $child_parents);
     $outer_right_paren =
-      $this->outer_right_paren()->rewrite($rewriter, $child_parents);
+      $this->_outer_right_paren->rewrite($rewriter, $child_parents);
     if (
       $outer_left_paren === $this->outer_left_paren() &&
       $coroutine === $this->coroutine() &&
@@ -16990,12 +16990,12 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $left_angle = $this->left_angle()->rewrite($rewriter, $child_parents);
-    $type = $this->type()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $left_angle = $this->_left_angle->rewrite($rewriter, $child_parents);
+    $type = $this->_type->rewrite($rewriter, $child_parents);
     $trailing_comma =
-      $this->trailing_comma()->rewrite($rewriter, $child_parents);
-    $right_angle = $this->right_angle()->rewrite($rewriter, $child_parents);
+      $this->_trailing_comma->rewrite($rewriter, $child_parents);
+    $right_angle = $this->_right_angle->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $left_angle === $this->left_angle() &&
@@ -17148,10 +17148,10 @@ final class FieldSpecifier extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $question = $this->question()->rewrite($rewriter, $child_parents);
-    $name = $this->name()->rewrite($rewriter, $child_parents);
-    $arrow = $this->arrow()->rewrite($rewriter, $child_parents);
-    $type = $this->type()->rewrite($rewriter, $child_parents);
+    $question = $this->_question->rewrite($rewriter, $child_parents);
+    $name = $this->_name->rewrite($rewriter, $child_parents);
+    $arrow = $this->_arrow->rewrite($rewriter, $child_parents);
+    $type = $this->_type->rewrite($rewriter, $child_parents);
     if (
       $question === $this->question() &&
       $name === $this->name() &&
@@ -17254,9 +17254,9 @@ final class FieldInitializer extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $name = $this->name()->rewrite($rewriter, $child_parents);
-    $arrow = $this->arrow()->rewrite($rewriter, $child_parents);
-    $value = $this->value()->rewrite($rewriter, $child_parents);
+    $name = $this->_name->rewrite($rewriter, $child_parents);
+    $arrow = $this->_arrow->rewrite($rewriter, $child_parents);
+    $value = $this->_value->rewrite($rewriter, $child_parents);
     if (
       $name === $this->name() &&
       $arrow === $this->arrow() &&
@@ -17370,11 +17370,11 @@ final class ShapeTypeSpecifier extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $left_paren = $this->left_paren()->rewrite($rewriter, $child_parents);
-    $fields = $this->fields()->rewrite($rewriter, $child_parents);
-    $ellipsis = $this->ellipsis()->rewrite($rewriter, $child_parents);
-    $right_paren = $this->right_paren()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
+    $fields = $this->_fields->rewrite($rewriter, $child_parents);
+    $ellipsis = $this->_ellipsis->rewrite($rewriter, $child_parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $left_paren === $this->left_paren() &&
@@ -17526,10 +17526,10 @@ final class ShapeExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $left_paren = $this->left_paren()->rewrite($rewriter, $child_parents);
-    $fields = $this->fields()->rewrite($rewriter, $child_parents);
-    $right_paren = $this->right_paren()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
+    $fields = $this->_fields->rewrite($rewriter, $child_parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $left_paren === $this->left_paren() &&
@@ -17650,10 +17650,10 @@ final class TupleExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $keyword = $this->keyword()->rewrite($rewriter, $child_parents);
-    $left_paren = $this->left_paren()->rewrite($rewriter, $child_parents);
-    $items = $this->items()->rewrite($rewriter, $child_parents);
-    $right_paren = $this->right_paren()->rewrite($rewriter, $child_parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
+    $items = $this->_items->rewrite($rewriter, $child_parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     if (
       $keyword === $this->keyword() &&
       $left_paren === $this->left_paren() &&
@@ -17753,8 +17753,8 @@ final class GenericTypeSpecifier extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $class_type = $this->class_type()->rewrite($rewriter, $child_parents);
-    $argument_list = $this->argument_list()->rewrite($rewriter, $child_parents);
+    $class_type = $this->_class_type->rewrite($rewriter, $child_parents);
+    $argument_list = $this->_argument_list->rewrite($rewriter, $child_parents);
     if (
       $class_type === $this->class_type() &&
       $argument_list === $this->argument_list()
@@ -17826,8 +17826,8 @@ final class NullableTypeSpecifier extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $question = $this->question()->rewrite($rewriter, $child_parents);
-    $type = $this->type()->rewrite($rewriter, $child_parents);
+    $question = $this->_question->rewrite($rewriter, $child_parents);
+    $type = $this->_type->rewrite($rewriter, $child_parents);
     if ($question === $this->question() && $type === $this->type()) {
       $node = $this;
     } else {
@@ -17896,8 +17896,8 @@ final class SoftTypeSpecifier extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $at = $this->at()->rewrite($rewriter, $child_parents);
-    $type = $this->type()->rewrite($rewriter, $child_parents);
+    $at = $this->_at->rewrite($rewriter, $child_parents);
+    $type = $this->_type->rewrite($rewriter, $child_parents);
     if ($at === $this->at() && $type === $this->type()) {
       $node = $this;
     } else {
@@ -17979,9 +17979,9 @@ final class TypeArguments extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $left_angle = $this->left_angle()->rewrite($rewriter, $child_parents);
-    $types = $this->types()->rewrite($rewriter, $child_parents);
-    $right_angle = $this->right_angle()->rewrite($rewriter, $child_parents);
+    $left_angle = $this->_left_angle->rewrite($rewriter, $child_parents);
+    $types = $this->_types->rewrite($rewriter, $child_parents);
+    $right_angle = $this->_right_angle->rewrite($rewriter, $child_parents);
     if (
       $left_angle === $this->left_angle() &&
       $types === $this->types() &&
@@ -18075,9 +18075,9 @@ final class TypeParameters extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $left_angle = $this->left_angle()->rewrite($rewriter, $child_parents);
-    $parameters = $this->parameters()->rewrite($rewriter, $child_parents);
-    $right_angle = $this->right_angle()->rewrite($rewriter, $child_parents);
+    $left_angle = $this->_left_angle->rewrite($rewriter, $child_parents);
+    $parameters = $this->_parameters->rewrite($rewriter, $child_parents);
+    $right_angle = $this->_right_angle->rewrite($rewriter, $child_parents);
     if (
       $left_angle === $this->left_angle() &&
       $parameters === $this->parameters() &&
@@ -18171,9 +18171,9 @@ final class TupleTypeSpecifier extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $left_paren = $this->left_paren()->rewrite($rewriter, $child_parents);
-    $types = $this->types()->rewrite($rewriter, $child_parents);
-    $right_paren = $this->right_paren()->rewrite($rewriter, $child_parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
+    $types = $this->_types->rewrite($rewriter, $child_parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
     if (
       $left_paren === $this->left_paren() &&
       $types === $this->types() &&
@@ -18245,7 +18245,7 @@ final class ErrorSyntax extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $error = $this->error()->rewrite($rewriter, $child_parents);
+    $error = $this->_error->rewrite($rewriter, $child_parents);
     if ($error === $this->error()) {
       $node = $this;
     } else {
@@ -18306,8 +18306,8 @@ final class ListItem extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $child_parents = $parents;
     $child_parents[] = $this;
-    $item = $this->item()->rewrite($rewriter, $child_parents);
-    $separator = $this->separator()->rewrite($rewriter, $child_parents);
+    $item = $this->_item->rewrite($rewriter, $child_parents);
+    $separator = $this->_separator->rewrite($rewriter, $child_parents);
     if ($item === $this->item() && $separator === $this->separator()) {
       $node = $this;
     } else {

@@ -53,19 +53,21 @@ final class CodegenSyntax extends CodegenBase {
       ->addMethod($this->generateRewriteMethod($syntax));
 
     foreach ($syntax['fields'] as $field) {
+      $field = (string) $field['field_name'];
+      $this->getTypeSpecForField($syntax, $field);
       $class
         ->addVar($cg
-          ->codegenMemberVar('_'.$field['field_name'])
+          ->codegenMemberVar('_'.$field)
           ->setType('EditableSyntax'))
         ->addMethod(
           $cg
-            ->codegenMethod($field['field_name'])
+            ->codegenMethod($field)
             ->setReturnType('EditableSyntax')
-            ->setBodyf('return $this->_%s;', $field['field_name']),
+            ->setBodyf('return $this->_%s;', $field)
         )
         ->addMethod(
           $cg
-            ->codegenMethod('with_'.$field['field_name'])
+            ->codegenMethod('with_'.$field)
             ->setReturnType('this')
             ->addParameter('EditableSyntax $value')
             ->setBody(
@@ -76,7 +78,7 @@ final class CodegenSyntax extends CodegenBase {
                   'self',
                   Vec\map(
                     $syntax['fields'],
-                    $inner ==> $inner['field_name'] == $field['field_name']
+                    $inner ==> $inner['field_name'] == $field
                       ? '$value'
                       : '$this->_'.$inner['field_name'],
                   ),
@@ -198,7 +200,7 @@ final class CodegenSyntax extends CodegenBase {
             Vec\map(
               $fields,
               $field ==> sprintf(
-                '$%s = $this->%s()->rewrite($rewriter, $child_parents);',
+                '$%s = $this->_%s->rewrite($rewriter, $child_parents);',
                 $field,
                 $field,
               ),
@@ -236,5 +238,95 @@ final class CodegenSyntax extends CodegenBase {
           ->addLine('return $rewriter($node, $parents);')
           ->getCode(),
       );
+  }
+
+  private function getTypeSpecForField(
+    Schema\TAST $syntax,
+    string $field,
+  ): shape('class' => string, 'nullable' => bool) {
+    $key = sprintf(
+      '%s.%s_%s',
+      $syntax['description'],
+      $syntax['prefix'],
+      $field,
+    );
+    $specs = INFERRED_RELATIONSHIPS;
+    if (!C\contains_key($specs, $key)) {
+      return shape(
+        'class' => 'EditableToken',
+        'nullable' => false,
+      );
+    }
+
+    $children = $specs[$key];
+    $nullable = C\contains_key($children, 'missing');
+    if ($nullable) {
+      $children = Vec\filter($children, $child ==> $child !== 'missing');
+    }
+    if (C\count($children) !== 1) {
+      return shape(
+        'class' => 'EditableToken',
+        'nullable' => false,
+      );
+    }
+
+    return shape(
+      'class' => $this->getSyntaxClassForChild(C\firstx($children)),
+      'nullable' => $nullable,
+    );
+  }
+
+  private function getSyntaxClassForChild(
+    string $child,
+  ): string {
+    if ($child === 'token') {
+      return 'EditableToken';
+    }
+    if ($child === 'list') {
+      return 'EditableList';
+    }
+
+    if (Str\starts_with($child, 'token')) {
+      return $this->getTokenClassForChild($child);
+    }
+
+    $ast = C\find(
+      $this->getSchema()['AST'],
+      $syntax ==> $syntax['description'] === $child,
+    );
+    invariant(
+      $ast !== null,
+      'Could not look up syntax "%s"',
+      $child,
+    );
+    return $ast['kind_name'];
+  }
+
+  private function getTokenClassForChild(
+    string $child,
+  ): string {
+    $child = Str\strip_prefix($child, 'token:');
+
+    $tokens = $this->getSchema()['tokens'];
+    $token = C\find(
+      $tokens,
+      $token ==> $token['token_text'] === $child,
+    );
+    if ($token !== null) {
+      return $token['token_kind'].'Token';
+    }
+    
+    $token = C\find(
+      $tokens,
+      $token ==> self::underscored($token['token_kind']) === $child,
+    );
+
+    invariant(
+      $token !== null,
+      'Failed to find token for "%s"',
+      $child,
+    );
+
+    return $token['token_kind'].'Token';
   }
 }
