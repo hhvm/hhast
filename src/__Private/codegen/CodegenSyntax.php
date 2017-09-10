@@ -26,21 +26,21 @@ final class CodegenSyntax extends CodegenBase {
   public function generate(): void {
     $cg = $this->getCodegenFactory();
 
-    $file = $cg->codegenFile($this->getOutputDirectory().'/Syntax.php');
-    $file
-      ->setNamespace('Facebook\\HHAST')
-      ->useType(TypeAssert::class);
-
     $blacklist = self::getHandWrittenSyntaxKinds();
 
     foreach ($this->getSchema()['AST'] as $syntax) {
       if (C\contains_key($blacklist, $syntax['kind_name'])) {
         continue;
       }
-      $file->addClass($this->generateClass($syntax));
+      $cg->codegenFile(
+        $this->getOutputDirectory().'/syntax/'.$syntax['kind_name'].'.php',
+      )
+        ->setNamespace('Facebook\\HHAST')
+        ->useType(TypeAssert::class)
+        ->addClass($this->generateClass($syntax))
+        ->save();
     }
 
-    $file->save();
   }
 
   private function generateClass(Schema\TAST $syntax): CodegenClass {
