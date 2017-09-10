@@ -28,7 +28,7 @@ require_once(__DIR__.'/../vendor/hh_autoload.php');
 
 final class UpdateCodegen {
   const type TSchema = Schema\TSchema;
-  
+
   public function __construct(private self::TSchema $schema) {
   }
 
@@ -40,13 +40,15 @@ final class UpdateCodegen {
       CodegenEditableSyntaxFromJSON::class,
       CodegenEditableTokenFromData::class,
       CodegenEditableTriviaFromJSON::class,
-      CodegenSyntax::class,
       CodegenTokens::class,
       CodegenTrivia::class,
+      CodegenSyntax::class,
     ];
     foreach ($generators as $generator) {
       (new $generator($this->schema))->generate();
     }
+
+    (new CodegenRelations('',$this->schema))->generate();
   }
 
   public static function fromFile(string $path): this {

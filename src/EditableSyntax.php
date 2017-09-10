@@ -44,7 +44,7 @@ abstract class EditableSyntax implements \ArrayAccess<mixed, mixed> {
     return $this->_syntax_kind;
   }
 
-  public abstract function children(): Traversable<EditableSyntax>;
+  public abstract function children(): KeyedTraversable<string, EditableSyntax>;
 
   public function preorder(): Traversable<EditableSyntax> {
     yield $this;

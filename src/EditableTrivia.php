@@ -35,7 +35,7 @@ abstract class EditableTrivia extends EditableSyntax {
     return true;
   }
 
-  public function children(): Iterator<EditableSyntax> {
+  public function children(): KeyedTraversable<string, EditableSyntax> {
     yield break;
   }
 

@@ -21,7 +21,7 @@ final class Missing extends EditableSyntax {
     return true;
   }
 
-  public function children(): Traversable<EditableSyntax> {
+  public function children(): KeyedTraversable<string, EditableSyntax> {
     yield break;
   }
 

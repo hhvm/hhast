@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7a6a5b8d61d91a6a60fb815482cad95d>>
+ * @generated SignedSource<<7b190bae0e796894ab44a6a725fe8700>>
  */
 namespace Facebook\HHAST;
 
@@ -29,8 +29,8 @@ final class EndOfFile extends EditableSyntax {
     return new self($token);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_token;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'token' => $this->_token;
   }
 
   public function rewrite(
@@ -81,8 +81,8 @@ final class Script extends EditableSyntax {
     return new self($declarations);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_declarations;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'declarations' => $this->_declarations;
   }
 
   public function rewrite(
@@ -133,8 +133,8 @@ final class SimpleTypeSpecifier extends EditableSyntax {
     return new self($specifier);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_specifier;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'specifier' => $this->_specifier;
   }
 
   public function rewrite(
@@ -185,8 +185,8 @@ final class LiteralExpression extends EditableSyntax {
     return new self($expression);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_expression;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'expression' => $this->_expression;
   }
 
   public function rewrite(
@@ -237,8 +237,8 @@ final class VariableExpression extends EditableSyntax {
     return new self($expression);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_expression;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'expression' => $this->_expression;
   }
 
   public function rewrite(
@@ -289,8 +289,8 @@ final class QualifiedNameExpression extends EditableSyntax {
     return new self($expression);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_expression;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'expression' => $this->_expression;
   }
 
   public function rewrite(
@@ -341,8 +341,8 @@ final class PipeVariableExpression extends EditableSyntax {
     return new self($expression);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_expression;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'expression' => $this->_expression;
   }
 
   public function rewrite(
@@ -477,16 +477,16 @@ final class EnumDeclaration extends EditableSyntax {
     );
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_attribute_spec;
-    yield $this->_keyword;
-    yield $this->_name;
-    yield $this->_colon;
-    yield $this->_base;
-    yield $this->_type;
-    yield $this->_left_brace;
-    yield $this->_enumerators;
-    yield $this->_right_brace;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'attribute_spec' => $this->_attribute_spec;
+    yield 'keyword' => $this->_keyword;
+    yield 'name' => $this->_name;
+    yield 'colon' => $this->_colon;
+    yield 'base' => $this->_base;
+    yield 'type' => $this->_type;
+    yield 'left_brace' => $this->_left_brace;
+    yield 'enumerators' => $this->_enumerators;
+    yield 'right_brace' => $this->_right_brace;
   }
 
   public function rewrite(
@@ -749,11 +749,11 @@ final class Enumerator extends EditableSyntax {
     return new self($name, $equal, $value, $semicolon);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_name;
-    yield $this->_equal;
-    yield $this->_value;
-    yield $this->_semicolon;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'name' => $this->_name;
+    yield 'equal' => $this->_equal;
+    yield 'value' => $this->_value;
+    yield 'semicolon' => $this->_semicolon;
   }
 
   public function rewrite(
@@ -910,15 +910,15 @@ final class AliasDeclaration extends EditableSyntax {
     );
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_attribute_spec;
-    yield $this->_keyword;
-    yield $this->_name;
-    yield $this->_generic_parameter;
-    yield $this->_constraint;
-    yield $this->_equal;
-    yield $this->_type;
-    yield $this->_semicolon;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'attribute_spec' => $this->_attribute_spec;
+    yield 'keyword' => $this->_keyword;
+    yield 'name' => $this->_name;
+    yield 'generic_parameter' => $this->_generic_parameter;
+    yield 'constraint' => $this->_constraint;
+    yield 'equal' => $this->_equal;
+    yield 'type' => $this->_type;
+    yield 'semicolon' => $this->_semicolon;
   }
 
   public function rewrite(
@@ -1153,11 +1153,11 @@ final class PropertyDeclaration extends EditableSyntax {
     return new self($modifiers, $type, $declarators, $semicolon);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_modifiers;
-    yield $this->_type;
-    yield $this->_declarators;
-    yield $this->_semicolon;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'modifiers' => $this->_modifiers;
+    yield 'type' => $this->_type;
+    yield 'declarators' => $this->_declarators;
+    yield 'semicolon' => $this->_semicolon;
   }
 
   public function rewrite(
@@ -1258,9 +1258,9 @@ final class PropertyDeclarator extends EditableSyntax {
     return new self($name, $initializer);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_name;
-    yield $this->_initializer;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'name' => $this->_name;
+    yield 'initializer' => $this->_initializer;
   }
 
   public function rewrite(
@@ -1340,10 +1340,10 @@ final class NamespaceDeclaration extends EditableSyntax {
     return new self($keyword, $name, $body);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_name;
-    yield $this->_body;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'name' => $this->_name;
+    yield 'body' => $this->_body;
   }
 
   public function rewrite(
@@ -1436,10 +1436,10 @@ final class NamespaceBody extends EditableSyntax {
     return new self($left_brace, $declarations, $right_brace);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_left_brace;
-    yield $this->_declarations;
-    yield $this->_right_brace;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'left_brace' => $this->_left_brace;
+    yield 'declarations' => $this->_declarations;
+    yield 'right_brace' => $this->_right_brace;
   }
 
   public function rewrite(
@@ -1512,8 +1512,8 @@ final class NamespaceEmptyBody extends EditableSyntax {
     return new self($semicolon);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_semicolon;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'semicolon' => $this->_semicolon;
   }
 
   public function rewrite(
@@ -1593,11 +1593,11 @@ final class NamespaceUseDeclaration extends EditableSyntax {
     return new self($keyword, $kind, $clauses, $semicolon);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_kind;
-    yield $this->_clauses;
-    yield $this->_semicolon;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'kind' => $this->_kind;
+    yield 'clauses' => $this->_clauses;
+    yield 'semicolon' => $this->_semicolon;
   }
 
   public function rewrite(
@@ -1745,14 +1745,14 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
     );
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_kind;
-    yield $this->_prefix;
-    yield $this->_left_brace;
-    yield $this->_clauses;
-    yield $this->_right_brace;
-    yield $this->_semicolon;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'kind' => $this->_kind;
+    yield 'prefix' => $this->_prefix;
+    yield 'left_brace' => $this->_left_brace;
+    yield 'clauses' => $this->_clauses;
+    yield 'right_brace' => $this->_right_brace;
+    yield 'semicolon' => $this->_semicolon;
   }
 
   public function rewrite(
@@ -1958,11 +1958,11 @@ final class NamespaceUseClause extends EditableSyntax {
     return new self($clause_kind, $name, $as, $alias);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_clause_kind;
-    yield $this->_name;
-    yield $this->_as;
-    yield $this->_alias;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'clause_kind' => $this->_clause_kind;
+    yield 'name' => $this->_name;
+    yield 'as' => $this->_as;
+    yield 'alias' => $this->_alias;
   }
 
   public function rewrite(
@@ -2065,10 +2065,10 @@ final class FunctionDeclaration extends EditableSyntax {
     return new self($attribute_spec, $declaration_header, $body);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_attribute_spec;
-    yield $this->_declaration_header;
-    yield $this->_body;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'attribute_spec' => $this->_attribute_spec;
+    yield 'declaration_header' => $this->_declaration_header;
+    yield 'body' => $this->_body;
   }
 
   public function rewrite(
@@ -2257,19 +2257,19 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     );
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_async;
-    yield $this->_coroutine;
-    yield $this->_keyword;
-    yield $this->_ampersand;
-    yield $this->_name;
-    yield $this->_type_parameter_list;
-    yield $this->_left_paren;
-    yield $this->_parameter_list;
-    yield $this->_right_paren;
-    yield $this->_colon;
-    yield $this->_type;
-    yield $this->_where_clause;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'async' => $this->_async;
+    yield 'coroutine' => $this->_coroutine;
+    yield 'keyword' => $this->_keyword;
+    yield 'ampersand' => $this->_ampersand;
+    yield 'name' => $this->_name;
+    yield 'type_parameter_list' => $this->_type_parameter_list;
+    yield 'left_paren' => $this->_left_paren;
+    yield 'parameter_list' => $this->_parameter_list;
+    yield 'right_paren' => $this->_right_paren;
+    yield 'colon' => $this->_colon;
+    yield 'type' => $this->_type;
+    yield 'where_clause' => $this->_where_clause;
   }
 
   public function rewrite(
@@ -2614,9 +2614,9 @@ final class WhereClause extends EditableSyntax {
     return new self($keyword, $constraints);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_constraints;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'constraints' => $this->_constraints;
   }
 
   public function rewrite(
@@ -2698,10 +2698,10 @@ final class WhereConstraint extends EditableSyntax {
     return new self($left_type, $operator, $right_type);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_left_type;
-    yield $this->_operator;
-    yield $this->_right_type;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'left_type' => $this->_left_type;
+    yield 'operator' => $this->_operator;
+    yield 'right_type' => $this->_right_type;
   }
 
   public function rewrite(
@@ -2818,12 +2818,12 @@ final class MethodishDeclaration extends EditableSyntax {
     );
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_attribute;
-    yield $this->_modifiers;
-    yield $this->_function_decl_header;
-    yield $this->_function_body;
-    yield $this->_semicolon;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'attribute' => $this->_attribute;
+    yield 'modifiers' => $this->_modifiers;
+    yield 'function_decl_header' => $this->_function_decl_header;
+    yield 'function_body' => $this->_function_body;
+    yield 'semicolon' => $this->_semicolon;
   }
 
   public function rewrite(
@@ -3047,17 +3047,17 @@ final class ClassishDeclaration extends EditableSyntax {
     );
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_attribute;
-    yield $this->_modifiers;
-    yield $this->_keyword;
-    yield $this->_name;
-    yield $this->_type_parameters;
-    yield $this->_extends_keyword;
-    yield $this->_extends_list;
-    yield $this->_implements_keyword;
-    yield $this->_implements_list;
-    yield $this->_body;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'attribute' => $this->_attribute;
+    yield 'modifiers' => $this->_modifiers;
+    yield 'keyword' => $this->_keyword;
+    yield 'name' => $this->_name;
+    yield 'type_parameters' => $this->_type_parameters;
+    yield 'extends_keyword' => $this->_extends_keyword;
+    yield 'extends_list' => $this->_extends_list;
+    yield 'implements_keyword' => $this->_implements_keyword;
+    yield 'implements_list' => $this->_implements_list;
+    yield 'body' => $this->_body;
   }
 
   public function rewrite(
@@ -3345,10 +3345,10 @@ final class ClassishBody extends EditableSyntax {
     return new self($left_brace, $elements, $right_brace);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_left_brace;
-    yield $this->_elements;
-    yield $this->_right_brace;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'left_brace' => $this->_left_brace;
+    yield 'elements' => $this->_elements;
+    yield 'right_brace' => $this->_right_brace;
   }
 
   public function rewrite(
@@ -3447,10 +3447,10 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
     return new self($aliasing_name, $aliasing_keyword, $aliased_names);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_aliasing_name;
-    yield $this->_aliasing_keyword;
-    yield $this->_aliased_names;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'aliasing_name' => $this->_aliasing_name;
+    yield 'aliasing_keyword' => $this->_aliasing_keyword;
+    yield 'aliased_names' => $this->_aliased_names;
   }
 
   public function rewrite(
@@ -3562,12 +3562,12 @@ final class TraitUseConflictResolution extends EditableSyntax {
     return new self($keyword, $names, $left_brace, $clauses, $right_brace);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_names;
-    yield $this->_left_brace;
-    yield $this->_clauses;
-    yield $this->_right_brace;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'names' => $this->_names;
+    yield 'left_brace' => $this->_left_brace;
+    yield 'clauses' => $this->_clauses;
+    yield 'right_brace' => $this->_right_brace;
   }
 
   public function rewrite(
@@ -3710,10 +3710,10 @@ final class TraitUse extends EditableSyntax {
     return new self($keyword, $names, $semicolon);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_names;
-    yield $this->_semicolon;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'names' => $this->_names;
+    yield 'semicolon' => $this->_semicolon;
   }
 
   public function rewrite(
@@ -3815,11 +3815,11 @@ final class RequireClause extends EditableSyntax {
     return new self($keyword, $kind, $name, $semicolon);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_kind;
-    yield $this->_name;
-    yield $this->_semicolon;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'kind' => $this->_kind;
+    yield 'name' => $this->_name;
+    yield 'semicolon' => $this->_semicolon;
   }
 
   public function rewrite(
@@ -3941,12 +3941,12 @@ final class ConstDeclaration extends EditableSyntax {
       new self($abstract, $keyword, $type_specifier, $declarators, $semicolon);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_abstract;
-    yield $this->_keyword;
-    yield $this->_type_specifier;
-    yield $this->_declarators;
-    yield $this->_semicolon;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'abstract' => $this->_abstract;
+    yield 'keyword' => $this->_keyword;
+    yield 'type_specifier' => $this->_type_specifier;
+    yield 'declarators' => $this->_declarators;
+    yield 'semicolon' => $this->_semicolon;
   }
 
   public function rewrite(
@@ -4087,9 +4087,9 @@ final class ConstantDeclarator extends EditableSyntax {
     return new self($name, $initializer);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_name;
-    yield $this->_initializer;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'name' => $this->_name;
+    yield 'initializer' => $this->_initializer;
   }
 
   public function rewrite(
@@ -4223,15 +4223,15 @@ final class TypeConstDeclaration extends EditableSyntax {
     );
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_abstract;
-    yield $this->_keyword;
-    yield $this->_type_keyword;
-    yield $this->_name;
-    yield $this->_type_constraint;
-    yield $this->_equal;
-    yield $this->_type_specifier;
-    yield $this->_semicolon;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'abstract' => $this->_abstract;
+    yield 'keyword' => $this->_keyword;
+    yield 'type_keyword' => $this->_type_keyword;
+    yield 'name' => $this->_name;
+    yield 'type_constraint' => $this->_type_constraint;
+    yield 'equal' => $this->_equal;
+    yield 'type_specifier' => $this->_type_specifier;
+    yield 'semicolon' => $this->_semicolon;
   }
 
   public function rewrite(
@@ -4448,9 +4448,9 @@ final class DecoratedExpression extends EditableSyntax {
     return new self($decorator, $expression);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_decorator;
-    yield $this->_expression;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'decorator' => $this->_decorator;
+    yield 'expression' => $this->_expression;
   }
 
   public function rewrite(
@@ -4550,12 +4550,12 @@ final class ParameterDeclaration extends EditableSyntax {
     return new self($attribute, $visibility, $type, $name, $default_value);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_attribute;
-    yield $this->_visibility;
-    yield $this->_type;
-    yield $this->_name;
-    yield $this->_default_value;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'attribute' => $this->_attribute;
+    yield 'visibility' => $this->_visibility;
+    yield 'type' => $this->_type;
+    yield 'name' => $this->_name;
+    yield 'default_value' => $this->_default_value;
   }
 
   public function rewrite(
@@ -4678,8 +4678,8 @@ final class VariadicParameter extends EditableSyntax {
     return new self($ellipsis);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_ellipsis;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'ellipsis' => $this->_ellipsis;
   }
 
   public function rewrite(
@@ -4750,10 +4750,10 @@ final class AttributeSpecification extends EditableSyntax {
     return new self($left_double_angle, $attributes, $right_double_angle);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_left_double_angle;
-    yield $this->_attributes;
-    yield $this->_right_double_angle;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'left_double_angle' => $this->_left_double_angle;
+    yield 'attributes' => $this->_attributes;
+    yield 'right_double_angle' => $this->_right_double_angle;
   }
 
   public function rewrite(
@@ -4858,11 +4858,11 @@ final class Attribute extends EditableSyntax {
     return new self($name, $left_paren, $values, $right_paren);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_name;
-    yield $this->_left_paren;
-    yield $this->_values;
-    yield $this->_right_paren;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'name' => $this->_name;
+    yield 'left_paren' => $this->_left_paren;
+    yield 'values' => $this->_values;
+    yield 'right_paren' => $this->_right_paren;
   }
 
   public function rewrite(
@@ -4958,9 +4958,9 @@ final class InclusionExpression extends EditableSyntax {
     return new self($require, $filename);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_require;
-    yield $this->_filename;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'require' => $this->_require;
+    yield 'filename' => $this->_filename;
   }
 
   public function rewrite(
@@ -5031,9 +5031,9 @@ final class InclusionDirective extends EditableSyntax {
     return new self($expression, $semicolon);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_expression;
-    yield $this->_semicolon;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'expression' => $this->_expression;
+    yield 'semicolon' => $this->_semicolon;
   }
 
   public function rewrite(
@@ -5115,10 +5115,10 @@ final class CompoundStatement extends EditableSyntax {
     return new self($left_brace, $statements, $right_brace);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_left_brace;
-    yield $this->_statements;
-    yield $this->_right_brace;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'left_brace' => $this->_left_brace;
+    yield 'statements' => $this->_statements;
+    yield 'right_brace' => $this->_right_brace;
   }
 
   public function rewrite(
@@ -5202,9 +5202,9 @@ final class ExpressionStatement extends EditableSyntax {
     return new self($expression, $semicolon);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_expression;
-    yield $this->_semicolon;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'expression' => $this->_expression;
+    yield 'semicolon' => $this->_semicolon;
   }
 
   public function rewrite(
@@ -5295,11 +5295,11 @@ final class MarkupSection extends EditableSyntax {
     return new self($prefix, $text, $suffix, $expression);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_prefix;
-    yield $this->_text;
-    yield $this->_suffix;
-    yield $this->_expression;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'prefix' => $this->_prefix;
+    yield 'text' => $this->_text;
+    yield 'suffix' => $this->_suffix;
+    yield 'expression' => $this->_expression;
   }
 
   public function rewrite(
@@ -5393,9 +5393,9 @@ final class MarkupSuffix extends EditableSyntax {
     return new self($less_than_question, $name);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_less_than_question;
-    yield $this->_name;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'less_than_question' => $this->_less_than_question;
+    yield 'name' => $this->_name;
   }
 
   public function rewrite(
@@ -5498,12 +5498,12 @@ final class UnsetStatement extends EditableSyntax {
       new self($keyword, $left_paren, $variables, $right_paren, $semicolon);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_left_paren;
-    yield $this->_variables;
-    yield $this->_right_paren;
-    yield $this->_semicolon;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'left_paren' => $this->_left_paren;
+    yield 'variables' => $this->_variables;
+    yield 'right_paren' => $this->_right_paren;
+    yield 'semicolon' => $this->_semicolon;
   }
 
   public function rewrite(
@@ -5665,12 +5665,12 @@ final class WhileStatement extends EditableSyntax {
     return new self($keyword, $left_paren, $condition, $right_paren, $body);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_left_paren;
-    yield $this->_condition;
-    yield $this->_right_paren;
-    yield $this->_body;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'left_paren' => $this->_left_paren;
+    yield 'condition' => $this->_condition;
+    yield 'right_paren' => $this->_right_paren;
+    yield 'body' => $this->_body;
   }
 
   public function rewrite(
@@ -5857,14 +5857,14 @@ final class IfStatement extends EditableSyntax {
     );
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_left_paren;
-    yield $this->_condition;
-    yield $this->_right_paren;
-    yield $this->_statement;
-    yield $this->_elseif_clauses;
-    yield $this->_else_clause;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'left_paren' => $this->_left_paren;
+    yield 'condition' => $this->_condition;
+    yield 'right_paren' => $this->_right_paren;
+    yield 'statement' => $this->_statement;
+    yield 'elseif_clauses' => $this->_elseif_clauses;
+    yield 'else_clause' => $this->_else_clause;
   }
 
   public function rewrite(
@@ -6081,12 +6081,12 @@ final class ElseifClause extends EditableSyntax {
       new self($keyword, $left_paren, $condition, $right_paren, $statement);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_left_paren;
-    yield $this->_condition;
-    yield $this->_right_paren;
-    yield $this->_statement;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'left_paren' => $this->_left_paren;
+    yield 'condition' => $this->_condition;
+    yield 'right_paren' => $this->_right_paren;
+    yield 'statement' => $this->_statement;
   }
 
   public function rewrite(
@@ -6221,9 +6221,9 @@ final class ElseClause extends EditableSyntax {
     return new self($keyword, $statement);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_statement;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'statement' => $this->_statement;
   }
 
   public function rewrite(
@@ -6313,11 +6313,11 @@ final class TryStatement extends EditableSyntax {
       new self($keyword, $compound_statement, $catch_clauses, $finally_clause);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_compound_statement;
-    yield $this->_catch_clauses;
-    yield $this->_finally_clause;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'compound_statement' => $this->_compound_statement;
+    yield 'catch_clauses' => $this->_catch_clauses;
+    yield 'finally_clause' => $this->_finally_clause;
   }
 
   public function rewrite(
@@ -6475,13 +6475,13 @@ final class CatchClause extends EditableSyntax {
       new self($keyword, $left_paren, $type, $variable, $right_paren, $body);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_left_paren;
-    yield $this->_type;
-    yield $this->_variable;
-    yield $this->_right_paren;
-    yield $this->_body;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'left_paren' => $this->_left_paren;
+    yield 'type' => $this->_type;
+    yield 'variable' => $this->_variable;
+    yield 'right_paren' => $this->_right_paren;
+    yield 'body' => $this->_body;
   }
 
   public function rewrite(
@@ -6635,9 +6635,9 @@ final class FinallyClause extends EditableSyntax {
     return new self($keyword, $body);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_body;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'body' => $this->_body;
   }
 
   public function rewrite(
@@ -6761,14 +6761,14 @@ final class DoStatement extends EditableSyntax {
     );
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_body;
-    yield $this->_while_keyword;
-    yield $this->_left_paren;
-    yield $this->_condition;
-    yield $this->_right_paren;
-    yield $this->_semicolon;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'body' => $this->_body;
+    yield 'while_keyword' => $this->_while_keyword;
+    yield 'left_paren' => $this->_left_paren;
+    yield 'condition' => $this->_condition;
+    yield 'right_paren' => $this->_right_paren;
+    yield 'semicolon' => $this->_semicolon;
   }
 
   public function rewrite(
@@ -7029,16 +7029,16 @@ final class ForStatement extends EditableSyntax {
     );
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_left_paren;
-    yield $this->_initializer;
-    yield $this->_first_semicolon;
-    yield $this->_control;
-    yield $this->_second_semicolon;
-    yield $this->_end_of_loop;
-    yield $this->_right_paren;
-    yield $this->_body;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'left_paren' => $this->_left_paren;
+    yield 'initializer' => $this->_initializer;
+    yield 'first_semicolon' => $this->_first_semicolon;
+    yield 'control' => $this->_control;
+    yield 'second_semicolon' => $this->_second_semicolon;
+    yield 'end_of_loop' => $this->_end_of_loop;
+    yield 'right_paren' => $this->_right_paren;
+    yield 'body' => $this->_body;
   }
 
   public function rewrite(
@@ -7367,17 +7367,17 @@ final class ForeachStatement extends EditableSyntax {
     );
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_left_paren;
-    yield $this->_collection;
-    yield $this->_await_keyword;
-    yield $this->_as;
-    yield $this->_key;
-    yield $this->_arrow;
-    yield $this->_value;
-    yield $this->_right_paren;
-    yield $this->_body;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'left_paren' => $this->_left_paren;
+    yield 'collection' => $this->_collection;
+    yield 'await_keyword' => $this->_await_keyword;
+    yield 'as' => $this->_as;
+    yield 'key' => $this->_key;
+    yield 'arrow' => $this->_arrow;
+    yield 'value' => $this->_value;
+    yield 'right_paren' => $this->_right_paren;
+    yield 'body' => $this->_body;
   }
 
   public function rewrite(
@@ -7705,14 +7705,14 @@ final class SwitchStatement extends EditableSyntax {
     );
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_left_paren;
-    yield $this->_expression;
-    yield $this->_right_paren;
-    yield $this->_left_brace;
-    yield $this->_sections;
-    yield $this->_right_brace;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'left_paren' => $this->_left_paren;
+    yield 'expression' => $this->_expression;
+    yield 'right_paren' => $this->_right_paren;
+    yield 'left_brace' => $this->_left_brace;
+    yield 'sections' => $this->_sections;
+    yield 'right_brace' => $this->_right_brace;
   }
 
   public function rewrite(
@@ -7909,10 +7909,10 @@ final class SwitchSection extends EditableSyntax {
     return new self($labels, $statements, $fallthrough);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_labels;
-    yield $this->_statements;
-    yield $this->_fallthrough;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'labels' => $this->_labels;
+    yield 'statements' => $this->_statements;
+    yield 'fallthrough' => $this->_fallthrough;
   }
 
   public function rewrite(
@@ -7996,9 +7996,9 @@ final class SwitchFallthrough extends EditableSyntax {
     return new self($keyword, $semicolon);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_semicolon;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'semicolon' => $this->_semicolon;
   }
 
   public function rewrite(
@@ -8078,10 +8078,10 @@ final class CaseLabel extends EditableSyntax {
     return new self($keyword, $expression, $colon);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_expression;
-    yield $this->_colon;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'expression' => $this->_expression;
+    yield 'colon' => $this->_colon;
   }
 
   public function rewrite(
@@ -8162,9 +8162,9 @@ final class DefaultLabel extends EditableSyntax {
     return new self($keyword, $colon);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_colon;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'colon' => $this->_colon;
   }
 
   public function rewrite(
@@ -8244,10 +8244,10 @@ final class ReturnStatement extends EditableSyntax {
     return new self($keyword, $expression, $semicolon);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_expression;
-    yield $this->_semicolon;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'expression' => $this->_expression;
+    yield 'semicolon' => $this->_semicolon;
   }
 
   public function rewrite(
@@ -8328,9 +8328,9 @@ final class GotoLabel extends EditableSyntax {
     return new self($name, $colon);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_name;
-    yield $this->_colon;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'name' => $this->_name;
+    yield 'colon' => $this->_colon;
   }
 
   public function rewrite(
@@ -8410,10 +8410,10 @@ final class GotoStatement extends EditableSyntax {
     return new self($keyword, $label_name, $semicolon);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_label_name;
-    yield $this->_semicolon;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'label_name' => $this->_label_name;
+    yield 'semicolon' => $this->_semicolon;
   }
 
   public function rewrite(
@@ -8506,10 +8506,10 @@ final class ThrowStatement extends EditableSyntax {
     return new self($keyword, $expression, $semicolon);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_expression;
-    yield $this->_semicolon;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'expression' => $this->_expression;
+    yield 'semicolon' => $this->_semicolon;
   }
 
   public function rewrite(
@@ -8602,10 +8602,10 @@ final class BreakStatement extends EditableSyntax {
     return new self($keyword, $level, $semicolon);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_level;
-    yield $this->_semicolon;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'level' => $this->_level;
+    yield 'semicolon' => $this->_semicolon;
   }
 
   public function rewrite(
@@ -8698,10 +8698,10 @@ final class ContinueStatement extends EditableSyntax {
     return new self($keyword, $level, $semicolon);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_level;
-    yield $this->_semicolon;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'level' => $this->_level;
+    yield 'semicolon' => $this->_semicolon;
   }
 
   public function rewrite(
@@ -8794,10 +8794,10 @@ final class FunctionStaticStatement extends EditableSyntax {
     return new self($static_keyword, $declarations, $semicolon);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_static_keyword;
-    yield $this->_declarations;
-    yield $this->_semicolon;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'static_keyword' => $this->_static_keyword;
+    yield 'declarations' => $this->_declarations;
+    yield 'semicolon' => $this->_semicolon;
   }
 
   public function rewrite(
@@ -8882,9 +8882,9 @@ final class StaticDeclarator extends EditableSyntax {
     return new self($name, $initializer);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_name;
-    yield $this->_initializer;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'name' => $this->_name;
+    yield 'initializer' => $this->_initializer;
   }
 
   public function rewrite(
@@ -8964,10 +8964,10 @@ final class EchoStatement extends EditableSyntax {
     return new self($keyword, $expressions, $semicolon);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_expressions;
-    yield $this->_semicolon;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'expressions' => $this->_expressions;
+    yield 'semicolon' => $this->_semicolon;
   }
 
   public function rewrite(
@@ -9060,10 +9060,10 @@ final class GlobalStatement extends EditableSyntax {
     return new self($keyword, $variables, $semicolon);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_variables;
-    yield $this->_semicolon;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'variables' => $this->_variables;
+    yield 'semicolon' => $this->_semicolon;
   }
 
   public function rewrite(
@@ -9144,9 +9144,9 @@ final class SimpleInitializer extends EditableSyntax {
     return new self($equal, $value);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_equal;
-    yield $this->_value;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'equal' => $this->_equal;
+    yield 'value' => $this->_value;
   }
 
   public function rewrite(
@@ -9310,18 +9310,18 @@ final class AnonymousFunction extends EditableSyntax {
     );
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_static_keyword;
-    yield $this->_async_keyword;
-    yield $this->_coroutine_keyword;
-    yield $this->_function_keyword;
-    yield $this->_left_paren;
-    yield $this->_parameters;
-    yield $this->_right_paren;
-    yield $this->_colon;
-    yield $this->_type;
-    yield $this->_use;
-    yield $this->_body;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'static_keyword' => $this->_static_keyword;
+    yield 'async_keyword' => $this->_async_keyword;
+    yield 'coroutine_keyword' => $this->_coroutine_keyword;
+    yield 'function_keyword' => $this->_function_keyword;
+    yield 'left_paren' => $this->_left_paren;
+    yield 'parameters' => $this->_parameters;
+    yield 'right_paren' => $this->_right_paren;
+    yield 'colon' => $this->_colon;
+    yield 'type' => $this->_type;
+    yield 'use' => $this->_use;
+    yield 'body' => $this->_body;
   }
 
   public function rewrite(
@@ -9650,11 +9650,11 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
     return new self($keyword, $left_paren, $variables, $right_paren);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_left_paren;
-    yield $this->_variables;
-    yield $this->_right_paren;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'left_paren' => $this->_left_paren;
+    yield 'variables' => $this->_variables;
+    yield 'right_paren' => $this->_right_paren;
   }
 
   public function rewrite(
@@ -9787,12 +9787,12 @@ final class LambdaExpression extends EditableSyntax {
     return new self($async, $coroutine, $signature, $arrow, $body);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_async;
-    yield $this->_coroutine;
-    yield $this->_signature;
-    yield $this->_arrow;
-    yield $this->_body;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'async' => $this->_async;
+    yield 'coroutine' => $this->_coroutine;
+    yield 'signature' => $this->_signature;
+    yield 'arrow' => $this->_arrow;
+    yield 'body' => $this->_body;
   }
 
   public function rewrite(
@@ -9953,12 +9953,12 @@ final class LambdaSignature extends EditableSyntax {
     return new self($left_paren, $parameters, $right_paren, $colon, $type);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_left_paren;
-    yield $this->_parameters;
-    yield $this->_right_paren;
-    yield $this->_colon;
-    yield $this->_type;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'left_paren' => $this->_left_paren;
+    yield 'parameters' => $this->_parameters;
+    yield 'right_paren' => $this->_right_paren;
+    yield 'colon' => $this->_colon;
+    yield 'type' => $this->_type;
   }
 
   public function rewrite(
@@ -10110,11 +10110,11 @@ final class CastExpression extends EditableSyntax {
     return new self($left_paren, $type, $right_paren, $operand);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_left_paren;
-    yield $this->_type;
-    yield $this->_right_paren;
-    yield $this->_operand;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'left_paren' => $this->_left_paren;
+    yield 'type' => $this->_type;
+    yield 'right_paren' => $this->_right_paren;
+    yield 'operand' => $this->_operand;
   }
 
   public function rewrite(
@@ -10223,10 +10223,10 @@ final class ScopeResolutionExpression extends EditableSyntax {
     return new self($qualifier, $operator, $name);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_qualifier;
-    yield $this->_operator;
-    yield $this->_name;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'qualifier' => $this->_qualifier;
+    yield 'operator' => $this->_operator;
+    yield 'name' => $this->_name;
   }
 
   public function rewrite(
@@ -10319,10 +10319,10 @@ final class MemberSelectionExpression extends EditableSyntax {
     return new self($object, $operator, $name);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_object;
-    yield $this->_operator;
-    yield $this->_name;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'object' => $this->_object;
+    yield 'operator' => $this->_operator;
+    yield 'name' => $this->_name;
   }
 
   public function rewrite(
@@ -10415,10 +10415,10 @@ final class SafeMemberSelectionExpression extends EditableSyntax {
     return new self($object, $operator, $name);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_object;
-    yield $this->_operator;
-    yield $this->_name;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'object' => $this->_object;
+    yield 'operator' => $this->_operator;
+    yield 'name' => $this->_name;
   }
 
   public function rewrite(
@@ -10511,10 +10511,10 @@ final class EmbeddedMemberSelectionExpression extends EditableSyntax {
     return new self($object, $operator, $name);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_object;
-    yield $this->_operator;
-    yield $this->_name;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'object' => $this->_object;
+    yield 'operator' => $this->_operator;
+    yield 'name' => $this->_name;
   }
 
   public function rewrite(
@@ -10598,9 +10598,9 @@ final class YieldExpression extends EditableSyntax {
     return new self($keyword, $operand);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_operand;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'operand' => $this->_operand;
   }
 
   public function rewrite(
@@ -10671,9 +10671,9 @@ final class PrefixUnaryExpression extends EditableSyntax {
     return new self($operator, $operand);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_operator;
-    yield $this->_operand;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'operator' => $this->_operator;
+    yield 'operand' => $this->_operand;
   }
 
   public function rewrite(
@@ -10744,9 +10744,9 @@ final class PostfixUnaryExpression extends EditableSyntax {
     return new self($operand, $operator);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_operand;
-    yield $this->_operator;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'operand' => $this->_operand;
+    yield 'operator' => $this->_operator;
   }
 
   public function rewrite(
@@ -10826,10 +10826,10 @@ final class BinaryExpression extends EditableSyntax {
     return new self($left_operand, $operator, $right_operand);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_left_operand;
-    yield $this->_operator;
-    yield $this->_right_operand;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'left_operand' => $this->_left_operand;
+    yield 'operator' => $this->_operator;
+    yield 'right_operand' => $this->_right_operand;
   }
 
   public function rewrite(
@@ -10922,10 +10922,10 @@ final class InstanceofExpression extends EditableSyntax {
     return new self($left_operand, $operator, $right_operand);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_left_operand;
-    yield $this->_operator;
-    yield $this->_right_operand;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'left_operand' => $this->_left_operand;
+    yield 'operator' => $this->_operator;
+    yield 'right_operand' => $this->_right_operand;
   }
 
   public function rewrite(
@@ -11036,12 +11036,12 @@ final class ConditionalExpression extends EditableSyntax {
     return new self($test, $question, $consequence, $colon, $alternative);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_test;
-    yield $this->_question;
-    yield $this->_consequence;
-    yield $this->_colon;
-    yield $this->_alternative;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'test' => $this->_test;
+    yield 'question' => $this->_question;
+    yield 'consequence' => $this->_consequence;
+    yield 'colon' => $this->_colon;
+    yield 'alternative' => $this->_alternative;
   }
 
   public function rewrite(
@@ -11193,11 +11193,11 @@ final class EvalExpression extends EditableSyntax {
     return new self($keyword, $left_paren, $argument, $right_paren);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_left_paren;
-    yield $this->_argument;
-    yield $this->_right_paren;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'left_paren' => $this->_left_paren;
+    yield 'argument' => $this->_argument;
+    yield 'right_paren' => $this->_right_paren;
   }
 
   public function rewrite(
@@ -11321,11 +11321,11 @@ final class EmptyExpression extends EditableSyntax {
     return new self($keyword, $left_paren, $argument, $right_paren);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_left_paren;
-    yield $this->_argument;
-    yield $this->_right_paren;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'left_paren' => $this->_left_paren;
+    yield 'argument' => $this->_argument;
+    yield 'right_paren' => $this->_right_paren;
   }
 
   public function rewrite(
@@ -11449,11 +11449,11 @@ final class DefineExpression extends EditableSyntax {
     return new self($keyword, $left_paren, $argument_list, $right_paren);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_left_paren;
-    yield $this->_argument_list;
-    yield $this->_right_paren;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'left_paren' => $this->_left_paren;
+    yield 'argument_list' => $this->_argument_list;
+    yield 'right_paren' => $this->_right_paren;
   }
 
   public function rewrite(
@@ -11585,11 +11585,11 @@ final class IssetExpression extends EditableSyntax {
     return new self($keyword, $left_paren, $argument_list, $right_paren);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_left_paren;
-    yield $this->_argument_list;
-    yield $this->_right_paren;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'left_paren' => $this->_left_paren;
+    yield 'argument_list' => $this->_argument_list;
+    yield 'right_paren' => $this->_right_paren;
   }
 
   public function rewrite(
@@ -11721,11 +11721,11 @@ final class FunctionCallExpression extends EditableSyntax {
     return new self($receiver, $left_paren, $argument_list, $right_paren);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_receiver;
-    yield $this->_left_paren;
-    yield $this->_argument_list;
-    yield $this->_right_paren;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'receiver' => $this->_receiver;
+    yield 'left_paren' => $this->_left_paren;
+    yield 'argument_list' => $this->_argument_list;
+    yield 'right_paren' => $this->_right_paren;
   }
 
   public function rewrite(
@@ -11848,10 +11848,10 @@ final class ParenthesizedExpression extends EditableSyntax {
     return new self($left_paren, $expression, $right_paren);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_left_paren;
-    yield $this->_expression;
-    yield $this->_right_paren;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'left_paren' => $this->_left_paren;
+    yield 'expression' => $this->_expression;
+    yield 'right_paren' => $this->_right_paren;
   }
 
   public function rewrite(
@@ -11944,10 +11944,10 @@ final class BracedExpression extends EditableSyntax {
     return new self($left_brace, $expression, $right_brace);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_left_brace;
-    yield $this->_expression;
-    yield $this->_right_brace;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'left_brace' => $this->_left_brace;
+    yield 'expression' => $this->_expression;
+    yield 'right_brace' => $this->_right_brace;
   }
 
   public function rewrite(
@@ -12040,10 +12040,10 @@ final class EmbeddedBracedExpression extends EditableSyntax {
     return new self($left_brace, $expression, $right_brace);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_left_brace;
-    yield $this->_expression;
-    yield $this->_right_brace;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'left_brace' => $this->_left_brace;
+    yield 'expression' => $this->_expression;
+    yield 'right_brace' => $this->_right_brace;
   }
 
   public function rewrite(
@@ -12145,11 +12145,11 @@ final class ListExpression extends EditableSyntax {
     return new self($keyword, $left_paren, $members, $right_paren);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_left_paren;
-    yield $this->_members;
-    yield $this->_right_paren;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'left_paren' => $this->_left_paren;
+    yield 'members' => $this->_members;
+    yield 'right_paren' => $this->_right_paren;
   }
 
   public function rewrite(
@@ -12273,11 +12273,11 @@ final class CollectionLiteralExpression extends EditableSyntax {
     return new self($name, $left_brace, $initializers, $right_brace);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_name;
-    yield $this->_left_brace;
-    yield $this->_initializers;
-    yield $this->_right_brace;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'name' => $this->_name;
+    yield 'left_brace' => $this->_left_brace;
+    yield 'initializers' => $this->_initializers;
+    yield 'right_brace' => $this->_right_brace;
   }
 
   public function rewrite(
@@ -12407,12 +12407,12 @@ final class ObjectCreationExpression extends EditableSyntax {
       new self($new_keyword, $type, $left_paren, $argument_list, $right_paren);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_new_keyword;
-    yield $this->_type;
-    yield $this->_left_paren;
-    yield $this->_argument_list;
-    yield $this->_right_paren;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'new_keyword' => $this->_new_keyword;
+    yield 'type' => $this->_type;
+    yield 'left_paren' => $this->_left_paren;
+    yield 'argument_list' => $this->_argument_list;
+    yield 'right_paren' => $this->_right_paren;
   }
 
   public function rewrite(
@@ -12561,10 +12561,10 @@ final class ArrayCreationExpression extends EditableSyntax {
     return new self($left_bracket, $members, $right_bracket);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_left_bracket;
-    yield $this->_members;
-    yield $this->_right_bracket;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'left_bracket' => $this->_left_bracket;
+    yield 'members' => $this->_members;
+    yield 'right_bracket' => $this->_right_bracket;
   }
 
   public function rewrite(
@@ -12666,11 +12666,11 @@ final class ArrayIntrinsicExpression extends EditableSyntax {
     return new self($keyword, $left_paren, $members, $right_paren);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_left_paren;
-    yield $this->_members;
-    yield $this->_right_paren;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'left_paren' => $this->_left_paren;
+    yield 'members' => $this->_members;
+    yield 'right_paren' => $this->_right_paren;
   }
 
   public function rewrite(
@@ -12794,11 +12794,11 @@ final class DarrayIntrinsicExpression extends EditableSyntax {
     return new self($keyword, $left_bracket, $members, $right_bracket);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_left_bracket;
-    yield $this->_members;
-    yield $this->_right_bracket;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'left_bracket' => $this->_left_bracket;
+    yield 'members' => $this->_members;
+    yield 'right_bracket' => $this->_right_bracket;
   }
 
   public function rewrite(
@@ -12922,11 +12922,11 @@ final class DictionaryIntrinsicExpression extends EditableSyntax {
     return new self($keyword, $left_bracket, $members, $right_bracket);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_left_bracket;
-    yield $this->_members;
-    yield $this->_right_bracket;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'left_bracket' => $this->_left_bracket;
+    yield 'members' => $this->_members;
+    yield 'right_bracket' => $this->_right_bracket;
   }
 
   public function rewrite(
@@ -13050,11 +13050,11 @@ final class KeysetIntrinsicExpression extends EditableSyntax {
     return new self($keyword, $left_bracket, $members, $right_bracket);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_left_bracket;
-    yield $this->_members;
-    yield $this->_right_bracket;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'left_bracket' => $this->_left_bracket;
+    yield 'members' => $this->_members;
+    yield 'right_bracket' => $this->_right_bracket;
   }
 
   public function rewrite(
@@ -13178,11 +13178,11 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
     return new self($keyword, $left_bracket, $members, $right_bracket);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_left_bracket;
-    yield $this->_members;
-    yield $this->_right_bracket;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'left_bracket' => $this->_left_bracket;
+    yield 'members' => $this->_members;
+    yield 'right_bracket' => $this->_right_bracket;
   }
 
   public function rewrite(
@@ -13306,11 +13306,11 @@ final class VectorIntrinsicExpression extends EditableSyntax {
     return new self($keyword, $left_bracket, $members, $right_bracket);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_left_bracket;
-    yield $this->_members;
-    yield $this->_right_bracket;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'left_bracket' => $this->_left_bracket;
+    yield 'members' => $this->_members;
+    yield 'right_bracket' => $this->_right_bracket;
   }
 
   public function rewrite(
@@ -13425,10 +13425,10 @@ final class ElementInitializer extends EditableSyntax {
     return new self($key, $arrow, $value);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_key;
-    yield $this->_arrow;
-    yield $this->_value;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'key' => $this->_key;
+    yield 'arrow' => $this->_arrow;
+    yield 'value' => $this->_value;
   }
 
   public function rewrite(
@@ -13530,11 +13530,11 @@ final class SubscriptExpression extends EditableSyntax {
     return new self($receiver, $left_bracket, $index, $right_bracket);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_receiver;
-    yield $this->_left_bracket;
-    yield $this->_index;
-    yield $this->_right_bracket;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'receiver' => $this->_receiver;
+    yield 'left_bracket' => $this->_left_bracket;
+    yield 'index' => $this->_index;
+    yield 'right_bracket' => $this->_right_bracket;
   }
 
   public function rewrite(
@@ -13658,11 +13658,11 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
     return new self($receiver, $left_bracket, $index, $right_bracket);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_receiver;
-    yield $this->_left_bracket;
-    yield $this->_index;
-    yield $this->_right_bracket;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'receiver' => $this->_receiver;
+    yield 'left_bracket' => $this->_left_bracket;
+    yield 'index' => $this->_index;
+    yield 'right_bracket' => $this->_right_bracket;
   }
 
   public function rewrite(
@@ -13777,10 +13777,10 @@ final class AwaitableCreationExpression extends EditableSyntax {
     return new self($async, $coroutine, $compound_statement);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_async;
-    yield $this->_coroutine;
-    yield $this->_compound_statement;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'async' => $this->_async;
+    yield 'coroutine' => $this->_coroutine;
+    yield 'compound_statement' => $this->_compound_statement;
   }
 
   public function rewrite(
@@ -13874,10 +13874,10 @@ final class XHPChildrenDeclaration extends EditableSyntax {
     return new self($keyword, $expression, $semicolon);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_expression;
-    yield $this->_semicolon;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'expression' => $this->_expression;
+    yield 'semicolon' => $this->_semicolon;
   }
 
   public function rewrite(
@@ -13970,10 +13970,10 @@ final class XHPChildrenParenthesizedList extends EditableSyntax {
     return new self($left_paren, $xhp_children, $right_paren);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_left_paren;
-    yield $this->_xhp_children;
-    yield $this->_right_paren;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'left_paren' => $this->_left_paren;
+    yield 'xhp_children' => $this->_xhp_children;
+    yield 'right_paren' => $this->_right_paren;
   }
 
   public function rewrite(
@@ -14066,10 +14066,10 @@ final class XHPCategoryDeclaration extends EditableSyntax {
     return new self($keyword, $categories, $semicolon);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_categories;
-    yield $this->_semicolon;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'categories' => $this->_categories;
+    yield 'semicolon' => $this->_semicolon;
   }
 
   public function rewrite(
@@ -14171,11 +14171,11 @@ final class XHPEnumType extends EditableSyntax {
     return new self($keyword, $left_brace, $values, $right_brace);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_left_brace;
-    yield $this->_values;
-    yield $this->_right_brace;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'left_brace' => $this->_left_brace;
+    yield 'values' => $this->_values;
+    yield 'right_brace' => $this->_right_brace;
   }
 
   public function rewrite(
@@ -14274,9 +14274,9 @@ final class XHPRequired extends EditableSyntax {
     return new self($at, $keyword);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_at;
-    yield $this->_keyword;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'at' => $this->_at;
+    yield 'keyword' => $this->_keyword;
   }
 
   public function rewrite(
@@ -14356,10 +14356,10 @@ final class XHPClassAttributeDeclaration extends EditableSyntax {
     return new self($keyword, $attributes, $semicolon);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_attributes;
-    yield $this->_semicolon;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'attributes' => $this->_attributes;
+    yield 'semicolon' => $this->_semicolon;
   }
 
   public function rewrite(
@@ -14461,11 +14461,11 @@ final class XHPClassAttribute extends EditableSyntax {
     return new self($type, $name, $initializer, $required);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_type;
-    yield $this->_name;
-    yield $this->_initializer;
-    yield $this->_required;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'type' => $this->_type;
+    yield 'name' => $this->_name;
+    yield 'initializer' => $this->_initializer;
+    yield 'required' => $this->_required;
   }
 
   public function rewrite(
@@ -14550,8 +14550,8 @@ final class XHPSimpleClassAttribute extends EditableSyntax {
     return new self($type);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_type;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'type' => $this->_type;
   }
 
   public function rewrite(
@@ -14622,10 +14622,10 @@ final class XHPAttribute extends EditableSyntax {
     return new self($name, $equal, $expression);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_name;
-    yield $this->_equal;
-    yield $this->_expression;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'name' => $this->_name;
+    yield 'equal' => $this->_equal;
+    yield 'expression' => $this->_expression;
   }
 
   public function rewrite(
@@ -14727,11 +14727,11 @@ final class XHPOpen extends EditableSyntax {
     return new self($left_angle, $name, $attributes, $right_angle);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_left_angle;
-    yield $this->_name;
-    yield $this->_attributes;
-    yield $this->_right_angle;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'left_angle' => $this->_left_angle;
+    yield 'name' => $this->_name;
+    yield 'attributes' => $this->_attributes;
+    yield 'right_angle' => $this->_right_angle;
   }
 
   public function rewrite(
@@ -14842,10 +14842,10 @@ final class XHPExpression extends EditableSyntax {
     return new self($open, $body, $close);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_open;
-    yield $this->_body;
-    yield $this->_close;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'open' => $this->_open;
+    yield 'body' => $this->_body;
+    yield 'close' => $this->_close;
   }
 
   public function rewrite(
@@ -14938,10 +14938,10 @@ final class XHPClose extends EditableSyntax {
     return new self($left_angle, $name, $right_angle);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_left_angle;
-    yield $this->_name;
-    yield $this->_right_angle;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'left_angle' => $this->_left_angle;
+    yield 'name' => $this->_name;
+    yield 'right_angle' => $this->_right_angle;
   }
 
   public function rewrite(
@@ -15034,10 +15034,10 @@ final class TypeConstant extends EditableSyntax {
     return new self($left_type, $separator, $right_type);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_left_type;
-    yield $this->_separator;
-    yield $this->_right_type;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'left_type' => $this->_left_type;
+    yield 'separator' => $this->_separator;
+    yield 'right_type' => $this->_right_type;
   }
 
   public function rewrite(
@@ -15149,12 +15149,12 @@ final class VectorTypeSpecifier extends EditableSyntax {
       new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_left_angle;
-    yield $this->_type;
-    yield $this->_trailing_comma;
-    yield $this->_right_angle;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'left_angle' => $this->_left_angle;
+    yield 'type' => $this->_type;
+    yield 'trailing_comma' => $this->_trailing_comma;
+    yield 'right_angle' => $this->_right_angle;
   }
 
   public function rewrite(
@@ -15318,12 +15318,12 @@ final class KeysetTypeSpecifier extends EditableSyntax {
       new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_left_angle;
-    yield $this->_type;
-    yield $this->_trailing_comma;
-    yield $this->_right_angle;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'left_angle' => $this->_left_angle;
+    yield 'type' => $this->_type;
+    yield 'trailing_comma' => $this->_trailing_comma;
+    yield 'right_angle' => $this->_right_angle;
   }
 
   public function rewrite(
@@ -15477,11 +15477,11 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
     return new self($keyword, $left_angle, $types, $right_angle);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_left_angle;
-    yield $this->_types;
-    yield $this->_right_angle;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'left_angle' => $this->_left_angle;
+    yield 'types' => $this->_types;
+    yield 'right_angle' => $this->_right_angle;
   }
 
   public function rewrite(
@@ -15610,12 +15610,12 @@ final class VarrayTypeSpecifier extends EditableSyntax {
       new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_left_angle;
-    yield $this->_type;
-    yield $this->_trailing_comma;
-    yield $this->_right_angle;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'left_angle' => $this->_left_angle;
+    yield 'type' => $this->_type;
+    yield 'trailing_comma' => $this->_trailing_comma;
+    yield 'right_angle' => $this->_right_angle;
   }
 
   public function rewrite(
@@ -15769,11 +15769,11 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
     return new self($keyword, $left_angle, $type, $right_angle);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_left_angle;
-    yield $this->_type;
-    yield $this->_right_angle;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'left_angle' => $this->_left_angle;
+    yield 'type' => $this->_type;
+    yield 'right_angle' => $this->_right_angle;
   }
 
   public function rewrite(
@@ -15882,10 +15882,10 @@ final class TypeParameter extends EditableSyntax {
     return new self($variance, $name, $constraints);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_variance;
-    yield $this->_name;
-    yield $this->_constraints;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'variance' => $this->_variance;
+    yield 'name' => $this->_name;
+    yield 'constraints' => $this->_constraints;
   }
 
   public function rewrite(
@@ -15966,9 +15966,9 @@ final class TypeConstraint extends EditableSyntax {
     return new self($keyword, $type);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_type;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'type' => $this->_type;
   }
 
   public function rewrite(
@@ -16092,14 +16092,14 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_left_angle;
-    yield $this->_key;
-    yield $this->_comma;
-    yield $this->_value;
-    yield $this->_trailing_comma;
-    yield $this->_right_angle;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'left_angle' => $this->_left_angle;
+    yield 'key' => $this->_key;
+    yield 'comma' => $this->_comma;
+    yield 'value' => $this->_value;
+    yield 'trailing_comma' => $this->_trailing_comma;
+    yield 'right_angle' => $this->_right_angle;
   }
 
   public function rewrite(
@@ -16324,13 +16324,13 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     return new self($keyword, $left_angle, $key, $comma, $value, $right_angle);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_left_angle;
-    yield $this->_key;
-    yield $this->_comma;
-    yield $this->_value;
-    yield $this->_right_angle;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'left_angle' => $this->_left_angle;
+    yield 'key' => $this->_key;
+    yield 'comma' => $this->_comma;
+    yield 'value' => $this->_value;
+    yield 'right_angle' => $this->_right_angle;
   }
 
   public function rewrite(
@@ -16505,11 +16505,11 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
     return new self($keyword, $left_angle, $members, $right_angle);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_left_angle;
-    yield $this->_members;
-    yield $this->_right_angle;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'left_angle' => $this->_left_angle;
+    yield 'members' => $this->_members;
+    yield 'right_angle' => $this->_right_angle;
   }
 
   public function rewrite(
@@ -16688,16 +16688,16 @@ final class ClosureTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_outer_left_paren;
-    yield $this->_coroutine;
-    yield $this->_function_keyword;
-    yield $this->_inner_left_paren;
-    yield $this->_parameter_types;
-    yield $this->_inner_right_paren;
-    yield $this->_colon;
-    yield $this->_return_type;
-    yield $this->_outer_right_paren;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'outer_left_paren' => $this->_outer_left_paren;
+    yield 'coroutine' => $this->_coroutine;
+    yield 'function_keyword' => $this->_function_keyword;
+    yield 'inner_left_paren' => $this->_inner_left_paren;
+    yield 'parameter_types' => $this->_parameter_types;
+    yield 'inner_right_paren' => $this->_inner_right_paren;
+    yield 'colon' => $this->_colon;
+    yield 'return_type' => $this->_return_type;
+    yield 'outer_right_paren' => $this->_outer_right_paren;
   }
 
   public function rewrite(
@@ -16975,12 +16975,12 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
       new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_left_angle;
-    yield $this->_type;
-    yield $this->_trailing_comma;
-    yield $this->_right_angle;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'left_angle' => $this->_left_angle;
+    yield 'type' => $this->_type;
+    yield 'trailing_comma' => $this->_trailing_comma;
+    yield 'right_angle' => $this->_right_angle;
   }
 
   public function rewrite(
@@ -17134,11 +17134,11 @@ final class FieldSpecifier extends EditableSyntax {
     return new self($question, $name, $arrow, $type);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_question;
-    yield $this->_name;
-    yield $this->_arrow;
-    yield $this->_type;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'question' => $this->_question;
+    yield 'name' => $this->_name;
+    yield 'arrow' => $this->_arrow;
+    yield 'type' => $this->_type;
   }
 
   public function rewrite(
@@ -17241,10 +17241,10 @@ final class FieldInitializer extends EditableSyntax {
     return new self($name, $arrow, $value);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_name;
-    yield $this->_arrow;
-    yield $this->_value;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'name' => $this->_name;
+    yield 'arrow' => $this->_arrow;
+    yield 'value' => $this->_value;
   }
 
   public function rewrite(
@@ -17355,12 +17355,12 @@ final class ShapeTypeSpecifier extends EditableSyntax {
     return new self($keyword, $left_paren, $fields, $ellipsis, $right_paren);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_left_paren;
-    yield $this->_fields;
-    yield $this->_ellipsis;
-    yield $this->_right_paren;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'left_paren' => $this->_left_paren;
+    yield 'fields' => $this->_fields;
+    yield 'ellipsis' => $this->_ellipsis;
+    yield 'right_paren' => $this->_right_paren;
   }
 
   public function rewrite(
@@ -17512,11 +17512,11 @@ final class ShapeExpression extends EditableSyntax {
     return new self($keyword, $left_paren, $fields, $right_paren);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_left_paren;
-    yield $this->_fields;
-    yield $this->_right_paren;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'left_paren' => $this->_left_paren;
+    yield 'fields' => $this->_fields;
+    yield 'right_paren' => $this->_right_paren;
   }
 
   public function rewrite(
@@ -17636,11 +17636,11 @@ final class TupleExpression extends EditableSyntax {
     return new self($keyword, $left_paren, $items, $right_paren);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_keyword;
-    yield $this->_left_paren;
-    yield $this->_items;
-    yield $this->_right_paren;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'keyword' => $this->_keyword;
+    yield 'left_paren' => $this->_left_paren;
+    yield 'items' => $this->_items;
+    yield 'right_paren' => $this->_right_paren;
   }
 
   public function rewrite(
@@ -17741,9 +17741,9 @@ final class GenericTypeSpecifier extends EditableSyntax {
     return new self($class_type, $argument_list);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_class_type;
-    yield $this->_argument_list;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'class_type' => $this->_class_type;
+    yield 'argument_list' => $this->_argument_list;
   }
 
   public function rewrite(
@@ -17814,9 +17814,9 @@ final class NullableTypeSpecifier extends EditableSyntax {
     return new self($question, $type);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_question;
-    yield $this->_type;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'question' => $this->_question;
+    yield 'type' => $this->_type;
   }
 
   public function rewrite(
@@ -17884,9 +17884,9 @@ final class SoftTypeSpecifier extends EditableSyntax {
     return new self($at, $type);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_at;
-    yield $this->_type;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'at' => $this->_at;
+    yield 'type' => $this->_type;
   }
 
   public function rewrite(
@@ -17966,10 +17966,10 @@ final class TypeArguments extends EditableSyntax {
     return new self($left_angle, $types, $right_angle);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_left_angle;
-    yield $this->_types;
-    yield $this->_right_angle;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'left_angle' => $this->_left_angle;
+    yield 'types' => $this->_types;
+    yield 'right_angle' => $this->_right_angle;
   }
 
   public function rewrite(
@@ -18062,10 +18062,10 @@ final class TypeParameters extends EditableSyntax {
     return new self($left_angle, $parameters, $right_angle);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_left_angle;
-    yield $this->_parameters;
-    yield $this->_right_angle;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'left_angle' => $this->_left_angle;
+    yield 'parameters' => $this->_parameters;
+    yield 'right_angle' => $this->_right_angle;
   }
 
   public function rewrite(
@@ -18158,10 +18158,10 @@ final class TupleTypeSpecifier extends EditableSyntax {
     return new self($left_paren, $types, $right_paren);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_left_paren;
-    yield $this->_types;
-    yield $this->_right_paren;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'left_paren' => $this->_left_paren;
+    yield 'types' => $this->_types;
+    yield 'right_paren' => $this->_right_paren;
   }
 
   public function rewrite(
@@ -18234,8 +18234,8 @@ final class ErrorSyntax extends EditableSyntax {
     return new self($error);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_error;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'error' => $this->_error;
   }
 
   public function rewrite(
@@ -18294,9 +18294,9 @@ final class ListItem extends EditableSyntax {
     return new self($item, $separator);
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    yield $this->_item;
-    yield $this->_separator;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    yield 'item' => $this->_item;
+    yield 'separator' => $this->_separator;
   }
 
   public function rewrite(

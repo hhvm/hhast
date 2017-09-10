@@ -48,8 +48,12 @@ final class EditableList extends EditableSyntax
     return $this->_children;
   }
 
-  public function children(): Traversable<EditableSyntax> {
-    return $this->_children;
+  public function children(): KeyedTraversable<string, EditableSyntax> {
+    $i = 0;
+    foreach ($this->_children as $child) {
+      yield (string) $i => $child;
+      $i++;
+    }
   }
 
   /* TODO: Getter by index? */
@@ -81,11 +85,11 @@ final class EditableList extends EditableSyntax
     string $source,
   ): this {
     // TODO Implement array map
-    $children = [];
+    $children = vec[];
     $current_position = $position;
     foreach (/* UNSAFE_EXPR */$json['elements'] as $element) {
       $child = EditableSyntax::from_json($element, $current_position, $source);
-      array_push($children, $child);
+      $children[] = $child;
       $current_position += $child->width();
     }
     return new EditableList($children);

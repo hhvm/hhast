@@ -50,7 +50,7 @@ abstract class EditableToken extends EditableSyntax {
     return $this->_trailing;
   }
 
-  public function children(): KeyedIterator<string, EditableSyntax> {
+  public function children(): KeyedTraversable<string, EditableSyntax> {
     yield 'leading' => $this->leading();
     yield 'trailing' => $this->trailing();
   }

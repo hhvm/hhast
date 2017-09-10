@@ -160,14 +160,18 @@ final class CodegenSyntax extends CodegenBase {
 
     return $cg
       ->codegenMethod('children')
-      ->setReturnType('Traversable<EditableSyntax>')
+      ->setReturnType('KeyedTraversable<string, EditableSyntax>')
       ->setBody(
         $cg
           ->codegenHackBuilder()
           ->addLines(
             Vec\map(
               $syntax['fields'],
-              $field ==> 'yield $this->_'.$field['field_name'].';',
+              $field ==> sprintf(
+                'yield %s => $this->_%s;',
+                var_export($field['field_name'], true),
+                $field['field_name'],
+              ),
             ),
           )
           ->getCode(),

@@ -21,7 +21,7 @@ use type Facebook\HackCodegen\{
 use namespace HH\Lib\{C, Dict, Str};
 
 abstract class CodegenBase {
-  final public function __construct(private Schema\TSchema $schema) {
+  public function __construct(private Schema\TSchema $schema) {
   }
 
   abstract public function generate(): void;
@@ -66,7 +66,8 @@ abstract class CodegenBase {
     return $ret;
   }
 
-  private function getSchemaASTByKindName(): dict<string, Schema\TAST> {
+  <<__Memoize>>
+  protected function getSchemaASTByKindName(): dict<string, Schema\TAST> {
     return Dict\pull($this->schema['AST'], $v ==> $v, $v ==> $v['kind_name']);
   }
 
