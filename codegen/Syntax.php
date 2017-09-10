@@ -2,9 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b5bc35da0fbf118299a8b4f8eef3fbc5>>
+ * @generated SignedSource<<c1f5d41b14b928e957905f5a8bdcebf5>>
  */
 namespace Facebook\HHAST;
+use type Facebook\TypeAssert\TypeAssert;
 
 final class EndOfFile extends EditableSyntax {
 
@@ -49,7 +50,15 @@ final class EndOfFile extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function token(): EditableSyntax {
+  public function token(): EndOfFileToken {
+    return $this->tokenx();
+  }
+
+  public function tokenx(): EndOfFileToken {
+    return TypeAssert::isInstanceOf(EndOfFileToken::class, $this->_token);
+  }
+
+  public function raw_token(): EditableSyntax {
     return $this->_token;
   }
 
@@ -101,7 +110,15 @@ final class Script extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function declarations(): EditableSyntax {
+  public function declarations(): EditableList {
+    return $this->declarationsx();
+  }
+
+  public function declarationsx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_declarations);
+  }
+
+  public function raw_declarations(): EditableSyntax {
     return $this->_declarations;
   }
 
@@ -153,7 +170,15 @@ final class SimpleTypeSpecifier extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function specifier(): EditableSyntax {
+  public function specifier(): EditableToken {
+    return $this->specifierx();
+  }
+
+  public function specifierx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_specifier);
+  }
+
+  public function raw_specifier(): EditableSyntax {
     return $this->_specifier;
   }
 
@@ -205,7 +230,15 @@ final class LiteralExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function expression(): EditableSyntax {
+  public function expression(): EditableToken {
+    return $this->expressionx();
+  }
+
+  public function expressionx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_expression);
+  }
+
+  public function raw_expression(): EditableSyntax {
     return $this->_expression;
   }
 
@@ -257,7 +290,15 @@ final class VariableExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function expression(): EditableSyntax {
+  public function expression(): EditableToken {
+    return $this->expressionx();
+  }
+
+  public function expressionx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_expression);
+  }
+
+  public function raw_expression(): EditableSyntax {
     return $this->_expression;
   }
 
@@ -309,7 +350,15 @@ final class QualifiedNameExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function expression(): EditableSyntax {
+  public function expression(): EditableToken {
+    return $this->expressionx();
+  }
+
+  public function expressionx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_expression);
+  }
+
+  public function raw_expression(): EditableSyntax {
     return $this->_expression;
   }
 
@@ -361,7 +410,15 @@ final class PipeVariableExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function expression(): EditableSyntax {
+  public function expression(): EditableToken {
+    return $this->expressionx();
+  }
+
+  public function expressionx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_expression);
+  }
+
+  public function raw_expression(): EditableSyntax {
     return $this->_expression;
   }
 
@@ -534,7 +591,16 @@ final class EnumDeclaration extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function attribute_spec(): EditableSyntax {
+  public function attribute_spec(): EditableToken {
+    return $this->attribute_specx();
+  }
+
+  public function attribute_specx(): EditableToken {
+    return
+      TypeAssert::isInstanceOf(EditableToken::class, $this->_attribute_spec);
+  }
+
+  public function raw_attribute_spec(): EditableSyntax {
     return $this->_attribute_spec;
   }
 
@@ -552,7 +618,15 @@ final class EnumDeclaration extends EditableSyntax {
     );
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): EnumToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): EnumToken {
+    return TypeAssert::isInstanceOf(EnumToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -570,7 +644,15 @@ final class EnumDeclaration extends EditableSyntax {
     );
   }
 
-  public function name(): EditableSyntax {
+  public function name(): NameToken {
+    return $this->namex();
+  }
+
+  public function namex(): NameToken {
+    return TypeAssert::isInstanceOf(NameToken::class, $this->_name);
+  }
+
+  public function raw_name(): EditableSyntax {
     return $this->_name;
   }
 
@@ -588,7 +670,15 @@ final class EnumDeclaration extends EditableSyntax {
     );
   }
 
-  public function colon(): EditableSyntax {
+  public function colon(): ColonToken {
+    return $this->colonx();
+  }
+
+  public function colonx(): ColonToken {
+    return TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
+  }
+
+  public function raw_colon(): EditableSyntax {
     return $this->_colon;
   }
 
@@ -606,7 +696,15 @@ final class EnumDeclaration extends EditableSyntax {
     );
   }
 
-  public function base(): EditableSyntax {
+  public function base(): EditableToken {
+    return $this->basex();
+  }
+
+  public function basex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_base);
+  }
+
+  public function raw_base(): EditableSyntax {
     return $this->_base;
   }
 
@@ -624,7 +722,17 @@ final class EnumDeclaration extends EditableSyntax {
     );
   }
 
-  public function type(): EditableSyntax {
+  public function type(): ?TypeConstraint {
+    return $this->_type->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(TypeConstraint::class, $this->_type);
+  }
+
+  public function typex(): TypeConstraint {
+    return TypeAssert::isInstanceOf(TypeConstraint::class, $this->_type);
+  }
+
+  public function raw_type(): EditableSyntax {
     return $this->_type;
   }
 
@@ -642,7 +750,15 @@ final class EnumDeclaration extends EditableSyntax {
     );
   }
 
-  public function left_brace(): EditableSyntax {
+  public function left_brace(): LeftBraceToken {
+    return $this->left_bracex();
+  }
+
+  public function left_bracex(): LeftBraceToken {
+    return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
+  }
+
+  public function raw_left_brace(): EditableSyntax {
     return $this->_left_brace;
   }
 
@@ -660,7 +776,17 @@ final class EnumDeclaration extends EditableSyntax {
     );
   }
 
-  public function enumerators(): EditableSyntax {
+  public function enumerators(): ?EditableList {
+    return $this->_enumerators->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_enumerators);
+  }
+
+  public function enumeratorsx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_enumerators);
+  }
+
+  public function raw_enumerators(): EditableSyntax {
     return $this->_enumerators;
   }
 
@@ -678,7 +804,16 @@ final class EnumDeclaration extends EditableSyntax {
     );
   }
 
-  public function right_brace(): EditableSyntax {
+  public function right_brace(): RightBraceToken {
+    return $this->right_bracex();
+  }
+
+  public function right_bracex(): RightBraceToken {
+    return
+      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+  }
+
+  public function raw_right_brace(): EditableSyntax {
     return $this->_right_brace;
   }
 
@@ -780,7 +915,15 @@ final class Enumerator extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function name(): EditableSyntax {
+  public function name(): NameToken {
+    return $this->namex();
+  }
+
+  public function namex(): NameToken {
+    return TypeAssert::isInstanceOf(NameToken::class, $this->_name);
+  }
+
+  public function raw_name(): EditableSyntax {
     return $this->_name;
   }
 
@@ -788,7 +931,15 @@ final class Enumerator extends EditableSyntax {
     return new self($value, $this->_equal, $this->_value, $this->_semicolon);
   }
 
-  public function equal(): EditableSyntax {
+  public function equal(): EqualToken {
+    return $this->equalx();
+  }
+
+  public function equalx(): EqualToken {
+    return TypeAssert::isInstanceOf(EqualToken::class, $this->_equal);
+  }
+
+  public function raw_equal(): EditableSyntax {
     return $this->_equal;
   }
 
@@ -796,7 +947,15 @@ final class Enumerator extends EditableSyntax {
     return new self($this->_name, $value, $this->_value, $this->_semicolon);
   }
 
-  public function value(): EditableSyntax {
+  public function value(): EditableToken {
+    return $this->valuex();
+  }
+
+  public function valuex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_value);
+  }
+
+  public function raw_value(): EditableSyntax {
     return $this->_value;
   }
 
@@ -804,7 +963,15 @@ final class Enumerator extends EditableSyntax {
     return new self($this->_name, $this->_equal, $value, $this->_semicolon);
   }
 
-  public function semicolon(): EditableSyntax {
+  public function semicolon(): SemicolonToken {
+    return $this->semicolonx();
+  }
+
+  public function semicolonx(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function raw_semicolon(): EditableSyntax {
     return $this->_semicolon;
   }
 
@@ -964,7 +1131,23 @@ final class AliasDeclaration extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function attribute_spec(): EditableSyntax {
+  public function attribute_spec(): ?AttributeSpecification {
+    return $this->_attribute_spec->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(
+          AttributeSpecification::class,
+          $this->_attribute_spec,
+        );
+  }
+
+  public function attribute_specx(): AttributeSpecification {
+    return TypeAssert::isInstanceOf(
+      AttributeSpecification::class,
+      $this->_attribute_spec,
+    );
+  }
+
+  public function raw_attribute_spec(): EditableSyntax {
     return $this->_attribute_spec;
   }
 
@@ -981,7 +1164,15 @@ final class AliasDeclaration extends EditableSyntax {
     );
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): EditableToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -998,7 +1189,17 @@ final class AliasDeclaration extends EditableSyntax {
     );
   }
 
-  public function name(): EditableSyntax {
+  public function name(): ?NameToken {
+    return $this->_name->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(NameToken::class, $this->_name);
+  }
+
+  public function namex(): NameToken {
+    return TypeAssert::isInstanceOf(NameToken::class, $this->_name);
+  }
+
+  public function raw_name(): EditableSyntax {
     return $this->_name;
   }
 
@@ -1015,7 +1216,23 @@ final class AliasDeclaration extends EditableSyntax {
     );
   }
 
-  public function generic_parameter(): EditableSyntax {
+  public function generic_parameter(): ?TypeParameters {
+    return $this->_generic_parameter->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(
+          TypeParameters::class,
+          $this->_generic_parameter,
+        );
+  }
+
+  public function generic_parameterx(): TypeParameters {
+    return TypeAssert::isInstanceOf(
+      TypeParameters::class,
+      $this->_generic_parameter,
+    );
+  }
+
+  public function raw_generic_parameter(): EditableSyntax {
     return $this->_generic_parameter;
   }
 
@@ -1032,7 +1249,17 @@ final class AliasDeclaration extends EditableSyntax {
     );
   }
 
-  public function constraint(): EditableSyntax {
+  public function constraint(): ?TypeConstraint {
+    return $this->_constraint->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(TypeConstraint::class, $this->_constraint);
+  }
+
+  public function constraintx(): TypeConstraint {
+    return TypeAssert::isInstanceOf(TypeConstraint::class, $this->_constraint);
+  }
+
+  public function raw_constraint(): EditableSyntax {
     return $this->_constraint;
   }
 
@@ -1049,7 +1276,17 @@ final class AliasDeclaration extends EditableSyntax {
     );
   }
 
-  public function equal(): EditableSyntax {
+  public function equal(): ?EqualToken {
+    return $this->_equal->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EqualToken::class, $this->_equal);
+  }
+
+  public function equalx(): EqualToken {
+    return TypeAssert::isInstanceOf(EqualToken::class, $this->_equal);
+  }
+
+  public function raw_equal(): EditableSyntax {
     return $this->_equal;
   }
 
@@ -1066,7 +1303,15 @@ final class AliasDeclaration extends EditableSyntax {
     );
   }
 
-  public function type(): EditableSyntax {
+  public function type(): EditableToken {
+    return $this->typex();
+  }
+
+  public function typex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_type);
+  }
+
+  public function raw_type(): EditableSyntax {
     return $this->_type;
   }
 
@@ -1083,7 +1328,15 @@ final class AliasDeclaration extends EditableSyntax {
     );
   }
 
-  public function semicolon(): EditableSyntax {
+  public function semicolon(): SemicolonToken {
+    return $this->semicolonx();
+  }
+
+  public function semicolonx(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function raw_semicolon(): EditableSyntax {
     return $this->_semicolon;
   }
 
@@ -1184,7 +1437,15 @@ final class PropertyDeclaration extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function modifiers(): EditableSyntax {
+  public function modifiers(): EditableToken {
+    return $this->modifiersx();
+  }
+
+  public function modifiersx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_modifiers);
+  }
+
+  public function raw_modifiers(): EditableSyntax {
     return $this->_modifiers;
   }
 
@@ -1193,7 +1454,15 @@ final class PropertyDeclaration extends EditableSyntax {
       new self($value, $this->_type, $this->_declarators, $this->_semicolon);
   }
 
-  public function type(): EditableSyntax {
+  public function type(): EditableToken {
+    return $this->typex();
+  }
+
+  public function typex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_type);
+  }
+
+  public function raw_type(): EditableSyntax {
     return $this->_type;
   }
 
@@ -1206,7 +1475,15 @@ final class PropertyDeclaration extends EditableSyntax {
     );
   }
 
-  public function declarators(): EditableSyntax {
+  public function declarators(): EditableList {
+    return $this->declaratorsx();
+  }
+
+  public function declaratorsx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_declarators);
+  }
+
+  public function raw_declarators(): EditableSyntax {
     return $this->_declarators;
   }
 
@@ -1214,7 +1491,17 @@ final class PropertyDeclaration extends EditableSyntax {
     return new self($this->_modifiers, $this->_type, $value, $this->_semicolon);
   }
 
-  public function semicolon(): EditableSyntax {
+  public function semicolon(): ?SemicolonToken {
+    return $this->_semicolon->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function semicolonx(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function raw_semicolon(): EditableSyntax {
     return $this->_semicolon;
   }
 
@@ -1280,7 +1567,17 @@ final class PropertyDeclarator extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function name(): EditableSyntax {
+  public function name(): ?VariableToken {
+    return $this->_name->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(VariableToken::class, $this->_name);
+  }
+
+  public function namex(): VariableToken {
+    return TypeAssert::isInstanceOf(VariableToken::class, $this->_name);
+  }
+
+  public function raw_name(): EditableSyntax {
     return $this->_name;
   }
 
@@ -1288,7 +1585,18 @@ final class PropertyDeclarator extends EditableSyntax {
     return new self($value, $this->_initializer);
   }
 
-  public function initializer(): EditableSyntax {
+  public function initializer(): ?SimpleInitializer {
+    return $this->_initializer->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
+  }
+
+  public function initializerx(): SimpleInitializer {
+    return
+      TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
+  }
+
+  public function raw_initializer(): EditableSyntax {
     return $this->_initializer;
   }
 
@@ -1368,7 +1676,15 @@ final class NamespaceDeclaration extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): NamespaceToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): NamespaceToken {
+    return TypeAssert::isInstanceOf(NamespaceToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -1376,7 +1692,15 @@ final class NamespaceDeclaration extends EditableSyntax {
     return new self($value, $this->_name, $this->_body);
   }
 
-  public function name(): EditableSyntax {
+  public function name(): EditableToken {
+    return $this->namex();
+  }
+
+  public function namex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+  }
+
+  public function raw_name(): EditableSyntax {
     return $this->_name;
   }
 
@@ -1384,7 +1708,15 @@ final class NamespaceDeclaration extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_body);
   }
 
-  public function body(): EditableSyntax {
+  public function body(): EditableToken {
+    return $this->bodyx();
+  }
+
+  public function bodyx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_body);
+  }
+
+  public function raw_body(): EditableSyntax {
     return $this->_body;
   }
 
@@ -1464,7 +1796,15 @@ final class NamespaceBody extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function left_brace(): EditableSyntax {
+  public function left_brace(): LeftBraceToken {
+    return $this->left_bracex();
+  }
+
+  public function left_bracex(): LeftBraceToken {
+    return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
+  }
+
+  public function raw_left_brace(): EditableSyntax {
     return $this->_left_brace;
   }
 
@@ -1472,7 +1812,17 @@ final class NamespaceBody extends EditableSyntax {
     return new self($value, $this->_declarations, $this->_right_brace);
   }
 
-  public function declarations(): EditableSyntax {
+  public function declarations(): ?EditableList {
+    return $this->_declarations->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_declarations);
+  }
+
+  public function declarationsx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_declarations);
+  }
+
+  public function raw_declarations(): EditableSyntax {
     return $this->_declarations;
   }
 
@@ -1480,7 +1830,18 @@ final class NamespaceBody extends EditableSyntax {
     return new self($this->_left_brace, $value, $this->_right_brace);
   }
 
-  public function right_brace(): EditableSyntax {
+  public function right_brace(): ?RightBraceToken {
+    return $this->_right_brace->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+  }
+
+  public function right_bracex(): RightBraceToken {
+    return
+      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+  }
+
+  public function raw_right_brace(): EditableSyntax {
     return $this->_right_brace;
   }
 
@@ -1532,7 +1893,15 @@ final class NamespaceEmptyBody extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function semicolon(): EditableSyntax {
+  public function semicolon(): SemicolonToken {
+    return $this->semicolonx();
+  }
+
+  public function semicolonx(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function raw_semicolon(): EditableSyntax {
     return $this->_semicolon;
   }
 
@@ -1624,7 +1993,15 @@ final class NamespaceUseDeclaration extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): UseToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): UseToken {
+    return TypeAssert::isInstanceOf(UseToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -1632,7 +2009,15 @@ final class NamespaceUseDeclaration extends EditableSyntax {
     return new self($value, $this->_kind, $this->_clauses, $this->_semicolon);
   }
 
-  public function kind(): EditableSyntax {
+  public function kind(): EditableToken {
+    return $this->kindx();
+  }
+
+  public function kindx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_kind);
+  }
+
+  public function raw_kind(): EditableSyntax {
     return $this->_kind;
   }
 
@@ -1641,7 +2026,15 @@ final class NamespaceUseDeclaration extends EditableSyntax {
       new self($this->_keyword, $value, $this->_clauses, $this->_semicolon);
   }
 
-  public function clauses(): EditableSyntax {
+  public function clauses(): EditableList {
+    return $this->clausesx();
+  }
+
+  public function clausesx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_clauses);
+  }
+
+  public function raw_clauses(): EditableSyntax {
     return $this->_clauses;
   }
 
@@ -1649,7 +2042,17 @@ final class NamespaceUseDeclaration extends EditableSyntax {
     return new self($this->_keyword, $this->_kind, $value, $this->_semicolon);
   }
 
-  public function semicolon(): EditableSyntax {
+  public function semicolon(): ?SemicolonToken {
+    return $this->_semicolon->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function semicolonx(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function raw_semicolon(): EditableSyntax {
     return $this->_semicolon;
   }
 
@@ -1793,7 +2196,15 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): UseToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): UseToken {
+    return TypeAssert::isInstanceOf(UseToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -1809,7 +2220,15 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
     );
   }
 
-  public function kind(): EditableSyntax {
+  public function kind(): EditableToken {
+    return $this->kindx();
+  }
+
+  public function kindx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_kind);
+  }
+
+  public function raw_kind(): EditableSyntax {
     return $this->_kind;
   }
 
@@ -1825,7 +2244,16 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
     );
   }
 
-  public function prefix(): EditableSyntax {
+  public function prefix(): NamespacePrefixToken {
+    return $this->prefixx();
+  }
+
+  public function prefixx(): NamespacePrefixToken {
+    return
+      TypeAssert::isInstanceOf(NamespacePrefixToken::class, $this->_prefix);
+  }
+
+  public function raw_prefix(): EditableSyntax {
     return $this->_prefix;
   }
 
@@ -1841,7 +2269,15 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
     );
   }
 
-  public function left_brace(): EditableSyntax {
+  public function left_brace(): LeftBraceToken {
+    return $this->left_bracex();
+  }
+
+  public function left_bracex(): LeftBraceToken {
+    return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
+  }
+
+  public function raw_left_brace(): EditableSyntax {
     return $this->_left_brace;
   }
 
@@ -1857,7 +2293,15 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
     );
   }
 
-  public function clauses(): EditableSyntax {
+  public function clauses(): EditableList {
+    return $this->clausesx();
+  }
+
+  public function clausesx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_clauses);
+  }
+
+  public function raw_clauses(): EditableSyntax {
     return $this->_clauses;
   }
 
@@ -1873,7 +2317,18 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
     );
   }
 
-  public function right_brace(): EditableSyntax {
+  public function right_brace(): ?RightBraceToken {
+    return $this->_right_brace->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+  }
+
+  public function right_bracex(): RightBraceToken {
+    return
+      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+  }
+
+  public function raw_right_brace(): EditableSyntax {
     return $this->_right_brace;
   }
 
@@ -1889,7 +2344,17 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
     );
   }
 
-  public function semicolon(): EditableSyntax {
+  public function semicolon(): ?SemicolonToken {
+    return $this->_semicolon->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function semicolonx(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function raw_semicolon(): EditableSyntax {
     return $this->_semicolon;
   }
 
@@ -1989,7 +2454,15 @@ final class NamespaceUseClause extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function clause_kind(): EditableSyntax {
+  public function clause_kind(): EditableToken {
+    return $this->clause_kindx();
+  }
+
+  public function clause_kindx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_clause_kind);
+  }
+
+  public function raw_clause_kind(): EditableSyntax {
     return $this->_clause_kind;
   }
 
@@ -1997,7 +2470,15 @@ final class NamespaceUseClause extends EditableSyntax {
     return new self($value, $this->_name, $this->_as, $this->_alias);
   }
 
-  public function name(): EditableSyntax {
+  public function name(): EditableToken {
+    return $this->namex();
+  }
+
+  public function namex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+  }
+
+  public function raw_name(): EditableSyntax {
     return $this->_name;
   }
 
@@ -2005,7 +2486,17 @@ final class NamespaceUseClause extends EditableSyntax {
     return new self($this->_clause_kind, $value, $this->_as, $this->_alias);
   }
 
-  public function as(): EditableSyntax {
+  public function as(): ?AsToken {
+    return $this->_as->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(AsToken::class, $this->_as);
+  }
+
+  public function asx(): AsToken {
+    return TypeAssert::isInstanceOf(AsToken::class, $this->_as);
+  }
+
+  public function raw_as(): EditableSyntax {
     return $this->_as;
   }
 
@@ -2013,7 +2504,17 @@ final class NamespaceUseClause extends EditableSyntax {
     return new self($this->_clause_kind, $this->_name, $value, $this->_alias);
   }
 
-  public function alias(): EditableSyntax {
+  public function alias(): ?NameToken {
+    return $this->_alias->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(NameToken::class, $this->_alias);
+  }
+
+  public function aliasx(): NameToken {
+    return TypeAssert::isInstanceOf(NameToken::class, $this->_alias);
+  }
+
+  public function raw_alias(): EditableSyntax {
     return $this->_alias;
   }
 
@@ -2095,7 +2596,23 @@ final class FunctionDeclaration extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function attribute_spec(): EditableSyntax {
+  public function attribute_spec(): ?AttributeSpecification {
+    return $this->_attribute_spec->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(
+          AttributeSpecification::class,
+          $this->_attribute_spec,
+        );
+  }
+
+  public function attribute_specx(): AttributeSpecification {
+    return TypeAssert::isInstanceOf(
+      AttributeSpecification::class,
+      $this->_attribute_spec,
+    );
+  }
+
+  public function raw_attribute_spec(): EditableSyntax {
     return $this->_attribute_spec;
   }
 
@@ -2103,7 +2620,18 @@ final class FunctionDeclaration extends EditableSyntax {
     return new self($value, $this->_declaration_header, $this->_body);
   }
 
-  public function declaration_header(): EditableSyntax {
+  public function declaration_header(): FunctionDeclarationHeader {
+    return $this->declaration_headerx();
+  }
+
+  public function declaration_headerx(): FunctionDeclarationHeader {
+    return TypeAssert::isInstanceOf(
+      FunctionDeclarationHeader::class,
+      $this->_declaration_header,
+    );
+  }
+
+  public function raw_declaration_header(): EditableSyntax {
     return $this->_declaration_header;
   }
 
@@ -2111,7 +2639,15 @@ final class FunctionDeclaration extends EditableSyntax {
     return new self($this->_attribute_spec, $value, $this->_body);
   }
 
-  public function body(): EditableSyntax {
+  public function body(): EditableToken {
+    return $this->bodyx();
+  }
+
+  public function bodyx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_body);
+  }
+
+  public function raw_body(): EditableSyntax {
     return $this->_body;
   }
 
@@ -2327,7 +2863,17 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function async(): EditableSyntax {
+  public function async(): ?AsyncToken {
+    return $this->_async->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(AsyncToken::class, $this->_async);
+  }
+
+  public function asyncx(): AsyncToken {
+    return TypeAssert::isInstanceOf(AsyncToken::class, $this->_async);
+  }
+
+  public function raw_async(): EditableSyntax {
     return $this->_async;
   }
 
@@ -2348,7 +2894,15 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     );
   }
 
-  public function coroutine(): EditableSyntax {
+  public function coroutine(): EditableToken {
+    return $this->coroutinex();
+  }
+
+  public function coroutinex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_coroutine);
+  }
+
+  public function raw_coroutine(): EditableSyntax {
     return $this->_coroutine;
   }
 
@@ -2369,7 +2923,17 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     );
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): ?FunctionToken {
+    return $this->_keyword->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(FunctionToken::class, $this->_keyword);
+  }
+
+  public function keywordx(): FunctionToken {
+    return TypeAssert::isInstanceOf(FunctionToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -2390,7 +2954,17 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     );
   }
 
-  public function ampersand(): EditableSyntax {
+  public function ampersand(): ?AmpersandToken {
+    return $this->_ampersand->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(AmpersandToken::class, $this->_ampersand);
+  }
+
+  public function ampersandx(): AmpersandToken {
+    return TypeAssert::isInstanceOf(AmpersandToken::class, $this->_ampersand);
+  }
+
+  public function raw_ampersand(): EditableSyntax {
     return $this->_ampersand;
   }
 
@@ -2411,7 +2985,15 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     );
   }
 
-  public function name(): EditableSyntax {
+  public function name(): EditableToken {
+    return $this->namex();
+  }
+
+  public function namex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+  }
+
+  public function raw_name(): EditableSyntax {
     return $this->_name;
   }
 
@@ -2432,7 +3014,23 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     );
   }
 
-  public function type_parameter_list(): EditableSyntax {
+  public function type_parameter_list(): ?TypeParameters {
+    return $this->_type_parameter_list->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(
+          TypeParameters::class,
+          $this->_type_parameter_list,
+        );
+  }
+
+  public function type_parameter_listx(): TypeParameters {
+    return TypeAssert::isInstanceOf(
+      TypeParameters::class,
+      $this->_type_parameter_list,
+    );
+  }
+
+  public function raw_type_parameter_list(): EditableSyntax {
     return $this->_type_parameter_list;
   }
 
@@ -2453,7 +3051,17 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     );
   }
 
-  public function left_paren(): EditableSyntax {
+  public function left_paren(): ?LeftParenToken {
+    return $this->_left_paren->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  }
+
+  public function left_parenx(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  }
+
+  public function raw_left_paren(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -2474,7 +3082,18 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     );
   }
 
-  public function parameter_list(): EditableSyntax {
+  public function parameter_list(): ?EditableList {
+    return $this->_parameter_list->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_parameter_list);
+  }
+
+  public function parameter_listx(): EditableList {
+    return
+      TypeAssert::isInstanceOf(EditableList::class, $this->_parameter_list);
+  }
+
+  public function raw_parameter_list(): EditableSyntax {
     return $this->_parameter_list;
   }
 
@@ -2495,7 +3114,18 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     );
   }
 
-  public function right_paren(): EditableSyntax {
+  public function right_paren(): ?RightParenToken {
+    return $this->_right_paren->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function right_parenx(): RightParenToken {
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function raw_right_paren(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -2516,7 +3146,17 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     );
   }
 
-  public function colon(): EditableSyntax {
+  public function colon(): ?ColonToken {
+    return $this->_colon->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
+  }
+
+  public function colonx(): ColonToken {
+    return TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
+  }
+
+  public function raw_colon(): EditableSyntax {
     return $this->_colon;
   }
 
@@ -2537,7 +3177,15 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     );
   }
 
-  public function type(): EditableSyntax {
+  public function type(): EditableToken {
+    return $this->typex();
+  }
+
+  public function typex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_type);
+  }
+
+  public function raw_type(): EditableSyntax {
     return $this->_type;
   }
 
@@ -2558,7 +3206,17 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     );
   }
 
-  public function where_clause(): EditableSyntax {
+  public function where_clause(): ?WhereClause {
+    return $this->_where_clause->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(WhereClause::class, $this->_where_clause);
+  }
+
+  public function where_clausex(): WhereClause {
+    return TypeAssert::isInstanceOf(WhereClause::class, $this->_where_clause);
+  }
+
+  public function raw_where_clause(): EditableSyntax {
     return $this->_where_clause;
   }
 
@@ -2638,7 +3296,15 @@ final class WhereClause extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): WhereToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): WhereToken {
+    return TypeAssert::isInstanceOf(WhereToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -2646,7 +3312,15 @@ final class WhereClause extends EditableSyntax {
     return new self($value, $this->_constraints);
   }
 
-  public function constraints(): EditableSyntax {
+  public function constraints(): EditableList {
+    return $this->constraintsx();
+  }
+
+  public function constraintsx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_constraints);
+  }
+
+  public function raw_constraints(): EditableSyntax {
     return $this->_constraints;
   }
 
@@ -2726,7 +3400,15 @@ final class WhereConstraint extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function left_type(): EditableSyntax {
+  public function left_type(): EditableToken {
+    return $this->left_typex();
+  }
+
+  public function left_typex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_left_type);
+  }
+
+  public function raw_left_type(): EditableSyntax {
     return $this->_left_type;
   }
 
@@ -2734,7 +3416,15 @@ final class WhereConstraint extends EditableSyntax {
     return new self($value, $this->_operator, $this->_right_type);
   }
 
-  public function operator(): EditableSyntax {
+  public function operator(): EditableToken {
+    return $this->operatorx();
+  }
+
+  public function operatorx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_operator);
+  }
+
+  public function raw_operator(): EditableSyntax {
     return $this->_operator;
   }
 
@@ -2742,7 +3432,15 @@ final class WhereConstraint extends EditableSyntax {
     return new self($this->_left_type, $value, $this->_right_type);
   }
 
-  public function right_type(): EditableSyntax {
+  public function right_type(): EditableToken {
+    return $this->right_typex();
+  }
+
+  public function right_typex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_right_type);
+  }
+
+  public function raw_right_type(): EditableSyntax {
     return $this->_right_type;
   }
 
@@ -2859,7 +3557,23 @@ final class MethodishDeclaration extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function attribute(): EditableSyntax {
+  public function attribute(): ?AttributeSpecification {
+    return $this->_attribute->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(
+          AttributeSpecification::class,
+          $this->_attribute,
+        );
+  }
+
+  public function attributex(): AttributeSpecification {
+    return TypeAssert::isInstanceOf(
+      AttributeSpecification::class,
+      $this->_attribute,
+    );
+  }
+
+  public function raw_attribute(): EditableSyntax {
     return $this->_attribute;
   }
 
@@ -2873,7 +3587,17 @@ final class MethodishDeclaration extends EditableSyntax {
     );
   }
 
-  public function modifiers(): EditableSyntax {
+  public function modifiers(): ?EditableList {
+    return $this->_modifiers->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_modifiers);
+  }
+
+  public function modifiersx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_modifiers);
+  }
+
+  public function raw_modifiers(): EditableSyntax {
     return $this->_modifiers;
   }
 
@@ -2887,7 +3611,18 @@ final class MethodishDeclaration extends EditableSyntax {
     );
   }
 
-  public function function_decl_header(): EditableSyntax {
+  public function function_decl_header(): FunctionDeclarationHeader {
+    return $this->function_decl_headerx();
+  }
+
+  public function function_decl_headerx(): FunctionDeclarationHeader {
+    return TypeAssert::isInstanceOf(
+      FunctionDeclarationHeader::class,
+      $this->_function_decl_header,
+    );
+  }
+
+  public function raw_function_decl_header(): EditableSyntax {
     return $this->_function_decl_header;
   }
 
@@ -2901,7 +3636,16 @@ final class MethodishDeclaration extends EditableSyntax {
     );
   }
 
-  public function function_body(): EditableSyntax {
+  public function function_body(): EditableToken {
+    return $this->function_bodyx();
+  }
+
+  public function function_bodyx(): EditableToken {
+    return
+      TypeAssert::isInstanceOf(EditableToken::class, $this->_function_body);
+  }
+
+  public function raw_function_body(): EditableSyntax {
     return $this->_function_body;
   }
 
@@ -2915,7 +3659,17 @@ final class MethodishDeclaration extends EditableSyntax {
     );
   }
 
-  public function semicolon(): EditableSyntax {
+  public function semicolon(): ?SemicolonToken {
+    return $this->_semicolon->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function semicolonx(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function raw_semicolon(): EditableSyntax {
     return $this->_semicolon;
   }
 
@@ -3111,7 +3865,23 @@ final class ClassishDeclaration extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function attribute(): EditableSyntax {
+  public function attribute(): ?AttributeSpecification {
+    return $this->_attribute->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(
+          AttributeSpecification::class,
+          $this->_attribute,
+        );
+  }
+
+  public function attributex(): AttributeSpecification {
+    return TypeAssert::isInstanceOf(
+      AttributeSpecification::class,
+      $this->_attribute,
+    );
+  }
+
+  public function raw_attribute(): EditableSyntax {
     return $this->_attribute;
   }
 
@@ -3130,7 +3900,17 @@ final class ClassishDeclaration extends EditableSyntax {
     );
   }
 
-  public function modifiers(): EditableSyntax {
+  public function modifiers(): ?EditableList {
+    return $this->_modifiers->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_modifiers);
+  }
+
+  public function modifiersx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_modifiers);
+  }
+
+  public function raw_modifiers(): EditableSyntax {
     return $this->_modifiers;
   }
 
@@ -3149,7 +3929,15 @@ final class ClassishDeclaration extends EditableSyntax {
     );
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): EditableToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -3168,7 +3956,15 @@ final class ClassishDeclaration extends EditableSyntax {
     );
   }
 
-  public function name(): EditableSyntax {
+  public function name(): EditableToken {
+    return $this->namex();
+  }
+
+  public function namex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+  }
+
+  public function raw_name(): EditableSyntax {
     return $this->_name;
   }
 
@@ -3187,7 +3983,21 @@ final class ClassishDeclaration extends EditableSyntax {
     );
   }
 
-  public function type_parameters(): EditableSyntax {
+  public function type_parameters(): ?TypeParameters {
+    return $this->_type_parameters->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(
+          TypeParameters::class,
+          $this->_type_parameters,
+        );
+  }
+
+  public function type_parametersx(): TypeParameters {
+    return
+      TypeAssert::isInstanceOf(TypeParameters::class, $this->_type_parameters);
+  }
+
+  public function raw_type_parameters(): EditableSyntax {
     return $this->_type_parameters;
   }
 
@@ -3206,7 +4016,18 @@ final class ClassishDeclaration extends EditableSyntax {
     );
   }
 
-  public function extends_keyword(): EditableSyntax {
+  public function extends_keyword(): ?ExtendsToken {
+    return $this->_extends_keyword->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(ExtendsToken::class, $this->_extends_keyword);
+  }
+
+  public function extends_keywordx(): ExtendsToken {
+    return
+      TypeAssert::isInstanceOf(ExtendsToken::class, $this->_extends_keyword);
+  }
+
+  public function raw_extends_keyword(): EditableSyntax {
     return $this->_extends_keyword;
   }
 
@@ -3225,7 +4046,17 @@ final class ClassishDeclaration extends EditableSyntax {
     );
   }
 
-  public function extends_list(): EditableSyntax {
+  public function extends_list(): ?EditableList {
+    return $this->_extends_list->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_extends_list);
+  }
+
+  public function extends_listx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_extends_list);
+  }
+
+  public function raw_extends_list(): EditableSyntax {
     return $this->_extends_list;
   }
 
@@ -3244,7 +4075,23 @@ final class ClassishDeclaration extends EditableSyntax {
     );
   }
 
-  public function implements_keyword(): EditableSyntax {
+  public function implements_keyword(): ?ImplementsToken {
+    return $this->_implements_keyword->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(
+          ImplementsToken::class,
+          $this->_implements_keyword,
+        );
+  }
+
+  public function implements_keywordx(): ImplementsToken {
+    return TypeAssert::isInstanceOf(
+      ImplementsToken::class,
+      $this->_implements_keyword,
+    );
+  }
+
+  public function raw_implements_keyword(): EditableSyntax {
     return $this->_implements_keyword;
   }
 
@@ -3263,7 +4110,18 @@ final class ClassishDeclaration extends EditableSyntax {
     );
   }
 
-  public function implements_list(): EditableSyntax {
+  public function implements_list(): ?EditableList {
+    return $this->_implements_list->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_implements_list);
+  }
+
+  public function implements_listx(): EditableList {
+    return
+      TypeAssert::isInstanceOf(EditableList::class, $this->_implements_list);
+  }
+
+  public function raw_implements_list(): EditableSyntax {
     return $this->_implements_list;
   }
 
@@ -3282,7 +4140,15 @@ final class ClassishDeclaration extends EditableSyntax {
     );
   }
 
-  public function body(): EditableSyntax {
+  public function body(): ClassishBody {
+    return $this->bodyx();
+  }
+
+  public function bodyx(): ClassishBody {
+    return TypeAssert::isInstanceOf(ClassishBody::class, $this->_body);
+  }
+
+  public function raw_body(): EditableSyntax {
     return $this->_body;
   }
 
@@ -3373,7 +4239,17 @@ final class ClassishBody extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function left_brace(): EditableSyntax {
+  public function left_brace(): ?LeftBraceToken {
+    return $this->_left_brace->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
+  }
+
+  public function left_bracex(): LeftBraceToken {
+    return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
+  }
+
+  public function raw_left_brace(): EditableSyntax {
     return $this->_left_brace;
   }
 
@@ -3381,7 +4257,17 @@ final class ClassishBody extends EditableSyntax {
     return new self($value, $this->_elements, $this->_right_brace);
   }
 
-  public function elements(): EditableSyntax {
+  public function elements(): ?EditableList {
+    return $this->_elements->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_elements);
+  }
+
+  public function elementsx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_elements);
+  }
+
+  public function raw_elements(): EditableSyntax {
     return $this->_elements;
   }
 
@@ -3389,7 +4275,18 @@ final class ClassishBody extends EditableSyntax {
     return new self($this->_left_brace, $value, $this->_right_brace);
   }
 
-  public function right_brace(): EditableSyntax {
+  public function right_brace(): ?RightBraceToken {
+    return $this->_right_brace->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+  }
+
+  public function right_bracex(): RightBraceToken {
+    return
+      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+  }
+
+  public function raw_right_brace(): EditableSyntax {
     return $this->_right_brace;
   }
 
@@ -3476,7 +4373,16 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function aliasing_name(): EditableSyntax {
+  public function aliasing_name(): EditableToken {
+    return $this->aliasing_namex();
+  }
+
+  public function aliasing_namex(): EditableToken {
+    return
+      TypeAssert::isInstanceOf(EditableToken::class, $this->_aliasing_name);
+  }
+
+  public function raw_aliasing_name(): EditableSyntax {
     return $this->_aliasing_name;
   }
 
@@ -3484,7 +4390,16 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
     return new self($value, $this->_aliasing_keyword, $this->_aliased_names);
   }
 
-  public function aliasing_keyword(): EditableSyntax {
+  public function aliasing_keyword(): EditableToken {
+    return $this->aliasing_keywordx();
+  }
+
+  public function aliasing_keywordx(): EditableToken {
+    return
+      TypeAssert::isInstanceOf(EditableToken::class, $this->_aliasing_keyword);
+  }
+
+  public function raw_aliasing_keyword(): EditableSyntax {
     return $this->_aliasing_keyword;
   }
 
@@ -3492,7 +4407,15 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
     return new self($this->_aliasing_name, $value, $this->_aliased_names);
   }
 
-  public function aliased_names(): EditableSyntax {
+  public function aliased_names(): EditableList {
+    return $this->aliased_namesx();
+  }
+
+  public function aliased_namesx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_aliased_names);
+  }
+
+  public function raw_aliased_names(): EditableSyntax {
     return $this->_aliased_names;
   }
 
@@ -3596,7 +4519,15 @@ final class TraitUseConflictResolution extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): UseToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): UseToken {
+    return TypeAssert::isInstanceOf(UseToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -3610,7 +4541,15 @@ final class TraitUseConflictResolution extends EditableSyntax {
     );
   }
 
-  public function names(): EditableSyntax {
+  public function names(): EditableList {
+    return $this->namesx();
+  }
+
+  public function namesx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_names);
+  }
+
+  public function raw_names(): EditableSyntax {
     return $this->_names;
   }
 
@@ -3624,7 +4563,15 @@ final class TraitUseConflictResolution extends EditableSyntax {
     );
   }
 
-  public function left_brace(): EditableSyntax {
+  public function left_brace(): LeftBraceToken {
+    return $this->left_bracex();
+  }
+
+  public function left_bracex(): LeftBraceToken {
+    return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
+  }
+
+  public function raw_left_brace(): EditableSyntax {
     return $this->_left_brace;
   }
 
@@ -3638,7 +4585,17 @@ final class TraitUseConflictResolution extends EditableSyntax {
     );
   }
 
-  public function clauses(): EditableSyntax {
+  public function clauses(): ?EditableList {
+    return $this->_clauses->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_clauses);
+  }
+
+  public function clausesx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_clauses);
+  }
+
+  public function raw_clauses(): EditableSyntax {
     return $this->_clauses;
   }
 
@@ -3652,7 +4609,16 @@ final class TraitUseConflictResolution extends EditableSyntax {
     );
   }
 
-  public function right_brace(): EditableSyntax {
+  public function right_brace(): RightBraceToken {
+    return $this->right_bracex();
+  }
+
+  public function right_bracex(): RightBraceToken {
+    return
+      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+  }
+
+  public function raw_right_brace(): EditableSyntax {
     return $this->_right_brace;
   }
 
@@ -3738,7 +4704,15 @@ final class TraitUse extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): UseToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): UseToken {
+    return TypeAssert::isInstanceOf(UseToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -3746,7 +4720,15 @@ final class TraitUse extends EditableSyntax {
     return new self($value, $this->_names, $this->_semicolon);
   }
 
-  public function names(): EditableSyntax {
+  public function names(): EditableList {
+    return $this->namesx();
+  }
+
+  public function namesx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_names);
+  }
+
+  public function raw_names(): EditableSyntax {
     return $this->_names;
   }
 
@@ -3754,7 +4736,15 @@ final class TraitUse extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_semicolon);
   }
 
-  public function semicolon(): EditableSyntax {
+  public function semicolon(): SemicolonToken {
+    return $this->semicolonx();
+  }
+
+  public function semicolonx(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function raw_semicolon(): EditableSyntax {
     return $this->_semicolon;
   }
 
@@ -3846,7 +4836,15 @@ final class RequireClause extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): RequireToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): RequireToken {
+    return TypeAssert::isInstanceOf(RequireToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -3854,7 +4852,15 @@ final class RequireClause extends EditableSyntax {
     return new self($value, $this->_kind, $this->_name, $this->_semicolon);
   }
 
-  public function kind(): EditableSyntax {
+  public function kind(): EditableToken {
+    return $this->kindx();
+  }
+
+  public function kindx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_kind);
+  }
+
+  public function raw_kind(): EditableSyntax {
     return $this->_kind;
   }
 
@@ -3862,7 +4868,15 @@ final class RequireClause extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_name, $this->_semicolon);
   }
 
-  public function name(): EditableSyntax {
+  public function name(): EditableToken {
+    return $this->namex();
+  }
+
+  public function namex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+  }
+
+  public function raw_name(): EditableSyntax {
     return $this->_name;
   }
 
@@ -3870,7 +4884,15 @@ final class RequireClause extends EditableSyntax {
     return new self($this->_keyword, $this->_kind, $value, $this->_semicolon);
   }
 
-  public function semicolon(): EditableSyntax {
+  public function semicolon(): SemicolonToken {
+    return $this->semicolonx();
+  }
+
+  public function semicolonx(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function raw_semicolon(): EditableSyntax {
     return $this->_semicolon;
   }
 
@@ -3982,7 +5004,17 @@ final class ConstDeclaration extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function abstract(): EditableSyntax {
+  public function abstract(): ?AbstractToken {
+    return $this->_abstract->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(AbstractToken::class, $this->_abstract);
+  }
+
+  public function abstractx(): AbstractToken {
+    return TypeAssert::isInstanceOf(AbstractToken::class, $this->_abstract);
+  }
+
+  public function raw_abstract(): EditableSyntax {
     return $this->_abstract;
   }
 
@@ -3996,7 +5028,15 @@ final class ConstDeclaration extends EditableSyntax {
     );
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): ConstToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): ConstToken {
+    return TypeAssert::isInstanceOf(ConstToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -4010,7 +5050,16 @@ final class ConstDeclaration extends EditableSyntax {
     );
   }
 
-  public function type_specifier(): EditableSyntax {
+  public function type_specifier(): EditableToken {
+    return $this->type_specifierx();
+  }
+
+  public function type_specifierx(): EditableToken {
+    return
+      TypeAssert::isInstanceOf(EditableToken::class, $this->_type_specifier);
+  }
+
+  public function raw_type_specifier(): EditableSyntax {
     return $this->_type_specifier;
   }
 
@@ -4024,7 +5073,15 @@ final class ConstDeclaration extends EditableSyntax {
     );
   }
 
-  public function declarators(): EditableSyntax {
+  public function declarators(): EditableList {
+    return $this->declaratorsx();
+  }
+
+  public function declaratorsx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_declarators);
+  }
+
+  public function raw_declarators(): EditableSyntax {
     return $this->_declarators;
   }
 
@@ -4038,7 +5095,15 @@ final class ConstDeclaration extends EditableSyntax {
     );
   }
 
-  public function semicolon(): EditableSyntax {
+  public function semicolon(): SemicolonToken {
+    return $this->semicolonx();
+  }
+
+  public function semicolonx(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function raw_semicolon(): EditableSyntax {
     return $this->_semicolon;
   }
 
@@ -4109,7 +5174,15 @@ final class ConstantDeclarator extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function name(): EditableSyntax {
+  public function name(): NameToken {
+    return $this->namex();
+  }
+
+  public function namex(): NameToken {
+    return TypeAssert::isInstanceOf(NameToken::class, $this->_name);
+  }
+
+  public function raw_name(): EditableSyntax {
     return $this->_name;
   }
 
@@ -4117,7 +5190,18 @@ final class ConstantDeclarator extends EditableSyntax {
     return new self($value, $this->_initializer);
   }
 
-  public function initializer(): EditableSyntax {
+  public function initializer(): ?SimpleInitializer {
+    return $this->_initializer->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
+  }
+
+  public function initializerx(): SimpleInitializer {
+    return
+      TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
+  }
+
+  public function raw_initializer(): EditableSyntax {
     return $this->_initializer;
   }
 
@@ -4277,7 +5361,17 @@ final class TypeConstDeclaration extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function abstract(): EditableSyntax {
+  public function abstract(): ?AbstractToken {
+    return $this->_abstract->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(AbstractToken::class, $this->_abstract);
+  }
+
+  public function abstractx(): AbstractToken {
+    return TypeAssert::isInstanceOf(AbstractToken::class, $this->_abstract);
+  }
+
+  public function raw_abstract(): EditableSyntax {
     return $this->_abstract;
   }
 
@@ -4294,7 +5388,15 @@ final class TypeConstDeclaration extends EditableSyntax {
     );
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): ConstToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): ConstToken {
+    return TypeAssert::isInstanceOf(ConstToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -4311,7 +5413,15 @@ final class TypeConstDeclaration extends EditableSyntax {
     );
   }
 
-  public function type_keyword(): EditableSyntax {
+  public function type_keyword(): TypeToken {
+    return $this->type_keywordx();
+  }
+
+  public function type_keywordx(): TypeToken {
+    return TypeAssert::isInstanceOf(TypeToken::class, $this->_type_keyword);
+  }
+
+  public function raw_type_keyword(): EditableSyntax {
     return $this->_type_keyword;
   }
 
@@ -4328,7 +5438,17 @@ final class TypeConstDeclaration extends EditableSyntax {
     );
   }
 
-  public function name(): EditableSyntax {
+  public function name(): ?NameToken {
+    return $this->_name->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(NameToken::class, $this->_name);
+  }
+
+  public function namex(): NameToken {
+    return TypeAssert::isInstanceOf(NameToken::class, $this->_name);
+  }
+
+  public function raw_name(): EditableSyntax {
     return $this->_name;
   }
 
@@ -4345,7 +5465,21 @@ final class TypeConstDeclaration extends EditableSyntax {
     );
   }
 
-  public function type_constraint(): EditableSyntax {
+  public function type_constraint(): ?TypeConstraint {
+    return $this->_type_constraint->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(
+          TypeConstraint::class,
+          $this->_type_constraint,
+        );
+  }
+
+  public function type_constraintx(): TypeConstraint {
+    return
+      TypeAssert::isInstanceOf(TypeConstraint::class, $this->_type_constraint);
+  }
+
+  public function raw_type_constraint(): EditableSyntax {
     return $this->_type_constraint;
   }
 
@@ -4362,7 +5496,17 @@ final class TypeConstDeclaration extends EditableSyntax {
     );
   }
 
-  public function equal(): EditableSyntax {
+  public function equal(): ?EqualToken {
+    return $this->_equal->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EqualToken::class, $this->_equal);
+  }
+
+  public function equalx(): EqualToken {
+    return TypeAssert::isInstanceOf(EqualToken::class, $this->_equal);
+  }
+
+  public function raw_equal(): EditableSyntax {
     return $this->_equal;
   }
 
@@ -4379,7 +5523,16 @@ final class TypeConstDeclaration extends EditableSyntax {
     );
   }
 
-  public function type_specifier(): EditableSyntax {
+  public function type_specifier(): EditableToken {
+    return $this->type_specifierx();
+  }
+
+  public function type_specifierx(): EditableToken {
+    return
+      TypeAssert::isInstanceOf(EditableToken::class, $this->_type_specifier);
+  }
+
+  public function raw_type_specifier(): EditableSyntax {
     return $this->_type_specifier;
   }
 
@@ -4396,7 +5549,17 @@ final class TypeConstDeclaration extends EditableSyntax {
     );
   }
 
-  public function semicolon(): EditableSyntax {
+  public function semicolon(): ?SemicolonToken {
+    return $this->_semicolon->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function semicolonx(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function raw_semicolon(): EditableSyntax {
     return $this->_semicolon;
   }
 
@@ -4472,7 +5635,15 @@ final class DecoratedExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function decorator(): EditableSyntax {
+  public function decorator(): EditableToken {
+    return $this->decoratorx();
+  }
+
+  public function decoratorx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_decorator);
+  }
+
+  public function raw_decorator(): EditableSyntax {
     return $this->_decorator;
   }
 
@@ -4480,7 +5651,15 @@ final class DecoratedExpression extends EditableSyntax {
     return new self($value, $this->_expression);
   }
 
-  public function expression(): EditableSyntax {
+  public function expression(): EditableToken {
+    return $this->expressionx();
+  }
+
+  public function expressionx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_expression);
+  }
+
+  public function raw_expression(): EditableSyntax {
     return $this->_expression;
   }
 
@@ -4584,7 +5763,23 @@ final class ParameterDeclaration extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function attribute(): EditableSyntax {
+  public function attribute(): ?AttributeSpecification {
+    return $this->_attribute->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(
+          AttributeSpecification::class,
+          $this->_attribute,
+        );
+  }
+
+  public function attributex(): AttributeSpecification {
+    return TypeAssert::isInstanceOf(
+      AttributeSpecification::class,
+      $this->_attribute,
+    );
+  }
+
+  public function raw_attribute(): EditableSyntax {
     return $this->_attribute;
   }
 
@@ -4598,7 +5793,15 @@ final class ParameterDeclaration extends EditableSyntax {
     );
   }
 
-  public function visibility(): EditableSyntax {
+  public function visibility(): EditableToken {
+    return $this->visibilityx();
+  }
+
+  public function visibilityx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_visibility);
+  }
+
+  public function raw_visibility(): EditableSyntax {
     return $this->_visibility;
   }
 
@@ -4612,7 +5815,15 @@ final class ParameterDeclaration extends EditableSyntax {
     );
   }
 
-  public function type(): EditableSyntax {
+  public function type(): EditableToken {
+    return $this->typex();
+  }
+
+  public function typex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_type);
+  }
+
+  public function raw_type(): EditableSyntax {
     return $this->_type;
   }
 
@@ -4626,7 +5837,15 @@ final class ParameterDeclaration extends EditableSyntax {
     );
   }
 
-  public function name(): EditableSyntax {
+  public function name(): EditableToken {
+    return $this->namex();
+  }
+
+  public function namex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+  }
+
+  public function raw_name(): EditableSyntax {
     return $this->_name;
   }
 
@@ -4640,7 +5859,21 @@ final class ParameterDeclaration extends EditableSyntax {
     );
   }
 
-  public function default_value(): EditableSyntax {
+  public function default_value(): ?SimpleInitializer {
+    return $this->_default_value->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(
+          SimpleInitializer::class,
+          $this->_default_value,
+        );
+  }
+
+  public function default_valuex(): SimpleInitializer {
+    return
+      TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_default_value);
+  }
+
+  public function raw_default_value(): EditableSyntax {
     return $this->_default_value;
   }
 
@@ -4698,7 +5931,15 @@ final class VariadicParameter extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function ellipsis(): EditableSyntax {
+  public function ellipsis(): DotDotDotToken {
+    return $this->ellipsisx();
+  }
+
+  public function ellipsisx(): DotDotDotToken {
+    return TypeAssert::isInstanceOf(DotDotDotToken::class, $this->_ellipsis);
+  }
+
+  public function raw_ellipsis(): EditableSyntax {
     return $this->_ellipsis;
   }
 
@@ -4780,7 +6021,18 @@ final class AttributeSpecification extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function left_double_angle(): EditableSyntax {
+  public function left_double_angle(): LessThanLessThanToken {
+    return $this->left_double_anglex();
+  }
+
+  public function left_double_anglex(): LessThanLessThanToken {
+    return TypeAssert::isInstanceOf(
+      LessThanLessThanToken::class,
+      $this->_left_double_angle,
+    );
+  }
+
+  public function raw_left_double_angle(): EditableSyntax {
     return $this->_left_double_angle;
   }
 
@@ -4788,7 +6040,15 @@ final class AttributeSpecification extends EditableSyntax {
     return new self($value, $this->_attributes, $this->_right_double_angle);
   }
 
-  public function attributes(): EditableSyntax {
+  public function attributes(): EditableList {
+    return $this->attributesx();
+  }
+
+  public function attributesx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_attributes);
+  }
+
+  public function raw_attributes(): EditableSyntax {
     return $this->_attributes;
   }
 
@@ -4797,7 +6057,18 @@ final class AttributeSpecification extends EditableSyntax {
       new self($this->_left_double_angle, $value, $this->_right_double_angle);
   }
 
-  public function right_double_angle(): EditableSyntax {
+  public function right_double_angle(): GreaterThanGreaterThanToken {
+    return $this->right_double_anglex();
+  }
+
+  public function right_double_anglex(): GreaterThanGreaterThanToken {
+    return TypeAssert::isInstanceOf(
+      GreaterThanGreaterThanToken::class,
+      $this->_right_double_angle,
+    );
+  }
+
+  public function raw_right_double_angle(): EditableSyntax {
     return $this->_right_double_angle;
   }
 
@@ -4889,7 +6160,15 @@ final class Attribute extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function name(): EditableSyntax {
+  public function name(): NameToken {
+    return $this->namex();
+  }
+
+  public function namex(): NameToken {
+    return TypeAssert::isInstanceOf(NameToken::class, $this->_name);
+  }
+
+  public function raw_name(): EditableSyntax {
     return $this->_name;
   }
 
@@ -4898,7 +6177,17 @@ final class Attribute extends EditableSyntax {
       new self($value, $this->_left_paren, $this->_values, $this->_right_paren);
   }
 
-  public function left_paren(): EditableSyntax {
+  public function left_paren(): ?LeftParenToken {
+    return $this->_left_paren->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  }
+
+  public function left_parenx(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  }
+
+  public function raw_left_paren(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -4906,7 +6195,17 @@ final class Attribute extends EditableSyntax {
     return new self($this->_name, $value, $this->_values, $this->_right_paren);
   }
 
-  public function values(): EditableSyntax {
+  public function values(): ?EditableList {
+    return $this->_values->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_values);
+  }
+
+  public function valuesx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_values);
+  }
+
+  public function raw_values(): EditableSyntax {
     return $this->_values;
   }
 
@@ -4915,7 +6214,18 @@ final class Attribute extends EditableSyntax {
       new self($this->_name, $this->_left_paren, $value, $this->_right_paren);
   }
 
-  public function right_paren(): EditableSyntax {
+  public function right_paren(): ?RightParenToken {
+    return $this->_right_paren->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function right_parenx(): RightParenToken {
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function raw_right_paren(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -4980,7 +6290,15 @@ final class InclusionExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function require(): EditableSyntax {
+  public function require(): EditableToken {
+    return $this->requirex();
+  }
+
+  public function requirex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_require);
+  }
+
+  public function raw_require(): EditableSyntax {
     return $this->_require;
   }
 
@@ -4988,7 +6306,15 @@ final class InclusionExpression extends EditableSyntax {
     return new self($value, $this->_filename);
   }
 
-  public function filename(): EditableSyntax {
+  public function filename(): EditableToken {
+    return $this->filenamex();
+  }
+
+  public function filenamex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_filename);
+  }
+
+  public function raw_filename(): EditableSyntax {
     return $this->_filename;
   }
 
@@ -5055,7 +6381,16 @@ final class InclusionDirective extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function expression(): EditableSyntax {
+  public function expression(): InclusionExpression {
+    return $this->expressionx();
+  }
+
+  public function expressionx(): InclusionExpression {
+    return
+      TypeAssert::isInstanceOf(InclusionExpression::class, $this->_expression);
+  }
+
+  public function raw_expression(): EditableSyntax {
     return $this->_expression;
   }
 
@@ -5063,7 +6398,15 @@ final class InclusionDirective extends EditableSyntax {
     return new self($value, $this->_semicolon);
   }
 
-  public function semicolon(): EditableSyntax {
+  public function semicolon(): SemicolonToken {
+    return $this->semicolonx();
+  }
+
+  public function semicolonx(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function raw_semicolon(): EditableSyntax {
     return $this->_semicolon;
   }
 
@@ -5143,7 +6486,17 @@ final class CompoundStatement extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function left_brace(): EditableSyntax {
+  public function left_brace(): ?LeftBraceToken {
+    return $this->_left_brace->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
+  }
+
+  public function left_bracex(): LeftBraceToken {
+    return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
+  }
+
+  public function raw_left_brace(): EditableSyntax {
     return $this->_left_brace;
   }
 
@@ -5151,7 +6504,17 @@ final class CompoundStatement extends EditableSyntax {
     return new self($value, $this->_statements, $this->_right_brace);
   }
 
-  public function statements(): EditableSyntax {
+  public function statements(): ?EditableList {
+    return $this->_statements->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_statements);
+  }
+
+  public function statementsx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_statements);
+  }
+
+  public function raw_statements(): EditableSyntax {
     return $this->_statements;
   }
 
@@ -5159,7 +6522,18 @@ final class CompoundStatement extends EditableSyntax {
     return new self($this->_left_brace, $value, $this->_right_brace);
   }
 
-  public function right_brace(): EditableSyntax {
+  public function right_brace(): ?RightBraceToken {
+    return $this->_right_brace->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+  }
+
+  public function right_bracex(): RightBraceToken {
+    return
+      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+  }
+
+  public function raw_right_brace(): EditableSyntax {
     return $this->_right_brace;
   }
 
@@ -5226,7 +6600,15 @@ final class ExpressionStatement extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function expression(): EditableSyntax {
+  public function expression(): EditableToken {
+    return $this->expressionx();
+  }
+
+  public function expressionx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_expression);
+  }
+
+  public function raw_expression(): EditableSyntax {
     return $this->_expression;
   }
 
@@ -5234,7 +6616,17 @@ final class ExpressionStatement extends EditableSyntax {
     return new self($value, $this->_semicolon);
   }
 
-  public function semicolon(): EditableSyntax {
+  public function semicolon(): ?SemicolonToken {
+    return $this->_semicolon->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function semicolonx(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function raw_semicolon(): EditableSyntax {
     return $this->_semicolon;
   }
 
@@ -5326,7 +6718,21 @@ final class MarkupSection extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function prefix(): EditableSyntax {
+  public function prefix(): ?QuestionGreaterThanToken {
+    return $this->_prefix->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(
+          QuestionGreaterThanToken::class,
+          $this->_prefix,
+        );
+  }
+
+  public function prefixx(): QuestionGreaterThanToken {
+    return
+      TypeAssert::isInstanceOf(QuestionGreaterThanToken::class, $this->_prefix);
+  }
+
+  public function raw_prefix(): EditableSyntax {
     return $this->_prefix;
   }
 
@@ -5334,7 +6740,17 @@ final class MarkupSection extends EditableSyntax {
     return new self($value, $this->_text, $this->_suffix, $this->_expression);
   }
 
-  public function text(): EditableSyntax {
+  public function text(): ?MarkupToken {
+    return $this->_text->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(MarkupToken::class, $this->_text);
+  }
+
+  public function textx(): MarkupToken {
+    return TypeAssert::isInstanceOf(MarkupToken::class, $this->_text);
+  }
+
+  public function raw_text(): EditableSyntax {
     return $this->_text;
   }
 
@@ -5342,7 +6758,17 @@ final class MarkupSection extends EditableSyntax {
     return new self($this->_prefix, $value, $this->_suffix, $this->_expression);
   }
 
-  public function suffix(): EditableSyntax {
+  public function suffix(): ?MarkupSuffix {
+    return $this->_suffix->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(MarkupSuffix::class, $this->_suffix);
+  }
+
+  public function suffixx(): MarkupSuffix {
+    return TypeAssert::isInstanceOf(MarkupSuffix::class, $this->_suffix);
+  }
+
+  public function raw_suffix(): EditableSyntax {
     return $this->_suffix;
   }
 
@@ -5350,7 +6776,21 @@ final class MarkupSection extends EditableSyntax {
     return new self($this->_prefix, $this->_text, $value, $this->_expression);
   }
 
-  public function expression(): EditableSyntax {
+  public function expression(): ?ExpressionStatement {
+    return $this->_expression->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(
+          ExpressionStatement::class,
+          $this->_expression,
+        );
+  }
+
+  public function expressionx(): ExpressionStatement {
+    return
+      TypeAssert::isInstanceOf(ExpressionStatement::class, $this->_expression);
+  }
+
+  public function raw_expression(): EditableSyntax {
     return $this->_expression;
   }
 
@@ -5419,7 +6859,18 @@ final class MarkupSuffix extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function less_than_question(): EditableSyntax {
+  public function less_than_question(): LessThanQuestionToken {
+    return $this->less_than_questionx();
+  }
+
+  public function less_than_questionx(): LessThanQuestionToken {
+    return TypeAssert::isInstanceOf(
+      LessThanQuestionToken::class,
+      $this->_less_than_question,
+    );
+  }
+
+  public function raw_less_than_question(): EditableSyntax {
     return $this->_less_than_question;
   }
 
@@ -5427,7 +6878,15 @@ final class MarkupSuffix extends EditableSyntax {
     return new self($value, $this->_name);
   }
 
-  public function name(): EditableSyntax {
+  public function name(): EditableToken {
+    return $this->namex();
+  }
+
+  public function namex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+  }
+
+  public function raw_name(): EditableSyntax {
     return $this->_name;
   }
 
@@ -5533,7 +6992,15 @@ final class UnsetStatement extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): UnsetToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): UnsetToken {
+    return TypeAssert::isInstanceOf(UnsetToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -5547,7 +7014,15 @@ final class UnsetStatement extends EditableSyntax {
     );
   }
 
-  public function left_paren(): EditableSyntax {
+  public function left_paren(): LeftParenToken {
+    return $this->left_parenx();
+  }
+
+  public function left_parenx(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  }
+
+  public function raw_left_paren(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -5561,7 +7036,15 @@ final class UnsetStatement extends EditableSyntax {
     );
   }
 
-  public function variables(): EditableSyntax {
+  public function variables(): EditableList {
+    return $this->variablesx();
+  }
+
+  public function variablesx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_variables);
+  }
+
+  public function raw_variables(): EditableSyntax {
     return $this->_variables;
   }
 
@@ -5575,7 +7058,18 @@ final class UnsetStatement extends EditableSyntax {
     );
   }
 
-  public function right_paren(): EditableSyntax {
+  public function right_paren(): ?RightParenToken {
+    return $this->_right_paren->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function right_parenx(): RightParenToken {
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function raw_right_paren(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -5589,7 +7083,17 @@ final class UnsetStatement extends EditableSyntax {
     );
   }
 
-  public function semicolon(): EditableSyntax {
+  public function semicolon(): ?SemicolonToken {
+    return $this->_semicolon->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function semicolonx(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function raw_semicolon(): EditableSyntax {
     return $this->_semicolon;
   }
 
@@ -5699,7 +7203,15 @@ final class WhileStatement extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): WhileToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): WhileToken {
+    return TypeAssert::isInstanceOf(WhileToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -5713,7 +7225,15 @@ final class WhileStatement extends EditableSyntax {
     );
   }
 
-  public function left_paren(): EditableSyntax {
+  public function left_paren(): LeftParenToken {
+    return $this->left_parenx();
+  }
+
+  public function left_parenx(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  }
+
+  public function raw_left_paren(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -5727,7 +7247,15 @@ final class WhileStatement extends EditableSyntax {
     );
   }
 
-  public function condition(): EditableSyntax {
+  public function condition(): EditableToken {
+    return $this->conditionx();
+  }
+
+  public function conditionx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_condition);
+  }
+
+  public function raw_condition(): EditableSyntax {
     return $this->_condition;
   }
 
@@ -5741,7 +7269,16 @@ final class WhileStatement extends EditableSyntax {
     );
   }
 
-  public function right_paren(): EditableSyntax {
+  public function right_paren(): RightParenToken {
+    return $this->right_parenx();
+  }
+
+  public function right_parenx(): RightParenToken {
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function raw_right_paren(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -5755,7 +7292,15 @@ final class WhileStatement extends EditableSyntax {
     );
   }
 
-  public function body(): EditableSyntax {
+  public function body(): EditableToken {
+    return $this->bodyx();
+  }
+
+  public function bodyx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_body);
+  }
+
+  public function raw_body(): EditableSyntax {
     return $this->_body;
   }
 
@@ -5906,7 +7451,15 @@ final class IfStatement extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): IfToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): IfToken {
+    return TypeAssert::isInstanceOf(IfToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -5922,7 +7475,15 @@ final class IfStatement extends EditableSyntax {
     );
   }
 
-  public function left_paren(): EditableSyntax {
+  public function left_paren(): LeftParenToken {
+    return $this->left_parenx();
+  }
+
+  public function left_parenx(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  }
+
+  public function raw_left_paren(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -5938,7 +7499,15 @@ final class IfStatement extends EditableSyntax {
     );
   }
 
-  public function condition(): EditableSyntax {
+  public function condition(): EditableToken {
+    return $this->conditionx();
+  }
+
+  public function conditionx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_condition);
+  }
+
+  public function raw_condition(): EditableSyntax {
     return $this->_condition;
   }
 
@@ -5954,7 +7523,18 @@ final class IfStatement extends EditableSyntax {
     );
   }
 
-  public function right_paren(): EditableSyntax {
+  public function right_paren(): ?RightParenToken {
+    return $this->_right_paren->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function right_parenx(): RightParenToken {
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function raw_right_paren(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -5970,7 +7550,15 @@ final class IfStatement extends EditableSyntax {
     );
   }
 
-  public function statement(): EditableSyntax {
+  public function statement(): EditableToken {
+    return $this->statementx();
+  }
+
+  public function statementx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_statement);
+  }
+
+  public function raw_statement(): EditableSyntax {
     return $this->_statement;
   }
 
@@ -5986,7 +7574,18 @@ final class IfStatement extends EditableSyntax {
     );
   }
 
-  public function elseif_clauses(): EditableSyntax {
+  public function elseif_clauses(): ?EditableList {
+    return $this->_elseif_clauses->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_elseif_clauses);
+  }
+
+  public function elseif_clausesx(): EditableList {
+    return
+      TypeAssert::isInstanceOf(EditableList::class, $this->_elseif_clauses);
+  }
+
+  public function raw_elseif_clauses(): EditableSyntax {
     return $this->_elseif_clauses;
   }
 
@@ -6002,7 +7601,17 @@ final class IfStatement extends EditableSyntax {
     );
   }
 
-  public function else_clause(): EditableSyntax {
+  public function else_clause(): ?ElseClause {
+    return $this->_else_clause->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(ElseClause::class, $this->_else_clause);
+  }
+
+  public function else_clausex(): ElseClause {
+    return TypeAssert::isInstanceOf(ElseClause::class, $this->_else_clause);
+  }
+
+  public function raw_else_clause(): EditableSyntax {
     return $this->_else_clause;
   }
 
@@ -6116,7 +7725,15 @@ final class ElseifClause extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): ElseifToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): ElseifToken {
+    return TypeAssert::isInstanceOf(ElseifToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -6130,7 +7747,15 @@ final class ElseifClause extends EditableSyntax {
     );
   }
 
-  public function left_paren(): EditableSyntax {
+  public function left_paren(): LeftParenToken {
+    return $this->left_parenx();
+  }
+
+  public function left_parenx(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  }
+
+  public function raw_left_paren(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -6144,7 +7769,15 @@ final class ElseifClause extends EditableSyntax {
     );
   }
 
-  public function condition(): EditableSyntax {
+  public function condition(): EditableToken {
+    return $this->conditionx();
+  }
+
+  public function conditionx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_condition);
+  }
+
+  public function raw_condition(): EditableSyntax {
     return $this->_condition;
   }
 
@@ -6158,7 +7791,16 @@ final class ElseifClause extends EditableSyntax {
     );
   }
 
-  public function right_paren(): EditableSyntax {
+  public function right_paren(): RightParenToken {
+    return $this->right_parenx();
+  }
+
+  public function right_parenx(): RightParenToken {
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function raw_right_paren(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -6172,7 +7814,15 @@ final class ElseifClause extends EditableSyntax {
     );
   }
 
-  public function statement(): EditableSyntax {
+  public function statement(): EditableToken {
+    return $this->statementx();
+  }
+
+  public function statementx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_statement);
+  }
+
+  public function raw_statement(): EditableSyntax {
     return $this->_statement;
   }
 
@@ -6243,7 +7893,15 @@ final class ElseClause extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): ElseToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): ElseToken {
+    return TypeAssert::isInstanceOf(ElseToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -6251,7 +7909,15 @@ final class ElseClause extends EditableSyntax {
     return new self($value, $this->_statement);
   }
 
-  public function statement(): EditableSyntax {
+  public function statement(): EditableToken {
+    return $this->statementx();
+  }
+
+  public function statementx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_statement);
+  }
+
+  public function raw_statement(): EditableSyntax {
     return $this->_statement;
   }
 
@@ -6351,7 +8017,15 @@ final class TryStatement extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): TryToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): TryToken {
+    return TypeAssert::isInstanceOf(TryToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -6364,7 +8038,18 @@ final class TryStatement extends EditableSyntax {
     );
   }
 
-  public function compound_statement(): EditableSyntax {
+  public function compound_statement(): CompoundStatement {
+    return $this->compound_statementx();
+  }
+
+  public function compound_statementx(): CompoundStatement {
+    return TypeAssert::isInstanceOf(
+      CompoundStatement::class,
+      $this->_compound_statement,
+    );
+  }
+
+  public function raw_compound_statement(): EditableSyntax {
     return $this->_compound_statement;
   }
 
@@ -6377,7 +8062,17 @@ final class TryStatement extends EditableSyntax {
     );
   }
 
-  public function catch_clauses(): EditableSyntax {
+  public function catch_clauses(): ?EditableList {
+    return $this->_catch_clauses->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_catch_clauses);
+  }
+
+  public function catch_clausesx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_catch_clauses);
+  }
+
+  public function raw_catch_clauses(): EditableSyntax {
     return $this->_catch_clauses;
   }
 
@@ -6390,7 +8085,18 @@ final class TryStatement extends EditableSyntax {
     );
   }
 
-  public function finally_clause(): EditableSyntax {
+  public function finally_clause(): ?FinallyClause {
+    return $this->_finally_clause->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(FinallyClause::class, $this->_finally_clause);
+  }
+
+  public function finally_clausex(): FinallyClause {
+    return
+      TypeAssert::isInstanceOf(FinallyClause::class, $this->_finally_clause);
+  }
+
+  public function raw_finally_clause(): EditableSyntax {
     return $this->_finally_clause;
   }
 
@@ -6513,7 +8219,15 @@ final class CatchClause extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): CatchToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): CatchToken {
+    return TypeAssert::isInstanceOf(CatchToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -6528,7 +8242,15 @@ final class CatchClause extends EditableSyntax {
     );
   }
 
-  public function left_paren(): EditableSyntax {
+  public function left_paren(): LeftParenToken {
+    return $this->left_parenx();
+  }
+
+  public function left_parenx(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  }
+
+  public function raw_left_paren(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -6543,7 +8265,15 @@ final class CatchClause extends EditableSyntax {
     );
   }
 
-  public function type(): EditableSyntax {
+  public function type(): EditableToken {
+    return $this->typex();
+  }
+
+  public function typex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_type);
+  }
+
+  public function raw_type(): EditableSyntax {
     return $this->_type;
   }
 
@@ -6558,7 +8288,17 @@ final class CatchClause extends EditableSyntax {
     );
   }
 
-  public function variable(): EditableSyntax {
+  public function variable(): ?VariableToken {
+    return $this->_variable->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(VariableToken::class, $this->_variable);
+  }
+
+  public function variablex(): VariableToken {
+    return TypeAssert::isInstanceOf(VariableToken::class, $this->_variable);
+  }
+
+  public function raw_variable(): EditableSyntax {
     return $this->_variable;
   }
 
@@ -6573,7 +8313,18 @@ final class CatchClause extends EditableSyntax {
     );
   }
 
-  public function right_paren(): EditableSyntax {
+  public function right_paren(): ?RightParenToken {
+    return $this->_right_paren->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function right_parenx(): RightParenToken {
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function raw_right_paren(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -6588,7 +8339,15 @@ final class CatchClause extends EditableSyntax {
     );
   }
 
-  public function body(): EditableSyntax {
+  public function body(): CompoundStatement {
+    return $this->bodyx();
+  }
+
+  public function bodyx(): CompoundStatement {
+    return TypeAssert::isInstanceOf(CompoundStatement::class, $this->_body);
+  }
+
+  public function raw_body(): EditableSyntax {
     return $this->_body;
   }
 
@@ -6657,7 +8416,15 @@ final class FinallyClause extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): FinallyToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): FinallyToken {
+    return TypeAssert::isInstanceOf(FinallyToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -6665,7 +8432,15 @@ final class FinallyClause extends EditableSyntax {
     return new self($value, $this->_body);
   }
 
-  public function body(): EditableSyntax {
+  public function body(): CompoundStatement {
+    return $this->bodyx();
+  }
+
+  public function bodyx(): CompoundStatement {
+    return TypeAssert::isInstanceOf(CompoundStatement::class, $this->_body);
+  }
+
+  public function raw_body(): EditableSyntax {
     return $this->_body;
   }
 
@@ -6809,7 +8584,15 @@ final class DoStatement extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): DoToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): DoToken {
+    return TypeAssert::isInstanceOf(DoToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -6825,7 +8608,15 @@ final class DoStatement extends EditableSyntax {
     );
   }
 
-  public function body(): EditableSyntax {
+  public function body(): EditableToken {
+    return $this->bodyx();
+  }
+
+  public function bodyx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_body);
+  }
+
+  public function raw_body(): EditableSyntax {
     return $this->_body;
   }
 
@@ -6841,7 +8632,15 @@ final class DoStatement extends EditableSyntax {
     );
   }
 
-  public function while_keyword(): EditableSyntax {
+  public function while_keyword(): WhileToken {
+    return $this->while_keywordx();
+  }
+
+  public function while_keywordx(): WhileToken {
+    return TypeAssert::isInstanceOf(WhileToken::class, $this->_while_keyword);
+  }
+
+  public function raw_while_keyword(): EditableSyntax {
     return $this->_while_keyword;
   }
 
@@ -6857,7 +8656,15 @@ final class DoStatement extends EditableSyntax {
     );
   }
 
-  public function left_paren(): EditableSyntax {
+  public function left_paren(): LeftParenToken {
+    return $this->left_parenx();
+  }
+
+  public function left_parenx(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  }
+
+  public function raw_left_paren(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -6873,7 +8680,15 @@ final class DoStatement extends EditableSyntax {
     );
   }
 
-  public function condition(): EditableSyntax {
+  public function condition(): EditableToken {
+    return $this->conditionx();
+  }
+
+  public function conditionx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_condition);
+  }
+
+  public function raw_condition(): EditableSyntax {
     return $this->_condition;
   }
 
@@ -6889,7 +8704,16 @@ final class DoStatement extends EditableSyntax {
     );
   }
 
-  public function right_paren(): EditableSyntax {
+  public function right_paren(): RightParenToken {
+    return $this->right_parenx();
+  }
+
+  public function right_parenx(): RightParenToken {
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function raw_right_paren(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -6905,7 +8729,15 @@ final class DoStatement extends EditableSyntax {
     );
   }
 
-  public function semicolon(): EditableSyntax {
+  public function semicolon(): SemicolonToken {
+    return $this->semicolonx();
+  }
+
+  public function semicolonx(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function raw_semicolon(): EditableSyntax {
     return $this->_semicolon;
   }
 
@@ -7087,7 +8919,15 @@ final class ForStatement extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): ForToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): ForToken {
+    return TypeAssert::isInstanceOf(ForToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -7105,7 +8945,15 @@ final class ForStatement extends EditableSyntax {
     );
   }
 
-  public function left_paren(): EditableSyntax {
+  public function left_paren(): LeftParenToken {
+    return $this->left_parenx();
+  }
+
+  public function left_parenx(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  }
+
+  public function raw_left_paren(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -7123,7 +8971,17 @@ final class ForStatement extends EditableSyntax {
     );
   }
 
-  public function initializer(): EditableSyntax {
+  public function initializer(): ?EditableList {
+    return $this->_initializer->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_initializer);
+  }
+
+  public function initializerx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_initializer);
+  }
+
+  public function raw_initializer(): EditableSyntax {
     return $this->_initializer;
   }
 
@@ -7141,7 +8999,16 @@ final class ForStatement extends EditableSyntax {
     );
   }
 
-  public function first_semicolon(): EditableSyntax {
+  public function first_semicolon(): SemicolonToken {
+    return $this->first_semicolonx();
+  }
+
+  public function first_semicolonx(): SemicolonToken {
+    return
+      TypeAssert::isInstanceOf(SemicolonToken::class, $this->_first_semicolon);
+  }
+
+  public function raw_first_semicolon(): EditableSyntax {
     return $this->_first_semicolon;
   }
 
@@ -7159,7 +9026,17 @@ final class ForStatement extends EditableSyntax {
     );
   }
 
-  public function control(): EditableSyntax {
+  public function control(): ?EditableList {
+    return $this->_control->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_control);
+  }
+
+  public function controlx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_control);
+  }
+
+  public function raw_control(): EditableSyntax {
     return $this->_control;
   }
 
@@ -7177,7 +9054,16 @@ final class ForStatement extends EditableSyntax {
     );
   }
 
-  public function second_semicolon(): EditableSyntax {
+  public function second_semicolon(): SemicolonToken {
+    return $this->second_semicolonx();
+  }
+
+  public function second_semicolonx(): SemicolonToken {
+    return
+      TypeAssert::isInstanceOf(SemicolonToken::class, $this->_second_semicolon);
+  }
+
+  public function raw_second_semicolon(): EditableSyntax {
     return $this->_second_semicolon;
   }
 
@@ -7195,7 +9081,17 @@ final class ForStatement extends EditableSyntax {
     );
   }
 
-  public function end_of_loop(): EditableSyntax {
+  public function end_of_loop(): ?EditableList {
+    return $this->_end_of_loop->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_end_of_loop);
+  }
+
+  public function end_of_loopx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_end_of_loop);
+  }
+
+  public function raw_end_of_loop(): EditableSyntax {
     return $this->_end_of_loop;
   }
 
@@ -7213,7 +9109,16 @@ final class ForStatement extends EditableSyntax {
     );
   }
 
-  public function right_paren(): EditableSyntax {
+  public function right_paren(): RightParenToken {
+    return $this->right_parenx();
+  }
+
+  public function right_parenx(): RightParenToken {
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function raw_right_paren(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -7231,7 +9136,15 @@ final class ForStatement extends EditableSyntax {
     );
   }
 
-  public function body(): EditableSyntax {
+  public function body(): EditableToken {
+    return $this->bodyx();
+  }
+
+  public function bodyx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_body);
+  }
+
+  public function raw_body(): EditableSyntax {
     return $this->_body;
   }
 
@@ -7427,7 +9340,15 @@ final class ForeachStatement extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): ForeachToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): ForeachToken {
+    return TypeAssert::isInstanceOf(ForeachToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -7446,7 +9367,15 @@ final class ForeachStatement extends EditableSyntax {
     );
   }
 
-  public function left_paren(): EditableSyntax {
+  public function left_paren(): LeftParenToken {
+    return $this->left_parenx();
+  }
+
+  public function left_parenx(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  }
+
+  public function raw_left_paren(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -7465,7 +9394,15 @@ final class ForeachStatement extends EditableSyntax {
     );
   }
 
-  public function collection(): EditableSyntax {
+  public function collection(): EditableToken {
+    return $this->collectionx();
+  }
+
+  public function collectionx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_collection);
+  }
+
+  public function raw_collection(): EditableSyntax {
     return $this->_collection;
   }
 
@@ -7484,7 +9421,17 @@ final class ForeachStatement extends EditableSyntax {
     );
   }
 
-  public function await_keyword(): EditableSyntax {
+  public function await_keyword(): ?AwaitToken {
+    return $this->_await_keyword->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(AwaitToken::class, $this->_await_keyword);
+  }
+
+  public function await_keywordx(): AwaitToken {
+    return TypeAssert::isInstanceOf(AwaitToken::class, $this->_await_keyword);
+  }
+
+  public function raw_await_keyword(): EditableSyntax {
     return $this->_await_keyword;
   }
 
@@ -7503,7 +9450,15 @@ final class ForeachStatement extends EditableSyntax {
     );
   }
 
-  public function as(): EditableSyntax {
+  public function as(): AsToken {
+    return $this->asx();
+  }
+
+  public function asx(): AsToken {
+    return TypeAssert::isInstanceOf(AsToken::class, $this->_as);
+  }
+
+  public function raw_as(): EditableSyntax {
     return $this->_as;
   }
 
@@ -7522,7 +9477,15 @@ final class ForeachStatement extends EditableSyntax {
     );
   }
 
-  public function key(): EditableSyntax {
+  public function key(): EditableToken {
+    return $this->keyx();
+  }
+
+  public function keyx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_key);
+  }
+
+  public function raw_key(): EditableSyntax {
     return $this->_key;
   }
 
@@ -7541,7 +9504,18 @@ final class ForeachStatement extends EditableSyntax {
     );
   }
 
-  public function arrow(): EditableSyntax {
+  public function arrow(): ?EqualGreaterThanToken {
+    return $this->_arrow->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EqualGreaterThanToken::class, $this->_arrow);
+  }
+
+  public function arrowx(): EqualGreaterThanToken {
+    return
+      TypeAssert::isInstanceOf(EqualGreaterThanToken::class, $this->_arrow);
+  }
+
+  public function raw_arrow(): EditableSyntax {
     return $this->_arrow;
   }
 
@@ -7560,7 +9534,15 @@ final class ForeachStatement extends EditableSyntax {
     );
   }
 
-  public function value(): EditableSyntax {
+  public function value(): EditableToken {
+    return $this->valuex();
+  }
+
+  public function valuex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_value);
+  }
+
+  public function raw_value(): EditableSyntax {
     return $this->_value;
   }
 
@@ -7579,7 +9561,16 @@ final class ForeachStatement extends EditableSyntax {
     );
   }
 
-  public function right_paren(): EditableSyntax {
+  public function right_paren(): RightParenToken {
+    return $this->right_parenx();
+  }
+
+  public function right_parenx(): RightParenToken {
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function raw_right_paren(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -7598,7 +9589,15 @@ final class ForeachStatement extends EditableSyntax {
     );
   }
 
-  public function body(): EditableSyntax {
+  public function body(): EditableToken {
+    return $this->bodyx();
+  }
+
+  public function bodyx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_body);
+  }
+
+  public function raw_body(): EditableSyntax {
     return $this->_body;
   }
 
@@ -7753,7 +9752,15 @@ final class SwitchStatement extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): SwitchToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): SwitchToken {
+    return TypeAssert::isInstanceOf(SwitchToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -7769,7 +9776,15 @@ final class SwitchStatement extends EditableSyntax {
     );
   }
 
-  public function left_paren(): EditableSyntax {
+  public function left_paren(): LeftParenToken {
+    return $this->left_parenx();
+  }
+
+  public function left_parenx(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  }
+
+  public function raw_left_paren(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -7785,7 +9800,15 @@ final class SwitchStatement extends EditableSyntax {
     );
   }
 
-  public function expression(): EditableSyntax {
+  public function expression(): EditableToken {
+    return $this->expressionx();
+  }
+
+  public function expressionx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_expression);
+  }
+
+  public function raw_expression(): EditableSyntax {
     return $this->_expression;
   }
 
@@ -7801,7 +9824,16 @@ final class SwitchStatement extends EditableSyntax {
     );
   }
 
-  public function right_paren(): EditableSyntax {
+  public function right_paren(): RightParenToken {
+    return $this->right_parenx();
+  }
+
+  public function right_parenx(): RightParenToken {
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function raw_right_paren(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -7817,7 +9849,17 @@ final class SwitchStatement extends EditableSyntax {
     );
   }
 
-  public function left_brace(): EditableSyntax {
+  public function left_brace(): ?LeftBraceToken {
+    return $this->_left_brace->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
+  }
+
+  public function left_bracex(): LeftBraceToken {
+    return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
+  }
+
+  public function raw_left_brace(): EditableSyntax {
     return $this->_left_brace;
   }
 
@@ -7833,7 +9875,17 @@ final class SwitchStatement extends EditableSyntax {
     );
   }
 
-  public function sections(): EditableSyntax {
+  public function sections(): ?EditableList {
+    return $this->_sections->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_sections);
+  }
+
+  public function sectionsx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_sections);
+  }
+
+  public function raw_sections(): EditableSyntax {
     return $this->_sections;
   }
 
@@ -7849,7 +9901,18 @@ final class SwitchStatement extends EditableSyntax {
     );
   }
 
-  public function right_brace(): EditableSyntax {
+  public function right_brace(): ?RightBraceToken {
+    return $this->_right_brace->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+  }
+
+  public function right_bracex(): RightBraceToken {
+    return
+      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+  }
+
+  public function raw_right_brace(): EditableSyntax {
     return $this->_right_brace;
   }
 
@@ -7937,7 +10000,17 @@ final class SwitchSection extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function labels(): EditableSyntax {
+  public function labels(): ?EditableList {
+    return $this->_labels->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_labels);
+  }
+
+  public function labelsx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_labels);
+  }
+
+  public function raw_labels(): EditableSyntax {
     return $this->_labels;
   }
 
@@ -7945,7 +10018,17 @@ final class SwitchSection extends EditableSyntax {
     return new self($value, $this->_statements, $this->_fallthrough);
   }
 
-  public function statements(): EditableSyntax {
+  public function statements(): ?EditableList {
+    return $this->_statements->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_statements);
+  }
+
+  public function statementsx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_statements);
+  }
+
+  public function raw_statements(): EditableSyntax {
     return $this->_statements;
   }
 
@@ -7953,7 +10036,15 @@ final class SwitchSection extends EditableSyntax {
     return new self($this->_labels, $value, $this->_fallthrough);
   }
 
-  public function fallthrough(): EditableSyntax {
+  public function fallthrough(): EditableToken {
+    return $this->fallthroughx();
+  }
+
+  public function fallthroughx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_fallthrough);
+  }
+
+  public function raw_fallthrough(): EditableSyntax {
     return $this->_fallthrough;
   }
 
@@ -8018,7 +10109,15 @@ final class SwitchFallthrough extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): EditableToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -8026,7 +10125,15 @@ final class SwitchFallthrough extends EditableSyntax {
     return new self($value, $this->_semicolon);
   }
 
-  public function semicolon(): EditableSyntax {
+  public function semicolon(): EditableToken {
+    return $this->semicolonx();
+  }
+
+  public function semicolonx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_semicolon);
+  }
+
+  public function raw_semicolon(): EditableSyntax {
     return $this->_semicolon;
   }
 
@@ -8106,7 +10213,15 @@ final class CaseLabel extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): CaseToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): CaseToken {
+    return TypeAssert::isInstanceOf(CaseToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -8114,7 +10229,15 @@ final class CaseLabel extends EditableSyntax {
     return new self($value, $this->_expression, $this->_colon);
   }
 
-  public function expression(): EditableSyntax {
+  public function expression(): EditableToken {
+    return $this->expressionx();
+  }
+
+  public function expressionx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_expression);
+  }
+
+  public function raw_expression(): EditableSyntax {
     return $this->_expression;
   }
 
@@ -8122,7 +10245,15 @@ final class CaseLabel extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_colon);
   }
 
-  public function colon(): EditableSyntax {
+  public function colon(): EditableToken {
+    return $this->colonx();
+  }
+
+  public function colonx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_colon);
+  }
+
+  public function raw_colon(): EditableSyntax {
     return $this->_colon;
   }
 
@@ -8184,7 +10315,15 @@ final class DefaultLabel extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): DefaultToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): DefaultToken {
+    return TypeAssert::isInstanceOf(DefaultToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -8192,7 +10331,15 @@ final class DefaultLabel extends EditableSyntax {
     return new self($value, $this->_colon);
   }
 
-  public function colon(): EditableSyntax {
+  public function colon(): EditableToken {
+    return $this->colonx();
+  }
+
+  public function colonx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_colon);
+  }
+
+  public function raw_colon(): EditableSyntax {
     return $this->_colon;
   }
 
@@ -8272,7 +10419,15 @@ final class ReturnStatement extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): ReturnToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): ReturnToken {
+    return TypeAssert::isInstanceOf(ReturnToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -8280,7 +10435,15 @@ final class ReturnStatement extends EditableSyntax {
     return new self($value, $this->_expression, $this->_semicolon);
   }
 
-  public function expression(): EditableSyntax {
+  public function expression(): EditableToken {
+    return $this->expressionx();
+  }
+
+  public function expressionx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_expression);
+  }
+
+  public function raw_expression(): EditableSyntax {
     return $this->_expression;
   }
 
@@ -8288,7 +10451,17 @@ final class ReturnStatement extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_semicolon);
   }
 
-  public function semicolon(): EditableSyntax {
+  public function semicolon(): ?SemicolonToken {
+    return $this->_semicolon->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function semicolonx(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function raw_semicolon(): EditableSyntax {
     return $this->_semicolon;
   }
 
@@ -8350,7 +10523,15 @@ final class GotoLabel extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function name(): EditableSyntax {
+  public function name(): NameToken {
+    return $this->namex();
+  }
+
+  public function namex(): NameToken {
+    return TypeAssert::isInstanceOf(NameToken::class, $this->_name);
+  }
+
+  public function raw_name(): EditableSyntax {
     return $this->_name;
   }
 
@@ -8358,7 +10539,15 @@ final class GotoLabel extends EditableSyntax {
     return new self($value, $this->_colon);
   }
 
-  public function colon(): EditableSyntax {
+  public function colon(): ColonToken {
+    return $this->colonx();
+  }
+
+  public function colonx(): ColonToken {
+    return TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
+  }
+
+  public function raw_colon(): EditableSyntax {
     return $this->_colon;
   }
 
@@ -8438,7 +10627,15 @@ final class GotoStatement extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): GotoToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): GotoToken {
+    return TypeAssert::isInstanceOf(GotoToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -8446,7 +10643,15 @@ final class GotoStatement extends EditableSyntax {
     return new self($value, $this->_label_name, $this->_semicolon);
   }
 
-  public function label_name(): EditableSyntax {
+  public function label_name(): NameToken {
+    return $this->label_namex();
+  }
+
+  public function label_namex(): NameToken {
+    return TypeAssert::isInstanceOf(NameToken::class, $this->_label_name);
+  }
+
+  public function raw_label_name(): EditableSyntax {
     return $this->_label_name;
   }
 
@@ -8454,7 +10659,15 @@ final class GotoStatement extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_semicolon);
   }
 
-  public function semicolon(): EditableSyntax {
+  public function semicolon(): SemicolonToken {
+    return $this->semicolonx();
+  }
+
+  public function semicolonx(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function raw_semicolon(): EditableSyntax {
     return $this->_semicolon;
   }
 
@@ -8534,7 +10747,15 @@ final class ThrowStatement extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): ThrowToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): ThrowToken {
+    return TypeAssert::isInstanceOf(ThrowToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -8542,7 +10763,15 @@ final class ThrowStatement extends EditableSyntax {
     return new self($value, $this->_expression, $this->_semicolon);
   }
 
-  public function expression(): EditableSyntax {
+  public function expression(): EditableToken {
+    return $this->expressionx();
+  }
+
+  public function expressionx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_expression);
+  }
+
+  public function raw_expression(): EditableSyntax {
     return $this->_expression;
   }
 
@@ -8550,7 +10779,15 @@ final class ThrowStatement extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_semicolon);
   }
 
-  public function semicolon(): EditableSyntax {
+  public function semicolon(): SemicolonToken {
+    return $this->semicolonx();
+  }
+
+  public function semicolonx(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function raw_semicolon(): EditableSyntax {
     return $this->_semicolon;
   }
 
@@ -8630,7 +10867,15 @@ final class BreakStatement extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): BreakToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): BreakToken {
+    return TypeAssert::isInstanceOf(BreakToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -8638,7 +10883,15 @@ final class BreakStatement extends EditableSyntax {
     return new self($value, $this->_level, $this->_semicolon);
   }
 
-  public function level(): EditableSyntax {
+  public function level(): EditableToken {
+    return $this->levelx();
+  }
+
+  public function levelx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_level);
+  }
+
+  public function raw_level(): EditableSyntax {
     return $this->_level;
   }
 
@@ -8646,7 +10899,15 @@ final class BreakStatement extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_semicolon);
   }
 
-  public function semicolon(): EditableSyntax {
+  public function semicolon(): SemicolonToken {
+    return $this->semicolonx();
+  }
+
+  public function semicolonx(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function raw_semicolon(): EditableSyntax {
     return $this->_semicolon;
   }
 
@@ -8726,7 +10987,15 @@ final class ContinueStatement extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): ContinueToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): ContinueToken {
+    return TypeAssert::isInstanceOf(ContinueToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -8734,7 +11003,15 @@ final class ContinueStatement extends EditableSyntax {
     return new self($value, $this->_level, $this->_semicolon);
   }
 
-  public function level(): EditableSyntax {
+  public function level(): EditableToken {
+    return $this->levelx();
+  }
+
+  public function levelx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_level);
+  }
+
+  public function raw_level(): EditableSyntax {
     return $this->_level;
   }
 
@@ -8742,7 +11019,15 @@ final class ContinueStatement extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_semicolon);
   }
 
-  public function semicolon(): EditableSyntax {
+  public function semicolon(): SemicolonToken {
+    return $this->semicolonx();
+  }
+
+  public function semicolonx(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function raw_semicolon(): EditableSyntax {
     return $this->_semicolon;
   }
 
@@ -8823,7 +11108,15 @@ final class FunctionStaticStatement extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function static_keyword(): EditableSyntax {
+  public function static_keyword(): StaticToken {
+    return $this->static_keywordx();
+  }
+
+  public function static_keywordx(): StaticToken {
+    return TypeAssert::isInstanceOf(StaticToken::class, $this->_static_keyword);
+  }
+
+  public function raw_static_keyword(): EditableSyntax {
     return $this->_static_keyword;
   }
 
@@ -8831,7 +11124,15 @@ final class FunctionStaticStatement extends EditableSyntax {
     return new self($value, $this->_declarations, $this->_semicolon);
   }
 
-  public function declarations(): EditableSyntax {
+  public function declarations(): EditableList {
+    return $this->declarationsx();
+  }
+
+  public function declarationsx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_declarations);
+  }
+
+  public function raw_declarations(): EditableSyntax {
     return $this->_declarations;
   }
 
@@ -8839,7 +11140,17 @@ final class FunctionStaticStatement extends EditableSyntax {
     return new self($this->_static_keyword, $value, $this->_semicolon);
   }
 
-  public function semicolon(): EditableSyntax {
+  public function semicolon(): ?SemicolonToken {
+    return $this->_semicolon->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function semicolonx(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function raw_semicolon(): EditableSyntax {
     return $this->_semicolon;
   }
 
@@ -8904,7 +11215,17 @@ final class StaticDeclarator extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function name(): EditableSyntax {
+  public function name(): ?VariableToken {
+    return $this->_name->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(VariableToken::class, $this->_name);
+  }
+
+  public function namex(): VariableToken {
+    return TypeAssert::isInstanceOf(VariableToken::class, $this->_name);
+  }
+
+  public function raw_name(): EditableSyntax {
     return $this->_name;
   }
 
@@ -8912,7 +11233,18 @@ final class StaticDeclarator extends EditableSyntax {
     return new self($value, $this->_initializer);
   }
 
-  public function initializer(): EditableSyntax {
+  public function initializer(): ?SimpleInitializer {
+    return $this->_initializer->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
+  }
+
+  public function initializerx(): SimpleInitializer {
+    return
+      TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
+  }
+
+  public function raw_initializer(): EditableSyntax {
     return $this->_initializer;
   }
 
@@ -8992,7 +11324,15 @@ final class EchoStatement extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): EchoToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): EchoToken {
+    return TypeAssert::isInstanceOf(EchoToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -9000,7 +11340,15 @@ final class EchoStatement extends EditableSyntax {
     return new self($value, $this->_expressions, $this->_semicolon);
   }
 
-  public function expressions(): EditableSyntax {
+  public function expressions(): EditableList {
+    return $this->expressionsx();
+  }
+
+  public function expressionsx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_expressions);
+  }
+
+  public function raw_expressions(): EditableSyntax {
     return $this->_expressions;
   }
 
@@ -9008,7 +11356,17 @@ final class EchoStatement extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_semicolon);
   }
 
-  public function semicolon(): EditableSyntax {
+  public function semicolon(): ?SemicolonToken {
+    return $this->_semicolon->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function semicolonx(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function raw_semicolon(): EditableSyntax {
     return $this->_semicolon;
   }
 
@@ -9088,7 +11446,15 @@ final class GlobalStatement extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): GlobalToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): GlobalToken {
+    return TypeAssert::isInstanceOf(GlobalToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -9096,7 +11462,15 @@ final class GlobalStatement extends EditableSyntax {
     return new self($value, $this->_variables, $this->_semicolon);
   }
 
-  public function variables(): EditableSyntax {
+  public function variables(): EditableList {
+    return $this->variablesx();
+  }
+
+  public function variablesx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_variables);
+  }
+
+  public function raw_variables(): EditableSyntax {
     return $this->_variables;
   }
 
@@ -9104,7 +11478,15 @@ final class GlobalStatement extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_semicolon);
   }
 
-  public function semicolon(): EditableSyntax {
+  public function semicolon(): SemicolonToken {
+    return $this->semicolonx();
+  }
+
+  public function semicolonx(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function raw_semicolon(): EditableSyntax {
     return $this->_semicolon;
   }
 
@@ -9166,7 +11548,15 @@ final class SimpleInitializer extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function equal(): EditableSyntax {
+  public function equal(): EqualToken {
+    return $this->equalx();
+  }
+
+  public function equalx(): EqualToken {
+    return TypeAssert::isInstanceOf(EqualToken::class, $this->_equal);
+  }
+
+  public function raw_equal(): EditableSyntax {
     return $this->_equal;
   }
 
@@ -9174,7 +11564,15 @@ final class SimpleInitializer extends EditableSyntax {
     return new self($value, $this->_value);
   }
 
-  public function value(): EditableSyntax {
+  public function value(): EditableToken {
+    return $this->valuex();
+  }
+
+  public function valuex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_value);
+  }
+
+  public function raw_value(): EditableSyntax {
     return $this->_value;
   }
 
@@ -9377,7 +11775,17 @@ final class AnonymousFunction extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function static_keyword(): EditableSyntax {
+  public function static_keyword(): ?StaticToken {
+    return $this->_static_keyword->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(StaticToken::class, $this->_static_keyword);
+  }
+
+  public function static_keywordx(): StaticToken {
+    return TypeAssert::isInstanceOf(StaticToken::class, $this->_static_keyword);
+  }
+
+  public function raw_static_keyword(): EditableSyntax {
     return $this->_static_keyword;
   }
 
@@ -9397,7 +11805,17 @@ final class AnonymousFunction extends EditableSyntax {
     );
   }
 
-  public function async_keyword(): EditableSyntax {
+  public function async_keyword(): ?AsyncToken {
+    return $this->_async_keyword->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(AsyncToken::class, $this->_async_keyword);
+  }
+
+  public function async_keywordx(): AsyncToken {
+    return TypeAssert::isInstanceOf(AsyncToken::class, $this->_async_keyword);
+  }
+
+  public function raw_async_keyword(): EditableSyntax {
     return $this->_async_keyword;
   }
 
@@ -9417,7 +11835,16 @@ final class AnonymousFunction extends EditableSyntax {
     );
   }
 
-  public function coroutine_keyword(): EditableSyntax {
+  public function coroutine_keyword(): EditableToken {
+    return $this->coroutine_keywordx();
+  }
+
+  public function coroutine_keywordx(): EditableToken {
+    return
+      TypeAssert::isInstanceOf(EditableToken::class, $this->_coroutine_keyword);
+  }
+
+  public function raw_coroutine_keyword(): EditableSyntax {
     return $this->_coroutine_keyword;
   }
 
@@ -9437,7 +11864,16 @@ final class AnonymousFunction extends EditableSyntax {
     );
   }
 
-  public function function_keyword(): EditableSyntax {
+  public function function_keyword(): FunctionToken {
+    return $this->function_keywordx();
+  }
+
+  public function function_keywordx(): FunctionToken {
+    return
+      TypeAssert::isInstanceOf(FunctionToken::class, $this->_function_keyword);
+  }
+
+  public function raw_function_keyword(): EditableSyntax {
     return $this->_function_keyword;
   }
 
@@ -9457,7 +11893,17 @@ final class AnonymousFunction extends EditableSyntax {
     );
   }
 
-  public function left_paren(): EditableSyntax {
+  public function left_paren(): ?LeftParenToken {
+    return $this->_left_paren->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  }
+
+  public function left_parenx(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  }
+
+  public function raw_left_paren(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -9477,7 +11923,17 @@ final class AnonymousFunction extends EditableSyntax {
     );
   }
 
-  public function parameters(): EditableSyntax {
+  public function parameters(): ?EditableList {
+    return $this->_parameters->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_parameters);
+  }
+
+  public function parametersx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_parameters);
+  }
+
+  public function raw_parameters(): EditableSyntax {
     return $this->_parameters;
   }
 
@@ -9497,7 +11953,18 @@ final class AnonymousFunction extends EditableSyntax {
     );
   }
 
-  public function right_paren(): EditableSyntax {
+  public function right_paren(): ?RightParenToken {
+    return $this->_right_paren->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function right_parenx(): RightParenToken {
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function raw_right_paren(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -9517,7 +11984,17 @@ final class AnonymousFunction extends EditableSyntax {
     );
   }
 
-  public function colon(): EditableSyntax {
+  public function colon(): ?ColonToken {
+    return $this->_colon->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
+  }
+
+  public function colonx(): ColonToken {
+    return TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
+  }
+
+  public function raw_colon(): EditableSyntax {
     return $this->_colon;
   }
 
@@ -9537,7 +12014,15 @@ final class AnonymousFunction extends EditableSyntax {
     );
   }
 
-  public function type(): EditableSyntax {
+  public function type(): EditableToken {
+    return $this->typex();
+  }
+
+  public function typex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_type);
+  }
+
+  public function raw_type(): EditableSyntax {
     return $this->_type;
   }
 
@@ -9557,7 +12042,21 @@ final class AnonymousFunction extends EditableSyntax {
     );
   }
 
-  public function use(): EditableSyntax {
+  public function use(): ?AnonymousFunctionUseClause {
+    return $this->_use->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(
+          AnonymousFunctionUseClause::class,
+          $this->_use,
+        );
+  }
+
+  public function usex(): AnonymousFunctionUseClause {
+    return
+      TypeAssert::isInstanceOf(AnonymousFunctionUseClause::class, $this->_use);
+  }
+
+  public function raw_use(): EditableSyntax {
     return $this->_use;
   }
 
@@ -9577,7 +12076,15 @@ final class AnonymousFunction extends EditableSyntax {
     );
   }
 
-  public function body(): EditableSyntax {
+  public function body(): CompoundStatement {
+    return $this->bodyx();
+  }
+
+  public function bodyx(): CompoundStatement {
+    return TypeAssert::isInstanceOf(CompoundStatement::class, $this->_body);
+  }
+
+  public function raw_body(): EditableSyntax {
     return $this->_body;
   }
 
@@ -9681,7 +12188,15 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): UseToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): UseToken {
+    return TypeAssert::isInstanceOf(UseToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -9694,7 +12209,15 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
     );
   }
 
-  public function left_paren(): EditableSyntax {
+  public function left_paren(): LeftParenToken {
+    return $this->left_parenx();
+  }
+
+  public function left_parenx(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  }
+
+  public function raw_left_paren(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -9703,7 +12226,15 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
       new self($this->_keyword, $value, $this->_variables, $this->_right_paren);
   }
 
-  public function variables(): EditableSyntax {
+  public function variables(): EditableList {
+    return $this->variablesx();
+  }
+
+  public function variablesx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_variables);
+  }
+
+  public function raw_variables(): EditableSyntax {
     return $this->_variables;
   }
 
@@ -9716,7 +12247,16 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
     );
   }
 
-  public function right_paren(): EditableSyntax {
+  public function right_paren(): RightParenToken {
+    return $this->right_parenx();
+  }
+
+  public function right_parenx(): RightParenToken {
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function raw_right_paren(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -9821,7 +12361,17 @@ final class LambdaExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function async(): EditableSyntax {
+  public function async(): ?AsyncToken {
+    return $this->_async->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(AsyncToken::class, $this->_async);
+  }
+
+  public function asyncx(): AsyncToken {
+    return TypeAssert::isInstanceOf(AsyncToken::class, $this->_async);
+  }
+
+  public function raw_async(): EditableSyntax {
     return $this->_async;
   }
 
@@ -9835,7 +12385,15 @@ final class LambdaExpression extends EditableSyntax {
     );
   }
 
-  public function coroutine(): EditableSyntax {
+  public function coroutine(): EditableToken {
+    return $this->coroutinex();
+  }
+
+  public function coroutinex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_coroutine);
+  }
+
+  public function raw_coroutine(): EditableSyntax {
     return $this->_coroutine;
   }
 
@@ -9849,7 +12407,15 @@ final class LambdaExpression extends EditableSyntax {
     );
   }
 
-  public function signature(): EditableSyntax {
+  public function signature(): EditableToken {
+    return $this->signaturex();
+  }
+
+  public function signaturex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_signature);
+  }
+
+  public function raw_signature(): EditableSyntax {
     return $this->_signature;
   }
 
@@ -9863,7 +12429,23 @@ final class LambdaExpression extends EditableSyntax {
     );
   }
 
-  public function arrow(): EditableSyntax {
+  public function arrow(): ?EqualEqualGreaterThanToken {
+    return $this->_arrow->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(
+          EqualEqualGreaterThanToken::class,
+          $this->_arrow,
+        );
+  }
+
+  public function arrowx(): EqualEqualGreaterThanToken {
+    return TypeAssert::isInstanceOf(
+      EqualEqualGreaterThanToken::class,
+      $this->_arrow,
+    );
+  }
+
+  public function raw_arrow(): EditableSyntax {
     return $this->_arrow;
   }
 
@@ -9877,7 +12459,15 @@ final class LambdaExpression extends EditableSyntax {
     );
   }
 
-  public function body(): EditableSyntax {
+  public function body(): EditableToken {
+    return $this->bodyx();
+  }
+
+  public function bodyx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_body);
+  }
+
+  public function raw_body(): EditableSyntax {
     return $this->_body;
   }
 
@@ -9987,7 +12577,17 @@ final class LambdaSignature extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function left_paren(): EditableSyntax {
+  public function left_paren(): ?LeftParenToken {
+    return $this->_left_paren->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  }
+
+  public function left_parenx(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  }
+
+  public function raw_left_paren(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -10001,7 +12601,17 @@ final class LambdaSignature extends EditableSyntax {
     );
   }
 
-  public function parameters(): EditableSyntax {
+  public function parameters(): ?EditableList {
+    return $this->_parameters->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_parameters);
+  }
+
+  public function parametersx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_parameters);
+  }
+
+  public function raw_parameters(): EditableSyntax {
     return $this->_parameters;
   }
 
@@ -10015,7 +12625,18 @@ final class LambdaSignature extends EditableSyntax {
     );
   }
 
-  public function right_paren(): EditableSyntax {
+  public function right_paren(): ?RightParenToken {
+    return $this->_right_paren->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function right_parenx(): RightParenToken {
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function raw_right_paren(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -10029,7 +12650,17 @@ final class LambdaSignature extends EditableSyntax {
     );
   }
 
-  public function colon(): EditableSyntax {
+  public function colon(): ?ColonToken {
+    return $this->_colon->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
+  }
+
+  public function colonx(): ColonToken {
+    return TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
+  }
+
+  public function raw_colon(): EditableSyntax {
     return $this->_colon;
   }
 
@@ -10043,7 +12674,15 @@ final class LambdaSignature extends EditableSyntax {
     );
   }
 
-  public function type(): EditableSyntax {
+  public function type(): EditableToken {
+    return $this->typex();
+  }
+
+  public function typex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_type);
+  }
+
+  public function raw_type(): EditableSyntax {
     return $this->_type;
   }
 
@@ -10141,7 +12780,15 @@ final class CastExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function left_paren(): EditableSyntax {
+  public function left_paren(): LeftParenToken {
+    return $this->left_parenx();
+  }
+
+  public function left_parenx(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  }
+
+  public function raw_left_paren(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -10149,7 +12796,15 @@ final class CastExpression extends EditableSyntax {
     return new self($value, $this->_type, $this->_right_paren, $this->_operand);
   }
 
-  public function type(): EditableSyntax {
+  public function type(): EditableToken {
+    return $this->typex();
+  }
+
+  public function typex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_type);
+  }
+
+  public function raw_type(): EditableSyntax {
     return $this->_type;
   }
 
@@ -10162,7 +12817,16 @@ final class CastExpression extends EditableSyntax {
     );
   }
 
-  public function right_paren(): EditableSyntax {
+  public function right_paren(): RightParenToken {
+    return $this->right_parenx();
+  }
+
+  public function right_parenx(): RightParenToken {
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function raw_right_paren(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -10170,7 +12834,15 @@ final class CastExpression extends EditableSyntax {
     return new self($this->_left_paren, $this->_type, $value, $this->_operand);
   }
 
-  public function operand(): EditableSyntax {
+  public function operand(): EditableToken {
+    return $this->operandx();
+  }
+
+  public function operandx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_operand);
+  }
+
+  public function raw_operand(): EditableSyntax {
     return $this->_operand;
   }
 
@@ -10251,7 +12923,15 @@ final class ScopeResolutionExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function qualifier(): EditableSyntax {
+  public function qualifier(): EditableToken {
+    return $this->qualifierx();
+  }
+
+  public function qualifierx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_qualifier);
+  }
+
+  public function raw_qualifier(): EditableSyntax {
     return $this->_qualifier;
   }
 
@@ -10259,7 +12939,15 @@ final class ScopeResolutionExpression extends EditableSyntax {
     return new self($value, $this->_operator, $this->_name);
   }
 
-  public function operator(): EditableSyntax {
+  public function operator(): ColonColonToken {
+    return $this->operatorx();
+  }
+
+  public function operatorx(): ColonColonToken {
+    return TypeAssert::isInstanceOf(ColonColonToken::class, $this->_operator);
+  }
+
+  public function raw_operator(): EditableSyntax {
     return $this->_operator;
   }
 
@@ -10267,7 +12955,15 @@ final class ScopeResolutionExpression extends EditableSyntax {
     return new self($this->_qualifier, $value, $this->_name);
   }
 
-  public function name(): EditableSyntax {
+  public function name(): EditableToken {
+    return $this->namex();
+  }
+
+  public function namex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+  }
+
+  public function raw_name(): EditableSyntax {
     return $this->_name;
   }
 
@@ -10347,7 +13043,15 @@ final class MemberSelectionExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function object(): EditableSyntax {
+  public function object(): EditableToken {
+    return $this->objectx();
+  }
+
+  public function objectx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_object);
+  }
+
+  public function raw_object(): EditableSyntax {
     return $this->_object;
   }
 
@@ -10355,7 +13059,16 @@ final class MemberSelectionExpression extends EditableSyntax {
     return new self($value, $this->_operator, $this->_name);
   }
 
-  public function operator(): EditableSyntax {
+  public function operator(): MinusGreaterThanToken {
+    return $this->operatorx();
+  }
+
+  public function operatorx(): MinusGreaterThanToken {
+    return
+      TypeAssert::isInstanceOf(MinusGreaterThanToken::class, $this->_operator);
+  }
+
+  public function raw_operator(): EditableSyntax {
     return $this->_operator;
   }
 
@@ -10363,7 +13076,15 @@ final class MemberSelectionExpression extends EditableSyntax {
     return new self($this->_object, $value, $this->_name);
   }
 
-  public function name(): EditableSyntax {
+  public function name(): EditableToken {
+    return $this->namex();
+  }
+
+  public function namex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+  }
+
+  public function raw_name(): EditableSyntax {
     return $this->_name;
   }
 
@@ -10443,7 +13164,15 @@ final class SafeMemberSelectionExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function object(): EditableSyntax {
+  public function object(): EditableToken {
+    return $this->objectx();
+  }
+
+  public function objectx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_object);
+  }
+
+  public function raw_object(): EditableSyntax {
     return $this->_object;
   }
 
@@ -10451,7 +13180,18 @@ final class SafeMemberSelectionExpression extends EditableSyntax {
     return new self($value, $this->_operator, $this->_name);
   }
 
-  public function operator(): EditableSyntax {
+  public function operator(): QuestionMinusGreaterThanToken {
+    return $this->operatorx();
+  }
+
+  public function operatorx(): QuestionMinusGreaterThanToken {
+    return TypeAssert::isInstanceOf(
+      QuestionMinusGreaterThanToken::class,
+      $this->_operator,
+    );
+  }
+
+  public function raw_operator(): EditableSyntax {
     return $this->_operator;
   }
 
@@ -10459,7 +13199,15 @@ final class SafeMemberSelectionExpression extends EditableSyntax {
     return new self($this->_object, $value, $this->_name);
   }
 
-  public function name(): EditableSyntax {
+  public function name(): EditableToken {
+    return $this->namex();
+  }
+
+  public function namex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+  }
+
+  public function raw_name(): EditableSyntax {
     return $this->_name;
   }
 
@@ -10539,7 +13287,15 @@ final class EmbeddedMemberSelectionExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function object(): EditableSyntax {
+  public function object(): EditableToken {
+    return $this->objectx();
+  }
+
+  public function objectx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_object);
+  }
+
+  public function raw_object(): EditableSyntax {
     return $this->_object;
   }
 
@@ -10547,7 +13303,15 @@ final class EmbeddedMemberSelectionExpression extends EditableSyntax {
     return new self($value, $this->_operator, $this->_name);
   }
 
-  public function operator(): EditableSyntax {
+  public function operator(): EditableToken {
+    return $this->operatorx();
+  }
+
+  public function operatorx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_operator);
+  }
+
+  public function raw_operator(): EditableSyntax {
     return $this->_operator;
   }
 
@@ -10555,7 +13319,15 @@ final class EmbeddedMemberSelectionExpression extends EditableSyntax {
     return new self($this->_object, $value, $this->_name);
   }
 
-  public function name(): EditableSyntax {
+  public function name(): EditableToken {
+    return $this->namex();
+  }
+
+  public function namex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+  }
+
+  public function raw_name(): EditableSyntax {
     return $this->_name;
   }
 
@@ -10620,7 +13392,15 @@ final class YieldExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): YieldToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): YieldToken {
+    return TypeAssert::isInstanceOf(YieldToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -10628,7 +13408,15 @@ final class YieldExpression extends EditableSyntax {
     return new self($value, $this->_operand);
   }
 
-  public function operand(): EditableSyntax {
+  public function operand(): EditableToken {
+    return $this->operandx();
+  }
+
+  public function operandx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_operand);
+  }
+
+  public function raw_operand(): EditableSyntax {
     return $this->_operand;
   }
 
@@ -10693,7 +13481,15 @@ final class PrefixUnaryExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function operator(): EditableSyntax {
+  public function operator(): EditableToken {
+    return $this->operatorx();
+  }
+
+  public function operatorx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_operator);
+  }
+
+  public function raw_operator(): EditableSyntax {
     return $this->_operator;
   }
 
@@ -10701,7 +13497,15 @@ final class PrefixUnaryExpression extends EditableSyntax {
     return new self($value, $this->_operand);
   }
 
-  public function operand(): EditableSyntax {
+  public function operand(): EditableToken {
+    return $this->operandx();
+  }
+
+  public function operandx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_operand);
+  }
+
+  public function raw_operand(): EditableSyntax {
     return $this->_operand;
   }
 
@@ -10766,7 +13570,15 @@ final class PostfixUnaryExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function operand(): EditableSyntax {
+  public function operand(): EditableToken {
+    return $this->operandx();
+  }
+
+  public function operandx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_operand);
+  }
+
+  public function raw_operand(): EditableSyntax {
     return $this->_operand;
   }
 
@@ -10774,7 +13586,15 @@ final class PostfixUnaryExpression extends EditableSyntax {
     return new self($value, $this->_operator);
   }
 
-  public function operator(): EditableSyntax {
+  public function operator(): EditableToken {
+    return $this->operatorx();
+  }
+
+  public function operatorx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_operator);
+  }
+
+  public function raw_operator(): EditableSyntax {
     return $this->_operator;
   }
 
@@ -10854,7 +13674,15 @@ final class BinaryExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function left_operand(): EditableSyntax {
+  public function left_operand(): EditableToken {
+    return $this->left_operandx();
+  }
+
+  public function left_operandx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_left_operand);
+  }
+
+  public function raw_left_operand(): EditableSyntax {
     return $this->_left_operand;
   }
 
@@ -10862,7 +13690,15 @@ final class BinaryExpression extends EditableSyntax {
     return new self($value, $this->_operator, $this->_right_operand);
   }
 
-  public function operator(): EditableSyntax {
+  public function operator(): EditableToken {
+    return $this->operatorx();
+  }
+
+  public function operatorx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_operator);
+  }
+
+  public function raw_operator(): EditableSyntax {
     return $this->_operator;
   }
 
@@ -10870,7 +13706,16 @@ final class BinaryExpression extends EditableSyntax {
     return new self($this->_left_operand, $value, $this->_right_operand);
   }
 
-  public function right_operand(): EditableSyntax {
+  public function right_operand(): EditableToken {
+    return $this->right_operandx();
+  }
+
+  public function right_operandx(): EditableToken {
+    return
+      TypeAssert::isInstanceOf(EditableToken::class, $this->_right_operand);
+  }
+
+  public function raw_right_operand(): EditableSyntax {
     return $this->_right_operand;
   }
 
@@ -10950,7 +13795,15 @@ final class InstanceofExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function left_operand(): EditableSyntax {
+  public function left_operand(): EditableToken {
+    return $this->left_operandx();
+  }
+
+  public function left_operandx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_left_operand);
+  }
+
+  public function raw_left_operand(): EditableSyntax {
     return $this->_left_operand;
   }
 
@@ -10958,7 +13811,15 @@ final class InstanceofExpression extends EditableSyntax {
     return new self($value, $this->_operator, $this->_right_operand);
   }
 
-  public function operator(): EditableSyntax {
+  public function operator(): InstanceofToken {
+    return $this->operatorx();
+  }
+
+  public function operatorx(): InstanceofToken {
+    return TypeAssert::isInstanceOf(InstanceofToken::class, $this->_operator);
+  }
+
+  public function raw_operator(): EditableSyntax {
     return $this->_operator;
   }
 
@@ -10966,7 +13827,16 @@ final class InstanceofExpression extends EditableSyntax {
     return new self($this->_left_operand, $value, $this->_right_operand);
   }
 
-  public function right_operand(): EditableSyntax {
+  public function right_operand(): EditableToken {
+    return $this->right_operandx();
+  }
+
+  public function right_operandx(): EditableToken {
+    return
+      TypeAssert::isInstanceOf(EditableToken::class, $this->_right_operand);
+  }
+
+  public function raw_right_operand(): EditableSyntax {
     return $this->_right_operand;
   }
 
@@ -11070,7 +13940,15 @@ final class ConditionalExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function test(): EditableSyntax {
+  public function test(): EditableToken {
+    return $this->testx();
+  }
+
+  public function testx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_test);
+  }
+
+  public function raw_test(): EditableSyntax {
     return $this->_test;
   }
 
@@ -11084,7 +13962,15 @@ final class ConditionalExpression extends EditableSyntax {
     );
   }
 
-  public function question(): EditableSyntax {
+  public function question(): QuestionToken {
+    return $this->questionx();
+  }
+
+  public function questionx(): QuestionToken {
+    return TypeAssert::isInstanceOf(QuestionToken::class, $this->_question);
+  }
+
+  public function raw_question(): EditableSyntax {
     return $this->_question;
   }
 
@@ -11098,7 +13984,15 @@ final class ConditionalExpression extends EditableSyntax {
     );
   }
 
-  public function consequence(): EditableSyntax {
+  public function consequence(): EditableToken {
+    return $this->consequencex();
+  }
+
+  public function consequencex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_consequence);
+  }
+
+  public function raw_consequence(): EditableSyntax {
     return $this->_consequence;
   }
 
@@ -11112,7 +14006,17 @@ final class ConditionalExpression extends EditableSyntax {
     );
   }
 
-  public function colon(): EditableSyntax {
+  public function colon(): ?ColonToken {
+    return $this->_colon->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
+  }
+
+  public function colonx(): ColonToken {
+    return TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
+  }
+
+  public function raw_colon(): EditableSyntax {
     return $this->_colon;
   }
 
@@ -11126,7 +14030,15 @@ final class ConditionalExpression extends EditableSyntax {
     );
   }
 
-  public function alternative(): EditableSyntax {
+  public function alternative(): EditableToken {
+    return $this->alternativex();
+  }
+
+  public function alternativex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_alternative);
+  }
+
+  public function raw_alternative(): EditableSyntax {
     return $this->_alternative;
   }
 
@@ -11224,7 +14136,15 @@ final class EvalExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): EvalToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): EvalToken {
+    return TypeAssert::isInstanceOf(EvalToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -11237,7 +14157,15 @@ final class EvalExpression extends EditableSyntax {
     );
   }
 
-  public function left_paren(): EditableSyntax {
+  public function left_paren(): LeftParenToken {
+    return $this->left_parenx();
+  }
+
+  public function left_parenx(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  }
+
+  public function raw_left_paren(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -11246,7 +14174,15 @@ final class EvalExpression extends EditableSyntax {
       new self($this->_keyword, $value, $this->_argument, $this->_right_paren);
   }
 
-  public function argument(): EditableSyntax {
+  public function argument(): EditableToken {
+    return $this->argumentx();
+  }
+
+  public function argumentx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_argument);
+  }
+
+  public function raw_argument(): EditableSyntax {
     return $this->_argument;
   }
 
@@ -11259,7 +14195,16 @@ final class EvalExpression extends EditableSyntax {
     );
   }
 
-  public function right_paren(): EditableSyntax {
+  public function right_paren(): RightParenToken {
+    return $this->right_parenx();
+  }
+
+  public function right_parenx(): RightParenToken {
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function raw_right_paren(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -11352,7 +14297,15 @@ final class EmptyExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): EmptyToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): EmptyToken {
+    return TypeAssert::isInstanceOf(EmptyToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -11365,7 +14318,15 @@ final class EmptyExpression extends EditableSyntax {
     );
   }
 
-  public function left_paren(): EditableSyntax {
+  public function left_paren(): LeftParenToken {
+    return $this->left_parenx();
+  }
+
+  public function left_parenx(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  }
+
+  public function raw_left_paren(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -11374,7 +14335,15 @@ final class EmptyExpression extends EditableSyntax {
       new self($this->_keyword, $value, $this->_argument, $this->_right_paren);
   }
 
-  public function argument(): EditableSyntax {
+  public function argument(): EditableToken {
+    return $this->argumentx();
+  }
+
+  public function argumentx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_argument);
+  }
+
+  public function raw_argument(): EditableSyntax {
     return $this->_argument;
   }
 
@@ -11387,7 +14356,16 @@ final class EmptyExpression extends EditableSyntax {
     );
   }
 
-  public function right_paren(): EditableSyntax {
+  public function right_paren(): RightParenToken {
+    return $this->right_parenx();
+  }
+
+  public function right_parenx(): RightParenToken {
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function raw_right_paren(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -11480,7 +14458,15 @@ final class DefineExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): DefineToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): DefineToken {
+    return TypeAssert::isInstanceOf(DefineToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -11493,7 +14479,15 @@ final class DefineExpression extends EditableSyntax {
     );
   }
 
-  public function left_paren(): EditableSyntax {
+  public function left_paren(): LeftParenToken {
+    return $this->left_parenx();
+  }
+
+  public function left_parenx(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  }
+
+  public function raw_left_paren(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -11506,7 +14500,17 @@ final class DefineExpression extends EditableSyntax {
     );
   }
 
-  public function argument_list(): EditableSyntax {
+  public function argument_list(): ?EditableList {
+    return $this->_argument_list->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_argument_list);
+  }
+
+  public function argument_listx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_argument_list);
+  }
+
+  public function raw_argument_list(): EditableSyntax {
     return $this->_argument_list;
   }
 
@@ -11519,7 +14523,16 @@ final class DefineExpression extends EditableSyntax {
     );
   }
 
-  public function right_paren(): EditableSyntax {
+  public function right_paren(): RightParenToken {
+    return $this->right_parenx();
+  }
+
+  public function right_parenx(): RightParenToken {
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function raw_right_paren(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -11616,7 +14629,15 @@ final class IssetExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): IssetToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): IssetToken {
+    return TypeAssert::isInstanceOf(IssetToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -11629,7 +14650,15 @@ final class IssetExpression extends EditableSyntax {
     );
   }
 
-  public function left_paren(): EditableSyntax {
+  public function left_paren(): LeftParenToken {
+    return $this->left_parenx();
+  }
+
+  public function left_parenx(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  }
+
+  public function raw_left_paren(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -11642,7 +14671,15 @@ final class IssetExpression extends EditableSyntax {
     );
   }
 
-  public function argument_list(): EditableSyntax {
+  public function argument_list(): EditableList {
+    return $this->argument_listx();
+  }
+
+  public function argument_listx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_argument_list);
+  }
+
+  public function raw_argument_list(): EditableSyntax {
     return $this->_argument_list;
   }
 
@@ -11655,7 +14692,16 @@ final class IssetExpression extends EditableSyntax {
     );
   }
 
-  public function right_paren(): EditableSyntax {
+  public function right_paren(): RightParenToken {
+    return $this->right_parenx();
+  }
+
+  public function right_parenx(): RightParenToken {
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function raw_right_paren(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -11752,7 +14798,15 @@ final class FunctionCallExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function receiver(): EditableSyntax {
+  public function receiver(): EditableToken {
+    return $this->receiverx();
+  }
+
+  public function receiverx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_receiver);
+  }
+
+  public function raw_receiver(): EditableSyntax {
     return $this->_receiver;
   }
 
@@ -11765,7 +14819,17 @@ final class FunctionCallExpression extends EditableSyntax {
     );
   }
 
-  public function left_paren(): EditableSyntax {
+  public function left_paren(): ?LeftParenToken {
+    return $this->_left_paren->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  }
+
+  public function left_parenx(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  }
+
+  public function raw_left_paren(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -11778,7 +14842,17 @@ final class FunctionCallExpression extends EditableSyntax {
     );
   }
 
-  public function argument_list(): EditableSyntax {
+  public function argument_list(): ?EditableList {
+    return $this->_argument_list->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_argument_list);
+  }
+
+  public function argument_listx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_argument_list);
+  }
+
+  public function raw_argument_list(): EditableSyntax {
     return $this->_argument_list;
   }
 
@@ -11791,7 +14865,18 @@ final class FunctionCallExpression extends EditableSyntax {
     );
   }
 
-  public function right_paren(): EditableSyntax {
+  public function right_paren(): ?RightParenToken {
+    return $this->_right_paren->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function right_parenx(): RightParenToken {
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function raw_right_paren(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -11876,7 +14961,15 @@ final class ParenthesizedExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function left_paren(): EditableSyntax {
+  public function left_paren(): LeftParenToken {
+    return $this->left_parenx();
+  }
+
+  public function left_parenx(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  }
+
+  public function raw_left_paren(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -11884,7 +14977,15 @@ final class ParenthesizedExpression extends EditableSyntax {
     return new self($value, $this->_expression, $this->_right_paren);
   }
 
-  public function expression(): EditableSyntax {
+  public function expression(): EditableToken {
+    return $this->expressionx();
+  }
+
+  public function expressionx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_expression);
+  }
+
+  public function raw_expression(): EditableSyntax {
     return $this->_expression;
   }
 
@@ -11892,7 +14993,18 @@ final class ParenthesizedExpression extends EditableSyntax {
     return new self($this->_left_paren, $value, $this->_right_paren);
   }
 
-  public function right_paren(): EditableSyntax {
+  public function right_paren(): ?RightParenToken {
+    return $this->_right_paren->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function right_parenx(): RightParenToken {
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function raw_right_paren(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -11972,7 +15084,15 @@ final class BracedExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function left_brace(): EditableSyntax {
+  public function left_brace(): LeftBraceToken {
+    return $this->left_bracex();
+  }
+
+  public function left_bracex(): LeftBraceToken {
+    return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
+  }
+
+  public function raw_left_brace(): EditableSyntax {
     return $this->_left_brace;
   }
 
@@ -11980,7 +15100,15 @@ final class BracedExpression extends EditableSyntax {
     return new self($value, $this->_expression, $this->_right_brace);
   }
 
-  public function expression(): EditableSyntax {
+  public function expression(): EditableToken {
+    return $this->expressionx();
+  }
+
+  public function expressionx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_expression);
+  }
+
+  public function raw_expression(): EditableSyntax {
     return $this->_expression;
   }
 
@@ -11988,7 +15116,16 @@ final class BracedExpression extends EditableSyntax {
     return new self($this->_left_brace, $value, $this->_right_brace);
   }
 
-  public function right_brace(): EditableSyntax {
+  public function right_brace(): RightBraceToken {
+    return $this->right_bracex();
+  }
+
+  public function right_bracex(): RightBraceToken {
+    return
+      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+  }
+
+  public function raw_right_brace(): EditableSyntax {
     return $this->_right_brace;
   }
 
@@ -12068,7 +15205,15 @@ final class EmbeddedBracedExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function left_brace(): EditableSyntax {
+  public function left_brace(): EditableToken {
+    return $this->left_bracex();
+  }
+
+  public function left_bracex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_left_brace);
+  }
+
+  public function raw_left_brace(): EditableSyntax {
     return $this->_left_brace;
   }
 
@@ -12076,7 +15221,15 @@ final class EmbeddedBracedExpression extends EditableSyntax {
     return new self($value, $this->_expression, $this->_right_brace);
   }
 
-  public function expression(): EditableSyntax {
+  public function expression(): EditableToken {
+    return $this->expressionx();
+  }
+
+  public function expressionx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_expression);
+  }
+
+  public function raw_expression(): EditableSyntax {
     return $this->_expression;
   }
 
@@ -12084,7 +15237,15 @@ final class EmbeddedBracedExpression extends EditableSyntax {
     return new self($this->_left_brace, $value, $this->_right_brace);
   }
 
-  public function right_brace(): EditableSyntax {
+  public function right_brace(): EditableToken {
+    return $this->right_bracex();
+  }
+
+  public function right_bracex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_right_brace);
+  }
+
+  public function raw_right_brace(): EditableSyntax {
     return $this->_right_brace;
   }
 
@@ -12176,7 +15337,15 @@ final class ListExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): ListToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): ListToken {
+    return TypeAssert::isInstanceOf(ListToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -12189,7 +15358,15 @@ final class ListExpression extends EditableSyntax {
     );
   }
 
-  public function left_paren(): EditableSyntax {
+  public function left_paren(): LeftParenToken {
+    return $this->left_parenx();
+  }
+
+  public function left_parenx(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  }
+
+  public function raw_left_paren(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -12198,7 +15375,17 @@ final class ListExpression extends EditableSyntax {
       new self($this->_keyword, $value, $this->_members, $this->_right_paren);
   }
 
-  public function members(): EditableSyntax {
+  public function members(): ?EditableList {
+    return $this->_members->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_members);
+  }
+
+  public function membersx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
+  }
+
+  public function raw_members(): EditableSyntax {
     return $this->_members;
   }
 
@@ -12211,7 +15398,16 @@ final class ListExpression extends EditableSyntax {
     );
   }
 
-  public function right_paren(): EditableSyntax {
+  public function right_paren(): RightParenToken {
+    return $this->right_parenx();
+  }
+
+  public function right_parenx(): RightParenToken {
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function raw_right_paren(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -12304,7 +15500,15 @@ final class CollectionLiteralExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function name(): EditableSyntax {
+  public function name(): EditableToken {
+    return $this->namex();
+  }
+
+  public function namex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+  }
+
+  public function raw_name(): EditableSyntax {
     return $this->_name;
   }
 
@@ -12317,7 +15521,15 @@ final class CollectionLiteralExpression extends EditableSyntax {
     );
   }
 
-  public function left_brace(): EditableSyntax {
+  public function left_brace(): LeftBraceToken {
+    return $this->left_bracex();
+  }
+
+  public function left_bracex(): LeftBraceToken {
+    return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
+  }
+
+  public function raw_left_brace(): EditableSyntax {
     return $this->_left_brace;
   }
 
@@ -12326,7 +15538,17 @@ final class CollectionLiteralExpression extends EditableSyntax {
       new self($this->_name, $value, $this->_initializers, $this->_right_brace);
   }
 
-  public function initializers(): EditableSyntax {
+  public function initializers(): ?EditableList {
+    return $this->_initializers->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_initializers);
+  }
+
+  public function initializersx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_initializers);
+  }
+
+  public function raw_initializers(): EditableSyntax {
     return $this->_initializers;
   }
 
@@ -12335,7 +15557,18 @@ final class CollectionLiteralExpression extends EditableSyntax {
       new self($this->_name, $this->_left_brace, $value, $this->_right_brace);
   }
 
-  public function right_brace(): EditableSyntax {
+  public function right_brace(): ?RightBraceToken {
+    return $this->_right_brace->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+  }
+
+  public function right_bracex(): RightBraceToken {
+    return
+      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+  }
+
+  public function raw_right_brace(): EditableSyntax {
     return $this->_right_brace;
   }
 
@@ -12447,7 +15680,15 @@ final class ObjectCreationExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function new_keyword(): EditableSyntax {
+  public function new_keyword(): NewToken {
+    return $this->new_keywordx();
+  }
+
+  public function new_keywordx(): NewToken {
+    return TypeAssert::isInstanceOf(NewToken::class, $this->_new_keyword);
+  }
+
+  public function raw_new_keyword(): EditableSyntax {
     return $this->_new_keyword;
   }
 
@@ -12461,7 +15702,15 @@ final class ObjectCreationExpression extends EditableSyntax {
     );
   }
 
-  public function type(): EditableSyntax {
+  public function type(): EditableToken {
+    return $this->typex();
+  }
+
+  public function typex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_type);
+  }
+
+  public function raw_type(): EditableSyntax {
     return $this->_type;
   }
 
@@ -12475,7 +15724,17 @@ final class ObjectCreationExpression extends EditableSyntax {
     );
   }
 
-  public function left_paren(): EditableSyntax {
+  public function left_paren(): ?LeftParenToken {
+    return $this->_left_paren->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  }
+
+  public function left_parenx(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  }
+
+  public function raw_left_paren(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -12489,7 +15748,17 @@ final class ObjectCreationExpression extends EditableSyntax {
     );
   }
 
-  public function argument_list(): EditableSyntax {
+  public function argument_list(): ?EditableList {
+    return $this->_argument_list->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_argument_list);
+  }
+
+  public function argument_listx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_argument_list);
+  }
+
+  public function raw_argument_list(): EditableSyntax {
     return $this->_argument_list;
   }
 
@@ -12503,7 +15772,18 @@ final class ObjectCreationExpression extends EditableSyntax {
     );
   }
 
-  public function right_paren(): EditableSyntax {
+  public function right_paren(): ?RightParenToken {
+    return $this->_right_paren->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function right_parenx(): RightParenToken {
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function raw_right_paren(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -12589,7 +15869,16 @@ final class ArrayCreationExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function left_bracket(): EditableSyntax {
+  public function left_bracket(): LeftBracketToken {
+    return $this->left_bracketx();
+  }
+
+  public function left_bracketx(): LeftBracketToken {
+    return
+      TypeAssert::isInstanceOf(LeftBracketToken::class, $this->_left_bracket);
+  }
+
+  public function raw_left_bracket(): EditableSyntax {
     return $this->_left_bracket;
   }
 
@@ -12597,7 +15886,17 @@ final class ArrayCreationExpression extends EditableSyntax {
     return new self($value, $this->_members, $this->_right_bracket);
   }
 
-  public function members(): EditableSyntax {
+  public function members(): ?EditableList {
+    return $this->_members->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_members);
+  }
+
+  public function membersx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
+  }
+
+  public function raw_members(): EditableSyntax {
     return $this->_members;
   }
 
@@ -12605,7 +15904,16 @@ final class ArrayCreationExpression extends EditableSyntax {
     return new self($this->_left_bracket, $value, $this->_right_bracket);
   }
 
-  public function right_bracket(): EditableSyntax {
+  public function right_bracket(): RightBracketToken {
+    return $this->right_bracketx();
+  }
+
+  public function right_bracketx(): RightBracketToken {
+    return
+      TypeAssert::isInstanceOf(RightBracketToken::class, $this->_right_bracket);
+  }
+
+  public function raw_right_bracket(): EditableSyntax {
     return $this->_right_bracket;
   }
 
@@ -12697,7 +16005,15 @@ final class ArrayIntrinsicExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): ArrayToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): ArrayToken {
+    return TypeAssert::isInstanceOf(ArrayToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -12710,7 +16026,15 @@ final class ArrayIntrinsicExpression extends EditableSyntax {
     );
   }
 
-  public function left_paren(): EditableSyntax {
+  public function left_paren(): LeftParenToken {
+    return $this->left_parenx();
+  }
+
+  public function left_parenx(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  }
+
+  public function raw_left_paren(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -12719,7 +16043,17 @@ final class ArrayIntrinsicExpression extends EditableSyntax {
       new self($this->_keyword, $value, $this->_members, $this->_right_paren);
   }
 
-  public function members(): EditableSyntax {
+  public function members(): ?EditableList {
+    return $this->_members->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_members);
+  }
+
+  public function membersx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
+  }
+
+  public function raw_members(): EditableSyntax {
     return $this->_members;
   }
 
@@ -12732,7 +16066,18 @@ final class ArrayIntrinsicExpression extends EditableSyntax {
     );
   }
 
-  public function right_paren(): EditableSyntax {
+  public function right_paren(): ?RightParenToken {
+    return $this->_right_paren->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function right_parenx(): RightParenToken {
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function raw_right_paren(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -12825,7 +16170,15 @@ final class DarrayIntrinsicExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): DarrayToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): DarrayToken {
+    return TypeAssert::isInstanceOf(DarrayToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -12838,7 +16191,16 @@ final class DarrayIntrinsicExpression extends EditableSyntax {
     );
   }
 
-  public function left_bracket(): EditableSyntax {
+  public function left_bracket(): LeftBracketToken {
+    return $this->left_bracketx();
+  }
+
+  public function left_bracketx(): LeftBracketToken {
+    return
+      TypeAssert::isInstanceOf(LeftBracketToken::class, $this->_left_bracket);
+  }
+
+  public function raw_left_bracket(): EditableSyntax {
     return $this->_left_bracket;
   }
 
@@ -12847,7 +16209,17 @@ final class DarrayIntrinsicExpression extends EditableSyntax {
       new self($this->_keyword, $value, $this->_members, $this->_right_bracket);
   }
 
-  public function members(): EditableSyntax {
+  public function members(): ?EditableList {
+    return $this->_members->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_members);
+  }
+
+  public function membersx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
+  }
+
+  public function raw_members(): EditableSyntax {
     return $this->_members;
   }
 
@@ -12860,7 +16232,16 @@ final class DarrayIntrinsicExpression extends EditableSyntax {
     );
   }
 
-  public function right_bracket(): EditableSyntax {
+  public function right_bracket(): RightBracketToken {
+    return $this->right_bracketx();
+  }
+
+  public function right_bracketx(): RightBracketToken {
+    return
+      TypeAssert::isInstanceOf(RightBracketToken::class, $this->_right_bracket);
+  }
+
+  public function raw_right_bracket(): EditableSyntax {
     return $this->_right_bracket;
   }
 
@@ -12953,7 +16334,15 @@ final class DictionaryIntrinsicExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): DictToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): DictToken {
+    return TypeAssert::isInstanceOf(DictToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -12966,7 +16355,16 @@ final class DictionaryIntrinsicExpression extends EditableSyntax {
     );
   }
 
-  public function left_bracket(): EditableSyntax {
+  public function left_bracket(): LeftBracketToken {
+    return $this->left_bracketx();
+  }
+
+  public function left_bracketx(): LeftBracketToken {
+    return
+      TypeAssert::isInstanceOf(LeftBracketToken::class, $this->_left_bracket);
+  }
+
+  public function raw_left_bracket(): EditableSyntax {
     return $this->_left_bracket;
   }
 
@@ -12975,7 +16373,17 @@ final class DictionaryIntrinsicExpression extends EditableSyntax {
       new self($this->_keyword, $value, $this->_members, $this->_right_bracket);
   }
 
-  public function members(): EditableSyntax {
+  public function members(): ?EditableList {
+    return $this->_members->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_members);
+  }
+
+  public function membersx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
+  }
+
+  public function raw_members(): EditableSyntax {
     return $this->_members;
   }
 
@@ -12988,7 +16396,16 @@ final class DictionaryIntrinsicExpression extends EditableSyntax {
     );
   }
 
-  public function right_bracket(): EditableSyntax {
+  public function right_bracket(): RightBracketToken {
+    return $this->right_bracketx();
+  }
+
+  public function right_bracketx(): RightBracketToken {
+    return
+      TypeAssert::isInstanceOf(RightBracketToken::class, $this->_right_bracket);
+  }
+
+  public function raw_right_bracket(): EditableSyntax {
     return $this->_right_bracket;
   }
 
@@ -13081,7 +16498,15 @@ final class KeysetIntrinsicExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): KeysetToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): KeysetToken {
+    return TypeAssert::isInstanceOf(KeysetToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -13094,7 +16519,16 @@ final class KeysetIntrinsicExpression extends EditableSyntax {
     );
   }
 
-  public function left_bracket(): EditableSyntax {
+  public function left_bracket(): LeftBracketToken {
+    return $this->left_bracketx();
+  }
+
+  public function left_bracketx(): LeftBracketToken {
+    return
+      TypeAssert::isInstanceOf(LeftBracketToken::class, $this->_left_bracket);
+  }
+
+  public function raw_left_bracket(): EditableSyntax {
     return $this->_left_bracket;
   }
 
@@ -13103,7 +16537,17 @@ final class KeysetIntrinsicExpression extends EditableSyntax {
       new self($this->_keyword, $value, $this->_members, $this->_right_bracket);
   }
 
-  public function members(): EditableSyntax {
+  public function members(): ?EditableList {
+    return $this->_members->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_members);
+  }
+
+  public function membersx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
+  }
+
+  public function raw_members(): EditableSyntax {
     return $this->_members;
   }
 
@@ -13116,7 +16560,16 @@ final class KeysetIntrinsicExpression extends EditableSyntax {
     );
   }
 
-  public function right_bracket(): EditableSyntax {
+  public function right_bracket(): RightBracketToken {
+    return $this->right_bracketx();
+  }
+
+  public function right_bracketx(): RightBracketToken {
+    return
+      TypeAssert::isInstanceOf(RightBracketToken::class, $this->_right_bracket);
+  }
+
+  public function raw_right_bracket(): EditableSyntax {
     return $this->_right_bracket;
   }
 
@@ -13209,7 +16662,15 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): VarrayToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): VarrayToken {
+    return TypeAssert::isInstanceOf(VarrayToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -13222,7 +16683,16 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
     );
   }
 
-  public function left_bracket(): EditableSyntax {
+  public function left_bracket(): LeftBracketToken {
+    return $this->left_bracketx();
+  }
+
+  public function left_bracketx(): LeftBracketToken {
+    return
+      TypeAssert::isInstanceOf(LeftBracketToken::class, $this->_left_bracket);
+  }
+
+  public function raw_left_bracket(): EditableSyntax {
     return $this->_left_bracket;
   }
 
@@ -13231,7 +16701,17 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
       new self($this->_keyword, $value, $this->_members, $this->_right_bracket);
   }
 
-  public function members(): EditableSyntax {
+  public function members(): ?EditableList {
+    return $this->_members->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_members);
+  }
+
+  public function membersx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
+  }
+
+  public function raw_members(): EditableSyntax {
     return $this->_members;
   }
 
@@ -13244,7 +16724,16 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
     );
   }
 
-  public function right_bracket(): EditableSyntax {
+  public function right_bracket(): RightBracketToken {
+    return $this->right_bracketx();
+  }
+
+  public function right_bracketx(): RightBracketToken {
+    return
+      TypeAssert::isInstanceOf(RightBracketToken::class, $this->_right_bracket);
+  }
+
+  public function raw_right_bracket(): EditableSyntax {
     return $this->_right_bracket;
   }
 
@@ -13337,7 +16826,15 @@ final class VectorIntrinsicExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): VecToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): VecToken {
+    return TypeAssert::isInstanceOf(VecToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -13350,7 +16847,16 @@ final class VectorIntrinsicExpression extends EditableSyntax {
     );
   }
 
-  public function left_bracket(): EditableSyntax {
+  public function left_bracket(): LeftBracketToken {
+    return $this->left_bracketx();
+  }
+
+  public function left_bracketx(): LeftBracketToken {
+    return
+      TypeAssert::isInstanceOf(LeftBracketToken::class, $this->_left_bracket);
+  }
+
+  public function raw_left_bracket(): EditableSyntax {
     return $this->_left_bracket;
   }
 
@@ -13359,7 +16865,17 @@ final class VectorIntrinsicExpression extends EditableSyntax {
       new self($this->_keyword, $value, $this->_members, $this->_right_bracket);
   }
 
-  public function members(): EditableSyntax {
+  public function members(): ?EditableList {
+    return $this->_members->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_members);
+  }
+
+  public function membersx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
+  }
+
+  public function raw_members(): EditableSyntax {
     return $this->_members;
   }
 
@@ -13372,7 +16888,16 @@ final class VectorIntrinsicExpression extends EditableSyntax {
     );
   }
 
-  public function right_bracket(): EditableSyntax {
+  public function right_bracket(): RightBracketToken {
+    return $this->right_bracketx();
+  }
+
+  public function right_bracketx(): RightBracketToken {
+    return
+      TypeAssert::isInstanceOf(RightBracketToken::class, $this->_right_bracket);
+  }
+
+  public function raw_right_bracket(): EditableSyntax {
     return $this->_right_bracket;
   }
 
@@ -13453,7 +16978,15 @@ final class ElementInitializer extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function key(): EditableSyntax {
+  public function key(): EditableToken {
+    return $this->keyx();
+  }
+
+  public function keyx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_key);
+  }
+
+  public function raw_key(): EditableSyntax {
     return $this->_key;
   }
 
@@ -13461,7 +16994,16 @@ final class ElementInitializer extends EditableSyntax {
     return new self($value, $this->_arrow, $this->_value);
   }
 
-  public function arrow(): EditableSyntax {
+  public function arrow(): EqualGreaterThanToken {
+    return $this->arrowx();
+  }
+
+  public function arrowx(): EqualGreaterThanToken {
+    return
+      TypeAssert::isInstanceOf(EqualGreaterThanToken::class, $this->_arrow);
+  }
+
+  public function raw_arrow(): EditableSyntax {
     return $this->_arrow;
   }
 
@@ -13469,7 +17011,15 @@ final class ElementInitializer extends EditableSyntax {
     return new self($this->_key, $value, $this->_value);
   }
 
-  public function value(): EditableSyntax {
+  public function value(): EditableToken {
+    return $this->valuex();
+  }
+
+  public function valuex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_value);
+  }
+
+  public function raw_value(): EditableSyntax {
     return $this->_value;
   }
 
@@ -13561,7 +17111,15 @@ final class SubscriptExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function receiver(): EditableSyntax {
+  public function receiver(): EditableToken {
+    return $this->receiverx();
+  }
+
+  public function receiverx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_receiver);
+  }
+
+  public function raw_receiver(): EditableSyntax {
     return $this->_receiver;
   }
 
@@ -13574,7 +17132,15 @@ final class SubscriptExpression extends EditableSyntax {
     );
   }
 
-  public function left_bracket(): EditableSyntax {
+  public function left_bracket(): EditableToken {
+    return $this->left_bracketx();
+  }
+
+  public function left_bracketx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_left_bracket);
+  }
+
+  public function raw_left_bracket(): EditableSyntax {
     return $this->_left_bracket;
   }
 
@@ -13583,7 +17149,15 @@ final class SubscriptExpression extends EditableSyntax {
       new self($this->_receiver, $value, $this->_index, $this->_right_bracket);
   }
 
-  public function index(): EditableSyntax {
+  public function index(): EditableToken {
+    return $this->indexx();
+  }
+
+  public function indexx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_index);
+  }
+
+  public function raw_index(): EditableSyntax {
     return $this->_index;
   }
 
@@ -13596,7 +17170,16 @@ final class SubscriptExpression extends EditableSyntax {
     );
   }
 
-  public function right_bracket(): EditableSyntax {
+  public function right_bracket(): EditableToken {
+    return $this->right_bracketx();
+  }
+
+  public function right_bracketx(): EditableToken {
+    return
+      TypeAssert::isInstanceOf(EditableToken::class, $this->_right_bracket);
+  }
+
+  public function raw_right_bracket(): EditableSyntax {
     return $this->_right_bracket;
   }
 
@@ -13689,7 +17272,15 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function receiver(): EditableSyntax {
+  public function receiver(): EditableToken {
+    return $this->receiverx();
+  }
+
+  public function receiverx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_receiver);
+  }
+
+  public function raw_receiver(): EditableSyntax {
     return $this->_receiver;
   }
 
@@ -13702,7 +17293,15 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
     );
   }
 
-  public function left_bracket(): EditableSyntax {
+  public function left_bracket(): EditableToken {
+    return $this->left_bracketx();
+  }
+
+  public function left_bracketx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_left_bracket);
+  }
+
+  public function raw_left_bracket(): EditableSyntax {
     return $this->_left_bracket;
   }
 
@@ -13711,7 +17310,15 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
       new self($this->_receiver, $value, $this->_index, $this->_right_bracket);
   }
 
-  public function index(): EditableSyntax {
+  public function index(): EditableToken {
+    return $this->indexx();
+  }
+
+  public function indexx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_index);
+  }
+
+  public function raw_index(): EditableSyntax {
     return $this->_index;
   }
 
@@ -13724,7 +17331,16 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
     );
   }
 
-  public function right_bracket(): EditableSyntax {
+  public function right_bracket(): EditableToken {
+    return $this->right_bracketx();
+  }
+
+  public function right_bracketx(): EditableToken {
+    return
+      TypeAssert::isInstanceOf(EditableToken::class, $this->_right_bracket);
+  }
+
+  public function raw_right_bracket(): EditableSyntax {
     return $this->_right_bracket;
   }
 
@@ -13806,7 +17422,15 @@ final class AwaitableCreationExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function async(): EditableSyntax {
+  public function async(): AsyncToken {
+    return $this->asyncx();
+  }
+
+  public function asyncx(): AsyncToken {
+    return TypeAssert::isInstanceOf(AsyncToken::class, $this->_async);
+  }
+
+  public function raw_async(): EditableSyntax {
     return $this->_async;
   }
 
@@ -13814,7 +17438,15 @@ final class AwaitableCreationExpression extends EditableSyntax {
     return new self($value, $this->_coroutine, $this->_compound_statement);
   }
 
-  public function coroutine(): EditableSyntax {
+  public function coroutine(): EditableToken {
+    return $this->coroutinex();
+  }
+
+  public function coroutinex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_coroutine);
+  }
+
+  public function raw_coroutine(): EditableSyntax {
     return $this->_coroutine;
   }
 
@@ -13822,7 +17454,18 @@ final class AwaitableCreationExpression extends EditableSyntax {
     return new self($this->_async, $value, $this->_compound_statement);
   }
 
-  public function compound_statement(): EditableSyntax {
+  public function compound_statement(): CompoundStatement {
+    return $this->compound_statementx();
+  }
+
+  public function compound_statementx(): CompoundStatement {
+    return TypeAssert::isInstanceOf(
+      CompoundStatement::class,
+      $this->_compound_statement,
+    );
+  }
+
+  public function raw_compound_statement(): EditableSyntax {
     return $this->_compound_statement;
   }
 
@@ -13902,7 +17545,15 @@ final class XHPChildrenDeclaration extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): EditableToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -13910,7 +17561,15 @@ final class XHPChildrenDeclaration extends EditableSyntax {
     return new self($value, $this->_expression, $this->_semicolon);
   }
 
-  public function expression(): EditableSyntax {
+  public function expression(): EditableToken {
+    return $this->expressionx();
+  }
+
+  public function expressionx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_expression);
+  }
+
+  public function raw_expression(): EditableSyntax {
     return $this->_expression;
   }
 
@@ -13918,7 +17577,15 @@ final class XHPChildrenDeclaration extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_semicolon);
   }
 
-  public function semicolon(): EditableSyntax {
+  public function semicolon(): EditableToken {
+    return $this->semicolonx();
+  }
+
+  public function semicolonx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_semicolon);
+  }
+
+  public function raw_semicolon(): EditableSyntax {
     return $this->_semicolon;
   }
 
@@ -13998,7 +17665,15 @@ final class XHPChildrenParenthesizedList extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function left_paren(): EditableSyntax {
+  public function left_paren(): EditableToken {
+    return $this->left_parenx();
+  }
+
+  public function left_parenx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_left_paren);
+  }
+
+  public function raw_left_paren(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -14006,7 +17681,15 @@ final class XHPChildrenParenthesizedList extends EditableSyntax {
     return new self($value, $this->_xhp_children, $this->_right_paren);
   }
 
-  public function xhp_children(): EditableSyntax {
+  public function xhp_children(): EditableToken {
+    return $this->xhp_childrenx();
+  }
+
+  public function xhp_childrenx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_xhp_children);
+  }
+
+  public function raw_xhp_children(): EditableSyntax {
     return $this->_xhp_children;
   }
 
@@ -14014,7 +17697,15 @@ final class XHPChildrenParenthesizedList extends EditableSyntax {
     return new self($this->_left_paren, $value, $this->_right_paren);
   }
 
-  public function right_paren(): EditableSyntax {
+  public function right_paren(): EditableToken {
+    return $this->right_parenx();
+  }
+
+  public function right_parenx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_right_paren);
+  }
+
+  public function raw_right_paren(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -14094,7 +17785,15 @@ final class XHPCategoryDeclaration extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): CategoryToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): CategoryToken {
+    return TypeAssert::isInstanceOf(CategoryToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -14102,7 +17801,15 @@ final class XHPCategoryDeclaration extends EditableSyntax {
     return new self($value, $this->_categories, $this->_semicolon);
   }
 
-  public function categories(): EditableSyntax {
+  public function categories(): EditableList {
+    return $this->categoriesx();
+  }
+
+  public function categoriesx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_categories);
+  }
+
+  public function raw_categories(): EditableSyntax {
     return $this->_categories;
   }
 
@@ -14110,7 +17817,15 @@ final class XHPCategoryDeclaration extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_semicolon);
   }
 
-  public function semicolon(): EditableSyntax {
+  public function semicolon(): SemicolonToken {
+    return $this->semicolonx();
+  }
+
+  public function semicolonx(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function raw_semicolon(): EditableSyntax {
     return $this->_semicolon;
   }
 
@@ -14202,7 +17917,15 @@ final class XHPEnumType extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): EnumToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): EnumToken {
+    return TypeAssert::isInstanceOf(EnumToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -14211,7 +17934,15 @@ final class XHPEnumType extends EditableSyntax {
       new self($value, $this->_left_brace, $this->_values, $this->_right_brace);
   }
 
-  public function left_brace(): EditableSyntax {
+  public function left_brace(): LeftBraceToken {
+    return $this->left_bracex();
+  }
+
+  public function left_bracex(): LeftBraceToken {
+    return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
+  }
+
+  public function raw_left_brace(): EditableSyntax {
     return $this->_left_brace;
   }
 
@@ -14220,7 +17951,15 @@ final class XHPEnumType extends EditableSyntax {
       new self($this->_keyword, $value, $this->_values, $this->_right_brace);
   }
 
-  public function values(): EditableSyntax {
+  public function values(): EditableList {
+    return $this->valuesx();
+  }
+
+  public function valuesx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_values);
+  }
+
+  public function raw_values(): EditableSyntax {
     return $this->_values;
   }
 
@@ -14233,7 +17972,16 @@ final class XHPEnumType extends EditableSyntax {
     );
   }
 
-  public function right_brace(): EditableSyntax {
+  public function right_brace(): RightBraceToken {
+    return $this->right_bracex();
+  }
+
+  public function right_bracex(): RightBraceToken {
+    return
+      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+  }
+
+  public function raw_right_brace(): EditableSyntax {
     return $this->_right_brace;
   }
 
@@ -14296,7 +18044,15 @@ final class XHPRequired extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function at(): EditableSyntax {
+  public function at(): AtToken {
+    return $this->atx();
+  }
+
+  public function atx(): AtToken {
+    return TypeAssert::isInstanceOf(AtToken::class, $this->_at);
+  }
+
+  public function raw_at(): EditableSyntax {
     return $this->_at;
   }
 
@@ -14304,7 +18060,15 @@ final class XHPRequired extends EditableSyntax {
     return new self($value, $this->_keyword);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): RequiredToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): RequiredToken {
+    return TypeAssert::isInstanceOf(RequiredToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -14384,7 +18148,15 @@ final class XHPClassAttributeDeclaration extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): AttributeToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): AttributeToken {
+    return TypeAssert::isInstanceOf(AttributeToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -14392,7 +18164,15 @@ final class XHPClassAttributeDeclaration extends EditableSyntax {
     return new self($value, $this->_attributes, $this->_semicolon);
   }
 
-  public function attributes(): EditableSyntax {
+  public function attributes(): EditableList {
+    return $this->attributesx();
+  }
+
+  public function attributesx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_attributes);
+  }
+
+  public function raw_attributes(): EditableSyntax {
     return $this->_attributes;
   }
 
@@ -14400,7 +18180,15 @@ final class XHPClassAttributeDeclaration extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_semicolon);
   }
 
-  public function semicolon(): EditableSyntax {
+  public function semicolon(): SemicolonToken {
+    return $this->semicolonx();
+  }
+
+  public function semicolonx(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function raw_semicolon(): EditableSyntax {
     return $this->_semicolon;
   }
 
@@ -14492,7 +18280,15 @@ final class XHPClassAttribute extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function type(): EditableSyntax {
+  public function type(): EditableToken {
+    return $this->typex();
+  }
+
+  public function typex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_type);
+  }
+
+  public function raw_type(): EditableSyntax {
     return $this->_type;
   }
 
@@ -14501,7 +18297,15 @@ final class XHPClassAttribute extends EditableSyntax {
       new self($value, $this->_name, $this->_initializer, $this->_required);
   }
 
-  public function name(): EditableSyntax {
+  public function name(): XHPElementNameToken {
+    return $this->namex();
+  }
+
+  public function namex(): XHPElementNameToken {
+    return TypeAssert::isInstanceOf(XHPElementNameToken::class, $this->_name);
+  }
+
+  public function raw_name(): EditableSyntax {
     return $this->_name;
   }
 
@@ -14510,7 +18314,18 @@ final class XHPClassAttribute extends EditableSyntax {
       new self($this->_type, $value, $this->_initializer, $this->_required);
   }
 
-  public function initializer(): EditableSyntax {
+  public function initializer(): ?SimpleInitializer {
+    return $this->_initializer->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
+  }
+
+  public function initializerx(): SimpleInitializer {
+    return
+      TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
+  }
+
+  public function raw_initializer(): EditableSyntax {
     return $this->_initializer;
   }
 
@@ -14518,7 +18333,17 @@ final class XHPClassAttribute extends EditableSyntax {
     return new self($this->_type, $this->_name, $value, $this->_required);
   }
 
-  public function required(): EditableSyntax {
+  public function required(): ?XHPRequired {
+    return $this->_required->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(XHPRequired::class, $this->_required);
+  }
+
+  public function requiredx(): XHPRequired {
+    return TypeAssert::isInstanceOf(XHPRequired::class, $this->_required);
+  }
+
+  public function raw_required(): EditableSyntax {
     return $this->_required;
   }
 
@@ -14570,7 +18395,15 @@ final class XHPSimpleClassAttribute extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function type(): EditableSyntax {
+  public function type(): SimpleTypeSpecifier {
+    return $this->typex();
+  }
+
+  public function typex(): SimpleTypeSpecifier {
+    return TypeAssert::isInstanceOf(SimpleTypeSpecifier::class, $this->_type);
+  }
+
+  public function raw_type(): EditableSyntax {
     return $this->_type;
   }
 
@@ -14650,7 +18483,15 @@ final class XHPAttribute extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function name(): EditableSyntax {
+  public function name(): XHPElementNameToken {
+    return $this->namex();
+  }
+
+  public function namex(): XHPElementNameToken {
+    return TypeAssert::isInstanceOf(XHPElementNameToken::class, $this->_name);
+  }
+
+  public function raw_name(): EditableSyntax {
     return $this->_name;
   }
 
@@ -14658,7 +18499,17 @@ final class XHPAttribute extends EditableSyntax {
     return new self($value, $this->_equal, $this->_expression);
   }
 
-  public function equal(): EditableSyntax {
+  public function equal(): ?EqualToken {
+    return $this->_equal->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EqualToken::class, $this->_equal);
+  }
+
+  public function equalx(): EqualToken {
+    return TypeAssert::isInstanceOf(EqualToken::class, $this->_equal);
+  }
+
+  public function raw_equal(): EditableSyntax {
     return $this->_equal;
   }
 
@@ -14666,7 +18517,15 @@ final class XHPAttribute extends EditableSyntax {
     return new self($this->_name, $value, $this->_expression);
   }
 
-  public function expression(): EditableSyntax {
+  public function expression(): EditableToken {
+    return $this->expressionx();
+  }
+
+  public function expressionx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_expression);
+  }
+
+  public function raw_expression(): EditableSyntax {
     return $this->_expression;
   }
 
@@ -14758,7 +18617,15 @@ final class XHPOpen extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function left_angle(): EditableSyntax {
+  public function left_angle(): LessThanToken {
+    return $this->left_anglex();
+  }
+
+  public function left_anglex(): LessThanToken {
+    return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
+  }
+
+  public function raw_left_angle(): EditableSyntax {
     return $this->_left_angle;
   }
 
@@ -14767,7 +18634,15 @@ final class XHPOpen extends EditableSyntax {
       new self($value, $this->_name, $this->_attributes, $this->_right_angle);
   }
 
-  public function name(): EditableSyntax {
+  public function name(): XHPElementNameToken {
+    return $this->namex();
+  }
+
+  public function namex(): XHPElementNameToken {
+    return TypeAssert::isInstanceOf(XHPElementNameToken::class, $this->_name);
+  }
+
+  public function raw_name(): EditableSyntax {
     return $this->_name;
   }
 
@@ -14780,7 +18655,17 @@ final class XHPOpen extends EditableSyntax {
     );
   }
 
-  public function attributes(): EditableSyntax {
+  public function attributes(): ?EditableList {
+    return $this->_attributes->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_attributes);
+  }
+
+  public function attributesx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_attributes);
+  }
+
+  public function raw_attributes(): EditableSyntax {
     return $this->_attributes;
   }
 
@@ -14789,7 +18674,15 @@ final class XHPOpen extends EditableSyntax {
       new self($this->_left_angle, $this->_name, $value, $this->_right_angle);
   }
 
-  public function right_angle(): EditableSyntax {
+  public function right_angle(): EditableToken {
+    return $this->right_anglex();
+  }
+
+  public function right_anglex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_right_angle);
+  }
+
+  public function raw_right_angle(): EditableSyntax {
     return $this->_right_angle;
   }
 
@@ -14870,7 +18763,15 @@ final class XHPExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function open(): EditableSyntax {
+  public function open(): XHPOpen {
+    return $this->openx();
+  }
+
+  public function openx(): XHPOpen {
+    return TypeAssert::isInstanceOf(XHPOpen::class, $this->_open);
+  }
+
+  public function raw_open(): EditableSyntax {
     return $this->_open;
   }
 
@@ -14878,7 +18779,17 @@ final class XHPExpression extends EditableSyntax {
     return new self($value, $this->_body, $this->_close);
   }
 
-  public function body(): EditableSyntax {
+  public function body(): ?EditableList {
+    return $this->_body->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_body);
+  }
+
+  public function bodyx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_body);
+  }
+
+  public function raw_body(): EditableSyntax {
     return $this->_body;
   }
 
@@ -14886,7 +18797,17 @@ final class XHPExpression extends EditableSyntax {
     return new self($this->_open, $value, $this->_close);
   }
 
-  public function close(): EditableSyntax {
+  public function close(): ?XHPClose {
+    return $this->_close->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(XHPClose::class, $this->_close);
+  }
+
+  public function closex(): XHPClose {
+    return TypeAssert::isInstanceOf(XHPClose::class, $this->_close);
+  }
+
+  public function raw_close(): EditableSyntax {
     return $this->_close;
   }
 
@@ -14966,7 +18887,15 @@ final class XHPClose extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function left_angle(): EditableSyntax {
+  public function left_angle(): EditableToken {
+    return $this->left_anglex();
+  }
+
+  public function left_anglex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_left_angle);
+  }
+
+  public function raw_left_angle(): EditableSyntax {
     return $this->_left_angle;
   }
 
@@ -14974,7 +18903,17 @@ final class XHPClose extends EditableSyntax {
     return new self($value, $this->_name, $this->_right_angle);
   }
 
-  public function name(): EditableSyntax {
+  public function name(): ?XHPElementNameToken {
+    return $this->_name->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(XHPElementNameToken::class, $this->_name);
+  }
+
+  public function namex(): XHPElementNameToken {
+    return TypeAssert::isInstanceOf(XHPElementNameToken::class, $this->_name);
+  }
+
+  public function raw_name(): EditableSyntax {
     return $this->_name;
   }
 
@@ -14982,7 +18921,18 @@ final class XHPClose extends EditableSyntax {
     return new self($this->_left_angle, $value, $this->_right_angle);
   }
 
-  public function right_angle(): EditableSyntax {
+  public function right_angle(): ?GreaterThanToken {
+    return $this->_right_angle->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+  }
+
+  public function right_anglex(): GreaterThanToken {
+    return
+      TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+  }
+
+  public function raw_right_angle(): EditableSyntax {
     return $this->_right_angle;
   }
 
@@ -15062,7 +19012,15 @@ final class TypeConstant extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function left_type(): EditableSyntax {
+  public function left_type(): EditableToken {
+    return $this->left_typex();
+  }
+
+  public function left_typex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_left_type);
+  }
+
+  public function raw_left_type(): EditableSyntax {
     return $this->_left_type;
   }
 
@@ -15070,7 +19028,15 @@ final class TypeConstant extends EditableSyntax {
     return new self($value, $this->_separator, $this->_right_type);
   }
 
-  public function separator(): EditableSyntax {
+  public function separator(): ColonColonToken {
+    return $this->separatorx();
+  }
+
+  public function separatorx(): ColonColonToken {
+    return TypeAssert::isInstanceOf(ColonColonToken::class, $this->_separator);
+  }
+
+  public function raw_separator(): EditableSyntax {
     return $this->_separator;
   }
 
@@ -15078,7 +19044,15 @@ final class TypeConstant extends EditableSyntax {
     return new self($this->_left_type, $value, $this->_right_type);
   }
 
-  public function right_type(): EditableSyntax {
+  public function right_type(): NameToken {
+    return $this->right_typex();
+  }
+
+  public function right_typex(): NameToken {
+    return TypeAssert::isInstanceOf(NameToken::class, $this->_right_type);
+  }
+
+  public function raw_right_type(): EditableSyntax {
     return $this->_right_type;
   }
 
@@ -15185,7 +19159,15 @@ final class VectorTypeSpecifier extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): VecToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): VecToken {
+    return TypeAssert::isInstanceOf(VecToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -15199,7 +19181,15 @@ final class VectorTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function left_angle(): EditableSyntax {
+  public function left_angle(): LessThanToken {
+    return $this->left_anglex();
+  }
+
+  public function left_anglex(): LessThanToken {
+    return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
+  }
+
+  public function raw_left_angle(): EditableSyntax {
     return $this->_left_angle;
   }
 
@@ -15213,7 +19203,15 @@ final class VectorTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function type(): EditableSyntax {
+  public function type(): EditableToken {
+    return $this->typex();
+  }
+
+  public function typex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_type);
+  }
+
+  public function raw_type(): EditableSyntax {
     return $this->_type;
   }
 
@@ -15227,7 +19225,16 @@ final class VectorTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function trailing_comma(): EditableSyntax {
+  public function trailing_comma(): EditableToken {
+    return $this->trailing_commax();
+  }
+
+  public function trailing_commax(): EditableToken {
+    return
+      TypeAssert::isInstanceOf(EditableToken::class, $this->_trailing_comma);
+  }
+
+  public function raw_trailing_comma(): EditableSyntax {
     return $this->_trailing_comma;
   }
 
@@ -15241,7 +19248,16 @@ final class VectorTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function right_angle(): EditableSyntax {
+  public function right_angle(): GreaterThanToken {
+    return $this->right_anglex();
+  }
+
+  public function right_anglex(): GreaterThanToken {
+    return
+      TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+  }
+
+  public function raw_right_angle(): EditableSyntax {
     return $this->_right_angle;
   }
 
@@ -15354,7 +19370,15 @@ final class KeysetTypeSpecifier extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): KeysetToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): KeysetToken {
+    return TypeAssert::isInstanceOf(KeysetToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -15368,7 +19392,15 @@ final class KeysetTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function left_angle(): EditableSyntax {
+  public function left_angle(): LessThanToken {
+    return $this->left_anglex();
+  }
+
+  public function left_anglex(): LessThanToken {
+    return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
+  }
+
+  public function raw_left_angle(): EditableSyntax {
     return $this->_left_angle;
   }
 
@@ -15382,7 +19414,15 @@ final class KeysetTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function type(): EditableSyntax {
+  public function type(): SimpleTypeSpecifier {
+    return $this->typex();
+  }
+
+  public function typex(): SimpleTypeSpecifier {
+    return TypeAssert::isInstanceOf(SimpleTypeSpecifier::class, $this->_type);
+  }
+
+  public function raw_type(): EditableSyntax {
     return $this->_type;
   }
 
@@ -15396,7 +19436,16 @@ final class KeysetTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function trailing_comma(): EditableSyntax {
+  public function trailing_comma(): EditableToken {
+    return $this->trailing_commax();
+  }
+
+  public function trailing_commax(): EditableToken {
+    return
+      TypeAssert::isInstanceOf(EditableToken::class, $this->_trailing_comma);
+  }
+
+  public function raw_trailing_comma(): EditableSyntax {
     return $this->_trailing_comma;
   }
 
@@ -15410,7 +19459,16 @@ final class KeysetTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function right_angle(): EditableSyntax {
+  public function right_angle(): GreaterThanToken {
+    return $this->right_anglex();
+  }
+
+  public function right_anglex(): GreaterThanToken {
+    return
+      TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+  }
+
+  public function raw_right_angle(): EditableSyntax {
     return $this->_right_angle;
   }
 
@@ -15508,7 +19566,15 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): EditableToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -15517,7 +19583,15 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
       new self($value, $this->_left_angle, $this->_types, $this->_right_angle);
   }
 
-  public function left_angle(): EditableSyntax {
+  public function left_angle(): EditableToken {
+    return $this->left_anglex();
+  }
+
+  public function left_anglex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_left_angle);
+  }
+
+  public function raw_left_angle(): EditableSyntax {
     return $this->_left_angle;
   }
 
@@ -15526,7 +19600,15 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
       new self($this->_keyword, $value, $this->_types, $this->_right_angle);
   }
 
-  public function types(): EditableSyntax {
+  public function types(): EditableToken {
+    return $this->typesx();
+  }
+
+  public function typesx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_types);
+  }
+
+  public function raw_types(): EditableSyntax {
     return $this->_types;
   }
 
@@ -15539,7 +19621,15 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
     );
   }
 
-  public function right_angle(): EditableSyntax {
+  public function right_angle(): EditableToken {
+    return $this->right_anglex();
+  }
+
+  public function right_anglex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_right_angle);
+  }
+
+  public function raw_right_angle(): EditableSyntax {
     return $this->_right_angle;
   }
 
@@ -15646,7 +19736,15 @@ final class VarrayTypeSpecifier extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): VarrayToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): VarrayToken {
+    return TypeAssert::isInstanceOf(VarrayToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -15660,7 +19758,15 @@ final class VarrayTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function left_angle(): EditableSyntax {
+  public function left_angle(): LessThanToken {
+    return $this->left_anglex();
+  }
+
+  public function left_anglex(): LessThanToken {
+    return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
+  }
+
+  public function raw_left_angle(): EditableSyntax {
     return $this->_left_angle;
   }
 
@@ -15674,7 +19780,15 @@ final class VarrayTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function type(): EditableSyntax {
+  public function type(): SimpleTypeSpecifier {
+    return $this->typex();
+  }
+
+  public function typex(): SimpleTypeSpecifier {
+    return TypeAssert::isInstanceOf(SimpleTypeSpecifier::class, $this->_type);
+  }
+
+  public function raw_type(): EditableSyntax {
     return $this->_type;
   }
 
@@ -15688,7 +19802,16 @@ final class VarrayTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function trailing_comma(): EditableSyntax {
+  public function trailing_comma(): EditableToken {
+    return $this->trailing_commax();
+  }
+
+  public function trailing_commax(): EditableToken {
+    return
+      TypeAssert::isInstanceOf(EditableToken::class, $this->_trailing_comma);
+  }
+
+  public function raw_trailing_comma(): EditableSyntax {
     return $this->_trailing_comma;
   }
 
@@ -15702,7 +19825,16 @@ final class VarrayTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function right_angle(): EditableSyntax {
+  public function right_angle(): GreaterThanToken {
+    return $this->right_anglex();
+  }
+
+  public function right_anglex(): GreaterThanToken {
+    return
+      TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+  }
+
+  public function raw_right_angle(): EditableSyntax {
     return $this->_right_angle;
   }
 
@@ -15800,7 +19932,15 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): ArrayToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): ArrayToken {
+    return TypeAssert::isInstanceOf(ArrayToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -15809,7 +19949,15 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
       new self($value, $this->_left_angle, $this->_type, $this->_right_angle);
   }
 
-  public function left_angle(): EditableSyntax {
+  public function left_angle(): LessThanToken {
+    return $this->left_anglex();
+  }
+
+  public function left_anglex(): LessThanToken {
+    return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
+  }
+
+  public function raw_left_angle(): EditableSyntax {
     return $this->_left_angle;
   }
 
@@ -15817,7 +19965,15 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_type, $this->_right_angle);
   }
 
-  public function type(): EditableSyntax {
+  public function type(): EditableToken {
+    return $this->typex();
+  }
+
+  public function typex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_type);
+  }
+
+  public function raw_type(): EditableSyntax {
     return $this->_type;
   }
 
@@ -15830,7 +19986,16 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function right_angle(): EditableSyntax {
+  public function right_angle(): GreaterThanToken {
+    return $this->right_anglex();
+  }
+
+  public function right_anglex(): GreaterThanToken {
+    return
+      TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+  }
+
+  public function raw_right_angle(): EditableSyntax {
     return $this->_right_angle;
   }
 
@@ -15910,7 +20075,15 @@ final class TypeParameter extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function variance(): EditableSyntax {
+  public function variance(): EditableToken {
+    return $this->variancex();
+  }
+
+  public function variancex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_variance);
+  }
+
+  public function raw_variance(): EditableSyntax {
     return $this->_variance;
   }
 
@@ -15918,7 +20091,15 @@ final class TypeParameter extends EditableSyntax {
     return new self($value, $this->_name, $this->_constraints);
   }
 
-  public function name(): EditableSyntax {
+  public function name(): NameToken {
+    return $this->namex();
+  }
+
+  public function namex(): NameToken {
+    return TypeAssert::isInstanceOf(NameToken::class, $this->_name);
+  }
+
+  public function raw_name(): EditableSyntax {
     return $this->_name;
   }
 
@@ -15926,7 +20107,17 @@ final class TypeParameter extends EditableSyntax {
     return new self($this->_variance, $value, $this->_constraints);
   }
 
-  public function constraints(): EditableSyntax {
+  public function constraints(): ?EditableList {
+    return $this->_constraints->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_constraints);
+  }
+
+  public function constraintsx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_constraints);
+  }
+
+  public function raw_constraints(): EditableSyntax {
     return $this->_constraints;
   }
 
@@ -15988,7 +20179,15 @@ final class TypeConstraint extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): EditableToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -15996,7 +20195,15 @@ final class TypeConstraint extends EditableSyntax {
     return new self($value, $this->_type);
   }
 
-  public function type(): EditableSyntax {
+  public function type(): EditableToken {
+    return $this->typex();
+  }
+
+  public function typex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_type);
+  }
+
+  public function raw_type(): EditableSyntax {
     return $this->_type;
   }
 
@@ -16141,7 +20348,15 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): DarrayToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): DarrayToken {
+    return TypeAssert::isInstanceOf(DarrayToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -16157,7 +20372,15 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function left_angle(): EditableSyntax {
+  public function left_angle(): LessThanToken {
+    return $this->left_anglex();
+  }
+
+  public function left_anglex(): LessThanToken {
+    return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
+  }
+
+  public function raw_left_angle(): EditableSyntax {
     return $this->_left_angle;
   }
 
@@ -16173,7 +20396,15 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function key(): EditableSyntax {
+  public function key(): SimpleTypeSpecifier {
+    return $this->keyx();
+  }
+
+  public function keyx(): SimpleTypeSpecifier {
+    return TypeAssert::isInstanceOf(SimpleTypeSpecifier::class, $this->_key);
+  }
+
+  public function raw_key(): EditableSyntax {
     return $this->_key;
   }
 
@@ -16189,7 +20420,15 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function comma(): EditableSyntax {
+  public function comma(): CommaToken {
+    return $this->commax();
+  }
+
+  public function commax(): CommaToken {
+    return TypeAssert::isInstanceOf(CommaToken::class, $this->_comma);
+  }
+
+  public function raw_comma(): EditableSyntax {
     return $this->_comma;
   }
 
@@ -16205,7 +20444,15 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function value(): EditableSyntax {
+  public function value(): SimpleTypeSpecifier {
+    return $this->valuex();
+  }
+
+  public function valuex(): SimpleTypeSpecifier {
+    return TypeAssert::isInstanceOf(SimpleTypeSpecifier::class, $this->_value);
+  }
+
+  public function raw_value(): EditableSyntax {
     return $this->_value;
   }
 
@@ -16221,7 +20468,16 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function trailing_comma(): EditableSyntax {
+  public function trailing_comma(): EditableToken {
+    return $this->trailing_commax();
+  }
+
+  public function trailing_commax(): EditableToken {
+    return
+      TypeAssert::isInstanceOf(EditableToken::class, $this->_trailing_comma);
+  }
+
+  public function raw_trailing_comma(): EditableSyntax {
     return $this->_trailing_comma;
   }
 
@@ -16237,7 +20493,16 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function right_angle(): EditableSyntax {
+  public function right_angle(): GreaterThanToken {
+    return $this->right_anglex();
+  }
+
+  public function right_anglex(): GreaterThanToken {
+    return
+      TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+  }
+
+  public function raw_right_angle(): EditableSyntax {
     return $this->_right_angle;
   }
 
@@ -16362,7 +20627,15 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): ArrayToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): ArrayToken {
+    return TypeAssert::isInstanceOf(ArrayToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -16377,7 +20650,15 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function left_angle(): EditableSyntax {
+  public function left_angle(): LessThanToken {
+    return $this->left_anglex();
+  }
+
+  public function left_anglex(): LessThanToken {
+    return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
+  }
+
+  public function raw_left_angle(): EditableSyntax {
     return $this->_left_angle;
   }
 
@@ -16392,7 +20673,15 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function key(): EditableSyntax {
+  public function key(): SimpleTypeSpecifier {
+    return $this->keyx();
+  }
+
+  public function keyx(): SimpleTypeSpecifier {
+    return TypeAssert::isInstanceOf(SimpleTypeSpecifier::class, $this->_key);
+  }
+
+  public function raw_key(): EditableSyntax {
     return $this->_key;
   }
 
@@ -16407,7 +20696,15 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function comma(): EditableSyntax {
+  public function comma(): CommaToken {
+    return $this->commax();
+  }
+
+  public function commax(): CommaToken {
+    return TypeAssert::isInstanceOf(CommaToken::class, $this->_comma);
+  }
+
+  public function raw_comma(): EditableSyntax {
     return $this->_comma;
   }
 
@@ -16422,7 +20719,15 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function value(): EditableSyntax {
+  public function value(): EditableToken {
+    return $this->valuex();
+  }
+
+  public function valuex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_value);
+  }
+
+  public function raw_value(): EditableSyntax {
     return $this->_value;
   }
 
@@ -16437,7 +20742,18 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function right_angle(): EditableSyntax {
+  public function right_angle(): ?GreaterThanToken {
+    return $this->_right_angle->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+  }
+
+  public function right_anglex(): GreaterThanToken {
+    return
+      TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+  }
+
+  public function raw_right_angle(): EditableSyntax {
     return $this->_right_angle;
   }
 
@@ -16536,7 +20852,15 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): DictToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): DictToken {
+    return TypeAssert::isInstanceOf(DictToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -16549,7 +20873,15 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function left_angle(): EditableSyntax {
+  public function left_angle(): LessThanToken {
+    return $this->left_anglex();
+  }
+
+  public function left_anglex(): LessThanToken {
+    return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
+  }
+
+  public function raw_left_angle(): EditableSyntax {
     return $this->_left_angle;
   }
 
@@ -16558,7 +20890,15 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
       new self($this->_keyword, $value, $this->_members, $this->_right_angle);
   }
 
-  public function members(): EditableSyntax {
+  public function members(): EditableList {
+    return $this->membersx();
+  }
+
+  public function membersx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
+  }
+
+  public function raw_members(): EditableSyntax {
     return $this->_members;
   }
 
@@ -16571,7 +20911,16 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function right_angle(): EditableSyntax {
+  public function right_angle(): GreaterThanToken {
+    return $this->right_anglex();
+  }
+
+  public function right_anglex(): GreaterThanToken {
+    return
+      TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+  }
+
+  public function raw_right_angle(): EditableSyntax {
     return $this->_right_angle;
   }
 
@@ -16750,7 +21099,16 @@ final class ClosureTypeSpecifier extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function outer_left_paren(): EditableSyntax {
+  public function outer_left_paren(): LeftParenToken {
+    return $this->outer_left_parenx();
+  }
+
+  public function outer_left_parenx(): LeftParenToken {
+    return
+      TypeAssert::isInstanceOf(LeftParenToken::class, $this->_outer_left_paren);
+  }
+
+  public function raw_outer_left_paren(): EditableSyntax {
     return $this->_outer_left_paren;
   }
 
@@ -16768,7 +21126,15 @@ final class ClosureTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function coroutine(): EditableSyntax {
+  public function coroutine(): EditableToken {
+    return $this->coroutinex();
+  }
+
+  public function coroutinex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_coroutine);
+  }
+
+  public function raw_coroutine(): EditableSyntax {
     return $this->_coroutine;
   }
 
@@ -16786,7 +21152,16 @@ final class ClosureTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function function_keyword(): EditableSyntax {
+  public function function_keyword(): FunctionToken {
+    return $this->function_keywordx();
+  }
+
+  public function function_keywordx(): FunctionToken {
+    return
+      TypeAssert::isInstanceOf(FunctionToken::class, $this->_function_keyword);
+  }
+
+  public function raw_function_keyword(): EditableSyntax {
     return $this->_function_keyword;
   }
 
@@ -16804,7 +21179,16 @@ final class ClosureTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function inner_left_paren(): EditableSyntax {
+  public function inner_left_paren(): LeftParenToken {
+    return $this->inner_left_parenx();
+  }
+
+  public function inner_left_parenx(): LeftParenToken {
+    return
+      TypeAssert::isInstanceOf(LeftParenToken::class, $this->_inner_left_paren);
+  }
+
+  public function raw_inner_left_paren(): EditableSyntax {
     return $this->_inner_left_paren;
   }
 
@@ -16822,7 +21206,18 @@ final class ClosureTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function parameter_types(): EditableSyntax {
+  public function parameter_types(): ?EditableList {
+    return $this->_parameter_types->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_parameter_types);
+  }
+
+  public function parameter_typesx(): EditableList {
+    return
+      TypeAssert::isInstanceOf(EditableList::class, $this->_parameter_types);
+  }
+
+  public function raw_parameter_types(): EditableSyntax {
     return $this->_parameter_types;
   }
 
@@ -16840,7 +21235,18 @@ final class ClosureTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function inner_right_paren(): EditableSyntax {
+  public function inner_right_paren(): RightParenToken {
+    return $this->inner_right_parenx();
+  }
+
+  public function inner_right_parenx(): RightParenToken {
+    return TypeAssert::isInstanceOf(
+      RightParenToken::class,
+      $this->_inner_right_paren,
+    );
+  }
+
+  public function raw_inner_right_paren(): EditableSyntax {
     return $this->_inner_right_paren;
   }
 
@@ -16858,7 +21264,15 @@ final class ClosureTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function colon(): EditableSyntax {
+  public function colon(): ColonToken {
+    return $this->colonx();
+  }
+
+  public function colonx(): ColonToken {
+    return TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
+  }
+
+  public function raw_colon(): EditableSyntax {
     return $this->_colon;
   }
 
@@ -16876,7 +21290,15 @@ final class ClosureTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function return_type(): EditableSyntax {
+  public function return_type(): EditableToken {
+    return $this->return_typex();
+  }
+
+  public function return_typex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_return_type);
+  }
+
+  public function raw_return_type(): EditableSyntax {
     return $this->_return_type;
   }
 
@@ -16894,7 +21316,18 @@ final class ClosureTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function outer_right_paren(): EditableSyntax {
+  public function outer_right_paren(): RightParenToken {
+    return $this->outer_right_parenx();
+  }
+
+  public function outer_right_parenx(): RightParenToken {
+    return TypeAssert::isInstanceOf(
+      RightParenToken::class,
+      $this->_outer_right_paren,
+    );
+  }
+
+  public function raw_outer_right_paren(): EditableSyntax {
     return $this->_outer_right_paren;
   }
 
@@ -17011,7 +21444,15 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): ClassnameToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): ClassnameToken {
+    return TypeAssert::isInstanceOf(ClassnameToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -17025,7 +21466,17 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function left_angle(): EditableSyntax {
+  public function left_angle(): ?LessThanToken {
+    return $this->_left_angle->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
+  }
+
+  public function left_anglex(): LessThanToken {
+    return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
+  }
+
+  public function raw_left_angle(): EditableSyntax {
     return $this->_left_angle;
   }
 
@@ -17039,7 +21490,15 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function type(): EditableSyntax {
+  public function type(): EditableToken {
+    return $this->typex();
+  }
+
+  public function typex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_type);
+  }
+
+  public function raw_type(): EditableSyntax {
     return $this->_type;
   }
 
@@ -17053,7 +21512,16 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function trailing_comma(): EditableSyntax {
+  public function trailing_comma(): EditableToken {
+    return $this->trailing_commax();
+  }
+
+  public function trailing_commax(): EditableToken {
+    return
+      TypeAssert::isInstanceOf(EditableToken::class, $this->_trailing_comma);
+  }
+
+  public function raw_trailing_comma(): EditableSyntax {
     return $this->_trailing_comma;
   }
 
@@ -17067,7 +21535,18 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function right_angle(): EditableSyntax {
+  public function right_angle(): ?GreaterThanToken {
+    return $this->_right_angle->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+  }
+
+  public function right_anglex(): GreaterThanToken {
+    return
+      TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+  }
+
+  public function raw_right_angle(): EditableSyntax {
     return $this->_right_angle;
   }
 
@@ -17165,7 +21644,17 @@ final class FieldSpecifier extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function question(): EditableSyntax {
+  public function question(): ?QuestionToken {
+    return $this->_question->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(QuestionToken::class, $this->_question);
+  }
+
+  public function questionx(): QuestionToken {
+    return TypeAssert::isInstanceOf(QuestionToken::class, $this->_question);
+  }
+
+  public function raw_question(): EditableSyntax {
     return $this->_question;
   }
 
@@ -17173,7 +21662,15 @@ final class FieldSpecifier extends EditableSyntax {
     return new self($value, $this->_name, $this->_arrow, $this->_type);
   }
 
-  public function name(): EditableSyntax {
+  public function name(): EditableToken {
+    return $this->namex();
+  }
+
+  public function namex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+  }
+
+  public function raw_name(): EditableSyntax {
     return $this->_name;
   }
 
@@ -17181,7 +21678,16 @@ final class FieldSpecifier extends EditableSyntax {
     return new self($this->_question, $value, $this->_arrow, $this->_type);
   }
 
-  public function arrow(): EditableSyntax {
+  public function arrow(): EqualGreaterThanToken {
+    return $this->arrowx();
+  }
+
+  public function arrowx(): EqualGreaterThanToken {
+    return
+      TypeAssert::isInstanceOf(EqualGreaterThanToken::class, $this->_arrow);
+  }
+
+  public function raw_arrow(): EditableSyntax {
     return $this->_arrow;
   }
 
@@ -17189,7 +21695,15 @@ final class FieldSpecifier extends EditableSyntax {
     return new self($this->_question, $this->_name, $value, $this->_type);
   }
 
-  public function type(): EditableSyntax {
+  public function type(): EditableToken {
+    return $this->typex();
+  }
+
+  public function typex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_type);
+  }
+
+  public function raw_type(): EditableSyntax {
     return $this->_type;
   }
 
@@ -17269,7 +21783,15 @@ final class FieldInitializer extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function name(): EditableSyntax {
+  public function name(): EditableToken {
+    return $this->namex();
+  }
+
+  public function namex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+  }
+
+  public function raw_name(): EditableSyntax {
     return $this->_name;
   }
 
@@ -17277,7 +21799,16 @@ final class FieldInitializer extends EditableSyntax {
     return new self($value, $this->_arrow, $this->_value);
   }
 
-  public function arrow(): EditableSyntax {
+  public function arrow(): EqualGreaterThanToken {
+    return $this->arrowx();
+  }
+
+  public function arrowx(): EqualGreaterThanToken {
+    return
+      TypeAssert::isInstanceOf(EqualGreaterThanToken::class, $this->_arrow);
+  }
+
+  public function raw_arrow(): EditableSyntax {
     return $this->_arrow;
   }
 
@@ -17285,7 +21816,15 @@ final class FieldInitializer extends EditableSyntax {
     return new self($this->_name, $value, $this->_value);
   }
 
-  public function value(): EditableSyntax {
+  public function value(): EditableToken {
+    return $this->valuex();
+  }
+
+  public function valuex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_value);
+  }
+
+  public function raw_value(): EditableSyntax {
     return $this->_value;
   }
 
@@ -17389,7 +21928,15 @@ final class ShapeTypeSpecifier extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): ShapeToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): ShapeToken {
+    return TypeAssert::isInstanceOf(ShapeToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -17403,7 +21950,15 @@ final class ShapeTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function left_paren(): EditableSyntax {
+  public function left_paren(): LeftParenToken {
+    return $this->left_parenx();
+  }
+
+  public function left_parenx(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  }
+
+  public function raw_left_paren(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -17417,7 +21972,17 @@ final class ShapeTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function fields(): EditableSyntax {
+  public function fields(): ?EditableList {
+    return $this->_fields->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_fields);
+  }
+
+  public function fieldsx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_fields);
+  }
+
+  public function raw_fields(): EditableSyntax {
     return $this->_fields;
   }
 
@@ -17431,7 +21996,17 @@ final class ShapeTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function ellipsis(): EditableSyntax {
+  public function ellipsis(): ?DotDotDotToken {
+    return $this->_ellipsis->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(DotDotDotToken::class, $this->_ellipsis);
+  }
+
+  public function ellipsisx(): DotDotDotToken {
+    return TypeAssert::isInstanceOf(DotDotDotToken::class, $this->_ellipsis);
+  }
+
+  public function raw_ellipsis(): EditableSyntax {
     return $this->_ellipsis;
   }
 
@@ -17445,7 +22020,16 @@ final class ShapeTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function right_paren(): EditableSyntax {
+  public function right_paren(): RightParenToken {
+    return $this->right_parenx();
+  }
+
+  public function right_parenx(): RightParenToken {
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function raw_right_paren(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -17543,7 +22127,15 @@ final class ShapeExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): ShapeToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): ShapeToken {
+    return TypeAssert::isInstanceOf(ShapeToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -17552,7 +22144,15 @@ final class ShapeExpression extends EditableSyntax {
       new self($value, $this->_left_paren, $this->_fields, $this->_right_paren);
   }
 
-  public function left_paren(): EditableSyntax {
+  public function left_paren(): LeftParenToken {
+    return $this->left_parenx();
+  }
+
+  public function left_parenx(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  }
+
+  public function raw_left_paren(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -17561,7 +22161,17 @@ final class ShapeExpression extends EditableSyntax {
       new self($this->_keyword, $value, $this->_fields, $this->_right_paren);
   }
 
-  public function fields(): EditableSyntax {
+  public function fields(): ?EditableList {
+    return $this->_fields->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(EditableList::class, $this->_fields);
+  }
+
+  public function fieldsx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_fields);
+  }
+
+  public function raw_fields(): EditableSyntax {
     return $this->_fields;
   }
 
@@ -17574,7 +22184,16 @@ final class ShapeExpression extends EditableSyntax {
     );
   }
 
-  public function right_paren(): EditableSyntax {
+  public function right_paren(): RightParenToken {
+    return $this->right_parenx();
+  }
+
+  public function right_parenx(): RightParenToken {
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function raw_right_paren(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -17667,7 +22286,15 @@ final class TupleExpression extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function keyword(): EditableSyntax {
+  public function keyword(): TupleToken {
+    return $this->keywordx();
+  }
+
+  public function keywordx(): TupleToken {
+    return TypeAssert::isInstanceOf(TupleToken::class, $this->_keyword);
+  }
+
+  public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -17676,7 +22303,15 @@ final class TupleExpression extends EditableSyntax {
       new self($value, $this->_left_paren, $this->_items, $this->_right_paren);
   }
 
-  public function left_paren(): EditableSyntax {
+  public function left_paren(): LeftParenToken {
+    return $this->left_parenx();
+  }
+
+  public function left_parenx(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  }
+
+  public function raw_left_paren(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -17685,7 +22320,15 @@ final class TupleExpression extends EditableSyntax {
       new self($this->_keyword, $value, $this->_items, $this->_right_paren);
   }
 
-  public function items(): EditableSyntax {
+  public function items(): EditableList {
+    return $this->itemsx();
+  }
+
+  public function itemsx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_items);
+  }
+
+  public function raw_items(): EditableSyntax {
     return $this->_items;
   }
 
@@ -17698,7 +22341,16 @@ final class TupleExpression extends EditableSyntax {
     );
   }
 
-  public function right_paren(): EditableSyntax {
+  public function right_paren(): RightParenToken {
+    return $this->right_parenx();
+  }
+
+  public function right_parenx(): RightParenToken {
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function raw_right_paren(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -17766,7 +22418,15 @@ final class GenericTypeSpecifier extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function class_type(): EditableSyntax {
+  public function class_type(): EditableToken {
+    return $this->class_typex();
+  }
+
+  public function class_typex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_class_type);
+  }
+
+  public function raw_class_type(): EditableSyntax {
     return $this->_class_type;
   }
 
@@ -17774,7 +22434,16 @@ final class GenericTypeSpecifier extends EditableSyntax {
     return new self($value, $this->_argument_list);
   }
 
-  public function argument_list(): EditableSyntax {
+  public function argument_list(): TypeArguments {
+    return $this->argument_listx();
+  }
+
+  public function argument_listx(): TypeArguments {
+    return
+      TypeAssert::isInstanceOf(TypeArguments::class, $this->_argument_list);
+  }
+
+  public function raw_argument_list(): EditableSyntax {
     return $this->_argument_list;
   }
 
@@ -17836,7 +22505,15 @@ final class NullableTypeSpecifier extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function question(): EditableSyntax {
+  public function question(): QuestionToken {
+    return $this->questionx();
+  }
+
+  public function questionx(): QuestionToken {
+    return TypeAssert::isInstanceOf(QuestionToken::class, $this->_question);
+  }
+
+  public function raw_question(): EditableSyntax {
     return $this->_question;
   }
 
@@ -17844,7 +22521,15 @@ final class NullableTypeSpecifier extends EditableSyntax {
     return new self($value, $this->_type);
   }
 
-  public function type(): EditableSyntax {
+  public function type(): EditableToken {
+    return $this->typex();
+  }
+
+  public function typex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_type);
+  }
+
+  public function raw_type(): EditableSyntax {
     return $this->_type;
   }
 
@@ -17906,7 +22591,15 @@ final class SoftTypeSpecifier extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function at(): EditableSyntax {
+  public function at(): AtToken {
+    return $this->atx();
+  }
+
+  public function atx(): AtToken {
+    return TypeAssert::isInstanceOf(AtToken::class, $this->_at);
+  }
+
+  public function raw_at(): EditableSyntax {
     return $this->_at;
   }
 
@@ -17914,7 +22607,15 @@ final class SoftTypeSpecifier extends EditableSyntax {
     return new self($value, $this->_type);
   }
 
-  public function type(): EditableSyntax {
+  public function type(): EditableToken {
+    return $this->typex();
+  }
+
+  public function typex(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_type);
+  }
+
+  public function raw_type(): EditableSyntax {
     return $this->_type;
   }
 
@@ -17994,7 +22695,15 @@ final class TypeArguments extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function left_angle(): EditableSyntax {
+  public function left_angle(): LessThanToken {
+    return $this->left_anglex();
+  }
+
+  public function left_anglex(): LessThanToken {
+    return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
+  }
+
+  public function raw_left_angle(): EditableSyntax {
     return $this->_left_angle;
   }
 
@@ -18002,7 +22711,15 @@ final class TypeArguments extends EditableSyntax {
     return new self($value, $this->_types, $this->_right_angle);
   }
 
-  public function types(): EditableSyntax {
+  public function types(): EditableList {
+    return $this->typesx();
+  }
+
+  public function typesx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_types);
+  }
+
+  public function raw_types(): EditableSyntax {
     return $this->_types;
   }
 
@@ -18010,7 +22727,18 @@ final class TypeArguments extends EditableSyntax {
     return new self($this->_left_angle, $value, $this->_right_angle);
   }
 
-  public function right_angle(): EditableSyntax {
+  public function right_angle(): ?GreaterThanToken {
+    return $this->_right_angle->is_missing()
+      ? null
+      : TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+  }
+
+  public function right_anglex(): GreaterThanToken {
+    return
+      TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+  }
+
+  public function raw_right_angle(): EditableSyntax {
     return $this->_right_angle;
   }
 
@@ -18090,7 +22818,15 @@ final class TypeParameters extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function left_angle(): EditableSyntax {
+  public function left_angle(): LessThanToken {
+    return $this->left_anglex();
+  }
+
+  public function left_anglex(): LessThanToken {
+    return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
+  }
+
+  public function raw_left_angle(): EditableSyntax {
     return $this->_left_angle;
   }
 
@@ -18098,7 +22834,15 @@ final class TypeParameters extends EditableSyntax {
     return new self($value, $this->_parameters, $this->_right_angle);
   }
 
-  public function parameters(): EditableSyntax {
+  public function parameters(): EditableList {
+    return $this->parametersx();
+  }
+
+  public function parametersx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_parameters);
+  }
+
+  public function raw_parameters(): EditableSyntax {
     return $this->_parameters;
   }
 
@@ -18106,7 +22850,16 @@ final class TypeParameters extends EditableSyntax {
     return new self($this->_left_angle, $value, $this->_right_angle);
   }
 
-  public function right_angle(): EditableSyntax {
+  public function right_angle(): GreaterThanToken {
+    return $this->right_anglex();
+  }
+
+  public function right_anglex(): GreaterThanToken {
+    return
+      TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+  }
+
+  public function raw_right_angle(): EditableSyntax {
     return $this->_right_angle;
   }
 
@@ -18186,7 +22939,15 @@ final class TupleTypeSpecifier extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function left_paren(): EditableSyntax {
+  public function left_paren(): LeftParenToken {
+    return $this->left_parenx();
+  }
+
+  public function left_parenx(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  }
+
+  public function raw_left_paren(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -18194,7 +22955,15 @@ final class TupleTypeSpecifier extends EditableSyntax {
     return new self($value, $this->_types, $this->_right_paren);
   }
 
-  public function types(): EditableSyntax {
+  public function types(): EditableList {
+    return $this->typesx();
+  }
+
+  public function typesx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_types);
+  }
+
+  public function raw_types(): EditableSyntax {
     return $this->_types;
   }
 
@@ -18202,7 +22971,16 @@ final class TupleTypeSpecifier extends EditableSyntax {
     return new self($this->_left_paren, $value, $this->_right_paren);
   }
 
-  public function right_paren(): EditableSyntax {
+  public function right_paren(): RightParenToken {
+    return $this->right_parenx();
+  }
+
+  public function right_parenx(): RightParenToken {
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function raw_right_paren(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -18254,7 +23032,15 @@ final class ErrorSyntax extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function error(): EditableSyntax {
+  public function error(): EditableToken {
+    return $this->errorx();
+  }
+
+  public function errorx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_error);
+  }
+
+  public function raw_error(): EditableSyntax {
     return $this->_error;
   }
 
@@ -18316,7 +23102,15 @@ final class ListItem extends EditableSyntax {
     return $rewriter($node, $parents);
   }
 
-  public function item(): EditableSyntax {
+  public function item(): EditableToken {
+    return $this->itemx();
+  }
+
+  public function itemx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_item);
+  }
+
+  public function raw_item(): EditableSyntax {
     return $this->_item;
   }
 
@@ -18324,7 +23118,15 @@ final class ListItem extends EditableSyntax {
     return new self($value, $this->_separator);
   }
 
-  public function separator(): EditableSyntax {
+  public function separator(): EditableToken {
+    return $this->separatorx();
+  }
+
+  public function separatorx(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_separator);
+  }
+
+  public function raw_separator(): EditableSyntax {
     return $this->_separator;
   }
 

@@ -19,6 +19,7 @@ use type Facebook\HackCodegen\{
   HackBuilderValues
 };
 
+use type Facebook\TypeAssert\TypeAssert;
 use namespace HH\Lib\{C, Str, Vec};
 
 final class CodegenSyntax extends CodegenBase {
@@ -26,7 +27,9 @@ final class CodegenSyntax extends CodegenBase {
     $cg = $this->getCodegenFactory();
 
     $file = $cg->codegenFile($this->getOutputDirectory().'/Syntax.php');
-    $file->setNamespace('Facebook\\HHAST');
+    $file
+      ->setNamespace('Facebook\\HHAST')
+      ->useType(TypeAssert::class);
 
     $blacklist = self::getHandWrittenSyntaxKinds();
 
@@ -54,7 +57,9 @@ final class CodegenSyntax extends CodegenBase {
 
     foreach ($syntax['fields'] as $field) {
       $field = (string) $field['field_name'];
-      $this->getTypeSpecForField($syntax, $field);
+      $spec = $this->getTypeSpecForField($syntax, $field);
+      $type = $spec['nullable'] ? ('?'.$spec['class']) : $spec['class'];
+
       $class
         ->addVar($cg
           ->codegenMemberVar('_'.$field)
@@ -62,6 +67,33 @@ final class CodegenSyntax extends CodegenBase {
         ->addMethod(
           $cg
             ->codegenMethod($field)
+            ->setReturnType($type)
+            ->setBody(
+              $spec['nullable']
+                ? sprintf(
+                  'return $this->_%s->is_missing() '.
+                    '? null '.
+                    ': TypeAssert::isInstanceOf(%s::class, $this->_%s);',
+                  $field,
+                  $spec['class'],
+                  $field,
+                )
+                : sprintf('return $this->%sx();', $field),
+            )
+        )
+        ->addMethod(
+          $cg
+            ->codegenMethod($field.'x')
+            ->setReturnType($spec['class'])
+            ->setBodyf(
+              'return TypeAssert::isInstanceOf(%s::class, $this->_%s);',
+              $spec['class'],
+              $field,
+            )
+        )
+        ->addMethod(
+          $cg
+            ->codegenMethod('raw_'.$field)
             ->setReturnType('EditableSyntax')
             ->setBodyf('return $this->_%s;', $field)
         )

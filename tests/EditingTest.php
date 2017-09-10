@@ -33,8 +33,7 @@ final class EditingTest extends \PHPUnit\Framework\TestCase {
     $rewritten = $original->insert_before($comment, $first_try_body);
 
     $catches = $rewritten->of_class(HHAST\CatchClause::class);
-    /* HH_IGNORE_ERROR[4053] body() is insufficiently typed */
-    $left_brace = C\firstx($catches)->body()->left_brace();
+    $left_brace = C\firstx($catches)->body()->left_bracex();
     $rewritten = $rewritten->insert_after($comment, $left_brace);
 
     $code = $rewritten->full_text();
