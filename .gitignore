@@ -1,3 +1,4 @@
 vendor/
 *.swp
 tests/fixtures/*.out
+*.swo
