@@ -47,7 +47,7 @@ final class CodegenEditableSyntaxFromJSON extends CodegenBase {
               )
               ->unindent()
               ->addCase('missing', HackBuilderValues::export())
-              ->addReturnf('HHAST\\Missing::getInstance()')
+              ->addReturnf('HHAST\\Missing()')
               ->unindent()
               ->addCaseBlocks(
                 $this->getSchema()['trivia'],

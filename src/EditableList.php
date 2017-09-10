@@ -63,7 +63,7 @@ final class EditableList extends EditableSyntax
   ): EditableSyntax {
     $syntax_list = vec($syntax_list);
     if (C\count($syntax_list) === 0)
-      return Missing::getInstance();
+      return Missing();
     else
       return new EditableList($syntax_list);
   }
@@ -120,7 +120,7 @@ final class EditableList extends EditableSyntax
     $result = $this;
     if ($dirty) {
       if (count($new_children) === 0)
-        $result = Missing::getInstance();
+        $result = Missing();
       else
         $result = new EditableList($new_children);
     }
