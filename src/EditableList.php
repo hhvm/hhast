@@ -12,32 +12,13 @@
 
 namespace Facebook\HHAST;
 
-use type Facebook\TypeAssert\TypeAssert;
 use namespace HH\Lib\{C, Vec};
 
-final class EditableList extends EditableSyntax
-  implements \ArrayAccess<mixed, mixed> {
+final class EditableList extends EditableSyntax {
   private vec<EditableSyntax> $_children;
   public function __construct(Traversable<EditableSyntax> $children) {
     parent::__construct('list');
     $this->_children = vec($children);
-  }
-
-  public function offsetExists(mixed $offset): bool {
-    return array_key_exists($offset, $this->_children);
-  }
-
-  public function offsetGet(mixed $offset): EditableSyntax {
-    $offset = TypeAssert::isInt($offset);
-    return $this->_children[$offset];
-  }
-
-  public function offsetSet(mixed $offset, mixed $value): void {
-    invariant_violation('unimplemented');
-  }
-
-  public function offsetUnset(mixed $offset): void {
-    invariant_violation('unimplemented');
   }
 
   public function is_list(): bool {

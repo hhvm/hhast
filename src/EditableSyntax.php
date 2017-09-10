@@ -15,7 +15,7 @@ namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
 use namespace HH\Lib\Vec;
 
-abstract class EditableSyntax implements \ArrayAccess<mixed, mixed> {
+abstract class EditableSyntax {
   const type TRewriter =
     (function(EditableSyntax, ?Traversable<EditableSyntax>): EditableSyntax);
 
@@ -23,22 +23,6 @@ abstract class EditableSyntax implements \ArrayAccess<mixed, mixed> {
   protected ?int $_width;
   public function __construct(string $syntax_kind) {
     $this->_syntax_kind = $syntax_kind;
-  }
-
-  public function offsetExists(mixed $offset): bool {
-    return $offset === 0;
-  }
-
-  public function offsetGet(mixed $offset): EditableSyntax {
-    return $this;
-  }
-
-  public function offsetSet(mixed $offset, mixed $value): void {
-    invariant_violation('unimplemented');
-  }
-
-  public function offsetUnset(mixed $offset): void {
-    invariant_violation('unimplemented');
   }
 
   public function syntax_kind(): string {
