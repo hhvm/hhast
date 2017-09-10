@@ -91,16 +91,16 @@ final class CodegenTokens extends CodegenBase {
     $cg = $this->getCodegenFactory();
 
     $tokens = $this->getTokenSpecs();
-    $cg
-      ->codegenFile($this->getOutputDirectory().'/Tokens.php')
-      ->setNamespace('Facebook\\HHAST')
-      ->addClasses(
-        Vec\map(
-          $tokens,
-          $token ==> $this->generateClassForToken($token),
-        ),
-      )
-      ->save();
+    foreach ($tokens as $token) {
+      $cg
+        ->codegenFile(
+          $this->getOutputDirectory().
+          '/tokens/'.$token['kind'].'Token.php',
+        )
+        ->setNamespace('Facebook\\HHAST')
+        ->addClass($this->generateClassForToken($token))
+        ->save();
+      }
   }
 
   public function generateClassForToken(
