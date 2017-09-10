@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a907ca57e831fafbd3989ddd6842d0e8>>
+ * @generated SignedSource<<967528de2cc1bf02e0d0e5be0a7ca298>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -66,28 +66,25 @@ final class RequireClause extends EditableSyntax {
     yield 'semicolon' => $this->_semicolon;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $kind = $this->_kind->rewrite($rewriter, $child_parents);
-    $name = $this->_name->rewrite($rewriter, $child_parents);
-    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $kind = $this->_kind->rewrite($rewriter, $parents);
+    $name = $this->_name->rewrite($rewriter, $parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
     if (
       $keyword === $this->_keyword &&
       $kind === $this->_kind &&
       $name === $this->_name &&
       $semicolon === $this->_semicolon
     ) {
-      $node = $this;
-    } else {
-      $node = new self($keyword, $kind, $name, $semicolon);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($keyword, $kind, $name, $semicolon);
   }
 
   public function keyword(): RequireToken {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2d321831b84924ff14a1e05c8a695743>>
+ * @generated SignedSource<<ff0ec974d9dbb856164cb0bbea529988>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -66,34 +66,29 @@ final class FieldSpecifier extends EditableSyntax {
     yield 'type' => $this->_type;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $question = $this->_question->rewrite($rewriter, $child_parents);
-    $name = $this->_name->rewrite($rewriter, $child_parents);
-    $arrow = $this->_arrow->rewrite($rewriter, $child_parents);
-    $type = $this->_type->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $question = $this->_question->rewrite($rewriter, $parents);
+    $name = $this->_name->rewrite($rewriter, $parents);
+    $arrow = $this->_arrow->rewrite($rewriter, $parents);
+    $type = $this->_type->rewrite($rewriter, $parents);
     if (
       $question === $this->_question &&
       $name === $this->_name &&
       $arrow === $this->_arrow &&
       $type === $this->_type
     ) {
-      $node = $this;
-    } else {
-      $node = new self($question, $name, $arrow, $type);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($question, $name, $arrow, $type);
   }
 
   public function question(): ?QuestionToken {
-    return $this->_question->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(QuestionToken::class, $this->_question);
+    return $this->_question->is_missing() ? null : TypeAssert::isInstanceOf(QuestionToken::class, $this->_question);
   }
 
   public function questionx(): QuestionToken {
@@ -129,8 +124,7 @@ final class FieldSpecifier extends EditableSyntax {
   }
 
   public function arrowx(): EqualGreaterThanToken {
-    return
-      TypeAssert::isInstanceOf(EqualGreaterThanToken::class, $this->_arrow);
+    return TypeAssert::isInstanceOf(EqualGreaterThanToken::class, $this->_arrow);
   }
 
   public function raw_arrow(): EditableSyntax {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e81073b0e3c6b131433b6d0a37621a13>>
+ * @generated SignedSource<<7d69bae443d540e895f2d1cafa5b2e48>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -46,25 +46,21 @@ final class MarkupSuffix extends EditableSyntax {
     yield 'name' => $this->_name;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $less_than_question =
-      $this->_less_than_question->rewrite($rewriter, $child_parents);
-    $name = $this->_name->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $less_than_question = $this->_less_than_question->rewrite($rewriter, $parents);
+    $name = $this->_name->rewrite($rewriter, $parents);
     if (
       $less_than_question === $this->_less_than_question &&
       $name === $this->_name
     ) {
-      $node = $this;
-    } else {
-      $node = new self($less_than_question, $name);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($less_than_question, $name);
   }
 
   public function less_than_question(): LessThanQuestionToken {
@@ -72,10 +68,7 @@ final class MarkupSuffix extends EditableSyntax {
   }
 
   public function less_than_questionx(): LessThanQuestionToken {
-    return TypeAssert::isInstanceOf(
-      LessThanQuestionToken::class,
-      $this->_less_than_question,
-    );
+    return TypeAssert::isInstanceOf(LessThanQuestionToken::class, $this->_less_than_question);
   }
 
   public function raw_less_than_question(): EditableSyntax {

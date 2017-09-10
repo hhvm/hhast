@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<30cdbc1269b72e961f0c3e68dcce4cf3>>
+ * @generated SignedSource<<3698c840f6770b6b7dadcd7acddf5a25>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -34,20 +34,19 @@ final class LiteralExpression extends EditableSyntax {
     yield 'expression' => $this->_expression;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $expression = $this->_expression->rewrite($rewriter, $child_parents);
-    if ($expression === $this->_expression) {
-      $node = $this;
-    } else {
-      $node = new self($expression);
+    $parents[] = $this;
+    $expression = $this->_expression->rewrite($rewriter, $parents);
+    if (
+      $expression === $this->_expression
+    ) {
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($expression);
   }
 
   public function expression(): EditableSyntax {

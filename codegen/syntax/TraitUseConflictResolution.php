@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f5afa08e69baca38f59bb743d7df7e46>>
+ * @generated SignedSource<<0bb8bf024c53ef9729cc77109265e51f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -76,18 +76,17 @@ final class TraitUseConflictResolution extends EditableSyntax {
     yield 'right_brace' => $this->_right_brace;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $names = $this->_names->rewrite($rewriter, $child_parents);
-    $left_brace = $this->_left_brace->rewrite($rewriter, $child_parents);
-    $clauses = $this->_clauses->rewrite($rewriter, $child_parents);
-    $right_brace = $this->_right_brace->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $names = $this->_names->rewrite($rewriter, $parents);
+    $left_brace = $this->_left_brace->rewrite($rewriter, $parents);
+    $clauses = $this->_clauses->rewrite($rewriter, $parents);
+    $right_brace = $this->_right_brace->rewrite($rewriter, $parents);
     if (
       $keyword === $this->_keyword &&
       $names === $this->_names &&
@@ -95,11 +94,9 @@ final class TraitUseConflictResolution extends EditableSyntax {
       $clauses === $this->_clauses &&
       $right_brace === $this->_right_brace
     ) {
-      $node = $this;
-    } else {
-      $node = new self($keyword, $names, $left_brace, $clauses, $right_brace);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($keyword, $names, $left_brace, $clauses, $right_brace);
   }
 
   public function keyword(): UseToken {
@@ -169,9 +166,7 @@ final class TraitUseConflictResolution extends EditableSyntax {
   }
 
   public function clauses(): ?EditableList {
-    return $this->_clauses->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(EditableList::class, $this->_clauses);
+    return $this->_clauses->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_clauses);
   }
 
   public function clausesx(): EditableList {
@@ -197,8 +192,7 @@ final class TraitUseConflictResolution extends EditableSyntax {
   }
 
   public function right_bracex(): RightBraceToken {
-    return
-      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+    return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 
   public function raw_right_brace(): EditableSyntax {

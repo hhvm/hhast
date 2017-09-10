@@ -41,7 +41,14 @@ final class CodegenTrivia extends CodegenBase {
               ->addParameter('string $text')
               ->setReturnType('this')
               ->setBody('return new self($text);'),
-          ),
+          )
+          ->addMethod(
+            $cg->codegenMethod('rewrite_children')
+              ->addParameter('self::TRewriter $rewriter')
+              ->addParameter('?Traversable<EditableSyntax> $parents = null')
+              ->setReturnType('this')
+              ->setBody('return $this;')
+          )
       );
     }
 

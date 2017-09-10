@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ca76aae0947ed153141e71de0ec915c5>>
+ * @generated SignedSource<<1c042c733dcc0ebbc7524d6560d9ab06>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -34,20 +34,19 @@ final class QualifiedNameExpression extends EditableSyntax {
     yield 'expression' => $this->_expression;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $expression = $this->_expression->rewrite($rewriter, $child_parents);
-    if ($expression === $this->_expression) {
-      $node = $this;
-    } else {
-      $node = new self($expression);
+    $parents[] = $this;
+    $expression = $this->_expression->rewrite($rewriter, $parents);
+    if (
+      $expression === $this->_expression
+    ) {
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($expression);
   }
 
   public function expression(): EditableSyntax {

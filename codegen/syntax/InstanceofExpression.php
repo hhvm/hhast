@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0e5dd4eabe62a87fe9f3adcd41785261>>
+ * @generated SignedSource<<687db745e3453c13cb466ed738491ea2>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -56,26 +56,23 @@ final class InstanceofExpression extends EditableSyntax {
     yield 'right_operand' => $this->_right_operand;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $left_operand = $this->_left_operand->rewrite($rewriter, $child_parents);
-    $operator = $this->_operator->rewrite($rewriter, $child_parents);
-    $right_operand = $this->_right_operand->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $left_operand = $this->_left_operand->rewrite($rewriter, $parents);
+    $operator = $this->_operator->rewrite($rewriter, $parents);
+    $right_operand = $this->_right_operand->rewrite($rewriter, $parents);
     if (
       $left_operand === $this->_left_operand &&
       $operator === $this->_operator &&
       $right_operand === $this->_right_operand
     ) {
-      $node = $this;
-    } else {
-      $node = new self($left_operand, $operator, $right_operand);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($left_operand, $operator, $right_operand);
   }
 
   public function left_operand(): EditableSyntax {
@@ -83,8 +80,7 @@ final class InstanceofExpression extends EditableSyntax {
   }
 
   public function left_operandx(): EditableSyntax {
-    return
-      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_operand);
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_operand);
   }
 
   public function raw_left_operand(): EditableSyntax {
@@ -116,8 +112,7 @@ final class InstanceofExpression extends EditableSyntax {
   }
 
   public function right_operandx(): EditableSyntax {
-    return
-      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_operand);
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_operand);
   }
 
   public function raw_right_operand(): EditableSyntax {

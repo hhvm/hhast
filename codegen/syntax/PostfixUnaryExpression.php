@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0f95fbf53f6bc76de0693deadc93198e>>
+ * @generated SignedSource<<658068f8db35c154952d9bbb449e65f6>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -46,21 +46,21 @@ final class PostfixUnaryExpression extends EditableSyntax {
     yield 'operator' => $this->_operator;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $operand = $this->_operand->rewrite($rewriter, $child_parents);
-    $operator = $this->_operator->rewrite($rewriter, $child_parents);
-    if ($operand === $this->_operand && $operator === $this->_operator) {
-      $node = $this;
-    } else {
-      $node = new self($operand, $operator);
+    $parents[] = $this;
+    $operand = $this->_operand->rewrite($rewriter, $parents);
+    $operator = $this->_operator->rewrite($rewriter, $parents);
+    if (
+      $operand === $this->_operand &&
+      $operator === $this->_operator
+    ) {
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($operand, $operator);
   }
 
   public function operand(): EditableSyntax {

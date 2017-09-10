@@ -86,29 +86,6 @@ abstract class EditableToken extends EditableSyntax {
     );
   }
 
-  public function rewrite(
-    self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
-    $parents = $parents === null ? vec[] : vec($parents);
-    $new_parents = $parents;
-    $new_parents[] = $this;
-    $leading = $this->leading()->rewrite($rewriter, $new_parents);
-    $trailing = $this->trailing()->rewrite($rewriter, $new_parents);
-    if ($leading === $this->leading() && $trailing === $this->trailing())
-      return $rewriter($this, $parents ?? []);
-    else
-      return $rewriter(
-        EditableToken::factory(
-          $this->token_kind(),
-          $leading,
-          $trailing,
-          $this->text(),
-        ),
-        $parents ?? [],
-      );
-  }
-
   public function reduce<TAccumulator>(
     (function(
       EditableSyntax,

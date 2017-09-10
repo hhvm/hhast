@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ecb5f8b3bb0ac0306957bf143ac8c175>>
+ * @generated SignedSource<<b15d8e43ca90f16b7298d2cc5a207618>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -56,44 +56,31 @@ final class FunctionDeclaration extends EditableSyntax {
     yield 'body' => $this->_body;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $attribute_spec =
-      $this->_attribute_spec->rewrite($rewriter, $child_parents);
-    $declaration_header =
-      $this->_declaration_header->rewrite($rewriter, $child_parents);
-    $body = $this->_body->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $attribute_spec = $this->_attribute_spec->rewrite($rewriter, $parents);
+    $declaration_header = $this->_declaration_header->rewrite($rewriter, $parents);
+    $body = $this->_body->rewrite($rewriter, $parents);
     if (
       $attribute_spec === $this->_attribute_spec &&
       $declaration_header === $this->_declaration_header &&
       $body === $this->_body
     ) {
-      $node = $this;
-    } else {
-      $node = new self($attribute_spec, $declaration_header, $body);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($attribute_spec, $declaration_header, $body);
   }
 
   public function attribute_spec(): ?AttributeSpecification {
-    return $this->_attribute_spec->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(
-          AttributeSpecification::class,
-          $this->_attribute_spec,
-        );
+    return $this->_attribute_spec->is_missing() ? null : TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute_spec);
   }
 
   public function attribute_specx(): AttributeSpecification {
-    return TypeAssert::isInstanceOf(
-      AttributeSpecification::class,
-      $this->_attribute_spec,
-    );
+    return TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute_spec);
   }
 
   public function raw_attribute_spec(): EditableSyntax {
@@ -109,10 +96,7 @@ final class FunctionDeclaration extends EditableSyntax {
   }
 
   public function declaration_headerx(): FunctionDeclarationHeader {
-    return TypeAssert::isInstanceOf(
-      FunctionDeclarationHeader::class,
-      $this->_declaration_header,
-    );
+    return TypeAssert::isInstanceOf(FunctionDeclarationHeader::class, $this->_declaration_header);
   }
 
   public function raw_declaration_header(): EditableSyntax {

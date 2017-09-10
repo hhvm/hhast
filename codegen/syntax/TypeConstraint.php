@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e1e3c218931d4df0fc5b44f280134b43>>
+ * @generated SignedSource<<8af71e16bad3f86187a5aeff22057758>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -43,21 +43,21 @@ final class TypeConstraint extends EditableSyntax {
     yield 'type' => $this->_type;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $type = $this->_type->rewrite($rewriter, $child_parents);
-    if ($keyword === $this->_keyword && $type === $this->_type) {
-      $node = $this;
-    } else {
-      $node = new self($keyword, $type);
+    $parents[] = $this;
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $type = $this->_type->rewrite($rewriter, $parents);
+    if (
+      $keyword === $this->_keyword &&
+      $type === $this->_type
+    ) {
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($keyword, $type);
   }
 
   public function keyword(): EditableSyntax {

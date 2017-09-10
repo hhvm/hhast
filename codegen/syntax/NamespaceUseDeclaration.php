@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<94c59cdf38da5fbd7a7601c8b5a8a2b8>>
+ * @generated SignedSource<<d69b98de69d0c14a4e7ead25f1aad92a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -66,28 +66,25 @@ final class NamespaceUseDeclaration extends EditableSyntax {
     yield 'semicolon' => $this->_semicolon;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $kind = $this->_kind->rewrite($rewriter, $child_parents);
-    $clauses = $this->_clauses->rewrite($rewriter, $child_parents);
-    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $kind = $this->_kind->rewrite($rewriter, $parents);
+    $clauses = $this->_clauses->rewrite($rewriter, $parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
     if (
       $keyword === $this->_keyword &&
       $kind === $this->_kind &&
       $clauses === $this->_clauses &&
       $semicolon === $this->_semicolon
     ) {
-      $node = $this;
-    } else {
-      $node = new self($keyword, $kind, $clauses, $semicolon);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($keyword, $kind, $clauses, $semicolon);
   }
 
   public function keyword(): UseToken {
@@ -119,8 +116,7 @@ final class NamespaceUseDeclaration extends EditableSyntax {
   }
 
   public function with_kind(EditableSyntax $value): this {
-    return
-      new self($this->_keyword, $value, $this->_clauses, $this->_semicolon);
+    return new self($this->_keyword, $value, $this->_clauses, $this->_semicolon);
   }
 
   public function clauses(): EditableList {
@@ -140,9 +136,7 @@ final class NamespaceUseDeclaration extends EditableSyntax {
   }
 
   public function semicolon(): ?SemicolonToken {
-    return $this->_semicolon->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+    return $this->_semicolon->is_missing() ? null : TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 
   public function semicolonx(): SemicolonToken {

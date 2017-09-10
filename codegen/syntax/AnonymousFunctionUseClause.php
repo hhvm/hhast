@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4f294b0486e4e63b081e71e5cf294c09>>
+ * @generated SignedSource<<a92799e5cd68914a98b4f2974d6742a3>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -66,28 +66,25 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
     yield 'right_paren' => $this->_right_paren;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
-    $variables = $this->_variables->rewrite($rewriter, $child_parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
+    $variables = $this->_variables->rewrite($rewriter, $parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_paren === $this->_left_paren &&
       $variables === $this->_variables &&
       $right_paren === $this->_right_paren
     ) {
-      $node = $this;
-    } else {
-      $node = new self($keyword, $left_paren, $variables, $right_paren);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($keyword, $left_paren, $variables, $right_paren);
   }
 
   public function keyword(): UseToken {
@@ -103,12 +100,7 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
-    return new self(
-      $value,
-      $this->_left_paren,
-      $this->_variables,
-      $this->_right_paren,
-    );
+    return new self($value, $this->_left_paren, $this->_variables, $this->_right_paren);
   }
 
   public function left_paren(): LeftParenToken {
@@ -124,8 +116,7 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
   }
 
   public function with_left_paren(EditableSyntax $value): this {
-    return
-      new self($this->_keyword, $value, $this->_variables, $this->_right_paren);
+    return new self($this->_keyword, $value, $this->_variables, $this->_right_paren);
   }
 
   public function variables(): EditableList {
@@ -141,12 +132,7 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
   }
 
   public function with_variables(EditableSyntax $value): this {
-    return new self(
-      $this->_keyword,
-      $this->_left_paren,
-      $value,
-      $this->_right_paren,
-    );
+    return new self($this->_keyword, $this->_left_paren, $value, $this->_right_paren);
   }
 
   public function right_paren(): RightParenToken {
@@ -154,8 +140,7 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
   }
 
   public function right_parenx(): RightParenToken {
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function raw_right_paren(): EditableSyntax {
@@ -163,7 +148,6 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
   }
 
   public function with_right_paren(EditableSyntax $value): this {
-    return
-      new self($this->_keyword, $this->_left_paren, $this->_variables, $value);
+    return new self($this->_keyword, $this->_left_paren, $this->_variables, $value);
   }
 }

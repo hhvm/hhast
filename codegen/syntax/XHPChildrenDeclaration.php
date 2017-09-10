@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0c8f73223991e67e70f5031bd4b518af>>
+ * @generated SignedSource<<99b60d728924fc259f220d1a1cc4f5ed>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -56,26 +56,23 @@ final class XHPChildrenDeclaration extends EditableSyntax {
     yield 'semicolon' => $this->_semicolon;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $expression = $this->_expression->rewrite($rewriter, $child_parents);
-    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $expression = $this->_expression->rewrite($rewriter, $parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
     if (
       $keyword === $this->_keyword &&
       $expression === $this->_expression &&
       $semicolon === $this->_semicolon
     ) {
-      $node = $this;
-    } else {
-      $node = new self($keyword, $expression, $semicolon);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($keyword, $expression, $semicolon);
   }
 
   public function keyword(): EditableSyntax {

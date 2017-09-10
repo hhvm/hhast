@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<930fe748141510fac42a1e2ce5d82092>>
+ * @generated SignedSource<<8f7b9bf2866829bee960e8f1de7d18ee>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -65,8 +65,13 @@ final class UnsetStatement extends EditableSyntax {
       $source,
     );
     $position += $semicolon->width();
-    return
-      new self($keyword, $left_paren, $variables, $right_paren, $semicolon);
+    return new self(
+      $keyword,
+      $left_paren,
+      $variables,
+      $right_paren,
+      $semicolon,
+    );
   }
 
   public function children(): KeyedTraversable<string, EditableSyntax> {
@@ -77,18 +82,17 @@ final class UnsetStatement extends EditableSyntax {
     yield 'semicolon' => $this->_semicolon;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
-    $variables = $this->_variables->rewrite($rewriter, $child_parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
-    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
+    $variables = $this->_variables->rewrite($rewriter, $parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_paren === $this->_left_paren &&
@@ -96,12 +100,9 @@ final class UnsetStatement extends EditableSyntax {
       $right_paren === $this->_right_paren &&
       $semicolon === $this->_semicolon
     ) {
-      $node = $this;
-    } else {
-      $node =
-        new self($keyword, $left_paren, $variables, $right_paren, $semicolon);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($keyword, $left_paren, $variables, $right_paren, $semicolon);
   }
 
   public function keyword(): UnsetToken {
@@ -171,14 +172,11 @@ final class UnsetStatement extends EditableSyntax {
   }
 
   public function right_paren(): ?RightParenToken {
-    return $this->_right_paren->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return $this->_right_paren->is_missing() ? null : TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function right_parenx(): RightParenToken {
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function raw_right_paren(): EditableSyntax {
@@ -196,9 +194,7 @@ final class UnsetStatement extends EditableSyntax {
   }
 
   public function semicolon(): ?SemicolonToken {
-    return $this->_semicolon->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+    return $this->_semicolon->is_missing() ? null : TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 
   public function semicolonx(): SemicolonToken {

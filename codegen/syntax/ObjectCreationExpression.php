@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0fb133d079a4206d7b9233bc6207ffae>>
+ * @generated SignedSource<<3c38786944413b49a086907d82dd6f29>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -65,8 +65,13 @@ final class ObjectCreationExpression extends EditableSyntax {
       $source,
     );
     $position += $right_paren->width();
-    return
-      new self($new_keyword, $type, $left_paren, $argument_list, $right_paren);
+    return new self(
+      $new_keyword,
+      $type,
+      $left_paren,
+      $argument_list,
+      $right_paren,
+    );
   }
 
   public function children(): KeyedTraversable<string, EditableSyntax> {
@@ -77,18 +82,17 @@ final class ObjectCreationExpression extends EditableSyntax {
     yield 'right_paren' => $this->_right_paren;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $new_keyword = $this->_new_keyword->rewrite($rewriter, $child_parents);
-    $type = $this->_type->rewrite($rewriter, $child_parents);
-    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
-    $argument_list = $this->_argument_list->rewrite($rewriter, $child_parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $new_keyword = $this->_new_keyword->rewrite($rewriter, $parents);
+    $type = $this->_type->rewrite($rewriter, $parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
+    $argument_list = $this->_argument_list->rewrite($rewriter, $parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
     if (
       $new_keyword === $this->_new_keyword &&
       $type === $this->_type &&
@@ -96,17 +100,9 @@ final class ObjectCreationExpression extends EditableSyntax {
       $argument_list === $this->_argument_list &&
       $right_paren === $this->_right_paren
     ) {
-      $node = $this;
-    } else {
-      $node = new self(
-        $new_keyword,
-        $type,
-        $left_paren,
-        $argument_list,
-        $right_paren,
-      );
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($new_keyword, $type, $left_paren, $argument_list, $right_paren);
   }
 
   public function new_keyword(): NewToken {
@@ -154,9 +150,7 @@ final class ObjectCreationExpression extends EditableSyntax {
   }
 
   public function left_paren(): ?LeftParenToken {
-    return $this->_left_paren->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+    return $this->_left_paren->is_missing() ? null : TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
 
   public function left_parenx(): LeftParenToken {
@@ -178,9 +172,7 @@ final class ObjectCreationExpression extends EditableSyntax {
   }
 
   public function argument_list(): ?EditableList {
-    return $this->_argument_list->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(EditableList::class, $this->_argument_list);
+    return $this->_argument_list->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_argument_list);
   }
 
   public function argument_listx(): EditableList {
@@ -202,14 +194,11 @@ final class ObjectCreationExpression extends EditableSyntax {
   }
 
   public function right_paren(): ?RightParenToken {
-    return $this->_right_paren->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return $this->_right_paren->is_missing() ? null : TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function right_parenx(): RightParenToken {
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function raw_right_paren(): EditableSyntax {

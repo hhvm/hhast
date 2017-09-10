@@ -311,8 +311,20 @@ abstract class EditableSyntax implements \ArrayAccess<mixed, mixed> {
     );
   }
 
-  abstract public function rewrite(
+  abstract public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax;
+  ): this ;
+
+  final public function rewrite(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): EditableSyntax {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $with_rewritten_children = $this->rewrite_children(
+      $rewriter,
+      $parents,
+    );
+    return $rewriter($with_rewritten_children, $parents);
+  }
 }

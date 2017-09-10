@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bf795c66f2db8cef04972c9ba30805de>>
+ * @generated SignedSource<<274a10f1397d2ad1ea7d6578a6fd736b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -56,26 +56,23 @@ final class GotoStatement extends EditableSyntax {
     yield 'semicolon' => $this->_semicolon;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $label_name = $this->_label_name->rewrite($rewriter, $child_parents);
-    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $label_name = $this->_label_name->rewrite($rewriter, $parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
     if (
       $keyword === $this->_keyword &&
       $label_name === $this->_label_name &&
       $semicolon === $this->_semicolon
     ) {
-      $node = $this;
-    } else {
-      $node = new self($keyword, $label_name, $semicolon);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($keyword, $label_name, $semicolon);
   }
 
   public function keyword(): GotoToken {

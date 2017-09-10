@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0f89b81d00c9bf4fbee0a0077d169e9d>>
+ * @generated SignedSource<<56711ff7ad6fa98741c59635e85803a5>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -104,20 +104,19 @@ final class DoStatement extends EditableSyntax {
     yield 'semicolon' => $this->_semicolon;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $body = $this->_body->rewrite($rewriter, $child_parents);
-    $while_keyword = $this->_while_keyword->rewrite($rewriter, $child_parents);
-    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
-    $condition = $this->_condition->rewrite($rewriter, $child_parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
-    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $body = $this->_body->rewrite($rewriter, $parents);
+    $while_keyword = $this->_while_keyword->rewrite($rewriter, $parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
+    $condition = $this->_condition->rewrite($rewriter, $parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
     if (
       $keyword === $this->_keyword &&
       $body === $this->_body &&
@@ -127,19 +126,17 @@ final class DoStatement extends EditableSyntax {
       $right_paren === $this->_right_paren &&
       $semicolon === $this->_semicolon
     ) {
-      $node = $this;
-    } else {
-      $node = new self(
-        $keyword,
-        $body,
-        $while_keyword,
-        $left_paren,
-        $condition,
-        $right_paren,
-        $semicolon,
-      );
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self(
+      $keyword,
+      $body,
+      $while_keyword,
+      $left_paren,
+      $condition,
+      $right_paren,
+      $semicolon,
+    );
   }
 
   public function keyword(): DoToken {
@@ -267,8 +264,7 @@ final class DoStatement extends EditableSyntax {
   }
 
   public function right_parenx(): RightParenToken {
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function raw_right_paren(): EditableSyntax {

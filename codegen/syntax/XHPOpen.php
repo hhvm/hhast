@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9ef42abf3cbf580a881052988ad00f21>>
+ * @generated SignedSource<<37015c4eb9e489075b8ded984bf52a2d>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -66,28 +66,25 @@ final class XHPOpen extends EditableSyntax {
     yield 'right_angle' => $this->_right_angle;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $left_angle = $this->_left_angle->rewrite($rewriter, $child_parents);
-    $name = $this->_name->rewrite($rewriter, $child_parents);
-    $attributes = $this->_attributes->rewrite($rewriter, $child_parents);
-    $right_angle = $this->_right_angle->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $left_angle = $this->_left_angle->rewrite($rewriter, $parents);
+    $name = $this->_name->rewrite($rewriter, $parents);
+    $attributes = $this->_attributes->rewrite($rewriter, $parents);
+    $right_angle = $this->_right_angle->rewrite($rewriter, $parents);
     if (
       $left_angle === $this->_left_angle &&
       $name === $this->_name &&
       $attributes === $this->_attributes &&
       $right_angle === $this->_right_angle
     ) {
-      $node = $this;
-    } else {
-      $node = new self($left_angle, $name, $attributes, $right_angle);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($left_angle, $name, $attributes, $right_angle);
   }
 
   public function left_angle(): LessThanToken {
@@ -103,8 +100,7 @@ final class XHPOpen extends EditableSyntax {
   }
 
   public function with_left_angle(EditableSyntax $value): this {
-    return
-      new self($value, $this->_name, $this->_attributes, $this->_right_angle);
+    return new self($value, $this->_name, $this->_attributes, $this->_right_angle);
   }
 
   public function name(): XHPElementNameToken {
@@ -120,18 +116,11 @@ final class XHPOpen extends EditableSyntax {
   }
 
   public function with_name(EditableSyntax $value): this {
-    return new self(
-      $this->_left_angle,
-      $value,
-      $this->_attributes,
-      $this->_right_angle,
-    );
+    return new self($this->_left_angle, $value, $this->_attributes, $this->_right_angle);
   }
 
   public function attributes(): ?EditableList {
-    return $this->_attributes->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(EditableList::class, $this->_attributes);
+    return $this->_attributes->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_attributes);
   }
 
   public function attributesx(): EditableList {
@@ -143,8 +132,7 @@ final class XHPOpen extends EditableSyntax {
   }
 
   public function with_attributes(EditableSyntax $value): this {
-    return
-      new self($this->_left_angle, $this->_name, $value, $this->_right_angle);
+    return new self($this->_left_angle, $this->_name, $value, $this->_right_angle);
   }
 
   public function right_angle(): EditableSyntax {
@@ -160,7 +148,6 @@ final class XHPOpen extends EditableSyntax {
   }
 
   public function with_right_angle(EditableSyntax $value): this {
-    return
-      new self($this->_left_angle, $this->_name, $this->_attributes, $value);
+    return new self($this->_left_angle, $this->_name, $this->_attributes, $value);
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0bc264cbce5f0ef55424dc290d7c541a>>
+ * @generated SignedSource<<eb94e5817a8c0ebe0db8c72e26f922a7>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -46,21 +46,21 @@ final class InclusionExpression extends EditableSyntax {
     yield 'filename' => $this->_filename;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $require = $this->_require->rewrite($rewriter, $child_parents);
-    $filename = $this->_filename->rewrite($rewriter, $child_parents);
-    if ($require === $this->_require && $filename === $this->_filename) {
-      $node = $this;
-    } else {
-      $node = new self($require, $filename);
+    $parents[] = $this;
+    $require = $this->_require->rewrite($rewriter, $parents);
+    $filename = $this->_filename->rewrite($rewriter, $parents);
+    if (
+      $require === $this->_require &&
+      $filename === $this->_filename
+    ) {
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($require, $filename);
   }
 
   public function require(): EditableSyntax {

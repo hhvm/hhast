@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ef9299ce3e7d77e0ed25d1cff4a6f85f>>
+ * @generated SignedSource<<d0fc29bfb2c900585b0f2af6158aea8a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -43,21 +43,21 @@ final class SimpleInitializer extends EditableSyntax {
     yield 'value' => $this->_value;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $equal = $this->_equal->rewrite($rewriter, $child_parents);
-    $value = $this->_value->rewrite($rewriter, $child_parents);
-    if ($equal === $this->_equal && $value === $this->_value) {
-      $node = $this;
-    } else {
-      $node = new self($equal, $value);
+    $parents[] = $this;
+    $equal = $this->_equal->rewrite($rewriter, $parents);
+    $value = $this->_value->rewrite($rewriter, $parents);
+    if (
+      $equal === $this->_equal &&
+      $value === $this->_value
+    ) {
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($equal, $value);
   }
 
   public function equal(): EqualToken {

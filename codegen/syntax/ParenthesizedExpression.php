@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<872bfdb757a7e5f9dcdca069a62242f1>>
+ * @generated SignedSource<<18c88606813c5831cef0e0684b7aca8f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -56,26 +56,23 @@ final class ParenthesizedExpression extends EditableSyntax {
     yield 'right_paren' => $this->_right_paren;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
-    $expression = $this->_expression->rewrite($rewriter, $child_parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
+    $expression = $this->_expression->rewrite($rewriter, $parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
     if (
       $left_paren === $this->_left_paren &&
       $expression === $this->_expression &&
       $right_paren === $this->_right_paren
     ) {
-      $node = $this;
-    } else {
-      $node = new self($left_paren, $expression, $right_paren);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($left_paren, $expression, $right_paren);
   }
 
   public function left_paren(): LeftParenToken {
@@ -111,14 +108,11 @@ final class ParenthesizedExpression extends EditableSyntax {
   }
 
   public function right_paren(): ?RightParenToken {
-    return $this->_right_paren->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return $this->_right_paren->is_missing() ? null : TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function right_parenx(): RightParenToken {
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function raw_right_paren(): EditableSyntax {

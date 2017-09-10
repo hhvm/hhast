@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3e194e6e5d0b638680c53542e3c75f97>>
+ * @generated SignedSource<<6fb5d5df5522f284bb8d9146e75e0e6a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -65,8 +65,13 @@ final class VarrayTypeSpecifier extends EditableSyntax {
       $source,
     );
     $position += $right_angle->width();
-    return
-      new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
+    return new self(
+      $keyword,
+      $left_angle,
+      $type,
+      $trailing_comma,
+      $right_angle,
+    );
   }
 
   public function children(): KeyedTraversable<string, EditableSyntax> {
@@ -77,19 +82,17 @@ final class VarrayTypeSpecifier extends EditableSyntax {
     yield 'right_angle' => $this->_right_angle;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $left_angle = $this->_left_angle->rewrite($rewriter, $child_parents);
-    $type = $this->_type->rewrite($rewriter, $child_parents);
-    $trailing_comma =
-      $this->_trailing_comma->rewrite($rewriter, $child_parents);
-    $right_angle = $this->_right_angle->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $left_angle = $this->_left_angle->rewrite($rewriter, $parents);
+    $type = $this->_type->rewrite($rewriter, $parents);
+    $trailing_comma = $this->_trailing_comma->rewrite($rewriter, $parents);
+    $right_angle = $this->_right_angle->rewrite($rewriter, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_angle === $this->_left_angle &&
@@ -97,12 +100,9 @@ final class VarrayTypeSpecifier extends EditableSyntax {
       $trailing_comma === $this->_trailing_comma &&
       $right_angle === $this->_right_angle
     ) {
-      $node = $this;
-    } else {
-      $node =
-        new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
   }
 
   public function keyword(): VarrayToken {
@@ -176,8 +176,7 @@ final class VarrayTypeSpecifier extends EditableSyntax {
   }
 
   public function trailing_commax(): EditableSyntax {
-    return
-      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_trailing_comma);
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_trailing_comma);
   }
 
   public function raw_trailing_comma(): EditableSyntax {
@@ -199,8 +198,7 @@ final class VarrayTypeSpecifier extends EditableSyntax {
   }
 
   public function right_anglex(): GreaterThanToken {
-    return
-      TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+    return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 
   public function raw_right_angle(): EditableSyntax {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<249059d8f0efec4d98b8cb201b0012ea>>
+ * @generated SignedSource<<5bbcb1ac9b0e4825e29f2878a5609eab>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -86,19 +86,18 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     yield 'right_angle' => $this->_right_angle;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $left_angle = $this->_left_angle->rewrite($rewriter, $child_parents);
-    $key = $this->_key->rewrite($rewriter, $child_parents);
-    $comma = $this->_comma->rewrite($rewriter, $child_parents);
-    $value = $this->_value->rewrite($rewriter, $child_parents);
-    $right_angle = $this->_right_angle->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $left_angle = $this->_left_angle->rewrite($rewriter, $parents);
+    $key = $this->_key->rewrite($rewriter, $parents);
+    $comma = $this->_comma->rewrite($rewriter, $parents);
+    $value = $this->_value->rewrite($rewriter, $parents);
+    $right_angle = $this->_right_angle->rewrite($rewriter, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_angle === $this->_left_angle &&
@@ -107,12 +106,9 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
       $value === $this->_value &&
       $right_angle === $this->_right_angle
     ) {
-      $node = $this;
-    } else {
-      $node =
-        new self($keyword, $left_angle, $key, $comma, $value, $right_angle);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($keyword, $left_angle, $key, $comma, $value, $right_angle);
   }
 
   public function keyword(): ArrayToken {
@@ -231,14 +227,11 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
   }
 
   public function right_angle(): ?GreaterThanToken {
-    return $this->_right_angle->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+    return $this->_right_angle->is_missing() ? null : TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 
   public function right_anglex(): GreaterThanToken {
-    return
-      TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+    return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 
   public function raw_right_angle(): EditableSyntax {

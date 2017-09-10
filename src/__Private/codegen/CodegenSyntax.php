@@ -53,7 +53,7 @@ final class CodegenSyntax extends CodegenBase {
       ->setConstructor($this->generateConstructor($syntax))
       ->addMethod($this->generateFromJSONMethod($syntax))
       ->addMethod($this->generateChildrenMethod($syntax))
-      ->addMethod($this->generateRewriteMethod($syntax));
+      ->addMethod($this->generateRewriteChildrenMethod($syntax));
 
     foreach ($syntax['fields'] as $field) {
       $field = (string) $field['field_name'];
@@ -212,27 +212,28 @@ final class CodegenSyntax extends CodegenBase {
       );
   }
 
-  private function generateRewriteMethod(Schema\TAST $syntax): CodegenMethod {
+  private function generateRewriteChildrenMethod(
+    Schema\TAST $syntax,
+  ): CodegenMethod {
     $cg = $this->getCodegenFactory();
 
     $fields = Vec\map($syntax['fields'], $field ==> $field['field_name']);
 
     return $cg
-      ->codegenMethod('rewrite')
-      ->setReturnType('EditableSyntax')
+      ->codegenMethod('rewrite_children')
       ->addParameter('self::TRewriter $rewriter')
       ->addParameter('?Traversable<EditableSyntax> $parents = null')
+      ->setReturnType('this')
       ->setBody(
         $cg
           ->codegenHackBuilder()
           ->addLine('$parents = $parents === null ? vec[] : vec($parents);')
-          ->addLine('$child_parents = $parents;')
-          ->addLine('$child_parents[] = $this;')
+          ->addLine('$parents[] = $this;')
           ->addLines(
             Vec\map(
               $fields,
               $field ==> sprintf(
-                '$%s = $this->_%s->rewrite($rewriter, $child_parents);',
+                '$%s = $this->_%s->rewrite($rewriter, $parents);',
                 $field,
                 $field,
               ),
@@ -256,18 +257,14 @@ final class CodegenSyntax extends CodegenBase {
           ->unindent()
           ->addLine(') {')
           ->indent()
-          ->addLine('$node = $this;')
+          ->addLine('return $this;')
           ->unindent()
-          ->addLine('} else {')
-          ->indent()
-          ->add('$node = ')
+          ->addLine('}')
+          ->add('return ')
           ->addMultilineCall(
             'new self',
             Vec\map($fields, $field ==> '$'.$field),
           )
-          ->unindent()
-          ->addLine('}')
-          ->addLine('return $rewriter($node, $parents);')
           ->getCode(),
       );
   }

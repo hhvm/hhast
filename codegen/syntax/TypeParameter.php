@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f4cdcf0bf22c4c84b129f91c2f1a5d27>>
+ * @generated SignedSource<<e5100102e784908cda0f832c81cdd668>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -56,26 +56,23 @@ final class TypeParameter extends EditableSyntax {
     yield 'constraints' => $this->_constraints;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $variance = $this->_variance->rewrite($rewriter, $child_parents);
-    $name = $this->_name->rewrite($rewriter, $child_parents);
-    $constraints = $this->_constraints->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $variance = $this->_variance->rewrite($rewriter, $parents);
+    $name = $this->_name->rewrite($rewriter, $parents);
+    $constraints = $this->_constraints->rewrite($rewriter, $parents);
     if (
       $variance === $this->_variance &&
       $name === $this->_name &&
       $constraints === $this->_constraints
     ) {
-      $node = $this;
-    } else {
-      $node = new self($variance, $name, $constraints);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($variance, $name, $constraints);
   }
 
   public function variance(): EditableSyntax {
@@ -111,9 +108,7 @@ final class TypeParameter extends EditableSyntax {
   }
 
   public function constraints(): ?EditableList {
-    return $this->_constraints->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(EditableList::class, $this->_constraints);
+    return $this->_constraints->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_constraints);
   }
 
   public function constraintsx(): EditableList {

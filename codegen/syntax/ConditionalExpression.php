@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<191088e18bb07a89d6a090f197039ddc>>
+ * @generated SignedSource<<93b9307dcfe2bb237fdca63c9d21737a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -76,18 +76,17 @@ final class ConditionalExpression extends EditableSyntax {
     yield 'alternative' => $this->_alternative;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $test = $this->_test->rewrite($rewriter, $child_parents);
-    $question = $this->_question->rewrite($rewriter, $child_parents);
-    $consequence = $this->_consequence->rewrite($rewriter, $child_parents);
-    $colon = $this->_colon->rewrite($rewriter, $child_parents);
-    $alternative = $this->_alternative->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $test = $this->_test->rewrite($rewriter, $parents);
+    $question = $this->_question->rewrite($rewriter, $parents);
+    $consequence = $this->_consequence->rewrite($rewriter, $parents);
+    $colon = $this->_colon->rewrite($rewriter, $parents);
+    $alternative = $this->_alternative->rewrite($rewriter, $parents);
     if (
       $test === $this->_test &&
       $question === $this->_question &&
@@ -95,11 +94,9 @@ final class ConditionalExpression extends EditableSyntax {
       $colon === $this->_colon &&
       $alternative === $this->_alternative
     ) {
-      $node = $this;
-    } else {
-      $node = new self($test, $question, $consequence, $colon, $alternative);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($test, $question, $consequence, $colon, $alternative);
   }
 
   public function test(): EditableSyntax {
@@ -169,9 +166,7 @@ final class ConditionalExpression extends EditableSyntax {
   }
 
   public function colon(): ?ColonToken {
-    return $this->_colon->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
+    return $this->_colon->is_missing() ? null : TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
   }
 
   public function colonx(): ColonToken {

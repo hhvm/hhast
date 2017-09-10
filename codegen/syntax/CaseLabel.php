@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5d0dc23cac3cf967ba1852d847178c1e>>
+ * @generated SignedSource<<eedd92065f53f169b2b46c42d6eed447>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -56,26 +56,23 @@ final class CaseLabel extends EditableSyntax {
     yield 'colon' => $this->_colon;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $expression = $this->_expression->rewrite($rewriter, $child_parents);
-    $colon = $this->_colon->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $expression = $this->_expression->rewrite($rewriter, $parents);
+    $colon = $this->_colon->rewrite($rewriter, $parents);
     if (
       $keyword === $this->_keyword &&
       $expression === $this->_expression &&
       $colon === $this->_colon
     ) {
-      $node = $this;
-    } else {
-      $node = new self($keyword, $expression, $colon);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($keyword, $expression, $colon);
   }
 
   public function keyword(): CaseToken {

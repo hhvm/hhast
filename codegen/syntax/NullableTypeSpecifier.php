@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8f7023f945e59d58ccc69c0148e4585a>>
+ * @generated SignedSource<<82a68d061652e99285475c415327eb2e>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -43,21 +43,21 @@ final class NullableTypeSpecifier extends EditableSyntax {
     yield 'type' => $this->_type;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $question = $this->_question->rewrite($rewriter, $child_parents);
-    $type = $this->_type->rewrite($rewriter, $child_parents);
-    if ($question === $this->_question && $type === $this->_type) {
-      $node = $this;
-    } else {
-      $node = new self($question, $type);
+    $parents[] = $this;
+    $question = $this->_question->rewrite($rewriter, $parents);
+    $type = $this->_type->rewrite($rewriter, $parents);
+    if (
+      $question === $this->_question &&
+      $type === $this->_type
+    ) {
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($question, $type);
   }
 
   public function question(): QuestionToken {

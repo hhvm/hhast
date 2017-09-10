@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2f26951305c64ab60dbbc7bca7f9dbc3>>
+ * @generated SignedSource<<6d5d3edcc491ce234145312c97357d40>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -46,23 +46,21 @@ final class DecoratedExpression extends EditableSyntax {
     yield 'expression' => $this->_expression;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $decorator = $this->_decorator->rewrite($rewriter, $child_parents);
-    $expression = $this->_expression->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $decorator = $this->_decorator->rewrite($rewriter, $parents);
+    $expression = $this->_expression->rewrite($rewriter, $parents);
     if (
-      $decorator === $this->_decorator && $expression === $this->_expression
+      $decorator === $this->_decorator &&
+      $expression === $this->_expression
     ) {
-      $node = $this;
-    } else {
-      $node = new self($decorator, $expression);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($decorator, $expression);
   }
 
   public function decorator(): EditableSyntax {

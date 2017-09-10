@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f9a6dbe65f6b9a76111f9aa07d585b8a>>
+ * @generated SignedSource<<0edb939f1fe0b7c0ad993cc4cf9c85fa>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -66,28 +66,25 @@ final class PropertyDeclaration extends EditableSyntax {
     yield 'semicolon' => $this->_semicolon;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $modifiers = $this->_modifiers->rewrite($rewriter, $child_parents);
-    $type = $this->_type->rewrite($rewriter, $child_parents);
-    $declarators = $this->_declarators->rewrite($rewriter, $child_parents);
-    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $modifiers = $this->_modifiers->rewrite($rewriter, $parents);
+    $type = $this->_type->rewrite($rewriter, $parents);
+    $declarators = $this->_declarators->rewrite($rewriter, $parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
     if (
       $modifiers === $this->_modifiers &&
       $type === $this->_type &&
       $declarators === $this->_declarators &&
       $semicolon === $this->_semicolon
     ) {
-      $node = $this;
-    } else {
-      $node = new self($modifiers, $type, $declarators, $semicolon);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($modifiers, $type, $declarators, $semicolon);
   }
 
   public function modifiers(): EditableSyntax {
@@ -103,8 +100,7 @@ final class PropertyDeclaration extends EditableSyntax {
   }
 
   public function with_modifiers(EditableSyntax $value): this {
-    return
-      new self($value, $this->_type, $this->_declarators, $this->_semicolon);
+    return new self($value, $this->_type, $this->_declarators, $this->_semicolon);
   }
 
   public function type(): EditableSyntax {
@@ -120,12 +116,7 @@ final class PropertyDeclaration extends EditableSyntax {
   }
 
   public function with_type(EditableSyntax $value): this {
-    return new self(
-      $this->_modifiers,
-      $value,
-      $this->_declarators,
-      $this->_semicolon,
-    );
+    return new self($this->_modifiers, $value, $this->_declarators, $this->_semicolon);
   }
 
   public function declarators(): EditableList {
@@ -145,9 +136,7 @@ final class PropertyDeclaration extends EditableSyntax {
   }
 
   public function semicolon(): ?SemicolonToken {
-    return $this->_semicolon->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+    return $this->_semicolon->is_missing() ? null : TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 
   public function semicolonx(): SemicolonToken {
@@ -159,7 +148,6 @@ final class PropertyDeclaration extends EditableSyntax {
   }
 
   public function with_semicolon(EditableSyntax $value): this {
-    return
-      new self($this->_modifiers, $this->_type, $this->_declarators, $value);
+    return new self($this->_modifiers, $this->_type, $this->_declarators, $value);
   }
 }

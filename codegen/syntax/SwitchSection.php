@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eb173bf4f376093a174c8269f0c40ebe>>
+ * @generated SignedSource<<2a1c3ead83f7201b89a8253b5012c434>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -56,32 +56,27 @@ final class SwitchSection extends EditableSyntax {
     yield 'fallthrough' => $this->_fallthrough;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $labels = $this->_labels->rewrite($rewriter, $child_parents);
-    $statements = $this->_statements->rewrite($rewriter, $child_parents);
-    $fallthrough = $this->_fallthrough->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $labels = $this->_labels->rewrite($rewriter, $parents);
+    $statements = $this->_statements->rewrite($rewriter, $parents);
+    $fallthrough = $this->_fallthrough->rewrite($rewriter, $parents);
     if (
       $labels === $this->_labels &&
       $statements === $this->_statements &&
       $fallthrough === $this->_fallthrough
     ) {
-      $node = $this;
-    } else {
-      $node = new self($labels, $statements, $fallthrough);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($labels, $statements, $fallthrough);
   }
 
   public function labels(): ?EditableList {
-    return $this->_labels->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(EditableList::class, $this->_labels);
+    return $this->_labels->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_labels);
   }
 
   public function labelsx(): EditableList {
@@ -97,9 +92,7 @@ final class SwitchSection extends EditableSyntax {
   }
 
   public function statements(): ?EditableList {
-    return $this->_statements->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(EditableList::class, $this->_statements);
+    return $this->_statements->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_statements);
   }
 
   public function statementsx(): EditableList {

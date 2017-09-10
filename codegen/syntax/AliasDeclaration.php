@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ef6f6b85a9db8d71667e8008739f0113>>
+ * @generated SignedSource<<f39cd05097a6caf789f0e12b373ea122>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -115,23 +115,20 @@ final class AliasDeclaration extends EditableSyntax {
     yield 'semicolon' => $this->_semicolon;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $attribute_spec =
-      $this->_attribute_spec->rewrite($rewriter, $child_parents);
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $name = $this->_name->rewrite($rewriter, $child_parents);
-    $generic_parameter =
-      $this->_generic_parameter->rewrite($rewriter, $child_parents);
-    $constraint = $this->_constraint->rewrite($rewriter, $child_parents);
-    $equal = $this->_equal->rewrite($rewriter, $child_parents);
-    $type = $this->_type->rewrite($rewriter, $child_parents);
-    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $attribute_spec = $this->_attribute_spec->rewrite($rewriter, $parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $name = $this->_name->rewrite($rewriter, $parents);
+    $generic_parameter = $this->_generic_parameter->rewrite($rewriter, $parents);
+    $constraint = $this->_constraint->rewrite($rewriter, $parents);
+    $equal = $this->_equal->rewrite($rewriter, $parents);
+    $type = $this->_type->rewrite($rewriter, $parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
     if (
       $attribute_spec === $this->_attribute_spec &&
       $keyword === $this->_keyword &&
@@ -142,36 +139,26 @@ final class AliasDeclaration extends EditableSyntax {
       $type === $this->_type &&
       $semicolon === $this->_semicolon
     ) {
-      $node = $this;
-    } else {
-      $node = new self(
-        $attribute_spec,
-        $keyword,
-        $name,
-        $generic_parameter,
-        $constraint,
-        $equal,
-        $type,
-        $semicolon,
-      );
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self(
+      $attribute_spec,
+      $keyword,
+      $name,
+      $generic_parameter,
+      $constraint,
+      $equal,
+      $type,
+      $semicolon,
+    );
   }
 
   public function attribute_spec(): ?AttributeSpecification {
-    return $this->_attribute_spec->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(
-          AttributeSpecification::class,
-          $this->_attribute_spec,
-        );
+    return $this->_attribute_spec->is_missing() ? null : TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute_spec);
   }
 
   public function attribute_specx(): AttributeSpecification {
-    return TypeAssert::isInstanceOf(
-      AttributeSpecification::class,
-      $this->_attribute_spec,
-    );
+    return TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute_spec);
   }
 
   public function raw_attribute_spec(): EditableSyntax {
@@ -217,9 +204,7 @@ final class AliasDeclaration extends EditableSyntax {
   }
 
   public function name(): ?NameToken {
-    return $this->_name->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(NameToken::class, $this->_name);
+    return $this->_name->is_missing() ? null : TypeAssert::isInstanceOf(NameToken::class, $this->_name);
   }
 
   public function namex(): NameToken {
@@ -244,19 +229,11 @@ final class AliasDeclaration extends EditableSyntax {
   }
 
   public function generic_parameter(): ?TypeParameters {
-    return $this->_generic_parameter->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(
-          TypeParameters::class,
-          $this->_generic_parameter,
-        );
+    return $this->_generic_parameter->is_missing() ? null : TypeAssert::isInstanceOf(TypeParameters::class, $this->_generic_parameter);
   }
 
   public function generic_parameterx(): TypeParameters {
-    return TypeAssert::isInstanceOf(
-      TypeParameters::class,
-      $this->_generic_parameter,
-    );
+    return TypeAssert::isInstanceOf(TypeParameters::class, $this->_generic_parameter);
   }
 
   public function raw_generic_parameter(): EditableSyntax {
@@ -277,9 +254,7 @@ final class AliasDeclaration extends EditableSyntax {
   }
 
   public function constraint(): ?TypeConstraint {
-    return $this->_constraint->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(TypeConstraint::class, $this->_constraint);
+    return $this->_constraint->is_missing() ? null : TypeAssert::isInstanceOf(TypeConstraint::class, $this->_constraint);
   }
 
   public function constraintx(): TypeConstraint {
@@ -304,9 +279,7 @@ final class AliasDeclaration extends EditableSyntax {
   }
 
   public function equal(): ?EqualToken {
-    return $this->_equal->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(EqualToken::class, $this->_equal);
+    return $this->_equal->is_missing() ? null : TypeAssert::isInstanceOf(EqualToken::class, $this->_equal);
   }
 
   public function equalx(): EqualToken {

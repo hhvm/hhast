@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4f71b0422c0434be407e7de75f03dbec>>
+ * @generated SignedSource<<19c4ad4da432292c468ac8e03dc45597>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -66,28 +66,25 @@ final class XHPClassAttribute extends EditableSyntax {
     yield 'required' => $this->_required;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $type = $this->_type->rewrite($rewriter, $child_parents);
-    $name = $this->_name->rewrite($rewriter, $child_parents);
-    $initializer = $this->_initializer->rewrite($rewriter, $child_parents);
-    $required = $this->_required->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $type = $this->_type->rewrite($rewriter, $parents);
+    $name = $this->_name->rewrite($rewriter, $parents);
+    $initializer = $this->_initializer->rewrite($rewriter, $parents);
+    $required = $this->_required->rewrite($rewriter, $parents);
     if (
       $type === $this->_type &&
       $name === $this->_name &&
       $initializer === $this->_initializer &&
       $required === $this->_required
     ) {
-      $node = $this;
-    } else {
-      $node = new self($type, $name, $initializer, $required);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($type, $name, $initializer, $required);
   }
 
   public function type(): EditableSyntax {
@@ -103,8 +100,7 @@ final class XHPClassAttribute extends EditableSyntax {
   }
 
   public function with_type(EditableSyntax $value): this {
-    return
-      new self($value, $this->_name, $this->_initializer, $this->_required);
+    return new self($value, $this->_name, $this->_initializer, $this->_required);
   }
 
   public function name(): XHPElementNameToken {
@@ -120,19 +116,15 @@ final class XHPClassAttribute extends EditableSyntax {
   }
 
   public function with_name(EditableSyntax $value): this {
-    return
-      new self($this->_type, $value, $this->_initializer, $this->_required);
+    return new self($this->_type, $value, $this->_initializer, $this->_required);
   }
 
   public function initializer(): ?SimpleInitializer {
-    return $this->_initializer->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
+    return $this->_initializer->is_missing() ? null : TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
   }
 
   public function initializerx(): SimpleInitializer {
-    return
-      TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
+    return TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
   }
 
   public function raw_initializer(): EditableSyntax {
@@ -144,9 +136,7 @@ final class XHPClassAttribute extends EditableSyntax {
   }
 
   public function required(): ?XHPRequired {
-    return $this->_required->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(XHPRequired::class, $this->_required);
+    return $this->_required->is_missing() ? null : TypeAssert::isInstanceOf(XHPRequired::class, $this->_required);
   }
 
   public function requiredx(): XHPRequired {

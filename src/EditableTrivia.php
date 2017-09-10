@@ -46,11 +46,4 @@ abstract class EditableTrivia extends EditableSyntax {
   ): EditableTrivia {
     return __Private\editable_trivia_from_json($json, $position, $source);
   }
-
-  public function rewrite(
-    self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
-    return $rewriter($this, $parents ?? vec[]);
-  }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c33bed639de654199d378bbef6eaf7f1>>
+ * @generated SignedSource<<1749a9277613b2c2cc7c5b70dcae3b29>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -66,28 +66,25 @@ final class CollectionLiteralExpression extends EditableSyntax {
     yield 'right_brace' => $this->_right_brace;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $name = $this->_name->rewrite($rewriter, $child_parents);
-    $left_brace = $this->_left_brace->rewrite($rewriter, $child_parents);
-    $initializers = $this->_initializers->rewrite($rewriter, $child_parents);
-    $right_brace = $this->_right_brace->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $name = $this->_name->rewrite($rewriter, $parents);
+    $left_brace = $this->_left_brace->rewrite($rewriter, $parents);
+    $initializers = $this->_initializers->rewrite($rewriter, $parents);
+    $right_brace = $this->_right_brace->rewrite($rewriter, $parents);
     if (
       $name === $this->_name &&
       $left_brace === $this->_left_brace &&
       $initializers === $this->_initializers &&
       $right_brace === $this->_right_brace
     ) {
-      $node = $this;
-    } else {
-      $node = new self($name, $left_brace, $initializers, $right_brace);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($name, $left_brace, $initializers, $right_brace);
   }
 
   public function name(): EditableSyntax {
@@ -103,12 +100,7 @@ final class CollectionLiteralExpression extends EditableSyntax {
   }
 
   public function with_name(EditableSyntax $value): this {
-    return new self(
-      $value,
-      $this->_left_brace,
-      $this->_initializers,
-      $this->_right_brace,
-    );
+    return new self($value, $this->_left_brace, $this->_initializers, $this->_right_brace);
   }
 
   public function left_brace(): LeftBraceToken {
@@ -124,14 +116,11 @@ final class CollectionLiteralExpression extends EditableSyntax {
   }
 
   public function with_left_brace(EditableSyntax $value): this {
-    return
-      new self($this->_name, $value, $this->_initializers, $this->_right_brace);
+    return new self($this->_name, $value, $this->_initializers, $this->_right_brace);
   }
 
   public function initializers(): ?EditableList {
-    return $this->_initializers->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(EditableList::class, $this->_initializers);
+    return $this->_initializers->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_initializers);
   }
 
   public function initializersx(): EditableList {
@@ -143,19 +132,15 @@ final class CollectionLiteralExpression extends EditableSyntax {
   }
 
   public function with_initializers(EditableSyntax $value): this {
-    return
-      new self($this->_name, $this->_left_brace, $value, $this->_right_brace);
+    return new self($this->_name, $this->_left_brace, $value, $this->_right_brace);
   }
 
   public function right_brace(): ?RightBraceToken {
-    return $this->_right_brace->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+    return $this->_right_brace->is_missing() ? null : TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 
   public function right_bracex(): RightBraceToken {
-    return
-      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+    return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 
   public function raw_right_brace(): EditableSyntax {
@@ -163,7 +148,6 @@ final class CollectionLiteralExpression extends EditableSyntax {
   }
 
   public function with_right_brace(EditableSyntax $value): this {
-    return
-      new self($this->_name, $this->_left_brace, $this->_initializers, $value);
+    return new self($this->_name, $this->_left_brace, $this->_initializers, $value);
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b5d7b0c07812076dc5f0eb07932992ad>>
+ * @generated SignedSource<<d0272a10633c9521630825c4c90a18e1>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -43,21 +43,21 @@ final class XHPRequired extends EditableSyntax {
     yield 'keyword' => $this->_keyword;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $at = $this->_at->rewrite($rewriter, $child_parents);
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    if ($at === $this->_at && $keyword === $this->_keyword) {
-      $node = $this;
-    } else {
-      $node = new self($at, $keyword);
+    $parents[] = $this;
+    $at = $this->_at->rewrite($rewriter, $parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    if (
+      $at === $this->_at &&
+      $keyword === $this->_keyword
+    ) {
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($at, $keyword);
   }
 
   public function at(): AtToken {

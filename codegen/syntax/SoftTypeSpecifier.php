@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4b9e46944f3b12e1b15ce0f442e69485>>
+ * @generated SignedSource<<f83a0e492850853069369ccb44ea4d6e>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -43,21 +43,21 @@ final class SoftTypeSpecifier extends EditableSyntax {
     yield 'type' => $this->_type;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $at = $this->_at->rewrite($rewriter, $child_parents);
-    $type = $this->_type->rewrite($rewriter, $child_parents);
-    if ($at === $this->_at && $type === $this->_type) {
-      $node = $this;
-    } else {
-      $node = new self($at, $type);
+    $parents[] = $this;
+    $at = $this->_at->rewrite($rewriter, $parents);
+    $type = $this->_type->rewrite($rewriter, $parents);
+    if (
+      $at === $this->_at &&
+      $type === $this->_type
+    ) {
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($at, $type);
   }
 
   public function at(): AtToken {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9cea682dce0f73392038a047c60e5859>>
+ * @generated SignedSource<<53cc9daa9591df7a9abd94bd946897a6>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -65,8 +65,13 @@ final class ElseifClause extends EditableSyntax {
       $source,
     );
     $position += $statement->width();
-    return
-      new self($keyword, $left_paren, $condition, $right_paren, $statement);
+    return new self(
+      $keyword,
+      $left_paren,
+      $condition,
+      $right_paren,
+      $statement,
+    );
   }
 
   public function children(): KeyedTraversable<string, EditableSyntax> {
@@ -77,18 +82,17 @@ final class ElseifClause extends EditableSyntax {
     yield 'statement' => $this->_statement;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
-    $condition = $this->_condition->rewrite($rewriter, $child_parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
-    $statement = $this->_statement->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
+    $condition = $this->_condition->rewrite($rewriter, $parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
+    $statement = $this->_statement->rewrite($rewriter, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_paren === $this->_left_paren &&
@@ -96,12 +100,9 @@ final class ElseifClause extends EditableSyntax {
       $right_paren === $this->_right_paren &&
       $statement === $this->_statement
     ) {
-      $node = $this;
-    } else {
-      $node =
-        new self($keyword, $left_paren, $condition, $right_paren, $statement);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($keyword, $left_paren, $condition, $right_paren, $statement);
   }
 
   public function keyword(): ElseifToken {
@@ -175,8 +176,7 @@ final class ElseifClause extends EditableSyntax {
   }
 
   public function right_parenx(): RightParenToken {
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function raw_right_paren(): EditableSyntax {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c20d5a0b607ed40596a8c4133d89752e>>
+ * @generated SignedSource<<3353d98f2d818bfd2abe34a275818c00>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -76,18 +76,17 @@ final class WhileStatement extends EditableSyntax {
     yield 'body' => $this->_body;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
-    $condition = $this->_condition->rewrite($rewriter, $child_parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
-    $body = $this->_body->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
+    $condition = $this->_condition->rewrite($rewriter, $parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
+    $body = $this->_body->rewrite($rewriter, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_paren === $this->_left_paren &&
@@ -95,11 +94,9 @@ final class WhileStatement extends EditableSyntax {
       $right_paren === $this->_right_paren &&
       $body === $this->_body
     ) {
-      $node = $this;
-    } else {
-      $node = new self($keyword, $left_paren, $condition, $right_paren, $body);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($keyword, $left_paren, $condition, $right_paren, $body);
   }
 
   public function keyword(): WhileToken {
@@ -173,8 +170,7 @@ final class WhileStatement extends EditableSyntax {
   }
 
   public function right_parenx(): RightParenToken {
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function raw_right_paren(): EditableSyntax {

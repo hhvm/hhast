@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3b405790a14afb374566412656ace987>>
+ * @generated SignedSource<<f13b94c6efa589db3c09f50604d24678>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -56,26 +56,23 @@ final class TypeArguments extends EditableSyntax {
     yield 'right_angle' => $this->_right_angle;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $left_angle = $this->_left_angle->rewrite($rewriter, $child_parents);
-    $types = $this->_types->rewrite($rewriter, $child_parents);
-    $right_angle = $this->_right_angle->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $left_angle = $this->_left_angle->rewrite($rewriter, $parents);
+    $types = $this->_types->rewrite($rewriter, $parents);
+    $right_angle = $this->_right_angle->rewrite($rewriter, $parents);
     if (
       $left_angle === $this->_left_angle &&
       $types === $this->_types &&
       $right_angle === $this->_right_angle
     ) {
-      $node = $this;
-    } else {
-      $node = new self($left_angle, $types, $right_angle);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($left_angle, $types, $right_angle);
   }
 
   public function left_angle(): LessThanToken {
@@ -111,14 +108,11 @@ final class TypeArguments extends EditableSyntax {
   }
 
   public function right_angle(): ?GreaterThanToken {
-    return $this->_right_angle->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+    return $this->_right_angle->is_missing() ? null : TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 
   public function right_anglex(): GreaterThanToken {
-    return
-      TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+    return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 
   public function raw_right_angle(): EditableSyntax {

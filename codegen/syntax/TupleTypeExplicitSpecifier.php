@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<42ceca94d5494e644c357a7e3f405b77>>
+ * @generated SignedSource<<b9b0bf32cc2046edeff6fde1cc254d5a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -66,28 +66,25 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
     yield 'right_angle' => $this->_right_angle;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $left_angle = $this->_left_angle->rewrite($rewriter, $child_parents);
-    $types = $this->_types->rewrite($rewriter, $child_parents);
-    $right_angle = $this->_right_angle->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $left_angle = $this->_left_angle->rewrite($rewriter, $parents);
+    $types = $this->_types->rewrite($rewriter, $parents);
+    $right_angle = $this->_right_angle->rewrite($rewriter, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_angle === $this->_left_angle &&
       $types === $this->_types &&
       $right_angle === $this->_right_angle
     ) {
-      $node = $this;
-    } else {
-      $node = new self($keyword, $left_angle, $types, $right_angle);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($keyword, $left_angle, $types, $right_angle);
   }
 
   public function keyword(): EditableSyntax {
@@ -103,8 +100,7 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
-    return
-      new self($value, $this->_left_angle, $this->_types, $this->_right_angle);
+    return new self($value, $this->_left_angle, $this->_types, $this->_right_angle);
   }
 
   public function left_angle(): EditableSyntax {
@@ -120,8 +116,7 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
   }
 
   public function with_left_angle(EditableSyntax $value): this {
-    return
-      new self($this->_keyword, $value, $this->_types, $this->_right_angle);
+    return new self($this->_keyword, $value, $this->_types, $this->_right_angle);
   }
 
   public function types(): EditableSyntax {
@@ -137,12 +132,7 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
   }
 
   public function with_types(EditableSyntax $value): this {
-    return new self(
-      $this->_keyword,
-      $this->_left_angle,
-      $value,
-      $this->_right_angle,
-    );
+    return new self($this->_keyword, $this->_left_angle, $value, $this->_right_angle);
   }
 
   public function right_angle(): EditableSyntax {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a84ede821d12dde01d833b0dd2cc5f65>>
+ * @generated SignedSource<<eb49fd588ef865711f51dd54add502c0>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -34,20 +34,19 @@ final class Script extends EditableSyntax {
     yield 'declarations' => $this->_declarations;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $declarations = $this->_declarations->rewrite($rewriter, $child_parents);
-    if ($declarations === $this->_declarations) {
-      $node = $this;
-    } else {
-      $node = new self($declarations);
+    $parents[] = $this;
+    $declarations = $this->_declarations->rewrite($rewriter, $parents);
+    if (
+      $declarations === $this->_declarations
+    ) {
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($declarations);
   }
 
   public function declarations(): EditableList {

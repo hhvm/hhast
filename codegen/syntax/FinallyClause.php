@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f6dc9f48cfeed3561a44f105d3da92c9>>
+ * @generated SignedSource<<df1fd8aa2fa30b36b1613cb82235e533>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -43,21 +43,21 @@ final class FinallyClause extends EditableSyntax {
     yield 'body' => $this->_body;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $body = $this->_body->rewrite($rewriter, $child_parents);
-    if ($keyword === $this->_keyword && $body === $this->_body) {
-      $node = $this;
-    } else {
-      $node = new self($keyword, $body);
+    $parents[] = $this;
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $body = $this->_body->rewrite($rewriter, $parents);
+    if (
+      $keyword === $this->_keyword &&
+      $body === $this->_body
+    ) {
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($keyword, $body);
   }
 
   public function keyword(): FinallyToken {

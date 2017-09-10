@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<47940995a118a943f1d4e0f785a32fc5>>
+ * @generated SignedSource<<2fdbc22f5c7c9626fcd54507b3692728>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -126,24 +126,21 @@ final class ForStatement extends EditableSyntax {
     yield 'body' => $this->_body;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
-    $initializer = $this->_initializer->rewrite($rewriter, $child_parents);
-    $first_semicolon =
-      $this->_first_semicolon->rewrite($rewriter, $child_parents);
-    $control = $this->_control->rewrite($rewriter, $child_parents);
-    $second_semicolon =
-      $this->_second_semicolon->rewrite($rewriter, $child_parents);
-    $end_of_loop = $this->_end_of_loop->rewrite($rewriter, $child_parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
-    $body = $this->_body->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
+    $initializer = $this->_initializer->rewrite($rewriter, $parents);
+    $first_semicolon = $this->_first_semicolon->rewrite($rewriter, $parents);
+    $control = $this->_control->rewrite($rewriter, $parents);
+    $second_semicolon = $this->_second_semicolon->rewrite($rewriter, $parents);
+    $end_of_loop = $this->_end_of_loop->rewrite($rewriter, $parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
+    $body = $this->_body->rewrite($rewriter, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_paren === $this->_left_paren &&
@@ -155,21 +152,19 @@ final class ForStatement extends EditableSyntax {
       $right_paren === $this->_right_paren &&
       $body === $this->_body
     ) {
-      $node = $this;
-    } else {
-      $node = new self(
-        $keyword,
-        $left_paren,
-        $initializer,
-        $first_semicolon,
-        $control,
-        $second_semicolon,
-        $end_of_loop,
-        $right_paren,
-        $body,
-      );
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self(
+      $keyword,
+      $left_paren,
+      $initializer,
+      $first_semicolon,
+      $control,
+      $second_semicolon,
+      $end_of_loop,
+      $right_paren,
+      $body,
+    );
   }
 
   public function keyword(): ForToken {
@@ -225,9 +220,7 @@ final class ForStatement extends EditableSyntax {
   }
 
   public function initializer(): ?EditableList {
-    return $this->_initializer->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(EditableList::class, $this->_initializer);
+    return $this->_initializer->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_initializer);
   }
 
   public function initializerx(): EditableList {
@@ -257,8 +250,7 @@ final class ForStatement extends EditableSyntax {
   }
 
   public function first_semicolonx(): SemicolonToken {
-    return
-      TypeAssert::isInstanceOf(SemicolonToken::class, $this->_first_semicolon);
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_first_semicolon);
   }
 
   public function raw_first_semicolon(): EditableSyntax {
@@ -280,9 +272,7 @@ final class ForStatement extends EditableSyntax {
   }
 
   public function control(): ?EditableList {
-    return $this->_control->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(EditableList::class, $this->_control);
+    return $this->_control->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_control);
   }
 
   public function controlx(): EditableList {
@@ -312,8 +302,7 @@ final class ForStatement extends EditableSyntax {
   }
 
   public function second_semicolonx(): SemicolonToken {
-    return
-      TypeAssert::isInstanceOf(SemicolonToken::class, $this->_second_semicolon);
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_second_semicolon);
   }
 
   public function raw_second_semicolon(): EditableSyntax {
@@ -335,9 +324,7 @@ final class ForStatement extends EditableSyntax {
   }
 
   public function end_of_loop(): ?EditableList {
-    return $this->_end_of_loop->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(EditableList::class, $this->_end_of_loop);
+    return $this->_end_of_loop->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_end_of_loop);
   }
 
   public function end_of_loopx(): EditableList {
@@ -367,8 +354,7 @@ final class ForStatement extends EditableSyntax {
   }
 
   public function right_parenx(): RightParenToken {
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function raw_right_paren(): EditableSyntax {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b8c8e82c4fd2435ac293672738a3f221>>
+ * @generated SignedSource<<93e1ebe4a2c2ea3a43619813b1141323>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -56,26 +56,23 @@ final class NamespaceDeclaration extends EditableSyntax {
     yield 'body' => $this->_body;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $name = $this->_name->rewrite($rewriter, $child_parents);
-    $body = $this->_body->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $name = $this->_name->rewrite($rewriter, $parents);
+    $body = $this->_body->rewrite($rewriter, $parents);
     if (
       $keyword === $this->_keyword &&
       $name === $this->_name &&
       $body === $this->_body
     ) {
-      $node = $this;
-    } else {
-      $node = new self($keyword, $name, $body);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($keyword, $name, $body);
   }
 
   public function keyword(): NamespaceToken {

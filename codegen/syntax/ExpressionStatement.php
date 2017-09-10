@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<11e0ccbe25b3347be644594841e7e84d>>
+ * @generated SignedSource<<fbc40f218d410585cc60768da7279f76>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -46,23 +46,21 @@ final class ExpressionStatement extends EditableSyntax {
     yield 'semicolon' => $this->_semicolon;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $expression = $this->_expression->rewrite($rewriter, $child_parents);
-    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $expression = $this->_expression->rewrite($rewriter, $parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
     if (
-      $expression === $this->_expression && $semicolon === $this->_semicolon
+      $expression === $this->_expression &&
+      $semicolon === $this->_semicolon
     ) {
-      $node = $this;
-    } else {
-      $node = new self($expression, $semicolon);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($expression, $semicolon);
   }
 
   public function expression(): EditableSyntax {
@@ -82,9 +80,7 @@ final class ExpressionStatement extends EditableSyntax {
   }
 
   public function semicolon(): ?SemicolonToken {
-    return $this->_semicolon->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+    return $this->_semicolon->is_missing() ? null : TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 
   public function semicolonx(): SemicolonToken {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b7c359fdda0088538dc3125425d7add2>>
+ * @generated SignedSource<<6d82eb8106d7eb506df796f29c9e907b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -65,8 +65,13 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
       $source,
     );
     $position += $right_angle->width();
-    return
-      new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
+    return new self(
+      $keyword,
+      $left_angle,
+      $type,
+      $trailing_comma,
+      $right_angle,
+    );
   }
 
   public function children(): KeyedTraversable<string, EditableSyntax> {
@@ -77,19 +82,17 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
     yield 'right_angle' => $this->_right_angle;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $left_angle = $this->_left_angle->rewrite($rewriter, $child_parents);
-    $type = $this->_type->rewrite($rewriter, $child_parents);
-    $trailing_comma =
-      $this->_trailing_comma->rewrite($rewriter, $child_parents);
-    $right_angle = $this->_right_angle->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $left_angle = $this->_left_angle->rewrite($rewriter, $parents);
+    $type = $this->_type->rewrite($rewriter, $parents);
+    $trailing_comma = $this->_trailing_comma->rewrite($rewriter, $parents);
+    $right_angle = $this->_right_angle->rewrite($rewriter, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_angle === $this->_left_angle &&
@@ -97,12 +100,9 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
       $trailing_comma === $this->_trailing_comma &&
       $right_angle === $this->_right_angle
     ) {
-      $node = $this;
-    } else {
-      $node =
-        new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
   }
 
   public function keyword(): ClassnameToken {
@@ -128,9 +128,7 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
   }
 
   public function left_angle(): ?LessThanToken {
-    return $this->_left_angle->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
+    return $this->_left_angle->is_missing() ? null : TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
   }
 
   public function left_anglex(): LessThanToken {
@@ -178,8 +176,7 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
   }
 
   public function trailing_commax(): EditableSyntax {
-    return
-      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_trailing_comma);
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_trailing_comma);
   }
 
   public function raw_trailing_comma(): EditableSyntax {
@@ -197,14 +194,11 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
   }
 
   public function right_angle(): ?GreaterThanToken {
-    return $this->_right_angle->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+    return $this->_right_angle->is_missing() ? null : TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 
   public function right_anglex(): GreaterThanToken {
-    return
-      TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+    return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 
   public function raw_right_angle(): EditableSyntax {

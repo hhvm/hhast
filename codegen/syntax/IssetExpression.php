@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1c00b0fc29639e6be212b05a0370d763>>
+ * @generated SignedSource<<28617f2509c21bfbf143cba02c5847f4>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -66,28 +66,25 @@ final class IssetExpression extends EditableSyntax {
     yield 'right_paren' => $this->_right_paren;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
-    $argument_list = $this->_argument_list->rewrite($rewriter, $child_parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
+    $argument_list = $this->_argument_list->rewrite($rewriter, $parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_paren === $this->_left_paren &&
       $argument_list === $this->_argument_list &&
       $right_paren === $this->_right_paren
     ) {
-      $node = $this;
-    } else {
-      $node = new self($keyword, $left_paren, $argument_list, $right_paren);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($keyword, $left_paren, $argument_list, $right_paren);
   }
 
   public function keyword(): IssetToken {
@@ -124,12 +121,7 @@ final class IssetExpression extends EditableSyntax {
   }
 
   public function with_left_paren(EditableSyntax $value): this {
-    return new self(
-      $this->_keyword,
-      $value,
-      $this->_argument_list,
-      $this->_right_paren,
-    );
+    return new self($this->_keyword, $value, $this->_argument_list, $this->_right_paren);
   }
 
   public function argument_list(): EditableList {
@@ -145,12 +137,7 @@ final class IssetExpression extends EditableSyntax {
   }
 
   public function with_argument_list(EditableSyntax $value): this {
-    return new self(
-      $this->_keyword,
-      $this->_left_paren,
-      $value,
-      $this->_right_paren,
-    );
+    return new self($this->_keyword, $this->_left_paren, $value, $this->_right_paren);
   }
 
   public function right_paren(): RightParenToken {
@@ -158,8 +145,7 @@ final class IssetExpression extends EditableSyntax {
   }
 
   public function right_parenx(): RightParenToken {
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function raw_right_paren(): EditableSyntax {
@@ -167,11 +153,6 @@ final class IssetExpression extends EditableSyntax {
   }
 
   public function with_right_paren(EditableSyntax $value): this {
-    return new self(
-      $this->_keyword,
-      $this->_left_paren,
-      $this->_argument_list,
-      $value,
-    );
+    return new self($this->_keyword, $this->_left_paren, $this->_argument_list, $value);
   }
 }

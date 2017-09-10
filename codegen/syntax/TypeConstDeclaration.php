@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8181bd3f583cf3bc461d14006c192ba0>>
+ * @generated SignedSource<<ce8ab8e7f2fa401cc5edd0861db53343>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -115,23 +115,20 @@ final class TypeConstDeclaration extends EditableSyntax {
     yield 'semicolon' => $this->_semicolon;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $abstract = $this->_abstract->rewrite($rewriter, $child_parents);
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $type_keyword = $this->_type_keyword->rewrite($rewriter, $child_parents);
-    $name = $this->_name->rewrite($rewriter, $child_parents);
-    $type_constraint =
-      $this->_type_constraint->rewrite($rewriter, $child_parents);
-    $equal = $this->_equal->rewrite($rewriter, $child_parents);
-    $type_specifier =
-      $this->_type_specifier->rewrite($rewriter, $child_parents);
-    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $abstract = $this->_abstract->rewrite($rewriter, $parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $type_keyword = $this->_type_keyword->rewrite($rewriter, $parents);
+    $name = $this->_name->rewrite($rewriter, $parents);
+    $type_constraint = $this->_type_constraint->rewrite($rewriter, $parents);
+    $equal = $this->_equal->rewrite($rewriter, $parents);
+    $type_specifier = $this->_type_specifier->rewrite($rewriter, $parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
     if (
       $abstract === $this->_abstract &&
       $keyword === $this->_keyword &&
@@ -142,26 +139,22 @@ final class TypeConstDeclaration extends EditableSyntax {
       $type_specifier === $this->_type_specifier &&
       $semicolon === $this->_semicolon
     ) {
-      $node = $this;
-    } else {
-      $node = new self(
-        $abstract,
-        $keyword,
-        $type_keyword,
-        $name,
-        $type_constraint,
-        $equal,
-        $type_specifier,
-        $semicolon,
-      );
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self(
+      $abstract,
+      $keyword,
+      $type_keyword,
+      $name,
+      $type_constraint,
+      $equal,
+      $type_specifier,
+      $semicolon,
+    );
   }
 
   public function abstract(): ?AbstractToken {
-    return $this->_abstract->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(AbstractToken::class, $this->_abstract);
+    return $this->_abstract->is_missing() ? null : TypeAssert::isInstanceOf(AbstractToken::class, $this->_abstract);
   }
 
   public function abstractx(): AbstractToken {
@@ -236,9 +229,7 @@ final class TypeConstDeclaration extends EditableSyntax {
   }
 
   public function name(): ?NameToken {
-    return $this->_name->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(NameToken::class, $this->_name);
+    return $this->_name->is_missing() ? null : TypeAssert::isInstanceOf(NameToken::class, $this->_name);
   }
 
   public function namex(): NameToken {
@@ -263,17 +254,11 @@ final class TypeConstDeclaration extends EditableSyntax {
   }
 
   public function type_constraint(): ?TypeConstraint {
-    return $this->_type_constraint->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(
-          TypeConstraint::class,
-          $this->_type_constraint,
-        );
+    return $this->_type_constraint->is_missing() ? null : TypeAssert::isInstanceOf(TypeConstraint::class, $this->_type_constraint);
   }
 
   public function type_constraintx(): TypeConstraint {
-    return
-      TypeAssert::isInstanceOf(TypeConstraint::class, $this->_type_constraint);
+    return TypeAssert::isInstanceOf(TypeConstraint::class, $this->_type_constraint);
   }
 
   public function raw_type_constraint(): EditableSyntax {
@@ -294,9 +279,7 @@ final class TypeConstDeclaration extends EditableSyntax {
   }
 
   public function equal(): ?EqualToken {
-    return $this->_equal->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(EqualToken::class, $this->_equal);
+    return $this->_equal->is_missing() ? null : TypeAssert::isInstanceOf(EqualToken::class, $this->_equal);
   }
 
   public function equalx(): EqualToken {
@@ -325,8 +308,7 @@ final class TypeConstDeclaration extends EditableSyntax {
   }
 
   public function type_specifierx(): EditableSyntax {
-    return
-      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type_specifier);
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type_specifier);
   }
 
   public function raw_type_specifier(): EditableSyntax {
@@ -347,9 +329,7 @@ final class TypeConstDeclaration extends EditableSyntax {
   }
 
   public function semicolon(): ?SemicolonToken {
-    return $this->_semicolon->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+    return $this->_semicolon->is_missing() ? null : TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 
   public function semicolonx(): SemicolonToken {

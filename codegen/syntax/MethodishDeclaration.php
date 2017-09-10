@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<14117278713bb321b22a856ade463ae8>>
+ * @generated SignedSource<<b8239ef77757c1b92c3e9c7b9f4dd906>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -82,19 +82,17 @@ final class MethodishDeclaration extends EditableSyntax {
     yield 'semicolon' => $this->_semicolon;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $attribute = $this->_attribute->rewrite($rewriter, $child_parents);
-    $modifiers = $this->_modifiers->rewrite($rewriter, $child_parents);
-    $function_decl_header =
-      $this->_function_decl_header->rewrite($rewriter, $child_parents);
-    $function_body = $this->_function_body->rewrite($rewriter, $child_parents);
-    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $attribute = $this->_attribute->rewrite($rewriter, $parents);
+    $modifiers = $this->_modifiers->rewrite($rewriter, $parents);
+    $function_decl_header = $this->_function_decl_header->rewrite($rewriter, $parents);
+    $function_body = $this->_function_body->rewrite($rewriter, $parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
     if (
       $attribute === $this->_attribute &&
       $modifiers === $this->_modifiers &&
@@ -102,33 +100,23 @@ final class MethodishDeclaration extends EditableSyntax {
       $function_body === $this->_function_body &&
       $semicolon === $this->_semicolon
     ) {
-      $node = $this;
-    } else {
-      $node = new self(
-        $attribute,
-        $modifiers,
-        $function_decl_header,
-        $function_body,
-        $semicolon,
-      );
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self(
+      $attribute,
+      $modifiers,
+      $function_decl_header,
+      $function_body,
+      $semicolon,
+    );
   }
 
   public function attribute(): ?AttributeSpecification {
-    return $this->_attribute->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(
-          AttributeSpecification::class,
-          $this->_attribute,
-        );
+    return $this->_attribute->is_missing() ? null : TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute);
   }
 
   public function attributex(): AttributeSpecification {
-    return TypeAssert::isInstanceOf(
-      AttributeSpecification::class,
-      $this->_attribute,
-    );
+    return TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute);
   }
 
   public function raw_attribute(): EditableSyntax {
@@ -146,9 +134,7 @@ final class MethodishDeclaration extends EditableSyntax {
   }
 
   public function modifiers(): ?EditableList {
-    return $this->_modifiers->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(EditableList::class, $this->_modifiers);
+    return $this->_modifiers->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_modifiers);
   }
 
   public function modifiersx(): EditableList {
@@ -174,10 +160,7 @@ final class MethodishDeclaration extends EditableSyntax {
   }
 
   public function function_decl_headerx(): FunctionDeclarationHeader {
-    return TypeAssert::isInstanceOf(
-      FunctionDeclarationHeader::class,
-      $this->_function_decl_header,
-    );
+    return TypeAssert::isInstanceOf(FunctionDeclarationHeader::class, $this->_function_decl_header);
   }
 
   public function raw_function_decl_header(): EditableSyntax {
@@ -199,8 +182,7 @@ final class MethodishDeclaration extends EditableSyntax {
   }
 
   public function function_bodyx(): EditableSyntax {
-    return
-      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_function_body);
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_function_body);
   }
 
   public function raw_function_body(): EditableSyntax {
@@ -218,9 +200,7 @@ final class MethodishDeclaration extends EditableSyntax {
   }
 
   public function semicolon(): ?SemicolonToken {
-    return $this->_semicolon->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+    return $this->_semicolon->is_missing() ? null : TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 
   public function semicolonx(): SemicolonToken {

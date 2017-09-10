@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a85561284e91a9d9158c754e41d3d615>>
+ * @generated SignedSource<<c9fc2ed8731c1adaa427bf2f92546be9>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -34,20 +34,19 @@ final class NamespaceEmptyBody extends EditableSyntax {
     yield 'semicolon' => $this->_semicolon;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
-    if ($semicolon === $this->_semicolon) {
-      $node = $this;
-    } else {
-      $node = new self($semicolon);
+    $parents[] = $this;
+    $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
+    if (
+      $semicolon === $this->_semicolon
+    ) {
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($semicolon);
   }
 
   public function semicolon(): SemicolonToken {

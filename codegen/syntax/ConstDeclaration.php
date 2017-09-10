@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ec45ef443e8dcfd3e6a4708ec796e524>>
+ * @generated SignedSource<<64bb02ba3035580e31ae726445e3d504>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -65,8 +65,13 @@ final class ConstDeclaration extends EditableSyntax {
       $source,
     );
     $position += $semicolon->width();
-    return
-      new self($abstract, $keyword, $type_specifier, $declarators, $semicolon);
+    return new self(
+      $abstract,
+      $keyword,
+      $type_specifier,
+      $declarators,
+      $semicolon,
+    );
   }
 
   public function children(): KeyedTraversable<string, EditableSyntax> {
@@ -77,19 +82,17 @@ final class ConstDeclaration extends EditableSyntax {
     yield 'semicolon' => $this->_semicolon;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $abstract = $this->_abstract->rewrite($rewriter, $child_parents);
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $type_specifier =
-      $this->_type_specifier->rewrite($rewriter, $child_parents);
-    $declarators = $this->_declarators->rewrite($rewriter, $child_parents);
-    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $abstract = $this->_abstract->rewrite($rewriter, $parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $type_specifier = $this->_type_specifier->rewrite($rewriter, $parents);
+    $declarators = $this->_declarators->rewrite($rewriter, $parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
     if (
       $abstract === $this->_abstract &&
       $keyword === $this->_keyword &&
@@ -97,23 +100,13 @@ final class ConstDeclaration extends EditableSyntax {
       $declarators === $this->_declarators &&
       $semicolon === $this->_semicolon
     ) {
-      $node = $this;
-    } else {
-      $node = new self(
-        $abstract,
-        $keyword,
-        $type_specifier,
-        $declarators,
-        $semicolon,
-      );
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($abstract, $keyword, $type_specifier, $declarators, $semicolon);
   }
 
   public function abstract(): ?AbstractToken {
-    return $this->_abstract->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(AbstractToken::class, $this->_abstract);
+    return $this->_abstract->is_missing() ? null : TypeAssert::isInstanceOf(AbstractToken::class, $this->_abstract);
   }
 
   public function abstractx(): AbstractToken {
@@ -161,8 +154,7 @@ final class ConstDeclaration extends EditableSyntax {
   }
 
   public function type_specifierx(): EditableSyntax {
-    return
-      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type_specifier);
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type_specifier);
   }
 
   public function raw_type_specifier(): EditableSyntax {

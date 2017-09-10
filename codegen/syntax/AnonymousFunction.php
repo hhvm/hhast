@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9b2d3dc00e4950251ef4f56ef3aaba75>>
+ * @generated SignedSource<<70edcefa24f859e6c794d383ebbc9d82>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -148,27 +148,23 @@ final class AnonymousFunction extends EditableSyntax {
     yield 'body' => $this->_body;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $static_keyword =
-      $this->_static_keyword->rewrite($rewriter, $child_parents);
-    $async_keyword = $this->_async_keyword->rewrite($rewriter, $child_parents);
-    $coroutine_keyword =
-      $this->_coroutine_keyword->rewrite($rewriter, $child_parents);
-    $function_keyword =
-      $this->_function_keyword->rewrite($rewriter, $child_parents);
-    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
-    $parameters = $this->_parameters->rewrite($rewriter, $child_parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
-    $colon = $this->_colon->rewrite($rewriter, $child_parents);
-    $type = $this->_type->rewrite($rewriter, $child_parents);
-    $use = $this->_use->rewrite($rewriter, $child_parents);
-    $body = $this->_body->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $static_keyword = $this->_static_keyword->rewrite($rewriter, $parents);
+    $async_keyword = $this->_async_keyword->rewrite($rewriter, $parents);
+    $coroutine_keyword = $this->_coroutine_keyword->rewrite($rewriter, $parents);
+    $function_keyword = $this->_function_keyword->rewrite($rewriter, $parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
+    $parameters = $this->_parameters->rewrite($rewriter, $parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
+    $colon = $this->_colon->rewrite($rewriter, $parents);
+    $type = $this->_type->rewrite($rewriter, $parents);
+    $use = $this->_use->rewrite($rewriter, $parents);
+    $body = $this->_body->rewrite($rewriter, $parents);
     if (
       $static_keyword === $this->_static_keyword &&
       $async_keyword === $this->_async_keyword &&
@@ -182,29 +178,25 @@ final class AnonymousFunction extends EditableSyntax {
       $use === $this->_use &&
       $body === $this->_body
     ) {
-      $node = $this;
-    } else {
-      $node = new self(
-        $static_keyword,
-        $async_keyword,
-        $coroutine_keyword,
-        $function_keyword,
-        $left_paren,
-        $parameters,
-        $right_paren,
-        $colon,
-        $type,
-        $use,
-        $body,
-      );
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self(
+      $static_keyword,
+      $async_keyword,
+      $coroutine_keyword,
+      $function_keyword,
+      $left_paren,
+      $parameters,
+      $right_paren,
+      $colon,
+      $type,
+      $use,
+      $body,
+    );
   }
 
   public function static_keyword(): ?StaticToken {
-    return $this->_static_keyword->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(StaticToken::class, $this->_static_keyword);
+    return $this->_static_keyword->is_missing() ? null : TypeAssert::isInstanceOf(StaticToken::class, $this->_static_keyword);
   }
 
   public function static_keywordx(): StaticToken {
@@ -232,9 +224,7 @@ final class AnonymousFunction extends EditableSyntax {
   }
 
   public function async_keyword(): ?AsyncToken {
-    return $this->_async_keyword->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(AsyncToken::class, $this->_async_keyword);
+    return $this->_async_keyword->is_missing() ? null : TypeAssert::isInstanceOf(AsyncToken::class, $this->_async_keyword);
   }
 
   public function async_keywordx(): AsyncToken {
@@ -266,10 +256,7 @@ final class AnonymousFunction extends EditableSyntax {
   }
 
   public function coroutine_keywordx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(
-      EditableSyntax::class,
-      $this->_coroutine_keyword,
-    );
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_coroutine_keyword);
   }
 
   public function raw_coroutine_keyword(): EditableSyntax {
@@ -297,8 +284,7 @@ final class AnonymousFunction extends EditableSyntax {
   }
 
   public function function_keywordx(): FunctionToken {
-    return
-      TypeAssert::isInstanceOf(FunctionToken::class, $this->_function_keyword);
+    return TypeAssert::isInstanceOf(FunctionToken::class, $this->_function_keyword);
   }
 
   public function raw_function_keyword(): EditableSyntax {
@@ -322,9 +308,7 @@ final class AnonymousFunction extends EditableSyntax {
   }
 
   public function left_paren(): ?LeftParenToken {
-    return $this->_left_paren->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+    return $this->_left_paren->is_missing() ? null : TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
 
   public function left_parenx(): LeftParenToken {
@@ -352,9 +336,7 @@ final class AnonymousFunction extends EditableSyntax {
   }
 
   public function parameters(): ?EditableList {
-    return $this->_parameters->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(EditableList::class, $this->_parameters);
+    return $this->_parameters->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_parameters);
   }
 
   public function parametersx(): EditableList {
@@ -382,14 +364,11 @@ final class AnonymousFunction extends EditableSyntax {
   }
 
   public function right_paren(): ?RightParenToken {
-    return $this->_right_paren->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return $this->_right_paren->is_missing() ? null : TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function right_parenx(): RightParenToken {
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function raw_right_paren(): EditableSyntax {
@@ -413,9 +392,7 @@ final class AnonymousFunction extends EditableSyntax {
   }
 
   public function colon(): ?ColonToken {
-    return $this->_colon->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
+    return $this->_colon->is_missing() ? null : TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
   }
 
   public function colonx(): ColonToken {
@@ -471,17 +448,11 @@ final class AnonymousFunction extends EditableSyntax {
   }
 
   public function use(): ?AnonymousFunctionUseClause {
-    return $this->_use->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(
-          AnonymousFunctionUseClause::class,
-          $this->_use,
-        );
+    return $this->_use->is_missing() ? null : TypeAssert::isInstanceOf(AnonymousFunctionUseClause::class, $this->_use);
   }
 
   public function usex(): AnonymousFunctionUseClause {
-    return
-      TypeAssert::isInstanceOf(AnonymousFunctionUseClause::class, $this->_use);
+    return TypeAssert::isInstanceOf(AnonymousFunctionUseClause::class, $this->_use);
   }
 
   public function raw_use(): EditableSyntax {

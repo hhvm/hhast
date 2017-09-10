@@ -95,10 +95,10 @@ final class EditableList extends EditableSyntax
     return new EditableList($children);
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
 
     $dirty = false;
@@ -107,9 +107,10 @@ final class EditableList extends EditableSyntax
     $new_parents[] = $this;
     foreach ($this->children() as $child) {
       $new_child = $child->rewrite($rewriter, $new_parents);
-      if ($new_child != $child)
+      if ($new_child !== $child) {
         $dirty = true;
-      if ($new_child != null) {
+      }
+      if ($new_child !== null) {
         if ($new_child->is_list()) {
           foreach ($new_child->children() as $n)
             array_push($new_children, $n);
@@ -117,13 +118,10 @@ final class EditableList extends EditableSyntax
           array_push($new_children, $new_child);
       }
     }
-    $result = $this;
+
     if ($dirty) {
-      if (count($new_children) === 0)
-        $result = Missing();
-      else
-        $result = new EditableList($new_children);
+      return new self($new_children);
     }
-    return $rewriter($result, $parents);
+    return $this;
   }
 }

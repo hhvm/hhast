@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<34fe1a956b7ca7c7d9ec60262d223b16>>
+ * @generated SignedSource<<0a558472f47c3e85f9546e45ad86da00>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -74,8 +74,14 @@ final class CatchClause extends EditableSyntax {
       $source,
     );
     $position += $body->width();
-    return
-      new self($keyword, $left_paren, $type, $variable, $right_paren, $body);
+    return new self(
+      $keyword,
+      $left_paren,
+      $type,
+      $variable,
+      $right_paren,
+      $body,
+    );
   }
 
   public function children(): KeyedTraversable<string, EditableSyntax> {
@@ -87,19 +93,18 @@ final class CatchClause extends EditableSyntax {
     yield 'body' => $this->_body;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
-    $type = $this->_type->rewrite($rewriter, $child_parents);
-    $variable = $this->_variable->rewrite($rewriter, $child_parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
-    $body = $this->_body->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
+    $type = $this->_type->rewrite($rewriter, $parents);
+    $variable = $this->_variable->rewrite($rewriter, $parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
+    $body = $this->_body->rewrite($rewriter, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_paren === $this->_left_paren &&
@@ -108,12 +113,9 @@ final class CatchClause extends EditableSyntax {
       $right_paren === $this->_right_paren &&
       $body === $this->_body
     ) {
-      $node = $this;
-    } else {
-      $node =
-        new self($keyword, $left_paren, $type, $variable, $right_paren, $body);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($keyword, $left_paren, $type, $variable, $right_paren, $body);
   }
 
   public function keyword(): CatchToken {
@@ -186,9 +188,7 @@ final class CatchClause extends EditableSyntax {
   }
 
   public function variable(): ?VariableToken {
-    return $this->_variable->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(VariableToken::class, $this->_variable);
+    return $this->_variable->is_missing() ? null : TypeAssert::isInstanceOf(VariableToken::class, $this->_variable);
   }
 
   public function variablex(): VariableToken {
@@ -211,14 +211,11 @@ final class CatchClause extends EditableSyntax {
   }
 
   public function right_paren(): ?RightParenToken {
-    return $this->_right_paren->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return $this->_right_paren->is_missing() ? null : TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function right_parenx(): RightParenToken {
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function raw_right_paren(): EditableSyntax {

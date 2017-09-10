@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<053b95a05e701df8c9d6d0f02d720226>>
+ * @generated SignedSource<<6bdd9b502e1b96056473d8e0f4fe636b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -104,20 +104,19 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
     yield 'semicolon' => $this->_semicolon;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $kind = $this->_kind->rewrite($rewriter, $child_parents);
-    $prefix = $this->_prefix->rewrite($rewriter, $child_parents);
-    $left_brace = $this->_left_brace->rewrite($rewriter, $child_parents);
-    $clauses = $this->_clauses->rewrite($rewriter, $child_parents);
-    $right_brace = $this->_right_brace->rewrite($rewriter, $child_parents);
-    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $kind = $this->_kind->rewrite($rewriter, $parents);
+    $prefix = $this->_prefix->rewrite($rewriter, $parents);
+    $left_brace = $this->_left_brace->rewrite($rewriter, $parents);
+    $clauses = $this->_clauses->rewrite($rewriter, $parents);
+    $right_brace = $this->_right_brace->rewrite($rewriter, $parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
     if (
       $keyword === $this->_keyword &&
       $kind === $this->_kind &&
@@ -127,19 +126,17 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
       $right_brace === $this->_right_brace &&
       $semicolon === $this->_semicolon
     ) {
-      $node = $this;
-    } else {
-      $node = new self(
-        $keyword,
-        $kind,
-        $prefix,
-        $left_brace,
-        $clauses,
-        $right_brace,
-        $semicolon,
-      );
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self(
+      $keyword,
+      $kind,
+      $prefix,
+      $left_brace,
+      $clauses,
+      $right_brace,
+      $semicolon,
+    );
   }
 
   public function keyword(): UseToken {
@@ -195,8 +192,7 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
   }
 
   public function prefixx(): NamespacePrefixToken {
-    return
-      TypeAssert::isInstanceOf(NamespacePrefixToken::class, $this->_prefix);
+    return TypeAssert::isInstanceOf(NamespacePrefixToken::class, $this->_prefix);
   }
 
   public function raw_prefix(): EditableSyntax {
@@ -264,14 +260,11 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
   }
 
   public function right_brace(): ?RightBraceToken {
-    return $this->_right_brace->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+    return $this->_right_brace->is_missing() ? null : TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 
   public function right_bracex(): RightBraceToken {
-    return
-      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+    return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 
   public function raw_right_brace(): EditableSyntax {
@@ -291,9 +284,7 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
   }
 
   public function semicolon(): ?SemicolonToken {
-    return $this->_semicolon->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+    return $this->_semicolon->is_missing() ? null : TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 
   public function semicolonx(): SemicolonToken {

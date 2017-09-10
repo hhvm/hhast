@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e7ef761de9f44323eed826e36f233bb2>>
+ * @generated SignedSource<<4dd65437c6a6385b07e02022591338ff>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -56,28 +56,23 @@ final class AttributeSpecification extends EditableSyntax {
     yield 'right_double_angle' => $this->_right_double_angle;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $left_double_angle =
-      $this->_left_double_angle->rewrite($rewriter, $child_parents);
-    $attributes = $this->_attributes->rewrite($rewriter, $child_parents);
-    $right_double_angle =
-      $this->_right_double_angle->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $left_double_angle = $this->_left_double_angle->rewrite($rewriter, $parents);
+    $attributes = $this->_attributes->rewrite($rewriter, $parents);
+    $right_double_angle = $this->_right_double_angle->rewrite($rewriter, $parents);
     if (
       $left_double_angle === $this->_left_double_angle &&
       $attributes === $this->_attributes &&
       $right_double_angle === $this->_right_double_angle
     ) {
-      $node = $this;
-    } else {
-      $node = new self($left_double_angle, $attributes, $right_double_angle);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($left_double_angle, $attributes, $right_double_angle);
   }
 
   public function left_double_angle(): LessThanLessThanToken {
@@ -85,10 +80,7 @@ final class AttributeSpecification extends EditableSyntax {
   }
 
   public function left_double_anglex(): LessThanLessThanToken {
-    return TypeAssert::isInstanceOf(
-      LessThanLessThanToken::class,
-      $this->_left_double_angle,
-    );
+    return TypeAssert::isInstanceOf(LessThanLessThanToken::class, $this->_left_double_angle);
   }
 
   public function raw_left_double_angle(): EditableSyntax {
@@ -112,8 +104,7 @@ final class AttributeSpecification extends EditableSyntax {
   }
 
   public function with_attributes(EditableSyntax $value): this {
-    return
-      new self($this->_left_double_angle, $value, $this->_right_double_angle);
+    return new self($this->_left_double_angle, $value, $this->_right_double_angle);
   }
 
   public function right_double_angle(): GreaterThanGreaterThanToken {
@@ -121,10 +112,7 @@ final class AttributeSpecification extends EditableSyntax {
   }
 
   public function right_double_anglex(): GreaterThanGreaterThanToken {
-    return TypeAssert::isInstanceOf(
-      GreaterThanGreaterThanToken::class,
-      $this->_right_double_angle,
-    );
+    return TypeAssert::isInstanceOf(GreaterThanGreaterThanToken::class, $this->_right_double_angle);
   }
 
   public function raw_right_double_angle(): EditableSyntax {

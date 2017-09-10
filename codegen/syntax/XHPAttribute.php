@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<97f7dc3a0915f96ae3079040709eddb6>>
+ * @generated SignedSource<<4b1c60d82453883dd0bcf69b25652914>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -56,26 +56,23 @@ final class XHPAttribute extends EditableSyntax {
     yield 'expression' => $this->_expression;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $name = $this->_name->rewrite($rewriter, $child_parents);
-    $equal = $this->_equal->rewrite($rewriter, $child_parents);
-    $expression = $this->_expression->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $name = $this->_name->rewrite($rewriter, $parents);
+    $equal = $this->_equal->rewrite($rewriter, $parents);
+    $expression = $this->_expression->rewrite($rewriter, $parents);
     if (
       $name === $this->_name &&
       $equal === $this->_equal &&
       $expression === $this->_expression
     ) {
-      $node = $this;
-    } else {
-      $node = new self($name, $equal, $expression);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($name, $equal, $expression);
   }
 
   public function name(): XHPElementNameToken {
@@ -95,9 +92,7 @@ final class XHPAttribute extends EditableSyntax {
   }
 
   public function equal(): ?EqualToken {
-    return $this->_equal->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(EqualToken::class, $this->_equal);
+    return $this->_equal->is_missing() ? null : TypeAssert::isInstanceOf(EqualToken::class, $this->_equal);
   }
 
   public function equalx(): EqualToken {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<53284a49d74fe6d5b8038a78d1aa3419>>
+ * @generated SignedSource<<104e007a2bdc5ef168c049acd3932c61>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -56,26 +56,23 @@ final class XHPChildrenParenthesizedList extends EditableSyntax {
     yield 'right_paren' => $this->_right_paren;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
-    $xhp_children = $this->_xhp_children->rewrite($rewriter, $child_parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
+    $xhp_children = $this->_xhp_children->rewrite($rewriter, $parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
     if (
       $left_paren === $this->_left_paren &&
       $xhp_children === $this->_xhp_children &&
       $right_paren === $this->_right_paren
     ) {
-      $node = $this;
-    } else {
-      $node = new self($left_paren, $xhp_children, $right_paren);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($left_paren, $xhp_children, $right_paren);
   }
 
   public function left_paren(): EditableSyntax {
@@ -99,8 +96,7 @@ final class XHPChildrenParenthesizedList extends EditableSyntax {
   }
 
   public function xhp_childrenx(): EditableSyntax {
-    return
-      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_xhp_children);
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_xhp_children);
   }
 
   public function raw_xhp_children(): EditableSyntax {

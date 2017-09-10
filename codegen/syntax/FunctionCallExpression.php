@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f0387d1704b5e5c87acb76e727ba10dd>>
+ * @generated SignedSource<<05a137d58deaf6f0111b00323c3bd8ee>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -66,28 +66,25 @@ final class FunctionCallExpression extends EditableSyntax {
     yield 'right_paren' => $this->_right_paren;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $receiver = $this->_receiver->rewrite($rewriter, $child_parents);
-    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
-    $argument_list = $this->_argument_list->rewrite($rewriter, $child_parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $receiver = $this->_receiver->rewrite($rewriter, $parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
+    $argument_list = $this->_argument_list->rewrite($rewriter, $parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
     if (
       $receiver === $this->_receiver &&
       $left_paren === $this->_left_paren &&
       $argument_list === $this->_argument_list &&
       $right_paren === $this->_right_paren
     ) {
-      $node = $this;
-    } else {
-      $node = new self($receiver, $left_paren, $argument_list, $right_paren);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($receiver, $left_paren, $argument_list, $right_paren);
   }
 
   public function receiver(): EditableSyntax {
@@ -112,9 +109,7 @@ final class FunctionCallExpression extends EditableSyntax {
   }
 
   public function left_paren(): ?LeftParenToken {
-    return $this->_left_paren->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+    return $this->_left_paren->is_missing() ? null : TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
 
   public function left_parenx(): LeftParenToken {
@@ -126,18 +121,11 @@ final class FunctionCallExpression extends EditableSyntax {
   }
 
   public function with_left_paren(EditableSyntax $value): this {
-    return new self(
-      $this->_receiver,
-      $value,
-      $this->_argument_list,
-      $this->_right_paren,
-    );
+    return new self($this->_receiver, $value, $this->_argument_list, $this->_right_paren);
   }
 
   public function argument_list(): ?EditableList {
-    return $this->_argument_list->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(EditableList::class, $this->_argument_list);
+    return $this->_argument_list->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_argument_list);
   }
 
   public function argument_listx(): EditableList {
@@ -149,23 +137,15 @@ final class FunctionCallExpression extends EditableSyntax {
   }
 
   public function with_argument_list(EditableSyntax $value): this {
-    return new self(
-      $this->_receiver,
-      $this->_left_paren,
-      $value,
-      $this->_right_paren,
-    );
+    return new self($this->_receiver, $this->_left_paren, $value, $this->_right_paren);
   }
 
   public function right_paren(): ?RightParenToken {
-    return $this->_right_paren->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return $this->_right_paren->is_missing() ? null : TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function right_parenx(): RightParenToken {
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function raw_right_paren(): EditableSyntax {
@@ -173,11 +153,6 @@ final class FunctionCallExpression extends EditableSyntax {
   }
 
   public function with_right_paren(EditableSyntax $value): this {
-    return new self(
-      $this->_receiver,
-      $this->_left_paren,
-      $this->_argument_list,
-      $value,
-    );
+    return new self($this->_receiver, $this->_left_paren, $this->_argument_list, $value);
   }
 }

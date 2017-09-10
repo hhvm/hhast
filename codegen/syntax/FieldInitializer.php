@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5a16d486c1b58c78bf58d09d16180208>>
+ * @generated SignedSource<<39fb082a9612ce76a0d1a1411b677a0f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -56,26 +56,23 @@ final class FieldInitializer extends EditableSyntax {
     yield 'value' => $this->_value;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $name = $this->_name->rewrite($rewriter, $child_parents);
-    $arrow = $this->_arrow->rewrite($rewriter, $child_parents);
-    $value = $this->_value->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $name = $this->_name->rewrite($rewriter, $parents);
+    $arrow = $this->_arrow->rewrite($rewriter, $parents);
+    $value = $this->_value->rewrite($rewriter, $parents);
     if (
       $name === $this->_name &&
       $arrow === $this->_arrow &&
       $value === $this->_value
     ) {
-      $node = $this;
-    } else {
-      $node = new self($name, $arrow, $value);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($name, $arrow, $value);
   }
 
   public function name(): EditableSyntax {
@@ -99,8 +96,7 @@ final class FieldInitializer extends EditableSyntax {
   }
 
   public function arrowx(): EqualGreaterThanToken {
-    return
-      TypeAssert::isInstanceOf(EqualGreaterThanToken::class, $this->_arrow);
+    return TypeAssert::isInstanceOf(EqualGreaterThanToken::class, $this->_arrow);
   }
 
   public function raw_arrow(): EditableSyntax {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d8a91a64b58dc3227e1d617a8e24b268>>
+ * @generated SignedSource<<1b35a41927127124dfd21875f887d6d9>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -66,28 +66,25 @@ final class CastExpression extends EditableSyntax {
     yield 'operand' => $this->_operand;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
-    $type = $this->_type->rewrite($rewriter, $child_parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
-    $operand = $this->_operand->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
+    $type = $this->_type->rewrite($rewriter, $parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
+    $operand = $this->_operand->rewrite($rewriter, $parents);
     if (
       $left_paren === $this->_left_paren &&
       $type === $this->_type &&
       $right_paren === $this->_right_paren &&
       $operand === $this->_operand
     ) {
-      $node = $this;
-    } else {
-      $node = new self($left_paren, $type, $right_paren, $operand);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($left_paren, $type, $right_paren, $operand);
   }
 
   public function left_paren(): LeftParenToken {
@@ -119,12 +116,7 @@ final class CastExpression extends EditableSyntax {
   }
 
   public function with_type(EditableSyntax $value): this {
-    return new self(
-      $this->_left_paren,
-      $value,
-      $this->_right_paren,
-      $this->_operand,
-    );
+    return new self($this->_left_paren, $value, $this->_right_paren, $this->_operand);
   }
 
   public function right_paren(): RightParenToken {
@@ -132,8 +124,7 @@ final class CastExpression extends EditableSyntax {
   }
 
   public function right_parenx(): RightParenToken {
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function raw_right_paren(): EditableSyntax {
@@ -157,7 +148,6 @@ final class CastExpression extends EditableSyntax {
   }
 
   public function with_operand(EditableSyntax $value): this {
-    return
-      new self($this->_left_paren, $this->_type, $this->_right_paren, $value);
+    return new self($this->_left_paren, $this->_type, $this->_right_paren, $value);
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<13b7856d58dbccc9cce3aaa37d214b17>>
+ * @generated SignedSource<<05d1865796c9b46089f2e24b061d0501>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -66,28 +66,25 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
     yield 'right_bracket' => $this->_right_bracket;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $left_bracket = $this->_left_bracket->rewrite($rewriter, $child_parents);
-    $members = $this->_members->rewrite($rewriter, $child_parents);
-    $right_bracket = $this->_right_bracket->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $left_bracket = $this->_left_bracket->rewrite($rewriter, $parents);
+    $members = $this->_members->rewrite($rewriter, $parents);
+    $right_bracket = $this->_right_bracket->rewrite($rewriter, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_bracket === $this->_left_bracket &&
       $members === $this->_members &&
       $right_bracket === $this->_right_bracket
     ) {
-      $node = $this;
-    } else {
-      $node = new self($keyword, $left_bracket, $members, $right_bracket);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($keyword, $left_bracket, $members, $right_bracket);
   }
 
   public function keyword(): VarrayToken {
@@ -103,12 +100,7 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
-    return new self(
-      $value,
-      $this->_left_bracket,
-      $this->_members,
-      $this->_right_bracket,
-    );
+    return new self($value, $this->_left_bracket, $this->_members, $this->_right_bracket);
   }
 
   public function left_bracket(): LeftBracketToken {
@@ -116,8 +108,7 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
   }
 
   public function left_bracketx(): LeftBracketToken {
-    return
-      TypeAssert::isInstanceOf(LeftBracketToken::class, $this->_left_bracket);
+    return TypeAssert::isInstanceOf(LeftBracketToken::class, $this->_left_bracket);
   }
 
   public function raw_left_bracket(): EditableSyntax {
@@ -125,14 +116,11 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
   }
 
   public function with_left_bracket(EditableSyntax $value): this {
-    return
-      new self($this->_keyword, $value, $this->_members, $this->_right_bracket);
+    return new self($this->_keyword, $value, $this->_members, $this->_right_bracket);
   }
 
   public function members(): ?EditableList {
-    return $this->_members->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(EditableList::class, $this->_members);
+    return $this->_members->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_members);
   }
 
   public function membersx(): EditableList {
@@ -144,12 +132,7 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
   }
 
   public function with_members(EditableSyntax $value): this {
-    return new self(
-      $this->_keyword,
-      $this->_left_bracket,
-      $value,
-      $this->_right_bracket,
-    );
+    return new self($this->_keyword, $this->_left_bracket, $value, $this->_right_bracket);
   }
 
   public function right_bracket(): RightBracketToken {
@@ -157,8 +140,7 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
   }
 
   public function right_bracketx(): RightBracketToken {
-    return
-      TypeAssert::isInstanceOf(RightBracketToken::class, $this->_right_bracket);
+    return TypeAssert::isInstanceOf(RightBracketToken::class, $this->_right_bracket);
   }
 
   public function raw_right_bracket(): EditableSyntax {
@@ -166,7 +148,6 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
   }
 
   public function with_right_bracket(EditableSyntax $value): this {
-    return
-      new self($this->_keyword, $this->_left_bracket, $this->_members, $value);
+    return new self($this->_keyword, $this->_left_bracket, $this->_members, $value);
   }
 }

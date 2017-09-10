@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<82eacd8ba23e3321328cc1343dc719f2>>
+ * @generated SignedSource<<3ded32bad14fbb937c4d839d9aadcde3>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -46,21 +46,21 @@ final class YieldExpression extends EditableSyntax {
     yield 'operand' => $this->_operand;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $operand = $this->_operand->rewrite($rewriter, $child_parents);
-    if ($keyword === $this->_keyword && $operand === $this->_operand) {
-      $node = $this;
-    } else {
-      $node = new self($keyword, $operand);
+    $parents[] = $this;
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $operand = $this->_operand->rewrite($rewriter, $parents);
+    if (
+      $keyword === $this->_keyword &&
+      $operand === $this->_operand
+    ) {
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($keyword, $operand);
   }
 
   public function keyword(): YieldToken {

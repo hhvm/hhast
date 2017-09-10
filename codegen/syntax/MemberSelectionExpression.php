@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dc316f5e1c751d08b3355b2fed778af1>>
+ * @generated SignedSource<<c7f41c7c80c51647c87cfacdab29928b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -56,26 +56,23 @@ final class MemberSelectionExpression extends EditableSyntax {
     yield 'name' => $this->_name;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $object = $this->_object->rewrite($rewriter, $child_parents);
-    $operator = $this->_operator->rewrite($rewriter, $child_parents);
-    $name = $this->_name->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $object = $this->_object->rewrite($rewriter, $parents);
+    $operator = $this->_operator->rewrite($rewriter, $parents);
+    $name = $this->_name->rewrite($rewriter, $parents);
     if (
       $object === $this->_object &&
       $operator === $this->_operator &&
       $name === $this->_name
     ) {
-      $node = $this;
-    } else {
-      $node = new self($object, $operator, $name);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($object, $operator, $name);
   }
 
   public function object(): EditableSyntax {
@@ -99,8 +96,7 @@ final class MemberSelectionExpression extends EditableSyntax {
   }
 
   public function operatorx(): MinusGreaterThanToken {
-    return
-      TypeAssert::isInstanceOf(MinusGreaterThanToken::class, $this->_operator);
+    return TypeAssert::isInstanceOf(MinusGreaterThanToken::class, $this->_operator);
   }
 
   public function raw_operator(): EditableSyntax {

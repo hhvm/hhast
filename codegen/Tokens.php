@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f2941f35b93c67ae4adb8a5fb4c74dc2>>
+ * @generated SignedSource<<ec4ddb938ed3c879f176c65e35e900eb>>
  */
 namespace Facebook\HHAST;
 
@@ -22,6 +22,23 @@ final class EndOfFileToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class AbstractToken extends EditableToken {
@@ -39,6 +56,23 @@ final class AbstractToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -58,6 +92,23 @@ final class AndToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class ArrayToken extends EditableToken {
@@ -75,6 +126,23 @@ final class ArrayToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -94,6 +162,23 @@ final class ArraykeyToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class AsToken extends EditableToken {
@@ -111,6 +196,23 @@ final class AsToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -130,6 +232,23 @@ final class AsyncToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class AttributeToken extends EditableToken {
@@ -147,6 +266,23 @@ final class AttributeToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -166,6 +302,23 @@ final class AwaitToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class BoolToken extends EditableToken {
@@ -183,6 +336,23 @@ final class BoolToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -202,6 +372,23 @@ final class BreakToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class CaseToken extends EditableToken {
@@ -219,6 +406,23 @@ final class CaseToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -238,6 +442,23 @@ final class CatchToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class CategoryToken extends EditableToken {
@@ -255,6 +476,23 @@ final class CategoryToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -274,6 +512,23 @@ final class ChildrenToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class ClassToken extends EditableToken {
@@ -291,6 +546,23 @@ final class ClassToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -310,6 +582,23 @@ final class ClassnameToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class CloneToken extends EditableToken {
@@ -327,6 +616,23 @@ final class CloneToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -346,6 +652,23 @@ final class ConstToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class ConstructToken extends EditableToken {
@@ -363,6 +686,23 @@ final class ConstructToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -382,6 +722,23 @@ final class ContinueToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class CoroutineToken extends EditableToken {
@@ -399,6 +756,23 @@ final class CoroutineToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -418,6 +792,23 @@ final class DarrayToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class DefaultToken extends EditableToken {
@@ -435,6 +826,23 @@ final class DefaultToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -454,6 +862,23 @@ final class DefineToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class DestructToken extends EditableToken {
@@ -471,6 +896,23 @@ final class DestructToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -490,6 +932,23 @@ final class DictToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class DoToken extends EditableToken {
@@ -507,6 +966,23 @@ final class DoToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -526,6 +1002,23 @@ final class DoubleToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class EchoToken extends EditableToken {
@@ -543,6 +1036,23 @@ final class EchoToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -562,6 +1072,23 @@ final class ElseToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class ElseifToken extends EditableToken {
@@ -579,6 +1106,23 @@ final class ElseifToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -598,6 +1142,23 @@ final class EmptyToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class EnumToken extends EditableToken {
@@ -615,6 +1176,23 @@ final class EnumToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -634,6 +1212,23 @@ final class EvalToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class ExtendsToken extends EditableToken {
@@ -651,6 +1246,23 @@ final class ExtendsToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -670,6 +1282,23 @@ final class FallthroughToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class FloatToken extends EditableToken {
@@ -687,6 +1316,23 @@ final class FloatToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -706,6 +1352,23 @@ final class FinalToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class FinallyToken extends EditableToken {
@@ -723,6 +1386,23 @@ final class FinallyToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -742,6 +1422,23 @@ final class ForToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class ForeachToken extends EditableToken {
@@ -759,6 +1456,23 @@ final class ForeachToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -778,6 +1492,23 @@ final class FunctionToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class GlobalToken extends EditableToken {
@@ -795,6 +1526,23 @@ final class GlobalToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -814,6 +1562,23 @@ final class GotoToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class IfToken extends EditableToken {
@@ -831,6 +1596,23 @@ final class IfToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -850,6 +1632,23 @@ final class ImplementsToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class IncludeToken extends EditableToken {
@@ -867,6 +1666,23 @@ final class IncludeToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -886,6 +1702,23 @@ final class Include_onceToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class InstanceofToken extends EditableToken {
@@ -903,6 +1736,23 @@ final class InstanceofToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -922,6 +1772,23 @@ final class InsteadofToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class IntToken extends EditableToken {
@@ -939,6 +1806,23 @@ final class IntToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -958,6 +1842,23 @@ final class InterfaceToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class IssetToken extends EditableToken {
@@ -975,6 +1876,23 @@ final class IssetToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -994,6 +1912,23 @@ final class KeysetToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class ListToken extends EditableToken {
@@ -1011,6 +1946,23 @@ final class ListToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -1030,6 +1982,23 @@ final class MixedToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class NamespaceToken extends EditableToken {
@@ -1047,6 +2016,23 @@ final class NamespaceToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -1066,6 +2052,23 @@ final class NewToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class NewtypeToken extends EditableToken {
@@ -1083,6 +2086,23 @@ final class NewtypeToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -1102,6 +2122,23 @@ final class NoreturnToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class NumToken extends EditableToken {
@@ -1119,6 +2156,23 @@ final class NumToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -1138,6 +2192,23 @@ final class ObjectToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class OrToken extends EditableToken {
@@ -1155,6 +2226,23 @@ final class OrToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -1174,6 +2262,23 @@ final class ParentToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class PrintToken extends EditableToken {
@@ -1191,6 +2296,23 @@ final class PrintToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -1210,6 +2332,23 @@ final class PrivateToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class ProtectedToken extends EditableToken {
@@ -1227,6 +2366,23 @@ final class ProtectedToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -1246,6 +2402,23 @@ final class PublicToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class RequireToken extends EditableToken {
@@ -1263,6 +2436,23 @@ final class RequireToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -1282,6 +2472,23 @@ final class Require_onceToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class RequiredToken extends EditableToken {
@@ -1299,6 +2506,23 @@ final class RequiredToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -1318,6 +2542,23 @@ final class ResourceToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class ReturnToken extends EditableToken {
@@ -1335,6 +2576,23 @@ final class ReturnToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -1354,6 +2612,23 @@ final class SelfToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class ShapeToken extends EditableToken {
@@ -1371,6 +2646,23 @@ final class ShapeToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -1390,6 +2682,23 @@ final class StaticToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class StringToken extends EditableToken {
@@ -1407,6 +2716,23 @@ final class StringToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -1426,6 +2752,23 @@ final class SuperToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class SuspendToken extends EditableToken {
@@ -1443,6 +2786,23 @@ final class SuspendToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -1462,6 +2822,23 @@ final class SwitchToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class ThisToken extends EditableToken {
@@ -1479,6 +2856,23 @@ final class ThisToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -1498,6 +2892,23 @@ final class ThrowToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class TraitToken extends EditableToken {
@@ -1515,6 +2926,23 @@ final class TraitToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -1534,6 +2962,23 @@ final class TryToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class TupleToken extends EditableToken {
@@ -1551,6 +2996,23 @@ final class TupleToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -1570,6 +3032,23 @@ final class TypeToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class UnsetToken extends EditableToken {
@@ -1587,6 +3066,23 @@ final class UnsetToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -1606,6 +3102,23 @@ final class UseToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class VarToken extends EditableToken {
@@ -1623,6 +3136,23 @@ final class VarToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -1642,6 +3172,23 @@ final class VarrayToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class VecToken extends EditableToken {
@@ -1659,6 +3206,23 @@ final class VecToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -1678,6 +3242,23 @@ final class VoidToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class WhereToken extends EditableToken {
@@ -1695,6 +3276,23 @@ final class WhereToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -1714,6 +3312,23 @@ final class WhileToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class XorToken extends EditableToken {
@@ -1731,6 +3346,23 @@ final class XorToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -1750,6 +3382,23 @@ final class YieldToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class LeftBracketToken extends EditableToken {
@@ -1767,6 +3416,23 @@ final class LeftBracketToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -1786,6 +3452,23 @@ final class RightBracketToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class LeftParenToken extends EditableToken {
@@ -1803,6 +3486,23 @@ final class LeftParenToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -1822,6 +3522,23 @@ final class RightParenToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class LeftBraceToken extends EditableToken {
@@ -1839,6 +3556,23 @@ final class LeftBraceToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -1858,6 +3592,23 @@ final class RightBraceToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class DotToken extends EditableToken {
@@ -1875,6 +3626,23 @@ final class DotToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -1894,6 +3662,23 @@ final class MinusGreaterThanToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class PlusPlusToken extends EditableToken {
@@ -1911,6 +3696,23 @@ final class PlusPlusToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -1930,6 +3732,23 @@ final class MinusMinusToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class StarStarToken extends EditableToken {
@@ -1947,6 +3766,23 @@ final class StarStarToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -1966,6 +3802,23 @@ final class StarToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class PlusToken extends EditableToken {
@@ -1983,6 +3836,23 @@ final class PlusToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -2002,6 +3872,23 @@ final class MinusToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class TildeToken extends EditableToken {
@@ -2019,6 +3906,23 @@ final class TildeToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -2038,6 +3942,23 @@ final class ExclamationToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class DollarToken extends EditableToken {
@@ -2055,6 +3976,23 @@ final class DollarToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -2074,6 +4012,23 @@ final class SlashToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class PercentToken extends EditableToken {
@@ -2091,6 +4046,23 @@ final class PercentToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -2110,6 +4082,23 @@ final class LessThanGreaterThanToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class LessThanEqualGreaterThanToken extends EditableToken {
@@ -2127,6 +4116,23 @@ final class LessThanEqualGreaterThanToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -2146,6 +4152,23 @@ final class LessThanLessThanToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class GreaterThanGreaterThanToken extends EditableToken {
@@ -2163,6 +4186,23 @@ final class GreaterThanGreaterThanToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -2182,6 +4222,23 @@ final class LessThanToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class GreaterThanToken extends EditableToken {
@@ -2199,6 +4256,23 @@ final class GreaterThanToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -2218,6 +4292,23 @@ final class LessThanEqualToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class GreaterThanEqualToken extends EditableToken {
@@ -2235,6 +4326,23 @@ final class GreaterThanEqualToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -2254,6 +4362,23 @@ final class EqualEqualToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class EqualEqualEqualToken extends EditableToken {
@@ -2271,6 +4396,23 @@ final class EqualEqualEqualToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -2290,6 +4432,23 @@ final class ExclamationEqualToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class ExclamationEqualEqualToken extends EditableToken {
@@ -2307,6 +4466,23 @@ final class ExclamationEqualEqualToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -2326,6 +4502,23 @@ final class CaratToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class BarToken extends EditableToken {
@@ -2343,6 +4536,23 @@ final class BarToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -2362,6 +4572,23 @@ final class AmpersandToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class AmpersandAmpersandToken extends EditableToken {
@@ -2379,6 +4606,23 @@ final class AmpersandAmpersandToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -2398,6 +4642,23 @@ final class BarBarToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class QuestionToken extends EditableToken {
@@ -2415,6 +4676,23 @@ final class QuestionToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -2434,6 +4712,23 @@ final class QuestionQuestionToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class ColonToken extends EditableToken {
@@ -2451,6 +4746,23 @@ final class ColonToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -2470,6 +4782,23 @@ final class SemicolonToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class EqualToken extends EditableToken {
@@ -2487,6 +4816,23 @@ final class EqualToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -2506,6 +4852,23 @@ final class StarStarEqualToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class StarEqualToken extends EditableToken {
@@ -2523,6 +4886,23 @@ final class StarEqualToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -2542,6 +4922,23 @@ final class SlashEqualToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class PercentEqualToken extends EditableToken {
@@ -2559,6 +4956,23 @@ final class PercentEqualToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -2578,6 +4992,23 @@ final class PlusEqualToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class MinusEqualToken extends EditableToken {
@@ -2595,6 +5026,23 @@ final class MinusEqualToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -2614,6 +5062,23 @@ final class DotEqualToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class LessThanLessThanEqualToken extends EditableToken {
@@ -2631,6 +5096,23 @@ final class LessThanLessThanEqualToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -2650,6 +5132,23 @@ final class GreaterThanGreaterThanEqualToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class AmpersandEqualToken extends EditableToken {
@@ -2667,6 +5166,23 @@ final class AmpersandEqualToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -2686,6 +5202,23 @@ final class CaratEqualToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class BarEqualToken extends EditableToken {
@@ -2703,6 +5236,23 @@ final class BarEqualToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -2722,6 +5272,23 @@ final class CommaToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class AtToken extends EditableToken {
@@ -2739,6 +5306,23 @@ final class AtToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -2758,6 +5342,23 @@ final class ColonColonToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class EqualGreaterThanToken extends EditableToken {
@@ -2775,6 +5376,23 @@ final class EqualGreaterThanToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -2794,6 +5412,23 @@ final class EqualEqualGreaterThanToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class QuestionMinusGreaterThanToken extends EditableToken {
@@ -2811,6 +5446,23 @@ final class QuestionMinusGreaterThanToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -2830,6 +5482,23 @@ final class DotDotDotToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class DollarDollarToken extends EditableToken {
@@ -2847,6 +5516,23 @@ final class DollarDollarToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -2866,6 +5552,23 @@ final class BarGreaterThanToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class NullLiteralToken extends EditableToken {
@@ -2883,6 +5586,23 @@ final class NullLiteralToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -2902,6 +5622,23 @@ final class SlashGreaterThanToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class LessThanSlashToken extends EditableToken {
@@ -2919,6 +5656,23 @@ final class LessThanSlashToken extends EditableToken {
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
   }
 }
 
@@ -2938,6 +5692,23 @@ final class LessThanQuestionToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class QuestionGreaterThanToken extends EditableToken {
@@ -2956,6 +5727,23 @@ final class QuestionGreaterThanToken extends EditableToken {
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing);
   }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing);
+  }
 }
 
 final class ErrorTokenToken extends EditableToken {
@@ -2968,16 +5756,35 @@ final class ErrorTokenToken extends EditableToken {
     parent::__construct('error_token', $leading, $trailing, $text);
   }
 
-  public function with_text(string $text): this {
-    return new self($this->leading(), $this->trailing(), $text);
-  }
-
   public function with_leading(EditableSyntax $leading): this {
     return new self($leading, $this->trailing(), $this->text());
   }
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing, $this->text());
+  }
+
+  public function with_text(string $text): this {
+    return new self($this->leading(), $this->trailing(), $text);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    $text = $this->text();
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing() &&
+      $text === $this->text()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing, $text);
   }
 }
 
@@ -2991,16 +5798,35 @@ final class NameToken extends EditableToken {
     parent::__construct('name', $leading, $trailing, $text);
   }
 
-  public function with_text(string $text): this {
-    return new self($this->leading(), $this->trailing(), $text);
-  }
-
   public function with_leading(EditableSyntax $leading): this {
     return new self($leading, $this->trailing(), $this->text());
   }
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing, $this->text());
+  }
+
+  public function with_text(string $text): this {
+    return new self($this->leading(), $this->trailing(), $text);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    $text = $this->text();
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing() &&
+      $text === $this->text()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing, $text);
   }
 }
 
@@ -3014,16 +5840,35 @@ final class QualifiedNameToken extends EditableToken {
     parent::__construct('qualified_name', $leading, $trailing, $text);
   }
 
-  public function with_text(string $text): this {
-    return new self($this->leading(), $this->trailing(), $text);
-  }
-
   public function with_leading(EditableSyntax $leading): this {
     return new self($leading, $this->trailing(), $this->text());
   }
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing, $this->text());
+  }
+
+  public function with_text(string $text): this {
+    return new self($this->leading(), $this->trailing(), $text);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    $text = $this->text();
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing() &&
+      $text === $this->text()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing, $text);
   }
 }
 
@@ -3037,16 +5882,35 @@ final class VariableToken extends EditableToken {
     parent::__construct('variable', $leading, $trailing, $text);
   }
 
-  public function with_text(string $text): this {
-    return new self($this->leading(), $this->trailing(), $text);
-  }
-
   public function with_leading(EditableSyntax $leading): this {
     return new self($leading, $this->trailing(), $this->text());
   }
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing, $this->text());
+  }
+
+  public function with_text(string $text): this {
+    return new self($this->leading(), $this->trailing(), $text);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    $text = $this->text();
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing() &&
+      $text === $this->text()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing, $text);
   }
 }
 
@@ -3060,16 +5924,35 @@ final class NamespacePrefixToken extends EditableToken {
     parent::__construct('namespace_prefix', $leading, $trailing, $text);
   }
 
-  public function with_text(string $text): this {
-    return new self($this->leading(), $this->trailing(), $text);
-  }
-
   public function with_leading(EditableSyntax $leading): this {
     return new self($leading, $this->trailing(), $this->text());
   }
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing, $this->text());
+  }
+
+  public function with_text(string $text): this {
+    return new self($this->leading(), $this->trailing(), $text);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    $text = $this->text();
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing() &&
+      $text === $this->text()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing, $text);
   }
 }
 
@@ -3083,16 +5966,35 @@ final class DecimalLiteralToken extends EditableToken {
     parent::__construct('decimal_literal', $leading, $trailing, $text);
   }
 
-  public function with_text(string $text): this {
-    return new self($this->leading(), $this->trailing(), $text);
-  }
-
   public function with_leading(EditableSyntax $leading): this {
     return new self($leading, $this->trailing(), $this->text());
   }
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing, $this->text());
+  }
+
+  public function with_text(string $text): this {
+    return new self($this->leading(), $this->trailing(), $text);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    $text = $this->text();
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing() &&
+      $text === $this->text()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing, $text);
   }
 }
 
@@ -3106,16 +6008,35 @@ final class OctalLiteralToken extends EditableToken {
     parent::__construct('octal_literal', $leading, $trailing, $text);
   }
 
-  public function with_text(string $text): this {
-    return new self($this->leading(), $this->trailing(), $text);
-  }
-
   public function with_leading(EditableSyntax $leading): this {
     return new self($leading, $this->trailing(), $this->text());
   }
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing, $this->text());
+  }
+
+  public function with_text(string $text): this {
+    return new self($this->leading(), $this->trailing(), $text);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    $text = $this->text();
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing() &&
+      $text === $this->text()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing, $text);
   }
 }
 
@@ -3129,16 +6050,35 @@ final class HexadecimalLiteralToken extends EditableToken {
     parent::__construct('hexadecimal_literal', $leading, $trailing, $text);
   }
 
-  public function with_text(string $text): this {
-    return new self($this->leading(), $this->trailing(), $text);
-  }
-
   public function with_leading(EditableSyntax $leading): this {
     return new self($leading, $this->trailing(), $this->text());
   }
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing, $this->text());
+  }
+
+  public function with_text(string $text): this {
+    return new self($this->leading(), $this->trailing(), $text);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    $text = $this->text();
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing() &&
+      $text === $this->text()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing, $text);
   }
 }
 
@@ -3152,16 +6092,35 @@ final class BinaryLiteralToken extends EditableToken {
     parent::__construct('binary_literal', $leading, $trailing, $text);
   }
 
-  public function with_text(string $text): this {
-    return new self($this->leading(), $this->trailing(), $text);
-  }
-
   public function with_leading(EditableSyntax $leading): this {
     return new self($leading, $this->trailing(), $this->text());
   }
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing, $this->text());
+  }
+
+  public function with_text(string $text): this {
+    return new self($this->leading(), $this->trailing(), $text);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    $text = $this->text();
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing() &&
+      $text === $this->text()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing, $text);
   }
 }
 
@@ -3175,16 +6134,35 @@ final class FloatingLiteralToken extends EditableToken {
     parent::__construct('floating_literal', $leading, $trailing, $text);
   }
 
-  public function with_text(string $text): this {
-    return new self($this->leading(), $this->trailing(), $text);
-  }
-
   public function with_leading(EditableSyntax $leading): this {
     return new self($leading, $this->trailing(), $this->text());
   }
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing, $this->text());
+  }
+
+  public function with_text(string $text): this {
+    return new self($this->leading(), $this->trailing(), $text);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    $text = $this->text();
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing() &&
+      $text === $this->text()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing, $text);
   }
 }
 
@@ -3198,16 +6176,35 @@ final class ExecutionStringToken extends EditableToken {
     parent::__construct('execution_string', $leading, $trailing, $text);
   }
 
-  public function with_text(string $text): this {
-    return new self($this->leading(), $this->trailing(), $text);
-  }
-
   public function with_leading(EditableSyntax $leading): this {
     return new self($leading, $this->trailing(), $this->text());
   }
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing, $this->text());
+  }
+
+  public function with_text(string $text): this {
+    return new self($this->leading(), $this->trailing(), $text);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    $text = $this->text();
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing() &&
+      $text === $this->text()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing, $text);
   }
 }
 
@@ -3226,16 +6223,35 @@ final class SingleQuotedStringLiteralToken extends EditableToken {
     );
   }
 
-  public function with_text(string $text): this {
-    return new self($this->leading(), $this->trailing(), $text);
-  }
-
   public function with_leading(EditableSyntax $leading): this {
     return new self($leading, $this->trailing(), $this->text());
   }
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing, $this->text());
+  }
+
+  public function with_text(string $text): this {
+    return new self($this->leading(), $this->trailing(), $text);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    $text = $this->text();
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing() &&
+      $text === $this->text()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing, $text);
   }
 }
 
@@ -3254,16 +6270,35 @@ final class DoubleQuotedStringLiteralToken extends EditableToken {
     );
   }
 
-  public function with_text(string $text): this {
-    return new self($this->leading(), $this->trailing(), $text);
-  }
-
   public function with_leading(EditableSyntax $leading): this {
     return new self($leading, $this->trailing(), $this->text());
   }
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing, $this->text());
+  }
+
+  public function with_text(string $text): this {
+    return new self($this->leading(), $this->trailing(), $text);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    $text = $this->text();
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing() &&
+      $text === $this->text()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing, $text);
   }
 }
 
@@ -3282,16 +6317,35 @@ final class DoubleQuotedStringLiteralHeadToken extends EditableToken {
     );
   }
 
-  public function with_text(string $text): this {
-    return new self($this->leading(), $this->trailing(), $text);
-  }
-
   public function with_leading(EditableSyntax $leading): this {
     return new self($leading, $this->trailing(), $this->text());
   }
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing, $this->text());
+  }
+
+  public function with_text(string $text): this {
+    return new self($this->leading(), $this->trailing(), $text);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    $text = $this->text();
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing() &&
+      $text === $this->text()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing, $text);
   }
 }
 
@@ -3305,16 +6359,35 @@ final class StringLiteralBodyToken extends EditableToken {
     parent::__construct('string_literal_body', $leading, $trailing, $text);
   }
 
-  public function with_text(string $text): this {
-    return new self($this->leading(), $this->trailing(), $text);
-  }
-
   public function with_leading(EditableSyntax $leading): this {
     return new self($leading, $this->trailing(), $this->text());
   }
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing, $this->text());
+  }
+
+  public function with_text(string $text): this {
+    return new self($this->leading(), $this->trailing(), $text);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    $text = $this->text();
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing() &&
+      $text === $this->text()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing, $text);
   }
 }
 
@@ -3333,16 +6406,35 @@ final class DoubleQuotedStringLiteralTailToken extends EditableToken {
     );
   }
 
-  public function with_text(string $text): this {
-    return new self($this->leading(), $this->trailing(), $text);
-  }
-
   public function with_leading(EditableSyntax $leading): this {
     return new self($leading, $this->trailing(), $this->text());
   }
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing, $this->text());
+  }
+
+  public function with_text(string $text): this {
+    return new self($this->leading(), $this->trailing(), $text);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    $text = $this->text();
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing() &&
+      $text === $this->text()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing, $text);
   }
 }
 
@@ -3356,16 +6448,35 @@ final class HeredocStringLiteralToken extends EditableToken {
     parent::__construct('heredoc_string_literal', $leading, $trailing, $text);
   }
 
-  public function with_text(string $text): this {
-    return new self($this->leading(), $this->trailing(), $text);
-  }
-
   public function with_leading(EditableSyntax $leading): this {
     return new self($leading, $this->trailing(), $this->text());
   }
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing, $this->text());
+  }
+
+  public function with_text(string $text): this {
+    return new self($this->leading(), $this->trailing(), $text);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    $text = $this->text();
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing() &&
+      $text === $this->text()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing, $text);
   }
 }
 
@@ -3384,16 +6495,35 @@ final class HeredocStringLiteralHeadToken extends EditableToken {
     );
   }
 
-  public function with_text(string $text): this {
-    return new self($this->leading(), $this->trailing(), $text);
-  }
-
   public function with_leading(EditableSyntax $leading): this {
     return new self($leading, $this->trailing(), $this->text());
   }
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing, $this->text());
+  }
+
+  public function with_text(string $text): this {
+    return new self($this->leading(), $this->trailing(), $text);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    $text = $this->text();
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing() &&
+      $text === $this->text()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing, $text);
   }
 }
 
@@ -3412,16 +6542,35 @@ final class HeredocStringLiteralTailToken extends EditableToken {
     );
   }
 
-  public function with_text(string $text): this {
-    return new self($this->leading(), $this->trailing(), $text);
-  }
-
   public function with_leading(EditableSyntax $leading): this {
     return new self($leading, $this->trailing(), $this->text());
   }
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing, $this->text());
+  }
+
+  public function with_text(string $text): this {
+    return new self($this->leading(), $this->trailing(), $text);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    $text = $this->text();
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing() &&
+      $text === $this->text()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing, $text);
   }
 }
 
@@ -3435,16 +6584,35 @@ final class NowdocStringLiteralToken extends EditableToken {
     parent::__construct('nowdoc_string_literal', $leading, $trailing, $text);
   }
 
-  public function with_text(string $text): this {
-    return new self($this->leading(), $this->trailing(), $text);
-  }
-
   public function with_leading(EditableSyntax $leading): this {
     return new self($leading, $this->trailing(), $this->text());
   }
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing, $this->text());
+  }
+
+  public function with_text(string $text): this {
+    return new self($this->leading(), $this->trailing(), $text);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    $text = $this->text();
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing() &&
+      $text === $this->text()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing, $text);
   }
 }
 
@@ -3458,16 +6626,35 @@ final class BooleanLiteralToken extends EditableToken {
     parent::__construct('boolean_literal', $leading, $trailing, $text);
   }
 
-  public function with_text(string $text): this {
-    return new self($this->leading(), $this->trailing(), $text);
-  }
-
   public function with_leading(EditableSyntax $leading): this {
     return new self($leading, $this->trailing(), $this->text());
   }
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing, $this->text());
+  }
+
+  public function with_text(string $text): this {
+    return new self($this->leading(), $this->trailing(), $text);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    $text = $this->text();
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing() &&
+      $text === $this->text()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing, $text);
   }
 }
 
@@ -3481,16 +6668,35 @@ final class XHPCategoryNameToken extends EditableToken {
     parent::__construct('XHP_category_name', $leading, $trailing, $text);
   }
 
-  public function with_text(string $text): this {
-    return new self($this->leading(), $this->trailing(), $text);
-  }
-
   public function with_leading(EditableSyntax $leading): this {
     return new self($leading, $this->trailing(), $this->text());
   }
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing, $this->text());
+  }
+
+  public function with_text(string $text): this {
+    return new self($this->leading(), $this->trailing(), $text);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    $text = $this->text();
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing() &&
+      $text === $this->text()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing, $text);
   }
 }
 
@@ -3504,16 +6710,35 @@ final class XHPElementNameToken extends EditableToken {
     parent::__construct('XHP_element_name', $leading, $trailing, $text);
   }
 
-  public function with_text(string $text): this {
-    return new self($this->leading(), $this->trailing(), $text);
-  }
-
   public function with_leading(EditableSyntax $leading): this {
     return new self($leading, $this->trailing(), $this->text());
   }
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing, $this->text());
+  }
+
+  public function with_text(string $text): this {
+    return new self($this->leading(), $this->trailing(), $text);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    $text = $this->text();
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing() &&
+      $text === $this->text()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing, $text);
   }
 }
 
@@ -3527,16 +6752,35 @@ final class XHPClassNameToken extends EditableToken {
     parent::__construct('XHP_class_name', $leading, $trailing, $text);
   }
 
-  public function with_text(string $text): this {
-    return new self($this->leading(), $this->trailing(), $text);
-  }
-
   public function with_leading(EditableSyntax $leading): this {
     return new self($leading, $this->trailing(), $this->text());
   }
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing, $this->text());
+  }
+
+  public function with_text(string $text): this {
+    return new self($this->leading(), $this->trailing(), $text);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    $text = $this->text();
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing() &&
+      $text === $this->text()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing, $text);
   }
 }
 
@@ -3550,16 +6794,35 @@ final class XHPStringLiteralToken extends EditableToken {
     parent::__construct('XHP_string_literal', $leading, $trailing, $text);
   }
 
-  public function with_text(string $text): this {
-    return new self($this->leading(), $this->trailing(), $text);
-  }
-
   public function with_leading(EditableSyntax $leading): this {
     return new self($leading, $this->trailing(), $this->text());
   }
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing, $this->text());
+  }
+
+  public function with_text(string $text): this {
+    return new self($this->leading(), $this->trailing(), $text);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    $text = $this->text();
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing() &&
+      $text === $this->text()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing, $text);
   }
 }
 
@@ -3573,16 +6836,35 @@ final class XHPBodyToken extends EditableToken {
     parent::__construct('XHP_body', $leading, $trailing, $text);
   }
 
-  public function with_text(string $text): this {
-    return new self($this->leading(), $this->trailing(), $text);
-  }
-
   public function with_leading(EditableSyntax $leading): this {
     return new self($leading, $this->trailing(), $this->text());
   }
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing, $this->text());
+  }
+
+  public function with_text(string $text): this {
+    return new self($this->leading(), $this->trailing(), $text);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    $text = $this->text();
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing() &&
+      $text === $this->text()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing, $text);
   }
 }
 
@@ -3596,16 +6878,35 @@ final class XHPCommentToken extends EditableToken {
     parent::__construct('XHP_comment', $leading, $trailing, $text);
   }
 
-  public function with_text(string $text): this {
-    return new self($this->leading(), $this->trailing(), $text);
-  }
-
   public function with_leading(EditableSyntax $leading): this {
     return new self($leading, $this->trailing(), $this->text());
   }
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing, $this->text());
+  }
+
+  public function with_text(string $text): this {
+    return new self($this->leading(), $this->trailing(), $text);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    $text = $this->text();
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing() &&
+      $text === $this->text()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing, $text);
   }
 }
 
@@ -3619,15 +6920,34 @@ final class MarkupToken extends EditableToken {
     parent::__construct('markup', $leading, $trailing, $text);
   }
 
-  public function with_text(string $text): this {
-    return new self($this->leading(), $this->trailing(), $text);
-  }
-
   public function with_leading(EditableSyntax $leading): this {
     return new self($leading, $this->trailing(), $this->text());
   }
 
   public function with_trailing(EditableSyntax $trailing): this {
     return new self($this->leading(), $trailing, $this->text());
+  }
+
+  public function with_text(string $text): this {
+    return new self($this->leading(), $this->trailing(), $text);
+  }
+
+  public function rewrite_children(
+    self::TRewriter $rewriter,
+    ?Traversable<EditableSyntax> $parents = null,
+  ): this {
+    $parents = $parents === null ? vec[] : vec($parents);
+    $parents[] = $this;
+    $leading = $this->leading()->rewrite($rewriter, $parents);
+    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    $text = $this->text();
+    if (
+      $leading === $this->leading() &&
+      $trailing === $this->trailing() &&
+      $text === $this->text()
+    ) {
+      return $this;
+    }
+    return new self($leading, $trailing, $text);
   }
 }

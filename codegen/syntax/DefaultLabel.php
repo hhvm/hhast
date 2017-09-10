@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<808c72ef86e387bb14b29e4c6e79a1b5>>
+ * @generated SignedSource<<7f73f8700f38efb4393c368a652a2497>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -43,21 +43,21 @@ final class DefaultLabel extends EditableSyntax {
     yield 'colon' => $this->_colon;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $colon = $this->_colon->rewrite($rewriter, $child_parents);
-    if ($keyword === $this->_keyword && $colon === $this->_colon) {
-      $node = $this;
-    } else {
-      $node = new self($keyword, $colon);
+    $parents[] = $this;
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $colon = $this->_colon->rewrite($rewriter, $parents);
+    if (
+      $keyword === $this->_keyword &&
+      $colon === $this->_colon
+    ) {
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($keyword, $colon);
   }
 
   public function keyword(): DefaultToken {

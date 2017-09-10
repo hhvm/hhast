@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<70920be38807bc2f7ba56722ec647a26>>
+ * @generated SignedSource<<ac908724cd351db91f4b43f9d11ea398>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -46,24 +46,21 @@ final class GenericTypeSpecifier extends EditableSyntax {
     yield 'argument_list' => $this->_argument_list;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $class_type = $this->_class_type->rewrite($rewriter, $child_parents);
-    $argument_list = $this->_argument_list->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $class_type = $this->_class_type->rewrite($rewriter, $parents);
+    $argument_list = $this->_argument_list->rewrite($rewriter, $parents);
     if (
       $class_type === $this->_class_type &&
       $argument_list === $this->_argument_list
     ) {
-      $node = $this;
-    } else {
-      $node = new self($class_type, $argument_list);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($class_type, $argument_list);
   }
 
   public function class_type(): EditableSyntax {
@@ -87,8 +84,7 @@ final class GenericTypeSpecifier extends EditableSyntax {
   }
 
   public function argument_listx(): TypeArguments {
-    return
-      TypeAssert::isInstanceOf(TypeArguments::class, $this->_argument_list);
+    return TypeAssert::isInstanceOf(TypeArguments::class, $this->_argument_list);
   }
 
   public function raw_argument_list(): EditableSyntax {

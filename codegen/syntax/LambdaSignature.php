@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<53f34eeeb5fc889211384ef1ec830400>>
+ * @generated SignedSource<<e7bda327dd430b50f73773041400eb6e>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -76,18 +76,17 @@ final class LambdaSignature extends EditableSyntax {
     yield 'type' => $this->_type;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
-    $parameters = $this->_parameters->rewrite($rewriter, $child_parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
-    $colon = $this->_colon->rewrite($rewriter, $child_parents);
-    $type = $this->_type->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
+    $parameters = $this->_parameters->rewrite($rewriter, $parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
+    $colon = $this->_colon->rewrite($rewriter, $parents);
+    $type = $this->_type->rewrite($rewriter, $parents);
     if (
       $left_paren === $this->_left_paren &&
       $parameters === $this->_parameters &&
@@ -95,17 +94,13 @@ final class LambdaSignature extends EditableSyntax {
       $colon === $this->_colon &&
       $type === $this->_type
     ) {
-      $node = $this;
-    } else {
-      $node = new self($left_paren, $parameters, $right_paren, $colon, $type);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($left_paren, $parameters, $right_paren, $colon, $type);
   }
 
   public function left_paren(): ?LeftParenToken {
-    return $this->_left_paren->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+    return $this->_left_paren->is_missing() ? null : TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
 
   public function left_parenx(): LeftParenToken {
@@ -127,9 +122,7 @@ final class LambdaSignature extends EditableSyntax {
   }
 
   public function parameters(): ?EditableList {
-    return $this->_parameters->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(EditableList::class, $this->_parameters);
+    return $this->_parameters->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_parameters);
   }
 
   public function parametersx(): EditableList {
@@ -151,14 +144,11 @@ final class LambdaSignature extends EditableSyntax {
   }
 
   public function right_paren(): ?RightParenToken {
-    return $this->_right_paren->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return $this->_right_paren->is_missing() ? null : TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function right_parenx(): RightParenToken {
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function raw_right_paren(): EditableSyntax {
@@ -176,9 +166,7 @@ final class LambdaSignature extends EditableSyntax {
   }
 
   public function colon(): ?ColonToken {
-    return $this->_colon->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
+    return $this->_colon->is_missing() ? null : TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
   }
 
   public function colonx(): ColonToken {

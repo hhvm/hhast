@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cbfd453593fe6dc1ad137b0c37cd9356>>
+ * @generated SignedSource<<0c5eb5f0037ff1cb468d3a6b99675523>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -104,20 +104,19 @@ final class SwitchStatement extends EditableSyntax {
     yield 'right_brace' => $this->_right_brace;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
-    $expression = $this->_expression->rewrite($rewriter, $child_parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
-    $left_brace = $this->_left_brace->rewrite($rewriter, $child_parents);
-    $sections = $this->_sections->rewrite($rewriter, $child_parents);
-    $right_brace = $this->_right_brace->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
+    $expression = $this->_expression->rewrite($rewriter, $parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
+    $left_brace = $this->_left_brace->rewrite($rewriter, $parents);
+    $sections = $this->_sections->rewrite($rewriter, $parents);
+    $right_brace = $this->_right_brace->rewrite($rewriter, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_paren === $this->_left_paren &&
@@ -127,19 +126,17 @@ final class SwitchStatement extends EditableSyntax {
       $sections === $this->_sections &&
       $right_brace === $this->_right_brace
     ) {
-      $node = $this;
-    } else {
-      $node = new self(
-        $keyword,
-        $left_paren,
-        $expression,
-        $right_paren,
-        $left_brace,
-        $sections,
-        $right_brace,
-      );
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self(
+      $keyword,
+      $left_paren,
+      $expression,
+      $right_paren,
+      $left_brace,
+      $sections,
+      $right_brace,
+    );
   }
 
   public function keyword(): SwitchToken {
@@ -219,8 +216,7 @@ final class SwitchStatement extends EditableSyntax {
   }
 
   public function right_parenx(): RightParenToken {
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function raw_right_paren(): EditableSyntax {
@@ -240,9 +236,7 @@ final class SwitchStatement extends EditableSyntax {
   }
 
   public function left_brace(): ?LeftBraceToken {
-    return $this->_left_brace->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
+    return $this->_left_brace->is_missing() ? null : TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
   }
 
   public function left_bracex(): LeftBraceToken {
@@ -266,9 +260,7 @@ final class SwitchStatement extends EditableSyntax {
   }
 
   public function sections(): ?EditableList {
-    return $this->_sections->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(EditableList::class, $this->_sections);
+    return $this->_sections->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_sections);
   }
 
   public function sectionsx(): EditableList {
@@ -292,14 +284,11 @@ final class SwitchStatement extends EditableSyntax {
   }
 
   public function right_brace(): ?RightBraceToken {
-    return $this->_right_brace->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+    return $this->_right_brace->is_missing() ? null : TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 
   public function right_bracex(): RightBraceToken {
-    return
-      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+    return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 
   public function raw_right_brace(): EditableSyntax {

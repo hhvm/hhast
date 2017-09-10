@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4e836d1b0168667f9c362df0f136ba54>>
+ * @generated SignedSource<<f82e4342546b10bd0593d29d17f12738>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -56,26 +56,23 @@ final class ScopeResolutionExpression extends EditableSyntax {
     yield 'name' => $this->_name;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $qualifier = $this->_qualifier->rewrite($rewriter, $child_parents);
-    $operator = $this->_operator->rewrite($rewriter, $child_parents);
-    $name = $this->_name->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $qualifier = $this->_qualifier->rewrite($rewriter, $parents);
+    $operator = $this->_operator->rewrite($rewriter, $parents);
+    $name = $this->_name->rewrite($rewriter, $parents);
     if (
       $qualifier === $this->_qualifier &&
       $operator === $this->_operator &&
       $name === $this->_name
     ) {
-      $node = $this;
-    } else {
-      $node = new self($qualifier, $operator, $name);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($qualifier, $operator, $name);
   }
 
   public function qualifier(): EditableSyntax {

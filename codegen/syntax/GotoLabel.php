@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<927e0d927ddb5f5597450df0737ffce3>>
+ * @generated SignedSource<<d7125879832cce02b3ed5ea7dbd6a3c3>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -43,21 +43,21 @@ final class GotoLabel extends EditableSyntax {
     yield 'colon' => $this->_colon;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $name = $this->_name->rewrite($rewriter, $child_parents);
-    $colon = $this->_colon->rewrite($rewriter, $child_parents);
-    if ($name === $this->_name && $colon === $this->_colon) {
-      $node = $this;
-    } else {
-      $node = new self($name, $colon);
+    $parents[] = $this;
+    $name = $this->_name->rewrite($rewriter, $parents);
+    $colon = $this->_colon->rewrite($rewriter, $parents);
+    if (
+      $name === $this->_name &&
+      $colon === $this->_colon
+    ) {
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($name, $colon);
   }
 
   public function name(): NameToken {

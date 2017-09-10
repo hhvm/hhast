@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<62463d5fcfcc4cb8ec7a975dd353bd17>>
+ * @generated SignedSource<<9664cfe1597bb8f71424b1f289da07a0>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -46,21 +46,21 @@ final class SwitchFallthrough extends EditableSyntax {
     yield 'semicolon' => $this->_semicolon;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
-    if ($keyword === $this->_keyword && $semicolon === $this->_semicolon) {
-      $node = $this;
-    } else {
-      $node = new self($keyword, $semicolon);
+    $parents[] = $this;
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
+    if (
+      $keyword === $this->_keyword &&
+      $semicolon === $this->_semicolon
+    ) {
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($keyword, $semicolon);
   }
 
   public function keyword(): EditableSyntax {

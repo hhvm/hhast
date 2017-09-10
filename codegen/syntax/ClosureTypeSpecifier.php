@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<54f2250d76a30d5ac71da2bdfe53cff3>>
+ * @generated SignedSource<<f209877cdd0471487c3dd98a9936db90>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -126,28 +126,21 @@ final class ClosureTypeSpecifier extends EditableSyntax {
     yield 'outer_right_paren' => $this->_outer_right_paren;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $outer_left_paren =
-      $this->_outer_left_paren->rewrite($rewriter, $child_parents);
-    $coroutine = $this->_coroutine->rewrite($rewriter, $child_parents);
-    $function_keyword =
-      $this->_function_keyword->rewrite($rewriter, $child_parents);
-    $inner_left_paren =
-      $this->_inner_left_paren->rewrite($rewriter, $child_parents);
-    $parameter_types =
-      $this->_parameter_types->rewrite($rewriter, $child_parents);
-    $inner_right_paren =
-      $this->_inner_right_paren->rewrite($rewriter, $child_parents);
-    $colon = $this->_colon->rewrite($rewriter, $child_parents);
-    $return_type = $this->_return_type->rewrite($rewriter, $child_parents);
-    $outer_right_paren =
-      $this->_outer_right_paren->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $outer_left_paren = $this->_outer_left_paren->rewrite($rewriter, $parents);
+    $coroutine = $this->_coroutine->rewrite($rewriter, $parents);
+    $function_keyword = $this->_function_keyword->rewrite($rewriter, $parents);
+    $inner_left_paren = $this->_inner_left_paren->rewrite($rewriter, $parents);
+    $parameter_types = $this->_parameter_types->rewrite($rewriter, $parents);
+    $inner_right_paren = $this->_inner_right_paren->rewrite($rewriter, $parents);
+    $colon = $this->_colon->rewrite($rewriter, $parents);
+    $return_type = $this->_return_type->rewrite($rewriter, $parents);
+    $outer_right_paren = $this->_outer_right_paren->rewrite($rewriter, $parents);
     if (
       $outer_left_paren === $this->_outer_left_paren &&
       $coroutine === $this->_coroutine &&
@@ -159,21 +152,19 @@ final class ClosureTypeSpecifier extends EditableSyntax {
       $return_type === $this->_return_type &&
       $outer_right_paren === $this->_outer_right_paren
     ) {
-      $node = $this;
-    } else {
-      $node = new self(
-        $outer_left_paren,
-        $coroutine,
-        $function_keyword,
-        $inner_left_paren,
-        $parameter_types,
-        $inner_right_paren,
-        $colon,
-        $return_type,
-        $outer_right_paren,
-      );
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self(
+      $outer_left_paren,
+      $coroutine,
+      $function_keyword,
+      $inner_left_paren,
+      $parameter_types,
+      $inner_right_paren,
+      $colon,
+      $return_type,
+      $outer_right_paren,
+    );
   }
 
   public function outer_left_paren(): LeftParenToken {
@@ -181,8 +172,7 @@ final class ClosureTypeSpecifier extends EditableSyntax {
   }
 
   public function outer_left_parenx(): LeftParenToken {
-    return
-      TypeAssert::isInstanceOf(LeftParenToken::class, $this->_outer_left_paren);
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_outer_left_paren);
   }
 
   public function raw_outer_left_paren(): EditableSyntax {
@@ -234,8 +224,7 @@ final class ClosureTypeSpecifier extends EditableSyntax {
   }
 
   public function function_keywordx(): FunctionToken {
-    return
-      TypeAssert::isInstanceOf(FunctionToken::class, $this->_function_keyword);
+    return TypeAssert::isInstanceOf(FunctionToken::class, $this->_function_keyword);
   }
 
   public function raw_function_keyword(): EditableSyntax {
@@ -261,8 +250,7 @@ final class ClosureTypeSpecifier extends EditableSyntax {
   }
 
   public function inner_left_parenx(): LeftParenToken {
-    return
-      TypeAssert::isInstanceOf(LeftParenToken::class, $this->_inner_left_paren);
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_inner_left_paren);
   }
 
   public function raw_inner_left_paren(): EditableSyntax {
@@ -284,14 +272,11 @@ final class ClosureTypeSpecifier extends EditableSyntax {
   }
 
   public function parameter_types(): ?EditableList {
-    return $this->_parameter_types->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(EditableList::class, $this->_parameter_types);
+    return $this->_parameter_types->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_parameter_types);
   }
 
   public function parameter_typesx(): EditableList {
-    return
-      TypeAssert::isInstanceOf(EditableList::class, $this->_parameter_types);
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_parameter_types);
   }
 
   public function raw_parameter_types(): EditableSyntax {
@@ -317,10 +302,7 @@ final class ClosureTypeSpecifier extends EditableSyntax {
   }
 
   public function inner_right_parenx(): RightParenToken {
-    return TypeAssert::isInstanceOf(
-      RightParenToken::class,
-      $this->_inner_right_paren,
-    );
+    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_inner_right_paren);
   }
 
   public function raw_inner_right_paren(): EditableSyntax {
@@ -398,10 +380,7 @@ final class ClosureTypeSpecifier extends EditableSyntax {
   }
 
   public function outer_right_parenx(): RightParenToken {
-    return TypeAssert::isInstanceOf(
-      RightParenToken::class,
-      $this->_outer_right_paren,
-    );
+    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_outer_right_paren);
   }
 
   public function raw_outer_right_paren(): EditableSyntax {

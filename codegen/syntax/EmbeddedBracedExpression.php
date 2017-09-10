@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7bd7f64f6df4f4fbb23bd2e812c82b5b>>
+ * @generated SignedSource<<3888241c99822b3ff29be7a6e23446ab>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -56,26 +56,23 @@ final class EmbeddedBracedExpression extends EditableSyntax {
     yield 'right_brace' => $this->_right_brace;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $left_brace = $this->_left_brace->rewrite($rewriter, $child_parents);
-    $expression = $this->_expression->rewrite($rewriter, $child_parents);
-    $right_brace = $this->_right_brace->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $left_brace = $this->_left_brace->rewrite($rewriter, $parents);
+    $expression = $this->_expression->rewrite($rewriter, $parents);
+    $right_brace = $this->_right_brace->rewrite($rewriter, $parents);
     if (
       $left_brace === $this->_left_brace &&
       $expression === $this->_expression &&
       $right_brace === $this->_right_brace
     ) {
-      $node = $this;
-    } else {
-      $node = new self($left_brace, $expression, $right_brace);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($left_brace, $expression, $right_brace);
   }
 
   public function left_brace(): EditableSyntax {

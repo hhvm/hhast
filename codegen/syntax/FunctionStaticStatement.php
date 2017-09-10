@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<37b7569ec6f1d1fff6a6f7778a82668f>>
+ * @generated SignedSource<<652699ae53b88575ad34f1391d359115>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -56,27 +56,23 @@ final class FunctionStaticStatement extends EditableSyntax {
     yield 'semicolon' => $this->_semicolon;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $static_keyword =
-      $this->_static_keyword->rewrite($rewriter, $child_parents);
-    $declarations = $this->_declarations->rewrite($rewriter, $child_parents);
-    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $static_keyword = $this->_static_keyword->rewrite($rewriter, $parents);
+    $declarations = $this->_declarations->rewrite($rewriter, $parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
     if (
       $static_keyword === $this->_static_keyword &&
       $declarations === $this->_declarations &&
       $semicolon === $this->_semicolon
     ) {
-      $node = $this;
-    } else {
-      $node = new self($static_keyword, $declarations, $semicolon);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($static_keyword, $declarations, $semicolon);
   }
 
   public function static_keyword(): StaticToken {
@@ -112,9 +108,7 @@ final class FunctionStaticStatement extends EditableSyntax {
   }
 
   public function semicolon(): ?SemicolonToken {
-    return $this->_semicolon->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+    return $this->_semicolon->is_missing() ? null : TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 
   public function semicolonx(): SemicolonToken {

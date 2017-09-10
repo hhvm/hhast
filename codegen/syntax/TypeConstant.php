@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<05925ac519f89bbcc6c93ab2d4a98a14>>
+ * @generated SignedSource<<13105c8b8d2b0b419cfe9a79c6a6569c>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -56,26 +56,23 @@ final class TypeConstant extends EditableSyntax {
     yield 'right_type' => $this->_right_type;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $left_type = $this->_left_type->rewrite($rewriter, $child_parents);
-    $separator = $this->_separator->rewrite($rewriter, $child_parents);
-    $right_type = $this->_right_type->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $left_type = $this->_left_type->rewrite($rewriter, $parents);
+    $separator = $this->_separator->rewrite($rewriter, $parents);
+    $right_type = $this->_right_type->rewrite($rewriter, $parents);
     if (
       $left_type === $this->_left_type &&
       $separator === $this->_separator &&
       $right_type === $this->_right_type
     ) {
-      $node = $this;
-    } else {
-      $node = new self($left_type, $separator, $right_type);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($left_type, $separator, $right_type);
   }
 
   public function left_type(): EditableSyntax {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7e098add8f49f9974821162994a54cb1>>
+ * @generated SignedSource<<9ff2c7bd4e1de8438a56ede0afb9e2ec>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -30,25 +30,19 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
     string $source,
   ): this {
     $aliasing_name = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json[
-        'trait_use_conflict_resolution_item_aliasing_name'
-      ],
+      /* UNSAFE_EXPR */ $json['trait_use_conflict_resolution_item_aliasing_name'],
       $position,
       $source,
     );
     $position += $aliasing_name->width();
     $aliasing_keyword = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json[
-        'trait_use_conflict_resolution_item_aliasing_keyword'
-      ],
+      /* UNSAFE_EXPR */ $json['trait_use_conflict_resolution_item_aliasing_keyword'],
       $position,
       $source,
     );
     $position += $aliasing_keyword->width();
     $aliased_names = EditableSyntax::from_json(
-      /* UNSAFE_EXPR */ $json[
-        'trait_use_conflict_resolution_item_aliased_names'
-      ],
+      /* UNSAFE_EXPR */ $json['trait_use_conflict_resolution_item_aliased_names'],
       $position,
       $source,
     );
@@ -62,27 +56,23 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
     yield 'aliased_names' => $this->_aliased_names;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $aliasing_name = $this->_aliasing_name->rewrite($rewriter, $child_parents);
-    $aliasing_keyword =
-      $this->_aliasing_keyword->rewrite($rewriter, $child_parents);
-    $aliased_names = $this->_aliased_names->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $aliasing_name = $this->_aliasing_name->rewrite($rewriter, $parents);
+    $aliasing_keyword = $this->_aliasing_keyword->rewrite($rewriter, $parents);
+    $aliased_names = $this->_aliased_names->rewrite($rewriter, $parents);
     if (
       $aliasing_name === $this->_aliasing_name &&
       $aliasing_keyword === $this->_aliasing_keyword &&
       $aliased_names === $this->_aliased_names
     ) {
-      $node = $this;
-    } else {
-      $node = new self($aliasing_name, $aliasing_keyword, $aliased_names);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($aliasing_name, $aliasing_keyword, $aliased_names);
   }
 
   public function aliasing_name(): EditableSyntax {
@@ -90,8 +80,7 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
   }
 
   public function aliasing_namex(): EditableSyntax {
-    return
-      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_aliasing_name);
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_aliasing_name);
   }
 
   public function raw_aliasing_name(): EditableSyntax {
@@ -107,8 +96,7 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
   }
 
   public function aliasing_keywordx(): EditableSyntax {
-    return
-      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_aliasing_keyword);
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_aliasing_keyword);
   }
 
   public function raw_aliasing_keyword(): EditableSyntax {

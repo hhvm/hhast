@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<23f1054ba2605f32bd442ad82ac4cf76>>
+ * @generated SignedSource<<100e91b6d558ff0e0d3a4bf65c496f75>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -56,26 +56,23 @@ final class TypeParameters extends EditableSyntax {
     yield 'right_angle' => $this->_right_angle;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $left_angle = $this->_left_angle->rewrite($rewriter, $child_parents);
-    $parameters = $this->_parameters->rewrite($rewriter, $child_parents);
-    $right_angle = $this->_right_angle->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $left_angle = $this->_left_angle->rewrite($rewriter, $parents);
+    $parameters = $this->_parameters->rewrite($rewriter, $parents);
+    $right_angle = $this->_right_angle->rewrite($rewriter, $parents);
     if (
       $left_angle === $this->_left_angle &&
       $parameters === $this->_parameters &&
       $right_angle === $this->_right_angle
     ) {
-      $node = $this;
-    } else {
-      $node = new self($left_angle, $parameters, $right_angle);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($left_angle, $parameters, $right_angle);
   }
 
   public function left_angle(): LessThanToken {
@@ -115,8 +112,7 @@ final class TypeParameters extends EditableSyntax {
   }
 
   public function right_anglex(): GreaterThanToken {
-    return
-      TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+    return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 
   public function raw_right_angle(): EditableSyntax {

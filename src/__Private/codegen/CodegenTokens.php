@@ -12,134 +12,234 @@
 
 namespace Facebook\HHAST\__Private;
 
+use namespace HH\Lib\{C, Str, Vec};
+use type Facebook\HackCodegen\{
+  CodegenClass,
+  CodegenConstructor,
+  CodegenMethod
+};
+
 final class CodegenTokens extends CodegenBase {
+  const type TTokenSpec = shape(
+    'kind' => string,
+    'description' => string,
+    'text' => ?string,
+    'fields' => vec<shape(
+      'name' => string,
+      'type' => string,
+    )>
+  );
+
+  private function getTokenSpecs(): vec<self::TTokenSpec> {
+    $tokens = $this->getSchemaTokens();
+
+    $leading_trailing = vec[
+      shape(
+        'name' => 'leading',
+        'type' => 'EditableSyntax',
+      ),
+      shape(
+        'name' => 'trailing',
+        'type' => 'EditableSyntax',
+      ),
+    ];
+
+    $no_text = Vec\map(
+      $tokens['noText'],
+      $token ==> shape(
+        'kind' => $token['token_kind'],
+        'description' => $token['token_kind'],
+        'text' => '',
+        'fields' => $leading_trailing,
+      ),
+    );
+
+    $fixed_text = Vec\map(
+      $tokens['fixedText'],
+      $token ==> shape(
+        'kind' => $token['token_kind'],
+        'description' => (string) $token['token_text'],
+        'text' => $token['token_text'],
+        'fields' => $leading_trailing,
+      ),
+    );
+
+    $variable_text = Vec\map(
+      $tokens['variableText'],
+      $token ==> shape(
+        'kind' => $token['token_kind'],
+        'description' => self::underscored($token['token_kind']),
+        'text' => null,
+        'fields' => Vec\concat(
+          $leading_trailing,
+          vec[shape(
+            'name' => 'text',
+            'type' => 'string',
+          )],
+        ),
+      ),
+    );
+
+    return Vec\concat(
+      $no_text,
+      $fixed_text,
+      $variable_text,
+    );
+  }
+
   public function generate(): void {
     $cg = $this->getCodegenFactory();
 
-    $tokens = $this->getSchemaTokens();
-
-    $classes = vec[];
-
-    foreach ($tokens['noText'] as $token) {
-      $classes[] = $cg
-        ->codegenClass($token['token_kind'].'Token')
-        ->setIsFinal()
-        ->setExtends('EditableToken')
-        ->setConstructor(
-          $cg
-            ->codegenConstructor()
-            ->addParameter('EditableSyntax $leading')
-            ->addParameter('EditableSyntax $trailing')
-            ->setBody(
-              sprintf(
-                'parent::__construct(%s, $leading, $trailing, \'\');',
-                var_export($token['token_kind'], true),
-              ),
-            ),
-        )
-        ->addMethod(
-          $cg
-            ->codegenMethod('with_leading')
-            ->addParameter('EditableSyntax $leading')
-            ->setReturnType('this')
-            ->setBody('return new self($leading, $this->trailing());'),
-        )
-        ->addMethod(
-          $cg
-            ->codegenMethod('with_trailing')
-            ->addParameter('EditableSyntax $trailing')
-            ->setReturnType('this')
-            ->setBody('return new self($this->leading(), $trailing);'),
-        );
-    }
-
-    foreach ($tokens['fixedText'] as $token) {
-      $classes[] = $cg
-        ->codegenClass($token['token_kind'].'Token')
-        ->setIsFinal()
-        ->setExtends('EditableToken')
-        ->setConstructor(
-          $cg
-            ->codegenConstructor()
-            ->addParameter('EditableSyntax $leading')
-            ->addParameter('EditableSyntax $trailing')
-            ->setBody(
-              sprintf(
-                'parent::__construct(%s, $leading, $trailing, %s);',
-                var_export($token['token_text'], true),
-                var_export($token['token_text'], true),
-              ),
-            ),
-        )
-        ->addMethod(
-          $cg
-            ->codegenMethod('with_leading')
-            ->addParameter('EditableSyntax $leading')
-            ->setReturnType('this')
-            ->setBody('return new self($leading, $this->trailing());'),
-        )
-        ->addMethod(
-          $cg
-            ->codegenMethod('with_trailing')
-            ->addParameter('EditableSyntax $trailing')
-            ->setReturnType('this')
-            ->setBody('return new self($this->leading(), $trailing);'),
-        );
-    }
-
-    foreach ($tokens['variableText'] as $token) {
-      $classes[] = $cg
-        ->codegenClass($token['token_kind'].'Token')
-        ->setIsFinal()
-        ->setExtends('EditableToken')
-        ->setConstructor(
-          $cg
-            ->codegenConstructor()
-            ->addParameter('EditableSyntax $leading')
-            ->addParameter('EditableSyntax $trailing')
-            ->addParameter('string $text')
-            ->setBody(
-              sprintf(
-                'parent::__construct(%s, $leading, $trailing, $text);',
-                var_export(self::underscored($token['token_kind']), true),
-              ),
-            ),
-        )
-        ->addMethod(
-          $cg
-            ->codegenMethod('with_text')
-            ->addParameter('string $text')
-            ->setReturnType('this')
-            ->setBody(
-              'return new self($this->leading(), $this->trailing(), $text);',
-            ),
-        )
-        ->addMethod(
-          $cg
-            ->codegenMethod('with_leading')
-            ->addParameter('EditableSyntax $leading')
-            ->setReturnType('this')
-            ->setBody(
-              'return new self($leading, $this->trailing(), $this->text());',
-            ),
-        )
-        ->addMethod(
-          $cg
-            ->codegenMethod('with_trailing')
-            ->addParameter('EditableSyntax $trailing')
-            ->setReturnType('this')
-            ->setBody(
-              'return new self($this->leading(), $trailing, $this->text());',
-            ),
-        );
-    }
-
-    $file = $cg
+    $tokens = $this->getTokenSpecs();
+    $cg
       ->codegenFile($this->getOutputDirectory().'/Tokens.php')
-      ->setNamespace('Facebook\\HHAST');
-    foreach ($classes as $class) {
-      $file->addClass($class);
+      ->setNamespace('Facebook\\HHAST')
+      ->addClasses(
+        Vec\map(
+          $tokens,
+          $token ==> $this->generateClassForToken($token),
+        ),
+      )
+      ->save();
+  }
+
+  public function generateClassForToken(
+    self::TTokenSpec $token,
+  ): CodegenClass {
+    $cg = $this->getCodegenFactory();
+    return $cg
+      ->codegenClass($token['kind'].'Token')
+      ->setIsFinal()
+      ->setExtends('EditableToken')
+      ->setConstructor($this->generateConstructor($token))
+      ->addMethods($this->generateFieldMethods($token))
+      ->addMethod($this->generateRewriteChildrenMethod($token));
+  }
+
+  public function generateConstructor(
+    self::TTokenSpec $token,
+  ): CodegenConstructor {
+    $cg = $this->getCodegenFactory();
+    $it = $cg->codegenConstructor();
+    foreach ($token['fields'] as $field) {
+      $it->addParameterf(
+        '%s $%s',
+        $field['type'],
+        $field['name'],
+      );
     }
-    $file->save();
+
+    $parent_args = Vec\concat(
+      vec[var_export($token['description'], true)],
+      Vec\map(
+        $token['fields'],
+        $field ==> '$'.$field['name'],
+      ),
+    );
+    if ($token['text'] !== null) {
+      $parent_args[] = var_export($token['text'], true);
+    }
+
+    $it->setBody(
+      $cg->codegenHackBuilder()
+        ->addMultilineCall(
+          'parent::__construct',
+          $parent_args,
+        )
+        ->getCode(),
+    );
+
+    return $it;
+  }
+
+  private function generateFieldMethods(
+    self::TTokenSpec $token,
+  ): Traversable<CodegenMethod> {
+    $cg = $this->getCodegenFactory();
+    return Vec\map(
+      $token['fields'],
+      $field ==> $cg->codegenMethod('with_'.$field['name'])
+        ->addParameterf(
+          '%s $%s',
+          $field['type'],
+          $field['name'],
+        )
+        ->setReturnType('this')
+        ->setBody(
+          $cg->codegenHackBuilder()
+            ->add('return ')
+            ->addMultilineCall(
+              'new self',
+              Vec\map(
+                $token['fields'],
+                $inner ==> $inner === $field
+                  ? '$'.$inner['name']
+                  : '$this->'.$inner['name'].'()'
+              ),
+            )
+            ->getCode()
+        )
+    );
+  }
+
+  private function generateRewriteChildrenMethod(
+    self::TTokenSpec $token,
+  ): CodegenMethod {
+    $cg = $this->getCodegenFactory();
+    return $cg->codegenMethod('rewrite_children')
+      ->addParameter('self::TRewriter $rewriter')
+      ->addParameter('?Traversable<EditableSyntax> $parents = null')
+      ->setReturnType('this')
+      ->setBody(
+        $cg->codegenHackBuilder()
+          ->addLine('$parents = $parents === null ? vec[] : vec($parents);')
+          ->addLine('$parents[] = $this;')
+          ->addLines(
+            Vec\map(
+              $token['fields'],
+              $field ==> $field['type'] === 'string'
+                ? sprintf('$%s = $this->%s();', $field['name'], $field['name'])
+                : sprintf(
+                  '$%s = $this->%s()->rewrite($rewriter, $parents);',
+                  $field['name'],
+                  $field['name'],
+                )
+            ),
+          )
+          ->addLine('if (')
+          ->indent()
+          ->addLines(
+            Vec\map(
+              $token['fields'],
+              $field ==> sprintf(
+                '$%s === $this->%s() &&',
+                $field['name'],
+                $field['name'],
+              ),
+            )
+            |> (
+              $lines ==> {
+                $idx = C\last_keyx($lines);
+                $lines[$idx] = Str\strip_suffix($lines[$idx], ' &&');
+                return $lines;
+              }
+            )($$)
+          )
+          ->unindent()
+          ->addLine(') {')
+          ->indent()
+          ->addLine('return $this;')
+          ->unindent()
+          ->addLine('}')
+          ->add('return ')
+          ->addMultilineCall(
+            'new self',
+            Vec\map(
+              $token['fields'],
+              $field ==> '$'.$field['name'],
+            ),
+          )
+          ->getCode(),
+      );
   }
 }

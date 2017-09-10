@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<342e4917321c615e81b0edacf9613ec6>>
+ * @generated SignedSource<<928ec47c95f808f35fd3f80eabd20a6f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -104,21 +104,19 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     yield 'right_angle' => $this->_right_angle;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $left_angle = $this->_left_angle->rewrite($rewriter, $child_parents);
-    $key = $this->_key->rewrite($rewriter, $child_parents);
-    $comma = $this->_comma->rewrite($rewriter, $child_parents);
-    $value = $this->_value->rewrite($rewriter, $child_parents);
-    $trailing_comma =
-      $this->_trailing_comma->rewrite($rewriter, $child_parents);
-    $right_angle = $this->_right_angle->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $left_angle = $this->_left_angle->rewrite($rewriter, $parents);
+    $key = $this->_key->rewrite($rewriter, $parents);
+    $comma = $this->_comma->rewrite($rewriter, $parents);
+    $value = $this->_value->rewrite($rewriter, $parents);
+    $trailing_comma = $this->_trailing_comma->rewrite($rewriter, $parents);
+    $right_angle = $this->_right_angle->rewrite($rewriter, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_angle === $this->_left_angle &&
@@ -128,19 +126,17 @@ final class DarrayTypeSpecifier extends EditableSyntax {
       $trailing_comma === $this->_trailing_comma &&
       $right_angle === $this->_right_angle
     ) {
-      $node = $this;
-    } else {
-      $node = new self(
-        $keyword,
-        $left_angle,
-        $key,
-        $comma,
-        $value,
-        $trailing_comma,
-        $right_angle,
-      );
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self(
+      $keyword,
+      $left_angle,
+      $key,
+      $comma,
+      $value,
+      $trailing_comma,
+      $right_angle,
+    );
   }
 
   public function keyword(): DarrayToken {
@@ -268,8 +264,7 @@ final class DarrayTypeSpecifier extends EditableSyntax {
   }
 
   public function trailing_commax(): EditableSyntax {
-    return
-      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_trailing_comma);
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_trailing_comma);
   }
 
   public function raw_trailing_comma(): EditableSyntax {
@@ -293,8 +288,7 @@ final class DarrayTypeSpecifier extends EditableSyntax {
   }
 
   public function right_anglex(): GreaterThanToken {
-    return
-      TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+    return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 
   public function raw_right_angle(): EditableSyntax {

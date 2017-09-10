@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4619ab91c18a60da20c7f1d710eee878>>
+ * @generated SignedSource<<b546d8dc71cba25442851497db23aded>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -137,27 +137,22 @@ final class ClassishDeclaration extends EditableSyntax {
     yield 'body' => $this->_body;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $attribute = $this->_attribute->rewrite($rewriter, $child_parents);
-    $modifiers = $this->_modifiers->rewrite($rewriter, $child_parents);
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $name = $this->_name->rewrite($rewriter, $child_parents);
-    $type_parameters =
-      $this->_type_parameters->rewrite($rewriter, $child_parents);
-    $extends_keyword =
-      $this->_extends_keyword->rewrite($rewriter, $child_parents);
-    $extends_list = $this->_extends_list->rewrite($rewriter, $child_parents);
-    $implements_keyword =
-      $this->_implements_keyword->rewrite($rewriter, $child_parents);
-    $implements_list =
-      $this->_implements_list->rewrite($rewriter, $child_parents);
-    $body = $this->_body->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $attribute = $this->_attribute->rewrite($rewriter, $parents);
+    $modifiers = $this->_modifiers->rewrite($rewriter, $parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $name = $this->_name->rewrite($rewriter, $parents);
+    $type_parameters = $this->_type_parameters->rewrite($rewriter, $parents);
+    $extends_keyword = $this->_extends_keyword->rewrite($rewriter, $parents);
+    $extends_list = $this->_extends_list->rewrite($rewriter, $parents);
+    $implements_keyword = $this->_implements_keyword->rewrite($rewriter, $parents);
+    $implements_list = $this->_implements_list->rewrite($rewriter, $parents);
+    $body = $this->_body->rewrite($rewriter, $parents);
     if (
       $attribute === $this->_attribute &&
       $modifiers === $this->_modifiers &&
@@ -170,38 +165,28 @@ final class ClassishDeclaration extends EditableSyntax {
       $implements_list === $this->_implements_list &&
       $body === $this->_body
     ) {
-      $node = $this;
-    } else {
-      $node = new self(
-        $attribute,
-        $modifiers,
-        $keyword,
-        $name,
-        $type_parameters,
-        $extends_keyword,
-        $extends_list,
-        $implements_keyword,
-        $implements_list,
-        $body,
-      );
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self(
+      $attribute,
+      $modifiers,
+      $keyword,
+      $name,
+      $type_parameters,
+      $extends_keyword,
+      $extends_list,
+      $implements_keyword,
+      $implements_list,
+      $body,
+    );
   }
 
   public function attribute(): ?AttributeSpecification {
-    return $this->_attribute->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(
-          AttributeSpecification::class,
-          $this->_attribute,
-        );
+    return $this->_attribute->is_missing() ? null : TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute);
   }
 
   public function attributex(): AttributeSpecification {
-    return TypeAssert::isInstanceOf(
-      AttributeSpecification::class,
-      $this->_attribute,
-    );
+    return TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute);
   }
 
   public function raw_attribute(): EditableSyntax {
@@ -224,9 +209,7 @@ final class ClassishDeclaration extends EditableSyntax {
   }
 
   public function modifiers(): ?EditableList {
-    return $this->_modifiers->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(EditableList::class, $this->_modifiers);
+    return $this->_modifiers->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_modifiers);
   }
 
   public function modifiersx(): EditableList {
@@ -307,17 +290,11 @@ final class ClassishDeclaration extends EditableSyntax {
   }
 
   public function type_parameters(): ?TypeParameters {
-    return $this->_type_parameters->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(
-          TypeParameters::class,
-          $this->_type_parameters,
-        );
+    return $this->_type_parameters->is_missing() ? null : TypeAssert::isInstanceOf(TypeParameters::class, $this->_type_parameters);
   }
 
   public function type_parametersx(): TypeParameters {
-    return
-      TypeAssert::isInstanceOf(TypeParameters::class, $this->_type_parameters);
+    return TypeAssert::isInstanceOf(TypeParameters::class, $this->_type_parameters);
   }
 
   public function raw_type_parameters(): EditableSyntax {
@@ -340,14 +317,11 @@ final class ClassishDeclaration extends EditableSyntax {
   }
 
   public function extends_keyword(): ?ExtendsToken {
-    return $this->_extends_keyword->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(ExtendsToken::class, $this->_extends_keyword);
+    return $this->_extends_keyword->is_missing() ? null : TypeAssert::isInstanceOf(ExtendsToken::class, $this->_extends_keyword);
   }
 
   public function extends_keywordx(): ExtendsToken {
-    return
-      TypeAssert::isInstanceOf(ExtendsToken::class, $this->_extends_keyword);
+    return TypeAssert::isInstanceOf(ExtendsToken::class, $this->_extends_keyword);
   }
 
   public function raw_extends_keyword(): EditableSyntax {
@@ -370,9 +344,7 @@ final class ClassishDeclaration extends EditableSyntax {
   }
 
   public function extends_list(): ?EditableList {
-    return $this->_extends_list->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(EditableList::class, $this->_extends_list);
+    return $this->_extends_list->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_extends_list);
   }
 
   public function extends_listx(): EditableList {
@@ -399,19 +371,11 @@ final class ClassishDeclaration extends EditableSyntax {
   }
 
   public function implements_keyword(): ?ImplementsToken {
-    return $this->_implements_keyword->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(
-          ImplementsToken::class,
-          $this->_implements_keyword,
-        );
+    return $this->_implements_keyword->is_missing() ? null : TypeAssert::isInstanceOf(ImplementsToken::class, $this->_implements_keyword);
   }
 
   public function implements_keywordx(): ImplementsToken {
-    return TypeAssert::isInstanceOf(
-      ImplementsToken::class,
-      $this->_implements_keyword,
-    );
+    return TypeAssert::isInstanceOf(ImplementsToken::class, $this->_implements_keyword);
   }
 
   public function raw_implements_keyword(): EditableSyntax {
@@ -434,14 +398,11 @@ final class ClassishDeclaration extends EditableSyntax {
   }
 
   public function implements_list(): ?EditableList {
-    return $this->_implements_list->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(EditableList::class, $this->_implements_list);
+    return $this->_implements_list->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_implements_list);
   }
 
   public function implements_listx(): EditableList {
-    return
-      TypeAssert::isInstanceOf(EditableList::class, $this->_implements_list);
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_implements_list);
   }
 
   public function raw_implements_list(): EditableSyntax {

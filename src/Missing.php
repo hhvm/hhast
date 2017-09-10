@@ -38,11 +38,11 @@ final class Missing extends EditableSyntax {
     return self::getInstance();
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
-    return $rewriter($this, $parents ?? vec[]);
+  ): this {
+    return $this;
   }
 }
 

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<780fc82562aaecec68b490df086ef39c>>
+ * @generated SignedSource<<0fcb04bfedf9dad8fa032ab71cd03e00>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -56,26 +56,23 @@ final class XHPClose extends EditableSyntax {
     yield 'right_angle' => $this->_right_angle;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $left_angle = $this->_left_angle->rewrite($rewriter, $child_parents);
-    $name = $this->_name->rewrite($rewriter, $child_parents);
-    $right_angle = $this->_right_angle->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $left_angle = $this->_left_angle->rewrite($rewriter, $parents);
+    $name = $this->_name->rewrite($rewriter, $parents);
+    $right_angle = $this->_right_angle->rewrite($rewriter, $parents);
     if (
       $left_angle === $this->_left_angle &&
       $name === $this->_name &&
       $right_angle === $this->_right_angle
     ) {
-      $node = $this;
-    } else {
-      $node = new self($left_angle, $name, $right_angle);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($left_angle, $name, $right_angle);
   }
 
   public function left_angle(): EditableSyntax {
@@ -95,9 +92,7 @@ final class XHPClose extends EditableSyntax {
   }
 
   public function name(): ?XHPElementNameToken {
-    return $this->_name->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(XHPElementNameToken::class, $this->_name);
+    return $this->_name->is_missing() ? null : TypeAssert::isInstanceOf(XHPElementNameToken::class, $this->_name);
   }
 
   public function namex(): XHPElementNameToken {
@@ -113,14 +108,11 @@ final class XHPClose extends EditableSyntax {
   }
 
   public function right_angle(): ?GreaterThanToken {
-    return $this->_right_angle->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+    return $this->_right_angle->is_missing() ? null : TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 
   public function right_anglex(): GreaterThanToken {
-    return
-      TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+    return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 
   public function raw_right_angle(): EditableSyntax {

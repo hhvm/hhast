@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<725e25eaa582f3dcb82665cae44aff47>>
+ * @generated SignedSource<<412491020d63779d111c40b63b1ebbe2>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -56,26 +56,23 @@ final class XHPExpression extends EditableSyntax {
     yield 'close' => $this->_close;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $open = $this->_open->rewrite($rewriter, $child_parents);
-    $body = $this->_body->rewrite($rewriter, $child_parents);
-    $close = $this->_close->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $open = $this->_open->rewrite($rewriter, $parents);
+    $body = $this->_body->rewrite($rewriter, $parents);
+    $close = $this->_close->rewrite($rewriter, $parents);
     if (
       $open === $this->_open &&
       $body === $this->_body &&
       $close === $this->_close
     ) {
-      $node = $this;
-    } else {
-      $node = new self($open, $body, $close);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($open, $body, $close);
   }
 
   public function open(): XHPOpen {
@@ -95,9 +92,7 @@ final class XHPExpression extends EditableSyntax {
   }
 
   public function body(): ?EditableList {
-    return $this->_body->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(EditableList::class, $this->_body);
+    return $this->_body->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_body);
   }
 
   public function bodyx(): EditableList {
@@ -113,9 +108,7 @@ final class XHPExpression extends EditableSyntax {
   }
 
   public function close(): ?XHPClose {
-    return $this->_close->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(XHPClose::class, $this->_close);
+    return $this->_close->is_missing() ? null : TypeAssert::isInstanceOf(XHPClose::class, $this->_close);
   }
 
   public function closex(): XHPClose {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<efdbf7b9dca28c983be2ae3c2b674182>>
+ * @generated SignedSource<<9b1aea874fd48326298a9f47a39bc80f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -46,21 +46,21 @@ final class WhereClause extends EditableSyntax {
     yield 'constraints' => $this->_constraints;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $constraints = $this->_constraints->rewrite($rewriter, $child_parents);
-    if ($keyword === $this->_keyword && $constraints === $this->_constraints) {
-      $node = $this;
-    } else {
-      $node = new self($keyword, $constraints);
+    $parents[] = $this;
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $constraints = $this->_constraints->rewrite($rewriter, $parents);
+    if (
+      $keyword === $this->_keyword &&
+      $constraints === $this->_constraints
+    ) {
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($keyword, $constraints);
   }
 
   public function keyword(): WhereToken {

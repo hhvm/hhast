@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<07625a7695d22224d57f913b81003ea0>>
+ * @generated SignedSource<<03b1b2030037e939246a095473eb0354>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -56,8 +56,12 @@ final class TryStatement extends EditableSyntax {
       $source,
     );
     $position += $finally_clause->width();
-    return
-      new self($keyword, $compound_statement, $catch_clauses, $finally_clause);
+    return new self(
+      $keyword,
+      $compound_statement,
+      $catch_clauses,
+      $finally_clause,
+    );
   }
 
   public function children(): KeyedTraversable<string, EditableSyntax> {
@@ -67,35 +71,25 @@ final class TryStatement extends EditableSyntax {
     yield 'finally_clause' => $this->_finally_clause;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $compound_statement =
-      $this->_compound_statement->rewrite($rewriter, $child_parents);
-    $catch_clauses = $this->_catch_clauses->rewrite($rewriter, $child_parents);
-    $finally_clause =
-      $this->_finally_clause->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $compound_statement = $this->_compound_statement->rewrite($rewriter, $parents);
+    $catch_clauses = $this->_catch_clauses->rewrite($rewriter, $parents);
+    $finally_clause = $this->_finally_clause->rewrite($rewriter, $parents);
     if (
       $keyword === $this->_keyword &&
       $compound_statement === $this->_compound_statement &&
       $catch_clauses === $this->_catch_clauses &&
       $finally_clause === $this->_finally_clause
     ) {
-      $node = $this;
-    } else {
-      $node = new self(
-        $keyword,
-        $compound_statement,
-        $catch_clauses,
-        $finally_clause,
-      );
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($keyword, $compound_statement, $catch_clauses, $finally_clause);
   }
 
   public function keyword(): TryToken {
@@ -124,10 +118,7 @@ final class TryStatement extends EditableSyntax {
   }
 
   public function compound_statementx(): CompoundStatement {
-    return TypeAssert::isInstanceOf(
-      CompoundStatement::class,
-      $this->_compound_statement,
-    );
+    return TypeAssert::isInstanceOf(CompoundStatement::class, $this->_compound_statement);
   }
 
   public function raw_compound_statement(): EditableSyntax {
@@ -144,9 +135,7 @@ final class TryStatement extends EditableSyntax {
   }
 
   public function catch_clauses(): ?EditableList {
-    return $this->_catch_clauses->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(EditableList::class, $this->_catch_clauses);
+    return $this->_catch_clauses->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_catch_clauses);
   }
 
   public function catch_clausesx(): EditableList {
@@ -167,14 +156,11 @@ final class TryStatement extends EditableSyntax {
   }
 
   public function finally_clause(): ?FinallyClause {
-    return $this->_finally_clause->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(FinallyClause::class, $this->_finally_clause);
+    return $this->_finally_clause->is_missing() ? null : TypeAssert::isInstanceOf(FinallyClause::class, $this->_finally_clause);
   }
 
   public function finally_clausex(): FinallyClause {
-    return
-      TypeAssert::isInstanceOf(FinallyClause::class, $this->_finally_clause);
+    return TypeAssert::isInstanceOf(FinallyClause::class, $this->_finally_clause);
   }
 
   public function raw_finally_clause(): EditableSyntax {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6a29df2d9109127b896b3f4b71cdaaf9>>
+ * @generated SignedSource<<e75c0bd65673b9ee41daee654447de22>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -34,20 +34,19 @@ final class ErrorSyntax extends EditableSyntax {
     yield 'error' => $this->_error;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $error = $this->_error->rewrite($rewriter, $child_parents);
-    if ($error === $this->_error) {
-      $node = $this;
-    } else {
-      $node = new self($error);
+    $parents[] = $this;
+    $error = $this->_error->rewrite($rewriter, $parents);
+    if (
+      $error === $this->_error
+    ) {
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($error);
   }
 
   public function error(): EditableSyntax {

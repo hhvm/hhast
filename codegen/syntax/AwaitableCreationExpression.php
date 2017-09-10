@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0cfc6fe1142331f35af896454bb6b9e3>>
+ * @generated SignedSource<<bcf0c2122813ce3fec774ad3617a253e>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -56,27 +56,23 @@ final class AwaitableCreationExpression extends EditableSyntax {
     yield 'compound_statement' => $this->_compound_statement;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $async = $this->_async->rewrite($rewriter, $child_parents);
-    $coroutine = $this->_coroutine->rewrite($rewriter, $child_parents);
-    $compound_statement =
-      $this->_compound_statement->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $async = $this->_async->rewrite($rewriter, $parents);
+    $coroutine = $this->_coroutine->rewrite($rewriter, $parents);
+    $compound_statement = $this->_compound_statement->rewrite($rewriter, $parents);
     if (
       $async === $this->_async &&
       $coroutine === $this->_coroutine &&
       $compound_statement === $this->_compound_statement
     ) {
-      $node = $this;
-    } else {
-      $node = new self($async, $coroutine, $compound_statement);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($async, $coroutine, $compound_statement);
   }
 
   public function async(): AsyncToken {
@@ -116,10 +112,7 @@ final class AwaitableCreationExpression extends EditableSyntax {
   }
 
   public function compound_statementx(): CompoundStatement {
-    return TypeAssert::isInstanceOf(
-      CompoundStatement::class,
-      $this->_compound_statement,
-    );
+    return TypeAssert::isInstanceOf(CompoundStatement::class, $this->_compound_statement);
   }
 
   public function raw_compound_statement(): EditableSyntax {

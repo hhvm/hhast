@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<574795adda5e58343804faeb8a9d14f6>>
+ * @generated SignedSource<<618f012cff04317a31dc55cbd7dfc44d>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -76,18 +76,17 @@ final class ParameterDeclaration extends EditableSyntax {
     yield 'default_value' => $this->_default_value;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $attribute = $this->_attribute->rewrite($rewriter, $child_parents);
-    $visibility = $this->_visibility->rewrite($rewriter, $child_parents);
-    $type = $this->_type->rewrite($rewriter, $child_parents);
-    $name = $this->_name->rewrite($rewriter, $child_parents);
-    $default_value = $this->_default_value->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $attribute = $this->_attribute->rewrite($rewriter, $parents);
+    $visibility = $this->_visibility->rewrite($rewriter, $parents);
+    $type = $this->_type->rewrite($rewriter, $parents);
+    $name = $this->_name->rewrite($rewriter, $parents);
+    $default_value = $this->_default_value->rewrite($rewriter, $parents);
     if (
       $attribute === $this->_attribute &&
       $visibility === $this->_visibility &&
@@ -95,27 +94,17 @@ final class ParameterDeclaration extends EditableSyntax {
       $name === $this->_name &&
       $default_value === $this->_default_value
     ) {
-      $node = $this;
-    } else {
-      $node = new self($attribute, $visibility, $type, $name, $default_value);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($attribute, $visibility, $type, $name, $default_value);
   }
 
   public function attribute(): ?AttributeSpecification {
-    return $this->_attribute->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(
-          AttributeSpecification::class,
-          $this->_attribute,
-        );
+    return $this->_attribute->is_missing() ? null : TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute);
   }
 
   public function attributex(): AttributeSpecification {
-    return TypeAssert::isInstanceOf(
-      AttributeSpecification::class,
-      $this->_attribute,
-    );
+    return TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute);
   }
 
   public function raw_attribute(): EditableSyntax {
@@ -199,17 +188,11 @@ final class ParameterDeclaration extends EditableSyntax {
   }
 
   public function default_value(): ?SimpleInitializer {
-    return $this->_default_value->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(
-          SimpleInitializer::class,
-          $this->_default_value,
-        );
+    return $this->_default_value->is_missing() ? null : TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_default_value);
   }
 
   public function default_valuex(): SimpleInitializer {
-    return
-      TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_default_value);
+    return TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_default_value);
   }
 
   public function raw_default_value(): EditableSyntax {

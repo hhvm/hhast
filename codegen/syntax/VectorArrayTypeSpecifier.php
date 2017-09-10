@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c30369b6bb3436bf0712efdcf6ffd465>>
+ * @generated SignedSource<<913da990fb4f49a4ad2682b2942e0c2c>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -66,28 +66,25 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
     yield 'right_angle' => $this->_right_angle;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $left_angle = $this->_left_angle->rewrite($rewriter, $child_parents);
-    $type = $this->_type->rewrite($rewriter, $child_parents);
-    $right_angle = $this->_right_angle->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $left_angle = $this->_left_angle->rewrite($rewriter, $parents);
+    $type = $this->_type->rewrite($rewriter, $parents);
+    $right_angle = $this->_right_angle->rewrite($rewriter, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_angle === $this->_left_angle &&
       $type === $this->_type &&
       $right_angle === $this->_right_angle
     ) {
-      $node = $this;
-    } else {
-      $node = new self($keyword, $left_angle, $type, $right_angle);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($keyword, $left_angle, $type, $right_angle);
   }
 
   public function keyword(): ArrayToken {
@@ -103,8 +100,7 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
-    return
-      new self($value, $this->_left_angle, $this->_type, $this->_right_angle);
+    return new self($value, $this->_left_angle, $this->_type, $this->_right_angle);
   }
 
   public function left_angle(): LessThanToken {
@@ -136,12 +132,7 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
   }
 
   public function with_type(EditableSyntax $value): this {
-    return new self(
-      $this->_keyword,
-      $this->_left_angle,
-      $value,
-      $this->_right_angle,
-    );
+    return new self($this->_keyword, $this->_left_angle, $value, $this->_right_angle);
   }
 
   public function right_angle(): GreaterThanToken {
@@ -149,8 +140,7 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
   }
 
   public function right_anglex(): GreaterThanToken {
-    return
-      TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+    return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 
   public function raw_right_angle(): EditableSyntax {

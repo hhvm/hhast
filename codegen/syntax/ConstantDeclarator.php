@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3a36aad88db5e74a8e3993fba6416292>>
+ * @generated SignedSource<<ca3f80cbfbd3187798d5c494e08e484e>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -46,21 +46,21 @@ final class ConstantDeclarator extends EditableSyntax {
     yield 'initializer' => $this->_initializer;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $name = $this->_name->rewrite($rewriter, $child_parents);
-    $initializer = $this->_initializer->rewrite($rewriter, $child_parents);
-    if ($name === $this->_name && $initializer === $this->_initializer) {
-      $node = $this;
-    } else {
-      $node = new self($name, $initializer);
+    $parents[] = $this;
+    $name = $this->_name->rewrite($rewriter, $parents);
+    $initializer = $this->_initializer->rewrite($rewriter, $parents);
+    if (
+      $name === $this->_name &&
+      $initializer === $this->_initializer
+    ) {
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($name, $initializer);
   }
 
   public function name(): NameToken {
@@ -80,14 +80,11 @@ final class ConstantDeclarator extends EditableSyntax {
   }
 
   public function initializer(): ?SimpleInitializer {
-    return $this->_initializer->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
+    return $this->_initializer->is_missing() ? null : TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
   }
 
   public function initializerx(): SimpleInitializer {
-    return
-      TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
+    return TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
   }
 
   public function raw_initializer(): EditableSyntax {

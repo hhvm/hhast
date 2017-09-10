@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e32bf973fcf3e5185266dc544d5d68f0>>
+ * @generated SignedSource<<d8c8cb2aea5bac1c6009b5671993b69d>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -43,21 +43,21 @@ final class ListItem extends EditableSyntax {
     yield 'separator' => $this->_separator;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $item = $this->_item->rewrite($rewriter, $child_parents);
-    $separator = $this->_separator->rewrite($rewriter, $child_parents);
-    if ($item === $this->_item && $separator === $this->_separator) {
-      $node = $this;
-    } else {
-      $node = new self($item, $separator);
+    $parents[] = $this;
+    $item = $this->_item->rewrite($rewriter, $parents);
+    $separator = $this->_separator->rewrite($rewriter, $parents);
+    if (
+      $item === $this->_item &&
+      $separator === $this->_separator
+    ) {
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($item, $separator);
   }
 
   public function item(): EditableSyntax {

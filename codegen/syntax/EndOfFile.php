@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b955908290cc69725712f03a2a1adf59>>
+ * @generated SignedSource<<d62bbe1e2328746237685d1fc9b23754>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -34,20 +34,19 @@ final class EndOfFile extends EditableSyntax {
     yield 'token' => $this->_token;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $token = $this->_token->rewrite($rewriter, $child_parents);
-    if ($token === $this->_token) {
-      $node = $this;
-    } else {
-      $node = new self($token);
+    $parents[] = $this;
+    $token = $this->_token->rewrite($rewriter, $parents);
+    if (
+      $token === $this->_token
+    ) {
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($token);
   }
 
   public function token(): EndOfFileToken {

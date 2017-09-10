@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cd881a313b1732de837c6577c45a73ab>>
+ * @generated SignedSource<<b34d517306e10385dd50baa8449d4804>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -66,28 +66,25 @@ final class Enumerator extends EditableSyntax {
     yield 'semicolon' => $this->_semicolon;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $name = $this->_name->rewrite($rewriter, $child_parents);
-    $equal = $this->_equal->rewrite($rewriter, $child_parents);
-    $value = $this->_value->rewrite($rewriter, $child_parents);
-    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $name = $this->_name->rewrite($rewriter, $parents);
+    $equal = $this->_equal->rewrite($rewriter, $parents);
+    $value = $this->_value->rewrite($rewriter, $parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
     if (
       $name === $this->_name &&
       $equal === $this->_equal &&
       $value === $this->_value &&
       $semicolon === $this->_semicolon
     ) {
-      $node = $this;
-    } else {
-      $node = new self($name, $equal, $value, $semicolon);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($name, $equal, $value, $semicolon);
   }
 
   public function name(): NameToken {

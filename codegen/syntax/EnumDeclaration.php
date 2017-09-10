@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<95131afe05d16813cea73afa9444a20d>>
+ * @generated SignedSource<<586fcaa2b6dd4bf6273a31e850a92f69>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -126,23 +126,21 @@ final class EnumDeclaration extends EditableSyntax {
     yield 'right_brace' => $this->_right_brace;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $attribute_spec =
-      $this->_attribute_spec->rewrite($rewriter, $child_parents);
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $name = $this->_name->rewrite($rewriter, $child_parents);
-    $colon = $this->_colon->rewrite($rewriter, $child_parents);
-    $base = $this->_base->rewrite($rewriter, $child_parents);
-    $type = $this->_type->rewrite($rewriter, $child_parents);
-    $left_brace = $this->_left_brace->rewrite($rewriter, $child_parents);
-    $enumerators = $this->_enumerators->rewrite($rewriter, $child_parents);
-    $right_brace = $this->_right_brace->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $attribute_spec = $this->_attribute_spec->rewrite($rewriter, $parents);
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $name = $this->_name->rewrite($rewriter, $parents);
+    $colon = $this->_colon->rewrite($rewriter, $parents);
+    $base = $this->_base->rewrite($rewriter, $parents);
+    $type = $this->_type->rewrite($rewriter, $parents);
+    $left_brace = $this->_left_brace->rewrite($rewriter, $parents);
+    $enumerators = $this->_enumerators->rewrite($rewriter, $parents);
+    $right_brace = $this->_right_brace->rewrite($rewriter, $parents);
     if (
       $attribute_spec === $this->_attribute_spec &&
       $keyword === $this->_keyword &&
@@ -154,21 +152,19 @@ final class EnumDeclaration extends EditableSyntax {
       $enumerators === $this->_enumerators &&
       $right_brace === $this->_right_brace
     ) {
-      $node = $this;
-    } else {
-      $node = new self(
-        $attribute_spec,
-        $keyword,
-        $name,
-        $colon,
-        $base,
-        $type,
-        $left_brace,
-        $enumerators,
-        $right_brace,
-      );
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self(
+      $attribute_spec,
+      $keyword,
+      $name,
+      $colon,
+      $base,
+      $type,
+      $left_brace,
+      $enumerators,
+      $right_brace,
+    );
   }
 
   public function attribute_spec(): EditableSyntax {
@@ -176,8 +172,7 @@ final class EnumDeclaration extends EditableSyntax {
   }
 
   public function attribute_specx(): EditableSyntax {
-    return
-      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_attribute_spec);
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_attribute_spec);
   }
 
   public function raw_attribute_spec(): EditableSyntax {
@@ -303,9 +298,7 @@ final class EnumDeclaration extends EditableSyntax {
   }
 
   public function type(): ?TypeConstraint {
-    return $this->_type->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(TypeConstraint::class, $this->_type);
+    return $this->_type->is_missing() ? null : TypeAssert::isInstanceOf(TypeConstraint::class, $this->_type);
   }
 
   public function typex(): TypeConstraint {
@@ -357,9 +350,7 @@ final class EnumDeclaration extends EditableSyntax {
   }
 
   public function enumerators(): ?EditableList {
-    return $this->_enumerators->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(EditableList::class, $this->_enumerators);
+    return $this->_enumerators->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_enumerators);
   }
 
   public function enumeratorsx(): EditableList {
@@ -389,8 +380,7 @@ final class EnumDeclaration extends EditableSyntax {
   }
 
   public function right_bracex(): RightBraceToken {
-    return
-      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+    return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 
   public function raw_right_brace(): EditableSyntax {

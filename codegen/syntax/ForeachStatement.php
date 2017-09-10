@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<aa75f55359280a25b52b12dce86caee1>>
+ * @generated SignedSource<<d973c14646632a6da48795ee81dc6f1d>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -137,23 +137,22 @@ final class ForeachStatement extends EditableSyntax {
     yield 'body' => $this->_body;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
-    $collection = $this->_collection->rewrite($rewriter, $child_parents);
-    $await_keyword = $this->_await_keyword->rewrite($rewriter, $child_parents);
-    $as = $this->_as->rewrite($rewriter, $child_parents);
-    $key = $this->_key->rewrite($rewriter, $child_parents);
-    $arrow = $this->_arrow->rewrite($rewriter, $child_parents);
-    $value = $this->_value->rewrite($rewriter, $child_parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
-    $body = $this->_body->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
+    $collection = $this->_collection->rewrite($rewriter, $parents);
+    $await_keyword = $this->_await_keyword->rewrite($rewriter, $parents);
+    $as = $this->_as->rewrite($rewriter, $parents);
+    $key = $this->_key->rewrite($rewriter, $parents);
+    $arrow = $this->_arrow->rewrite($rewriter, $parents);
+    $value = $this->_value->rewrite($rewriter, $parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
+    $body = $this->_body->rewrite($rewriter, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_paren === $this->_left_paren &&
@@ -166,22 +165,20 @@ final class ForeachStatement extends EditableSyntax {
       $right_paren === $this->_right_paren &&
       $body === $this->_body
     ) {
-      $node = $this;
-    } else {
-      $node = new self(
-        $keyword,
-        $left_paren,
-        $collection,
-        $await_keyword,
-        $as,
-        $key,
-        $arrow,
-        $value,
-        $right_paren,
-        $body,
-      );
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self(
+      $keyword,
+      $left_paren,
+      $collection,
+      $await_keyword,
+      $as,
+      $key,
+      $arrow,
+      $value,
+      $right_paren,
+      $body,
+    );
   }
 
   public function keyword(): ForeachToken {
@@ -266,9 +263,7 @@ final class ForeachStatement extends EditableSyntax {
   }
 
   public function await_keyword(): ?AwaitToken {
-    return $this->_await_keyword->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(AwaitToken::class, $this->_await_keyword);
+    return $this->_await_keyword->is_missing() ? null : TypeAssert::isInstanceOf(AwaitToken::class, $this->_await_keyword);
   }
 
   public function await_keywordx(): AwaitToken {
@@ -349,14 +344,11 @@ final class ForeachStatement extends EditableSyntax {
   }
 
   public function arrow(): ?EqualGreaterThanToken {
-    return $this->_arrow->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(EqualGreaterThanToken::class, $this->_arrow);
+    return $this->_arrow->is_missing() ? null : TypeAssert::isInstanceOf(EqualGreaterThanToken::class, $this->_arrow);
   }
 
   public function arrowx(): EqualGreaterThanToken {
-    return
-      TypeAssert::isInstanceOf(EqualGreaterThanToken::class, $this->_arrow);
+    return TypeAssert::isInstanceOf(EqualGreaterThanToken::class, $this->_arrow);
   }
 
   public function raw_arrow(): EditableSyntax {
@@ -410,8 +402,7 @@ final class ForeachStatement extends EditableSyntax {
   }
 
   public function right_parenx(): RightParenToken {
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function raw_right_paren(): EditableSyntax {

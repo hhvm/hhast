@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<92ed7526ef2c4154d139baecfa00700c>>
+ * @generated SignedSource<<8122e292d2627f03d354c29d0e804bce>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -56,26 +56,23 @@ final class TupleTypeSpecifier extends EditableSyntax {
     yield 'right_paren' => $this->_right_paren;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
-    $types = $this->_types->rewrite($rewriter, $child_parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
+    $types = $this->_types->rewrite($rewriter, $parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
     if (
       $left_paren === $this->_left_paren &&
       $types === $this->_types &&
       $right_paren === $this->_right_paren
     ) {
-      $node = $this;
-    } else {
-      $node = new self($left_paren, $types, $right_paren);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($left_paren, $types, $right_paren);
   }
 
   public function left_paren(): LeftParenToken {
@@ -115,8 +112,7 @@ final class TupleTypeSpecifier extends EditableSyntax {
   }
 
   public function right_parenx(): RightParenToken {
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function raw_right_paren(): EditableSyntax {

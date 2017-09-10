@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c58e64ce4084870b1f2a2004999a6cd7>>
+ * @generated SignedSource<<fda538f26ad441dcb56085272567f800>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -66,28 +66,25 @@ final class ListExpression extends EditableSyntax {
     yield 'right_paren' => $this->_right_paren;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $left_paren = $this->_left_paren->rewrite($rewriter, $child_parents);
-    $members = $this->_members->rewrite($rewriter, $child_parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
+    $members = $this->_members->rewrite($rewriter, $parents);
+    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_paren === $this->_left_paren &&
       $members === $this->_members &&
       $right_paren === $this->_right_paren
     ) {
-      $node = $this;
-    } else {
-      $node = new self($keyword, $left_paren, $members, $right_paren);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($keyword, $left_paren, $members, $right_paren);
   }
 
   public function keyword(): ListToken {
@@ -103,12 +100,7 @@ final class ListExpression extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
-    return new self(
-      $value,
-      $this->_left_paren,
-      $this->_members,
-      $this->_right_paren,
-    );
+    return new self($value, $this->_left_paren, $this->_members, $this->_right_paren);
   }
 
   public function left_paren(): LeftParenToken {
@@ -124,14 +116,11 @@ final class ListExpression extends EditableSyntax {
   }
 
   public function with_left_paren(EditableSyntax $value): this {
-    return
-      new self($this->_keyword, $value, $this->_members, $this->_right_paren);
+    return new self($this->_keyword, $value, $this->_members, $this->_right_paren);
   }
 
   public function members(): ?EditableList {
-    return $this->_members->is_missing()
-      ? null
-      : TypeAssert::isInstanceOf(EditableList::class, $this->_members);
+    return $this->_members->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_members);
   }
 
   public function membersx(): EditableList {
@@ -143,12 +132,7 @@ final class ListExpression extends EditableSyntax {
   }
 
   public function with_members(EditableSyntax $value): this {
-    return new self(
-      $this->_keyword,
-      $this->_left_paren,
-      $value,
-      $this->_right_paren,
-    );
+    return new self($this->_keyword, $this->_left_paren, $value, $this->_right_paren);
   }
 
   public function right_paren(): RightParenToken {
@@ -156,8 +140,7 @@ final class ListExpression extends EditableSyntax {
   }
 
   public function right_parenx(): RightParenToken {
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function raw_right_paren(): EditableSyntax {
@@ -165,7 +148,6 @@ final class ListExpression extends EditableSyntax {
   }
 
   public function with_right_paren(EditableSyntax $value): this {
-    return
-      new self($this->_keyword, $this->_left_paren, $this->_members, $value);
+    return new self($this->_keyword, $this->_left_paren, $this->_members, $value);
   }
 }

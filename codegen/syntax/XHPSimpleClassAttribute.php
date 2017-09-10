@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<faff079436297e9879f31689d312f9be>>
+ * @generated SignedSource<<43d58359b23728a8fe69290e8f367c2a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -34,20 +34,19 @@ final class XHPSimpleClassAttribute extends EditableSyntax {
     yield 'type' => $this->_type;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $type = $this->_type->rewrite($rewriter, $child_parents);
-    if ($type === $this->_type) {
-      $node = $this;
-    } else {
-      $node = new self($type);
+    $parents[] = $this;
+    $type = $this->_type->rewrite($rewriter, $parents);
+    if (
+      $type === $this->_type
+    ) {
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($type);
   }
 
   public function type(): SimpleTypeSpecifier {

@@ -32,7 +32,7 @@ abstract class CodegenBase {
 
   final protected function getCodegenFactory(): HackCodegenFactory {
     return new HackCodegenFactory(
-      (new HackCodegenConfig())->withFormatter(new HackfmtFormatter())
+      (new HackCodegenConfig())//->withFormatter(new HackfmtFormatter())
     );
   }
 

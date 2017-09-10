@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ba91ab4c71c50818517d280eafbfdd61>>
+ * @generated SignedSource<<dc2cbbb3484af06674852c18cd947167>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -66,28 +66,25 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
     yield 'right_bracket' => $this->_right_bracket;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $receiver = $this->_receiver->rewrite($rewriter, $child_parents);
-    $left_bracket = $this->_left_bracket->rewrite($rewriter, $child_parents);
-    $index = $this->_index->rewrite($rewriter, $child_parents);
-    $right_bracket = $this->_right_bracket->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $receiver = $this->_receiver->rewrite($rewriter, $parents);
+    $left_bracket = $this->_left_bracket->rewrite($rewriter, $parents);
+    $index = $this->_index->rewrite($rewriter, $parents);
+    $right_bracket = $this->_right_bracket->rewrite($rewriter, $parents);
     if (
       $receiver === $this->_receiver &&
       $left_bracket === $this->_left_bracket &&
       $index === $this->_index &&
       $right_bracket === $this->_right_bracket
     ) {
-      $node = $this;
-    } else {
-      $node = new self($receiver, $left_bracket, $index, $right_bracket);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($receiver, $left_bracket, $index, $right_bracket);
   }
 
   public function receiver(): EditableSyntax {
@@ -103,12 +100,7 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
   }
 
   public function with_receiver(EditableSyntax $value): this {
-    return new self(
-      $value,
-      $this->_left_bracket,
-      $this->_index,
-      $this->_right_bracket,
-    );
+    return new self($value, $this->_left_bracket, $this->_index, $this->_right_bracket);
   }
 
   public function left_bracket(): EditableSyntax {
@@ -116,8 +108,7 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
   }
 
   public function left_bracketx(): EditableSyntax {
-    return
-      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_bracket);
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_bracket);
   }
 
   public function raw_left_bracket(): EditableSyntax {
@@ -125,8 +116,7 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
   }
 
   public function with_left_bracket(EditableSyntax $value): this {
-    return
-      new self($this->_receiver, $value, $this->_index, $this->_right_bracket);
+    return new self($this->_receiver, $value, $this->_index, $this->_right_bracket);
   }
 
   public function index(): EditableSyntax {
@@ -142,12 +132,7 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
   }
 
   public function with_index(EditableSyntax $value): this {
-    return new self(
-      $this->_receiver,
-      $this->_left_bracket,
-      $value,
-      $this->_right_bracket,
-    );
+    return new self($this->_receiver, $this->_left_bracket, $value, $this->_right_bracket);
   }
 
   public function right_bracket(): EditableSyntax {
@@ -155,8 +140,7 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
   }
 
   public function right_bracketx(): EditableSyntax {
-    return
-      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_bracket);
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_bracket);
   }
 
   public function raw_right_bracket(): EditableSyntax {
@@ -164,7 +148,6 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
   }
 
   public function with_right_bracket(EditableSyntax $value): this {
-    return
-      new self($this->_receiver, $this->_left_bracket, $this->_index, $value);
+    return new self($this->_receiver, $this->_left_bracket, $this->_index, $value);
   }
 }

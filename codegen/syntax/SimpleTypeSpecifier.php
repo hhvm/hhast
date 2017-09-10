@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5ee06006e8d01367c8b23a2b0d33f865>>
+ * @generated SignedSource<<004d5115bf8f5e4bd86ea034bf51903b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -34,20 +34,19 @@ final class SimpleTypeSpecifier extends EditableSyntax {
     yield 'specifier' => $this->_specifier;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $specifier = $this->_specifier->rewrite($rewriter, $child_parents);
-    if ($specifier === $this->_specifier) {
-      $node = $this;
-    } else {
-      $node = new self($specifier);
+    $parents[] = $this;
+    $specifier = $this->_specifier->rewrite($rewriter, $parents);
+    if (
+      $specifier === $this->_specifier
+    ) {
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($specifier);
   }
 
   public function specifier(): EditableSyntax {

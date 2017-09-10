@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c8289b2ad5ff56d4c2bfbf55de9ea030>>
+ * @generated SignedSource<<7a3c09d5260146094ccbc9f200673918>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -66,28 +66,25 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
     yield 'right_angle' => $this->_right_angle;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $child_parents);
-    $left_angle = $this->_left_angle->rewrite($rewriter, $child_parents);
-    $members = $this->_members->rewrite($rewriter, $child_parents);
-    $right_angle = $this->_right_angle->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $left_angle = $this->_left_angle->rewrite($rewriter, $parents);
+    $members = $this->_members->rewrite($rewriter, $parents);
+    $right_angle = $this->_right_angle->rewrite($rewriter, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_angle === $this->_left_angle &&
       $members === $this->_members &&
       $right_angle === $this->_right_angle
     ) {
-      $node = $this;
-    } else {
-      $node = new self($keyword, $left_angle, $members, $right_angle);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($keyword, $left_angle, $members, $right_angle);
   }
 
   public function keyword(): DictToken {
@@ -103,12 +100,7 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
-    return new self(
-      $value,
-      $this->_left_angle,
-      $this->_members,
-      $this->_right_angle,
-    );
+    return new self($value, $this->_left_angle, $this->_members, $this->_right_angle);
   }
 
   public function left_angle(): LessThanToken {
@@ -124,8 +116,7 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
   }
 
   public function with_left_angle(EditableSyntax $value): this {
-    return
-      new self($this->_keyword, $value, $this->_members, $this->_right_angle);
+    return new self($this->_keyword, $value, $this->_members, $this->_right_angle);
   }
 
   public function members(): EditableList {
@@ -141,12 +132,7 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
   }
 
   public function with_members(EditableSyntax $value): this {
-    return new self(
-      $this->_keyword,
-      $this->_left_angle,
-      $value,
-      $this->_right_angle,
-    );
+    return new self($this->_keyword, $this->_left_angle, $value, $this->_right_angle);
   }
 
   public function right_angle(): GreaterThanToken {
@@ -154,8 +140,7 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
   }
 
   public function right_anglex(): GreaterThanToken {
-    return
-      TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+    return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 
   public function raw_right_angle(): EditableSyntax {
@@ -163,7 +148,6 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
   }
 
   public function with_right_angle(EditableSyntax $value): this {
-    return
-      new self($this->_keyword, $this->_left_angle, $this->_members, $value);
+    return new self($this->_keyword, $this->_left_angle, $this->_members, $value);
   }
 }

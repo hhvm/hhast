@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<79835b3ec489be5f2341d1d4ef26b36a>>
+ * @generated SignedSource<<5273937b3314d4c480d3c7cd2d701718>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -46,23 +46,21 @@ final class InclusionDirective extends EditableSyntax {
     yield 'semicolon' => $this->_semicolon;
   }
 
-  public function rewrite(
+  public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+  ): this {
     $parents = $parents === null ? vec[] : vec($parents);
-    $child_parents = $parents;
-    $child_parents[] = $this;
-    $expression = $this->_expression->rewrite($rewriter, $child_parents);
-    $semicolon = $this->_semicolon->rewrite($rewriter, $child_parents);
+    $parents[] = $this;
+    $expression = $this->_expression->rewrite($rewriter, $parents);
+    $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
     if (
-      $expression === $this->_expression && $semicolon === $this->_semicolon
+      $expression === $this->_expression &&
+      $semicolon === $this->_semicolon
     ) {
-      $node = $this;
-    } else {
-      $node = new self($expression, $semicolon);
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new self($expression, $semicolon);
   }
 
   public function expression(): InclusionExpression {
@@ -70,8 +68,7 @@ final class InclusionDirective extends EditableSyntax {
   }
 
   public function expressionx(): InclusionExpression {
-    return
-      TypeAssert::isInstanceOf(InclusionExpression::class, $this->_expression);
+    return TypeAssert::isInstanceOf(InclusionExpression::class, $this->_expression);
   }
 
   public function raw_expression(): EditableSyntax {
