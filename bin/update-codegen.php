@@ -48,7 +48,7 @@ final class UpdateCodegen {
       (new $generator($this->schema))->generate();
     }
 
-    (new CodegenRelations('',$this->schema))->generate();
+    (new CodegenRelations('/Users/fred/code/hhvm',$this->schema))->generate();
   }
 
   public static function fromFile(string $path): this {

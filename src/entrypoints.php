@@ -23,6 +23,9 @@ function from_json(array<string, mixed> $json): EditableSyntax {
 function json_from_file(string $file): array<string, mixed> {
   $results = __Private\execute('hh_parse', '--full-fidelity-json', $file);
   $json = json_decode($results[0], /* as array = */ true);
+  if (!is_array($json)) {
+    throw new \Exception('failed to decode json for file ', $file);
+  }
   return $json;
 }
 
