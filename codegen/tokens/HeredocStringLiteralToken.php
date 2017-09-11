@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dfa47dfa460360314790ac420a5fab98>>
+ * @generated SignedSource<<11b1f8ddffccdb5c70c3d2c2ba489464>>
  */
 namespace Facebook\HHAST;
 
@@ -16,16 +16,25 @@ final class HeredocStringLiteralToken extends EditableToken {
     parent::__construct('heredoc_string_literal', $leading, $trailing, $text);
   }
 
-  public function with_leading(EditableSyntax $leading): this {
-    return new self($leading, $this->trailing(), $this->text());
+  public function with_leading(EditableSyntax $value): this {
+    if ($value === $this->leading()) {
+      return $this;
+    }
+    return new self($value, $this->trailing(), $this->text());
   }
 
-  public function with_trailing(EditableSyntax $trailing): this {
-    return new self($this->leading(), $trailing, $this->text());
+  public function with_trailing(EditableSyntax $value): this {
+    if ($value === $this->trailing()) {
+      return $this;
+    }
+    return new self($this->leading(), $value, $this->text());
   }
 
-  public function with_text(string $text): this {
-    return new self($this->leading(), $this->trailing(), $text);
+  public function with_text(string $value): this {
+    if ($value === $this->text()) {
+      return $this;
+    }
+    return new self($this->leading(), $this->trailing(), $value);
   }
 
   public function rewrite_children(

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fdf0ef937666f8d184e920e6fec30e2d>>
+ * @generated SignedSource<<0d4273397622b81183d08f79fcb5f6e1>>
  */
 namespace Facebook\HHAST;
 
@@ -15,12 +15,18 @@ final class SuperToken extends EditableToken {
     parent::__construct('super', $leading, $trailing, 'super');
   }
 
-  public function with_leading(EditableSyntax $leading): this {
-    return new self($leading, $this->trailing());
+  public function with_leading(EditableSyntax $value): this {
+    if ($value === $this->leading()) {
+      return $this;
+    }
+    return new self($value, $this->trailing());
   }
 
-  public function with_trailing(EditableSyntax $trailing): this {
-    return new self($this->leading(), $trailing);
+  public function with_trailing(EditableSyntax $value): this {
+    if ($value === $this->trailing()) {
+      return $this;
+    }
+    return new self($this->leading(), $value);
   }
 
   public function rewrite_children(

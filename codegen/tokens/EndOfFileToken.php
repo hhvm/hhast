@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<80d1f1692ecd1b1b14d37852912dada8>>
+ * @generated SignedSource<<1e89818f30484b4b639c9fdb0c28ce2b>>
  */
 namespace Facebook\HHAST;
 
@@ -15,12 +15,18 @@ final class EndOfFileToken extends EditableToken {
     parent::__construct('EndOfFile', $leading, $trailing, '');
   }
 
-  public function with_leading(EditableSyntax $leading): this {
-    return new self($leading, $this->trailing());
+  public function with_leading(EditableSyntax $value): this {
+    if ($value === $this->leading()) {
+      return $this;
+    }
+    return new self($value, $this->trailing());
   }
 
-  public function with_trailing(EditableSyntax $trailing): this {
-    return new self($this->leading(), $trailing);
+  public function with_trailing(EditableSyntax $value): this {
+    if ($value === $this->trailing()) {
+      return $this;
+    }
+    return new self($this->leading(), $value);
   }
 
   public function rewrite_children(

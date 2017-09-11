@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<10586cc35524c6e63b6edb9649facd57>>
+ * @generated SignedSource<<a4db88ad3585811c63d28d29ebf780c0>>
  */
 namespace Facebook\HHAST;
 
@@ -21,16 +21,25 @@ final class DoubleQuotedStringLiteralHeadToken extends EditableToken {
     );
   }
 
-  public function with_leading(EditableSyntax $leading): this {
-    return new self($leading, $this->trailing(), $this->text());
+  public function with_leading(EditableSyntax $value): this {
+    if ($value === $this->leading()) {
+      return $this;
+    }
+    return new self($value, $this->trailing(), $this->text());
   }
 
-  public function with_trailing(EditableSyntax $trailing): this {
-    return new self($this->leading(), $trailing, $this->text());
+  public function with_trailing(EditableSyntax $value): this {
+    if ($value === $this->trailing()) {
+      return $this;
+    }
+    return new self($this->leading(), $value, $this->text());
   }
 
-  public function with_text(string $text): this {
-    return new self($this->leading(), $this->trailing(), $text);
+  public function with_text(string $value): this {
+    if ($value === $this->text()) {
+      return $this;
+    }
+    return new self($this->leading(), $this->trailing(), $value);
   }
 
   public function rewrite_children(

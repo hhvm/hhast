@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<50362057c84e4e41fac2fcbe339c1937>>
+ * @generated SignedSource<<177e88b49585cc37ffd45f28e30ff38c>>
  */
 namespace Facebook\HHAST;
 
@@ -15,12 +15,18 @@ final class CloneToken extends EditableToken {
     parent::__construct('clone', $leading, $trailing, 'clone');
   }
 
-  public function with_leading(EditableSyntax $leading): this {
-    return new self($leading, $this->trailing());
+  public function with_leading(EditableSyntax $value): this {
+    if ($value === $this->leading()) {
+      return $this;
+    }
+    return new self($value, $this->trailing());
   }
 
-  public function with_trailing(EditableSyntax $trailing): this {
-    return new self($this->leading(), $trailing);
+  public function with_trailing(EditableSyntax $value): this {
+    if ($value === $this->trailing()) {
+      return $this;
+    }
+    return new self($this->leading(), $value);
   }
 
   public function rewrite_children(

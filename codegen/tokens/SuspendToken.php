@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a0306068523247fa02cb650066175d95>>
+ * @generated SignedSource<<525cd63f58b3c383001718e5b77f8c32>>
  */
 namespace Facebook\HHAST;
 
@@ -15,12 +15,18 @@ final class SuspendToken extends EditableToken {
     parent::__construct('suspend', $leading, $trailing, 'suspend');
   }
 
-  public function with_leading(EditableSyntax $leading): this {
-    return new self($leading, $this->trailing());
+  public function with_leading(EditableSyntax $value): this {
+    if ($value === $this->leading()) {
+      return $this;
+    }
+    return new self($value, $this->trailing());
   }
 
-  public function with_trailing(EditableSyntax $trailing): this {
-    return new self($this->leading(), $trailing);
+  public function with_trailing(EditableSyntax $value): this {
+    if ($value === $this->trailing()) {
+      return $this;
+    }
+    return new self($this->leading(), $value);
   }
 
   public function rewrite_children(

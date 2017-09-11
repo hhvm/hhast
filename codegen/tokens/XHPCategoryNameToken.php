@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c96a28a9c350f972dbd2a9f485aa37b9>>
+ * @generated SignedSource<<a0e51bd7e9dd26df2901c894667e7619>>
  */
 namespace Facebook\HHAST;
 
@@ -16,16 +16,25 @@ final class XHPCategoryNameToken extends EditableToken {
     parent::__construct('XHP_category_name', $leading, $trailing, $text);
   }
 
-  public function with_leading(EditableSyntax $leading): this {
-    return new self($leading, $this->trailing(), $this->text());
+  public function with_leading(EditableSyntax $value): this {
+    if ($value === $this->leading()) {
+      return $this;
+    }
+    return new self($value, $this->trailing(), $this->text());
   }
 
-  public function with_trailing(EditableSyntax $trailing): this {
-    return new self($this->leading(), $trailing, $this->text());
+  public function with_trailing(EditableSyntax $value): this {
+    if ($value === $this->trailing()) {
+      return $this;
+    }
+    return new self($this->leading(), $value, $this->text());
   }
 
-  public function with_text(string $text): this {
-    return new self($this->leading(), $this->trailing(), $text);
+  public function with_text(string $value): this {
+    if ($value === $this->text()) {
+      return $this;
+    }
+    return new self($this->leading(), $this->trailing(), $value);
   }
 
   public function rewrite_children(

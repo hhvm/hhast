@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<94fd7e47810a277abcfe8eb0cdb81da9>>
+ * @generated SignedSource<<a3717baa4be592fd4d5b22e07064622f>>
  */
 namespace Facebook\HHAST;
 
@@ -15,12 +15,18 @@ final class DollarDollarToken extends EditableToken {
     parent::__construct('$$', $leading, $trailing, '$$');
   }
 
-  public function with_leading(EditableSyntax $leading): this {
-    return new self($leading, $this->trailing());
+  public function with_leading(EditableSyntax $value): this {
+    if ($value === $this->leading()) {
+      return $this;
+    }
+    return new self($value, $this->trailing());
   }
 
-  public function with_trailing(EditableSyntax $trailing): this {
-    return new self($this->leading(), $trailing);
+  public function with_trailing(EditableSyntax $value): this {
+    if ($value === $this->trailing()) {
+      return $this;
+    }
+    return new self($this->leading(), $value);
   }
 
   public function rewrite_children(

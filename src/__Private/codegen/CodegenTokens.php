@@ -160,20 +160,22 @@ final class CodegenTokens extends CodegenBase {
       $token['fields'],
       $field ==> $cg->codegenMethod('with_'.$field['name'])
         ->addParameterf(
-          '%s $%s',
+          '%s $value',
           $field['type'],
-          $field['name'],
         )
         ->setReturnType('this')
         ->setBody(
           $cg->codegenHackBuilder()
+            ->startIfBlockf('$value === $this->%s()', $field['name'])
+            ->addReturnf('$this')
+            ->endIfBlock()
             ->add('return ')
             ->addMultilineCall(
               'new self',
               Vec\map(
                 $token['fields'],
                 $inner ==> $inner === $field
-                  ? '$'.$inner['name']
+                  ? '$value'
                   : '$this->'.$inner['name'].'()'
               ),
             )

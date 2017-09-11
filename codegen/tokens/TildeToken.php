@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7f87c0849e0b3e543effddb17318e56a>>
+ * @generated SignedSource<<63da9606f7598856827a35ff362c30ff>>
  */
 namespace Facebook\HHAST;
 
@@ -15,12 +15,18 @@ final class TildeToken extends EditableToken {
     parent::__construct('~', $leading, $trailing, '~');
   }
 
-  public function with_leading(EditableSyntax $leading): this {
-    return new self($leading, $this->trailing());
+  public function with_leading(EditableSyntax $value): this {
+    if ($value === $this->leading()) {
+      return $this;
+    }
+    return new self($value, $this->trailing());
   }
 
-  public function with_trailing(EditableSyntax $trailing): this {
-    return new self($this->leading(), $trailing);
+  public function with_trailing(EditableSyntax $value): this {
+    if ($value === $this->trailing()) {
+      return $this;
+    }
+    return new self($this->leading(), $value);
   }
 
   public function rewrite_children(

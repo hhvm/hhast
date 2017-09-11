@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<12b55dd9b304008d0974f4a5ecce1727>>
+ * @generated SignedSource<<1873676d4f2be1aa9ebc9ff4b4ef1ada>>
  */
 namespace Facebook\HHAST;
 
@@ -15,12 +15,18 @@ final class BarToken extends EditableToken {
     parent::__construct('|', $leading, $trailing, '|');
   }
 
-  public function with_leading(EditableSyntax $leading): this {
-    return new self($leading, $this->trailing());
+  public function with_leading(EditableSyntax $value): this {
+    if ($value === $this->leading()) {
+      return $this;
+    }
+    return new self($value, $this->trailing());
   }
 
-  public function with_trailing(EditableSyntax $trailing): this {
-    return new self($this->leading(), $trailing);
+  public function with_trailing(EditableSyntax $value): this {
+    if ($value === $this->trailing()) {
+      return $this;
+    }
+    return new self($this->leading(), $value);
   }
 
   public function rewrite_children(

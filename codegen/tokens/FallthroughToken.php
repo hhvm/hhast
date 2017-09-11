@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<80eb6e0310ee01b6fdb831cd48bf64cc>>
+ * @generated SignedSource<<a103cb9c46703ca09644637f11e8b984>>
  */
 namespace Facebook\HHAST;
 
@@ -15,12 +15,18 @@ final class FallthroughToken extends EditableToken {
     parent::__construct('fallthrough', $leading, $trailing, 'fallthrough');
   }
 
-  public function with_leading(EditableSyntax $leading): this {
-    return new self($leading, $this->trailing());
+  public function with_leading(EditableSyntax $value): this {
+    if ($value === $this->leading()) {
+      return $this;
+    }
+    return new self($value, $this->trailing());
   }
 
-  public function with_trailing(EditableSyntax $trailing): this {
-    return new self($this->leading(), $trailing);
+  public function with_trailing(EditableSyntax $value): this {
+    if ($value === $this->trailing()) {
+      return $this;
+    }
+    return new self($this->leading(), $value);
   }
 
   public function rewrite_children(

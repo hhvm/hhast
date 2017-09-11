@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<443718851581fca8ecb66fee82cf4ecc>>
+ * @generated SignedSource<<bd4a0be79719ca06af5bad11b704c567>>
  */
 namespace Facebook\HHAST;
 
@@ -15,12 +15,18 @@ final class DestructToken extends EditableToken {
     parent::__construct('__destruct', $leading, $trailing, '__destruct');
   }
 
-  public function with_leading(EditableSyntax $leading): this {
-    return new self($leading, $this->trailing());
+  public function with_leading(EditableSyntax $value): this {
+    if ($value === $this->leading()) {
+      return $this;
+    }
+    return new self($value, $this->trailing());
   }
 
-  public function with_trailing(EditableSyntax $trailing): this {
-    return new self($this->leading(), $trailing);
+  public function with_trailing(EditableSyntax $value): this {
+    if ($value === $this->trailing()) {
+      return $this;
+    }
+    return new self($this->leading(), $value);
   }
 
   public function rewrite_children(
