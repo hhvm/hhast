@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8b66d114a75182526c6dd74da1e773de>>
+ * @generated SignedSource<<36f25eb61c966c4dceed3fdb05fc7f31>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -63,7 +63,7 @@ final class StaticDeclarator extends EditableSyntax {
     return new self($name, $initializer);
   }
 
-  public function raw_name(): EditableSyntax {
+  public function getNameUNTYPED(): EditableSyntax {
     return $this->_name;
   }
 
@@ -78,18 +78,18 @@ final class StaticDeclarator extends EditableSyntax {
     return !$this->_name->is_missing();
   }
 
-  public function name(): ?VariableToken {
+  public function getName(): ?VariableToken {
     if ($this->_name->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(VariableToken::class, $this->_name);
   }
 
-  public function namex(): VariableToken {
+  public function getNamex(): VariableToken {
     return TypeAssert::isInstanceOf(VariableToken::class, $this->_name);
   }
 
-  public function raw_initializer(): EditableSyntax {
+  public function getInitializerUNTYPED(): EditableSyntax {
     return $this->_initializer;
   }
 
@@ -104,14 +104,14 @@ final class StaticDeclarator extends EditableSyntax {
     return !$this->_initializer->is_missing();
   }
 
-  public function initializer(): ?SimpleInitializer {
+  public function getInitializer(): ?SimpleInitializer {
     if ($this->_initializer->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
   }
 
-  public function initializerx(): SimpleInitializer {
+  public function getInitializerx(): SimpleInitializer {
     return TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
   }
 }

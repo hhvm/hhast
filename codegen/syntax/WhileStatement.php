@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3f9e6626a3373b59bdb676064b7eeced>>
+ * @generated SignedSource<<64f1ca65bbb05a2584c12f2892fd538e>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -99,7 +99,7 @@ final class WhileStatement extends EditableSyntax {
     return new self($keyword, $left_paren, $condition, $right_paren, $body);
   }
 
-  public function raw_keyword(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -120,11 +120,11 @@ final class WhileStatement extends EditableSyntax {
     return !$this->_keyword->is_missing();
   }
 
-  public function keyword(): WhileToken {
+  public function getKeyword(): WhileToken {
     return TypeAssert::isInstanceOf(WhileToken::class, $this->_keyword);
   }
 
-  public function raw_left_paren(): EditableSyntax {
+  public function getLeftParenUNTYPED(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -145,11 +145,11 @@ final class WhileStatement extends EditableSyntax {
     return !$this->_left_paren->is_missing();
   }
 
-  public function left_paren(): LeftParenToken {
+  public function getLeftParen(): LeftParenToken {
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
 
-  public function raw_condition(): EditableSyntax {
+  public function getConditionUNTYPED(): EditableSyntax {
     return $this->_condition;
   }
 
@@ -170,11 +170,11 @@ final class WhileStatement extends EditableSyntax {
     return !$this->_condition->is_missing();
   }
 
-  public function condition(): EditableSyntax {
+  public function getCondition(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_condition);
   }
 
-  public function raw_right_paren(): EditableSyntax {
+  public function getRightParenUNTYPED(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -195,11 +195,11 @@ final class WhileStatement extends EditableSyntax {
     return !$this->_right_paren->is_missing();
   }
 
-  public function right_paren(): RightParenToken {
+  public function getRightParen(): RightParenToken {
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
-  public function raw_body(): EditableSyntax {
+  public function getBodyUNTYPED(): EditableSyntax {
     return $this->_body;
   }
 
@@ -220,7 +220,7 @@ final class WhileStatement extends EditableSyntax {
     return !$this->_body->is_missing();
   }
 
-  public function body(): EditableSyntax {
+  public function getBody(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_body);
   }
 }

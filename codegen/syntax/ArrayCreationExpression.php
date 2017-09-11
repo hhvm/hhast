@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dc91acd94d9e29caaada5f5a38abe4d5>>
+ * @generated SignedSource<<893634c34b22356ca1a92c8a8c27d3db>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,7 +75,7 @@ final class ArrayCreationExpression extends EditableSyntax {
     return new self($left_bracket, $members, $right_bracket);
   }
 
-  public function raw_left_bracket(): EditableSyntax {
+  public function getLeftBracketUNTYPED(): EditableSyntax {
     return $this->_left_bracket;
   }
 
@@ -90,11 +90,11 @@ final class ArrayCreationExpression extends EditableSyntax {
     return !$this->_left_bracket->is_missing();
   }
 
-  public function left_bracket(): LeftBracketToken {
+  public function getLeftBracket(): LeftBracketToken {
     return TypeAssert::isInstanceOf(LeftBracketToken::class, $this->_left_bracket);
   }
 
-  public function raw_members(): EditableSyntax {
+  public function getMembersUNTYPED(): EditableSyntax {
     return $this->_members;
   }
 
@@ -109,18 +109,18 @@ final class ArrayCreationExpression extends EditableSyntax {
     return !$this->_members->is_missing();
   }
 
-  public function members(): ?EditableList {
+  public function getMembers(): ?EditableList {
     if ($this->_members->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
   }
 
-  public function membersx(): EditableList {
+  public function getMembersx(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
   }
 
-  public function raw_right_bracket(): EditableSyntax {
+  public function getRightBracketUNTYPED(): EditableSyntax {
     return $this->_right_bracket;
   }
 
@@ -135,7 +135,7 @@ final class ArrayCreationExpression extends EditableSyntax {
     return !$this->_right_bracket->is_missing();
   }
 
-  public function right_bracket(): RightBracketToken {
+  public function getRightBracket(): RightBracketToken {
     return TypeAssert::isInstanceOf(RightBracketToken::class, $this->_right_bracket);
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<163bf8502c796f9cc3d8fd211b25b8f6>>
+ * @generated SignedSource<<eaa6e3a2df9e4edeb3e84e95ac1db45c>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,7 +75,7 @@ final class NamespaceDeclaration extends EditableSyntax {
     return new self($keyword, $name, $body);
   }
 
-  public function raw_keyword(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -90,11 +90,11 @@ final class NamespaceDeclaration extends EditableSyntax {
     return !$this->_keyword->is_missing();
   }
 
-  public function keyword(): NamespaceToken {
+  public function getKeyword(): NamespaceToken {
     return TypeAssert::isInstanceOf(NamespaceToken::class, $this->_keyword);
   }
 
-  public function raw_name(): EditableSyntax {
+  public function getNameUNTYPED(): EditableSyntax {
     return $this->_name;
   }
 
@@ -109,11 +109,11 @@ final class NamespaceDeclaration extends EditableSyntax {
     return !$this->_name->is_missing();
   }
 
-  public function name(): EditableSyntax {
+  public function getName(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }
 
-  public function raw_body(): EditableSyntax {
+  public function getBodyUNTYPED(): EditableSyntax {
     return $this->_body;
   }
 
@@ -128,7 +128,7 @@ final class NamespaceDeclaration extends EditableSyntax {
     return !$this->_body->is_missing();
   }
 
-  public function body(): EditableSyntax {
+  public function getBody(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_body);
   }
 }

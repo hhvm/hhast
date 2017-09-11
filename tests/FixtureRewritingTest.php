@@ -28,12 +28,12 @@ final class FixtureRewritingTest extends TestCase {
     $comment = new HHAST\DelimitedComment('/* HELLO WORLD */');
 
     $tries = $original->of_class(HHAST\TryStatement::class);
-    $first_try_body = C\firstx($tries)->compound_statement();
+    $first_try_body = C\firstx($tries)->getCompoundStatement();
 
     $rewritten = $original->insert_before($comment, $first_try_body);
 
     $catches = $rewritten->of_class(HHAST\CatchClause::class);
-    $left_brace = C\firstx($catches)->body()->left_bracex();
+    $left_brace = C\firstx($catches)->getBody()->getLeftBracex();
     $rewritten = $rewritten->insert_after($comment, $left_brace);
 
     $code = $rewritten->full_text();

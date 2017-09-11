@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bdd03b4f7d3307f2274463aea6e1eaf3>>
+ * @generated SignedSource<<f146df50360339bd3203bc37c9d956c7>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -87,7 +87,7 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
     return new self($keyword, $left_angle, $types, $right_angle);
   }
 
-  public function raw_keyword(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -102,11 +102,11 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
     return !$this->_keyword->is_missing();
   }
 
-  public function keyword(): EditableSyntax {
+  public function getKeyword(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_keyword);
   }
 
-  public function raw_left_angle(): EditableSyntax {
+  public function getLeftAngleUNTYPED(): EditableSyntax {
     return $this->_left_angle;
   }
 
@@ -121,11 +121,11 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
     return !$this->_left_angle->is_missing();
   }
 
-  public function left_angle(): EditableSyntax {
+  public function getLeftAngle(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_angle);
   }
 
-  public function raw_types(): EditableSyntax {
+  public function getTypesUNTYPED(): EditableSyntax {
     return $this->_types;
   }
 
@@ -140,11 +140,11 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
     return !$this->_types->is_missing();
   }
 
-  public function types(): EditableSyntax {
+  public function getTypes(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_types);
   }
 
-  public function raw_right_angle(): EditableSyntax {
+  public function getRightAngleUNTYPED(): EditableSyntax {
     return $this->_right_angle;
   }
 
@@ -159,7 +159,7 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
     return !$this->_right_angle->is_missing();
   }
 
-  public function right_angle(): EditableSyntax {
+  public function getRightAngle(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_angle);
   }
 }

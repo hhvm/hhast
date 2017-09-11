@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8596760a3cfe84db583d4d35cfd772a8>>
+ * @generated SignedSource<<b9a2df3e2950ddca7ce1b2e6ee370921>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,7 +75,7 @@ final class CompoundStatement extends EditableSyntax {
     return new self($left_brace, $statements, $right_brace);
   }
 
-  public function raw_left_brace(): EditableSyntax {
+  public function getLeftBraceUNTYPED(): EditableSyntax {
     return $this->_left_brace;
   }
 
@@ -90,18 +90,18 @@ final class CompoundStatement extends EditableSyntax {
     return !$this->_left_brace->is_missing();
   }
 
-  public function left_brace(): ?LeftBraceToken {
+  public function getLeftBrace(): ?LeftBraceToken {
     if ($this->_left_brace->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
   }
 
-  public function left_bracex(): LeftBraceToken {
+  public function getLeftBracex(): LeftBraceToken {
     return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
   }
 
-  public function raw_statements(): EditableSyntax {
+  public function getStatementsUNTYPED(): EditableSyntax {
     return $this->_statements;
   }
 
@@ -116,18 +116,18 @@ final class CompoundStatement extends EditableSyntax {
     return !$this->_statements->is_missing();
   }
 
-  public function statements(): ?EditableList {
+  public function getStatements(): ?EditableList {
     if ($this->_statements->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(EditableList::class, $this->_statements);
   }
 
-  public function statementsx(): EditableList {
+  public function getStatementsx(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_statements);
   }
 
-  public function raw_right_brace(): EditableSyntax {
+  public function getRightBraceUNTYPED(): EditableSyntax {
     return $this->_right_brace;
   }
 
@@ -142,14 +142,14 @@ final class CompoundStatement extends EditableSyntax {
     return !$this->_right_brace->is_missing();
   }
 
-  public function right_brace(): ?RightBraceToken {
+  public function getRightBrace(): ?RightBraceToken {
     if ($this->_right_brace->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 
-  public function right_bracex(): RightBraceToken {
+  public function getRightBracex(): RightBraceToken {
     return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d0efc8a2c39362a502e490a4dec749d4>>
+ * @generated SignedSource<<f415fd486523c5ae2884af3e61986d1e>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -105,7 +105,7 @@ final class ElseifClause extends EditableSyntax {
     return new self($keyword, $left_paren, $condition, $right_paren, $statement);
   }
 
-  public function raw_keyword(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -126,11 +126,11 @@ final class ElseifClause extends EditableSyntax {
     return !$this->_keyword->is_missing();
   }
 
-  public function keyword(): ElseifToken {
+  public function getKeyword(): ElseifToken {
     return TypeAssert::isInstanceOf(ElseifToken::class, $this->_keyword);
   }
 
-  public function raw_left_paren(): EditableSyntax {
+  public function getLeftParenUNTYPED(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -151,11 +151,11 @@ final class ElseifClause extends EditableSyntax {
     return !$this->_left_paren->is_missing();
   }
 
-  public function left_paren(): LeftParenToken {
+  public function getLeftParen(): LeftParenToken {
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
 
-  public function raw_condition(): EditableSyntax {
+  public function getConditionUNTYPED(): EditableSyntax {
     return $this->_condition;
   }
 
@@ -176,11 +176,11 @@ final class ElseifClause extends EditableSyntax {
     return !$this->_condition->is_missing();
   }
 
-  public function condition(): EditableSyntax {
+  public function getCondition(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_condition);
   }
 
-  public function raw_right_paren(): EditableSyntax {
+  public function getRightParenUNTYPED(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -201,11 +201,11 @@ final class ElseifClause extends EditableSyntax {
     return !$this->_right_paren->is_missing();
   }
 
-  public function right_paren(): RightParenToken {
+  public function getRightParen(): RightParenToken {
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
-  public function raw_statement(): EditableSyntax {
+  public function getStatementUNTYPED(): EditableSyntax {
     return $this->_statement;
   }
 
@@ -226,7 +226,7 @@ final class ElseifClause extends EditableSyntax {
     return !$this->_statement->is_missing();
   }
 
-  public function statement(): EditableSyntax {
+  public function getStatement(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_statement);
   }
 }

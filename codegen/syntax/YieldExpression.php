@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<96f41504ceb74d7c113c37df92b64cae>>
+ * @generated SignedSource<<f9953bb18d2c4335032dc950595610a3>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -63,7 +63,7 @@ final class YieldExpression extends EditableSyntax {
     return new self($keyword, $operand);
   }
 
-  public function raw_keyword(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -78,11 +78,11 @@ final class YieldExpression extends EditableSyntax {
     return !$this->_keyword->is_missing();
   }
 
-  public function keyword(): YieldToken {
+  public function getKeyword(): YieldToken {
     return TypeAssert::isInstanceOf(YieldToken::class, $this->_keyword);
   }
 
-  public function raw_operand(): EditableSyntax {
+  public function getOperandUNTYPED(): EditableSyntax {
     return $this->_operand;
   }
 
@@ -97,7 +97,7 @@ final class YieldExpression extends EditableSyntax {
     return !$this->_operand->is_missing();
   }
 
-  public function operand(): EditableSyntax {
+  public function getOperand(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operand);
   }
 }

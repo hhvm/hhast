@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<85a61a4207a2c4dbf162e296d8ad615c>>
+ * @generated SignedSource<<802c56ad25eee0d70b6135cafad6bc9a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,7 +75,7 @@ final class ReturnStatement extends EditableSyntax {
     return new self($keyword, $expression, $semicolon);
   }
 
-  public function raw_keyword(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -90,11 +90,11 @@ final class ReturnStatement extends EditableSyntax {
     return !$this->_keyword->is_missing();
   }
 
-  public function keyword(): ReturnToken {
+  public function getKeyword(): ReturnToken {
     return TypeAssert::isInstanceOf(ReturnToken::class, $this->_keyword);
   }
 
-  public function raw_expression(): EditableSyntax {
+  public function getExpressionUNTYPED(): EditableSyntax {
     return $this->_expression;
   }
 
@@ -109,11 +109,11 @@ final class ReturnStatement extends EditableSyntax {
     return !$this->_expression->is_missing();
   }
 
-  public function expression(): EditableSyntax {
+  public function getExpression(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
   }
 
-  public function raw_semicolon(): EditableSyntax {
+  public function getSemicolonUNTYPED(): EditableSyntax {
     return $this->_semicolon;
   }
 
@@ -128,14 +128,14 @@ final class ReturnStatement extends EditableSyntax {
     return !$this->_semicolon->is_missing();
   }
 
-  public function semicolon(): ?SemicolonToken {
+  public function getSemicolon(): ?SemicolonToken {
     if ($this->_semicolon->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 
-  public function semicolonx(): SemicolonToken {
+  public function getSemicolonx(): SemicolonToken {
     return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 }

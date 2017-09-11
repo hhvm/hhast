@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ed429ef03dd9774b135b50602e5f08f3>>
+ * @generated SignedSource<<1ac77600d0a50be298b0c09b74fc2629>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -60,7 +60,7 @@ final class TypeConstraint extends EditableSyntax {
     return new self($keyword, $type);
   }
 
-  public function raw_keyword(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -75,11 +75,11 @@ final class TypeConstraint extends EditableSyntax {
     return !$this->_keyword->is_missing();
   }
 
-  public function keyword(): EditableSyntax {
+  public function getKeyword(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_keyword);
   }
 
-  public function raw_type(): EditableSyntax {
+  public function getTypeUNTYPED(): EditableSyntax {
     return $this->_type;
   }
 
@@ -94,7 +94,7 @@ final class TypeConstraint extends EditableSyntax {
     return !$this->_type->is_missing();
   }
 
-  public function type(): EditableSyntax {
+  public function getType(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
 }

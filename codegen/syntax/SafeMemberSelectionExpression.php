@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5ee39ba99fb4b5379c1a22f149f1e858>>
+ * @generated SignedSource<<cf6ce8019ea556011fd40b826de5986e>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,7 +75,7 @@ final class SafeMemberSelectionExpression extends EditableSyntax {
     return new self($object, $operator, $name);
   }
 
-  public function raw_object(): EditableSyntax {
+  public function getObjectUNTYPED(): EditableSyntax {
     return $this->_object;
   }
 
@@ -90,11 +90,11 @@ final class SafeMemberSelectionExpression extends EditableSyntax {
     return !$this->_object->is_missing();
   }
 
-  public function object(): EditableSyntax {
+  public function getObject(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_object);
   }
 
-  public function raw_operator(): EditableSyntax {
+  public function getOperatorUNTYPED(): EditableSyntax {
     return $this->_operator;
   }
 
@@ -109,11 +109,11 @@ final class SafeMemberSelectionExpression extends EditableSyntax {
     return !$this->_operator->is_missing();
   }
 
-  public function operator(): QuestionMinusGreaterThanToken {
+  public function getOperator(): QuestionMinusGreaterThanToken {
     return TypeAssert::isInstanceOf(QuestionMinusGreaterThanToken::class, $this->_operator);
   }
 
-  public function raw_name(): EditableSyntax {
+  public function getNameUNTYPED(): EditableSyntax {
     return $this->_name;
   }
 
@@ -128,7 +128,7 @@ final class SafeMemberSelectionExpression extends EditableSyntax {
     return !$this->_name->is_missing();
   }
 
-  public function name(): EditableSyntax {
+  public function getName(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }
 }

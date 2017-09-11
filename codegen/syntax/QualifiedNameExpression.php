@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<22a90e286ecbe1eb4779c025a6b1954b>>
+ * @generated SignedSource<<e063611b255530fa234c96da1d6c8f60>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -49,7 +49,7 @@ final class QualifiedNameExpression extends EditableSyntax {
     return new self($expression);
   }
 
-  public function raw_expression(): EditableSyntax {
+  public function getExpressionUNTYPED(): EditableSyntax {
     return $this->_expression;
   }
 
@@ -64,7 +64,7 @@ final class QualifiedNameExpression extends EditableSyntax {
     return !$this->_expression->is_missing();
   }
 
-  public function expression(): EditableSyntax {
+  public function getExpression(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
   }
 }

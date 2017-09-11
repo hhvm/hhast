@@ -162,23 +162,23 @@ final class RewriteBehaviorTest extends TestCase {
           return $shape ;
         }
 
-        $fields = $shape->fieldsx()->of_class(
+        $fields = $shape->getFieldsx()->of_class(
           HHAST\FieldSpecifier::class,
         );
 
         return $shape->with_fields(
           new HHAST\EditableList(
             Vec\map(
-              $shape->fieldsx()->children(),
+              $shape->getFieldsx()->children(),
               $field ==> {
                 if ($field instanceof HHAST\ListItem) {
-                  $field = $field->item();
+                  $field = $field->getItem();
                 }
                 if (!$field instanceof HHAST\FieldSpecifier) {
                   return $field;
                 }
 
-                $name = $field->name()->of_class(
+                $name = $field->getName()->of_class(
                   HHAST\SingleQuotedStringLiteralToken::class,
                 ) |> C\first($$);
                 if ($name === null) {

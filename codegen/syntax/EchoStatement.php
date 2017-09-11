@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5ea7e080dec0b85a0b64af5f05c593c5>>
+ * @generated SignedSource<<ba50db914de0d3841e411ca07b4fc256>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,7 +75,7 @@ final class EchoStatement extends EditableSyntax {
     return new self($keyword, $expressions, $semicolon);
   }
 
-  public function raw_keyword(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -90,11 +90,11 @@ final class EchoStatement extends EditableSyntax {
     return !$this->_keyword->is_missing();
   }
 
-  public function keyword(): EchoToken {
+  public function getKeyword(): EchoToken {
     return TypeAssert::isInstanceOf(EchoToken::class, $this->_keyword);
   }
 
-  public function raw_expressions(): EditableSyntax {
+  public function getExpressionsUNTYPED(): EditableSyntax {
     return $this->_expressions;
   }
 
@@ -109,11 +109,11 @@ final class EchoStatement extends EditableSyntax {
     return !$this->_expressions->is_missing();
   }
 
-  public function expressions(): EditableList {
+  public function getExpressions(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_expressions);
   }
 
-  public function raw_semicolon(): EditableSyntax {
+  public function getSemicolonUNTYPED(): EditableSyntax {
     return $this->_semicolon;
   }
 
@@ -128,14 +128,14 @@ final class EchoStatement extends EditableSyntax {
     return !$this->_semicolon->is_missing();
   }
 
-  public function semicolon(): ?SemicolonToken {
+  public function getSemicolon(): ?SemicolonToken {
     if ($this->_semicolon->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 
-  public function semicolonx(): SemicolonToken {
+  public function getSemicolonx(): SemicolonToken {
     return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 }

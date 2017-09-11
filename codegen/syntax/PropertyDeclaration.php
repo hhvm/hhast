@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<74870a9307005f6cea9c667fdc4e0590>>
+ * @generated SignedSource<<dd55a8bc0f2741b685c6dda1f67e5d50>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -87,7 +87,7 @@ final class PropertyDeclaration extends EditableSyntax {
     return new self($modifiers, $type, $declarators, $semicolon);
   }
 
-  public function raw_modifiers(): EditableSyntax {
+  public function getModifiersUNTYPED(): EditableSyntax {
     return $this->_modifiers;
   }
 
@@ -102,11 +102,11 @@ final class PropertyDeclaration extends EditableSyntax {
     return !$this->_modifiers->is_missing();
   }
 
-  public function modifiers(): EditableSyntax {
+  public function getModifiers(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_modifiers);
   }
 
-  public function raw_type(): EditableSyntax {
+  public function getTypeUNTYPED(): EditableSyntax {
     return $this->_type;
   }
 
@@ -121,11 +121,11 @@ final class PropertyDeclaration extends EditableSyntax {
     return !$this->_type->is_missing();
   }
 
-  public function type(): EditableSyntax {
+  public function getType(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
 
-  public function raw_declarators(): EditableSyntax {
+  public function getDeclaratorsUNTYPED(): EditableSyntax {
     return $this->_declarators;
   }
 
@@ -140,11 +140,11 @@ final class PropertyDeclaration extends EditableSyntax {
     return !$this->_declarators->is_missing();
   }
 
-  public function declarators(): EditableList {
+  public function getDeclarators(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_declarators);
   }
 
-  public function raw_semicolon(): EditableSyntax {
+  public function getSemicolonUNTYPED(): EditableSyntax {
     return $this->_semicolon;
   }
 
@@ -159,14 +159,14 @@ final class PropertyDeclaration extends EditableSyntax {
     return !$this->_semicolon->is_missing();
   }
 
-  public function semicolon(): ?SemicolonToken {
+  public function getSemicolon(): ?SemicolonToken {
     if ($this->_semicolon->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 
-  public function semicolonx(): SemicolonToken {
+  public function getSemicolonx(): SemicolonToken {
     return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 }

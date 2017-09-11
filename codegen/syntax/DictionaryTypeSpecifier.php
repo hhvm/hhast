@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c8a1a2e3a69d0f8d3b3a6e519c01dd26>>
+ * @generated SignedSource<<bc8fd36877b2d8481ba339a562d02995>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -87,7 +87,7 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
     return new self($keyword, $left_angle, $members, $right_angle);
   }
 
-  public function raw_keyword(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -102,11 +102,11 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
     return !$this->_keyword->is_missing();
   }
 
-  public function keyword(): DictToken {
+  public function getKeyword(): DictToken {
     return TypeAssert::isInstanceOf(DictToken::class, $this->_keyword);
   }
 
-  public function raw_left_angle(): EditableSyntax {
+  public function getLeftAngleUNTYPED(): EditableSyntax {
     return $this->_left_angle;
   }
 
@@ -121,11 +121,11 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
     return !$this->_left_angle->is_missing();
   }
 
-  public function left_angle(): LessThanToken {
+  public function getLeftAngle(): LessThanToken {
     return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
   }
 
-  public function raw_members(): EditableSyntax {
+  public function getMembersUNTYPED(): EditableSyntax {
     return $this->_members;
   }
 
@@ -140,11 +140,11 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
     return !$this->_members->is_missing();
   }
 
-  public function members(): EditableList {
+  public function getMembers(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
   }
 
-  public function raw_right_angle(): EditableSyntax {
+  public function getRightAngleUNTYPED(): EditableSyntax {
     return $this->_right_angle;
   }
 
@@ -159,7 +159,7 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
     return !$this->_right_angle->is_missing();
   }
 
-  public function right_angle(): GreaterThanToken {
+  public function getRightAngle(): GreaterThanToken {
     return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 }

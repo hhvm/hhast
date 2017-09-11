@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<caee92d703dd7e04076fdffcbdbf305e>>
+ * @generated SignedSource<<ab7e908788a912f5610e1f1858bf2ca7>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -49,7 +49,7 @@ final class Script extends EditableSyntax {
     return new self($declarations);
   }
 
-  public function raw_declarations(): EditableSyntax {
+  public function getDeclarationsUNTYPED(): EditableSyntax {
     return $this->_declarations;
   }
 
@@ -64,7 +64,7 @@ final class Script extends EditableSyntax {
     return !$this->_declarations->is_missing();
   }
 
-  public function declarations(): EditableList {
+  public function getDeclarations(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_declarations);
   }
 }

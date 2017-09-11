@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c8ee53849a0d671828011703fd41ecb9>>
+ * @generated SignedSource<<81c121db5fed5d3e1e00c85dc21004aa>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -87,7 +87,7 @@ final class IssetExpression extends EditableSyntax {
     return new self($keyword, $left_paren, $argument_list, $right_paren);
   }
 
-  public function raw_keyword(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -107,11 +107,11 @@ final class IssetExpression extends EditableSyntax {
     return !$this->_keyword->is_missing();
   }
 
-  public function keyword(): IssetToken {
+  public function getKeyword(): IssetToken {
     return TypeAssert::isInstanceOf(IssetToken::class, $this->_keyword);
   }
 
-  public function raw_left_paren(): EditableSyntax {
+  public function getLeftParenUNTYPED(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -126,11 +126,11 @@ final class IssetExpression extends EditableSyntax {
     return !$this->_left_paren->is_missing();
   }
 
-  public function left_paren(): LeftParenToken {
+  public function getLeftParen(): LeftParenToken {
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
 
-  public function raw_argument_list(): EditableSyntax {
+  public function getArgumentListUNTYPED(): EditableSyntax {
     return $this->_argument_list;
   }
 
@@ -145,11 +145,11 @@ final class IssetExpression extends EditableSyntax {
     return !$this->_argument_list->is_missing();
   }
 
-  public function argument_list(): EditableList {
+  public function getArgumentList(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_argument_list);
   }
 
-  public function raw_right_paren(): EditableSyntax {
+  public function getRightParenUNTYPED(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -164,7 +164,7 @@ final class IssetExpression extends EditableSyntax {
     return !$this->_right_paren->is_missing();
   }
 
-  public function right_paren(): RightParenToken {
+  public function getRightParen(): RightParenToken {
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1743b8bc869d740c445768c7fc4bb984>>
+ * @generated SignedSource<<e9d3f2a47b25bd11e557a406e79c26df>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,7 +75,7 @@ final class FunctionDeclaration extends EditableSyntax {
     return new self($attribute_spec, $declaration_header, $body);
   }
 
-  public function raw_attribute_spec(): EditableSyntax {
+  public function getAttributeSpecUNTYPED(): EditableSyntax {
     return $this->_attribute_spec;
   }
 
@@ -90,18 +90,18 @@ final class FunctionDeclaration extends EditableSyntax {
     return !$this->_attribute_spec->is_missing();
   }
 
-  public function attribute_spec(): ?AttributeSpecification {
+  public function getAttributeSpec(): ?AttributeSpecification {
     if ($this->_attribute_spec->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute_spec);
   }
 
-  public function attribute_specx(): AttributeSpecification {
+  public function getAttributeSpecx(): AttributeSpecification {
     return TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute_spec);
   }
 
-  public function raw_declaration_header(): EditableSyntax {
+  public function getDeclarationHeaderUNTYPED(): EditableSyntax {
     return $this->_declaration_header;
   }
 
@@ -116,11 +116,11 @@ final class FunctionDeclaration extends EditableSyntax {
     return !$this->_declaration_header->is_missing();
   }
 
-  public function declaration_header(): FunctionDeclarationHeader {
+  public function getDeclarationHeader(): FunctionDeclarationHeader {
     return TypeAssert::isInstanceOf(FunctionDeclarationHeader::class, $this->_declaration_header);
   }
 
-  public function raw_body(): EditableSyntax {
+  public function getBodyUNTYPED(): EditableSyntax {
     return $this->_body;
   }
 
@@ -135,7 +135,7 @@ final class FunctionDeclaration extends EditableSyntax {
     return !$this->_body->is_missing();
   }
 
-  public function body(): EditableSyntax {
+  public function getBody(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_body);
   }
 }

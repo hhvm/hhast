@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5b50f4c5636c234f359d70d8f2dadbd7>>
+ * @generated SignedSource<<0f427a04792535a009aed3b2dcfd5662>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -105,7 +105,7 @@ final class ConstDeclaration extends EditableSyntax {
     return new self($abstract, $keyword, $type_specifier, $declarators, $semicolon);
   }
 
-  public function raw_abstract(): EditableSyntax {
+  public function getAbstractUNTYPED(): EditableSyntax {
     return $this->_abstract;
   }
 
@@ -126,18 +126,18 @@ final class ConstDeclaration extends EditableSyntax {
     return !$this->_abstract->is_missing();
   }
 
-  public function abstract(): ?AbstractToken {
+  public function getAbstract(): ?AbstractToken {
     if ($this->_abstract->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(AbstractToken::class, $this->_abstract);
   }
 
-  public function abstractx(): AbstractToken {
+  public function getAbstractx(): AbstractToken {
     return TypeAssert::isInstanceOf(AbstractToken::class, $this->_abstract);
   }
 
-  public function raw_keyword(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -158,11 +158,11 @@ final class ConstDeclaration extends EditableSyntax {
     return !$this->_keyword->is_missing();
   }
 
-  public function keyword(): ConstToken {
+  public function getKeyword(): ConstToken {
     return TypeAssert::isInstanceOf(ConstToken::class, $this->_keyword);
   }
 
-  public function raw_type_specifier(): EditableSyntax {
+  public function getTypeSpecifierUNTYPED(): EditableSyntax {
     return $this->_type_specifier;
   }
 
@@ -183,11 +183,11 @@ final class ConstDeclaration extends EditableSyntax {
     return !$this->_type_specifier->is_missing();
   }
 
-  public function type_specifier(): EditableSyntax {
+  public function getTypeSpecifier(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type_specifier);
   }
 
-  public function raw_declarators(): EditableSyntax {
+  public function getDeclaratorsUNTYPED(): EditableSyntax {
     return $this->_declarators;
   }
 
@@ -208,11 +208,11 @@ final class ConstDeclaration extends EditableSyntax {
     return !$this->_declarators->is_missing();
   }
 
-  public function declarators(): EditableList {
+  public function getDeclarators(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_declarators);
   }
 
-  public function raw_semicolon(): EditableSyntax {
+  public function getSemicolonUNTYPED(): EditableSyntax {
     return $this->_semicolon;
   }
 
@@ -233,7 +233,7 @@ final class ConstDeclaration extends EditableSyntax {
     return !$this->_semicolon->is_missing();
   }
 
-  public function semicolon(): SemicolonToken {
+  public function getSemicolon(): SemicolonToken {
     return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 }

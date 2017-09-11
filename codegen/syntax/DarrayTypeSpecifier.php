@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7108b973b2b96e2b9c4607423f94f39b>>
+ * @generated SignedSource<<9cabab47f72d07bef82ec5a024b6beda>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -139,7 +139,7 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function raw_keyword(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -162,11 +162,11 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     return !$this->_keyword->is_missing();
   }
 
-  public function keyword(): DarrayToken {
+  public function getKeyword(): DarrayToken {
     return TypeAssert::isInstanceOf(DarrayToken::class, $this->_keyword);
   }
 
-  public function raw_left_angle(): EditableSyntax {
+  public function getLeftAngleUNTYPED(): EditableSyntax {
     return $this->_left_angle;
   }
 
@@ -189,11 +189,11 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     return !$this->_left_angle->is_missing();
   }
 
-  public function left_angle(): LessThanToken {
+  public function getLeftAngle(): LessThanToken {
     return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
   }
 
-  public function raw_key(): EditableSyntax {
+  public function getKeyUNTYPED(): EditableSyntax {
     return $this->_key;
   }
 
@@ -216,11 +216,11 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     return !$this->_key->is_missing();
   }
 
-  public function key(): SimpleTypeSpecifier {
+  public function getKey(): SimpleTypeSpecifier {
     return TypeAssert::isInstanceOf(SimpleTypeSpecifier::class, $this->_key);
   }
 
-  public function raw_comma(): EditableSyntax {
+  public function getCommaUNTYPED(): EditableSyntax {
     return $this->_comma;
   }
 
@@ -243,11 +243,11 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     return !$this->_comma->is_missing();
   }
 
-  public function comma(): CommaToken {
+  public function getComma(): CommaToken {
     return TypeAssert::isInstanceOf(CommaToken::class, $this->_comma);
   }
 
-  public function raw_value(): EditableSyntax {
+  public function getValueUNTYPED(): EditableSyntax {
     return $this->_value;
   }
 
@@ -270,11 +270,11 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     return !$this->_value->is_missing();
   }
 
-  public function value(): SimpleTypeSpecifier {
+  public function getValue(): SimpleTypeSpecifier {
     return TypeAssert::isInstanceOf(SimpleTypeSpecifier::class, $this->_value);
   }
 
-  public function raw_trailing_comma(): EditableSyntax {
+  public function getTrailingCommaUNTYPED(): EditableSyntax {
     return $this->_trailing_comma;
   }
 
@@ -297,11 +297,11 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     return !$this->_trailing_comma->is_missing();
   }
 
-  public function trailing_comma(): EditableSyntax {
+  public function getTrailingComma(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_trailing_comma);
   }
 
-  public function raw_right_angle(): EditableSyntax {
+  public function getRightAngleUNTYPED(): EditableSyntax {
     return $this->_right_angle;
   }
 
@@ -324,7 +324,7 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     return !$this->_right_angle->is_missing();
   }
 
-  public function right_angle(): GreaterThanToken {
+  public function getRightAngle(): GreaterThanToken {
     return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f294eabf3ea4c69401335cb7fe638f88>>
+ * @generated SignedSource<<4f1ec9e30d129e07c5a176f2bec721e4>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,7 +75,7 @@ final class TupleTypeSpecifier extends EditableSyntax {
     return new self($left_paren, $types, $right_paren);
   }
 
-  public function raw_left_paren(): EditableSyntax {
+  public function getLeftParenUNTYPED(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -90,11 +90,11 @@ final class TupleTypeSpecifier extends EditableSyntax {
     return !$this->_left_paren->is_missing();
   }
 
-  public function left_paren(): LeftParenToken {
+  public function getLeftParen(): LeftParenToken {
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
 
-  public function raw_types(): EditableSyntax {
+  public function getTypesUNTYPED(): EditableSyntax {
     return $this->_types;
   }
 
@@ -109,11 +109,11 @@ final class TupleTypeSpecifier extends EditableSyntax {
     return !$this->_types->is_missing();
   }
 
-  public function types(): EditableList {
+  public function getTypes(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_types);
   }
 
-  public function raw_right_paren(): EditableSyntax {
+  public function getRightParenUNTYPED(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -128,7 +128,7 @@ final class TupleTypeSpecifier extends EditableSyntax {
     return !$this->_right_paren->is_missing();
   }
 
-  public function right_paren(): RightParenToken {
+  public function getRightParen(): RightParenToken {
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 }

@@ -20,18 +20,9 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
   private static function makeNullableFieldsOptional(
     HHAST\ListItem $node,
   ): HHAST\ListItem {
-    $field = $node->item();
+    $field = $node->getItem();
 
     if (!$field instanceof HHAST\FieldSpecifier) {
-      return $node;
-    }
-
-    if (!$field->question() === null) {
-      return $node;
-    }
-
-    $type = $field->type();
-    if (!$type instanceof HHAST\NullableTypeSpecifier) {
       return $node;
     }
 
@@ -39,7 +30,12 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
       return $node;
     }
 
-    $name = $field->name()->rightmost_tokenx();
+    $type = $field->getType();
+    if (!$type instanceof HHAST\NullableTypeSpecifier) {
+      return $node;
+    }
+
+    $name = $field->getName()->rightmost_tokenx();
     $field = $field->with_question(
       new HHAST\QuestionToken(
         $name->leading(),
@@ -56,7 +52,7 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
   private static function addTrailingCommaToFields(
     HHAST\ShapeTypeSpecifier $shape,
   ): HHAST\ShapeTypeSpecifier {
-    $fields = $shape->fields();
+    $fields = $shape->getFields();
     if ($fields === null) {
       return $shape;
     }
@@ -80,7 +76,7 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
           ),
         )
           ->with_item(
-            $last_field->item()->rewrite_children(
+            $last_field->getItem()->rewrite_children(
               ($inner, $_) ==> {
                 if ($inner !== $last_field->rightmost_tokenx()) {
                   return $inner;
@@ -114,7 +110,7 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
         Str\contains($shape->full_text(), "\n")
           ? $first_field->leftmost_tokenx()->leading()
           : new HHAST\WhiteSpace(' '),
-        C\lastx($shape->fieldsx()->children())
+        C\lastx($shape->getFieldsx()->children())
           ->rightmost_tokenx()
           ->trailing(),
       ),

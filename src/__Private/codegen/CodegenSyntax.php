@@ -75,25 +75,25 @@ final class CodegenSyntax extends CodegenBase {
 
   private function generateFieldMethods(
     Schema\TAST $syntax,
-    string $field,
+    string $underscored,
   ): Traversable<CodegenMethod> {
-    $spec = $this->getTypeSpecForField($syntax, $field);
-    $upper_camel = self::upper_camel($field);
+    $spec = $this->getTypeSpecForField($syntax, $underscored);
+    $upper_camel = self::upper_camel($underscored);
 
     $cg = $this->getCodegenFactory();
     yield $cg
-      ->codegenMethodf('raw_%s', $field)
+      ->codegenMethodf('get%sUNTYPED', $upper_camel)
       ->setReturnType('EditableSyntax')
-      ->setBodyf('return $this->_%s;', $field);
+      ->setBodyf('return $this->_%s;', $underscored);
 
     yield $cg
-      ->codegenMethodf('with_%s', $field)
+      ->codegenMethodf('with_%s', $underscored)
       ->setReturnType('this')
       ->addParameter('EditableSyntax $value')
       ->setBody(
         $cg
           ->codegenHackBuilder()
-          ->startIfBlockf('$value === $this->_%s', $field)
+          ->startIfBlockf('$value === $this->_%s', $underscored)
           ->addReturnf('$this')
           ->endIfBlock()
           ->add('return new ')
@@ -101,7 +101,7 @@ final class CodegenSyntax extends CodegenBase {
             'self',
             Vec\map(
               $syntax['fields'],
-              $inner ==> $inner['field_name'] == $field
+              $inner ==> $inner['field_name'] == $underscored
                 ? '$value'
                 : '$this->_'.$inner['field_name'],
             ),
@@ -114,47 +114,47 @@ final class CodegenSyntax extends CodegenBase {
       ->setReturnType('bool')
       ->setBodyf(
         'return !$this->_%s->is_missing();',
-        $field,
+        $underscored,
       );
 
     $type = $spec['nullable'] ? ('?'.$spec['class']) : $spec['class'];
 
     if (!$spec['nullable']) {
       yield $cg
-        ->codegenMethodf('%s', $field)
+        ->codegenMethodf('get%s', $upper_camel)
         ->setReturnType($type)
         ->setBodyf(
           'return TypeAssert::isInstanceOf(%s::class, $this->_%s);',
           $type,
-          $field,
+          $underscored,
         );
       return;
     }
 
     yield $cg
-      ->codegenMethodf('%s', $field)
+      ->codegenMethodf('get%s', $upper_camel)
       ->setReturnType($type)
       ->setBody(
         $cg
           ->codegenHackBuilder()
-          ->startIfBlockf('$this->_%s->is_missing()', $field)
+          ->startIfBlockf('$this->_%s->is_missing()', $underscored)
           ->addReturnf('null')
           ->endIfBlock()
           ->addReturnf(
             'TypeAssert::isInstanceOf(%s::class, $this->_%s)',
             $spec['class'],
-            $field,
+            $underscored,
           )
           ->getCode()
       );
 
     yield $cg
-      ->codegenMethodf('%sx', $field)
+      ->codegenMethodf('get%sx', $upper_camel)
       ->setReturnType($spec['class'])
       ->setBodyf(
         'return TypeAssert::isInstanceOf(%s::class, $this->_%s);',
         $spec['class'],
-        $field,
+        $underscored,
       );
   }
 

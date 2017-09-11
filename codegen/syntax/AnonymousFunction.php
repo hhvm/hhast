@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<050ffe94ada17480a35a21cd8c15db2d>>
+ * @generated SignedSource<<4c1d5e5b643847900ec69cd4c317c868>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -195,7 +195,7 @@ final class AnonymousFunction extends EditableSyntax {
     );
   }
 
-  public function raw_static_keyword(): EditableSyntax {
+  public function getStaticKeywordUNTYPED(): EditableSyntax {
     return $this->_static_keyword;
   }
 
@@ -222,18 +222,18 @@ final class AnonymousFunction extends EditableSyntax {
     return !$this->_static_keyword->is_missing();
   }
 
-  public function static_keyword(): ?StaticToken {
+  public function getStaticKeyword(): ?StaticToken {
     if ($this->_static_keyword->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(StaticToken::class, $this->_static_keyword);
   }
 
-  public function static_keywordx(): StaticToken {
+  public function getStaticKeywordx(): StaticToken {
     return TypeAssert::isInstanceOf(StaticToken::class, $this->_static_keyword);
   }
 
-  public function raw_async_keyword(): EditableSyntax {
+  public function getAsyncKeywordUNTYPED(): EditableSyntax {
     return $this->_async_keyword;
   }
 
@@ -260,18 +260,18 @@ final class AnonymousFunction extends EditableSyntax {
     return !$this->_async_keyword->is_missing();
   }
 
-  public function async_keyword(): ?AsyncToken {
+  public function getAsyncKeyword(): ?AsyncToken {
     if ($this->_async_keyword->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(AsyncToken::class, $this->_async_keyword);
   }
 
-  public function async_keywordx(): AsyncToken {
+  public function getAsyncKeywordx(): AsyncToken {
     return TypeAssert::isInstanceOf(AsyncToken::class, $this->_async_keyword);
   }
 
-  public function raw_coroutine_keyword(): EditableSyntax {
+  public function getCoroutineKeywordUNTYPED(): EditableSyntax {
     return $this->_coroutine_keyword;
   }
 
@@ -298,11 +298,11 @@ final class AnonymousFunction extends EditableSyntax {
     return !$this->_coroutine_keyword->is_missing();
   }
 
-  public function coroutine_keyword(): EditableSyntax {
+  public function getCoroutineKeyword(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_coroutine_keyword);
   }
 
-  public function raw_function_keyword(): EditableSyntax {
+  public function getFunctionKeywordUNTYPED(): EditableSyntax {
     return $this->_function_keyword;
   }
 
@@ -329,11 +329,11 @@ final class AnonymousFunction extends EditableSyntax {
     return !$this->_function_keyword->is_missing();
   }
 
-  public function function_keyword(): FunctionToken {
+  public function getFunctionKeyword(): FunctionToken {
     return TypeAssert::isInstanceOf(FunctionToken::class, $this->_function_keyword);
   }
 
-  public function raw_left_paren(): EditableSyntax {
+  public function getLeftParenUNTYPED(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -360,18 +360,18 @@ final class AnonymousFunction extends EditableSyntax {
     return !$this->_left_paren->is_missing();
   }
 
-  public function left_paren(): ?LeftParenToken {
+  public function getLeftParen(): ?LeftParenToken {
     if ($this->_left_paren->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
 
-  public function left_parenx(): LeftParenToken {
+  public function getLeftParenx(): LeftParenToken {
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
 
-  public function raw_parameters(): EditableSyntax {
+  public function getParametersUNTYPED(): EditableSyntax {
     return $this->_parameters;
   }
 
@@ -398,18 +398,18 @@ final class AnonymousFunction extends EditableSyntax {
     return !$this->_parameters->is_missing();
   }
 
-  public function parameters(): ?EditableList {
+  public function getParameters(): ?EditableList {
     if ($this->_parameters->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(EditableList::class, $this->_parameters);
   }
 
-  public function parametersx(): EditableList {
+  public function getParametersx(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_parameters);
   }
 
-  public function raw_right_paren(): EditableSyntax {
+  public function getRightParenUNTYPED(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -436,18 +436,18 @@ final class AnonymousFunction extends EditableSyntax {
     return !$this->_right_paren->is_missing();
   }
 
-  public function right_paren(): ?RightParenToken {
+  public function getRightParen(): ?RightParenToken {
     if ($this->_right_paren->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
-  public function right_parenx(): RightParenToken {
+  public function getRightParenx(): RightParenToken {
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
-  public function raw_colon(): EditableSyntax {
+  public function getColonUNTYPED(): EditableSyntax {
     return $this->_colon;
   }
 
@@ -474,18 +474,18 @@ final class AnonymousFunction extends EditableSyntax {
     return !$this->_colon->is_missing();
   }
 
-  public function colon(): ?ColonToken {
+  public function getColon(): ?ColonToken {
     if ($this->_colon->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
   }
 
-  public function colonx(): ColonToken {
+  public function getColonx(): ColonToken {
     return TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
   }
 
-  public function raw_type(): EditableSyntax {
+  public function getTypeUNTYPED(): EditableSyntax {
     return $this->_type;
   }
 
@@ -512,11 +512,11 @@ final class AnonymousFunction extends EditableSyntax {
     return !$this->_type->is_missing();
   }
 
-  public function type(): EditableSyntax {
+  public function getType(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
 
-  public function raw_use(): EditableSyntax {
+  public function getUseUNTYPED(): EditableSyntax {
     return $this->_use;
   }
 
@@ -543,18 +543,18 @@ final class AnonymousFunction extends EditableSyntax {
     return !$this->_use->is_missing();
   }
 
-  public function use(): ?AnonymousFunctionUseClause {
+  public function getUse(): ?AnonymousFunctionUseClause {
     if ($this->_use->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(AnonymousFunctionUseClause::class, $this->_use);
   }
 
-  public function usex(): AnonymousFunctionUseClause {
+  public function getUsex(): AnonymousFunctionUseClause {
     return TypeAssert::isInstanceOf(AnonymousFunctionUseClause::class, $this->_use);
   }
 
-  public function raw_body(): EditableSyntax {
+  public function getBodyUNTYPED(): EditableSyntax {
     return $this->_body;
   }
 
@@ -581,7 +581,7 @@ final class AnonymousFunction extends EditableSyntax {
     return !$this->_body->is_missing();
   }
 
-  public function body(): CompoundStatement {
+  public function getBody(): CompoundStatement {
     return TypeAssert::isInstanceOf(CompoundStatement::class, $this->_body);
   }
 }

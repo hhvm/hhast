@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<546393dd1b3cdf42bd24ba0bd33dd1e0>>
+ * @generated SignedSource<<1aebed95a9c9c2e09f43f3bc25abff3c>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,7 +75,7 @@ final class XHPCategoryDeclaration extends EditableSyntax {
     return new self($keyword, $categories, $semicolon);
   }
 
-  public function raw_keyword(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -90,11 +90,11 @@ final class XHPCategoryDeclaration extends EditableSyntax {
     return !$this->_keyword->is_missing();
   }
 
-  public function keyword(): CategoryToken {
+  public function getKeyword(): CategoryToken {
     return TypeAssert::isInstanceOf(CategoryToken::class, $this->_keyword);
   }
 
-  public function raw_categories(): EditableSyntax {
+  public function getCategoriesUNTYPED(): EditableSyntax {
     return $this->_categories;
   }
 
@@ -109,11 +109,11 @@ final class XHPCategoryDeclaration extends EditableSyntax {
     return !$this->_categories->is_missing();
   }
 
-  public function categories(): EditableList {
+  public function getCategories(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_categories);
   }
 
-  public function raw_semicolon(): EditableSyntax {
+  public function getSemicolonUNTYPED(): EditableSyntax {
     return $this->_semicolon;
   }
 
@@ -128,7 +128,7 @@ final class XHPCategoryDeclaration extends EditableSyntax {
     return !$this->_semicolon->is_missing();
   }
 
-  public function semicolon(): SemicolonToken {
+  public function getSemicolon(): SemicolonToken {
     return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 }

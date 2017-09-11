@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eeb5076b3ef333cdb1695c7f7b670941>>
+ * @generated SignedSource<<2fb5e076652fdf18a9b92835c1d10aae>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -87,7 +87,7 @@ final class ShapeExpression extends EditableSyntax {
     return new self($keyword, $left_paren, $fields, $right_paren);
   }
 
-  public function raw_keyword(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -102,11 +102,11 @@ final class ShapeExpression extends EditableSyntax {
     return !$this->_keyword->is_missing();
   }
 
-  public function keyword(): ShapeToken {
+  public function getKeyword(): ShapeToken {
     return TypeAssert::isInstanceOf(ShapeToken::class, $this->_keyword);
   }
 
-  public function raw_left_paren(): EditableSyntax {
+  public function getLeftParenUNTYPED(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -121,11 +121,11 @@ final class ShapeExpression extends EditableSyntax {
     return !$this->_left_paren->is_missing();
   }
 
-  public function left_paren(): LeftParenToken {
+  public function getLeftParen(): LeftParenToken {
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
 
-  public function raw_fields(): EditableSyntax {
+  public function getFieldsUNTYPED(): EditableSyntax {
     return $this->_fields;
   }
 
@@ -140,18 +140,18 @@ final class ShapeExpression extends EditableSyntax {
     return !$this->_fields->is_missing();
   }
 
-  public function fields(): ?EditableList {
+  public function getFields(): ?EditableList {
     if ($this->_fields->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(EditableList::class, $this->_fields);
   }
 
-  public function fieldsx(): EditableList {
+  public function getFieldsx(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_fields);
   }
 
-  public function raw_right_paren(): EditableSyntax {
+  public function getRightParenUNTYPED(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -166,7 +166,7 @@ final class ShapeExpression extends EditableSyntax {
     return !$this->_right_paren->is_missing();
   }
 
-  public function right_paren(): RightParenToken {
+  public function getRightParen(): RightParenToken {
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 }

@@ -75,6 +75,7 @@ abstract class CodegenBase {
     return keyset['Missing', 'SyntaxList', 'Token'];
   }
 
+  <<__Memoize>>
   protected static function underscored(string $in): string {
     return preg_replace_callback(
       '/[A-Z][a-z]+/',
@@ -84,6 +85,7 @@ abstract class CodegenBase {
       |> Str\strip_prefix($$, '_');
   }
 
+  <<__Memoize>>
   protected static function upper_camel(string $in): string {
     return preg_replace_callback(
       '/(^|_)([a-z])/',

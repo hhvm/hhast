@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dbad124fed333d0e5dcc9971f3712b31>>
+ * @generated SignedSource<<6ba2b99b9a82278ea4eef00ac3951e94>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -87,7 +87,7 @@ final class ArrayIntrinsicExpression extends EditableSyntax {
     return new self($keyword, $left_paren, $members, $right_paren);
   }
 
-  public function raw_keyword(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -102,11 +102,11 @@ final class ArrayIntrinsicExpression extends EditableSyntax {
     return !$this->_keyword->is_missing();
   }
 
-  public function keyword(): ArrayToken {
+  public function getKeyword(): ArrayToken {
     return TypeAssert::isInstanceOf(ArrayToken::class, $this->_keyword);
   }
 
-  public function raw_left_paren(): EditableSyntax {
+  public function getLeftParenUNTYPED(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -121,11 +121,11 @@ final class ArrayIntrinsicExpression extends EditableSyntax {
     return !$this->_left_paren->is_missing();
   }
 
-  public function left_paren(): LeftParenToken {
+  public function getLeftParen(): LeftParenToken {
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
 
-  public function raw_members(): EditableSyntax {
+  public function getMembersUNTYPED(): EditableSyntax {
     return $this->_members;
   }
 
@@ -140,18 +140,18 @@ final class ArrayIntrinsicExpression extends EditableSyntax {
     return !$this->_members->is_missing();
   }
 
-  public function members(): ?EditableList {
+  public function getMembers(): ?EditableList {
     if ($this->_members->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
   }
 
-  public function membersx(): EditableList {
+  public function getMembersx(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
   }
 
-  public function raw_right_paren(): EditableSyntax {
+  public function getRightParenUNTYPED(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -166,14 +166,14 @@ final class ArrayIntrinsicExpression extends EditableSyntax {
     return !$this->_right_paren->is_missing();
   }
 
-  public function right_paren(): ?RightParenToken {
+  public function getRightParen(): ?RightParenToken {
     if ($this->_right_paren->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
-  public function right_parenx(): RightParenToken {
+  public function getRightParenx(): RightParenToken {
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 }

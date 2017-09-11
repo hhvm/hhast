@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<423871ae0c029e14e45c92b813764a8e>>
+ * @generated SignedSource<<9887c33a2e31d1befe528e0bb7fde9b6>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,7 +75,7 @@ final class NamespaceBody extends EditableSyntax {
     return new self($left_brace, $declarations, $right_brace);
   }
 
-  public function raw_left_brace(): EditableSyntax {
+  public function getLeftBraceUNTYPED(): EditableSyntax {
     return $this->_left_brace;
   }
 
@@ -90,11 +90,11 @@ final class NamespaceBody extends EditableSyntax {
     return !$this->_left_brace->is_missing();
   }
 
-  public function left_brace(): LeftBraceToken {
+  public function getLeftBrace(): LeftBraceToken {
     return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
   }
 
-  public function raw_declarations(): EditableSyntax {
+  public function getDeclarationsUNTYPED(): EditableSyntax {
     return $this->_declarations;
   }
 
@@ -109,18 +109,18 @@ final class NamespaceBody extends EditableSyntax {
     return !$this->_declarations->is_missing();
   }
 
-  public function declarations(): ?EditableList {
+  public function getDeclarations(): ?EditableList {
     if ($this->_declarations->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(EditableList::class, $this->_declarations);
   }
 
-  public function declarationsx(): EditableList {
+  public function getDeclarationsx(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_declarations);
   }
 
-  public function raw_right_brace(): EditableSyntax {
+  public function getRightBraceUNTYPED(): EditableSyntax {
     return $this->_right_brace;
   }
 
@@ -135,14 +135,14 @@ final class NamespaceBody extends EditableSyntax {
     return !$this->_right_brace->is_missing();
   }
 
-  public function right_brace(): ?RightBraceToken {
+  public function getRightBrace(): ?RightBraceToken {
     if ($this->_right_brace->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 
-  public function right_bracex(): RightBraceToken {
+  public function getRightBracex(): RightBraceToken {
     return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 }

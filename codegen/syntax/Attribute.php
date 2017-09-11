@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2ca94f8e16996062857e3993476b5219>>
+ * @generated SignedSource<<d73c402ee544c7c991ed5890c6dadf59>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -87,7 +87,7 @@ final class Attribute extends EditableSyntax {
     return new self($name, $left_paren, $values, $right_paren);
   }
 
-  public function raw_name(): EditableSyntax {
+  public function getNameUNTYPED(): EditableSyntax {
     return $this->_name;
   }
 
@@ -102,11 +102,11 @@ final class Attribute extends EditableSyntax {
     return !$this->_name->is_missing();
   }
 
-  public function name(): NameToken {
+  public function getName(): NameToken {
     return TypeAssert::isInstanceOf(NameToken::class, $this->_name);
   }
 
-  public function raw_left_paren(): EditableSyntax {
+  public function getLeftParenUNTYPED(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -121,18 +121,18 @@ final class Attribute extends EditableSyntax {
     return !$this->_left_paren->is_missing();
   }
 
-  public function left_paren(): ?LeftParenToken {
+  public function getLeftParen(): ?LeftParenToken {
     if ($this->_left_paren->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
 
-  public function left_parenx(): LeftParenToken {
+  public function getLeftParenx(): LeftParenToken {
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
 
-  public function raw_values(): EditableSyntax {
+  public function getValuesUNTYPED(): EditableSyntax {
     return $this->_values;
   }
 
@@ -147,18 +147,18 @@ final class Attribute extends EditableSyntax {
     return !$this->_values->is_missing();
   }
 
-  public function values(): ?EditableList {
+  public function getValues(): ?EditableList {
     if ($this->_values->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(EditableList::class, $this->_values);
   }
 
-  public function valuesx(): EditableList {
+  public function getValuesx(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_values);
   }
 
-  public function raw_right_paren(): EditableSyntax {
+  public function getRightParenUNTYPED(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -173,14 +173,14 @@ final class Attribute extends EditableSyntax {
     return !$this->_right_paren->is_missing();
   }
 
-  public function right_paren(): ?RightParenToken {
+  public function getRightParen(): ?RightParenToken {
     if ($this->_right_paren->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
-  public function right_parenx(): RightParenToken {
+  public function getRightParenx(): RightParenToken {
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 }

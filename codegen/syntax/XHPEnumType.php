@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d12b83585d6d721050264d26481955b7>>
+ * @generated SignedSource<<ff3203fc6887657aa07170617e643638>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -87,7 +87,7 @@ final class XHPEnumType extends EditableSyntax {
     return new self($keyword, $left_brace, $values, $right_brace);
   }
 
-  public function raw_keyword(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -102,11 +102,11 @@ final class XHPEnumType extends EditableSyntax {
     return !$this->_keyword->is_missing();
   }
 
-  public function keyword(): EnumToken {
+  public function getKeyword(): EnumToken {
     return TypeAssert::isInstanceOf(EnumToken::class, $this->_keyword);
   }
 
-  public function raw_left_brace(): EditableSyntax {
+  public function getLeftBraceUNTYPED(): EditableSyntax {
     return $this->_left_brace;
   }
 
@@ -121,11 +121,11 @@ final class XHPEnumType extends EditableSyntax {
     return !$this->_left_brace->is_missing();
   }
 
-  public function left_brace(): LeftBraceToken {
+  public function getLeftBrace(): LeftBraceToken {
     return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
   }
 
-  public function raw_values(): EditableSyntax {
+  public function getValuesUNTYPED(): EditableSyntax {
     return $this->_values;
   }
 
@@ -140,11 +140,11 @@ final class XHPEnumType extends EditableSyntax {
     return !$this->_values->is_missing();
   }
 
-  public function values(): EditableList {
+  public function getValues(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_values);
   }
 
-  public function raw_right_brace(): EditableSyntax {
+  public function getRightBraceUNTYPED(): EditableSyntax {
     return $this->_right_brace;
   }
 
@@ -159,7 +159,7 @@ final class XHPEnumType extends EditableSyntax {
     return !$this->_right_brace->is_missing();
   }
 
-  public function right_brace(): RightBraceToken {
+  public function getRightBrace(): RightBraceToken {
     return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 }

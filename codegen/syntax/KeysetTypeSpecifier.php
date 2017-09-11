@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<befb157b33d3130f29c92c559cb5e852>>
+ * @generated SignedSource<<96233362e2637c3596acf12637396640>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -105,7 +105,7 @@ final class KeysetTypeSpecifier extends EditableSyntax {
     return new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
   }
 
-  public function raw_keyword(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -126,11 +126,11 @@ final class KeysetTypeSpecifier extends EditableSyntax {
     return !$this->_keyword->is_missing();
   }
 
-  public function keyword(): KeysetToken {
+  public function getKeyword(): KeysetToken {
     return TypeAssert::isInstanceOf(KeysetToken::class, $this->_keyword);
   }
 
-  public function raw_left_angle(): EditableSyntax {
+  public function getLeftAngleUNTYPED(): EditableSyntax {
     return $this->_left_angle;
   }
 
@@ -151,11 +151,11 @@ final class KeysetTypeSpecifier extends EditableSyntax {
     return !$this->_left_angle->is_missing();
   }
 
-  public function left_angle(): LessThanToken {
+  public function getLeftAngle(): LessThanToken {
     return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
   }
 
-  public function raw_type(): EditableSyntax {
+  public function getTypeUNTYPED(): EditableSyntax {
     return $this->_type;
   }
 
@@ -176,11 +176,11 @@ final class KeysetTypeSpecifier extends EditableSyntax {
     return !$this->_type->is_missing();
   }
 
-  public function type(): SimpleTypeSpecifier {
+  public function getType(): SimpleTypeSpecifier {
     return TypeAssert::isInstanceOf(SimpleTypeSpecifier::class, $this->_type);
   }
 
-  public function raw_trailing_comma(): EditableSyntax {
+  public function getTrailingCommaUNTYPED(): EditableSyntax {
     return $this->_trailing_comma;
   }
 
@@ -201,11 +201,11 @@ final class KeysetTypeSpecifier extends EditableSyntax {
     return !$this->_trailing_comma->is_missing();
   }
 
-  public function trailing_comma(): EditableSyntax {
+  public function getTrailingComma(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_trailing_comma);
   }
 
-  public function raw_right_angle(): EditableSyntax {
+  public function getRightAngleUNTYPED(): EditableSyntax {
     return $this->_right_angle;
   }
 
@@ -226,7 +226,7 @@ final class KeysetTypeSpecifier extends EditableSyntax {
     return !$this->_right_angle->is_missing();
   }
 
-  public function right_angle(): GreaterThanToken {
+  public function getRightAngle(): GreaterThanToken {
     return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 }

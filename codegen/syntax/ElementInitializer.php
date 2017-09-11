@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<63295e31913c0755aa5a873498963b8e>>
+ * @generated SignedSource<<55b1801a8eb139d105ed16ff9eac5d9d>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,7 +75,7 @@ final class ElementInitializer extends EditableSyntax {
     return new self($key, $arrow, $value);
   }
 
-  public function raw_key(): EditableSyntax {
+  public function getKeyUNTYPED(): EditableSyntax {
     return $this->_key;
   }
 
@@ -90,11 +90,11 @@ final class ElementInitializer extends EditableSyntax {
     return !$this->_key->is_missing();
   }
 
-  public function key(): EditableSyntax {
+  public function getKey(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_key);
   }
 
-  public function raw_arrow(): EditableSyntax {
+  public function getArrowUNTYPED(): EditableSyntax {
     return $this->_arrow;
   }
 
@@ -109,11 +109,11 @@ final class ElementInitializer extends EditableSyntax {
     return !$this->_arrow->is_missing();
   }
 
-  public function arrow(): EqualGreaterThanToken {
+  public function getArrow(): EqualGreaterThanToken {
     return TypeAssert::isInstanceOf(EqualGreaterThanToken::class, $this->_arrow);
   }
 
-  public function raw_value(): EditableSyntax {
+  public function getValueUNTYPED(): EditableSyntax {
     return $this->_value;
   }
 
@@ -128,7 +128,7 @@ final class ElementInitializer extends EditableSyntax {
     return !$this->_value->is_missing();
   }
 
-  public function value(): EditableSyntax {
+  public function getValue(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_value);
   }
 }

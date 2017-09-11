@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<475fb054bea69aaf557a2697f7516d0f>>
+ * @generated SignedSource<<933378e62b26485a95e93bec86f87364>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,7 +75,7 @@ final class XHPExpression extends EditableSyntax {
     return new self($open, $body, $close);
   }
 
-  public function raw_open(): EditableSyntax {
+  public function getOpenUNTYPED(): EditableSyntax {
     return $this->_open;
   }
 
@@ -90,11 +90,11 @@ final class XHPExpression extends EditableSyntax {
     return !$this->_open->is_missing();
   }
 
-  public function open(): XHPOpen {
+  public function getOpen(): XHPOpen {
     return TypeAssert::isInstanceOf(XHPOpen::class, $this->_open);
   }
 
-  public function raw_body(): EditableSyntax {
+  public function getBodyUNTYPED(): EditableSyntax {
     return $this->_body;
   }
 
@@ -109,18 +109,18 @@ final class XHPExpression extends EditableSyntax {
     return !$this->_body->is_missing();
   }
 
-  public function body(): ?EditableList {
+  public function getBody(): ?EditableList {
     if ($this->_body->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(EditableList::class, $this->_body);
   }
 
-  public function bodyx(): EditableList {
+  public function getBodyx(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_body);
   }
 
-  public function raw_close(): EditableSyntax {
+  public function getCloseUNTYPED(): EditableSyntax {
     return $this->_close;
   }
 
@@ -135,14 +135,14 @@ final class XHPExpression extends EditableSyntax {
     return !$this->_close->is_missing();
   }
 
-  public function close(): ?XHPClose {
+  public function getClose(): ?XHPClose {
     if ($this->_close->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(XHPClose::class, $this->_close);
   }
 
-  public function closex(): XHPClose {
+  public function getClosex(): XHPClose {
     return TypeAssert::isInstanceOf(XHPClose::class, $this->_close);
   }
 }

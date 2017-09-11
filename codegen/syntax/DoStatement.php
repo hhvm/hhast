@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<114d68079bb698fc6a36f20f57f1658c>>
+ * @generated SignedSource<<9c8b888a6a456a9c0cb1b6884ce0c830>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -139,7 +139,7 @@ final class DoStatement extends EditableSyntax {
     );
   }
 
-  public function raw_keyword(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -162,11 +162,11 @@ final class DoStatement extends EditableSyntax {
     return !$this->_keyword->is_missing();
   }
 
-  public function keyword(): DoToken {
+  public function getKeyword(): DoToken {
     return TypeAssert::isInstanceOf(DoToken::class, $this->_keyword);
   }
 
-  public function raw_body(): EditableSyntax {
+  public function getBodyUNTYPED(): EditableSyntax {
     return $this->_body;
   }
 
@@ -189,11 +189,11 @@ final class DoStatement extends EditableSyntax {
     return !$this->_body->is_missing();
   }
 
-  public function body(): EditableSyntax {
+  public function getBody(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_body);
   }
 
-  public function raw_while_keyword(): EditableSyntax {
+  public function getWhileKeywordUNTYPED(): EditableSyntax {
     return $this->_while_keyword;
   }
 
@@ -216,11 +216,11 @@ final class DoStatement extends EditableSyntax {
     return !$this->_while_keyword->is_missing();
   }
 
-  public function while_keyword(): WhileToken {
+  public function getWhileKeyword(): WhileToken {
     return TypeAssert::isInstanceOf(WhileToken::class, $this->_while_keyword);
   }
 
-  public function raw_left_paren(): EditableSyntax {
+  public function getLeftParenUNTYPED(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -243,11 +243,11 @@ final class DoStatement extends EditableSyntax {
     return !$this->_left_paren->is_missing();
   }
 
-  public function left_paren(): LeftParenToken {
+  public function getLeftParen(): LeftParenToken {
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
 
-  public function raw_condition(): EditableSyntax {
+  public function getConditionUNTYPED(): EditableSyntax {
     return $this->_condition;
   }
 
@@ -270,11 +270,11 @@ final class DoStatement extends EditableSyntax {
     return !$this->_condition->is_missing();
   }
 
-  public function condition(): EditableSyntax {
+  public function getCondition(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_condition);
   }
 
-  public function raw_right_paren(): EditableSyntax {
+  public function getRightParenUNTYPED(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -297,11 +297,11 @@ final class DoStatement extends EditableSyntax {
     return !$this->_right_paren->is_missing();
   }
 
-  public function right_paren(): RightParenToken {
+  public function getRightParen(): RightParenToken {
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
-  public function raw_semicolon(): EditableSyntax {
+  public function getSemicolonUNTYPED(): EditableSyntax {
     return $this->_semicolon;
   }
 
@@ -324,7 +324,7 @@ final class DoStatement extends EditableSyntax {
     return !$this->_semicolon->is_missing();
   }
 
-  public function semicolon(): SemicolonToken {
+  public function getSemicolon(): SemicolonToken {
     return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 }

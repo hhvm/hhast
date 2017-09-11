@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<890e5a0168cc71f1829865d0867a9444>>
+ * @generated SignedSource<<e5181d716b497424e8eaa1602801eed4>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,7 +75,7 @@ final class AwaitableCreationExpression extends EditableSyntax {
     return new self($async, $coroutine, $compound_statement);
   }
 
-  public function raw_async(): EditableSyntax {
+  public function getAsyncUNTYPED(): EditableSyntax {
     return $this->_async;
   }
 
@@ -90,11 +90,11 @@ final class AwaitableCreationExpression extends EditableSyntax {
     return !$this->_async->is_missing();
   }
 
-  public function async(): AsyncToken {
+  public function getAsync(): AsyncToken {
     return TypeAssert::isInstanceOf(AsyncToken::class, $this->_async);
   }
 
-  public function raw_coroutine(): EditableSyntax {
+  public function getCoroutineUNTYPED(): EditableSyntax {
     return $this->_coroutine;
   }
 
@@ -109,11 +109,11 @@ final class AwaitableCreationExpression extends EditableSyntax {
     return !$this->_coroutine->is_missing();
   }
 
-  public function coroutine(): EditableSyntax {
+  public function getCoroutine(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_coroutine);
   }
 
-  public function raw_compound_statement(): EditableSyntax {
+  public function getCompoundStatementUNTYPED(): EditableSyntax {
     return $this->_compound_statement;
   }
 
@@ -128,7 +128,7 @@ final class AwaitableCreationExpression extends EditableSyntax {
     return !$this->_compound_statement->is_missing();
   }
 
-  public function compound_statement(): CompoundStatement {
+  public function getCompoundStatement(): CompoundStatement {
     return TypeAssert::isInstanceOf(CompoundStatement::class, $this->_compound_statement);
   }
 }

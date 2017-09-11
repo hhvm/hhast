@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7555da7d08e6bcf53a4db10bd720ffd1>>
+ * @generated SignedSource<<3717b1078c78fa8efed2e8a1ebe4eea8>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,7 +75,7 @@ final class ScopeResolutionExpression extends EditableSyntax {
     return new self($qualifier, $operator, $name);
   }
 
-  public function raw_qualifier(): EditableSyntax {
+  public function getQualifierUNTYPED(): EditableSyntax {
     return $this->_qualifier;
   }
 
@@ -90,11 +90,11 @@ final class ScopeResolutionExpression extends EditableSyntax {
     return !$this->_qualifier->is_missing();
   }
 
-  public function qualifier(): EditableSyntax {
+  public function getQualifier(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_qualifier);
   }
 
-  public function raw_operator(): EditableSyntax {
+  public function getOperatorUNTYPED(): EditableSyntax {
     return $this->_operator;
   }
 
@@ -109,11 +109,11 @@ final class ScopeResolutionExpression extends EditableSyntax {
     return !$this->_operator->is_missing();
   }
 
-  public function operator(): ColonColonToken {
+  public function getOperator(): ColonColonToken {
     return TypeAssert::isInstanceOf(ColonColonToken::class, $this->_operator);
   }
 
-  public function raw_name(): EditableSyntax {
+  public function getNameUNTYPED(): EditableSyntax {
     return $this->_name;
   }
 
@@ -128,7 +128,7 @@ final class ScopeResolutionExpression extends EditableSyntax {
     return !$this->_name->is_missing();
   }
 
-  public function name(): EditableSyntax {
+  public function getName(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }
 }

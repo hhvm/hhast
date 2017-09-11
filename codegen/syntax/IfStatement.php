@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a8e0e95c084381f5ef44d5223711b95b>>
+ * @generated SignedSource<<051d17b6e2a0e77af29a7e9608902c91>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -139,7 +139,7 @@ final class IfStatement extends EditableSyntax {
     );
   }
 
-  public function raw_keyword(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -162,11 +162,11 @@ final class IfStatement extends EditableSyntax {
     return !$this->_keyword->is_missing();
   }
 
-  public function keyword(): IfToken {
+  public function getKeyword(): IfToken {
     return TypeAssert::isInstanceOf(IfToken::class, $this->_keyword);
   }
 
-  public function raw_left_paren(): EditableSyntax {
+  public function getLeftParenUNTYPED(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -189,11 +189,11 @@ final class IfStatement extends EditableSyntax {
     return !$this->_left_paren->is_missing();
   }
 
-  public function left_paren(): LeftParenToken {
+  public function getLeftParen(): LeftParenToken {
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
 
-  public function raw_condition(): EditableSyntax {
+  public function getConditionUNTYPED(): EditableSyntax {
     return $this->_condition;
   }
 
@@ -216,11 +216,11 @@ final class IfStatement extends EditableSyntax {
     return !$this->_condition->is_missing();
   }
 
-  public function condition(): EditableSyntax {
+  public function getCondition(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_condition);
   }
 
-  public function raw_right_paren(): EditableSyntax {
+  public function getRightParenUNTYPED(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -243,18 +243,18 @@ final class IfStatement extends EditableSyntax {
     return !$this->_right_paren->is_missing();
   }
 
-  public function right_paren(): ?RightParenToken {
+  public function getRightParen(): ?RightParenToken {
     if ($this->_right_paren->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
-  public function right_parenx(): RightParenToken {
+  public function getRightParenx(): RightParenToken {
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
-  public function raw_statement(): EditableSyntax {
+  public function getStatementUNTYPED(): EditableSyntax {
     return $this->_statement;
   }
 
@@ -277,11 +277,11 @@ final class IfStatement extends EditableSyntax {
     return !$this->_statement->is_missing();
   }
 
-  public function statement(): EditableSyntax {
+  public function getStatement(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_statement);
   }
 
-  public function raw_elseif_clauses(): EditableSyntax {
+  public function getElseifClausesUNTYPED(): EditableSyntax {
     return $this->_elseif_clauses;
   }
 
@@ -304,18 +304,18 @@ final class IfStatement extends EditableSyntax {
     return !$this->_elseif_clauses->is_missing();
   }
 
-  public function elseif_clauses(): ?EditableList {
+  public function getElseifClauses(): ?EditableList {
     if ($this->_elseif_clauses->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(EditableList::class, $this->_elseif_clauses);
   }
 
-  public function elseif_clausesx(): EditableList {
+  public function getElseifClausesx(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_elseif_clauses);
   }
 
-  public function raw_else_clause(): EditableSyntax {
+  public function getElseClauseUNTYPED(): EditableSyntax {
     return $this->_else_clause;
   }
 
@@ -338,14 +338,14 @@ final class IfStatement extends EditableSyntax {
     return !$this->_else_clause->is_missing();
   }
 
-  public function else_clause(): ?ElseClause {
+  public function getElseClause(): ?ElseClause {
     if ($this->_else_clause->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(ElseClause::class, $this->_else_clause);
   }
 
-  public function else_clausex(): ElseClause {
+  public function getElseClausex(): ElseClause {
     return TypeAssert::isInstanceOf(ElseClause::class, $this->_else_clause);
   }
 }

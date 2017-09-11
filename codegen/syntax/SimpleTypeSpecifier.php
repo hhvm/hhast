@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3641fa4c22fa02164cfd4583573840ad>>
+ * @generated SignedSource<<efab18a2db798aa0a0be1588251031b4>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -49,7 +49,7 @@ final class SimpleTypeSpecifier extends EditableSyntax {
     return new self($specifier);
   }
 
-  public function raw_specifier(): EditableSyntax {
+  public function getSpecifierUNTYPED(): EditableSyntax {
     return $this->_specifier;
   }
 
@@ -64,7 +64,7 @@ final class SimpleTypeSpecifier extends EditableSyntax {
     return !$this->_specifier->is_missing();
   }
 
-  public function specifier(): EditableSyntax {
+  public function getSpecifier(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_specifier);
   }
 }

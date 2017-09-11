@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<01712663b34aeba34c6e7c39c099d238>>
+ * @generated SignedSource<<3a5805fc2af1fc13153c8555e1459ec8>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,7 +75,7 @@ final class ClassishBody extends EditableSyntax {
     return new self($left_brace, $elements, $right_brace);
   }
 
-  public function raw_left_brace(): EditableSyntax {
+  public function getLeftBraceUNTYPED(): EditableSyntax {
     return $this->_left_brace;
   }
 
@@ -90,18 +90,18 @@ final class ClassishBody extends EditableSyntax {
     return !$this->_left_brace->is_missing();
   }
 
-  public function left_brace(): ?LeftBraceToken {
+  public function getLeftBrace(): ?LeftBraceToken {
     if ($this->_left_brace->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
   }
 
-  public function left_bracex(): LeftBraceToken {
+  public function getLeftBracex(): LeftBraceToken {
     return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
   }
 
-  public function raw_elements(): EditableSyntax {
+  public function getElementsUNTYPED(): EditableSyntax {
     return $this->_elements;
   }
 
@@ -116,18 +116,18 @@ final class ClassishBody extends EditableSyntax {
     return !$this->_elements->is_missing();
   }
 
-  public function elements(): ?EditableList {
+  public function getElements(): ?EditableList {
     if ($this->_elements->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(EditableList::class, $this->_elements);
   }
 
-  public function elementsx(): EditableList {
+  public function getElementsx(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_elements);
   }
 
-  public function raw_right_brace(): EditableSyntax {
+  public function getRightBraceUNTYPED(): EditableSyntax {
     return $this->_right_brace;
   }
 
@@ -142,14 +142,14 @@ final class ClassishBody extends EditableSyntax {
     return !$this->_right_brace->is_missing();
   }
 
-  public function right_brace(): ?RightBraceToken {
+  public function getRightBrace(): ?RightBraceToken {
     if ($this->_right_brace->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 
-  public function right_bracex(): RightBraceToken {
+  public function getRightBracex(): RightBraceToken {
     return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 }

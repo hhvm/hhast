@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ff90d886d82e6899840404f7a96ad99d>>
+ * @generated SignedSource<<370a0776250d7147a1600773ae8757ff>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -49,7 +49,7 @@ final class XHPSimpleClassAttribute extends EditableSyntax {
     return new self($type);
   }
 
-  public function raw_type(): EditableSyntax {
+  public function getTypeUNTYPED(): EditableSyntax {
     return $this->_type;
   }
 
@@ -64,7 +64,7 @@ final class XHPSimpleClassAttribute extends EditableSyntax {
     return !$this->_type->is_missing();
   }
 
-  public function type(): SimpleTypeSpecifier {
+  public function getType(): SimpleTypeSpecifier {
     return TypeAssert::isInstanceOf(SimpleTypeSpecifier::class, $this->_type);
   }
 }

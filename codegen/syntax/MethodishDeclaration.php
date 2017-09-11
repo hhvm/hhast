@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6ecc3dae69794c09b31907e6e8011d19>>
+ * @generated SignedSource<<565cb81ee79c5c1c1f2009c7e9da60e6>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -111,7 +111,7 @@ final class MethodishDeclaration extends EditableSyntax {
     );
   }
 
-  public function raw_attribute(): EditableSyntax {
+  public function getAttributeUNTYPED(): EditableSyntax {
     return $this->_attribute;
   }
 
@@ -132,18 +132,18 @@ final class MethodishDeclaration extends EditableSyntax {
     return !$this->_attribute->is_missing();
   }
 
-  public function attribute(): ?AttributeSpecification {
+  public function getAttribute(): ?AttributeSpecification {
     if ($this->_attribute->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute);
   }
 
-  public function attributex(): AttributeSpecification {
+  public function getAttributex(): AttributeSpecification {
     return TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute);
   }
 
-  public function raw_modifiers(): EditableSyntax {
+  public function getModifiersUNTYPED(): EditableSyntax {
     return $this->_modifiers;
   }
 
@@ -164,18 +164,18 @@ final class MethodishDeclaration extends EditableSyntax {
     return !$this->_modifiers->is_missing();
   }
 
-  public function modifiers(): ?EditableList {
+  public function getModifiers(): ?EditableList {
     if ($this->_modifiers->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(EditableList::class, $this->_modifiers);
   }
 
-  public function modifiersx(): EditableList {
+  public function getModifiersx(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_modifiers);
   }
 
-  public function raw_function_decl_header(): EditableSyntax {
+  public function getFunctionDeclHeaderUNTYPED(): EditableSyntax {
     return $this->_function_decl_header;
   }
 
@@ -196,11 +196,11 @@ final class MethodishDeclaration extends EditableSyntax {
     return !$this->_function_decl_header->is_missing();
   }
 
-  public function function_decl_header(): FunctionDeclarationHeader {
+  public function getFunctionDeclHeader(): FunctionDeclarationHeader {
     return TypeAssert::isInstanceOf(FunctionDeclarationHeader::class, $this->_function_decl_header);
   }
 
-  public function raw_function_body(): EditableSyntax {
+  public function getFunctionBodyUNTYPED(): EditableSyntax {
     return $this->_function_body;
   }
 
@@ -221,11 +221,11 @@ final class MethodishDeclaration extends EditableSyntax {
     return !$this->_function_body->is_missing();
   }
 
-  public function function_body(): EditableSyntax {
+  public function getFunctionBody(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_function_body);
   }
 
-  public function raw_semicolon(): EditableSyntax {
+  public function getSemicolonUNTYPED(): EditableSyntax {
     return $this->_semicolon;
   }
 
@@ -246,14 +246,14 @@ final class MethodishDeclaration extends EditableSyntax {
     return !$this->_semicolon->is_missing();
   }
 
-  public function semicolon(): ?SemicolonToken {
+  public function getSemicolon(): ?SemicolonToken {
     if ($this->_semicolon->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 
-  public function semicolonx(): SemicolonToken {
+  public function getSemicolonx(): SemicolonToken {
     return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 }

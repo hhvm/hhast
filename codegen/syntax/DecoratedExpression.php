@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<571d2ddd2bd61decf817adfba04ae2ee>>
+ * @generated SignedSource<<b249008fc82925c82b2afa11541c7ed7>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -63,7 +63,7 @@ final class DecoratedExpression extends EditableSyntax {
     return new self($decorator, $expression);
   }
 
-  public function raw_decorator(): EditableSyntax {
+  public function getDecoratorUNTYPED(): EditableSyntax {
     return $this->_decorator;
   }
 
@@ -78,11 +78,11 @@ final class DecoratedExpression extends EditableSyntax {
     return !$this->_decorator->is_missing();
   }
 
-  public function decorator(): EditableSyntax {
+  public function getDecorator(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_decorator);
   }
 
-  public function raw_expression(): EditableSyntax {
+  public function getExpressionUNTYPED(): EditableSyntax {
     return $this->_expression;
   }
 
@@ -97,7 +97,7 @@ final class DecoratedExpression extends EditableSyntax {
     return !$this->_expression->is_missing();
   }
 
-  public function expression(): EditableSyntax {
+  public function getExpression(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fb70c8209bcedfd7fce69dcba1974fa3>>
+ * @generated SignedSource<<2cb82d1329090799f025b8ea02b844a8>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -87,7 +87,7 @@ final class DarrayIntrinsicExpression extends EditableSyntax {
     return new self($keyword, $left_bracket, $members, $right_bracket);
   }
 
-  public function raw_keyword(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -102,11 +102,11 @@ final class DarrayIntrinsicExpression extends EditableSyntax {
     return !$this->_keyword->is_missing();
   }
 
-  public function keyword(): DarrayToken {
+  public function getKeyword(): DarrayToken {
     return TypeAssert::isInstanceOf(DarrayToken::class, $this->_keyword);
   }
 
-  public function raw_left_bracket(): EditableSyntax {
+  public function getLeftBracketUNTYPED(): EditableSyntax {
     return $this->_left_bracket;
   }
 
@@ -121,11 +121,11 @@ final class DarrayIntrinsicExpression extends EditableSyntax {
     return !$this->_left_bracket->is_missing();
   }
 
-  public function left_bracket(): LeftBracketToken {
+  public function getLeftBracket(): LeftBracketToken {
     return TypeAssert::isInstanceOf(LeftBracketToken::class, $this->_left_bracket);
   }
 
-  public function raw_members(): EditableSyntax {
+  public function getMembersUNTYPED(): EditableSyntax {
     return $this->_members;
   }
 
@@ -140,18 +140,18 @@ final class DarrayIntrinsicExpression extends EditableSyntax {
     return !$this->_members->is_missing();
   }
 
-  public function members(): ?EditableList {
+  public function getMembers(): ?EditableList {
     if ($this->_members->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
   }
 
-  public function membersx(): EditableList {
+  public function getMembersx(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
   }
 
-  public function raw_right_bracket(): EditableSyntax {
+  public function getRightBracketUNTYPED(): EditableSyntax {
     return $this->_right_bracket;
   }
 
@@ -166,7 +166,7 @@ final class DarrayIntrinsicExpression extends EditableSyntax {
     return !$this->_right_bracket->is_missing();
   }
 
-  public function right_bracket(): RightBracketToken {
+  public function getRightBracket(): RightBracketToken {
     return TypeAssert::isInstanceOf(RightBracketToken::class, $this->_right_bracket);
   }
 }

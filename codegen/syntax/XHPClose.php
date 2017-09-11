@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1e65143f79c3921d1fbf061c673774dc>>
+ * @generated SignedSource<<38d4ef39e54944ac835f5bf108355a6f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,7 +75,7 @@ final class XHPClose extends EditableSyntax {
     return new self($left_angle, $name, $right_angle);
   }
 
-  public function raw_left_angle(): EditableSyntax {
+  public function getLeftAngleUNTYPED(): EditableSyntax {
     return $this->_left_angle;
   }
 
@@ -90,11 +90,11 @@ final class XHPClose extends EditableSyntax {
     return !$this->_left_angle->is_missing();
   }
 
-  public function left_angle(): EditableSyntax {
+  public function getLeftAngle(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_angle);
   }
 
-  public function raw_name(): EditableSyntax {
+  public function getNameUNTYPED(): EditableSyntax {
     return $this->_name;
   }
 
@@ -109,18 +109,18 @@ final class XHPClose extends EditableSyntax {
     return !$this->_name->is_missing();
   }
 
-  public function name(): ?XHPElementNameToken {
+  public function getName(): ?XHPElementNameToken {
     if ($this->_name->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(XHPElementNameToken::class, $this->_name);
   }
 
-  public function namex(): XHPElementNameToken {
+  public function getNamex(): XHPElementNameToken {
     return TypeAssert::isInstanceOf(XHPElementNameToken::class, $this->_name);
   }
 
-  public function raw_right_angle(): EditableSyntax {
+  public function getRightAngleUNTYPED(): EditableSyntax {
     return $this->_right_angle;
   }
 
@@ -135,14 +135,14 @@ final class XHPClose extends EditableSyntax {
     return !$this->_right_angle->is_missing();
   }
 
-  public function right_angle(): ?GreaterThanToken {
+  public function getRightAngle(): ?GreaterThanToken {
     if ($this->_right_angle->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 
-  public function right_anglex(): GreaterThanToken {
+  public function getRightAnglex(): GreaterThanToken {
     return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 }

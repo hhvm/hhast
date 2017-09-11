@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<798cbb15480b5b9fe4b37388a17492f3>>
+ * @generated SignedSource<<99bfd251a5e63e5b86add0be5bcef860>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,7 +75,7 @@ final class TypeParameters extends EditableSyntax {
     return new self($left_angle, $parameters, $right_angle);
   }
 
-  public function raw_left_angle(): EditableSyntax {
+  public function getLeftAngleUNTYPED(): EditableSyntax {
     return $this->_left_angle;
   }
 
@@ -90,11 +90,11 @@ final class TypeParameters extends EditableSyntax {
     return !$this->_left_angle->is_missing();
   }
 
-  public function left_angle(): LessThanToken {
+  public function getLeftAngle(): LessThanToken {
     return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
   }
 
-  public function raw_parameters(): EditableSyntax {
+  public function getParametersUNTYPED(): EditableSyntax {
     return $this->_parameters;
   }
 
@@ -109,11 +109,11 @@ final class TypeParameters extends EditableSyntax {
     return !$this->_parameters->is_missing();
   }
 
-  public function parameters(): EditableList {
+  public function getParameters(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_parameters);
   }
 
-  public function raw_right_angle(): EditableSyntax {
+  public function getRightAngleUNTYPED(): EditableSyntax {
     return $this->_right_angle;
   }
 
@@ -128,7 +128,7 @@ final class TypeParameters extends EditableSyntax {
     return !$this->_right_angle->is_missing();
   }
 
-  public function right_angle(): GreaterThanToken {
+  public function getRightAngle(): GreaterThanToken {
     return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 }

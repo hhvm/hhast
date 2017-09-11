@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ddeb82da8ab92b1dbc1a70269e35dfc2>>
+ * @generated SignedSource<<8876d74989d5ad429257f5318d9c4d41>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -118,7 +118,7 @@ final class CatchClause extends EditableSyntax {
     return new self($keyword, $left_paren, $type, $variable, $right_paren, $body);
   }
 
-  public function raw_keyword(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -140,11 +140,11 @@ final class CatchClause extends EditableSyntax {
     return !$this->_keyword->is_missing();
   }
 
-  public function keyword(): CatchToken {
+  public function getKeyword(): CatchToken {
     return TypeAssert::isInstanceOf(CatchToken::class, $this->_keyword);
   }
 
-  public function raw_left_paren(): EditableSyntax {
+  public function getLeftParenUNTYPED(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -166,11 +166,11 @@ final class CatchClause extends EditableSyntax {
     return !$this->_left_paren->is_missing();
   }
 
-  public function left_paren(): LeftParenToken {
+  public function getLeftParen(): LeftParenToken {
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
 
-  public function raw_type(): EditableSyntax {
+  public function getTypeUNTYPED(): EditableSyntax {
     return $this->_type;
   }
 
@@ -192,11 +192,11 @@ final class CatchClause extends EditableSyntax {
     return !$this->_type->is_missing();
   }
 
-  public function type(): EditableSyntax {
+  public function getType(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
 
-  public function raw_variable(): EditableSyntax {
+  public function getVariableUNTYPED(): EditableSyntax {
     return $this->_variable;
   }
 
@@ -218,18 +218,18 @@ final class CatchClause extends EditableSyntax {
     return !$this->_variable->is_missing();
   }
 
-  public function variable(): ?VariableToken {
+  public function getVariable(): ?VariableToken {
     if ($this->_variable->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(VariableToken::class, $this->_variable);
   }
 
-  public function variablex(): VariableToken {
+  public function getVariablex(): VariableToken {
     return TypeAssert::isInstanceOf(VariableToken::class, $this->_variable);
   }
 
-  public function raw_right_paren(): EditableSyntax {
+  public function getRightParenUNTYPED(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -251,18 +251,18 @@ final class CatchClause extends EditableSyntax {
     return !$this->_right_paren->is_missing();
   }
 
-  public function right_paren(): ?RightParenToken {
+  public function getRightParen(): ?RightParenToken {
     if ($this->_right_paren->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
-  public function right_parenx(): RightParenToken {
+  public function getRightParenx(): RightParenToken {
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
-  public function raw_body(): EditableSyntax {
+  public function getBodyUNTYPED(): EditableSyntax {
     return $this->_body;
   }
 
@@ -284,7 +284,7 @@ final class CatchClause extends EditableSyntax {
     return !$this->_body->is_missing();
   }
 
-  public function body(): CompoundStatement {
+  public function getBody(): CompoundStatement {
     return TypeAssert::isInstanceOf(CompoundStatement::class, $this->_body);
   }
 }

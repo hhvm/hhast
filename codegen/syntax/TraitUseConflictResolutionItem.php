@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eb9fdfe083f7360424ba6e0d526287a9>>
+ * @generated SignedSource<<4142cac710290a115a328b906170ee7e>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,7 +75,7 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
     return new self($aliasing_name, $aliasing_keyword, $aliased_names);
   }
 
-  public function raw_aliasing_name(): EditableSyntax {
+  public function getAliasingNameUNTYPED(): EditableSyntax {
     return $this->_aliasing_name;
   }
 
@@ -90,11 +90,11 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
     return !$this->_aliasing_name->is_missing();
   }
 
-  public function aliasing_name(): EditableSyntax {
+  public function getAliasingName(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_aliasing_name);
   }
 
-  public function raw_aliasing_keyword(): EditableSyntax {
+  public function getAliasingKeywordUNTYPED(): EditableSyntax {
     return $this->_aliasing_keyword;
   }
 
@@ -109,11 +109,11 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
     return !$this->_aliasing_keyword->is_missing();
   }
 
-  public function aliasing_keyword(): EditableSyntax {
+  public function getAliasingKeyword(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_aliasing_keyword);
   }
 
-  public function raw_aliased_names(): EditableSyntax {
+  public function getAliasedNamesUNTYPED(): EditableSyntax {
     return $this->_aliased_names;
   }
 
@@ -128,7 +128,7 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
     return !$this->_aliased_names->is_missing();
   }
 
-  public function aliased_names(): EditableList {
+  public function getAliasedNames(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_aliased_names);
   }
 }

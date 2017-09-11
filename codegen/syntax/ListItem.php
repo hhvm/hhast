@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<29bd84ef58879ce56c6ca6f9b4cd23e8>>
+ * @generated SignedSource<<e1113c13a56857ff3e8c8426e8171926>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -60,7 +60,7 @@ final class ListItem extends EditableSyntax {
     return new self($item, $separator);
   }
 
-  public function raw_item(): EditableSyntax {
+  public function getItemUNTYPED(): EditableSyntax {
     return $this->_item;
   }
 
@@ -75,11 +75,11 @@ final class ListItem extends EditableSyntax {
     return !$this->_item->is_missing();
   }
 
-  public function item(): EditableSyntax {
+  public function getItem(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_item);
   }
 
-  public function raw_separator(): EditableSyntax {
+  public function getSeparatorUNTYPED(): EditableSyntax {
     return $this->_separator;
   }
 
@@ -94,7 +94,7 @@ final class ListItem extends EditableSyntax {
     return !$this->_separator->is_missing();
   }
 
-  public function separator(): EditableSyntax {
+  public function getSeparator(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_separator);
   }
 }

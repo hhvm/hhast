@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a44850532db6090eab7b08c15cea801b>>
+ * @generated SignedSource<<3a956e460933f5b395545b3d11f9c262>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,7 +75,7 @@ final class BinaryExpression extends EditableSyntax {
     return new self($left_operand, $operator, $right_operand);
   }
 
-  public function raw_left_operand(): EditableSyntax {
+  public function getLeftOperandUNTYPED(): EditableSyntax {
     return $this->_left_operand;
   }
 
@@ -90,11 +90,11 @@ final class BinaryExpression extends EditableSyntax {
     return !$this->_left_operand->is_missing();
   }
 
-  public function left_operand(): EditableSyntax {
+  public function getLeftOperand(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_operand);
   }
 
-  public function raw_operator(): EditableSyntax {
+  public function getOperatorUNTYPED(): EditableSyntax {
     return $this->_operator;
   }
 
@@ -109,11 +109,11 @@ final class BinaryExpression extends EditableSyntax {
     return !$this->_operator->is_missing();
   }
 
-  public function operator(): EditableSyntax {
+  public function getOperator(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operator);
   }
 
-  public function raw_right_operand(): EditableSyntax {
+  public function getRightOperandUNTYPED(): EditableSyntax {
     return $this->_right_operand;
   }
 
@@ -128,7 +128,7 @@ final class BinaryExpression extends EditableSyntax {
     return !$this->_right_operand->is_missing();
   }
 
-  public function right_operand(): EditableSyntax {
+  public function getRightOperand(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_operand);
   }
 }

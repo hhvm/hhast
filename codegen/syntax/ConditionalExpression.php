@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<580352aed16ed362cac1b35e6184fa07>>
+ * @generated SignedSource<<c69751616de792c9a78d5c3e5bddca9d>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -99,7 +99,7 @@ final class ConditionalExpression extends EditableSyntax {
     return new self($test, $question, $consequence, $colon, $alternative);
   }
 
-  public function raw_test(): EditableSyntax {
+  public function getTestUNTYPED(): EditableSyntax {
     return $this->_test;
   }
 
@@ -120,11 +120,11 @@ final class ConditionalExpression extends EditableSyntax {
     return !$this->_test->is_missing();
   }
 
-  public function test(): EditableSyntax {
+  public function getTest(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_test);
   }
 
-  public function raw_question(): EditableSyntax {
+  public function getQuestionUNTYPED(): EditableSyntax {
     return $this->_question;
   }
 
@@ -145,11 +145,11 @@ final class ConditionalExpression extends EditableSyntax {
     return !$this->_question->is_missing();
   }
 
-  public function question(): QuestionToken {
+  public function getQuestion(): QuestionToken {
     return TypeAssert::isInstanceOf(QuestionToken::class, $this->_question);
   }
 
-  public function raw_consequence(): EditableSyntax {
+  public function getConsequenceUNTYPED(): EditableSyntax {
     return $this->_consequence;
   }
 
@@ -170,11 +170,11 @@ final class ConditionalExpression extends EditableSyntax {
     return !$this->_consequence->is_missing();
   }
 
-  public function consequence(): EditableSyntax {
+  public function getConsequence(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_consequence);
   }
 
-  public function raw_colon(): EditableSyntax {
+  public function getColonUNTYPED(): EditableSyntax {
     return $this->_colon;
   }
 
@@ -195,18 +195,18 @@ final class ConditionalExpression extends EditableSyntax {
     return !$this->_colon->is_missing();
   }
 
-  public function colon(): ?ColonToken {
+  public function getColon(): ?ColonToken {
     if ($this->_colon->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
   }
 
-  public function colonx(): ColonToken {
+  public function getColonx(): ColonToken {
     return TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
   }
 
-  public function raw_alternative(): EditableSyntax {
+  public function getAlternativeUNTYPED(): EditableSyntax {
     return $this->_alternative;
   }
 
@@ -227,7 +227,7 @@ final class ConditionalExpression extends EditableSyntax {
     return !$this->_alternative->is_missing();
   }
 
-  public function alternative(): EditableSyntax {
+  public function getAlternative(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_alternative);
   }
 }

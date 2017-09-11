@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5b9209b6498da77ec0a992081af6005d>>
+ * @generated SignedSource<<1543f1efa38161fc8bb6d06c42d45e71>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,7 +75,7 @@ final class GotoStatement extends EditableSyntax {
     return new self($keyword, $label_name, $semicolon);
   }
 
-  public function raw_keyword(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -90,11 +90,11 @@ final class GotoStatement extends EditableSyntax {
     return !$this->_keyword->is_missing();
   }
 
-  public function keyword(): GotoToken {
+  public function getKeyword(): GotoToken {
     return TypeAssert::isInstanceOf(GotoToken::class, $this->_keyword);
   }
 
-  public function raw_label_name(): EditableSyntax {
+  public function getLabelNameUNTYPED(): EditableSyntax {
     return $this->_label_name;
   }
 
@@ -109,11 +109,11 @@ final class GotoStatement extends EditableSyntax {
     return !$this->_label_name->is_missing();
   }
 
-  public function label_name(): NameToken {
+  public function getLabelName(): NameToken {
     return TypeAssert::isInstanceOf(NameToken::class, $this->_label_name);
   }
 
-  public function raw_semicolon(): EditableSyntax {
+  public function getSemicolonUNTYPED(): EditableSyntax {
     return $this->_semicolon;
   }
 
@@ -128,7 +128,7 @@ final class GotoStatement extends EditableSyntax {
     return !$this->_semicolon->is_missing();
   }
 
-  public function semicolon(): SemicolonToken {
+  public function getSemicolon(): SemicolonToken {
     return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9f888e01470212f9f26097391e6c6203>>
+ * @generated SignedSource<<9bc13c2e8c51e98bf73bbcab94e085f4>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,7 +75,7 @@ final class CaseLabel extends EditableSyntax {
     return new self($keyword, $expression, $colon);
   }
 
-  public function raw_keyword(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -90,11 +90,11 @@ final class CaseLabel extends EditableSyntax {
     return !$this->_keyword->is_missing();
   }
 
-  public function keyword(): CaseToken {
+  public function getKeyword(): CaseToken {
     return TypeAssert::isInstanceOf(CaseToken::class, $this->_keyword);
   }
 
-  public function raw_expression(): EditableSyntax {
+  public function getExpressionUNTYPED(): EditableSyntax {
     return $this->_expression;
   }
 
@@ -109,11 +109,11 @@ final class CaseLabel extends EditableSyntax {
     return !$this->_expression->is_missing();
   }
 
-  public function expression(): EditableSyntax {
+  public function getExpression(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
   }
 
-  public function raw_colon(): EditableSyntax {
+  public function getColonUNTYPED(): EditableSyntax {
     return $this->_colon;
   }
 
@@ -128,7 +128,7 @@ final class CaseLabel extends EditableSyntax {
     return !$this->_colon->is_missing();
   }
 
-  public function colon(): EditableSyntax {
+  public function getColon(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_colon);
   }
 }

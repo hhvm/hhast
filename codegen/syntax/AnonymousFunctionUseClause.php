@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c478968b4564b1c5d9d6baf690484c6c>>
+ * @generated SignedSource<<2b616c7435ca18cba087c264cb06e0c6>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -87,7 +87,7 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
     return new self($keyword, $left_paren, $variables, $right_paren);
   }
 
-  public function raw_keyword(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -102,11 +102,11 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
     return !$this->_keyword->is_missing();
   }
 
-  public function keyword(): UseToken {
+  public function getKeyword(): UseToken {
     return TypeAssert::isInstanceOf(UseToken::class, $this->_keyword);
   }
 
-  public function raw_left_paren(): EditableSyntax {
+  public function getLeftParenUNTYPED(): EditableSyntax {
     return $this->_left_paren;
   }
 
@@ -121,11 +121,11 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
     return !$this->_left_paren->is_missing();
   }
 
-  public function left_paren(): LeftParenToken {
+  public function getLeftParen(): LeftParenToken {
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
 
-  public function raw_variables(): EditableSyntax {
+  public function getVariablesUNTYPED(): EditableSyntax {
     return $this->_variables;
   }
 
@@ -140,11 +140,11 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
     return !$this->_variables->is_missing();
   }
 
-  public function variables(): EditableList {
+  public function getVariables(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_variables);
   }
 
-  public function raw_right_paren(): EditableSyntax {
+  public function getRightParenUNTYPED(): EditableSyntax {
     return $this->_right_paren;
   }
 
@@ -159,7 +159,7 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
     return !$this->_right_paren->is_missing();
   }
 
-  public function right_paren(): RightParenToken {
+  public function getRightParen(): RightParenToken {
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 }

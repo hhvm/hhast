@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2f72a3de35d15f2b92743fbef3965c09>>
+ * @generated SignedSource<<673af2cc1b8a5ae584ab84d5e7e765bc>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -87,7 +87,7 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
     return new self($receiver, $left_bracket, $index, $right_bracket);
   }
 
-  public function raw_receiver(): EditableSyntax {
+  public function getReceiverUNTYPED(): EditableSyntax {
     return $this->_receiver;
   }
 
@@ -102,11 +102,11 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
     return !$this->_receiver->is_missing();
   }
 
-  public function receiver(): EditableSyntax {
+  public function getReceiver(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_receiver);
   }
 
-  public function raw_left_bracket(): EditableSyntax {
+  public function getLeftBracketUNTYPED(): EditableSyntax {
     return $this->_left_bracket;
   }
 
@@ -121,11 +121,11 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
     return !$this->_left_bracket->is_missing();
   }
 
-  public function left_bracket(): EditableSyntax {
+  public function getLeftBracket(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_bracket);
   }
 
-  public function raw_index(): EditableSyntax {
+  public function getIndexUNTYPED(): EditableSyntax {
     return $this->_index;
   }
 
@@ -140,11 +140,11 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
     return !$this->_index->is_missing();
   }
 
-  public function index(): EditableSyntax {
+  public function getIndex(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_index);
   }
 
-  public function raw_right_bracket(): EditableSyntax {
+  public function getRightBracketUNTYPED(): EditableSyntax {
     return $this->_right_bracket;
   }
 
@@ -159,7 +159,7 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
     return !$this->_right_bracket->is_missing();
   }
 
-  public function right_bracket(): EditableSyntax {
+  public function getRightBracket(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_bracket);
   }
 }

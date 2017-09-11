@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e5ef5e23782b97f6a2e848b0e62effed>>
+ * @generated SignedSource<<51fa93089fa15be1e9272700a1c95969>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,7 +75,7 @@ final class ContinueStatement extends EditableSyntax {
     return new self($keyword, $level, $semicolon);
   }
 
-  public function raw_keyword(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -90,11 +90,11 @@ final class ContinueStatement extends EditableSyntax {
     return !$this->_keyword->is_missing();
   }
 
-  public function keyword(): ContinueToken {
+  public function getKeyword(): ContinueToken {
     return TypeAssert::isInstanceOf(ContinueToken::class, $this->_keyword);
   }
 
-  public function raw_level(): EditableSyntax {
+  public function getLevelUNTYPED(): EditableSyntax {
     return $this->_level;
   }
 
@@ -109,11 +109,11 @@ final class ContinueStatement extends EditableSyntax {
     return !$this->_level->is_missing();
   }
 
-  public function level(): EditableSyntax {
+  public function getLevel(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_level);
   }
 
-  public function raw_semicolon(): EditableSyntax {
+  public function getSemicolonUNTYPED(): EditableSyntax {
     return $this->_semicolon;
   }
 
@@ -128,7 +128,7 @@ final class ContinueStatement extends EditableSyntax {
     return !$this->_semicolon->is_missing();
   }
 
-  public function semicolon(): SemicolonToken {
+  public function getSemicolon(): SemicolonToken {
     return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 }

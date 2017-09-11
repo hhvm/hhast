@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<97074e9cb5b6d5fcc9e8aded45455a2b>>
+ * @generated SignedSource<<c4ebd6af9542e255e263d865af42c944>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -153,7 +153,7 @@ final class TypeConstDeclaration extends EditableSyntax {
     );
   }
 
-  public function raw_abstract(): EditableSyntax {
+  public function getAbstractUNTYPED(): EditableSyntax {
     return $this->_abstract;
   }
 
@@ -177,18 +177,18 @@ final class TypeConstDeclaration extends EditableSyntax {
     return !$this->_abstract->is_missing();
   }
 
-  public function abstract(): ?AbstractToken {
+  public function getAbstract(): ?AbstractToken {
     if ($this->_abstract->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(AbstractToken::class, $this->_abstract);
   }
 
-  public function abstractx(): AbstractToken {
+  public function getAbstractx(): AbstractToken {
     return TypeAssert::isInstanceOf(AbstractToken::class, $this->_abstract);
   }
 
-  public function raw_keyword(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -212,11 +212,11 @@ final class TypeConstDeclaration extends EditableSyntax {
     return !$this->_keyword->is_missing();
   }
 
-  public function keyword(): ConstToken {
+  public function getKeyword(): ConstToken {
     return TypeAssert::isInstanceOf(ConstToken::class, $this->_keyword);
   }
 
-  public function raw_type_keyword(): EditableSyntax {
+  public function getTypeKeywordUNTYPED(): EditableSyntax {
     return $this->_type_keyword;
   }
 
@@ -240,11 +240,11 @@ final class TypeConstDeclaration extends EditableSyntax {
     return !$this->_type_keyword->is_missing();
   }
 
-  public function type_keyword(): TypeToken {
+  public function getTypeKeyword(): TypeToken {
     return TypeAssert::isInstanceOf(TypeToken::class, $this->_type_keyword);
   }
 
-  public function raw_name(): EditableSyntax {
+  public function getNameUNTYPED(): EditableSyntax {
     return $this->_name;
   }
 
@@ -268,18 +268,18 @@ final class TypeConstDeclaration extends EditableSyntax {
     return !$this->_name->is_missing();
   }
 
-  public function name(): ?NameToken {
+  public function getName(): ?NameToken {
     if ($this->_name->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(NameToken::class, $this->_name);
   }
 
-  public function namex(): NameToken {
+  public function getNamex(): NameToken {
     return TypeAssert::isInstanceOf(NameToken::class, $this->_name);
   }
 
-  public function raw_type_constraint(): EditableSyntax {
+  public function getTypeConstraintUNTYPED(): EditableSyntax {
     return $this->_type_constraint;
   }
 
@@ -303,18 +303,18 @@ final class TypeConstDeclaration extends EditableSyntax {
     return !$this->_type_constraint->is_missing();
   }
 
-  public function type_constraint(): ?TypeConstraint {
+  public function getTypeConstraint(): ?TypeConstraint {
     if ($this->_type_constraint->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(TypeConstraint::class, $this->_type_constraint);
   }
 
-  public function type_constraintx(): TypeConstraint {
+  public function getTypeConstraintx(): TypeConstraint {
     return TypeAssert::isInstanceOf(TypeConstraint::class, $this->_type_constraint);
   }
 
-  public function raw_equal(): EditableSyntax {
+  public function getEqualUNTYPED(): EditableSyntax {
     return $this->_equal;
   }
 
@@ -338,18 +338,18 @@ final class TypeConstDeclaration extends EditableSyntax {
     return !$this->_equal->is_missing();
   }
 
-  public function equal(): ?EqualToken {
+  public function getEqual(): ?EqualToken {
     if ($this->_equal->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(EqualToken::class, $this->_equal);
   }
 
-  public function equalx(): EqualToken {
+  public function getEqualx(): EqualToken {
     return TypeAssert::isInstanceOf(EqualToken::class, $this->_equal);
   }
 
-  public function raw_type_specifier(): EditableSyntax {
+  public function getTypeSpecifierUNTYPED(): EditableSyntax {
     return $this->_type_specifier;
   }
 
@@ -373,11 +373,11 @@ final class TypeConstDeclaration extends EditableSyntax {
     return !$this->_type_specifier->is_missing();
   }
 
-  public function type_specifier(): EditableSyntax {
+  public function getTypeSpecifier(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type_specifier);
   }
 
-  public function raw_semicolon(): EditableSyntax {
+  public function getSemicolonUNTYPED(): EditableSyntax {
     return $this->_semicolon;
   }
 
@@ -401,14 +401,14 @@ final class TypeConstDeclaration extends EditableSyntax {
     return !$this->_semicolon->is_missing();
   }
 
-  public function semicolon(): ?SemicolonToken {
+  public function getSemicolon(): ?SemicolonToken {
     if ($this->_semicolon->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 
-  public function semicolonx(): SemicolonToken {
+  public function getSemicolonx(): SemicolonToken {
     return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 }

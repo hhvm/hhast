@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<770a7b357e2e27cd106ce6548b04b0eb>>
+ * @generated SignedSource<<eaca8e9128e87516066e3966aafd8789>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -87,7 +87,7 @@ final class FieldSpecifier extends EditableSyntax {
     return new self($question, $name, $arrow, $type);
   }
 
-  public function raw_question(): EditableSyntax {
+  public function getQuestionUNTYPED(): EditableSyntax {
     return $this->_question;
   }
 
@@ -102,18 +102,18 @@ final class FieldSpecifier extends EditableSyntax {
     return !$this->_question->is_missing();
   }
 
-  public function question(): ?QuestionToken {
+  public function getQuestion(): ?QuestionToken {
     if ($this->_question->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(QuestionToken::class, $this->_question);
   }
 
-  public function questionx(): QuestionToken {
+  public function getQuestionx(): QuestionToken {
     return TypeAssert::isInstanceOf(QuestionToken::class, $this->_question);
   }
 
-  public function raw_name(): EditableSyntax {
+  public function getNameUNTYPED(): EditableSyntax {
     return $this->_name;
   }
 
@@ -128,11 +128,11 @@ final class FieldSpecifier extends EditableSyntax {
     return !$this->_name->is_missing();
   }
 
-  public function name(): EditableSyntax {
+  public function getName(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }
 
-  public function raw_arrow(): EditableSyntax {
+  public function getArrowUNTYPED(): EditableSyntax {
     return $this->_arrow;
   }
 
@@ -147,11 +147,11 @@ final class FieldSpecifier extends EditableSyntax {
     return !$this->_arrow->is_missing();
   }
 
-  public function arrow(): EqualGreaterThanToken {
+  public function getArrow(): EqualGreaterThanToken {
     return TypeAssert::isInstanceOf(EqualGreaterThanToken::class, $this->_arrow);
   }
 
-  public function raw_type(): EditableSyntax {
+  public function getTypeUNTYPED(): EditableSyntax {
     return $this->_type;
   }
 
@@ -166,7 +166,7 @@ final class FieldSpecifier extends EditableSyntax {
     return !$this->_type->is_missing();
   }
 
-  public function type(): EditableSyntax {
+  public function getType(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
 }

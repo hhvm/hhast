@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c03a7521242b75487f62606363a6d338>>
+ * @generated SignedSource<<f2304b940227301f6e9cd54da0a45cd9>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -111,7 +111,7 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     return new self($keyword, $left_angle, $key, $comma, $value, $right_angle);
   }
 
-  public function raw_keyword(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableSyntax {
     return $this->_keyword;
   }
 
@@ -133,11 +133,11 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     return !$this->_keyword->is_missing();
   }
 
-  public function keyword(): ArrayToken {
+  public function getKeyword(): ArrayToken {
     return TypeAssert::isInstanceOf(ArrayToken::class, $this->_keyword);
   }
 
-  public function raw_left_angle(): EditableSyntax {
+  public function getLeftAngleUNTYPED(): EditableSyntax {
     return $this->_left_angle;
   }
 
@@ -159,11 +159,11 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     return !$this->_left_angle->is_missing();
   }
 
-  public function left_angle(): LessThanToken {
+  public function getLeftAngle(): LessThanToken {
     return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
   }
 
-  public function raw_key(): EditableSyntax {
+  public function getKeyUNTYPED(): EditableSyntax {
     return $this->_key;
   }
 
@@ -185,11 +185,11 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     return !$this->_key->is_missing();
   }
 
-  public function key(): SimpleTypeSpecifier {
+  public function getKey(): SimpleTypeSpecifier {
     return TypeAssert::isInstanceOf(SimpleTypeSpecifier::class, $this->_key);
   }
 
-  public function raw_comma(): EditableSyntax {
+  public function getCommaUNTYPED(): EditableSyntax {
     return $this->_comma;
   }
 
@@ -211,11 +211,11 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     return !$this->_comma->is_missing();
   }
 
-  public function comma(): CommaToken {
+  public function getComma(): CommaToken {
     return TypeAssert::isInstanceOf(CommaToken::class, $this->_comma);
   }
 
-  public function raw_value(): EditableSyntax {
+  public function getValueUNTYPED(): EditableSyntax {
     return $this->_value;
   }
 
@@ -237,11 +237,11 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     return !$this->_value->is_missing();
   }
 
-  public function value(): EditableSyntax {
+  public function getValue(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_value);
   }
 
-  public function raw_right_angle(): EditableSyntax {
+  public function getRightAngleUNTYPED(): EditableSyntax {
     return $this->_right_angle;
   }
 
@@ -263,14 +263,14 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     return !$this->_right_angle->is_missing();
   }
 
-  public function right_angle(): ?GreaterThanToken {
+  public function getRightAngle(): ?GreaterThanToken {
     if ($this->_right_angle->is_missing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 
-  public function right_anglex(): GreaterThanToken {
+  public function getRightAnglex(): GreaterThanToken {
     return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 }

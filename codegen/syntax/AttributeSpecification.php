@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bf0c13d884d45b828d08600796d2d997>>
+ * @generated SignedSource<<ffb0610fa4d2d1fd09b369a921e9ed83>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,7 +75,7 @@ final class AttributeSpecification extends EditableSyntax {
     return new self($left_double_angle, $attributes, $right_double_angle);
   }
 
-  public function raw_left_double_angle(): EditableSyntax {
+  public function getLeftDoubleAngleUNTYPED(): EditableSyntax {
     return $this->_left_double_angle;
   }
 
@@ -90,11 +90,11 @@ final class AttributeSpecification extends EditableSyntax {
     return !$this->_left_double_angle->is_missing();
   }
 
-  public function left_double_angle(): LessThanLessThanToken {
+  public function getLeftDoubleAngle(): LessThanLessThanToken {
     return TypeAssert::isInstanceOf(LessThanLessThanToken::class, $this->_left_double_angle);
   }
 
-  public function raw_attributes(): EditableSyntax {
+  public function getAttributesUNTYPED(): EditableSyntax {
     return $this->_attributes;
   }
 
@@ -109,11 +109,11 @@ final class AttributeSpecification extends EditableSyntax {
     return !$this->_attributes->is_missing();
   }
 
-  public function attributes(): EditableList {
+  public function getAttributes(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_attributes);
   }
 
-  public function raw_right_double_angle(): EditableSyntax {
+  public function getRightDoubleAngleUNTYPED(): EditableSyntax {
     return $this->_right_double_angle;
   }
 
@@ -128,7 +128,7 @@ final class AttributeSpecification extends EditableSyntax {
     return !$this->_right_double_angle->is_missing();
   }
 
-  public function right_double_angle(): GreaterThanGreaterThanToken {
+  public function getRightDoubleAngle(): GreaterThanGreaterThanToken {
     return TypeAssert::isInstanceOf(GreaterThanGreaterThanToken::class, $this->_right_double_angle);
   }
 }
