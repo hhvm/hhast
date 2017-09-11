@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2c6851e493e9a40f7aa5f2a2a1082637>>
+ * @generated SignedSource<<54f40ede6f72669fe1344d85c0ea4d51>>
  */
 namespace Facebook\HHAST;
 
@@ -16,11 +16,19 @@ final class HexadecimalLiteralToken extends EditableToken {
     parent::__construct('hexadecimal_literal', $leading, $trailing, $text);
   }
 
+  public function hasLeading(): bool {
+    return !$this->leading()->is_missing();
+  }
+
   public function with_leading(EditableSyntax $value): this {
     if ($value === $this->leading()) {
       return $this;
     }
     return new self($value, $this->trailing(), $this->text());
+  }
+
+  public function hasTrailing(): bool {
+    return !$this->trailing()->is_missing();
   }
 
   public function with_trailing(EditableSyntax $value): this {

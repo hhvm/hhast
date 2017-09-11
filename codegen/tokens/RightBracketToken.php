@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<65994ed77ad213cfbe21b03ce0bdf552>>
+ * @generated SignedSource<<061af0620e98f07ff009cfc764d3361c>>
  */
 namespace Facebook\HHAST;
 
@@ -15,11 +15,19 @@ final class RightBracketToken extends EditableToken {
     parent::__construct(']', $leading, $trailing, ']');
   }
 
+  public function hasLeading(): bool {
+    return !$this->leading()->is_missing();
+  }
+
   public function with_leading(EditableSyntax $value): this {
     if ($value === $this->leading()) {
       return $this;
     }
     return new self($value, $this->trailing());
+  }
+
+  public function hasTrailing(): bool {
+    return !$this->trailing()->is_missing();
   }
 
   public function with_trailing(EditableSyntax $value): this {

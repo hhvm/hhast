@@ -83,4 +83,12 @@ abstract class CodegenBase {
     )
       |> Str\strip_prefix($$, '_');
   }
+
+  protected static function upper_camel(string $in): string {
+    return preg_replace_callback(
+      '/(^|_)([a-z])/',
+      $matches ==> Str\uppercase($matches[2]),
+      $in,
+    );
+  }
 }

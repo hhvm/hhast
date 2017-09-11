@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<116b45ae4d7ecf4e35d82b5a5bc3e8f6>>
+ * @generated SignedSource<<d894def62f67cd5c08bc24163ca31f9b>>
  */
 namespace Facebook\HHAST;
 
@@ -15,11 +15,19 @@ final class SemicolonToken extends EditableToken {
     parent::__construct(';', $leading, $trailing, ';');
   }
 
+  public function hasLeading(): bool {
+    return !$this->leading()->is_missing();
+  }
+
   public function with_leading(EditableSyntax $value): this {
     if ($value === $this->leading()) {
       return $this;
     }
     return new self($value, $this->trailing());
+  }
+
+  public function hasTrailing(): bool {
+    return !$this->trailing()->is_missing();
   }
 
   public function with_trailing(EditableSyntax $value): this {

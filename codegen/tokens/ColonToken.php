@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b5f758dc4cffc3803b0d33ca65b9850d>>
+ * @generated SignedSource<<00f3d93bde7e11787cc1843a12531890>>
  */
 namespace Facebook\HHAST;
 
@@ -15,11 +15,19 @@ final class ColonToken extends EditableToken {
     parent::__construct(':', $leading, $trailing, ':');
   }
 
+  public function hasLeading(): bool {
+    return !$this->leading()->is_missing();
+  }
+
   public function with_leading(EditableSyntax $value): this {
     if ($value === $this->leading()) {
       return $this;
     }
     return new self($value, $this->trailing());
+  }
+
+  public function hasTrailing(): bool {
+    return !$this->trailing()->is_missing();
   }
 
   public function with_trailing(EditableSyntax $value): this {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2e3148e9a889a36b50adb513a3738d01>>
+ * @generated SignedSource<<f3eb1091d14a62365d769b9c26dae536>>
  */
 namespace Facebook\HHAST;
 
@@ -15,11 +15,19 @@ final class TupleToken extends EditableToken {
     parent::__construct('tuple', $leading, $trailing, 'tuple');
   }
 
+  public function hasLeading(): bool {
+    return !$this->leading()->is_missing();
+  }
+
   public function with_leading(EditableSyntax $value): this {
     if ($value === $this->leading()) {
       return $this;
     }
     return new self($value, $this->trailing());
+  }
+
+  public function hasTrailing(): bool {
+    return !$this->trailing()->is_missing();
   }
 
   public function with_trailing(EditableSyntax $value): this {

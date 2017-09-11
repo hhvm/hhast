@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a96d9e3d79db19ea1870f5d5482d15b7>>
+ * @generated SignedSource<<9bdc7254fb0b5cb8af9dbaf9561f9ff5>>
  */
 namespace Facebook\HHAST;
 
@@ -15,11 +15,19 @@ final class IfToken extends EditableToken {
     parent::__construct('if', $leading, $trailing, 'if');
   }
 
+  public function hasLeading(): bool {
+    return !$this->leading()->is_missing();
+  }
+
   public function with_leading(EditableSyntax $value): this {
     if ($value === $this->leading()) {
       return $this;
     }
     return new self($value, $this->trailing());
+  }
+
+  public function hasTrailing(): bool {
+    return !$this->trailing()->is_missing();
   }
 
   public function with_trailing(EditableSyntax $value): this {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<45ca5b49fee16dc3f04c41afbdeb6c87>>
+ * @generated SignedSource<<96facea4d10f62efee01c728c98d8fb8>>
  */
 namespace Facebook\HHAST;
 
@@ -15,11 +15,19 @@ final class NoreturnToken extends EditableToken {
     parent::__construct('noreturn', $leading, $trailing, 'noreturn');
   }
 
+  public function hasLeading(): bool {
+    return !$this->leading()->is_missing();
+  }
+
   public function with_leading(EditableSyntax $value): this {
     if ($value === $this->leading()) {
       return $this;
     }
     return new self($value, $this->trailing());
+  }
+
+  public function hasTrailing(): bool {
+    return !$this->trailing()->is_missing();
   }
 
   public function with_trailing(EditableSyntax $value): this {

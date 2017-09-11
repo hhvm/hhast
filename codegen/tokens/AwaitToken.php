@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<94e82b7a1144d739c060430bd1bdbe8d>>
+ * @generated SignedSource<<1405348f38e5dcc8b81d0c2aeb8a7985>>
  */
 namespace Facebook\HHAST;
 
@@ -15,11 +15,19 @@ final class AwaitToken extends EditableToken {
     parent::__construct('await', $leading, $trailing, 'await');
   }
 
+  public function hasLeading(): bool {
+    return !$this->leading()->is_missing();
+  }
+
   public function with_leading(EditableSyntax $value): this {
     if ($value === $this->leading()) {
       return $this;
     }
     return new self($value, $this->trailing());
+  }
+
+  public function hasTrailing(): bool {
+    return !$this->trailing()->is_missing();
   }
 
   public function with_trailing(EditableSyntax $value): this {

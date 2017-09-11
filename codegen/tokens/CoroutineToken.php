@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ddc9c74755a0468177d446794bdbd46c>>
+ * @generated SignedSource<<ad5e41c35434b305ec7f5078056617ae>>
  */
 namespace Facebook\HHAST;
 
@@ -15,11 +15,19 @@ final class CoroutineToken extends EditableToken {
     parent::__construct('coroutine', $leading, $trailing, 'coroutine');
   }
 
+  public function hasLeading(): bool {
+    return !$this->leading()->is_missing();
+  }
+
   public function with_leading(EditableSyntax $value): this {
     if ($value === $this->leading()) {
       return $this;
     }
     return new self($value, $this->trailing());
+  }
+
+  public function hasTrailing(): bool {
+    return !$this->trailing()->is_missing();
   }
 
   public function with_trailing(EditableSyntax $value): this {

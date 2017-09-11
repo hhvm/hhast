@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e0b57f7968f74339c52d901980fb0634>>
+ * @generated SignedSource<<1f8c7fb14dc8b41e4c3e4158e55947f3>>
  */
 namespace Facebook\HHAST;
 
@@ -15,11 +15,19 @@ final class PercentToken extends EditableToken {
     parent::__construct('%', $leading, $trailing, '%');
   }
 
+  public function hasLeading(): bool {
+    return !$this->leading()->is_missing();
+  }
+
   public function with_leading(EditableSyntax $value): this {
     if ($value === $this->leading()) {
       return $this;
     }
     return new self($value, $this->trailing());
+  }
+
+  public function hasTrailing(): bool {
+    return !$this->trailing()->is_missing();
   }
 
   public function with_trailing(EditableSyntax $value): this {

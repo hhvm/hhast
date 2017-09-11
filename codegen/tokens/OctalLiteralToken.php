@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0b25990451ccfe73e037f1521515b951>>
+ * @generated SignedSource<<be98579a5651e06b8261b1603ed52ae5>>
  */
 namespace Facebook\HHAST;
 
@@ -16,11 +16,19 @@ final class OctalLiteralToken extends EditableToken {
     parent::__construct('octal_literal', $leading, $trailing, $text);
   }
 
+  public function hasLeading(): bool {
+    return !$this->leading()->is_missing();
+  }
+
   public function with_leading(EditableSyntax $value): this {
     if ($value === $this->leading()) {
       return $this;
     }
     return new self($value, $this->trailing(), $this->text());
+  }
+
+  public function hasTrailing(): bool {
+    return !$this->trailing()->is_missing();
   }
 
   public function with_trailing(EditableSyntax $value): this {

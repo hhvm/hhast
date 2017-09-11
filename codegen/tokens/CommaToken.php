@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<58bb3ced23eec05dc28f54c636ab1349>>
+ * @generated SignedSource<<b27bb430fd90ecd4b7002d3d04a9fb5e>>
  */
 namespace Facebook\HHAST;
 
@@ -15,11 +15,19 @@ final class CommaToken extends EditableToken {
     parent::__construct(',', $leading, $trailing, ',');
   }
 
+  public function hasLeading(): bool {
+    return !$this->leading()->is_missing();
+  }
+
   public function with_leading(EditableSyntax $value): this {
     if ($value === $this->leading()) {
       return $this;
     }
     return new self($value, $this->trailing());
+  }
+
+  public function hasTrailing(): bool {
+    return !$this->trailing()->is_missing();
   }
 
   public function with_trailing(EditableSyntax $value): this {

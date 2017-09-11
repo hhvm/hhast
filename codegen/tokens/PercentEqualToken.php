@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c8f4e981018363b9b451cb430db9c513>>
+ * @generated SignedSource<<f04dc3355642e2215e585b417af1dc27>>
  */
 namespace Facebook\HHAST;
 
@@ -15,11 +15,19 @@ final class PercentEqualToken extends EditableToken {
     parent::__construct('%=', $leading, $trailing, '%=');
   }
 
+  public function hasLeading(): bool {
+    return !$this->leading()->is_missing();
+  }
+
   public function with_leading(EditableSyntax $value): this {
     if ($value === $this->leading()) {
       return $this;
     }
     return new self($value, $this->trailing());
+  }
+
+  public function hasTrailing(): bool {
+    return !$this->trailing()->is_missing();
   }
 
   public function with_trailing(EditableSyntax $value): this {

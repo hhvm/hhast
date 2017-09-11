@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dc497c612071a5205c0e5e28e6934145>>
+ * @generated SignedSource<<e381d190e785c29776e140e077c13a8f>>
  */
 namespace Facebook\HHAST;
 
@@ -15,11 +15,19 @@ final class CaratToken extends EditableToken {
     parent::__construct('^', $leading, $trailing, '^');
   }
 
+  public function hasLeading(): bool {
+    return !$this->leading()->is_missing();
+  }
+
   public function with_leading(EditableSyntax $value): this {
     if ($value === $this->leading()) {
       return $this;
     }
     return new self($value, $this->trailing());
+  }
+
+  public function hasTrailing(): bool {
+    return !$this->trailing()->is_missing();
   }
 
   public function with_trailing(EditableSyntax $value): this {

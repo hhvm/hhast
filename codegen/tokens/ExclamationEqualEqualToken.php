@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9756bfebc2ed833a5313173d07112899>>
+ * @generated SignedSource<<7dc4252738ca19e7c2357ff5131b8b65>>
  */
 namespace Facebook\HHAST;
 
@@ -15,11 +15,19 @@ final class ExclamationEqualEqualToken extends EditableToken {
     parent::__construct('!==', $leading, $trailing, '!==');
   }
 
+  public function hasLeading(): bool {
+    return !$this->leading()->is_missing();
+  }
+
   public function with_leading(EditableSyntax $value): this {
     if ($value === $this->leading()) {
       return $this;
     }
     return new self($value, $this->trailing());
+  }
+
+  public function hasTrailing(): bool {
+    return !$this->trailing()->is_missing();
   }
 
   public function with_trailing(EditableSyntax $value): this {

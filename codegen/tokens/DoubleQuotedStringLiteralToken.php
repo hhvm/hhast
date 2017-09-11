@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bd13cea9d3b66ed024ae1e74242f7d5b>>
+ * @generated SignedSource<<8ea0eb5e9de7efeff00e38f8db4e0191>>
  */
 namespace Facebook\HHAST;
 
@@ -21,11 +21,19 @@ final class DoubleQuotedStringLiteralToken extends EditableToken {
     );
   }
 
+  public function hasLeading(): bool {
+    return !$this->leading()->is_missing();
+  }
+
   public function with_leading(EditableSyntax $value): this {
     if ($value === $this->leading()) {
       return $this;
     }
     return new self($value, $this->trailing(), $this->text());
+  }
+
+  public function hasTrailing(): bool {
+    return !$this->trailing()->is_missing();
   }
 
   public function with_trailing(EditableSyntax $value): this {

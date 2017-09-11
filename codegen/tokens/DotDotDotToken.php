@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ab83bb4a692d55349016253dd8d32e1e>>
+ * @generated SignedSource<<9cb3fa1eab58f6d64e6d971067417980>>
  */
 namespace Facebook\HHAST;
 
@@ -15,11 +15,19 @@ final class DotDotDotToken extends EditableToken {
     parent::__construct('...', $leading, $trailing, '...');
   }
 
+  public function hasLeading(): bool {
+    return !$this->leading()->is_missing();
+  }
+
   public function with_leading(EditableSyntax $value): this {
     if ($value === $this->leading()) {
       return $this;
     }
     return new self($value, $this->trailing());
+  }
+
+  public function hasTrailing(): bool {
+    return !$this->trailing()->is_missing();
   }
 
   public function with_trailing(EditableSyntax $value): this {

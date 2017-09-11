@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b51ba9e8ae6cfa3fc5b30f51aac7d222>>
+ * @generated SignedSource<<8e4bac7a7cc2e0de63f5eead4723e0c7>>
  */
 namespace Facebook\HHAST;
 
@@ -15,11 +15,19 @@ final class MixedToken extends EditableToken {
     parent::__construct('mixed', $leading, $trailing, 'mixed');
   }
 
+  public function hasLeading(): bool {
+    return !$this->leading()->is_missing();
+  }
+
   public function with_leading(EditableSyntax $value): this {
     if ($value === $this->leading()) {
       return $this;
     }
     return new self($value, $this->trailing());
+  }
+
+  public function hasTrailing(): bool {
+    return !$this->trailing()->is_missing();
   }
 
   public function with_trailing(EditableSyntax $value): this {

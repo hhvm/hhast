@@ -78,12 +78,7 @@ final class CodegenSyntax extends CodegenBase {
     string $field,
   ): Traversable<CodegenMethod> {
     $spec = $this->getTypeSpecForField($syntax, $field);
-
-    $upper_camel = preg_replace_callback(
-      '/(^|_)([a-z])/',
-      $matches ==> Str\uppercase($matches[2]),
-      $field,
-    );
+    $upper_camel = self::upper_camel($field);
 
     $cg = $this->getCodegenFactory();
     yield $cg

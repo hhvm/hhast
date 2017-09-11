@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0e3b200e0595192769b6b89114909046>>
+ * @generated SignedSource<<5e992096dac5b4eaaa3c0d09dcf59585>>
  */
 namespace Facebook\HHAST;
 
@@ -15,11 +15,19 @@ final class SlashGreaterThanToken extends EditableToken {
     parent::__construct('/>', $leading, $trailing, '/>');
   }
 
+  public function hasLeading(): bool {
+    return !$this->leading()->is_missing();
+  }
+
   public function with_leading(EditableSyntax $value): this {
     if ($value === $this->leading()) {
       return $this;
     }
     return new self($value, $this->trailing());
+  }
+
+  public function hasTrailing(): bool {
+    return !$this->trailing()->is_missing();
   }
 
   public function with_trailing(EditableSyntax $value): this {

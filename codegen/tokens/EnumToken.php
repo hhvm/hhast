@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8ec114088cb10c59c242eaa1b78525ac>>
+ * @generated SignedSource<<89ecc984c0bf608c27ee7595dbf03bf5>>
  */
 namespace Facebook\HHAST;
 
@@ -15,11 +15,19 @@ final class EnumToken extends EditableToken {
     parent::__construct('enum', $leading, $trailing, 'enum');
   }
 
+  public function hasLeading(): bool {
+    return !$this->leading()->is_missing();
+  }
+
   public function with_leading(EditableSyntax $value): this {
     if ($value === $this->leading()) {
       return $this;
     }
     return new self($value, $this->trailing());
+  }
+
+  public function hasTrailing(): bool {
+    return !$this->trailing()->is_missing();
   }
 
   public function with_trailing(EditableSyntax $value): this {

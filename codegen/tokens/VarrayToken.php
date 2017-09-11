@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<21643df35ae2a2b3dd0c9958fd0838c0>>
+ * @generated SignedSource<<2b1f1492230aca0f3c3bab6262b9d876>>
  */
 namespace Facebook\HHAST;
 
@@ -15,11 +15,19 @@ final class VarrayToken extends EditableToken {
     parent::__construct('varray', $leading, $trailing, 'varray');
   }
 
+  public function hasLeading(): bool {
+    return !$this->leading()->is_missing();
+  }
+
   public function with_leading(EditableSyntax $value): this {
     if ($value === $this->leading()) {
       return $this;
     }
     return new self($value, $this->trailing());
+  }
+
+  public function hasTrailing(): bool {
+    return !$this->trailing()->is_missing();
   }
 
   public function with_trailing(EditableSyntax $value): this {

@@ -156,9 +156,22 @@ final class CodegenTokens extends CodegenBase {
     self::TTokenSpec $token,
   ): Traversable<CodegenMethod> {
     $cg = $this->getCodegenFactory();
-    return Vec\map(
-      $token['fields'],
-      $field ==> $cg->codegenMethod('with_'.$field['name'])
+    foreach ($token['fields'] as $field) {
+      $underscored = $field['name'];
+      $upper_camel = self::upper_camel($underscored);
+
+      if ($field['type'] !== 'string') {
+        yield $cg
+          ->codegenMethodf('has%s', $upper_camel)
+          ->setReturnType('bool')
+          ->setBodyf(
+            'return !$this->%s()->is_missing();',
+            $underscored,
+          );
+      }
+
+      yield $cg
+        ->codegenMethodf('with_%s', $underscored)
         ->addParameterf(
           '%s $value',
           $field['type'],
@@ -166,7 +179,7 @@ final class CodegenTokens extends CodegenBase {
         ->setReturnType('this')
         ->setBody(
           $cg->codegenHackBuilder()
-            ->startIfBlockf('$value === $this->%s()', $field['name'])
+            ->startIfBlockf('$value === $this->%s()', $underscored)
             ->addReturnf('$this')
             ->endIfBlock()
             ->add('return ')
@@ -180,8 +193,8 @@ final class CodegenTokens extends CodegenBase {
               ),
             )
             ->getCode()
-        )
-    );
+        );
+    }
   }
 
   private function generateRewriteChildrenMethod(

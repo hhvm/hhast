@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bf826220b42940dd112dfcd7a3556ddf>>
+ * @generated SignedSource<<f3aa0f543a32bcadd9fb8d4de1ed9b21>>
  */
 namespace Facebook\HHAST;
 
@@ -15,11 +15,19 @@ final class XorToken extends EditableToken {
     parent::__construct('xor', $leading, $trailing, 'xor');
   }
 
+  public function hasLeading(): bool {
+    return !$this->leading()->is_missing();
+  }
+
   public function with_leading(EditableSyntax $value): this {
     if ($value === $this->leading()) {
       return $this;
     }
     return new self($value, $this->trailing());
+  }
+
+  public function hasTrailing(): bool {
+    return !$this->trailing()->is_missing();
   }
 
   public function with_trailing(EditableSyntax $value): this {

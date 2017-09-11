@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f52bba52d572c3755404e5fa7b76d717>>
+ * @generated SignedSource<<8759d88a159fef90df3a4868b5f198a9>>
  */
 namespace Facebook\HHAST;
 
@@ -15,11 +15,19 @@ final class AtToken extends EditableToken {
     parent::__construct('@', $leading, $trailing, '@');
   }
 
+  public function hasLeading(): bool {
+    return !$this->leading()->is_missing();
+  }
+
   public function with_leading(EditableSyntax $value): this {
     if ($value === $this->leading()) {
       return $this;
     }
     return new self($value, $this->trailing());
+  }
+
+  public function hasTrailing(): bool {
+    return !$this->trailing()->is_missing();
   }
 
   public function with_trailing(EditableSyntax $value): this {

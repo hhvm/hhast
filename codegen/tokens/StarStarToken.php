@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2a72450f6078cebf4ecf1741f925369d>>
+ * @generated SignedSource<<14fd12e0d5066f42b0da80bc397642f2>>
  */
 namespace Facebook\HHAST;
 
@@ -15,11 +15,19 @@ final class StarStarToken extends EditableToken {
     parent::__construct('**', $leading, $trailing, '**');
   }
 
+  public function hasLeading(): bool {
+    return !$this->leading()->is_missing();
+  }
+
   public function with_leading(EditableSyntax $value): this {
     if ($value === $this->leading()) {
       return $this;
     }
     return new self($value, $this->trailing());
+  }
+
+  public function hasTrailing(): bool {
+    return !$this->trailing()->is_missing();
   }
 
   public function with_trailing(EditableSyntax $value): this {

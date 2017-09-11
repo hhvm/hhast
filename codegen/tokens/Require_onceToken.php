@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a34b1b7a53abe7f1d24d7fd24459715c>>
+ * @generated SignedSource<<c722f05055f38931dc5735aa97df3fb6>>
  */
 namespace Facebook\HHAST;
 
@@ -15,11 +15,19 @@ final class Require_onceToken extends EditableToken {
     parent::__construct('require_once', $leading, $trailing, 'require_once');
   }
 
+  public function hasLeading(): bool {
+    return !$this->leading()->is_missing();
+  }
+
   public function with_leading(EditableSyntax $value): this {
     if ($value === $this->leading()) {
       return $this;
     }
     return new self($value, $this->trailing());
+  }
+
+  public function hasTrailing(): bool {
+    return !$this->trailing()->is_missing();
   }
 
   public function with_trailing(EditableSyntax $value): this {
