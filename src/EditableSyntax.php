@@ -167,11 +167,13 @@ abstract class EditableSyntax {
 
   public function of_class<T as EditableSyntax>(
     classname<T> $what,
-  ): vec<T> {
-    return Vec\map(
-      $this->preorder(),
-      $child ==> $child instanceof $what ? $child : null,
-    ) |> Vec\filter_nulls($$);
+  ): Traversable<T> {
+    foreach ($this->preorder() as $child) {
+      if ($child instanceof $what) {
+        yield $child;
+      }
+    }
+    yield break;
   }
 
   public function remove_where(

@@ -19,8 +19,19 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
   private static function makeNullableFieldsOptional(
     HHAST\ShapeTypeSpecifier $shape,
   ): HHAST\ShapeTypeSpecifier {
-    $fields = $shape->of_class(HHAST\FieldSpecifier::class);
-    foreach ($fields as $field) {
+    $fields = $shape->fields();
+    if (!$fields) {
+      return $shape;
+    }
+    foreach ($fields->children() as $field) {
+      if ($field instanceof HHAST\ListItem) {
+        $field = $field->item();
+      }
+      
+      if (!$field instanceof HHAST\FieldSpecifier) {
+        continue;
+      }
+
       $type = $field->type();
       if (!$type instanceof HHAST\NullableTypeSpecifier) {
         continue;
@@ -89,19 +100,14 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
     HHAST\ShapeTypeSpecifier $shape,
   ): HHAST\ShapeTypeSpecifier {
     $fields = $shape->of_class(HHAST\FieldSpecifier::class);
-    if (C\count($fields) === 0) {
-      $shape = $shape->insert_before(
-        new HHAST\DotDotDotToken(
-          HHAST\Missing(),
-          HHAST\Missing(),
-        ),
-        $shape->right_paren(),
+    $first_field = C\first($fields);
+    if ($first_field === null) {
+      return $shape->with_ellipsis(
+        new HHAST\DotDotDotToken(HHAST\Missing(), HHAST\Missing()),
       );
-      return $shape;
     }
 
-    $first_field = C\firstx($fields);
-    $shape = $shape->insert_before(
+    return $shape->with_ellipsis(
       new HHAST\DotDotDotToken(
         Str\contains($shape->full_text(), "\n")
           ? $first_field->leftmost_tokenx()->leading()
@@ -110,7 +116,6 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
           ->rightmost_tokenx()
           ->trailing(),
       ),
-      $shape->right_parenx(),
     );
 
     return $shape;
@@ -122,16 +127,17 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
     $shape_declarations = $ast->of_class(
       HHAST\ShapeTypeSpecifier::class,
     );
-    foreach ($shape_declarations as $shape) {
-      $ast = $ast->replace(
-        $shape
+    return $ast->rewrite(
+      ($shape, $_) ==> {
+        if (!$shape instanceof HHAST\ShapeTypeSpecifier) {
+          return $shape;
+        }
+        return $shape
           |> self::makeNullableFieldsOptional($$)
           |> self::addTrailingCommaToFields($$)
           |> self::allowImplicitSubtypes($$)
-          |> $$,
-        $shape,
-      );
-    }
-    return $ast;
+          |> $$;
+      }
+    );
   }
 }
