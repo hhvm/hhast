@@ -18,50 +18,38 @@ use type Facebook\TypeAssert\TypeAssert;
 
 final class OptionalShapeFieldsMigration extends BaseMigration {
   private static function makeNullableFieldsOptional(
-    HHAST\ShapeTypeSpecifier $shape,
-  ): HHAST\ShapeTypeSpecifier {
-    $fields = $shape->fields();
-    if (!$fields) {
-      return $shape;
-    }
-    foreach ($fields->children() as $node) {
-      if (!$node instanceof HHAST\ListItem) {
-        continue;
-      }
+    HHAST\ListItem $node,
+  ): HHAST\ListItem {
+    $field = $node->item();
 
-      $field = $node->item();
-
-      if (!$field instanceof HHAST\FieldSpecifier) {
-        continue;
-      }
-
-      if (!$field->question() === null) {
-        continue;
-      }
-
-      $type = $field->type();
-      if (!$type instanceof HHAST\NullableTypeSpecifier) {
-        continue;
-      }
-
-      if (!$field->raw_question()->is_missing()) {
-        continue;
-      }
-
-      $name = $field->name()->rightmost_tokenx();
-      $field = $field->with_question(
-        new HHAST\QuestionToken(
-          $name->leading(),
-          HHAST\Missing(),
-        ),
-      )->with_name(
-        $name->with_leading(HHAST\Missing()),
-      );
-
-      $shape = $shape->replace($field, $node->item());
+    if (!$field instanceof HHAST\FieldSpecifier) {
+      return $node;
     }
 
-    return $shape;
+    if (!$field->question() === null) {
+      return $node;
+    }
+
+    $type = $field->type();
+    if (!$type instanceof HHAST\NullableTypeSpecifier) {
+      return $node;
+    }
+
+    if (!$field->raw_question()->is_missing()) {
+      return $node;
+    }
+
+    $name = $field->name()->rightmost_tokenx();
+    $field = $field->with_question(
+      new HHAST\QuestionToken(
+        $name->leading(),
+        HHAST\Missing(),
+      ),
+    )->with_name(
+      $name->with_leading(HHAST\Missing()),
+    );
+
+    return $node->with_item($field);
   }
 
   // Required for adding ellipsis
@@ -145,8 +133,10 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
     );
 
     return vec[
-      $make_step(
+      new TypedMigrationStep(
         'make nullable fields optional',
+        HHAST\ListItem::class,
+        HHAST\ListItem::class,
         $node ==> self::makeNullableFieldsOptional($node),
       ),
       $make_step(
