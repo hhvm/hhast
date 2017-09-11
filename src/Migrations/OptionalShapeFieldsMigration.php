@@ -14,6 +14,7 @@ namespace Facebook\HHAST\Migrations;
 
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
+use type Facebook\TypeAssert\TypeAssert;
 
 final class OptionalShapeFieldsMigration extends BaseMigration {
   private static function makeNullableFieldsOptional(
@@ -23,34 +24,46 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
     if (!$fields) {
       return $shape;
     }
-    foreach ($fields->children() as $field) {
-      if ($field instanceof HHAST\ListItem) {
-        $field = $field->item();
-      }
-      
-      if (!$field instanceof HHAST\FieldSpecifier) {
-        continue;
-      }
+    return $shape->with_fields(
+      Vec\map(
+        $fields->children(),
+        $node ==> {
+          if (!$node instanceof HHAST\ListItem) {
+            return $node;
+          }
 
-      $type = $field->type();
-      if (!$type instanceof HHAST\NullableTypeSpecifier) {
-        continue;
-      }
+          $field = $node->item();
 
-      $name = $field->name()->rightmost_tokenx();
+          if (!$field instanceof HHAST\FieldSpecifier) {
+            return $node;
+          }
 
-      $shape = $field->insert_before(
-        new HHAST\QuestionToken(
-          $name->leading(),
-          HHAST\Missing(),
-        ),
-        $name,
-      )->replace(
-        $name->with_leading(HHAST\Missing()),
-        $name,
-      ) |> $shape->replace($$, $field);
-    }
-    return $shape;
+          if (!$field->question() === null) {
+            return $node;
+          }
+
+          $type = $field->type();
+          if (!$type instanceof HHAST\NullableTypeSpecifier) {
+            return $node;
+          }
+
+          if (!$field->raw_question()->is_missing()) {
+            return $node;
+          }
+
+          $name = $field->name()->rightmost_tokenx();
+          return $field->with_question(
+            new HHAST\QuestionToken(
+              $name->leading(),
+              HHAST\Missing(),
+            ),
+          )->with_name(
+            $name->with_leading(HHAST\Missing()),
+          ) |> $node->with_item($$);
+        },
+      )
+      |> new HHAST\EditableList($$),
+    );
   }
 
   // Required for adding ellipsis
@@ -62,38 +75,38 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
       return $shape;
     }
 
-    $last_field = $fields
-      ->of_class(HHAST\ListItem::class)
-      |> Vec\filter(
-        $$,
-        (HHAST\ListItem $item) ==> !$item->item()->is_missing(),
-      )
-      |> C\last($$);
-    if ($last_field === null) {
-      return $shape;
-    }
-    if (!$last_field->separator()->is_missing()) {
+    $last_field = C\lastx($fields->children())
+      |> TypeAssert::isInstanceOf(HHAST\ListItem::class, $$);
+
+    if (!$last_field->raw_separator()->is_missing()) {
       return $shape;
     }
 
-    $last_field = $last_field->of_class(
-      HHAST\FieldSpecifier::class,
-    ) |> C\onlyx($$);
-
-    $rightmost = $last_field->rightmost_tokenx();
-
-    $shape = $shape->insert_after(
-      new HHAST\CommaToken(
-        HHAST\Missing(),
-        $rightmost->trailing(),
-      ),
-      $last_field->type(),
-    )->replace(
-      $rightmost->with_trailing(HHAST\Missing()),
-      $rightmost,
+    return $shape->rewrite_children(
+      ($node, $_) ==> {
+        if ($node !== $last_field) {
+          return $node;
+        }
+        return $last_field->with_separator(
+          new HHAST\CommaToken(
+            HHAST\Missing(),
+            $last_field->rightmost_tokenx()->trailing(),
+          ),
+        )
+          ->with_item(
+            $last_field->item()->rewrite_children(
+              ($inner, $_) ==> {
+                if ($inner !== $last_field->rightmost_tokenx()) {
+                  return $inner;
+                }
+                return $last_field
+                  ->rightmost_tokenx()
+                  ->with_trailing(HHAST\Missing());
+              },
+            ),
+          );
+      }
     );
-
-    return $shape;
   }
 
   private static function allowImplicitSubtypes(

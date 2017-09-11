@@ -45,5 +45,21 @@ final class MigrationsTest extends TestCase {
       $ast->full_text(),
       $fixture.'.expect',
     );
+
+    expect(
+      $migration->migrateAst($ast)->full_text()
+    )->toBeSame(
+      $ast->full_text(),
+      'Migrating the AST twice should produce identical results to once',
+    );
+
+    $this->markTestIncomplete('Not completely idempotent yet');
+    return;
+    expect(
+      $migration->migrateAst($ast),
+    )->toBeSame(
+      $ast,
+      'Migrating the AST twice should get you the same AST, not just text',
+    );
   }
 }
