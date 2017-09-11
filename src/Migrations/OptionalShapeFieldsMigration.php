@@ -136,23 +136,24 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
 
   final public function getSteps(
   ): Traversable<IMigrationStep> {
+    $make_step = ($name, $impl) ==> new TypedMigrationStep(
+      $name,
+      HHAST\ShapeTypeSpecifier::class,
+      HHAST\ShapeTypeSpecifier::class,
+      $impl,
+    );
+
     return vec[
-      new TypedMigrationStep(
+      $make_step(
         'make nullable fields optional',
-        HHAST\ShapeTypeSpecifier::class,
-        HHAST\ShapeTypeSpecifier::class,
         $node ==> self::makeNullableFieldsOptional($node),
       ),
-      new TypedMigrationStep(
+      $make_step(
         'add trailing commas to fields',
-        HHAST\ShapeTypeSpecifier::class,
-        HHAST\ShapeTypeSpecifier::class,
         $node ==> self::addTrailingCommaToFields($node),
       ),
-      new TypedMigrationStep(
+      $make_step(
         'allow implicit subtypes',
-        HHAST\ShapeTypeSpecifier::class,
-        HHAST\ShapeTypeSpecifier::class,
         $node ==> self::allowImplicitSubtypes($node),
       ),
     ];

@@ -18,7 +18,7 @@ use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str};
 
 final class MigrationsTest extends TestCase {
-  public function getMigrationsToRun(
+  public function getMigrations(
   ): array<(classname<Migrations\BaseMigration>, string)> {
     return [
       tuple(
@@ -28,8 +28,84 @@ final class MigrationsTest extends TestCase {
     ];
   }
 
+  public function getMigrationSteps(
+  ): array<(
+    classname<Migrations\BaseMigration>,
+    Migrations\IMigrationStep,
+    string
+  )> {
+    $out = array();
+    foreach ($this->getMigrations() as $row) {
+      list($class, $fixture) = $row;
+      foreach ((new $class())->getSteps() as $step) {
+        $out[] = tuple(
+          $class,
+          $step,
+          $fixture,
+        );
+      }
+    }
+    return $out;
+  }
+
+
   /**
-   * @dataProvider getMigrationsToRun
+   * @dataProvider getMigrationSteps
+   */
+  public function testMigrationStepsAreIndividuallyIdempotent(
+    classname<Migrations\BaseMigration> $migration,
+    Migrations\IMigrationStep $step,
+    string $fixture,
+  ): void {
+    $ast = HHAST\from_file(__DIR__.'/fixtures/'.$fixture.'.in')
+      |> $step->rewrite($$);
+
+    expect($step->rewrite($ast)->full_text())->toBeSame(
+      $ast->full_text(),
+      'Step "%s" in %s is not idempotent for text',
+      $step->getName(),
+      $migration,
+    );
+
+    expect($step->rewrite($ast))->toBeSame(
+      $ast,
+      'Step "%s" in %s is not idempotent for nodes',
+      $step->getName(),
+      $migration,
+    );
+  }
+
+  /**
+   * @dataProvider getMigrations
+   */
+  public function testMigrationStepsAreIdempotentWhenStacked(
+    classname<Migrations\BaseMigration> $migration_class,
+    string $fixture,
+  ): void {
+    $migration = new $migration_class();
+    $ast = HHAST\from_file(__DIR__.'/fixtures/'.$fixture.'.in');
+
+    foreach ($migration->getSteps() as $step) {
+      $ast = $step->rewrite($ast);
+
+      expect($step->rewrite($ast)->full_text())->toBeSame(
+        $ast->full_text(),
+        'Step "%s" in %s is not text-idempotent for output of previous steps',
+        $step->getName(),
+        $migration_class,
+      );
+
+      expect($step->rewrite($ast))->toBeSame(
+        $ast,
+        'Step "%s" in %s is not node-idempotent for output of previous steps',
+        $step->getName(),
+        $migration_class,
+      );
+    }
+  }
+
+  /**
+   * @dataProvider getMigrations
    */
   public function testMigration(
     classname<Migrations\BaseMigration> $migration,
@@ -53,8 +129,9 @@ final class MigrationsTest extends TestCase {
       'Migrating the AST twice should produce identical results to once',
     );
 
-    $this->markTestIncomplete('Not completely idempotent yet');
+    $this->markTestIncomplete('some ast transform happening');
     return;
+
     expect(
       $migration->migrateAst($ast),
     )->toBeSame(
