@@ -24,46 +24,44 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
     if (!$fields) {
       return $shape;
     }
-    return $shape->with_fields(
-      Vec\map(
-        $fields->children(),
-        $node ==> {
-          if (!$node instanceof HHAST\ListItem) {
-            return $node;
-          }
+    foreach ($fields->children() as $node) {
+      if (!$node instanceof HHAST\ListItem) {
+        continue;
+      }
 
-          $field = $node->item();
+      $field = $node->item();
 
-          if (!$field instanceof HHAST\FieldSpecifier) {
-            return $node;
-          }
+      if (!$field instanceof HHAST\FieldSpecifier) {
+        continue;
+      }
 
-          if (!$field->question() === null) {
-            return $node;
-          }
+      if (!$field->question() === null) {
+        continue;
+      }
 
-          $type = $field->type();
-          if (!$type instanceof HHAST\NullableTypeSpecifier) {
-            return $node;
-          }
+      $type = $field->type();
+      if (!$type instanceof HHAST\NullableTypeSpecifier) {
+        continue;
+      }
 
-          if (!$field->raw_question()->is_missing()) {
-            return $node;
-          }
+      if (!$field->raw_question()->is_missing()) {
+        continue;
+      }
 
-          $name = $field->name()->rightmost_tokenx();
-          return $field->with_question(
-            new HHAST\QuestionToken(
-              $name->leading(),
-              HHAST\Missing(),
-            ),
-          )->with_name(
-            $name->with_leading(HHAST\Missing()),
-          ) |> $node->with_item($$);
-        },
-      )
-      |> new HHAST\EditableList($$),
-    );
+      $name = $field->name()->rightmost_tokenx();
+      $field = $field->with_question(
+        new HHAST\QuestionToken(
+          $name->leading(),
+          HHAST\Missing(),
+        ),
+      )->with_name(
+        $name->with_leading(HHAST\Missing()),
+      );
+
+      $shape = $shape->replace($field, $node->item());
+    }
+
+    return $shape;
   }
 
   // Required for adding ellipsis
@@ -112,6 +110,9 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
   private static function allowImplicitSubtypes(
     HHAST\ShapeTypeSpecifier $shape,
   ): HHAST\ShapeTypeSpecifier {
+    if (!$shape->raw_ellipsis()->is_missing()) {
+      return $shape;
+    }
     $fields = $shape->of_class(HHAST\FieldSpecifier::class);
     $first_field = C\first($fields);
     if ($first_field === null) {

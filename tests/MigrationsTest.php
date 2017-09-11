@@ -52,62 +52,40 @@ final class MigrationsTest extends TestCase {
   /**
    * @dataProvider getMigrationSteps
    */
-  public function testMigrationStepsAreIndividuallyIdempotent(
+  public function testMigrationStepsAreIdempotent(
     classname<Migrations\BaseMigration> $migration,
     Migrations\IMigrationStep $step,
     string $fixture,
   ): void {
+    $rewrite = $ast ==> $ast->rewrite(($n, $_) ==> $step->rewrite($n));
+
     $ast = HHAST\from_file(__DIR__.'/fixtures/'.$fixture.'.in')
-      |> $step->rewrite($$);
+      |> $rewrite($$);
 
-    expect($step->rewrite($ast)->full_text())->toBeSame(
+    expect($rewrite($ast)->full_text())->toBeSame(
       $ast->full_text(),
-      'Step "%s" in %s is not idempotent for text',
+      'Step "%s" in %s is not text-idempotent',
       $step->getName(),
       $migration,
     );
 
-    expect($step->rewrite($ast))->toBeSame(
-      $ast,
-      'Step "%s" in %s is not idempotent for nodes',
-      $step->getName(),
-      $migration,
-    );
-  }
-
-  /**
-   * @dataProvider getMigrations
-   */
-  public function testMigrationStepsAreIdempotentWhenStacked(
-    classname<Migrations\BaseMigration> $migration_class,
-    string $fixture,
-  ): void {
-    $migration = new $migration_class();
-    $ast = HHAST\from_file(__DIR__.'/fixtures/'.$fixture.'.in');
-
-    foreach ($migration->getSteps() as $step) {
-      $ast = $step->rewrite($ast);
-
-      expect($step->rewrite($ast)->full_text())->toBeSame(
-        $ast->full_text(),
-        'Step "%s" in %s is not text-idempotent for output of previous steps',
-        $step->getName(),
-        $migration_class,
-      );
-
-      expect($step->rewrite($ast))->toBeSame(
-        $ast,
-        'Step "%s" in %s is not node-idempotent for output of previous steps',
-        $step->getName(),
-        $migration_class,
-      );
+    // Equivalent to asserting the objects are the same, but gives useful output
+    // if they differ
+    if ($rewrite($ast) !== $ast) {
+    //  var_dump("\n", $ast, $rewrite($ast));
     }
+    expect($rewrite($ast))->toBeSame(
+      $ast,
+      'Step "%s" in %s is not object-idempotent',
+      $step->getName(),
+      $migration,
+    );
   }
 
   /**
    * @dataProvider getMigrations
    */
-  public function testMigration(
+  public function testMigrationHasExpectedOutput(
     classname<Migrations\BaseMigration> $migration,
     string $fixture,
   ): void {
@@ -121,22 +99,42 @@ final class MigrationsTest extends TestCase {
       $ast->full_text(),
       $fixture.'.expect',
     );
+  }
+
+  /**
+   * @dataProvider getMigrations
+   */
+  public function testMigrationIsIdempotent(
+    classname<Migrations\BaseMigration> $migration,
+    string $fixture,
+  ): void {
+    $ast = HHAST\from_file(__DIR__.'/fixtures/'.$fixture.'.in');
+
+    $migration = new $migration();
+
+    $ast = $migration->migrateAst($ast);
 
     expect(
       $migration->migrateAst($ast)->full_text()
     )->toBeSame(
       $ast->full_text(),
-      'Migrating the AST twice should produce identical results to once',
+      'Migrating the AST twice should produce identical text to once',
     );
 
-    $this->markTestIncomplete('some ast transform happening');
-    return;
+    expect(
+      $migration->migrateAst($ast),
+    )->toEqual(
+      $ast,
+      'Migrating the AST twice should get you an equal AST object',
+    );
+
+    //var_dump("\n", $ast, $migration->migrateAst($ast));
 
     expect(
       $migration->migrateAst($ast),
     )->toBeSame(
       $ast,
-      'Migrating the AST twice should get you the same AST, not just text',
+      'Migrating the AST twice should get you the same AST object',
     );
   }
 }
