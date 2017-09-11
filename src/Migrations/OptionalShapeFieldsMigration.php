@@ -134,23 +134,27 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
     return $shape;
   }
 
-  public function migrateAst(
-    HHAST\EditableSyntax $ast,
-  ): HHAST\EditableSyntax {
-    $shape_declarations = $ast->of_class(
-      HHAST\ShapeTypeSpecifier::class,
-    );
-    return $ast->rewrite(
-      ($shape, $_) ==> {
-        if (!$shape instanceof HHAST\ShapeTypeSpecifier) {
-          return $shape;
-        }
-        return $shape
-          |> self::makeNullableFieldsOptional($$)
-          |> self::addTrailingCommaToFields($$)
-          |> self::allowImplicitSubtypes($$)
-          |> $$;
-      }
-    );
+  final public function getSteps(
+  ): Traversable<IMigrationStep> {
+    return vec[
+      new TypedMigrationStep(
+        'make nullable fields optional',
+        HHAST\ShapeTypeSpecifier::class,
+        HHAST\ShapeTypeSpecifier::class,
+        $node ==> self::makeNullableFieldsOptional($node),
+      ),
+      new TypedMigrationStep(
+        'add trailing commas to fields',
+        HHAST\ShapeTypeSpecifier::class,
+        HHAST\ShapeTypeSpecifier::class,
+        $node ==> self::addTrailingCommaToFields($node),
+      ),
+      new TypedMigrationStep(
+        'allow implicit subtypes',
+        HHAST\ShapeTypeSpecifier::class,
+        HHAST\ShapeTypeSpecifier::class,
+        $node ==> self::allowImplicitSubtypes($node),
+      ),
+    ];
   }
 }

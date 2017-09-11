@@ -14,16 +14,7 @@ namespace Facebook\HHAST\Migrations;
 
 use type Facebook\HHAST\EditableSyntax;
 
-<<__ConsistentConstruct>>
-abstract class BaseMigration {
-  abstract public function getSteps(): Traversable<IMigrationStep>;
-
-  final public function migrateAst(
-    EditableSyntax $ast,
-  ): EditableSyntax {
-    foreach ($this->getSteps() as $step) {
-      $ast = $ast->rewrite(($node, $_) ==> $step->rewrite($node));
-    }
-    return $ast;
-  }
+interface IMigrationStep {
+  public function getName(): string;
+  public function rewrite(EditableSyntax $in): EditableSyntax;
 }
