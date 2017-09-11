@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<94120bf65877f62fc11b420db212c734>>
+ * @generated SignedSource<<2c2d6c857e44668a9dc8c611281c1eaa>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -63,14 +63,6 @@ final class StaticDeclarator extends EditableSyntax {
     return new self($name, $initializer);
   }
 
-  public function name(): ?VariableToken {
-    return $this->_name->is_missing() ? null : TypeAssert::isInstanceOf(VariableToken::class, $this->_name);
-  }
-
-  public function namex(): VariableToken {
-    return TypeAssert::isInstanceOf(VariableToken::class, $this->_name);
-  }
-
   public function raw_name(): EditableSyntax {
     return $this->_name;
   }
@@ -82,12 +74,15 @@ final class StaticDeclarator extends EditableSyntax {
     return new self($value, $this->_initializer);
   }
 
-  public function initializer(): ?SimpleInitializer {
-    return $this->_initializer->is_missing() ? null : TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
+  public function name(): ?VariableToken {
+    if ($this->_name->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(VariableToken::class, $this->_name);
   }
 
-  public function initializerx(): SimpleInitializer {
-    return TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
+  public function namex(): VariableToken {
+    return TypeAssert::isInstanceOf(VariableToken::class, $this->_name);
   }
 
   public function raw_initializer(): EditableSyntax {
@@ -99,5 +94,16 @@ final class StaticDeclarator extends EditableSyntax {
       return $this;
     }
     return new self($this->_name, $value);
+  }
+
+  public function initializer(): ?SimpleInitializer {
+    if ($this->_initializer->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
+  }
+
+  public function initializerx(): SimpleInitializer {
+    return TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
   }
 }

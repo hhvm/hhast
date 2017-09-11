@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f49a7885d56bf708c6748ba5dc57ecf5>>
+ * @generated SignedSource<<55d0deeae0cd7df7ab14fb3aa819b27b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -87,14 +87,6 @@ final class TupleExpression extends EditableSyntax {
     return new self($keyword, $left_paren, $items, $right_paren);
   }
 
-  public function keyword(): TupleToken {
-    return $this->keywordx();
-  }
-
-  public function keywordx(): TupleToken {
-    return TypeAssert::isInstanceOf(TupleToken::class, $this->_keyword);
-  }
-
   public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
@@ -106,12 +98,8 @@ final class TupleExpression extends EditableSyntax {
     return new self($value, $this->_left_paren, $this->_items, $this->_right_paren);
   }
 
-  public function left_paren(): LeftParenToken {
-    return $this->left_parenx();
-  }
-
-  public function left_parenx(): LeftParenToken {
-    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  public function keyword(): TupleToken {
+    return TypeAssert::isInstanceOf(TupleToken::class, $this->_keyword);
   }
 
   public function raw_left_paren(): EditableSyntax {
@@ -125,12 +113,8 @@ final class TupleExpression extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_items, $this->_right_paren);
   }
 
-  public function items(): EditableList {
-    return $this->itemsx();
-  }
-
-  public function itemsx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_items);
+  public function left_paren(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
 
   public function raw_items(): EditableSyntax {
@@ -144,12 +128,8 @@ final class TupleExpression extends EditableSyntax {
     return new self($this->_keyword, $this->_left_paren, $value, $this->_right_paren);
   }
 
-  public function right_paren(): RightParenToken {
-    return $this->right_parenx();
-  }
-
-  public function right_parenx(): RightParenToken {
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  public function items(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_items);
   }
 
   public function raw_right_paren(): EditableSyntax {
@@ -161,5 +141,9 @@ final class TupleExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $this->_left_paren, $this->_items, $value);
+  }
+
+  public function right_paren(): RightParenToken {
+    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 }

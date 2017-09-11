@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f7b618f2cfed47abd998ed69cac2146d>>
+ * @generated SignedSource<<895e4440d628cadc1501b3b374561e81>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -63,14 +63,6 @@ final class InclusionExpression extends EditableSyntax {
     return new self($require, $filename);
   }
 
-  public function require(): EditableSyntax {
-    return $this->requirex();
-  }
-
-  public function requirex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_require);
-  }
-
   public function raw_require(): EditableSyntax {
     return $this->_require;
   }
@@ -82,12 +74,8 @@ final class InclusionExpression extends EditableSyntax {
     return new self($value, $this->_filename);
   }
 
-  public function filename(): EditableSyntax {
-    return $this->filenamex();
-  }
-
-  public function filenamex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_filename);
+  public function require(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_require);
   }
 
   public function raw_filename(): EditableSyntax {
@@ -99,5 +87,9 @@ final class InclusionExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_require, $value);
+  }
+
+  public function filename(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_filename);
   }
 }

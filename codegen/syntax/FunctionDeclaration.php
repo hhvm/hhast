@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<10e8224d0e8ac3d188256445b5de6e26>>
+ * @generated SignedSource<<7b07977491c6d499e70e6865e13ae7a2>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,14 +75,6 @@ final class FunctionDeclaration extends EditableSyntax {
     return new self($attribute_spec, $declaration_header, $body);
   }
 
-  public function attribute_spec(): ?AttributeSpecification {
-    return $this->_attribute_spec->is_missing() ? null : TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute_spec);
-  }
-
-  public function attribute_specx(): AttributeSpecification {
-    return TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute_spec);
-  }
-
   public function raw_attribute_spec(): EditableSyntax {
     return $this->_attribute_spec;
   }
@@ -94,12 +86,15 @@ final class FunctionDeclaration extends EditableSyntax {
     return new self($value, $this->_declaration_header, $this->_body);
   }
 
-  public function declaration_header(): FunctionDeclarationHeader {
-    return $this->declaration_headerx();
+  public function attribute_spec(): ?AttributeSpecification {
+    if ($this->_attribute_spec->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute_spec);
   }
 
-  public function declaration_headerx(): FunctionDeclarationHeader {
-    return TypeAssert::isInstanceOf(FunctionDeclarationHeader::class, $this->_declaration_header);
+  public function attribute_specx(): AttributeSpecification {
+    return TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute_spec);
   }
 
   public function raw_declaration_header(): EditableSyntax {
@@ -113,12 +108,8 @@ final class FunctionDeclaration extends EditableSyntax {
     return new self($this->_attribute_spec, $value, $this->_body);
   }
 
-  public function body(): EditableSyntax {
-    return $this->bodyx();
-  }
-
-  public function bodyx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_body);
+  public function declaration_header(): FunctionDeclarationHeader {
+    return TypeAssert::isInstanceOf(FunctionDeclarationHeader::class, $this->_declaration_header);
   }
 
   public function raw_body(): EditableSyntax {
@@ -130,5 +121,9 @@ final class FunctionDeclaration extends EditableSyntax {
       return $this;
     }
     return new self($this->_attribute_spec, $this->_declaration_header, $value);
+  }
+
+  public function body(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_body);
   }
 }

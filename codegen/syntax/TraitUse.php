@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b4c1e1723ab5140b94f32c6cddfc615f>>
+ * @generated SignedSource<<3afa921651800a2503c12bb9285e3773>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,14 +75,6 @@ final class TraitUse extends EditableSyntax {
     return new self($keyword, $names, $semicolon);
   }
 
-  public function keyword(): UseToken {
-    return $this->keywordx();
-  }
-
-  public function keywordx(): UseToken {
-    return TypeAssert::isInstanceOf(UseToken::class, $this->_keyword);
-  }
-
   public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
@@ -94,12 +86,8 @@ final class TraitUse extends EditableSyntax {
     return new self($value, $this->_names, $this->_semicolon);
   }
 
-  public function names(): EditableList {
-    return $this->namesx();
-  }
-
-  public function namesx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_names);
+  public function keyword(): UseToken {
+    return TypeAssert::isInstanceOf(UseToken::class, $this->_keyword);
   }
 
   public function raw_names(): EditableSyntax {
@@ -113,12 +101,8 @@ final class TraitUse extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_semicolon);
   }
 
-  public function semicolon(): SemicolonToken {
-    return $this->semicolonx();
-  }
-
-  public function semicolonx(): SemicolonToken {
-    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  public function names(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_names);
   }
 
   public function raw_semicolon(): EditableSyntax {
@@ -130,5 +114,9 @@ final class TraitUse extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $this->_names, $value);
+  }
+
+  public function semicolon(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 }

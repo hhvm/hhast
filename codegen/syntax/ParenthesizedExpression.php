@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c2eac8d21d595bfe80030b0c1ce4d41b>>
+ * @generated SignedSource<<0c1fdd8f86712cecd0a8766315826a4e>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,14 +75,6 @@ final class ParenthesizedExpression extends EditableSyntax {
     return new self($left_paren, $expression, $right_paren);
   }
 
-  public function left_paren(): LeftParenToken {
-    return $this->left_parenx();
-  }
-
-  public function left_parenx(): LeftParenToken {
-    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
-  }
-
   public function raw_left_paren(): EditableSyntax {
     return $this->_left_paren;
   }
@@ -94,12 +86,8 @@ final class ParenthesizedExpression extends EditableSyntax {
     return new self($value, $this->_expression, $this->_right_paren);
   }
 
-  public function expression(): EditableSyntax {
-    return $this->expressionx();
-  }
-
-  public function expressionx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
+  public function left_paren(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
 
   public function raw_expression(): EditableSyntax {
@@ -113,12 +101,8 @@ final class ParenthesizedExpression extends EditableSyntax {
     return new self($this->_left_paren, $value, $this->_right_paren);
   }
 
-  public function right_paren(): ?RightParenToken {
-    return $this->_right_paren->is_missing() ? null : TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
-  }
-
-  public function right_parenx(): RightParenToken {
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  public function expression(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
   }
 
   public function raw_right_paren(): EditableSyntax {
@@ -130,5 +114,16 @@ final class ParenthesizedExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_left_paren, $this->_expression, $value);
+  }
+
+  public function right_paren(): ?RightParenToken {
+    if ($this->_right_paren->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function right_parenx(): RightParenToken {
+    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 }

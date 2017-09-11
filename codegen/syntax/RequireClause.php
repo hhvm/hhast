@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a790228168907a1effad05812d66e921>>
+ * @generated SignedSource<<83304600e314ba70ea83b449f2cddc1f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -87,14 +87,6 @@ final class RequireClause extends EditableSyntax {
     return new self($keyword, $kind, $name, $semicolon);
   }
 
-  public function keyword(): RequireToken {
-    return $this->keywordx();
-  }
-
-  public function keywordx(): RequireToken {
-    return TypeAssert::isInstanceOf(RequireToken::class, $this->_keyword);
-  }
-
   public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
@@ -106,12 +98,8 @@ final class RequireClause extends EditableSyntax {
     return new self($value, $this->_kind, $this->_name, $this->_semicolon);
   }
 
-  public function kind(): EditableSyntax {
-    return $this->kindx();
-  }
-
-  public function kindx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_kind);
+  public function keyword(): RequireToken {
+    return TypeAssert::isInstanceOf(RequireToken::class, $this->_keyword);
   }
 
   public function raw_kind(): EditableSyntax {
@@ -125,12 +113,8 @@ final class RequireClause extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_name, $this->_semicolon);
   }
 
-  public function name(): EditableSyntax {
-    return $this->namex();
-  }
-
-  public function namex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
+  public function kind(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_kind);
   }
 
   public function raw_name(): EditableSyntax {
@@ -144,12 +128,8 @@ final class RequireClause extends EditableSyntax {
     return new self($this->_keyword, $this->_kind, $value, $this->_semicolon);
   }
 
-  public function semicolon(): SemicolonToken {
-    return $this->semicolonx();
-  }
-
-  public function semicolonx(): SemicolonToken {
-    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  public function name(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }
 
   public function raw_semicolon(): EditableSyntax {
@@ -161,5 +141,9 @@ final class RequireClause extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $this->_kind, $this->_name, $value);
+  }
+
+  public function semicolon(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 }

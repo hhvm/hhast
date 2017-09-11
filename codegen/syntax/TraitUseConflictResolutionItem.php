@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<529d240f4bf1f30c6b207572e732a788>>
+ * @generated SignedSource<<b8d706d469cb268377ce706b92557d7c>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,14 +75,6 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
     return new self($aliasing_name, $aliasing_keyword, $aliased_names);
   }
 
-  public function aliasing_name(): EditableSyntax {
-    return $this->aliasing_namex();
-  }
-
-  public function aliasing_namex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_aliasing_name);
-  }
-
   public function raw_aliasing_name(): EditableSyntax {
     return $this->_aliasing_name;
   }
@@ -94,12 +86,8 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
     return new self($value, $this->_aliasing_keyword, $this->_aliased_names);
   }
 
-  public function aliasing_keyword(): EditableSyntax {
-    return $this->aliasing_keywordx();
-  }
-
-  public function aliasing_keywordx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_aliasing_keyword);
+  public function aliasing_name(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_aliasing_name);
   }
 
   public function raw_aliasing_keyword(): EditableSyntax {
@@ -113,12 +101,8 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
     return new self($this->_aliasing_name, $value, $this->_aliased_names);
   }
 
-  public function aliased_names(): EditableList {
-    return $this->aliased_namesx();
-  }
-
-  public function aliased_namesx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_aliased_names);
+  public function aliasing_keyword(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_aliasing_keyword);
   }
 
   public function raw_aliased_names(): EditableSyntax {
@@ -130,5 +114,9 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
       return $this;
     }
     return new self($this->_aliasing_name, $this->_aliasing_keyword, $value);
+  }
+
+  public function aliased_names(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_aliased_names);
   }
 }

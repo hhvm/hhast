@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<353402a2371b0d7141e6d0355694e915>>
+ * @generated SignedSource<<2406ce82c41a59f6bdace1e568fcc21d>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -87,14 +87,6 @@ final class Enumerator extends EditableSyntax {
     return new self($name, $equal, $value, $semicolon);
   }
 
-  public function name(): NameToken {
-    return $this->namex();
-  }
-
-  public function namex(): NameToken {
-    return TypeAssert::isInstanceOf(NameToken::class, $this->_name);
-  }
-
   public function raw_name(): EditableSyntax {
     return $this->_name;
   }
@@ -106,12 +98,8 @@ final class Enumerator extends EditableSyntax {
     return new self($value, $this->_equal, $this->_value, $this->_semicolon);
   }
 
-  public function equal(): EqualToken {
-    return $this->equalx();
-  }
-
-  public function equalx(): EqualToken {
-    return TypeAssert::isInstanceOf(EqualToken::class, $this->_equal);
+  public function name(): NameToken {
+    return TypeAssert::isInstanceOf(NameToken::class, $this->_name);
   }
 
   public function raw_equal(): EditableSyntax {
@@ -125,12 +113,8 @@ final class Enumerator extends EditableSyntax {
     return new self($this->_name, $value, $this->_value, $this->_semicolon);
   }
 
-  public function value(): EditableSyntax {
-    return $this->valuex();
-  }
-
-  public function valuex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_value);
+  public function equal(): EqualToken {
+    return TypeAssert::isInstanceOf(EqualToken::class, $this->_equal);
   }
 
   public function raw_value(): EditableSyntax {
@@ -144,12 +128,8 @@ final class Enumerator extends EditableSyntax {
     return new self($this->_name, $this->_equal, $value, $this->_semicolon);
   }
 
-  public function semicolon(): SemicolonToken {
-    return $this->semicolonx();
-  }
-
-  public function semicolonx(): SemicolonToken {
-    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  public function value(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_value);
   }
 
   public function raw_semicolon(): EditableSyntax {
@@ -161,5 +141,9 @@ final class Enumerator extends EditableSyntax {
       return $this;
     }
     return new self($this->_name, $this->_equal, $this->_value, $value);
+  }
+
+  public function semicolon(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a29f342cc8ac45577d6e051d38763f5b>>
+ * @generated SignedSource<<2cdd768eab650570778e227207d372d9>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,14 +75,6 @@ final class CaseLabel extends EditableSyntax {
     return new self($keyword, $expression, $colon);
   }
 
-  public function keyword(): CaseToken {
-    return $this->keywordx();
-  }
-
-  public function keywordx(): CaseToken {
-    return TypeAssert::isInstanceOf(CaseToken::class, $this->_keyword);
-  }
-
   public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
@@ -94,12 +86,8 @@ final class CaseLabel extends EditableSyntax {
     return new self($value, $this->_expression, $this->_colon);
   }
 
-  public function expression(): EditableSyntax {
-    return $this->expressionx();
-  }
-
-  public function expressionx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
+  public function keyword(): CaseToken {
+    return TypeAssert::isInstanceOf(CaseToken::class, $this->_keyword);
   }
 
   public function raw_expression(): EditableSyntax {
@@ -113,12 +101,8 @@ final class CaseLabel extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_colon);
   }
 
-  public function colon(): EditableSyntax {
-    return $this->colonx();
-  }
-
-  public function colonx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_colon);
+  public function expression(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
   }
 
   public function raw_colon(): EditableSyntax {
@@ -130,5 +114,9 @@ final class CaseLabel extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $this->_expression, $value);
+  }
+
+  public function colon(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_colon);
   }
 }

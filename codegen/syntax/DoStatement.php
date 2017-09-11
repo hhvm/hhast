@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<19c2b93ee001001a4fb2324c4584b9d5>>
+ * @generated SignedSource<<d1e61e8d6f10127f574e6e730a530995>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -139,14 +139,6 @@ final class DoStatement extends EditableSyntax {
     );
   }
 
-  public function keyword(): DoToken {
-    return $this->keywordx();
-  }
-
-  public function keywordx(): DoToken {
-    return TypeAssert::isInstanceOf(DoToken::class, $this->_keyword);
-  }
-
   public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
@@ -166,12 +158,8 @@ final class DoStatement extends EditableSyntax {
     );
   }
 
-  public function body(): EditableSyntax {
-    return $this->bodyx();
-  }
-
-  public function bodyx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_body);
+  public function keyword(): DoToken {
+    return TypeAssert::isInstanceOf(DoToken::class, $this->_keyword);
   }
 
   public function raw_body(): EditableSyntax {
@@ -193,12 +181,8 @@ final class DoStatement extends EditableSyntax {
     );
   }
 
-  public function while_keyword(): WhileToken {
-    return $this->while_keywordx();
-  }
-
-  public function while_keywordx(): WhileToken {
-    return TypeAssert::isInstanceOf(WhileToken::class, $this->_while_keyword);
+  public function body(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_body);
   }
 
   public function raw_while_keyword(): EditableSyntax {
@@ -220,12 +204,8 @@ final class DoStatement extends EditableSyntax {
     );
   }
 
-  public function left_paren(): LeftParenToken {
-    return $this->left_parenx();
-  }
-
-  public function left_parenx(): LeftParenToken {
-    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  public function while_keyword(): WhileToken {
+    return TypeAssert::isInstanceOf(WhileToken::class, $this->_while_keyword);
   }
 
   public function raw_left_paren(): EditableSyntax {
@@ -247,12 +227,8 @@ final class DoStatement extends EditableSyntax {
     );
   }
 
-  public function condition(): EditableSyntax {
-    return $this->conditionx();
-  }
-
-  public function conditionx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_condition);
+  public function left_paren(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
 
   public function raw_condition(): EditableSyntax {
@@ -274,12 +250,8 @@ final class DoStatement extends EditableSyntax {
     );
   }
 
-  public function right_paren(): RightParenToken {
-    return $this->right_parenx();
-  }
-
-  public function right_parenx(): RightParenToken {
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  public function condition(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_condition);
   }
 
   public function raw_right_paren(): EditableSyntax {
@@ -301,12 +273,8 @@ final class DoStatement extends EditableSyntax {
     );
   }
 
-  public function semicolon(): SemicolonToken {
-    return $this->semicolonx();
-  }
-
-  public function semicolonx(): SemicolonToken {
-    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  public function right_paren(): RightParenToken {
+    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function raw_semicolon(): EditableSyntax {
@@ -326,5 +294,9 @@ final class DoStatement extends EditableSyntax {
       $this->_right_paren,
       $value,
     );
+  }
+
+  public function semicolon(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 }

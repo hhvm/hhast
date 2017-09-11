@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8a7dc60efda68039f9fd1048063d2b43>>
+ * @generated SignedSource<<b1e37c387aed43459a2aaecec77bd3ae>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,14 +75,6 @@ final class XHPChildrenParenthesizedList extends EditableSyntax {
     return new self($left_paren, $xhp_children, $right_paren);
   }
 
-  public function left_paren(): EditableSyntax {
-    return $this->left_parenx();
-  }
-
-  public function left_parenx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_paren);
-  }
-
   public function raw_left_paren(): EditableSyntax {
     return $this->_left_paren;
   }
@@ -94,12 +86,8 @@ final class XHPChildrenParenthesizedList extends EditableSyntax {
     return new self($value, $this->_xhp_children, $this->_right_paren);
   }
 
-  public function xhp_children(): EditableSyntax {
-    return $this->xhp_childrenx();
-  }
-
-  public function xhp_childrenx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_xhp_children);
+  public function left_paren(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_paren);
   }
 
   public function raw_xhp_children(): EditableSyntax {
@@ -113,12 +101,8 @@ final class XHPChildrenParenthesizedList extends EditableSyntax {
     return new self($this->_left_paren, $value, $this->_right_paren);
   }
 
-  public function right_paren(): EditableSyntax {
-    return $this->right_parenx();
-  }
-
-  public function right_parenx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_paren);
+  public function xhp_children(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_xhp_children);
   }
 
   public function raw_right_paren(): EditableSyntax {
@@ -130,5 +114,9 @@ final class XHPChildrenParenthesizedList extends EditableSyntax {
       return $this;
     }
     return new self($this->_left_paren, $this->_xhp_children, $value);
+  }
+
+  public function right_paren(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_paren);
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5374d1bdc2af1e2de698e7a1c2a7a99c>>
+ * @generated SignedSource<<b69ffb0011f84d96283837d94fbc6f50>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -167,14 +167,6 @@ final class ForStatement extends EditableSyntax {
     );
   }
 
-  public function keyword(): ForToken {
-    return $this->keywordx();
-  }
-
-  public function keywordx(): ForToken {
-    return TypeAssert::isInstanceOf(ForToken::class, $this->_keyword);
-  }
-
   public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
@@ -196,12 +188,8 @@ final class ForStatement extends EditableSyntax {
     );
   }
 
-  public function left_paren(): LeftParenToken {
-    return $this->left_parenx();
-  }
-
-  public function left_parenx(): LeftParenToken {
-    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  public function keyword(): ForToken {
+    return TypeAssert::isInstanceOf(ForToken::class, $this->_keyword);
   }
 
   public function raw_left_paren(): EditableSyntax {
@@ -225,12 +213,8 @@ final class ForStatement extends EditableSyntax {
     );
   }
 
-  public function initializer(): ?EditableList {
-    return $this->_initializer->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_initializer);
-  }
-
-  public function initializerx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_initializer);
+  public function left_paren(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
 
   public function raw_initializer(): EditableSyntax {
@@ -254,12 +238,15 @@ final class ForStatement extends EditableSyntax {
     );
   }
 
-  public function first_semicolon(): SemicolonToken {
-    return $this->first_semicolonx();
+  public function initializer(): ?EditableList {
+    if ($this->_initializer->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_initializer);
   }
 
-  public function first_semicolonx(): SemicolonToken {
-    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_first_semicolon);
+  public function initializerx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_initializer);
   }
 
   public function raw_first_semicolon(): EditableSyntax {
@@ -283,12 +270,8 @@ final class ForStatement extends EditableSyntax {
     );
   }
 
-  public function control(): ?EditableList {
-    return $this->_control->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_control);
-  }
-
-  public function controlx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_control);
+  public function first_semicolon(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_first_semicolon);
   }
 
   public function raw_control(): EditableSyntax {
@@ -312,12 +295,15 @@ final class ForStatement extends EditableSyntax {
     );
   }
 
-  public function second_semicolon(): SemicolonToken {
-    return $this->second_semicolonx();
+  public function control(): ?EditableList {
+    if ($this->_control->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_control);
   }
 
-  public function second_semicolonx(): SemicolonToken {
-    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_second_semicolon);
+  public function controlx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_control);
   }
 
   public function raw_second_semicolon(): EditableSyntax {
@@ -341,12 +327,8 @@ final class ForStatement extends EditableSyntax {
     );
   }
 
-  public function end_of_loop(): ?EditableList {
-    return $this->_end_of_loop->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_end_of_loop);
-  }
-
-  public function end_of_loopx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_end_of_loop);
+  public function second_semicolon(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_second_semicolon);
   }
 
   public function raw_end_of_loop(): EditableSyntax {
@@ -370,12 +352,15 @@ final class ForStatement extends EditableSyntax {
     );
   }
 
-  public function right_paren(): RightParenToken {
-    return $this->right_parenx();
+  public function end_of_loop(): ?EditableList {
+    if ($this->_end_of_loop->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_end_of_loop);
   }
 
-  public function right_parenx(): RightParenToken {
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  public function end_of_loopx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_end_of_loop);
   }
 
   public function raw_right_paren(): EditableSyntax {
@@ -399,12 +384,8 @@ final class ForStatement extends EditableSyntax {
     );
   }
 
-  public function body(): EditableSyntax {
-    return $this->bodyx();
-  }
-
-  public function bodyx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_body);
+  public function right_paren(): RightParenToken {
+    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function raw_body(): EditableSyntax {
@@ -426,5 +407,9 @@ final class ForStatement extends EditableSyntax {
       $this->_right_paren,
       $value,
     );
+  }
+
+  public function body(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_body);
   }
 }

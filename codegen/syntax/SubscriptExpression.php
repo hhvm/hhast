@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2838447797c76004559c381df3001dd6>>
+ * @generated SignedSource<<409d89b03d22ab089bd0c1b9565581ab>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -87,14 +87,6 @@ final class SubscriptExpression extends EditableSyntax {
     return new self($receiver, $left_bracket, $index, $right_bracket);
   }
 
-  public function receiver(): EditableSyntax {
-    return $this->receiverx();
-  }
-
-  public function receiverx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_receiver);
-  }
-
   public function raw_receiver(): EditableSyntax {
     return $this->_receiver;
   }
@@ -106,12 +98,8 @@ final class SubscriptExpression extends EditableSyntax {
     return new self($value, $this->_left_bracket, $this->_index, $this->_right_bracket);
   }
 
-  public function left_bracket(): EditableSyntax {
-    return $this->left_bracketx();
-  }
-
-  public function left_bracketx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_bracket);
+  public function receiver(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_receiver);
   }
 
   public function raw_left_bracket(): EditableSyntax {
@@ -125,12 +113,8 @@ final class SubscriptExpression extends EditableSyntax {
     return new self($this->_receiver, $value, $this->_index, $this->_right_bracket);
   }
 
-  public function index(): EditableSyntax {
-    return $this->indexx();
-  }
-
-  public function indexx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_index);
+  public function left_bracket(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_bracket);
   }
 
   public function raw_index(): EditableSyntax {
@@ -144,12 +128,8 @@ final class SubscriptExpression extends EditableSyntax {
     return new self($this->_receiver, $this->_left_bracket, $value, $this->_right_bracket);
   }
 
-  public function right_bracket(): EditableSyntax {
-    return $this->right_bracketx();
-  }
-
-  public function right_bracketx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_bracket);
+  public function index(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_index);
   }
 
   public function raw_right_bracket(): EditableSyntax {
@@ -161,5 +141,9 @@ final class SubscriptExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_receiver, $this->_left_bracket, $this->_index, $value);
+  }
+
+  public function right_bracket(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_bracket);
   }
 }

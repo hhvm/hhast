@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0307155051ce171b2bd2717a1339f35f>>
+ * @generated SignedSource<<802e4f6a55b89a5d6844d3af1607471c>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,14 +75,6 @@ final class XHPExpression extends EditableSyntax {
     return new self($open, $body, $close);
   }
 
-  public function open(): XHPOpen {
-    return $this->openx();
-  }
-
-  public function openx(): XHPOpen {
-    return TypeAssert::isInstanceOf(XHPOpen::class, $this->_open);
-  }
-
   public function raw_open(): EditableSyntax {
     return $this->_open;
   }
@@ -94,12 +86,8 @@ final class XHPExpression extends EditableSyntax {
     return new self($value, $this->_body, $this->_close);
   }
 
-  public function body(): ?EditableList {
-    return $this->_body->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_body);
-  }
-
-  public function bodyx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_body);
+  public function open(): XHPOpen {
+    return TypeAssert::isInstanceOf(XHPOpen::class, $this->_open);
   }
 
   public function raw_body(): EditableSyntax {
@@ -113,12 +101,15 @@ final class XHPExpression extends EditableSyntax {
     return new self($this->_open, $value, $this->_close);
   }
 
-  public function close(): ?XHPClose {
-    return $this->_close->is_missing() ? null : TypeAssert::isInstanceOf(XHPClose::class, $this->_close);
+  public function body(): ?EditableList {
+    if ($this->_body->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_body);
   }
 
-  public function closex(): XHPClose {
-    return TypeAssert::isInstanceOf(XHPClose::class, $this->_close);
+  public function bodyx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_body);
   }
 
   public function raw_close(): EditableSyntax {
@@ -130,5 +121,16 @@ final class XHPExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_open, $this->_body, $value);
+  }
+
+  public function close(): ?XHPClose {
+    if ($this->_close->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(XHPClose::class, $this->_close);
+  }
+
+  public function closex(): XHPClose {
+    return TypeAssert::isInstanceOf(XHPClose::class, $this->_close);
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<83db612d5894a4623680a3fa1a111bf2>>
+ * @generated SignedSource<<2c33f9ed9105338efaeafa99980b2141>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -87,14 +87,6 @@ final class Attribute extends EditableSyntax {
     return new self($name, $left_paren, $values, $right_paren);
   }
 
-  public function name(): NameToken {
-    return $this->namex();
-  }
-
-  public function namex(): NameToken {
-    return TypeAssert::isInstanceOf(NameToken::class, $this->_name);
-  }
-
   public function raw_name(): EditableSyntax {
     return $this->_name;
   }
@@ -106,12 +98,8 @@ final class Attribute extends EditableSyntax {
     return new self($value, $this->_left_paren, $this->_values, $this->_right_paren);
   }
 
-  public function left_paren(): ?LeftParenToken {
-    return $this->_left_paren->is_missing() ? null : TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
-  }
-
-  public function left_parenx(): LeftParenToken {
-    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  public function name(): NameToken {
+    return TypeAssert::isInstanceOf(NameToken::class, $this->_name);
   }
 
   public function raw_left_paren(): EditableSyntax {
@@ -125,12 +113,15 @@ final class Attribute extends EditableSyntax {
     return new self($this->_name, $value, $this->_values, $this->_right_paren);
   }
 
-  public function values(): ?EditableList {
-    return $this->_values->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_values);
+  public function left_paren(): ?LeftParenToken {
+    if ($this->_left_paren->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
 
-  public function valuesx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_values);
+  public function left_parenx(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
 
   public function raw_values(): EditableSyntax {
@@ -144,12 +135,15 @@ final class Attribute extends EditableSyntax {
     return new self($this->_name, $this->_left_paren, $value, $this->_right_paren);
   }
 
-  public function right_paren(): ?RightParenToken {
-    return $this->_right_paren->is_missing() ? null : TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  public function values(): ?EditableList {
+    if ($this->_values->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_values);
   }
 
-  public function right_parenx(): RightParenToken {
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  public function valuesx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_values);
   }
 
   public function raw_right_paren(): EditableSyntax {
@@ -161,5 +155,16 @@ final class Attribute extends EditableSyntax {
       return $this;
     }
     return new self($this->_name, $this->_left_paren, $this->_values, $value);
+  }
+
+  public function right_paren(): ?RightParenToken {
+    if ($this->_right_paren->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  }
+
+  public function right_parenx(): RightParenToken {
+    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 }

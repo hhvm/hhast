@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5f3d9f90f1971cdbca0eb1e24d217156>>
+ * @generated SignedSource<<8e86cdfbc676e3e2a5dd9710a44a36ef>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,14 +75,6 @@ final class FunctionStaticStatement extends EditableSyntax {
     return new self($static_keyword, $declarations, $semicolon);
   }
 
-  public function static_keyword(): StaticToken {
-    return $this->static_keywordx();
-  }
-
-  public function static_keywordx(): StaticToken {
-    return TypeAssert::isInstanceOf(StaticToken::class, $this->_static_keyword);
-  }
-
   public function raw_static_keyword(): EditableSyntax {
     return $this->_static_keyword;
   }
@@ -94,12 +86,8 @@ final class FunctionStaticStatement extends EditableSyntax {
     return new self($value, $this->_declarations, $this->_semicolon);
   }
 
-  public function declarations(): EditableList {
-    return $this->declarationsx();
-  }
-
-  public function declarationsx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_declarations);
+  public function static_keyword(): StaticToken {
+    return TypeAssert::isInstanceOf(StaticToken::class, $this->_static_keyword);
   }
 
   public function raw_declarations(): EditableSyntax {
@@ -113,12 +101,8 @@ final class FunctionStaticStatement extends EditableSyntax {
     return new self($this->_static_keyword, $value, $this->_semicolon);
   }
 
-  public function semicolon(): ?SemicolonToken {
-    return $this->_semicolon->is_missing() ? null : TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
-  }
-
-  public function semicolonx(): SemicolonToken {
-    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  public function declarations(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_declarations);
   }
 
   public function raw_semicolon(): EditableSyntax {
@@ -130,5 +114,16 @@ final class FunctionStaticStatement extends EditableSyntax {
       return $this;
     }
     return new self($this->_static_keyword, $this->_declarations, $value);
+  }
+
+  public function semicolon(): ?SemicolonToken {
+    if ($this->_semicolon->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function semicolonx(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 }

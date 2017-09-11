@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4ed5edb4160e691ac3bf02d5ba6cbba3>>
+ * @generated SignedSource<<fbe2779a214a29e0bbfbc03309b8f4e5>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -99,14 +99,6 @@ final class TraitUseConflictResolution extends EditableSyntax {
     return new self($keyword, $names, $left_brace, $clauses, $right_brace);
   }
 
-  public function keyword(): UseToken {
-    return $this->keywordx();
-  }
-
-  public function keywordx(): UseToken {
-    return TypeAssert::isInstanceOf(UseToken::class, $this->_keyword);
-  }
-
   public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
@@ -124,12 +116,8 @@ final class TraitUseConflictResolution extends EditableSyntax {
     );
   }
 
-  public function names(): EditableList {
-    return $this->namesx();
-  }
-
-  public function namesx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_names);
+  public function keyword(): UseToken {
+    return TypeAssert::isInstanceOf(UseToken::class, $this->_keyword);
   }
 
   public function raw_names(): EditableSyntax {
@@ -149,12 +137,8 @@ final class TraitUseConflictResolution extends EditableSyntax {
     );
   }
 
-  public function left_brace(): LeftBraceToken {
-    return $this->left_bracex();
-  }
-
-  public function left_bracex(): LeftBraceToken {
-    return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
+  public function names(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_names);
   }
 
   public function raw_left_brace(): EditableSyntax {
@@ -174,12 +158,8 @@ final class TraitUseConflictResolution extends EditableSyntax {
     );
   }
 
-  public function clauses(): ?EditableList {
-    return $this->_clauses->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_clauses);
-  }
-
-  public function clausesx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_clauses);
+  public function left_brace(): LeftBraceToken {
+    return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
   }
 
   public function raw_clauses(): EditableSyntax {
@@ -199,12 +179,15 @@ final class TraitUseConflictResolution extends EditableSyntax {
     );
   }
 
-  public function right_brace(): RightBraceToken {
-    return $this->right_bracex();
+  public function clauses(): ?EditableList {
+    if ($this->_clauses->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_clauses);
   }
 
-  public function right_bracex(): RightBraceToken {
-    return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+  public function clausesx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_clauses);
   }
 
   public function raw_right_brace(): EditableSyntax {
@@ -222,5 +205,9 @@ final class TraitUseConflictResolution extends EditableSyntax {
       $this->_clauses,
       $value,
     );
+  }
+
+  public function right_brace(): RightBraceToken {
+    return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 }

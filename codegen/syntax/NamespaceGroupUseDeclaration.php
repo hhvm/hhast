@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<806fa91063458d32dd91b10b39b47c2e>>
+ * @generated SignedSource<<e333d8e3f1039e1ab51a90a95e78fcc1>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -139,14 +139,6 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
     );
   }
 
-  public function keyword(): UseToken {
-    return $this->keywordx();
-  }
-
-  public function keywordx(): UseToken {
-    return TypeAssert::isInstanceOf(UseToken::class, $this->_keyword);
-  }
-
   public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
@@ -166,12 +158,8 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
     );
   }
 
-  public function kind(): EditableSyntax {
-    return $this->kindx();
-  }
-
-  public function kindx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_kind);
+  public function keyword(): UseToken {
+    return TypeAssert::isInstanceOf(UseToken::class, $this->_keyword);
   }
 
   public function raw_kind(): EditableSyntax {
@@ -193,12 +181,8 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
     );
   }
 
-  public function prefix(): NamespacePrefixToken {
-    return $this->prefixx();
-  }
-
-  public function prefixx(): NamespacePrefixToken {
-    return TypeAssert::isInstanceOf(NamespacePrefixToken::class, $this->_prefix);
+  public function kind(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_kind);
   }
 
   public function raw_prefix(): EditableSyntax {
@@ -220,12 +204,8 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
     );
   }
 
-  public function left_brace(): LeftBraceToken {
-    return $this->left_bracex();
-  }
-
-  public function left_bracex(): LeftBraceToken {
-    return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
+  public function prefix(): NamespacePrefixToken {
+    return TypeAssert::isInstanceOf(NamespacePrefixToken::class, $this->_prefix);
   }
 
   public function raw_left_brace(): EditableSyntax {
@@ -247,12 +227,8 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
     );
   }
 
-  public function clauses(): EditableList {
-    return $this->clausesx();
-  }
-
-  public function clausesx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_clauses);
+  public function left_brace(): LeftBraceToken {
+    return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
   }
 
   public function raw_clauses(): EditableSyntax {
@@ -274,12 +250,8 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
     );
   }
 
-  public function right_brace(): ?RightBraceToken {
-    return $this->_right_brace->is_missing() ? null : TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
-  }
-
-  public function right_bracex(): RightBraceToken {
-    return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+  public function clauses(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_clauses);
   }
 
   public function raw_right_brace(): EditableSyntax {
@@ -301,12 +273,15 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
     );
   }
 
-  public function semicolon(): ?SemicolonToken {
-    return $this->_semicolon->is_missing() ? null : TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  public function right_brace(): ?RightBraceToken {
+    if ($this->_right_brace->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 
-  public function semicolonx(): SemicolonToken {
-    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  public function right_bracex(): RightBraceToken {
+    return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 
   public function raw_semicolon(): EditableSyntax {
@@ -326,5 +301,16 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
       $this->_right_brace,
       $value,
     );
+  }
+
+  public function semicolon(): ?SemicolonToken {
+    if ($this->_semicolon->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function semicolonx(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1cc6a9f69230095b4a909245bb1a898a>>
+ * @generated SignedSource<<d2aa9f12eeb3d98a5f708db98a3bfc43>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,14 +75,6 @@ final class SafeMemberSelectionExpression extends EditableSyntax {
     return new self($object, $operator, $name);
   }
 
-  public function object(): EditableSyntax {
-    return $this->objectx();
-  }
-
-  public function objectx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_object);
-  }
-
   public function raw_object(): EditableSyntax {
     return $this->_object;
   }
@@ -94,12 +86,8 @@ final class SafeMemberSelectionExpression extends EditableSyntax {
     return new self($value, $this->_operator, $this->_name);
   }
 
-  public function operator(): QuestionMinusGreaterThanToken {
-    return $this->operatorx();
-  }
-
-  public function operatorx(): QuestionMinusGreaterThanToken {
-    return TypeAssert::isInstanceOf(QuestionMinusGreaterThanToken::class, $this->_operator);
+  public function object(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_object);
   }
 
   public function raw_operator(): EditableSyntax {
@@ -113,12 +101,8 @@ final class SafeMemberSelectionExpression extends EditableSyntax {
     return new self($this->_object, $value, $this->_name);
   }
 
-  public function name(): EditableSyntax {
-    return $this->namex();
-  }
-
-  public function namex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
+  public function operator(): QuestionMinusGreaterThanToken {
+    return TypeAssert::isInstanceOf(QuestionMinusGreaterThanToken::class, $this->_operator);
   }
 
   public function raw_name(): EditableSyntax {
@@ -130,5 +114,9 @@ final class SafeMemberSelectionExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_object, $this->_operator, $value);
+  }
+
+  public function name(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }
 }

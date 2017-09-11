@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2a9007646292eb7138d492dd6991c0c8>>
+ * @generated SignedSource<<7acf9ff4c6c694653f23d4a929af10c4>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,14 +75,6 @@ final class FieldInitializer extends EditableSyntax {
     return new self($name, $arrow, $value);
   }
 
-  public function name(): EditableSyntax {
-    return $this->namex();
-  }
-
-  public function namex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
-  }
-
   public function raw_name(): EditableSyntax {
     return $this->_name;
   }
@@ -94,12 +86,8 @@ final class FieldInitializer extends EditableSyntax {
     return new self($value, $this->_arrow, $this->_value);
   }
 
-  public function arrow(): EqualGreaterThanToken {
-    return $this->arrowx();
-  }
-
-  public function arrowx(): EqualGreaterThanToken {
-    return TypeAssert::isInstanceOf(EqualGreaterThanToken::class, $this->_arrow);
+  public function name(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }
 
   public function raw_arrow(): EditableSyntax {
@@ -113,12 +101,8 @@ final class FieldInitializer extends EditableSyntax {
     return new self($this->_name, $value, $this->_value);
   }
 
-  public function value(): EditableSyntax {
-    return $this->valuex();
-  }
-
-  public function valuex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_value);
+  public function arrow(): EqualGreaterThanToken {
+    return TypeAssert::isInstanceOf(EqualGreaterThanToken::class, $this->_arrow);
   }
 
   public function raw_value(): EditableSyntax {
@@ -130,5 +114,9 @@ final class FieldInitializer extends EditableSyntax {
       return $this;
     }
     return new self($this->_name, $this->_arrow, $value);
+  }
+
+  public function value(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_value);
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c368e833a4c72cdc03e2e2b1a59e3d92>>
+ * @generated SignedSource<<6439ddb27d421fb8f3754d6c373d6344>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,14 +75,6 @@ final class AwaitableCreationExpression extends EditableSyntax {
     return new self($async, $coroutine, $compound_statement);
   }
 
-  public function async(): AsyncToken {
-    return $this->asyncx();
-  }
-
-  public function asyncx(): AsyncToken {
-    return TypeAssert::isInstanceOf(AsyncToken::class, $this->_async);
-  }
-
   public function raw_async(): EditableSyntax {
     return $this->_async;
   }
@@ -94,12 +86,8 @@ final class AwaitableCreationExpression extends EditableSyntax {
     return new self($value, $this->_coroutine, $this->_compound_statement);
   }
 
-  public function coroutine(): EditableSyntax {
-    return $this->coroutinex();
-  }
-
-  public function coroutinex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_coroutine);
+  public function async(): AsyncToken {
+    return TypeAssert::isInstanceOf(AsyncToken::class, $this->_async);
   }
 
   public function raw_coroutine(): EditableSyntax {
@@ -113,12 +101,8 @@ final class AwaitableCreationExpression extends EditableSyntax {
     return new self($this->_async, $value, $this->_compound_statement);
   }
 
-  public function compound_statement(): CompoundStatement {
-    return $this->compound_statementx();
-  }
-
-  public function compound_statementx(): CompoundStatement {
-    return TypeAssert::isInstanceOf(CompoundStatement::class, $this->_compound_statement);
+  public function coroutine(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_coroutine);
   }
 
   public function raw_compound_statement(): EditableSyntax {
@@ -130,5 +114,9 @@ final class AwaitableCreationExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_async, $this->_coroutine, $value);
+  }
+
+  public function compound_statement(): CompoundStatement {
+    return TypeAssert::isInstanceOf(CompoundStatement::class, $this->_compound_statement);
   }
 }

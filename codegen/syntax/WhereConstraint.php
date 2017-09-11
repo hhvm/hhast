@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<13eb1be332edfda21c0237333ece498c>>
+ * @generated SignedSource<<0f7c6121197fdfef94ed718093b25f23>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,14 +75,6 @@ final class WhereConstraint extends EditableSyntax {
     return new self($left_type, $operator, $right_type);
   }
 
-  public function left_type(): EditableSyntax {
-    return $this->left_typex();
-  }
-
-  public function left_typex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_type);
-  }
-
   public function raw_left_type(): EditableSyntax {
     return $this->_left_type;
   }
@@ -94,12 +86,8 @@ final class WhereConstraint extends EditableSyntax {
     return new self($value, $this->_operator, $this->_right_type);
   }
 
-  public function operator(): EditableSyntax {
-    return $this->operatorx();
-  }
-
-  public function operatorx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operator);
+  public function left_type(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_type);
   }
 
   public function raw_operator(): EditableSyntax {
@@ -113,12 +101,8 @@ final class WhereConstraint extends EditableSyntax {
     return new self($this->_left_type, $value, $this->_right_type);
   }
 
-  public function right_type(): EditableSyntax {
-    return $this->right_typex();
-  }
-
-  public function right_typex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_type);
+  public function operator(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operator);
   }
 
   public function raw_right_type(): EditableSyntax {
@@ -130,5 +114,9 @@ final class WhereConstraint extends EditableSyntax {
       return $this;
     }
     return new self($this->_left_type, $this->_operator, $value);
+  }
+
+  public function right_type(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_type);
   }
 }

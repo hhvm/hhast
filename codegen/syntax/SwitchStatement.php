@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e7401513ddcf509b24bdea179d2f8ddf>>
+ * @generated SignedSource<<8eacf1a0c689289aadff0ca02e80b0fb>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -139,14 +139,6 @@ final class SwitchStatement extends EditableSyntax {
     );
   }
 
-  public function keyword(): SwitchToken {
-    return $this->keywordx();
-  }
-
-  public function keywordx(): SwitchToken {
-    return TypeAssert::isInstanceOf(SwitchToken::class, $this->_keyword);
-  }
-
   public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
@@ -166,12 +158,8 @@ final class SwitchStatement extends EditableSyntax {
     );
   }
 
-  public function left_paren(): LeftParenToken {
-    return $this->left_parenx();
-  }
-
-  public function left_parenx(): LeftParenToken {
-    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  public function keyword(): SwitchToken {
+    return TypeAssert::isInstanceOf(SwitchToken::class, $this->_keyword);
   }
 
   public function raw_left_paren(): EditableSyntax {
@@ -193,12 +181,8 @@ final class SwitchStatement extends EditableSyntax {
     );
   }
 
-  public function expression(): EditableSyntax {
-    return $this->expressionx();
-  }
-
-  public function expressionx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
+  public function left_paren(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
 
   public function raw_expression(): EditableSyntax {
@@ -220,12 +204,8 @@ final class SwitchStatement extends EditableSyntax {
     );
   }
 
-  public function right_paren(): RightParenToken {
-    return $this->right_parenx();
-  }
-
-  public function right_parenx(): RightParenToken {
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  public function expression(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
   }
 
   public function raw_right_paren(): EditableSyntax {
@@ -247,12 +227,8 @@ final class SwitchStatement extends EditableSyntax {
     );
   }
 
-  public function left_brace(): ?LeftBraceToken {
-    return $this->_left_brace->is_missing() ? null : TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
-  }
-
-  public function left_bracex(): LeftBraceToken {
-    return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
+  public function right_paren(): RightParenToken {
+    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function raw_left_brace(): EditableSyntax {
@@ -274,12 +250,15 @@ final class SwitchStatement extends EditableSyntax {
     );
   }
 
-  public function sections(): ?EditableList {
-    return $this->_sections->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_sections);
+  public function left_brace(): ?LeftBraceToken {
+    if ($this->_left_brace->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
   }
 
-  public function sectionsx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_sections);
+  public function left_bracex(): LeftBraceToken {
+    return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
   }
 
   public function raw_sections(): EditableSyntax {
@@ -301,12 +280,15 @@ final class SwitchStatement extends EditableSyntax {
     );
   }
 
-  public function right_brace(): ?RightBraceToken {
-    return $this->_right_brace->is_missing() ? null : TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+  public function sections(): ?EditableList {
+    if ($this->_sections->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_sections);
   }
 
-  public function right_bracex(): RightBraceToken {
-    return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+  public function sectionsx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_sections);
   }
 
   public function raw_right_brace(): EditableSyntax {
@@ -326,5 +308,16 @@ final class SwitchStatement extends EditableSyntax {
       $this->_sections,
       $value,
     );
+  }
+
+  public function right_brace(): ?RightBraceToken {
+    if ($this->_right_brace->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+  }
+
+  public function right_bracex(): RightBraceToken {
+    return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 }

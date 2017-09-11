@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a578fbbcad5655c160d534f66cbc778e>>
+ * @generated SignedSource<<3822affe8ebdd9fe787b020180151fea>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -63,14 +63,6 @@ final class PrefixUnaryExpression extends EditableSyntax {
     return new self($operator, $operand);
   }
 
-  public function operator(): EditableSyntax {
-    return $this->operatorx();
-  }
-
-  public function operatorx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operator);
-  }
-
   public function raw_operator(): EditableSyntax {
     return $this->_operator;
   }
@@ -82,12 +74,8 @@ final class PrefixUnaryExpression extends EditableSyntax {
     return new self($value, $this->_operand);
   }
 
-  public function operand(): EditableSyntax {
-    return $this->operandx();
-  }
-
-  public function operandx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operand);
+  public function operator(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operator);
   }
 
   public function raw_operand(): EditableSyntax {
@@ -99,5 +87,9 @@ final class PrefixUnaryExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_operator, $value);
+  }
+
+  public function operand(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operand);
   }
 }

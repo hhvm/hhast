@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e6a6bd719998a2bbde640e4f54df3ba2>>
+ * @generated SignedSource<<a3402f82924633ecca26ba9f842393dc>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -87,14 +87,6 @@ final class IssetExpression extends EditableSyntax {
     return new self($keyword, $left_paren, $argument_list, $right_paren);
   }
 
-  public function keyword(): IssetToken {
-    return $this->keywordx();
-  }
-
-  public function keywordx(): IssetToken {
-    return TypeAssert::isInstanceOf(IssetToken::class, $this->_keyword);
-  }
-
   public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
@@ -111,12 +103,8 @@ final class IssetExpression extends EditableSyntax {
     );
   }
 
-  public function left_paren(): LeftParenToken {
-    return $this->left_parenx();
-  }
-
-  public function left_parenx(): LeftParenToken {
-    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  public function keyword(): IssetToken {
+    return TypeAssert::isInstanceOf(IssetToken::class, $this->_keyword);
   }
 
   public function raw_left_paren(): EditableSyntax {
@@ -130,12 +118,8 @@ final class IssetExpression extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_argument_list, $this->_right_paren);
   }
 
-  public function argument_list(): EditableList {
-    return $this->argument_listx();
-  }
-
-  public function argument_listx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_argument_list);
+  public function left_paren(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
 
   public function raw_argument_list(): EditableSyntax {
@@ -149,12 +133,8 @@ final class IssetExpression extends EditableSyntax {
     return new self($this->_keyword, $this->_left_paren, $value, $this->_right_paren);
   }
 
-  public function right_paren(): RightParenToken {
-    return $this->right_parenx();
-  }
-
-  public function right_parenx(): RightParenToken {
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  public function argument_list(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_argument_list);
   }
 
   public function raw_right_paren(): EditableSyntax {
@@ -166,5 +146,9 @@ final class IssetExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $this->_left_paren, $this->_argument_list, $value);
+  }
+
+  public function right_paren(): RightParenToken {
+    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 }

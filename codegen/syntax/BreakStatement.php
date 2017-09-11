@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<46ae753e7bb39f11bfdd3ec452f513ac>>
+ * @generated SignedSource<<4e5ea77e814cc40586d437fdd13b2bd2>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,14 +75,6 @@ final class BreakStatement extends EditableSyntax {
     return new self($keyword, $level, $semicolon);
   }
 
-  public function keyword(): BreakToken {
-    return $this->keywordx();
-  }
-
-  public function keywordx(): BreakToken {
-    return TypeAssert::isInstanceOf(BreakToken::class, $this->_keyword);
-  }
-
   public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
@@ -94,12 +86,8 @@ final class BreakStatement extends EditableSyntax {
     return new self($value, $this->_level, $this->_semicolon);
   }
 
-  public function level(): EditableSyntax {
-    return $this->levelx();
-  }
-
-  public function levelx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_level);
+  public function keyword(): BreakToken {
+    return TypeAssert::isInstanceOf(BreakToken::class, $this->_keyword);
   }
 
   public function raw_level(): EditableSyntax {
@@ -113,12 +101,8 @@ final class BreakStatement extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_semicolon);
   }
 
-  public function semicolon(): SemicolonToken {
-    return $this->semicolonx();
-  }
-
-  public function semicolonx(): SemicolonToken {
-    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  public function level(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_level);
   }
 
   public function raw_semicolon(): EditableSyntax {
@@ -130,5 +114,9 @@ final class BreakStatement extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $this->_level, $value);
+  }
+
+  public function semicolon(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 }

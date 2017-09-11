@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4f7873f13e86d942eff986bd9e6c954e>>
+ * @generated SignedSource<<fa5bda9585867ce419490d85a65afd1e>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -87,14 +87,6 @@ final class CastExpression extends EditableSyntax {
     return new self($left_paren, $type, $right_paren, $operand);
   }
 
-  public function left_paren(): LeftParenToken {
-    return $this->left_parenx();
-  }
-
-  public function left_parenx(): LeftParenToken {
-    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
-  }
-
   public function raw_left_paren(): EditableSyntax {
     return $this->_left_paren;
   }
@@ -106,12 +98,8 @@ final class CastExpression extends EditableSyntax {
     return new self($value, $this->_type, $this->_right_paren, $this->_operand);
   }
 
-  public function type(): EditableSyntax {
-    return $this->typex();
-  }
-
-  public function typex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
+  public function left_paren(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
 
   public function raw_type(): EditableSyntax {
@@ -125,12 +113,8 @@ final class CastExpression extends EditableSyntax {
     return new self($this->_left_paren, $value, $this->_right_paren, $this->_operand);
   }
 
-  public function right_paren(): RightParenToken {
-    return $this->right_parenx();
-  }
-
-  public function right_parenx(): RightParenToken {
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  public function type(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
 
   public function raw_right_paren(): EditableSyntax {
@@ -144,12 +128,8 @@ final class CastExpression extends EditableSyntax {
     return new self($this->_left_paren, $this->_type, $value, $this->_operand);
   }
 
-  public function operand(): EditableSyntax {
-    return $this->operandx();
-  }
-
-  public function operandx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operand);
+  public function right_paren(): RightParenToken {
+    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function raw_operand(): EditableSyntax {
@@ -161,5 +141,9 @@ final class CastExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_left_paren, $this->_type, $this->_right_paren, $value);
+  }
+
+  public function operand(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operand);
   }
 }

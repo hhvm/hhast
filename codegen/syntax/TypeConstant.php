@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ecffc539c7e01b530a73efcb7974a335>>
+ * @generated SignedSource<<efcef79ed28b080d210f3d2d5f23aa8e>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,14 +75,6 @@ final class TypeConstant extends EditableSyntax {
     return new self($left_type, $separator, $right_type);
   }
 
-  public function left_type(): EditableSyntax {
-    return $this->left_typex();
-  }
-
-  public function left_typex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_type);
-  }
-
   public function raw_left_type(): EditableSyntax {
     return $this->_left_type;
   }
@@ -94,12 +86,8 @@ final class TypeConstant extends EditableSyntax {
     return new self($value, $this->_separator, $this->_right_type);
   }
 
-  public function separator(): ColonColonToken {
-    return $this->separatorx();
-  }
-
-  public function separatorx(): ColonColonToken {
-    return TypeAssert::isInstanceOf(ColonColonToken::class, $this->_separator);
+  public function left_type(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_type);
   }
 
   public function raw_separator(): EditableSyntax {
@@ -113,12 +101,8 @@ final class TypeConstant extends EditableSyntax {
     return new self($this->_left_type, $value, $this->_right_type);
   }
 
-  public function right_type(): NameToken {
-    return $this->right_typex();
-  }
-
-  public function right_typex(): NameToken {
-    return TypeAssert::isInstanceOf(NameToken::class, $this->_right_type);
+  public function separator(): ColonColonToken {
+    return TypeAssert::isInstanceOf(ColonColonToken::class, $this->_separator);
   }
 
   public function raw_right_type(): EditableSyntax {
@@ -130,5 +114,9 @@ final class TypeConstant extends EditableSyntax {
       return $this;
     }
     return new self($this->_left_type, $this->_separator, $value);
+  }
+
+  public function right_type(): NameToken {
+    return TypeAssert::isInstanceOf(NameToken::class, $this->_right_type);
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<91250406602931b50576a69265ec737c>>
+ * @generated SignedSource<<fdd1cb0e93c86372cd11a4b847362fdb>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -87,14 +87,6 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
     return new self($keyword, $left_paren, $variables, $right_paren);
   }
 
-  public function keyword(): UseToken {
-    return $this->keywordx();
-  }
-
-  public function keywordx(): UseToken {
-    return TypeAssert::isInstanceOf(UseToken::class, $this->_keyword);
-  }
-
   public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
@@ -106,12 +98,8 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
     return new self($value, $this->_left_paren, $this->_variables, $this->_right_paren);
   }
 
-  public function left_paren(): LeftParenToken {
-    return $this->left_parenx();
-  }
-
-  public function left_parenx(): LeftParenToken {
-    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  public function keyword(): UseToken {
+    return TypeAssert::isInstanceOf(UseToken::class, $this->_keyword);
   }
 
   public function raw_left_paren(): EditableSyntax {
@@ -125,12 +113,8 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_variables, $this->_right_paren);
   }
 
-  public function variables(): EditableList {
-    return $this->variablesx();
-  }
-
-  public function variablesx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_variables);
+  public function left_paren(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
 
   public function raw_variables(): EditableSyntax {
@@ -144,12 +128,8 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
     return new self($this->_keyword, $this->_left_paren, $value, $this->_right_paren);
   }
 
-  public function right_paren(): RightParenToken {
-    return $this->right_parenx();
-  }
-
-  public function right_parenx(): RightParenToken {
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  public function variables(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_variables);
   }
 
   public function raw_right_paren(): EditableSyntax {
@@ -161,5 +141,9 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $this->_left_paren, $this->_variables, $value);
+  }
+
+  public function right_paren(): RightParenToken {
+    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 }

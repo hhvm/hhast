@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ad4dfcdd1da80e74efbb27de15d904dc>>
+ * @generated SignedSource<<7d3ea34ceb566898ed30a4661d6f07ca>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -105,14 +105,6 @@ final class ConstDeclaration extends EditableSyntax {
     return new self($abstract, $keyword, $type_specifier, $declarators, $semicolon);
   }
 
-  public function abstract(): ?AbstractToken {
-    return $this->_abstract->is_missing() ? null : TypeAssert::isInstanceOf(AbstractToken::class, $this->_abstract);
-  }
-
-  public function abstractx(): AbstractToken {
-    return TypeAssert::isInstanceOf(AbstractToken::class, $this->_abstract);
-  }
-
   public function raw_abstract(): EditableSyntax {
     return $this->_abstract;
   }
@@ -130,12 +122,15 @@ final class ConstDeclaration extends EditableSyntax {
     );
   }
 
-  public function keyword(): ConstToken {
-    return $this->keywordx();
+  public function abstract(): ?AbstractToken {
+    if ($this->_abstract->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(AbstractToken::class, $this->_abstract);
   }
 
-  public function keywordx(): ConstToken {
-    return TypeAssert::isInstanceOf(ConstToken::class, $this->_keyword);
+  public function abstractx(): AbstractToken {
+    return TypeAssert::isInstanceOf(AbstractToken::class, $this->_abstract);
   }
 
   public function raw_keyword(): EditableSyntax {
@@ -155,12 +150,8 @@ final class ConstDeclaration extends EditableSyntax {
     );
   }
 
-  public function type_specifier(): EditableSyntax {
-    return $this->type_specifierx();
-  }
-
-  public function type_specifierx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type_specifier);
+  public function keyword(): ConstToken {
+    return TypeAssert::isInstanceOf(ConstToken::class, $this->_keyword);
   }
 
   public function raw_type_specifier(): EditableSyntax {
@@ -180,12 +171,8 @@ final class ConstDeclaration extends EditableSyntax {
     );
   }
 
-  public function declarators(): EditableList {
-    return $this->declaratorsx();
-  }
-
-  public function declaratorsx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_declarators);
+  public function type_specifier(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type_specifier);
   }
 
   public function raw_declarators(): EditableSyntax {
@@ -205,12 +192,8 @@ final class ConstDeclaration extends EditableSyntax {
     );
   }
 
-  public function semicolon(): SemicolonToken {
-    return $this->semicolonx();
-  }
-
-  public function semicolonx(): SemicolonToken {
-    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  public function declarators(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_declarators);
   }
 
   public function raw_semicolon(): EditableSyntax {
@@ -228,5 +211,9 @@ final class ConstDeclaration extends EditableSyntax {
       $this->_declarators,
       $value,
     );
+  }
+
+  public function semicolon(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a2f53a14422667c2b2b645b6fba8dfa8>>
+ * @generated SignedSource<<7676c996726b2f2908c8c798d6ffce6b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -209,14 +209,6 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     );
   }
 
-  public function async(): ?AsyncToken {
-    return $this->_async->is_missing() ? null : TypeAssert::isInstanceOf(AsyncToken::class, $this->_async);
-  }
-
-  public function asyncx(): AsyncToken {
-    return TypeAssert::isInstanceOf(AsyncToken::class, $this->_async);
-  }
-
   public function raw_async(): EditableSyntax {
     return $this->_async;
   }
@@ -241,12 +233,15 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     );
   }
 
-  public function coroutine(): EditableSyntax {
-    return $this->coroutinex();
+  public function async(): ?AsyncToken {
+    if ($this->_async->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(AsyncToken::class, $this->_async);
   }
 
-  public function coroutinex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_coroutine);
+  public function asyncx(): AsyncToken {
+    return TypeAssert::isInstanceOf(AsyncToken::class, $this->_async);
   }
 
   public function raw_coroutine(): EditableSyntax {
@@ -273,12 +268,8 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     );
   }
 
-  public function keyword(): ?FunctionToken {
-    return $this->_keyword->is_missing() ? null : TypeAssert::isInstanceOf(FunctionToken::class, $this->_keyword);
-  }
-
-  public function keywordx(): FunctionToken {
-    return TypeAssert::isInstanceOf(FunctionToken::class, $this->_keyword);
+  public function coroutine(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_coroutine);
   }
 
   public function raw_keyword(): EditableSyntax {
@@ -305,12 +296,15 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     );
   }
 
-  public function ampersand(): ?AmpersandToken {
-    return $this->_ampersand->is_missing() ? null : TypeAssert::isInstanceOf(AmpersandToken::class, $this->_ampersand);
+  public function keyword(): ?FunctionToken {
+    if ($this->_keyword->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(FunctionToken::class, $this->_keyword);
   }
 
-  public function ampersandx(): AmpersandToken {
-    return TypeAssert::isInstanceOf(AmpersandToken::class, $this->_ampersand);
+  public function keywordx(): FunctionToken {
+    return TypeAssert::isInstanceOf(FunctionToken::class, $this->_keyword);
   }
 
   public function raw_ampersand(): EditableSyntax {
@@ -337,12 +331,15 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     );
   }
 
-  public function name(): EditableSyntax {
-    return $this->namex();
+  public function ampersand(): ?AmpersandToken {
+    if ($this->_ampersand->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(AmpersandToken::class, $this->_ampersand);
   }
 
-  public function namex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
+  public function ampersandx(): AmpersandToken {
+    return TypeAssert::isInstanceOf(AmpersandToken::class, $this->_ampersand);
   }
 
   public function raw_name(): EditableSyntax {
@@ -369,12 +366,8 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     );
   }
 
-  public function type_parameter_list(): ?TypeParameters {
-    return $this->_type_parameter_list->is_missing() ? null : TypeAssert::isInstanceOf(TypeParameters::class, $this->_type_parameter_list);
-  }
-
-  public function type_parameter_listx(): TypeParameters {
-    return TypeAssert::isInstanceOf(TypeParameters::class, $this->_type_parameter_list);
+  public function name(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }
 
   public function raw_type_parameter_list(): EditableSyntax {
@@ -401,12 +394,15 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     );
   }
 
-  public function left_paren(): ?LeftParenToken {
-    return $this->_left_paren->is_missing() ? null : TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  public function type_parameter_list(): ?TypeParameters {
+    if ($this->_type_parameter_list->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(TypeParameters::class, $this->_type_parameter_list);
   }
 
-  public function left_parenx(): LeftParenToken {
-    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  public function type_parameter_listx(): TypeParameters {
+    return TypeAssert::isInstanceOf(TypeParameters::class, $this->_type_parameter_list);
   }
 
   public function raw_left_paren(): EditableSyntax {
@@ -433,12 +429,15 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     );
   }
 
-  public function parameter_list(): ?EditableList {
-    return $this->_parameter_list->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_parameter_list);
+  public function left_paren(): ?LeftParenToken {
+    if ($this->_left_paren->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
 
-  public function parameter_listx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_parameter_list);
+  public function left_parenx(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
 
   public function raw_parameter_list(): EditableSyntax {
@@ -465,12 +464,15 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     );
   }
 
-  public function right_paren(): ?RightParenToken {
-    return $this->_right_paren->is_missing() ? null : TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  public function parameter_list(): ?EditableList {
+    if ($this->_parameter_list->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_parameter_list);
   }
 
-  public function right_parenx(): RightParenToken {
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  public function parameter_listx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_parameter_list);
   }
 
   public function raw_right_paren(): EditableSyntax {
@@ -497,12 +499,15 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     );
   }
 
-  public function colon(): ?ColonToken {
-    return $this->_colon->is_missing() ? null : TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
+  public function right_paren(): ?RightParenToken {
+    if ($this->_right_paren->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
-  public function colonx(): ColonToken {
-    return TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
+  public function right_parenx(): RightParenToken {
+    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function raw_colon(): EditableSyntax {
@@ -529,12 +534,15 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     );
   }
 
-  public function type(): EditableSyntax {
-    return $this->typex();
+  public function colon(): ?ColonToken {
+    if ($this->_colon->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
   }
 
-  public function typex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
+  public function colonx(): ColonToken {
+    return TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
   }
 
   public function raw_type(): EditableSyntax {
@@ -561,12 +569,8 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     );
   }
 
-  public function where_clause(): ?WhereClause {
-    return $this->_where_clause->is_missing() ? null : TypeAssert::isInstanceOf(WhereClause::class, $this->_where_clause);
-  }
-
-  public function where_clausex(): WhereClause {
-    return TypeAssert::isInstanceOf(WhereClause::class, $this->_where_clause);
+  public function type(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
 
   public function raw_where_clause(): EditableSyntax {
@@ -591,5 +595,16 @@ final class FunctionDeclarationHeader extends EditableSyntax {
       $this->_type,
       $value,
     );
+  }
+
+  public function where_clause(): ?WhereClause {
+    if ($this->_where_clause->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(WhereClause::class, $this->_where_clause);
+  }
+
+  public function where_clausex(): WhereClause {
+    return TypeAssert::isInstanceOf(WhereClause::class, $this->_where_clause);
   }
 }

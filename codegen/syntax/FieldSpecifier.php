@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2ee0c4b2c64a0c527c3c3d6559462e98>>
+ * @generated SignedSource<<f2d96c71cc38fa4a7a3bf9885cd267bb>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -87,14 +87,6 @@ final class FieldSpecifier extends EditableSyntax {
     return new self($question, $name, $arrow, $type);
   }
 
-  public function question(): ?QuestionToken {
-    return $this->_question->is_missing() ? null : TypeAssert::isInstanceOf(QuestionToken::class, $this->_question);
-  }
-
-  public function questionx(): QuestionToken {
-    return TypeAssert::isInstanceOf(QuestionToken::class, $this->_question);
-  }
-
   public function raw_question(): EditableSyntax {
     return $this->_question;
   }
@@ -106,12 +98,15 @@ final class FieldSpecifier extends EditableSyntax {
     return new self($value, $this->_name, $this->_arrow, $this->_type);
   }
 
-  public function name(): EditableSyntax {
-    return $this->namex();
+  public function question(): ?QuestionToken {
+    if ($this->_question->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(QuestionToken::class, $this->_question);
   }
 
-  public function namex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
+  public function questionx(): QuestionToken {
+    return TypeAssert::isInstanceOf(QuestionToken::class, $this->_question);
   }
 
   public function raw_name(): EditableSyntax {
@@ -125,12 +120,8 @@ final class FieldSpecifier extends EditableSyntax {
     return new self($this->_question, $value, $this->_arrow, $this->_type);
   }
 
-  public function arrow(): EqualGreaterThanToken {
-    return $this->arrowx();
-  }
-
-  public function arrowx(): EqualGreaterThanToken {
-    return TypeAssert::isInstanceOf(EqualGreaterThanToken::class, $this->_arrow);
+  public function name(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }
 
   public function raw_arrow(): EditableSyntax {
@@ -144,12 +135,8 @@ final class FieldSpecifier extends EditableSyntax {
     return new self($this->_question, $this->_name, $value, $this->_type);
   }
 
-  public function type(): EditableSyntax {
-    return $this->typex();
-  }
-
-  public function typex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
+  public function arrow(): EqualGreaterThanToken {
+    return TypeAssert::isInstanceOf(EqualGreaterThanToken::class, $this->_arrow);
   }
 
   public function raw_type(): EditableSyntax {
@@ -161,5 +148,9 @@ final class FieldSpecifier extends EditableSyntax {
       return $this;
     }
     return new self($this->_question, $this->_name, $this->_arrow, $value);
+  }
+
+  public function type(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
 }

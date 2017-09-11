@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cc94523dbf5727ddede67ab444211bd7>>
+ * @generated SignedSource<<69106f91eb55123ac124e8d1ee9c12dc>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,14 +75,6 @@ final class ScopeResolutionExpression extends EditableSyntax {
     return new self($qualifier, $operator, $name);
   }
 
-  public function qualifier(): EditableSyntax {
-    return $this->qualifierx();
-  }
-
-  public function qualifierx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_qualifier);
-  }
-
   public function raw_qualifier(): EditableSyntax {
     return $this->_qualifier;
   }
@@ -94,12 +86,8 @@ final class ScopeResolutionExpression extends EditableSyntax {
     return new self($value, $this->_operator, $this->_name);
   }
 
-  public function operator(): ColonColonToken {
-    return $this->operatorx();
-  }
-
-  public function operatorx(): ColonColonToken {
-    return TypeAssert::isInstanceOf(ColonColonToken::class, $this->_operator);
+  public function qualifier(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_qualifier);
   }
 
   public function raw_operator(): EditableSyntax {
@@ -113,12 +101,8 @@ final class ScopeResolutionExpression extends EditableSyntax {
     return new self($this->_qualifier, $value, $this->_name);
   }
 
-  public function name(): EditableSyntax {
-    return $this->namex();
-  }
-
-  public function namex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
+  public function operator(): ColonColonToken {
+    return TypeAssert::isInstanceOf(ColonColonToken::class, $this->_operator);
   }
 
   public function raw_name(): EditableSyntax {
@@ -130,5 +114,9 @@ final class ScopeResolutionExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_qualifier, $this->_operator, $value);
+  }
+
+  public function name(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }
 }

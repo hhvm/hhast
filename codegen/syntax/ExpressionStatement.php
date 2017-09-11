@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ad44e3395d5c253d32fccb5c0104d59c>>
+ * @generated SignedSource<<a57ce90ce95ad2718ae6134bc7e713ee>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -63,14 +63,6 @@ final class ExpressionStatement extends EditableSyntax {
     return new self($expression, $semicolon);
   }
 
-  public function expression(): EditableSyntax {
-    return $this->expressionx();
-  }
-
-  public function expressionx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
-  }
-
   public function raw_expression(): EditableSyntax {
     return $this->_expression;
   }
@@ -82,12 +74,8 @@ final class ExpressionStatement extends EditableSyntax {
     return new self($value, $this->_semicolon);
   }
 
-  public function semicolon(): ?SemicolonToken {
-    return $this->_semicolon->is_missing() ? null : TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
-  }
-
-  public function semicolonx(): SemicolonToken {
-    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  public function expression(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
   }
 
   public function raw_semicolon(): EditableSyntax {
@@ -99,5 +87,16 @@ final class ExpressionStatement extends EditableSyntax {
       return $this;
     }
     return new self($this->_expression, $value);
+  }
+
+  public function semicolon(): ?SemicolonToken {
+    if ($this->_semicolon->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function semicolonx(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 }

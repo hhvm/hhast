@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<efd86d768e46f542434e5e76fc22e4e0>>
+ * @generated SignedSource<<7c98140fc5e4a3ddcab405aae18ce678>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -99,14 +99,6 @@ final class ParameterDeclaration extends EditableSyntax {
     return new self($attribute, $visibility, $type, $name, $default_value);
   }
 
-  public function attribute(): ?AttributeSpecification {
-    return $this->_attribute->is_missing() ? null : TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute);
-  }
-
-  public function attributex(): AttributeSpecification {
-    return TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute);
-  }
-
   public function raw_attribute(): EditableSyntax {
     return $this->_attribute;
   }
@@ -124,12 +116,15 @@ final class ParameterDeclaration extends EditableSyntax {
     );
   }
 
-  public function visibility(): EditableSyntax {
-    return $this->visibilityx();
+  public function attribute(): ?AttributeSpecification {
+    if ($this->_attribute->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute);
   }
 
-  public function visibilityx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_visibility);
+  public function attributex(): AttributeSpecification {
+    return TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute);
   }
 
   public function raw_visibility(): EditableSyntax {
@@ -149,12 +144,8 @@ final class ParameterDeclaration extends EditableSyntax {
     );
   }
 
-  public function type(): EditableSyntax {
-    return $this->typex();
-  }
-
-  public function typex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
+  public function visibility(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_visibility);
   }
 
   public function raw_type(): EditableSyntax {
@@ -174,12 +165,8 @@ final class ParameterDeclaration extends EditableSyntax {
     );
   }
 
-  public function name(): EditableSyntax {
-    return $this->namex();
-  }
-
-  public function namex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
+  public function type(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
 
   public function raw_name(): EditableSyntax {
@@ -199,12 +186,8 @@ final class ParameterDeclaration extends EditableSyntax {
     );
   }
 
-  public function default_value(): ?SimpleInitializer {
-    return $this->_default_value->is_missing() ? null : TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_default_value);
-  }
-
-  public function default_valuex(): SimpleInitializer {
-    return TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_default_value);
+  public function name(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }
 
   public function raw_default_value(): EditableSyntax {
@@ -222,5 +205,16 @@ final class ParameterDeclaration extends EditableSyntax {
       $this->_name,
       $value,
     );
+  }
+
+  public function default_value(): ?SimpleInitializer {
+    if ($this->_default_value->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_default_value);
+  }
+
+  public function default_valuex(): SimpleInitializer {
+    return TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_default_value);
   }
 }

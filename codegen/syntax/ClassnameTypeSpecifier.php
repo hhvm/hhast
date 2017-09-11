@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4d979c930deb9cd5b9a4f24cfbf6a7b0>>
+ * @generated SignedSource<<e235acefc7464198494cd49a455685a0>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -105,14 +105,6 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
     return new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
   }
 
-  public function keyword(): ClassnameToken {
-    return $this->keywordx();
-  }
-
-  public function keywordx(): ClassnameToken {
-    return TypeAssert::isInstanceOf(ClassnameToken::class, $this->_keyword);
-  }
-
   public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
@@ -130,12 +122,8 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function left_angle(): ?LessThanToken {
-    return $this->_left_angle->is_missing() ? null : TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
-  }
-
-  public function left_anglex(): LessThanToken {
-    return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
+  public function keyword(): ClassnameToken {
+    return TypeAssert::isInstanceOf(ClassnameToken::class, $this->_keyword);
   }
 
   public function raw_left_angle(): EditableSyntax {
@@ -155,12 +143,15 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function type(): EditableSyntax {
-    return $this->typex();
+  public function left_angle(): ?LessThanToken {
+    if ($this->_left_angle->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
   }
 
-  public function typex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
+  public function left_anglex(): LessThanToken {
+    return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
   }
 
   public function raw_type(): EditableSyntax {
@@ -180,12 +171,8 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function trailing_comma(): EditableSyntax {
-    return $this->trailing_commax();
-  }
-
-  public function trailing_commax(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_trailing_comma);
+  public function type(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
 
   public function raw_trailing_comma(): EditableSyntax {
@@ -205,12 +192,8 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function right_angle(): ?GreaterThanToken {
-    return $this->_right_angle->is_missing() ? null : TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
-  }
-
-  public function right_anglex(): GreaterThanToken {
-    return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+  public function trailing_comma(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_trailing_comma);
   }
 
   public function raw_right_angle(): EditableSyntax {
@@ -228,5 +211,16 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
       $this->_trailing_comma,
       $value,
     );
+  }
+
+  public function right_angle(): ?GreaterThanToken {
+    if ($this->_right_angle->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+  }
+
+  public function right_anglex(): GreaterThanToken {
+    return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 }

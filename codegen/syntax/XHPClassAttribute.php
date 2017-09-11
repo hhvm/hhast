@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bf786c9b9cd00dccb804d70f9b428759>>
+ * @generated SignedSource<<24e890c2aeae6fbac82324697e80c693>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -87,14 +87,6 @@ final class XHPClassAttribute extends EditableSyntax {
     return new self($type, $name, $initializer, $required);
   }
 
-  public function type(): EditableSyntax {
-    return $this->typex();
-  }
-
-  public function typex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
-  }
-
   public function raw_type(): EditableSyntax {
     return $this->_type;
   }
@@ -106,12 +98,8 @@ final class XHPClassAttribute extends EditableSyntax {
     return new self($value, $this->_name, $this->_initializer, $this->_required);
   }
 
-  public function name(): XHPElementNameToken {
-    return $this->namex();
-  }
-
-  public function namex(): XHPElementNameToken {
-    return TypeAssert::isInstanceOf(XHPElementNameToken::class, $this->_name);
+  public function type(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
 
   public function raw_name(): EditableSyntax {
@@ -125,12 +113,8 @@ final class XHPClassAttribute extends EditableSyntax {
     return new self($this->_type, $value, $this->_initializer, $this->_required);
   }
 
-  public function initializer(): ?SimpleInitializer {
-    return $this->_initializer->is_missing() ? null : TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
-  }
-
-  public function initializerx(): SimpleInitializer {
-    return TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
+  public function name(): XHPElementNameToken {
+    return TypeAssert::isInstanceOf(XHPElementNameToken::class, $this->_name);
   }
 
   public function raw_initializer(): EditableSyntax {
@@ -144,12 +128,15 @@ final class XHPClassAttribute extends EditableSyntax {
     return new self($this->_type, $this->_name, $value, $this->_required);
   }
 
-  public function required(): ?XHPRequired {
-    return $this->_required->is_missing() ? null : TypeAssert::isInstanceOf(XHPRequired::class, $this->_required);
+  public function initializer(): ?SimpleInitializer {
+    if ($this->_initializer->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
   }
 
-  public function requiredx(): XHPRequired {
-    return TypeAssert::isInstanceOf(XHPRequired::class, $this->_required);
+  public function initializerx(): SimpleInitializer {
+    return TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
   }
 
   public function raw_required(): EditableSyntax {
@@ -161,5 +148,16 @@ final class XHPClassAttribute extends EditableSyntax {
       return $this;
     }
     return new self($this->_type, $this->_name, $this->_initializer, $value);
+  }
+
+  public function required(): ?XHPRequired {
+    if ($this->_required->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(XHPRequired::class, $this->_required);
+  }
+
+  public function requiredx(): XHPRequired {
+    return TypeAssert::isInstanceOf(XHPRequired::class, $this->_required);
   }
 }

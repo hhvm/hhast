@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<69c30bc082fc30a25cab4d2205672f66>>
+ * @generated SignedSource<<99bcfd96349d8556f32c57075a3650e5>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,14 +75,6 @@ final class XHPClose extends EditableSyntax {
     return new self($left_angle, $name, $right_angle);
   }
 
-  public function left_angle(): EditableSyntax {
-    return $this->left_anglex();
-  }
-
-  public function left_anglex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_angle);
-  }
-
   public function raw_left_angle(): EditableSyntax {
     return $this->_left_angle;
   }
@@ -94,12 +86,8 @@ final class XHPClose extends EditableSyntax {
     return new self($value, $this->_name, $this->_right_angle);
   }
 
-  public function name(): ?XHPElementNameToken {
-    return $this->_name->is_missing() ? null : TypeAssert::isInstanceOf(XHPElementNameToken::class, $this->_name);
-  }
-
-  public function namex(): XHPElementNameToken {
-    return TypeAssert::isInstanceOf(XHPElementNameToken::class, $this->_name);
+  public function left_angle(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_angle);
   }
 
   public function raw_name(): EditableSyntax {
@@ -113,12 +101,15 @@ final class XHPClose extends EditableSyntax {
     return new self($this->_left_angle, $value, $this->_right_angle);
   }
 
-  public function right_angle(): ?GreaterThanToken {
-    return $this->_right_angle->is_missing() ? null : TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+  public function name(): ?XHPElementNameToken {
+    if ($this->_name->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(XHPElementNameToken::class, $this->_name);
   }
 
-  public function right_anglex(): GreaterThanToken {
-    return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+  public function namex(): XHPElementNameToken {
+    return TypeAssert::isInstanceOf(XHPElementNameToken::class, $this->_name);
   }
 
   public function raw_right_angle(): EditableSyntax {
@@ -130,5 +121,16 @@ final class XHPClose extends EditableSyntax {
       return $this;
     }
     return new self($this->_left_angle, $this->_name, $value);
+  }
+
+  public function right_angle(): ?GreaterThanToken {
+    if ($this->_right_angle->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+  }
+
+  public function right_anglex(): GreaterThanToken {
+    return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 }

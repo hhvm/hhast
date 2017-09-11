@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4444feb201abfc746d8d08159cc67ccd>>
+ * @generated SignedSource<<817ad3557680a51e1b7e34ec87849c84>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -87,14 +87,6 @@ final class MarkupSection extends EditableSyntax {
     return new self($prefix, $text, $suffix, $expression);
   }
 
-  public function prefix(): ?QuestionGreaterThanToken {
-    return $this->_prefix->is_missing() ? null : TypeAssert::isInstanceOf(QuestionGreaterThanToken::class, $this->_prefix);
-  }
-
-  public function prefixx(): QuestionGreaterThanToken {
-    return TypeAssert::isInstanceOf(QuestionGreaterThanToken::class, $this->_prefix);
-  }
-
   public function raw_prefix(): EditableSyntax {
     return $this->_prefix;
   }
@@ -106,12 +98,15 @@ final class MarkupSection extends EditableSyntax {
     return new self($value, $this->_text, $this->_suffix, $this->_expression);
   }
 
-  public function text(): ?MarkupToken {
-    return $this->_text->is_missing() ? null : TypeAssert::isInstanceOf(MarkupToken::class, $this->_text);
+  public function prefix(): ?QuestionGreaterThanToken {
+    if ($this->_prefix->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(QuestionGreaterThanToken::class, $this->_prefix);
   }
 
-  public function textx(): MarkupToken {
-    return TypeAssert::isInstanceOf(MarkupToken::class, $this->_text);
+  public function prefixx(): QuestionGreaterThanToken {
+    return TypeAssert::isInstanceOf(QuestionGreaterThanToken::class, $this->_prefix);
   }
 
   public function raw_text(): EditableSyntax {
@@ -125,12 +120,15 @@ final class MarkupSection extends EditableSyntax {
     return new self($this->_prefix, $value, $this->_suffix, $this->_expression);
   }
 
-  public function suffix(): ?MarkupSuffix {
-    return $this->_suffix->is_missing() ? null : TypeAssert::isInstanceOf(MarkupSuffix::class, $this->_suffix);
+  public function text(): ?MarkupToken {
+    if ($this->_text->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(MarkupToken::class, $this->_text);
   }
 
-  public function suffixx(): MarkupSuffix {
-    return TypeAssert::isInstanceOf(MarkupSuffix::class, $this->_suffix);
+  public function textx(): MarkupToken {
+    return TypeAssert::isInstanceOf(MarkupToken::class, $this->_text);
   }
 
   public function raw_suffix(): EditableSyntax {
@@ -144,12 +142,15 @@ final class MarkupSection extends EditableSyntax {
     return new self($this->_prefix, $this->_text, $value, $this->_expression);
   }
 
-  public function expression(): ?ExpressionStatement {
-    return $this->_expression->is_missing() ? null : TypeAssert::isInstanceOf(ExpressionStatement::class, $this->_expression);
+  public function suffix(): ?MarkupSuffix {
+    if ($this->_suffix->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(MarkupSuffix::class, $this->_suffix);
   }
 
-  public function expressionx(): ExpressionStatement {
-    return TypeAssert::isInstanceOf(ExpressionStatement::class, $this->_expression);
+  public function suffixx(): MarkupSuffix {
+    return TypeAssert::isInstanceOf(MarkupSuffix::class, $this->_suffix);
   }
 
   public function raw_expression(): EditableSyntax {
@@ -161,5 +162,16 @@ final class MarkupSection extends EditableSyntax {
       return $this;
     }
     return new self($this->_prefix, $this->_text, $this->_suffix, $value);
+  }
+
+  public function expression(): ?ExpressionStatement {
+    if ($this->_expression->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(ExpressionStatement::class, $this->_expression);
+  }
+
+  public function expressionx(): ExpressionStatement {
+    return TypeAssert::isInstanceOf(ExpressionStatement::class, $this->_expression);
   }
 }

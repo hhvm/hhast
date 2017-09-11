@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e29cdebbff515c967cca3d7f13693a5f>>
+ * @generated SignedSource<<4ef7ec5927739b48632bc5e625d90d5a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -87,14 +87,6 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
     return new self($keyword, $left_angle, $types, $right_angle);
   }
 
-  public function keyword(): EditableSyntax {
-    return $this->keywordx();
-  }
-
-  public function keywordx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_keyword);
-  }
-
   public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
@@ -106,12 +98,8 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
     return new self($value, $this->_left_angle, $this->_types, $this->_right_angle);
   }
 
-  public function left_angle(): EditableSyntax {
-    return $this->left_anglex();
-  }
-
-  public function left_anglex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_angle);
+  public function keyword(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_keyword);
   }
 
   public function raw_left_angle(): EditableSyntax {
@@ -125,12 +113,8 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_types, $this->_right_angle);
   }
 
-  public function types(): EditableSyntax {
-    return $this->typesx();
-  }
-
-  public function typesx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_types);
+  public function left_angle(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_angle);
   }
 
   public function raw_types(): EditableSyntax {
@@ -144,12 +128,8 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
     return new self($this->_keyword, $this->_left_angle, $value, $this->_right_angle);
   }
 
-  public function right_angle(): EditableSyntax {
-    return $this->right_anglex();
-  }
-
-  public function right_anglex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_angle);
+  public function types(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_types);
   }
 
   public function raw_right_angle(): EditableSyntax {
@@ -161,5 +141,9 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $this->_left_angle, $this->_types, $value);
+  }
+
+  public function right_angle(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_angle);
   }
 }

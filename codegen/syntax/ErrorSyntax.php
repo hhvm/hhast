@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<df9836a2feb7114e7b08f1e7ad02128d>>
+ * @generated SignedSource<<c15e11309e12991eaef744bf4eedcdfc>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -49,14 +49,6 @@ final class ErrorSyntax extends EditableSyntax {
     return new self($error);
   }
 
-  public function error(): EditableSyntax {
-    return $this->errorx();
-  }
-
-  public function errorx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_error);
-  }
-
   public function raw_error(): EditableSyntax {
     return $this->_error;
   }
@@ -66,5 +58,9 @@ final class ErrorSyntax extends EditableSyntax {
       return $this;
     }
     return new self($value);
+  }
+
+  public function error(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_error);
   }
 }

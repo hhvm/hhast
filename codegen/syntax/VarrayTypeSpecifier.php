@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cc008b1cea01fa08defb7271db954f82>>
+ * @generated SignedSource<<55699cad54f230ea9f258dee9487a684>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -105,14 +105,6 @@ final class VarrayTypeSpecifier extends EditableSyntax {
     return new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
   }
 
-  public function keyword(): VarrayToken {
-    return $this->keywordx();
-  }
-
-  public function keywordx(): VarrayToken {
-    return TypeAssert::isInstanceOf(VarrayToken::class, $this->_keyword);
-  }
-
   public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
@@ -130,12 +122,8 @@ final class VarrayTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function left_angle(): LessThanToken {
-    return $this->left_anglex();
-  }
-
-  public function left_anglex(): LessThanToken {
-    return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
+  public function keyword(): VarrayToken {
+    return TypeAssert::isInstanceOf(VarrayToken::class, $this->_keyword);
   }
 
   public function raw_left_angle(): EditableSyntax {
@@ -155,12 +143,8 @@ final class VarrayTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function type(): SimpleTypeSpecifier {
-    return $this->typex();
-  }
-
-  public function typex(): SimpleTypeSpecifier {
-    return TypeAssert::isInstanceOf(SimpleTypeSpecifier::class, $this->_type);
+  public function left_angle(): LessThanToken {
+    return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
   }
 
   public function raw_type(): EditableSyntax {
@@ -180,12 +164,8 @@ final class VarrayTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function trailing_comma(): EditableSyntax {
-    return $this->trailing_commax();
-  }
-
-  public function trailing_commax(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_trailing_comma);
+  public function type(): SimpleTypeSpecifier {
+    return TypeAssert::isInstanceOf(SimpleTypeSpecifier::class, $this->_type);
   }
 
   public function raw_trailing_comma(): EditableSyntax {
@@ -205,12 +185,8 @@ final class VarrayTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function right_angle(): GreaterThanToken {
-    return $this->right_anglex();
-  }
-
-  public function right_anglex(): GreaterThanToken {
-    return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+  public function trailing_comma(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_trailing_comma);
   }
 
   public function raw_right_angle(): EditableSyntax {
@@ -228,5 +204,9 @@ final class VarrayTypeSpecifier extends EditableSyntax {
       $this->_trailing_comma,
       $value,
     );
+  }
+
+  public function right_angle(): GreaterThanToken {
+    return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 }

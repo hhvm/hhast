@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<32aac19b468495dc97557fa1c4d99481>>
+ * @generated SignedSource<<bf485f47139ee710691e339f45930520>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -87,14 +87,6 @@ final class CollectionLiteralExpression extends EditableSyntax {
     return new self($name, $left_brace, $initializers, $right_brace);
   }
 
-  public function name(): EditableSyntax {
-    return $this->namex();
-  }
-
-  public function namex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
-  }
-
   public function raw_name(): EditableSyntax {
     return $this->_name;
   }
@@ -106,12 +98,8 @@ final class CollectionLiteralExpression extends EditableSyntax {
     return new self($value, $this->_left_brace, $this->_initializers, $this->_right_brace);
   }
 
-  public function left_brace(): LeftBraceToken {
-    return $this->left_bracex();
-  }
-
-  public function left_bracex(): LeftBraceToken {
-    return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
+  public function name(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }
 
   public function raw_left_brace(): EditableSyntax {
@@ -125,12 +113,8 @@ final class CollectionLiteralExpression extends EditableSyntax {
     return new self($this->_name, $value, $this->_initializers, $this->_right_brace);
   }
 
-  public function initializers(): ?EditableList {
-    return $this->_initializers->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_initializers);
-  }
-
-  public function initializersx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_initializers);
+  public function left_brace(): LeftBraceToken {
+    return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
   }
 
   public function raw_initializers(): EditableSyntax {
@@ -144,12 +128,15 @@ final class CollectionLiteralExpression extends EditableSyntax {
     return new self($this->_name, $this->_left_brace, $value, $this->_right_brace);
   }
 
-  public function right_brace(): ?RightBraceToken {
-    return $this->_right_brace->is_missing() ? null : TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+  public function initializers(): ?EditableList {
+    if ($this->_initializers->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_initializers);
   }
 
-  public function right_bracex(): RightBraceToken {
-    return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+  public function initializersx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_initializers);
   }
 
   public function raw_right_brace(): EditableSyntax {
@@ -161,5 +148,16 @@ final class CollectionLiteralExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_name, $this->_left_brace, $this->_initializers, $value);
+  }
+
+  public function right_brace(): ?RightBraceToken {
+    if ($this->_right_brace->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+  }
+
+  public function right_bracex(): RightBraceToken {
+    return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 }

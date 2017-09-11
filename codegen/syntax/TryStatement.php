@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8e02bc05733b2c5ababe0a7c39475b5e>>
+ * @generated SignedSource<<2761e30c1e2cdbff7a27e8f538790661>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -92,14 +92,6 @@ final class TryStatement extends EditableSyntax {
     return new self($keyword, $compound_statement, $catch_clauses, $finally_clause);
   }
 
-  public function keyword(): TryToken {
-    return $this->keywordx();
-  }
-
-  public function keywordx(): TryToken {
-    return TypeAssert::isInstanceOf(TryToken::class, $this->_keyword);
-  }
-
   public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
@@ -116,12 +108,8 @@ final class TryStatement extends EditableSyntax {
     );
   }
 
-  public function compound_statement(): CompoundStatement {
-    return $this->compound_statementx();
-  }
-
-  public function compound_statementx(): CompoundStatement {
-    return TypeAssert::isInstanceOf(CompoundStatement::class, $this->_compound_statement);
+  public function keyword(): TryToken {
+    return TypeAssert::isInstanceOf(TryToken::class, $this->_keyword);
   }
 
   public function raw_compound_statement(): EditableSyntax {
@@ -140,12 +128,8 @@ final class TryStatement extends EditableSyntax {
     );
   }
 
-  public function catch_clauses(): ?EditableList {
-    return $this->_catch_clauses->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_catch_clauses);
-  }
-
-  public function catch_clausesx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_catch_clauses);
+  public function compound_statement(): CompoundStatement {
+    return TypeAssert::isInstanceOf(CompoundStatement::class, $this->_compound_statement);
   }
 
   public function raw_catch_clauses(): EditableSyntax {
@@ -164,12 +148,15 @@ final class TryStatement extends EditableSyntax {
     );
   }
 
-  public function finally_clause(): ?FinallyClause {
-    return $this->_finally_clause->is_missing() ? null : TypeAssert::isInstanceOf(FinallyClause::class, $this->_finally_clause);
+  public function catch_clauses(): ?EditableList {
+    if ($this->_catch_clauses->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_catch_clauses);
   }
 
-  public function finally_clausex(): FinallyClause {
-    return TypeAssert::isInstanceOf(FinallyClause::class, $this->_finally_clause);
+  public function catch_clausesx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_catch_clauses);
   }
 
   public function raw_finally_clause(): EditableSyntax {
@@ -186,5 +173,16 @@ final class TryStatement extends EditableSyntax {
       $this->_catch_clauses,
       $value,
     );
+  }
+
+  public function finally_clause(): ?FinallyClause {
+    if ($this->_finally_clause->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(FinallyClause::class, $this->_finally_clause);
+  }
+
+  public function finally_clausex(): FinallyClause {
+    return TypeAssert::isInstanceOf(FinallyClause::class, $this->_finally_clause);
   }
 }

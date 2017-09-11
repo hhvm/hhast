@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<61cc8143eeac847ac08fdc9aceab7947>>
+ * @generated SignedSource<<21b3f669d63354956cfd848e3916a532>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -87,14 +87,6 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
     return new self($keyword, $left_angle, $type, $right_angle);
   }
 
-  public function keyword(): ArrayToken {
-    return $this->keywordx();
-  }
-
-  public function keywordx(): ArrayToken {
-    return TypeAssert::isInstanceOf(ArrayToken::class, $this->_keyword);
-  }
-
   public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
@@ -106,12 +98,8 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
     return new self($value, $this->_left_angle, $this->_type, $this->_right_angle);
   }
 
-  public function left_angle(): LessThanToken {
-    return $this->left_anglex();
-  }
-
-  public function left_anglex(): LessThanToken {
-    return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
+  public function keyword(): ArrayToken {
+    return TypeAssert::isInstanceOf(ArrayToken::class, $this->_keyword);
   }
 
   public function raw_left_angle(): EditableSyntax {
@@ -125,12 +113,8 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_type, $this->_right_angle);
   }
 
-  public function type(): EditableSyntax {
-    return $this->typex();
-  }
-
-  public function typex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
+  public function left_angle(): LessThanToken {
+    return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
   }
 
   public function raw_type(): EditableSyntax {
@@ -144,12 +128,8 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
     return new self($this->_keyword, $this->_left_angle, $value, $this->_right_angle);
   }
 
-  public function right_angle(): GreaterThanToken {
-    return $this->right_anglex();
-  }
-
-  public function right_anglex(): GreaterThanToken {
-    return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+  public function type(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
 
   public function raw_right_angle(): EditableSyntax {
@@ -161,5 +141,9 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $this->_left_angle, $this->_type, $value);
+  }
+
+  public function right_angle(): GreaterThanToken {
+    return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 }

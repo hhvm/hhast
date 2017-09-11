@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7125dafeaa6ce2963c18d944dcc49059>>
+ * @generated SignedSource<<f85a50664d48c3dcab80bc704529f18e>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,14 +75,6 @@ final class CompoundStatement extends EditableSyntax {
     return new self($left_brace, $statements, $right_brace);
   }
 
-  public function left_brace(): ?LeftBraceToken {
-    return $this->_left_brace->is_missing() ? null : TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
-  }
-
-  public function left_bracex(): LeftBraceToken {
-    return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
-  }
-
   public function raw_left_brace(): EditableSyntax {
     return $this->_left_brace;
   }
@@ -94,12 +86,15 @@ final class CompoundStatement extends EditableSyntax {
     return new self($value, $this->_statements, $this->_right_brace);
   }
 
-  public function statements(): ?EditableList {
-    return $this->_statements->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_statements);
+  public function left_brace(): ?LeftBraceToken {
+    if ($this->_left_brace->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
   }
 
-  public function statementsx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_statements);
+  public function left_bracex(): LeftBraceToken {
+    return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
   }
 
   public function raw_statements(): EditableSyntax {
@@ -113,12 +108,15 @@ final class CompoundStatement extends EditableSyntax {
     return new self($this->_left_brace, $value, $this->_right_brace);
   }
 
-  public function right_brace(): ?RightBraceToken {
-    return $this->_right_brace->is_missing() ? null : TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+  public function statements(): ?EditableList {
+    if ($this->_statements->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_statements);
   }
 
-  public function right_bracex(): RightBraceToken {
-    return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+  public function statementsx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_statements);
   }
 
   public function raw_right_brace(): EditableSyntax {
@@ -130,5 +128,16 @@ final class CompoundStatement extends EditableSyntax {
       return $this;
     }
     return new self($this->_left_brace, $this->_statements, $value);
+  }
+
+  public function right_brace(): ?RightBraceToken {
+    if ($this->_right_brace->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+  }
+
+  public function right_bracex(): RightBraceToken {
+    return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 }

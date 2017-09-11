@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0dbd0dec8c4a0c36abef253416366602>>
+ * @generated SignedSource<<834316584990ea93541fdb1bdcfabbc9>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -99,14 +99,6 @@ final class LambdaExpression extends EditableSyntax {
     return new self($async, $coroutine, $signature, $arrow, $body);
   }
 
-  public function async(): ?AsyncToken {
-    return $this->_async->is_missing() ? null : TypeAssert::isInstanceOf(AsyncToken::class, $this->_async);
-  }
-
-  public function asyncx(): AsyncToken {
-    return TypeAssert::isInstanceOf(AsyncToken::class, $this->_async);
-  }
-
   public function raw_async(): EditableSyntax {
     return $this->_async;
   }
@@ -124,12 +116,15 @@ final class LambdaExpression extends EditableSyntax {
     );
   }
 
-  public function coroutine(): EditableSyntax {
-    return $this->coroutinex();
+  public function async(): ?AsyncToken {
+    if ($this->_async->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(AsyncToken::class, $this->_async);
   }
 
-  public function coroutinex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_coroutine);
+  public function asyncx(): AsyncToken {
+    return TypeAssert::isInstanceOf(AsyncToken::class, $this->_async);
   }
 
   public function raw_coroutine(): EditableSyntax {
@@ -143,12 +138,8 @@ final class LambdaExpression extends EditableSyntax {
     return new self($this->_async, $value, $this->_signature, $this->_arrow, $this->_body);
   }
 
-  public function signature(): EditableSyntax {
-    return $this->signaturex();
-  }
-
-  public function signaturex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_signature);
+  public function coroutine(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_coroutine);
   }
 
   public function raw_signature(): EditableSyntax {
@@ -162,12 +153,8 @@ final class LambdaExpression extends EditableSyntax {
     return new self($this->_async, $this->_coroutine, $value, $this->_arrow, $this->_body);
   }
 
-  public function arrow(): ?EqualEqualGreaterThanToken {
-    return $this->_arrow->is_missing() ? null : TypeAssert::isInstanceOf(EqualEqualGreaterThanToken::class, $this->_arrow);
-  }
-
-  public function arrowx(): EqualEqualGreaterThanToken {
-    return TypeAssert::isInstanceOf(EqualEqualGreaterThanToken::class, $this->_arrow);
+  public function signature(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_signature);
   }
 
   public function raw_arrow(): EditableSyntax {
@@ -187,12 +174,15 @@ final class LambdaExpression extends EditableSyntax {
     );
   }
 
-  public function body(): EditableSyntax {
-    return $this->bodyx();
+  public function arrow(): ?EqualEqualGreaterThanToken {
+    if ($this->_arrow->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(EqualEqualGreaterThanToken::class, $this->_arrow);
   }
 
-  public function bodyx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_body);
+  public function arrowx(): EqualEqualGreaterThanToken {
+    return TypeAssert::isInstanceOf(EqualEqualGreaterThanToken::class, $this->_arrow);
   }
 
   public function raw_body(): EditableSyntax {
@@ -210,5 +200,9 @@ final class LambdaExpression extends EditableSyntax {
       $this->_arrow,
       $value,
     );
+  }
+
+  public function body(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_body);
   }
 }

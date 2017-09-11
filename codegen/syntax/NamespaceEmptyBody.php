@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c957c152dc99488d750c7d85e716ba00>>
+ * @generated SignedSource<<08d9d5a5cc92716e422d45303304979a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -49,14 +49,6 @@ final class NamespaceEmptyBody extends EditableSyntax {
     return new self($semicolon);
   }
 
-  public function semicolon(): SemicolonToken {
-    return $this->semicolonx();
-  }
-
-  public function semicolonx(): SemicolonToken {
-    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
-  }
-
   public function raw_semicolon(): EditableSyntax {
     return $this->_semicolon;
   }
@@ -66,5 +58,9 @@ final class NamespaceEmptyBody extends EditableSyntax {
       return $this;
     }
     return new self($value);
+  }
+
+  public function semicolon(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 }

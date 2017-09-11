@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<63287e4621880c74d772d2ce50b362a7>>
+ * @generated SignedSource<<0531d23687776996517a9a550b32af86>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -87,14 +87,6 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
     return new self($keyword, $left_angle, $members, $right_angle);
   }
 
-  public function keyword(): DictToken {
-    return $this->keywordx();
-  }
-
-  public function keywordx(): DictToken {
-    return TypeAssert::isInstanceOf(DictToken::class, $this->_keyword);
-  }
-
   public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
@@ -106,12 +98,8 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
     return new self($value, $this->_left_angle, $this->_members, $this->_right_angle);
   }
 
-  public function left_angle(): LessThanToken {
-    return $this->left_anglex();
-  }
-
-  public function left_anglex(): LessThanToken {
-    return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
+  public function keyword(): DictToken {
+    return TypeAssert::isInstanceOf(DictToken::class, $this->_keyword);
   }
 
   public function raw_left_angle(): EditableSyntax {
@@ -125,12 +113,8 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_members, $this->_right_angle);
   }
 
-  public function members(): EditableList {
-    return $this->membersx();
-  }
-
-  public function membersx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
+  public function left_angle(): LessThanToken {
+    return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
   }
 
   public function raw_members(): EditableSyntax {
@@ -144,12 +128,8 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
     return new self($this->_keyword, $this->_left_angle, $value, $this->_right_angle);
   }
 
-  public function right_angle(): GreaterThanToken {
-    return $this->right_anglex();
-  }
-
-  public function right_anglex(): GreaterThanToken {
-    return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+  public function members(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
   }
 
   public function raw_right_angle(): EditableSyntax {
@@ -161,5 +141,9 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $this->_left_angle, $this->_members, $value);
+  }
+
+  public function right_angle(): GreaterThanToken {
+    return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 }

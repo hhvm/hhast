@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5cbac083c672e5b09de53a2217398e15>>
+ * @generated SignedSource<<cb92aa4fe44fb8a3f78bc8ff836c2c40>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -49,14 +49,6 @@ final class VariadicParameter extends EditableSyntax {
     return new self($ellipsis);
   }
 
-  public function ellipsis(): DotDotDotToken {
-    return $this->ellipsisx();
-  }
-
-  public function ellipsisx(): DotDotDotToken {
-    return TypeAssert::isInstanceOf(DotDotDotToken::class, $this->_ellipsis);
-  }
-
   public function raw_ellipsis(): EditableSyntax {
     return $this->_ellipsis;
   }
@@ -66,5 +58,9 @@ final class VariadicParameter extends EditableSyntax {
       return $this;
     }
     return new self($value);
+  }
+
+  public function ellipsis(): DotDotDotToken {
+    return TypeAssert::isInstanceOf(DotDotDotToken::class, $this->_ellipsis);
   }
 }

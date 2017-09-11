@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f4ce5c33426d98f238fe0414fe8fb662>>
+ * @generated SignedSource<<f17251fe4a7f3b82043c4ab51ad3968f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,14 +75,6 @@ final class ElementInitializer extends EditableSyntax {
     return new self($key, $arrow, $value);
   }
 
-  public function key(): EditableSyntax {
-    return $this->keyx();
-  }
-
-  public function keyx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_key);
-  }
-
   public function raw_key(): EditableSyntax {
     return $this->_key;
   }
@@ -94,12 +86,8 @@ final class ElementInitializer extends EditableSyntax {
     return new self($value, $this->_arrow, $this->_value);
   }
 
-  public function arrow(): EqualGreaterThanToken {
-    return $this->arrowx();
-  }
-
-  public function arrowx(): EqualGreaterThanToken {
-    return TypeAssert::isInstanceOf(EqualGreaterThanToken::class, $this->_arrow);
+  public function key(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_key);
   }
 
   public function raw_arrow(): EditableSyntax {
@@ -113,12 +101,8 @@ final class ElementInitializer extends EditableSyntax {
     return new self($this->_key, $value, $this->_value);
   }
 
-  public function value(): EditableSyntax {
-    return $this->valuex();
-  }
-
-  public function valuex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_value);
+  public function arrow(): EqualGreaterThanToken {
+    return TypeAssert::isInstanceOf(EqualGreaterThanToken::class, $this->_arrow);
   }
 
   public function raw_value(): EditableSyntax {
@@ -130,5 +114,9 @@ final class ElementInitializer extends EditableSyntax {
       return $this;
     }
     return new self($this->_key, $this->_arrow, $value);
+  }
+
+  public function value(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_value);
   }
 }

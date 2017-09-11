@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<44a3ae2d2bf68a98755c6d9737a9829b>>
+ * @generated SignedSource<<5a3105a88748f583eb37e83d5147c65a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,14 +75,6 @@ final class EmbeddedBracedExpression extends EditableSyntax {
     return new self($left_brace, $expression, $right_brace);
   }
 
-  public function left_brace(): EditableSyntax {
-    return $this->left_bracex();
-  }
-
-  public function left_bracex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_brace);
-  }
-
   public function raw_left_brace(): EditableSyntax {
     return $this->_left_brace;
   }
@@ -94,12 +86,8 @@ final class EmbeddedBracedExpression extends EditableSyntax {
     return new self($value, $this->_expression, $this->_right_brace);
   }
 
-  public function expression(): EditableSyntax {
-    return $this->expressionx();
-  }
-
-  public function expressionx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
+  public function left_brace(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_brace);
   }
 
   public function raw_expression(): EditableSyntax {
@@ -113,12 +101,8 @@ final class EmbeddedBracedExpression extends EditableSyntax {
     return new self($this->_left_brace, $value, $this->_right_brace);
   }
 
-  public function right_brace(): EditableSyntax {
-    return $this->right_bracex();
-  }
-
-  public function right_bracex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_brace);
+  public function expression(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
   }
 
   public function raw_right_brace(): EditableSyntax {
@@ -130,5 +114,9 @@ final class EmbeddedBracedExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_left_brace, $this->_expression, $value);
+  }
+
+  public function right_brace(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_brace);
   }
 }

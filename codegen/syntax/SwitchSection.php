@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5c67e95b7a1479f4b1554758ddd38f55>>
+ * @generated SignedSource<<12c6929b28893e60e389e695400cb9c4>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,14 +75,6 @@ final class SwitchSection extends EditableSyntax {
     return new self($labels, $statements, $fallthrough);
   }
 
-  public function labels(): ?EditableList {
-    return $this->_labels->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_labels);
-  }
-
-  public function labelsx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_labels);
-  }
-
   public function raw_labels(): EditableSyntax {
     return $this->_labels;
   }
@@ -94,12 +86,15 @@ final class SwitchSection extends EditableSyntax {
     return new self($value, $this->_statements, $this->_fallthrough);
   }
 
-  public function statements(): ?EditableList {
-    return $this->_statements->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_statements);
+  public function labels(): ?EditableList {
+    if ($this->_labels->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_labels);
   }
 
-  public function statementsx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_statements);
+  public function labelsx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_labels);
   }
 
   public function raw_statements(): EditableSyntax {
@@ -113,12 +108,15 @@ final class SwitchSection extends EditableSyntax {
     return new self($this->_labels, $value, $this->_fallthrough);
   }
 
-  public function fallthrough(): EditableSyntax {
-    return $this->fallthroughx();
+  public function statements(): ?EditableList {
+    if ($this->_statements->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_statements);
   }
 
-  public function fallthroughx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_fallthrough);
+  public function statementsx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_statements);
   }
 
   public function raw_fallthrough(): EditableSyntax {
@@ -130,5 +128,9 @@ final class SwitchSection extends EditableSyntax {
       return $this;
     }
     return new self($this->_labels, $this->_statements, $value);
+  }
+
+  public function fallthrough(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_fallthrough);
   }
 }

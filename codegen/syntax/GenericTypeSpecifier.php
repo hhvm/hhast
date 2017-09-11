@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2355938db1ed76bb6ca090f6fc889950>>
+ * @generated SignedSource<<a4309dd7d54ca4a99d3380bb06bf3bde>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -63,14 +63,6 @@ final class GenericTypeSpecifier extends EditableSyntax {
     return new self($class_type, $argument_list);
   }
 
-  public function class_type(): EditableSyntax {
-    return $this->class_typex();
-  }
-
-  public function class_typex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_class_type);
-  }
-
   public function raw_class_type(): EditableSyntax {
     return $this->_class_type;
   }
@@ -82,12 +74,8 @@ final class GenericTypeSpecifier extends EditableSyntax {
     return new self($value, $this->_argument_list);
   }
 
-  public function argument_list(): TypeArguments {
-    return $this->argument_listx();
-  }
-
-  public function argument_listx(): TypeArguments {
-    return TypeAssert::isInstanceOf(TypeArguments::class, $this->_argument_list);
+  public function class_type(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_class_type);
   }
 
   public function raw_argument_list(): EditableSyntax {
@@ -99,5 +87,9 @@ final class GenericTypeSpecifier extends EditableSyntax {
       return $this;
     }
     return new self($this->_class_type, $value);
+  }
+
+  public function argument_list(): TypeArguments {
+    return TypeAssert::isInstanceOf(TypeArguments::class, $this->_argument_list);
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<644b84866c17132ba2b8b33346967eff>>
+ * @generated SignedSource<<ebbbc0d9c08544cf678cd6a8621097e9>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,14 +75,6 @@ final class NamespaceBody extends EditableSyntax {
     return new self($left_brace, $declarations, $right_brace);
   }
 
-  public function left_brace(): LeftBraceToken {
-    return $this->left_bracex();
-  }
-
-  public function left_bracex(): LeftBraceToken {
-    return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
-  }
-
   public function raw_left_brace(): EditableSyntax {
     return $this->_left_brace;
   }
@@ -94,12 +86,8 @@ final class NamespaceBody extends EditableSyntax {
     return new self($value, $this->_declarations, $this->_right_brace);
   }
 
-  public function declarations(): ?EditableList {
-    return $this->_declarations->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_declarations);
-  }
-
-  public function declarationsx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_declarations);
+  public function left_brace(): LeftBraceToken {
+    return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
   }
 
   public function raw_declarations(): EditableSyntax {
@@ -113,12 +101,15 @@ final class NamespaceBody extends EditableSyntax {
     return new self($this->_left_brace, $value, $this->_right_brace);
   }
 
-  public function right_brace(): ?RightBraceToken {
-    return $this->_right_brace->is_missing() ? null : TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+  public function declarations(): ?EditableList {
+    if ($this->_declarations->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_declarations);
   }
 
-  public function right_bracex(): RightBraceToken {
-    return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+  public function declarationsx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_declarations);
   }
 
   public function raw_right_brace(): EditableSyntax {
@@ -130,5 +121,16 @@ final class NamespaceBody extends EditableSyntax {
       return $this;
     }
     return new self($this->_left_brace, $this->_declarations, $value);
+  }
+
+  public function right_brace(): ?RightBraceToken {
+    if ($this->_right_brace->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+  }
+
+  public function right_bracex(): RightBraceToken {
+    return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 }

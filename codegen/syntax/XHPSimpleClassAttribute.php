@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3657a1adfcd97b5ea99f4b8771cae915>>
+ * @generated SignedSource<<c03abab7e6c91c3b7796cfdde528eeb8>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -49,14 +49,6 @@ final class XHPSimpleClassAttribute extends EditableSyntax {
     return new self($type);
   }
 
-  public function type(): SimpleTypeSpecifier {
-    return $this->typex();
-  }
-
-  public function typex(): SimpleTypeSpecifier {
-    return TypeAssert::isInstanceOf(SimpleTypeSpecifier::class, $this->_type);
-  }
-
   public function raw_type(): EditableSyntax {
     return $this->_type;
   }
@@ -66,5 +58,9 @@ final class XHPSimpleClassAttribute extends EditableSyntax {
       return $this;
     }
     return new self($value);
+  }
+
+  public function type(): SimpleTypeSpecifier {
+    return TypeAssert::isInstanceOf(SimpleTypeSpecifier::class, $this->_type);
   }
 }

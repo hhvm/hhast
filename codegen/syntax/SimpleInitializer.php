@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cf87a3e204c85d9bbde990f4e55c0719>>
+ * @generated SignedSource<<417b5eb9fc9f7d3cd244f2dadfd7cc45>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -60,14 +60,6 @@ final class SimpleInitializer extends EditableSyntax {
     return new self($equal, $value);
   }
 
-  public function equal(): EqualToken {
-    return $this->equalx();
-  }
-
-  public function equalx(): EqualToken {
-    return TypeAssert::isInstanceOf(EqualToken::class, $this->_equal);
-  }
-
   public function raw_equal(): EditableSyntax {
     return $this->_equal;
   }
@@ -79,12 +71,8 @@ final class SimpleInitializer extends EditableSyntax {
     return new self($value, $this->_value);
   }
 
-  public function value(): EditableSyntax {
-    return $this->valuex();
-  }
-
-  public function valuex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_value);
+  public function equal(): EqualToken {
+    return TypeAssert::isInstanceOf(EqualToken::class, $this->_equal);
   }
 
   public function raw_value(): EditableSyntax {
@@ -96,5 +84,9 @@ final class SimpleInitializer extends EditableSyntax {
       return $this;
     }
     return new self($this->_equal, $value);
+  }
+
+  public function value(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_value);
   }
 }

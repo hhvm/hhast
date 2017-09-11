@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<33d01599963b7013fb0629200db73769>>
+ * @generated SignedSource<<732dcec599cc116cf5aa133740361498>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -87,14 +87,6 @@ final class PropertyDeclaration extends EditableSyntax {
     return new self($modifiers, $type, $declarators, $semicolon);
   }
 
-  public function modifiers(): EditableSyntax {
-    return $this->modifiersx();
-  }
-
-  public function modifiersx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_modifiers);
-  }
-
   public function raw_modifiers(): EditableSyntax {
     return $this->_modifiers;
   }
@@ -106,12 +98,8 @@ final class PropertyDeclaration extends EditableSyntax {
     return new self($value, $this->_type, $this->_declarators, $this->_semicolon);
   }
 
-  public function type(): EditableSyntax {
-    return $this->typex();
-  }
-
-  public function typex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
+  public function modifiers(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_modifiers);
   }
 
   public function raw_type(): EditableSyntax {
@@ -125,12 +113,8 @@ final class PropertyDeclaration extends EditableSyntax {
     return new self($this->_modifiers, $value, $this->_declarators, $this->_semicolon);
   }
 
-  public function declarators(): EditableList {
-    return $this->declaratorsx();
-  }
-
-  public function declaratorsx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_declarators);
+  public function type(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
 
   public function raw_declarators(): EditableSyntax {
@@ -144,12 +128,8 @@ final class PropertyDeclaration extends EditableSyntax {
     return new self($this->_modifiers, $this->_type, $value, $this->_semicolon);
   }
 
-  public function semicolon(): ?SemicolonToken {
-    return $this->_semicolon->is_missing() ? null : TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
-  }
-
-  public function semicolonx(): SemicolonToken {
-    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  public function declarators(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_declarators);
   }
 
   public function raw_semicolon(): EditableSyntax {
@@ -161,5 +141,16 @@ final class PropertyDeclaration extends EditableSyntax {
       return $this;
     }
     return new self($this->_modifiers, $this->_type, $this->_declarators, $value);
+  }
+
+  public function semicolon(): ?SemicolonToken {
+    if ($this->_semicolon->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  }
+
+  public function semicolonx(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5c04cf7deb897b1b8b3aa1fdbecd85b5>>
+ * @generated SignedSource<<6c62694d9abf68c190188279424d54bc>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -63,14 +63,6 @@ final class PostfixUnaryExpression extends EditableSyntax {
     return new self($operand, $operator);
   }
 
-  public function operand(): EditableSyntax {
-    return $this->operandx();
-  }
-
-  public function operandx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operand);
-  }
-
   public function raw_operand(): EditableSyntax {
     return $this->_operand;
   }
@@ -82,12 +74,8 @@ final class PostfixUnaryExpression extends EditableSyntax {
     return new self($value, $this->_operator);
   }
 
-  public function operator(): EditableSyntax {
-    return $this->operatorx();
-  }
-
-  public function operatorx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operator);
+  public function operand(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operand);
   }
 
   public function raw_operator(): EditableSyntax {
@@ -99,5 +87,9 @@ final class PostfixUnaryExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_operand, $value);
+  }
+
+  public function operator(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operator);
   }
 }

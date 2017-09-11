@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e7edd42cc248dd35e69b71e8429b62c0>>
+ * @generated SignedSource<<c746077101e53a8c66637a5f1ac865d7>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -87,14 +87,6 @@ final class XHPEnumType extends EditableSyntax {
     return new self($keyword, $left_brace, $values, $right_brace);
   }
 
-  public function keyword(): EnumToken {
-    return $this->keywordx();
-  }
-
-  public function keywordx(): EnumToken {
-    return TypeAssert::isInstanceOf(EnumToken::class, $this->_keyword);
-  }
-
   public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
@@ -106,12 +98,8 @@ final class XHPEnumType extends EditableSyntax {
     return new self($value, $this->_left_brace, $this->_values, $this->_right_brace);
   }
 
-  public function left_brace(): LeftBraceToken {
-    return $this->left_bracex();
-  }
-
-  public function left_bracex(): LeftBraceToken {
-    return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
+  public function keyword(): EnumToken {
+    return TypeAssert::isInstanceOf(EnumToken::class, $this->_keyword);
   }
 
   public function raw_left_brace(): EditableSyntax {
@@ -125,12 +113,8 @@ final class XHPEnumType extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_values, $this->_right_brace);
   }
 
-  public function values(): EditableList {
-    return $this->valuesx();
-  }
-
-  public function valuesx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_values);
+  public function left_brace(): LeftBraceToken {
+    return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
   }
 
   public function raw_values(): EditableSyntax {
@@ -144,12 +128,8 @@ final class XHPEnumType extends EditableSyntax {
     return new self($this->_keyword, $this->_left_brace, $value, $this->_right_brace);
   }
 
-  public function right_brace(): RightBraceToken {
-    return $this->right_bracex();
-  }
-
-  public function right_bracex(): RightBraceToken {
-    return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+  public function values(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_values);
   }
 
   public function raw_right_brace(): EditableSyntax {
@@ -161,5 +141,9 @@ final class XHPEnumType extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $this->_left_brace, $this->_values, $value);
+  }
+
+  public function right_brace(): RightBraceToken {
+    return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 }

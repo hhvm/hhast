@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f5974ab10aab49d387e074b0af43d6f1>>
+ * @generated SignedSource<<7dda002b85d983ad7bf8b587f61f0fd1>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -99,14 +99,6 @@ final class ShapeTypeSpecifier extends EditableSyntax {
     return new self($keyword, $left_paren, $fields, $ellipsis, $right_paren);
   }
 
-  public function keyword(): ShapeToken {
-    return $this->keywordx();
-  }
-
-  public function keywordx(): ShapeToken {
-    return TypeAssert::isInstanceOf(ShapeToken::class, $this->_keyword);
-  }
-
   public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
@@ -124,12 +116,8 @@ final class ShapeTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function left_paren(): LeftParenToken {
-    return $this->left_parenx();
-  }
-
-  public function left_parenx(): LeftParenToken {
-    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  public function keyword(): ShapeToken {
+    return TypeAssert::isInstanceOf(ShapeToken::class, $this->_keyword);
   }
 
   public function raw_left_paren(): EditableSyntax {
@@ -149,12 +137,8 @@ final class ShapeTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function fields(): ?EditableList {
-    return $this->_fields->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_fields);
-  }
-
-  public function fieldsx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_fields);
+  public function left_paren(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
 
   public function raw_fields(): EditableSyntax {
@@ -174,12 +158,15 @@ final class ShapeTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function ellipsis(): ?DotDotDotToken {
-    return $this->_ellipsis->is_missing() ? null : TypeAssert::isInstanceOf(DotDotDotToken::class, $this->_ellipsis);
+  public function fields(): ?EditableList {
+    if ($this->_fields->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_fields);
   }
 
-  public function ellipsisx(): DotDotDotToken {
-    return TypeAssert::isInstanceOf(DotDotDotToken::class, $this->_ellipsis);
+  public function fieldsx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_fields);
   }
 
   public function raw_ellipsis(): EditableSyntax {
@@ -199,12 +186,15 @@ final class ShapeTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function right_paren(): RightParenToken {
-    return $this->right_parenx();
+  public function ellipsis(): ?DotDotDotToken {
+    if ($this->_ellipsis->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(DotDotDotToken::class, $this->_ellipsis);
   }
 
-  public function right_parenx(): RightParenToken {
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  public function ellipsisx(): DotDotDotToken {
+    return TypeAssert::isInstanceOf(DotDotDotToken::class, $this->_ellipsis);
   }
 
   public function raw_right_paren(): EditableSyntax {
@@ -222,5 +212,9 @@ final class ShapeTypeSpecifier extends EditableSyntax {
       $this->_ellipsis,
       $value,
     );
+  }
+
+  public function right_paren(): RightParenToken {
+    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 }

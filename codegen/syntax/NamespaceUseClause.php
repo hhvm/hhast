@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3d2757dd97baaf4f837d6b4c7de5cb2d>>
+ * @generated SignedSource<<48208fe840b8fbc435318e8cb38c8d05>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -87,14 +87,6 @@ final class NamespaceUseClause extends EditableSyntax {
     return new self($clause_kind, $name, $as, $alias);
   }
 
-  public function clause_kind(): EditableSyntax {
-    return $this->clause_kindx();
-  }
-
-  public function clause_kindx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_clause_kind);
-  }
-
   public function raw_clause_kind(): EditableSyntax {
     return $this->_clause_kind;
   }
@@ -106,12 +98,8 @@ final class NamespaceUseClause extends EditableSyntax {
     return new self($value, $this->_name, $this->_as, $this->_alias);
   }
 
-  public function name(): EditableSyntax {
-    return $this->namex();
-  }
-
-  public function namex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
+  public function clause_kind(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_clause_kind);
   }
 
   public function raw_name(): EditableSyntax {
@@ -125,12 +113,8 @@ final class NamespaceUseClause extends EditableSyntax {
     return new self($this->_clause_kind, $value, $this->_as, $this->_alias);
   }
 
-  public function as(): ?AsToken {
-    return $this->_as->is_missing() ? null : TypeAssert::isInstanceOf(AsToken::class, $this->_as);
-  }
-
-  public function asx(): AsToken {
-    return TypeAssert::isInstanceOf(AsToken::class, $this->_as);
+  public function name(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }
 
   public function raw_as(): EditableSyntax {
@@ -144,12 +128,15 @@ final class NamespaceUseClause extends EditableSyntax {
     return new self($this->_clause_kind, $this->_name, $value, $this->_alias);
   }
 
-  public function alias(): ?NameToken {
-    return $this->_alias->is_missing() ? null : TypeAssert::isInstanceOf(NameToken::class, $this->_alias);
+  public function as(): ?AsToken {
+    if ($this->_as->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(AsToken::class, $this->_as);
   }
 
-  public function aliasx(): NameToken {
-    return TypeAssert::isInstanceOf(NameToken::class, $this->_alias);
+  public function asx(): AsToken {
+    return TypeAssert::isInstanceOf(AsToken::class, $this->_as);
   }
 
   public function raw_alias(): EditableSyntax {
@@ -161,5 +148,16 @@ final class NamespaceUseClause extends EditableSyntax {
       return $this;
     }
     return new self($this->_clause_kind, $this->_name, $this->_as, $value);
+  }
+
+  public function alias(): ?NameToken {
+    if ($this->_alias->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(NameToken::class, $this->_alias);
+  }
+
+  public function aliasx(): NameToken {
+    return TypeAssert::isInstanceOf(NameToken::class, $this->_alias);
   }
 }

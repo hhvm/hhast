@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ca7a674f55bc27d5e50dc12d9d13c065>>
+ * @generated SignedSource<<0d73276554b638d22c26216a1027be57>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -49,14 +49,6 @@ final class VariableExpression extends EditableSyntax {
     return new self($expression);
   }
 
-  public function expression(): EditableSyntax {
-    return $this->expressionx();
-  }
-
-  public function expressionx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
-  }
-
   public function raw_expression(): EditableSyntax {
     return $this->_expression;
   }
@@ -66,5 +58,9 @@ final class VariableExpression extends EditableSyntax {
       return $this;
     }
     return new self($value);
+  }
+
+  public function expression(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
   }
 }

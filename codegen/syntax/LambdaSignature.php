@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1cf042b02e76769fac6009f838499bad>>
+ * @generated SignedSource<<4c407b773b02bffdc5cfa4bac240ddb6>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -99,14 +99,6 @@ final class LambdaSignature extends EditableSyntax {
     return new self($left_paren, $parameters, $right_paren, $colon, $type);
   }
 
-  public function left_paren(): ?LeftParenToken {
-    return $this->_left_paren->is_missing() ? null : TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
-  }
-
-  public function left_parenx(): LeftParenToken {
-    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
-  }
-
   public function raw_left_paren(): EditableSyntax {
     return $this->_left_paren;
   }
@@ -124,12 +116,15 @@ final class LambdaSignature extends EditableSyntax {
     );
   }
 
-  public function parameters(): ?EditableList {
-    return $this->_parameters->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_parameters);
+  public function left_paren(): ?LeftParenToken {
+    if ($this->_left_paren->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
 
-  public function parametersx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_parameters);
+  public function left_parenx(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
 
   public function raw_parameters(): EditableSyntax {
@@ -149,12 +144,15 @@ final class LambdaSignature extends EditableSyntax {
     );
   }
 
-  public function right_paren(): ?RightParenToken {
-    return $this->_right_paren->is_missing() ? null : TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  public function parameters(): ?EditableList {
+    if ($this->_parameters->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_parameters);
   }
 
-  public function right_parenx(): RightParenToken {
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  public function parametersx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_parameters);
   }
 
   public function raw_right_paren(): EditableSyntax {
@@ -174,12 +172,15 @@ final class LambdaSignature extends EditableSyntax {
     );
   }
 
-  public function colon(): ?ColonToken {
-    return $this->_colon->is_missing() ? null : TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
+  public function right_paren(): ?RightParenToken {
+    if ($this->_right_paren->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
-  public function colonx(): ColonToken {
-    return TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
+  public function right_parenx(): RightParenToken {
+    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function raw_colon(): EditableSyntax {
@@ -199,12 +200,15 @@ final class LambdaSignature extends EditableSyntax {
     );
   }
 
-  public function type(): EditableSyntax {
-    return $this->typex();
+  public function colon(): ?ColonToken {
+    if ($this->_colon->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
   }
 
-  public function typex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
+  public function colonx(): ColonToken {
+    return TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
   }
 
   public function raw_type(): EditableSyntax {
@@ -222,5 +226,9 @@ final class LambdaSignature extends EditableSyntax {
       $this->_colon,
       $value,
     );
+  }
+
+  public function type(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
 }

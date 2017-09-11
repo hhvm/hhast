@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b6a51d7ee41fb5455b9d843a561ce659>>
+ * @generated SignedSource<<02c403e684f434f7037b0bcb1815b0d2>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,14 +75,6 @@ final class BinaryExpression extends EditableSyntax {
     return new self($left_operand, $operator, $right_operand);
   }
 
-  public function left_operand(): EditableSyntax {
-    return $this->left_operandx();
-  }
-
-  public function left_operandx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_operand);
-  }
-
   public function raw_left_operand(): EditableSyntax {
     return $this->_left_operand;
   }
@@ -94,12 +86,8 @@ final class BinaryExpression extends EditableSyntax {
     return new self($value, $this->_operator, $this->_right_operand);
   }
 
-  public function operator(): EditableSyntax {
-    return $this->operatorx();
-  }
-
-  public function operatorx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operator);
+  public function left_operand(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_operand);
   }
 
   public function raw_operator(): EditableSyntax {
@@ -113,12 +101,8 @@ final class BinaryExpression extends EditableSyntax {
     return new self($this->_left_operand, $value, $this->_right_operand);
   }
 
-  public function right_operand(): EditableSyntax {
-    return $this->right_operandx();
-  }
-
-  public function right_operandx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_operand);
+  public function operator(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operator);
   }
 
   public function raw_right_operand(): EditableSyntax {
@@ -130,5 +114,9 @@ final class BinaryExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_left_operand, $this->_operator, $value);
+  }
+
+  public function right_operand(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_operand);
   }
 }

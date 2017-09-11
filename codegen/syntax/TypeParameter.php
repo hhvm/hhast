@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e3f33c03574a5081fce9624bf74c70b7>>
+ * @generated SignedSource<<452e883b0bde6bd52314092abea027cd>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,14 +75,6 @@ final class TypeParameter extends EditableSyntax {
     return new self($variance, $name, $constraints);
   }
 
-  public function variance(): EditableSyntax {
-    return $this->variancex();
-  }
-
-  public function variancex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_variance);
-  }
-
   public function raw_variance(): EditableSyntax {
     return $this->_variance;
   }
@@ -94,12 +86,8 @@ final class TypeParameter extends EditableSyntax {
     return new self($value, $this->_name, $this->_constraints);
   }
 
-  public function name(): NameToken {
-    return $this->namex();
-  }
-
-  public function namex(): NameToken {
-    return TypeAssert::isInstanceOf(NameToken::class, $this->_name);
+  public function variance(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_variance);
   }
 
   public function raw_name(): EditableSyntax {
@@ -113,12 +101,8 @@ final class TypeParameter extends EditableSyntax {
     return new self($this->_variance, $value, $this->_constraints);
   }
 
-  public function constraints(): ?EditableList {
-    return $this->_constraints->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_constraints);
-  }
-
-  public function constraintsx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_constraints);
+  public function name(): NameToken {
+    return TypeAssert::isInstanceOf(NameToken::class, $this->_name);
   }
 
   public function raw_constraints(): EditableSyntax {
@@ -130,5 +114,16 @@ final class TypeParameter extends EditableSyntax {
       return $this;
     }
     return new self($this->_variance, $this->_name, $value);
+  }
+
+  public function constraints(): ?EditableList {
+    if ($this->_constraints->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_constraints);
+  }
+
+  public function constraintsx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_constraints);
   }
 }

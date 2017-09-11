@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cd290c24384a3e5bc4caea1e7bf45b80>>
+ * @generated SignedSource<<7ec541b07fb27b8eed45e123b8993eb2>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,14 +75,6 @@ final class ContinueStatement extends EditableSyntax {
     return new self($keyword, $level, $semicolon);
   }
 
-  public function keyword(): ContinueToken {
-    return $this->keywordx();
-  }
-
-  public function keywordx(): ContinueToken {
-    return TypeAssert::isInstanceOf(ContinueToken::class, $this->_keyword);
-  }
-
   public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
@@ -94,12 +86,8 @@ final class ContinueStatement extends EditableSyntax {
     return new self($value, $this->_level, $this->_semicolon);
   }
 
-  public function level(): EditableSyntax {
-    return $this->levelx();
-  }
-
-  public function levelx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_level);
+  public function keyword(): ContinueToken {
+    return TypeAssert::isInstanceOf(ContinueToken::class, $this->_keyword);
   }
 
   public function raw_level(): EditableSyntax {
@@ -113,12 +101,8 @@ final class ContinueStatement extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_semicolon);
   }
 
-  public function semicolon(): SemicolonToken {
-    return $this->semicolonx();
-  }
-
-  public function semicolonx(): SemicolonToken {
-    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  public function level(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_level);
   }
 
   public function raw_semicolon(): EditableSyntax {
@@ -130,5 +114,9 @@ final class ContinueStatement extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $this->_level, $value);
+  }
+
+  public function semicolon(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b9beae674fecdf67892793b30a872e4a>>
+ * @generated SignedSource<<bbccce2369d8a9bb6bba64d38138d7f1>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,14 +75,6 @@ final class NamespaceDeclaration extends EditableSyntax {
     return new self($keyword, $name, $body);
   }
 
-  public function keyword(): NamespaceToken {
-    return $this->keywordx();
-  }
-
-  public function keywordx(): NamespaceToken {
-    return TypeAssert::isInstanceOf(NamespaceToken::class, $this->_keyword);
-  }
-
   public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
@@ -94,12 +86,8 @@ final class NamespaceDeclaration extends EditableSyntax {
     return new self($value, $this->_name, $this->_body);
   }
 
-  public function name(): EditableSyntax {
-    return $this->namex();
-  }
-
-  public function namex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
+  public function keyword(): NamespaceToken {
+    return TypeAssert::isInstanceOf(NamespaceToken::class, $this->_keyword);
   }
 
   public function raw_name(): EditableSyntax {
@@ -113,12 +101,8 @@ final class NamespaceDeclaration extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_body);
   }
 
-  public function body(): EditableSyntax {
-    return $this->bodyx();
-  }
-
-  public function bodyx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_body);
+  public function name(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }
 
   public function raw_body(): EditableSyntax {
@@ -130,5 +114,9 @@ final class NamespaceDeclaration extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $this->_name, $value);
+  }
+
+  public function body(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_body);
   }
 }

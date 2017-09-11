@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c34c920ff7dd5691ddab45faa2edf8dd>>
+ * @generated SignedSource<<e67a4a98a290378c90e8b4b170197d6e>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,14 +75,6 @@ final class XHPAttribute extends EditableSyntax {
     return new self($name, $equal, $expression);
   }
 
-  public function name(): XHPElementNameToken {
-    return $this->namex();
-  }
-
-  public function namex(): XHPElementNameToken {
-    return TypeAssert::isInstanceOf(XHPElementNameToken::class, $this->_name);
-  }
-
   public function raw_name(): EditableSyntax {
     return $this->_name;
   }
@@ -94,12 +86,8 @@ final class XHPAttribute extends EditableSyntax {
     return new self($value, $this->_equal, $this->_expression);
   }
 
-  public function equal(): ?EqualToken {
-    return $this->_equal->is_missing() ? null : TypeAssert::isInstanceOf(EqualToken::class, $this->_equal);
-  }
-
-  public function equalx(): EqualToken {
-    return TypeAssert::isInstanceOf(EqualToken::class, $this->_equal);
+  public function name(): XHPElementNameToken {
+    return TypeAssert::isInstanceOf(XHPElementNameToken::class, $this->_name);
   }
 
   public function raw_equal(): EditableSyntax {
@@ -113,12 +101,15 @@ final class XHPAttribute extends EditableSyntax {
     return new self($this->_name, $value, $this->_expression);
   }
 
-  public function expression(): EditableSyntax {
-    return $this->expressionx();
+  public function equal(): ?EqualToken {
+    if ($this->_equal->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(EqualToken::class, $this->_equal);
   }
 
-  public function expressionx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
+  public function equalx(): EqualToken {
+    return TypeAssert::isInstanceOf(EqualToken::class, $this->_equal);
   }
 
   public function raw_expression(): EditableSyntax {
@@ -130,5 +121,9 @@ final class XHPAttribute extends EditableSyntax {
       return $this;
     }
     return new self($this->_name, $this->_equal, $value);
+  }
+
+  public function expression(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
   }
 }

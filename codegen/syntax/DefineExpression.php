@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4c6e5796d65695f0b1d94a820b9351cd>>
+ * @generated SignedSource<<b6b22076c2c4a48fcbbc91d9d81fb215>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -87,14 +87,6 @@ final class DefineExpression extends EditableSyntax {
     return new self($keyword, $left_paren, $argument_list, $right_paren);
   }
 
-  public function keyword(): DefineToken {
-    return $this->keywordx();
-  }
-
-  public function keywordx(): DefineToken {
-    return TypeAssert::isInstanceOf(DefineToken::class, $this->_keyword);
-  }
-
   public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
@@ -111,12 +103,8 @@ final class DefineExpression extends EditableSyntax {
     );
   }
 
-  public function left_paren(): LeftParenToken {
-    return $this->left_parenx();
-  }
-
-  public function left_parenx(): LeftParenToken {
-    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+  public function keyword(): DefineToken {
+    return TypeAssert::isInstanceOf(DefineToken::class, $this->_keyword);
   }
 
   public function raw_left_paren(): EditableSyntax {
@@ -130,12 +118,8 @@ final class DefineExpression extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_argument_list, $this->_right_paren);
   }
 
-  public function argument_list(): ?EditableList {
-    return $this->_argument_list->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_argument_list);
-  }
-
-  public function argument_listx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_argument_list);
+  public function left_paren(): LeftParenToken {
+    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
 
   public function raw_argument_list(): EditableSyntax {
@@ -149,12 +133,15 @@ final class DefineExpression extends EditableSyntax {
     return new self($this->_keyword, $this->_left_paren, $value, $this->_right_paren);
   }
 
-  public function right_paren(): RightParenToken {
-    return $this->right_parenx();
+  public function argument_list(): ?EditableList {
+    if ($this->_argument_list->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_argument_list);
   }
 
-  public function right_parenx(): RightParenToken {
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+  public function argument_listx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_argument_list);
   }
 
   public function raw_right_paren(): EditableSyntax {
@@ -166,5 +153,9 @@ final class DefineExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $this->_left_paren, $this->_argument_list, $value);
+  }
+
+  public function right_paren(): RightParenToken {
+    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 }

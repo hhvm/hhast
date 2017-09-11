@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8481b6377eb66a90e06082621fbe58db>>
+ * @generated SignedSource<<f09afd37d8cfd461c53ee6cdb117f886>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,14 +75,6 @@ final class XHPChildrenDeclaration extends EditableSyntax {
     return new self($keyword, $expression, $semicolon);
   }
 
-  public function keyword(): EditableSyntax {
-    return $this->keywordx();
-  }
-
-  public function keywordx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_keyword);
-  }
-
   public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
@@ -94,12 +86,8 @@ final class XHPChildrenDeclaration extends EditableSyntax {
     return new self($value, $this->_expression, $this->_semicolon);
   }
 
-  public function expression(): EditableSyntax {
-    return $this->expressionx();
-  }
-
-  public function expressionx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
+  public function keyword(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_keyword);
   }
 
   public function raw_expression(): EditableSyntax {
@@ -113,12 +101,8 @@ final class XHPChildrenDeclaration extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_semicolon);
   }
 
-  public function semicolon(): EditableSyntax {
-    return $this->semicolonx();
-  }
-
-  public function semicolonx(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_semicolon);
+  public function expression(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
   }
 
   public function raw_semicolon(): EditableSyntax {
@@ -130,5 +114,9 @@ final class XHPChildrenDeclaration extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $this->_expression, $value);
+  }
+
+  public function semicolon(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_semicolon);
   }
 }

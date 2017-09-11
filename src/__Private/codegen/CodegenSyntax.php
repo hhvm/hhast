@@ -53,77 +53,100 @@ final class CodegenSyntax extends CodegenBase {
       ->setConstructor($this->generateConstructor($syntax))
       ->addMethod($this->generateFromJSONMethod($syntax))
       ->addMethod($this->generateChildrenMethod($syntax))
-      ->addMethod($this->generateRewriteChildrenMethod($syntax));
+      ->addMethod($this->generateRewriteChildrenMethod($syntax))
+      ->addMethods(
+        Vec\map(
+          $syntax['fields'],
+          $field ==> $this->generateFieldMethods($syntax, $field['field_name']),
+        )
+        |> Vec\flatten($$),
+      );
 
     foreach ($syntax['fields'] as $field) {
-      $field = (string) $field['field_name'];
-      $spec = $this->getTypeSpecForField($syntax, $field);
-      $type = $spec['nullable'] ? ('?'.$spec['class']) : $spec['class'];
-
-      $class
-        ->addVar($cg
-          ->codegenMemberVar('_'.$field)
-          ->setType('EditableSyntax'))
-        ->addMethod(
-          $cg
-            ->codegenMethod($field)
-            ->setReturnType($type)
-            ->setBody(
-              $spec['nullable']
-                ? sprintf(
-                  'return $this->_%s->is_missing() '.
-                    '? null '.
-                    ': TypeAssert::isInstanceOf(%s::class, $this->_%s);',
-                  $field,
-                  $spec['class'],
-                  $field,
-                )
-                : sprintf('return $this->%sx();', $field),
-            )
-        )
-        ->addMethod(
-          $cg
-            ->codegenMethod($field.'x')
-            ->setReturnType($spec['class'])
-            ->setBodyf(
-              'return TypeAssert::isInstanceOf(%s::class, $this->_%s);',
-              $spec['class'],
-              $field,
-            )
-        )
-        ->addMethod(
-          $cg
-            ->codegenMethod('raw_'.$field)
-            ->setReturnType('EditableSyntax')
-            ->setBodyf('return $this->_%s;', $field)
-        )
-        ->addMethod(
-          $cg
-            ->codegenMethod('with_'.$field)
-            ->setReturnType('this')
-            ->addParameter('EditableSyntax $value')
-            ->setBody(
-              $cg
-                ->codegenHackBuilder()
-                ->startIfBlockf('$value === $this->_%s', $field)
-                ->addReturnf('$this')
-                ->endIfBlock()
-                ->add('return new ')
-                ->addMultilineCall(
-                  'self',
-                  Vec\map(
-                    $syntax['fields'],
-                    $inner ==> $inner['field_name'] == $field
-                      ? '$value'
-                      : '$this->_'.$inner['field_name'],
-                  ),
-                )
-                ->getCode(),
-            ),
-        );
+      $class->addVar(
+        $cg
+          ->codegenMemberVar('_'.$field['field_name'])
+          ->setType('EditableSyntax')
+      );
     }
 
     return $class;
+  }
+
+  private function generateFieldMethods(
+    Schema\TAST $syntax,
+    string $field,
+  ): Traversable<CodegenMethod> {
+    $spec = $this->getTypeSpecForField($syntax, $field);
+
+    $cg = $this->getCodegenFactory();
+    yield $cg
+      ->codegenMethodf('raw_%s', $field)
+      ->setReturnType('EditableSyntax')
+      ->setBodyf('return $this->_%s;', $field);
+
+    yield $cg
+      ->codegenMethodf('with_%s', $field)
+      ->setReturnType('this')
+      ->addParameter('EditableSyntax $value')
+      ->setBody(
+        $cg
+          ->codegenHackBuilder()
+          ->startIfBlockf('$value === $this->_%s', $field)
+          ->addReturnf('$this')
+          ->endIfBlock()
+          ->add('return new ')
+          ->addMultilineCall(
+            'self',
+            Vec\map(
+              $syntax['fields'],
+              $inner ==> $inner['field_name'] == $field
+                ? '$value'
+                : '$this->_'.$inner['field_name'],
+            ),
+          )
+          ->getCode()
+      );
+
+    $type = $spec['nullable'] ? ('?'.$spec['class']) : $spec['class'];
+
+    if (!$spec['nullable']) {
+      yield $cg
+        ->codegenMethodf('%s', $field)
+        ->setReturnType($type)
+        ->setBodyf(
+          'return TypeAssert::isInstanceOf(%s::class, $this->_%s);',
+          $type,
+          $field,
+        );
+      return;
+    }
+
+    yield $cg
+      ->codegenMethodf('%s', $field)
+      ->setReturnType($type)
+      ->setBody(
+        $cg
+          ->codegenHackBuilder()
+          ->startIfBlockf('$this->_%s->is_missing()', $field)
+          ->addReturnf('null')
+          ->endIfBlock()
+          ->addReturnf(
+            'TypeAssert::isInstanceOf(%s::class, $this->_%s)',
+            $spec['class'],
+            $field,
+          )
+          ->getCode()
+      );
+
+    yield $cg
+      ->codegenMethodf('%sx', $field)
+      ->setReturnType($spec['class'])
+      ->setBodyf(
+        'return TypeAssert::isInstanceOf(%s::class, $this->_%s);',
+        $spec['class'],
+        $field,
+      );
   }
 
   private function generateConstructor(

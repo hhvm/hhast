@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5f4d93308ca1dbe1670ae2a501712d5d>>
+ * @generated SignedSource<<81a9661ff75712739d5431db3eaa9a37>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,14 +75,6 @@ final class GotoStatement extends EditableSyntax {
     return new self($keyword, $label_name, $semicolon);
   }
 
-  public function keyword(): GotoToken {
-    return $this->keywordx();
-  }
-
-  public function keywordx(): GotoToken {
-    return TypeAssert::isInstanceOf(GotoToken::class, $this->_keyword);
-  }
-
   public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
@@ -94,12 +86,8 @@ final class GotoStatement extends EditableSyntax {
     return new self($value, $this->_label_name, $this->_semicolon);
   }
 
-  public function label_name(): NameToken {
-    return $this->label_namex();
-  }
-
-  public function label_namex(): NameToken {
-    return TypeAssert::isInstanceOf(NameToken::class, $this->_label_name);
+  public function keyword(): GotoToken {
+    return TypeAssert::isInstanceOf(GotoToken::class, $this->_keyword);
   }
 
   public function raw_label_name(): EditableSyntax {
@@ -113,12 +101,8 @@ final class GotoStatement extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_semicolon);
   }
 
-  public function semicolon(): SemicolonToken {
-    return $this->semicolonx();
-  }
-
-  public function semicolonx(): SemicolonToken {
-    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+  public function label_name(): NameToken {
+    return TypeAssert::isInstanceOf(NameToken::class, $this->_label_name);
   }
 
   public function raw_semicolon(): EditableSyntax {
@@ -130,5 +114,9 @@ final class GotoStatement extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $this->_label_name, $value);
+  }
+
+  public function semicolon(): SemicolonToken {
+    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 }

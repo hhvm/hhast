@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fc98768582ecb375a1d2facc9361b9c6>>
+ * @generated SignedSource<<64554ae0d9bd98a1007b37cf51f56599>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -105,14 +105,6 @@ final class VectorTypeSpecifier extends EditableSyntax {
     return new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
   }
 
-  public function keyword(): VecToken {
-    return $this->keywordx();
-  }
-
-  public function keywordx(): VecToken {
-    return TypeAssert::isInstanceOf(VecToken::class, $this->_keyword);
-  }
-
   public function raw_keyword(): EditableSyntax {
     return $this->_keyword;
   }
@@ -130,12 +122,8 @@ final class VectorTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function left_angle(): LessThanToken {
-    return $this->left_anglex();
-  }
-
-  public function left_anglex(): LessThanToken {
-    return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
+  public function keyword(): VecToken {
+    return TypeAssert::isInstanceOf(VecToken::class, $this->_keyword);
   }
 
   public function raw_left_angle(): EditableSyntax {
@@ -155,12 +143,8 @@ final class VectorTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function type(): EditableSyntax {
-    return $this->typex();
-  }
-
-  public function typex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
+  public function left_angle(): LessThanToken {
+    return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
   }
 
   public function raw_type(): EditableSyntax {
@@ -180,12 +164,8 @@ final class VectorTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function trailing_comma(): EditableSyntax {
-    return $this->trailing_commax();
-  }
-
-  public function trailing_commax(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_trailing_comma);
+  public function type(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
 
   public function raw_trailing_comma(): EditableSyntax {
@@ -205,12 +185,8 @@ final class VectorTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function right_angle(): GreaterThanToken {
-    return $this->right_anglex();
-  }
-
-  public function right_anglex(): GreaterThanToken {
-    return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+  public function trailing_comma(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_trailing_comma);
   }
 
   public function raw_right_angle(): EditableSyntax {
@@ -228,5 +204,9 @@ final class VectorTypeSpecifier extends EditableSyntax {
       $this->_trailing_comma,
       $value,
     );
+  }
+
+  public function right_angle(): GreaterThanToken {
+    return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 }

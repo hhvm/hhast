@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4140a0ffacd005b855f600616cdf9f79>>
+ * @generated SignedSource<<69eb60f07006f5d83fb2b9c4b3121658>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,14 +75,6 @@ final class ArrayCreationExpression extends EditableSyntax {
     return new self($left_bracket, $members, $right_bracket);
   }
 
-  public function left_bracket(): LeftBracketToken {
-    return $this->left_bracketx();
-  }
-
-  public function left_bracketx(): LeftBracketToken {
-    return TypeAssert::isInstanceOf(LeftBracketToken::class, $this->_left_bracket);
-  }
-
   public function raw_left_bracket(): EditableSyntax {
     return $this->_left_bracket;
   }
@@ -94,12 +86,8 @@ final class ArrayCreationExpression extends EditableSyntax {
     return new self($value, $this->_members, $this->_right_bracket);
   }
 
-  public function members(): ?EditableList {
-    return $this->_members->is_missing() ? null : TypeAssert::isInstanceOf(EditableList::class, $this->_members);
-  }
-
-  public function membersx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
+  public function left_bracket(): LeftBracketToken {
+    return TypeAssert::isInstanceOf(LeftBracketToken::class, $this->_left_bracket);
   }
 
   public function raw_members(): EditableSyntax {
@@ -113,12 +101,15 @@ final class ArrayCreationExpression extends EditableSyntax {
     return new self($this->_left_bracket, $value, $this->_right_bracket);
   }
 
-  public function right_bracket(): RightBracketToken {
-    return $this->right_bracketx();
+  public function members(): ?EditableList {
+    if ($this->_members->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
   }
 
-  public function right_bracketx(): RightBracketToken {
-    return TypeAssert::isInstanceOf(RightBracketToken::class, $this->_right_bracket);
+  public function membersx(): EditableList {
+    return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
   }
 
   public function raw_right_bracket(): EditableSyntax {
@@ -130,5 +121,9 @@ final class ArrayCreationExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_left_bracket, $this->_members, $value);
+  }
+
+  public function right_bracket(): RightBracketToken {
+    return TypeAssert::isInstanceOf(RightBracketToken::class, $this->_right_bracket);
   }
 }
