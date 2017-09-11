@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3ded32bad14fbb937c4d839d9aadcde3>>
+ * @generated SignedSource<<c113bc2d4b42c474f1bed38bb6288941>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -76,6 +76,9 @@ final class YieldExpression extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
+    if ($value === $this->_keyword) {
+      return $this;
+    }
     return new self($value, $this->_operand);
   }
 
@@ -92,6 +95,9 @@ final class YieldExpression extends EditableSyntax {
   }
 
   public function with_operand(EditableSyntax $value): this {
+    if ($value === $this->_operand) {
+      return $this;
+    }
     return new self($this->_keyword, $value);
   }
 }

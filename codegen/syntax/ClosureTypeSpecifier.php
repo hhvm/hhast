@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f209877cdd0471487c3dd98a9936db90>>
+ * @generated SignedSource<<8d2422070034a5fd7cb0a096bdc11a6e>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -180,6 +180,9 @@ final class ClosureTypeSpecifier extends EditableSyntax {
   }
 
   public function with_outer_left_paren(EditableSyntax $value): this {
+    if ($value === $this->_outer_left_paren) {
+      return $this;
+    }
     return new self(
       $value,
       $this->_coroutine,
@@ -206,6 +209,9 @@ final class ClosureTypeSpecifier extends EditableSyntax {
   }
 
   public function with_coroutine(EditableSyntax $value): this {
+    if ($value === $this->_coroutine) {
+      return $this;
+    }
     return new self(
       $this->_outer_left_paren,
       $value,
@@ -232,6 +238,9 @@ final class ClosureTypeSpecifier extends EditableSyntax {
   }
 
   public function with_function_keyword(EditableSyntax $value): this {
+    if ($value === $this->_function_keyword) {
+      return $this;
+    }
     return new self(
       $this->_outer_left_paren,
       $this->_coroutine,
@@ -258,6 +267,9 @@ final class ClosureTypeSpecifier extends EditableSyntax {
   }
 
   public function with_inner_left_paren(EditableSyntax $value): this {
+    if ($value === $this->_inner_left_paren) {
+      return $this;
+    }
     return new self(
       $this->_outer_left_paren,
       $this->_coroutine,
@@ -284,6 +296,9 @@ final class ClosureTypeSpecifier extends EditableSyntax {
   }
 
   public function with_parameter_types(EditableSyntax $value): this {
+    if ($value === $this->_parameter_types) {
+      return $this;
+    }
     return new self(
       $this->_outer_left_paren,
       $this->_coroutine,
@@ -310,6 +325,9 @@ final class ClosureTypeSpecifier extends EditableSyntax {
   }
 
   public function with_inner_right_paren(EditableSyntax $value): this {
+    if ($value === $this->_inner_right_paren) {
+      return $this;
+    }
     return new self(
       $this->_outer_left_paren,
       $this->_coroutine,
@@ -336,6 +354,9 @@ final class ClosureTypeSpecifier extends EditableSyntax {
   }
 
   public function with_colon(EditableSyntax $value): this {
+    if ($value === $this->_colon) {
+      return $this;
+    }
     return new self(
       $this->_outer_left_paren,
       $this->_coroutine,
@@ -362,6 +383,9 @@ final class ClosureTypeSpecifier extends EditableSyntax {
   }
 
   public function with_return_type(EditableSyntax $value): this {
+    if ($value === $this->_return_type) {
+      return $this;
+    }
     return new self(
       $this->_outer_left_paren,
       $this->_coroutine,
@@ -388,6 +412,9 @@ final class ClosureTypeSpecifier extends EditableSyntax {
   }
 
   public function with_outer_right_paren(EditableSyntax $value): this {
+    if ($value === $this->_outer_right_paren) {
+      return $this;
+    }
     return new self(
       $this->_outer_left_paren,
       $this->_coroutine,

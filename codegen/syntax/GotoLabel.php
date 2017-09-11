@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d7125879832cce02b3ed5ea7dbd6a3c3>>
+ * @generated SignedSource<<99e31a975eca9d3e4e1923c746383dea>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -73,6 +73,9 @@ final class GotoLabel extends EditableSyntax {
   }
 
   public function with_name(EditableSyntax $value): this {
+    if ($value === $this->_name) {
+      return $this;
+    }
     return new self($value, $this->_colon);
   }
 
@@ -89,6 +92,9 @@ final class GotoLabel extends EditableSyntax {
   }
 
   public function with_colon(EditableSyntax $value): this {
+    if ($value === $this->_colon) {
+      return $this;
+    }
     return new self($this->_name, $value);
   }
 }

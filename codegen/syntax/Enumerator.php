@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b34d517306e10385dd50baa8449d4804>>
+ * @generated SignedSource<<353402a2371b0d7141e6d0355694e915>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -100,6 +100,9 @@ final class Enumerator extends EditableSyntax {
   }
 
   public function with_name(EditableSyntax $value): this {
+    if ($value === $this->_name) {
+      return $this;
+    }
     return new self($value, $this->_equal, $this->_value, $this->_semicolon);
   }
 
@@ -116,6 +119,9 @@ final class Enumerator extends EditableSyntax {
   }
 
   public function with_equal(EditableSyntax $value): this {
+    if ($value === $this->_equal) {
+      return $this;
+    }
     return new self($this->_name, $value, $this->_value, $this->_semicolon);
   }
 
@@ -132,6 +138,9 @@ final class Enumerator extends EditableSyntax {
   }
 
   public function with_value(EditableSyntax $value): this {
+    if ($value === $this->_value) {
+      return $this;
+    }
     return new self($this->_name, $this->_equal, $value, $this->_semicolon);
   }
 
@@ -148,6 +157,9 @@ final class Enumerator extends EditableSyntax {
   }
 
   public function with_semicolon(EditableSyntax $value): this {
+    if ($value === $this->_semicolon) {
+      return $this;
+    }
     return new self($this->_name, $this->_equal, $this->_value, $value);
   }
 }

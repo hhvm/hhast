@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<53cc9daa9591df7a9abd94bd946897a6>>
+ * @generated SignedSource<<c75623ae2eefbd688b59ff2480a0320f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -118,6 +118,9 @@ final class ElseifClause extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
+    if ($value === $this->_keyword) {
+      return $this;
+    }
     return new self(
       $value,
       $this->_left_paren,
@@ -140,6 +143,9 @@ final class ElseifClause extends EditableSyntax {
   }
 
   public function with_left_paren(EditableSyntax $value): this {
+    if ($value === $this->_left_paren) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $value,
@@ -162,6 +168,9 @@ final class ElseifClause extends EditableSyntax {
   }
 
   public function with_condition(EditableSyntax $value): this {
+    if ($value === $this->_condition) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_paren,
@@ -184,6 +193,9 @@ final class ElseifClause extends EditableSyntax {
   }
 
   public function with_right_paren(EditableSyntax $value): this {
+    if ($value === $this->_right_paren) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_paren,
@@ -206,6 +218,9 @@ final class ElseifClause extends EditableSyntax {
   }
 
   public function with_statement(EditableSyntax $value): this {
+    if ($value === $this->_statement) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_paren,

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<18c88606813c5831cef0e0684b7aca8f>>
+ * @generated SignedSource<<c2eac8d21d595bfe80030b0c1ce4d41b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -88,6 +88,9 @@ final class ParenthesizedExpression extends EditableSyntax {
   }
 
   public function with_left_paren(EditableSyntax $value): this {
+    if ($value === $this->_left_paren) {
+      return $this;
+    }
     return new self($value, $this->_expression, $this->_right_paren);
   }
 
@@ -104,6 +107,9 @@ final class ParenthesizedExpression extends EditableSyntax {
   }
 
   public function with_expression(EditableSyntax $value): this {
+    if ($value === $this->_expression) {
+      return $this;
+    }
     return new self($this->_left_paren, $value, $this->_right_paren);
   }
 
@@ -120,6 +126,9 @@ final class ParenthesizedExpression extends EditableSyntax {
   }
 
   public function with_right_paren(EditableSyntax $value): this {
+    if ($value === $this->_right_paren) {
+      return $this;
+    }
     return new self($this->_left_paren, $this->_expression, $value);
   }
 }

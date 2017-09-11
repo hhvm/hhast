@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a9b206366ede6406deb54e0d74d246cb>>
+ * @generated SignedSource<<83db612d5894a4623680a3fa1a111bf2>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -100,6 +100,9 @@ final class Attribute extends EditableSyntax {
   }
 
   public function with_name(EditableSyntax $value): this {
+    if ($value === $this->_name) {
+      return $this;
+    }
     return new self($value, $this->_left_paren, $this->_values, $this->_right_paren);
   }
 
@@ -116,6 +119,9 @@ final class Attribute extends EditableSyntax {
   }
 
   public function with_left_paren(EditableSyntax $value): this {
+    if ($value === $this->_left_paren) {
+      return $this;
+    }
     return new self($this->_name, $value, $this->_values, $this->_right_paren);
   }
 
@@ -132,6 +138,9 @@ final class Attribute extends EditableSyntax {
   }
 
   public function with_values(EditableSyntax $value): this {
+    if ($value === $this->_values) {
+      return $this;
+    }
     return new self($this->_name, $this->_left_paren, $value, $this->_right_paren);
   }
 
@@ -148,6 +157,9 @@ final class Attribute extends EditableSyntax {
   }
 
   public function with_right_paren(EditableSyntax $value): this {
+    if ($value === $this->_right_paren) {
+      return $this;
+    }
     return new self($this->_name, $this->_left_paren, $this->_values, $value);
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d462b34129a0f4ce650964ff3c17f4e5>>
+ * @generated SignedSource<<46ae753e7bb39f11bfdd3ec452f513ac>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -88,6 +88,9 @@ final class BreakStatement extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
+    if ($value === $this->_keyword) {
+      return $this;
+    }
     return new self($value, $this->_level, $this->_semicolon);
   }
 
@@ -104,6 +107,9 @@ final class BreakStatement extends EditableSyntax {
   }
 
   public function with_level(EditableSyntax $value): this {
+    if ($value === $this->_level) {
+      return $this;
+    }
     return new self($this->_keyword, $value, $this->_semicolon);
   }
 
@@ -120,6 +126,9 @@ final class BreakStatement extends EditableSyntax {
   }
 
   public function with_semicolon(EditableSyntax $value): this {
+    if ($value === $this->_semicolon) {
+      return $this;
+    }
     return new self($this->_keyword, $this->_level, $value);
   }
 }

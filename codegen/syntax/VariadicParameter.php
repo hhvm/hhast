@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7b49b869d8a1f097e8e0418cab03fc79>>
+ * @generated SignedSource<<5cbac083c672e5b09de53a2217398e15>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -62,6 +62,9 @@ final class VariadicParameter extends EditableSyntax {
   }
 
   public function with_ellipsis(EditableSyntax $value): this {
+    if ($value === $this->_ellipsis) {
+      return $this;
+    }
     return new self($value);
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<412491020d63779d111c40b63b1ebbe2>>
+ * @generated SignedSource<<0307155051ce171b2bd2717a1339f35f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -88,6 +88,9 @@ final class XHPExpression extends EditableSyntax {
   }
 
   public function with_open(EditableSyntax $value): this {
+    if ($value === $this->_open) {
+      return $this;
+    }
     return new self($value, $this->_body, $this->_close);
   }
 
@@ -104,6 +107,9 @@ final class XHPExpression extends EditableSyntax {
   }
 
   public function with_body(EditableSyntax $value): this {
+    if ($value === $this->_body) {
+      return $this;
+    }
     return new self($this->_open, $value, $this->_close);
   }
 
@@ -120,6 +126,9 @@ final class XHPExpression extends EditableSyntax {
   }
 
   public function with_close(EditableSyntax $value): this {
+    if ($value === $this->_close) {
+      return $this;
+    }
     return new self($this->_open, $this->_body, $value);
   }
 }

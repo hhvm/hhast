@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ff0ec974d9dbb856164cb0bbea529988>>
+ * @generated SignedSource<<2ee0c4b2c64a0c527c3c3d6559462e98>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -100,6 +100,9 @@ final class FieldSpecifier extends EditableSyntax {
   }
 
   public function with_question(EditableSyntax $value): this {
+    if ($value === $this->_question) {
+      return $this;
+    }
     return new self($value, $this->_name, $this->_arrow, $this->_type);
   }
 
@@ -116,6 +119,9 @@ final class FieldSpecifier extends EditableSyntax {
   }
 
   public function with_name(EditableSyntax $value): this {
+    if ($value === $this->_name) {
+      return $this;
+    }
     return new self($this->_question, $value, $this->_arrow, $this->_type);
   }
 
@@ -132,6 +138,9 @@ final class FieldSpecifier extends EditableSyntax {
   }
 
   public function with_arrow(EditableSyntax $value): this {
+    if ($value === $this->_arrow) {
+      return $this;
+    }
     return new self($this->_question, $this->_name, $value, $this->_type);
   }
 
@@ -148,6 +157,9 @@ final class FieldSpecifier extends EditableSyntax {
   }
 
   public function with_type(EditableSyntax $value): this {
+    if ($value === $this->_type) {
+      return $this;
+    }
     return new self($this->_question, $this->_name, $this->_arrow, $value);
   }
 }

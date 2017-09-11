@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<70edcefa24f859e6c794d383ebbc9d82>>
+ * @generated SignedSource<<ac83220a44c90f40c0be89c0273afd3b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -208,6 +208,9 @@ final class AnonymousFunction extends EditableSyntax {
   }
 
   public function with_static_keyword(EditableSyntax $value): this {
+    if ($value === $this->_static_keyword) {
+      return $this;
+    }
     return new self(
       $value,
       $this->_async_keyword,
@@ -236,6 +239,9 @@ final class AnonymousFunction extends EditableSyntax {
   }
 
   public function with_async_keyword(EditableSyntax $value): this {
+    if ($value === $this->_async_keyword) {
+      return $this;
+    }
     return new self(
       $this->_static_keyword,
       $value,
@@ -264,6 +270,9 @@ final class AnonymousFunction extends EditableSyntax {
   }
 
   public function with_coroutine_keyword(EditableSyntax $value): this {
+    if ($value === $this->_coroutine_keyword) {
+      return $this;
+    }
     return new self(
       $this->_static_keyword,
       $this->_async_keyword,
@@ -292,6 +301,9 @@ final class AnonymousFunction extends EditableSyntax {
   }
 
   public function with_function_keyword(EditableSyntax $value): this {
+    if ($value === $this->_function_keyword) {
+      return $this;
+    }
     return new self(
       $this->_static_keyword,
       $this->_async_keyword,
@@ -320,6 +332,9 @@ final class AnonymousFunction extends EditableSyntax {
   }
 
   public function with_left_paren(EditableSyntax $value): this {
+    if ($value === $this->_left_paren) {
+      return $this;
+    }
     return new self(
       $this->_static_keyword,
       $this->_async_keyword,
@@ -348,6 +363,9 @@ final class AnonymousFunction extends EditableSyntax {
   }
 
   public function with_parameters(EditableSyntax $value): this {
+    if ($value === $this->_parameters) {
+      return $this;
+    }
     return new self(
       $this->_static_keyword,
       $this->_async_keyword,
@@ -376,6 +394,9 @@ final class AnonymousFunction extends EditableSyntax {
   }
 
   public function with_right_paren(EditableSyntax $value): this {
+    if ($value === $this->_right_paren) {
+      return $this;
+    }
     return new self(
       $this->_static_keyword,
       $this->_async_keyword,
@@ -404,6 +425,9 @@ final class AnonymousFunction extends EditableSyntax {
   }
 
   public function with_colon(EditableSyntax $value): this {
+    if ($value === $this->_colon) {
+      return $this;
+    }
     return new self(
       $this->_static_keyword,
       $this->_async_keyword,
@@ -432,6 +456,9 @@ final class AnonymousFunction extends EditableSyntax {
   }
 
   public function with_type(EditableSyntax $value): this {
+    if ($value === $this->_type) {
+      return $this;
+    }
     return new self(
       $this->_static_keyword,
       $this->_async_keyword,
@@ -460,6 +487,9 @@ final class AnonymousFunction extends EditableSyntax {
   }
 
   public function with_use(EditableSyntax $value): this {
+    if ($value === $this->_use) {
+      return $this;
+    }
     return new self(
       $this->_static_keyword,
       $this->_async_keyword,
@@ -488,6 +518,9 @@ final class AnonymousFunction extends EditableSyntax {
   }
 
   public function with_body(EditableSyntax $value): this {
+    if ($value === $this->_body) {
+      return $this;
+    }
     return new self(
       $this->_static_keyword,
       $this->_async_keyword,

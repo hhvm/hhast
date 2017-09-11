@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1749a9277613b2c2cc7c5b70dcae3b29>>
+ * @generated SignedSource<<32aac19b468495dc97557fa1c4d99481>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -100,6 +100,9 @@ final class CollectionLiteralExpression extends EditableSyntax {
   }
 
   public function with_name(EditableSyntax $value): this {
+    if ($value === $this->_name) {
+      return $this;
+    }
     return new self($value, $this->_left_brace, $this->_initializers, $this->_right_brace);
   }
 
@@ -116,6 +119,9 @@ final class CollectionLiteralExpression extends EditableSyntax {
   }
 
   public function with_left_brace(EditableSyntax $value): this {
+    if ($value === $this->_left_brace) {
+      return $this;
+    }
     return new self($this->_name, $value, $this->_initializers, $this->_right_brace);
   }
 
@@ -132,6 +138,9 @@ final class CollectionLiteralExpression extends EditableSyntax {
   }
 
   public function with_initializers(EditableSyntax $value): this {
+    if ($value === $this->_initializers) {
+      return $this;
+    }
     return new self($this->_name, $this->_left_brace, $value, $this->_right_brace);
   }
 
@@ -148,6 +157,9 @@ final class CollectionLiteralExpression extends EditableSyntax {
   }
 
   public function with_right_brace(EditableSyntax $value): this {
+    if ($value === $this->_right_brace) {
+      return $this;
+    }
     return new self($this->_name, $this->_left_brace, $this->_initializers, $value);
   }
 }

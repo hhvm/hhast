@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fbc40f218d410585cc60768da7279f76>>
+ * @generated SignedSource<<ad44e3395d5c253d32fccb5c0104d59c>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -76,6 +76,9 @@ final class ExpressionStatement extends EditableSyntax {
   }
 
   public function with_expression(EditableSyntax $value): this {
+    if ($value === $this->_expression) {
+      return $this;
+    }
     return new self($value, $this->_semicolon);
   }
 
@@ -92,6 +95,9 @@ final class ExpressionStatement extends EditableSyntax {
   }
 
   public function with_semicolon(EditableSyntax $value): this {
+    if ($value === $this->_semicolon) {
+      return $this;
+    }
     return new self($this->_expression, $value);
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0bb8bf024c53ef9729cc77109265e51f>>
+ * @generated SignedSource<<4ed5edb4160e691ac3bf02d5ba6cbba3>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -112,6 +112,9 @@ final class TraitUseConflictResolution extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
+    if ($value === $this->_keyword) {
+      return $this;
+    }
     return new self(
       $value,
       $this->_names,
@@ -134,6 +137,9 @@ final class TraitUseConflictResolution extends EditableSyntax {
   }
 
   public function with_names(EditableSyntax $value): this {
+    if ($value === $this->_names) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $value,
@@ -156,6 +162,9 @@ final class TraitUseConflictResolution extends EditableSyntax {
   }
 
   public function with_left_brace(EditableSyntax $value): this {
+    if ($value === $this->_left_brace) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_names,
@@ -178,6 +187,9 @@ final class TraitUseConflictResolution extends EditableSyntax {
   }
 
   public function with_clauses(EditableSyntax $value): this {
+    if ($value === $this->_clauses) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_names,
@@ -200,6 +212,9 @@ final class TraitUseConflictResolution extends EditableSyntax {
   }
 
   public function with_right_brace(EditableSyntax $value): this {
+    if ($value === $this->_right_brace) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_names,

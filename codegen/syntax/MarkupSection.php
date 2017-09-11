@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a99fdb75b65fda81a0089f9d743c6657>>
+ * @generated SignedSource<<4444feb201abfc746d8d08159cc67ccd>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -100,6 +100,9 @@ final class MarkupSection extends EditableSyntax {
   }
 
   public function with_prefix(EditableSyntax $value): this {
+    if ($value === $this->_prefix) {
+      return $this;
+    }
     return new self($value, $this->_text, $this->_suffix, $this->_expression);
   }
 
@@ -116,6 +119,9 @@ final class MarkupSection extends EditableSyntax {
   }
 
   public function with_text(EditableSyntax $value): this {
+    if ($value === $this->_text) {
+      return $this;
+    }
     return new self($this->_prefix, $value, $this->_suffix, $this->_expression);
   }
 
@@ -132,6 +138,9 @@ final class MarkupSection extends EditableSyntax {
   }
 
   public function with_suffix(EditableSyntax $value): this {
+    if ($value === $this->_suffix) {
+      return $this;
+    }
     return new self($this->_prefix, $this->_text, $value, $this->_expression);
   }
 
@@ -148,6 +157,9 @@ final class MarkupSection extends EditableSyntax {
   }
 
   public function with_expression(EditableSyntax $value): this {
+    if ($value === $this->_expression) {
+      return $this;
+    }
     return new self($this->_prefix, $this->_text, $this->_suffix, $value);
   }
 }

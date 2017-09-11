@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3353d98f2d818bfd2abe34a275818c00>>
+ * @generated SignedSource<<f3588ef9c35e40be0fe3bd888819b3a4>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -112,6 +112,9 @@ final class WhileStatement extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
+    if ($value === $this->_keyword) {
+      return $this;
+    }
     return new self(
       $value,
       $this->_left_paren,
@@ -134,6 +137,9 @@ final class WhileStatement extends EditableSyntax {
   }
 
   public function with_left_paren(EditableSyntax $value): this {
+    if ($value === $this->_left_paren) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $value,
@@ -156,6 +162,9 @@ final class WhileStatement extends EditableSyntax {
   }
 
   public function with_condition(EditableSyntax $value): this {
+    if ($value === $this->_condition) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_paren,
@@ -178,6 +187,9 @@ final class WhileStatement extends EditableSyntax {
   }
 
   public function with_right_paren(EditableSyntax $value): this {
+    if ($value === $this->_right_paren) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_paren,
@@ -200,6 +212,9 @@ final class WhileStatement extends EditableSyntax {
   }
 
   public function with_body(EditableSyntax $value): this {
+    if ($value === $this->_body) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_paren,

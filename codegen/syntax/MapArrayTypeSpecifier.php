@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5bbcb1ac9b0e4825e29f2878a5609eab>>
+ * @generated SignedSource<<e5fc212d52e17b67fbd830214b44e0d8>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -124,6 +124,9 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
+    if ($value === $this->_keyword) {
+      return $this;
+    }
     return new self(
       $value,
       $this->_left_angle,
@@ -147,6 +150,9 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
   }
 
   public function with_left_angle(EditableSyntax $value): this {
+    if ($value === $this->_left_angle) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $value,
@@ -170,6 +176,9 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
   }
 
   public function with_key(EditableSyntax $value): this {
+    if ($value === $this->_key) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_angle,
@@ -193,6 +202,9 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
   }
 
   public function with_comma(EditableSyntax $value): this {
+    if ($value === $this->_comma) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_angle,
@@ -216,6 +228,9 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
   }
 
   public function with_value(EditableSyntax $value): this {
+    if ($value === $this->_value) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_angle,
@@ -239,6 +254,9 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
   }
 
   public function with_right_angle(EditableSyntax $value): this {
+    if ($value === $this->_right_angle) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_angle,

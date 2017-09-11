@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1efc2dcc01b797c44d3a352a99da4cab>>
+ * @generated SignedSource<<b3a817c1723195a1f41ecf4c76731a5a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -76,6 +76,9 @@ final class PropertyDeclarator extends EditableSyntax {
   }
 
   public function with_name(EditableSyntax $value): this {
+    if ($value === $this->_name) {
+      return $this;
+    }
     return new self($value, $this->_initializer);
   }
 
@@ -92,6 +95,9 @@ final class PropertyDeclarator extends EditableSyntax {
   }
 
   public function with_initializer(EditableSyntax $value): this {
+    if ($value === $this->_initializer) {
+      return $this;
+    }
     return new self($this->_name, $value);
   }
 }

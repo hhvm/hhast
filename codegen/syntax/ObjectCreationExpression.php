@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3c38786944413b49a086907d82dd6f29>>
+ * @generated SignedSource<<2ed3570c17dc3d2c4baae6d06ec7b056>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -118,6 +118,9 @@ final class ObjectCreationExpression extends EditableSyntax {
   }
 
   public function with_new_keyword(EditableSyntax $value): this {
+    if ($value === $this->_new_keyword) {
+      return $this;
+    }
     return new self(
       $value,
       $this->_type,
@@ -140,6 +143,9 @@ final class ObjectCreationExpression extends EditableSyntax {
   }
 
   public function with_type(EditableSyntax $value): this {
+    if ($value === $this->_type) {
+      return $this;
+    }
     return new self(
       $this->_new_keyword,
       $value,
@@ -162,6 +168,9 @@ final class ObjectCreationExpression extends EditableSyntax {
   }
 
   public function with_left_paren(EditableSyntax $value): this {
+    if ($value === $this->_left_paren) {
+      return $this;
+    }
     return new self(
       $this->_new_keyword,
       $this->_type,
@@ -184,6 +193,9 @@ final class ObjectCreationExpression extends EditableSyntax {
   }
 
   public function with_argument_list(EditableSyntax $value): this {
+    if ($value === $this->_argument_list) {
+      return $this;
+    }
     return new self(
       $this->_new_keyword,
       $this->_type,
@@ -206,6 +218,9 @@ final class ObjectCreationExpression extends EditableSyntax {
   }
 
   public function with_right_paren(EditableSyntax $value): this {
+    if ($value === $this->_right_paren) {
+      return $this;
+    }
     return new self(
       $this->_new_keyword,
       $this->_type,

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a92799e5cd68914a98b4f2974d6742a3>>
+ * @generated SignedSource<<91250406602931b50576a69265ec737c>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -100,6 +100,9 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
+    if ($value === $this->_keyword) {
+      return $this;
+    }
     return new self($value, $this->_left_paren, $this->_variables, $this->_right_paren);
   }
 
@@ -116,6 +119,9 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
   }
 
   public function with_left_paren(EditableSyntax $value): this {
+    if ($value === $this->_left_paren) {
+      return $this;
+    }
     return new self($this->_keyword, $value, $this->_variables, $this->_right_paren);
   }
 
@@ -132,6 +138,9 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
   }
 
   public function with_variables(EditableSyntax $value): this {
+    if ($value === $this->_variables) {
+      return $this;
+    }
     return new self($this->_keyword, $this->_left_paren, $value, $this->_right_paren);
   }
 
@@ -148,6 +157,9 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
   }
 
   public function with_right_paren(EditableSyntax $value): this {
+    if ($value === $this->_right_paren) {
+      return $this;
+    }
     return new self($this->_keyword, $this->_left_paren, $this->_variables, $value);
   }
 }

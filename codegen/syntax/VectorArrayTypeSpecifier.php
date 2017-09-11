@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<913da990fb4f49a4ad2682b2942e0c2c>>
+ * @generated SignedSource<<61cc8143eeac847ac08fdc9aceab7947>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -100,6 +100,9 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
+    if ($value === $this->_keyword) {
+      return $this;
+    }
     return new self($value, $this->_left_angle, $this->_type, $this->_right_angle);
   }
 
@@ -116,6 +119,9 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
   }
 
   public function with_left_angle(EditableSyntax $value): this {
+    if ($value === $this->_left_angle) {
+      return $this;
+    }
     return new self($this->_keyword, $value, $this->_type, $this->_right_angle);
   }
 
@@ -132,6 +138,9 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
   }
 
   public function with_type(EditableSyntax $value): this {
+    if ($value === $this->_type) {
+      return $this;
+    }
     return new self($this->_keyword, $this->_left_angle, $value, $this->_right_angle);
   }
 
@@ -148,6 +157,9 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
   }
 
   public function with_right_angle(EditableSyntax $value): this {
+    if ($value === $this->_right_angle) {
+      return $this;
+    }
     return new self($this->_keyword, $this->_left_angle, $this->_type, $value);
   }
 }

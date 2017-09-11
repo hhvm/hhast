@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8a66fcef2ef5b54d029ae1ceffc5088b>>
+ * @generated SignedSource<<3d2757dd97baaf4f837d6b4c7de5cb2d>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -100,6 +100,9 @@ final class NamespaceUseClause extends EditableSyntax {
   }
 
   public function with_clause_kind(EditableSyntax $value): this {
+    if ($value === $this->_clause_kind) {
+      return $this;
+    }
     return new self($value, $this->_name, $this->_as, $this->_alias);
   }
 
@@ -116,6 +119,9 @@ final class NamespaceUseClause extends EditableSyntax {
   }
 
   public function with_name(EditableSyntax $value): this {
+    if ($value === $this->_name) {
+      return $this;
+    }
     return new self($this->_clause_kind, $value, $this->_as, $this->_alias);
   }
 
@@ -132,6 +138,9 @@ final class NamespaceUseClause extends EditableSyntax {
   }
 
   public function with_as(EditableSyntax $value): this {
+    if ($value === $this->_as) {
+      return $this;
+    }
     return new self($this->_clause_kind, $this->_name, $value, $this->_alias);
   }
 
@@ -148,6 +157,9 @@ final class NamespaceUseClause extends EditableSyntax {
   }
 
   public function with_alias(EditableSyntax $value): this {
+    if ($value === $this->_alias) {
+      return $this;
+    }
     return new self($this->_clause_kind, $this->_name, $this->_as, $value);
   }
 }

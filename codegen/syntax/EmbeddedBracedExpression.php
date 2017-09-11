@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3888241c99822b3ff29be7a6e23446ab>>
+ * @generated SignedSource<<44a3ae2d2bf68a98755c6d9737a9829b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -88,6 +88,9 @@ final class EmbeddedBracedExpression extends EditableSyntax {
   }
 
   public function with_left_brace(EditableSyntax $value): this {
+    if ($value === $this->_left_brace) {
+      return $this;
+    }
     return new self($value, $this->_expression, $this->_right_brace);
   }
 
@@ -104,6 +107,9 @@ final class EmbeddedBracedExpression extends EditableSyntax {
   }
 
   public function with_expression(EditableSyntax $value): this {
+    if ($value === $this->_expression) {
+      return $this;
+    }
     return new self($this->_left_brace, $value, $this->_right_brace);
   }
 
@@ -120,6 +126,9 @@ final class EmbeddedBracedExpression extends EditableSyntax {
   }
 
   public function with_right_brace(EditableSyntax $value): this {
+    if ($value === $this->_right_brace) {
+      return $this;
+    }
     return new self($this->_left_brace, $this->_expression, $value);
   }
 }

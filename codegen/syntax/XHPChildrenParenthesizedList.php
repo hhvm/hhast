@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<104e007a2bdc5ef168c049acd3932c61>>
+ * @generated SignedSource<<8a7dc60efda68039f9fd1048063d2b43>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -88,6 +88,9 @@ final class XHPChildrenParenthesizedList extends EditableSyntax {
   }
 
   public function with_left_paren(EditableSyntax $value): this {
+    if ($value === $this->_left_paren) {
+      return $this;
+    }
     return new self($value, $this->_xhp_children, $this->_right_paren);
   }
 
@@ -104,6 +107,9 @@ final class XHPChildrenParenthesizedList extends EditableSyntax {
   }
 
   public function with_xhp_children(EditableSyntax $value): this {
+    if ($value === $this->_xhp_children) {
+      return $this;
+    }
     return new self($this->_left_paren, $value, $this->_right_paren);
   }
 
@@ -120,6 +126,9 @@ final class XHPChildrenParenthesizedList extends EditableSyntax {
   }
 
   public function with_right_paren(EditableSyntax $value): this {
+    if ($value === $this->_right_paren) {
+      return $this;
+    }
     return new self($this->_left_paren, $this->_xhp_children, $value);
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2a1c3ead83f7201b89a8253b5012c434>>
+ * @generated SignedSource<<5c67e95b7a1479f4b1554758ddd38f55>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -88,6 +88,9 @@ final class SwitchSection extends EditableSyntax {
   }
 
   public function with_labels(EditableSyntax $value): this {
+    if ($value === $this->_labels) {
+      return $this;
+    }
     return new self($value, $this->_statements, $this->_fallthrough);
   }
 
@@ -104,6 +107,9 @@ final class SwitchSection extends EditableSyntax {
   }
 
   public function with_statements(EditableSyntax $value): this {
+    if ($value === $this->_statements) {
+      return $this;
+    }
     return new self($this->_labels, $value, $this->_fallthrough);
   }
 
@@ -120,6 +126,9 @@ final class SwitchSection extends EditableSyntax {
   }
 
   public function with_fallthrough(EditableSyntax $value): this {
+    if ($value === $this->_fallthrough) {
+      return $this;
+    }
     return new self($this->_labels, $this->_statements, $value);
   }
 }

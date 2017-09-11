@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<37015c4eb9e489075b8ded984bf52a2d>>
+ * @generated SignedSource<<0754ec3401017fdf92b96a517e0a2efc>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -100,6 +100,9 @@ final class XHPOpen extends EditableSyntax {
   }
 
   public function with_left_angle(EditableSyntax $value): this {
+    if ($value === $this->_left_angle) {
+      return $this;
+    }
     return new self($value, $this->_name, $this->_attributes, $this->_right_angle);
   }
 
@@ -116,6 +119,9 @@ final class XHPOpen extends EditableSyntax {
   }
 
   public function with_name(EditableSyntax $value): this {
+    if ($value === $this->_name) {
+      return $this;
+    }
     return new self($this->_left_angle, $value, $this->_attributes, $this->_right_angle);
   }
 
@@ -132,6 +138,9 @@ final class XHPOpen extends EditableSyntax {
   }
 
   public function with_attributes(EditableSyntax $value): this {
+    if ($value === $this->_attributes) {
+      return $this;
+    }
     return new self($this->_left_angle, $this->_name, $value, $this->_right_angle);
   }
 
@@ -148,6 +157,9 @@ final class XHPOpen extends EditableSyntax {
   }
 
   public function with_right_angle(EditableSyntax $value): this {
+    if ($value === $this->_right_angle) {
+      return $this;
+    }
     return new self($this->_left_angle, $this->_name, $this->_attributes, $value);
   }
 }

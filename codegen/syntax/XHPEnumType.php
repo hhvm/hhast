@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<da8015e0243de2a551bf13e3a0297dae>>
+ * @generated SignedSource<<e7edd42cc248dd35e69b71e8429b62c0>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -100,6 +100,9 @@ final class XHPEnumType extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
+    if ($value === $this->_keyword) {
+      return $this;
+    }
     return new self($value, $this->_left_brace, $this->_values, $this->_right_brace);
   }
 
@@ -116,6 +119,9 @@ final class XHPEnumType extends EditableSyntax {
   }
 
   public function with_left_brace(EditableSyntax $value): this {
+    if ($value === $this->_left_brace) {
+      return $this;
+    }
     return new self($this->_keyword, $value, $this->_values, $this->_right_brace);
   }
 
@@ -132,6 +138,9 @@ final class XHPEnumType extends EditableSyntax {
   }
 
   public function with_values(EditableSyntax $value): this {
+    if ($value === $this->_values) {
+      return $this;
+    }
     return new self($this->_keyword, $this->_left_brace, $value, $this->_right_brace);
   }
 
@@ -148,6 +157,9 @@ final class XHPEnumType extends EditableSyntax {
   }
 
   public function with_right_brace(EditableSyntax $value): this {
+    if ($value === $this->_right_brace) {
+      return $this;
+    }
     return new self($this->_keyword, $this->_left_brace, $this->_values, $value);
   }
 }

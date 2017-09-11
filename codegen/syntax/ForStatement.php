@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2fdbc22f5c7c9626fcd54507b3692728>>
+ * @generated SignedSource<<5374d1bdc2af1e2de698e7a1c2a7a99c>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -180,6 +180,9 @@ final class ForStatement extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
+    if ($value === $this->_keyword) {
+      return $this;
+    }
     return new self(
       $value,
       $this->_left_paren,
@@ -206,6 +209,9 @@ final class ForStatement extends EditableSyntax {
   }
 
   public function with_left_paren(EditableSyntax $value): this {
+    if ($value === $this->_left_paren) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $value,
@@ -232,6 +238,9 @@ final class ForStatement extends EditableSyntax {
   }
 
   public function with_initializer(EditableSyntax $value): this {
+    if ($value === $this->_initializer) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_paren,
@@ -258,6 +267,9 @@ final class ForStatement extends EditableSyntax {
   }
 
   public function with_first_semicolon(EditableSyntax $value): this {
+    if ($value === $this->_first_semicolon) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_paren,
@@ -284,6 +296,9 @@ final class ForStatement extends EditableSyntax {
   }
 
   public function with_control(EditableSyntax $value): this {
+    if ($value === $this->_control) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_paren,
@@ -310,6 +325,9 @@ final class ForStatement extends EditableSyntax {
   }
 
   public function with_second_semicolon(EditableSyntax $value): this {
+    if ($value === $this->_second_semicolon) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_paren,
@@ -336,6 +354,9 @@ final class ForStatement extends EditableSyntax {
   }
 
   public function with_end_of_loop(EditableSyntax $value): this {
+    if ($value === $this->_end_of_loop) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_paren,
@@ -362,6 +383,9 @@ final class ForStatement extends EditableSyntax {
   }
 
   public function with_right_paren(EditableSyntax $value): this {
+    if ($value === $this->_right_paren) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_paren,
@@ -388,6 +412,9 @@ final class ForStatement extends EditableSyntax {
   }
 
   public function with_body(EditableSyntax $value): this {
+    if ($value === $this->_body) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_paren,

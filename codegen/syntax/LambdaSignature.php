@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e7bda327dd430b50f73773041400eb6e>>
+ * @generated SignedSource<<1cf042b02e76769fac6009f838499bad>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -112,6 +112,9 @@ final class LambdaSignature extends EditableSyntax {
   }
 
   public function with_left_paren(EditableSyntax $value): this {
+    if ($value === $this->_left_paren) {
+      return $this;
+    }
     return new self(
       $value,
       $this->_parameters,
@@ -134,6 +137,9 @@ final class LambdaSignature extends EditableSyntax {
   }
 
   public function with_parameters(EditableSyntax $value): this {
+    if ($value === $this->_parameters) {
+      return $this;
+    }
     return new self(
       $this->_left_paren,
       $value,
@@ -156,6 +162,9 @@ final class LambdaSignature extends EditableSyntax {
   }
 
   public function with_right_paren(EditableSyntax $value): this {
+    if ($value === $this->_right_paren) {
+      return $this;
+    }
     return new self(
       $this->_left_paren,
       $this->_parameters,
@@ -178,6 +187,9 @@ final class LambdaSignature extends EditableSyntax {
   }
 
   public function with_colon(EditableSyntax $value): this {
+    if ($value === $this->_colon) {
+      return $this;
+    }
     return new self(
       $this->_left_paren,
       $this->_parameters,
@@ -200,6 +212,9 @@ final class LambdaSignature extends EditableSyntax {
   }
 
   public function with_type(EditableSyntax $value): this {
+    if ($value === $this->_type) {
+      return $this;
+    }
     return new self(
       $this->_left_paren,
       $this->_parameters,

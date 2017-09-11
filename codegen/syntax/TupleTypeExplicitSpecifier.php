@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b9b0bf32cc2046edeff6fde1cc254d5a>>
+ * @generated SignedSource<<e29cdebbff515c967cca3d7f13693a5f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -100,6 +100,9 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
+    if ($value === $this->_keyword) {
+      return $this;
+    }
     return new self($value, $this->_left_angle, $this->_types, $this->_right_angle);
   }
 
@@ -116,6 +119,9 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
   }
 
   public function with_left_angle(EditableSyntax $value): this {
+    if ($value === $this->_left_angle) {
+      return $this;
+    }
     return new self($this->_keyword, $value, $this->_types, $this->_right_angle);
   }
 
@@ -132,6 +138,9 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
   }
 
   public function with_types(EditableSyntax $value): this {
+    if ($value === $this->_types) {
+      return $this;
+    }
     return new self($this->_keyword, $this->_left_angle, $value, $this->_right_angle);
   }
 
@@ -148,6 +157,9 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
   }
 
   public function with_right_angle(EditableSyntax $value): this {
+    if ($value === $this->_right_angle) {
+      return $this;
+    }
     return new self($this->_keyword, $this->_left_angle, $this->_types, $value);
   }
 }

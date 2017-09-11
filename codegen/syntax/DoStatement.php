@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<56711ff7ad6fa98741c59635e85803a5>>
+ * @generated SignedSource<<19c2b93ee001001a4fb2324c4584b9d5>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -152,6 +152,9 @@ final class DoStatement extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
+    if ($value === $this->_keyword) {
+      return $this;
+    }
     return new self(
       $value,
       $this->_body,
@@ -176,6 +179,9 @@ final class DoStatement extends EditableSyntax {
   }
 
   public function with_body(EditableSyntax $value): this {
+    if ($value === $this->_body) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $value,
@@ -200,6 +206,9 @@ final class DoStatement extends EditableSyntax {
   }
 
   public function with_while_keyword(EditableSyntax $value): this {
+    if ($value === $this->_while_keyword) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_body,
@@ -224,6 +233,9 @@ final class DoStatement extends EditableSyntax {
   }
 
   public function with_left_paren(EditableSyntax $value): this {
+    if ($value === $this->_left_paren) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_body,
@@ -248,6 +260,9 @@ final class DoStatement extends EditableSyntax {
   }
 
   public function with_condition(EditableSyntax $value): this {
+    if ($value === $this->_condition) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_body,
@@ -272,6 +287,9 @@ final class DoStatement extends EditableSyntax {
   }
 
   public function with_right_paren(EditableSyntax $value): this {
+    if ($value === $this->_right_paren) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_body,
@@ -296,6 +314,9 @@ final class DoStatement extends EditableSyntax {
   }
 
   public function with_semicolon(EditableSyntax $value): this {
+    if ($value === $this->_semicolon) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_body,

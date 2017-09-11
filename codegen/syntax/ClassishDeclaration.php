@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b546d8dc71cba25442851497db23aded>>
+ * @generated SignedSource<<8b342302dc5b8340225623288dedd59f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -194,6 +194,9 @@ final class ClassishDeclaration extends EditableSyntax {
   }
 
   public function with_attribute(EditableSyntax $value): this {
+    if ($value === $this->_attribute) {
+      return $this;
+    }
     return new self(
       $value,
       $this->_modifiers,
@@ -221,6 +224,9 @@ final class ClassishDeclaration extends EditableSyntax {
   }
 
   public function with_modifiers(EditableSyntax $value): this {
+    if ($value === $this->_modifiers) {
+      return $this;
+    }
     return new self(
       $this->_attribute,
       $value,
@@ -248,6 +254,9 @@ final class ClassishDeclaration extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
+    if ($value === $this->_keyword) {
+      return $this;
+    }
     return new self(
       $this->_attribute,
       $this->_modifiers,
@@ -275,6 +284,9 @@ final class ClassishDeclaration extends EditableSyntax {
   }
 
   public function with_name(EditableSyntax $value): this {
+    if ($value === $this->_name) {
+      return $this;
+    }
     return new self(
       $this->_attribute,
       $this->_modifiers,
@@ -302,6 +314,9 @@ final class ClassishDeclaration extends EditableSyntax {
   }
 
   public function with_type_parameters(EditableSyntax $value): this {
+    if ($value === $this->_type_parameters) {
+      return $this;
+    }
     return new self(
       $this->_attribute,
       $this->_modifiers,
@@ -329,6 +344,9 @@ final class ClassishDeclaration extends EditableSyntax {
   }
 
   public function with_extends_keyword(EditableSyntax $value): this {
+    if ($value === $this->_extends_keyword) {
+      return $this;
+    }
     return new self(
       $this->_attribute,
       $this->_modifiers,
@@ -356,6 +374,9 @@ final class ClassishDeclaration extends EditableSyntax {
   }
 
   public function with_extends_list(EditableSyntax $value): this {
+    if ($value === $this->_extends_list) {
+      return $this;
+    }
     return new self(
       $this->_attribute,
       $this->_modifiers,
@@ -383,6 +404,9 @@ final class ClassishDeclaration extends EditableSyntax {
   }
 
   public function with_implements_keyword(EditableSyntax $value): this {
+    if ($value === $this->_implements_keyword) {
+      return $this;
+    }
     return new self(
       $this->_attribute,
       $this->_modifiers,
@@ -410,6 +434,9 @@ final class ClassishDeclaration extends EditableSyntax {
   }
 
   public function with_implements_list(EditableSyntax $value): this {
+    if ($value === $this->_implements_list) {
+      return $this;
+    }
     return new self(
       $this->_attribute,
       $this->_modifiers,
@@ -437,6 +464,9 @@ final class ClassishDeclaration extends EditableSyntax {
   }
 
   public function with_body(EditableSyntax $value): this {
+    if ($value === $this->_body) {
+      return $this;
+    }
     return new self(
       $this->_attribute,
       $this->_modifiers,

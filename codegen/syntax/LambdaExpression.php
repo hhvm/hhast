@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d3a82ea52a98acef4dcabfc69a629b20>>
+ * @generated SignedSource<<0dbd0dec8c4a0c36abef253416366602>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -112,6 +112,9 @@ final class LambdaExpression extends EditableSyntax {
   }
 
   public function with_async(EditableSyntax $value): this {
+    if ($value === $this->_async) {
+      return $this;
+    }
     return new self(
       $value,
       $this->_coroutine,
@@ -134,6 +137,9 @@ final class LambdaExpression extends EditableSyntax {
   }
 
   public function with_coroutine(EditableSyntax $value): this {
+    if ($value === $this->_coroutine) {
+      return $this;
+    }
     return new self($this->_async, $value, $this->_signature, $this->_arrow, $this->_body);
   }
 
@@ -150,6 +156,9 @@ final class LambdaExpression extends EditableSyntax {
   }
 
   public function with_signature(EditableSyntax $value): this {
+    if ($value === $this->_signature) {
+      return $this;
+    }
     return new self($this->_async, $this->_coroutine, $value, $this->_arrow, $this->_body);
   }
 
@@ -166,6 +175,9 @@ final class LambdaExpression extends EditableSyntax {
   }
 
   public function with_arrow(EditableSyntax $value): this {
+    if ($value === $this->_arrow) {
+      return $this;
+    }
     return new self(
       $this->_async,
       $this->_coroutine,
@@ -188,6 +200,9 @@ final class LambdaExpression extends EditableSyntax {
   }
 
   public function with_body(EditableSyntax $value): this {
+    if ($value === $this->_body) {
+      return $this;
+    }
     return new self(
       $this->_async,
       $this->_coroutine,

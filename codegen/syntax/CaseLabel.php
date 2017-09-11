@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eedd92065f53f169b2b46c42d6eed447>>
+ * @generated SignedSource<<a29f342cc8ac45577d6e051d38763f5b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -88,6 +88,9 @@ final class CaseLabel extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
+    if ($value === $this->_keyword) {
+      return $this;
+    }
     return new self($value, $this->_expression, $this->_colon);
   }
 
@@ -104,6 +107,9 @@ final class CaseLabel extends EditableSyntax {
   }
 
   public function with_expression(EditableSyntax $value): this {
+    if ($value === $this->_expression) {
+      return $this;
+    }
     return new self($this->_keyword, $value, $this->_colon);
   }
 
@@ -120,6 +126,9 @@ final class CaseLabel extends EditableSyntax {
   }
 
   public function with_colon(EditableSyntax $value): this {
+    if ($value === $this->_colon) {
+      return $this;
+    }
     return new self($this->_keyword, $this->_expression, $value);
   }
 }

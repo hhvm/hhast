@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2b569ce8191ab768a70a24dfe6c011a3>>
+ * @generated SignedSource<<a9cde35842e37d5af2936b3d2ddb1912>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -118,6 +118,9 @@ final class KeysetTypeSpecifier extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
+    if ($value === $this->_keyword) {
+      return $this;
+    }
     return new self(
       $value,
       $this->_left_angle,
@@ -140,6 +143,9 @@ final class KeysetTypeSpecifier extends EditableSyntax {
   }
 
   public function with_left_angle(EditableSyntax $value): this {
+    if ($value === $this->_left_angle) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $value,
@@ -162,6 +168,9 @@ final class KeysetTypeSpecifier extends EditableSyntax {
   }
 
   public function with_type(EditableSyntax $value): this {
+    if ($value === $this->_type) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_angle,
@@ -184,6 +193,9 @@ final class KeysetTypeSpecifier extends EditableSyntax {
   }
 
   public function with_trailing_comma(EditableSyntax $value): this {
+    if ($value === $this->_trailing_comma) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_angle,
@@ -206,6 +218,9 @@ final class KeysetTypeSpecifier extends EditableSyntax {
   }
 
   public function with_right_angle(EditableSyntax $value): this {
+    if ($value === $this->_right_angle) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_angle,

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b8239ef77757c1b92c3e9c7b9f4dd906>>
+ * @generated SignedSource<<adb111a143a6c4514feca63a2877248b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -124,6 +124,9 @@ final class MethodishDeclaration extends EditableSyntax {
   }
 
   public function with_attribute(EditableSyntax $value): this {
+    if ($value === $this->_attribute) {
+      return $this;
+    }
     return new self(
       $value,
       $this->_modifiers,
@@ -146,6 +149,9 @@ final class MethodishDeclaration extends EditableSyntax {
   }
 
   public function with_modifiers(EditableSyntax $value): this {
+    if ($value === $this->_modifiers) {
+      return $this;
+    }
     return new self(
       $this->_attribute,
       $value,
@@ -168,6 +174,9 @@ final class MethodishDeclaration extends EditableSyntax {
   }
 
   public function with_function_decl_header(EditableSyntax $value): this {
+    if ($value === $this->_function_decl_header) {
+      return $this;
+    }
     return new self(
       $this->_attribute,
       $this->_modifiers,
@@ -190,6 +199,9 @@ final class MethodishDeclaration extends EditableSyntax {
   }
 
   public function with_function_body(EditableSyntax $value): this {
+    if ($value === $this->_function_body) {
+      return $this;
+    }
     return new self(
       $this->_attribute,
       $this->_modifiers,
@@ -212,6 +224,9 @@ final class MethodishDeclaration extends EditableSyntax {
   }
 
   public function with_semicolon(EditableSyntax $value): this {
+    if ($value === $this->_semicolon) {
+      return $this;
+    }
     return new self(
       $this->_attribute,
       $this->_modifiers,

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0c5eb5f0037ff1cb468d3a6b99675523>>
+ * @generated SignedSource<<e7401513ddcf509b24bdea179d2f8ddf>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -152,6 +152,9 @@ final class SwitchStatement extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
+    if ($value === $this->_keyword) {
+      return $this;
+    }
     return new self(
       $value,
       $this->_left_paren,
@@ -176,6 +179,9 @@ final class SwitchStatement extends EditableSyntax {
   }
 
   public function with_left_paren(EditableSyntax $value): this {
+    if ($value === $this->_left_paren) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $value,
@@ -200,6 +206,9 @@ final class SwitchStatement extends EditableSyntax {
   }
 
   public function with_expression(EditableSyntax $value): this {
+    if ($value === $this->_expression) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_paren,
@@ -224,6 +233,9 @@ final class SwitchStatement extends EditableSyntax {
   }
 
   public function with_right_paren(EditableSyntax $value): this {
+    if ($value === $this->_right_paren) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_paren,
@@ -248,6 +260,9 @@ final class SwitchStatement extends EditableSyntax {
   }
 
   public function with_left_brace(EditableSyntax $value): this {
+    if ($value === $this->_left_brace) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_paren,
@@ -272,6 +287,9 @@ final class SwitchStatement extends EditableSyntax {
   }
 
   public function with_sections(EditableSyntax $value): this {
+    if ($value === $this->_sections) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_paren,
@@ -296,6 +314,9 @@ final class SwitchStatement extends EditableSyntax {
   }
 
   public function with_right_brace(EditableSyntax $value): this {
+    if ($value === $this->_right_brace) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_paren,

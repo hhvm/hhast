@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<871804ce0db3bea88319af470cb59bdd>>
+ * @generated SignedSource<<cdf599c39f38c814b6d6a5aac2106ac0>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -100,6 +100,9 @@ final class DictionaryIntrinsicExpression extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
+    if ($value === $this->_keyword) {
+      return $this;
+    }
     return new self($value, $this->_left_bracket, $this->_members, $this->_right_bracket);
   }
 
@@ -116,6 +119,9 @@ final class DictionaryIntrinsicExpression extends EditableSyntax {
   }
 
   public function with_left_bracket(EditableSyntax $value): this {
+    if ($value === $this->_left_bracket) {
+      return $this;
+    }
     return new self($this->_keyword, $value, $this->_members, $this->_right_bracket);
   }
 
@@ -132,6 +138,9 @@ final class DictionaryIntrinsicExpression extends EditableSyntax {
   }
 
   public function with_members(EditableSyntax $value): this {
+    if ($value === $this->_members) {
+      return $this;
+    }
     return new self($this->_keyword, $this->_left_bracket, $value, $this->_right_bracket);
   }
 
@@ -148,6 +157,9 @@ final class DictionaryIntrinsicExpression extends EditableSyntax {
   }
 
   public function with_right_bracket(EditableSyntax $value): this {
+    if ($value === $this->_right_bracket) {
+      return $this;
+    }
     return new self($this->_keyword, $this->_left_bracket, $this->_members, $value);
   }
 }

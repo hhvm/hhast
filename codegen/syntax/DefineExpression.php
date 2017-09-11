@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6b9da5ccc9167992749ad83ab7d642e9>>
+ * @generated SignedSource<<4c6e5796d65695f0b1d94a820b9351cd>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -100,6 +100,9 @@ final class DefineExpression extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
+    if ($value === $this->_keyword) {
+      return $this;
+    }
     return new self(
       $value,
       $this->_left_paren,
@@ -121,6 +124,9 @@ final class DefineExpression extends EditableSyntax {
   }
 
   public function with_left_paren(EditableSyntax $value): this {
+    if ($value === $this->_left_paren) {
+      return $this;
+    }
     return new self($this->_keyword, $value, $this->_argument_list, $this->_right_paren);
   }
 
@@ -137,6 +143,9 @@ final class DefineExpression extends EditableSyntax {
   }
 
   public function with_argument_list(EditableSyntax $value): this {
+    if ($value === $this->_argument_list) {
+      return $this;
+    }
     return new self($this->_keyword, $this->_left_paren, $value, $this->_right_paren);
   }
 
@@ -153,6 +162,9 @@ final class DefineExpression extends EditableSyntax {
   }
 
   public function with_right_paren(EditableSyntax $value): this {
+    if ($value === $this->_right_paren) {
+      return $this;
+    }
     return new self($this->_keyword, $this->_left_paren, $this->_argument_list, $value);
   }
 }

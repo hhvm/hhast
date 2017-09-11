@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1b83cd162d72f08e0ed25ce333002eec>>
+ * @generated SignedSource<<f5974ab10aab49d387e074b0af43d6f1>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -112,6 +112,9 @@ final class ShapeTypeSpecifier extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
+    if ($value === $this->_keyword) {
+      return $this;
+    }
     return new self(
       $value,
       $this->_left_paren,
@@ -134,6 +137,9 @@ final class ShapeTypeSpecifier extends EditableSyntax {
   }
 
   public function with_left_paren(EditableSyntax $value): this {
+    if ($value === $this->_left_paren) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $value,
@@ -156,6 +162,9 @@ final class ShapeTypeSpecifier extends EditableSyntax {
   }
 
   public function with_fields(EditableSyntax $value): this {
+    if ($value === $this->_fields) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_paren,
@@ -178,6 +187,9 @@ final class ShapeTypeSpecifier extends EditableSyntax {
   }
 
   public function with_ellipsis(EditableSyntax $value): this {
+    if ($value === $this->_ellipsis) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_paren,
@@ -200,6 +212,9 @@ final class ShapeTypeSpecifier extends EditableSyntax {
   }
 
   public function with_right_paren(EditableSyntax $value): this {
+    if ($value === $this->_right_paren) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_paren,

@@ -105,6 +105,9 @@ final class CodegenSyntax extends CodegenBase {
             ->setBody(
               $cg
                 ->codegenHackBuilder()
+                ->startIfBlockf('$value === $this->_%s', $field)
+                ->addReturnf('$this')
+                ->endIfBlock()
                 ->add('return new ')
                 ->addMultilineCall(
                   'self',

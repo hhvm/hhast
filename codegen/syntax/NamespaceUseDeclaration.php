@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d69b98de69d0c14a4e7ead25f1aad92a>>
+ * @generated SignedSource<<c7001776200698402b936a80464205b9>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -100,6 +100,9 @@ final class NamespaceUseDeclaration extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
+    if ($value === $this->_keyword) {
+      return $this;
+    }
     return new self($value, $this->_kind, $this->_clauses, $this->_semicolon);
   }
 
@@ -116,6 +119,9 @@ final class NamespaceUseDeclaration extends EditableSyntax {
   }
 
   public function with_kind(EditableSyntax $value): this {
+    if ($value === $this->_kind) {
+      return $this;
+    }
     return new self($this->_keyword, $value, $this->_clauses, $this->_semicolon);
   }
 
@@ -132,6 +138,9 @@ final class NamespaceUseDeclaration extends EditableSyntax {
   }
 
   public function with_clauses(EditableSyntax $value): this {
+    if ($value === $this->_clauses) {
+      return $this;
+    }
     return new self($this->_keyword, $this->_kind, $value, $this->_semicolon);
   }
 
@@ -148,6 +157,9 @@ final class NamespaceUseDeclaration extends EditableSyntax {
   }
 
   public function with_semicolon(EditableSyntax $value): this {
+    if ($value === $this->_semicolon) {
+      return $this;
+    }
     return new self($this->_keyword, $this->_kind, $this->_clauses, $value);
   }
 }

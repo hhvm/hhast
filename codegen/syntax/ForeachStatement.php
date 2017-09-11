@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d973c14646632a6da48795ee81dc6f1d>>
+ * @generated SignedSource<<5064c89349d50c360e27e7fbc13169b7>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -194,6 +194,9 @@ final class ForeachStatement extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
+    if ($value === $this->_keyword) {
+      return $this;
+    }
     return new self(
       $value,
       $this->_left_paren,
@@ -221,6 +224,9 @@ final class ForeachStatement extends EditableSyntax {
   }
 
   public function with_left_paren(EditableSyntax $value): this {
+    if ($value === $this->_left_paren) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $value,
@@ -248,6 +254,9 @@ final class ForeachStatement extends EditableSyntax {
   }
 
   public function with_collection(EditableSyntax $value): this {
+    if ($value === $this->_collection) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_paren,
@@ -275,6 +284,9 @@ final class ForeachStatement extends EditableSyntax {
   }
 
   public function with_await_keyword(EditableSyntax $value): this {
+    if ($value === $this->_await_keyword) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_paren,
@@ -302,6 +314,9 @@ final class ForeachStatement extends EditableSyntax {
   }
 
   public function with_as(EditableSyntax $value): this {
+    if ($value === $this->_as) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_paren,
@@ -329,6 +344,9 @@ final class ForeachStatement extends EditableSyntax {
   }
 
   public function with_key(EditableSyntax $value): this {
+    if ($value === $this->_key) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_paren,
@@ -356,6 +374,9 @@ final class ForeachStatement extends EditableSyntax {
   }
 
   public function with_arrow(EditableSyntax $value): this {
+    if ($value === $this->_arrow) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_paren,
@@ -383,6 +404,9 @@ final class ForeachStatement extends EditableSyntax {
   }
 
   public function with_value(EditableSyntax $value): this {
+    if ($value === $this->_value) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_paren,
@@ -410,6 +434,9 @@ final class ForeachStatement extends EditableSyntax {
   }
 
   public function with_right_paren(EditableSyntax $value): this {
+    if ($value === $this->_right_paren) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_paren,
@@ -437,6 +464,9 @@ final class ForeachStatement extends EditableSyntax {
   }
 
   public function with_body(EditableSyntax $value): this {
+    if ($value === $this->_body) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_paren,

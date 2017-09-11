@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bcf0c2122813ce3fec774ad3617a253e>>
+ * @generated SignedSource<<c368e833a4c72cdc03e2e2b1a59e3d92>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -88,6 +88,9 @@ final class AwaitableCreationExpression extends EditableSyntax {
   }
 
   public function with_async(EditableSyntax $value): this {
+    if ($value === $this->_async) {
+      return $this;
+    }
     return new self($value, $this->_coroutine, $this->_compound_statement);
   }
 
@@ -104,6 +107,9 @@ final class AwaitableCreationExpression extends EditableSyntax {
   }
 
   public function with_coroutine(EditableSyntax $value): this {
+    if ($value === $this->_coroutine) {
+      return $this;
+    }
     return new self($this->_async, $value, $this->_compound_statement);
   }
 
@@ -120,6 +126,9 @@ final class AwaitableCreationExpression extends EditableSyntax {
   }
 
   public function with_compound_statement(EditableSyntax $value): this {
+    if ($value === $this->_compound_statement) {
+      return $this;
+    }
     return new self($this->_async, $this->_coroutine, $value);
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<64bb02ba3035580e31ae726445e3d504>>
+ * @generated SignedSource<<ad4dfcdd1da80e74efbb27de15d904dc>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -118,6 +118,9 @@ final class ConstDeclaration extends EditableSyntax {
   }
 
   public function with_abstract(EditableSyntax $value): this {
+    if ($value === $this->_abstract) {
+      return $this;
+    }
     return new self(
       $value,
       $this->_keyword,
@@ -140,6 +143,9 @@ final class ConstDeclaration extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
+    if ($value === $this->_keyword) {
+      return $this;
+    }
     return new self(
       $this->_abstract,
       $value,
@@ -162,6 +168,9 @@ final class ConstDeclaration extends EditableSyntax {
   }
 
   public function with_type_specifier(EditableSyntax $value): this {
+    if ($value === $this->_type_specifier) {
+      return $this;
+    }
     return new self(
       $this->_abstract,
       $this->_keyword,
@@ -184,6 +193,9 @@ final class ConstDeclaration extends EditableSyntax {
   }
 
   public function with_declarators(EditableSyntax $value): this {
+    if ($value === $this->_declarators) {
+      return $this;
+    }
     return new self(
       $this->_abstract,
       $this->_keyword,
@@ -206,6 +218,9 @@ final class ConstDeclaration extends EditableSyntax {
   }
 
   public function with_semicolon(EditableSyntax $value): this {
+    if ($value === $this->_semicolon) {
+      return $this;
+    }
     return new self(
       $this->_abstract,
       $this->_keyword,

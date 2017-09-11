@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4dd65437c6a6385b07e02022591338ff>>
+ * @generated SignedSource<<27d891cb82242b1be30e73fb4939684d>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -88,6 +88,9 @@ final class AttributeSpecification extends EditableSyntax {
   }
 
   public function with_left_double_angle(EditableSyntax $value): this {
+    if ($value === $this->_left_double_angle) {
+      return $this;
+    }
     return new self($value, $this->_attributes, $this->_right_double_angle);
   }
 
@@ -104,6 +107,9 @@ final class AttributeSpecification extends EditableSyntax {
   }
 
   public function with_attributes(EditableSyntax $value): this {
+    if ($value === $this->_attributes) {
+      return $this;
+    }
     return new self($this->_left_double_angle, $value, $this->_right_double_angle);
   }
 
@@ -120,6 +126,9 @@ final class AttributeSpecification extends EditableSyntax {
   }
 
   public function with_right_double_angle(EditableSyntax $value): this {
+    if ($value === $this->_right_double_angle) {
+      return $this;
+    }
     return new self($this->_left_double_angle, $this->_attributes, $value);
   }
 }

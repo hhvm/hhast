@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<658068f8db35c154952d9bbb449e65f6>>
+ * @generated SignedSource<<5c04cf7deb897b1b8b3aa1fdbecd85b5>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -76,6 +76,9 @@ final class PostfixUnaryExpression extends EditableSyntax {
   }
 
   public function with_operand(EditableSyntax $value): this {
+    if ($value === $this->_operand) {
+      return $this;
+    }
     return new self($value, $this->_operator);
   }
 
@@ -92,6 +95,9 @@ final class PostfixUnaryExpression extends EditableSyntax {
   }
 
   public function with_operator(EditableSyntax $value): this {
+    if ($value === $this->_operator) {
+      return $this;
+    }
     return new self($this->_operand, $value);
   }
 }

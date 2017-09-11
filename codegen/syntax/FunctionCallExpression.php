@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<05a137d58deaf6f0111b00323c3bd8ee>>
+ * @generated SignedSource<<d6d62b7906f1158d2cad6a0e176fc7e8>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -100,6 +100,9 @@ final class FunctionCallExpression extends EditableSyntax {
   }
 
   public function with_receiver(EditableSyntax $value): this {
+    if ($value === $this->_receiver) {
+      return $this;
+    }
     return new self(
       $value,
       $this->_left_paren,
@@ -121,6 +124,9 @@ final class FunctionCallExpression extends EditableSyntax {
   }
 
   public function with_left_paren(EditableSyntax $value): this {
+    if ($value === $this->_left_paren) {
+      return $this;
+    }
     return new self($this->_receiver, $value, $this->_argument_list, $this->_right_paren);
   }
 
@@ -137,6 +143,9 @@ final class FunctionCallExpression extends EditableSyntax {
   }
 
   public function with_argument_list(EditableSyntax $value): this {
+    if ($value === $this->_argument_list) {
+      return $this;
+    }
     return new self($this->_receiver, $this->_left_paren, $value, $this->_right_paren);
   }
 
@@ -153,6 +162,9 @@ final class FunctionCallExpression extends EditableSyntax {
   }
 
   public function with_right_paren(EditableSyntax $value): this {
+    if ($value === $this->_right_paren) {
+      return $this;
+    }
     return new self($this->_receiver, $this->_left_paren, $this->_argument_list, $value);
   }
 }

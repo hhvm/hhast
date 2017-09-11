@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1b35a41927127124dfd21875f887d6d9>>
+ * @generated SignedSource<<4f7873f13e86d942eff986bd9e6c954e>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -100,6 +100,9 @@ final class CastExpression extends EditableSyntax {
   }
 
   public function with_left_paren(EditableSyntax $value): this {
+    if ($value === $this->_left_paren) {
+      return $this;
+    }
     return new self($value, $this->_type, $this->_right_paren, $this->_operand);
   }
 
@@ -116,6 +119,9 @@ final class CastExpression extends EditableSyntax {
   }
 
   public function with_type(EditableSyntax $value): this {
+    if ($value === $this->_type) {
+      return $this;
+    }
     return new self($this->_left_paren, $value, $this->_right_paren, $this->_operand);
   }
 
@@ -132,6 +138,9 @@ final class CastExpression extends EditableSyntax {
   }
 
   public function with_right_paren(EditableSyntax $value): this {
+    if ($value === $this->_right_paren) {
+      return $this;
+    }
     return new self($this->_left_paren, $this->_type, $value, $this->_operand);
   }
 
@@ -148,6 +157,9 @@ final class CastExpression extends EditableSyntax {
   }
 
   public function with_operand(EditableSyntax $value): this {
+    if ($value === $this->_operand) {
+      return $this;
+    }
     return new self($this->_left_paren, $this->_type, $this->_right_paren, $value);
   }
 }

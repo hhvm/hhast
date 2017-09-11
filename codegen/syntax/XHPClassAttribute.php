@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<19c4ad4da432292c468ac8e03dc45597>>
+ * @generated SignedSource<<bf786c9b9cd00dccb804d70f9b428759>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -100,6 +100,9 @@ final class XHPClassAttribute extends EditableSyntax {
   }
 
   public function with_type(EditableSyntax $value): this {
+    if ($value === $this->_type) {
+      return $this;
+    }
     return new self($value, $this->_name, $this->_initializer, $this->_required);
   }
 
@@ -116,6 +119,9 @@ final class XHPClassAttribute extends EditableSyntax {
   }
 
   public function with_name(EditableSyntax $value): this {
+    if ($value === $this->_name) {
+      return $this;
+    }
     return new self($this->_type, $value, $this->_initializer, $this->_required);
   }
 
@@ -132,6 +138,9 @@ final class XHPClassAttribute extends EditableSyntax {
   }
 
   public function with_initializer(EditableSyntax $value): this {
+    if ($value === $this->_initializer) {
+      return $this;
+    }
     return new self($this->_type, $this->_name, $value, $this->_required);
   }
 
@@ -148,6 +157,9 @@ final class XHPClassAttribute extends EditableSyntax {
   }
 
   public function with_required(EditableSyntax $value): this {
+    if ($value === $this->_required) {
+      return $this;
+    }
     return new self($this->_type, $this->_name, $this->_initializer, $value);
   }
 }

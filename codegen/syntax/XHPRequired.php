@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d0272a10633c9521630825c4c90a18e1>>
+ * @generated SignedSource<<e2f7e9e8a88f737b99c63e43227177ea>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -73,6 +73,9 @@ final class XHPRequired extends EditableSyntax {
   }
 
   public function with_at(EditableSyntax $value): this {
+    if ($value === $this->_at) {
+      return $this;
+    }
     return new self($value, $this->_keyword);
   }
 
@@ -89,6 +92,9 @@ final class XHPRequired extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
+    if ($value === $this->_keyword) {
+      return $this;
+    }
     return new self($this->_at, $value);
   }
 }

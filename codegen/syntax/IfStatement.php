@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5bdbf4000781d18a3c4a640452a34647>>
+ * @generated SignedSource<<3ded81b0d6520e92a257503d129e74bf>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -152,6 +152,9 @@ final class IfStatement extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
+    if ($value === $this->_keyword) {
+      return $this;
+    }
     return new self(
       $value,
       $this->_left_paren,
@@ -176,6 +179,9 @@ final class IfStatement extends EditableSyntax {
   }
 
   public function with_left_paren(EditableSyntax $value): this {
+    if ($value === $this->_left_paren) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $value,
@@ -200,6 +206,9 @@ final class IfStatement extends EditableSyntax {
   }
 
   public function with_condition(EditableSyntax $value): this {
+    if ($value === $this->_condition) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_paren,
@@ -224,6 +233,9 @@ final class IfStatement extends EditableSyntax {
   }
 
   public function with_right_paren(EditableSyntax $value): this {
+    if ($value === $this->_right_paren) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_paren,
@@ -248,6 +260,9 @@ final class IfStatement extends EditableSyntax {
   }
 
   public function with_statement(EditableSyntax $value): this {
+    if ($value === $this->_statement) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_paren,
@@ -272,6 +287,9 @@ final class IfStatement extends EditableSyntax {
   }
 
   public function with_elseif_clauses(EditableSyntax $value): this {
+    if ($value === $this->_elseif_clauses) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_paren,
@@ -296,6 +314,9 @@ final class IfStatement extends EditableSyntax {
   }
 
   public function with_else_clause(EditableSyntax $value): this {
+    if ($value === $this->_else_clause) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_paren,

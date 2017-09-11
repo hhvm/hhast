@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<93e1ebe4a2c2ea3a43619813b1141323>>
+ * @generated SignedSource<<b9beae674fecdf67892793b30a872e4a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -88,6 +88,9 @@ final class NamespaceDeclaration extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
+    if ($value === $this->_keyword) {
+      return $this;
+    }
     return new self($value, $this->_name, $this->_body);
   }
 
@@ -104,6 +107,9 @@ final class NamespaceDeclaration extends EditableSyntax {
   }
 
   public function with_name(EditableSyntax $value): this {
+    if ($value === $this->_name) {
+      return $this;
+    }
     return new self($this->_keyword, $value, $this->_body);
   }
 
@@ -120,6 +126,9 @@ final class NamespaceDeclaration extends EditableSyntax {
   }
 
   public function with_body(EditableSyntax $value): this {
+    if ($value === $this->_body) {
+      return $this;
+    }
     return new self($this->_keyword, $this->_name, $value);
   }
 }

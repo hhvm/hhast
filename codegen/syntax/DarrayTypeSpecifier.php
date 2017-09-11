@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<928ec47c95f808f35fd3f80eabd20a6f>>
+ * @generated SignedSource<<5210df773d51d95f210a3cf214abf0b5>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -152,6 +152,9 @@ final class DarrayTypeSpecifier extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
+    if ($value === $this->_keyword) {
+      return $this;
+    }
     return new self(
       $value,
       $this->_left_angle,
@@ -176,6 +179,9 @@ final class DarrayTypeSpecifier extends EditableSyntax {
   }
 
   public function with_left_angle(EditableSyntax $value): this {
+    if ($value === $this->_left_angle) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $value,
@@ -200,6 +206,9 @@ final class DarrayTypeSpecifier extends EditableSyntax {
   }
 
   public function with_key(EditableSyntax $value): this {
+    if ($value === $this->_key) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_angle,
@@ -224,6 +233,9 @@ final class DarrayTypeSpecifier extends EditableSyntax {
   }
 
   public function with_comma(EditableSyntax $value): this {
+    if ($value === $this->_comma) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_angle,
@@ -248,6 +260,9 @@ final class DarrayTypeSpecifier extends EditableSyntax {
   }
 
   public function with_value(EditableSyntax $value): this {
+    if ($value === $this->_value) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_angle,
@@ -272,6 +287,9 @@ final class DarrayTypeSpecifier extends EditableSyntax {
   }
 
   public function with_trailing_comma(EditableSyntax $value): this {
+    if ($value === $this->_trailing_comma) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_angle,
@@ -296,6 +314,9 @@ final class DarrayTypeSpecifier extends EditableSyntax {
   }
 
   public function with_right_angle(EditableSyntax $value): this {
+    if ($value === $this->_right_angle) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_left_angle,

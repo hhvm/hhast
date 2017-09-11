@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<586fcaa2b6dd4bf6273a31e850a92f69>>
+ * @generated SignedSource<<62ec322dd0190975dabc1aaa54a3cfc0>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -180,6 +180,9 @@ final class EnumDeclaration extends EditableSyntax {
   }
 
   public function with_attribute_spec(EditableSyntax $value): this {
+    if ($value === $this->_attribute_spec) {
+      return $this;
+    }
     return new self(
       $value,
       $this->_keyword,
@@ -206,6 +209,9 @@ final class EnumDeclaration extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
+    if ($value === $this->_keyword) {
+      return $this;
+    }
     return new self(
       $this->_attribute_spec,
       $value,
@@ -232,6 +238,9 @@ final class EnumDeclaration extends EditableSyntax {
   }
 
   public function with_name(EditableSyntax $value): this {
+    if ($value === $this->_name) {
+      return $this;
+    }
     return new self(
       $this->_attribute_spec,
       $this->_keyword,
@@ -258,6 +267,9 @@ final class EnumDeclaration extends EditableSyntax {
   }
 
   public function with_colon(EditableSyntax $value): this {
+    if ($value === $this->_colon) {
+      return $this;
+    }
     return new self(
       $this->_attribute_spec,
       $this->_keyword,
@@ -284,6 +296,9 @@ final class EnumDeclaration extends EditableSyntax {
   }
 
   public function with_base(EditableSyntax $value): this {
+    if ($value === $this->_base) {
+      return $this;
+    }
     return new self(
       $this->_attribute_spec,
       $this->_keyword,
@@ -310,6 +325,9 @@ final class EnumDeclaration extends EditableSyntax {
   }
 
   public function with_type(EditableSyntax $value): this {
+    if ($value === $this->_type) {
+      return $this;
+    }
     return new self(
       $this->_attribute_spec,
       $this->_keyword,
@@ -336,6 +354,9 @@ final class EnumDeclaration extends EditableSyntax {
   }
 
   public function with_left_brace(EditableSyntax $value): this {
+    if ($value === $this->_left_brace) {
+      return $this;
+    }
     return new self(
       $this->_attribute_spec,
       $this->_keyword,
@@ -362,6 +383,9 @@ final class EnumDeclaration extends EditableSyntax {
   }
 
   public function with_enumerators(EditableSyntax $value): this {
+    if ($value === $this->_enumerators) {
+      return $this;
+    }
     return new self(
       $this->_attribute_spec,
       $this->_keyword,
@@ -388,6 +412,9 @@ final class EnumDeclaration extends EditableSyntax {
   }
 
   public function with_right_brace(EditableSyntax $value): this {
+    if ($value === $this->_right_brace) {
+      return $this;
+    }
     return new self(
       $this->_attribute_spec,
       $this->_keyword,

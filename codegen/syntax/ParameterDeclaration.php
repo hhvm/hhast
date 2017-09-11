@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<618f012cff04317a31dc55cbd7dfc44d>>
+ * @generated SignedSource<<efd86d768e46f542434e5e76fc22e4e0>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -112,6 +112,9 @@ final class ParameterDeclaration extends EditableSyntax {
   }
 
   public function with_attribute(EditableSyntax $value): this {
+    if ($value === $this->_attribute) {
+      return $this;
+    }
     return new self(
       $value,
       $this->_visibility,
@@ -134,6 +137,9 @@ final class ParameterDeclaration extends EditableSyntax {
   }
 
   public function with_visibility(EditableSyntax $value): this {
+    if ($value === $this->_visibility) {
+      return $this;
+    }
     return new self(
       $this->_attribute,
       $value,
@@ -156,6 +162,9 @@ final class ParameterDeclaration extends EditableSyntax {
   }
 
   public function with_type(EditableSyntax $value): this {
+    if ($value === $this->_type) {
+      return $this;
+    }
     return new self(
       $this->_attribute,
       $this->_visibility,
@@ -178,6 +187,9 @@ final class ParameterDeclaration extends EditableSyntax {
   }
 
   public function with_name(EditableSyntax $value): this {
+    if ($value === $this->_name) {
+      return $this;
+    }
     return new self(
       $this->_attribute,
       $this->_visibility,
@@ -200,6 +212,9 @@ final class ParameterDeclaration extends EditableSyntax {
   }
 
   public function with_default_value(EditableSyntax $value): this {
+    if ($value === $this->_default_value) {
+      return $this;
+    }
     return new self(
       $this->_attribute,
       $this->_visibility,

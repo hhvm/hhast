@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ce8ab8e7f2fa401cc5edd0861db53343>>
+ * @generated SignedSource<<2cf393ab27e1c120cc301ac0bcf4c3a0>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -166,6 +166,9 @@ final class TypeConstDeclaration extends EditableSyntax {
   }
 
   public function with_abstract(EditableSyntax $value): this {
+    if ($value === $this->_abstract) {
+      return $this;
+    }
     return new self(
       $value,
       $this->_keyword,
@@ -191,6 +194,9 @@ final class TypeConstDeclaration extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
+    if ($value === $this->_keyword) {
+      return $this;
+    }
     return new self(
       $this->_abstract,
       $value,
@@ -216,6 +222,9 @@ final class TypeConstDeclaration extends EditableSyntax {
   }
 
   public function with_type_keyword(EditableSyntax $value): this {
+    if ($value === $this->_type_keyword) {
+      return $this;
+    }
     return new self(
       $this->_abstract,
       $this->_keyword,
@@ -241,6 +250,9 @@ final class TypeConstDeclaration extends EditableSyntax {
   }
 
   public function with_name(EditableSyntax $value): this {
+    if ($value === $this->_name) {
+      return $this;
+    }
     return new self(
       $this->_abstract,
       $this->_keyword,
@@ -266,6 +278,9 @@ final class TypeConstDeclaration extends EditableSyntax {
   }
 
   public function with_type_constraint(EditableSyntax $value): this {
+    if ($value === $this->_type_constraint) {
+      return $this;
+    }
     return new self(
       $this->_abstract,
       $this->_keyword,
@@ -291,6 +306,9 @@ final class TypeConstDeclaration extends EditableSyntax {
   }
 
   public function with_equal(EditableSyntax $value): this {
+    if ($value === $this->_equal) {
+      return $this;
+    }
     return new self(
       $this->_abstract,
       $this->_keyword,
@@ -316,6 +334,9 @@ final class TypeConstDeclaration extends EditableSyntax {
   }
 
   public function with_type_specifier(EditableSyntax $value): this {
+    if ($value === $this->_type_specifier) {
+      return $this;
+    }
     return new self(
       $this->_abstract,
       $this->_keyword,
@@ -341,6 +362,9 @@ final class TypeConstDeclaration extends EditableSyntax {
   }
 
   public function with_semicolon(EditableSyntax $value): this {
+    if ($value === $this->_semicolon) {
+      return $this;
+    }
     return new self(
       $this->_abstract,
       $this->_keyword,

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<47e9a38741b79e58d4ef08da78bc3793>>
+ * @generated SignedSource<<a2f53a14422667c2b2b645b6fba8dfa8>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -222,6 +222,9 @@ final class FunctionDeclarationHeader extends EditableSyntax {
   }
 
   public function with_async(EditableSyntax $value): this {
+    if ($value === $this->_async) {
+      return $this;
+    }
     return new self(
       $value,
       $this->_coroutine,
@@ -251,6 +254,9 @@ final class FunctionDeclarationHeader extends EditableSyntax {
   }
 
   public function with_coroutine(EditableSyntax $value): this {
+    if ($value === $this->_coroutine) {
+      return $this;
+    }
     return new self(
       $this->_async,
       $value,
@@ -280,6 +286,9 @@ final class FunctionDeclarationHeader extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
+    if ($value === $this->_keyword) {
+      return $this;
+    }
     return new self(
       $this->_async,
       $this->_coroutine,
@@ -309,6 +318,9 @@ final class FunctionDeclarationHeader extends EditableSyntax {
   }
 
   public function with_ampersand(EditableSyntax $value): this {
+    if ($value === $this->_ampersand) {
+      return $this;
+    }
     return new self(
       $this->_async,
       $this->_coroutine,
@@ -338,6 +350,9 @@ final class FunctionDeclarationHeader extends EditableSyntax {
   }
 
   public function with_name(EditableSyntax $value): this {
+    if ($value === $this->_name) {
+      return $this;
+    }
     return new self(
       $this->_async,
       $this->_coroutine,
@@ -367,6 +382,9 @@ final class FunctionDeclarationHeader extends EditableSyntax {
   }
 
   public function with_type_parameter_list(EditableSyntax $value): this {
+    if ($value === $this->_type_parameter_list) {
+      return $this;
+    }
     return new self(
       $this->_async,
       $this->_coroutine,
@@ -396,6 +414,9 @@ final class FunctionDeclarationHeader extends EditableSyntax {
   }
 
   public function with_left_paren(EditableSyntax $value): this {
+    if ($value === $this->_left_paren) {
+      return $this;
+    }
     return new self(
       $this->_async,
       $this->_coroutine,
@@ -425,6 +446,9 @@ final class FunctionDeclarationHeader extends EditableSyntax {
   }
 
   public function with_parameter_list(EditableSyntax $value): this {
+    if ($value === $this->_parameter_list) {
+      return $this;
+    }
     return new self(
       $this->_async,
       $this->_coroutine,
@@ -454,6 +478,9 @@ final class FunctionDeclarationHeader extends EditableSyntax {
   }
 
   public function with_right_paren(EditableSyntax $value): this {
+    if ($value === $this->_right_paren) {
+      return $this;
+    }
     return new self(
       $this->_async,
       $this->_coroutine,
@@ -483,6 +510,9 @@ final class FunctionDeclarationHeader extends EditableSyntax {
   }
 
   public function with_colon(EditableSyntax $value): this {
+    if ($value === $this->_colon) {
+      return $this;
+    }
     return new self(
       $this->_async,
       $this->_coroutine,
@@ -512,6 +542,9 @@ final class FunctionDeclarationHeader extends EditableSyntax {
   }
 
   public function with_type(EditableSyntax $value): this {
+    if ($value === $this->_type) {
+      return $this;
+    }
     return new self(
       $this->_async,
       $this->_coroutine,
@@ -541,6 +574,9 @@ final class FunctionDeclarationHeader extends EditableSyntax {
   }
 
   public function with_where_clause(EditableSyntax $value): this {
+    if ($value === $this->_where_clause) {
+      return $this;
+    }
     return new self(
       $this->_async,
       $this->_coroutine,

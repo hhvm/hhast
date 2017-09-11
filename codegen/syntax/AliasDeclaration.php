@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f39cd05097a6caf789f0e12b373ea122>>
+ * @generated SignedSource<<bddf294b4bc453613ab79e050d2d3eb0>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -166,6 +166,9 @@ final class AliasDeclaration extends EditableSyntax {
   }
 
   public function with_attribute_spec(EditableSyntax $value): this {
+    if ($value === $this->_attribute_spec) {
+      return $this;
+    }
     return new self(
       $value,
       $this->_keyword,
@@ -191,6 +194,9 @@ final class AliasDeclaration extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
+    if ($value === $this->_keyword) {
+      return $this;
+    }
     return new self(
       $this->_attribute_spec,
       $value,
@@ -216,6 +222,9 @@ final class AliasDeclaration extends EditableSyntax {
   }
 
   public function with_name(EditableSyntax $value): this {
+    if ($value === $this->_name) {
+      return $this;
+    }
     return new self(
       $this->_attribute_spec,
       $this->_keyword,
@@ -241,6 +250,9 @@ final class AliasDeclaration extends EditableSyntax {
   }
 
   public function with_generic_parameter(EditableSyntax $value): this {
+    if ($value === $this->_generic_parameter) {
+      return $this;
+    }
     return new self(
       $this->_attribute_spec,
       $this->_keyword,
@@ -266,6 +278,9 @@ final class AliasDeclaration extends EditableSyntax {
   }
 
   public function with_constraint(EditableSyntax $value): this {
+    if ($value === $this->_constraint) {
+      return $this;
+    }
     return new self(
       $this->_attribute_spec,
       $this->_keyword,
@@ -291,6 +306,9 @@ final class AliasDeclaration extends EditableSyntax {
   }
 
   public function with_equal(EditableSyntax $value): this {
+    if ($value === $this->_equal) {
+      return $this;
+    }
     return new self(
       $this->_attribute_spec,
       $this->_keyword,
@@ -316,6 +334,9 @@ final class AliasDeclaration extends EditableSyntax {
   }
 
   public function with_type(EditableSyntax $value): this {
+    if ($value === $this->_type) {
+      return $this;
+    }
     return new self(
       $this->_attribute_spec,
       $this->_keyword,
@@ -341,6 +362,9 @@ final class AliasDeclaration extends EditableSyntax {
   }
 
   public function with_semicolon(EditableSyntax $value): this {
+    if ($value === $this->_semicolon) {
+      return $this;
+    }
     return new self(
       $this->_attribute_spec,
       $this->_keyword,

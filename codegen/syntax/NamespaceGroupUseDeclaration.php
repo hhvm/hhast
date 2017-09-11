@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6bdd9b502e1b96056473d8e0f4fe636b>>
+ * @generated SignedSource<<806fa91063458d32dd91b10b39b47c2e>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -152,6 +152,9 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
   }
 
   public function with_keyword(EditableSyntax $value): this {
+    if ($value === $this->_keyword) {
+      return $this;
+    }
     return new self(
       $value,
       $this->_kind,
@@ -176,6 +179,9 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
   }
 
   public function with_kind(EditableSyntax $value): this {
+    if ($value === $this->_kind) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $value,
@@ -200,6 +206,9 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
   }
 
   public function with_prefix(EditableSyntax $value): this {
+    if ($value === $this->_prefix) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_kind,
@@ -224,6 +233,9 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
   }
 
   public function with_left_brace(EditableSyntax $value): this {
+    if ($value === $this->_left_brace) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_kind,
@@ -248,6 +260,9 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
   }
 
   public function with_clauses(EditableSyntax $value): this {
+    if ($value === $this->_clauses) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_kind,
@@ -272,6 +287,9 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
   }
 
   public function with_right_brace(EditableSyntax $value): this {
+    if ($value === $this->_right_brace) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_kind,
@@ -296,6 +314,9 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
   }
 
   public function with_semicolon(EditableSyntax $value): this {
+    if ($value === $this->_semicolon) {
+      return $this;
+    }
     return new self(
       $this->_keyword,
       $this->_kind,
