@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ba8d17bf0aed7594e620f640beb7dc17>>
+ * @generated SignedSource<<050ffe94ada17480a35a21cd8c15db2d>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -218,6 +218,10 @@ final class AnonymousFunction extends EditableSyntax {
     );
   }
 
+  public function hasStaticKeyword(): bool {
+    return !$this->_static_keyword->is_missing();
+  }
+
   public function static_keyword(): ?StaticToken {
     if ($this->_static_keyword->is_missing()) {
       return null;
@@ -250,6 +254,10 @@ final class AnonymousFunction extends EditableSyntax {
       $this->_use,
       $this->_body,
     );
+  }
+
+  public function hasAsyncKeyword(): bool {
+    return !$this->_async_keyword->is_missing();
   }
 
   public function async_keyword(): ?AsyncToken {
@@ -286,6 +294,10 @@ final class AnonymousFunction extends EditableSyntax {
     );
   }
 
+  public function hasCoroutineKeyword(): bool {
+    return !$this->_coroutine_keyword->is_missing();
+  }
+
   public function coroutine_keyword(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_coroutine_keyword);
   }
@@ -313,6 +325,10 @@ final class AnonymousFunction extends EditableSyntax {
     );
   }
 
+  public function hasFunctionKeyword(): bool {
+    return !$this->_function_keyword->is_missing();
+  }
+
   public function function_keyword(): FunctionToken {
     return TypeAssert::isInstanceOf(FunctionToken::class, $this->_function_keyword);
   }
@@ -338,6 +354,10 @@ final class AnonymousFunction extends EditableSyntax {
       $this->_use,
       $this->_body,
     );
+  }
+
+  public function hasLeftParen(): bool {
+    return !$this->_left_paren->is_missing();
   }
 
   public function left_paren(): ?LeftParenToken {
@@ -374,6 +394,10 @@ final class AnonymousFunction extends EditableSyntax {
     );
   }
 
+  public function hasParameters(): bool {
+    return !$this->_parameters->is_missing();
+  }
+
   public function parameters(): ?EditableList {
     if ($this->_parameters->is_missing()) {
       return null;
@@ -406,6 +430,10 @@ final class AnonymousFunction extends EditableSyntax {
       $this->_use,
       $this->_body,
     );
+  }
+
+  public function hasRightParen(): bool {
+    return !$this->_right_paren->is_missing();
   }
 
   public function right_paren(): ?RightParenToken {
@@ -442,6 +470,10 @@ final class AnonymousFunction extends EditableSyntax {
     );
   }
 
+  public function hasColon(): bool {
+    return !$this->_colon->is_missing();
+  }
+
   public function colon(): ?ColonToken {
     if ($this->_colon->is_missing()) {
       return null;
@@ -476,6 +508,10 @@ final class AnonymousFunction extends EditableSyntax {
     );
   }
 
+  public function hasType(): bool {
+    return !$this->_type->is_missing();
+  }
+
   public function type(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
@@ -501,6 +537,10 @@ final class AnonymousFunction extends EditableSyntax {
       $value,
       $this->_body,
     );
+  }
+
+  public function hasUse(): bool {
+    return !$this->_use->is_missing();
   }
 
   public function use(): ?AnonymousFunctionUseClause {
@@ -535,6 +575,10 @@ final class AnonymousFunction extends EditableSyntax {
       $this->_use,
       $value,
     );
+  }
+
+  public function hasBody(): bool {
+    return !$this->_body->is_missing();
   }
 
   public function body(): CompoundStatement {

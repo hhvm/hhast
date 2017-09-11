@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<48208fe840b8fbc435318e8cb38c8d05>>
+ * @generated SignedSource<<71e1cd278f1b2179ce7ce68202f5850a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -98,6 +98,10 @@ final class NamespaceUseClause extends EditableSyntax {
     return new self($value, $this->_name, $this->_as, $this->_alias);
   }
 
+  public function hasClauseKind(): bool {
+    return !$this->_clause_kind->is_missing();
+  }
+
   public function clause_kind(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_clause_kind);
   }
@@ -113,6 +117,10 @@ final class NamespaceUseClause extends EditableSyntax {
     return new self($this->_clause_kind, $value, $this->_as, $this->_alias);
   }
 
+  public function hasName(): bool {
+    return !$this->_name->is_missing();
+  }
+
   public function name(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }
@@ -126,6 +134,10 @@ final class NamespaceUseClause extends EditableSyntax {
       return $this;
     }
     return new self($this->_clause_kind, $this->_name, $value, $this->_alias);
+  }
+
+  public function hasAs(): bool {
+    return !$this->_as->is_missing();
   }
 
   public function as(): ?AsToken {
@@ -148,6 +160,10 @@ final class NamespaceUseClause extends EditableSyntax {
       return $this;
     }
     return new self($this->_clause_kind, $this->_name, $this->_as, $value);
+  }
+
+  public function hasAlias(): bool {
+    return !$this->_alias->is_missing();
   }
 
   public function alias(): ?NameToken {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0c1fdd8f86712cecd0a8766315826a4e>>
+ * @generated SignedSource<<44a142e0fa8924f503225ffce9563c24>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -86,6 +86,10 @@ final class ParenthesizedExpression extends EditableSyntax {
     return new self($value, $this->_expression, $this->_right_paren);
   }
 
+  public function hasLeftParen(): bool {
+    return !$this->_left_paren->is_missing();
+  }
+
   public function left_paren(): LeftParenToken {
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
@@ -101,6 +105,10 @@ final class ParenthesizedExpression extends EditableSyntax {
     return new self($this->_left_paren, $value, $this->_right_paren);
   }
 
+  public function hasExpression(): bool {
+    return !$this->_expression->is_missing();
+  }
+
   public function expression(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
   }
@@ -114,6 +122,10 @@ final class ParenthesizedExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_left_paren, $this->_expression, $value);
+  }
+
+  public function hasRightParen(): bool {
+    return !$this->_right_paren->is_missing();
   }
 
   public function right_paren(): ?RightParenToken {

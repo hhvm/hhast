@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<33cd64c5b7dede40856da78349d50d77>>
+ * @generated SignedSource<<97074e9cb5b6d5fcc9e8aded45455a2b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -173,6 +173,10 @@ final class TypeConstDeclaration extends EditableSyntax {
     );
   }
 
+  public function hasAbstract(): bool {
+    return !$this->_abstract->is_missing();
+  }
+
   public function abstract(): ?AbstractToken {
     if ($this->_abstract->is_missing()) {
       return null;
@@ -204,6 +208,10 @@ final class TypeConstDeclaration extends EditableSyntax {
     );
   }
 
+  public function hasKeyword(): bool {
+    return !$this->_keyword->is_missing();
+  }
+
   public function keyword(): ConstToken {
     return TypeAssert::isInstanceOf(ConstToken::class, $this->_keyword);
   }
@@ -228,6 +236,10 @@ final class TypeConstDeclaration extends EditableSyntax {
     );
   }
 
+  public function hasTypeKeyword(): bool {
+    return !$this->_type_keyword->is_missing();
+  }
+
   public function type_keyword(): TypeToken {
     return TypeAssert::isInstanceOf(TypeToken::class, $this->_type_keyword);
   }
@@ -250,6 +262,10 @@ final class TypeConstDeclaration extends EditableSyntax {
       $this->_type_specifier,
       $this->_semicolon,
     );
+  }
+
+  public function hasName(): bool {
+    return !$this->_name->is_missing();
   }
 
   public function name(): ?NameToken {
@@ -283,6 +299,10 @@ final class TypeConstDeclaration extends EditableSyntax {
     );
   }
 
+  public function hasTypeConstraint(): bool {
+    return !$this->_type_constraint->is_missing();
+  }
+
   public function type_constraint(): ?TypeConstraint {
     if ($this->_type_constraint->is_missing()) {
       return null;
@@ -312,6 +332,10 @@ final class TypeConstDeclaration extends EditableSyntax {
       $this->_type_specifier,
       $this->_semicolon,
     );
+  }
+
+  public function hasEqual(): bool {
+    return !$this->_equal->is_missing();
   }
 
   public function equal(): ?EqualToken {
@@ -345,6 +369,10 @@ final class TypeConstDeclaration extends EditableSyntax {
     );
   }
 
+  public function hasTypeSpecifier(): bool {
+    return !$this->_type_specifier->is_missing();
+  }
+
   public function type_specifier(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type_specifier);
   }
@@ -367,6 +395,10 @@ final class TypeConstDeclaration extends EditableSyntax {
       $this->_type_specifier,
       $value,
     );
+  }
+
+  public function hasSemicolon(): bool {
+    return !$this->_semicolon->is_missing();
   }
 
   public function semicolon(): ?SemicolonToken {

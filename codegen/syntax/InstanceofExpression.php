@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2f7fd25e3a8290bf84cd3a2052b7b3c1>>
+ * @generated SignedSource<<c05a2b9a6316ca81b3ecd96289ab5b41>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -86,6 +86,10 @@ final class InstanceofExpression extends EditableSyntax {
     return new self($value, $this->_operator, $this->_right_operand);
   }
 
+  public function hasLeftOperand(): bool {
+    return !$this->_left_operand->is_missing();
+  }
+
   public function left_operand(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_operand);
   }
@@ -101,6 +105,10 @@ final class InstanceofExpression extends EditableSyntax {
     return new self($this->_left_operand, $value, $this->_right_operand);
   }
 
+  public function hasOperator(): bool {
+    return !$this->_operator->is_missing();
+  }
+
   public function operator(): InstanceofToken {
     return TypeAssert::isInstanceOf(InstanceofToken::class, $this->_operator);
   }
@@ -114,6 +122,10 @@ final class InstanceofExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_left_operand, $this->_operator, $value);
+  }
+
+  public function hasRightOperand(): bool {
+    return !$this->_right_operand->is_missing();
   }
 
   public function right_operand(): EditableSyntax {

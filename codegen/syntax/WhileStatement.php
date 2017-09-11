@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b232db3e0eaa13e467842f10456b165f>>
+ * @generated SignedSource<<3f9e6626a3373b59bdb676064b7eeced>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -116,6 +116,10 @@ final class WhileStatement extends EditableSyntax {
     );
   }
 
+  public function hasKeyword(): bool {
+    return !$this->_keyword->is_missing();
+  }
+
   public function keyword(): WhileToken {
     return TypeAssert::isInstanceOf(WhileToken::class, $this->_keyword);
   }
@@ -135,6 +139,10 @@ final class WhileStatement extends EditableSyntax {
       $this->_right_paren,
       $this->_body,
     );
+  }
+
+  public function hasLeftParen(): bool {
+    return !$this->_left_paren->is_missing();
   }
 
   public function left_paren(): LeftParenToken {
@@ -158,6 +166,10 @@ final class WhileStatement extends EditableSyntax {
     );
   }
 
+  public function hasCondition(): bool {
+    return !$this->_condition->is_missing();
+  }
+
   public function condition(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_condition);
   }
@@ -179,6 +191,10 @@ final class WhileStatement extends EditableSyntax {
     );
   }
 
+  public function hasRightParen(): bool {
+    return !$this->_right_paren->is_missing();
+  }
+
   public function right_paren(): RightParenToken {
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
@@ -198,6 +214,10 @@ final class WhileStatement extends EditableSyntax {
       $this->_right_paren,
       $value,
     );
+  }
+
+  public function hasBody(): bool {
+    return !$this->_body->is_missing();
   }
 
   public function body(): EditableSyntax {

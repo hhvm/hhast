@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8078197ce1f71123eb5789214711c976>>
+ * @generated SignedSource<<798cbb15480b5b9fe4b37388a17492f3>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -86,6 +86,10 @@ final class TypeParameters extends EditableSyntax {
     return new self($value, $this->_parameters, $this->_right_angle);
   }
 
+  public function hasLeftAngle(): bool {
+    return !$this->_left_angle->is_missing();
+  }
+
   public function left_angle(): LessThanToken {
     return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
   }
@@ -101,6 +105,10 @@ final class TypeParameters extends EditableSyntax {
     return new self($this->_left_angle, $value, $this->_right_angle);
   }
 
+  public function hasParameters(): bool {
+    return !$this->_parameters->is_missing();
+  }
+
   public function parameters(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_parameters);
   }
@@ -114,6 +122,10 @@ final class TypeParameters extends EditableSyntax {
       return $this;
     }
     return new self($this->_left_angle, $this->_parameters, $value);
+  }
+
+  public function hasRightAngle(): bool {
+    return !$this->_right_angle->is_missing();
   }
 
   public function right_angle(): GreaterThanToken {

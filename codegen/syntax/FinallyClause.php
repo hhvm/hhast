@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<435af735e20c5977e920bf5aa5593e63>>
+ * @generated SignedSource<<c74b872e0ac39a62a71f6b8aac2d3d4f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -71,6 +71,10 @@ final class FinallyClause extends EditableSyntax {
     return new self($value, $this->_body);
   }
 
+  public function hasKeyword(): bool {
+    return !$this->_keyword->is_missing();
+  }
+
   public function keyword(): FinallyToken {
     return TypeAssert::isInstanceOf(FinallyToken::class, $this->_keyword);
   }
@@ -84,6 +88,10 @@ final class FinallyClause extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $value);
+  }
+
+  public function hasBody(): bool {
+    return !$this->_body->is_missing();
   }
 
   public function body(): CompoundStatement {

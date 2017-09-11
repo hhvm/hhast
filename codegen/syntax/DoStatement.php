@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d1e61e8d6f10127f574e6e730a530995>>
+ * @generated SignedSource<<114d68079bb698fc6a36f20f57f1658c>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -158,6 +158,10 @@ final class DoStatement extends EditableSyntax {
     );
   }
 
+  public function hasKeyword(): bool {
+    return !$this->_keyword->is_missing();
+  }
+
   public function keyword(): DoToken {
     return TypeAssert::isInstanceOf(DoToken::class, $this->_keyword);
   }
@@ -179,6 +183,10 @@ final class DoStatement extends EditableSyntax {
       $this->_right_paren,
       $this->_semicolon,
     );
+  }
+
+  public function hasBody(): bool {
+    return !$this->_body->is_missing();
   }
 
   public function body(): EditableSyntax {
@@ -204,6 +212,10 @@ final class DoStatement extends EditableSyntax {
     );
   }
 
+  public function hasWhileKeyword(): bool {
+    return !$this->_while_keyword->is_missing();
+  }
+
   public function while_keyword(): WhileToken {
     return TypeAssert::isInstanceOf(WhileToken::class, $this->_while_keyword);
   }
@@ -225,6 +237,10 @@ final class DoStatement extends EditableSyntax {
       $this->_right_paren,
       $this->_semicolon,
     );
+  }
+
+  public function hasLeftParen(): bool {
+    return !$this->_left_paren->is_missing();
   }
 
   public function left_paren(): LeftParenToken {
@@ -250,6 +266,10 @@ final class DoStatement extends EditableSyntax {
     );
   }
 
+  public function hasCondition(): bool {
+    return !$this->_condition->is_missing();
+  }
+
   public function condition(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_condition);
   }
@@ -273,6 +293,10 @@ final class DoStatement extends EditableSyntax {
     );
   }
 
+  public function hasRightParen(): bool {
+    return !$this->_right_paren->is_missing();
+  }
+
   public function right_paren(): RightParenToken {
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
@@ -294,6 +318,10 @@ final class DoStatement extends EditableSyntax {
       $this->_right_paren,
       $value,
     );
+  }
+
+  public function hasSemicolon(): bool {
+    return !$this->_semicolon->is_missing();
   }
 
   public function semicolon(): SemicolonToken {

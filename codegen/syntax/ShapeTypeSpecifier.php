@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7dda002b85d983ad7bf8b587f61f0fd1>>
+ * @generated SignedSource<<ef115dadc7de1b3031c547c894aec60e>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -116,6 +116,10 @@ final class ShapeTypeSpecifier extends EditableSyntax {
     );
   }
 
+  public function hasKeyword(): bool {
+    return !$this->_keyword->is_missing();
+  }
+
   public function keyword(): ShapeToken {
     return TypeAssert::isInstanceOf(ShapeToken::class, $this->_keyword);
   }
@@ -137,6 +141,10 @@ final class ShapeTypeSpecifier extends EditableSyntax {
     );
   }
 
+  public function hasLeftParen(): bool {
+    return !$this->_left_paren->is_missing();
+  }
+
   public function left_paren(): LeftParenToken {
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
@@ -156,6 +164,10 @@ final class ShapeTypeSpecifier extends EditableSyntax {
       $this->_ellipsis,
       $this->_right_paren,
     );
+  }
+
+  public function hasFields(): bool {
+    return !$this->_fields->is_missing();
   }
 
   public function fields(): ?EditableList {
@@ -186,6 +198,10 @@ final class ShapeTypeSpecifier extends EditableSyntax {
     );
   }
 
+  public function hasEllipsis(): bool {
+    return !$this->_ellipsis->is_missing();
+  }
+
   public function ellipsis(): ?DotDotDotToken {
     if ($this->_ellipsis->is_missing()) {
       return null;
@@ -212,6 +228,10 @@ final class ShapeTypeSpecifier extends EditableSyntax {
       $this->_ellipsis,
       $value,
     );
+  }
+
+  public function hasRightParen(): bool {
+    return !$this->_right_paren->is_missing();
   }
 
   public function right_paren(): RightParenToken {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7d70c15ec5a3f0aff2f419eecf32de74>>
+ * @generated SignedSource<<ddeb82da8ab92b1dbc1a70269e35dfc2>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -136,6 +136,10 @@ final class CatchClause extends EditableSyntax {
     );
   }
 
+  public function hasKeyword(): bool {
+    return !$this->_keyword->is_missing();
+  }
+
   public function keyword(): CatchToken {
     return TypeAssert::isInstanceOf(CatchToken::class, $this->_keyword);
   }
@@ -156,6 +160,10 @@ final class CatchClause extends EditableSyntax {
       $this->_right_paren,
       $this->_body,
     );
+  }
+
+  public function hasLeftParen(): bool {
+    return !$this->_left_paren->is_missing();
   }
 
   public function left_paren(): LeftParenToken {
@@ -180,6 +188,10 @@ final class CatchClause extends EditableSyntax {
     );
   }
 
+  public function hasType(): bool {
+    return !$this->_type->is_missing();
+  }
+
   public function type(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
@@ -200,6 +212,10 @@ final class CatchClause extends EditableSyntax {
       $this->_right_paren,
       $this->_body,
     );
+  }
+
+  public function hasVariable(): bool {
+    return !$this->_variable->is_missing();
   }
 
   public function variable(): ?VariableToken {
@@ -231,6 +247,10 @@ final class CatchClause extends EditableSyntax {
     );
   }
 
+  public function hasRightParen(): bool {
+    return !$this->_right_paren->is_missing();
+  }
+
   public function right_paren(): ?RightParenToken {
     if ($this->_right_paren->is_missing()) {
       return null;
@@ -258,6 +278,10 @@ final class CatchClause extends EditableSyntax {
       $this->_right_paren,
       $value,
     );
+  }
+
+  public function hasBody(): bool {
+    return !$this->_body->is_missing();
   }
 
   public function body(): CompoundStatement {

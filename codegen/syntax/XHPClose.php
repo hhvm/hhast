@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<99bcfd96349d8556f32c57075a3650e5>>
+ * @generated SignedSource<<1e65143f79c3921d1fbf061c673774dc>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -86,6 +86,10 @@ final class XHPClose extends EditableSyntax {
     return new self($value, $this->_name, $this->_right_angle);
   }
 
+  public function hasLeftAngle(): bool {
+    return !$this->_left_angle->is_missing();
+  }
+
   public function left_angle(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_angle);
   }
@@ -99,6 +103,10 @@ final class XHPClose extends EditableSyntax {
       return $this;
     }
     return new self($this->_left_angle, $value, $this->_right_angle);
+  }
+
+  public function hasName(): bool {
+    return !$this->_name->is_missing();
   }
 
   public function name(): ?XHPElementNameToken {
@@ -121,6 +129,10 @@ final class XHPClose extends EditableSyntax {
       return $this;
     }
     return new self($this->_left_angle, $this->_name, $value);
+  }
+
+  public function hasRightAngle(): bool {
+    return !$this->_right_angle->is_missing();
   }
 
   public function right_angle(): ?GreaterThanToken {

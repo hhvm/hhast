@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<817ad3557680a51e1b7e34ec87849c84>>
+ * @generated SignedSource<<d647cbaab767d676a66f04e73b03832b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -98,6 +98,10 @@ final class MarkupSection extends EditableSyntax {
     return new self($value, $this->_text, $this->_suffix, $this->_expression);
   }
 
+  public function hasPrefix(): bool {
+    return !$this->_prefix->is_missing();
+  }
+
   public function prefix(): ?QuestionGreaterThanToken {
     if ($this->_prefix->is_missing()) {
       return null;
@@ -118,6 +122,10 @@ final class MarkupSection extends EditableSyntax {
       return $this;
     }
     return new self($this->_prefix, $value, $this->_suffix, $this->_expression);
+  }
+
+  public function hasText(): bool {
+    return !$this->_text->is_missing();
   }
 
   public function text(): ?MarkupToken {
@@ -142,6 +150,10 @@ final class MarkupSection extends EditableSyntax {
     return new self($this->_prefix, $this->_text, $value, $this->_expression);
   }
 
+  public function hasSuffix(): bool {
+    return !$this->_suffix->is_missing();
+  }
+
   public function suffix(): ?MarkupSuffix {
     if ($this->_suffix->is_missing()) {
       return null;
@@ -162,6 +174,10 @@ final class MarkupSection extends EditableSyntax {
       return $this;
     }
     return new self($this->_prefix, $this->_text, $this->_suffix, $value);
+  }
+
+  public function hasExpression(): bool {
+    return !$this->_expression->is_missing();
   }
 
   public function expression(): ?ExpressionStatement {

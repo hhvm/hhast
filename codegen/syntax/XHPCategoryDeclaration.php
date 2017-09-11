@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2679cf0299b5a8da21656e62917e00b2>>
+ * @generated SignedSource<<546393dd1b3cdf42bd24ba0bd33dd1e0>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -86,6 +86,10 @@ final class XHPCategoryDeclaration extends EditableSyntax {
     return new self($value, $this->_categories, $this->_semicolon);
   }
 
+  public function hasKeyword(): bool {
+    return !$this->_keyword->is_missing();
+  }
+
   public function keyword(): CategoryToken {
     return TypeAssert::isInstanceOf(CategoryToken::class, $this->_keyword);
   }
@@ -101,6 +105,10 @@ final class XHPCategoryDeclaration extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_semicolon);
   }
 
+  public function hasCategories(): bool {
+    return !$this->_categories->is_missing();
+  }
+
   public function categories(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_categories);
   }
@@ -114,6 +122,10 @@ final class XHPCategoryDeclaration extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $this->_categories, $value);
+  }
+
+  public function hasSemicolon(): bool {
+    return !$this->_semicolon->is_missing();
   }
 
   public function semicolon(): SemicolonToken {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e67a4a98a290378c90e8b4b170197d6e>>
+ * @generated SignedSource<<7416ad8e3de7494beaa920cd4b52869b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -86,6 +86,10 @@ final class XHPAttribute extends EditableSyntax {
     return new self($value, $this->_equal, $this->_expression);
   }
 
+  public function hasName(): bool {
+    return !$this->_name->is_missing();
+  }
+
   public function name(): XHPElementNameToken {
     return TypeAssert::isInstanceOf(XHPElementNameToken::class, $this->_name);
   }
@@ -99,6 +103,10 @@ final class XHPAttribute extends EditableSyntax {
       return $this;
     }
     return new self($this->_name, $value, $this->_expression);
+  }
+
+  public function hasEqual(): bool {
+    return !$this->_equal->is_missing();
   }
 
   public function equal(): ?EqualToken {
@@ -121,6 +129,10 @@ final class XHPAttribute extends EditableSyntax {
       return $this;
     }
     return new self($this->_name, $this->_equal, $value);
+  }
+
+  public function hasExpression(): bool {
+    return !$this->_expression->is_missing();
   }
 
   public function expression(): EditableSyntax {

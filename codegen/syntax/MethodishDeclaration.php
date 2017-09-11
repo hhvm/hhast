@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6034de7a6f7a5e5b5b4399167507116a>>
+ * @generated SignedSource<<6ecc3dae69794c09b31907e6e8011d19>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -128,6 +128,10 @@ final class MethodishDeclaration extends EditableSyntax {
     );
   }
 
+  public function hasAttribute(): bool {
+    return !$this->_attribute->is_missing();
+  }
+
   public function attribute(): ?AttributeSpecification {
     if ($this->_attribute->is_missing()) {
       return null;
@@ -154,6 +158,10 @@ final class MethodishDeclaration extends EditableSyntax {
       $this->_function_body,
       $this->_semicolon,
     );
+  }
+
+  public function hasModifiers(): bool {
+    return !$this->_modifiers->is_missing();
   }
 
   public function modifiers(): ?EditableList {
@@ -184,6 +192,10 @@ final class MethodishDeclaration extends EditableSyntax {
     );
   }
 
+  public function hasFunctionDeclHeader(): bool {
+    return !$this->_function_decl_header->is_missing();
+  }
+
   public function function_decl_header(): FunctionDeclarationHeader {
     return TypeAssert::isInstanceOf(FunctionDeclarationHeader::class, $this->_function_decl_header);
   }
@@ -205,6 +217,10 @@ final class MethodishDeclaration extends EditableSyntax {
     );
   }
 
+  public function hasFunctionBody(): bool {
+    return !$this->_function_body->is_missing();
+  }
+
   public function function_body(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_function_body);
   }
@@ -224,6 +240,10 @@ final class MethodishDeclaration extends EditableSyntax {
       $this->_function_body,
       $value,
     );
+  }
+
+  public function hasSemicolon(): bool {
+    return !$this->_semicolon->is_missing();
   }
 
   public function semicolon(): ?SemicolonToken {

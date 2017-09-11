@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<895e4440d628cadc1501b3b374561e81>>
+ * @generated SignedSource<<538e9f53d820db24d94f60c99a85a325>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -74,6 +74,10 @@ final class InclusionExpression extends EditableSyntax {
     return new self($value, $this->_filename);
   }
 
+  public function hasRequire(): bool {
+    return !$this->_require->is_missing();
+  }
+
   public function require(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_require);
   }
@@ -87,6 +91,10 @@ final class InclusionExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_require, $value);
+  }
+
+  public function hasFilename(): bool {
+    return !$this->_filename->is_missing();
   }
 
   public function filename(): EditableSyntax {

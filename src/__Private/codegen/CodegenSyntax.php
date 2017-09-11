@@ -79,6 +79,12 @@ final class CodegenSyntax extends CodegenBase {
   ): Traversable<CodegenMethod> {
     $spec = $this->getTypeSpecForField($syntax, $field);
 
+    $upper_camel = preg_replace_callback(
+      '/(^|_)([a-z])/',
+      $matches ==> Str\uppercase($matches[2]),
+      $field,
+    );
+
     $cg = $this->getCodegenFactory();
     yield $cg
       ->codegenMethodf('raw_%s', $field)
@@ -106,6 +112,14 @@ final class CodegenSyntax extends CodegenBase {
             ),
           )
           ->getCode()
+      );
+
+    yield $cg
+      ->codegenMethodf('has%s', $upper_camel)
+      ->setReturnType('bool')
+      ->setBodyf(
+        'return !$this->_%s->is_missing();',
+        $field,
       );
 
     $type = $spec['nullable'] ? ('?'.$spec['class']) : $spec['class'];

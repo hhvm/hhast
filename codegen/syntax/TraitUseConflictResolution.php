@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fbe2779a214a29e0bbfbc03309b8f4e5>>
+ * @generated SignedSource<<3c0838674fd0149dd54c634252c84102>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -116,6 +116,10 @@ final class TraitUseConflictResolution extends EditableSyntax {
     );
   }
 
+  public function hasKeyword(): bool {
+    return !$this->_keyword->is_missing();
+  }
+
   public function keyword(): UseToken {
     return TypeAssert::isInstanceOf(UseToken::class, $this->_keyword);
   }
@@ -135,6 +139,10 @@ final class TraitUseConflictResolution extends EditableSyntax {
       $this->_clauses,
       $this->_right_brace,
     );
+  }
+
+  public function hasNames(): bool {
+    return !$this->_names->is_missing();
   }
 
   public function names(): EditableList {
@@ -158,6 +166,10 @@ final class TraitUseConflictResolution extends EditableSyntax {
     );
   }
 
+  public function hasLeftBrace(): bool {
+    return !$this->_left_brace->is_missing();
+  }
+
   public function left_brace(): LeftBraceToken {
     return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
   }
@@ -177,6 +189,10 @@ final class TraitUseConflictResolution extends EditableSyntax {
       $value,
       $this->_right_brace,
     );
+  }
+
+  public function hasClauses(): bool {
+    return !$this->_clauses->is_missing();
   }
 
   public function clauses(): ?EditableList {
@@ -205,6 +221,10 @@ final class TraitUseConflictResolution extends EditableSyntax {
       $this->_clauses,
       $value,
     );
+  }
+
+  public function hasRightBrace(): bool {
+    return !$this->_right_brace->is_missing();
   }
 
   public function right_brace(): RightBraceToken {

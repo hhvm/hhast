@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<732dcec599cc116cf5aa133740361498>>
+ * @generated SignedSource<<74870a9307005f6cea9c667fdc4e0590>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -98,6 +98,10 @@ final class PropertyDeclaration extends EditableSyntax {
     return new self($value, $this->_type, $this->_declarators, $this->_semicolon);
   }
 
+  public function hasModifiers(): bool {
+    return !$this->_modifiers->is_missing();
+  }
+
   public function modifiers(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_modifiers);
   }
@@ -111,6 +115,10 @@ final class PropertyDeclaration extends EditableSyntax {
       return $this;
     }
     return new self($this->_modifiers, $value, $this->_declarators, $this->_semicolon);
+  }
+
+  public function hasType(): bool {
+    return !$this->_type->is_missing();
   }
 
   public function type(): EditableSyntax {
@@ -128,6 +136,10 @@ final class PropertyDeclaration extends EditableSyntax {
     return new self($this->_modifiers, $this->_type, $value, $this->_semicolon);
   }
 
+  public function hasDeclarators(): bool {
+    return !$this->_declarators->is_missing();
+  }
+
   public function declarators(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_declarators);
   }
@@ -141,6 +153,10 @@ final class PropertyDeclaration extends EditableSyntax {
       return $this;
     }
     return new self($this->_modifiers, $this->_type, $this->_declarators, $value);
+  }
+
+  public function hasSemicolon(): bool {
+    return !$this->_semicolon->is_missing();
   }
 
   public function semicolon(): ?SemicolonToken {

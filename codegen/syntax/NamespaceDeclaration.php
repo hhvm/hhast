@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bbccce2369d8a9bb6bba64d38138d7f1>>
+ * @generated SignedSource<<163bf8502c796f9cc3d8fd211b25b8f6>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -86,6 +86,10 @@ final class NamespaceDeclaration extends EditableSyntax {
     return new self($value, $this->_name, $this->_body);
   }
 
+  public function hasKeyword(): bool {
+    return !$this->_keyword->is_missing();
+  }
+
   public function keyword(): NamespaceToken {
     return TypeAssert::isInstanceOf(NamespaceToken::class, $this->_keyword);
   }
@@ -101,6 +105,10 @@ final class NamespaceDeclaration extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_body);
   }
 
+  public function hasName(): bool {
+    return !$this->_name->is_missing();
+  }
+
   public function name(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }
@@ -114,6 +122,10 @@ final class NamespaceDeclaration extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $this->_name, $value);
+  }
+
+  public function hasBody(): bool {
+    return !$this->_body->is_missing();
   }
 
   public function body(): EditableSyntax {

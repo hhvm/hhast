@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7c98140fc5e4a3ddcab405aae18ce678>>
+ * @generated SignedSource<<52e731d1b0a2aea1273c95834cf5e17f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -116,6 +116,10 @@ final class ParameterDeclaration extends EditableSyntax {
     );
   }
 
+  public function hasAttribute(): bool {
+    return !$this->_attribute->is_missing();
+  }
+
   public function attribute(): ?AttributeSpecification {
     if ($this->_attribute->is_missing()) {
       return null;
@@ -144,6 +148,10 @@ final class ParameterDeclaration extends EditableSyntax {
     );
   }
 
+  public function hasVisibility(): bool {
+    return !$this->_visibility->is_missing();
+  }
+
   public function visibility(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_visibility);
   }
@@ -163,6 +171,10 @@ final class ParameterDeclaration extends EditableSyntax {
       $this->_name,
       $this->_default_value,
     );
+  }
+
+  public function hasType(): bool {
+    return !$this->_type->is_missing();
   }
 
   public function type(): EditableSyntax {
@@ -186,6 +198,10 @@ final class ParameterDeclaration extends EditableSyntax {
     );
   }
 
+  public function hasName(): bool {
+    return !$this->_name->is_missing();
+  }
+
   public function name(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }
@@ -205,6 +221,10 @@ final class ParameterDeclaration extends EditableSyntax {
       $this->_name,
       $value,
     );
+  }
+
+  public function hasDefaultValue(): bool {
+    return !$this->_default_value->is_missing();
   }
 
   public function default_value(): ?SimpleInitializer {

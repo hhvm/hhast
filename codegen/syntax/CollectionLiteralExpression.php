@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bf485f47139ee710691e339f45930520>>
+ * @generated SignedSource<<333f6c28b29366b5e1370cbd6cfd85ba>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -98,6 +98,10 @@ final class CollectionLiteralExpression extends EditableSyntax {
     return new self($value, $this->_left_brace, $this->_initializers, $this->_right_brace);
   }
 
+  public function hasName(): bool {
+    return !$this->_name->is_missing();
+  }
+
   public function name(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }
@@ -113,6 +117,10 @@ final class CollectionLiteralExpression extends EditableSyntax {
     return new self($this->_name, $value, $this->_initializers, $this->_right_brace);
   }
 
+  public function hasLeftBrace(): bool {
+    return !$this->_left_brace->is_missing();
+  }
+
   public function left_brace(): LeftBraceToken {
     return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
   }
@@ -126,6 +134,10 @@ final class CollectionLiteralExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_name, $this->_left_brace, $value, $this->_right_brace);
+  }
+
+  public function hasInitializers(): bool {
+    return !$this->_initializers->is_missing();
   }
 
   public function initializers(): ?EditableList {
@@ -148,6 +160,10 @@ final class CollectionLiteralExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_name, $this->_left_brace, $this->_initializers, $value);
+  }
+
+  public function hasRightBrace(): bool {
+    return !$this->_right_brace->is_missing();
   }
 
   public function right_brace(): ?RightBraceToken {

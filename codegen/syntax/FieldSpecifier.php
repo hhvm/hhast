@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f2d96c71cc38fa4a7a3bf9885cd267bb>>
+ * @generated SignedSource<<770a7b357e2e27cd106ce6548b04b0eb>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -98,6 +98,10 @@ final class FieldSpecifier extends EditableSyntax {
     return new self($value, $this->_name, $this->_arrow, $this->_type);
   }
 
+  public function hasQuestion(): bool {
+    return !$this->_question->is_missing();
+  }
+
   public function question(): ?QuestionToken {
     if ($this->_question->is_missing()) {
       return null;
@@ -120,6 +124,10 @@ final class FieldSpecifier extends EditableSyntax {
     return new self($this->_question, $value, $this->_arrow, $this->_type);
   }
 
+  public function hasName(): bool {
+    return !$this->_name->is_missing();
+  }
+
   public function name(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }
@@ -135,6 +143,10 @@ final class FieldSpecifier extends EditableSyntax {
     return new self($this->_question, $this->_name, $value, $this->_type);
   }
 
+  public function hasArrow(): bool {
+    return !$this->_arrow->is_missing();
+  }
+
   public function arrow(): EqualGreaterThanToken {
     return TypeAssert::isInstanceOf(EqualGreaterThanToken::class, $this->_arrow);
   }
@@ -148,6 +160,10 @@ final class FieldSpecifier extends EditableSyntax {
       return $this;
     }
     return new self($this->_question, $this->_name, $this->_arrow, $value);
+  }
+
+  public function hasType(): bool {
+    return !$this->_type->is_missing();
   }
 
   public function type(): EditableSyntax {

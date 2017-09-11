@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4c407b773b02bffdc5cfa4bac240ddb6>>
+ * @generated SignedSource<<dd7fcb25cb6717fbcec73a83c0aec24b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -116,6 +116,10 @@ final class LambdaSignature extends EditableSyntax {
     );
   }
 
+  public function hasLeftParen(): bool {
+    return !$this->_left_paren->is_missing();
+  }
+
   public function left_paren(): ?LeftParenToken {
     if ($this->_left_paren->is_missing()) {
       return null;
@@ -142,6 +146,10 @@ final class LambdaSignature extends EditableSyntax {
       $this->_colon,
       $this->_type,
     );
+  }
+
+  public function hasParameters(): bool {
+    return !$this->_parameters->is_missing();
   }
 
   public function parameters(): ?EditableList {
@@ -172,6 +180,10 @@ final class LambdaSignature extends EditableSyntax {
     );
   }
 
+  public function hasRightParen(): bool {
+    return !$this->_right_paren->is_missing();
+  }
+
   public function right_paren(): ?RightParenToken {
     if ($this->_right_paren->is_missing()) {
       return null;
@@ -200,6 +212,10 @@ final class LambdaSignature extends EditableSyntax {
     );
   }
 
+  public function hasColon(): bool {
+    return !$this->_colon->is_missing();
+  }
+
   public function colon(): ?ColonToken {
     if ($this->_colon->is_missing()) {
       return null;
@@ -226,6 +242,10 @@ final class LambdaSignature extends EditableSyntax {
       $this->_colon,
       $value,
     );
+  }
+
+  public function hasType(): bool {
+    return !$this->_type->is_missing();
   }
 
   public function type(): EditableSyntax {

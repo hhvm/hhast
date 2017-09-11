@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ebbbc0d9c08544cf678cd6a8621097e9>>
+ * @generated SignedSource<<423871ae0c029e14e45c92b813764a8e>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -86,6 +86,10 @@ final class NamespaceBody extends EditableSyntax {
     return new self($value, $this->_declarations, $this->_right_brace);
   }
 
+  public function hasLeftBrace(): bool {
+    return !$this->_left_brace->is_missing();
+  }
+
   public function left_brace(): LeftBraceToken {
     return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
   }
@@ -99,6 +103,10 @@ final class NamespaceBody extends EditableSyntax {
       return $this;
     }
     return new self($this->_left_brace, $value, $this->_right_brace);
+  }
+
+  public function hasDeclarations(): bool {
+    return !$this->_declarations->is_missing();
   }
 
   public function declarations(): ?EditableList {
@@ -121,6 +129,10 @@ final class NamespaceBody extends EditableSyntax {
       return $this;
     }
     return new self($this->_left_brace, $this->_declarations, $value);
+  }
+
+  public function hasRightBrace(): bool {
+    return !$this->_right_brace->is_missing();
   }
 
   public function right_brace(): ?RightBraceToken {

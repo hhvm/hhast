@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7e0c7a05ea12eaead07d979607423846>>
+ * @generated SignedSource<<2f72a3de35d15f2b92743fbef3965c09>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -98,6 +98,10 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
     return new self($value, $this->_left_bracket, $this->_index, $this->_right_bracket);
   }
 
+  public function hasReceiver(): bool {
+    return !$this->_receiver->is_missing();
+  }
+
   public function receiver(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_receiver);
   }
@@ -111,6 +115,10 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_receiver, $value, $this->_index, $this->_right_bracket);
+  }
+
+  public function hasLeftBracket(): bool {
+    return !$this->_left_bracket->is_missing();
   }
 
   public function left_bracket(): EditableSyntax {
@@ -128,6 +136,10 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
     return new self($this->_receiver, $this->_left_bracket, $value, $this->_right_bracket);
   }
 
+  public function hasIndex(): bool {
+    return !$this->_index->is_missing();
+  }
+
   public function index(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_index);
   }
@@ -141,6 +153,10 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_receiver, $this->_left_bracket, $this->_index, $value);
+  }
+
+  public function hasRightBracket(): bool {
+    return !$this->_right_bracket->is_missing();
   }
 
   public function right_bracket(): EditableSyntax {

@@ -35,7 +35,7 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
       return $node;
     }
 
-    if (!$field->raw_question()->is_missing()) {
+    if ($field->hasQuestion()) {
       return $node;
     }
 
@@ -64,7 +64,7 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
     $last_field = C\lastx($fields->children())
       |> TypeAssert::isInstanceOf(HHAST\ListItem::class, $$);
 
-    if (!$last_field->raw_separator()->is_missing()) {
+    if ($last_field->hasSeparator()) {
       return $shape;
     }
 
@@ -98,7 +98,7 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
   private static function allowImplicitSubtypes(
     HHAST\ShapeTypeSpecifier $shape,
   ): HHAST\ShapeTypeSpecifier {
-    if (!$shape->raw_ellipsis()->is_missing()) {
+    if ($shape->hasEllipsis()) {
       return $shape;
     }
     $fields = $shape->of_class(HHAST\FieldSpecifier::class);

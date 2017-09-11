@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b7ed39d80545232110d8c9b7051ff485>>
+ * @generated SignedSource<<5ea7e080dec0b85a0b64af5f05c593c5>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -86,6 +86,10 @@ final class EchoStatement extends EditableSyntax {
     return new self($value, $this->_expressions, $this->_semicolon);
   }
 
+  public function hasKeyword(): bool {
+    return !$this->_keyword->is_missing();
+  }
+
   public function keyword(): EchoToken {
     return TypeAssert::isInstanceOf(EchoToken::class, $this->_keyword);
   }
@@ -101,6 +105,10 @@ final class EchoStatement extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_semicolon);
   }
 
+  public function hasExpressions(): bool {
+    return !$this->_expressions->is_missing();
+  }
+
   public function expressions(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_expressions);
   }
@@ -114,6 +122,10 @@ final class EchoStatement extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $this->_expressions, $value);
+  }
+
+  public function hasSemicolon(): bool {
+    return !$this->_semicolon->is_missing();
   }
 
   public function semicolon(): ?SemicolonToken {

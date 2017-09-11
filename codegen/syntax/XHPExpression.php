@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<802e4f6a55b89a5d6844d3af1607471c>>
+ * @generated SignedSource<<475fb054bea69aaf557a2697f7516d0f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -86,6 +86,10 @@ final class XHPExpression extends EditableSyntax {
     return new self($value, $this->_body, $this->_close);
   }
 
+  public function hasOpen(): bool {
+    return !$this->_open->is_missing();
+  }
+
   public function open(): XHPOpen {
     return TypeAssert::isInstanceOf(XHPOpen::class, $this->_open);
   }
@@ -99,6 +103,10 @@ final class XHPExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_open, $value, $this->_close);
+  }
+
+  public function hasBody(): bool {
+    return !$this->_body->is_missing();
   }
 
   public function body(): ?EditableList {
@@ -121,6 +129,10 @@ final class XHPExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_open, $this->_body, $value);
+  }
+
+  public function hasClose(): bool {
+    return !$this->_close->is_missing();
   }
 
   public function close(): ?XHPClose {

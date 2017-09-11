@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<02c403e684f434f7037b0bcb1815b0d2>>
+ * @generated SignedSource<<a44850532db6090eab7b08c15cea801b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -86,6 +86,10 @@ final class BinaryExpression extends EditableSyntax {
     return new self($value, $this->_operator, $this->_right_operand);
   }
 
+  public function hasLeftOperand(): bool {
+    return !$this->_left_operand->is_missing();
+  }
+
   public function left_operand(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_operand);
   }
@@ -101,6 +105,10 @@ final class BinaryExpression extends EditableSyntax {
     return new self($this->_left_operand, $value, $this->_right_operand);
   }
 
+  public function hasOperator(): bool {
+    return !$this->_operator->is_missing();
+  }
+
   public function operator(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operator);
   }
@@ -114,6 +122,10 @@ final class BinaryExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_left_operand, $this->_operator, $value);
+  }
+
+  public function hasRightOperand(): bool {
+    return !$this->_right_operand->is_missing();
   }
 
   public function right_operand(): EditableSyntax {

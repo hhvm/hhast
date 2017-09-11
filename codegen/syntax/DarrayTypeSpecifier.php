@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8d1df4fed4b7cab30e23a95baa046ffc>>
+ * @generated SignedSource<<7108b973b2b96e2b9c4607423f94f39b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -158,6 +158,10 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     );
   }
 
+  public function hasKeyword(): bool {
+    return !$this->_keyword->is_missing();
+  }
+
   public function keyword(): DarrayToken {
     return TypeAssert::isInstanceOf(DarrayToken::class, $this->_keyword);
   }
@@ -179,6 +183,10 @@ final class DarrayTypeSpecifier extends EditableSyntax {
       $this->_trailing_comma,
       $this->_right_angle,
     );
+  }
+
+  public function hasLeftAngle(): bool {
+    return !$this->_left_angle->is_missing();
   }
 
   public function left_angle(): LessThanToken {
@@ -204,6 +212,10 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     );
   }
 
+  public function hasKey(): bool {
+    return !$this->_key->is_missing();
+  }
+
   public function key(): SimpleTypeSpecifier {
     return TypeAssert::isInstanceOf(SimpleTypeSpecifier::class, $this->_key);
   }
@@ -225,6 +237,10 @@ final class DarrayTypeSpecifier extends EditableSyntax {
       $this->_trailing_comma,
       $this->_right_angle,
     );
+  }
+
+  public function hasComma(): bool {
+    return !$this->_comma->is_missing();
   }
 
   public function comma(): CommaToken {
@@ -250,6 +266,10 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     );
   }
 
+  public function hasValue(): bool {
+    return !$this->_value->is_missing();
+  }
+
   public function value(): SimpleTypeSpecifier {
     return TypeAssert::isInstanceOf(SimpleTypeSpecifier::class, $this->_value);
   }
@@ -273,6 +293,10 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     );
   }
 
+  public function hasTrailingComma(): bool {
+    return !$this->_trailing_comma->is_missing();
+  }
+
   public function trailing_comma(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_trailing_comma);
   }
@@ -294,6 +318,10 @@ final class DarrayTypeSpecifier extends EditableSyntax {
       $this->_trailing_comma,
       $value,
     );
+  }
+
+  public function hasRightAngle(): bool {
+    return !$this->_right_angle->is_missing();
   }
 
   public function right_angle(): GreaterThanToken {

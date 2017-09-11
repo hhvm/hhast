@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1e928d6bbd008deb82c0713071b61c5e>>
+ * @generated SignedSource<<c7829522c0eb6681a6b109be21913821>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -173,6 +173,10 @@ final class AliasDeclaration extends EditableSyntax {
     );
   }
 
+  public function hasAttributeSpec(): bool {
+    return !$this->_attribute_spec->is_missing();
+  }
+
   public function attribute_spec(): ?AttributeSpecification {
     if ($this->_attribute_spec->is_missing()) {
       return null;
@@ -204,6 +208,10 @@ final class AliasDeclaration extends EditableSyntax {
     );
   }
 
+  public function hasKeyword(): bool {
+    return !$this->_keyword->is_missing();
+  }
+
   public function keyword(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_keyword);
   }
@@ -226,6 +234,10 @@ final class AliasDeclaration extends EditableSyntax {
       $this->_type,
       $this->_semicolon,
     );
+  }
+
+  public function hasName(): bool {
+    return !$this->_name->is_missing();
   }
 
   public function name(): ?NameToken {
@@ -259,6 +271,10 @@ final class AliasDeclaration extends EditableSyntax {
     );
   }
 
+  public function hasGenericParameter(): bool {
+    return !$this->_generic_parameter->is_missing();
+  }
+
   public function generic_parameter(): ?TypeParameters {
     if ($this->_generic_parameter->is_missing()) {
       return null;
@@ -288,6 +304,10 @@ final class AliasDeclaration extends EditableSyntax {
       $this->_type,
       $this->_semicolon,
     );
+  }
+
+  public function hasConstraint(): bool {
+    return !$this->_constraint->is_missing();
   }
 
   public function constraint(): ?TypeConstraint {
@@ -321,6 +341,10 @@ final class AliasDeclaration extends EditableSyntax {
     );
   }
 
+  public function hasEqual(): bool {
+    return !$this->_equal->is_missing();
+  }
+
   public function equal(): ?EqualToken {
     if ($this->_equal->is_missing()) {
       return null;
@@ -352,6 +376,10 @@ final class AliasDeclaration extends EditableSyntax {
     );
   }
 
+  public function hasType(): bool {
+    return !$this->_type->is_missing();
+  }
+
   public function type(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
@@ -374,6 +402,10 @@ final class AliasDeclaration extends EditableSyntax {
       $this->_type,
       $value,
     );
+  }
+
+  public function hasSemicolon(): bool {
+    return !$this->_semicolon->is_missing();
   }
 
   public function semicolon(): SemicolonToken {

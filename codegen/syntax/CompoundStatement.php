@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f85a50664d48c3dcab80bc704529f18e>>
+ * @generated SignedSource<<8596760a3cfe84db583d4d35cfd772a8>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -86,6 +86,10 @@ final class CompoundStatement extends EditableSyntax {
     return new self($value, $this->_statements, $this->_right_brace);
   }
 
+  public function hasLeftBrace(): bool {
+    return !$this->_left_brace->is_missing();
+  }
+
   public function left_brace(): ?LeftBraceToken {
     if ($this->_left_brace->is_missing()) {
       return null;
@@ -108,6 +112,10 @@ final class CompoundStatement extends EditableSyntax {
     return new self($this->_left_brace, $value, $this->_right_brace);
   }
 
+  public function hasStatements(): bool {
+    return !$this->_statements->is_missing();
+  }
+
   public function statements(): ?EditableList {
     if ($this->_statements->is_missing()) {
       return null;
@@ -128,6 +136,10 @@ final class CompoundStatement extends EditableSyntax {
       return $this;
     }
     return new self($this->_left_brace, $this->_statements, $value);
+  }
+
+  public function hasRightBrace(): bool {
+    return !$this->_right_brace->is_missing();
   }
 
   public function right_brace(): ?RightBraceToken {

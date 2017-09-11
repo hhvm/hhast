@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2cdd768eab650570778e227207d372d9>>
+ * @generated SignedSource<<9f888e01470212f9f26097391e6c6203>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -86,6 +86,10 @@ final class CaseLabel extends EditableSyntax {
     return new self($value, $this->_expression, $this->_colon);
   }
 
+  public function hasKeyword(): bool {
+    return !$this->_keyword->is_missing();
+  }
+
   public function keyword(): CaseToken {
     return TypeAssert::isInstanceOf(CaseToken::class, $this->_keyword);
   }
@@ -101,6 +105,10 @@ final class CaseLabel extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_colon);
   }
 
+  public function hasExpression(): bool {
+    return !$this->_expression->is_missing();
+  }
+
   public function expression(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
   }
@@ -114,6 +122,10 @@ final class CaseLabel extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $this->_expression, $value);
+  }
+
+  public function hasColon(): bool {
+    return !$this->_colon->is_missing();
   }
 
   public function colon(): EditableSyntax {

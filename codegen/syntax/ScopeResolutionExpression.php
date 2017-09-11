@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<69106f91eb55123ac124e8d1ee9c12dc>>
+ * @generated SignedSource<<7555da7d08e6bcf53a4db10bd720ffd1>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -86,6 +86,10 @@ final class ScopeResolutionExpression extends EditableSyntax {
     return new self($value, $this->_operator, $this->_name);
   }
 
+  public function hasQualifier(): bool {
+    return !$this->_qualifier->is_missing();
+  }
+
   public function qualifier(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_qualifier);
   }
@@ -101,6 +105,10 @@ final class ScopeResolutionExpression extends EditableSyntax {
     return new self($this->_qualifier, $value, $this->_name);
   }
 
+  public function hasOperator(): bool {
+    return !$this->_operator->is_missing();
+  }
+
   public function operator(): ColonColonToken {
     return TypeAssert::isInstanceOf(ColonColonToken::class, $this->_operator);
   }
@@ -114,6 +122,10 @@ final class ScopeResolutionExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_qualifier, $this->_operator, $value);
+  }
+
+  public function hasName(): bool {
+    return !$this->_name->is_missing();
   }
 
   public function name(): EditableSyntax {

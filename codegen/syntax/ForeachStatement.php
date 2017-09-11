@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c0110311d9dc3e70fc6cacfb610d1566>>
+ * @generated SignedSource<<ffd870ecedbf7e65747f9e279f70cc79>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -203,6 +203,10 @@ final class ForeachStatement extends EditableSyntax {
     );
   }
 
+  public function hasKeyword(): bool {
+    return !$this->_keyword->is_missing();
+  }
+
   public function keyword(): ForeachToken {
     return TypeAssert::isInstanceOf(ForeachToken::class, $this->_keyword);
   }
@@ -227,6 +231,10 @@ final class ForeachStatement extends EditableSyntax {
       $this->_right_paren,
       $this->_body,
     );
+  }
+
+  public function hasLeftParen(): bool {
+    return !$this->_left_paren->is_missing();
   }
 
   public function left_paren(): LeftParenToken {
@@ -255,6 +263,10 @@ final class ForeachStatement extends EditableSyntax {
     );
   }
 
+  public function hasCollection(): bool {
+    return !$this->_collection->is_missing();
+  }
+
   public function collection(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_collection);
   }
@@ -279,6 +291,10 @@ final class ForeachStatement extends EditableSyntax {
       $this->_right_paren,
       $this->_body,
     );
+  }
+
+  public function hasAwaitKeyword(): bool {
+    return !$this->_await_keyword->is_missing();
   }
 
   public function await_keyword(): ?AwaitToken {
@@ -314,6 +330,10 @@ final class ForeachStatement extends EditableSyntax {
     );
   }
 
+  public function hasAs(): bool {
+    return !$this->_as->is_missing();
+  }
+
   public function as(): AsToken {
     return TypeAssert::isInstanceOf(AsToken::class, $this->_as);
   }
@@ -340,6 +360,10 @@ final class ForeachStatement extends EditableSyntax {
     );
   }
 
+  public function hasKey(): bool {
+    return !$this->_key->is_missing();
+  }
+
   public function key(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_key);
   }
@@ -364,6 +388,10 @@ final class ForeachStatement extends EditableSyntax {
       $this->_right_paren,
       $this->_body,
     );
+  }
+
+  public function hasArrow(): bool {
+    return !$this->_arrow->is_missing();
   }
 
   public function arrow(): ?EqualGreaterThanToken {
@@ -399,6 +427,10 @@ final class ForeachStatement extends EditableSyntax {
     );
   }
 
+  public function hasValue(): bool {
+    return !$this->_value->is_missing();
+  }
+
   public function value(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_value);
   }
@@ -425,6 +457,10 @@ final class ForeachStatement extends EditableSyntax {
     );
   }
 
+  public function hasRightParen(): bool {
+    return !$this->_right_paren->is_missing();
+  }
+
   public function right_paren(): RightParenToken {
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
@@ -449,6 +485,10 @@ final class ForeachStatement extends EditableSyntax {
       $this->_right_paren,
       $value,
     );
+  }
+
+  public function hasBody(): bool {
+    return !$this->_body->is_missing();
   }
 
   public function body(): EditableSyntax {

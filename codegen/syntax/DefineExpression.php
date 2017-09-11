@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b6b22076c2c4a48fcbbc91d9d81fb215>>
+ * @generated SignedSource<<678ff4eaf7438a8710921c4b6398b566>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -103,6 +103,10 @@ final class DefineExpression extends EditableSyntax {
     );
   }
 
+  public function hasKeyword(): bool {
+    return !$this->_keyword->is_missing();
+  }
+
   public function keyword(): DefineToken {
     return TypeAssert::isInstanceOf(DefineToken::class, $this->_keyword);
   }
@@ -118,6 +122,10 @@ final class DefineExpression extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_argument_list, $this->_right_paren);
   }
 
+  public function hasLeftParen(): bool {
+    return !$this->_left_paren->is_missing();
+  }
+
   public function left_paren(): LeftParenToken {
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
@@ -131,6 +139,10 @@ final class DefineExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $this->_left_paren, $value, $this->_right_paren);
+  }
+
+  public function hasArgumentList(): bool {
+    return !$this->_argument_list->is_missing();
   }
 
   public function argument_list(): ?EditableList {
@@ -153,6 +165,10 @@ final class DefineExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $this->_left_paren, $this->_argument_list, $value);
+  }
+
+  public function hasRightParen(): bool {
+    return !$this->_right_paren->is_missing();
   }
 
   public function right_paren(): RightParenToken {

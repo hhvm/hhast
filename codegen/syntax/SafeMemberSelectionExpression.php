@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d2aa9f12eeb3d98a5f708db98a3bfc43>>
+ * @generated SignedSource<<5ee39ba99fb4b5379c1a22f149f1e858>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -86,6 +86,10 @@ final class SafeMemberSelectionExpression extends EditableSyntax {
     return new self($value, $this->_operator, $this->_name);
   }
 
+  public function hasObject(): bool {
+    return !$this->_object->is_missing();
+  }
+
   public function object(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_object);
   }
@@ -101,6 +105,10 @@ final class SafeMemberSelectionExpression extends EditableSyntax {
     return new self($this->_object, $value, $this->_name);
   }
 
+  public function hasOperator(): bool {
+    return !$this->_operator->is_missing();
+  }
+
   public function operator(): QuestionMinusGreaterThanToken {
     return TypeAssert::isInstanceOf(QuestionMinusGreaterThanToken::class, $this->_operator);
   }
@@ -114,6 +122,10 @@ final class SafeMemberSelectionExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_object, $this->_operator, $value);
+  }
+
+  public function hasName(): bool {
+    return !$this->_name->is_missing();
   }
 
   public function name(): EditableSyntax {

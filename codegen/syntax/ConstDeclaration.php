@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7d3ea34ceb566898ed30a4661d6f07ca>>
+ * @generated SignedSource<<5b50f4c5636c234f359d70d8f2dadbd7>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -122,6 +122,10 @@ final class ConstDeclaration extends EditableSyntax {
     );
   }
 
+  public function hasAbstract(): bool {
+    return !$this->_abstract->is_missing();
+  }
+
   public function abstract(): ?AbstractToken {
     if ($this->_abstract->is_missing()) {
       return null;
@@ -150,6 +154,10 @@ final class ConstDeclaration extends EditableSyntax {
     );
   }
 
+  public function hasKeyword(): bool {
+    return !$this->_keyword->is_missing();
+  }
+
   public function keyword(): ConstToken {
     return TypeAssert::isInstanceOf(ConstToken::class, $this->_keyword);
   }
@@ -169,6 +177,10 @@ final class ConstDeclaration extends EditableSyntax {
       $this->_declarators,
       $this->_semicolon,
     );
+  }
+
+  public function hasTypeSpecifier(): bool {
+    return !$this->_type_specifier->is_missing();
   }
 
   public function type_specifier(): EditableSyntax {
@@ -192,6 +204,10 @@ final class ConstDeclaration extends EditableSyntax {
     );
   }
 
+  public function hasDeclarators(): bool {
+    return !$this->_declarators->is_missing();
+  }
+
   public function declarators(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_declarators);
   }
@@ -211,6 +227,10 @@ final class ConstDeclaration extends EditableSyntax {
       $this->_declarators,
       $value,
     );
+  }
+
+  public function hasSemicolon(): bool {
+    return !$this->_semicolon->is_missing();
   }
 
   public function semicolon(): SemicolonToken {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fa5bda9585867ce419490d85a65afd1e>>
+ * @generated SignedSource<<dc1d4a18abeaeece3f039ca8a8336671>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -98,6 +98,10 @@ final class CastExpression extends EditableSyntax {
     return new self($value, $this->_type, $this->_right_paren, $this->_operand);
   }
 
+  public function hasLeftParen(): bool {
+    return !$this->_left_paren->is_missing();
+  }
+
   public function left_paren(): LeftParenToken {
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
@@ -111,6 +115,10 @@ final class CastExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_left_paren, $value, $this->_right_paren, $this->_operand);
+  }
+
+  public function hasType(): bool {
+    return !$this->_type->is_missing();
   }
 
   public function type(): EditableSyntax {
@@ -128,6 +136,10 @@ final class CastExpression extends EditableSyntax {
     return new self($this->_left_paren, $this->_type, $value, $this->_operand);
   }
 
+  public function hasRightParen(): bool {
+    return !$this->_right_paren->is_missing();
+  }
+
   public function right_paren(): RightParenToken {
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
@@ -141,6 +153,10 @@ final class CastExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_left_paren, $this->_type, $this->_right_paren, $value);
+  }
+
+  public function hasOperand(): bool {
+    return !$this->_operand->is_missing();
   }
 
   public function operand(): EditableSyntax {

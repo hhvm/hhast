@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<834316584990ea93541fdb1bdcfabbc9>>
+ * @generated SignedSource<<cb99b5d3d3a291c85f6486f4593c3354>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -116,6 +116,10 @@ final class LambdaExpression extends EditableSyntax {
     );
   }
 
+  public function hasAsync(): bool {
+    return !$this->_async->is_missing();
+  }
+
   public function async(): ?AsyncToken {
     if ($this->_async->is_missing()) {
       return null;
@@ -138,6 +142,10 @@ final class LambdaExpression extends EditableSyntax {
     return new self($this->_async, $value, $this->_signature, $this->_arrow, $this->_body);
   }
 
+  public function hasCoroutine(): bool {
+    return !$this->_coroutine->is_missing();
+  }
+
   public function coroutine(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_coroutine);
   }
@@ -151,6 +159,10 @@ final class LambdaExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_async, $this->_coroutine, $value, $this->_arrow, $this->_body);
+  }
+
+  public function hasSignature(): bool {
+    return !$this->_signature->is_missing();
   }
 
   public function signature(): EditableSyntax {
@@ -172,6 +184,10 @@ final class LambdaExpression extends EditableSyntax {
       $value,
       $this->_body,
     );
+  }
+
+  public function hasArrow(): bool {
+    return !$this->_arrow->is_missing();
   }
 
   public function arrow(): ?EqualEqualGreaterThanToken {
@@ -200,6 +216,10 @@ final class LambdaExpression extends EditableSyntax {
       $this->_arrow,
       $value,
     );
+  }
+
+  public function hasBody(): bool {
+    return !$this->_body->is_missing();
   }
 
   public function body(): EditableSyntax {

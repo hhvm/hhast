@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a57ce90ce95ad2718ae6134bc7e713ee>>
+ * @generated SignedSource<<6ee71adabd3a9a06c9e54811075a7803>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -74,6 +74,10 @@ final class ExpressionStatement extends EditableSyntax {
     return new self($value, $this->_semicolon);
   }
 
+  public function hasExpression(): bool {
+    return !$this->_expression->is_missing();
+  }
+
   public function expression(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
   }
@@ -87,6 +91,10 @@ final class ExpressionStatement extends EditableSyntax {
       return $this;
     }
     return new self($this->_expression, $value);
+  }
+
+  public function hasSemicolon(): bool {
+    return !$this->_semicolon->is_missing();
   }
 
   public function semicolon(): ?SemicolonToken {

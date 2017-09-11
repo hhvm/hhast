@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bd6c223155ab6040cd7061b91ac01dc4>>
+ * @generated SignedSource<<c4e16c0c1495283d36ee23066458a1a7>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -98,6 +98,10 @@ final class XHPOpen extends EditableSyntax {
     return new self($value, $this->_name, $this->_attributes, $this->_right_angle);
   }
 
+  public function hasLeftAngle(): bool {
+    return !$this->_left_angle->is_missing();
+  }
+
   public function left_angle(): LessThanToken {
     return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
   }
@@ -113,6 +117,10 @@ final class XHPOpen extends EditableSyntax {
     return new self($this->_left_angle, $value, $this->_attributes, $this->_right_angle);
   }
 
+  public function hasName(): bool {
+    return !$this->_name->is_missing();
+  }
+
   public function name(): XHPElementNameToken {
     return TypeAssert::isInstanceOf(XHPElementNameToken::class, $this->_name);
   }
@@ -126,6 +134,10 @@ final class XHPOpen extends EditableSyntax {
       return $this;
     }
     return new self($this->_left_angle, $this->_name, $value, $this->_right_angle);
+  }
+
+  public function hasAttributes(): bool {
+    return !$this->_attributes->is_missing();
   }
 
   public function attributes(): ?EditableList {
@@ -148,6 +160,10 @@ final class XHPOpen extends EditableSyntax {
       return $this;
     }
     return new self($this->_left_angle, $this->_name, $this->_attributes, $value);
+  }
+
+  public function hasRightAngle(): bool {
+    return !$this->_right_angle->is_missing();
   }
 
   public function right_angle(): EditableSyntax {

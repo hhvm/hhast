@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2406ce82c41a59f6bdace1e568fcc21d>>
+ * @generated SignedSource<<33221980f7849e9f1dab001cc8217b87>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -98,6 +98,10 @@ final class Enumerator extends EditableSyntax {
     return new self($value, $this->_equal, $this->_value, $this->_semicolon);
   }
 
+  public function hasName(): bool {
+    return !$this->_name->is_missing();
+  }
+
   public function name(): NameToken {
     return TypeAssert::isInstanceOf(NameToken::class, $this->_name);
   }
@@ -111,6 +115,10 @@ final class Enumerator extends EditableSyntax {
       return $this;
     }
     return new self($this->_name, $value, $this->_value, $this->_semicolon);
+  }
+
+  public function hasEqual(): bool {
+    return !$this->_equal->is_missing();
   }
 
   public function equal(): EqualToken {
@@ -128,6 +136,10 @@ final class Enumerator extends EditableSyntax {
     return new self($this->_name, $this->_equal, $value, $this->_semicolon);
   }
 
+  public function hasValue(): bool {
+    return !$this->_value->is_missing();
+  }
+
   public function value(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_value);
   }
@@ -141,6 +153,10 @@ final class Enumerator extends EditableSyntax {
       return $this;
     }
     return new self($this->_name, $this->_equal, $this->_value, $value);
+  }
+
+  public function hasSemicolon(): bool {
+    return !$this->_semicolon->is_missing();
   }
 
   public function semicolon(): SemicolonToken {

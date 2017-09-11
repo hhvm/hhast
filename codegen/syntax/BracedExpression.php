@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f7b77493ad056f2d77307e7c336942b1>>
+ * @generated SignedSource<<2b3e92da068fa9e21b1b75d637923828>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -86,6 +86,10 @@ final class BracedExpression extends EditableSyntax {
     return new self($value, $this->_expression, $this->_right_brace);
   }
 
+  public function hasLeftBrace(): bool {
+    return !$this->_left_brace->is_missing();
+  }
+
   public function left_brace(): LeftBraceToken {
     return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
   }
@@ -101,6 +105,10 @@ final class BracedExpression extends EditableSyntax {
     return new self($this->_left_brace, $value, $this->_right_brace);
   }
 
+  public function hasExpression(): bool {
+    return !$this->_expression->is_missing();
+  }
+
   public function expression(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
   }
@@ -114,6 +122,10 @@ final class BracedExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_left_brace, $this->_expression, $value);
+  }
+
+  public function hasRightBrace(): bool {
+    return !$this->_right_brace->is_missing();
   }
 
   public function right_brace(): RightBraceToken {

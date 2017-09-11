@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<21b3f669d63354956cfd848e3916a532>>
+ * @generated SignedSource<<ce7f3382e6d4a8f0d294b609a267701d>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -98,6 +98,10 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
     return new self($value, $this->_left_angle, $this->_type, $this->_right_angle);
   }
 
+  public function hasKeyword(): bool {
+    return !$this->_keyword->is_missing();
+  }
+
   public function keyword(): ArrayToken {
     return TypeAssert::isInstanceOf(ArrayToken::class, $this->_keyword);
   }
@@ -111,6 +115,10 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $value, $this->_type, $this->_right_angle);
+  }
+
+  public function hasLeftAngle(): bool {
+    return !$this->_left_angle->is_missing();
   }
 
   public function left_angle(): LessThanToken {
@@ -128,6 +136,10 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
     return new self($this->_keyword, $this->_left_angle, $value, $this->_right_angle);
   }
 
+  public function hasType(): bool {
+    return !$this->_type->is_missing();
+  }
+
   public function type(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
@@ -141,6 +153,10 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $this->_left_angle, $this->_type, $value);
+  }
+
+  public function hasRightAngle(): bool {
+    return !$this->_right_angle->is_missing();
   }
 
   public function right_angle(): GreaterThanToken {

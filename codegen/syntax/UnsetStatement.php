@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1c17068b4c25d0646321a41f68f96500>>
+ * @generated SignedSource<<25ec8ce486ce8be6c87f3f24497a0f2d>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -122,6 +122,10 @@ final class UnsetStatement extends EditableSyntax {
     );
   }
 
+  public function hasKeyword(): bool {
+    return !$this->_keyword->is_missing();
+  }
+
   public function keyword(): UnsetToken {
     return TypeAssert::isInstanceOf(UnsetToken::class, $this->_keyword);
   }
@@ -141,6 +145,10 @@ final class UnsetStatement extends EditableSyntax {
       $this->_right_paren,
       $this->_semicolon,
     );
+  }
+
+  public function hasLeftParen(): bool {
+    return !$this->_left_paren->is_missing();
   }
 
   public function left_paren(): LeftParenToken {
@@ -164,6 +172,10 @@ final class UnsetStatement extends EditableSyntax {
     );
   }
 
+  public function hasVariables(): bool {
+    return !$this->_variables->is_missing();
+  }
+
   public function variables(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_variables);
   }
@@ -183,6 +195,10 @@ final class UnsetStatement extends EditableSyntax {
       $value,
       $this->_semicolon,
     );
+  }
+
+  public function hasRightParen(): bool {
+    return !$this->_right_paren->is_missing();
   }
 
   public function right_paren(): ?RightParenToken {
@@ -211,6 +227,10 @@ final class UnsetStatement extends EditableSyntax {
       $this->_right_paren,
       $value,
     );
+  }
+
+  public function hasSemicolon(): bool {
+    return !$this->_semicolon->is_missing();
   }
 
   public function semicolon(): ?SemicolonToken {

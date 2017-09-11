@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<efcef79ed28b080d210f3d2d5f23aa8e>>
+ * @generated SignedSource<<051215f000fe6b7620b9c04215cfc662>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -86,6 +86,10 @@ final class TypeConstant extends EditableSyntax {
     return new self($value, $this->_separator, $this->_right_type);
   }
 
+  public function hasLeftType(): bool {
+    return !$this->_left_type->is_missing();
+  }
+
   public function left_type(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_type);
   }
@@ -101,6 +105,10 @@ final class TypeConstant extends EditableSyntax {
     return new self($this->_left_type, $value, $this->_right_type);
   }
 
+  public function hasSeparator(): bool {
+    return !$this->_separator->is_missing();
+  }
+
   public function separator(): ColonColonToken {
     return TypeAssert::isInstanceOf(ColonColonToken::class, $this->_separator);
   }
@@ -114,6 +122,10 @@ final class TypeConstant extends EditableSyntax {
       return $this;
     }
     return new self($this->_left_type, $this->_separator, $value);
+  }
+
+  public function hasRightType(): bool {
+    return !$this->_right_type->is_missing();
   }
 
   public function right_type(): NameToken {

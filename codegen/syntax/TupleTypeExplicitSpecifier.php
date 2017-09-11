@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4ef7ec5927739b48632bc5e625d90d5a>>
+ * @generated SignedSource<<bdd03b4f7d3307f2274463aea6e1eaf3>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -98,6 +98,10 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
     return new self($value, $this->_left_angle, $this->_types, $this->_right_angle);
   }
 
+  public function hasKeyword(): bool {
+    return !$this->_keyword->is_missing();
+  }
+
   public function keyword(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_keyword);
   }
@@ -111,6 +115,10 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $value, $this->_types, $this->_right_angle);
+  }
+
+  public function hasLeftAngle(): bool {
+    return !$this->_left_angle->is_missing();
   }
 
   public function left_angle(): EditableSyntax {
@@ -128,6 +136,10 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
     return new self($this->_keyword, $this->_left_angle, $value, $this->_right_angle);
   }
 
+  public function hasTypes(): bool {
+    return !$this->_types->is_missing();
+  }
+
   public function types(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_types);
   }
@@ -141,6 +153,10 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $this->_left_angle, $this->_types, $value);
+  }
+
+  public function hasRightAngle(): bool {
+    return !$this->_right_angle->is_missing();
   }
 
   public function right_angle(): EditableSyntax {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e235acefc7464198494cd49a455685a0>>
+ * @generated SignedSource<<3e2f28000eb7dec598696a1990125755>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -122,6 +122,10 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
     );
   }
 
+  public function hasKeyword(): bool {
+    return !$this->_keyword->is_missing();
+  }
+
   public function keyword(): ClassnameToken {
     return TypeAssert::isInstanceOf(ClassnameToken::class, $this->_keyword);
   }
@@ -141,6 +145,10 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
       $this->_trailing_comma,
       $this->_right_angle,
     );
+  }
+
+  public function hasLeftAngle(): bool {
+    return !$this->_left_angle->is_missing();
   }
 
   public function left_angle(): ?LessThanToken {
@@ -171,6 +179,10 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
     );
   }
 
+  public function hasType(): bool {
+    return !$this->_type->is_missing();
+  }
+
   public function type(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
@@ -192,6 +204,10 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
     );
   }
 
+  public function hasTrailingComma(): bool {
+    return !$this->_trailing_comma->is_missing();
+  }
+
   public function trailing_comma(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_trailing_comma);
   }
@@ -211,6 +227,10 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
       $this->_trailing_comma,
       $value,
     );
+  }
+
+  public function hasRightAngle(): bool {
+    return !$this->_right_angle->is_missing();
   }
 
   public function right_angle(): ?GreaterThanToken {

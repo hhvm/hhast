@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<15bdd8172d6686c175a3863fa6fc7e34>>
+ * @generated SignedSource<<c603be90847d2ec113ca8693af4790a7>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -74,6 +74,10 @@ final class ElseClause extends EditableSyntax {
     return new self($value, $this->_statement);
   }
 
+  public function hasKeyword(): bool {
+    return !$this->_keyword->is_missing();
+  }
+
   public function keyword(): ElseToken {
     return TypeAssert::isInstanceOf(ElseToken::class, $this->_keyword);
   }
@@ -87,6 +91,10 @@ final class ElseClause extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $value);
+  }
+
+  public function hasStatement(): bool {
+    return !$this->_statement->is_missing();
   }
 
   public function statement(): EditableSyntax {

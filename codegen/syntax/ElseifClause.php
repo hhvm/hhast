@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7d5bc3795bfc4bb055705844ee5f575b>>
+ * @generated SignedSource<<d0efc8a2c39362a502e490a4dec749d4>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -122,6 +122,10 @@ final class ElseifClause extends EditableSyntax {
     );
   }
 
+  public function hasKeyword(): bool {
+    return !$this->_keyword->is_missing();
+  }
+
   public function keyword(): ElseifToken {
     return TypeAssert::isInstanceOf(ElseifToken::class, $this->_keyword);
   }
@@ -141,6 +145,10 @@ final class ElseifClause extends EditableSyntax {
       $this->_right_paren,
       $this->_statement,
     );
+  }
+
+  public function hasLeftParen(): bool {
+    return !$this->_left_paren->is_missing();
   }
 
   public function left_paren(): LeftParenToken {
@@ -164,6 +172,10 @@ final class ElseifClause extends EditableSyntax {
     );
   }
 
+  public function hasCondition(): bool {
+    return !$this->_condition->is_missing();
+  }
+
   public function condition(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_condition);
   }
@@ -185,6 +197,10 @@ final class ElseifClause extends EditableSyntax {
     );
   }
 
+  public function hasRightParen(): bool {
+    return !$this->_right_paren->is_missing();
+  }
+
   public function right_paren(): RightParenToken {
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
@@ -204,6 +220,10 @@ final class ElseifClause extends EditableSyntax {
       $this->_right_paren,
       $value,
     );
+  }
+
+  public function hasStatement(): bool {
+    return !$this->_statement->is_missing();
   }
 
   public function statement(): EditableSyntax {

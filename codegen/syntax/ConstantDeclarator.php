@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d337539be8815e90c6b04c444f6fe087>>
+ * @generated SignedSource<<d785cd51051a99c07e0c7d5a8eadd83b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -74,6 +74,10 @@ final class ConstantDeclarator extends EditableSyntax {
     return new self($value, $this->_initializer);
   }
 
+  public function hasName(): bool {
+    return !$this->_name->is_missing();
+  }
+
   public function name(): NameToken {
     return TypeAssert::isInstanceOf(NameToken::class, $this->_name);
   }
@@ -87,6 +91,10 @@ final class ConstantDeclarator extends EditableSyntax {
       return $this;
     }
     return new self($this->_name, $value);
+  }
+
+  public function hasInitializer(): bool {
+    return !$this->_initializer->is_missing();
   }
 
   public function initializer(): ?SimpleInitializer {

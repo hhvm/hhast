@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b2c7120e6481d012e6a56e02f2b94378>>
+ * @generated SignedSource<<47005032c1c93d3079def022b3551b6a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -71,6 +71,10 @@ final class DefaultLabel extends EditableSyntax {
     return new self($value, $this->_colon);
   }
 
+  public function hasKeyword(): bool {
+    return !$this->_keyword->is_missing();
+  }
+
   public function keyword(): DefaultToken {
     return TypeAssert::isInstanceOf(DefaultToken::class, $this->_keyword);
   }
@@ -84,6 +88,10 @@ final class DefaultLabel extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $value);
+  }
+
+  public function hasColon(): bool {
+    return !$this->_colon->is_missing();
   }
 
   public function colon(): EditableSyntax {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0a7edd0cf3a01d8511909b69f14cfeab>>
+ * @generated SignedSource<<db989a67994205abce4630954e6f95ae>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -58,6 +58,10 @@ final class PipeVariableExpression extends EditableSyntax {
       return $this;
     }
     return new self($value);
+  }
+
+  public function hasExpression(): bool {
+    return !$this->_expression->is_missing();
   }
 
   public function expression(): EditableSyntax {

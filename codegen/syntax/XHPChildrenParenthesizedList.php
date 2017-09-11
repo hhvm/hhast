@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b1e37c387aed43459a2aaecec77bd3ae>>
+ * @generated SignedSource<<81c7ceec05aa914355c7a4fc60d77baf>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -86,6 +86,10 @@ final class XHPChildrenParenthesizedList extends EditableSyntax {
     return new self($value, $this->_xhp_children, $this->_right_paren);
   }
 
+  public function hasLeftParen(): bool {
+    return !$this->_left_paren->is_missing();
+  }
+
   public function left_paren(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_paren);
   }
@@ -101,6 +105,10 @@ final class XHPChildrenParenthesizedList extends EditableSyntax {
     return new self($this->_left_paren, $value, $this->_right_paren);
   }
 
+  public function hasXhpChildren(): bool {
+    return !$this->_xhp_children->is_missing();
+  }
+
   public function xhp_children(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_xhp_children);
   }
@@ -114,6 +122,10 @@ final class XHPChildrenParenthesizedList extends EditableSyntax {
       return $this;
     }
     return new self($this->_left_paren, $this->_xhp_children, $value);
+  }
+
+  public function hasRightParen(): bool {
+    return !$this->_right_paren->is_missing();
   }
 
   public function right_paren(): EditableSyntax {

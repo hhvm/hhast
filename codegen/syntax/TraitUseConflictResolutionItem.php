@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b8d706d469cb268377ce706b92557d7c>>
+ * @generated SignedSource<<eb9fdfe083f7360424ba6e0d526287a9>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -86,6 +86,10 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
     return new self($value, $this->_aliasing_keyword, $this->_aliased_names);
   }
 
+  public function hasAliasingName(): bool {
+    return !$this->_aliasing_name->is_missing();
+  }
+
   public function aliasing_name(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_aliasing_name);
   }
@@ -101,6 +105,10 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
     return new self($this->_aliasing_name, $value, $this->_aliased_names);
   }
 
+  public function hasAliasingKeyword(): bool {
+    return !$this->_aliasing_keyword->is_missing();
+  }
+
   public function aliasing_keyword(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_aliasing_keyword);
   }
@@ -114,6 +122,10 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
       return $this;
     }
     return new self($this->_aliasing_name, $this->_aliasing_keyword, $value);
+  }
+
+  public function hasAliasedNames(): bool {
+    return !$this->_aliased_names->is_missing();
   }
 
   public function aliased_names(): EditableList {

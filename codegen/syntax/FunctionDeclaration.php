@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7b07977491c6d499e70e6865e13ae7a2>>
+ * @generated SignedSource<<1743b8bc869d740c445768c7fc4bb984>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -86,6 +86,10 @@ final class FunctionDeclaration extends EditableSyntax {
     return new self($value, $this->_declaration_header, $this->_body);
   }
 
+  public function hasAttributeSpec(): bool {
+    return !$this->_attribute_spec->is_missing();
+  }
+
   public function attribute_spec(): ?AttributeSpecification {
     if ($this->_attribute_spec->is_missing()) {
       return null;
@@ -108,6 +112,10 @@ final class FunctionDeclaration extends EditableSyntax {
     return new self($this->_attribute_spec, $value, $this->_body);
   }
 
+  public function hasDeclarationHeader(): bool {
+    return !$this->_declaration_header->is_missing();
+  }
+
   public function declaration_header(): FunctionDeclarationHeader {
     return TypeAssert::isInstanceOf(FunctionDeclarationHeader::class, $this->_declaration_header);
   }
@@ -121,6 +129,10 @@ final class FunctionDeclaration extends EditableSyntax {
       return $this;
     }
     return new self($this->_attribute_spec, $this->_declaration_header, $value);
+  }
+
+  public function hasBody(): bool {
+    return !$this->_body->is_missing();
   }
 
   public function body(): EditableSyntax {

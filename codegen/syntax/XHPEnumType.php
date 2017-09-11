@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c746077101e53a8c66637a5f1ac865d7>>
+ * @generated SignedSource<<d12b83585d6d721050264d26481955b7>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -98,6 +98,10 @@ final class XHPEnumType extends EditableSyntax {
     return new self($value, $this->_left_brace, $this->_values, $this->_right_brace);
   }
 
+  public function hasKeyword(): bool {
+    return !$this->_keyword->is_missing();
+  }
+
   public function keyword(): EnumToken {
     return TypeAssert::isInstanceOf(EnumToken::class, $this->_keyword);
   }
@@ -111,6 +115,10 @@ final class XHPEnumType extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $value, $this->_values, $this->_right_brace);
+  }
+
+  public function hasLeftBrace(): bool {
+    return !$this->_left_brace->is_missing();
   }
 
   public function left_brace(): LeftBraceToken {
@@ -128,6 +136,10 @@ final class XHPEnumType extends EditableSyntax {
     return new self($this->_keyword, $this->_left_brace, $value, $this->_right_brace);
   }
 
+  public function hasValues(): bool {
+    return !$this->_values->is_missing();
+  }
+
   public function values(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_values);
   }
@@ -141,6 +153,10 @@ final class XHPEnumType extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $this->_left_brace, $this->_values, $value);
+  }
+
+  public function hasRightBrace(): bool {
+    return !$this->_right_brace->is_missing();
   }
 
   public function right_brace(): RightBraceToken {

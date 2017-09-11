@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d4b968cd19c3973ce6c307ce0d474c6e>>
+ * @generated SignedSource<<c03a7521242b75487f62606363a6d338>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -129,6 +129,10 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     );
   }
 
+  public function hasKeyword(): bool {
+    return !$this->_keyword->is_missing();
+  }
+
   public function keyword(): ArrayToken {
     return TypeAssert::isInstanceOf(ArrayToken::class, $this->_keyword);
   }
@@ -149,6 +153,10 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
       $this->_value,
       $this->_right_angle,
     );
+  }
+
+  public function hasLeftAngle(): bool {
+    return !$this->_left_angle->is_missing();
   }
 
   public function left_angle(): LessThanToken {
@@ -173,6 +181,10 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     );
   }
 
+  public function hasKey(): bool {
+    return !$this->_key->is_missing();
+  }
+
   public function key(): SimpleTypeSpecifier {
     return TypeAssert::isInstanceOf(SimpleTypeSpecifier::class, $this->_key);
   }
@@ -193,6 +205,10 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
       $this->_value,
       $this->_right_angle,
     );
+  }
+
+  public function hasComma(): bool {
+    return !$this->_comma->is_missing();
   }
 
   public function comma(): CommaToken {
@@ -217,6 +233,10 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     );
   }
 
+  public function hasValue(): bool {
+    return !$this->_value->is_missing();
+  }
+
   public function value(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_value);
   }
@@ -237,6 +257,10 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
       $this->_value,
       $value,
     );
+  }
+
+  public function hasRightAngle(): bool {
+    return !$this->_right_angle->is_missing();
   }
 
   public function right_angle(): ?GreaterThanToken {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<12c6929b28893e60e389e695400cb9c4>>
+ * @generated SignedSource<<6a73b76add6e4a5617528dc2c6ed2993>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -86,6 +86,10 @@ final class SwitchSection extends EditableSyntax {
     return new self($value, $this->_statements, $this->_fallthrough);
   }
 
+  public function hasLabels(): bool {
+    return !$this->_labels->is_missing();
+  }
+
   public function labels(): ?EditableList {
     if ($this->_labels->is_missing()) {
       return null;
@@ -108,6 +112,10 @@ final class SwitchSection extends EditableSyntax {
     return new self($this->_labels, $value, $this->_fallthrough);
   }
 
+  public function hasStatements(): bool {
+    return !$this->_statements->is_missing();
+  }
+
   public function statements(): ?EditableList {
     if ($this->_statements->is_missing()) {
       return null;
@@ -128,6 +136,10 @@ final class SwitchSection extends EditableSyntax {
       return $this;
     }
     return new self($this->_labels, $this->_statements, $value);
+  }
+
+  public function hasFallthrough(): bool {
+    return !$this->_fallthrough->is_missing();
   }
 
   public function fallthrough(): EditableSyntax {

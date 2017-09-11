@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<208f4aed373a9546f02ae824cadb89ed>>
+ * @generated SignedSource<<c40c3231977d3941fd612db6fcc7462c>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -98,6 +98,10 @@ final class ListExpression extends EditableSyntax {
     return new self($value, $this->_left_paren, $this->_members, $this->_right_paren);
   }
 
+  public function hasKeyword(): bool {
+    return !$this->_keyword->is_missing();
+  }
+
   public function keyword(): ListToken {
     return TypeAssert::isInstanceOf(ListToken::class, $this->_keyword);
   }
@@ -113,6 +117,10 @@ final class ListExpression extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_members, $this->_right_paren);
   }
 
+  public function hasLeftParen(): bool {
+    return !$this->_left_paren->is_missing();
+  }
+
   public function left_paren(): LeftParenToken {
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
@@ -126,6 +134,10 @@ final class ListExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $this->_left_paren, $value, $this->_right_paren);
+  }
+
+  public function hasMembers(): bool {
+    return !$this->_members->is_missing();
   }
 
   public function members(): ?EditableList {
@@ -148,6 +160,10 @@ final class ListExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $this->_left_paren, $this->_members, $value);
+  }
+
+  public function hasRightParen(): bool {
+    return !$this->_right_paren->is_missing();
   }
 
   public function right_paren(): RightParenToken {

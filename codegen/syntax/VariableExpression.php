@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0d73276554b638d22c26216a1027be57>>
+ * @generated SignedSource<<f53cf494927e90099e3827ff8004ea2a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -58,6 +58,10 @@ final class VariableExpression extends EditableSyntax {
       return $this;
     }
     return new self($value);
+  }
+
+  public function hasExpression(): bool {
+    return !$this->_expression->is_missing();
   }
 
   public function expression(): EditableSyntax {

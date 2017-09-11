@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fdd1cb0e93c86372cd11a4b847362fdb>>
+ * @generated SignedSource<<c478968b4564b1c5d9d6baf690484c6c>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -98,6 +98,10 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
     return new self($value, $this->_left_paren, $this->_variables, $this->_right_paren);
   }
 
+  public function hasKeyword(): bool {
+    return !$this->_keyword->is_missing();
+  }
+
   public function keyword(): UseToken {
     return TypeAssert::isInstanceOf(UseToken::class, $this->_keyword);
   }
@@ -111,6 +115,10 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $value, $this->_variables, $this->_right_paren);
+  }
+
+  public function hasLeftParen(): bool {
+    return !$this->_left_paren->is_missing();
   }
 
   public function left_paren(): LeftParenToken {
@@ -128,6 +136,10 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
     return new self($this->_keyword, $this->_left_paren, $value, $this->_right_paren);
   }
 
+  public function hasVariables(): bool {
+    return !$this->_variables->is_missing();
+  }
+
   public function variables(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_variables);
   }
@@ -141,6 +153,10 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $this->_left_paren, $this->_variables, $value);
+  }
+
+  public function hasRightParen(): bool {
+    return !$this->_right_paren->is_missing();
   }
 
   public function right_paren(): RightParenToken {

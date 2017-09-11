@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2761e30c1e2cdbff7a27e8f538790661>>
+ * @generated SignedSource<<2ee8c2d89f8e805b8fbf113b12edff46>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -108,6 +108,10 @@ final class TryStatement extends EditableSyntax {
     );
   }
 
+  public function hasKeyword(): bool {
+    return !$this->_keyword->is_missing();
+  }
+
   public function keyword(): TryToken {
     return TypeAssert::isInstanceOf(TryToken::class, $this->_keyword);
   }
@@ -128,6 +132,10 @@ final class TryStatement extends EditableSyntax {
     );
   }
 
+  public function hasCompoundStatement(): bool {
+    return !$this->_compound_statement->is_missing();
+  }
+
   public function compound_statement(): CompoundStatement {
     return TypeAssert::isInstanceOf(CompoundStatement::class, $this->_compound_statement);
   }
@@ -146,6 +154,10 @@ final class TryStatement extends EditableSyntax {
       $value,
       $this->_finally_clause,
     );
+  }
+
+  public function hasCatchClauses(): bool {
+    return !$this->_catch_clauses->is_missing();
   }
 
   public function catch_clauses(): ?EditableList {
@@ -173,6 +185,10 @@ final class TryStatement extends EditableSyntax {
       $this->_catch_clauses,
       $value,
     );
+  }
+
+  public function hasFinallyClause(): bool {
+    return !$this->_finally_clause->is_missing();
   }
 
   public function finally_clause(): ?FinallyClause {

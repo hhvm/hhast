@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ec6bdb178ffe6fdec3ebfd05e2b814c9>>
+ * @generated SignedSource<<eeb5076b3ef333cdb1695c7f7b670941>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -98,6 +98,10 @@ final class ShapeExpression extends EditableSyntax {
     return new self($value, $this->_left_paren, $this->_fields, $this->_right_paren);
   }
 
+  public function hasKeyword(): bool {
+    return !$this->_keyword->is_missing();
+  }
+
   public function keyword(): ShapeToken {
     return TypeAssert::isInstanceOf(ShapeToken::class, $this->_keyword);
   }
@@ -113,6 +117,10 @@ final class ShapeExpression extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_fields, $this->_right_paren);
   }
 
+  public function hasLeftParen(): bool {
+    return !$this->_left_paren->is_missing();
+  }
+
   public function left_paren(): LeftParenToken {
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
@@ -126,6 +134,10 @@ final class ShapeExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $this->_left_paren, $value, $this->_right_paren);
+  }
+
+  public function hasFields(): bool {
+    return !$this->_fields->is_missing();
   }
 
   public function fields(): ?EditableList {
@@ -148,6 +160,10 @@ final class ShapeExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $this->_left_paren, $this->_fields, $value);
+  }
+
+  public function hasRightParen(): bool {
+    return !$this->_right_paren->is_missing();
   }
 
   public function right_paren(): RightParenToken {

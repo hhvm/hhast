@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<83304600e314ba70ea83b449f2cddc1f>>
+ * @generated SignedSource<<6d92dc5b916aab377995d88d137724df>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -98,6 +98,10 @@ final class RequireClause extends EditableSyntax {
     return new self($value, $this->_kind, $this->_name, $this->_semicolon);
   }
 
+  public function hasKeyword(): bool {
+    return !$this->_keyword->is_missing();
+  }
+
   public function keyword(): RequireToken {
     return TypeAssert::isInstanceOf(RequireToken::class, $this->_keyword);
   }
@@ -111,6 +115,10 @@ final class RequireClause extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $value, $this->_name, $this->_semicolon);
+  }
+
+  public function hasKind(): bool {
+    return !$this->_kind->is_missing();
   }
 
   public function kind(): EditableSyntax {
@@ -128,6 +136,10 @@ final class RequireClause extends EditableSyntax {
     return new self($this->_keyword, $this->_kind, $value, $this->_semicolon);
   }
 
+  public function hasName(): bool {
+    return !$this->_name->is_missing();
+  }
+
   public function name(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }
@@ -141,6 +153,10 @@ final class RequireClause extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $this->_kind, $this->_name, $value);
+  }
+
+  public function hasSemicolon(): bool {
+    return !$this->_semicolon->is_missing();
   }
 
   public function semicolon(): SemicolonToken {

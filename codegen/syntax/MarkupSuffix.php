@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7315c5e797806166a44d3cd45a95bb76>>
+ * @generated SignedSource<<1aac431fc8ccb6ca4f5032a1030fe414>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -74,6 +74,10 @@ final class MarkupSuffix extends EditableSyntax {
     return new self($value, $this->_name);
   }
 
+  public function hasLessThanQuestion(): bool {
+    return !$this->_less_than_question->is_missing();
+  }
+
   public function less_than_question(): LessThanQuestionToken {
     return TypeAssert::isInstanceOf(LessThanQuestionToken::class, $this->_less_than_question);
   }
@@ -87,6 +91,10 @@ final class MarkupSuffix extends EditableSyntax {
       return $this;
     }
     return new self($this->_less_than_question, $value);
+  }
+
+  public function hasName(): bool {
+    return !$this->_name->is_missing();
   }
 
   public function name(): EditableSyntax {

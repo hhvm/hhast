@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<db9b425ab68642792b58eb8961896028>>
+ * @generated SignedSource<<65fc1feb8fa219dd2d4df930c39f894e>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -203,6 +203,10 @@ final class ClassishDeclaration extends EditableSyntax {
     );
   }
 
+  public function hasAttribute(): bool {
+    return !$this->_attribute->is_missing();
+  }
+
   public function attribute(): ?AttributeSpecification {
     if ($this->_attribute->is_missing()) {
       return null;
@@ -234,6 +238,10 @@ final class ClassishDeclaration extends EditableSyntax {
       $this->_implements_list,
       $this->_body,
     );
+  }
+
+  public function hasModifiers(): bool {
+    return !$this->_modifiers->is_missing();
   }
 
   public function modifiers(): ?EditableList {
@@ -269,6 +277,10 @@ final class ClassishDeclaration extends EditableSyntax {
     );
   }
 
+  public function hasKeyword(): bool {
+    return !$this->_keyword->is_missing();
+  }
+
   public function keyword(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_keyword);
   }
@@ -295,6 +307,10 @@ final class ClassishDeclaration extends EditableSyntax {
     );
   }
 
+  public function hasName(): bool {
+    return !$this->_name->is_missing();
+  }
+
   public function name(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }
@@ -319,6 +335,10 @@ final class ClassishDeclaration extends EditableSyntax {
       $this->_implements_list,
       $this->_body,
     );
+  }
+
+  public function hasTypeParameters(): bool {
+    return !$this->_type_parameters->is_missing();
   }
 
   public function type_parameters(): ?TypeParameters {
@@ -354,6 +374,10 @@ final class ClassishDeclaration extends EditableSyntax {
     );
   }
 
+  public function hasExtendsKeyword(): bool {
+    return !$this->_extends_keyword->is_missing();
+  }
+
   public function extends_keyword(): ?ExtendsToken {
     if ($this->_extends_keyword->is_missing()) {
       return null;
@@ -385,6 +409,10 @@ final class ClassishDeclaration extends EditableSyntax {
       $this->_implements_list,
       $this->_body,
     );
+  }
+
+  public function hasExtendsList(): bool {
+    return !$this->_extends_list->is_missing();
   }
 
   public function extends_list(): ?EditableList {
@@ -420,6 +448,10 @@ final class ClassishDeclaration extends EditableSyntax {
     );
   }
 
+  public function hasImplementsKeyword(): bool {
+    return !$this->_implements_keyword->is_missing();
+  }
+
   public function implements_keyword(): ?ImplementsToken {
     if ($this->_implements_keyword->is_missing()) {
       return null;
@@ -453,6 +485,10 @@ final class ClassishDeclaration extends EditableSyntax {
     );
   }
 
+  public function hasImplementsList(): bool {
+    return !$this->_implements_list->is_missing();
+  }
+
   public function implements_list(): ?EditableList {
     if ($this->_implements_list->is_missing()) {
       return null;
@@ -484,6 +520,10 @@ final class ClassishDeclaration extends EditableSyntax {
       $this->_implements_list,
       $value,
     );
+  }
+
+  public function hasBody(): bool {
+    return !$this->_body->is_missing();
   }
 
   public function body(): ClassishBody {

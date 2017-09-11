@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1a8f9ad2437f746fa87279002cc561a8>>
+ * @generated SignedSource<<22a90e286ecbe1eb4779c025a6b1954b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -58,6 +58,10 @@ final class QualifiedNameExpression extends EditableSyntax {
       return $this;
     }
     return new self($value);
+  }
+
+  public function hasExpression(): bool {
+    return !$this->_expression->is_missing();
   }
 
   public function expression(): EditableSyntax {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0531d23687776996517a9a550b32af86>>
+ * @generated SignedSource<<c8a1a2e3a69d0f8d3b3a6e519c01dd26>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -98,6 +98,10 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
     return new self($value, $this->_left_angle, $this->_members, $this->_right_angle);
   }
 
+  public function hasKeyword(): bool {
+    return !$this->_keyword->is_missing();
+  }
+
   public function keyword(): DictToken {
     return TypeAssert::isInstanceOf(DictToken::class, $this->_keyword);
   }
@@ -111,6 +115,10 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $value, $this->_members, $this->_right_angle);
+  }
+
+  public function hasLeftAngle(): bool {
+    return !$this->_left_angle->is_missing();
   }
 
   public function left_angle(): LessThanToken {
@@ -128,6 +136,10 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
     return new self($this->_keyword, $this->_left_angle, $value, $this->_right_angle);
   }
 
+  public function hasMembers(): bool {
+    return !$this->_members->is_missing();
+  }
+
   public function members(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
   }
@@ -141,6 +153,10 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $this->_left_angle, $this->_members, $value);
+  }
+
+  public function hasRightAngle(): bool {
+    return !$this->_right_angle->is_missing();
   }
 
   public function right_angle(): GreaterThanToken {

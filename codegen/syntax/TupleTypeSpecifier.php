@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<92bd8ba2e264be2c887a9e754b2838b5>>
+ * @generated SignedSource<<f294eabf3ea4c69401335cb7fe638f88>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -86,6 +86,10 @@ final class TupleTypeSpecifier extends EditableSyntax {
     return new self($value, $this->_types, $this->_right_paren);
   }
 
+  public function hasLeftParen(): bool {
+    return !$this->_left_paren->is_missing();
+  }
+
   public function left_paren(): LeftParenToken {
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
@@ -101,6 +105,10 @@ final class TupleTypeSpecifier extends EditableSyntax {
     return new self($this->_left_paren, $value, $this->_right_paren);
   }
 
+  public function hasTypes(): bool {
+    return !$this->_types->is_missing();
+  }
+
   public function types(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_types);
   }
@@ -114,6 +122,10 @@ final class TupleTypeSpecifier extends EditableSyntax {
       return $this;
     }
     return new self($this->_left_paren, $this->_types, $value);
+  }
+
+  public function hasRightParen(): bool {
+    return !$this->_right_paren->is_missing();
   }
 
   public function right_paren(): RightParenToken {

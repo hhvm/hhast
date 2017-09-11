@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<21ac845c1e0655ed2db7450300c07ff3>>
+ * @generated SignedSource<<90dacb3e7f34cba79822c1121e3ed2b0>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -86,6 +86,10 @@ final class GlobalStatement extends EditableSyntax {
     return new self($value, $this->_variables, $this->_semicolon);
   }
 
+  public function hasKeyword(): bool {
+    return !$this->_keyword->is_missing();
+  }
+
   public function keyword(): GlobalToken {
     return TypeAssert::isInstanceOf(GlobalToken::class, $this->_keyword);
   }
@@ -101,6 +105,10 @@ final class GlobalStatement extends EditableSyntax {
     return new self($this->_keyword, $value, $this->_semicolon);
   }
 
+  public function hasVariables(): bool {
+    return !$this->_variables->is_missing();
+  }
+
   public function variables(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_variables);
   }
@@ -114,6 +122,10 @@ final class GlobalStatement extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $this->_variables, $value);
+  }
+
+  public function hasSemicolon(): bool {
+    return !$this->_semicolon->is_missing();
   }
 
   public function semicolon(): SemicolonToken {

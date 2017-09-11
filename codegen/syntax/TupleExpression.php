@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<55d0deeae0cd7df7ab14fb3aa819b27b>>
+ * @generated SignedSource<<d01246929fc68a895ffd3a376ee66b77>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -98,6 +98,10 @@ final class TupleExpression extends EditableSyntax {
     return new self($value, $this->_left_paren, $this->_items, $this->_right_paren);
   }
 
+  public function hasKeyword(): bool {
+    return !$this->_keyword->is_missing();
+  }
+
   public function keyword(): TupleToken {
     return TypeAssert::isInstanceOf(TupleToken::class, $this->_keyword);
   }
@@ -111,6 +115,10 @@ final class TupleExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $value, $this->_items, $this->_right_paren);
+  }
+
+  public function hasLeftParen(): bool {
+    return !$this->_left_paren->is_missing();
   }
 
   public function left_paren(): LeftParenToken {
@@ -128,6 +136,10 @@ final class TupleExpression extends EditableSyntax {
     return new self($this->_keyword, $this->_left_paren, $value, $this->_right_paren);
   }
 
+  public function hasItems(): bool {
+    return !$this->_items->is_missing();
+  }
+
   public function items(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_items);
   }
@@ -141,6 +153,10 @@ final class TupleExpression extends EditableSyntax {
       return $this;
     }
     return new self($this->_keyword, $this->_left_paren, $this->_items, $value);
+  }
+
+  public function hasRightParen(): bool {
+    return !$this->_right_paren->is_missing();
   }
 
   public function right_paren(): RightParenToken {

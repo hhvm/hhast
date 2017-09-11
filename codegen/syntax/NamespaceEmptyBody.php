@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<08d9d5a5cc92716e422d45303304979a>>
+ * @generated SignedSource<<638816ecff792ba43fdc0a9f100e7433>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -58,6 +58,10 @@ final class NamespaceEmptyBody extends EditableSyntax {
       return $this;
     }
     return new self($value);
+  }
+
+  public function hasSemicolon(): bool {
+    return !$this->_semicolon->is_missing();
   }
 
   public function semicolon(): SemicolonToken {
