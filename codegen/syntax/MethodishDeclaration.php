@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<03ec81ac13e15fd944a1203c3163d6ef>>
+ * @generated SignedSource<<24664616f9a25c84fb25159aab3bac4c>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -221,8 +221,15 @@ final class MethodishDeclaration extends EditableSyntax {
     return !$this->_function_body->is_missing();
   }
 
-  public function getFunctionBody(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_function_body);
+  public function getFunctionBody(): ?CompoundStatement {
+    if ($this->_function_body->is_missing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(CompoundStatement::class, $this->_function_body);
+  }
+
+  public function getFunctionBodyx(): CompoundStatement {
+    return TypeAssert::isInstanceOf(CompoundStatement::class, $this->_function_body);
   }
 
   public function getSemicolonUNTYPED(): EditableSyntax {

@@ -325,7 +325,10 @@ final class CodegenSyntax extends CodegenBase {
     $children = $specs[$key];
     $nullable = C\contains_key($children, 'missing');
     if ($nullable) {
-      $children = Vec\filter($children, $child ==> $child !== 'missing');
+      $children = Vec\filter(
+        $children,
+        $child ==> $child !== 'missing' && $child !== 'error',
+      );
     }
     if (C\count($children) !== 1) {
       return shape(
