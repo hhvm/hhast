@@ -147,4 +147,57 @@ final class ResolutionTest extends TestCase {
     list($node, $parents) = self::getNodeAndParents($code);
     expect(Resolution\get_current_uses($node, $parents))->toBeSame($expected);
   }
+
+  public function getTypeResolutionExamples(): array<(string, string, string)> {
+    return [
+      tuple(
+        '<?hh class Target {}',
+        'Foo',
+        'Foo',
+      ),
+      tuple(
+        '<?hh use Foo\\Bar; class Target {}',
+        'Bar',
+        'Foo\\Bar',
+      ),
+      tuple(
+        '<?hh use Foo as Bar; class Target {}',
+        'Bar',
+        'Foo',
+      ),
+      tuple(
+        '<?hh use Foo as Bar; class Target {}',
+        'Bar\\Baz',
+        'Foo\\Baz',
+      ),
+      tuple(
+        '<?hh use namespace Foo as Bar; use type Herp as Bar; class Target {}',
+        'Bar',
+        'Herp',
+      ),
+      tuple(
+        '<?hh use namespace Foo as Bar; use type Herp as Bar; class Target {}',
+        'Bar\\Baz',
+        'Foo\\Baz',
+      ),
+      tuple(
+        '<?hh use namespace Foo as Bar; use type Herp as Bar; class Target {}',
+        'Herp\\Derp',
+        'Herp\\Derp',
+      ),
+    ];
+  }
+
+  /**
+   * @dataProvider getTypeResolutionExamples
+   */
+  public function testTypeResolution(
+    string $code,
+    string $type,
+    string $expected,
+  ): void {
+    list($node, $parents) = self::getNodeAndParents($code);
+    expect(Resolution\resolve_type($type, $node, $parents))
+      ->toBeSame($expected);
+  }
 }
