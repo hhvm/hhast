@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<24f5995be6f8f8cd9ed189e65dd7fb18>>
+ * @generated SignedSource<<c118a43843b3d2b7566ead928d88e7d0>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -28,30 +28,30 @@ final class TupleExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['tuple_expression_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_paren = EditableSyntax::from_json(
+    $left_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['tuple_expression_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $items = EditableSyntax::from_json(
+    $items = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['tuple_expression_items'],
       $position,
       $source,
     );
     $position += $items->getWidth();
-    $right_paren = EditableSyntax::from_json(
+    $right_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['tuple_expression_right_paren'],
       $position,
       $source,

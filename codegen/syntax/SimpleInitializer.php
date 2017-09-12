@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9abb26cc77938680302a405bda6ab4d0>>
+ * @generated SignedSource<<3358f7bdf22522f556ffc358c06dee69>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -19,18 +19,18 @@ final class SimpleInitializer extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $equal = EditableSyntax::from_json(
+    $equal = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['simple_initializer_equal'],
       $position,
       $source,
     );
     $position += $equal->getWidth();
-    $value = EditableSyntax::from_json(
+    $value = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['simple_initializer_value'],
       $position,
       $source,

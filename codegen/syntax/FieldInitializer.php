@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<83bd2766335f9e7b92a13efc83470062>>
+ * @generated SignedSource<<671721838f97778f4db5eed655dab3ea>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -25,24 +25,24 @@ final class FieldInitializer extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $name = EditableSyntax::from_json(
+    $name = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['field_initializer_name'],
       $position,
       $source,
     );
     $position += $name->getWidth();
-    $arrow = EditableSyntax::from_json(
+    $arrow = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['field_initializer_arrow'],
       $position,
       $source,
     );
     $position += $arrow->getWidth();
-    $value = EditableSyntax::from_json(
+    $value = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['field_initializer_value'],
       $position,
       $source,

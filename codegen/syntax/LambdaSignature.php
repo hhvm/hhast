@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<27e7eb50bbfdd27bcbd40656a90e310e>>
+ * @generated SignedSource<<37fdbc0bf8db5be0ddf4d485a1173049>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -31,36 +31,36 @@ final class LambdaSignature extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $left_paren = EditableSyntax::from_json(
+    $left_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['lambda_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $parameters = EditableSyntax::from_json(
+    $parameters = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['lambda_parameters'],
       $position,
       $source,
     );
     $position += $parameters->getWidth();
-    $right_paren = EditableSyntax::from_json(
+    $right_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['lambda_right_paren'],
       $position,
       $source,
     );
     $position += $right_paren->getWidth();
-    $colon = EditableSyntax::from_json(
+    $colon = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['lambda_colon'],
       $position,
       $source,
     );
     $position += $colon->getWidth();
-    $type = EditableSyntax::from_json(
+    $type = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['lambda_type'],
       $position,
       $source,

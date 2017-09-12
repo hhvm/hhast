@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6b9ae78a3ae5b5df0028159d55f987ff>>
+ * @generated SignedSource<<6733001fa8c0794dd81c77d5bb3b4eac>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -22,18 +22,18 @@ final class SwitchFallthrough extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['fallthrough_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $semicolon = EditableSyntax::from_json(
+    $semicolon = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['fallthrough_semicolon'],
       $position,
       $source,

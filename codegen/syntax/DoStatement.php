@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<85b83934f69122ba555618cb5f36bb2c>>
+ * @generated SignedSource<<18450d640ff77ebe07090eb562d915ff>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -37,48 +37,48 @@ final class DoStatement extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['do_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $body = EditableSyntax::from_json(
+    $body = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['do_body'],
       $position,
       $source,
     );
     $position += $body->getWidth();
-    $while_keyword = EditableSyntax::from_json(
+    $while_keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['do_while_keyword'],
       $position,
       $source,
     );
     $position += $while_keyword->getWidth();
-    $left_paren = EditableSyntax::from_json(
+    $left_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['do_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $condition = EditableSyntax::from_json(
+    $condition = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['do_condition'],
       $position,
       $source,
     );
     $position += $condition->getWidth();
-    $right_paren = EditableSyntax::from_json(
+    $right_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['do_right_paren'],
       $position,
       $source,
     );
     $position += $right_paren->getWidth();
-    $semicolon = EditableSyntax::from_json(
+    $semicolon = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['do_semicolon'],
       $position,
       $source,

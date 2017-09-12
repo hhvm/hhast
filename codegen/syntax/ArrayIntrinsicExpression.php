@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<126c64bd88ccb6c291b5acae0e76e42a>>
+ * @generated SignedSource<<39bb03474a728652c48aacf1ca3b8ddb>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -28,30 +28,30 @@ final class ArrayIntrinsicExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['array_intrinsic_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_paren = EditableSyntax::from_json(
+    $left_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['array_intrinsic_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $members = EditableSyntax::from_json(
+    $members = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['array_intrinsic_members'],
       $position,
       $source,
     );
     $position += $members->getWidth();
-    $right_paren = EditableSyntax::from_json(
+    $right_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['array_intrinsic_right_paren'],
       $position,
       $source,

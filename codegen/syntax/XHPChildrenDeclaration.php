@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cec77ec531bdd38696990bb1365fd53a>>
+ * @generated SignedSource<<bbcaf6a59d972312edb70cf7b5a22548>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -25,24 +25,24 @@ final class XHPChildrenDeclaration extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_children_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $expression = EditableSyntax::from_json(
+    $expression = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_children_expression'],
       $position,
       $source,
     );
     $position += $expression->getWidth();
-    $semicolon = EditableSyntax::from_json(
+    $semicolon = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_children_semicolon'],
       $position,
       $source,

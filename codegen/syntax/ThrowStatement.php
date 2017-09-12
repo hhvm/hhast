@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a97b0171578ae3efe91fb9cc0fae1a7e>>
+ * @generated SignedSource<<3f3ef9d6c1bdc805bc29ed6e56e42233>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -25,24 +25,24 @@ final class ThrowStatement extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['throw_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $expression = EditableSyntax::from_json(
+    $expression = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['throw_expression'],
       $position,
       $source,
     );
     $position += $expression->getWidth();
-    $semicolon = EditableSyntax::from_json(
+    $semicolon = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['throw_semicolon'],
       $position,
       $source,

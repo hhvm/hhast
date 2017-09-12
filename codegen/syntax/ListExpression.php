@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<36a4e1f348e9146c43e0aa95dbae3117>>
+ * @generated SignedSource<<091fb65ca8212beddc23672b0cac0171>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -28,30 +28,30 @@ final class ListExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['list_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_paren = EditableSyntax::from_json(
+    $left_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['list_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $members = EditableSyntax::from_json(
+    $members = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['list_members'],
       $position,
       $source,
     );
     $position += $members->getWidth();
-    $right_paren = EditableSyntax::from_json(
+    $right_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['list_right_paren'],
       $position,
       $source,

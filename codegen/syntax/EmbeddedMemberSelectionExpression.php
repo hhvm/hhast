@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f62e0593bcdf923439c1301dd0c3f529>>
+ * @generated SignedSource<<107902f9eb40c249863e958417682ca7>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -25,24 +25,24 @@ final class EmbeddedMemberSelectionExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $object = EditableSyntax::from_json(
+    $object = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['embedded_member_object'],
       $position,
       $source,
     );
     $position += $object->getWidth();
-    $operator = EditableSyntax::from_json(
+    $operator = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['embedded_member_operator'],
       $position,
       $source,
     );
     $position += $operator->getWidth();
-    $name = EditableSyntax::from_json(
+    $name = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['embedded_member_name'],
       $position,
       $source,

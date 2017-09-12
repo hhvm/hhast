@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<509968f74c317980052e8581ffdb6c11>>
+ * @generated SignedSource<<a1e855ef1a8b41fee444c5b8d310a7de>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -28,30 +28,30 @@ final class CollectionLiteralExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $name = EditableSyntax::from_json(
+    $name = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['collection_literal_name'],
       $position,
       $source,
     );
     $position += $name->getWidth();
-    $left_brace = EditableSyntax::from_json(
+    $left_brace = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['collection_literal_left_brace'],
       $position,
       $source,
     );
     $position += $left_brace->getWidth();
-    $initializers = EditableSyntax::from_json(
+    $initializers = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['collection_literal_initializers'],
       $position,
       $source,
     );
     $position += $initializers->getWidth();
-    $right_brace = EditableSyntax::from_json(
+    $right_brace = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['collection_literal_right_brace'],
       $position,
       $source,

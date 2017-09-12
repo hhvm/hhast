@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f6295cdc536a1950d14f8c9206e6185c>>
+ * @generated SignedSource<<48bb924b97e14b09ecd5a1e6cfa4ca36>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -22,18 +22,18 @@ final class InclusionExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $require = EditableSyntax::from_json(
+    $require = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['inclusion_require'],
       $position,
       $source,
     );
     $position += $require->getWidth();
-    $filename = EditableSyntax::from_json(
+    $filename = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['inclusion_filename'],
       $position,
       $source,

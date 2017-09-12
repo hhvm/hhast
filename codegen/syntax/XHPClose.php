@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5a2223bb91064688a9f604c3c038caac>>
+ * @generated SignedSource<<668f8f2575ff7670924503e538472dae>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -25,24 +25,24 @@ final class XHPClose extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $left_angle = EditableSyntax::from_json(
+    $left_angle = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_close_left_angle'],
       $position,
       $source,
     );
     $position += $left_angle->getWidth();
-    $name = EditableSyntax::from_json(
+    $name = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_close_name'],
       $position,
       $source,
     );
     $position += $name->getWidth();
-    $right_angle = EditableSyntax::from_json(
+    $right_angle = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_close_right_angle'],
       $position,
       $source,

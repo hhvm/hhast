@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<89dfa5814e2989aa427e4de908086212>>
+ * @generated SignedSource<<06ac2946798cf9abf988bbe432ebd4b2>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -22,18 +22,18 @@ final class ExpressionStatement extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $expression = EditableSyntax::from_json(
+    $expression = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['expression_statement_expression'],
       $position,
       $source,
     );
     $position += $expression->getWidth();
-    $semicolon = EditableSyntax::from_json(
+    $semicolon = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['expression_statement_semicolon'],
       $position,
       $source,

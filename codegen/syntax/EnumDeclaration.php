@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7dc85345ee82cb06859e52d82b10390a>>
+ * @generated SignedSource<<ebab3a1a0a453cf7d74ed97715da2a19>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -43,60 +43,60 @@ final class EnumDeclaration extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $attribute_spec = EditableSyntax::from_json(
+    $attribute_spec = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['enum_attribute_spec'],
       $position,
       $source,
     );
     $position += $attribute_spec->getWidth();
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['enum_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $name = EditableSyntax::from_json(
+    $name = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['enum_name'],
       $position,
       $source,
     );
     $position += $name->getWidth();
-    $colon = EditableSyntax::from_json(
+    $colon = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['enum_colon'],
       $position,
       $source,
     );
     $position += $colon->getWidth();
-    $base = EditableSyntax::from_json(
+    $base = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['enum_base'],
       $position,
       $source,
     );
     $position += $base->getWidth();
-    $type = EditableSyntax::from_json(
+    $type = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['enum_type'],
       $position,
       $source,
     );
     $position += $type->getWidth();
-    $left_brace = EditableSyntax::from_json(
+    $left_brace = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['enum_left_brace'],
       $position,
       $source,
     );
     $position += $left_brace->getWidth();
-    $enumerators = EditableSyntax::from_json(
+    $enumerators = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['enum_enumerators'],
       $position,
       $source,
     );
     $position += $enumerators->getWidth();
-    $right_brace = EditableSyntax::from_json(
+    $right_brace = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['enum_right_brace'],
       $position,
       $source,

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b19b70232c878c3f19e0d2815f2dc381>>
+ * @generated SignedSource<<be2ce030440ba57c72b02e179f4131bc>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -25,24 +25,24 @@ final class XHPExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $open = EditableSyntax::from_json(
+    $open = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_open'],
       $position,
       $source,
     );
     $position += $open->getWidth();
-    $body = EditableSyntax::from_json(
+    $body = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_body'],
       $position,
       $source,
     );
     $position += $body->getWidth();
-    $close = EditableSyntax::from_json(
+    $close = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_close'],
       $position,
       $source,

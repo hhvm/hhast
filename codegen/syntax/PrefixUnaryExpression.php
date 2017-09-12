@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2352948d86eeac350472bf85083f72ea>>
+ * @generated SignedSource<<2025e502fc0c46c9167f2cc7a8d4696d>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -22,18 +22,18 @@ final class PrefixUnaryExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $operator = EditableSyntax::from_json(
+    $operator = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['prefix_unary_operator'],
       $position,
       $source,
     );
     $position += $operator->getWidth();
-    $operand = EditableSyntax::from_json(
+    $operand = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['prefix_unary_operand'],
       $position,
       $source,

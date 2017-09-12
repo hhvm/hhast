@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1fbd6e9066241b2b22cdb6486bfaea9d>>
+ * @generated SignedSource<<51e0479661cef7b65bb5a16f05fdc3cd>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -34,42 +34,42 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['map_array_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_angle = EditableSyntax::from_json(
+    $left_angle = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['map_array_left_angle'],
       $position,
       $source,
     );
     $position += $left_angle->getWidth();
-    $key = EditableSyntax::from_json(
+    $key = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['map_array_key'],
       $position,
       $source,
     );
     $position += $key->getWidth();
-    $comma = EditableSyntax::from_json(
+    $comma = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['map_array_comma'],
       $position,
       $source,
     );
     $position += $comma->getWidth();
-    $value = EditableSyntax::from_json(
+    $value = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['map_array_value'],
       $position,
       $source,
     );
     $position += $value->getWidth();
-    $right_angle = EditableSyntax::from_json(
+    $right_angle = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['map_array_right_angle'],
       $position,
       $source,

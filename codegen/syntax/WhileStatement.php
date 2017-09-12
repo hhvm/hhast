@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<033bf8258a8864495b421fe58c7fa915>>
+ * @generated SignedSource<<6118c970b0b7068d601364beedb7a3f2>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -31,36 +31,36 @@ final class WhileStatement extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['while_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_paren = EditableSyntax::from_json(
+    $left_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['while_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $condition = EditableSyntax::from_json(
+    $condition = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['while_condition'],
       $position,
       $source,
     );
     $position += $condition->getWidth();
-    $right_paren = EditableSyntax::from_json(
+    $right_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['while_right_paren'],
       $position,
       $source,
     );
     $position += $right_paren->getWidth();
-    $body = EditableSyntax::from_json(
+    $body = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['while_body'],
       $position,
       $source,

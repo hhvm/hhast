@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3fd7baa8f3adf3fbec61e6492f4192f0>>
+ * @generated SignedSource<<3283ef18be3853ea7699619dc90bf443>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -31,36 +31,36 @@ final class ConstDeclaration extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $abstract = EditableSyntax::from_json(
+    $abstract = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['const_abstract'],
       $position,
       $source,
     );
     $position += $abstract->getWidth();
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['const_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $type_specifier = EditableSyntax::from_json(
+    $type_specifier = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['const_type_specifier'],
       $position,
       $source,
     );
     $position += $type_specifier->getWidth();
-    $declarators = EditableSyntax::from_json(
+    $declarators = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['const_declarators'],
       $position,
       $source,
     );
     $position += $declarators->getWidth();
-    $semicolon = EditableSyntax::from_json(
+    $semicolon = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['const_semicolon'],
       $position,
       $source,

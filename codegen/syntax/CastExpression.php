@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e3780d566de72488a5fbf2de133c56a5>>
+ * @generated SignedSource<<a0999c54f42e8282189fa671e463e3b8>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -28,30 +28,30 @@ final class CastExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $left_paren = EditableSyntax::from_json(
+    $left_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['cast_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $type = EditableSyntax::from_json(
+    $type = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['cast_type'],
       $position,
       $source,
     );
     $position += $type->getWidth();
-    $right_paren = EditableSyntax::from_json(
+    $right_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['cast_right_paren'],
       $position,
       $source,
     );
     $position += $right_paren->getWidth();
-    $operand = EditableSyntax::from_json(
+    $operand = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['cast_operand'],
       $position,
       $source,

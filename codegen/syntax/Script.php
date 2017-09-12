@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<25c5f468ee2e7b76a413ad5501bd4bce>>
+ * @generated SignedSource<<4c55715bb163e30965a552e6b3d7247a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -17,12 +17,12 @@ final class Script extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $declarations = EditableSyntax::from_json(
+    $declarations = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['script_declarations'],
       $position,
       $source,

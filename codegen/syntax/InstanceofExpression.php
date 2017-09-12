@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<69394d5fe094a9e11e5046a8f6d50abd>>
+ * @generated SignedSource<<189ff1008825e0d3a2f7b487e728d558>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -25,24 +25,24 @@ final class InstanceofExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $left_operand = EditableSyntax::from_json(
+    $left_operand = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['instanceof_left_operand'],
       $position,
       $source,
     );
     $position += $left_operand->getWidth();
-    $operator = EditableSyntax::from_json(
+    $operator = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['instanceof_operator'],
       $position,
       $source,
     );
     $position += $operator->getWidth();
-    $right_operand = EditableSyntax::from_json(
+    $right_operand = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['instanceof_right_operand'],
       $position,
       $source,

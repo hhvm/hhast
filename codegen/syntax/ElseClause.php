@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<76e89d5146aa8f05a302bb70c1165fe4>>
+ * @generated SignedSource<<db8abaccc5d3726c656165d3a9d01572>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -22,18 +22,18 @@ final class ElseClause extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['else_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $statement = EditableSyntax::from_json(
+    $statement = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['else_statement'],
       $position,
       $source,

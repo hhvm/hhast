@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d106496607607f61afa077ad959d3eb1>>
+ * @generated SignedSource<<375d8e4feb75a0dab85abfb6152c9cf0>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -17,12 +17,12 @@ final class SimpleTypeSpecifier extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $specifier = EditableSyntax::from_json(
+    $specifier = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['simple_type_specifier'],
       $position,
       $source,

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<93617afb3e4c392fcb4d3a8b4eb56d1d>>
+ * @generated SignedSource<<9418e54ab1b5ca0aa6d24c35a2d155f8>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -28,30 +28,30 @@ final class Attribute extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $name = EditableSyntax::from_json(
+    $name = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['attribute_name'],
       $position,
       $source,
     );
     $position += $name->getWidth();
-    $left_paren = EditableSyntax::from_json(
+    $left_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['attribute_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $values = EditableSyntax::from_json(
+    $values = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['attribute_values'],
       $position,
       $source,
     );
     $position += $values->getWidth();
-    $right_paren = EditableSyntax::from_json(
+    $right_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['attribute_right_paren'],
       $position,
       $source,

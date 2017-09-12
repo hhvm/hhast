@@ -111,7 +111,7 @@ abstract class EditableSyntax {
     return $s;
   }
 
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,

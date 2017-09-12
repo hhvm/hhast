@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0bc4ef2f8f6a02231bae56ac96c6d1b0>>
+ * @generated SignedSource<<1854ccb6efbb9e5600578f4d7d81ed99>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -28,30 +28,30 @@ final class IssetExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['isset_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_paren = EditableSyntax::from_json(
+    $left_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['isset_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $argument_list = EditableSyntax::from_json(
+    $argument_list = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['isset_argument_list'],
       $position,
       $source,
     );
     $position += $argument_list->getWidth();
-    $right_paren = EditableSyntax::from_json(
+    $right_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['isset_right_paren'],
       $position,
       $source,

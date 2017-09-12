@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<208c5dfb1fbf50a3e4ead43f724b35ac>>
+ * @generated SignedSource<<4b393bc986644117207d39d0a2a5c93e>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -17,12 +17,12 @@ final class EndOfFile extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $token = EditableSyntax::from_json(
+    $token = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['end_of_file_token'],
       $position,
       $source,

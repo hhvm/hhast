@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b0579ab015ba100320d129901003fcfc>>
+ * @generated SignedSource<<233dc1a53f7c6e1b9741ce26bc994746>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -31,36 +31,36 @@ final class ConditionalExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $test = EditableSyntax::from_json(
+    $test = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['conditional_test'],
       $position,
       $source,
     );
     $position += $test->getWidth();
-    $question = EditableSyntax::from_json(
+    $question = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['conditional_question'],
       $position,
       $source,
     );
     $position += $question->getWidth();
-    $consequence = EditableSyntax::from_json(
+    $consequence = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['conditional_consequence'],
       $position,
       $source,
     );
     $position += $consequence->getWidth();
-    $colon = EditableSyntax::from_json(
+    $colon = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['conditional_colon'],
       $position,
       $source,
     );
     $position += $colon->getWidth();
-    $alternative = EditableSyntax::from_json(
+    $alternative = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['conditional_alternative'],
       $position,
       $source,

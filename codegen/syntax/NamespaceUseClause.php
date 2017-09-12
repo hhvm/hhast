@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<64a549ad4aa216732fe030390421719a>>
+ * @generated SignedSource<<ede51362e930e8a0e722459560a4dbf2>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -28,30 +28,30 @@ final class NamespaceUseClause extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $clause_kind = EditableSyntax::from_json(
+    $clause_kind = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_use_clause_kind'],
       $position,
       $source,
     );
     $position += $clause_kind->getWidth();
-    $name = EditableSyntax::from_json(
+    $name = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_use_name'],
       $position,
       $source,
     );
     $position += $name->getWidth();
-    $as = EditableSyntax::from_json(
+    $as = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_use_as'],
       $position,
       $source,
     );
     $position += $as->getWidth();
-    $alias = EditableSyntax::from_json(
+    $alias = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_use_alias'],
       $position,
       $source,

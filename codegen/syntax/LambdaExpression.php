@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0308718d73c865d454aadce17bc7db5b>>
+ * @generated SignedSource<<7c3e569ad899704cf3f92efeade46585>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -31,36 +31,36 @@ final class LambdaExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $async = EditableSyntax::from_json(
+    $async = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['lambda_async'],
       $position,
       $source,
     );
     $position += $async->getWidth();
-    $coroutine = EditableSyntax::from_json(
+    $coroutine = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['lambda_coroutine'],
       $position,
       $source,
     );
     $position += $coroutine->getWidth();
-    $signature = EditableSyntax::from_json(
+    $signature = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['lambda_signature'],
       $position,
       $source,
     );
     $position += $signature->getWidth();
-    $arrow = EditableSyntax::from_json(
+    $arrow = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['lambda_arrow'],
       $position,
       $source,
     );
     $position += $arrow->getWidth();
-    $body = EditableSyntax::from_json(
+    $body = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['lambda_body'],
       $position,
       $source,

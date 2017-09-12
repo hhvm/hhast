@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e788e67830cffa2c0e0043d7b20115b6>>
+ * @generated SignedSource<<5f33e0a07814b68ff04443015f305e5a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -25,24 +25,24 @@ final class NamespaceBody extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $left_brace = EditableSyntax::from_json(
+    $left_brace = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_left_brace'],
       $position,
       $source,
     );
     $position += $left_brace->getWidth();
-    $declarations = EditableSyntax::from_json(
+    $declarations = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_declarations'],
       $position,
       $source,
     );
     $position += $declarations->getWidth();
-    $right_brace = EditableSyntax::from_json(
+    $right_brace = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_right_brace'],
       $position,
       $source,

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a2b7be0d6a5669cb6fe42433d31920f2>>
+ * @generated SignedSource<<f5617c2308c7aabe79d41ebe4455cf6e>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -19,18 +19,18 @@ final class XHPRequired extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $at = EditableSyntax::from_json(
+    $at = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_required_at'],
       $position,
       $source,
     );
     $position += $at->getWidth();
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_required_keyword'],
       $position,
       $source,

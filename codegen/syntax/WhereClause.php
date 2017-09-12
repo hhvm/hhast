@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<39f11bd07827da27a8c0f294a5e45a3f>>
+ * @generated SignedSource<<df0f48b0dd2a3867bbbd53ca40342445>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -22,18 +22,18 @@ final class WhereClause extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['where_clause_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $constraints = EditableSyntax::from_json(
+    $constraints = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['where_clause_constraints'],
       $position,
       $source,

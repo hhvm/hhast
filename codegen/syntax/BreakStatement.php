@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5adfe1c77cc0f6a7c827eaf16750c0ae>>
+ * @generated SignedSource<<28d425cc1506e10f82119c659a4d91a1>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -25,24 +25,24 @@ final class BreakStatement extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['break_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $level = EditableSyntax::from_json(
+    $level = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['break_level'],
       $position,
       $source,
     );
     $position += $level->getWidth();
-    $semicolon = EditableSyntax::from_json(
+    $semicolon = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['break_semicolon'],
       $position,
       $source,

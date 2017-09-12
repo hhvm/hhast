@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b658d481a4de6c42cc02b3870e95cf7d>>
+ * @generated SignedSource<<bf45c7fbfd88c83f9779fba44366468e>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -25,24 +25,24 @@ final class ParenthesizedExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $left_paren = EditableSyntax::from_json(
+    $left_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['parenthesized_expression_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $expression = EditableSyntax::from_json(
+    $expression = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['parenthesized_expression_expression'],
       $position,
       $source,
     );
     $position += $expression->getWidth();
-    $right_paren = EditableSyntax::from_json(
+    $right_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['parenthesized_expression_right_paren'],
       $position,
       $source,

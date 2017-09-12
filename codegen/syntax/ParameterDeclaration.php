@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3d4d6d3c4fb76728421db3a967f3cb85>>
+ * @generated SignedSource<<0223ea3b20f7a0af3d03d87b001aa387>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -31,36 +31,36 @@ final class ParameterDeclaration extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $attribute = EditableSyntax::from_json(
+    $attribute = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['parameter_attribute'],
       $position,
       $source,
     );
     $position += $attribute->getWidth();
-    $visibility = EditableSyntax::from_json(
+    $visibility = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['parameter_visibility'],
       $position,
       $source,
     );
     $position += $visibility->getWidth();
-    $type = EditableSyntax::from_json(
+    $type = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['parameter_type'],
       $position,
       $source,
     );
     $position += $type->getWidth();
-    $name = EditableSyntax::from_json(
+    $name = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['parameter_name'],
       $position,
       $source,
     );
     $position += $name->getWidth();
-    $default_value = EditableSyntax::from_json(
+    $default_value = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['parameter_default_value'],
       $position,
       $source,

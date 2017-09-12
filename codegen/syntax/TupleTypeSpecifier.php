@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1fd7f8a4d4c8545280f6b8ce6efe5f59>>
+ * @generated SignedSource<<06da835183b3b94d449880c118d52ac8>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -25,24 +25,24 @@ final class TupleTypeSpecifier extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $left_paren = EditableSyntax::from_json(
+    $left_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['tuple_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $types = EditableSyntax::from_json(
+    $types = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['tuple_types'],
       $position,
       $source,
     );
     $position += $types->getWidth();
-    $right_paren = EditableSyntax::from_json(
+    $right_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['tuple_right_paren'],
       $position,
       $source,

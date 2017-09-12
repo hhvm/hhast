@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<13e7cabcac7096f14699f8183a384629>>
+ * @generated SignedSource<<2a871212dfcc07eb86f9a370a510280c>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -31,36 +31,36 @@ final class ObjectCreationExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $new_keyword = EditableSyntax::from_json(
+    $new_keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['object_creation_new_keyword'],
       $position,
       $source,
     );
     $position += $new_keyword->getWidth();
-    $type = EditableSyntax::from_json(
+    $type = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['object_creation_type'],
       $position,
       $source,
     );
     $position += $type->getWidth();
-    $left_paren = EditableSyntax::from_json(
+    $left_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['object_creation_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $argument_list = EditableSyntax::from_json(
+    $argument_list = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['object_creation_argument_list'],
       $position,
       $source,
     );
     $position += $argument_list->getWidth();
-    $right_paren = EditableSyntax::from_json(
+    $right_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['object_creation_right_paren'],
       $position,
       $source,

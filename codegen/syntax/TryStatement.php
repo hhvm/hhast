@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<94c9aa53846c30f49a57daa2b0ee7a0f>>
+ * @generated SignedSource<<c9ef1ece200814b1f74174560be1b47f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -28,30 +28,30 @@ final class TryStatement extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['try_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $compound_statement = EditableSyntax::from_json(
+    $compound_statement = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['try_compound_statement'],
       $position,
       $source,
     );
     $position += $compound_statement->getWidth();
-    $catch_clauses = EditableSyntax::from_json(
+    $catch_clauses = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['try_catch_clauses'],
       $position,
       $source,
     );
     $position += $catch_clauses->getWidth();
-    $finally_clause = EditableSyntax::from_json(
+    $finally_clause = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['try_finally_clause'],
       $position,
       $source,

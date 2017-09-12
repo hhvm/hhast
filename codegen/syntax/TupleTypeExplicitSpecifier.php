@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<92896a2948950608b9bb876cd0552550>>
+ * @generated SignedSource<<e630bc8ca796a9decf470971ab84bced>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -28,30 +28,30 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['tuple_type_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_angle = EditableSyntax::from_json(
+    $left_angle = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['tuple_type_left_angle'],
       $position,
       $source,
     );
     $position += $left_angle->getWidth();
-    $types = EditableSyntax::from_json(
+    $types = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['tuple_type_types'],
       $position,
       $source,
     );
     $position += $types->getWidth();
-    $right_angle = EditableSyntax::from_json(
+    $right_angle = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['tuple_type_right_angle'],
       $position,
       $source,

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bf928e6c7b16800cd07b43b601a1cb23>>
+ * @generated SignedSource<<ba49d3e457dc5192a1ead66cb0a5b023>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -28,30 +28,30 @@ final class VectorIntrinsicExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['vector_intrinsic_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_bracket = EditableSyntax::from_json(
+    $left_bracket = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['vector_intrinsic_left_bracket'],
       $position,
       $source,
     );
     $position += $left_bracket->getWidth();
-    $members = EditableSyntax::from_json(
+    $members = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['vector_intrinsic_members'],
       $position,
       $source,
     );
     $position += $members->getWidth();
-    $right_bracket = EditableSyntax::from_json(
+    $right_bracket = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['vector_intrinsic_right_bracket'],
       $position,
       $source,

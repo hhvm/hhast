@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<194a98b1314a5303cdec2513bfe96802>>
+ * @generated SignedSource<<5ed582b0ae58f8f333faafcd1ba8a69c>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -34,42 +34,42 @@ final class CatchClause extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['catch_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_paren = EditableSyntax::from_json(
+    $left_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['catch_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $type = EditableSyntax::from_json(
+    $type = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['catch_type'],
       $position,
       $source,
     );
     $position += $type->getWidth();
-    $variable = EditableSyntax::from_json(
+    $variable = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['catch_variable'],
       $position,
       $source,
     );
     $position += $variable->getWidth();
-    $right_paren = EditableSyntax::from_json(
+    $right_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['catch_right_paren'],
       $position,
       $source,
     );
     $position += $right_paren->getWidth();
-    $body = EditableSyntax::from_json(
+    $body = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['catch_body'],
       $position,
       $source,

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<392e289faf88816e4cccd9740020ea90>>
+ * @generated SignedSource<<105b29a5ea57f2ee0a6217c2f905a9a7>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -37,48 +37,48 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_group_use_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $kind = EditableSyntax::from_json(
+    $kind = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_group_use_kind'],
       $position,
       $source,
     );
     $position += $kind->getWidth();
-    $prefix = EditableSyntax::from_json(
+    $prefix = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_group_use_prefix'],
       $position,
       $source,
     );
     $position += $prefix->getWidth();
-    $left_brace = EditableSyntax::from_json(
+    $left_brace = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_group_use_left_brace'],
       $position,
       $source,
     );
     $position += $left_brace->getWidth();
-    $clauses = EditableSyntax::from_json(
+    $clauses = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_group_use_clauses'],
       $position,
       $source,
     );
     $position += $clauses->getWidth();
-    $right_brace = EditableSyntax::from_json(
+    $right_brace = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_group_use_right_brace'],
       $position,
       $source,
     );
     $position += $right_brace->getWidth();
-    $semicolon = EditableSyntax::from_json(
+    $semicolon = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_group_use_semicolon'],
       $position,
       $source,

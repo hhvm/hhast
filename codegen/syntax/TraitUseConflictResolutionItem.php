@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4e4aa5eb695478e0b4748ddd92081c4a>>
+ * @generated SignedSource<<a42e4548531073112458d1531c176e95>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -25,24 +25,24 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $aliasing_name = EditableSyntax::from_json(
+    $aliasing_name = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['trait_use_conflict_resolution_item_aliasing_name'],
       $position,
       $source,
     );
     $position += $aliasing_name->getWidth();
-    $aliasing_keyword = EditableSyntax::from_json(
+    $aliasing_keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['trait_use_conflict_resolution_item_aliasing_keyword'],
       $position,
       $source,
     );
     $position += $aliasing_keyword->getWidth();
-    $aliased_names = EditableSyntax::from_json(
+    $aliased_names = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['trait_use_conflict_resolution_item_aliased_names'],
       $position,
       $source,

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0b71f5d04a1c544f49741b78b73d15ea>>
+ * @generated SignedSource<<6294c3a9726fb9fced62c5b3c338f856>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -25,24 +25,24 @@ final class ContinueStatement extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['continue_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $level = EditableSyntax::from_json(
+    $level = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['continue_level'],
       $position,
       $source,
     );
     $position += $level->getWidth();
-    $semicolon = EditableSyntax::from_json(
+    $semicolon = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['continue_semicolon'],
       $position,
       $source,

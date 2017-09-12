@@ -194,7 +194,7 @@ final class CodegenSyntax extends CodegenBase {
       $body
         ->addf('$%s = ', $field['field_name'])
         ->addMultilineCall(
-          'EditableSyntax::from_json',
+          'EditableSyntax::fromJSON',
           vec[
             sprintf(
               '/* UNSAFE_EXPR */ $json[\'%s_%s\']',
@@ -209,7 +209,7 @@ final class CodegenSyntax extends CodegenBase {
     }
 
     return $cg
-      ->codegenMethod('from_json')
+      ->codegenMethod('fromJSON')
       ->setIsOverride()
       ->setIsStatic()
       ->addParameter('array<string, mixed> $json')

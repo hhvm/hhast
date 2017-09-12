@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<54a7c7950904605faa6a54b2e2b1991d>>
+ * @generated SignedSource<<e3c7b47fc299ece6d4c17a1179545492>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -31,36 +31,36 @@ final class UnsetStatement extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['unset_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_paren = EditableSyntax::from_json(
+    $left_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['unset_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $variables = EditableSyntax::from_json(
+    $variables = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['unset_variables'],
       $position,
       $source,
     );
     $position += $variables->getWidth();
-    $right_paren = EditableSyntax::from_json(
+    $right_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['unset_right_paren'],
       $position,
       $source,
     );
     $position += $right_paren->getWidth();
-    $semicolon = EditableSyntax::from_json(
+    $semicolon = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['unset_semicolon'],
       $position,
       $source,

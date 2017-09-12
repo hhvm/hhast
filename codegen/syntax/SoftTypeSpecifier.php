@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<57b2aaac01cba1c69503335ee503c84f>>
+ * @generated SignedSource<<ad998210e36c80283b314e6e9302e63a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -19,18 +19,18 @@ final class SoftTypeSpecifier extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $at = EditableSyntax::from_json(
+    $at = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['soft_at'],
       $position,
       $source,
     );
     $position += $at->getWidth();
-    $type = EditableSyntax::from_json(
+    $type = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['soft_type'],
       $position,
       $source,

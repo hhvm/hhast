@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ffd7ec9f9beca788de8fcc34b1b35377>>
+ * @generated SignedSource<<bb22201c22bf1236f928dc8619971c82>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -31,36 +31,36 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['classname_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_angle = EditableSyntax::from_json(
+    $left_angle = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['classname_left_angle'],
       $position,
       $source,
     );
     $position += $left_angle->getWidth();
-    $type = EditableSyntax::from_json(
+    $type = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['classname_type'],
       $position,
       $source,
     );
     $position += $type->getWidth();
-    $trailing_comma = EditableSyntax::from_json(
+    $trailing_comma = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['classname_trailing_comma'],
       $position,
       $source,
     );
     $position += $trailing_comma->getWidth();
-    $right_angle = EditableSyntax::from_json(
+    $right_angle = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['classname_right_angle'],
       $position,
       $source,

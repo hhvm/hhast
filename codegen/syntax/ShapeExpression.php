@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<37efdaa839fe31dfcf77212bbf23ffe7>>
+ * @generated SignedSource<<a333f7c755b15efa06983ff6d8209200>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -28,30 +28,30 @@ final class ShapeExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['shape_expression_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_paren = EditableSyntax::from_json(
+    $left_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['shape_expression_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $fields = EditableSyntax::from_json(
+    $fields = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['shape_expression_fields'],
       $position,
       $source,
     );
     $position += $fields->getWidth();
-    $right_paren = EditableSyntax::from_json(
+    $right_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['shape_expression_right_paren'],
       $position,
       $source,

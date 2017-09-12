@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<179556ae5dbc833283e7786c5b62dc07>>
+ * @generated SignedSource<<2ebc37f57e82e227635396b41d188280>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -28,30 +28,30 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_use_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_paren = EditableSyntax::from_json(
+    $left_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_use_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $variables = EditableSyntax::from_json(
+    $variables = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_use_variables'],
       $position,
       $source,
     );
     $position += $variables->getWidth();
-    $right_paren = EditableSyntax::from_json(
+    $right_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_use_right_paren'],
       $position,
       $source,

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6f0755f431d2c3717b355feb8f62cf8b>>
+ * @generated SignedSource<<3b9335d34ac62af3342dd89ca300fefe>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -25,24 +25,24 @@ final class AttributeSpecification extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $left_double_angle = EditableSyntax::from_json(
+    $left_double_angle = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['attribute_specification_left_double_angle'],
       $position,
       $source,
     );
     $position += $left_double_angle->getWidth();
-    $attributes = EditableSyntax::from_json(
+    $attributes = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['attribute_specification_attributes'],
       $position,
       $source,
     );
     $position += $attributes->getWidth();
-    $right_double_angle = EditableSyntax::from_json(
+    $right_double_angle = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['attribute_specification_right_double_angle'],
       $position,
       $source,

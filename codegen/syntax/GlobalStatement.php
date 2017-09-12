@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5a7da6d0a3026492ee1ec52a92b7ab0d>>
+ * @generated SignedSource<<cfdd10e8d75476e7046c7734e3e63b33>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -25,24 +25,24 @@ final class GlobalStatement extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['global_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $variables = EditableSyntax::from_json(
+    $variables = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['global_variables'],
       $position,
       $source,
     );
     $position += $variables->getWidth();
-    $semicolon = EditableSyntax::from_json(
+    $semicolon = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['global_semicolon'],
       $position,
       $source,

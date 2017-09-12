@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8886c4874e00deb37b22dcabab48df7f>>
+ * @generated SignedSource<<779557c392806224a6e4975e32b65149>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -22,18 +22,18 @@ final class GenericTypeSpecifier extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $class_type = EditableSyntax::from_json(
+    $class_type = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['generic_class_type'],
       $position,
       $source,
     );
     $position += $class_type->getWidth();
-    $argument_list = EditableSyntax::from_json(
+    $argument_list = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['generic_argument_list'],
       $position,
       $source,

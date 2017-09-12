@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<39b8166f47319fd2f449c81eeee60269>>
+ * @generated SignedSource<<0358220929102913a480836b06c5bf55>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -28,30 +28,30 @@ final class DictionaryIntrinsicExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['dictionary_intrinsic_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_bracket = EditableSyntax::from_json(
+    $left_bracket = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['dictionary_intrinsic_left_bracket'],
       $position,
       $source,
     );
     $position += $left_bracket->getWidth();
-    $members = EditableSyntax::from_json(
+    $members = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['dictionary_intrinsic_members'],
       $position,
       $source,
     );
     $position += $members->getWidth();
-    $right_bracket = EditableSyntax::from_json(
+    $right_bracket = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['dictionary_intrinsic_right_bracket'],
       $position,
       $source,

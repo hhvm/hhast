@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0dbedbb725aaef68cf6c05000f264d3d>>
+ * @generated SignedSource<<0f725dc56daf984740b103366b31a11a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -25,24 +25,24 @@ final class GotoStatement extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['goto_statement_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $label_name = EditableSyntax::from_json(
+    $label_name = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['goto_statement_label_name'],
       $position,
       $source,
     );
     $position += $label_name->getWidth();
-    $semicolon = EditableSyntax::from_json(
+    $semicolon = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['goto_statement_semicolon'],
       $position,
       $source,

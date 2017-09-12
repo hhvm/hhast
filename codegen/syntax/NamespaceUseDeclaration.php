@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<78dcd45add0bb29d037b69f23d231369>>
+ * @generated SignedSource<<00ab2cb9fb47145ada8d951f16bf887e>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -28,30 +28,30 @@ final class NamespaceUseDeclaration extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_use_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $kind = EditableSyntax::from_json(
+    $kind = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_use_kind'],
       $position,
       $source,
     );
     $position += $kind->getWidth();
-    $clauses = EditableSyntax::from_json(
+    $clauses = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_use_clauses'],
       $position,
       $source,
     );
     $position += $clauses->getWidth();
-    $semicolon = EditableSyntax::from_json(
+    $semicolon = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_use_semicolon'],
       $position,
       $source,

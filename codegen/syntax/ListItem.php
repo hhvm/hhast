@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e77c61c3736beb516cf16ac4a650ba13>>
+ * @generated SignedSource<<9686b215b2e447d2829d1d92da3c8635>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -19,18 +19,18 @@ final class ListItem extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $item = EditableSyntax::from_json(
+    $item = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['list_item'],
       $position,
       $source,
     );
     $position += $item->getWidth();
-    $separator = EditableSyntax::from_json(
+    $separator = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['list_separator'],
       $position,
       $source,

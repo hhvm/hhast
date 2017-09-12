@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<87576089545c403359fcd7b567afe680>>
+ * @generated SignedSource<<7e16a9e8220d29bd080b8459ee50a4e1>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -40,54 +40,54 @@ final class AliasDeclaration extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $attribute_spec = EditableSyntax::from_json(
+    $attribute_spec = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['alias_attribute_spec'],
       $position,
       $source,
     );
     $position += $attribute_spec->getWidth();
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['alias_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $name = EditableSyntax::from_json(
+    $name = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['alias_name'],
       $position,
       $source,
     );
     $position += $name->getWidth();
-    $generic_parameter = EditableSyntax::from_json(
+    $generic_parameter = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['alias_generic_parameter'],
       $position,
       $source,
     );
     $position += $generic_parameter->getWidth();
-    $constraint = EditableSyntax::from_json(
+    $constraint = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['alias_constraint'],
       $position,
       $source,
     );
     $position += $constraint->getWidth();
-    $equal = EditableSyntax::from_json(
+    $equal = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['alias_equal'],
       $position,
       $source,
     );
     $position += $equal->getWidth();
-    $type = EditableSyntax::from_json(
+    $type = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['alias_type'],
       $position,
       $source,
     );
     $position += $type->getWidth();
-    $semicolon = EditableSyntax::from_json(
+    $semicolon = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['alias_semicolon'],
       $position,
       $source,

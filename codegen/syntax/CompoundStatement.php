@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fcd37ff927f7bd65a287ca7f327ca535>>
+ * @generated SignedSource<<4afc1e1ed5dee3443dcde349cb3d2adf>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -25,24 +25,24 @@ final class CompoundStatement extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $left_brace = EditableSyntax::from_json(
+    $left_brace = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['compound_left_brace'],
       $position,
       $source,
     );
     $position += $left_brace->getWidth();
-    $statements = EditableSyntax::from_json(
+    $statements = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['compound_statements'],
       $position,
       $source,
     );
     $position += $statements->getWidth();
-    $right_brace = EditableSyntax::from_json(
+    $right_brace = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['compound_right_brace'],
       $position,
       $source,

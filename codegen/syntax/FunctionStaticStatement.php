@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<75538e93aad60e89f08e2720f38ed53c>>
+ * @generated SignedSource<<fb11bebdf542c291a242a3ba77dc8a56>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -25,24 +25,24 @@ final class FunctionStaticStatement extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $static_keyword = EditableSyntax::from_json(
+    $static_keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['static_static_keyword'],
       $position,
       $source,
     );
     $position += $static_keyword->getWidth();
-    $declarations = EditableSyntax::from_json(
+    $declarations = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['static_declarations'],
       $position,
       $source,
     );
     $position += $declarations->getWidth();
-    $semicolon = EditableSyntax::from_json(
+    $semicolon = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['static_semicolon'],
       $position,
       $source,

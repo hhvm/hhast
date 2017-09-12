@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e3611f538c2a22843c0d163f65f38e8c>>
+ * @generated SignedSource<<07d7cd75fafa325f14e4bd4a6ca89e35>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -25,24 +25,24 @@ final class TraitUse extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['trait_use_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $names = EditableSyntax::from_json(
+    $names = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['trait_use_names'],
       $position,
       $source,
     );
     $position += $names->getWidth();
-    $semicolon = EditableSyntax::from_json(
+    $semicolon = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['trait_use_semicolon'],
       $position,
       $source,

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bedbac0fad7b151d71ea25ebdb5e4bfc>>
+ * @generated SignedSource<<7d692cfaec7ffafb9f53200402a7d153>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -37,48 +37,48 @@ final class IfStatement extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['if_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_paren = EditableSyntax::from_json(
+    $left_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['if_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $condition = EditableSyntax::from_json(
+    $condition = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['if_condition'],
       $position,
       $source,
     );
     $position += $condition->getWidth();
-    $right_paren = EditableSyntax::from_json(
+    $right_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['if_right_paren'],
       $position,
       $source,
     );
     $position += $right_paren->getWidth();
-    $statement = EditableSyntax::from_json(
+    $statement = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['if_statement'],
       $position,
       $source,
     );
     $position += $statement->getWidth();
-    $elseif_clauses = EditableSyntax::from_json(
+    $elseif_clauses = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['if_elseif_clauses'],
       $position,
       $source,
     );
     $position += $elseif_clauses->getWidth();
-    $else_clause = EditableSyntax::from_json(
+    $else_clause = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['if_else_clause'],
       $position,
       $source,

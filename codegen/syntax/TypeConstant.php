@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<12839bdc1b8825f45b4c0bc9bce201d2>>
+ * @generated SignedSource<<a81e82d905f0673fa31c075216f2525f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -25,24 +25,24 @@ final class TypeConstant extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $left_type = EditableSyntax::from_json(
+    $left_type = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['type_constant_left_type'],
       $position,
       $source,
     );
     $position += $left_type->getWidth();
-    $separator = EditableSyntax::from_json(
+    $separator = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['type_constant_separator'],
       $position,
       $source,
     );
     $position += $separator->getWidth();
-    $right_type = EditableSyntax::from_json(
+    $right_type = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['type_constant_right_type'],
       $position,
       $source,

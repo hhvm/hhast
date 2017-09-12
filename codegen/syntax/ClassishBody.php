@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<03075fdd376485b4059bdaad339d167f>>
+ * @generated SignedSource<<4182ec7db45ff60f7410d483f893bc09>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -25,24 +25,24 @@ final class ClassishBody extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $left_brace = EditableSyntax::from_json(
+    $left_brace = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['classish_body_left_brace'],
       $position,
       $source,
     );
     $position += $left_brace->getWidth();
-    $elements = EditableSyntax::from_json(
+    $elements = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['classish_body_elements'],
       $position,
       $source,
     );
     $position += $elements->getWidth();
-    $right_brace = EditableSyntax::from_json(
+    $right_brace = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['classish_body_right_brace'],
       $position,
       $source,

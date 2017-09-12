@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<39f0bf4c0b889375836aab86b7563cdd>>
+ * @generated SignedSource<<5181cc6c9e35fe2d829b59c656a787c0>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -37,48 +37,48 @@ final class SwitchStatement extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['switch_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_paren = EditableSyntax::from_json(
+    $left_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['switch_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $expression = EditableSyntax::from_json(
+    $expression = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['switch_expression'],
       $position,
       $source,
     );
     $position += $expression->getWidth();
-    $right_paren = EditableSyntax::from_json(
+    $right_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['switch_right_paren'],
       $position,
       $source,
     );
     $position += $right_paren->getWidth();
-    $left_brace = EditableSyntax::from_json(
+    $left_brace = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['switch_left_brace'],
       $position,
       $source,
     );
     $position += $left_brace->getWidth();
-    $sections = EditableSyntax::from_json(
+    $sections = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['switch_sections'],
       $position,
       $source,
     );
     $position += $sections->getWidth();
-    $right_brace = EditableSyntax::from_json(
+    $right_brace = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['switch_right_brace'],
       $position,
       $source,

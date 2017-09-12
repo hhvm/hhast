@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<301c0d922cb44236a120fc8074a3f5af>>
+ * @generated SignedSource<<05b8ff0ec3bd3db9e4e987971ed832fa>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -28,30 +28,30 @@ final class EvalExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['eval_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_paren = EditableSyntax::from_json(
+    $left_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['eval_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $argument = EditableSyntax::from_json(
+    $argument = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['eval_argument'],
       $position,
       $source,
     );
     $position += $argument->getWidth();
-    $right_paren = EditableSyntax::from_json(
+    $right_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['eval_right_paren'],
       $position,
       $source,

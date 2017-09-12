@@ -39,12 +39,12 @@ final class CodegenEditableSyntaxFromJSON extends CodegenBase {
               ->startSwitch('(string) $json[\'kind\']')
               ->addCase('token', HackBuilderValues::export())
               ->addReturnf(
-                'HHAST\\EditableToken::from_json(/* HH_IGNORE_ERROR[4110] */ $json[\'token\'], $position, $source)',
+                'HHAST\\EditableToken::fromJSON(/* HH_IGNORE_ERROR[4110] */ $json[\'token\'], $position, $source)',
               )
               ->unindent()
               ->addCase('list', HackBuilderValues::export())
               ->addReturnf(
-                'HHAST\\EditableList::from_json($json, $position, $source)',
+                'HHAST\\EditableList::fromJSON($json, $position, $source)',
               )
               ->unindent()
               ->addCase('missing', HackBuilderValues::export())
@@ -59,7 +59,7 @@ final class CodegenEditableSyntaxFromJSON extends CodegenBase {
                       HackBuilderValues::export(),
                     )
                     ->addReturnf(
-                      'HHAST\\%s::from_json($json, $position, $source)',
+                      'HHAST\\%s::fromJSON($json, $position, $source)',
                       $trivia['trivia_kind_name'],
                     )
                     ->unindent();
@@ -76,7 +76,7 @@ final class CodegenEditableSyntaxFromJSON extends CodegenBase {
                   $body
                     ->addCase($ast['description'], HackBuilderValues::export())
                     ->addReturnf(
-                      'HHAST\\%s::from_json($json, $position, $source)',
+                      'HHAST\\%s::fromJSON($json, $position, $source)',
                       $ast['kind_name'],
                     )
                     ->unindent();

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2e2659dbd19c5f7788f1659971ed1879>>
+ * @generated SignedSource<<83d5a896ec3dfd45f0dc50891d08752d>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -25,24 +25,24 @@ final class TypeArguments extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $left_angle = EditableSyntax::from_json(
+    $left_angle = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['type_arguments_left_angle'],
       $position,
       $source,
     );
     $position += $left_angle->getWidth();
-    $types = EditableSyntax::from_json(
+    $types = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['type_arguments_types'],
       $position,
       $source,
     );
     $position += $types->getWidth();
-    $right_angle = EditableSyntax::from_json(
+    $right_angle = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['type_arguments_right_angle'],
       $position,
       $source,

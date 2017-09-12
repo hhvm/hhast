@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7995b401e2fa9c7a1bee639cf889f1b1>>
+ * @generated SignedSource<<1649e432e50a89ff67bcbd4efa1d02fb>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -17,12 +17,12 @@ final class VariadicParameter extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $ellipsis = EditableSyntax::from_json(
+    $ellipsis = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['variadic_parameter_ellipsis'],
       $position,
       $source,

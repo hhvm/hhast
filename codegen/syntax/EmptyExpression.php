@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e43877f47ec76831e38578e1222c2892>>
+ * @generated SignedSource<<c9a2f97d25e97658a6fcaf05241520c0>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -28,30 +28,30 @@ final class EmptyExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['empty_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_paren = EditableSyntax::from_json(
+    $left_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['empty_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $argument = EditableSyntax::from_json(
+    $argument = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['empty_argument'],
       $position,
       $source,
     );
     $position += $argument->getWidth();
-    $right_paren = EditableSyntax::from_json(
+    $right_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['empty_right_paren'],
       $position,
       $source,

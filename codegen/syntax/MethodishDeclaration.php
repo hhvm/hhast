@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<19288c3fd6356705bbbe06d01cc9f028>>
+ * @generated SignedSource<<6ab4d255a1c58ffb0aae3baab5bc8d1a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -31,36 +31,36 @@ final class MethodishDeclaration extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $attribute = EditableSyntax::from_json(
+    $attribute = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['methodish_attribute'],
       $position,
       $source,
     );
     $position += $attribute->getWidth();
-    $modifiers = EditableSyntax::from_json(
+    $modifiers = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['methodish_modifiers'],
       $position,
       $source,
     );
     $position += $modifiers->getWidth();
-    $function_decl_header = EditableSyntax::from_json(
+    $function_decl_header = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['methodish_function_decl_header'],
       $position,
       $source,
     );
     $position += $function_decl_header->getWidth();
-    $function_body = EditableSyntax::from_json(
+    $function_body = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['methodish_function_body'],
       $position,
       $source,
     );
     $position += $function_body->getWidth();
-    $semicolon = EditableSyntax::from_json(
+    $semicolon = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['methodish_semicolon'],
       $position,
       $source,

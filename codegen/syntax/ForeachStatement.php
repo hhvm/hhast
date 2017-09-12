@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7792a6c41ed521894af2112963b5d062>>
+ * @generated SignedSource<<f2c6c0a1bbd1757d5c853009fce095f0>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -46,66 +46,66 @@ final class ForeachStatement extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['foreach_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_paren = EditableSyntax::from_json(
+    $left_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['foreach_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $collection = EditableSyntax::from_json(
+    $collection = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['foreach_collection'],
       $position,
       $source,
     );
     $position += $collection->getWidth();
-    $await_keyword = EditableSyntax::from_json(
+    $await_keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['foreach_await_keyword'],
       $position,
       $source,
     );
     $position += $await_keyword->getWidth();
-    $as = EditableSyntax::from_json(
+    $as = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['foreach_as'],
       $position,
       $source,
     );
     $position += $as->getWidth();
-    $key = EditableSyntax::from_json(
+    $key = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['foreach_key'],
       $position,
       $source,
     );
     $position += $key->getWidth();
-    $arrow = EditableSyntax::from_json(
+    $arrow = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['foreach_arrow'],
       $position,
       $source,
     );
     $position += $arrow->getWidth();
-    $value = EditableSyntax::from_json(
+    $value = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['foreach_value'],
       $position,
       $source,
     );
     $position += $value->getWidth();
-    $right_paren = EditableSyntax::from_json(
+    $right_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['foreach_right_paren'],
       $position,
       $source,
     );
     $position += $right_paren->getWidth();
-    $body = EditableSyntax::from_json(
+    $body = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['foreach_body'],
       $position,
       $source,

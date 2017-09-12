@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<878a506405c2c8581b04cab271c46619>>
+ * @generated SignedSource<<164f08af6635dac0845800449e0d853e>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -49,72 +49,72 @@ final class AnonymousFunction extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $static_keyword = EditableSyntax::from_json(
+    $static_keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_static_keyword'],
       $position,
       $source,
     );
     $position += $static_keyword->getWidth();
-    $async_keyword = EditableSyntax::from_json(
+    $async_keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_async_keyword'],
       $position,
       $source,
     );
     $position += $async_keyword->getWidth();
-    $coroutine_keyword = EditableSyntax::from_json(
+    $coroutine_keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_coroutine_keyword'],
       $position,
       $source,
     );
     $position += $coroutine_keyword->getWidth();
-    $function_keyword = EditableSyntax::from_json(
+    $function_keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_function_keyword'],
       $position,
       $source,
     );
     $position += $function_keyword->getWidth();
-    $left_paren = EditableSyntax::from_json(
+    $left_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $parameters = EditableSyntax::from_json(
+    $parameters = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_parameters'],
       $position,
       $source,
     );
     $position += $parameters->getWidth();
-    $right_paren = EditableSyntax::from_json(
+    $right_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_right_paren'],
       $position,
       $source,
     );
     $position += $right_paren->getWidth();
-    $colon = EditableSyntax::from_json(
+    $colon = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_colon'],
       $position,
       $source,
     );
     $position += $colon->getWidth();
-    $type = EditableSyntax::from_json(
+    $type = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_type'],
       $position,
       $source,
     );
     $position += $type->getWidth();
-    $use = EditableSyntax::from_json(
+    $use = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_use'],
       $position,
       $source,
     );
     $position += $use->getWidth();
-    $body = EditableSyntax::from_json(
+    $body = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_body'],
       $position,
       $source,

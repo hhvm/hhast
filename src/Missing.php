@@ -34,7 +34,7 @@ final class Missing extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $_json,
     int $_position,
     string $_source,

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bf8c49c13b15d6da287210ed3d6e8488>>
+ * @generated SignedSource<<aaecc095c72297ea50891a355699259a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -31,36 +31,36 @@ final class KeysetTypeSpecifier extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['keyset_type_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_angle = EditableSyntax::from_json(
+    $left_angle = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['keyset_type_left_angle'],
       $position,
       $source,
     );
     $position += $left_angle->getWidth();
-    $type = EditableSyntax::from_json(
+    $type = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['keyset_type_type'],
       $position,
       $source,
     );
     $position += $type->getWidth();
-    $trailing_comma = EditableSyntax::from_json(
+    $trailing_comma = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['keyset_type_trailing_comma'],
       $position,
       $source,
     );
     $position += $trailing_comma->getWidth();
-    $right_angle = EditableSyntax::from_json(
+    $right_angle = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['keyset_type_right_angle'],
       $position,
       $source,

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cdbf5f21891aca50cdd022af8140b06b>>
+ * @generated SignedSource<<234f6489c3ef7bbe634ca3bc9d9467bb>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -28,30 +28,30 @@ final class FieldSpecifier extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $question = EditableSyntax::from_json(
+    $question = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['field_question'],
       $position,
       $source,
     );
     $position += $question->getWidth();
-    $name = EditableSyntax::from_json(
+    $name = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['field_name'],
       $position,
       $source,
     );
     $position += $name->getWidth();
-    $arrow = EditableSyntax::from_json(
+    $arrow = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['field_arrow'],
       $position,
       $source,
     );
     $position += $arrow->getWidth();
-    $type = EditableSyntax::from_json(
+    $type = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['field_type'],
       $position,
       $source,

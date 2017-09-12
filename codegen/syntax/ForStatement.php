@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<02daf40a9bd407ea692777ae0659616c>>
+ * @generated SignedSource<<ecc5b0e41deb8e040b665bbe06c4f3a3>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -43,60 +43,60 @@ final class ForStatement extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['for_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_paren = EditableSyntax::from_json(
+    $left_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['for_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $initializer = EditableSyntax::from_json(
+    $initializer = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['for_initializer'],
       $position,
       $source,
     );
     $position += $initializer->getWidth();
-    $first_semicolon = EditableSyntax::from_json(
+    $first_semicolon = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['for_first_semicolon'],
       $position,
       $source,
     );
     $position += $first_semicolon->getWidth();
-    $control = EditableSyntax::from_json(
+    $control = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['for_control'],
       $position,
       $source,
     );
     $position += $control->getWidth();
-    $second_semicolon = EditableSyntax::from_json(
+    $second_semicolon = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['for_second_semicolon'],
       $position,
       $source,
     );
     $position += $second_semicolon->getWidth();
-    $end_of_loop = EditableSyntax::from_json(
+    $end_of_loop = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['for_end_of_loop'],
       $position,
       $source,
     );
     $position += $end_of_loop->getWidth();
-    $right_paren = EditableSyntax::from_json(
+    $right_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['for_right_paren'],
       $position,
       $source,
     );
     $position += $right_paren->getWidth();
-    $body = EditableSyntax::from_json(
+    $body = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['for_body'],
       $position,
       $source,

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5295a03826c3f79ff85aa2f0f3f2e2df>>
+ * @generated SignedSource<<f39114c02c2c83067cb23ac5fe4312ec>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -28,30 +28,30 @@ final class FunctionCallExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $receiver = EditableSyntax::from_json(
+    $receiver = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['function_call_receiver'],
       $position,
       $source,
     );
     $position += $receiver->getWidth();
-    $left_paren = EditableSyntax::from_json(
+    $left_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['function_call_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $argument_list = EditableSyntax::from_json(
+    $argument_list = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['function_call_argument_list'],
       $position,
       $source,
     );
     $position += $argument_list->getWidth();
-    $right_paren = EditableSyntax::from_json(
+    $right_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['function_call_right_paren'],
       $position,
       $source,

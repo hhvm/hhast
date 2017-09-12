@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<90570acf44a530982c3b6a62b3e7c6d6>>
+ * @generated SignedSource<<65886469c8222f4bb2fd49615cd764f2>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -17,12 +17,12 @@ final class ErrorSyntax extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $error = EditableSyntax::from_json(
+    $error = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['error_error'],
       $position,
       $source,

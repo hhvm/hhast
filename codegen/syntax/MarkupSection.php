@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dac8bb6bb7f5fc8d8946961f9c82b8f1>>
+ * @generated SignedSource<<3b1c86545336bd7821cddb95d0dc921b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -28,30 +28,30 @@ final class MarkupSection extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $prefix = EditableSyntax::from_json(
+    $prefix = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['markup_prefix'],
       $position,
       $source,
     );
     $position += $prefix->getWidth();
-    $text = EditableSyntax::from_json(
+    $text = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['markup_text'],
       $position,
       $source,
     );
     $position += $text->getWidth();
-    $suffix = EditableSyntax::from_json(
+    $suffix = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['markup_suffix'],
       $position,
       $source,
     );
     $position += $suffix->getWidth();
-    $expression = EditableSyntax::from_json(
+    $expression = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['markup_expression'],
       $position,
       $source,

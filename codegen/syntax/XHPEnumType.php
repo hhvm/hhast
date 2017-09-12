@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<68c17ac27e23e807c9b3dcfadf096ba0>>
+ * @generated SignedSource<<a99a500a3f371137a00a486fe975c6c0>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -28,30 +28,30 @@ final class XHPEnumType extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_enum_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_brace = EditableSyntax::from_json(
+    $left_brace = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_enum_left_brace'],
       $position,
       $source,
     );
     $position += $left_brace->getWidth();
-    $values = EditableSyntax::from_json(
+    $values = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_enum_values'],
       $position,
       $source,
     );
     $position += $values->getWidth();
-    $right_brace = EditableSyntax::from_json(
+    $right_brace = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_enum_right_brace'],
       $position,
       $source,

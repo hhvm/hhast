@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<97d0f452f703c40dc81d62a8e9645ea1>>
+ * @generated SignedSource<<6d7ff5ecec34c74fd5bede76f20a10b7>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -28,30 +28,30 @@ final class Enumerator extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $name = EditableSyntax::from_json(
+    $name = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['enumerator_name'],
       $position,
       $source,
     );
     $position += $name->getWidth();
-    $equal = EditableSyntax::from_json(
+    $equal = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['enumerator_equal'],
       $position,
       $source,
     );
     $position += $equal->getWidth();
-    $value = EditableSyntax::from_json(
+    $value = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['enumerator_value'],
       $position,
       $source,
     );
     $position += $value->getWidth();
-    $semicolon = EditableSyntax::from_json(
+    $semicolon = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['enumerator_semicolon'],
       $position,
       $source,

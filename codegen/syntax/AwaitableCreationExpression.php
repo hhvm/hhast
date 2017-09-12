@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<47ea6db59ca19192ab5d02faa1bd87a2>>
+ * @generated SignedSource<<0e21f50c3500d29de39ed85cc2b1fa2d>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -25,24 +25,24 @@ final class AwaitableCreationExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $async = EditableSyntax::from_json(
+    $async = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['awaitable_async'],
       $position,
       $source,
     );
     $position += $async->getWidth();
-    $coroutine = EditableSyntax::from_json(
+    $coroutine = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['awaitable_coroutine'],
       $position,
       $source,
     );
     $position += $coroutine->getWidth();
-    $compound_statement = EditableSyntax::from_json(
+    $compound_statement = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['awaitable_compound_statement'],
       $position,
       $source,

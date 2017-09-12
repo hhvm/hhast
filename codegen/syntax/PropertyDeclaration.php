@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<649ed8cf048793ab383f8b25d1713efd>>
+ * @generated SignedSource<<6b33705ebfd881a8a8495b70bf014bdf>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -28,30 +28,30 @@ final class PropertyDeclaration extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $modifiers = EditableSyntax::from_json(
+    $modifiers = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['property_modifiers'],
       $position,
       $source,
     );
     $position += $modifiers->getWidth();
-    $type = EditableSyntax::from_json(
+    $type = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['property_type'],
       $position,
       $source,
     );
     $position += $type->getWidth();
-    $declarators = EditableSyntax::from_json(
+    $declarators = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['property_declarators'],
       $position,
       $source,
     );
     $position += $declarators->getWidth();
-    $semicolon = EditableSyntax::from_json(
+    $semicolon = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['property_semicolon'],
       $position,
       $source,

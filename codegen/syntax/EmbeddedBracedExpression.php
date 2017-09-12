@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<759024fa950ba7a8bd27e57f828b81de>>
+ * @generated SignedSource<<cc6cd3abbfb2c30244ceb9c8353d6415>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -25,24 +25,24 @@ final class EmbeddedBracedExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $left_brace = EditableSyntax::from_json(
+    $left_brace = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['embedded_braced_expression_left_brace'],
       $position,
       $source,
     );
     $position += $left_brace->getWidth();
-    $expression = EditableSyntax::from_json(
+    $expression = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['embedded_braced_expression_expression'],
       $position,
       $source,
     );
     $position += $expression->getWidth();
-    $right_brace = EditableSyntax::from_json(
+    $right_brace = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['embedded_braced_expression_right_brace'],
       $position,
       $source,

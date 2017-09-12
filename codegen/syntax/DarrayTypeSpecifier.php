@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f04e7f9d6c57004d77c393c7e849541b>>
+ * @generated SignedSource<<37c1efe57ae0a9682879a332ca439eeb>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -37,48 +37,48 @@ final class DarrayTypeSpecifier extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['darray_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_angle = EditableSyntax::from_json(
+    $left_angle = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['darray_left_angle'],
       $position,
       $source,
     );
     $position += $left_angle->getWidth();
-    $key = EditableSyntax::from_json(
+    $key = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['darray_key'],
       $position,
       $source,
     );
     $position += $key->getWidth();
-    $comma = EditableSyntax::from_json(
+    $comma = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['darray_comma'],
       $position,
       $source,
     );
     $position += $comma->getWidth();
-    $value = EditableSyntax::from_json(
+    $value = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['darray_value'],
       $position,
       $source,
     );
     $position += $value->getWidth();
-    $trailing_comma = EditableSyntax::from_json(
+    $trailing_comma = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['darray_trailing_comma'],
       $position,
       $source,
     );
     $position += $trailing_comma->getWidth();
-    $right_angle = EditableSyntax::from_json(
+    $right_angle = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['darray_right_angle'],
       $position,
       $source,

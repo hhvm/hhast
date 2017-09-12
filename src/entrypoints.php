@@ -13,7 +13,7 @@
 namespace Facebook\HHAST;
 
 function from_json(array<string, mixed> $json): EditableSyntax {
-  return EditableSyntax::from_json(
+  return EditableSyntax::fromJSON(
     /* HH_IGNORE_ERROR[4110] */ $json['parse_tree'],
     0,
     /* HH_IGNORE_ERROR[4110] */ $json['program_text'],

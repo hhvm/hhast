@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a9638d9cfed91d9e90220b8755205f53>>
+ * @generated SignedSource<<f292a3e0cc061a5a38b126f560cc0060>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -31,36 +31,36 @@ final class ElseifClause extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::from_json(
+    $keyword = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['elseif_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_paren = EditableSyntax::from_json(
+    $left_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['elseif_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $condition = EditableSyntax::from_json(
+    $condition = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['elseif_condition'],
       $position,
       $source,
     );
     $position += $condition->getWidth();
-    $right_paren = EditableSyntax::from_json(
+    $right_paren = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['elseif_right_paren'],
       $position,
       $source,
     );
     $position += $right_paren->getWidth();
-    $statement = EditableSyntax::from_json(
+    $statement = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['elseif_statement'],
       $position,
       $source,

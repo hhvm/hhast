@@ -41,8 +41,6 @@ final class EditableList extends EditableSyntax {
     }
   }
 
-  /* TODO: Getter by index? */
-
   public static function to_list(
     Traversable<EditableSyntax> $syntax_list,
   ): EditableSyntax {
@@ -65,7 +63,7 @@ final class EditableList extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
@@ -74,7 +72,7 @@ final class EditableList extends EditableSyntax {
     $children = vec[];
     $current_position = $position;
     foreach (/* UNSAFE_EXPR */$json['elements'] as $element) {
-      $child = EditableSyntax::from_json($element, $current_position, $source);
+      $child = EditableSyntax::fromJSON($element, $current_position, $source);
       $children[] = $child;
       $current_position += $child->getWidth();
     }

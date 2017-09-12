@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<86ee25405f0439f56a7192fdb5451ca5>>
+ * @generated SignedSource<<46f7cc460bca2373301c5a96b8a32c51>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -28,30 +28,30 @@ final class SubscriptExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public static function from_json(
+  public static function fromJSON(
     array<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    $receiver = EditableSyntax::from_json(
+    $receiver = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['subscript_receiver'],
       $position,
       $source,
     );
     $position += $receiver->getWidth();
-    $left_bracket = EditableSyntax::from_json(
+    $left_bracket = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['subscript_left_bracket'],
       $position,
       $source,
     );
     $position += $left_bracket->getWidth();
-    $index = EditableSyntax::from_json(
+    $index = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['subscript_index'],
       $position,
       $source,
     );
     $position += $index->getWidth();
-    $right_bracket = EditableSyntax::from_json(
+    $right_bracket = EditableSyntax::fromJSON(
       /* UNSAFE_EXPR */ $json['subscript_right_bracket'],
       $position,
       $source,
