@@ -16,6 +16,7 @@ use type Facebook\HackCodegen\HackBuilderValues;
 use namespace HH\Lib\Str;
 
 final class CodegenEditableTokenFromData extends CodegenBase {
+  <<__Override>>
   public function generate(): void {
     $cg = $this->getCodegenFactory();
 

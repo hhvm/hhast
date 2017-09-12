@@ -15,6 +15,7 @@ namespace Facebook\HHAST\__Private;
 use type Facebook\HackCodegen\HackBuilderValues;
 
 final class CodegenEditableTriviaFromJSON extends CodegenBase {
+  <<__Override>>
   public function generate(): void {
     $cg = $this->getCodegenFactory();
 

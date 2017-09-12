@@ -119,6 +119,7 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
     return $shape;
   }
 
+  <<__Override>>
   final public function getSteps(
   ): Traversable<IMigrationStep> {
     $make_step = ($name, $impl) ==> new TypedMigrationStep(

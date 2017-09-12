@@ -20,6 +20,7 @@ use type Facebook\HackCodegen\{
 };
 
 final class CodegenRelations extends CodegenBase {
+  <<__Override>>
   public function __construct(
     private string $hhvmRoot,
     Schema\TSchema $schema,
@@ -27,6 +28,7 @@ final class CodegenRelations extends CodegenBase {
     parent::__construct($schema);
   }
 
+  <<__Override>>
   public function generate(): void {
     print("Infering relationships, this can take a long time...\n");
     $all_inferences = Vec\map(

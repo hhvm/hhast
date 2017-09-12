@@ -17,6 +17,7 @@ use namespace HH\Lib\C;
 use type Facebook\HackCodegen\HackBuilderValues;
 
 final class CodegenEditableSyntaxFromJSON extends CodegenBase {
+  <<__Override>>
   public function generate(): void {
     $cg = $this->getCodegenFactory();
 

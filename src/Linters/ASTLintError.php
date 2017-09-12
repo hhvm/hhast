@@ -19,6 +19,7 @@ class ASTLintError<
   Tlinter as ASTLinter<Tnode>
 > extends LintError implements FixableLintError {
 
+  <<__Override>>
   public function __construct(
     protected Tlinter $linter,
     string $description,
@@ -31,6 +32,7 @@ class ASTLintError<
     return $this->node;
   }
 
+  <<__Override>>
   final public function getBlameCode(): string {
     return $this->node->full_text();
   }

@@ -13,14 +13,17 @@
 namespace Facebook\HHAST;
 
 final class Missing extends EditableSyntax {
+  <<__Override>>
   public function __construct() {
     parent::__construct('missing');
   }
 
+  <<__Override>>
   public function is_missing(): bool {
     return true;
   }
 
+  <<__Override>>
   public function children(): KeyedTraversable<string, EditableSyntax> {
     yield break;
   }
@@ -30,6 +33,7 @@ final class Missing extends EditableSyntax {
     return new self();
   }
 
+  <<__Override>>
   public static function from_json(
     array<string, mixed> $_json,
     int $_position,
@@ -38,6 +42,7 @@ final class Missing extends EditableSyntax {
     return self::getInstance();
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,

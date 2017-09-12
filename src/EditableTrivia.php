@@ -14,6 +14,7 @@ namespace Facebook\HHAST;
 
 abstract class EditableTrivia extends EditableSyntax {
   private string $_text;
+  <<__Override>>
   public function __construct(string $trivia_kind, string $text) {
     parent::__construct($trivia_kind);
     $this->_text = $text;
@@ -23,22 +24,27 @@ abstract class EditableTrivia extends EditableSyntax {
     return $this->_text;
   }
 
+  <<__Override>>
   public function full_text(): string {
     return $this->_text;
   }
 
+  <<__Override>>
   public function width(): int {
     return strlen($this->_text);
   }
 
+  <<__Override>>
   public function is_trivia(): bool {
     return true;
   }
 
+  <<__Override>>
   public function children(): KeyedTraversable<string, EditableSyntax> {
     yield break;
   }
 
+  <<__Override>>
   public static function from_json(
     array<string, mixed> $json,
     int $position,
@@ -47,6 +53,7 @@ abstract class EditableTrivia extends EditableSyntax {
     return __Private\editable_trivia_from_json($json, $position, $source);
   }
 
+  <<__Override>>
   final public function rewrite_children(
     self::TRewriter $_rewriter,
     ?Traversable<EditableSyntax> $parents = null,

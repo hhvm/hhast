@@ -21,6 +21,7 @@ abstract class EditableToken extends EditableSyntax {
   private EditableSyntax $_trailing;
   private string $_text;
 
+  <<__Override>>
   public function __construct(
     string $token_kind,
     EditableSyntax $leading,
@@ -51,15 +52,18 @@ abstract class EditableToken extends EditableSyntax {
     return $this->_trailing;
   }
 
+  <<__Override>>
   public function children(): KeyedTraversable<string, EditableSyntax> {
     yield 'leading' => $this->getLeading();
     yield 'trailing' => $this->getTrailing();
   }
 
+  <<__Override>>
   public function is_token(): bool {
     return true;
   }
 
+  <<__Override>>
   public function full_text(): string {
     return $this->getLeading()->full_text().
       $this->getText().
@@ -86,6 +90,7 @@ abstract class EditableToken extends EditableSyntax {
     );
   }
 
+  <<__Override>>
   public function reduce<TAccumulator>(
     (function(
       EditableSyntax,
@@ -101,6 +106,7 @@ abstract class EditableToken extends EditableSyntax {
     return $accumulator;
   }
 
+  <<__Override>>
   public static function from_json(
     array<string, mixed> $json,
     int $position,

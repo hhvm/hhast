@@ -18,6 +18,7 @@ use namespace Facebook\HHAST;
 abstract class ASTLinter<T as HHAST\EditableSyntax> extends BaseLinter {
   private HHAST\EditableSyntax $ast;
 
+  <<__Override>>
   public function __construct(
     string $file,
   ) {
@@ -43,6 +44,7 @@ abstract class ASTLinter<T as HHAST\EditableSyntax> extends BaseLinter {
     return $node;
   }
 
+  <<__Override>>
   final public function getLintErrors(
   ): Traversable<ASTLintError<T, this>> {
     $target = static::getTargetType();

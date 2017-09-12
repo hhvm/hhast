@@ -23,6 +23,7 @@ use type Facebook\TypeAssert\TypeAssert;
 use namespace HH\Lib\{C, Str, Vec};
 
 final class CodegenSyntax extends CodegenBase {
+  <<__Override>>
   public function generate(): void {
     $cg = $this->getCodegenFactory();
 

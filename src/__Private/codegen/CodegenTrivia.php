@@ -13,6 +13,7 @@
 namespace Facebook\HHAST\__Private;
 
 final class CodegenTrivia extends CodegenBase {
+  <<__Override>>
   public function generate(): void {
     $cg = $this->getCodegenFactory();
 

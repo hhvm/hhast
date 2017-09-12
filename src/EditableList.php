@@ -16,19 +16,23 @@ use namespace HH\Lib\{C, Vec};
 
 final class EditableList extends EditableSyntax {
   private vec<EditableSyntax> $_children;
+  <<__Override>>
   public function __construct(Traversable<EditableSyntax> $children) {
     parent::__construct('list');
     $this->_children = vec($children);
   }
 
+  <<__Override>>
   public function is_list(): bool {
     return true;
   }
 
+  <<__Override>>
   public function to_vec(): vec<EditableSyntax> {
     return $this->_children;
   }
 
+  <<__Override>>
   public function children(): KeyedTraversable<string, EditableSyntax> {
     $i = 0;
     foreach ($this->_children as $child) {
@@ -60,6 +64,7 @@ final class EditableList extends EditableSyntax {
     return new EditableList(Vec\concat($left->to_vec(), $right->to_vec()));
   }
 
+  <<__Override>>
   public static function from_json(
     array<string, mixed> $json,
     int $position,
@@ -76,6 +81,7 @@ final class EditableList extends EditableSyntax {
     return new EditableList($children);
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
@@ -107,6 +113,7 @@ final class EditableList extends EditableSyntax {
     return new self($new_children);
   }
 
+  <<__Override>>
   public function rewrite(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,

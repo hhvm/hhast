@@ -87,6 +87,7 @@ final class CodegenTokens extends CodegenBase {
     );
   }
 
+  <<__Override>>
   public function generate(): void {
     $cg = $this->getCodegenFactory();
 
