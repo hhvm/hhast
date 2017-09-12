@@ -98,7 +98,7 @@ final class LinterCLI {
         $error->getDescription(),
         $error->getFile(),
       );
-      $blame = $error->getBlameCode();
+      $blame = $error->getPrettyBlameCode();
       if ($blame === null) {
         continue;
       }

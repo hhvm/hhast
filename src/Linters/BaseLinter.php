@@ -14,19 +14,18 @@ namespace Facebook\HHAST\Linters;
 
 <<__ConsistentConstruct>>
 abstract class BaseLinter {
+  abstract public function getLintErrors(
+  ): Traversable<LintError>;
+
+  public static function shouldLintFile(string $_): bool {
+    return true;
+  }
   public function __construct(
     private string $file,
   ) {
   }
 
-  public function getFile(): string {
+  final public function getFile(): string {
     return $this->file;
   }
-
-  public static function shouldLintFile(string $_): bool {
-    return true;
-  }
-
-  abstract public function getLintErrors(
-  ): Traversable<LintError>;
 }

@@ -30,4 +30,8 @@ class LintError {
   public function getBlameCode(): ?string {
     return null;
   }
+
+  public function getPrettyBlameCode(): ?string {
+    return $this->getBlameCode();
+  }
 }

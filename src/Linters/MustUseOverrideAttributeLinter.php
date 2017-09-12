@@ -23,6 +23,7 @@ use type Facebook\HHAST\{
 };
 use type Facebook\TypeAssert\TypeAssert;
 use function Facebook\HHAST\__Private\Resolution\resolve_type;
+use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
 
 class MustUseOverrideAttributeLinter extends ASTLinter<MethodishDeclaration> {
@@ -33,7 +34,7 @@ class MustUseOverrideAttributeLinter extends ASTLinter<MethodishDeclaration> {
   public function getLintErrorForNode(
     MethodishDeclaration $node,
     vec<EditableSyntax> $parents,
-  ): ?ASTLintError {
+  ): ?ASTLintError<MethodishDeclaration, this> {
     $class = $parents
       |> Vec\filter($$, $x ==> $x instanceof ClassishDeclaration)
       |> C\lastx($$)
@@ -70,7 +71,7 @@ class MustUseOverrideAttributeLinter extends ASTLinter<MethodishDeclaration> {
           $reflection_method->getDeclaringClass()->getName(),
           $method,
         ),
-        $node,
+        $node
       );
     } catch (\ReflectionException $_) {
       return null;
@@ -100,5 +101,21 @@ class MustUseOverrideAttributeLinter extends ASTLinter<MethodishDeclaration> {
       $attr ==> $attr->getName()->getText(),
     );
     return C\contains($attrs, '__Override');
+  }
+
+  public function getPrettyNodeForBlame(
+    MethodishDeclaration $node,
+  ): MethodishDeclaration {
+    $body = $node->getFunctionBody();
+    if ($body === null) {
+      return $node;
+    }
+
+    return $node->withFunctionBody(
+      $body
+        ->withStatements(HHAST\Missing())
+        ->withRightBrace(HHAST\Missing())
+        ->withLeftBrace($body->getLeftBracex()->withTrailing(HHAST\Missing()))
+    );
   }
 }

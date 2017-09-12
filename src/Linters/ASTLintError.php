@@ -14,16 +14,23 @@ namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\EditableSyntax;
 
-class ASTLintError extends LintError {
+class ASTLintError<
+  Tnode as EditableSyntax,
+  Tlinter as ASTLinter<Tnode>
+> extends LintError {
   public function __construct(
-    BaseLinter $linter,
+    protected Tlinter $linter,
     string $description,
-    private EditableSyntax $node,
+    private Tnode $node,
   ) {
     parent::__construct($linter, $description);
   }
 
   final public function getBlameCode(): string {
     return $this->node->full_text();
+  }
+
+  final public function getPrettyBlameCode(): string {
+    return $this->linter->getPrettyNodeForBlame($this->node)->full_text();
   }
 }
