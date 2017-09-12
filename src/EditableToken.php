@@ -59,7 +59,7 @@ abstract class EditableToken extends EditableSyntax {
   }
 
   <<__Override>>
-  public function is_token(): bool {
+  final public function isToken(): bool {
     return true;
   }
 

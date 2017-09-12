@@ -23,7 +23,7 @@ final class EditableList extends EditableSyntax {
   }
 
   <<__Override>>
-  public function isList(): bool {
+  final public function isList(): bool {
     return true;
   }
 
