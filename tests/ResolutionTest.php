@@ -69,4 +69,82 @@ final class ResolutionTest extends TestCase {
     );
     expect(Resolution\get_current_namespace($node, $parents))->toBeNull();
   }
+
+  public function getUseStatementExamples(
+  ): array<(
+    string,
+    shape(
+      'namespaces' => dict<string, string>,
+      'types' => dict<string, string>,
+    ),
+  )> {
+    return [
+      tuple(
+        '<?hh use Foo; use Bar, Baz; class Target {}',
+        shape(
+          'namespaces' => dict[
+            'Foo' => 'Foo',
+            'Bar' => 'Bar',
+            'Baz' => 'Baz',
+          ],
+          'types' => dict[
+            'Foo' => 'Foo',
+            'Bar' => 'Bar',
+            'Baz' => 'Baz',
+          ],
+        ),
+      ),
+      tuple(
+        '<?hh use namespace Foo, type Bar; class Target {}',
+        shape(
+          'namespaces' => dict['Foo' => 'Foo'],
+          'types' => dict['Bar' => 'Bar'],
+        ),
+      ),
+      tuple(
+        '<?hh use Foo as Bar, type Herp as Derp; class Target {}',
+        shape(
+          'namespaces' => dict['Bar' => 'Foo'],
+          'types' => dict['Bar' => 'Foo', 'Derp' => 'Herp'],
+        ),
+      ),
+      tuple(
+        '<?hh use type Foo;'.
+        'namespace Bar { use type Herp\\Derp; class Target {} }',
+        shape(
+          'namespaces' => dict[],
+          'types' => dict['Foo' => 'Foo', 'Derp' => 'Herp\\Derp'],
+        ),
+      ),
+      tuple(
+        '<?hh use type Foo;'.
+        'namespace Bar { use type Herp\\Derp; } class Target {}',
+        shape(
+          'namespaces' => dict[],
+          'types' => dict['Foo' => 'Foo'],
+        ),
+      ),
+      tuple(
+        '<?hh use type NS\\{Foo, Bar}; class Target{}',
+        shape(
+          'namespaces' => dict[],
+          'types' => dict['Foo' => 'NS\\Foo', 'Bar' => 'NS\\Bar'],
+        ),
+      ),
+    ];
+  }
+
+  /**
+   * @dataProvider getUseStatementExamples
+   */
+  public function testUseStatementResolution(
+    string $code,
+    shape(
+      'namespaces' => dict<string, string>,
+      'types' => dict<string, string>,
+    ) $expected,
+  ): void {
+    list($node, $parents) = self::getNodeAndParents($code);
+    expect(Resolution\get_current_uses($node, $parents))->toBeSame($expected);
+  }
 }

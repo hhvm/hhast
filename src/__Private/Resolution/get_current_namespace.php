@@ -22,7 +22,7 @@ use namespace HH\Lib\{C, Str, Vec};
 
 function get_current_namespace(
   EditableSyntax $node,
-  Traversable<EditableSyntax> $parents,
+  vec<EditableSyntax> $parents,
 ): ?string {
   $parents = vec($parents);
 

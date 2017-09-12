@@ -31,6 +31,16 @@ abstract class EditableSyntax {
 
   public abstract function children(): KeyedTraversable<string, EditableSyntax>;
 
+  final public function children_of_class<T as EditableSyntax>(
+    classname<T> $what,
+  ): KeyedTraversable<string, T> {
+    foreach ($this->children() as $k => $node) {
+      if ($node instanceof $what) {
+        yield $k => $node;
+      }
+    }
+  }
+
   public function preorder(): Traversable<EditableSyntax> {
     yield $this;
     foreach ($this->children() as $child)
