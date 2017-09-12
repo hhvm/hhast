@@ -141,7 +141,10 @@ implements AutoFixingASTLinter<MethodishDeclaration> {
           ),
           new HHAST\GreaterThanGreaterThanToken(
             HHAST\Missing(),
-            HHAST\Missing(),
+            Str\contains(
+              $node->getFirstTokenx()->getLeading()->full_text(),
+              "\n",
+            ) ?  HHAST\Missing() : new HHAST\WhiteSpace("\n"),
           ),
         ),
       );

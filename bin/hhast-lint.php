@@ -136,8 +136,8 @@ final class LinterCLI {
       "%s\n".
       "  Suggestion:\n".
       "%s\n",
-      $prefix_lines($old, '  - '),
-      $prefix_lines($new, '  + '),
+      $prefix_lines($old, '  -'),
+      $prefix_lines($new, '  +'),
     );
   }
 
@@ -153,7 +153,7 @@ final class LinterCLI {
       explode("\n", $blame)
       |> Vec\map(
         $$,
-        $line ==> '  > '.$line,
+        $line ==> '  >'.$line,
       )
       |> implode("\n", $$),
     );
