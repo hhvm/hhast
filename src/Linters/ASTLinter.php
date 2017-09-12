@@ -33,6 +33,16 @@ abstract class ASTLinter<T as HHAST\EditableSyntax> extends BaseLinter {
     vec<EditableSyntax> $parents,
   ): ?ASTLintError<T, this>;
 
+  /**
+   * Some parts of the node may be irrelevant to the actual error; strip them
+   * out here to display more concise messages to humans.
+   */
+  public function getPrettyNodeForBlame(
+    T $node,
+  ): T {
+    return $node;
+  }
+
   final public function getLintErrors(
   ): Traversable<ASTLintError<T, this>> {
     $target = static::getTargetType();
@@ -48,11 +58,5 @@ abstract class ASTLinter<T as HHAST\EditableSyntax> extends BaseLinter {
         }
       }
     }
-  }
-
-  public function getPrettyNodeForBlame(
-    T $node,
-  ): T {
-    return $node;
   }
 }
