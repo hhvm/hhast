@@ -82,8 +82,17 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
 
   private function canIgnoreMethod(
     ClassishDeclaration $class,
-    MethodishDeclaration $node,
+    MethodishDeclaration $method,
   ): bool {
+    $name = $method->getFunctionDeclHeader()->getName();
+    if ($name instanceof HHAST\ConstructToken) {
+      return true;
+    }
+
+    if ($name instanceof HHAST\DestructToken) {
+      return true;
+    }
+
     if (!$class->getKeyword() instanceof ClassToken) {
       return true;
     }
@@ -92,7 +101,7 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
       return true;
     }
 
-    $attrs = $node->getAttribute();
+    $attrs = $method->getAttribute();
     if ($attrs === null) {
       return false;
     }

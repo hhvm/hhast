@@ -35,6 +35,18 @@ final class MustUseOverrideAttributeLinterTest extends TestCase {
           'public function '.__FUNCTION__.'(){}'.
           '}'
       ],
+      [
+          '<?hh '.
+          'class Foo extends '.self::class.' {'.
+          'public function __construct(){}'.
+          '}'
+      ],
+      [
+          '<?hh '.
+          'class Foo extends '.self::class.' {'.
+          'public function __destruct(){}'.
+          '}'
+      ],
     ];
   }
 
