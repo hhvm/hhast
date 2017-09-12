@@ -22,4 +22,8 @@ class ASTLintError extends LintError {
   ) {
     parent::__construct($linter, $description);
   }
+
+  final public function getNode(): EditableSyntax {
+    return $this->node;
+  }
 }

@@ -42,4 +42,13 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase {
     }
     expect($code)->toBeSame(file_get_contents($expect_file));
   }
+
+  protected static function getNodeAndParents(
+    string $code,
+  ): (EditableSyntax, vec<EditableSyntax>) {
+    $ast = from_code($code);
+    $node = $ast->of_class(ClassishDeclaration::class) |> C\firstx($$);
+    $parents = vec($ast->find_with_parents($x ==> $x === $node));
+    return tuple($node, $parents);
+  }
 }

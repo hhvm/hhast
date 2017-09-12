@@ -10,16 +10,7 @@
  *
  */
 
-namespace Facebook\HHAST\Linters;
-
-class LintError {
-  public function __construct(
-    private classname<BaseLinter> $linter,
-    private string $description,
-  ) {
-  }
-
-  public function getDescription(): string {
-    return $this->description;
+class Foo extends \Facebook\HHAST\MustUseOverrideAttributeLinterTest {
+  public function setUp(): void {
   }
 }

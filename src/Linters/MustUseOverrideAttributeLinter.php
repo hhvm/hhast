@@ -13,20 +13,24 @@
 namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
+  Attribute,
   ClassishDeclaration,
+  ClassToken,
   EditableSyntax,
-  MethodishDeclaration
+  GenericTypeSpecifier,
+  MethodishDeclaration,
+  SimpleTypeSpecifier
 };
 use type Facebook\TypeAssert\TypeAssert;
-
-use namespace HH\Lib\{C, Vec};
+use function Facebook\HHAST\__Private\Resolution\resolve_type;
+use namespace HH\Lib\{C, Str, Vec};
 
 class MustUseOverrideAttributeLinter extends ASTLinter<MethodishDeclaration> {
   protected static function getTargetType(): classname<MethodishDeclaration> {
     return MethodishDeclaration::class;
   }
 
-  public function lintNode(
+  public function getLintErrorForNode(
     MethodishDeclaration $node,
     vec<EditableSyntax> $parents,
   ): ?ASTLintError {
@@ -35,17 +39,66 @@ class MustUseOverrideAttributeLinter extends ASTLinter<MethodishDeclaration> {
       |> C\lastx($$)
       |> TypeAssert::isInstanceOf(ClassishDeclaration::class, $$);
 
+    if ($this->canIgnoreMethod($class, $node)) {
+      return null;
+    }
+
+    $super = C\onlyx($class->getExtendsListx()->children());
+    if ($super instanceof GenericTypeSpecifier) {
+      $super = $super->getClassType();
+    }
+    $super = $super->full_text()
+      |> Str\trim($$)
+      |> resolve_type($$, $node, $parents);
+    try {
+      $method = $node->getFunctionDeclHeader()->getName()->full_text()
+        |> Str\trim($$);
+
+      $reflection_method = new \ReflectionMethod(
+        $super,
+        $method,
+      );
+
+      return new ASTLintError(
+        $node,
+        self::class,
+        sprintf(
+          '%s::%s() overrides %s::%s() without <<__Override>>',
+          $class->getName()->full_text()
+            |> Str\trim($$)
+            |> resolve_type($$, $node, $parents),
+          $method,
+          $reflection_method->getDeclaringClass()->getName(),
+          $method,
+        ),
+      );
+    } catch (\ReflectionException $_) {
+      return null;
+    }
+  }
+
+  private function canIgnoreMethod(
+    ClassishDeclaration $class,
+    MethodishDeclaration $node,
+  ): bool {
+    if (!$class->getKeyword() instanceof ClassToken) {
+      return true;
+    }
+
     if (!$class->hasExtendsList()) {
-      return null;
+      return true;
     }
 
-    $attrs_list = $node->hasAttribute()
-      ? $node->getAttributex()->getAttributes()->to_vec()
-      : vec[];
-    if (C\contains($attrs_list, '__Override')) {
-      return null;
+    $attrs = $node->getAttribute();
+    if ($attrs === null) {
+      return false;
     }
-
-    return null;
+    $attrs = $attrs->getAttributes()->of_class(
+      Attribute::class,
+    ) |> Vec\map(
+      $$,
+      $attr ==> $attr->getName()->getText(),
+    );
+    return C\contains($attrs, '__Override');
   }
 }

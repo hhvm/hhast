@@ -1,0 +1,6 @@
+[
+    {
+        "node": "  public function setUp(): void {\n  }\n",
+        "description": "Foo::setUp() overrides PHPUnit_Framework_TestCase::setUp() without <<__Override>>"
+    }
+]
