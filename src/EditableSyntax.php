@@ -198,35 +198,35 @@ abstract class EditableSyntax {
     );
   }
 
-  public function leftmost_tokenx(): EditableToken {
-    return TypeAssert::isNotNull($this->leftmost_token());
+  public function getFirstTokenx(): EditableToken {
+    return TypeAssert::isNotNull($this->getFirstToken());
   }
 
-  public function leftmost_token(): ?EditableToken {
+  public function getFirstToken(): ?EditableToken {
     if ($this instanceof EditableToken) {
       return $this;
     }
 
     foreach ($this->children() as $child) {
       if (!$child->is_missing())
-        return $child->leftmost_token();
+        return $child->getFirstToken();
     }
     return null;
   }
 
-  public function rightmost_tokenx(): EditableToken {
-    return TypeAssert::isNotNull($this->rightmost_token());
+  public function getLastTokenx(): EditableToken {
+    return TypeAssert::isNotNull($this->getLastToken());
   }
 
-  public function rightmost_token(): ?EditableToken {
+  public function getLastToken(): ?EditableToken {
     if ($this instanceof EditableToken) {
       return $this;
     }
 
-    // TODO: Better way to reverse a sequence?
-    foreach (array_reverse(iterator_to_array($this->children())) as $child) {
-      if (!$child->is_missing())
-        return $child->rightmost_token();
+    foreach (Vec\reverse($this->children()) as $child) {
+      if (!$child->is_missing()) {
+        return $child->getLastToken();
+      }
     }
     return null;
   }
@@ -244,7 +244,7 @@ abstract class EditableSyntax {
       return $this;
 
     if ($new_node->is_trivia() && !$target->is_trivia()) {
-      $token = $target->is_token() ? $target : $target->leftmost_token();
+      $token = $target->is_token() ? $target : $target->getFirstToken();
       if ($token === null)
         throw new \Exception('Unable to find token to insert trivia.');
       $token = TypeAssert::isInstanceOf(EditableToken::class, $token);
@@ -277,7 +277,7 @@ abstract class EditableSyntax {
       return $this;
 
     if ($new_node->is_trivia() && !$target->is_trivia()) {
-      $token = $target->is_token() ? $target : $target->rightmost_token();
+      $token = $target->is_token() ? $target : $target->getLastToken();
       if ($token === null)
         throw new \Exception('Unable to find token to insert trivia.');
 
