@@ -51,4 +51,7 @@ class A {
     ),
     ...
   );
+
+  public function foo(): Awaitable<shape('foo' => string, ?'bar' => ?string, ...)> {
+  }
 }
