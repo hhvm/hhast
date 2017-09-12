@@ -36,7 +36,7 @@ abstract class EditableToken extends EditableSyntax {
     $this->_width = strlen($text) + $leading->getWidth() + $trailing->getWidth();
   }
 
-  public function token_kind(): string {
+  public function getTokenKind(): string {
     return $this->_token_kind;
   }
 
