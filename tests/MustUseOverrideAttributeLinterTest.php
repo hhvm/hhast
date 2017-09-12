@@ -77,6 +77,7 @@ final class MustUseOverrideAttributeLinterTest extends TestCase {
         $$,
         $error ==> shape(
           'blame' => $error->getBlameCode(),
+          'blame_pretty' => $error->getPrettyBlameCode(),
           'description' => $error->getDescription(),
         ),
       )

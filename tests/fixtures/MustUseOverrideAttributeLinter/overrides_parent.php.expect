@@ -1,6 +1,7 @@
 [
     {
         "blame": "  public function setUp(): void {\n  }\n",
+        "blame_pretty": "  public function setUp(): void {",
         "description": "Foo::setUp() overrides PHPUnit_Framework_TestCase::setUp() without <<__Override>>"
     }
 ]
