@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6a503ca39a6a263f25c90e1dcbb1f8fb>>
+ * @generated SignedSource<<cb4c875c509bfc056a055ddd48b7d216>>
  */
 namespace Facebook\HHAST;
 
@@ -19,6 +19,7 @@ final class QuestionToken extends EditableToken {
     return !$this->getLeading()->is_missing();
   }
 
+  <<__Override>>
   public function withLeading(EditableSyntax $value): this {
     if ($value === $this->getLeading()) {
       return $this;
@@ -30,6 +31,7 @@ final class QuestionToken extends EditableToken {
     return !$this->getTrailing()->is_missing();
   }
 
+  <<__Override>>
   public function withTrailing(EditableSyntax $value): this {
     if ($value === $this->getTrailing()) {
       return $this;
@@ -37,6 +39,7 @@ final class QuestionToken extends EditableToken {
     return new self($this->getLeading(), $value);
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,

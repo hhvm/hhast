@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b89b6ffe88d31f4b19a56fded59a8dfb>>
+ * @generated SignedSource<<0ca6a9659021808f85e4e0cee068301b>>
  */
 namespace Facebook\HHAST;
 
@@ -19,6 +19,7 @@ final class OrToken extends EditableToken {
     return !$this->getLeading()->is_missing();
   }
 
+  <<__Override>>
   public function withLeading(EditableSyntax $value): this {
     if ($value === $this->getLeading()) {
       return $this;
@@ -30,6 +31,7 @@ final class OrToken extends EditableToken {
     return !$this->getTrailing()->is_missing();
   }
 
+  <<__Override>>
   public function withTrailing(EditableSyntax $value): this {
     if ($value === $this->getTrailing()) {
       return $this;
@@ -37,6 +39,7 @@ final class OrToken extends EditableToken {
     return new self($this->getLeading(), $value);
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,

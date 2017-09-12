@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5114682cca9d7c458bf79db8260bba70>>
+ * @generated SignedSource<<aca885fc551e1ea496b2eb85d10c545d>>
  */
 namespace Facebook\HHAST;
 
@@ -20,6 +20,7 @@ final class DecimalLiteralToken extends EditableToken {
     return !$this->getLeading()->is_missing();
   }
 
+  <<__Override>>
   public function withLeading(EditableSyntax $value): this {
     if ($value === $this->getLeading()) {
       return $this;
@@ -31,6 +32,7 @@ final class DecimalLiteralToken extends EditableToken {
     return !$this->getTrailing()->is_missing();
   }
 
+  <<__Override>>
   public function withTrailing(EditableSyntax $value): this {
     if ($value === $this->getTrailing()) {
       return $this;
@@ -45,6 +47,7 @@ final class DecimalLiteralToken extends EditableToken {
     return new self($this->getLeading(), $this->getTrailing(), $value);
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,

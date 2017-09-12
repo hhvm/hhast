@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<773004268beac4d91adee8777cc77c8b>>
+ * @generated SignedSource<<4c03db1c041573c1bda8223382a22eb0>>
  */
 namespace Facebook\HHAST;
 
@@ -25,6 +25,7 @@ final class HeredocStringLiteralHeadToken extends EditableToken {
     return !$this->getLeading()->is_missing();
   }
 
+  <<__Override>>
   public function withLeading(EditableSyntax $value): this {
     if ($value === $this->getLeading()) {
       return $this;
@@ -36,6 +37,7 @@ final class HeredocStringLiteralHeadToken extends EditableToken {
     return !$this->getTrailing()->is_missing();
   }
 
+  <<__Override>>
   public function withTrailing(EditableSyntax $value): this {
     if ($value === $this->getTrailing()) {
       return $this;
@@ -50,6 +52,7 @@ final class HeredocStringLiteralHeadToken extends EditableToken {
     return new self($this->getLeading(), $this->getTrailing(), $value);
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,

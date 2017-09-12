@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6cde3b21fda38889c70259f00679cb02>>
+ * @generated SignedSource<<65489358f55cbdbf53f8ffd8d74663d1>>
  */
 namespace Facebook\HHAST;
 
@@ -25,6 +25,7 @@ final class DoubleQuotedStringLiteralToken extends EditableToken {
     return !$this->getLeading()->is_missing();
   }
 
+  <<__Override>>
   public function withLeading(EditableSyntax $value): this {
     if ($value === $this->getLeading()) {
       return $this;
@@ -36,6 +37,7 @@ final class DoubleQuotedStringLiteralToken extends EditableToken {
     return !$this->getTrailing()->is_missing();
   }
 
+  <<__Override>>
   public function withTrailing(EditableSyntax $value): this {
     if ($value === $this->getTrailing()) {
       return $this;
@@ -50,6 +52,7 @@ final class DoubleQuotedStringLiteralToken extends EditableToken {
     return new self($this->getLeading(), $this->getTrailing(), $value);
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,

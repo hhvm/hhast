@@ -27,6 +27,7 @@ final class CodegenTokens extends CodegenBase {
     'fields' => vec<shape(
       'name' => string,
       'type' => string,
+      'override' => bool,
     )>
   );
 
@@ -37,10 +38,12 @@ final class CodegenTokens extends CodegenBase {
       shape(
         'name' => 'leading',
         'type' => 'EditableSyntax',
+        'override' => true,
       ),
       shape(
         'name' => 'trailing',
         'type' => 'EditableSyntax',
+        'override' => true,
       ),
     ];
 
@@ -75,6 +78,7 @@ final class CodegenTokens extends CodegenBase {
           vec[shape(
             'name' => 'text',
             'type' => 'string',
+            'override' => false,
           )],
         ),
       ),
@@ -173,6 +177,7 @@ final class CodegenTokens extends CodegenBase {
 
       yield $cg
         ->codegenMethodf('with%s', $upper_camel)
+        ->setIsOverride($field['override'])
         ->addParameterf(
           '%s $value',
           $field['type'],
@@ -203,6 +208,7 @@ final class CodegenTokens extends CodegenBase {
   ): CodegenMethod {
     $cg = $this->getCodegenFactory();
     return $cg->codegenMethod('rewrite_children')
+      ->setIsOverride()
       ->addParameter('self::TRewriter $rewriter')
       ->addParameter('?Traversable<EditableSyntax> $parents = null')
       ->setReturnType('this')
