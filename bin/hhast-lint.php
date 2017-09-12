@@ -95,9 +95,11 @@ final class LinterCLI {
     foreach ($errors as $error) {
       $had_errors = true;
       printf(
-        "%s\n".
+        "%s%s%s\n".
         "  File: %s\n",
+        posix_isatty(STDOUT) ? "\e[1;31m" : '',
         $error->getDescription(),
+        posix_isatty(STDOUT) ? "\e[0m" : '',
         $error->getFile(),
       );
       if ($error instanceof Linters\FixableLintError && $error->isFixable()) {
@@ -165,13 +167,20 @@ final class LinterCLI {
       )
       |> implode("\n", $$);
 
+
+    $colors = posix_isatty(STDOUT);
+
     printf(
       "  Code:\n".
-      "%s\n".
+      "%s%s%s\n".
       "  Suggested fix:\n".
-      "%s\n",
+      "%s%s%s\n",
+      $colors ? "\e[31m" : '',
       $prefix_lines($old, '  -'),
+      $colors ? "\e[0m" : '',
+      $colors ? "\e[32m" : '',
       $prefix_lines($new, '  +'),
+      $colors ? "\e[0m" : '',
     );
 
     if (!(posix_isatty(STDIN) && posix_isatty(STDOUT))) {
@@ -192,8 +201,8 @@ final class LinterCLI {
     $response = null;
     do {
       print(
-        "Would you like to apply this fix?\n".
-        "  [y]es/[N]o/yes to [a]ll/n[o] to all: "
+        "\e[94mWould you like to apply this fix?\e[0m\n".
+        "  \e[37m[y]es/[N]o/yes to [a]ll/n[o] to all:\e[0m "
       );
       $response = fgets(STDIN);
       if ($response === false) {
@@ -231,14 +240,18 @@ final class LinterCLI {
     if ($blame === null) {
       return;
     }
+
+    $colors = posix_isatty(STDOUT);
     printf(
-      "  Code:\n%s\n",
+      "  Code:\n%s%s%s\n",
+      $colors ? "\e[33m" : '',
       explode("\n", $blame)
       |> Vec\map(
         $$,
         $line ==> '  >'.$line,
       )
       |> implode("\n", $$),
+      $colors ? "\e[0m" : '',
     );
   }
 }
