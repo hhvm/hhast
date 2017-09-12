@@ -119,7 +119,7 @@ abstract class EditableSyntax {
     return __Private\editable_syntax_from_json($json, $position, $source);
   }
 
-  public function to_vec(): vec<EditableSyntax> {
+  public function toVec(): vec<EditableSyntax> {
     return vec[$this];
   }
 

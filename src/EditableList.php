@@ -28,7 +28,7 @@ final class EditableList extends EditableSyntax {
   }
 
   <<__Override>>
-  public function to_vec(): vec<EditableSyntax> {
+  public function toVec(): vec<EditableSyntax> {
     return $this->_children;
   }
 
@@ -61,7 +61,7 @@ final class EditableList extends EditableSyntax {
       return $right;
     if ($right->isMissing())
       return $left;
-    return new EditableList(Vec\concat($left->to_vec(), $right->to_vec()));
+    return new EditableList(Vec\concat($left->toVec(), $right->toVec()));
   }
 
   <<__Override>>

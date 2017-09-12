@@ -165,7 +165,7 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
       );
     }
 
-    $list = $attrs->getAttributes()->to_vec();
+    $list = $attrs->getAttributes()->toVec();
     $list[] = new HHAST\NameToken(
       HHAST\Missing(),
       HHAST\Missing(),
