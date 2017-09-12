@@ -99,10 +99,8 @@ final class LinterCLI {
         $error->getFile(),
       );
       if ($error instanceof Linters\FixableLintError && $error->isFixable()) {
-        var_dump('proposing fix');
         self::proposeLintFix($error);
       } else {
-        var_dump('not fixable');
         self::renderLintBlame($error);
       }
     }
@@ -118,7 +116,6 @@ final class LinterCLI {
   ): void {
     list($old, $new) = $error->getReadableFix();
     if ($old === $new) {
-      var_dump('no change!');
       self::renderLintBlame($error);
       return;
     }
