@@ -203,10 +203,6 @@ abstract class EditableSyntax {
   }
 
   public function getFirstToken(): ?EditableToken {
-    if ($this instanceof EditableToken) {
-      return $this;
-    }
-
     foreach ($this->children() as $child) {
       if (!$child->is_missing())
         return $child->getFirstToken();
@@ -219,10 +215,6 @@ abstract class EditableSyntax {
   }
 
   public function getLastToken(): ?EditableToken {
-    if ($this instanceof EditableToken) {
-      return $this;
-    }
-
     foreach (Vec\reverse($this->children()) as $child) {
       if (!$child->is_missing()) {
         return $child->getLastToken();
@@ -244,7 +236,7 @@ abstract class EditableSyntax {
       return $this;
 
     if ($new_node->is_trivia() && !$target->is_trivia()) {
-      $token = $target->is_token() ? $target : $target->getFirstToken();
+      $token = $target->getFirstToken();
       if ($token === null)
         throw new \Exception('Unable to find token to insert trivia.');
       $token = TypeAssert::isInstanceOf(EditableToken::class, $token);
@@ -277,7 +269,7 @@ abstract class EditableSyntax {
       return $this;
 
     if ($new_node->is_trivia() && !$target->is_trivia()) {
-      $token = $target->is_token() ? $target : $target->getLastToken();
+      $token = $target->getLastToken();
       if ($token === null)
         throw new \Exception('Unable to find token to insert trivia.');
 

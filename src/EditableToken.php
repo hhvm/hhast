@@ -132,4 +132,14 @@ abstract class EditableToken extends EditableSyntax {
       $token_text,
     );
   }
+
+  <<__Override>>
+  final public function getFirstToken(): EditableToken {
+    return $this;
+  }
+
+  <<__Override>>
+  final public function getLastToken(): EditableToken {
+    return $this;
+  }
 }
