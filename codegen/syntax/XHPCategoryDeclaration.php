@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1d1c20b7e431bb93acfffb1ef6d4286c>>
+ * @generated SignedSource<<3976c59fe6690f169bac87fbafb1f46d>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -24,6 +24,7 @@ final class XHPCategoryDeclaration extends EditableSyntax {
     $this->_semicolon = $semicolon;
   }
 
+  <<__Override>>
   public static function from_json(
     array<string, mixed> $json,
     int $position,
@@ -50,12 +51,14 @@ final class XHPCategoryDeclaration extends EditableSyntax {
     return new self($keyword, $categories, $semicolon);
   }
 
+  <<__Override>>
   public function children(): KeyedTraversable<string, EditableSyntax> {
     yield 'keyword' => $this->_keyword;
     yield 'categories' => $this->_categories;
     yield 'semicolon' => $this->_semicolon;
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,

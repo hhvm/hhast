@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<04038c960325667333133005e2341596>>
+ * @generated SignedSource<<decdde6b94e08e88c738318ff4c2d710>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -16,6 +16,7 @@ final class VariadicParameter extends EditableSyntax {
     $this->_ellipsis = $ellipsis;
   }
 
+  <<__Override>>
   public static function from_json(
     array<string, mixed> $json,
     int $position,
@@ -30,10 +31,12 @@ final class VariadicParameter extends EditableSyntax {
     return new self($ellipsis);
   }
 
+  <<__Override>>
   public function children(): KeyedTraversable<string, EditableSyntax> {
     yield 'ellipsis' => $this->_ellipsis;
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2759d2007dd6e8dc48608b4831083ac9>>
+ * @generated SignedSource<<b7622c057f9a1967ba5ed28dd079bbc6>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -27,6 +27,7 @@ final class TupleExpression extends EditableSyntax {
     $this->_right_paren = $right_paren;
   }
 
+  <<__Override>>
   public static function from_json(
     array<string, mixed> $json,
     int $position,
@@ -59,6 +60,7 @@ final class TupleExpression extends EditableSyntax {
     return new self($keyword, $left_paren, $items, $right_paren);
   }
 
+  <<__Override>>
   public function children(): KeyedTraversable<string, EditableSyntax> {
     yield 'keyword' => $this->_keyword;
     yield 'left_paren' => $this->_left_paren;
@@ -66,6 +68,7 @@ final class TupleExpression extends EditableSyntax {
     yield 'right_paren' => $this->_right_paren;
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,

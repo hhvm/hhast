@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dc4bfc1229b8e8968aa7c2f604fb6a23>>
+ * @generated SignedSource<<941f78972006d628fb5e55cf961b3bbf>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -30,6 +30,7 @@ final class ConstDeclaration extends EditableSyntax {
     $this->_semicolon = $semicolon;
   }
 
+  <<__Override>>
   public static function from_json(
     array<string, mixed> $json,
     int $position,
@@ -74,6 +75,7 @@ final class ConstDeclaration extends EditableSyntax {
     );
   }
 
+  <<__Override>>
   public function children(): KeyedTraversable<string, EditableSyntax> {
     yield 'abstract' => $this->_abstract;
     yield 'keyword' => $this->_keyword;
@@ -82,6 +84,7 @@ final class ConstDeclaration extends EditableSyntax {
     yield 'semicolon' => $this->_semicolon;
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,

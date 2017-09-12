@@ -210,6 +210,7 @@ final class CodegenSyntax extends CodegenBase {
 
     return $cg
       ->codegenMethod('from_json')
+      ->setIsOverride()
       ->setIsStatic()
       ->addParameter('array<string, mixed> $json')
       ->addParameter('int $position')
@@ -230,6 +231,7 @@ final class CodegenSyntax extends CodegenBase {
 
     return $cg
       ->codegenMethod('children')
+      ->setIsOverride()
       ->setReturnType('KeyedTraversable<string, EditableSyntax>')
       ->setBody(
         $cg
@@ -257,6 +259,7 @@ final class CodegenSyntax extends CodegenBase {
 
     return $cg
       ->codegenMethod('rewrite_children')
+      ->setIsOverride()
       ->addParameter('self::TRewriter $rewriter')
       ->addParameter('?Traversable<EditableSyntax> $parents = null')
       ->setReturnType('this')

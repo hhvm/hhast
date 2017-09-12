@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6aae338e1fff242519864dc654a0899c>>
+ * @generated SignedSource<<4587a07e8b3f2ea5abf99a9f1c706ee7>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -27,6 +27,7 @@ final class FieldSpecifier extends EditableSyntax {
     $this->_type = $type;
   }
 
+  <<__Override>>
   public static function from_json(
     array<string, mixed> $json,
     int $position,
@@ -59,6 +60,7 @@ final class FieldSpecifier extends EditableSyntax {
     return new self($question, $name, $arrow, $type);
   }
 
+  <<__Override>>
   public function children(): KeyedTraversable<string, EditableSyntax> {
     yield 'question' => $this->_question;
     yield 'name' => $this->_name;
@@ -66,6 +68,7 @@ final class FieldSpecifier extends EditableSyntax {
     yield 'type' => $this->_type;
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,

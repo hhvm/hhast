@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f0d7461dfd391f22fd925ffb9479d141>>
+ * @generated SignedSource<<dd081d4d9e2aca144e5b28ad00c51746>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -24,6 +24,7 @@ final class ParenthesizedExpression extends EditableSyntax {
     $this->_right_paren = $right_paren;
   }
 
+  <<__Override>>
   public static function from_json(
     array<string, mixed> $json,
     int $position,
@@ -50,12 +51,14 @@ final class ParenthesizedExpression extends EditableSyntax {
     return new self($left_paren, $expression, $right_paren);
   }
 
+  <<__Override>>
   public function children(): KeyedTraversable<string, EditableSyntax> {
     yield 'left_paren' => $this->_left_paren;
     yield 'expression' => $this->_expression;
     yield 'right_paren' => $this->_right_paren;
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,

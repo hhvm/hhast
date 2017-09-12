@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5f94e7e97316ebf0305c42415c88e8c4>>
+ * @generated SignedSource<<ff8f9ad5daea1070cd76ae61248583ed>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -33,6 +33,7 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     $this->_right_angle = $right_angle;
   }
 
+  <<__Override>>
   public static function from_json(
     array<string, mixed> $json,
     int $position,
@@ -77,6 +78,7 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     return new self($keyword, $left_angle, $key, $comma, $value, $right_angle);
   }
 
+  <<__Override>>
   public function children(): KeyedTraversable<string, EditableSyntax> {
     yield 'keyword' => $this->_keyword;
     yield 'left_angle' => $this->_left_angle;
@@ -86,6 +88,7 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     yield 'right_angle' => $this->_right_angle;
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,

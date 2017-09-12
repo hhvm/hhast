@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<259e98524e40db663d30970f7a36ddf8>>
+ * @generated SignedSource<<c4184b2ff573da844313a3a231f2c4d8>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -27,6 +27,7 @@ final class CastExpression extends EditableSyntax {
     $this->_operand = $operand;
   }
 
+  <<__Override>>
   public static function from_json(
     array<string, mixed> $json,
     int $position,
@@ -59,6 +60,7 @@ final class CastExpression extends EditableSyntax {
     return new self($left_paren, $type, $right_paren, $operand);
   }
 
+  <<__Override>>
   public function children(): KeyedTraversable<string, EditableSyntax> {
     yield 'left_paren' => $this->_left_paren;
     yield 'type' => $this->_type;
@@ -66,6 +68,7 @@ final class CastExpression extends EditableSyntax {
     yield 'operand' => $this->_operand;
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,

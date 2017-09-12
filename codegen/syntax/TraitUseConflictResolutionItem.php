@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b999012d52b46964832940fc2db19bcc>>
+ * @generated SignedSource<<87d186d3b028b7a6adca0c996cc02fb9>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -24,6 +24,7 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
     $this->_aliased_names = $aliased_names;
   }
 
+  <<__Override>>
   public static function from_json(
     array<string, mixed> $json,
     int $position,
@@ -50,12 +51,14 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
     return new self($aliasing_name, $aliasing_keyword, $aliased_names);
   }
 
+  <<__Override>>
   public function children(): KeyedTraversable<string, EditableSyntax> {
     yield 'aliasing_name' => $this->_aliasing_name;
     yield 'aliasing_keyword' => $this->_aliasing_keyword;
     yield 'aliased_names' => $this->_aliased_names;
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,

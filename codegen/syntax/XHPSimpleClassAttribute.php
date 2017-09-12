@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9a4f555406779cbde197e4e713646b06>>
+ * @generated SignedSource<<45cd1cfd96be34ec50d070b706fea206>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -16,6 +16,7 @@ final class XHPSimpleClassAttribute extends EditableSyntax {
     $this->_type = $type;
   }
 
+  <<__Override>>
   public static function from_json(
     array<string, mixed> $json,
     int $position,
@@ -30,10 +31,12 @@ final class XHPSimpleClassAttribute extends EditableSyntax {
     return new self($type);
   }
 
+  <<__Override>>
   public function children(): KeyedTraversable<string, EditableSyntax> {
     yield 'type' => $this->_type;
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,

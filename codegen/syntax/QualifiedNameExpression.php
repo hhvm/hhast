@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e8531acd043f0ef10d4e15b17950f6b4>>
+ * @generated SignedSource<<c85d5fb7db0bc86f122567b60d04ed91>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -16,6 +16,7 @@ final class QualifiedNameExpression extends EditableSyntax {
     $this->_expression = $expression;
   }
 
+  <<__Override>>
   public static function from_json(
     array<string, mixed> $json,
     int $position,
@@ -30,10 +31,12 @@ final class QualifiedNameExpression extends EditableSyntax {
     return new self($expression);
   }
 
+  <<__Override>>
   public function children(): KeyedTraversable<string, EditableSyntax> {
     yield 'expression' => $this->_expression;
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d5660047c166faf13dea14b3e5e8495e>>
+ * @generated SignedSource<<94276901d884ae85b3fca4ada28dca0c>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -24,6 +24,7 @@ final class AwaitableCreationExpression extends EditableSyntax {
     $this->_compound_statement = $compound_statement;
   }
 
+  <<__Override>>
   public static function from_json(
     array<string, mixed> $json,
     int $position,
@@ -50,12 +51,14 @@ final class AwaitableCreationExpression extends EditableSyntax {
     return new self($async, $coroutine, $compound_statement);
   }
 
+  <<__Override>>
   public function children(): KeyedTraversable<string, EditableSyntax> {
     yield 'async' => $this->_async;
     yield 'coroutine' => $this->_coroutine;
     yield 'compound_statement' => $this->_compound_statement;
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,

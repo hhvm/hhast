@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<497ae738e6dbb31dd243b85af6435736>>
+ * @generated SignedSource<<98f43f1152ab5543dac0381eec6bda1f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -27,6 +27,7 @@ final class XHPEnumType extends EditableSyntax {
     $this->_right_brace = $right_brace;
   }
 
+  <<__Override>>
   public static function from_json(
     array<string, mixed> $json,
     int $position,
@@ -59,6 +60,7 @@ final class XHPEnumType extends EditableSyntax {
     return new self($keyword, $left_brace, $values, $right_brace);
   }
 
+  <<__Override>>
   public function children(): KeyedTraversable<string, EditableSyntax> {
     yield 'keyword' => $this->_keyword;
     yield 'left_brace' => $this->_left_brace;
@@ -66,6 +68,7 @@ final class XHPEnumType extends EditableSyntax {
     yield 'right_brace' => $this->_right_brace;
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f9de890abb7c4b0b707c1851aee49d11>>
+ * @generated SignedSource<<e8405be492620a6d130cdffc23684aa4>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -24,6 +24,7 @@ final class TypeArguments extends EditableSyntax {
     $this->_right_angle = $right_angle;
   }
 
+  <<__Override>>
   public static function from_json(
     array<string, mixed> $json,
     int $position,
@@ -50,12 +51,14 @@ final class TypeArguments extends EditableSyntax {
     return new self($left_angle, $types, $right_angle);
   }
 
+  <<__Override>>
   public function children(): KeyedTraversable<string, EditableSyntax> {
     yield 'left_angle' => $this->_left_angle;
     yield 'types' => $this->_types;
     yield 'right_angle' => $this->_right_angle;
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<73c8a6565f55f699f805f8f05a0490cf>>
+ * @generated SignedSource<<03c7149cf8ab911a485cee6e03471e36>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -33,6 +33,7 @@ final class CatchClause extends EditableSyntax {
     $this->_body = $body;
   }
 
+  <<__Override>>
   public static function from_json(
     array<string, mixed> $json,
     int $position,
@@ -84,6 +85,7 @@ final class CatchClause extends EditableSyntax {
     );
   }
 
+  <<__Override>>
   public function children(): KeyedTraversable<string, EditableSyntax> {
     yield 'keyword' => $this->_keyword;
     yield 'left_paren' => $this->_left_paren;
@@ -93,6 +95,7 @@ final class CatchClause extends EditableSyntax {
     yield 'body' => $this->_body;
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,

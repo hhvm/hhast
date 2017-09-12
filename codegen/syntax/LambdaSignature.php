@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e1b5fdf8a73a207d009c361360a29e15>>
+ * @generated SignedSource<<e49d827d5caa0f6a3329fd5fd03ceac1>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -30,6 +30,7 @@ final class LambdaSignature extends EditableSyntax {
     $this->_type = $type;
   }
 
+  <<__Override>>
   public static function from_json(
     array<string, mixed> $json,
     int $position,
@@ -68,6 +69,7 @@ final class LambdaSignature extends EditableSyntax {
     return new self($left_paren, $parameters, $right_paren, $colon, $type);
   }
 
+  <<__Override>>
   public function children(): KeyedTraversable<string, EditableSyntax> {
     yield 'left_paren' => $this->_left_paren;
     yield 'parameters' => $this->_parameters;
@@ -76,6 +78,7 @@ final class LambdaSignature extends EditableSyntax {
     yield 'type' => $this->_type;
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,

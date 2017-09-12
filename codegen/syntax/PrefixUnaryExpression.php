@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<83a4e8e00751641d2efbca63337c8fd4>>
+ * @generated SignedSource<<26e5fcb80414cf1609f8fc83f1301a69>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -21,6 +21,7 @@ final class PrefixUnaryExpression extends EditableSyntax {
     $this->_operand = $operand;
   }
 
+  <<__Override>>
   public static function from_json(
     array<string, mixed> $json,
     int $position,
@@ -41,11 +42,13 @@ final class PrefixUnaryExpression extends EditableSyntax {
     return new self($operator, $operand);
   }
 
+  <<__Override>>
   public function children(): KeyedTraversable<string, EditableSyntax> {
     yield 'operator' => $this->_operator;
     yield 'operand' => $this->_operand;
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,

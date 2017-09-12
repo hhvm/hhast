@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<63805f3a826eccf37611be4e6f338be6>>
+ * @generated SignedSource<<3b6c98a4df1f78e566a7bb5b2a344947>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -21,6 +21,7 @@ final class InclusionExpression extends EditableSyntax {
     $this->_filename = $filename;
   }
 
+  <<__Override>>
   public static function from_json(
     array<string, mixed> $json,
     int $position,
@@ -41,11 +42,13 @@ final class InclusionExpression extends EditableSyntax {
     return new self($require, $filename);
   }
 
+  <<__Override>>
   public function children(): KeyedTraversable<string, EditableSyntax> {
     yield 'require' => $this->_require;
     yield 'filename' => $this->_filename;
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,

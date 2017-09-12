@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c366df40df9bef55512549b2e1fe96a2>>
+ * @generated SignedSource<<b1e45e56e47b07d13615a9f4c0a74621>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -24,6 +24,7 @@ final class NamespaceBody extends EditableSyntax {
     $this->_right_brace = $right_brace;
   }
 
+  <<__Override>>
   public static function from_json(
     array<string, mixed> $json,
     int $position,
@@ -50,12 +51,14 @@ final class NamespaceBody extends EditableSyntax {
     return new self($left_brace, $declarations, $right_brace);
   }
 
+  <<__Override>>
   public function children(): KeyedTraversable<string, EditableSyntax> {
     yield 'left_brace' => $this->_left_brace;
     yield 'declarations' => $this->_declarations;
     yield 'right_brace' => $this->_right_brace;
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,

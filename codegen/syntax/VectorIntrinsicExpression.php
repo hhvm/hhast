@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<14946c3afe4aeed3c2afc8351e46baed>>
+ * @generated SignedSource<<51bb69424fa12a6f27754d83ade0f356>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -27,6 +27,7 @@ final class VectorIntrinsicExpression extends EditableSyntax {
     $this->_right_bracket = $right_bracket;
   }
 
+  <<__Override>>
   public static function from_json(
     array<string, mixed> $json,
     int $position,
@@ -59,6 +60,7 @@ final class VectorIntrinsicExpression extends EditableSyntax {
     return new self($keyword, $left_bracket, $members, $right_bracket);
   }
 
+  <<__Override>>
   public function children(): KeyedTraversable<string, EditableSyntax> {
     yield 'keyword' => $this->_keyword;
     yield 'left_bracket' => $this->_left_bracket;
@@ -66,6 +68,7 @@ final class VectorIntrinsicExpression extends EditableSyntax {
     yield 'right_bracket' => $this->_right_bracket;
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,

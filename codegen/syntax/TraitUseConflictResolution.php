@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f251f829c588be7331a5e1185098b4dd>>
+ * @generated SignedSource<<8e3631803eed21590bf5a92467bdc651>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -30,6 +30,7 @@ final class TraitUseConflictResolution extends EditableSyntax {
     $this->_right_brace = $right_brace;
   }
 
+  <<__Override>>
   public static function from_json(
     array<string, mixed> $json,
     int $position,
@@ -68,6 +69,7 @@ final class TraitUseConflictResolution extends EditableSyntax {
     return new self($keyword, $names, $left_brace, $clauses, $right_brace);
   }
 
+  <<__Override>>
   public function children(): KeyedTraversable<string, EditableSyntax> {
     yield 'keyword' => $this->_keyword;
     yield 'names' => $this->_names;
@@ -76,6 +78,7 @@ final class TraitUseConflictResolution extends EditableSyntax {
     yield 'right_brace' => $this->_right_brace;
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,

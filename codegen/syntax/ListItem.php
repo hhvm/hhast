@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5d32bf6be3717edb8cc97e209f4dc0df>>
+ * @generated SignedSource<<17cb1e4cf297561bae7f50a04fb75fd7>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -18,6 +18,7 @@ final class ListItem extends EditableSyntax {
     $this->_separator = $separator;
   }
 
+  <<__Override>>
   public static function from_json(
     array<string, mixed> $json,
     int $position,
@@ -38,11 +39,13 @@ final class ListItem extends EditableSyntax {
     return new self($item, $separator);
   }
 
+  <<__Override>>
   public function children(): KeyedTraversable<string, EditableSyntax> {
     yield 'item' => $this->_item;
     yield 'separator' => $this->_separator;
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,

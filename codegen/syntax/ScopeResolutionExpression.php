@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d6d889ec218fe1bed6694b11ee093aa1>>
+ * @generated SignedSource<<bf2a5569626ac9f072e8f1651b0ebb3f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -24,6 +24,7 @@ final class ScopeResolutionExpression extends EditableSyntax {
     $this->_name = $name;
   }
 
+  <<__Override>>
   public static function from_json(
     array<string, mixed> $json,
     int $position,
@@ -50,12 +51,14 @@ final class ScopeResolutionExpression extends EditableSyntax {
     return new self($qualifier, $operator, $name);
   }
 
+  <<__Override>>
   public function children(): KeyedTraversable<string, EditableSyntax> {
     yield 'qualifier' => $this->_qualifier;
     yield 'operator' => $this->_operator;
     yield 'name' => $this->_name;
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b9c577564c6d4f2da3e5ca011c160704>>
+ * @generated SignedSource<<59491c2595a5f3ea8e6818eb780b6b2b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -27,6 +27,7 @@ final class Attribute extends EditableSyntax {
     $this->_right_paren = $right_paren;
   }
 
+  <<__Override>>
   public static function from_json(
     array<string, mixed> $json,
     int $position,
@@ -59,6 +60,7 @@ final class Attribute extends EditableSyntax {
     return new self($name, $left_paren, $values, $right_paren);
   }
 
+  <<__Override>>
   public function children(): KeyedTraversable<string, EditableSyntax> {
     yield 'name' => $this->_name;
     yield 'left_paren' => $this->_left_paren;
@@ -66,6 +68,7 @@ final class Attribute extends EditableSyntax {
     yield 'right_paren' => $this->_right_paren;
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,

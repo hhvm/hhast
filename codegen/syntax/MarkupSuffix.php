@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<584b94c9a6258fbaae6b247673a3ce35>>
+ * @generated SignedSource<<c1f917ca70d81b3afaabfc57a142fcd7>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -21,6 +21,7 @@ final class MarkupSuffix extends EditableSyntax {
     $this->_name = $name;
   }
 
+  <<__Override>>
   public static function from_json(
     array<string, mixed> $json,
     int $position,
@@ -41,11 +42,13 @@ final class MarkupSuffix extends EditableSyntax {
     return new self($less_than_question, $name);
   }
 
+  <<__Override>>
   public function children(): KeyedTraversable<string, EditableSyntax> {
     yield 'less_than_question' => $this->_less_than_question;
     yield 'name' => $this->_name;
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,

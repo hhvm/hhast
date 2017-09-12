@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dd37795649cb9c86db1407f182fe6005>>
+ * @generated SignedSource<<71d3571cf17c96558633ba655e56046b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -42,6 +42,7 @@ final class EnumDeclaration extends EditableSyntax {
     $this->_right_brace = $right_brace;
   }
 
+  <<__Override>>
   public static function from_json(
     array<string, mixed> $json,
     int $position,
@@ -114,6 +115,7 @@ final class EnumDeclaration extends EditableSyntax {
     );
   }
 
+  <<__Override>>
   public function children(): KeyedTraversable<string, EditableSyntax> {
     yield 'attribute_spec' => $this->_attribute_spec;
     yield 'keyword' => $this->_keyword;
@@ -126,6 +128,7 @@ final class EnumDeclaration extends EditableSyntax {
     yield 'right_brace' => $this->_right_brace;
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,

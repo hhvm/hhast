@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<545abead068eabac3fecba59f7c6adad>>
+ * @generated SignedSource<<b6a937963635d74d75d60c0013b1238c>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -27,6 +27,7 @@ final class SubscriptExpression extends EditableSyntax {
     $this->_right_bracket = $right_bracket;
   }
 
+  <<__Override>>
   public static function from_json(
     array<string, mixed> $json,
     int $position,
@@ -59,6 +60,7 @@ final class SubscriptExpression extends EditableSyntax {
     return new self($receiver, $left_bracket, $index, $right_bracket);
   }
 
+  <<__Override>>
   public function children(): KeyedTraversable<string, EditableSyntax> {
     yield 'receiver' => $this->_receiver;
     yield 'left_bracket' => $this->_left_bracket;
@@ -66,6 +68,7 @@ final class SubscriptExpression extends EditableSyntax {
     yield 'right_bracket' => $this->_right_bracket;
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,

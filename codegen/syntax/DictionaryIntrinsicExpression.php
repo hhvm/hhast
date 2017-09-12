@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<104e43a11a56562690994ce8155dc7dd>>
+ * @generated SignedSource<<abeb85763b48c5a7c8fd289a8493635a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -27,6 +27,7 @@ final class DictionaryIntrinsicExpression extends EditableSyntax {
     $this->_right_bracket = $right_bracket;
   }
 
+  <<__Override>>
   public static function from_json(
     array<string, mixed> $json,
     int $position,
@@ -59,6 +60,7 @@ final class DictionaryIntrinsicExpression extends EditableSyntax {
     return new self($keyword, $left_bracket, $members, $right_bracket);
   }
 
+  <<__Override>>
   public function children(): KeyedTraversable<string, EditableSyntax> {
     yield 'keyword' => $this->_keyword;
     yield 'left_bracket' => $this->_left_bracket;
@@ -66,6 +68,7 @@ final class DictionaryIntrinsicExpression extends EditableSyntax {
     yield 'right_bracket' => $this->_right_bracket;
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,

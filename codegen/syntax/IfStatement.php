@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2f36d34c5b4e6a6c60cb88a8f1ed167e>>
+ * @generated SignedSource<<d782f3098fecd560d743a3c42f80b7ae>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -36,6 +36,7 @@ final class IfStatement extends EditableSyntax {
     $this->_else_clause = $else_clause;
   }
 
+  <<__Override>>
   public static function from_json(
     array<string, mixed> $json,
     int $position,
@@ -94,6 +95,7 @@ final class IfStatement extends EditableSyntax {
     );
   }
 
+  <<__Override>>
   public function children(): KeyedTraversable<string, EditableSyntax> {
     yield 'keyword' => $this->_keyword;
     yield 'left_paren' => $this->_left_paren;
@@ -104,6 +106,7 @@ final class IfStatement extends EditableSyntax {
     yield 'else_clause' => $this->_else_clause;
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,

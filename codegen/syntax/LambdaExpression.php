@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<60fad2043f6b1b530a4774a302430b32>>
+ * @generated SignedSource<<06972bc043ea059ba06f55e27b9e262b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -30,6 +30,7 @@ final class LambdaExpression extends EditableSyntax {
     $this->_body = $body;
   }
 
+  <<__Override>>
   public static function from_json(
     array<string, mixed> $json,
     int $position,
@@ -68,6 +69,7 @@ final class LambdaExpression extends EditableSyntax {
     return new self($async, $coroutine, $signature, $arrow, $body);
   }
 
+  <<__Override>>
   public function children(): KeyedTraversable<string, EditableSyntax> {
     yield 'async' => $this->_async;
     yield 'coroutine' => $this->_coroutine;
@@ -76,6 +78,7 @@ final class LambdaExpression extends EditableSyntax {
     yield 'body' => $this->_body;
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,

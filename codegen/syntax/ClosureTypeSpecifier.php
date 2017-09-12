@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<00983efba4cff6848eb612ee456a1226>>
+ * @generated SignedSource<<a58d02511b7dec2a556bf691cc182021>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -42,6 +42,7 @@ final class ClosureTypeSpecifier extends EditableSyntax {
     $this->_outer_right_paren = $outer_right_paren;
   }
 
+  <<__Override>>
   public static function from_json(
     array<string, mixed> $json,
     int $position,
@@ -114,6 +115,7 @@ final class ClosureTypeSpecifier extends EditableSyntax {
     );
   }
 
+  <<__Override>>
   public function children(): KeyedTraversable<string, EditableSyntax> {
     yield 'outer_left_paren' => $this->_outer_left_paren;
     yield 'coroutine' => $this->_coroutine;
@@ -126,6 +128,7 @@ final class ClosureTypeSpecifier extends EditableSyntax {
     yield 'outer_right_paren' => $this->_outer_right_paren;
   }
 
+  <<__Override>>
   public function rewrite_children(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
