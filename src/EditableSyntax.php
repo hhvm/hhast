@@ -133,8 +133,8 @@ abstract class EditableSyntax {
   // that matches a predicate, or [] if there is no such node.
   public function find_with_parents(
     (function(EditableSyntax): bool) $predicate,
-    ?array<EditableSyntax> $parents = null,
-  ): array<EditableSyntax> {
+    ?Traversable<EditableSyntax> $parents = null,
+  ): Traversable<EditableSyntax> {
     $new_parents = $parents ?? [];
     array_push($new_parents, $this);
     if ($predicate($this))
