@@ -16,14 +16,14 @@ use type Facebook\HHAST\EditableSyntax;
 
 class ASTLintError extends LintError {
   public function __construct(
-    private EditableSyntax $node,
-    classname<BaseLinter> $linter,
+    BaseLinter $linter,
     string $description,
+    private EditableSyntax $node,
   ) {
     parent::__construct($linter, $description);
   }
 
-  final public function getNode(): EditableSyntax {
-    return $this->node;
+  final public function getBlameCode(): string {
+    return $this->node->full_text();
   }
 }

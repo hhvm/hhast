@@ -12,6 +12,7 @@
 
 namespace Facebook\HHAST\Linters;
 
+<<__ConsistentConstruct>>
 abstract class BaseLinter {
   public function __construct(
     private string $file,

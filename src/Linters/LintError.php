@@ -14,12 +14,20 @@ namespace Facebook\HHAST\Linters;
 
 class LintError {
   public function __construct(
-    private classname<BaseLinter> $linter,
+    private BaseLinter $linter,
     private string $description,
   ) {
   }
 
+  public function getFile(): string {
+    return $this->linter->getFile();
+  }
+
   public function getDescription(): string {
     return $this->description;
+  }
+
+  public function getBlameCode(): ?string {
+    return null;
   }
 }

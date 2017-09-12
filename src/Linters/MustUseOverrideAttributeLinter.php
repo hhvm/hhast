@@ -60,8 +60,7 @@ class MustUseOverrideAttributeLinter extends ASTLinter<MethodishDeclaration> {
       );
 
       return new ASTLintError(
-        $node,
-        self::class,
+        $this,
         sprintf(
           '%s::%s() overrides %s::%s() without <<__Override>>',
           $class->getName()->full_text()
@@ -71,6 +70,7 @@ class MustUseOverrideAttributeLinter extends ASTLinter<MethodishDeclaration> {
           $reflection_method->getDeclaringClass()->getName(),
           $method,
         ),
+        $node,
       );
     } catch (\ReflectionException $_) {
       return null;

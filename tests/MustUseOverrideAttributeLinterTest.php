@@ -76,7 +76,7 @@ final class MustUseOverrideAttributeLinterTest extends TestCase {
       |> Vec\map(
         $$,
         $error ==> shape(
-          'node' => $error->getNode()->full_text(),
+          'blame' => $error->getBlameCode(),
           'description' => $error->getDescription(),
         ),
       )
