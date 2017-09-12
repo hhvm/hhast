@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1ad725f94be6df8844bb83bbac599147>>
+ * @generated SignedSource<<9f94ad89f917b539bca5209ae998542a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -32,13 +32,13 @@ final class DecoratedExpression extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $decorator->width();
+    $position += $decorator->getWidth();
     $expression = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['decorated_expression_expression'],
       $position,
       $source,
     );
-    $position += $expression->width();
+    $position += $expression->getWidth();
     return new self($decorator, $expression);
   }
 

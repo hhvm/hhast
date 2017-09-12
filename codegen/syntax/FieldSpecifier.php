@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<89b0bdde878fd113829b5ba8bdeb46cd>>
+ * @generated SignedSource<<cdbf5f21891aca50cdd022af8140b06b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -38,25 +38,25 @@ final class FieldSpecifier extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $question->width();
+    $position += $question->getWidth();
     $name = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['field_name'],
       $position,
       $source,
     );
-    $position += $name->width();
+    $position += $name->getWidth();
     $arrow = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['field_arrow'],
       $position,
       $source,
     );
-    $position += $arrow->width();
+    $position += $arrow->getWidth();
     $type = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['field_type'],
       $position,
       $source,
     );
-    $position += $type->width();
+    $position += $type->getWidth();
     return new self($question, $name, $arrow, $type);
   }
 

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<765257fbd0a5476750e2e7ec760d89e0>>
+ * @generated SignedSource<<1f8b91488e002169495707aaed5bab71>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -27,7 +27,7 @@ final class QualifiedNameExpression extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $expression->width();
+    $position += $expression->getWidth();
     return new self($expression);
   }
 

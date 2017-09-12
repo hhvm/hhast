@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b7c4ab39df1eea00b2afde75c086a3de>>
+ * @generated SignedSource<<13e7cabcac7096f14699f8183a384629>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -41,31 +41,31 @@ final class ObjectCreationExpression extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $new_keyword->width();
+    $position += $new_keyword->getWidth();
     $type = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['object_creation_type'],
       $position,
       $source,
     );
-    $position += $type->width();
+    $position += $type->getWidth();
     $left_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['object_creation_left_paren'],
       $position,
       $source,
     );
-    $position += $left_paren->width();
+    $position += $left_paren->getWidth();
     $argument_list = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['object_creation_argument_list'],
       $position,
       $source,
     );
-    $position += $argument_list->width();
+    $position += $argument_list->getWidth();
     $right_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['object_creation_right_paren'],
       $position,
       $source,
     );
-    $position += $right_paren->width();
+    $position += $right_paren->getWidth();
     return new self(
       $new_keyword,
       $type,

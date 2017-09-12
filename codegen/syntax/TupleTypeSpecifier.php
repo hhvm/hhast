@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<afcae4a0e8b6d22d8f9431780d44b494>>
+ * @generated SignedSource<<1fd7f8a4d4c8545280f6b8ce6efe5f59>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -35,19 +35,19 @@ final class TupleTypeSpecifier extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $left_paren->width();
+    $position += $left_paren->getWidth();
     $types = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['tuple_types'],
       $position,
       $source,
     );
-    $position += $types->width();
+    $position += $types->getWidth();
     $right_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['tuple_right_paren'],
       $position,
       $source,
     );
-    $position += $right_paren->width();
+    $position += $right_paren->getWidth();
     return new self($left_paren, $types, $right_paren);
   }
 

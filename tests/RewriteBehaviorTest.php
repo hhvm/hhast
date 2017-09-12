@@ -76,7 +76,7 @@ final class RewriteBehaviorTest extends TestCase {
     );
 
     expect($orig)->toNotBeSame($new);
-    expect($new->full_text())->toBeSame('bar');
+    expect($new->getCode())->toBeSame('bar');
   }
 
   public function testEditingCommentInList(): void {
@@ -96,7 +96,7 @@ final class RewriteBehaviorTest extends TestCase {
     );
 
     expect($orig)->toNotBeSame($new);
-    expect($new->full_text())->toBeSame('bar');
+    expect($new->getCode())->toBeSame('bar');
   }
 
   public function testRewriteLeadingComment(): void {
@@ -121,7 +121,7 @@ final class RewriteBehaviorTest extends TestCase {
     );
 
     expect($orig)->toNotBeSame($new);
-    expect($new->full_text())->toBeSame('/* bar */ $var');
+    expect($new->getCode())->toBeSame('/* bar */ $var');
   }
 
   public function testEmptyingList(): void {
@@ -199,7 +199,7 @@ final class RewriteBehaviorTest extends TestCase {
       },
     );
 
-    expect($new->full_text())->toBeSame(
+    expect($new->getCode())->toBeSame(
       "<?hh type T = shape('subshape_new' => shape('subfield_new' => string));",
     );
   }

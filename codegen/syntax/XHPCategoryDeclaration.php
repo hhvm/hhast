@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f2b6ed3f6a5a2b16d660918766c8847b>>
+ * @generated SignedSource<<4b62491da5ad38e7d9aa0bff82b58e52>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -35,19 +35,19 @@ final class XHPCategoryDeclaration extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $categories = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['xhp_category_categories'],
       $position,
       $source,
     );
-    $position += $categories->width();
+    $position += $categories->getWidth();
     $semicolon = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['xhp_category_semicolon'],
       $position,
       $source,
     );
-    $position += $semicolon->width();
+    $position += $semicolon->getWidth();
     return new self($keyword, $categories, $semicolon);
   }
 

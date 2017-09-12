@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<68eed0db5d8efadff7261c6a2e88daf9>>
+ * @generated SignedSource<<509968f74c317980052e8581ffdb6c11>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -38,25 +38,25 @@ final class CollectionLiteralExpression extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $name->width();
+    $position += $name->getWidth();
     $left_brace = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['collection_literal_left_brace'],
       $position,
       $source,
     );
-    $position += $left_brace->width();
+    $position += $left_brace->getWidth();
     $initializers = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['collection_literal_initializers'],
       $position,
       $source,
     );
-    $position += $initializers->width();
+    $position += $initializers->getWidth();
     $right_brace = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['collection_literal_right_brace'],
       $position,
       $source,
     );
-    $position += $right_brace->width();
+    $position += $right_brace->getWidth();
     return new self($name, $left_brace, $initializers, $right_brace);
   }
 

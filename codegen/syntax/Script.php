@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b068a1a6829a25f841e9264cb8fb3164>>
+ * @generated SignedSource<<25c5f468ee2e7b76a413ad5501bd4bce>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -27,7 +27,7 @@ final class Script extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $declarations->width();
+    $position += $declarations->getWidth();
     return new self($declarations);
   }
 

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ca56bc0b76997dc2175e6eab261b213b>>
+ * @generated SignedSource<<80a4c4655c7a83422e0b9cd7f51bb676>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -38,25 +38,25 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $left_bracket = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['varray_intrinsic_left_bracket'],
       $position,
       $source,
     );
-    $position += $left_bracket->width();
+    $position += $left_bracket->getWidth();
     $members = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['varray_intrinsic_members'],
       $position,
       $source,
     );
-    $position += $members->width();
+    $position += $members->getWidth();
     $right_bracket = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['varray_intrinsic_right_bracket'],
       $position,
       $source,
     );
-    $position += $right_bracket->width();
+    $position += $right_bracket->getWidth();
     return new self($keyword, $left_bracket, $members, $right_bracket);
   }
 

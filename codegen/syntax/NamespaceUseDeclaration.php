@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<594aa83e3c3eac154b8cb6e2ea664ab5>>
+ * @generated SignedSource<<78dcd45add0bb29d037b69f23d231369>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -38,25 +38,25 @@ final class NamespaceUseDeclaration extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $kind = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['namespace_use_kind'],
       $position,
       $source,
     );
-    $position += $kind->width();
+    $position += $kind->getWidth();
     $clauses = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['namespace_use_clauses'],
       $position,
       $source,
     );
-    $position += $clauses->width();
+    $position += $clauses->getWidth();
     $semicolon = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['namespace_use_semicolon'],
       $position,
       $source,
     );
-    $position += $semicolon->width();
+    $position += $semicolon->getWidth();
     return new self($keyword, $kind, $clauses, $semicolon);
   }
 

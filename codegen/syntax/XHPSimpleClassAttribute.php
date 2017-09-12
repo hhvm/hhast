@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1b879909c667d62035ff91313794717f>>
+ * @generated SignedSource<<7a5a9f3f1b13216ace090c17389a9d0d>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -27,7 +27,7 @@ final class XHPSimpleClassAttribute extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $type->width();
+    $position += $type->getWidth();
     return new self($type);
   }
 

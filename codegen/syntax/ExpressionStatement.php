@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<73bb7b3a8a968e9cda898b48fdd084ac>>
+ * @generated SignedSource<<89dfa5814e2989aa427e4de908086212>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -32,13 +32,13 @@ final class ExpressionStatement extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $expression->width();
+    $position += $expression->getWidth();
     $semicolon = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['expression_statement_semicolon'],
       $position,
       $source,
     );
-    $position += $semicolon->width();
+    $position += $semicolon->getWidth();
     return new self($expression, $semicolon);
   }
 

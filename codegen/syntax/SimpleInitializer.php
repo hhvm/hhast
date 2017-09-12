@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5d2c87408a728258d11f06a6b37ec4b7>>
+ * @generated SignedSource<<9abb26cc77938680302a405bda6ab4d0>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -29,13 +29,13 @@ final class SimpleInitializer extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $equal->width();
+    $position += $equal->getWidth();
     $value = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['simple_initializer_value'],
       $position,
       $source,
     );
-    $position += $value->width();
+    $position += $value->getWidth();
     return new self($equal, $value);
   }
 

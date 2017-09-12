@@ -38,6 +38,6 @@ implements AutoFixingLinter<ASTLintError<Tnode, this>>{
       $new = $this->getFixedNode($old);
       $ast = $ast->replace($new, $old);
     }
-    return $ast->full_text();
+    return $ast->getCode();
   }
 }

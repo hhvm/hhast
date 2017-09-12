@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bce279341fddc75c479e9122cf9b3c48>>
+ * @generated SignedSource<<97d0f452f703c40dc81d62a8e9645ea1>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -38,25 +38,25 @@ final class Enumerator extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $name->width();
+    $position += $name->getWidth();
     $equal = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['enumerator_equal'],
       $position,
       $source,
     );
-    $position += $equal->width();
+    $position += $equal->getWidth();
     $value = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['enumerator_value'],
       $position,
       $source,
     );
-    $position += $value->width();
+    $position += $value->getWidth();
     $semicolon = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['enumerator_semicolon'],
       $position,
       $source,
     );
-    $position += $semicolon->width();
+    $position += $semicolon->getWidth();
     return new self($name, $equal, $value, $semicolon);
   }
 

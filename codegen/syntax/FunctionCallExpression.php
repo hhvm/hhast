@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0f45d1393150f5eb913382ca81ffc901>>
+ * @generated SignedSource<<5295a03826c3f79ff85aa2f0f3f2e2df>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -38,25 +38,25 @@ final class FunctionCallExpression extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $receiver->width();
+    $position += $receiver->getWidth();
     $left_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['function_call_left_paren'],
       $position,
       $source,
     );
-    $position += $left_paren->width();
+    $position += $left_paren->getWidth();
     $argument_list = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['function_call_argument_list'],
       $position,
       $source,
     );
-    $position += $argument_list->width();
+    $position += $argument_list->getWidth();
     $right_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['function_call_right_paren'],
       $position,
       $source,
     );
-    $position += $right_paren->width();
+    $position += $right_paren->getWidth();
     return new self($receiver, $left_paren, $argument_list, $right_paren);
   }
 

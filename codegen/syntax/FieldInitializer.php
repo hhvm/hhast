@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b4da92de70cbfea483709cfc2e2c3233>>
+ * @generated SignedSource<<83bd2766335f9e7b92a13efc83470062>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -35,19 +35,19 @@ final class FieldInitializer extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $name->width();
+    $position += $name->getWidth();
     $arrow = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['field_initializer_arrow'],
       $position,
       $source,
     );
-    $position += $arrow->width();
+    $position += $arrow->getWidth();
     $value = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['field_initializer_value'],
       $position,
       $source,
     );
-    $position += $value->width();
+    $position += $value->getWidth();
     return new self($name, $arrow, $value);
   }
 

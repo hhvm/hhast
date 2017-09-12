@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6179cddc57bffb43ea05c0cab30a0f08>>
+ * @generated SignedSource<<03075fdd376485b4059bdaad339d167f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -35,19 +35,19 @@ final class ClassishBody extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $left_brace->width();
+    $position += $left_brace->getWidth();
     $elements = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['classish_body_elements'],
       $position,
       $source,
     );
-    $position += $elements->width();
+    $position += $elements->getWidth();
     $right_brace = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['classish_body_right_brace'],
       $position,
       $source,
     );
-    $position += $right_brace->width();
+    $position += $right_brace->getWidth();
     return new self($left_brace, $elements, $right_brace);
   }
 

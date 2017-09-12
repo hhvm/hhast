@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<351fd7ade1e1e8b480232fc3db786c26>>
+ * @generated SignedSource<<39f0bf4c0b889375836aab86b7563cdd>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -47,43 +47,43 @@ final class SwitchStatement extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $left_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['switch_left_paren'],
       $position,
       $source,
     );
-    $position += $left_paren->width();
+    $position += $left_paren->getWidth();
     $expression = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['switch_expression'],
       $position,
       $source,
     );
-    $position += $expression->width();
+    $position += $expression->getWidth();
     $right_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['switch_right_paren'],
       $position,
       $source,
     );
-    $position += $right_paren->width();
+    $position += $right_paren->getWidth();
     $left_brace = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['switch_left_brace'],
       $position,
       $source,
     );
-    $position += $left_brace->width();
+    $position += $left_brace->getWidth();
     $sections = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['switch_sections'],
       $position,
       $source,
     );
-    $position += $sections->width();
+    $position += $sections->getWidth();
     $right_brace = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['switch_right_brace'],
       $position,
       $source,
     );
-    $position += $right_brace->width();
+    $position += $right_brace->getWidth();
     return new self(
       $keyword,
       $left_paren,

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5616b1c8bac7519d776dfc79aee6b2d8>>
+ * @generated SignedSource<<76e89d5146aa8f05a302bb70c1165fe4>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -32,13 +32,13 @@ final class ElseClause extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $statement = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['else_statement'],
       $position,
       $source,
     );
-    $position += $statement->width();
+    $position += $statement->getWidth();
     return new self($keyword, $statement);
   }
 

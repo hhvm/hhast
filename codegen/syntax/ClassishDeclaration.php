@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<262703520e3f6bcef48da612a89bd6fb>>
+ * @generated SignedSource<<44447ea220a490b96ad398a1efd1ba86>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -56,61 +56,61 @@ final class ClassishDeclaration extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $attribute->width();
+    $position += $attribute->getWidth();
     $modifiers = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['classish_modifiers'],
       $position,
       $source,
     );
-    $position += $modifiers->width();
+    $position += $modifiers->getWidth();
     $keyword = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['classish_keyword'],
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $name = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['classish_name'],
       $position,
       $source,
     );
-    $position += $name->width();
+    $position += $name->getWidth();
     $type_parameters = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['classish_type_parameters'],
       $position,
       $source,
     );
-    $position += $type_parameters->width();
+    $position += $type_parameters->getWidth();
     $extends_keyword = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['classish_extends_keyword'],
       $position,
       $source,
     );
-    $position += $extends_keyword->width();
+    $position += $extends_keyword->getWidth();
     $extends_list = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['classish_extends_list'],
       $position,
       $source,
     );
-    $position += $extends_list->width();
+    $position += $extends_list->getWidth();
     $implements_keyword = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['classish_implements_keyword'],
       $position,
       $source,
     );
-    $position += $implements_keyword->width();
+    $position += $implements_keyword->getWidth();
     $implements_list = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['classish_implements_list'],
       $position,
       $source,
     );
-    $position += $implements_list->width();
+    $position += $implements_list->getWidth();
     $body = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['classish_body'],
       $position,
       $source,
     );
-    $position += $body->width();
+    $position += $body->getWidth();
     return new self(
       $attribute,
       $modifiers,

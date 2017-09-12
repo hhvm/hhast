@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f1a93e2cfffc701a4bb048323523cd8d>>
+ * @generated SignedSource<<bc4d36520dc17d540dc910b62c51c81b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -29,13 +29,13 @@ final class GotoLabel extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $name->width();
+    $position += $name->getWidth();
     $colon = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['goto_label_colon'],
       $position,
       $source,
     );
-    $position += $colon->width();
+    $position += $colon->getWidth();
     return new self($name, $colon);
   }
 

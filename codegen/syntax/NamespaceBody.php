@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<596ce79b27beeda13947d538f1211e95>>
+ * @generated SignedSource<<e788e67830cffa2c0e0043d7b20115b6>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -35,19 +35,19 @@ final class NamespaceBody extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $left_brace->width();
+    $position += $left_brace->getWidth();
     $declarations = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['namespace_declarations'],
       $position,
       $source,
     );
-    $position += $declarations->width();
+    $position += $declarations->getWidth();
     $right_brace = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['namespace_right_brace'],
       $position,
       $source,
     );
-    $position += $right_brace->width();
+    $position += $right_brace->getWidth();
     return new self($left_brace, $declarations, $right_brace);
   }
 

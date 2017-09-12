@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4c7ba9ba9a748a48dc1e9b3b88789390>>
+ * @generated SignedSource<<7995b401e2fa9c7a1bee639cf889f1b1>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -27,7 +27,7 @@ final class VariadicParameter extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $ellipsis->width();
+    $position += $ellipsis->getWidth();
     return new self($ellipsis);
   }
 

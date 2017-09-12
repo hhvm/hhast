@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e76e3986009f1d0dbdb2368cf0b50c87>>
+ * @generated SignedSource<<392e289faf88816e4cccd9740020ea90>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -47,43 +47,43 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $kind = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['namespace_group_use_kind'],
       $position,
       $source,
     );
-    $position += $kind->width();
+    $position += $kind->getWidth();
     $prefix = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['namespace_group_use_prefix'],
       $position,
       $source,
     );
-    $position += $prefix->width();
+    $position += $prefix->getWidth();
     $left_brace = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['namespace_group_use_left_brace'],
       $position,
       $source,
     );
-    $position += $left_brace->width();
+    $position += $left_brace->getWidth();
     $clauses = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['namespace_group_use_clauses'],
       $position,
       $source,
     );
-    $position += $clauses->width();
+    $position += $clauses->getWidth();
     $right_brace = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['namespace_group_use_right_brace'],
       $position,
       $source,
     );
-    $position += $right_brace->width();
+    $position += $right_brace->getWidth();
     $semicolon = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['namespace_group_use_semicolon'],
       $position,
       $source,
     );
-    $position += $semicolon->width();
+    $position += $semicolon->getWidth();
     return new self(
       $keyword,
       $kind,

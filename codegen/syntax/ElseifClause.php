@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2892f3af51f60282bbbf37d685a2e9fa>>
+ * @generated SignedSource<<a9638d9cfed91d9e90220b8755205f53>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -41,31 +41,31 @@ final class ElseifClause extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $left_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['elseif_left_paren'],
       $position,
       $source,
     );
-    $position += $left_paren->width();
+    $position += $left_paren->getWidth();
     $condition = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['elseif_condition'],
       $position,
       $source,
     );
-    $position += $condition->width();
+    $position += $condition->getWidth();
     $right_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['elseif_right_paren'],
       $position,
       $source,
     );
-    $position += $right_paren->width();
+    $position += $right_paren->getWidth();
     $statement = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['elseif_statement'],
       $position,
       $source,
     );
-    $position += $statement->width();
+    $position += $statement->getWidth();
     return new self(
       $keyword,
       $left_paren,

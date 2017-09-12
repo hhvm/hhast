@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a6f596fc281c25728b72944e407a714f>>
+ * @generated SignedSource<<2352948d86eeac350472bf85083f72ea>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -32,13 +32,13 @@ final class PrefixUnaryExpression extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $operator->width();
+    $position += $operator->getWidth();
     $operand = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['prefix_unary_operand'],
       $position,
       $source,
     );
-    $position += $operand->width();
+    $position += $operand->getWidth();
     return new self($operator, $operand);
   }
 

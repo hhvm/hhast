@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6e5d91562177b8bc4a70c8286c667806>>
+ * @generated SignedSource<<82c0fcf4a4928dae7649dc2ff52ff3df>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -32,13 +32,13 @@ final class InclusionDirective extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $expression->width();
+    $position += $expression->getWidth();
     $semicolon = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['inclusion_semicolon'],
       $position,
       $source,
     );
-    $position += $semicolon->width();
+    $position += $semicolon->getWidth();
     return new self($expression, $semicolon);
   }
 

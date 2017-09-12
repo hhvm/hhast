@@ -88,12 +88,12 @@ abstract class EditableSyntax {
     return false;
   }
 
-  public function width(): int {
+  public function getWidth(): int {
     if ($this->_width === null) {
       $width = 0;
       /* TODO: Make an accumulation sequence operator */
       foreach ($this->getChildren() as $node) {
-        $width += $node->width();
+        $width += $node->getWidth();
       }
       $this->_width = $width;
       return $width;
@@ -102,11 +102,11 @@ abstract class EditableSyntax {
     }
   }
 
-  public function full_text(): string {
+  public function getCode(): string {
     /* TODO: Make an accumulation sequence operator */
     $s = '';
     foreach ($this->getChildren() as $node) {
-      $s .= $node->full_text();
+      $s .= $node->getCode();
     }
     return $s;
   }

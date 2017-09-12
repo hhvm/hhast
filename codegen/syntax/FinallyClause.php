@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f5987bd296a8c543c10dd9c3c24ab041>>
+ * @generated SignedSource<<0888c88389478e29394e9c45fd70ec4d>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -29,13 +29,13 @@ final class FinallyClause extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $body = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['finally_body'],
       $position,
       $source,
     );
-    $position += $body->width();
+    $position += $body->getWidth();
     return new self($keyword, $body);
   }
 

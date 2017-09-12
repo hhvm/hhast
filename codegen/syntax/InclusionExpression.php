@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3d8192c39c43403f82659e4e28692e08>>
+ * @generated SignedSource<<f6295cdc536a1950d14f8c9206e6185c>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -32,13 +32,13 @@ final class InclusionExpression extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $require->width();
+    $position += $require->getWidth();
     $filename = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['inclusion_filename'],
       $position,
       $source,
     );
-    $position += $filename->width();
+    $position += $filename->getWidth();
     return new self($require, $filename);
   }
 

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1abee03922b776824f3d1fb7ba9bbcec>>
+ * @generated SignedSource<<fe3a93c3105eb1ecf698e1534542f14a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -53,55 +53,55 @@ final class ClosureTypeSpecifier extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $outer_left_paren->width();
+    $position += $outer_left_paren->getWidth();
     $coroutine = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['closure_coroutine'],
       $position,
       $source,
     );
-    $position += $coroutine->width();
+    $position += $coroutine->getWidth();
     $function_keyword = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['closure_function_keyword'],
       $position,
       $source,
     );
-    $position += $function_keyword->width();
+    $position += $function_keyword->getWidth();
     $inner_left_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['closure_inner_left_paren'],
       $position,
       $source,
     );
-    $position += $inner_left_paren->width();
+    $position += $inner_left_paren->getWidth();
     $parameter_types = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['closure_parameter_types'],
       $position,
       $source,
     );
-    $position += $parameter_types->width();
+    $position += $parameter_types->getWidth();
     $inner_right_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['closure_inner_right_paren'],
       $position,
       $source,
     );
-    $position += $inner_right_paren->width();
+    $position += $inner_right_paren->getWidth();
     $colon = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['closure_colon'],
       $position,
       $source,
     );
-    $position += $colon->width();
+    $position += $colon->getWidth();
     $return_type = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['closure_return_type'],
       $position,
       $source,
     );
-    $position += $return_type->width();
+    $position += $return_type->getWidth();
     $outer_right_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['closure_outer_right_paren'],
       $position,
       $source,
     );
-    $position += $outer_right_paren->width();
+    $position += $outer_right_paren->getWidth();
     return new self(
       $outer_left_paren,
       $coroutine,

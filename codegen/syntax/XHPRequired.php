@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c808281e246c2fae9c9e09c686826aca>>
+ * @generated SignedSource<<a2b7be0d6a5669cb6fe42433d31920f2>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -29,13 +29,13 @@ final class XHPRequired extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $at->width();
+    $position += $at->getWidth();
     $keyword = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['xhp_required_keyword'],
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     return new self($at, $keyword);
   }
 

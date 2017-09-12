@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c8d2ec518667e3c5d633a02d6f1596c4>>
+ * @generated SignedSource<<fcd37ff927f7bd65a287ca7f327ca535>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -35,19 +35,19 @@ final class CompoundStatement extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $left_brace->width();
+    $position += $left_brace->getWidth();
     $statements = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['compound_statements'],
       $position,
       $source,
     );
-    $position += $statements->width();
+    $position += $statements->getWidth();
     $right_brace = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['compound_right_brace'],
       $position,
       $source,
     );
-    $position += $right_brace->width();
+    $position += $right_brace->getWidth();
     return new self($left_brace, $statements, $right_brace);
   }
 

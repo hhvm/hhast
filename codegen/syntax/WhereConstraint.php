@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f7bbf155950c6d96bda44bd4354bf4ad>>
+ * @generated SignedSource<<843643e3a47f6d2ff8220819a9da7a7a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -35,19 +35,19 @@ final class WhereConstraint extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $left_type->width();
+    $position += $left_type->getWidth();
     $operator = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['where_constraint_operator'],
       $position,
       $source,
     );
-    $position += $operator->width();
+    $position += $operator->getWidth();
     $right_type = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['where_constraint_right_type'],
       $position,
       $source,
     );
-    $position += $right_type->width();
+    $position += $right_type->getWidth();
     return new self($left_type, $operator, $right_type);
   }
 

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cdb99180d39002b860ba7e605b702e81>>
+ * @generated SignedSource<<85b83934f69122ba555618cb5f36bb2c>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -47,43 +47,43 @@ final class DoStatement extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $body = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['do_body'],
       $position,
       $source,
     );
-    $position += $body->width();
+    $position += $body->getWidth();
     $while_keyword = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['do_while_keyword'],
       $position,
       $source,
     );
-    $position += $while_keyword->width();
+    $position += $while_keyword->getWidth();
     $left_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['do_left_paren'],
       $position,
       $source,
     );
-    $position += $left_paren->width();
+    $position += $left_paren->getWidth();
     $condition = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['do_condition'],
       $position,
       $source,
     );
-    $position += $condition->width();
+    $position += $condition->getWidth();
     $right_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['do_right_paren'],
       $position,
       $source,
     );
-    $position += $right_paren->width();
+    $position += $right_paren->getWidth();
     $semicolon = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['do_semicolon'],
       $position,
       $source,
     );
-    $position += $semicolon->width();
+    $position += $semicolon->getWidth();
     return new self(
       $keyword,
       $body,

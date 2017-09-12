@@ -55,7 +55,7 @@ function get_current_namespace(
       return null;
     }
     return C\firstx($namespaces)
-      ->getName()->full_text()
+      ->getName()->getCode()
       |> Str\strip_prefix($$, '\\')
       |> Str\trim($$);
   }
@@ -67,7 +67,7 @@ function get_current_namespace(
   return $namespaces
     |> C\firstx($$)
     |> TypeAssert::isInstanceOf(NamespaceDeclaration::class, $$)
-    |> $$->getName()->full_text()
+    |> $$->getName()->getCode()
     |> Str\strip_prefix($$, '\\')
     |> Str\trim($$)
     |> $$ === '' ? null : $$;

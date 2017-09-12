@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<90595b68539a7add2c621f570b29f8d1>>
+ * @generated SignedSource<<40465924321783b4ad7e2f142b721ffb>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -32,13 +32,13 @@ final class PropertyDeclarator extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $name->width();
+    $position += $name->getWidth();
     $initializer = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['property_initializer'],
       $position,
       $source,
     );
-    $position += $initializer->width();
+    $position += $initializer->getWidth();
     return new self($name, $initializer);
   }
 

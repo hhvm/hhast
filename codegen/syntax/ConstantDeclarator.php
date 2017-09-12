@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bfe85c3cc2e22bf4c108e963ad38060f>>
+ * @generated SignedSource<<6b580820e05cb4ca745a511e43976c9b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -32,13 +32,13 @@ final class ConstantDeclarator extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $name->width();
+    $position += $name->getWidth();
     $initializer = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['constant_declarator_initializer'],
       $position,
       $source,
     );
-    $position += $initializer->width();
+    $position += $initializer->getWidth();
     return new self($name, $initializer);
   }
 

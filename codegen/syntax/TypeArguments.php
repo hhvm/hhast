@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9b9b29b7c93625dc7960a51b89659fed>>
+ * @generated SignedSource<<2e2659dbd19c5f7788f1659971ed1879>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -35,19 +35,19 @@ final class TypeArguments extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $left_angle->width();
+    $position += $left_angle->getWidth();
     $types = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['type_arguments_types'],
       $position,
       $source,
     );
-    $position += $types->width();
+    $position += $types->getWidth();
     $right_angle = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['type_arguments_right_angle'],
       $position,
       $source,
     );
-    $position += $right_angle->width();
+    $position += $right_angle->getWidth();
     return new self($left_angle, $types, $right_angle);
   }
 

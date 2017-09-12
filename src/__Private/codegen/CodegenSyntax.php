@@ -205,7 +205,7 @@ final class CodegenSyntax extends CodegenBase {
             '$source',
           ],
         )
-        ->addLinef('$position += $%s->width();', $field['field_name']);
+        ->addLinef('$position += $%s->getWidth();', $field['field_name']);
     }
 
     return $cg

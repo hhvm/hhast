@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<53df6c21c57a63061c669c86f275ed59>>
+ * @generated SignedSource<<24f5995be6f8f8cd9ed189e65dd7fb18>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -38,25 +38,25 @@ final class TupleExpression extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $left_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['tuple_expression_left_paren'],
       $position,
       $source,
     );
-    $position += $left_paren->width();
+    $position += $left_paren->getWidth();
     $items = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['tuple_expression_items'],
       $position,
       $source,
     );
-    $position += $items->width();
+    $position += $items->getWidth();
     $right_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['tuple_expression_right_paren'],
       $position,
       $source,
     );
-    $position += $right_paren->width();
+    $position += $right_paren->getWidth();
     return new self($keyword, $left_paren, $items, $right_paren);
   }
 

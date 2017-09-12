@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8381a532ac27dac4509cdb6149ab1075>>
+ * @generated SignedSource<<d2ea9b83fe0a937533058f8b5a9f9168>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -32,13 +32,13 @@ final class PostfixUnaryExpression extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $operand->width();
+    $position += $operand->getWidth();
     $operator = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['postfix_unary_operator'],
       $position,
       $source,
     );
-    $position += $operator->width();
+    $position += $operator->getWidth();
     return new self($operand, $operator);
   }
 

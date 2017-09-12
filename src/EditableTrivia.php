@@ -25,12 +25,12 @@ abstract class EditableTrivia extends EditableSyntax {
   }
 
   <<__Override>>
-  public function full_text(): string {
+  public function getCode(): string {
     return $this->_text;
   }
 
   <<__Override>>
-  public function width(): int {
+  public function getWidth(): int {
     return strlen($this->_text);
   }
 

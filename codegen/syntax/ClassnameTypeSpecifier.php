@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<80cfde2ea86c4c1981c0a5ed1694cc98>>
+ * @generated SignedSource<<ffd7ec9f9beca788de8fcc34b1b35377>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -41,31 +41,31 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $left_angle = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['classname_left_angle'],
       $position,
       $source,
     );
-    $position += $left_angle->width();
+    $position += $left_angle->getWidth();
     $type = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['classname_type'],
       $position,
       $source,
     );
-    $position += $type->width();
+    $position += $type->getWidth();
     $trailing_comma = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['classname_trailing_comma'],
       $position,
       $source,
     );
-    $position += $trailing_comma->width();
+    $position += $trailing_comma->getWidth();
     $right_angle = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['classname_right_angle'],
       $position,
       $source,
     );
-    $position += $right_angle->width();
+    $position += $right_angle->getWidth();
     return new self(
       $keyword,
       $left_angle,

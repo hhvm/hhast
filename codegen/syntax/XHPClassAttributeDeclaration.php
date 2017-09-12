@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f99763af3450b80aeca9df69970f40b9>>
+ * @generated SignedSource<<c78eca3e62ca69c7bfce899b51fc2c74>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -35,19 +35,19 @@ final class XHPClassAttributeDeclaration extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $attributes = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['xhp_attribute_attributes'],
       $position,
       $source,
     );
-    $position += $attributes->width();
+    $position += $attributes->getWidth();
     $semicolon = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['xhp_attribute_semicolon'],
       $position,
       $source,
     );
-    $position += $semicolon->width();
+    $position += $semicolon->getWidth();
     return new self($keyword, $attributes, $semicolon);
   }
 

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<441e3217a1d62f56cdb93b8fa2c67342>>
+ * @generated SignedSource<<f31dba92bdfc39af200fc404ddd447ef>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -38,25 +38,25 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $left_angle = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['dictionary_type_left_angle'],
       $position,
       $source,
     );
-    $position += $left_angle->width();
+    $position += $left_angle->getWidth();
     $members = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['dictionary_type_members'],
       $position,
       $source,
     );
-    $position += $members->width();
+    $position += $members->getWidth();
     $right_angle = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['dictionary_type_right_angle'],
       $position,
       $source,
     );
-    $position += $right_angle->width();
+    $position += $right_angle->getWidth();
     return new self($keyword, $left_angle, $members, $right_angle);
   }
 

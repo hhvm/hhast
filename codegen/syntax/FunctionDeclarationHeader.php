@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a810cb110eca7ff4e3589062e248bde5>>
+ * @generated SignedSource<<0126dc8ea9653152523a75bc8dbbdd9f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -62,73 +62,73 @@ final class FunctionDeclarationHeader extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $async->width();
+    $position += $async->getWidth();
     $coroutine = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['function_coroutine'],
       $position,
       $source,
     );
-    $position += $coroutine->width();
+    $position += $coroutine->getWidth();
     $keyword = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['function_keyword'],
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $ampersand = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['function_ampersand'],
       $position,
       $source,
     );
-    $position += $ampersand->width();
+    $position += $ampersand->getWidth();
     $name = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['function_name'],
       $position,
       $source,
     );
-    $position += $name->width();
+    $position += $name->getWidth();
     $type_parameter_list = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['function_type_parameter_list'],
       $position,
       $source,
     );
-    $position += $type_parameter_list->width();
+    $position += $type_parameter_list->getWidth();
     $left_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['function_left_paren'],
       $position,
       $source,
     );
-    $position += $left_paren->width();
+    $position += $left_paren->getWidth();
     $parameter_list = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['function_parameter_list'],
       $position,
       $source,
     );
-    $position += $parameter_list->width();
+    $position += $parameter_list->getWidth();
     $right_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['function_right_paren'],
       $position,
       $source,
     );
-    $position += $right_paren->width();
+    $position += $right_paren->getWidth();
     $colon = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['function_colon'],
       $position,
       $source,
     );
-    $position += $colon->width();
+    $position += $colon->getWidth();
     $type = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['function_type'],
       $position,
       $source,
     );
-    $position += $type->width();
+    $position += $type->getWidth();
     $where_clause = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['function_where_clause'],
       $position,
       $source,
     );
-    $position += $where_clause->width();
+    $position += $where_clause->getWidth();
     return new self(
       $async,
       $coroutine,

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<727897ff877e219993997fe51c2278a1>>
+ * @generated SignedSource<<93617afb3e4c392fcb4d3a8b4eb56d1d>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -38,25 +38,25 @@ final class Attribute extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $name->width();
+    $position += $name->getWidth();
     $left_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['attribute_left_paren'],
       $position,
       $source,
     );
-    $position += $left_paren->width();
+    $position += $left_paren->getWidth();
     $values = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['attribute_values'],
       $position,
       $source,
     );
-    $position += $values->width();
+    $position += $values->getWidth();
     $right_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['attribute_right_paren'],
       $position,
       $source,
     );
-    $position += $right_paren->width();
+    $position += $right_paren->getWidth();
     return new self($name, $left_paren, $values, $right_paren);
   }
 

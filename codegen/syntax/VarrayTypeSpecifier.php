@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<59eca4feecbf58abf4aa50c324a705e3>>
+ * @generated SignedSource<<925206e5d78dd139a2334a170fb3f868>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -41,31 +41,31 @@ final class VarrayTypeSpecifier extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $left_angle = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['varray_left_angle'],
       $position,
       $source,
     );
-    $position += $left_angle->width();
+    $position += $left_angle->getWidth();
     $type = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['varray_type'],
       $position,
       $source,
     );
-    $position += $type->width();
+    $position += $type->getWidth();
     $trailing_comma = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['varray_trailing_comma'],
       $position,
       $source,
     );
-    $position += $trailing_comma->width();
+    $position += $trailing_comma->getWidth();
     $right_angle = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['varray_right_angle'],
       $position,
       $source,
     );
-    $position += $right_angle->width();
+    $position += $right_angle->getWidth();
     return new self(
       $keyword,
       $left_angle,

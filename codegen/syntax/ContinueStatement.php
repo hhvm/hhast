@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fe6e0ab9273e2a17c475e97139e1790a>>
+ * @generated SignedSource<<0b71f5d04a1c544f49741b78b73d15ea>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -35,19 +35,19 @@ final class ContinueStatement extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $level = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['continue_level'],
       $position,
       $source,
     );
-    $position += $level->width();
+    $position += $level->getWidth();
     $semicolon = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['continue_semicolon'],
       $position,
       $source,
     );
-    $position += $semicolon->width();
+    $position += $semicolon->getWidth();
     return new self($keyword, $level, $semicolon);
   }
 

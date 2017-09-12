@@ -107,7 +107,7 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
 
     return $shape->withEllipsis(
       new HHAST\DotDotDotToken(
-        Str\contains($shape->full_text(), "\n")
+        Str\contains($shape->getCode(), "\n")
           ? $first_field->getFirstTokenx()->getLeading()
           : new HHAST\WhiteSpace(' '),
         C\lastx($shape->getFieldsx()->getChildren())

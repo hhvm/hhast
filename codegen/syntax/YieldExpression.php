@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0d5bb3886499b5d43a2427cccbe71958>>
+ * @generated SignedSource<<50dabedbd908bc2c58b7fc9da620a7e5>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -32,13 +32,13 @@ final class YieldExpression extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $operand = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['yield_operand'],
       $position,
       $source,
     );
-    $position += $operand->width();
+    $position += $operand->getWidth();
     return new self($keyword, $operand);
   }
 

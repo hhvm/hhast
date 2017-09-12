@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4eb3c7738c0ed8cdc278c393d1eeb6c8>>
+ * @generated SignedSource<<27e7eb50bbfdd27bcbd40656a90e310e>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -41,31 +41,31 @@ final class LambdaSignature extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $left_paren->width();
+    $position += $left_paren->getWidth();
     $parameters = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['lambda_parameters'],
       $position,
       $source,
     );
-    $position += $parameters->width();
+    $position += $parameters->getWidth();
     $right_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['lambda_right_paren'],
       $position,
       $source,
     );
-    $position += $right_paren->width();
+    $position += $right_paren->getWidth();
     $colon = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['lambda_colon'],
       $position,
       $source,
     );
-    $position += $colon->width();
+    $position += $colon->getWidth();
     $type = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['lambda_type'],
       $position,
       $source,
     );
-    $position += $type->width();
+    $position += $type->getWidth();
     return new self($left_paren, $parameters, $right_paren, $colon, $type);
   }
 

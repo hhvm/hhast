@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d99bcc3df47a66c546a8ab39de9f2c93>>
+ * @generated SignedSource<<126c64bd88ccb6c291b5acae0e76e42a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -38,25 +38,25 @@ final class ArrayIntrinsicExpression extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $left_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['array_intrinsic_left_paren'],
       $position,
       $source,
     );
-    $position += $left_paren->width();
+    $position += $left_paren->getWidth();
     $members = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['array_intrinsic_members'],
       $position,
       $source,
     );
-    $position += $members->width();
+    $position += $members->getWidth();
     $right_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['array_intrinsic_right_paren'],
       $position,
       $source,
     );
-    $position += $right_paren->width();
+    $position += $right_paren->getWidth();
     return new self($keyword, $left_paren, $members, $right_paren);
   }
 

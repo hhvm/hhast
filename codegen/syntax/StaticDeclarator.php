@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bd75d83b6b01dd1190b09e4ce8216b9c>>
+ * @generated SignedSource<<8cc88f49cc896c83ab7588a4675b3625>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -32,13 +32,13 @@ final class StaticDeclarator extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $name->width();
+    $position += $name->getWidth();
     $initializer = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['static_initializer'],
       $position,
       $source,
     );
-    $position += $initializer->width();
+    $position += $initializer->getWidth();
     return new self($name, $initializer);
   }
 

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d4fbdd7514cd9ebe27e2871fe2700ea9>>
+ * @generated SignedSource<<b0af1d84d3ee49d0e3b6cd55f604366f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -35,19 +35,19 @@ final class ScopeResolutionExpression extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $qualifier->width();
+    $position += $qualifier->getWidth();
     $operator = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['scope_resolution_operator'],
       $position,
       $source,
     );
-    $position += $operator->width();
+    $position += $operator->getWidth();
     $name = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['scope_resolution_name'],
       $position,
       $source,
     );
-    $position += $name->width();
+    $position += $name->getWidth();
     return new self($qualifier, $operator, $name);
   }
 

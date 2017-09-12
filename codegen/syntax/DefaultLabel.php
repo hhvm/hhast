@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f16dacab182200b2a75e8d46e687d763>>
+ * @generated SignedSource<<a50766fd4eee777e45f50e8f082baf58>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -29,13 +29,13 @@ final class DefaultLabel extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $colon = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['default_colon'],
       $position,
       $source,
     );
-    $position += $colon->width();
+    $position += $colon->getWidth();
     return new self($keyword, $colon);
   }
 

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b9a59b209e0bd26699e9553d36cf7abc>>
+ * @generated SignedSource<<92896a2948950608b9bb876cd0552550>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -38,25 +38,25 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $left_angle = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['tuple_type_left_angle'],
       $position,
       $source,
     );
-    $position += $left_angle->width();
+    $position += $left_angle->getWidth();
     $types = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['tuple_type_types'],
       $position,
       $source,
     );
-    $position += $types->width();
+    $position += $types->getWidth();
     $right_angle = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['tuple_type_right_angle'],
       $position,
       $source,
     );
-    $position += $right_angle->width();
+    $position += $right_angle->getWidth();
     return new self($keyword, $left_angle, $types, $right_angle);
   }
 

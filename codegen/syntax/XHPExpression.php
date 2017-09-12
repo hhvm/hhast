@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8819c7af058a315b699d7e9d6db1f4ce>>
+ * @generated SignedSource<<b19b70232c878c3f19e0d2815f2dc381>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -35,19 +35,19 @@ final class XHPExpression extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $open->width();
+    $position += $open->getWidth();
     $body = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['xhp_body'],
       $position,
       $source,
     );
-    $position += $body->width();
+    $position += $body->getWidth();
     $close = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['xhp_close'],
       $position,
       $source,
     );
-    $position += $close->width();
+    $position += $close->getWidth();
     return new self($open, $body, $close);
   }
 

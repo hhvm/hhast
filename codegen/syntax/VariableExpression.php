@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3c17e9dd31dcb2438e712f131d31fcab>>
+ * @generated SignedSource<<fffad144f5824354db473dae1549ee60>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -27,7 +27,7 @@ final class VariableExpression extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $expression->width();
+    $position += $expression->getWidth();
     return new self($expression);
   }
 

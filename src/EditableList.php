@@ -76,7 +76,7 @@ final class EditableList extends EditableSyntax {
     foreach (/* UNSAFE_EXPR */$json['elements'] as $element) {
       $child = EditableSyntax::from_json($element, $current_position, $source);
       $children[] = $child;
-      $current_position += $child->width();
+      $current_position += $child->getWidth();
     }
     return new EditableList($children);
   }

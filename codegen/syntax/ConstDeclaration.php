@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2ec2a23f29d18a589c68ed58d508ad22>>
+ * @generated SignedSource<<3fd7baa8f3adf3fbec61e6492f4192f0>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -41,31 +41,31 @@ final class ConstDeclaration extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $abstract->width();
+    $position += $abstract->getWidth();
     $keyword = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['const_keyword'],
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $type_specifier = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['const_type_specifier'],
       $position,
       $source,
     );
-    $position += $type_specifier->width();
+    $position += $type_specifier->getWidth();
     $declarators = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['const_declarators'],
       $position,
       $source,
     );
-    $position += $declarators->width();
+    $position += $declarators->getWidth();
     $semicolon = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['const_semicolon'],
       $position,
       $source,
     );
-    $position += $semicolon->width();
+    $position += $semicolon->getWidth();
     return new self(
       $abstract,
       $keyword,

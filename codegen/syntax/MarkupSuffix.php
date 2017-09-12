@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<082aaaf914c8dac63c589ada980ef92d>>
+ * @generated SignedSource<<31f88293f5a4ffaf0994c5f1356826a1>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -32,13 +32,13 @@ final class MarkupSuffix extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $less_than_question->width();
+    $position += $less_than_question->getWidth();
     $name = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['markup_suffix_name'],
       $position,
       $source,
     );
-    $position += $name->width();
+    $position += $name->getWidth();
     return new self($less_than_question, $name);
   }
 

@@ -33,7 +33,7 @@ abstract class EditableToken extends EditableSyntax {
     $this->_leading = $leading;
     $this->_trailing = $trailing;
     $this->_text = $text;
-    $this->_width = strlen($text) + $leading->width() + $trailing->width();
+    $this->_width = strlen($text) + $leading->getWidth() + $trailing->getWidth();
   }
 
   public function token_kind(): string {
@@ -64,10 +64,10 @@ abstract class EditableToken extends EditableSyntax {
   }
 
   <<__Override>>
-  public function full_text(): string {
-    return $this->getLeading()->full_text().
+  public function getCode(): string {
+    return $this->getLeading()->getCode().
       $this->getText().
-      $this->getTrailing()->full_text();
+      $this->getTrailing()->getCode();
   }
 
   public abstract function withLeading(EditableSyntax $leading): EditableToken;
@@ -120,7 +120,7 @@ abstract class EditableToken extends EditableSyntax {
     );
 
     $leading = EditableList::to_list($leading_list);
-    $token_position = $position + $leading->width();
+    $token_position = $position + $leading->getWidth();
     $token_width = TypeAssert::isInt($json['width']);
     $token_text = Str\slice($source, $token_position, $token_width);
     $trailing_position = $token_position + $token_width;

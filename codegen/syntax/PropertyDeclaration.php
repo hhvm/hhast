@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bf16e68608c55b2be55b4f8ec0eb8a5e>>
+ * @generated SignedSource<<649ed8cf048793ab383f8b25d1713efd>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -38,25 +38,25 @@ final class PropertyDeclaration extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $modifiers->width();
+    $position += $modifiers->getWidth();
     $type = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['property_type'],
       $position,
       $source,
     );
-    $position += $type->width();
+    $position += $type->getWidth();
     $declarators = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['property_declarators'],
       $position,
       $source,
     );
-    $position += $declarators->width();
+    $position += $declarators->getWidth();
     $semicolon = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['property_semicolon'],
       $position,
       $source,
     );
-    $position += $semicolon->width();
+    $position += $semicolon->getWidth();
     return new self($modifiers, $type, $declarators, $semicolon);
   }
 

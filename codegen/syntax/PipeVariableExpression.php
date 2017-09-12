@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<353f6f54a526c31aea0ac8a83a35cadd>>
+ * @generated SignedSource<<d36a6cb53d54851fdccb161375b75d23>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -27,7 +27,7 @@ final class PipeVariableExpression extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $expression->width();
+    $position += $expression->getWidth();
     return new self($expression);
   }
 

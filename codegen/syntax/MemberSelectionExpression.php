@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c3b7bcbe81ff1505126f269680792260>>
+ * @generated SignedSource<<5631bd61ef2b48ee629a7a3ac04fb9e3>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -35,19 +35,19 @@ final class MemberSelectionExpression extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $object->width();
+    $position += $object->getWidth();
     $operator = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['member_operator'],
       $position,
       $source,
     );
-    $position += $operator->width();
+    $position += $operator->getWidth();
     $name = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['member_name'],
       $position,
       $source,
     );
-    $position += $name->width();
+    $position += $name->getWidth();
     return new self($object, $operator, $name);
   }
 

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<58d2344e1edf2b036479678502751c7e>>
+ * @generated SignedSource<<8886c4874e00deb37b22dcabab48df7f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -32,13 +32,13 @@ final class GenericTypeSpecifier extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $class_type->width();
+    $position += $class_type->getWidth();
     $argument_list = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['generic_argument_list'],
       $position,
       $source,
     );
-    $position += $argument_list->width();
+    $position += $argument_list->getWidth();
     return new self($class_type, $argument_list);
   }
 

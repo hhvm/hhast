@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<af6d7b3a7c31fdc022b6214a0163b37c>>
+ * @generated SignedSource<<b820facbbc5a7fb62447f3fa5551b5f3>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -35,19 +35,19 @@ final class EchoStatement extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $expressions = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['echo_expressions'],
       $position,
       $source,
     );
-    $position += $expressions->width();
+    $position += $expressions->getWidth();
     $semicolon = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['echo_semicolon'],
       $position,
       $source,
     );
-    $position += $semicolon->width();
+    $position += $semicolon->getWidth();
     return new self($keyword, $expressions, $semicolon);
   }
 

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<49d3298dbd2d4032331e3ea18e56c374>>
+ * @generated SignedSource<<338643220eefdb44c79d51ccbe56c3a5>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -35,19 +35,19 @@ final class ReturnStatement extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $expression = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['return_expression'],
       $position,
       $source,
     );
-    $position += $expression->width();
+    $position += $expression->getWidth();
     $semicolon = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['return_semicolon'],
       $position,
       $source,
     );
-    $position += $semicolon->width();
+    $position += $semicolon->getWidth();
     return new self($keyword, $expression, $semicolon);
   }
 

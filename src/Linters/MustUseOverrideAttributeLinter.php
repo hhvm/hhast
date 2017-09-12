@@ -50,11 +50,11 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
     if ($super instanceof GenericTypeSpecifier) {
       $super = $super->getClassType();
     }
-    $super = $super->full_text()
+    $super = $super->getCode()
       |> Str\trim($$)
       |> resolve_type($$, $node, $parents);
     try {
-      $method = $node->getFunctionDeclHeader()->getName()->full_text()
+      $method = $node->getFunctionDeclHeader()->getName()->getCode()
         |> Str\trim($$);
 
       $reflection_method = new \ReflectionMethod(
@@ -66,7 +66,7 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
         $this,
         sprintf(
           '%s::%s() overrides %s::%s() without <<__Override>>',
-          $class->getName()->full_text()
+          $class->getName()->getCode()
             |> Str\trim($$)
             |> resolve_type($$, $node, $parents),
           $method,
@@ -151,7 +151,7 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
           new HHAST\GreaterThanGreaterThanToken(
             HHAST\Missing(),
             Str\contains(
-              C\lastx($first_token->getLeading()->getChildren())->full_text(),
+              C\lastx($first_token->getLeading()->getChildren())->getCode(),
               "\n",
             ) ?  HHAST\Missing() : new HHAST\WhiteSpace("\n"),
           ),

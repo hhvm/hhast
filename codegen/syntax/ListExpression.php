@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<23630d965b01c864e9e00f2a9a7e03b4>>
+ * @generated SignedSource<<36a4e1f348e9146c43e0aa95dbae3117>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -38,25 +38,25 @@ final class ListExpression extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $left_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['list_left_paren'],
       $position,
       $source,
     );
-    $position += $left_paren->width();
+    $position += $left_paren->getWidth();
     $members = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['list_members'],
       $position,
       $source,
     );
-    $position += $members->width();
+    $position += $members->getWidth();
     $right_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['list_right_paren'],
       $position,
       $source,
     );
-    $position += $right_paren->width();
+    $position += $right_paren->getWidth();
     return new self($keyword, $left_paren, $members, $right_paren);
   }
 

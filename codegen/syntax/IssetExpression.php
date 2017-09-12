@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<aaba4eb80186aefe5bdc73a44e64241b>>
+ * @generated SignedSource<<0bc4ef2f8f6a02231bae56ac96c6d1b0>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -38,25 +38,25 @@ final class IssetExpression extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $left_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['isset_left_paren'],
       $position,
       $source,
     );
-    $position += $left_paren->width();
+    $position += $left_paren->getWidth();
     $argument_list = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['isset_argument_list'],
       $position,
       $source,
     );
-    $position += $argument_list->width();
+    $position += $argument_list->getWidth();
     $right_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['isset_right_paren'],
       $position,
       $source,
     );
-    $position += $right_paren->width();
+    $position += $right_paren->getWidth();
     return new self($keyword, $left_paren, $argument_list, $right_paren);
   }
 

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c1575dcbb11d18ce80389e1bf9e7fc20>>
+ * @generated SignedSource<<033bf8258a8864495b421fe58c7fa915>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -41,31 +41,31 @@ final class WhileStatement extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $left_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['while_left_paren'],
       $position,
       $source,
     );
-    $position += $left_paren->width();
+    $position += $left_paren->getWidth();
     $condition = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['while_condition'],
       $position,
       $source,
     );
-    $position += $condition->width();
+    $position += $condition->getWidth();
     $right_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['while_right_paren'],
       $position,
       $source,
     );
-    $position += $right_paren->width();
+    $position += $right_paren->getWidth();
     $body = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['while_body'],
       $position,
       $source,
     );
-    $position += $body->width();
+    $position += $body->getWidth();
     return new self($keyword, $left_paren, $condition, $right_paren, $body);
   }
 

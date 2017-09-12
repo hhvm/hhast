@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ba2a1be8d665ca37ba546af0192a4b94>>
+ * @generated SignedSource<<94c9aa53846c30f49a57daa2b0ee7a0f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -38,25 +38,25 @@ final class TryStatement extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $compound_statement = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['try_compound_statement'],
       $position,
       $source,
     );
-    $position += $compound_statement->width();
+    $position += $compound_statement->getWidth();
     $catch_clauses = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['try_catch_clauses'],
       $position,
       $source,
     );
-    $position += $catch_clauses->width();
+    $position += $catch_clauses->getWidth();
     $finally_clause = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['try_finally_clause'],
       $position,
       $source,
     );
-    $position += $finally_clause->width();
+    $position += $finally_clause->getWidth();
     return new self(
       $keyword,
       $compound_statement,

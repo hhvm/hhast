@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e0423616cb9ae5fc8cd287116511a55e>>
+ * @generated SignedSource<<b658d481a4de6c42cc02b3870e95cf7d>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -35,19 +35,19 @@ final class ParenthesizedExpression extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $left_paren->width();
+    $position += $left_paren->getWidth();
     $expression = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['parenthesized_expression_expression'],
       $position,
       $source,
     );
-    $position += $expression->width();
+    $position += $expression->getWidth();
     $right_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['parenthesized_expression_right_paren'],
       $position,
       $source,
     );
-    $position += $right_paren->width();
+    $position += $right_paren->getWidth();
     return new self($left_paren, $expression, $right_paren);
   }
 

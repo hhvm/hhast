@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<09d7cba085fead684dcd97ddb5baf342>>
+ * @generated SignedSource<<5af9a7fa450ab148f09bf64bee9bd03c>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -35,19 +35,19 @@ final class SwitchSection extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $labels->width();
+    $position += $labels->getWidth();
     $statements = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['switch_section_statements'],
       $position,
       $source,
     );
-    $position += $statements->width();
+    $position += $statements->getWidth();
     $fallthrough = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['switch_section_fallthrough'],
       $position,
       $source,
     );
-    $position += $fallthrough->width();
+    $position += $fallthrough->getWidth();
     return new self($labels, $statements, $fallthrough);
   }
 

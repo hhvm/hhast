@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f450f61479560707514798c4772c7a35>>
+ * @generated SignedSource<<7dc85345ee82cb06859e52d82b10390a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -53,55 +53,55 @@ final class EnumDeclaration extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $attribute_spec->width();
+    $position += $attribute_spec->getWidth();
     $keyword = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['enum_keyword'],
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $name = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['enum_name'],
       $position,
       $source,
     );
-    $position += $name->width();
+    $position += $name->getWidth();
     $colon = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['enum_colon'],
       $position,
       $source,
     );
-    $position += $colon->width();
+    $position += $colon->getWidth();
     $base = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['enum_base'],
       $position,
       $source,
     );
-    $position += $base->width();
+    $position += $base->getWidth();
     $type = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['enum_type'],
       $position,
       $source,
     );
-    $position += $type->width();
+    $position += $type->getWidth();
     $left_brace = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['enum_left_brace'],
       $position,
       $source,
     );
-    $position += $left_brace->width();
+    $position += $left_brace->getWidth();
     $enumerators = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['enum_enumerators'],
       $position,
       $source,
     );
-    $position += $enumerators->width();
+    $position += $enumerators->getWidth();
     $right_brace = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['enum_right_brace'],
       $position,
       $source,
     );
-    $position += $right_brace->width();
+    $position += $right_brace->getWidth();
     return new self(
       $attribute_spec,
       $keyword,

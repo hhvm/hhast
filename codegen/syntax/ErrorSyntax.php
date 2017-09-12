@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<202bcba3ae06864fb53d95cbfe365174>>
+ * @generated SignedSource<<90570acf44a530982c3b6a62b3e7c6d6>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -27,7 +27,7 @@ final class ErrorSyntax extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $error->width();
+    $position += $error->getWidth();
     return new self($error);
   }
 

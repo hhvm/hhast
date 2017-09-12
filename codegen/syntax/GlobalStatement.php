@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<67f9090c4ea4e2116d66b2ed34d0797c>>
+ * @generated SignedSource<<5a7da6d0a3026492ee1ec52a92b7ab0d>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -35,19 +35,19 @@ final class GlobalStatement extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $variables = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['global_variables'],
       $position,
       $source,
     );
-    $position += $variables->width();
+    $position += $variables->getWidth();
     $semicolon = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['global_semicolon'],
       $position,
       $source,
     );
-    $position += $semicolon->width();
+    $position += $semicolon->getWidth();
     return new self($keyword, $variables, $semicolon);
   }
 

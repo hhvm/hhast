@@ -34,12 +34,12 @@ class ASTLintError<
 
   <<__Override>>
   final public function getBlameCode(): string {
-    return $this->node->full_text();
+    return $this->node->getCode();
   }
 
   <<__Memoize, __Override>>
   final public function getPrettyBlameCode(): string {
-    return $this->linter->getPrettyNode($this->node)->full_text();
+    return $this->linter->getPrettyNode($this->node)->getCode();
   }
 
   final public function isFixable(): bool {
@@ -56,7 +56,7 @@ class ASTLintError<
       $this->getPrettyBlameCode(),
       $linter->getPrettyNode(
         $linter->getFixedNode($this->node),
-      )->full_text(),
+      )->getCode(),
     );
   }
 }

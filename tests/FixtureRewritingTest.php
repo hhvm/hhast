@@ -36,7 +36,7 @@ final class FixtureRewritingTest extends TestCase {
     $left_brace = C\firstx($catches)->getBody()->getLeftBracex();
     $rewritten = $rewritten->insert_after($comment, $left_brace);
 
-    $code = $rewritten->full_text();
+    $code = $rewritten->getCode();
 
     $this->assertMatches($code, 'insert.php.expect');
   }
@@ -59,7 +59,7 @@ final class FixtureRewritingTest extends TestCase {
       __DIR__.'/fixtures/rewrite_comments.php.in',
     )
       ->rewrite($rewriter)
-      ->full_text();
+      ->getCode();
     $this->assertMatches($code, 'rewrite_comments.php.expect');
   }
 
@@ -76,7 +76,7 @@ final class FixtureRewritingTest extends TestCase {
     $ast = $ast->without(C\firstx($methods));
 
     $this->assertMatches(
-      $ast->full_text(),
+      $ast->getCode(),
       'remove.php.expect',
     );
   }

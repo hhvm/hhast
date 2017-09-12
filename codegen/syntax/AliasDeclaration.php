@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<35abbd4a0c85db51500bc6cf7a377680>>
+ * @generated SignedSource<<87576089545c403359fcd7b567afe680>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -50,49 +50,49 @@ final class AliasDeclaration extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $attribute_spec->width();
+    $position += $attribute_spec->getWidth();
     $keyword = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['alias_keyword'],
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $name = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['alias_name'],
       $position,
       $source,
     );
-    $position += $name->width();
+    $position += $name->getWidth();
     $generic_parameter = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['alias_generic_parameter'],
       $position,
       $source,
     );
-    $position += $generic_parameter->width();
+    $position += $generic_parameter->getWidth();
     $constraint = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['alias_constraint'],
       $position,
       $source,
     );
-    $position += $constraint->width();
+    $position += $constraint->getWidth();
     $equal = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['alias_equal'],
       $position,
       $source,
     );
-    $position += $equal->width();
+    $position += $equal->getWidth();
     $type = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['alias_type'],
       $position,
       $source,
     );
-    $position += $type->width();
+    $position += $type->getWidth();
     $semicolon = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['alias_semicolon'],
       $position,
       $source,
     );
-    $position += $semicolon->width();
+    $position += $semicolon->getWidth();
     return new self(
       $attribute_spec,
       $keyword,

@@ -62,8 +62,8 @@ final class MigrationsTest extends TestCase {
     $ast = HHAST\from_file(__DIR__.'/fixtures/'.$fixture.'.in')
       |> $rewrite($$);
 
-    expect($rewrite($ast)->full_text())->toBeSame(
-      $ast->full_text(),
+    expect($rewrite($ast)->getCode())->toBeSame(
+      $ast->getCode(),
       'Step "%s" in %s is not text-idempotent',
       $step->getName(),
       $migration,
@@ -91,7 +91,7 @@ final class MigrationsTest extends TestCase {
     $ast = $migration->migrateAst($ast);
 
     $this->assertMatches(
-      $ast->full_text(),
+      $ast->getCode(),
       $fixture.'.expect',
     );
   }
@@ -110,9 +110,9 @@ final class MigrationsTest extends TestCase {
     $ast = $migration->migrateAst($ast);
 
     expect(
-      $migration->migrateAst($ast)->full_text()
+      $migration->migrateAst($ast)->getCode()
     )->toBeSame(
-      $ast->full_text(),
+      $ast->getCode(),
       'Migrating the AST twice should produce identical text to once',
     );
 

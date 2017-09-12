@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9b9553c73745ab5146b78a704c91dc53>>
+ * @generated SignedSource<<b83a3dceeff2e9172773e1c9f1de412a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -29,13 +29,13 @@ final class NullableTypeSpecifier extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $question->width();
+    $position += $question->getWidth();
     $type = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['nullable_type'],
       $position,
       $source,
     );
-    $position += $type->width();
+    $position += $type->getWidth();
     return new self($question, $type);
   }
 

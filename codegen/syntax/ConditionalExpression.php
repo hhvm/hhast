@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<52951d58752c6995b4310a659cff25e5>>
+ * @generated SignedSource<<b0579ab015ba100320d129901003fcfc>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -41,31 +41,31 @@ final class ConditionalExpression extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $test->width();
+    $position += $test->getWidth();
     $question = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['conditional_question'],
       $position,
       $source,
     );
-    $position += $question->width();
+    $position += $question->getWidth();
     $consequence = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['conditional_consequence'],
       $position,
       $source,
     );
-    $position += $consequence->width();
+    $position += $consequence->getWidth();
     $colon = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['conditional_colon'],
       $position,
       $source,
     );
-    $position += $colon->width();
+    $position += $colon->getWidth();
     $alternative = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['conditional_alternative'],
       $position,
       $source,
     );
-    $position += $alternative->width();
+    $position += $alternative->getWidth();
     return new self($test, $question, $consequence, $colon, $alternative);
   }
 

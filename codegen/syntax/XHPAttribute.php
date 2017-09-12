@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d1087eab6ee9afae189529442e21d3fd>>
+ * @generated SignedSource<<e3b432aaf95a625993475afeaab0470d>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -35,19 +35,19 @@ final class XHPAttribute extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $name->width();
+    $position += $name->getWidth();
     $equal = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['xhp_attribute_equal'],
       $position,
       $source,
     );
-    $position += $equal->width();
+    $position += $equal->getWidth();
     $expression = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['xhp_attribute_expression'],
       $position,
       $source,
     );
-    $position += $expression->width();
+    $position += $expression->getWidth();
     return new self($name, $equal, $expression);
   }
 

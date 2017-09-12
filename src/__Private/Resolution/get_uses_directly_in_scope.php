@@ -43,7 +43,7 @@ function get_uses_directly_in_scope(
     foreach ($clauses as $clause) {
       $uses[] = tuple(
         $clause->hasClauseKind() ? $clause->getClauseKind() : $kind,
-        Str\trim($clause->getName()->full_text()),
+        Str\trim($clause->getName()->getCode()),
         $clause->getAlias(),
       );
     }
@@ -53,7 +53,7 @@ function get_uses_directly_in_scope(
   $statements = $scope->children_of_class(NamespaceGroupUseDeclaration::class);
   foreach ($statements as $statement) {
     $kind = $statement->getKind();
-    $prefix = $statement->getPrefix()->full_text()
+    $prefix = $statement->getPrefix()->getCode()
       |> Str\trim($$)
       |> Str\strip_prefix($$, '\\');
     $clauses = $statement->getClauses()->of_class(
@@ -62,7 +62,7 @@ function get_uses_directly_in_scope(
     foreach ($clauses as $clause) {
       $uses[] = tuple(
         $clause->hasClauseKind() ? $clause->getClauseKind() : $kind,
-        $prefix.Str\trim($clause->getName()->full_text()),
+        $prefix.Str\trim($clause->getName()->getCode()),
         $clause->getAlias(),
       );
     }
@@ -76,7 +76,7 @@ function get_uses_directly_in_scope(
       ? $name
         |> explode('\\', $$)
         |> C\lastx($$)
-      : $alias->full_text()
+      : $alias->getCode()
         |> Str\trim($$)
         |> Str\strip_prefix($$, '\\');
     if ($kind->isMissing()) {

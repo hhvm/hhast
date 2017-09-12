@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e2f0bb1f4fe05477635893d29e1e7f4a>>
+ * @generated SignedSource<<5dcb86bb173b307babaa8a979e8482ab>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -35,19 +35,19 @@ final class TypeParameter extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $variance->width();
+    $position += $variance->getWidth();
     $name = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['type_name'],
       $position,
       $source,
     );
-    $position += $name->width();
+    $position += $name->getWidth();
     $constraints = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['type_constraints'],
       $position,
       $source,
     );
-    $position += $constraints->width();
+    $position += $constraints->getWidth();
     return new self($variance, $name, $constraints);
   }
 

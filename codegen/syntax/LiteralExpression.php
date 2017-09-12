@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4dd1ca1d52be9f5468b928fe05aa3ce9>>
+ * @generated SignedSource<<c417f0ba6b016c2dc72cb1555d8b50bc>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -27,7 +27,7 @@ final class LiteralExpression extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $expression->width();
+    $position += $expression->getWidth();
     return new self($expression);
   }
 

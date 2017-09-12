@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<76cdb7a5f167c431e128550524a5c056>>
+ * @generated SignedSource<<208c5dfb1fbf50a3e4ead43f724b35ac>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -27,7 +27,7 @@ final class EndOfFile extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $token->width();
+    $position += $token->getWidth();
     return new self($token);
   }
 

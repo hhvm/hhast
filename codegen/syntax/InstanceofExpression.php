@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<de30faf1258332c5cec6f28b1009069d>>
+ * @generated SignedSource<<69394d5fe094a9e11e5046a8f6d50abd>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -35,19 +35,19 @@ final class InstanceofExpression extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $left_operand->width();
+    $position += $left_operand->getWidth();
     $operator = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['instanceof_operator'],
       $position,
       $source,
     );
-    $position += $operator->width();
+    $position += $operator->getWidth();
     $right_operand = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['instanceof_right_operand'],
       $position,
       $source,
     );
-    $position += $right_operand->width();
+    $position += $right_operand->getWidth();
     return new self($left_operand, $operator, $right_operand);
   }
 

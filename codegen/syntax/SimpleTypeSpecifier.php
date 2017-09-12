@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<970f4ab402bcbdad72ed2faa4be83077>>
+ * @generated SignedSource<<d106496607607f61afa077ad959d3eb1>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -27,7 +27,7 @@ final class SimpleTypeSpecifier extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $specifier->width();
+    $position += $specifier->getWidth();
     return new self($specifier);
   }
 

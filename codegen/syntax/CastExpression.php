@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f995485107ac8dfbb7d97746d9c862b9>>
+ * @generated SignedSource<<e3780d566de72488a5fbf2de133c56a5>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -38,25 +38,25 @@ final class CastExpression extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $left_paren->width();
+    $position += $left_paren->getWidth();
     $type = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['cast_type'],
       $position,
       $source,
     );
-    $position += $type->width();
+    $position += $type->getWidth();
     $right_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['cast_right_paren'],
       $position,
       $source,
     );
-    $position += $right_paren->width();
+    $position += $right_paren->getWidth();
     $operand = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['cast_operand'],
       $position,
       $source,
     );
-    $position += $operand->width();
+    $position += $operand->getWidth();
     return new self($left_paren, $type, $right_paren, $operand);
   }
 

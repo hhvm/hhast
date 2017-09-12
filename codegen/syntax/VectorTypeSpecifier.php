@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<11a9cef03a71bd5b228b69c025545e06>>
+ * @generated SignedSource<<fec3b13b1c12e01d8168d275558423de>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -41,31 +41,31 @@ final class VectorTypeSpecifier extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $left_angle = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['vector_type_left_angle'],
       $position,
       $source,
     );
-    $position += $left_angle->width();
+    $position += $left_angle->getWidth();
     $type = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['vector_type_type'],
       $position,
       $source,
     );
-    $position += $type->width();
+    $position += $type->getWidth();
     $trailing_comma = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['vector_type_trailing_comma'],
       $position,
       $source,
     );
-    $position += $trailing_comma->width();
+    $position += $trailing_comma->getWidth();
     $right_angle = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['vector_type_right_angle'],
       $position,
       $source,
     );
-    $position += $right_angle->width();
+    $position += $right_angle->getWidth();
     return new self(
       $keyword,
       $left_angle,

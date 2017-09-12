@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5080bce31584f9e833741098be025122>>
+ * @generated SignedSource<<bedbac0fad7b151d71ea25ebdb5e4bfc>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -47,43 +47,43 @@ final class IfStatement extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $left_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['if_left_paren'],
       $position,
       $source,
     );
-    $position += $left_paren->width();
+    $position += $left_paren->getWidth();
     $condition = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['if_condition'],
       $position,
       $source,
     );
-    $position += $condition->width();
+    $position += $condition->getWidth();
     $right_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['if_right_paren'],
       $position,
       $source,
     );
-    $position += $right_paren->width();
+    $position += $right_paren->getWidth();
     $statement = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['if_statement'],
       $position,
       $source,
     );
-    $position += $statement->width();
+    $position += $statement->getWidth();
     $elseif_clauses = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['if_elseif_clauses'],
       $position,
       $source,
     );
-    $position += $elseif_clauses->width();
+    $position += $elseif_clauses->getWidth();
     $else_clause = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['if_else_clause'],
       $position,
       $source,
     );
-    $position += $else_clause->width();
+    $position += $else_clause->getWidth();
     return new self(
       $keyword,
       $left_paren,

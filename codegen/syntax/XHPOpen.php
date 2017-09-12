@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<555666ec876def8e1f18358ee94dacc1>>
+ * @generated SignedSource<<dd582c07aa323f6b0431b860e0b2ef90>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -38,25 +38,25 @@ final class XHPOpen extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $left_angle->width();
+    $position += $left_angle->getWidth();
     $name = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['xhp_open_name'],
       $position,
       $source,
     );
-    $position += $name->width();
+    $position += $name->getWidth();
     $attributes = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['xhp_open_attributes'],
       $position,
       $source,
     );
-    $position += $attributes->width();
+    $position += $attributes->getWidth();
     $right_angle = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['xhp_open_right_angle'],
       $position,
       $source,
     );
-    $position += $right_angle->width();
+    $position += $right_angle->getWidth();
     return new self($left_angle, $name, $attributes, $right_angle);
   }
 

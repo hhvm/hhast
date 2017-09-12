@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bcc4cadd92594046fb92f5dc06b0f3c9>>
+ * @generated SignedSource<<194a98b1314a5303cdec2513bfe96802>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -44,37 +44,37 @@ final class CatchClause extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $left_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['catch_left_paren'],
       $position,
       $source,
     );
-    $position += $left_paren->width();
+    $position += $left_paren->getWidth();
     $type = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['catch_type'],
       $position,
       $source,
     );
-    $position += $type->width();
+    $position += $type->getWidth();
     $variable = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['catch_variable'],
       $position,
       $source,
     );
-    $position += $variable->width();
+    $position += $variable->getWidth();
     $right_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['catch_right_paren'],
       $position,
       $source,
     );
-    $position += $right_paren->width();
+    $position += $right_paren->getWidth();
     $body = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['catch_body'],
       $position,
       $source,
     );
-    $position += $body->width();
+    $position += $body->getWidth();
     return new self(
       $keyword,
       $left_paren,

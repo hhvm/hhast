@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1c220c78431e77bc8886bd5ff90d74a9>>
+ * @generated SignedSource<<4018c8c4ca92e1f87b8675ac19dca13c>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -50,49 +50,49 @@ final class TypeConstDeclaration extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $abstract->width();
+    $position += $abstract->getWidth();
     $keyword = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['type_const_keyword'],
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $type_keyword = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['type_const_type_keyword'],
       $position,
       $source,
     );
-    $position += $type_keyword->width();
+    $position += $type_keyword->getWidth();
     $name = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['type_const_name'],
       $position,
       $source,
     );
-    $position += $name->width();
+    $position += $name->getWidth();
     $type_constraint = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['type_const_type_constraint'],
       $position,
       $source,
     );
-    $position += $type_constraint->width();
+    $position += $type_constraint->getWidth();
     $equal = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['type_const_equal'],
       $position,
       $source,
     );
-    $position += $equal->width();
+    $position += $equal->getWidth();
     $type_specifier = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['type_const_type_specifier'],
       $position,
       $source,
     );
-    $position += $type_specifier->width();
+    $position += $type_specifier->getWidth();
     $semicolon = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['type_const_semicolon'],
       $position,
       $source,
     );
-    $position += $semicolon->width();
+    $position += $semicolon->getWidth();
     return new self(
       $abstract,
       $keyword,

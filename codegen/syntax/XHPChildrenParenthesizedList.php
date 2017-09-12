@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bb568aa3b76d4eb8625bcfebb4607423>>
+ * @generated SignedSource<<326523ebd6f0ce2cbe71a1eeb8b2e26f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -35,19 +35,19 @@ final class XHPChildrenParenthesizedList extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $left_paren->width();
+    $position += $left_paren->getWidth();
     $xhp_children = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['xhp_children_list_xhp_children'],
       $position,
       $source,
     );
-    $position += $xhp_children->width();
+    $position += $xhp_children->getWidth();
     $right_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['xhp_children_list_right_paren'],
       $position,
       $source,
     );
-    $position += $right_paren->width();
+    $position += $right_paren->getWidth();
     return new self($left_paren, $xhp_children, $right_paren);
   }
 

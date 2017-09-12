@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f33adb3f312045885ac7731ee9dbaf26>>
+ * @generated SignedSource<<c552b9f54250d23f8a51b86bebee9487>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -41,31 +41,31 @@ final class ShapeTypeSpecifier extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $left_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['shape_type_left_paren'],
       $position,
       $source,
     );
-    $position += $left_paren->width();
+    $position += $left_paren->getWidth();
     $fields = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['shape_type_fields'],
       $position,
       $source,
     );
-    $position += $fields->width();
+    $position += $fields->getWidth();
     $ellipsis = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['shape_type_ellipsis'],
       $position,
       $source,
     );
-    $position += $ellipsis->width();
+    $position += $ellipsis->getWidth();
     $right_paren = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['shape_type_right_paren'],
       $position,
       $source,
     );
-    $position += $right_paren->width();
+    $position += $right_paren->getWidth();
     return new self($keyword, $left_paren, $fields, $ellipsis, $right_paren);
   }
 

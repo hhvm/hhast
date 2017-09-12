@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3c21a0283e30cd703c06577bb6166115>>
+ * @generated SignedSource<<19288c3fd6356705bbbe06d01cc9f028>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -41,31 +41,31 @@ final class MethodishDeclaration extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $attribute->width();
+    $position += $attribute->getWidth();
     $modifiers = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['methodish_modifiers'],
       $position,
       $source,
     );
-    $position += $modifiers->width();
+    $position += $modifiers->getWidth();
     $function_decl_header = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['methodish_function_decl_header'],
       $position,
       $source,
     );
-    $position += $function_decl_header->width();
+    $position += $function_decl_header->getWidth();
     $function_body = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['methodish_function_body'],
       $position,
       $source,
     );
-    $position += $function_body->width();
+    $position += $function_body->getWidth();
     $semicolon = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['methodish_semicolon'],
       $position,
       $source,
     );
-    $position += $semicolon->width();
+    $position += $semicolon->getWidth();
     return new self(
       $attribute,
       $modifiers,

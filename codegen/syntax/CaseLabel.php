@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3e1d96da26e2bb24ff251e3cdfe437cf>>
+ * @generated SignedSource<<3b0c1ada003fad10ce0af574fb32d69c>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -35,19 +35,19 @@ final class CaseLabel extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $expression = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['case_expression'],
       $position,
       $source,
     );
-    $position += $expression->width();
+    $position += $expression->getWidth();
     $colon = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['case_colon'],
       $position,
       $source,
     );
-    $position += $colon->width();
+    $position += $colon->getWidth();
     return new self($keyword, $expression, $colon);
   }
 

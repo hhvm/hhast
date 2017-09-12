@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<32f63ba47021f31a2cdcf76c1a41f0a0>>
+ * @generated SignedSource<<2ef5f12509ba7ca5d5c3ea160686a7a5>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -35,19 +35,19 @@ final class FunctionDeclaration extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $attribute_spec->width();
+    $position += $attribute_spec->getWidth();
     $declaration_header = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['function_declaration_header'],
       $position,
       $source,
     );
-    $position += $declaration_header->width();
+    $position += $declaration_header->getWidth();
     $body = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['function_body'],
       $position,
       $source,
     );
-    $position += $body->width();
+    $position += $body->getWidth();
     return new self($attribute_spec, $declaration_header, $body);
   }
 

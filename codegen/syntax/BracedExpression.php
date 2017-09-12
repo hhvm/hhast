@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9de4cc0ef9138876688750d205a4252e>>
+ * @generated SignedSource<<334981080706e0a527c7017d44c941a3>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -35,19 +35,19 @@ final class BracedExpression extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $left_brace->width();
+    $position += $left_brace->getWidth();
     $expression = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['braced_expression_expression'],
       $position,
       $source,
     );
-    $position += $expression->width();
+    $position += $expression->getWidth();
     $right_brace = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['braced_expression_right_brace'],
       $position,
       $source,
     );
-    $position += $right_brace->width();
+    $position += $right_brace->getWidth();
     return new self($left_brace, $expression, $right_brace);
   }
 

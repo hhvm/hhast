@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d3cb393e6d92dce6d99d7a9698553e85>>
+ * @generated SignedSource<<985db452ef4d76913c23f7c9d851a3d0>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -38,25 +38,25 @@ final class KeysetIntrinsicExpression extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $left_bracket = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['keyset_intrinsic_left_bracket'],
       $position,
       $source,
     );
-    $position += $left_bracket->width();
+    $position += $left_bracket->getWidth();
     $members = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['keyset_intrinsic_members'],
       $position,
       $source,
     );
-    $position += $members->width();
+    $position += $members->getWidth();
     $right_bracket = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['keyset_intrinsic_right_bracket'],
       $position,
       $source,
     );
-    $position += $right_bracket->width();
+    $position += $right_bracket->getWidth();
     return new self($keyword, $left_bracket, $members, $right_bracket);
   }
 

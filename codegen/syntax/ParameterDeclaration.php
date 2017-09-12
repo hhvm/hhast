@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7d5a3cb8314656a17b8277023d55e0d7>>
+ * @generated SignedSource<<3d4d6d3c4fb76728421db3a967f3cb85>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -41,31 +41,31 @@ final class ParameterDeclaration extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $attribute->width();
+    $position += $attribute->getWidth();
     $visibility = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['parameter_visibility'],
       $position,
       $source,
     );
-    $position += $visibility->width();
+    $position += $visibility->getWidth();
     $type = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['parameter_type'],
       $position,
       $source,
     );
-    $position += $type->width();
+    $position += $type->getWidth();
     $name = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['parameter_name'],
       $position,
       $source,
     );
-    $position += $name->width();
+    $position += $name->getWidth();
     $default_value = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['parameter_default_value'],
       $position,
       $source,
     );
-    $position += $default_value->width();
+    $position += $default_value->getWidth();
     return new self($attribute, $visibility, $type, $name, $default_value);
   }
 

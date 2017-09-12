@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<32e3838fcadd51e3c37034bba3d4cfbf>>
+ * @generated SignedSource<<39b8166f47319fd2f449c81eeee60269>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -38,25 +38,25 @@ final class DictionaryIntrinsicExpression extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $left_bracket = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['dictionary_intrinsic_left_bracket'],
       $position,
       $source,
     );
-    $position += $left_bracket->width();
+    $position += $left_bracket->getWidth();
     $members = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['dictionary_intrinsic_members'],
       $position,
       $source,
     );
-    $position += $members->width();
+    $position += $members->getWidth();
     $right_bracket = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['dictionary_intrinsic_right_bracket'],
       $position,
       $source,
     );
-    $position += $right_bracket->width();
+    $position += $right_bracket->getWidth();
     return new self($keyword, $left_bracket, $members, $right_bracket);
   }
 

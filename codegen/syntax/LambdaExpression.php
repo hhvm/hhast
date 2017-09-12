@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e0bfac7ca4e2ac2cf47ca8a7a0315208>>
+ * @generated SignedSource<<0308718d73c865d454aadce17bc7db5b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -41,31 +41,31 @@ final class LambdaExpression extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $async->width();
+    $position += $async->getWidth();
     $coroutine = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['lambda_coroutine'],
       $position,
       $source,
     );
-    $position += $coroutine->width();
+    $position += $coroutine->getWidth();
     $signature = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['lambda_signature'],
       $position,
       $source,
     );
-    $position += $signature->width();
+    $position += $signature->getWidth();
     $arrow = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['lambda_arrow'],
       $position,
       $source,
     );
-    $position += $arrow->width();
+    $position += $arrow->getWidth();
     $body = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['lambda_body'],
       $position,
       $source,
     );
-    $position += $body->width();
+    $position += $body->getWidth();
     return new self($async, $coroutine, $signature, $arrow, $body);
   }
 

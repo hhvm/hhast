@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1a2b25c6a5540368eacbc7dc11a20a87>>
+ * @generated SignedSource<<9dab235e746fde74bba38d0d49249869>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -38,25 +38,25 @@ final class RequireClause extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $kind = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['require_kind'],
       $position,
       $source,
     );
-    $position += $kind->width();
+    $position += $kind->getWidth();
     $name = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['require_name'],
       $position,
       $source,
     );
-    $position += $name->width();
+    $position += $name->getWidth();
     $semicolon = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['require_semicolon'],
       $position,
       $source,
     );
-    $position += $semicolon->width();
+    $position += $semicolon->getWidth();
     return new self($keyword, $kind, $name, $semicolon);
   }
 

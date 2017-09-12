@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1eb36d7c8424716cefac7f89882cbe29>>
+ * @generated SignedSource<<184112efefd3dbf749ba8d0be2a8c529>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -35,19 +35,19 @@ final class ArrayCreationExpression extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $left_bracket->width();
+    $position += $left_bracket->getWidth();
     $members = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['array_creation_members'],
       $position,
       $source,
     );
-    $position += $members->width();
+    $position += $members->getWidth();
     $right_bracket = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['array_creation_right_bracket'],
       $position,
       $source,
     );
-    $position += $right_bracket->width();
+    $position += $right_bracket->getWidth();
     return new self($left_bracket, $members, $right_bracket);
   }
 

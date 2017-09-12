@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e1da54d3528c50b8d3d86c0cd736424a>>
+ * @generated SignedSource<<81c6f464f676c0d02a83e384f75bde64>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -41,31 +41,31 @@ final class TraitUseConflictResolution extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $names = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['trait_use_conflict_resolution_names'],
       $position,
       $source,
     );
-    $position += $names->width();
+    $position += $names->getWidth();
     $left_brace = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['trait_use_conflict_resolution_left_brace'],
       $position,
       $source,
     );
-    $position += $left_brace->width();
+    $position += $left_brace->getWidth();
     $clauses = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['trait_use_conflict_resolution_clauses'],
       $position,
       $source,
     );
-    $position += $clauses->width();
+    $position += $clauses->getWidth();
     $right_brace = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['trait_use_conflict_resolution_right_brace'],
       $position,
       $source,
     );
-    $position += $right_brace->width();
+    $position += $right_brace->getWidth();
     return new self($keyword, $names, $left_brace, $clauses, $right_brace);
   }
 

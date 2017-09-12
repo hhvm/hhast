@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e2e419c738a3a3945f1f5c441663f485>>
+ * @generated SignedSource<<71f1b64b03aaabeb309e16888e8800f3>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -27,7 +27,7 @@ final class NamespaceEmptyBody extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $semicolon->width();
+    $position += $semicolon->getWidth();
     return new self($semicolon);
   }
 

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e9cdee78d6c6cbc4ec28ff9bb5b437bf>>
+ * @generated SignedSource<<68c17ac27e23e807c9b3dcfadf096ba0>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -38,25 +38,25 @@ final class XHPEnumType extends EditableSyntax {
       $position,
       $source,
     );
-    $position += $keyword->width();
+    $position += $keyword->getWidth();
     $left_brace = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['xhp_enum_left_brace'],
       $position,
       $source,
     );
-    $position += $left_brace->width();
+    $position += $left_brace->getWidth();
     $values = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['xhp_enum_values'],
       $position,
       $source,
     );
-    $position += $values->width();
+    $position += $values->getWidth();
     $right_brace = EditableSyntax::from_json(
       /* UNSAFE_EXPR */ $json['xhp_enum_right_brace'],
       $position,
       $source,
     );
-    $position += $right_brace->width();
+    $position += $right_brace->getWidth();
     return new self($keyword, $left_brace, $values, $right_brace);
   }
 
