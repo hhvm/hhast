@@ -71,6 +71,11 @@ final class MustUseOverrideAttributeLinterTest extends TestCase {
     return [
       ['overrides_parent'],
       ['overrides_grandparent'],
+      ['with_leading_newline'],
+      ['with_other_attribute'],
+      ['with_other_attribute_with_value'],
+      ['with_leading_comment'],
+      ['with_leading_comment_and_other_attribute'],
     ];
   }
 
@@ -95,5 +100,23 @@ final class MustUseOverrideAttributeLinterTest extends TestCase {
       )
       |> json_encode($$, JSON_PRETTY_PRINT)."\n";
     $this->assertMatches($out, $fixture.'.expect');
+  }
+
+  /**
+   * @dataProvider getDirtyFixtures
+   */
+  public function testAutofix(string $fixture): void {
+    $fixture = 'MustUseOverrideAttributeLinter/'.$fixture.'.php';
+
+    $linter = new Linters\MustUseOverrideAttributeLinter(
+      __DIR__.'/fixtures/'.$fixture.'.in',
+    );
+
+    $code = $linter->getCodeWithFixedLintErrors($linter->getLintErrors());
+    $this->assertMatches(
+      $code,
+      $fixture.'.autofix.expect',
+      $fixture.'.in',
+    );
   }
 }

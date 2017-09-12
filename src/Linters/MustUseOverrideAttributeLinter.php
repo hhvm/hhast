@@ -135,10 +135,11 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
   ): MethodishDeclaration {
     $attrs = $node->getAttribute();
     if ($attrs === null) {
+      $first_token = $node->getFirstTokenx();
       return $node->withAttribute(
         new AttributeSpecification(
           new HHAST\LessThanLessThanToken(
-            $node->getFirstTokenx()->getLeading(),
+            $first_token->getLeading(),
             HHAST\Missing(),
           ),
           new HHAST\Attribute(
@@ -150,13 +151,49 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
           new HHAST\GreaterThanGreaterThanToken(
             HHAST\Missing(),
             Str\contains(
-              $node->getFirstTokenx()->getLeading()->full_text(),
+              C\lastx($first_token->getLeading()->children())->full_text(),
               "\n",
             ) ?  HHAST\Missing() : new HHAST\WhiteSpace("\n"),
           ),
         ),
+      )->rewrite_children(
+        ($n, $_) ==> $n === $first_token
+          ? $first_token->withLeading(
+            C\lastx($first_token->getLeading()->children())
+          )
+          : $n
       );
     }
-    return $node;
+
+    $list = $attrs->getAttributes()->to_vec();
+    $list[] = new HHAST\NameToken(
+      HHAST\Missing(),
+      HHAST\Missing(),
+      '__Override',
+    );
+
+    return $node->withAttribute(
+      $attrs->withAttributes(
+        new HHAST\EditableList($list),
+      )->rewrite(
+        ($child, $parents) ==> {
+          if (!$child instanceof HHAST\ListItem) {
+            return $child;
+          }
+          if (!$child->getItem() instanceof HHAST\Attribute) {
+            return $child;
+          }
+          if ($child->hasSeparator()) {
+            return $child;
+          }
+          return $child->withSeparator(
+            new HHAST\CommaToken(
+              HHAST\Missing(),
+              new HHAST\WhiteSpace(' '),
+            ),
+          );
+        }
+      )
+    );
   }
 }

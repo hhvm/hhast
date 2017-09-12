@@ -1,0 +1,7 @@
+[
+    {
+        "blame": "  \/**\n   * Set up stuff\n   *\/\n  <<HerpDerp>>\n  public function setUp(): void {\n  }\n",
+        "blame_pretty": "  \/**\n   * Set up stuff\n   *\/\n  <<HerpDerp>>\n  public function setUp(): void {",
+        "description": "Foo::setUp() overrides PHPUnit_Framework_TestCase::setUp() without <<__Override>>"
+    }
+]

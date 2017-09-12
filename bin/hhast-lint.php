@@ -145,7 +145,12 @@ final class LinterCLI {
           get_class($linter),
         );
 
-        $linter->fixLintErrors($errors);
+        // TODO: if multiple linters modify the same file, we currently
+        // have a problem
+        file_put_contents(
+          $file,
+          $linter->getCodeWithFixedLintErrors($errors),
+        );
       }
     }
   }

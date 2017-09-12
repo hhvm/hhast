@@ -20,7 +20,7 @@ interface AutoFixingLinter<Terror as FixableLintError> {
 
   public function getLintErrors(): Traversable<Terror>;
 
-  public function fixLintErrors(
+  public function getCodeWithFixedLintErrors(
     Traversable<Terror> $errors,
-  ): void;
+  ): string;
 }

@@ -21,24 +21,37 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase {
   protected function assertMatches(
     string $code,
     string $expect_file,
+    ?string $in_file = null,
   ): void {
     $expect_file = __DIR__.'/fixtures/'.$expect_file;
     $out_file = Str\strip_suffix($expect_file, '.expect').'.out';
-    $in_file = Str\strip_suffix($expect_file, '.expect').'.in';
+    $in_file = $in_file === null
+      ? Str\strip_suffix($expect_file, '.expect').'.in'
+      : __DIR__.'/fixtures/'.$in_file;
 
     file_put_contents(
       Str\strip_suffix($expect_file, '.expect').'.out',
       $code,
     );
     if (!file_exists($expect_file)) {
-      printf("\n===== NEW TEST: %s =====\n", $expect_file);
-      printf("----- %s -----\n", $in_file);
-      print(file_get_contents($in_file));
-      printf("----- %s -----\n", $out_file);
-      print($code);
-      print("----- END -----\n");
+      fprintf(STDERR, "\n===== NEW TEST: %s =====\n", $expect_file);
+      fprintf(STDERR, "----- %s -----\n", $in_file);
+      fwrite(STDERR, file_get_contents($in_file));
+      fprintf(STDERR, "----- %s -----\n", $out_file);
+      fwrite(STDERR, $code);
+      fwrite(STDERR, "----- END -----\n");
 
-      $this->markTestIncomplete($expect_file.' does not exist');
+      $recorded = false;
+      if (posix_isatty(STDIN) && posix_isatty(STDERR)) {
+        fprintf(STDERR, "Would you like to save this output? [y/N] ");
+        $response = Str\trim(fgets(STDIN));
+        if ($response === 'y') {
+          file_put_contents($expect_file, $code);
+          $recorded = true;
+        }
+      } else {
+        $this->markTestIncomplete($expect_file.' does not exist');
+      }
     }
     expect($code)->toBeSame(file_get_contents($expect_file));
   }
