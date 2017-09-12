@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<12ab5c232372b3be16b4f2da6654ca86>>
+ * @generated SignedSource<<0d4d4074a8035f1818645bb292f64b61>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -40,7 +40,7 @@ final class XHPRequired extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'at' => $this->_at;
     yield 'keyword' => $this->_keyword;
   }

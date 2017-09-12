@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fd7497d6fbd060907c30b15cfc00050a>>
+ * @generated SignedSource<<3a8a5ecd0210b2bfa6c745a0273c837b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -96,7 +96,7 @@ final class DoStatement extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'keyword' => $this->_keyword;
     yield 'body' => $this->_body;
     yield 'while_keyword' => $this->_while_keyword;

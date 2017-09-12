@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5a034cf14feb6efe6aa485b9c2c68a1d>>
+ * @generated SignedSource<<08939bc3b5d5d2a98ed673887b0a11c4>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -52,7 +52,7 @@ final class ContinueStatement extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'keyword' => $this->_keyword;
     yield 'level' => $this->_level;
     yield 'semicolon' => $this->_semicolon;

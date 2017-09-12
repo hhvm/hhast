@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e8e5b9a4db603bc05fa5d6a1ccbe8ce9>>
+ * @generated SignedSource<<534d25466946ff19ae59321a18d6e176>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -52,7 +52,7 @@ final class TupleTypeSpecifier extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'left_paren' => $this->_left_paren;
     yield 'types' => $this->_types;
     yield 'right_paren' => $this->_right_paren;

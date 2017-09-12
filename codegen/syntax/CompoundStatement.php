@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<22c12f4099f0aa9b62ab21b0171c7b5b>>
+ * @generated SignedSource<<c1d3816c8461d54112e3d3ee40124378>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -52,7 +52,7 @@ final class CompoundStatement extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'left_brace' => $this->_left_brace;
     yield 'statements' => $this->_statements;
     yield 'right_brace' => $this->_right_brace;

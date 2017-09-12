@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6b2ad69589f5ca4af992beb243edfa7d>>
+ * @generated SignedSource<<c53d05347be200e633dd8a14ed979d9c>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -61,7 +61,7 @@ final class FunctionCallExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'receiver' => $this->_receiver;
     yield 'left_paren' => $this->_left_paren;
     yield 'argument_list' => $this->_argument_list;

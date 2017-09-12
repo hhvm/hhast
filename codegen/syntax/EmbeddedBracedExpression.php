@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<65996e4e970b425417cd346b9fcfbc95>>
+ * @generated SignedSource<<d631fc0e3b0fd3d213ae83778bd9952a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -52,7 +52,7 @@ final class EmbeddedBracedExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'left_brace' => $this->_left_brace;
     yield 'expression' => $this->_expression;
     yield 'right_brace' => $this->_right_brace;

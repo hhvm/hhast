@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<87d186d3b028b7a6adca0c996cc02fb9>>
+ * @generated SignedSource<<5e6779833f0b80191b59c0c04c6db3fc>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -52,7 +52,7 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'aliasing_name' => $this->_aliasing_name;
     yield 'aliasing_keyword' => $this->_aliasing_keyword;
     yield 'aliased_names' => $this->_aliased_names;

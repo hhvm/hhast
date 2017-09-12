@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<17cb1e4cf297561bae7f50a04fb75fd7>>
+ * @generated SignedSource<<3bc83cc985a0c72719422840c4177288>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -40,7 +40,7 @@ final class ListItem extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'item' => $this->_item;
     yield 'separator' => $this->_separator;
   }

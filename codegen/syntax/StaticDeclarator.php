@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2c59c83ba90d69ac01ea3f013348785c>>
+ * @generated SignedSource<<f45c3a68e07bd3692a4c32aac0319d76>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -43,7 +43,7 @@ final class StaticDeclarator extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'name' => $this->_name;
     yield 'initializer' => $this->_initializer;
   }

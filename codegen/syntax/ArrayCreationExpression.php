@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<81f647afd33f5d4df65364dfd150023e>>
+ * @generated SignedSource<<0a9a3e0dd173a64a0036bb87935ac7ef>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -52,7 +52,7 @@ final class ArrayCreationExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'left_bracket' => $this->_left_bracket;
     yield 'members' => $this->_members;
     yield 'right_bracket' => $this->_right_bracket;

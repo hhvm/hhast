@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dbb1a4477309577d235158f6d1d2865e>>
+ * @generated SignedSource<<a1c324f7b43618072dc41934f81a7e3f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -76,7 +76,7 @@ final class ElseifClause extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'keyword' => $this->_keyword;
     yield 'left_paren' => $this->_left_paren;
     yield 'condition' => $this->_condition;

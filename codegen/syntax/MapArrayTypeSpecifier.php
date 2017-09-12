@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ff8f9ad5daea1070cd76ae61248583ed>>
+ * @generated SignedSource<<19bdd1e02662c49134ed55c47cf0824e>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -79,7 +79,7 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'keyword' => $this->_keyword;
     yield 'left_angle' => $this->_left_angle;
     yield 'key' => $this->_key;

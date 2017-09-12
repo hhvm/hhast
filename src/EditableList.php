@@ -33,7 +33,7 @@ final class EditableList extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     $i = 0;
     foreach ($this->_children as $child) {
       yield (string) $i => $child;
@@ -92,14 +92,14 @@ final class EditableList extends EditableSyntax {
     $new_children = vec[];
     $new_parents = $parents;
     $new_parents[] = $this;
-    foreach ($this->children() as $child) {
+    foreach ($this->getChildren() as $child) {
       $new_child = $child->rewrite($rewriter, $new_parents);
       if ($new_child !== $child) {
         $dirty = true;
       }
       if ($new_child !== null && !$new_child->is_missing()) {
         if ($new_child->is_list()) {
-          foreach ($new_child->children() as $n)
+          foreach ($new_child->getChildren() as $n)
             array_push($new_children, $n);
         } else
           array_push($new_children, $new_child);

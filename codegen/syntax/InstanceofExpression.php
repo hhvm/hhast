@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1cac7c0ba5ef6c0b40aa6d4e6b1321c8>>
+ * @generated SignedSource<<ae7d963bd29b777c3357eba69886e89b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -52,7 +52,7 @@ final class InstanceofExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'left_operand' => $this->_left_operand;
     yield 'operator' => $this->_operator;
     yield 'right_operand' => $this->_right_operand;

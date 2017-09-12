@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<df9584c54e0b5afd33c575e7ac4b3ee2>>
+ * @generated SignedSource<<e4bb267d7a816685d456b94364b2560d>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -76,7 +76,7 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'keyword' => $this->_keyword;
     yield 'left_angle' => $this->_left_angle;
     yield 'type' => $this->_type;

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b7622c057f9a1967ba5ed28dd079bbc6>>
+ * @generated SignedSource<<40294760d814a5305c71a54483efd225>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -61,7 +61,7 @@ final class TupleExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'keyword' => $this->_keyword;
     yield 'left_paren' => $this->_left_paren;
     yield 'items' => $this->_items;

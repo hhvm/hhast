@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0f029d307c054f341d085ff12e771878>>
+ * @generated SignedSource<<49137d79322dac540282a419ec8debfd>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -126,7 +126,7 @@ final class ClassishDeclaration extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'attribute' => $this->_attribute;
     yield 'modifiers' => $this->_modifiers;
     yield 'keyword' => $this->_keyword;

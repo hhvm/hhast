@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<979a3f3aa47bd6cf30b54e74538b26f6>>
+ * @generated SignedSource<<4ec32a8c4936c5fbfc3bca3b6be3d32e>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -40,7 +40,7 @@ final class SoftTypeSpecifier extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'at' => $this->_at;
     yield 'type' => $this->_type;
   }

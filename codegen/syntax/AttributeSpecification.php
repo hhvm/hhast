@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<450e02db21e7c5d6fad1b820423cc8cf>>
+ * @generated SignedSource<<c9e2dfc0f63cf66faf683925bbfc0d69>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -52,7 +52,7 @@ final class AttributeSpecification extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'left_double_angle' => $this->_left_double_angle;
     yield 'attributes' => $this->_attributes;
     yield 'right_double_angle' => $this->_right_double_angle;

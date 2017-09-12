@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<54f0db729652d5a7cdecfa50042d9008>>
+ * @generated SignedSource<<7834ec4831207f7c07da7ff96f5b3d6d>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -76,7 +76,7 @@ final class VectorTypeSpecifier extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'keyword' => $this->_keyword;
     yield 'left_angle' => $this->_left_angle;
     yield 'type' => $this->_type;

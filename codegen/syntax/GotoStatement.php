@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f61a8949e139e1dd94425c3187cf80a4>>
+ * @generated SignedSource<<669dd393890d942b3cdc154c27c6cc10>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -52,7 +52,7 @@ final class GotoStatement extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'keyword' => $this->_keyword;
     yield 'label_name' => $this->_label_name;
     yield 'semicolon' => $this->_semicolon;

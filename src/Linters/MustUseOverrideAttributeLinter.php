@@ -46,7 +46,7 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
       return null;
     }
 
-    $super = C\onlyx($class->getExtendsListx()->children());
+    $super = C\onlyx($class->getExtendsListx()->getChildren());
     if ($super instanceof GenericTypeSpecifier) {
       $super = $super->getClassType();
     }
@@ -151,7 +151,7 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
           new HHAST\GreaterThanGreaterThanToken(
             HHAST\Missing(),
             Str\contains(
-              C\lastx($first_token->getLeading()->children())->full_text(),
+              C\lastx($first_token->getLeading()->getChildren())->full_text(),
               "\n",
             ) ?  HHAST\Missing() : new HHAST\WhiteSpace("\n"),
           ),
@@ -159,7 +159,7 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
       )->rewrite_children(
         ($n, $_) ==> $n === $first_token
           ? $first_token->withLeading(
-            C\lastx($first_token->getLeading()->children())
+            C\lastx($first_token->getLeading()->getChildren())
           )
           : $n
       );

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<26e5fcb80414cf1609f8fc83f1301a69>>
+ * @generated SignedSource<<8f69de783f76f94142928d8e3e0b8857>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -43,7 +43,7 @@ final class PrefixUnaryExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'operator' => $this->_operator;
     yield 'operand' => $this->_operand;
   }

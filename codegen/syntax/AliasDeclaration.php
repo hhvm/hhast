@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<710ff8099b2b89f43919100f87684495>>
+ * @generated SignedSource<<e5301aa7a3e40ef9f75fd056543fafa2>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -106,7 +106,7 @@ final class AliasDeclaration extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'attribute_spec' => $this->_attribute_spec;
     yield 'keyword' => $this->_keyword;
     yield 'name' => $this->_name;

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<941f78972006d628fb5e55cf961b3bbf>>
+ * @generated SignedSource<<a0bc8a9fc5dcd0a3f5b5ce4ac87ec411>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -76,7 +76,7 @@ final class ConstDeclaration extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'abstract' => $this->_abstract;
     yield 'keyword' => $this->_keyword;
     yield 'type_specifier' => $this->_type_specifier;

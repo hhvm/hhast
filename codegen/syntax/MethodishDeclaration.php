@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d6038fb531e32fbfb389b224921cef90>>
+ * @generated SignedSource<<bf8d14f65ff5b4de57543537986fe1d1>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -76,7 +76,7 @@ final class MethodishDeclaration extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'attribute' => $this->_attribute;
     yield 'modifiers' => $this->_modifiers;
     yield 'function_decl_header' => $this->_function_decl_header;

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ec74b37f3e6589ad2b66c9487e2ed23f>>
+ * @generated SignedSource<<f4d60ecd05259a307c84e23578f7c49b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -61,7 +61,7 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'keyword' => $this->_keyword;
     yield 'left_bracket' => $this->_left_bracket;
     yield 'members' => $this->_members;

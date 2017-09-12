@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2896db0d4a30e2c7e07baa79891a8c96>>
+ * @generated SignedSource<<e0757f89ff97846c6feb3a124d391530>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -96,7 +96,7 @@ final class SwitchStatement extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'keyword' => $this->_keyword;
     yield 'left_paren' => $this->_left_paren;
     yield 'expression' => $this->_expression;

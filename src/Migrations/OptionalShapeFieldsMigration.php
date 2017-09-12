@@ -57,7 +57,7 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
       return $shape;
     }
 
-    $last_field = C\lastx($fields->children())
+    $last_field = C\lastx($fields->getChildren())
       |> TypeAssert::isInstanceOf(HHAST\ListItem::class, $$);
 
     if ($last_field->hasSeparator()) {
@@ -110,7 +110,7 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
         Str\contains($shape->full_text(), "\n")
           ? $first_field->getFirstTokenx()->getLeading()
           : new HHAST\WhiteSpace(' '),
-        C\lastx($shape->getFieldsx()->children())
+        C\lastx($shape->getFieldsx()->getChildren())
           ->getLastTokenx()
           ->getTrailing(),
       ),

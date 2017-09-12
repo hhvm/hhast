@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0517f7ff1668641c75ab8bf5afb25813>>
+ * @generated SignedSource<<2a0a5ed1da82d85df9069ab83764f8b6>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -52,7 +52,7 @@ final class XHPExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'open' => $this->_open;
     yield 'body' => $this->_body;
     yield 'close' => $this->_close;

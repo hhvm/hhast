@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1392d9e8d1020c84a688f4174847ca4f>>
+ * @generated SignedSource<<5caa35f5e7fd1ee3126dfeed06d86255>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -52,7 +52,7 @@ final class WhereConstraint extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'left_type' => $this->_left_type;
     yield 'operator' => $this->_operator;
     yield 'right_type' => $this->_right_type;

@@ -53,7 +53,7 @@ abstract class EditableToken extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'leading' => $this->getLeading();
     yield 'trailing' => $this->getTrailing();
   }

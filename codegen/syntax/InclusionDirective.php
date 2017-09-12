@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7b3e714ce243e77d2a300c01a26c9813>>
+ * @generated SignedSource<<f447a7ef455d1df26f5d5e62407f27f4>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -43,7 +43,7 @@ final class InclusionDirective extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'expression' => $this->_expression;
     yield 'semicolon' => $this->_semicolon;
   }

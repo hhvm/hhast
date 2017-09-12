@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<719a0295bbe0aadf40dfc2a12ecf88b4>>
+ * @generated SignedSource<<eb3576a2e737852dfa4c734a99cc94a3>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -96,7 +96,7 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'keyword' => $this->_keyword;
     yield 'kind' => $this->_kind;
     yield 'prefix' => $this->_prefix;

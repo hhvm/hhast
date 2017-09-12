@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<da5dd0558c132c657ce39e031815f8c1>>
+ * @generated SignedSource<<89d9eca9851956899685a95cd24cea2c>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -52,7 +52,7 @@ final class ClassishBody extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'left_brace' => $this->_left_brace;
     yield 'elements' => $this->_elements;
     yield 'right_brace' => $this->_right_brace;

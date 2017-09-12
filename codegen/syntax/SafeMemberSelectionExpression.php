@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d1d3f1d35a41168104546c806bfd5f77>>
+ * @generated SignedSource<<676330847ab5c6c15c86cfc45ab60adb>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -52,7 +52,7 @@ final class SafeMemberSelectionExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'object' => $this->_object;
     yield 'operator' => $this->_operator;
     yield 'name' => $this->_name;

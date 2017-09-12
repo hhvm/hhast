@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e3848ad1aa9a20f59a17d18c85f0e36f>>
+ * @generated SignedSource<<8e2ef977f8786f4a6eecbe8b534292ca>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -70,7 +70,7 @@ final class ConditionalExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'test' => $this->_test;
     yield 'question' => $this->_question;
     yield 'consequence' => $this->_consequence;

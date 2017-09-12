@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f6a45b9c5508059401dce4571edfde32>>
+ * @generated SignedSource<<da17e4c1a8ded2855e0ea7cdf665b435>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -61,7 +61,7 @@ final class XHPOpen extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'left_angle' => $this->_left_angle;
     yield 'name' => $this->_name;
     yield 'attributes' => $this->_attributes;

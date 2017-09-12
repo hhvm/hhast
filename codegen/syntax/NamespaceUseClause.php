@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<31d82558ef030e787027652794b1eceb>>
+ * @generated SignedSource<<7d28de9fe281d31619437dd16c8f7b51>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -61,7 +61,7 @@ final class NamespaceUseClause extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'clause_kind' => $this->_clause_kind;
     yield 'name' => $this->_name;
     yield 'as' => $this->_as;

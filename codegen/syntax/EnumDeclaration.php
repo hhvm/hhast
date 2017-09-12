@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<71d3571cf17c96558633ba655e56046b>>
+ * @generated SignedSource<<6513311bcd1c1ff4df26a7f3f4a5d996>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -116,7 +116,7 @@ final class EnumDeclaration extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'attribute_spec' => $this->_attribute_spec;
     yield 'keyword' => $this->_keyword;
     yield 'name' => $this->_name;

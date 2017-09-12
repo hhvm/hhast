@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3b6c98a4df1f78e566a7bb5b2a344947>>
+ * @generated SignedSource<<99c9d04cf5b0cf62cfbf049c7add8d71>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -43,7 +43,7 @@ final class InclusionExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'require' => $this->_require;
     yield 'filename' => $this->_filename;
   }

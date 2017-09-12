@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a58d02511b7dec2a556bf691cc182021>>
+ * @generated SignedSource<<acacb0a2791a4fc4da8262c5374f69bb>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -116,7 +116,7 @@ final class ClosureTypeSpecifier extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'outer_left_paren' => $this->_outer_left_paren;
     yield 'coroutine' => $this->_coroutine;
     yield 'function_keyword' => $this->_function_keyword;

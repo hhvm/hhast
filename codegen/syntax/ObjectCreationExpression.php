@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1810b4e168cfe165bbc2d8e5f979a216>>
+ * @generated SignedSource<<c2506c8ceea083119b699139ff8d3f48>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -76,7 +76,7 @@ final class ObjectCreationExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'new_keyword' => $this->_new_keyword;
     yield 'type' => $this->_type;
     yield 'left_paren' => $this->_left_paren;

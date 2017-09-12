@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<716ee37883e65527e708c82b83880df7>>
+ * @generated SignedSource<<d0a61d77324fe8a600c05fc616720b3a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -136,7 +136,7 @@ final class AnonymousFunction extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'static_keyword' => $this->_static_keyword;
     yield 'async_keyword' => $this->_async_keyword;
     yield 'coroutine_keyword' => $this->_coroutine_keyword;

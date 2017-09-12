@@ -169,7 +169,7 @@ final class RewriteBehaviorTest extends TestCase {
         return $shape->withFields(
           new HHAST\EditableList(
             Vec\map(
-              $shape->getFieldsx()->children(),
+              $shape->getFieldsx()->getChildren(),
               $field ==> {
                 if ($field instanceof HHAST\ListItem) {
                   $field = $field->getItem();

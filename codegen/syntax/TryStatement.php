@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<032bde3c0523499cef45af5da6463005>>
+ * @generated SignedSource<<446e34968502c202b1da0515acf3aafc>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -66,7 +66,7 @@ final class TryStatement extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'keyword' => $this->_keyword;
     yield 'compound_statement' => $this->_compound_statement;
     yield 'catch_clauses' => $this->_catch_clauses;

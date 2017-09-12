@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f55d50c92eb13cfcfced73d6886b98a2>>
+ * @generated SignedSource<<1ba7a2e5ba02f5edccd50463f7ae3fb4>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -43,7 +43,7 @@ final class GenericTypeSpecifier extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'class_type' => $this->_class_type;
     yield 'argument_list' => $this->_argument_list;
   }

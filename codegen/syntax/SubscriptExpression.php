@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b6a937963635d74d75d60c0013b1238c>>
+ * @generated SignedSource<<b101418150f788432a5c3f1f22d5842a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -61,7 +61,7 @@ final class SubscriptExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'receiver' => $this->_receiver;
     yield 'left_bracket' => $this->_left_bracket;
     yield 'index' => $this->_index;

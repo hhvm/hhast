@@ -25,16 +25,17 @@ abstract class EditableSyntax {
     $this->_syntax_kind = $syntax_kind;
   }
 
-  public function syntax_kind(): string {
+  public function getSyntaxKind(): string {
     return $this->_syntax_kind;
   }
 
-  public abstract function children(): KeyedTraversable<string, EditableSyntax>;
+  public abstract function getChildren(
+  ): KeyedTraversable<string, EditableSyntax>;
 
   final public function children_of_class<T as EditableSyntax>(
     classname<T> $what,
   ): KeyedTraversable<string, T> {
-    foreach ($this->children() as $k => $node) {
+    foreach ($this->getChildren() as $k => $node) {
       if ($node instanceof $what) {
         yield $k => $node;
       }
@@ -43,7 +44,7 @@ abstract class EditableSyntax {
 
   public function preorder(): Traversable<EditableSyntax> {
     yield $this;
-    foreach ($this->children() as $child)
+    foreach ($this->getChildren() as $child)
       foreach ($child->preorder() as $descendant)
         yield $descendant;
   }
@@ -54,7 +55,7 @@ abstract class EditableSyntax {
     $new_parents = $parents;
     array_push($new_parents, $this);
     yield tuple($this, $parents);
-    foreach ($this->children() as $child)
+    foreach ($this->getChildren() as $child)
       foreach ($child->_parented_preorder($new_parents) as $descendant)
         yield $descendant;
   }
@@ -65,7 +66,7 @@ abstract class EditableSyntax {
   }
 
   public function postorder(): Traversable<EditableSyntax> {
-    foreach ($this->children() as $child)
+    foreach ($this->getChildren() as $child)
       foreach ($child->preorder() as $descendant)
         yield $descendant;
     yield $this;
@@ -91,7 +92,7 @@ abstract class EditableSyntax {
     if ($this->_width === null) {
       $width = 0;
       /* TODO: Make an accumulation sequence operator */
-      foreach ($this->children() as $node) {
+      foreach ($this->getChildren() as $node) {
         $width += $node->width();
       }
       $this->_width = $width;
@@ -104,7 +105,7 @@ abstract class EditableSyntax {
   public function full_text(): string {
     /* TODO: Make an accumulation sequence operator */
     $s = '';
-    foreach ($this->children() as $node) {
+    foreach ($this->getChildren() as $node) {
       $s .= $node->full_text();
     }
     return $s;
@@ -133,7 +134,7 @@ abstract class EditableSyntax {
   ): TAccumulator {
     $new_parents = $parents ?? [];
     array_push($new_parents, $this);
-    foreach ($this->children() as $child) {
+    foreach ($this->getChildren() as $child) {
       $accumulator = $child->reduce($reducer, $accumulator, $new_parents);
     }
     return $reducer($this, $accumulator, $parents ?? []);
@@ -149,7 +150,7 @@ abstract class EditableSyntax {
     array_push($new_parents, $this);
     if ($predicate($this))
       return $new_parents;
-    foreach ($this->children() as $child) {
+    foreach ($this->getChildren() as $child) {
       $result = $child->find_with_parents($predicate, $new_parents);
       if (count($result) != 0)
         return $result;
@@ -171,7 +172,7 @@ abstract class EditableSyntax {
 
   public function of_syntax_kind(string $kind): Traversable<EditableSyntax> {
     foreach ($this->preorder() as $child)
-      if ($child->syntax_kind() === $kind)
+      if ($child->getSyntaxKind() === $kind)
         yield $child;
   }
 
@@ -213,7 +214,7 @@ abstract class EditableSyntax {
   }
 
   public function getFirstToken(): ?EditableToken {
-    foreach ($this->children() as $child) {
+    foreach ($this->getChildren() as $child) {
       if (!$child->is_missing())
         return $child->getFirstToken();
     }
@@ -225,7 +226,7 @@ abstract class EditableSyntax {
   }
 
   public function getLastToken(): ?EditableToken {
-    foreach (Vec\reverse($this->children()) as $child) {
+    foreach (Vec\reverse($this->getChildren()) as $child) {
       if (!$child->is_missing()) {
         return $child->getLastToken();
       }

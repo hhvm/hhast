@@ -230,7 +230,7 @@ final class CodegenSyntax extends CodegenBase {
     $cg = $this->getCodegenFactory();
 
     return $cg
-      ->codegenMethod('children')
+      ->codegenMethod('getChildren')
       ->setIsOverride()
       ->setReturnType('KeyedTraversable<string, EditableSyntax>')
       ->setBody(

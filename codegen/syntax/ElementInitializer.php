@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<92db9f9bf2c9cec16e520ef89c31825b>>
+ * @generated SignedSource<<69217445476d5d9d3efdf08cf84d880b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -52,7 +52,7 @@ final class ElementInitializer extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'key' => $this->_key;
     yield 'arrow' => $this->_arrow;
     yield 'value' => $this->_value;

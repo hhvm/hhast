@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dada7c633921079aefc53592c62771df>>
+ * @generated SignedSource<<b13b9345e24ab38fac9f1f986f218a27>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -43,7 +43,7 @@ final class PostfixUnaryExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'operand' => $this->_operand;
     yield 'operator' => $this->_operator;
   }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f8be9530a1829795a50949160ca3e9fa>>
+ * @generated SignedSource<<910b6aec5bb06469e6f36e495851d6ed>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -43,7 +43,7 @@ final class DecoratedExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'decorator' => $this->_decorator;
     yield 'expression' => $this->_expression;
   }

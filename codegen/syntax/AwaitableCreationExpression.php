@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<94276901d884ae85b3fca4ada28dca0c>>
+ * @generated SignedSource<<fce8e34806e9b2c80cbbdc29ab5998dc>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -52,7 +52,7 @@ final class AwaitableCreationExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'async' => $this->_async;
     yield 'coroutine' => $this->_coroutine;
     yield 'compound_statement' => $this->_compound_statement;

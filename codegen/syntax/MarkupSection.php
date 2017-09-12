@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1561d8fc84bbe9caefc85d72dfe5aaf8>>
+ * @generated SignedSource<<05db8782108d77509180fe2e48c48c68>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -61,7 +61,7 @@ final class MarkupSection extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'prefix' => $this->_prefix;
     yield 'text' => $this->_text;
     yield 'suffix' => $this->_suffix;

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c1f917ca70d81b3afaabfc57a142fcd7>>
+ * @generated SignedSource<<7f8a56afdd1be1ac021ad5c798cc2c5a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -43,7 +43,7 @@ final class MarkupSuffix extends EditableSyntax {
   }
 
   <<__Override>>
-  public function children(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
     yield 'less_than_question' => $this->_less_than_question;
     yield 'name' => $this->_name;
   }
