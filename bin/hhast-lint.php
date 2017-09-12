@@ -131,11 +131,43 @@ final class LinterCLI {
     printf(
       "  Code:\n".
       "%s\n".
-      "  Suggestion:\n".
+      "  Suggested fix:\n".
       "%s\n",
       $prefix_lines($old, '  -'),
       $prefix_lines($new, '  +'),
     );
+
+    if (!(posix_isatty(STDIN) && posix_isatty(STDOUT))) {
+      return;
+    }
+
+    $response = null;
+    do {
+      print(
+        "Would you like to apply this fix?\n".
+        "  [y]es/[N]o: "
+      );
+      $response = fgets(STDIN);
+      if ($response === false) {
+        return;
+      }
+      $response = Str\trim($response);
+      switch ($response) {
+        case 'y':
+          $error->applyFix();
+          return;
+        case 'n':
+        case '':
+          return;
+        default:
+          fprintf(
+            STDERR,
+            "'%s' is not a valid response.\n",
+            $response,
+          );
+          $response = null;
+      }
+    } while ($response === null);
   }
 
   private static function renderLintBlame(

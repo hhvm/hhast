@@ -37,7 +37,6 @@ class ASTLintError<
   }
 
   final public function isFixable(): bool {
-    var_dump('checking fixabliity');
     return $this->linter instanceof AutoFixingASTLinter;
   }
 

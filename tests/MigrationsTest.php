@@ -69,11 +69,6 @@ final class MigrationsTest extends TestCase {
       $migration,
     );
 
-    // Equivalent to asserting the objects are the same, but gives useful output
-    // if they differ
-    if ($rewrite($ast) !== $ast) {
-    //  var_dump("\n", $ast, $rewrite($ast));
-    }
     expect($rewrite($ast))->toBeSame(
       $ast,
       'Step "%s" in %s is not object-idempotent',
@@ -127,8 +122,6 @@ final class MigrationsTest extends TestCase {
       $ast,
       'Migrating the AST twice should get you an equal AST object',
     );
-
-    //var_dump("\n", $ast, $migration->migrateAst($ast));
 
     expect(
       $migration->migrateAst($ast),
