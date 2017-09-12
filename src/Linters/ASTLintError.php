@@ -17,7 +17,8 @@ use type Facebook\HHAST\EditableSyntax;
 class ASTLintError<
   Tnode as EditableSyntax,
   Tlinter as ASTLinter<Tnode>
-> extends LintError {
+> extends LintError implements FixableLintError {
+
   public function __construct(
     protected Tlinter $linter,
     string $description,
@@ -30,7 +31,41 @@ class ASTLintError<
     return $this->node->full_text();
   }
 
+  <<__Memoize>>
   final public function getPrettyBlameCode(): string {
-    return $this->linter->getPrettyNodeForBlame($this->node)->full_text();
+    return $this->linter->getPrettyNode($this->node)->full_text();
+  }
+
+  final public function isFixable(): bool {
+    var_dump('checking fixabliity');
+    return $this->linter instanceof AutoFixingASTLinter;
+  }
+
+  final public function getReadableFix(): (string, string) {
+    $linter = $this->linter;
+    invariant(
+      $linter instanceof AutoFixingASTLinter,
+      "Can't render fix for unfixable lint error",
+    );
+    return tuple(
+      $this->getPrettyBlameCode(),
+      $linter->getPrettyNode(
+        $linter->getFixedNode($this->node),
+      )->full_text(),
+    );
+  }
+
+  final public function applyFix(): void {
+    $linter = $this->linter;
+    invariant(
+      $linter instanceof AutoFixingASTLinter,
+      "Can't render fix for unfixable lint error",
+    );
+    $old = $this->node;
+    $new = $linter->getFixedNode($old);
+
+    $new_ast = $linter->getAST()->replace($new, $old);
+
+    file_put_contents($linter->getFile(), $new_ast->full_text());
   }
 }

@@ -98,25 +98,65 @@ final class LinterCLI {
         $error->getDescription(),
         $error->getFile(),
       );
-      $blame = $error->getPrettyBlameCode();
-      if ($blame === null) {
-        continue;
+      if ($error instanceof Linters\FixableLintError && $error->isFixable()) {
+        var_dump('proposing fix');
+        self::proposeLintFix($error);
+      } else {
+        var_dump('not fixable');
+        self::renderLintBlame($error);
       }
-      printf(
-        "  Code:\n%s\n",
-        explode("\n", $blame)
-        |> Vec\map(
-          $$,
-          $line ==> '  > '.$line,
-        )
-        |> implode("\n", $$),
-      );
     }
 
     if ($had_errors) {
       exit(2);
     }
     print("No errors.\n");
+  }
+
+  private static function proposeLintFix(
+    Linters\FixableLintError $error,
+  ): void {
+    list($old, $new) = $error->getReadableFix();
+    if ($old === $new) {
+      var_dump('no change!');
+      self::renderLintBlame($error);
+      return;
+    }
+
+    $prefix_lines = ($code, $prefix) ==>
+      explode("\n", $code)
+      |> Vec\map(
+        $$,
+        $line ==> $prefix.$line,
+      )
+      |> implode("\n", $$);
+
+    printf(
+      "  Code:\n".
+      "%s\n".
+      "  Suggestion:\n".
+      "%s\n",
+      $prefix_lines($old, '  - '),
+      $prefix_lines($new, '  + '),
+    );
+  }
+
+  private static function renderLintBlame(
+    Linters\LintError $error,
+  ): void {
+    $blame = $error->getPrettyBlameCode();
+    if ($blame === null) {
+      return;
+    }
+    printf(
+      "  Code:\n%s\n",
+      explode("\n", $blame)
+      |> Vec\map(
+        $$,
+        $line ==> '  > '.$line,
+      )
+      |> implode("\n", $$),
+    );
   }
 }
 

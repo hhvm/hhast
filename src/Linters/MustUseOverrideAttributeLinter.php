@@ -14,6 +14,7 @@ namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
   Attribute,
+  AttributeSpecification,
   ClassishDeclaration,
   ClassToken,
   EditableSyntax,
@@ -26,7 +27,9 @@ use function Facebook\HHAST\__Private\Resolution\resolve_type;
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
 
-class MustUseOverrideAttributeLinter extends ASTLinter<MethodishDeclaration> {
+class MustUseOverrideAttributeLinter
+extends ASTLinter<MethodishDeclaration>
+implements AutoFixingASTLinter<MethodishDeclaration> {
   protected static function getTargetType(): classname<MethodishDeclaration> {
     return MethodishDeclaration::class;
   }
@@ -103,7 +106,7 @@ class MustUseOverrideAttributeLinter extends ASTLinter<MethodishDeclaration> {
     return C\contains($attrs, '__Override');
   }
 
-  public function getPrettyNodeForBlame(
+  public function getPrettyNode(
     MethodishDeclaration $node,
   ): MethodishDeclaration {
     $body = $node->getFunctionBody();
@@ -117,5 +120,32 @@ class MustUseOverrideAttributeLinter extends ASTLinter<MethodishDeclaration> {
         ->withRightBrace(HHAST\Missing())
         ->withLeftBrace($body->getLeftBracex()->withTrailing(HHAST\Missing()))
     );
+  }
+
+  public function getFixedNode(
+    MethodishDeclaration $node,
+  ): MethodishDeclaration {
+    $attrs = $node->getAttribute();
+    if ($attrs === null) {
+      return $node->withAttribute(
+        new AttributeSpecification(
+          new HHAST\LessThanLessThanToken(
+            $node->getFirstTokenx()->getLeading(),
+            HHAST\Missing(),
+          ),
+          new HHAST\Attribute(
+            new HHAST\NameToken(HHAST\Missing(), HHAST\Missing(), '__Override'),
+            HHAST\Missing(),
+            HHAST\Missing(),
+            HHAST\Missing(),
+          ),
+          new HHAST\GreaterThanGreaterThanToken(
+            HHAST\Missing(),
+            HHAST\Missing(),
+          ),
+        ),
+      );
+    }
+    return $node;
   }
 }
