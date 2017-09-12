@@ -37,10 +37,18 @@ final class CodegenTrivia extends CodegenBase {
           )
           ->addMethod(
             $cg
-              ->codegenMethod('with_text')
+              ->codegenMethod('withText')
               ->addParameter('string $text')
               ->setReturnType('this')
-              ->setBody('return new self($text);'),
+              ->setBody(
+                $cg
+                  ->codegenHackBuilder()
+                  ->startIfBlock('$text === $this->getText()')
+                  ->addReturnf('$this')
+                  ->endIfBlock()
+                  ->addReturnf('new self($text)')
+                  ->getCode()
+              )
           )
       );
     }

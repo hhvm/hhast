@@ -38,11 +38,11 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
     $name = $field->getName()->rightmost_tokenx();
     $field = $field->withQuestion(
       new HHAST\QuestionToken(
-        $name->leading(),
+        $name->getLeading(),
         HHAST\Missing(),
       ),
     )->withName(
-      $name->with_leading(HHAST\Missing()),
+      $name->withLeading(HHAST\Missing()),
     );
 
     return $node->withItem($field);
@@ -72,7 +72,7 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
         return $last_field->withSeparator(
           new HHAST\CommaToken(
             HHAST\Missing(),
-            $last_field->rightmost_tokenx()->trailing(),
+            $last_field->rightmost_tokenx()->getTrailing(),
           ),
         )
           ->withItem(
@@ -83,7 +83,7 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
                 }
                 return $last_field
                   ->rightmost_tokenx()
-                  ->with_trailing(HHAST\Missing());
+                  ->withTrailing(HHAST\Missing());
               },
             ),
           );
@@ -108,11 +108,11 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
     return $shape->withEllipsis(
       new HHAST\DotDotDotToken(
         Str\contains($shape->full_text(), "\n")
-          ? $first_field->leftmost_tokenx()->leading()
+          ? $first_field->leftmost_tokenx()->getLeading()
           : new HHAST\WhiteSpace(' '),
         C\lastx($shape->getFieldsx()->children())
           ->rightmost_tokenx()
-          ->trailing(),
+          ->getTrailing(),
       ),
     );
 

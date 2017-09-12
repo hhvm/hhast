@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<46441b4e7bb0daa4bcbc310d833ec37b>>
+ * @generated SignedSource<<fcc2c45600d8e6f2f24ea1a4bbdfb32a>>
  */
 namespace Facebook\HHAST;
 
@@ -17,32 +17,32 @@ final class StringLiteralBodyToken extends EditableToken {
   }
 
   public function hasLeading(): bool {
-    return !$this->leading()->is_missing();
+    return !$this->getLeading()->is_missing();
   }
 
-  public function with_leading(EditableSyntax $value): this {
-    if ($value === $this->leading()) {
+  public function withLeading(EditableSyntax $value): this {
+    if ($value === $this->getLeading()) {
       return $this;
     }
-    return new self($value, $this->trailing(), $this->text());
+    return new self($value, $this->getTrailing(), $this->getText());
   }
 
   public function hasTrailing(): bool {
-    return !$this->trailing()->is_missing();
+    return !$this->getTrailing()->is_missing();
   }
 
-  public function with_trailing(EditableSyntax $value): this {
-    if ($value === $this->trailing()) {
+  public function withTrailing(EditableSyntax $value): this {
+    if ($value === $this->getTrailing()) {
       return $this;
     }
-    return new self($this->leading(), $value, $this->text());
+    return new self($this->getLeading(), $value, $this->getText());
   }
 
-  public function with_text(string $value): this {
-    if ($value === $this->text()) {
+  public function withText(string $value): this {
+    if ($value === $this->getText()) {
       return $this;
     }
-    return new self($this->leading(), $this->trailing(), $value);
+    return new self($this->getLeading(), $this->getTrailing(), $value);
   }
 
   public function rewrite_children(
@@ -51,13 +51,13 @@ final class StringLiteralBodyToken extends EditableToken {
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
-    $leading = $this->leading()->rewrite($rewriter, $parents);
-    $trailing = $this->trailing()->rewrite($rewriter, $parents);
-    $text = $this->text();
+    $leading = $this->getLeading()->rewrite($rewriter, $parents);
+    $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
+    $text = $this->getText();
     if (
-      $leading === $this->leading() &&
-      $trailing === $this->trailing() &&
-      $text === $this->text()
+      $leading === $this->getLeading() &&
+      $trailing === $this->getTrailing() &&
+      $text === $this->getText()
     ) {
       return $this;
     }

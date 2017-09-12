@@ -252,8 +252,8 @@ abstract class EditableSyntax {
       // Inserting trivia before token is inserting to the right end of
       // the leading trivia.
       $new_leading =
-        EditableList::concatenate_lists($token->leading(), $new_node);
-      $new_token = $token->with_leading($new_leading);
+        EditableList::concatenate_lists($token->getLeading(), $new_node);
+      $new_token = $token->withLeading($new_leading);
       return $this->replace($new_token, $token);
     }
 
@@ -286,8 +286,8 @@ abstract class EditableSyntax {
       // Inserting trivia after token is inserting to the left end of
       // the trailing trivia.
       $new_trailing =
-        EditableList::concatenate_lists($new_node, $token->trailing());
-      $new_token = $token->with_trailing($new_trailing);
+        EditableList::concatenate_lists($new_node, $token->getTrailing());
+      $new_token = $token->withTrailing($new_trailing);
       return $this->replace($new_token, $token);
     }
 

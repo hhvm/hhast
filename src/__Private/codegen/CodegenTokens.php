@@ -165,13 +165,13 @@ final class CodegenTokens extends CodegenBase {
           ->codegenMethodf('has%s', $upper_camel)
           ->setReturnType('bool')
           ->setBodyf(
-            'return !$this->%s()->is_missing();',
-            $underscored,
+            'return !$this->get%s()->is_missing();',
+            $upper_camel,
           );
       }
 
       yield $cg
-        ->codegenMethodf('with_%s', $underscored)
+        ->codegenMethodf('with%s', $upper_camel)
         ->addParameterf(
           '%s $value',
           $field['type'],
@@ -179,7 +179,7 @@ final class CodegenTokens extends CodegenBase {
         ->setReturnType('this')
         ->setBody(
           $cg->codegenHackBuilder()
-            ->startIfBlockf('$value === $this->%s()', $underscored)
+            ->startIfBlockf('$value === $this->get%s()', $upper_camel)
             ->addReturnf('$this')
             ->endIfBlock()
             ->add('return ')
@@ -189,7 +189,7 @@ final class CodegenTokens extends CodegenBase {
                 $token['fields'],
                 $inner ==> $inner === $field
                   ? '$value'
-                  : '$this->'.$inner['name'].'()'
+                  : '$this->get'.self::upper_camel($inner['name']).'()'
               ),
             )
             ->getCode()
@@ -213,11 +213,15 @@ final class CodegenTokens extends CodegenBase {
             Vec\map(
               $token['fields'],
               $field ==> $field['type'] === 'string'
-                ? sprintf('$%s = $this->%s();', $field['name'], $field['name'])
+                ? sprintf(
+                  '$%s = $this->get%s();',
+                  $field['name'],
+                  self::upper_camel($field['name']),
+                )
                 : sprintf(
-                  '$%s = $this->%s()->rewrite($rewriter, $parents);',
+                  '$%s = $this->get%s()->rewrite($rewriter, $parents);',
                   $field['name'],
-                  $field['name'],
+                  self::upper_camel($field['name']),
                 )
             ),
           )
@@ -227,9 +231,9 @@ final class CodegenTokens extends CodegenBase {
             Vec\map(
               $token['fields'],
               $field ==> sprintf(
-                '$%s === $this->%s() &&',
+                '$%s === $this->get%s() &&',
                 $field['name'],
-                $field['name'],
+                self::upper_camel($field['name']),
               ),
             )
             |> (

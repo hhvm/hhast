@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<608489feead8b6c9022f9ecb95c549d7>>
+ * @generated SignedSource<<bebdbca761409e695b099e4426f054da>>
  */
 namespace Facebook\HHAST;
 
@@ -12,7 +12,10 @@ final class WhiteSpace extends EditableTrivia {
     parent::__construct('whitespace', $text);
   }
 
-  public function with_text(string $text): this {
+  public function withText(string $text): this {
+    if ($text === $this->getText()) {
+      return $this;
+    }
     return new self($text);
   }
 }
@@ -23,7 +26,10 @@ final class EndOfLine extends EditableTrivia {
     parent::__construct('end_of_line', $text);
   }
 
-  public function with_text(string $text): this {
+  public function withText(string $text): this {
+    if ($text === $this->getText()) {
+      return $this;
+    }
     return new self($text);
   }
 }
@@ -34,7 +40,10 @@ final class DelimitedComment extends EditableTrivia {
     parent::__construct('delimited_comment', $text);
   }
 
-  public function with_text(string $text): this {
+  public function withText(string $text): this {
+    if ($text === $this->getText()) {
+      return $this;
+    }
     return new self($text);
   }
 }
@@ -45,7 +54,10 @@ final class SingleLineComment extends EditableTrivia {
     parent::__construct('single_line_comment', $text);
   }
 
-  public function with_text(string $text): this {
+  public function withText(string $text): this {
+    if ($text === $this->getText()) {
+      return $this;
+    }
     return new self($text);
   }
 }
@@ -56,7 +68,10 @@ final class Unsafe extends EditableTrivia {
     parent::__construct('unsafe', $text);
   }
 
-  public function with_text(string $text): this {
+  public function withText(string $text): this {
+    if ($text === $this->getText()) {
+      return $this;
+    }
     return new self($text);
   }
 }
@@ -67,7 +82,10 @@ final class UnsafeExpression extends EditableTrivia {
     parent::__construct('unsafe_expression', $text);
   }
 
-  public function with_text(string $text): this {
+  public function withText(string $text): this {
+    if ($text === $this->getText()) {
+      return $this;
+    }
     return new self($text);
   }
 }
@@ -78,7 +96,10 @@ final class FixMe extends EditableTrivia {
     parent::__construct('fix_me', $text);
   }
 
-  public function with_text(string $text): this {
+  public function withText(string $text): this {
+    if ($text === $this->getText()) {
+      return $this;
+    }
     return new self($text);
   }
 }
@@ -89,7 +110,10 @@ final class IgnoreError extends EditableTrivia {
     parent::__construct('ignore_error', $text);
   }
 
-  public function with_text(string $text): this {
+  public function withText(string $text): this {
+    if ($text === $this->getText()) {
+      return $this;
+    }
     return new self($text);
   }
 }
@@ -100,7 +124,10 @@ final class FallThrough extends EditableTrivia {
     parent::__construct('fall_through', $text);
   }
 
-  public function with_text(string $text): this {
+  public function withText(string $text): this {
+    if ($text === $this->getText()) {
+      return $this;
+    }
     return new self($text);
   }
 }

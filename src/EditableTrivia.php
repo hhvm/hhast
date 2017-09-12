@@ -19,7 +19,7 @@ abstract class EditableTrivia extends EditableSyntax {
     $this->_text = $text;
   }
 
-  public function text(): string {
+  public function getText(): string {
     return $this->_text;
   }
 

@@ -91,7 +91,7 @@ final class RewriteBehaviorTest extends TestCase {
         if (!$x instanceof HHAST\SingleLineComment) {
           return $x;
         }
-        return $x->with_text('bar');
+        return $x->withText('bar');
       }
     );
 
@@ -116,7 +116,7 @@ final class RewriteBehaviorTest extends TestCase {
         if (!$node instanceof HHAST\DelimitedComment) {
           return $node;
         }
-        return $node->with_text('/* bar */');
+        return $node->withText('/* bar */');
       }
     );
 
@@ -147,7 +147,7 @@ final class RewriteBehaviorTest extends TestCase {
       |> expect($$)->toBeInstanceOf(HHAST\VariableToken::class);
 
 
-    expect($new->leading())
+    expect($new->getLeading())
       ->toBeInstanceOf(HHAST\Missing::class);
   }
 
@@ -186,8 +186,8 @@ final class RewriteBehaviorTest extends TestCase {
                 }
 
                 return $field->withName(
-                  $name->with_text(
-                    Str\slice($name->text(), 1, Str\length($name->text()) - 2)
+                  $name->withText(
+                    Str\slice($name->getText(), 1, Str\length($name->getText()) - 2)
                     |> sprintf("'%s_new'", $$),
                   ),
                 );

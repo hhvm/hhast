@@ -44,13 +44,13 @@ final class FixtureRewritingTest extends TestCase {
   public function testRewriteComments(): void {
     $rewriter = (HHAST\EditableSyntax $node, $_parents) ==> {
       if ($node instanceof HHAST\SingleLineComment) {
-        return $node->with_text('// blah blah blah');
+        return $node->withText('// blah blah blah');
       }
       if ($node instanceof HHAST\DelimitedComment) {
-        if (Str\contains($node->text(), 'Copyright')) {
+        if (Str\contains($node->getText(), 'Copyright')) {
           return $node;
         }
-        return $node->with_text('/* blah blah blah */');
+        return $node->withText('/* blah blah blah */');
       }
       return $node;
     };

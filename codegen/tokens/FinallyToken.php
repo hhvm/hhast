@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e9c5c4dcc18eb94ecd07ca347d6ed50a>>
+ * @generated SignedSource<<191d04ee1ded916768c255b94f1c097a>>
  */
 namespace Facebook\HHAST;
 
@@ -16,25 +16,25 @@ final class FinallyToken extends EditableToken {
   }
 
   public function hasLeading(): bool {
-    return !$this->leading()->is_missing();
+    return !$this->getLeading()->is_missing();
   }
 
-  public function with_leading(EditableSyntax $value): this {
-    if ($value === $this->leading()) {
+  public function withLeading(EditableSyntax $value): this {
+    if ($value === $this->getLeading()) {
       return $this;
     }
-    return new self($value, $this->trailing());
+    return new self($value, $this->getTrailing());
   }
 
   public function hasTrailing(): bool {
-    return !$this->trailing()->is_missing();
+    return !$this->getTrailing()->is_missing();
   }
 
-  public function with_trailing(EditableSyntax $value): this {
-    if ($value === $this->trailing()) {
+  public function withTrailing(EditableSyntax $value): this {
+    if ($value === $this->getTrailing()) {
       return $this;
     }
-    return new self($this->leading(), $value);
+    return new self($this->getLeading(), $value);
   }
 
   public function rewrite_children(
@@ -43,11 +43,11 @@ final class FinallyToken extends EditableToken {
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
-    $leading = $this->leading()->rewrite($rewriter, $parents);
-    $trailing = $this->trailing()->rewrite($rewriter, $parents);
+    $leading = $this->getLeading()->rewrite($rewriter, $parents);
+    $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
     if (
-      $leading === $this->leading() &&
-      $trailing === $this->trailing()
+      $leading === $this->getLeading() &&
+      $trailing === $this->getTrailing()
     ) {
       return $this;
     }

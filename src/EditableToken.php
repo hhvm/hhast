@@ -39,21 +39,21 @@ abstract class EditableToken extends EditableSyntax {
     return $this->_token_kind;
   }
 
-  public function text(): string {
+  public function getText(): string {
     return $this->_text;
   }
 
-  public function leading(): EditableSyntax {
+  public function getLeading(): EditableSyntax {
     return $this->_leading;
   }
 
-  public function trailing(): EditableSyntax {
+  public function getTrailing(): EditableSyntax {
     return $this->_trailing;
   }
 
   public function children(): KeyedTraversable<string, EditableSyntax> {
-    yield 'leading' => $this->leading();
-    yield 'trailing' => $this->trailing();
+    yield 'leading' => $this->getLeading();
+    yield 'trailing' => $this->getTrailing();
   }
 
   public function is_token(): bool {
@@ -61,14 +61,14 @@ abstract class EditableToken extends EditableSyntax {
   }
 
   public function full_text(): string {
-    return $this->leading()->full_text().
-      $this->text().
-      $this->trailing()->full_text();
+    return $this->getLeading()->full_text().
+      $this->getText().
+      $this->getTrailing()->full_text();
   }
 
-  public abstract function with_leading(EditableSyntax $leading): EditableToken;
+  public abstract function withLeading(EditableSyntax $leading): EditableToken;
 
-  public abstract function with_trailing(
+  public abstract function withTrailing(
     EditableSyntax $trailing,
   ): EditableToken;
 
@@ -95,9 +95,9 @@ abstract class EditableToken extends EditableSyntax {
     TAccumulator $accumulator,
     ?array<EditableSyntax> $parents = null,
   ): TAccumulator {
-    $accumulator = $this->leading()->reduce($reducer, $accumulator);
+    $accumulator = $this->getLeading()->reduce($reducer, $accumulator);
     $accumulator = $reducer($this, $accumulator, $parents ?? []);
-    $accumulator = $this->trailing()->reduce($reducer, $accumulator);
+    $accumulator = $this->getTrailing()->reduce($reducer, $accumulator);
     return $accumulator;
   }
 
