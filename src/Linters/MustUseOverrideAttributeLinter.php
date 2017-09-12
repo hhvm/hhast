@@ -28,8 +28,7 @@ use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
 
 class MustUseOverrideAttributeLinter
-extends ASTLinter<MethodishDeclaration>
-implements AutoFixingASTLinter<MethodishDeclaration> {
+extends AutoFixingASTLinter<MethodishDeclaration> {
   protected static function getTargetType(): classname<MethodishDeclaration> {
     return MethodishDeclaration::class;
   }

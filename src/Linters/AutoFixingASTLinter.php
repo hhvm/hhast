@@ -15,8 +15,32 @@ namespace Facebook\HHAST\Linters;
 use type Facebook\HHAST\EditableSyntax;
 use namespace Facebook\HHAST;
 
-interface AutoFixingASTLinter<Tnode as EditableSyntax> {
-  require extends ASTLinter<Tnode>;
+abstract class AutoFixingASTLinter<Tnode as EditableSyntax>
+extends ASTLinter<Tnode>
+implements AutoFixingLinter<ASTLintError<Tnode, this>>{
 
-  public function getFixedNode(Tnode $node): Tnode;
+  abstract public function getFixedNode(Tnode $node): Tnode;
+
+  final public function fixLintErrors(
+    Traversable<ASTLintError<Tnode, this>> $errors,
+  ): void {
+    $ast = $this->getAST();
+    foreach ($errors as $error) {
+      invariant(
+        $error->getFile() === $this->getFile(),
+        "Can't fix errors in another file",
+      );
+      invariant(
+        $error->getLinter() === $this,
+        "Can't fix errors from another linter",
+      );
+      $old = $error->getBlameNode();
+      $new = $this->getFixedNode($old);
+      $ast = $ast->replace($new, $old);
+    }
+    file_put_contents(
+      $this->getFile(),
+      $ast->full_text(),
+    );
+  }
 }

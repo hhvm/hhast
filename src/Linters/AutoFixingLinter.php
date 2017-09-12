@@ -12,10 +12,15 @@
 
 namespace Facebook\HHAST\Linters;
 
-interface FixableLintError {
-  require extends LintError;
+use type Facebook\HHAST\EditableSyntax;
+use namespace Facebook\HHAST;
 
-  public function isFixable(): bool;
+interface AutoFixingLinter<Terror as FixableLintError> {
+  require extends BaseLinter;
 
-  public function getReadableFix(): (string, string);
+  public function getLintErrors(): Traversable<Terror>;
+
+  public function fixLintErrors(
+    Traversable<Terror> $errors,
+  ): void;
 }

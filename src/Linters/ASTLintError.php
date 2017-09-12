@@ -27,6 +27,10 @@ class ASTLintError<
     parent::__construct($linter, $description);
   }
 
+  final public function getBlameNode(): Tnode {
+    return $this->node;
+  }
+
   final public function getBlameCode(): string {
     return $this->node->full_text();
   }
@@ -52,19 +56,5 @@ class ASTLintError<
         $linter->getFixedNode($this->node),
       )->full_text(),
     );
-  }
-
-  final public function applyFix(): void {
-    $linter = $this->linter;
-    invariant(
-      $linter instanceof AutoFixingASTLinter,
-      "Can't render fix for unfixable lint error",
-    );
-    $old = $this->node;
-    $new = $linter->getFixedNode($old);
-
-    $new_ast = $linter->getAST()->replace($new, $old);
-
-    file_put_contents($linter->getFile(), $new_ast->full_text());
   }
 }

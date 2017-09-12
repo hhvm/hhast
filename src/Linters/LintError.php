@@ -34,4 +34,8 @@ class LintError {
   public function getPrettyBlameCode(): ?string {
     return $this->getBlameCode();
   }
+
+  public function getLinter(): BaseLinter {
+    return $this->linter;
+  }
 }
