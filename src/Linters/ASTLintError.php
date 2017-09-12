@@ -37,7 +37,7 @@ class ASTLintError<
     return $this->node->full_text();
   }
 
-  <<__Memoize>>
+  <<__Memoize, __Override>>
   final public function getPrettyBlameCode(): string {
     return $this->linter->getPrettyNode($this->node)->full_text();
   }
