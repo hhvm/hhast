@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2399e291415f67c9900a912621dd702b>>
+ * @generated SignedSource<<f2b6ed3f6a5a2b16d660918766c8847b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -90,7 +90,7 @@ final class XHPCategoryDeclaration extends EditableSyntax {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->is_missing();
+    return !$this->_keyword->isMissing();
   }
 
   public function getKeyword(): CategoryToken {
@@ -109,7 +109,7 @@ final class XHPCategoryDeclaration extends EditableSyntax {
   }
 
   public function hasCategories(): bool {
-    return !$this->_categories->is_missing();
+    return !$this->_categories->isMissing();
   }
 
   public function getCategories(): EditableList {
@@ -128,7 +128,7 @@ final class XHPCategoryDeclaration extends EditableSyntax {
   }
 
   public function hasSemicolon(): bool {
-    return !$this->_semicolon->is_missing();
+    return !$this->_semicolon->isMissing();
   }
 
   public function getSemicolon(): SemicolonToken {

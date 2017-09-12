@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bd3648f8c43170ccae67c851f5ef01a5>>
+ * @generated SignedSource<<bce279341fddc75c479e9122cf9b3c48>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -102,7 +102,7 @@ final class Enumerator extends EditableSyntax {
   }
 
   public function hasName(): bool {
-    return !$this->_name->is_missing();
+    return !$this->_name->isMissing();
   }
 
   public function getName(): NameToken {
@@ -121,7 +121,7 @@ final class Enumerator extends EditableSyntax {
   }
 
   public function hasEqual(): bool {
-    return !$this->_equal->is_missing();
+    return !$this->_equal->isMissing();
   }
 
   public function getEqual(): EqualToken {
@@ -140,7 +140,7 @@ final class Enumerator extends EditableSyntax {
   }
 
   public function hasValue(): bool {
-    return !$this->_value->is_missing();
+    return !$this->_value->isMissing();
   }
 
   public function getValue(): EditableSyntax {
@@ -159,7 +159,7 @@ final class Enumerator extends EditableSyntax {
   }
 
   public function hasSemicolon(): bool {
-    return !$this->_semicolon->is_missing();
+    return !$this->_semicolon->isMissing();
   }
 
   public function getSemicolon(): SemicolonToken {

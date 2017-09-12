@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d006dc8c94eb493c15d87043c557bdc7>>
+ * @generated SignedSource<<f16dacab182200b2a75e8d46e687d763>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,7 +75,7 @@ final class DefaultLabel extends EditableSyntax {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->is_missing();
+    return !$this->_keyword->isMissing();
   }
 
   public function getKeyword(): DefaultToken {
@@ -94,7 +94,7 @@ final class DefaultLabel extends EditableSyntax {
   }
 
   public function hasColon(): bool {
-    return !$this->_colon->is_missing();
+    return !$this->_colon->isMissing();
   }
 
   public function getColon(): EditableSyntax {

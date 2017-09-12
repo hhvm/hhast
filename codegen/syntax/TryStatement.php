@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<446e34968502c202b1da0515acf3aafc>>
+ * @generated SignedSource<<ba2a1be8d665ca37ba546af0192a4b94>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -112,7 +112,7 @@ final class TryStatement extends EditableSyntax {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->is_missing();
+    return !$this->_keyword->isMissing();
   }
 
   public function getKeyword(): TryToken {
@@ -136,7 +136,7 @@ final class TryStatement extends EditableSyntax {
   }
 
   public function hasCompoundStatement(): bool {
-    return !$this->_compound_statement->is_missing();
+    return !$this->_compound_statement->isMissing();
   }
 
   public function getCompoundStatement(): CompoundStatement {
@@ -160,11 +160,11 @@ final class TryStatement extends EditableSyntax {
   }
 
   public function hasCatchClauses(): bool {
-    return !$this->_catch_clauses->is_missing();
+    return !$this->_catch_clauses->isMissing();
   }
 
   public function getCatchClauses(): ?EditableList {
-    if ($this->_catch_clauses->is_missing()) {
+    if ($this->_catch_clauses->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(EditableList::class, $this->_catch_clauses);
@@ -191,11 +191,11 @@ final class TryStatement extends EditableSyntax {
   }
 
   public function hasFinallyClause(): bool {
-    return !$this->_finally_clause->is_missing();
+    return !$this->_finally_clause->isMissing();
   }
 
   public function getFinallyClause(): ?FinallyClause {
-    if ($this->_finally_clause->is_missing()) {
+    if ($this->_finally_clause->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(FinallyClause::class, $this->_finally_clause);

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<acc21b1d914fa2c61c198c724d4d2cdc>>
+ * @generated SignedSource<<81f0baea81e9834c3ab2ce868df3c315>>
  */
 namespace Facebook\HHAST;
 
@@ -16,7 +16,7 @@ final class LeftBraceToken extends EditableToken {
   }
 
   public function hasLeading(): bool {
-    return !$this->getLeading()->is_missing();
+    return !$this->getLeading()->isMissing();
   }
 
   <<__Override>>
@@ -28,7 +28,7 @@ final class LeftBraceToken extends EditableToken {
   }
 
   public function hasTrailing(): bool {
-    return !$this->getTrailing()->is_missing();
+    return !$this->getTrailing()->isMissing();
   }
 
   <<__Override>>

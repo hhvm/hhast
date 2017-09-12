@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<05db8782108d77509180fe2e48c48c68>>
+ * @generated SignedSource<<b286f0ff75b643d5e8e43824c8b4a06d>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -102,11 +102,11 @@ final class MarkupSection extends EditableSyntax {
   }
 
   public function hasPrefix(): bool {
-    return !$this->_prefix->is_missing();
+    return !$this->_prefix->isMissing();
   }
 
   public function getPrefix(): ?QuestionGreaterThanToken {
-    if ($this->_prefix->is_missing()) {
+    if ($this->_prefix->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(QuestionGreaterThanToken::class, $this->_prefix);
@@ -128,11 +128,11 @@ final class MarkupSection extends EditableSyntax {
   }
 
   public function hasText(): bool {
-    return !$this->_text->is_missing();
+    return !$this->_text->isMissing();
   }
 
   public function getText(): ?MarkupToken {
-    if ($this->_text->is_missing()) {
+    if ($this->_text->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(MarkupToken::class, $this->_text);
@@ -154,11 +154,11 @@ final class MarkupSection extends EditableSyntax {
   }
 
   public function hasSuffix(): bool {
-    return !$this->_suffix->is_missing();
+    return !$this->_suffix->isMissing();
   }
 
   public function getSuffix(): ?MarkupSuffix {
-    if ($this->_suffix->is_missing()) {
+    if ($this->_suffix->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(MarkupSuffix::class, $this->_suffix);
@@ -180,11 +180,11 @@ final class MarkupSection extends EditableSyntax {
   }
 
   public function hasExpression(): bool {
-    return !$this->_expression->is_missing();
+    return !$this->_expression->isMissing();
   }
 
   public function getExpression(): ?ExpressionStatement {
-    if ($this->_expression->is_missing()) {
+    if ($this->_expression->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(ExpressionStatement::class, $this->_expression);

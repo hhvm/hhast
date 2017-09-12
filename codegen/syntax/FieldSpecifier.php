@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<27abaa15bc9f44cb29dfbd421be30b93>>
+ * @generated SignedSource<<89b0bdde878fd113829b5ba8bdeb46cd>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -102,11 +102,11 @@ final class FieldSpecifier extends EditableSyntax {
   }
 
   public function hasQuestion(): bool {
-    return !$this->_question->is_missing();
+    return !$this->_question->isMissing();
   }
 
   public function getQuestion(): ?QuestionToken {
-    if ($this->_question->is_missing()) {
+    if ($this->_question->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(QuestionToken::class, $this->_question);
@@ -128,7 +128,7 @@ final class FieldSpecifier extends EditableSyntax {
   }
 
   public function hasName(): bool {
-    return !$this->_name->is_missing();
+    return !$this->_name->isMissing();
   }
 
   public function getName(): EditableSyntax {
@@ -147,7 +147,7 @@ final class FieldSpecifier extends EditableSyntax {
   }
 
   public function hasArrow(): bool {
-    return !$this->_arrow->is_missing();
+    return !$this->_arrow->isMissing();
   }
 
   public function getArrow(): EqualGreaterThanToken {
@@ -166,7 +166,7 @@ final class FieldSpecifier extends EditableSyntax {
   }
 
   public function hasType(): bool {
-    return !$this->_type->is_missing();
+    return !$this->_type->isMissing();
   }
 
   public function getType(): EditableSyntax {

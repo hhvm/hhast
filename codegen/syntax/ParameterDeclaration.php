@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<122bd767718f73fce11d8c92bee6d387>>
+ * @generated SignedSource<<7d5a3cb8314656a17b8277023d55e0d7>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -120,11 +120,11 @@ final class ParameterDeclaration extends EditableSyntax {
   }
 
   public function hasAttribute(): bool {
-    return !$this->_attribute->is_missing();
+    return !$this->_attribute->isMissing();
   }
 
   public function getAttribute(): ?AttributeSpecification {
-    if ($this->_attribute->is_missing()) {
+    if ($this->_attribute->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute);
@@ -152,7 +152,7 @@ final class ParameterDeclaration extends EditableSyntax {
   }
 
   public function hasVisibility(): bool {
-    return !$this->_visibility->is_missing();
+    return !$this->_visibility->isMissing();
   }
 
   public function getVisibility(): EditableSyntax {
@@ -177,7 +177,7 @@ final class ParameterDeclaration extends EditableSyntax {
   }
 
   public function hasType(): bool {
-    return !$this->_type->is_missing();
+    return !$this->_type->isMissing();
   }
 
   public function getType(): EditableSyntax {
@@ -202,7 +202,7 @@ final class ParameterDeclaration extends EditableSyntax {
   }
 
   public function hasName(): bool {
-    return !$this->_name->is_missing();
+    return !$this->_name->isMissing();
   }
 
   public function getName(): EditableSyntax {
@@ -227,11 +227,11 @@ final class ParameterDeclaration extends EditableSyntax {
   }
 
   public function hasDefaultValue(): bool {
-    return !$this->_default_value->is_missing();
+    return !$this->_default_value->isMissing();
   }
 
   public function getDefaultValue(): ?SimpleInitializer {
-    if ($this->_default_value->is_missing()) {
+    if ($this->_default_value->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_default_value);

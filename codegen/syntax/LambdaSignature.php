@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4efe4e02b34ece8c39c735749201902e>>
+ * @generated SignedSource<<4eb3c7738c0ed8cdc278c393d1eeb6c8>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -120,11 +120,11 @@ final class LambdaSignature extends EditableSyntax {
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->is_missing();
+    return !$this->_left_paren->isMissing();
   }
 
   public function getLeftParen(): ?LeftParenToken {
-    if ($this->_left_paren->is_missing()) {
+    if ($this->_left_paren->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
@@ -152,11 +152,11 @@ final class LambdaSignature extends EditableSyntax {
   }
 
   public function hasParameters(): bool {
-    return !$this->_parameters->is_missing();
+    return !$this->_parameters->isMissing();
   }
 
   public function getParameters(): ?EditableList {
-    if ($this->_parameters->is_missing()) {
+    if ($this->_parameters->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(EditableList::class, $this->_parameters);
@@ -184,11 +184,11 @@ final class LambdaSignature extends EditableSyntax {
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->is_missing();
+    return !$this->_right_paren->isMissing();
   }
 
   public function getRightParen(): ?RightParenToken {
-    if ($this->_right_paren->is_missing()) {
+    if ($this->_right_paren->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
@@ -216,11 +216,11 @@ final class LambdaSignature extends EditableSyntax {
   }
 
   public function hasColon(): bool {
-    return !$this->_colon->is_missing();
+    return !$this->_colon->isMissing();
   }
 
   public function getColon(): ?ColonToken {
-    if ($this->_colon->is_missing()) {
+    if ($this->_colon->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
@@ -248,7 +248,7 @@ final class LambdaSignature extends EditableSyntax {
   }
 
   public function hasType(): bool {
-    return !$this->_type->is_missing();
+    return !$this->_type->isMissing();
   }
 
   public function getType(): EditableSyntax {

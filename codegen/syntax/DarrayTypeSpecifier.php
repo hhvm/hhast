@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<84a926da53ba06f4d8e6d520669ba646>>
+ * @generated SignedSource<<0e1f58179a6f001c7c2154227091cc87>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -162,7 +162,7 @@ final class DarrayTypeSpecifier extends EditableSyntax {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->is_missing();
+    return !$this->_keyword->isMissing();
   }
 
   public function getKeyword(): DarrayToken {
@@ -189,7 +189,7 @@ final class DarrayTypeSpecifier extends EditableSyntax {
   }
 
   public function hasLeftAngle(): bool {
-    return !$this->_left_angle->is_missing();
+    return !$this->_left_angle->isMissing();
   }
 
   public function getLeftAngle(): LessThanToken {
@@ -216,7 +216,7 @@ final class DarrayTypeSpecifier extends EditableSyntax {
   }
 
   public function hasKey(): bool {
-    return !$this->_key->is_missing();
+    return !$this->_key->isMissing();
   }
 
   public function getKey(): SimpleTypeSpecifier {
@@ -243,7 +243,7 @@ final class DarrayTypeSpecifier extends EditableSyntax {
   }
 
   public function hasComma(): bool {
-    return !$this->_comma->is_missing();
+    return !$this->_comma->isMissing();
   }
 
   public function getComma(): CommaToken {
@@ -270,7 +270,7 @@ final class DarrayTypeSpecifier extends EditableSyntax {
   }
 
   public function hasValue(): bool {
-    return !$this->_value->is_missing();
+    return !$this->_value->isMissing();
   }
 
   public function getValue(): SimpleTypeSpecifier {
@@ -297,7 +297,7 @@ final class DarrayTypeSpecifier extends EditableSyntax {
   }
 
   public function hasTrailingComma(): bool {
-    return !$this->_trailing_comma->is_missing();
+    return !$this->_trailing_comma->isMissing();
   }
 
   public function getTrailingComma(): EditableSyntax {
@@ -324,7 +324,7 @@ final class DarrayTypeSpecifier extends EditableSyntax {
   }
 
   public function hasRightAngle(): bool {
-    return !$this->_right_angle->is_missing();
+    return !$this->_right_angle->isMissing();
   }
 
   public function getRightAngle(): GreaterThanToken {

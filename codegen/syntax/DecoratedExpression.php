@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<910b6aec5bb06469e6f36e495851d6ed>>
+ * @generated SignedSource<<1ad725f94be6df8844bb83bbac599147>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -78,7 +78,7 @@ final class DecoratedExpression extends EditableSyntax {
   }
 
   public function hasDecorator(): bool {
-    return !$this->_decorator->is_missing();
+    return !$this->_decorator->isMissing();
   }
 
   public function getDecorator(): EditableSyntax {
@@ -97,7 +97,7 @@ final class DecoratedExpression extends EditableSyntax {
   }
 
   public function hasExpression(): bool {
-    return !$this->_expression->is_missing();
+    return !$this->_expression->isMissing();
   }
 
   public function getExpression(): EditableSyntax {

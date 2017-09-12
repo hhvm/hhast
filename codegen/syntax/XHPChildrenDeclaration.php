@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ab4b3aedbecb17722642bad6199cf03c>>
+ * @generated SignedSource<<a138faff26952cebcdf00fd18863a736>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -90,7 +90,7 @@ final class XHPChildrenDeclaration extends EditableSyntax {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->is_missing();
+    return !$this->_keyword->isMissing();
   }
 
   public function getKeyword(): EditableSyntax {
@@ -109,7 +109,7 @@ final class XHPChildrenDeclaration extends EditableSyntax {
   }
 
   public function hasExpression(): bool {
-    return !$this->_expression->is_missing();
+    return !$this->_expression->isMissing();
   }
 
   public function getExpression(): EditableSyntax {
@@ -128,7 +128,7 @@ final class XHPChildrenDeclaration extends EditableSyntax {
   }
 
   public function hasSemicolon(): bool {
-    return !$this->_semicolon->is_missing();
+    return !$this->_semicolon->isMissing();
   }
 
   public function getSemicolon(): EditableSyntax {

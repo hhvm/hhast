@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bf8d14f65ff5b4de57543537986fe1d1>>
+ * @generated SignedSource<<3c21a0283e30cd703c06577bb6166115>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -132,11 +132,11 @@ final class MethodishDeclaration extends EditableSyntax {
   }
 
   public function hasAttribute(): bool {
-    return !$this->_attribute->is_missing();
+    return !$this->_attribute->isMissing();
   }
 
   public function getAttribute(): ?AttributeSpecification {
-    if ($this->_attribute->is_missing()) {
+    if ($this->_attribute->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute);
@@ -164,11 +164,11 @@ final class MethodishDeclaration extends EditableSyntax {
   }
 
   public function hasModifiers(): bool {
-    return !$this->_modifiers->is_missing();
+    return !$this->_modifiers->isMissing();
   }
 
   public function getModifiers(): ?EditableList {
-    if ($this->_modifiers->is_missing()) {
+    if ($this->_modifiers->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(EditableList::class, $this->_modifiers);
@@ -196,7 +196,7 @@ final class MethodishDeclaration extends EditableSyntax {
   }
 
   public function hasFunctionDeclHeader(): bool {
-    return !$this->_function_decl_header->is_missing();
+    return !$this->_function_decl_header->isMissing();
   }
 
   public function getFunctionDeclHeader(): FunctionDeclarationHeader {
@@ -221,11 +221,11 @@ final class MethodishDeclaration extends EditableSyntax {
   }
 
   public function hasFunctionBody(): bool {
-    return !$this->_function_body->is_missing();
+    return !$this->_function_body->isMissing();
   }
 
   public function getFunctionBody(): ?CompoundStatement {
-    if ($this->_function_body->is_missing()) {
+    if ($this->_function_body->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(CompoundStatement::class, $this->_function_body);
@@ -253,11 +253,11 @@ final class MethodishDeclaration extends EditableSyntax {
   }
 
   public function hasSemicolon(): bool {
-    return !$this->_semicolon->is_missing();
+    return !$this->_semicolon->isMissing();
   }
 
   public function getSemicolon(): ?SemicolonToken {
-    if ($this->_semicolon->is_missing()) {
+    if ($this->_semicolon->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);

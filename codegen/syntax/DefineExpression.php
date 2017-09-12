@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6b5fe5221748c4fb66fab527c8d54cc5>>
+ * @generated SignedSource<<3efa3a1e26f33431bfab2ad15dbecd19>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -107,7 +107,7 @@ final class DefineExpression extends EditableSyntax {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->is_missing();
+    return !$this->_keyword->isMissing();
   }
 
   public function getKeyword(): DefineToken {
@@ -126,7 +126,7 @@ final class DefineExpression extends EditableSyntax {
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->is_missing();
+    return !$this->_left_paren->isMissing();
   }
 
   public function getLeftParen(): LeftParenToken {
@@ -145,11 +145,11 @@ final class DefineExpression extends EditableSyntax {
   }
 
   public function hasArgumentList(): bool {
-    return !$this->_argument_list->is_missing();
+    return !$this->_argument_list->isMissing();
   }
 
   public function getArgumentList(): ?EditableList {
-    if ($this->_argument_list->is_missing()) {
+    if ($this->_argument_list->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(EditableList::class, $this->_argument_list);
@@ -171,7 +171,7 @@ final class DefineExpression extends EditableSyntax {
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->is_missing();
+    return !$this->_right_paren->isMissing();
   }
 
   public function getRightParen(): RightParenToken {

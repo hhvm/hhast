@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cbd0740fc07c9f5cc053b3cf911827e7>>
+ * @generated SignedSource<<2538052b81825f199033097feb26d39d>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -102,7 +102,7 @@ final class XHPClassAttribute extends EditableSyntax {
   }
 
   public function hasType(): bool {
-    return !$this->_type->is_missing();
+    return !$this->_type->isMissing();
   }
 
   public function getType(): EditableSyntax {
@@ -121,7 +121,7 @@ final class XHPClassAttribute extends EditableSyntax {
   }
 
   public function hasName(): bool {
-    return !$this->_name->is_missing();
+    return !$this->_name->isMissing();
   }
 
   public function getName(): XHPElementNameToken {
@@ -140,11 +140,11 @@ final class XHPClassAttribute extends EditableSyntax {
   }
 
   public function hasInitializer(): bool {
-    return !$this->_initializer->is_missing();
+    return !$this->_initializer->isMissing();
   }
 
   public function getInitializer(): ?SimpleInitializer {
-    if ($this->_initializer->is_missing()) {
+    if ($this->_initializer->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
@@ -166,11 +166,11 @@ final class XHPClassAttribute extends EditableSyntax {
   }
 
   public function hasRequired(): bool {
-    return !$this->_required->is_missing();
+    return !$this->_required->isMissing();
   }
 
   public function getRequired(): ?XHPRequired {
-    if ($this->_required->is_missing()) {
+    if ($this->_required->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(XHPRequired::class, $this->_required);

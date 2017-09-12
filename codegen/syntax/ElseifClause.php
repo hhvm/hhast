@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a1c324f7b43618072dc41934f81a7e3f>>
+ * @generated SignedSource<<2892f3af51f60282bbbf37d685a2e9fa>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -126,7 +126,7 @@ final class ElseifClause extends EditableSyntax {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->is_missing();
+    return !$this->_keyword->isMissing();
   }
 
   public function getKeyword(): ElseifToken {
@@ -151,7 +151,7 @@ final class ElseifClause extends EditableSyntax {
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->is_missing();
+    return !$this->_left_paren->isMissing();
   }
 
   public function getLeftParen(): LeftParenToken {
@@ -176,7 +176,7 @@ final class ElseifClause extends EditableSyntax {
   }
 
   public function hasCondition(): bool {
-    return !$this->_condition->is_missing();
+    return !$this->_condition->isMissing();
   }
 
   public function getCondition(): EditableSyntax {
@@ -201,7 +201,7 @@ final class ElseifClause extends EditableSyntax {
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->is_missing();
+    return !$this->_right_paren->isMissing();
   }
 
   public function getRightParen(): RightParenToken {
@@ -226,7 +226,7 @@ final class ElseifClause extends EditableSyntax {
   }
 
   public function hasStatement(): bool {
-    return !$this->_statement->is_missing();
+    return !$this->_statement->isMissing();
   }
 
   public function getStatement(): EditableSyntax {

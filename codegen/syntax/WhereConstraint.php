@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5caa35f5e7fd1ee3126dfeed06d86255>>
+ * @generated SignedSource<<f7bbf155950c6d96bda44bd4354bf4ad>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -90,7 +90,7 @@ final class WhereConstraint extends EditableSyntax {
   }
 
   public function hasLeftType(): bool {
-    return !$this->_left_type->is_missing();
+    return !$this->_left_type->isMissing();
   }
 
   public function getLeftType(): EditableSyntax {
@@ -109,7 +109,7 @@ final class WhereConstraint extends EditableSyntax {
   }
 
   public function hasOperator(): bool {
-    return !$this->_operator->is_missing();
+    return !$this->_operator->isMissing();
   }
 
   public function getOperator(): EditableSyntax {
@@ -128,7 +128,7 @@ final class WhereConstraint extends EditableSyntax {
   }
 
   public function hasRightType(): bool {
-    return !$this->_right_type->is_missing();
+    return !$this->_right_type->isMissing();
   }
 
   public function getRightType(): EditableSyntax {

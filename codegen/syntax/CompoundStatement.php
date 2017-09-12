@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c1d3816c8461d54112e3d3ee40124378>>
+ * @generated SignedSource<<c8d2ec518667e3c5d633a02d6f1596c4>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -90,11 +90,11 @@ final class CompoundStatement extends EditableSyntax {
   }
 
   public function hasLeftBrace(): bool {
-    return !$this->_left_brace->is_missing();
+    return !$this->_left_brace->isMissing();
   }
 
   public function getLeftBrace(): ?LeftBraceToken {
-    if ($this->_left_brace->is_missing()) {
+    if ($this->_left_brace->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
@@ -116,11 +116,11 @@ final class CompoundStatement extends EditableSyntax {
   }
 
   public function hasStatements(): bool {
-    return !$this->_statements->is_missing();
+    return !$this->_statements->isMissing();
   }
 
   public function getStatements(): ?EditableList {
-    if ($this->_statements->is_missing()) {
+    if ($this->_statements->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(EditableList::class, $this->_statements);
@@ -142,11 +142,11 @@ final class CompoundStatement extends EditableSyntax {
   }
 
   public function hasRightBrace(): bool {
-    return !$this->_right_brace->is_missing();
+    return !$this->_right_brace->isMissing();
   }
 
   public function getRightBrace(): ?RightBraceToken {
-    if ($this->_right_brace->is_missing()) {
+    if ($this->_right_brace->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);

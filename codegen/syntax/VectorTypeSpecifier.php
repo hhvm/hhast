@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7834ec4831207f7c07da7ff96f5b3d6d>>
+ * @generated SignedSource<<11a9cef03a71bd5b228b69c025545e06>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -126,7 +126,7 @@ final class VectorTypeSpecifier extends EditableSyntax {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->is_missing();
+    return !$this->_keyword->isMissing();
   }
 
   public function getKeyword(): VecToken {
@@ -151,7 +151,7 @@ final class VectorTypeSpecifier extends EditableSyntax {
   }
 
   public function hasLeftAngle(): bool {
-    return !$this->_left_angle->is_missing();
+    return !$this->_left_angle->isMissing();
   }
 
   public function getLeftAngle(): LessThanToken {
@@ -176,7 +176,7 @@ final class VectorTypeSpecifier extends EditableSyntax {
   }
 
   public function hasType(): bool {
-    return !$this->_type->is_missing();
+    return !$this->_type->isMissing();
   }
 
   public function getType(): EditableSyntax {
@@ -201,7 +201,7 @@ final class VectorTypeSpecifier extends EditableSyntax {
   }
 
   public function hasTrailingComma(): bool {
-    return !$this->_trailing_comma->is_missing();
+    return !$this->_trailing_comma->isMissing();
   }
 
   public function getTrailingComma(): EditableSyntax {
@@ -226,7 +226,7 @@ final class VectorTypeSpecifier extends EditableSyntax {
   }
 
   public function hasRightAngle(): bool {
-    return !$this->_right_angle->is_missing();
+    return !$this->_right_angle->isMissing();
   }
 
   public function getRightAngle(): GreaterThanToken {

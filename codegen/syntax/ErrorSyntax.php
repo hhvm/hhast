@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fe8f599f773292b2b1cad158e0e6875c>>
+ * @generated SignedSource<<202bcba3ae06864fb53d95cbfe365174>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -64,7 +64,7 @@ final class ErrorSyntax extends EditableSyntax {
   }
 
   public function hasError(): bool {
-    return !$this->_error->is_missing();
+    return !$this->_error->isMissing();
   }
 
   public function getError(): EditableSyntax {

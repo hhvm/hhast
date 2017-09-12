@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c9e2dfc0f63cf66faf683925bbfc0d69>>
+ * @generated SignedSource<<cc957a223bcc4d6a80874158c01cf6a7>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -90,7 +90,7 @@ final class AttributeSpecification extends EditableSyntax {
   }
 
   public function hasLeftDoubleAngle(): bool {
-    return !$this->_left_double_angle->is_missing();
+    return !$this->_left_double_angle->isMissing();
   }
 
   public function getLeftDoubleAngle(): LessThanLessThanToken {
@@ -109,7 +109,7 @@ final class AttributeSpecification extends EditableSyntax {
   }
 
   public function hasAttributes(): bool {
-    return !$this->_attributes->is_missing();
+    return !$this->_attributes->isMissing();
   }
 
   public function getAttributes(): EditableList {
@@ -128,7 +128,7 @@ final class AttributeSpecification extends EditableSyntax {
   }
 
   public function hasRightDoubleAngle(): bool {
-    return !$this->_right_double_angle->is_missing();
+    return !$this->_right_double_angle->isMissing();
   }
 
   public function getRightDoubleAngle(): GreaterThanGreaterThanToken {

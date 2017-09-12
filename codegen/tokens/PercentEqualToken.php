@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<81f1dbb344b0396f2a852f331577310f>>
+ * @generated SignedSource<<7eb7c279a7f62a865285c63e75b9832e>>
  */
 namespace Facebook\HHAST;
 
@@ -16,7 +16,7 @@ final class PercentEqualToken extends EditableToken {
   }
 
   public function hasLeading(): bool {
-    return !$this->getLeading()->is_missing();
+    return !$this->getLeading()->isMissing();
   }
 
   <<__Override>>
@@ -28,7 +28,7 @@ final class PercentEqualToken extends EditableToken {
   }
 
   public function hasTrailing(): bool {
-    return !$this->getTrailing()->is_missing();
+    return !$this->getTrailing()->isMissing();
   }
 
   <<__Override>>

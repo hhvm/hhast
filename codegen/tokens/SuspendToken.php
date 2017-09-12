@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<068b137e791e88655b36c97694eb7900>>
+ * @generated SignedSource<<02c6b444dd0d8c0cde81efdd8dd19659>>
  */
 namespace Facebook\HHAST;
 
@@ -16,7 +16,7 @@ final class SuspendToken extends EditableToken {
   }
 
   public function hasLeading(): bool {
-    return !$this->getLeading()->is_missing();
+    return !$this->getLeading()->isMissing();
   }
 
   <<__Override>>
@@ -28,7 +28,7 @@ final class SuspendToken extends EditableToken {
   }
 
   public function hasTrailing(): bool {
-    return !$this->getTrailing()->is_missing();
+    return !$this->getTrailing()->isMissing();
   }
 
   <<__Override>>

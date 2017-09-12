@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d31ccdacedd060e9804f12521f3c5fde>>
+ * @generated SignedSource<<1b879909c667d62035ff91313794717f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -64,7 +64,7 @@ final class XHPSimpleClassAttribute extends EditableSyntax {
   }
 
   public function hasType(): bool {
-    return !$this->_type->is_missing();
+    return !$this->_type->isMissing();
   }
 
   public function getType(): SimpleTypeSpecifier {

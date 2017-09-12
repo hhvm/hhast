@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f45c3a68e07bd3692a4c32aac0319d76>>
+ * @generated SignedSource<<bd75d83b6b01dd1190b09e4ce8216b9c>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -78,11 +78,11 @@ final class StaticDeclarator extends EditableSyntax {
   }
 
   public function hasName(): bool {
-    return !$this->_name->is_missing();
+    return !$this->_name->isMissing();
   }
 
   public function getName(): ?VariableToken {
-    if ($this->_name->is_missing()) {
+    if ($this->_name->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(VariableToken::class, $this->_name);
@@ -104,11 +104,11 @@ final class StaticDeclarator extends EditableSyntax {
   }
 
   public function hasInitializer(): bool {
-    return !$this->_initializer->is_missing();
+    return !$this->_initializer->isMissing();
   }
 
   public function getInitializer(): ?SimpleInitializer {
-    if ($this->_initializer->is_missing()) {
+    if ($this->_initializer->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);

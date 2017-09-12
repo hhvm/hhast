@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<19bdd1e02662c49134ed55c47cf0824e>>
+ * @generated SignedSource<<d7e146d348e3cd2d8c9acaf635e488e2>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -133,7 +133,7 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->is_missing();
+    return !$this->_keyword->isMissing();
   }
 
   public function getKeyword(): ArrayToken {
@@ -159,7 +159,7 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
   }
 
   public function hasLeftAngle(): bool {
-    return !$this->_left_angle->is_missing();
+    return !$this->_left_angle->isMissing();
   }
 
   public function getLeftAngle(): LessThanToken {
@@ -185,7 +185,7 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
   }
 
   public function hasKey(): bool {
-    return !$this->_key->is_missing();
+    return !$this->_key->isMissing();
   }
 
   public function getKey(): SimpleTypeSpecifier {
@@ -211,7 +211,7 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
   }
 
   public function hasComma(): bool {
-    return !$this->_comma->is_missing();
+    return !$this->_comma->isMissing();
   }
 
   public function getComma(): CommaToken {
@@ -237,7 +237,7 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
   }
 
   public function hasValue(): bool {
-    return !$this->_value->is_missing();
+    return !$this->_value->isMissing();
   }
 
   public function getValue(): EditableSyntax {
@@ -263,11 +263,11 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
   }
 
   public function hasRightAngle(): bool {
-    return !$this->_right_angle->is_missing();
+    return !$this->_right_angle->isMissing();
   }
 
   public function getRightAngle(): ?GreaterThanToken {
-    if ($this->_right_angle->is_missing()) {
+    if ($this->_right_angle->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);

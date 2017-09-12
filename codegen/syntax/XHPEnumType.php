@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d7f7989045bdb8b1e4e36a2269e4d3d0>>
+ * @generated SignedSource<<e9cdee78d6c6cbc4ec28ff9bb5b437bf>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -102,7 +102,7 @@ final class XHPEnumType extends EditableSyntax {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->is_missing();
+    return !$this->_keyword->isMissing();
   }
 
   public function getKeyword(): EnumToken {
@@ -121,7 +121,7 @@ final class XHPEnumType extends EditableSyntax {
   }
 
   public function hasLeftBrace(): bool {
-    return !$this->_left_brace->is_missing();
+    return !$this->_left_brace->isMissing();
   }
 
   public function getLeftBrace(): LeftBraceToken {
@@ -140,7 +140,7 @@ final class XHPEnumType extends EditableSyntax {
   }
 
   public function hasValues(): bool {
-    return !$this->_values->is_missing();
+    return !$this->_values->isMissing();
   }
 
   public function getValues(): EditableList {
@@ -159,7 +159,7 @@ final class XHPEnumType extends EditableSyntax {
   }
 
   public function hasRightBrace(): bool {
-    return !$this->_right_brace->is_missing();
+    return !$this->_right_brace->isMissing();
   }
 
   public function getRightBrace(): RightBraceToken {

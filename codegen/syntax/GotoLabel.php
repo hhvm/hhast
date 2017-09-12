@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7541fdf4d3d87534364a3397c7f2d056>>
+ * @generated SignedSource<<f1a93e2cfffc701a4bb048323523cd8d>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,7 +75,7 @@ final class GotoLabel extends EditableSyntax {
   }
 
   public function hasName(): bool {
-    return !$this->_name->is_missing();
+    return !$this->_name->isMissing();
   }
 
   public function getName(): NameToken {
@@ -94,7 +94,7 @@ final class GotoLabel extends EditableSyntax {
   }
 
   public function hasColon(): bool {
-    return !$this->_colon->is_missing();
+    return !$this->_colon->isMissing();
   }
 
   public function getColon(): ColonToken {

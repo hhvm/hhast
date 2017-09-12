@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b89298fc597068f9af4eecfbbd54deb5>>
+ * @generated SignedSource<<d3cb393e6d92dce6d99d7a9698553e85>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -102,7 +102,7 @@ final class KeysetIntrinsicExpression extends EditableSyntax {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->is_missing();
+    return !$this->_keyword->isMissing();
   }
 
   public function getKeyword(): KeysetToken {
@@ -121,7 +121,7 @@ final class KeysetIntrinsicExpression extends EditableSyntax {
   }
 
   public function hasLeftBracket(): bool {
-    return !$this->_left_bracket->is_missing();
+    return !$this->_left_bracket->isMissing();
   }
 
   public function getLeftBracket(): LeftBracketToken {
@@ -140,11 +140,11 @@ final class KeysetIntrinsicExpression extends EditableSyntax {
   }
 
   public function hasMembers(): bool {
-    return !$this->_members->is_missing();
+    return !$this->_members->isMissing();
   }
 
   public function getMembers(): ?EditableList {
-    if ($this->_members->is_missing()) {
+    if ($this->_members->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
@@ -166,7 +166,7 @@ final class KeysetIntrinsicExpression extends EditableSyntax {
   }
 
   public function hasRightBracket(): bool {
-    return !$this->_right_bracket->is_missing();
+    return !$this->_right_bracket->isMissing();
   }
 
   public function getRightBracket(): RightBracketToken {

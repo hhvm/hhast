@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6eeb19c3c693b366f6cb6e4edbe27177>>
+ * @generated SignedSource<<d38cc5d4f8e700972dafc8be4f559b65>>
  */
 namespace Facebook\HHAST;
 
@@ -17,7 +17,7 @@ final class XHPBodyToken extends EditableToken {
   }
 
   public function hasLeading(): bool {
-    return !$this->getLeading()->is_missing();
+    return !$this->getLeading()->isMissing();
   }
 
   <<__Override>>
@@ -29,7 +29,7 @@ final class XHPBodyToken extends EditableToken {
   }
 
   public function hasTrailing(): bool {
-    return !$this->getTrailing()->is_missing();
+    return !$this->getTrailing()->isMissing();
   }
 
   <<__Override>>

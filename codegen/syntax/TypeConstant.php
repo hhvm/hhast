@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bfc3fe6367b9cde07ada54afb7d26e75>>
+ * @generated SignedSource<<497bb038030250ebc39c462f753e2cb9>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -90,7 +90,7 @@ final class TypeConstant extends EditableSyntax {
   }
 
   public function hasLeftType(): bool {
-    return !$this->_left_type->is_missing();
+    return !$this->_left_type->isMissing();
   }
 
   public function getLeftType(): EditableSyntax {
@@ -109,7 +109,7 @@ final class TypeConstant extends EditableSyntax {
   }
 
   public function hasSeparator(): bool {
-    return !$this->_separator->is_missing();
+    return !$this->_separator->isMissing();
   }
 
   public function getSeparator(): ColonColonToken {
@@ -128,7 +128,7 @@ final class TypeConstant extends EditableSyntax {
   }
 
   public function hasRightType(): bool {
-    return !$this->_right_type->is_missing();
+    return !$this->_right_type->isMissing();
   }
 
   public function getRightType(): NameToken {

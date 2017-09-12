@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e0757f89ff97846c6feb3a124d391530>>
+ * @generated SignedSource<<351fd7ade1e1e8b480232fc3db786c26>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -162,7 +162,7 @@ final class SwitchStatement extends EditableSyntax {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->is_missing();
+    return !$this->_keyword->isMissing();
   }
 
   public function getKeyword(): SwitchToken {
@@ -189,7 +189,7 @@ final class SwitchStatement extends EditableSyntax {
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->is_missing();
+    return !$this->_left_paren->isMissing();
   }
 
   public function getLeftParen(): LeftParenToken {
@@ -216,7 +216,7 @@ final class SwitchStatement extends EditableSyntax {
   }
 
   public function hasExpression(): bool {
-    return !$this->_expression->is_missing();
+    return !$this->_expression->isMissing();
   }
 
   public function getExpression(): EditableSyntax {
@@ -243,7 +243,7 @@ final class SwitchStatement extends EditableSyntax {
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->is_missing();
+    return !$this->_right_paren->isMissing();
   }
 
   public function getRightParen(): RightParenToken {
@@ -270,11 +270,11 @@ final class SwitchStatement extends EditableSyntax {
   }
 
   public function hasLeftBrace(): bool {
-    return !$this->_left_brace->is_missing();
+    return !$this->_left_brace->isMissing();
   }
 
   public function getLeftBrace(): ?LeftBraceToken {
-    if ($this->_left_brace->is_missing()) {
+    if ($this->_left_brace->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
@@ -304,11 +304,11 @@ final class SwitchStatement extends EditableSyntax {
   }
 
   public function hasSections(): bool {
-    return !$this->_sections->is_missing();
+    return !$this->_sections->isMissing();
   }
 
   public function getSections(): ?EditableList {
-    if ($this->_sections->is_missing()) {
+    if ($this->_sections->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(EditableList::class, $this->_sections);
@@ -338,11 +338,11 @@ final class SwitchStatement extends EditableSyntax {
   }
 
   public function hasRightBrace(): bool {
-    return !$this->_right_brace->is_missing();
+    return !$this->_right_brace->isMissing();
   }
 
   public function getRightBrace(): ?RightBraceToken {
-    if ($this->_right_brace->is_missing()) {
+    if ($this->_right_brace->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);

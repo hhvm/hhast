@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<81a352db59c888f02696fd079c828249>>
+ * @generated SignedSource<<9de4cc0ef9138876688750d205a4252e>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -90,7 +90,7 @@ final class BracedExpression extends EditableSyntax {
   }
 
   public function hasLeftBrace(): bool {
-    return !$this->_left_brace->is_missing();
+    return !$this->_left_brace->isMissing();
   }
 
   public function getLeftBrace(): LeftBraceToken {
@@ -109,7 +109,7 @@ final class BracedExpression extends EditableSyntax {
   }
 
   public function hasExpression(): bool {
-    return !$this->_expression->is_missing();
+    return !$this->_expression->isMissing();
   }
 
   public function getExpression(): EditableSyntax {
@@ -128,7 +128,7 @@ final class BracedExpression extends EditableSyntax {
   }
 
   public function hasRightBrace(): bool {
-    return !$this->_right_brace->is_missing();
+    return !$this->_right_brace->isMissing();
   }
 
   public function getRightBrace(): RightBraceToken {

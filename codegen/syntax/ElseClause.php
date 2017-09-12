@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<30a0fad183e532575a00c57c9b1f9eab>>
+ * @generated SignedSource<<5616b1c8bac7519d776dfc79aee6b2d8>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -78,7 +78,7 @@ final class ElseClause extends EditableSyntax {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->is_missing();
+    return !$this->_keyword->isMissing();
   }
 
   public function getKeyword(): ElseToken {
@@ -97,7 +97,7 @@ final class ElseClause extends EditableSyntax {
   }
 
   public function hasStatement(): bool {
-    return !$this->_statement->is_missing();
+    return !$this->_statement->isMissing();
   }
 
   public function getStatement(): EditableSyntax {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d7b3d2ffe58876b28a72ccd735f451f0>>
+ * @generated SignedSource<<bcc4cadd92594046fb92f5dc06b0f3c9>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -140,7 +140,7 @@ final class CatchClause extends EditableSyntax {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->is_missing();
+    return !$this->_keyword->isMissing();
   }
 
   public function getKeyword(): CatchToken {
@@ -166,7 +166,7 @@ final class CatchClause extends EditableSyntax {
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->is_missing();
+    return !$this->_left_paren->isMissing();
   }
 
   public function getLeftParen(): LeftParenToken {
@@ -192,7 +192,7 @@ final class CatchClause extends EditableSyntax {
   }
 
   public function hasType(): bool {
-    return !$this->_type->is_missing();
+    return !$this->_type->isMissing();
   }
 
   public function getType(): EditableSyntax {
@@ -218,11 +218,11 @@ final class CatchClause extends EditableSyntax {
   }
 
   public function hasVariable(): bool {
-    return !$this->_variable->is_missing();
+    return !$this->_variable->isMissing();
   }
 
   public function getVariable(): ?VariableToken {
-    if ($this->_variable->is_missing()) {
+    if ($this->_variable->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(VariableToken::class, $this->_variable);
@@ -251,11 +251,11 @@ final class CatchClause extends EditableSyntax {
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->is_missing();
+    return !$this->_right_paren->isMissing();
   }
 
   public function getRightParen(): ?RightParenToken {
-    if ($this->_right_paren->is_missing()) {
+    if ($this->_right_paren->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
@@ -284,7 +284,7 @@ final class CatchClause extends EditableSyntax {
   }
 
   public function hasBody(): bool {
-    return !$this->_body->is_missing();
+    return !$this->_body->isMissing();
   }
 
   public function getBody(): CompoundStatement {

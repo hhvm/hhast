@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6513311bcd1c1ff4df26a7f3f4a5d996>>
+ * @generated SignedSource<<f450f61479560707514798c4772c7a35>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -192,7 +192,7 @@ final class EnumDeclaration extends EditableSyntax {
   }
 
   public function hasAttributeSpec(): bool {
-    return !$this->_attribute_spec->is_missing();
+    return !$this->_attribute_spec->isMissing();
   }
 
   public function getAttributeSpec(): EditableSyntax {
@@ -221,7 +221,7 @@ final class EnumDeclaration extends EditableSyntax {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->is_missing();
+    return !$this->_keyword->isMissing();
   }
 
   public function getKeyword(): EnumToken {
@@ -250,7 +250,7 @@ final class EnumDeclaration extends EditableSyntax {
   }
 
   public function hasName(): bool {
-    return !$this->_name->is_missing();
+    return !$this->_name->isMissing();
   }
 
   public function getName(): NameToken {
@@ -279,7 +279,7 @@ final class EnumDeclaration extends EditableSyntax {
   }
 
   public function hasColon(): bool {
-    return !$this->_colon->is_missing();
+    return !$this->_colon->isMissing();
   }
 
   public function getColon(): ColonToken {
@@ -308,7 +308,7 @@ final class EnumDeclaration extends EditableSyntax {
   }
 
   public function hasBase(): bool {
-    return !$this->_base->is_missing();
+    return !$this->_base->isMissing();
   }
 
   public function getBase(): EditableSyntax {
@@ -337,11 +337,11 @@ final class EnumDeclaration extends EditableSyntax {
   }
 
   public function hasType(): bool {
-    return !$this->_type->is_missing();
+    return !$this->_type->isMissing();
   }
 
   public function getType(): ?TypeConstraint {
-    if ($this->_type->is_missing()) {
+    if ($this->_type->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(TypeConstraint::class, $this->_type);
@@ -373,7 +373,7 @@ final class EnumDeclaration extends EditableSyntax {
   }
 
   public function hasLeftBrace(): bool {
-    return !$this->_left_brace->is_missing();
+    return !$this->_left_brace->isMissing();
   }
 
   public function getLeftBrace(): LeftBraceToken {
@@ -402,11 +402,11 @@ final class EnumDeclaration extends EditableSyntax {
   }
 
   public function hasEnumerators(): bool {
-    return !$this->_enumerators->is_missing();
+    return !$this->_enumerators->isMissing();
   }
 
   public function getEnumerators(): ?EditableList {
-    if ($this->_enumerators->is_missing()) {
+    if ($this->_enumerators->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(EditableList::class, $this->_enumerators);
@@ -438,7 +438,7 @@ final class EnumDeclaration extends EditableSyntax {
   }
 
   public function hasRightBrace(): bool {
-    return !$this->_right_brace->is_missing();
+    return !$this->_right_brace->isMissing();
   }
 
   public function getRightBrace(): RightBraceToken {

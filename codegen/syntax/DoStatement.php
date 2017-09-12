@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3a8a5ecd0210b2bfa6c745a0273c837b>>
+ * @generated SignedSource<<cdb99180d39002b860ba7e605b702e81>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -162,7 +162,7 @@ final class DoStatement extends EditableSyntax {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->is_missing();
+    return !$this->_keyword->isMissing();
   }
 
   public function getKeyword(): DoToken {
@@ -189,7 +189,7 @@ final class DoStatement extends EditableSyntax {
   }
 
   public function hasBody(): bool {
-    return !$this->_body->is_missing();
+    return !$this->_body->isMissing();
   }
 
   public function getBody(): EditableSyntax {
@@ -216,7 +216,7 @@ final class DoStatement extends EditableSyntax {
   }
 
   public function hasWhileKeyword(): bool {
-    return !$this->_while_keyword->is_missing();
+    return !$this->_while_keyword->isMissing();
   }
 
   public function getWhileKeyword(): WhileToken {
@@ -243,7 +243,7 @@ final class DoStatement extends EditableSyntax {
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->is_missing();
+    return !$this->_left_paren->isMissing();
   }
 
   public function getLeftParen(): LeftParenToken {
@@ -270,7 +270,7 @@ final class DoStatement extends EditableSyntax {
   }
 
   public function hasCondition(): bool {
-    return !$this->_condition->is_missing();
+    return !$this->_condition->isMissing();
   }
 
   public function getCondition(): EditableSyntax {
@@ -297,7 +297,7 @@ final class DoStatement extends EditableSyntax {
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->is_missing();
+    return !$this->_right_paren->isMissing();
   }
 
   public function getRightParen(): RightParenToken {
@@ -324,7 +324,7 @@ final class DoStatement extends EditableSyntax {
   }
 
   public function hasSemicolon(): bool {
-    return !$this->_semicolon->is_missing();
+    return !$this->_semicolon->isMissing();
   }
 
   public function getSemicolon(): SemicolonToken {

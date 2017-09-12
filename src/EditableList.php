@@ -23,7 +23,7 @@ final class EditableList extends EditableSyntax {
   }
 
   <<__Override>>
-  public function is_list(): bool {
+  public function isList(): bool {
     return true;
   }
 
@@ -57,9 +57,9 @@ final class EditableList extends EditableSyntax {
     EditableSyntax $left,
     EditableSyntax $right,
   ): EditableSyntax {
-    if ($left->is_missing())
+    if ($left->isMissing())
       return $right;
-    if ($right->is_missing())
+    if ($right->isMissing())
       return $left;
     return new EditableList(Vec\concat($left->to_vec(), $right->to_vec()));
   }
@@ -97,8 +97,8 @@ final class EditableList extends EditableSyntax {
       if ($new_child !== $child) {
         $dirty = true;
       }
-      if ($new_child !== null && !$new_child->is_missing()) {
-        if ($new_child->is_list()) {
+      if ($new_child !== null && !$new_child->isMissing()) {
+        if ($new_child->isList()) {
           foreach ($new_child->getChildren() as $n)
             array_push($new_children, $n);
         } else

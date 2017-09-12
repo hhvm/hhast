@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8e2ef977f8786f4a6eecbe8b534292ca>>
+ * @generated SignedSource<<52951d58752c6995b4310a659cff25e5>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -120,7 +120,7 @@ final class ConditionalExpression extends EditableSyntax {
   }
 
   public function hasTest(): bool {
-    return !$this->_test->is_missing();
+    return !$this->_test->isMissing();
   }
 
   public function getTest(): EditableSyntax {
@@ -145,7 +145,7 @@ final class ConditionalExpression extends EditableSyntax {
   }
 
   public function hasQuestion(): bool {
-    return !$this->_question->is_missing();
+    return !$this->_question->isMissing();
   }
 
   public function getQuestion(): QuestionToken {
@@ -170,7 +170,7 @@ final class ConditionalExpression extends EditableSyntax {
   }
 
   public function hasConsequence(): bool {
-    return !$this->_consequence->is_missing();
+    return !$this->_consequence->isMissing();
   }
 
   public function getConsequence(): EditableSyntax {
@@ -195,11 +195,11 @@ final class ConditionalExpression extends EditableSyntax {
   }
 
   public function hasColon(): bool {
-    return !$this->_colon->is_missing();
+    return !$this->_colon->isMissing();
   }
 
   public function getColon(): ?ColonToken {
-    if ($this->_colon->is_missing()) {
+    if ($this->_colon->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
@@ -227,7 +227,7 @@ final class ConditionalExpression extends EditableSyntax {
   }
 
   public function hasAlternative(): bool {
-    return !$this->_alternative->is_missing();
+    return !$this->_alternative->isMissing();
   }
 
   public function getAlternative(): EditableSyntax {

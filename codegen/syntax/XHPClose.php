@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e35f1698f46ca90f9c69d306c507b2fd>>
+ * @generated SignedSource<<fbaba4a1b198ec18fefaebdd682e7baf>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -90,7 +90,7 @@ final class XHPClose extends EditableSyntax {
   }
 
   public function hasLeftAngle(): bool {
-    return !$this->_left_angle->is_missing();
+    return !$this->_left_angle->isMissing();
   }
 
   public function getLeftAngle(): EditableSyntax {
@@ -109,11 +109,11 @@ final class XHPClose extends EditableSyntax {
   }
 
   public function hasName(): bool {
-    return !$this->_name->is_missing();
+    return !$this->_name->isMissing();
   }
 
   public function getName(): ?XHPElementNameToken {
-    if ($this->_name->is_missing()) {
+    if ($this->_name->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(XHPElementNameToken::class, $this->_name);
@@ -135,11 +135,11 @@ final class XHPClose extends EditableSyntax {
   }
 
   public function hasRightAngle(): bool {
-    return !$this->_right_angle->is_missing();
+    return !$this->_right_angle->isMissing();
   }
 
   public function getRightAngle(): ?GreaterThanToken {
-    if ($this->_right_angle->is_missing()) {
+    if ($this->_right_angle->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);

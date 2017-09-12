@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cf39c1d274df2844e2b69fa0dc94a7d6>>
+ * @generated SignedSource<<5d2c87408a728258d11f06a6b37ec4b7>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,7 +75,7 @@ final class SimpleInitializer extends EditableSyntax {
   }
 
   public function hasEqual(): bool {
-    return !$this->_equal->is_missing();
+    return !$this->_equal->isMissing();
   }
 
   public function getEqual(): EqualToken {
@@ -94,7 +94,7 @@ final class SimpleInitializer extends EditableSyntax {
   }
 
   public function hasValue(): bool {
-    return !$this->_value->is_missing();
+    return !$this->_value->isMissing();
   }
 
   public function getValue(): EditableSyntax {

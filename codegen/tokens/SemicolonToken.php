@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1d06d6ccaf6dc7b69efda9905561b71f>>
+ * @generated SignedSource<<92ff3dfba3a517d2e61b14bd6d0f9a60>>
  */
 namespace Facebook\HHAST;
 
@@ -16,7 +16,7 @@ final class SemicolonToken extends EditableToken {
   }
 
   public function hasLeading(): bool {
-    return !$this->getLeading()->is_missing();
+    return !$this->getLeading()->isMissing();
   }
 
   <<__Override>>
@@ -28,7 +28,7 @@ final class SemicolonToken extends EditableToken {
   }
 
   public function hasTrailing(): bool {
-    return !$this->getTrailing()->is_missing();
+    return !$this->getTrailing()->isMissing();
   }
 
   <<__Override>>

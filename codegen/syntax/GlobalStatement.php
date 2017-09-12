@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<936dda691edb2d7e3d0230b74f3cd024>>
+ * @generated SignedSource<<67f9090c4ea4e2116d66b2ed34d0797c>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -90,7 +90,7 @@ final class GlobalStatement extends EditableSyntax {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->is_missing();
+    return !$this->_keyword->isMissing();
   }
 
   public function getKeyword(): GlobalToken {
@@ -109,7 +109,7 @@ final class GlobalStatement extends EditableSyntax {
   }
 
   public function hasVariables(): bool {
-    return !$this->_variables->is_missing();
+    return !$this->_variables->isMissing();
   }
 
   public function getVariables(): EditableList {
@@ -128,7 +128,7 @@ final class GlobalStatement extends EditableSyntax {
   }
 
   public function hasSemicolon(): bool {
-    return !$this->_semicolon->is_missing();
+    return !$this->_semicolon->isMissing();
   }
 
   public function getSemicolon(): SemicolonToken {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0e99b2040e88f36814819095e6f63686>>
+ * @generated SignedSource<<d4fbdd7514cd9ebe27e2871fe2700ea9>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -90,7 +90,7 @@ final class ScopeResolutionExpression extends EditableSyntax {
   }
 
   public function hasQualifier(): bool {
-    return !$this->_qualifier->is_missing();
+    return !$this->_qualifier->isMissing();
   }
 
   public function getQualifier(): EditableSyntax {
@@ -109,7 +109,7 @@ final class ScopeResolutionExpression extends EditableSyntax {
   }
 
   public function hasOperator(): bool {
-    return !$this->_operator->is_missing();
+    return !$this->_operator->isMissing();
   }
 
   public function getOperator(): ColonColonToken {
@@ -128,7 +128,7 @@ final class ScopeResolutionExpression extends EditableSyntax {
   }
 
   public function hasName(): bool {
-    return !$this->_name->is_missing();
+    return !$this->_name->isMissing();
   }
 
   public function getName(): EditableSyntax {

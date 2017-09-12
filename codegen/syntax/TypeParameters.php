@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6ba264844a721197a12f99dbb7038d21>>
+ * @generated SignedSource<<5e6fa099b9fd8a9f96ff9fc684801510>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -90,7 +90,7 @@ final class TypeParameters extends EditableSyntax {
   }
 
   public function hasLeftAngle(): bool {
-    return !$this->_left_angle->is_missing();
+    return !$this->_left_angle->isMissing();
   }
 
   public function getLeftAngle(): LessThanToken {
@@ -109,7 +109,7 @@ final class TypeParameters extends EditableSyntax {
   }
 
   public function hasParameters(): bool {
-    return !$this->_parameters->is_missing();
+    return !$this->_parameters->isMissing();
   }
 
   public function getParameters(): EditableList {
@@ -128,7 +128,7 @@ final class TypeParameters extends EditableSyntax {
   }
 
   public function hasRightAngle(): bool {
-    return !$this->_right_angle->is_missing();
+    return !$this->_right_angle->isMissing();
   }
 
   public function getRightAngle(): GreaterThanToken {

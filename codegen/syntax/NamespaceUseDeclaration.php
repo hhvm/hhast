@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<86205df1c451ceeba7ca33ac2b6324dc>>
+ * @generated SignedSource<<594aa83e3c3eac154b8cb6e2ea664ab5>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -102,7 +102,7 @@ final class NamespaceUseDeclaration extends EditableSyntax {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->is_missing();
+    return !$this->_keyword->isMissing();
   }
 
   public function getKeyword(): UseToken {
@@ -121,7 +121,7 @@ final class NamespaceUseDeclaration extends EditableSyntax {
   }
 
   public function hasKind(): bool {
-    return !$this->_kind->is_missing();
+    return !$this->_kind->isMissing();
   }
 
   public function getKind(): EditableSyntax {
@@ -140,7 +140,7 @@ final class NamespaceUseDeclaration extends EditableSyntax {
   }
 
   public function hasClauses(): bool {
-    return !$this->_clauses->is_missing();
+    return !$this->_clauses->isMissing();
   }
 
   public function getClauses(): EditableList {
@@ -159,11 +159,11 @@ final class NamespaceUseDeclaration extends EditableSyntax {
   }
 
   public function hasSemicolon(): bool {
-    return !$this->_semicolon->is_missing();
+    return !$this->_semicolon->isMissing();
   }
 
   public function getSemicolon(): ?SemicolonToken {
-    if ($this->_semicolon->is_missing()) {
+    if ($this->_semicolon->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);

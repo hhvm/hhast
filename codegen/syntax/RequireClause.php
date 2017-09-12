@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5216440171e2f75ed1c9b53892865c6c>>
+ * @generated SignedSource<<1a2b25c6a5540368eacbc7dc11a20a87>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -102,7 +102,7 @@ final class RequireClause extends EditableSyntax {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->is_missing();
+    return !$this->_keyword->isMissing();
   }
 
   public function getKeyword(): RequireToken {
@@ -121,7 +121,7 @@ final class RequireClause extends EditableSyntax {
   }
 
   public function hasKind(): bool {
-    return !$this->_kind->is_missing();
+    return !$this->_kind->isMissing();
   }
 
   public function getKind(): EditableSyntax {
@@ -140,7 +140,7 @@ final class RequireClause extends EditableSyntax {
   }
 
   public function hasName(): bool {
-    return !$this->_name->is_missing();
+    return !$this->_name->isMissing();
   }
 
   public function getName(): EditableSyntax {
@@ -159,7 +159,7 @@ final class RequireClause extends EditableSyntax {
   }
 
   public function hasSemicolon(): bool {
-    return !$this->_semicolon->is_missing();
+    return !$this->_semicolon->isMissing();
   }
 
   public function getSemicolon(): SemicolonToken {

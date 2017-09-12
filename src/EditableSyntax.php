@@ -72,19 +72,19 @@ abstract class EditableSyntax {
     yield $this;
   }
 
-  public function is_token(): bool {
+  public function isToken(): bool {
     return false;
   }
 
-  public function is_trivia(): bool {
+  public function isTrivia(): bool {
     return false;
   }
 
-  public function is_list(): bool {
+  public function isList(): bool {
     return false;
   }
 
-  public function is_missing(): bool {
+  public function isMissing(): bool {
     return false;
   }
 
@@ -215,7 +215,7 @@ abstract class EditableSyntax {
 
   public function getFirstToken(): ?EditableToken {
     foreach ($this->getChildren() as $child) {
-      if (!$child->is_missing())
+      if (!$child->isMissing())
         return $child->getFirstToken();
     }
     return null;
@@ -227,7 +227,7 @@ abstract class EditableSyntax {
 
   public function getLastToken(): ?EditableToken {
     foreach (Vec\reverse($this->getChildren()) as $child) {
-      if (!$child->is_missing()) {
+      if (!$child->isMissing()) {
         return $child->getLastToken();
       }
     }
@@ -239,14 +239,14 @@ abstract class EditableSyntax {
     EditableSyntax $target,
   ): this {
     // Inserting before missing is an error.
-    if ($target->is_missing())
+    if ($target->isMissing())
       throw new \Exception('Target must not be missing in insert_before.');
 
     // Inserting missing is a no-op
-    if ($new_node->is_missing())
+    if ($new_node->isMissing())
       return $this;
 
-    if ($new_node->is_trivia() && !$target->is_trivia()) {
+    if ($new_node->isTrivia() && !$target->isTrivia()) {
       $token = $target->getFirstToken();
       if ($token === null)
         throw new \Exception('Unable to find token to insert trivia.');
@@ -272,14 +272,14 @@ abstract class EditableSyntax {
   ): this {
 
     // Inserting after missing is an error.
-    if ($target->is_missing())
+    if ($target->isMissing())
       throw new \Exception('Target must not be missing in insert_after.');
 
     // Inserting missing is a no-op
-    if ($new_node->is_missing())
+    if ($new_node->isMissing())
       return $this;
 
-    if ($new_node->is_trivia() && !$target->is_trivia()) {
+    if ($new_node->isTrivia() && !$target->isTrivia()) {
       $token = $target->getLastToken();
       if ($token === null)
         throw new \Exception('Unable to find token to insert trivia.');

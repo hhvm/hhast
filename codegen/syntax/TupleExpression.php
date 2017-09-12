@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<40294760d814a5305c71a54483efd225>>
+ * @generated SignedSource<<53df6c21c57a63061c669c86f275ed59>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -102,7 +102,7 @@ final class TupleExpression extends EditableSyntax {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->is_missing();
+    return !$this->_keyword->isMissing();
   }
 
   public function getKeyword(): TupleToken {
@@ -121,7 +121,7 @@ final class TupleExpression extends EditableSyntax {
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->is_missing();
+    return !$this->_left_paren->isMissing();
   }
 
   public function getLeftParen(): LeftParenToken {
@@ -140,7 +140,7 @@ final class TupleExpression extends EditableSyntax {
   }
 
   public function hasItems(): bool {
-    return !$this->_items->is_missing();
+    return !$this->_items->isMissing();
   }
 
   public function getItems(): EditableList {
@@ -159,7 +159,7 @@ final class TupleExpression extends EditableSyntax {
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->is_missing();
+    return !$this->_right_paren->isMissing();
   }
 
   public function getRightParen(): RightParenToken {

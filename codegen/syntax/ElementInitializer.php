@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<69217445476d5d9d3efdf08cf84d880b>>
+ * @generated SignedSource<<74f39e0070fbf8f2112912f387775fe8>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -90,7 +90,7 @@ final class ElementInitializer extends EditableSyntax {
   }
 
   public function hasKey(): bool {
-    return !$this->_key->is_missing();
+    return !$this->_key->isMissing();
   }
 
   public function getKey(): EditableSyntax {
@@ -109,7 +109,7 @@ final class ElementInitializer extends EditableSyntax {
   }
 
   public function hasArrow(): bool {
-    return !$this->_arrow->is_missing();
+    return !$this->_arrow->isMissing();
   }
 
   public function getArrow(): EqualGreaterThanToken {
@@ -128,7 +128,7 @@ final class ElementInitializer extends EditableSyntax {
   }
 
   public function hasValue(): bool {
-    return !$this->_value->is_missing();
+    return !$this->_value->isMissing();
   }
 
   public function getValue(): EditableSyntax {

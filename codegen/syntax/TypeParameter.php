@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3640916280f9a69d25fc2503b70d737e>>
+ * @generated SignedSource<<e2f0bb1f4fe05477635893d29e1e7f4a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -90,7 +90,7 @@ final class TypeParameter extends EditableSyntax {
   }
 
   public function hasVariance(): bool {
-    return !$this->_variance->is_missing();
+    return !$this->_variance->isMissing();
   }
 
   public function getVariance(): EditableSyntax {
@@ -109,7 +109,7 @@ final class TypeParameter extends EditableSyntax {
   }
 
   public function hasName(): bool {
-    return !$this->_name->is_missing();
+    return !$this->_name->isMissing();
   }
 
   public function getName(): NameToken {
@@ -128,11 +128,11 @@ final class TypeParameter extends EditableSyntax {
   }
 
   public function hasConstraints(): bool {
-    return !$this->_constraints->is_missing();
+    return !$this->_constraints->isMissing();
   }
 
   public function getConstraints(): ?EditableList {
-    if ($this->_constraints->is_missing()) {
+    if ($this->_constraints->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(EditableList::class, $this->_constraints);

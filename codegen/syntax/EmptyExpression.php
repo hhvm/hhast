@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d3331e94b1585bf5b1c7b35268fc8116>>
+ * @generated SignedSource<<dde1109713b08dbcb6192266d364d965>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -102,7 +102,7 @@ final class EmptyExpression extends EditableSyntax {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->is_missing();
+    return !$this->_keyword->isMissing();
   }
 
   public function getKeyword(): EmptyToken {
@@ -121,7 +121,7 @@ final class EmptyExpression extends EditableSyntax {
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->is_missing();
+    return !$this->_left_paren->isMissing();
   }
 
   public function getLeftParen(): LeftParenToken {
@@ -140,7 +140,7 @@ final class EmptyExpression extends EditableSyntax {
   }
 
   public function hasArgument(): bool {
-    return !$this->_argument->is_missing();
+    return !$this->_argument->isMissing();
   }
 
   public function getArgument(): EditableSyntax {
@@ -159,7 +159,7 @@ final class EmptyExpression extends EditableSyntax {
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->is_missing();
+    return !$this->_right_paren->isMissing();
   }
 
   public function getRightParen(): RightParenToken {

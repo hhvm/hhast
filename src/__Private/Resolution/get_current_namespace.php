@@ -44,7 +44,7 @@ function get_current_namespace(
         $$,
         $ns ==> {
           $body = $ns->getBody();
-          return $body->is_missing() || $body instanceof NamespaceEmptyBody;
+          return $body->isMissing() || $body instanceof NamespaceEmptyBody;
         },
       );
     invariant(

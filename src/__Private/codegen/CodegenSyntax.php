@@ -114,7 +114,7 @@ final class CodegenSyntax extends CodegenBase {
       ->codegenMethodf('has%s', $upper_camel)
       ->setReturnType('bool')
       ->setBodyf(
-        'return !$this->_%s->is_missing();',
+        'return !$this->_%s->isMissing();',
         $underscored,
       );
 
@@ -138,7 +138,7 @@ final class CodegenSyntax extends CodegenBase {
       ->setBody(
         $cg
           ->codegenHackBuilder()
-          ->startIfBlockf('$this->_%s->is_missing()', $underscored)
+          ->startIfBlockf('$this->_%s->isMissing()', $underscored)
           ->addReturnf('null')
           ->endIfBlock()
           ->addReturnf(

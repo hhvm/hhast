@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3bc83cc985a0c72719422840c4177288>>
+ * @generated SignedSource<<f42d944a54bea8aff1f98ae90d0612e2>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,7 +75,7 @@ final class ListItem extends EditableSyntax {
   }
 
   public function hasItem(): bool {
-    return !$this->_item->is_missing();
+    return !$this->_item->isMissing();
   }
 
   public function getItem(): EditableSyntax {
@@ -94,7 +94,7 @@ final class ListItem extends EditableSyntax {
   }
 
   public function hasSeparator(): bool {
-    return !$this->_separator->is_missing();
+    return !$this->_separator->isMissing();
   }
 
   public function getSeparator(): EditableSyntax {

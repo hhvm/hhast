@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b17b10b2be07d3bdbab6bbcd581c4edf>>
+ * @generated SignedSource<<1c220c78431e77bc8886bd5ff90d74a9>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -177,11 +177,11 @@ final class TypeConstDeclaration extends EditableSyntax {
   }
 
   public function hasAbstract(): bool {
-    return !$this->_abstract->is_missing();
+    return !$this->_abstract->isMissing();
   }
 
   public function getAbstract(): ?AbstractToken {
-    if ($this->_abstract->is_missing()) {
+    if ($this->_abstract->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(AbstractToken::class, $this->_abstract);
@@ -212,7 +212,7 @@ final class TypeConstDeclaration extends EditableSyntax {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->is_missing();
+    return !$this->_keyword->isMissing();
   }
 
   public function getKeyword(): ConstToken {
@@ -240,7 +240,7 @@ final class TypeConstDeclaration extends EditableSyntax {
   }
 
   public function hasTypeKeyword(): bool {
-    return !$this->_type_keyword->is_missing();
+    return !$this->_type_keyword->isMissing();
   }
 
   public function getTypeKeyword(): TypeToken {
@@ -268,11 +268,11 @@ final class TypeConstDeclaration extends EditableSyntax {
   }
 
   public function hasName(): bool {
-    return !$this->_name->is_missing();
+    return !$this->_name->isMissing();
   }
 
   public function getName(): ?NameToken {
-    if ($this->_name->is_missing()) {
+    if ($this->_name->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(NameToken::class, $this->_name);
@@ -303,11 +303,11 @@ final class TypeConstDeclaration extends EditableSyntax {
   }
 
   public function hasTypeConstraint(): bool {
-    return !$this->_type_constraint->is_missing();
+    return !$this->_type_constraint->isMissing();
   }
 
   public function getTypeConstraint(): ?TypeConstraint {
-    if ($this->_type_constraint->is_missing()) {
+    if ($this->_type_constraint->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(TypeConstraint::class, $this->_type_constraint);
@@ -338,11 +338,11 @@ final class TypeConstDeclaration extends EditableSyntax {
   }
 
   public function hasEqual(): bool {
-    return !$this->_equal->is_missing();
+    return !$this->_equal->isMissing();
   }
 
   public function getEqual(): ?EqualToken {
-    if ($this->_equal->is_missing()) {
+    if ($this->_equal->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(EqualToken::class, $this->_equal);
@@ -373,7 +373,7 @@ final class TypeConstDeclaration extends EditableSyntax {
   }
 
   public function hasTypeSpecifier(): bool {
-    return !$this->_type_specifier->is_missing();
+    return !$this->_type_specifier->isMissing();
   }
 
   public function getTypeSpecifier(): EditableSyntax {
@@ -401,11 +401,11 @@ final class TypeConstDeclaration extends EditableSyntax {
   }
 
   public function hasSemicolon(): bool {
-    return !$this->_semicolon->is_missing();
+    return !$this->_semicolon->isMissing();
   }
 
   public function getSemicolon(): ?SemicolonToken {
-    if ($this->_semicolon->is_missing()) {
+    if ($this->_semicolon->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);

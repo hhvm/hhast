@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ecc6c6579713c290e2b7fce832dd64a5>>
+ * @generated SignedSource<<9ef23a39809b28c548f89fabc3f00f19>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -207,7 +207,7 @@ final class ForeachStatement extends EditableSyntax {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->is_missing();
+    return !$this->_keyword->isMissing();
   }
 
   public function getKeyword(): ForeachToken {
@@ -237,7 +237,7 @@ final class ForeachStatement extends EditableSyntax {
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->is_missing();
+    return !$this->_left_paren->isMissing();
   }
 
   public function getLeftParen(): LeftParenToken {
@@ -267,7 +267,7 @@ final class ForeachStatement extends EditableSyntax {
   }
 
   public function hasCollection(): bool {
-    return !$this->_collection->is_missing();
+    return !$this->_collection->isMissing();
   }
 
   public function getCollection(): EditableSyntax {
@@ -297,11 +297,11 @@ final class ForeachStatement extends EditableSyntax {
   }
 
   public function hasAwaitKeyword(): bool {
-    return !$this->_await_keyword->is_missing();
+    return !$this->_await_keyword->isMissing();
   }
 
   public function getAwaitKeyword(): ?AwaitToken {
-    if ($this->_await_keyword->is_missing()) {
+    if ($this->_await_keyword->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(AwaitToken::class, $this->_await_keyword);
@@ -334,7 +334,7 @@ final class ForeachStatement extends EditableSyntax {
   }
 
   public function hasAs(): bool {
-    return !$this->_as->is_missing();
+    return !$this->_as->isMissing();
   }
 
   public function getAs(): AsToken {
@@ -364,7 +364,7 @@ final class ForeachStatement extends EditableSyntax {
   }
 
   public function hasKey(): bool {
-    return !$this->_key->is_missing();
+    return !$this->_key->isMissing();
   }
 
   public function getKey(): EditableSyntax {
@@ -394,11 +394,11 @@ final class ForeachStatement extends EditableSyntax {
   }
 
   public function hasArrow(): bool {
-    return !$this->_arrow->is_missing();
+    return !$this->_arrow->isMissing();
   }
 
   public function getArrow(): ?EqualGreaterThanToken {
-    if ($this->_arrow->is_missing()) {
+    if ($this->_arrow->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(EqualGreaterThanToken::class, $this->_arrow);
@@ -431,7 +431,7 @@ final class ForeachStatement extends EditableSyntax {
   }
 
   public function hasValue(): bool {
-    return !$this->_value->is_missing();
+    return !$this->_value->isMissing();
   }
 
   public function getValue(): EditableSyntax {
@@ -461,7 +461,7 @@ final class ForeachStatement extends EditableSyntax {
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->is_missing();
+    return !$this->_right_paren->isMissing();
   }
 
   public function getRightParen(): RightParenToken {
@@ -491,7 +491,7 @@ final class ForeachStatement extends EditableSyntax {
   }
 
   public function hasBody(): bool {
-    return !$this->_body->is_missing();
+    return !$this->_body->isMissing();
   }
 
   public function getBody(): EditableSyntax {

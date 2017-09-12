@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dd64c3355b4b0e821ad1998b09a5d3ed>>
+ * @generated SignedSource<<a7e4f6336baf62fb793a61d10e6cdbbc>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -90,7 +90,7 @@ final class BinaryExpression extends EditableSyntax {
   }
 
   public function hasLeftOperand(): bool {
-    return !$this->_left_operand->is_missing();
+    return !$this->_left_operand->isMissing();
   }
 
   public function getLeftOperand(): EditableSyntax {
@@ -109,7 +109,7 @@ final class BinaryExpression extends EditableSyntax {
   }
 
   public function hasOperator(): bool {
-    return !$this->_operator->is_missing();
+    return !$this->_operator->isMissing();
   }
 
   public function getOperator(): EditableSyntax {
@@ -128,7 +128,7 @@ final class BinaryExpression extends EditableSyntax {
   }
 
   public function hasRightOperand(): bool {
-    return !$this->_right_operand->is_missing();
+    return !$this->_right_operand->isMissing();
   }
 
   public function getRightOperand(): EditableSyntax {

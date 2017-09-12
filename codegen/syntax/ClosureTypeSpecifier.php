@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<acacb0a2791a4fc4da8262c5374f69bb>>
+ * @generated SignedSource<<1abee03922b776824f3d1fb7ba9bbcec>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -192,7 +192,7 @@ final class ClosureTypeSpecifier extends EditableSyntax {
   }
 
   public function hasOuterLeftParen(): bool {
-    return !$this->_outer_left_paren->is_missing();
+    return !$this->_outer_left_paren->isMissing();
   }
 
   public function getOuterLeftParen(): LeftParenToken {
@@ -221,7 +221,7 @@ final class ClosureTypeSpecifier extends EditableSyntax {
   }
 
   public function hasCoroutine(): bool {
-    return !$this->_coroutine->is_missing();
+    return !$this->_coroutine->isMissing();
   }
 
   public function getCoroutine(): EditableSyntax {
@@ -250,7 +250,7 @@ final class ClosureTypeSpecifier extends EditableSyntax {
   }
 
   public function hasFunctionKeyword(): bool {
-    return !$this->_function_keyword->is_missing();
+    return !$this->_function_keyword->isMissing();
   }
 
   public function getFunctionKeyword(): FunctionToken {
@@ -279,7 +279,7 @@ final class ClosureTypeSpecifier extends EditableSyntax {
   }
 
   public function hasInnerLeftParen(): bool {
-    return !$this->_inner_left_paren->is_missing();
+    return !$this->_inner_left_paren->isMissing();
   }
 
   public function getInnerLeftParen(): LeftParenToken {
@@ -308,11 +308,11 @@ final class ClosureTypeSpecifier extends EditableSyntax {
   }
 
   public function hasParameterTypes(): bool {
-    return !$this->_parameter_types->is_missing();
+    return !$this->_parameter_types->isMissing();
   }
 
   public function getParameterTypes(): ?EditableList {
-    if ($this->_parameter_types->is_missing()) {
+    if ($this->_parameter_types->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(EditableList::class, $this->_parameter_types);
@@ -344,7 +344,7 @@ final class ClosureTypeSpecifier extends EditableSyntax {
   }
 
   public function hasInnerRightParen(): bool {
-    return !$this->_inner_right_paren->is_missing();
+    return !$this->_inner_right_paren->isMissing();
   }
 
   public function getInnerRightParen(): RightParenToken {
@@ -373,7 +373,7 @@ final class ClosureTypeSpecifier extends EditableSyntax {
   }
 
   public function hasColon(): bool {
-    return !$this->_colon->is_missing();
+    return !$this->_colon->isMissing();
   }
 
   public function getColon(): ColonToken {
@@ -402,7 +402,7 @@ final class ClosureTypeSpecifier extends EditableSyntax {
   }
 
   public function hasReturnType(): bool {
-    return !$this->_return_type->is_missing();
+    return !$this->_return_type->isMissing();
   }
 
   public function getReturnType(): EditableSyntax {
@@ -431,7 +431,7 @@ final class ClosureTypeSpecifier extends EditableSyntax {
   }
 
   public function hasOuterRightParen(): bool {
-    return !$this->_outer_right_paren->is_missing();
+    return !$this->_outer_right_paren->isMissing();
   }
 
   public function getOuterRightParen(): RightParenToken {

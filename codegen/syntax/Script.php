@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<17acb08e0ea11881bcc8379bee22f3b1>>
+ * @generated SignedSource<<b068a1a6829a25f841e9264cb8fb3164>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -64,7 +64,7 @@ final class Script extends EditableSyntax {
   }
 
   public function hasDeclarations(): bool {
-    return !$this->_declarations->is_missing();
+    return !$this->_declarations->isMissing();
   }
 
   public function getDeclarations(): EditableList {

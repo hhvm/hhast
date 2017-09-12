@@ -35,7 +35,7 @@ abstract class EditableTrivia extends EditableSyntax {
   }
 
   <<__Override>>
-  public function is_trivia(): bool {
+  public function isTrivia(): bool {
     return true;
   }
 

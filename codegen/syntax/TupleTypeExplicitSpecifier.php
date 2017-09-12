@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b3eb41a948a637f63ff0dd7482612988>>
+ * @generated SignedSource<<b9a59b209e0bd26699e9553d36cf7abc>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -102,7 +102,7 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->is_missing();
+    return !$this->_keyword->isMissing();
   }
 
   public function getKeyword(): EditableSyntax {
@@ -121,7 +121,7 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
   }
 
   public function hasLeftAngle(): bool {
-    return !$this->_left_angle->is_missing();
+    return !$this->_left_angle->isMissing();
   }
 
   public function getLeftAngle(): EditableSyntax {
@@ -140,7 +140,7 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
   }
 
   public function hasTypes(): bool {
-    return !$this->_types->is_missing();
+    return !$this->_types->isMissing();
   }
 
   public function getTypes(): EditableSyntax {
@@ -159,7 +159,7 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
   }
 
   public function hasRightAngle(): bool {
-    return !$this->_right_angle->is_missing();
+    return !$this->_right_angle->isMissing();
   }
 
   public function getRightAngle(): EditableSyntax {

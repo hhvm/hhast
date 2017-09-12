@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2555d85144c74332b5e9cbf83755809d>>
+ * @generated SignedSource<<c3b7bcbe81ff1505126f269680792260>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -90,7 +90,7 @@ final class MemberSelectionExpression extends EditableSyntax {
   }
 
   public function hasObject(): bool {
-    return !$this->_object->is_missing();
+    return !$this->_object->isMissing();
   }
 
   public function getObject(): EditableSyntax {
@@ -109,7 +109,7 @@ final class MemberSelectionExpression extends EditableSyntax {
   }
 
   public function hasOperator(): bool {
-    return !$this->_operator->is_missing();
+    return !$this->_operator->isMissing();
   }
 
   public function getOperator(): MinusGreaterThanToken {
@@ -128,7 +128,7 @@ final class MemberSelectionExpression extends EditableSyntax {
   }
 
   public function hasName(): bool {
-    return !$this->_name->is_missing();
+    return !$this->_name->isMissing();
   }
 
   public function getName(): EditableSyntax {

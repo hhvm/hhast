@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3395e2d405b3a9c9975f93ecca5b8def>>
+ * @generated SignedSource<<5080bce31584f9e833741098be025122>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -162,7 +162,7 @@ final class IfStatement extends EditableSyntax {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->is_missing();
+    return !$this->_keyword->isMissing();
   }
 
   public function getKeyword(): IfToken {
@@ -189,7 +189,7 @@ final class IfStatement extends EditableSyntax {
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->is_missing();
+    return !$this->_left_paren->isMissing();
   }
 
   public function getLeftParen(): LeftParenToken {
@@ -216,7 +216,7 @@ final class IfStatement extends EditableSyntax {
   }
 
   public function hasCondition(): bool {
-    return !$this->_condition->is_missing();
+    return !$this->_condition->isMissing();
   }
 
   public function getCondition(): EditableSyntax {
@@ -243,11 +243,11 @@ final class IfStatement extends EditableSyntax {
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->is_missing();
+    return !$this->_right_paren->isMissing();
   }
 
   public function getRightParen(): ?RightParenToken {
-    if ($this->_right_paren->is_missing()) {
+    if ($this->_right_paren->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
@@ -277,7 +277,7 @@ final class IfStatement extends EditableSyntax {
   }
 
   public function hasStatement(): bool {
-    return !$this->_statement->is_missing();
+    return !$this->_statement->isMissing();
   }
 
   public function getStatement(): EditableSyntax {
@@ -304,11 +304,11 @@ final class IfStatement extends EditableSyntax {
   }
 
   public function hasElseifClauses(): bool {
-    return !$this->_elseif_clauses->is_missing();
+    return !$this->_elseif_clauses->isMissing();
   }
 
   public function getElseifClauses(): ?EditableList {
-    if ($this->_elseif_clauses->is_missing()) {
+    if ($this->_elseif_clauses->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(EditableList::class, $this->_elseif_clauses);
@@ -338,11 +338,11 @@ final class IfStatement extends EditableSyntax {
   }
 
   public function hasElseClause(): bool {
-    return !$this->_else_clause->is_missing();
+    return !$this->_else_clause->isMissing();
   }
 
   public function getElseClause(): ?ElseClause {
-    if ($this->_else_clause->is_missing()) {
+    if ($this->_else_clause->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(ElseClause::class, $this->_else_clause);

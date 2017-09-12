@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<37f67f6054adcdf5e03b74754aef3312>>
+ * @generated SignedSource<<727897ff877e219993997fe51c2278a1>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -102,7 +102,7 @@ final class Attribute extends EditableSyntax {
   }
 
   public function hasName(): bool {
-    return !$this->_name->is_missing();
+    return !$this->_name->isMissing();
   }
 
   public function getName(): NameToken {
@@ -121,11 +121,11 @@ final class Attribute extends EditableSyntax {
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->is_missing();
+    return !$this->_left_paren->isMissing();
   }
 
   public function getLeftParen(): ?LeftParenToken {
-    if ($this->_left_paren->is_missing()) {
+    if ($this->_left_paren->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
@@ -147,11 +147,11 @@ final class Attribute extends EditableSyntax {
   }
 
   public function hasValues(): bool {
-    return !$this->_values->is_missing();
+    return !$this->_values->isMissing();
   }
 
   public function getValues(): ?EditableList {
-    if ($this->_values->is_missing()) {
+    if ($this->_values->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(EditableList::class, $this->_values);
@@ -173,11 +173,11 @@ final class Attribute extends EditableSyntax {
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->is_missing();
+    return !$this->_right_paren->isMissing();
   }
 
   public function getRightParen(): ?RightParenToken {
-    if ($this->_right_paren->is_missing()) {
+    if ($this->_right_paren->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);

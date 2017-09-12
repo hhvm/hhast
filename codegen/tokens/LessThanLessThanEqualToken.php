@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c5337465a4ca49e9d312e3662868ddfa>>
+ * @generated SignedSource<<fa1f803b0fbc7fb8ef582d7c070b56da>>
  */
 namespace Facebook\HHAST;
 
@@ -16,7 +16,7 @@ final class LessThanLessThanEqualToken extends EditableToken {
   }
 
   public function hasLeading(): bool {
-    return !$this->getLeading()->is_missing();
+    return !$this->getLeading()->isMissing();
   }
 
   <<__Override>>
@@ -28,7 +28,7 @@ final class LessThanLessThanEqualToken extends EditableToken {
   }
 
   public function hasTrailing(): bool {
-    return !$this->getTrailing()->is_missing();
+    return !$this->getTrailing()->isMissing();
   }
 
   <<__Override>>

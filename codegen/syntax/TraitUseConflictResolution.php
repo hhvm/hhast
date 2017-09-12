@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2cbe4950c8b201cb3f11595ff2c91b68>>
+ * @generated SignedSource<<e1da54d3528c50b8d3d86c0cd736424a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -120,7 +120,7 @@ final class TraitUseConflictResolution extends EditableSyntax {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->is_missing();
+    return !$this->_keyword->isMissing();
   }
 
   public function getKeyword(): UseToken {
@@ -145,7 +145,7 @@ final class TraitUseConflictResolution extends EditableSyntax {
   }
 
   public function hasNames(): bool {
-    return !$this->_names->is_missing();
+    return !$this->_names->isMissing();
   }
 
   public function getNames(): EditableList {
@@ -170,7 +170,7 @@ final class TraitUseConflictResolution extends EditableSyntax {
   }
 
   public function hasLeftBrace(): bool {
-    return !$this->_left_brace->is_missing();
+    return !$this->_left_brace->isMissing();
   }
 
   public function getLeftBrace(): LeftBraceToken {
@@ -195,11 +195,11 @@ final class TraitUseConflictResolution extends EditableSyntax {
   }
 
   public function hasClauses(): bool {
-    return !$this->_clauses->is_missing();
+    return !$this->_clauses->isMissing();
   }
 
   public function getClauses(): ?EditableList {
-    if ($this->_clauses->is_missing()) {
+    if ($this->_clauses->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(EditableList::class, $this->_clauses);
@@ -227,7 +227,7 @@ final class TraitUseConflictResolution extends EditableSyntax {
   }
 
   public function hasRightBrace(): bool {
-    return !$this->_right_brace->is_missing();
+    return !$this->_right_brace->isMissing();
   }
 
   public function getRightBrace(): RightBraceToken {

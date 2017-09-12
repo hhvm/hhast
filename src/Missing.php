@@ -19,7 +19,7 @@ final class Missing extends EditableSyntax {
   }
 
   <<__Override>>
-  public function is_missing(): bool {
+  public function isMissing(): bool {
     return true;
   }
 

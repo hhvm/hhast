@@ -170,7 +170,7 @@ final class CodegenTokens extends CodegenBase {
           ->codegenMethodf('has%s', $upper_camel)
           ->setReturnType('bool')
           ->setBodyf(
-            'return !$this->get%s()->is_missing();',
+            'return !$this->get%s()->isMissing();',
             $upper_camel,
           );
       }

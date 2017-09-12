@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0a9a3e0dd173a64a0036bb87935ac7ef>>
+ * @generated SignedSource<<1eb36d7c8424716cefac7f89882cbe29>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -90,7 +90,7 @@ final class ArrayCreationExpression extends EditableSyntax {
   }
 
   public function hasLeftBracket(): bool {
-    return !$this->_left_bracket->is_missing();
+    return !$this->_left_bracket->isMissing();
   }
 
   public function getLeftBracket(): LeftBracketToken {
@@ -109,11 +109,11 @@ final class ArrayCreationExpression extends EditableSyntax {
   }
 
   public function hasMembers(): bool {
-    return !$this->_members->is_missing();
+    return !$this->_members->isMissing();
   }
 
   public function getMembers(): ?EditableList {
-    if ($this->_members->is_missing()) {
+    if ($this->_members->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
@@ -135,7 +135,7 @@ final class ArrayCreationExpression extends EditableSyntax {
   }
 
   public function hasRightBracket(): bool {
-    return !$this->_right_bracket->is_missing();
+    return !$this->_right_bracket->isMissing();
   }
 
   public function getRightBracket(): RightBracketToken {

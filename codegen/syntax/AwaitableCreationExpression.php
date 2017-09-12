@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fce8e34806e9b2c80cbbdc29ab5998dc>>
+ * @generated SignedSource<<d7472409cfdb6064559e482faabdd0bb>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -90,7 +90,7 @@ final class AwaitableCreationExpression extends EditableSyntax {
   }
 
   public function hasAsync(): bool {
-    return !$this->_async->is_missing();
+    return !$this->_async->isMissing();
   }
 
   public function getAsync(): AsyncToken {
@@ -109,7 +109,7 @@ final class AwaitableCreationExpression extends EditableSyntax {
   }
 
   public function hasCoroutine(): bool {
-    return !$this->_coroutine->is_missing();
+    return !$this->_coroutine->isMissing();
   }
 
   public function getCoroutine(): EditableSyntax {
@@ -128,7 +128,7 @@ final class AwaitableCreationExpression extends EditableSyntax {
   }
 
   public function hasCompoundStatement(): bool {
-    return !$this->_compound_statement->is_missing();
+    return !$this->_compound_statement->isMissing();
   }
 
   public function getCompoundStatement(): CompoundStatement {

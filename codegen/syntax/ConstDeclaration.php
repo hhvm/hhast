@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a0bc8a9fc5dcd0a3f5b5ce4ac87ec411>>
+ * @generated SignedSource<<2ec2a23f29d18a589c68ed58d508ad22>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -126,11 +126,11 @@ final class ConstDeclaration extends EditableSyntax {
   }
 
   public function hasAbstract(): bool {
-    return !$this->_abstract->is_missing();
+    return !$this->_abstract->isMissing();
   }
 
   public function getAbstract(): ?AbstractToken {
-    if ($this->_abstract->is_missing()) {
+    if ($this->_abstract->isMissing()) {
       return null;
     }
     return TypeAssert::isInstanceOf(AbstractToken::class, $this->_abstract);
@@ -158,7 +158,7 @@ final class ConstDeclaration extends EditableSyntax {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->is_missing();
+    return !$this->_keyword->isMissing();
   }
 
   public function getKeyword(): ConstToken {
@@ -183,7 +183,7 @@ final class ConstDeclaration extends EditableSyntax {
   }
 
   public function hasTypeSpecifier(): bool {
-    return !$this->_type_specifier->is_missing();
+    return !$this->_type_specifier->isMissing();
   }
 
   public function getTypeSpecifier(): EditableSyntax {
@@ -208,7 +208,7 @@ final class ConstDeclaration extends EditableSyntax {
   }
 
   public function hasDeclarators(): bool {
-    return !$this->_declarators->is_missing();
+    return !$this->_declarators->isMissing();
   }
 
   public function getDeclarators(): EditableList {
@@ -233,7 +233,7 @@ final class ConstDeclaration extends EditableSyntax {
   }
 
   public function hasSemicolon(): bool {
-    return !$this->_semicolon->is_missing();
+    return !$this->_semicolon->isMissing();
   }
 
   public function getSemicolon(): SemicolonToken {

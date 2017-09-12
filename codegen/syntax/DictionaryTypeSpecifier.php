@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<40691ab657fd2502645f963dc0f51e87>>
+ * @generated SignedSource<<441e3217a1d62f56cdb93b8fa2c67342>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -102,7 +102,7 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->is_missing();
+    return !$this->_keyword->isMissing();
   }
 
   public function getKeyword(): DictToken {
@@ -121,7 +121,7 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
   }
 
   public function hasLeftAngle(): bool {
-    return !$this->_left_angle->is_missing();
+    return !$this->_left_angle->isMissing();
   }
 
   public function getLeftAngle(): LessThanToken {
@@ -140,7 +140,7 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
   }
 
   public function hasMembers(): bool {
-    return !$this->_members->is_missing();
+    return !$this->_members->isMissing();
   }
 
   public function getMembers(): EditableList {
@@ -159,7 +159,7 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
   }
 
   public function hasRightAngle(): bool {
-    return !$this->_right_angle->is_missing();
+    return !$this->_right_angle->isMissing();
   }
 
   public function getRightAngle(): GreaterThanToken {

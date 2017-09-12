@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<04b3023ac1e621ba9f86d77fde7c78cd>>
+ * @generated SignedSource<<74223f080e7267cdc6aeba286b62e8f2>>
  */
 namespace Facebook\HHAST;
 
@@ -22,7 +22,7 @@ final class DoubleQuotedStringLiteralHeadToken extends EditableToken {
   }
 
   public function hasLeading(): bool {
-    return !$this->getLeading()->is_missing();
+    return !$this->getLeading()->isMissing();
   }
 
   <<__Override>>
@@ -34,7 +34,7 @@ final class DoubleQuotedStringLiteralHeadToken extends EditableToken {
   }
 
   public function hasTrailing(): bool {
-    return !$this->getTrailing()->is_missing();
+    return !$this->getTrailing()->isMissing();
   }
 
   <<__Override>>

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e54ef9d035b0915ab03cc42695770b3e>>
+ * @generated SignedSource<<9b9553c73745ab5146b78a704c91dc53>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,7 +75,7 @@ final class NullableTypeSpecifier extends EditableSyntax {
   }
 
   public function hasQuestion(): bool {
-    return !$this->_question->is_missing();
+    return !$this->_question->isMissing();
   }
 
   public function getQuestion(): QuestionToken {
@@ -94,7 +94,7 @@ final class NullableTypeSpecifier extends EditableSyntax {
   }
 
   public function hasType(): bool {
-    return !$this->_type->is_missing();
+    return !$this->_type->isMissing();
   }
 
   public function getType(): EditableSyntax {

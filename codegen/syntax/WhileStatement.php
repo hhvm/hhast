@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5524bd62921f683fadb84165ddc28a5b>>
+ * @generated SignedSource<<c1575dcbb11d18ce80389e1bf9e7fc20>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -120,7 +120,7 @@ final class WhileStatement extends EditableSyntax {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->is_missing();
+    return !$this->_keyword->isMissing();
   }
 
   public function getKeyword(): WhileToken {
@@ -145,7 +145,7 @@ final class WhileStatement extends EditableSyntax {
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->is_missing();
+    return !$this->_left_paren->isMissing();
   }
 
   public function getLeftParen(): LeftParenToken {
@@ -170,7 +170,7 @@ final class WhileStatement extends EditableSyntax {
   }
 
   public function hasCondition(): bool {
-    return !$this->_condition->is_missing();
+    return !$this->_condition->isMissing();
   }
 
   public function getCondition(): EditableSyntax {
@@ -195,7 +195,7 @@ final class WhileStatement extends EditableSyntax {
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->is_missing();
+    return !$this->_right_paren->isMissing();
   }
 
   public function getRightParen(): RightParenToken {
@@ -220,7 +220,7 @@ final class WhileStatement extends EditableSyntax {
   }
 
   public function hasBody(): bool {
-    return !$this->_body->is_missing();
+    return !$this->_body->isMissing();
   }
 
   public function getBody(): EditableSyntax {

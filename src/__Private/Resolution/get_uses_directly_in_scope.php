@@ -79,7 +79,7 @@ function get_uses_directly_in_scope(
       : $alias->full_text()
         |> Str\trim($$)
         |> Str\strip_prefix($$, '\\');
-    if ($kind->is_missing()) {
+    if ($kind->isMissing()) {
       $namespaces[$alias] = $name;
       $types[$alias] = $name;
     } else if ($kind instanceof NamespaceToken) {
