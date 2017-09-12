@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5ecd6dc18b45b28582dd18ecf9300214>>
+ * @generated SignedSource<<2759d2007dd6e8dc48608b4831083ac9>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -91,7 +91,7 @@ final class TupleExpression extends EditableSyntax {
     return $this->_keyword;
   }
 
-  public function with_keyword(EditableSyntax $value): this {
+  public function withKeyword(EditableSyntax $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -110,7 +110,7 @@ final class TupleExpression extends EditableSyntax {
     return $this->_left_paren;
   }
 
-  public function with_left_paren(EditableSyntax $value): this {
+  public function withLeftParen(EditableSyntax $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -129,7 +129,7 @@ final class TupleExpression extends EditableSyntax {
     return $this->_items;
   }
 
-  public function with_items(EditableSyntax $value): this {
+  public function withItems(EditableSyntax $value): this {
     if ($value === $this->_items) {
       return $this;
     }
@@ -148,7 +148,7 @@ final class TupleExpression extends EditableSyntax {
     return $this->_right_paren;
   }
 
-  public function with_right_paren(EditableSyntax $value): this {
+  public function withRightParen(EditableSyntax $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }

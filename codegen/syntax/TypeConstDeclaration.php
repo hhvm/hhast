@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c4ebd6af9542e255e263d865af42c944>>
+ * @generated SignedSource<<d045e423a792503f1c67dc4dd18fbafd>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -157,7 +157,7 @@ final class TypeConstDeclaration extends EditableSyntax {
     return $this->_abstract;
   }
 
-  public function with_abstract(EditableSyntax $value): this {
+  public function withAbstract(EditableSyntax $value): this {
     if ($value === $this->_abstract) {
       return $this;
     }
@@ -192,7 +192,7 @@ final class TypeConstDeclaration extends EditableSyntax {
     return $this->_keyword;
   }
 
-  public function with_keyword(EditableSyntax $value): this {
+  public function withKeyword(EditableSyntax $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -220,7 +220,7 @@ final class TypeConstDeclaration extends EditableSyntax {
     return $this->_type_keyword;
   }
 
-  public function with_type_keyword(EditableSyntax $value): this {
+  public function withTypeKeyword(EditableSyntax $value): this {
     if ($value === $this->_type_keyword) {
       return $this;
     }
@@ -248,7 +248,7 @@ final class TypeConstDeclaration extends EditableSyntax {
     return $this->_name;
   }
 
-  public function with_name(EditableSyntax $value): this {
+  public function withName(EditableSyntax $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -283,7 +283,7 @@ final class TypeConstDeclaration extends EditableSyntax {
     return $this->_type_constraint;
   }
 
-  public function with_type_constraint(EditableSyntax $value): this {
+  public function withTypeConstraint(EditableSyntax $value): this {
     if ($value === $this->_type_constraint) {
       return $this;
     }
@@ -318,7 +318,7 @@ final class TypeConstDeclaration extends EditableSyntax {
     return $this->_equal;
   }
 
-  public function with_equal(EditableSyntax $value): this {
+  public function withEqual(EditableSyntax $value): this {
     if ($value === $this->_equal) {
       return $this;
     }
@@ -353,7 +353,7 @@ final class TypeConstDeclaration extends EditableSyntax {
     return $this->_type_specifier;
   }
 
-  public function with_type_specifier(EditableSyntax $value): this {
+  public function withTypeSpecifier(EditableSyntax $value): this {
     if ($value === $this->_type_specifier) {
       return $this;
     }
@@ -381,7 +381,7 @@ final class TypeConstDeclaration extends EditableSyntax {
     return $this->_semicolon;
   }
 
-  public function with_semicolon(EditableSyntax $value): this {
+  public function withSemicolon(EditableSyntax $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

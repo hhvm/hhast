@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<94432da112d69dd7a4cd0b705e6aed85>>
+ * @generated SignedSource<<60f3b6f6f594da08ae98332dc2d4b1e3>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -109,7 +109,7 @@ final class ObjectCreationExpression extends EditableSyntax {
     return $this->_new_keyword;
   }
 
-  public function with_new_keyword(EditableSyntax $value): this {
+  public function withNewKeyword(EditableSyntax $value): this {
     if ($value === $this->_new_keyword) {
       return $this;
     }
@@ -134,7 +134,7 @@ final class ObjectCreationExpression extends EditableSyntax {
     return $this->_type;
   }
 
-  public function with_type(EditableSyntax $value): this {
+  public function withType(EditableSyntax $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -159,7 +159,7 @@ final class ObjectCreationExpression extends EditableSyntax {
     return $this->_left_paren;
   }
 
-  public function with_left_paren(EditableSyntax $value): this {
+  public function withLeftParen(EditableSyntax $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -191,7 +191,7 @@ final class ObjectCreationExpression extends EditableSyntax {
     return $this->_argument_list;
   }
 
-  public function with_argument_list(EditableSyntax $value): this {
+  public function withArgumentList(EditableSyntax $value): this {
     if ($value === $this->_argument_list) {
       return $this;
     }
@@ -223,7 +223,7 @@ final class ObjectCreationExpression extends EditableSyntax {
     return $this->_right_paren;
   }
 
-  public function with_right_paren(EditableSyntax $value): this {
+  public function withRightParen(EditableSyntax $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }

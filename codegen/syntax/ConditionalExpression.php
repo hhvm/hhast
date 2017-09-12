@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c69751616de792c9a78d5c3e5bddca9d>>
+ * @generated SignedSource<<a9cd3859086797becc0471dcfc115d86>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -103,7 +103,7 @@ final class ConditionalExpression extends EditableSyntax {
     return $this->_test;
   }
 
-  public function with_test(EditableSyntax $value): this {
+  public function withTest(EditableSyntax $value): this {
     if ($value === $this->_test) {
       return $this;
     }
@@ -128,7 +128,7 @@ final class ConditionalExpression extends EditableSyntax {
     return $this->_question;
   }
 
-  public function with_question(EditableSyntax $value): this {
+  public function withQuestion(EditableSyntax $value): this {
     if ($value === $this->_question) {
       return $this;
     }
@@ -153,7 +153,7 @@ final class ConditionalExpression extends EditableSyntax {
     return $this->_consequence;
   }
 
-  public function with_consequence(EditableSyntax $value): this {
+  public function withConsequence(EditableSyntax $value): this {
     if ($value === $this->_consequence) {
       return $this;
     }
@@ -178,7 +178,7 @@ final class ConditionalExpression extends EditableSyntax {
     return $this->_colon;
   }
 
-  public function with_colon(EditableSyntax $value): this {
+  public function withColon(EditableSyntax $value): this {
     if ($value === $this->_colon) {
       return $this;
     }
@@ -210,7 +210,7 @@ final class ConditionalExpression extends EditableSyntax {
     return $this->_alternative;
   }
 
-  public function with_alternative(EditableSyntax $value): this {
+  public function withAlternative(EditableSyntax $value): this {
     if ($value === $this->_alternative) {
       return $this;
     }

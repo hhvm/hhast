@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<92c9a738f798c8ba4dc5b75907be203e>>
+ * @generated SignedSource<<9588e38c073b36792eebcd5c596bd79d>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -143,7 +143,7 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
     return $this->_keyword;
   }
 
-  public function with_keyword(EditableSyntax $value): this {
+  public function withKeyword(EditableSyntax $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -170,7 +170,7 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
     return $this->_kind;
   }
 
-  public function with_kind(EditableSyntax $value): this {
+  public function withKind(EditableSyntax $value): this {
     if ($value === $this->_kind) {
       return $this;
     }
@@ -197,7 +197,7 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
     return $this->_prefix;
   }
 
-  public function with_prefix(EditableSyntax $value): this {
+  public function withPrefix(EditableSyntax $value): this {
     if ($value === $this->_prefix) {
       return $this;
     }
@@ -224,7 +224,7 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
     return $this->_left_brace;
   }
 
-  public function with_left_brace(EditableSyntax $value): this {
+  public function withLeftBrace(EditableSyntax $value): this {
     if ($value === $this->_left_brace) {
       return $this;
     }
@@ -251,7 +251,7 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
     return $this->_clauses;
   }
 
-  public function with_clauses(EditableSyntax $value): this {
+  public function withClauses(EditableSyntax $value): this {
     if ($value === $this->_clauses) {
       return $this;
     }
@@ -278,7 +278,7 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
     return $this->_right_brace;
   }
 
-  public function with_right_brace(EditableSyntax $value): this {
+  public function withRightBrace(EditableSyntax $value): this {
     if ($value === $this->_right_brace) {
       return $this;
     }
@@ -312,7 +312,7 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
     return $this->_semicolon;
   }
 
-  public function with_semicolon(EditableSyntax $value): this {
+  public function withSemicolon(EditableSyntax $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

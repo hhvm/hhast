@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4ff22930c78c1b55a2dfd79bc8251aed>>
+ * @generated SignedSource<<4fee2703afe10cdaf8dbeae30fbe0004>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -103,7 +103,7 @@ final class ParameterDeclaration extends EditableSyntax {
     return $this->_attribute;
   }
 
-  public function with_attribute(EditableSyntax $value): this {
+  public function withAttribute(EditableSyntax $value): this {
     if ($value === $this->_attribute) {
       return $this;
     }
@@ -135,7 +135,7 @@ final class ParameterDeclaration extends EditableSyntax {
     return $this->_visibility;
   }
 
-  public function with_visibility(EditableSyntax $value): this {
+  public function withVisibility(EditableSyntax $value): this {
     if ($value === $this->_visibility) {
       return $this;
     }
@@ -160,7 +160,7 @@ final class ParameterDeclaration extends EditableSyntax {
     return $this->_type;
   }
 
-  public function with_type(EditableSyntax $value): this {
+  public function withType(EditableSyntax $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -185,7 +185,7 @@ final class ParameterDeclaration extends EditableSyntax {
     return $this->_name;
   }
 
-  public function with_name(EditableSyntax $value): this {
+  public function withName(EditableSyntax $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -210,7 +210,7 @@ final class ParameterDeclaration extends EditableSyntax {
     return $this->_default_value;
   }
 
-  public function with_default_value(EditableSyntax $value): this {
+  public function withDefaultValue(EditableSyntax $value): this {
     if ($value === $this->_default_value) {
       return $this;
     }

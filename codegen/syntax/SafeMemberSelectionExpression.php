@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cf6ce8019ea556011fd40b826de5986e>>
+ * @generated SignedSource<<acff1058544c1992c29c0ff5c0f8c201>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -79,7 +79,7 @@ final class SafeMemberSelectionExpression extends EditableSyntax {
     return $this->_object;
   }
 
-  public function with_object(EditableSyntax $value): this {
+  public function withObject(EditableSyntax $value): this {
     if ($value === $this->_object) {
       return $this;
     }
@@ -98,7 +98,7 @@ final class SafeMemberSelectionExpression extends EditableSyntax {
     return $this->_operator;
   }
 
-  public function with_operator(EditableSyntax $value): this {
+  public function withOperator(EditableSyntax $value): this {
     if ($value === $this->_operator) {
       return $this;
     }
@@ -117,7 +117,7 @@ final class SafeMemberSelectionExpression extends EditableSyntax {
     return $this->_name;
   }
 
-  public function with_name(EditableSyntax $value): this {
+  public function withName(EditableSyntax $value): this {
     if ($value === $this->_name) {
       return $this;
     }

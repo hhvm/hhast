@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8876d74989d5ad429257f5318d9c4d41>>
+ * @generated SignedSource<<73c8a6565f55f699f805f8f05a0490cf>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -122,7 +122,7 @@ final class CatchClause extends EditableSyntax {
     return $this->_keyword;
   }
 
-  public function with_keyword(EditableSyntax $value): this {
+  public function withKeyword(EditableSyntax $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -148,7 +148,7 @@ final class CatchClause extends EditableSyntax {
     return $this->_left_paren;
   }
 
-  public function with_left_paren(EditableSyntax $value): this {
+  public function withLeftParen(EditableSyntax $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -174,7 +174,7 @@ final class CatchClause extends EditableSyntax {
     return $this->_type;
   }
 
-  public function with_type(EditableSyntax $value): this {
+  public function withType(EditableSyntax $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -200,7 +200,7 @@ final class CatchClause extends EditableSyntax {
     return $this->_variable;
   }
 
-  public function with_variable(EditableSyntax $value): this {
+  public function withVariable(EditableSyntax $value): this {
     if ($value === $this->_variable) {
       return $this;
     }
@@ -233,7 +233,7 @@ final class CatchClause extends EditableSyntax {
     return $this->_right_paren;
   }
 
-  public function with_right_paren(EditableSyntax $value): this {
+  public function withRightParen(EditableSyntax $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -266,7 +266,7 @@ final class CatchClause extends EditableSyntax {
     return $this->_body;
   }
 
-  public function with_body(EditableSyntax $value): this {
+  public function withBody(EditableSyntax $value): this {
     if ($value === $this->_body) {
       return $this;
     }

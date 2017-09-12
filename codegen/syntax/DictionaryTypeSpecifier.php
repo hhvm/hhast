@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bc8fd36877b2d8481ba339a562d02995>>
+ * @generated SignedSource<<02d9716b6712a3b99d1cb775ace6c4ea>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -91,7 +91,7 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
     return $this->_keyword;
   }
 
-  public function with_keyword(EditableSyntax $value): this {
+  public function withKeyword(EditableSyntax $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -110,7 +110,7 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
     return $this->_left_angle;
   }
 
-  public function with_left_angle(EditableSyntax $value): this {
+  public function withLeftAngle(EditableSyntax $value): this {
     if ($value === $this->_left_angle) {
       return $this;
     }
@@ -129,7 +129,7 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
     return $this->_members;
   }
 
-  public function with_members(EditableSyntax $value): this {
+  public function withMembers(EditableSyntax $value): this {
     if ($value === $this->_members) {
       return $this;
     }
@@ -148,7 +148,7 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
     return $this->_right_angle;
   }
 
-  public function with_right_angle(EditableSyntax $value): this {
+  public function withRightAngle(EditableSyntax $value): this {
     if ($value === $this->_right_angle) {
       return $this;
     }

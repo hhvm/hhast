@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6c92e8d83cab4b8fa647dc62b81dad9e>>
+ * @generated SignedSource<<416990f496827d687c1aca07f0b06847>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -91,7 +91,7 @@ final class CollectionLiteralExpression extends EditableSyntax {
     return $this->_name;
   }
 
-  public function with_name(EditableSyntax $value): this {
+  public function withName(EditableSyntax $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -110,7 +110,7 @@ final class CollectionLiteralExpression extends EditableSyntax {
     return $this->_left_brace;
   }
 
-  public function with_left_brace(EditableSyntax $value): this {
+  public function withLeftBrace(EditableSyntax $value): this {
     if ($value === $this->_left_brace) {
       return $this;
     }
@@ -129,7 +129,7 @@ final class CollectionLiteralExpression extends EditableSyntax {
     return $this->_initializers;
   }
 
-  public function with_initializers(EditableSyntax $value): this {
+  public function withInitializers(EditableSyntax $value): this {
     if ($value === $this->_initializers) {
       return $this;
     }
@@ -155,7 +155,7 @@ final class CollectionLiteralExpression extends EditableSyntax {
     return $this->_right_brace;
   }
 
-  public function with_right_brace(EditableSyntax $value): this {
+  public function withRightBrace(EditableSyntax $value): this {
     if ($value === $this->_right_brace) {
       return $this;
     }

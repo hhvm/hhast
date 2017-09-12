@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0586258d5675dbc231ca789980aec58f>>
+ * @generated SignedSource<<00ebf970b77330382a4f0100114226a0>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -53,7 +53,7 @@ final class ErrorSyntax extends EditableSyntax {
     return $this->_error;
   }
 
-  public function with_error(EditableSyntax $value): this {
+  public function withError(EditableSyntax $value): this {
     if ($value === $this->_error) {
       return $this;
     }

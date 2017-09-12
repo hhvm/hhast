@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<47edf200633257e377a38bb7a5beb2ae>>
+ * @generated SignedSource<<2c2ee9bb8be7cf1841a8e0c1bd391ca5>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -53,7 +53,7 @@ final class LiteralExpression extends EditableSyntax {
     return $this->_expression;
   }
 
-  public function with_expression(EditableSyntax $value): this {
+  public function withExpression(EditableSyntax $value): this {
     if ($value === $this->_expression) {
       return $this;
     }

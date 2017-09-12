@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f2304b940227301f6e9cd54da0a45cd9>>
+ * @generated SignedSource<<5f94e7e97316ebf0305c42415c88e8c4>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -115,7 +115,7 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     return $this->_keyword;
   }
 
-  public function with_keyword(EditableSyntax $value): this {
+  public function withKeyword(EditableSyntax $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -141,7 +141,7 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     return $this->_left_angle;
   }
 
-  public function with_left_angle(EditableSyntax $value): this {
+  public function withLeftAngle(EditableSyntax $value): this {
     if ($value === $this->_left_angle) {
       return $this;
     }
@@ -167,7 +167,7 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     return $this->_key;
   }
 
-  public function with_key(EditableSyntax $value): this {
+  public function withKey(EditableSyntax $value): this {
     if ($value === $this->_key) {
       return $this;
     }
@@ -193,7 +193,7 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     return $this->_comma;
   }
 
-  public function with_comma(EditableSyntax $value): this {
+  public function withComma(EditableSyntax $value): this {
     if ($value === $this->_comma) {
       return $this;
     }
@@ -219,7 +219,7 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     return $this->_value;
   }
 
-  public function with_value(EditableSyntax $value): this {
+  public function withValue(EditableSyntax $value): this {
     if ($value === $this->_value) {
       return $this;
     }
@@ -245,7 +245,7 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     return $this->_right_angle;
   }
 
-  public function with_right_angle(EditableSyntax $value): this {
+  public function withRightAngle(EditableSyntax $value): this {
     if ($value === $this->_right_angle) {
       return $this;
     }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dbd011d760da663576c25c99b8e35f20>>
+ * @generated SignedSource<<f79fe2d444282c3322709890ca129a88>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -213,7 +213,7 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     return $this->_async;
   }
 
-  public function with_async(EditableSyntax $value): this {
+  public function withAsync(EditableSyntax $value): this {
     if ($value === $this->_async) {
       return $this;
     }
@@ -252,7 +252,7 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     return $this->_coroutine;
   }
 
-  public function with_coroutine(EditableSyntax $value): this {
+  public function withCoroutine(EditableSyntax $value): this {
     if ($value === $this->_coroutine) {
       return $this;
     }
@@ -284,7 +284,7 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     return $this->_keyword;
   }
 
-  public function with_keyword(EditableSyntax $value): this {
+  public function withKeyword(EditableSyntax $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -323,7 +323,7 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     return $this->_ampersand;
   }
 
-  public function with_ampersand(EditableSyntax $value): this {
+  public function withAmpersand(EditableSyntax $value): this {
     if ($value === $this->_ampersand) {
       return $this;
     }
@@ -362,7 +362,7 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     return $this->_name;
   }
 
-  public function with_name(EditableSyntax $value): this {
+  public function withName(EditableSyntax $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -394,7 +394,7 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     return $this->_type_parameter_list;
   }
 
-  public function with_type_parameter_list(EditableSyntax $value): this {
+  public function withTypeParameterList(EditableSyntax $value): this {
     if ($value === $this->_type_parameter_list) {
       return $this;
     }
@@ -433,7 +433,7 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     return $this->_left_paren;
   }
 
-  public function with_left_paren(EditableSyntax $value): this {
+  public function withLeftParen(EditableSyntax $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -472,7 +472,7 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     return $this->_parameter_list;
   }
 
-  public function with_parameter_list(EditableSyntax $value): this {
+  public function withParameterList(EditableSyntax $value): this {
     if ($value === $this->_parameter_list) {
       return $this;
     }
@@ -511,7 +511,7 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     return $this->_right_paren;
   }
 
-  public function with_right_paren(EditableSyntax $value): this {
+  public function withRightParen(EditableSyntax $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -550,7 +550,7 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     return $this->_colon;
   }
 
-  public function with_colon(EditableSyntax $value): this {
+  public function withColon(EditableSyntax $value): this {
     if ($value === $this->_colon) {
       return $this;
     }
@@ -589,7 +589,7 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     return $this->_type;
   }
 
-  public function with_type(EditableSyntax $value): this {
+  public function withType(EditableSyntax $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -621,7 +621,7 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     return $this->_where_clause;
   }
 
-  public function with_where_clause(EditableSyntax $value): this {
+  public function withWhereClause(EditableSyntax $value): this {
     if ($value === $this->_where_clause) {
       return $this;
     }

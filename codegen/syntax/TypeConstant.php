@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<387f092fce461f318c39086c40663439>>
+ * @generated SignedSource<<cbd91cb0647b121117295914c82614ff>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -79,7 +79,7 @@ final class TypeConstant extends EditableSyntax {
     return $this->_left_type;
   }
 
-  public function with_left_type(EditableSyntax $value): this {
+  public function withLeftType(EditableSyntax $value): this {
     if ($value === $this->_left_type) {
       return $this;
     }
@@ -98,7 +98,7 @@ final class TypeConstant extends EditableSyntax {
     return $this->_separator;
   }
 
-  public function with_separator(EditableSyntax $value): this {
+  public function withSeparator(EditableSyntax $value): this {
     if ($value === $this->_separator) {
       return $this;
     }
@@ -117,7 +117,7 @@ final class TypeConstant extends EditableSyntax {
     return $this->_right_type;
   }
 
-  public function with_right_type(EditableSyntax $value): this {
+  public function withRightType(EditableSyntax $value): this {
     if ($value === $this->_right_type) {
       return $this;
     }

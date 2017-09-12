@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c2966a3525442a1d72a91be7e5e9eb6a>>
+ * @generated SignedSource<<242c6ae871a6c63e44b5362e031d1381>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -79,7 +79,7 @@ final class TraitUse extends EditableSyntax {
     return $this->_keyword;
   }
 
-  public function with_keyword(EditableSyntax $value): this {
+  public function withKeyword(EditableSyntax $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -98,7 +98,7 @@ final class TraitUse extends EditableSyntax {
     return $this->_names;
   }
 
-  public function with_names(EditableSyntax $value): this {
+  public function withNames(EditableSyntax $value): this {
     if ($value === $this->_names) {
       return $this;
     }
@@ -117,7 +117,7 @@ final class TraitUse extends EditableSyntax {
     return $this->_semicolon;
   }
 
-  public function with_semicolon(EditableSyntax $value): this {
+  public function withSemicolon(EditableSyntax $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

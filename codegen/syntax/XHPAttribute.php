@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6c0a7482341729063e93b3d1cf82b4fc>>
+ * @generated SignedSource<<c027e152e11fcdd91e62ee804d32d7c6>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -79,7 +79,7 @@ final class XHPAttribute extends EditableSyntax {
     return $this->_name;
   }
 
-  public function with_name(EditableSyntax $value): this {
+  public function withName(EditableSyntax $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -98,7 +98,7 @@ final class XHPAttribute extends EditableSyntax {
     return $this->_equal;
   }
 
-  public function with_equal(EditableSyntax $value): this {
+  public function withEqual(EditableSyntax $value): this {
     if ($value === $this->_equal) {
       return $this;
     }
@@ -124,7 +124,7 @@ final class XHPAttribute extends EditableSyntax {
     return $this->_expression;
   }
 
-  public function with_expression(EditableSyntax $value): this {
+  public function withExpression(EditableSyntax $value): this {
     if ($value === $this->_expression) {
       return $this;
     }

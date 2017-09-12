@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2b616c7435ca18cba087c264cb06e0c6>>
+ * @generated SignedSource<<036199caa509397556297d58ee1f059f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -91,7 +91,7 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
     return $this->_keyword;
   }
 
-  public function with_keyword(EditableSyntax $value): this {
+  public function withKeyword(EditableSyntax $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -110,7 +110,7 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
     return $this->_left_paren;
   }
 
-  public function with_left_paren(EditableSyntax $value): this {
+  public function withLeftParen(EditableSyntax $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -129,7 +129,7 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
     return $this->_variables;
   }
 
-  public function with_variables(EditableSyntax $value): this {
+  public function withVariables(EditableSyntax $value): this {
     if ($value === $this->_variables) {
       return $this;
     }
@@ -148,7 +148,7 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
     return $this->_right_paren;
   }
 
-  public function with_right_paren(EditableSyntax $value): this {
+  public function withRightParen(EditableSyntax $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }

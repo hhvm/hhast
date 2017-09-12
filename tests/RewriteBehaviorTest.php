@@ -166,7 +166,7 @@ final class RewriteBehaviorTest extends TestCase {
           HHAST\FieldSpecifier::class,
         );
 
-        return $shape->with_fields(
+        return $shape->withFields(
           new HHAST\EditableList(
             Vec\map(
               $shape->getFieldsx()->children(),
@@ -185,7 +185,7 @@ final class RewriteBehaviorTest extends TestCase {
                   return $field;
                 }
 
-                return $field->with_name(
+                return $field->withName(
                   $name->with_text(
                     Str\slice($name->text(), 1, Str\length($name->text()) - 2)
                     |> sprintf("'%s_new'", $$),

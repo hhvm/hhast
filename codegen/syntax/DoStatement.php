@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9c8b888a6a456a9c0cb1b6884ce0c830>>
+ * @generated SignedSource<<1b91318091d61755e6890e81c01ae8cd>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -143,7 +143,7 @@ final class DoStatement extends EditableSyntax {
     return $this->_keyword;
   }
 
-  public function with_keyword(EditableSyntax $value): this {
+  public function withKeyword(EditableSyntax $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -170,7 +170,7 @@ final class DoStatement extends EditableSyntax {
     return $this->_body;
   }
 
-  public function with_body(EditableSyntax $value): this {
+  public function withBody(EditableSyntax $value): this {
     if ($value === $this->_body) {
       return $this;
     }
@@ -197,7 +197,7 @@ final class DoStatement extends EditableSyntax {
     return $this->_while_keyword;
   }
 
-  public function with_while_keyword(EditableSyntax $value): this {
+  public function withWhileKeyword(EditableSyntax $value): this {
     if ($value === $this->_while_keyword) {
       return $this;
     }
@@ -224,7 +224,7 @@ final class DoStatement extends EditableSyntax {
     return $this->_left_paren;
   }
 
-  public function with_left_paren(EditableSyntax $value): this {
+  public function withLeftParen(EditableSyntax $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -251,7 +251,7 @@ final class DoStatement extends EditableSyntax {
     return $this->_condition;
   }
 
-  public function with_condition(EditableSyntax $value): this {
+  public function withCondition(EditableSyntax $value): this {
     if ($value === $this->_condition) {
       return $this;
     }
@@ -278,7 +278,7 @@ final class DoStatement extends EditableSyntax {
     return $this->_right_paren;
   }
 
-  public function with_right_paren(EditableSyntax $value): this {
+  public function withRightParen(EditableSyntax $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -305,7 +305,7 @@ final class DoStatement extends EditableSyntax {
     return $this->_semicolon;
   }
 
-  public function with_semicolon(EditableSyntax $value): this {
+  public function withSemicolon(EditableSyntax $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

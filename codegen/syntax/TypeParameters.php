@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<99bfd251a5e63e5b86add0be5bcef860>>
+ * @generated SignedSource<<e5165d8fd8b0e28a27754fb695eb376d>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -79,7 +79,7 @@ final class TypeParameters extends EditableSyntax {
     return $this->_left_angle;
   }
 
-  public function with_left_angle(EditableSyntax $value): this {
+  public function withLeftAngle(EditableSyntax $value): this {
     if ($value === $this->_left_angle) {
       return $this;
     }
@@ -98,7 +98,7 @@ final class TypeParameters extends EditableSyntax {
     return $this->_parameters;
   }
 
-  public function with_parameters(EditableSyntax $value): this {
+  public function withParameters(EditableSyntax $value): this {
     if ($value === $this->_parameters) {
       return $this;
     }
@@ -117,7 +117,7 @@ final class TypeParameters extends EditableSyntax {
     return $this->_right_angle;
   }
 
-  public function with_right_angle(EditableSyntax $value): this {
+  public function withRightAngle(EditableSyntax $value): this {
     if ($value === $this->_right_angle) {
       return $this;
     }

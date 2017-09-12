@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3a5805fc2af1fc13153c8555e1459ec8>>
+ * @generated SignedSource<<84610cadb3705d974851b2dbf81764c9>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -79,7 +79,7 @@ final class ClassishBody extends EditableSyntax {
     return $this->_left_brace;
   }
 
-  public function with_left_brace(EditableSyntax $value): this {
+  public function withLeftBrace(EditableSyntax $value): this {
     if ($value === $this->_left_brace) {
       return $this;
     }
@@ -105,7 +105,7 @@ final class ClassishBody extends EditableSyntax {
     return $this->_elements;
   }
 
-  public function with_elements(EditableSyntax $value): this {
+  public function withElements(EditableSyntax $value): this {
     if ($value === $this->_elements) {
       return $this;
     }
@@ -131,7 +131,7 @@ final class ClassishBody extends EditableSyntax {
     return $this->_right_brace;
   }
 
-  public function with_right_brace(EditableSyntax $value): this {
+  public function withRightBrace(EditableSyntax $value): this {
     if ($value === $this->_right_brace) {
       return $this;
     }

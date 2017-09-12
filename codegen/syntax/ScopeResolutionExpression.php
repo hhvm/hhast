@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3717b1078c78fa8efed2e8a1ebe4eea8>>
+ * @generated SignedSource<<d6d889ec218fe1bed6694b11ee093aa1>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -79,7 +79,7 @@ final class ScopeResolutionExpression extends EditableSyntax {
     return $this->_qualifier;
   }
 
-  public function with_qualifier(EditableSyntax $value): this {
+  public function withQualifier(EditableSyntax $value): this {
     if ($value === $this->_qualifier) {
       return $this;
     }
@@ -98,7 +98,7 @@ final class ScopeResolutionExpression extends EditableSyntax {
     return $this->_operator;
   }
 
-  public function with_operator(EditableSyntax $value): this {
+  public function withOperator(EditableSyntax $value): this {
     if ($value === $this->_operator) {
       return $this;
     }
@@ -117,7 +117,7 @@ final class ScopeResolutionExpression extends EditableSyntax {
     return $this->_name;
   }
 
-  public function with_name(EditableSyntax $value): this {
+  public function withName(EditableSyntax $value): this {
     if ($value === $this->_name) {
       return $this;
     }

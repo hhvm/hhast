@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f146df50360339bd3203bc37c9d956c7>>
+ * @generated SignedSource<<21bcb50ea79eff6555516b7a69600830>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -91,7 +91,7 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
     return $this->_keyword;
   }
 
-  public function with_keyword(EditableSyntax $value): this {
+  public function withKeyword(EditableSyntax $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -110,7 +110,7 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
     return $this->_left_angle;
   }
 
-  public function with_left_angle(EditableSyntax $value): this {
+  public function withLeftAngle(EditableSyntax $value): this {
     if ($value === $this->_left_angle) {
       return $this;
     }
@@ -129,7 +129,7 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
     return $this->_types;
   }
 
-  public function with_types(EditableSyntax $value): this {
+  public function withTypes(EditableSyntax $value): this {
     if ($value === $this->_types) {
       return $this;
     }
@@ -148,7 +148,7 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
     return $this->_right_angle;
   }
 
-  public function with_right_angle(EditableSyntax $value): this {
+  public function withRightAngle(EditableSyntax $value): this {
     if ($value === $this->_right_angle) {
       return $this;
     }

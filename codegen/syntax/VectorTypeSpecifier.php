@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1ef85b427200e7ba4277370d8907dc87>>
+ * @generated SignedSource<<9301fe22699250a6a92c605654caecf6>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -109,7 +109,7 @@ final class VectorTypeSpecifier extends EditableSyntax {
     return $this->_keyword;
   }
 
-  public function with_keyword(EditableSyntax $value): this {
+  public function withKeyword(EditableSyntax $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -134,7 +134,7 @@ final class VectorTypeSpecifier extends EditableSyntax {
     return $this->_left_angle;
   }
 
-  public function with_left_angle(EditableSyntax $value): this {
+  public function withLeftAngle(EditableSyntax $value): this {
     if ($value === $this->_left_angle) {
       return $this;
     }
@@ -159,7 +159,7 @@ final class VectorTypeSpecifier extends EditableSyntax {
     return $this->_type;
   }
 
-  public function with_type(EditableSyntax $value): this {
+  public function withType(EditableSyntax $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -184,7 +184,7 @@ final class VectorTypeSpecifier extends EditableSyntax {
     return $this->_trailing_comma;
   }
 
-  public function with_trailing_comma(EditableSyntax $value): this {
+  public function withTrailingComma(EditableSyntax $value): this {
     if ($value === $this->_trailing_comma) {
       return $this;
     }
@@ -209,7 +209,7 @@ final class VectorTypeSpecifier extends EditableSyntax {
     return $this->_right_angle;
   }
 
-  public function with_right_angle(EditableSyntax $value): this {
+  public function withRightAngle(EditableSyntax $value): this {
     if ($value === $this->_right_angle) {
       return $this;
     }

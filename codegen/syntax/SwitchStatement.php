@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d182f45c49423d73d2c5927a1ac80c75>>
+ * @generated SignedSource<<663e12c1b4470ce798ca020fe296bd7f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -143,7 +143,7 @@ final class SwitchStatement extends EditableSyntax {
     return $this->_keyword;
   }
 
-  public function with_keyword(EditableSyntax $value): this {
+  public function withKeyword(EditableSyntax $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -170,7 +170,7 @@ final class SwitchStatement extends EditableSyntax {
     return $this->_left_paren;
   }
 
-  public function with_left_paren(EditableSyntax $value): this {
+  public function withLeftParen(EditableSyntax $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -197,7 +197,7 @@ final class SwitchStatement extends EditableSyntax {
     return $this->_expression;
   }
 
-  public function with_expression(EditableSyntax $value): this {
+  public function withExpression(EditableSyntax $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
@@ -224,7 +224,7 @@ final class SwitchStatement extends EditableSyntax {
     return $this->_right_paren;
   }
 
-  public function with_right_paren(EditableSyntax $value): this {
+  public function withRightParen(EditableSyntax $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -251,7 +251,7 @@ final class SwitchStatement extends EditableSyntax {
     return $this->_left_brace;
   }
 
-  public function with_left_brace(EditableSyntax $value): this {
+  public function withLeftBrace(EditableSyntax $value): this {
     if ($value === $this->_left_brace) {
       return $this;
     }
@@ -285,7 +285,7 @@ final class SwitchStatement extends EditableSyntax {
     return $this->_sections;
   }
 
-  public function with_sections(EditableSyntax $value): this {
+  public function withSections(EditableSyntax $value): this {
     if ($value === $this->_sections) {
       return $this;
     }
@@ -319,7 +319,7 @@ final class SwitchStatement extends EditableSyntax {
     return $this->_right_brace;
   }
 
-  public function with_right_brace(EditableSyntax $value): this {
+  public function withRightBrace(EditableSyntax $value): this {
     if ($value === $this->_right_brace) {
       return $this;
     }

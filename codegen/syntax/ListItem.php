@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e1113c13a56857ff3e8c8426e8171926>>
+ * @generated SignedSource<<5d32bf6be3717edb8cc97e209f4dc0df>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -64,7 +64,7 @@ final class ListItem extends EditableSyntax {
     return $this->_item;
   }
 
-  public function with_item(EditableSyntax $value): this {
+  public function withItem(EditableSyntax $value): this {
     if ($value === $this->_item) {
       return $this;
     }
@@ -83,7 +83,7 @@ final class ListItem extends EditableSyntax {
     return $this->_separator;
   }
 
-  public function with_separator(EditableSyntax $value): this {
+  public function withSeparator(EditableSyntax $value): this {
     if ($value === $this->_separator) {
       return $this;
     }

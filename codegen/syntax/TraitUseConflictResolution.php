@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0fa14517d6689d739248090ee49e9400>>
+ * @generated SignedSource<<f251f829c588be7331a5e1185098b4dd>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -103,7 +103,7 @@ final class TraitUseConflictResolution extends EditableSyntax {
     return $this->_keyword;
   }
 
-  public function with_keyword(EditableSyntax $value): this {
+  public function withKeyword(EditableSyntax $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -128,7 +128,7 @@ final class TraitUseConflictResolution extends EditableSyntax {
     return $this->_names;
   }
 
-  public function with_names(EditableSyntax $value): this {
+  public function withNames(EditableSyntax $value): this {
     if ($value === $this->_names) {
       return $this;
     }
@@ -153,7 +153,7 @@ final class TraitUseConflictResolution extends EditableSyntax {
     return $this->_left_brace;
   }
 
-  public function with_left_brace(EditableSyntax $value): this {
+  public function withLeftBrace(EditableSyntax $value): this {
     if ($value === $this->_left_brace) {
       return $this;
     }
@@ -178,7 +178,7 @@ final class TraitUseConflictResolution extends EditableSyntax {
     return $this->_clauses;
   }
 
-  public function with_clauses(EditableSyntax $value): this {
+  public function withClauses(EditableSyntax $value): this {
     if ($value === $this->_clauses) {
       return $this;
     }
@@ -210,7 +210,7 @@ final class TraitUseConflictResolution extends EditableSyntax {
     return $this->_right_brace;
   }
 
-  public function with_right_brace(EditableSyntax $value): this {
+  public function withRightBrace(EditableSyntax $value): this {
     if ($value === $this->_right_brace) {
       return $this;
     }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<672d3cb64ae471ba4a209e27c1a485df>>
+ * @generated SignedSource<<83b06f7d9271f053d5bc0b624c6c936c>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -185,7 +185,7 @@ final class ClassishDeclaration extends EditableSyntax {
     return $this->_attribute;
   }
 
-  public function with_attribute(EditableSyntax $value): this {
+  public function withAttribute(EditableSyntax $value): this {
     if ($value === $this->_attribute) {
       return $this;
     }
@@ -222,7 +222,7 @@ final class ClassishDeclaration extends EditableSyntax {
     return $this->_modifiers;
   }
 
-  public function with_modifiers(EditableSyntax $value): this {
+  public function withModifiers(EditableSyntax $value): this {
     if ($value === $this->_modifiers) {
       return $this;
     }
@@ -259,7 +259,7 @@ final class ClassishDeclaration extends EditableSyntax {
     return $this->_keyword;
   }
 
-  public function with_keyword(EditableSyntax $value): this {
+  public function withKeyword(EditableSyntax $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -289,7 +289,7 @@ final class ClassishDeclaration extends EditableSyntax {
     return $this->_name;
   }
 
-  public function with_name(EditableSyntax $value): this {
+  public function withName(EditableSyntax $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -319,7 +319,7 @@ final class ClassishDeclaration extends EditableSyntax {
     return $this->_type_parameters;
   }
 
-  public function with_type_parameters(EditableSyntax $value): this {
+  public function withTypeParameters(EditableSyntax $value): this {
     if ($value === $this->_type_parameters) {
       return $this;
     }
@@ -356,7 +356,7 @@ final class ClassishDeclaration extends EditableSyntax {
     return $this->_extends_keyword;
   }
 
-  public function with_extends_keyword(EditableSyntax $value): this {
+  public function withExtendsKeyword(EditableSyntax $value): this {
     if ($value === $this->_extends_keyword) {
       return $this;
     }
@@ -393,7 +393,7 @@ final class ClassishDeclaration extends EditableSyntax {
     return $this->_extends_list;
   }
 
-  public function with_extends_list(EditableSyntax $value): this {
+  public function withExtendsList(EditableSyntax $value): this {
     if ($value === $this->_extends_list) {
       return $this;
     }
@@ -430,7 +430,7 @@ final class ClassishDeclaration extends EditableSyntax {
     return $this->_implements_keyword;
   }
 
-  public function with_implements_keyword(EditableSyntax $value): this {
+  public function withImplementsKeyword(EditableSyntax $value): this {
     if ($value === $this->_implements_keyword) {
       return $this;
     }
@@ -467,7 +467,7 @@ final class ClassishDeclaration extends EditableSyntax {
     return $this->_implements_list;
   }
 
-  public function with_implements_list(EditableSyntax $value): this {
+  public function withImplementsList(EditableSyntax $value): this {
     if ($value === $this->_implements_list) {
       return $this;
     }
@@ -504,7 +504,7 @@ final class ClassishDeclaration extends EditableSyntax {
     return $this->_body;
   }
 
-  public function with_body(EditableSyntax $value): this {
+  public function withBody(EditableSyntax $value): this {
     if ($value === $this->_body) {
       return $this;
     }

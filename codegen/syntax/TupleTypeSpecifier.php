@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4f1ec9e30d129e07c5a176f2bec721e4>>
+ * @generated SignedSource<<d459eb38022086eb8fb4d9dcaf2ff576>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -79,7 +79,7 @@ final class TupleTypeSpecifier extends EditableSyntax {
     return $this->_left_paren;
   }
 
-  public function with_left_paren(EditableSyntax $value): this {
+  public function withLeftParen(EditableSyntax $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -98,7 +98,7 @@ final class TupleTypeSpecifier extends EditableSyntax {
     return $this->_types;
   }
 
-  public function with_types(EditableSyntax $value): this {
+  public function withTypes(EditableSyntax $value): this {
     if ($value === $this->_types) {
       return $this;
     }
@@ -117,7 +117,7 @@ final class TupleTypeSpecifier extends EditableSyntax {
     return $this->_right_paren;
   }
 
-  public function with_right_paren(EditableSyntax $value): this {
+  public function withRightParen(EditableSyntax $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }

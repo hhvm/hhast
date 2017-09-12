@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d6bbf90b5852d4f0e38bdd17ce8843bd>>
+ * @generated SignedSource<<584b94c9a6258fbaae6b247673a3ce35>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -67,7 +67,7 @@ final class MarkupSuffix extends EditableSyntax {
     return $this->_less_than_question;
   }
 
-  public function with_less_than_question(EditableSyntax $value): this {
+  public function withLessThanQuestion(EditableSyntax $value): this {
     if ($value === $this->_less_than_question) {
       return $this;
     }
@@ -86,7 +86,7 @@ final class MarkupSuffix extends EditableSyntax {
     return $this->_name;
   }
 
-  public function with_name(EditableSyntax $value): this {
+  public function withName(EditableSyntax $value): this {
     if ($value === $this->_name) {
       return $this;
     }

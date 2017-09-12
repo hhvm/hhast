@@ -87,7 +87,7 @@ final class CodegenSyntax extends CodegenBase {
       ->setBodyf('return $this->_%s;', $underscored);
 
     yield $cg
-      ->codegenMethodf('with_%s', $underscored)
+      ->codegenMethodf('with%s', $upper_camel)
       ->setReturnType('this')
       ->addParameter('EditableSyntax $value')
       ->setBody(

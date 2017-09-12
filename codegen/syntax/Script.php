@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ab7e908788a912f5610e1f1858bf2ca7>>
+ * @generated SignedSource<<31a6a201c952fcb96d4aabcc98bda8f1>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -53,7 +53,7 @@ final class Script extends EditableSyntax {
     return $this->_declarations;
   }
 
-  public function with_declarations(EditableSyntax $value): this {
+  public function withDeclarations(EditableSyntax $value): this {
     if ($value === $this->_declarations) {
       return $this;
     }

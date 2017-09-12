@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<74ca5af2a1c7a9de6ce381c0db0916d2>>
+ * @generated SignedSource<<37d5ec8350300363bc9a1bbe876412b3>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -157,7 +157,7 @@ final class AliasDeclaration extends EditableSyntax {
     return $this->_attribute_spec;
   }
 
-  public function with_attribute_spec(EditableSyntax $value): this {
+  public function withAttributeSpec(EditableSyntax $value): this {
     if ($value === $this->_attribute_spec) {
       return $this;
     }
@@ -192,7 +192,7 @@ final class AliasDeclaration extends EditableSyntax {
     return $this->_keyword;
   }
 
-  public function with_keyword(EditableSyntax $value): this {
+  public function withKeyword(EditableSyntax $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -220,7 +220,7 @@ final class AliasDeclaration extends EditableSyntax {
     return $this->_name;
   }
 
-  public function with_name(EditableSyntax $value): this {
+  public function withName(EditableSyntax $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -255,7 +255,7 @@ final class AliasDeclaration extends EditableSyntax {
     return $this->_generic_parameter;
   }
 
-  public function with_generic_parameter(EditableSyntax $value): this {
+  public function withGenericParameter(EditableSyntax $value): this {
     if ($value === $this->_generic_parameter) {
       return $this;
     }
@@ -290,7 +290,7 @@ final class AliasDeclaration extends EditableSyntax {
     return $this->_constraint;
   }
 
-  public function with_constraint(EditableSyntax $value): this {
+  public function withConstraint(EditableSyntax $value): this {
     if ($value === $this->_constraint) {
       return $this;
     }
@@ -325,7 +325,7 @@ final class AliasDeclaration extends EditableSyntax {
     return $this->_equal;
   }
 
-  public function with_equal(EditableSyntax $value): this {
+  public function withEqual(EditableSyntax $value): this {
     if ($value === $this->_equal) {
       return $this;
     }
@@ -360,7 +360,7 @@ final class AliasDeclaration extends EditableSyntax {
     return $this->_type;
   }
 
-  public function with_type(EditableSyntax $value): this {
+  public function withType(EditableSyntax $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -388,7 +388,7 @@ final class AliasDeclaration extends EditableSyntax {
     return $this->_semicolon;
   }
 
-  public function with_semicolon(EditableSyntax $value): this {
+  public function withSemicolon(EditableSyntax $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

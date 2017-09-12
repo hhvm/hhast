@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e93f84d65262f268875e9d8b3a50f878>>
+ * @generated SignedSource<<cf16a9277a328a3508f3a23d57187458>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -171,7 +171,7 @@ final class ForStatement extends EditableSyntax {
     return $this->_keyword;
   }
 
-  public function with_keyword(EditableSyntax $value): this {
+  public function withKeyword(EditableSyntax $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -200,7 +200,7 @@ final class ForStatement extends EditableSyntax {
     return $this->_left_paren;
   }
 
-  public function with_left_paren(EditableSyntax $value): this {
+  public function withLeftParen(EditableSyntax $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -229,7 +229,7 @@ final class ForStatement extends EditableSyntax {
     return $this->_initializer;
   }
 
-  public function with_initializer(EditableSyntax $value): this {
+  public function withInitializer(EditableSyntax $value): this {
     if ($value === $this->_initializer) {
       return $this;
     }
@@ -265,7 +265,7 @@ final class ForStatement extends EditableSyntax {
     return $this->_first_semicolon;
   }
 
-  public function with_first_semicolon(EditableSyntax $value): this {
+  public function withFirstSemicolon(EditableSyntax $value): this {
     if ($value === $this->_first_semicolon) {
       return $this;
     }
@@ -294,7 +294,7 @@ final class ForStatement extends EditableSyntax {
     return $this->_control;
   }
 
-  public function with_control(EditableSyntax $value): this {
+  public function withControl(EditableSyntax $value): this {
     if ($value === $this->_control) {
       return $this;
     }
@@ -330,7 +330,7 @@ final class ForStatement extends EditableSyntax {
     return $this->_second_semicolon;
   }
 
-  public function with_second_semicolon(EditableSyntax $value): this {
+  public function withSecondSemicolon(EditableSyntax $value): this {
     if ($value === $this->_second_semicolon) {
       return $this;
     }
@@ -359,7 +359,7 @@ final class ForStatement extends EditableSyntax {
     return $this->_end_of_loop;
   }
 
-  public function with_end_of_loop(EditableSyntax $value): this {
+  public function withEndOfLoop(EditableSyntax $value): this {
     if ($value === $this->_end_of_loop) {
       return $this;
     }
@@ -395,7 +395,7 @@ final class ForStatement extends EditableSyntax {
     return $this->_right_paren;
   }
 
-  public function with_right_paren(EditableSyntax $value): this {
+  public function withRightParen(EditableSyntax $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -424,7 +424,7 @@ final class ForStatement extends EditableSyntax {
     return $this->_body;
   }
 
-  public function with_body(EditableSyntax $value): this {
+  public function withBody(EditableSyntax $value): this {
     if ($value === $this->_body) {
       return $this;
     }

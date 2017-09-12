@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cd8567af4e88a1b5f39acc90cc849f36>>
+ * @generated SignedSource<<b54f0a181650424a3a3db7052aa333c5>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -67,7 +67,7 @@ final class GenericTypeSpecifier extends EditableSyntax {
     return $this->_class_type;
   }
 
-  public function with_class_type(EditableSyntax $value): this {
+  public function withClassType(EditableSyntax $value): this {
     if ($value === $this->_class_type) {
       return $this;
     }
@@ -86,7 +86,7 @@ final class GenericTypeSpecifier extends EditableSyntax {
     return $this->_argument_list;
   }
 
-  public function with_argument_list(EditableSyntax $value): this {
+  public function withArgumentList(EditableSyntax $value): this {
     if ($value === $this->_argument_list) {
       return $this;
     }

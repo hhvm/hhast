@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4c1d5e5b643847900ec69cd4c317c868>>
+ * @generated SignedSource<<7a5ad82755323f3aba0eb897411b4dbc>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -199,7 +199,7 @@ final class AnonymousFunction extends EditableSyntax {
     return $this->_static_keyword;
   }
 
-  public function with_static_keyword(EditableSyntax $value): this {
+  public function withStaticKeyword(EditableSyntax $value): this {
     if ($value === $this->_static_keyword) {
       return $this;
     }
@@ -237,7 +237,7 @@ final class AnonymousFunction extends EditableSyntax {
     return $this->_async_keyword;
   }
 
-  public function with_async_keyword(EditableSyntax $value): this {
+  public function withAsyncKeyword(EditableSyntax $value): this {
     if ($value === $this->_async_keyword) {
       return $this;
     }
@@ -275,7 +275,7 @@ final class AnonymousFunction extends EditableSyntax {
     return $this->_coroutine_keyword;
   }
 
-  public function with_coroutine_keyword(EditableSyntax $value): this {
+  public function withCoroutineKeyword(EditableSyntax $value): this {
     if ($value === $this->_coroutine_keyword) {
       return $this;
     }
@@ -306,7 +306,7 @@ final class AnonymousFunction extends EditableSyntax {
     return $this->_function_keyword;
   }
 
-  public function with_function_keyword(EditableSyntax $value): this {
+  public function withFunctionKeyword(EditableSyntax $value): this {
     if ($value === $this->_function_keyword) {
       return $this;
     }
@@ -337,7 +337,7 @@ final class AnonymousFunction extends EditableSyntax {
     return $this->_left_paren;
   }
 
-  public function with_left_paren(EditableSyntax $value): this {
+  public function withLeftParen(EditableSyntax $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -375,7 +375,7 @@ final class AnonymousFunction extends EditableSyntax {
     return $this->_parameters;
   }
 
-  public function with_parameters(EditableSyntax $value): this {
+  public function withParameters(EditableSyntax $value): this {
     if ($value === $this->_parameters) {
       return $this;
     }
@@ -413,7 +413,7 @@ final class AnonymousFunction extends EditableSyntax {
     return $this->_right_paren;
   }
 
-  public function with_right_paren(EditableSyntax $value): this {
+  public function withRightParen(EditableSyntax $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -451,7 +451,7 @@ final class AnonymousFunction extends EditableSyntax {
     return $this->_colon;
   }
 
-  public function with_colon(EditableSyntax $value): this {
+  public function withColon(EditableSyntax $value): this {
     if ($value === $this->_colon) {
       return $this;
     }
@@ -489,7 +489,7 @@ final class AnonymousFunction extends EditableSyntax {
     return $this->_type;
   }
 
-  public function with_type(EditableSyntax $value): this {
+  public function withType(EditableSyntax $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -520,7 +520,7 @@ final class AnonymousFunction extends EditableSyntax {
     return $this->_use;
   }
 
-  public function with_use(EditableSyntax $value): this {
+  public function withUse(EditableSyntax $value): this {
     if ($value === $this->_use) {
       return $this;
     }
@@ -558,7 +558,7 @@ final class AnonymousFunction extends EditableSyntax {
     return $this->_body;
   }
 
-  public function with_body(EditableSyntax $value): this {
+  public function withBody(EditableSyntax $value): this {
     if ($value === $this->_body) {
       return $this;
     }

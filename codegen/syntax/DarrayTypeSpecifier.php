@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9cabab47f72d07bef82ec5a024b6beda>>
+ * @generated SignedSource<<3094a5b986fcb1e9c4877ab175732006>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -143,7 +143,7 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     return $this->_keyword;
   }
 
-  public function with_keyword(EditableSyntax $value): this {
+  public function withKeyword(EditableSyntax $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -170,7 +170,7 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     return $this->_left_angle;
   }
 
-  public function with_left_angle(EditableSyntax $value): this {
+  public function withLeftAngle(EditableSyntax $value): this {
     if ($value === $this->_left_angle) {
       return $this;
     }
@@ -197,7 +197,7 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     return $this->_key;
   }
 
-  public function with_key(EditableSyntax $value): this {
+  public function withKey(EditableSyntax $value): this {
     if ($value === $this->_key) {
       return $this;
     }
@@ -224,7 +224,7 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     return $this->_comma;
   }
 
-  public function with_comma(EditableSyntax $value): this {
+  public function withComma(EditableSyntax $value): this {
     if ($value === $this->_comma) {
       return $this;
     }
@@ -251,7 +251,7 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     return $this->_value;
   }
 
-  public function with_value(EditableSyntax $value): this {
+  public function withValue(EditableSyntax $value): this {
     if ($value === $this->_value) {
       return $this;
     }
@@ -278,7 +278,7 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     return $this->_trailing_comma;
   }
 
-  public function with_trailing_comma(EditableSyntax $value): this {
+  public function withTrailingComma(EditableSyntax $value): this {
     if ($value === $this->_trailing_comma) {
       return $this;
     }
@@ -305,7 +305,7 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     return $this->_right_angle;
   }
 
-  public function with_right_angle(EditableSyntax $value): this {
+  public function withRightAngle(EditableSyntax $value): this {
     if ($value === $this->_right_angle) {
       return $this;
     }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4142cac710290a115a328b906170ee7e>>
+ * @generated SignedSource<<b999012d52b46964832940fc2db19bcc>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -79,7 +79,7 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
     return $this->_aliasing_name;
   }
 
-  public function with_aliasing_name(EditableSyntax $value): this {
+  public function withAliasingName(EditableSyntax $value): this {
     if ($value === $this->_aliasing_name) {
       return $this;
     }
@@ -98,7 +98,7 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
     return $this->_aliasing_keyword;
   }
 
-  public function with_aliasing_keyword(EditableSyntax $value): this {
+  public function withAliasingKeyword(EditableSyntax $value): this {
     if ($value === $this->_aliasing_keyword) {
       return $this;
     }
@@ -117,7 +117,7 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
     return $this->_aliased_names;
   }
 
-  public function with_aliased_names(EditableSyntax $value): this {
+  public function withAliasedNames(EditableSyntax $value): this {
     if ($value === $this->_aliased_names) {
       return $this;
     }

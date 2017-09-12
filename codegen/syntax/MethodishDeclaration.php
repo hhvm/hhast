@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<565cb81ee79c5c1c1f2009c7e9da60e6>>
+ * @generated SignedSource<<03ec81ac13e15fd944a1203c3163d6ef>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -115,7 +115,7 @@ final class MethodishDeclaration extends EditableSyntax {
     return $this->_attribute;
   }
 
-  public function with_attribute(EditableSyntax $value): this {
+  public function withAttribute(EditableSyntax $value): this {
     if ($value === $this->_attribute) {
       return $this;
     }
@@ -147,7 +147,7 @@ final class MethodishDeclaration extends EditableSyntax {
     return $this->_modifiers;
   }
 
-  public function with_modifiers(EditableSyntax $value): this {
+  public function withModifiers(EditableSyntax $value): this {
     if ($value === $this->_modifiers) {
       return $this;
     }
@@ -179,7 +179,7 @@ final class MethodishDeclaration extends EditableSyntax {
     return $this->_function_decl_header;
   }
 
-  public function with_function_decl_header(EditableSyntax $value): this {
+  public function withFunctionDeclHeader(EditableSyntax $value): this {
     if ($value === $this->_function_decl_header) {
       return $this;
     }
@@ -204,7 +204,7 @@ final class MethodishDeclaration extends EditableSyntax {
     return $this->_function_body;
   }
 
-  public function with_function_body(EditableSyntax $value): this {
+  public function withFunctionBody(EditableSyntax $value): this {
     if ($value === $this->_function_body) {
       return $this;
     }
@@ -229,7 +229,7 @@ final class MethodishDeclaration extends EditableSyntax {
     return $this->_semicolon;
   }
 
-  public function with_semicolon(EditableSyntax $value): this {
+  public function withSemicolon(EditableSyntax $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

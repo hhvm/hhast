@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ff3203fc6887657aa07170617e643638>>
+ * @generated SignedSource<<497ae738e6dbb31dd243b85af6435736>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -91,7 +91,7 @@ final class XHPEnumType extends EditableSyntax {
     return $this->_keyword;
   }
 
-  public function with_keyword(EditableSyntax $value): this {
+  public function withKeyword(EditableSyntax $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -110,7 +110,7 @@ final class XHPEnumType extends EditableSyntax {
     return $this->_left_brace;
   }
 
-  public function with_left_brace(EditableSyntax $value): this {
+  public function withLeftBrace(EditableSyntax $value): this {
     if ($value === $this->_left_brace) {
       return $this;
     }
@@ -129,7 +129,7 @@ final class XHPEnumType extends EditableSyntax {
     return $this->_values;
   }
 
-  public function with_values(EditableSyntax $value): this {
+  public function withValues(EditableSyntax $value): this {
     if ($value === $this->_values) {
       return $this;
     }
@@ -148,7 +148,7 @@ final class XHPEnumType extends EditableSyntax {
     return $this->_right_brace;
   }
 
-  public function with_right_brace(EditableSyntax $value): this {
+  public function withRightBrace(EditableSyntax $value): this {
     if ($value === $this->_right_brace) {
       return $this;
     }

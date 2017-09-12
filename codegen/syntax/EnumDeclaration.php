@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<56b00b863c56ca7e3fb384cbfb109c92>>
+ * @generated SignedSource<<dd37795649cb9c86db1407f182fe6005>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -171,7 +171,7 @@ final class EnumDeclaration extends EditableSyntax {
     return $this->_attribute_spec;
   }
 
-  public function with_attribute_spec(EditableSyntax $value): this {
+  public function withAttributeSpec(EditableSyntax $value): this {
     if ($value === $this->_attribute_spec) {
       return $this;
     }
@@ -200,7 +200,7 @@ final class EnumDeclaration extends EditableSyntax {
     return $this->_keyword;
   }
 
-  public function with_keyword(EditableSyntax $value): this {
+  public function withKeyword(EditableSyntax $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -229,7 +229,7 @@ final class EnumDeclaration extends EditableSyntax {
     return $this->_name;
   }
 
-  public function with_name(EditableSyntax $value): this {
+  public function withName(EditableSyntax $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -258,7 +258,7 @@ final class EnumDeclaration extends EditableSyntax {
     return $this->_colon;
   }
 
-  public function with_colon(EditableSyntax $value): this {
+  public function withColon(EditableSyntax $value): this {
     if ($value === $this->_colon) {
       return $this;
     }
@@ -287,7 +287,7 @@ final class EnumDeclaration extends EditableSyntax {
     return $this->_base;
   }
 
-  public function with_base(EditableSyntax $value): this {
+  public function withBase(EditableSyntax $value): this {
     if ($value === $this->_base) {
       return $this;
     }
@@ -316,7 +316,7 @@ final class EnumDeclaration extends EditableSyntax {
     return $this->_type;
   }
 
-  public function with_type(EditableSyntax $value): this {
+  public function withType(EditableSyntax $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -352,7 +352,7 @@ final class EnumDeclaration extends EditableSyntax {
     return $this->_left_brace;
   }
 
-  public function with_left_brace(EditableSyntax $value): this {
+  public function withLeftBrace(EditableSyntax $value): this {
     if ($value === $this->_left_brace) {
       return $this;
     }
@@ -381,7 +381,7 @@ final class EnumDeclaration extends EditableSyntax {
     return $this->_enumerators;
   }
 
-  public function with_enumerators(EditableSyntax $value): this {
+  public function withEnumerators(EditableSyntax $value): this {
     if ($value === $this->_enumerators) {
       return $this;
     }
@@ -417,7 +417,7 @@ final class EnumDeclaration extends EditableSyntax {
     return $this->_right_brace;
   }
 
-  public function with_right_brace(EditableSyntax $value): this {
+  public function withRightBrace(EditableSyntax $value): this {
     if ($value === $this->_right_brace) {
       return $this;
     }

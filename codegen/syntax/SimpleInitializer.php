@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cb037f7132a92ce87617a899303e5096>>
+ * @generated SignedSource<<9ee2a36daf73870fac85e3b60d02b9d4>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -64,7 +64,7 @@ final class SimpleInitializer extends EditableSyntax {
     return $this->_equal;
   }
 
-  public function with_equal(EditableSyntax $value): this {
+  public function withEqual(EditableSyntax $value): this {
     if ($value === $this->_equal) {
       return $this;
     }
@@ -83,7 +83,7 @@ final class SimpleInitializer extends EditableSyntax {
     return $this->_value;
   }
 
-  public function with_value(EditableSyntax $value): this {
+  public function withValue(EditableSyntax $value): this {
     if ($value === $this->_value) {
       return $this;
     }

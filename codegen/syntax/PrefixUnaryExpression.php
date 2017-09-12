@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bc5072e5065e20d95b0f40d4cece1691>>
+ * @generated SignedSource<<83a4e8e00751641d2efbca63337c8fd4>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -67,7 +67,7 @@ final class PrefixUnaryExpression extends EditableSyntax {
     return $this->_operator;
   }
 
-  public function with_operator(EditableSyntax $value): this {
+  public function withOperator(EditableSyntax $value): this {
     if ($value === $this->_operator) {
       return $this;
     }
@@ -86,7 +86,7 @@ final class PrefixUnaryExpression extends EditableSyntax {
     return $this->_operand;
   }
 
-  public function with_operand(EditableSyntax $value): this {
+  public function withOperand(EditableSyntax $value): this {
     if ($value === $this->_operand) {
       return $this;
     }

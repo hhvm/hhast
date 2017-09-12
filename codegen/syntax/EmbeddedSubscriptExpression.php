@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<673af2cc1b8a5ae584ab84d5e7e765bc>>
+ * @generated SignedSource<<a3b3b285c19f5dbcbd5d478c65bb1cc7>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -91,7 +91,7 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
     return $this->_receiver;
   }
 
-  public function with_receiver(EditableSyntax $value): this {
+  public function withReceiver(EditableSyntax $value): this {
     if ($value === $this->_receiver) {
       return $this;
     }
@@ -110,7 +110,7 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
     return $this->_left_bracket;
   }
 
-  public function with_left_bracket(EditableSyntax $value): this {
+  public function withLeftBracket(EditableSyntax $value): this {
     if ($value === $this->_left_bracket) {
       return $this;
     }
@@ -129,7 +129,7 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
     return $this->_index;
   }
 
-  public function with_index(EditableSyntax $value): this {
+  public function withIndex(EditableSyntax $value): this {
     if ($value === $this->_index) {
       return $this;
     }
@@ -148,7 +148,7 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
     return $this->_right_bracket;
   }
 
-  public function with_right_bracket(EditableSyntax $value): this {
+  public function withRightBracket(EditableSyntax $value): this {
     if ($value === $this->_right_bracket) {
       return $this;
     }

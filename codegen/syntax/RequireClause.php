@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f354eb2ec242faa96f67ef599bfa3462>>
+ * @generated SignedSource<<bc820553fbc6c1e705230f14f27accf0>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -91,7 +91,7 @@ final class RequireClause extends EditableSyntax {
     return $this->_keyword;
   }
 
-  public function with_keyword(EditableSyntax $value): this {
+  public function withKeyword(EditableSyntax $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -110,7 +110,7 @@ final class RequireClause extends EditableSyntax {
     return $this->_kind;
   }
 
-  public function with_kind(EditableSyntax $value): this {
+  public function withKind(EditableSyntax $value): this {
     if ($value === $this->_kind) {
       return $this;
     }
@@ -129,7 +129,7 @@ final class RequireClause extends EditableSyntax {
     return $this->_name;
   }
 
-  public function with_name(EditableSyntax $value): this {
+  public function withName(EditableSyntax $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -148,7 +148,7 @@ final class RequireClause extends EditableSyntax {
     return $this->_semicolon;
   }
 
-  public function with_semicolon(EditableSyntax $value): this {
+  public function withSemicolon(EditableSyntax $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

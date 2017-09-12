@@ -36,16 +36,16 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
     }
 
     $name = $field->getName()->rightmost_tokenx();
-    $field = $field->with_question(
+    $field = $field->withQuestion(
       new HHAST\QuestionToken(
         $name->leading(),
         HHAST\Missing(),
       ),
-    )->with_name(
+    )->withName(
       $name->with_leading(HHAST\Missing()),
     );
 
-    return $node->with_item($field);
+    return $node->withItem($field);
   }
 
   // Required for adding ellipsis
@@ -69,13 +69,13 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
         if ($node !== $last_field) {
           return $node;
         }
-        return $last_field->with_separator(
+        return $last_field->withSeparator(
           new HHAST\CommaToken(
             HHAST\Missing(),
             $last_field->rightmost_tokenx()->trailing(),
           ),
         )
-          ->with_item(
+          ->withItem(
             $last_field->getItem()->rewrite_children(
               ($inner, $_) ==> {
                 if ($inner !== $last_field->rightmost_tokenx()) {
@@ -100,12 +100,12 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
     $fields = $shape->of_class(HHAST\FieldSpecifier::class);
     $first_field = C\first($fields);
     if ($first_field === null) {
-      return $shape->with_ellipsis(
+      return $shape->withEllipsis(
         new HHAST\DotDotDotToken(HHAST\Missing(), HHAST\Missing()),
       );
     }
 
-    return $shape->with_ellipsis(
+    return $shape->withEllipsis(
       new HHAST\DotDotDotToken(
         Str\contains($shape->full_text(), "\n")
           ? $first_field->leftmost_tokenx()->leading()

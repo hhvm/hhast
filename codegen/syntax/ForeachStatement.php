@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7584b9db0f80edc586d7937390f06909>>
+ * @generated SignedSource<<20cda63af861bcf5b2b2815a60062df3>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -185,7 +185,7 @@ final class ForeachStatement extends EditableSyntax {
     return $this->_keyword;
   }
 
-  public function with_keyword(EditableSyntax $value): this {
+  public function withKeyword(EditableSyntax $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -215,7 +215,7 @@ final class ForeachStatement extends EditableSyntax {
     return $this->_left_paren;
   }
 
-  public function with_left_paren(EditableSyntax $value): this {
+  public function withLeftParen(EditableSyntax $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -245,7 +245,7 @@ final class ForeachStatement extends EditableSyntax {
     return $this->_collection;
   }
 
-  public function with_collection(EditableSyntax $value): this {
+  public function withCollection(EditableSyntax $value): this {
     if ($value === $this->_collection) {
       return $this;
     }
@@ -275,7 +275,7 @@ final class ForeachStatement extends EditableSyntax {
     return $this->_await_keyword;
   }
 
-  public function with_await_keyword(EditableSyntax $value): this {
+  public function withAwaitKeyword(EditableSyntax $value): this {
     if ($value === $this->_await_keyword) {
       return $this;
     }
@@ -312,7 +312,7 @@ final class ForeachStatement extends EditableSyntax {
     return $this->_as;
   }
 
-  public function with_as(EditableSyntax $value): this {
+  public function withAs(EditableSyntax $value): this {
     if ($value === $this->_as) {
       return $this;
     }
@@ -342,7 +342,7 @@ final class ForeachStatement extends EditableSyntax {
     return $this->_key;
   }
 
-  public function with_key(EditableSyntax $value): this {
+  public function withKey(EditableSyntax $value): this {
     if ($value === $this->_key) {
       return $this;
     }
@@ -372,7 +372,7 @@ final class ForeachStatement extends EditableSyntax {
     return $this->_arrow;
   }
 
-  public function with_arrow(EditableSyntax $value): this {
+  public function withArrow(EditableSyntax $value): this {
     if ($value === $this->_arrow) {
       return $this;
     }
@@ -409,7 +409,7 @@ final class ForeachStatement extends EditableSyntax {
     return $this->_value;
   }
 
-  public function with_value(EditableSyntax $value): this {
+  public function withValue(EditableSyntax $value): this {
     if ($value === $this->_value) {
       return $this;
     }
@@ -439,7 +439,7 @@ final class ForeachStatement extends EditableSyntax {
     return $this->_right_paren;
   }
 
-  public function with_right_paren(EditableSyntax $value): this {
+  public function withRightParen(EditableSyntax $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -469,7 +469,7 @@ final class ForeachStatement extends EditableSyntax {
     return $this->_body;
   }
 
-  public function with_body(EditableSyntax $value): this {
+  public function withBody(EditableSyntax $value): this {
     if ($value === $this->_body) {
       return $this;
     }

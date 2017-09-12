@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c2a89361f260cb0ad3ebf29dc2295da5>>
+ * @generated SignedSource<<cfa41ab5a7f20ebbaa105d4041b190b3>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -96,7 +96,7 @@ final class TryStatement extends EditableSyntax {
     return $this->_keyword;
   }
 
-  public function with_keyword(EditableSyntax $value): this {
+  public function withKeyword(EditableSyntax $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -120,7 +120,7 @@ final class TryStatement extends EditableSyntax {
     return $this->_compound_statement;
   }
 
-  public function with_compound_statement(EditableSyntax $value): this {
+  public function withCompoundStatement(EditableSyntax $value): this {
     if ($value === $this->_compound_statement) {
       return $this;
     }
@@ -144,7 +144,7 @@ final class TryStatement extends EditableSyntax {
     return $this->_catch_clauses;
   }
 
-  public function with_catch_clauses(EditableSyntax $value): this {
+  public function withCatchClauses(EditableSyntax $value): this {
     if ($value === $this->_catch_clauses) {
       return $this;
     }
@@ -175,7 +175,7 @@ final class TryStatement extends EditableSyntax {
     return $this->_finally_clause;
   }
 
-  public function with_finally_clause(EditableSyntax $value): this {
+  public function withFinallyClause(EditableSyntax $value): this {
     if ($value === $this->_finally_clause) {
       return $this;
     }

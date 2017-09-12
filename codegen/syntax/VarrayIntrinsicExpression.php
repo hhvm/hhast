@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<20c459e7b3a4344b6506d41486f8795a>>
+ * @generated SignedSource<<a469d3b16a927bce95ee9094345dba96>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -91,7 +91,7 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
     return $this->_keyword;
   }
 
-  public function with_keyword(EditableSyntax $value): this {
+  public function withKeyword(EditableSyntax $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -110,7 +110,7 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
     return $this->_left_bracket;
   }
 
-  public function with_left_bracket(EditableSyntax $value): this {
+  public function withLeftBracket(EditableSyntax $value): this {
     if ($value === $this->_left_bracket) {
       return $this;
     }
@@ -129,7 +129,7 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
     return $this->_members;
   }
 
-  public function with_members(EditableSyntax $value): this {
+  public function withMembers(EditableSyntax $value): this {
     if ($value === $this->_members) {
       return $this;
     }
@@ -155,7 +155,7 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
     return $this->_right_bracket;
   }
 
-  public function with_right_bracket(EditableSyntax $value): this {
+  public function withRightBracket(EditableSyntax $value): this {
     if ($value === $this->_right_bracket) {
       return $this;
     }
