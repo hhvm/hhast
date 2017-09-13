@@ -162,7 +162,7 @@ final class RewriteBehaviorTest extends TestCase {
           return $shape ;
         }
 
-        $fields = $shape->getFieldsx()->of_class(
+        $fields = $shape->getFieldsx()->getDescendantsOfType(
           HHAST\FieldSpecifier::class,
         );
 
@@ -178,7 +178,7 @@ final class RewriteBehaviorTest extends TestCase {
                   return $field;
                 }
 
-                $name = $field->getName()->of_class(
+                $name = $field->getName()->getDescendantsOfType(
                   HHAST\SingleQuotedStringLiteralToken::class,
                 ) |> C\first($$);
                 if ($name === null) {

@@ -97,7 +97,7 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
     if ($shape->hasEllipsis()) {
       return $shape;
     }
-    $fields = $shape->of_class(HHAST\FieldSpecifier::class);
+    $fields = $shape->getDescendantsOfType(HHAST\FieldSpecifier::class);
     $first_field = C\first($fields);
     if ($first_field === null) {
       return $shape->withEllipsis(

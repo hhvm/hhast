@@ -32,7 +32,7 @@ abstract class EditableSyntax {
   public abstract function getChildren(
   ): KeyedTraversable<string, EditableSyntax>;
 
-  final public function children_of_class<T as EditableSyntax>(
+  final public function getChildrenOfType<T as EditableSyntax>(
     classname<T> $what,
   ): KeyedTraversable<string, T> {
     foreach ($this->getChildren() as $k => $node) {
@@ -170,13 +170,7 @@ abstract class EditableSyntax {
     return $this->reduce($reducer, []);
   }
 
-  public function of_syntax_kind(string $kind): Traversable<EditableSyntax> {
-    foreach ($this->preorder() as $child)
-      if ($child->getSyntaxKind() === $kind)
-        yield $child;
-  }
-
-  public function of_class<T as EditableSyntax>(
+  public function getDescendantsOfType<T as EditableSyntax>(
     classname<T> $what,
   ): Traversable<T> {
     foreach ($this->preorder() as $child) {

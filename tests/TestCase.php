@@ -60,7 +60,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase {
     string $code,
   ): (EditableSyntax, vec<EditableSyntax>) {
     $ast = from_code($code);
-    $node = $ast->of_class(ClassishDeclaration::class) |> C\firstx($$);
+    $node = $ast->getDescendantsOfType(ClassishDeclaration::class) |> C\firstx($$);
     $parents = vec($ast->find_with_parents($x ==> $x === $node));
     return tuple($node, $parents);
   }

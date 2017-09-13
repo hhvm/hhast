@@ -41,6 +41,19 @@ final class EditableList extends EditableSyntax {
     }
   }
 
+  final public function getItemsOfType<T as EditableSyntax>(
+    classname<T> $what,
+  ): Traversable<EditableSyntax> {
+    foreach ($this->_children as $child) {
+      if ($child instanceof ListItem) {
+        $child = $child->getItem();
+      }
+      if ($child instanceof $what) {
+        yield $child;
+      }
+    }
+  }
+
   public static function to_list(
     Traversable<EditableSyntax> $syntax_list,
   ): EditableSyntax {

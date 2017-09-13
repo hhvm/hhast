@@ -34,10 +34,10 @@ function get_uses_directly_in_scope(
   $uses = vec[];
 
   // use [kind] Foo, [kind] Bar;
-  $statements = $scope->children_of_class(NamespaceUseDeclaration::class);
+  $statements = $scope->getChildrenOfType(NamespaceUseDeclaration::class);
   foreach ($statements as $statement) {
     $kind = $statement->getKind();
-    $clauses = $statement->getClauses()->of_class(
+    $clauses = $statement->getClauses()->getDescendantsOfType(
       NamespaceUseClause::class,
     );
     foreach ($clauses as $clause) {
@@ -50,13 +50,13 @@ function get_uses_directly_in_scope(
   }
 
   // use [kind] Foo\{Bar, [kind] Baz}
-  $statements = $scope->children_of_class(NamespaceGroupUseDeclaration::class);
+  $statements = $scope->getChildrenOfType(NamespaceGroupUseDeclaration::class);
   foreach ($statements as $statement) {
     $kind = $statement->getKind();
     $prefix = $statement->getPrefix()->getCode()
       |> Str\trim($$)
       |> Str\strip_prefix($$, '\\');
-    $clauses = $statement->getClauses()->of_class(
+    $clauses = $statement->getClauses()->getDescendantsOfType(
       NamespaceUseClause::class,
     );
     foreach ($clauses as $clause) {

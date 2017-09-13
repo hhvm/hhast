@@ -39,7 +39,7 @@ function get_current_namespace(
   if (C\is_empty($namespaces)) {
     $namespaces = $parents
       |> C\firstx($$)
-      |> $$->of_class(NamespaceDeclaration::class)
+      |> $$->getDescendantsOfType(NamespaceDeclaration::class)
       |> Vec\filter(
         $$,
         $ns ==> {

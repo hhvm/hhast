@@ -105,7 +105,7 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
     if ($attrs === null) {
       return false;
     }
-    $attrs = $attrs->getAttributes()->of_class(
+    $attrs = $attrs->getAttributes()->getDescendantsOfType(
       Attribute::class,
     ) |> Vec\map(
       $$,
