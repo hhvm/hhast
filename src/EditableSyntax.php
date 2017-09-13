@@ -44,9 +44,11 @@ abstract class EditableSyntax {
 
   public function preorder(): Traversable<EditableSyntax> {
     yield $this;
-    foreach ($this->getChildren() as $child)
-      foreach ($child->preorder() as $descendant)
+    foreach ($this->getChildren() as $child) {
+      foreach ($child->preorder() as $descendant) {
         yield $descendant;
+      }
+    }
   }
 
   private function _parented_preorder(
@@ -55,9 +57,11 @@ abstract class EditableSyntax {
     $new_parents = vec($parents);
     $new_parents[] = $this;
     yield tuple($this, $parents);
-    foreach ($this->getChildren() as $child)
-      foreach ($child->_parented_preorder($new_parents) as $descendant)
+    foreach ($this->getChildren() as $child) {
+      foreach ($child->_parented_preorder($new_parents) as $descendant) {
         yield $descendant;
+      }
+    }
   }
 
   public function parented_preorder(
@@ -66,9 +70,11 @@ abstract class EditableSyntax {
   }
 
   public function postorder(): Traversable<EditableSyntax> {
-    foreach ($this->getChildren() as $child)
-      foreach ($child->preorder() as $descendant)
+    foreach ($this->getChildren() as $child) {
+      foreach ($child->preorder() as $descendant) {
         yield $descendant;
+      }
+    }
     yield $this;
   }
 
@@ -149,12 +155,14 @@ abstract class EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $new_parents = $parents;
     $new_parents[] = $this;
-    if ($predicate($this))
+    if ($predicate($this)) {
       return $new_parents;
+    }
     foreach ($this->getChildren() as $child) {
       $result = $child->find_with_parents($predicate, $new_parents);
-      if (count($result) != 0)
+      if (count($result) != 0) {
         return $result;
+      }
     }
     return [];
   }
@@ -164,8 +172,9 @@ abstract class EditableSyntax {
     (function(EditableSyntax, ?vec<EditableSyntax>): bool) $predicate,
   ): vec<EditableSyntax> {
     $reducer = ($node, $acc, $parents) ==> {
-      if ($predicate($node, $parents))
+      if ($predicate($node, $parents)) {
         $acc[] = $node;
+      }
       return $acc;
     };
     return $this->reduce($reducer, vec[]);
@@ -210,8 +219,9 @@ abstract class EditableSyntax {
 
   public function getFirstToken(): ?EditableToken {
     foreach ($this->getChildren() as $child) {
-      if (!$child->isMissing())
+      if (!$child->isMissing()) {
         return $child->getFirstToken();
+      }
     }
     return null;
   }
@@ -234,17 +244,20 @@ abstract class EditableSyntax {
     EditableSyntax $target,
   ): this {
     // Inserting before missing is an error.
-    if ($target->isMissing())
+    if ($target->isMissing()) {
       throw new \Exception('Target must not be missing in insert_before.');
+    }
 
     // Inserting missing is a no-op
-    if ($new_node->isMissing())
+    if ($new_node->isMissing()) {
       return $this;
+    }
 
     if ($new_node->isTrivia() && !$target->isTrivia()) {
       $token = $target->getFirstToken();
-      if ($token === null)
+      if ($token === null) {
         throw new \Exception('Unable to find token to insert trivia.');
+      }
       $token = TypeAssert::isInstanceOf(EditableToken::class, $token);
 
       // Inserting trivia before token is inserting to the right end of
@@ -267,17 +280,20 @@ abstract class EditableSyntax {
   ): this {
 
     // Inserting after missing is an error.
-    if ($target->isMissing())
+    if ($target->isMissing()) {
       throw new \Exception('Target must not be missing in insert_after.');
+    }
 
     // Inserting missing is a no-op
-    if ($new_node->isMissing())
+    if ($new_node->isMissing()) {
       return $this;
+    }
 
     if ($new_node->isTrivia() && !$target->isTrivia()) {
       $token = $target->getLastToken();
-      if ($token === null)
+      if ($token === null) {
         throw new \Exception('Unable to find token to insert trivia.');
+      }
 
       $token = TypeAssert::isInstanceOf(EditableToken::class, $token);
 

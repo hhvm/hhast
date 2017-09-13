@@ -58,20 +58,23 @@ final class EditableList extends EditableSyntax {
     Traversable<EditableSyntax> $syntax_list,
   ): EditableSyntax {
     $syntax_list = vec($syntax_list);
-    if (C\count($syntax_list) === 0)
+    if (C\count($syntax_list) === 0) {
       return Missing();
-    else
+    } else {
       return new EditableList($syntax_list);
+    }
   }
 
   public static function concatenate_lists(
     EditableSyntax $left,
     EditableSyntax $right,
   ): EditableSyntax {
-    if ($left->isMissing())
+    if ($left->isMissing()) {
       return $right;
-    if ($right->isMissing())
+    }
+    if ($right->isMissing()) {
       return $left;
+    }
     return new EditableList(Vec\concat($left->toVec(), $right->toVec()));
   }
 
@@ -109,10 +112,12 @@ final class EditableList extends EditableSyntax {
       }
       if ($new_child !== null && !$new_child->isMissing()) {
         if ($new_child->isList()) {
-          foreach ($new_child->getChildren() as $n)
+          foreach ($new_child->getChildren() as $n) {
             $new_children[] = $n;
-        } else
+          }
+        } else {
           $new_children[] = $new_child;
+        }
       }
     }
 
