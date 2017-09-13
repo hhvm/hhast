@@ -30,10 +30,12 @@ use namespace HH\Lib\{C, Str, Vec};
 
 class MustUseOverrideAttributeLinter
 extends AutoFixingASTLinter<MethodishDeclaration> {
+  <<__Override>>
   protected static function getTargetType(): classname<MethodishDeclaration> {
     return MethodishDeclaration::class;
   }
 
+  <<__Override>>
   public function getLintErrorForNode(
     MethodishDeclaration $node,
     vec<EditableSyntax> $parents,
@@ -120,6 +122,7 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
     return C\contains($attrs, '__Override');
   }
 
+  <<__Override>>
   public function getPrettyNode(
     MethodishDeclaration $node,
   ): MethodishDeclaration {
@@ -136,6 +139,7 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
     );
   }
 
+  <<__Override>>
   public function getFixedNode(
     MethodishDeclaration $node,
   ): MethodishDeclaration {

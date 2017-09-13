@@ -34,10 +34,12 @@ use namespace HH\Lib\{C, Str, Vec};
 
 class MustUseBracesForControlFlowLinter
 extends AutoFixingASTLinter<EditableSyntax> {
+  <<__Override>>
   protected static function getTargetType(): classname<EditableSyntax> {
     return EditableSyntax::class;
   }
 
+  <<__Override>>
   public function getLintErrorForNode(
     EditableSyntax $node,
     vec<EditableSyntax> $parents,
@@ -113,6 +115,7 @@ extends AutoFixingASTLinter<EditableSyntax> {
     );
   }
 
+  <<__Override>>
   public function getFixedNode(EditableSyntax $node): EditableSyntax {
     $body = $this->getBody($node);
     invariant(
@@ -159,6 +162,7 @@ extends AutoFixingASTLinter<EditableSyntax> {
       );
   }
 
+  <<__Override>>
   public function getPrettyNode(EditableSyntax $node): EditableSyntax {
     $token = $node->getFirstTokenx();
     return $node->replace(
