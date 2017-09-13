@@ -124,12 +124,12 @@ extends AutoFixingASTLinter<EditableSyntax> {
         new CompoundStatement(
           new LeftBraceToken(
             new WhiteSpace(' '),
-            $last_token->getTrailing(),
+            $last_token->getTrailingWhitespace(),
           ),
           $body,
           new RightBraceToken(
-            $node->getFirstTokenx()->getLeading(),
-            $body->getLastTokenx()->getTrailing(),
+            $node->getFirstTokenx()->getLeadingWhitespace(),
+            $body->getLastTokenx()->getTrailingWhitespace(),
           ),
         ),
         $body,

@@ -13,7 +13,7 @@
 namespace Facebook\HHAST;
 
 use type Facebook\TypeAssert\TypeAssert;
-use namespace HH\Lib\Str;
+use namespace HH\Lib\{C, Str};
 
 abstract class EditableToken extends EditableSyntax {
   private string $_token_kind;
@@ -46,6 +46,44 @@ abstract class EditableToken extends EditableSyntax {
 
   public function getLeading(): EditableSyntax {
     return $this->_leading;
+  }
+
+  final public function getLeadingWhitespace(): EditableSyntax {
+    $leading = $this->getLeading();
+    if ($leading->isMissing()) {
+      return $leading;
+    }
+    if ($leading instanceof WhiteSpace || $leading instanceof EndOfLine) {
+      return $leading;
+    }
+    if (!$leading instanceof EditableList) {
+      return Missing();
+    }
+    $last = Missing();
+    foreach ($leading->getChildren() as $child) {
+      if ($child instanceof WhiteSpace || $child instanceof EndOfLine) {
+        $last = $child;
+      }
+    }
+    return $last;
+  }
+
+  final public function getTrailingWhitespace(): EditableSyntax {
+    $trailing = $this->getTrailing();
+    if ($trailing->isMissing()) {
+      return $trailing;
+    }
+    if ($trailing instanceof WhiteSpace || $trailing instanceof EndOfLine) {
+      return $trailing;
+    }
+    if (!$trailing instanceof EditableList) {
+      return Missing();
+    }
+    $child = C\firstx($trailing->getChildren());
+    if ($child instanceof WhiteSpace || $child instanceof EndOfLine) {
+      return $child;
+    }
+    return Missing();
   }
 
   public function getTrailing(): EditableSyntax {
