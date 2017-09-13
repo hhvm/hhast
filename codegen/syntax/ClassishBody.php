@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7c68170b4e3e8563c2d8061b3119ca54>>
+ * @generated SignedSource<<1a34707b873e0ac5d6bd248357cb8fdf>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -26,7 +26,7 @@ final class ClassishBody extends EditableSyntax {
 
   <<__Override>>
   public static function fromJSON(
-    array<string, mixed> $json,
+    dict<string, mixed> $json,
     int $position,
     string $source,
   ): this {

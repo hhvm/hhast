@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f8740a993422dd3e8263953b7c335b79>>
+ * @generated SignedSource<<e2dba746a5eb57c8d5a6cc6318351f9f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -29,7 +29,7 @@ final class MarkupSection extends EditableSyntax {
 
   <<__Override>>
   public static function fromJSON(
-    array<string, mixed> $json,
+    dict<string, mixed> $json,
     int $position,
     string $source,
   ): this {

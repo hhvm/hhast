@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b13616c39fc68535249bbc5323442fd7>>
+ * @generated SignedSource<<e88e50f85e397d2c6a9fc6d5cdf5839c>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -23,7 +23,7 @@ final class PostfixUnaryExpression extends EditableSyntax {
 
   <<__Override>>
   public static function fromJSON(
-    array<string, mixed> $json,
+    dict<string, mixed> $json,
     int $position,
     string $source,
   ): this {

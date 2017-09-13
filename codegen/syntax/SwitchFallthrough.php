@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6976ac486dff48d855a22299f7b3062c>>
+ * @generated SignedSource<<0b9d89a9ec3d39c13fbc7051afce96b9>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -23,7 +23,7 @@ final class SwitchFallthrough extends EditableSyntax {
 
   <<__Override>>
   public static function fromJSON(
-    array<string, mixed> $json,
+    dict<string, mixed> $json,
     int $position,
     string $source,
   ): this {

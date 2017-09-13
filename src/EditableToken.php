@@ -95,20 +95,20 @@ abstract class EditableToken extends EditableSyntax {
     (function(
       EditableSyntax,
       TAccumulator,
-      array<EditableSyntax>,
+      vec<EditableSyntax>,
     ): TAccumulator) $reducer,
     TAccumulator $accumulator,
-    ?array<EditableSyntax> $parents = null,
+    ?vec<EditableSyntax> $parents = null,
   ): TAccumulator {
     $accumulator = $this->getLeading()->reduce($reducer, $accumulator);
-    $accumulator = $reducer($this, $accumulator, $parents ?? []);
+    $accumulator = $reducer($this, $accumulator, $parents ?? vec[]);
     $accumulator = $this->getTrailing()->reduce($reducer, $accumulator);
     return $accumulator;
   }
 
   <<__Override>>
   public static function fromJSON(
-    array<string, mixed> $json,
+    dict<string, mixed> $json,
     int $position,
     string $source,
   ): EditableToken {

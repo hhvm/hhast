@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<06dc2523cf49ba71a6817b354f2c5170>>
+ * @generated SignedSource<<774bccc193ebdcbc32ca6a9073d26a8d>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -26,7 +26,7 @@ final class GlobalStatement extends EditableSyntax {
 
   <<__Override>>
   public static function fromJSON(
-    array<string, mixed> $json,
+    dict<string, mixed> $json,
     int $position,
     string $source,
   ): this {

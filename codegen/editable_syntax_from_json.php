@@ -2,13 +2,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<aa43b706db23413c3b923a0ea72fcdc6>>
+ * @generated SignedSource<<5c90ec2d5f1be88c17bc8f53e02c0496>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
 
 function editable_syntax_from_json(
-  array<string, mixed> $json,
+  dict<string, mixed> $json,
   int $position,
   string $source,
 ): HHAST\EditableSyntax {

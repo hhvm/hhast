@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<26e83714dd4089544ac88d128b0a4860>>
+ * @generated SignedSource<<f09c78a41f055b5aad9aa0b78a654a0b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -23,7 +23,7 @@ final class DecoratedExpression extends EditableSyntax {
 
   <<__Override>>
   public static function fromJSON(
-    array<string, mixed> $json,
+    dict<string, mixed> $json,
     int $position,
     string $source,
   ): this {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1bd011467f60254e4c56a7ea50ec23f3>>
+ * @generated SignedSource<<862d6f3a50d0f3fcbb44f1b14cd4301a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -18,7 +18,7 @@ final class ErrorSyntax extends EditableSyntax {
 
   <<__Override>>
   public static function fromJSON(
-    array<string, mixed> $json,
+    dict<string, mixed> $json,
     int $position,
     string $source,
   ): this {

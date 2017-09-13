@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fae1cb5d3f4d02138c2eccb0ac3a38bf>>
+ * @generated SignedSource<<6ca297649a027eaf92d764de81713c2c>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -41,7 +41,7 @@ final class AliasDeclaration extends EditableSyntax {
 
   <<__Override>>
   public static function fromJSON(
-    array<string, mixed> $json,
+    dict<string, mixed> $json,
     int $position,
     string $source,
   ): this {

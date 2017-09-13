@@ -12,7 +12,7 @@
 
 namespace Facebook\HHAST;
 
-function from_json(array<string, mixed> $json): EditableSyntax {
+function from_json(dict<string, mixed> $json): EditableSyntax {
   return EditableSyntax::fromJSON(
     /* HH_IGNORE_ERROR[4110] */ $json['parse_tree'],
     0,
@@ -20,12 +20,14 @@ function from_json(array<string, mixed> $json): EditableSyntax {
   );
 }
 
-function json_from_file(string $file): array<string, mixed> {
+function json_from_file(string $file): dict<string, mixed> {
   $results = __Private\execute('hh_parse', '--full-fidelity-json', $file);
-  $json = json_decode($results[0], /* as array = */ true);
-  if (!is_array($json)) {
-    throw new \Exception('failed to decode json for file '. $file);
-  }
+  $json = json_decode(
+    $results[0],
+    /* as array = */ true,
+    /* depth = */ 512 /* == default */,
+    JSON_FB_HACK_ARRAYS,
+  );
   return $json;
 }
 
@@ -34,7 +36,7 @@ function from_file(string $file): EditableSyntax {
   return from_json($json);
 }
 
-function json_from_text(string $text): array<string, mixed> {
+function json_from_text(string $text): dict<string, mixed> {
   $file = tempnam("/tmp", "");
   $handle = fopen($file, "w");
   fwrite($handle, $text);

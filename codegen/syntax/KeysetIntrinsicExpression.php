@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3a80c6d05bcf06143024e131ac5b8040>>
+ * @generated SignedSource<<2e3f0cc02df679e29a817978143a4316>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -29,7 +29,7 @@ final class KeysetIntrinsicExpression extends EditableSyntax {
 
   <<__Override>>
   public static function fromJSON(
-    array<string, mixed> $json,
+    dict<string, mixed> $json,
     int $position,
     string $source,
   ): this {

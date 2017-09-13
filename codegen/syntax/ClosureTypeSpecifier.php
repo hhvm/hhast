@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7f6c5949b4f25a417bfb16f4f009a3bf>>
+ * @generated SignedSource<<8928ad89c4fb74904686ca237f45613a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -44,7 +44,7 @@ final class ClosureTypeSpecifier extends EditableSyntax {
 
   <<__Override>>
   public static function fromJSON(
-    array<string, mixed> $json,
+    dict<string, mixed> $json,
     int $position,
     string $source,
   ): this {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ada761db326d2ae108ff3f355eb2d10c>>
+ * @generated SignedSource<<5d8e2e467ac1b4397bc4dfc6ed5124c9>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -18,7 +18,7 @@ final class PipeVariableExpression extends EditableSyntax {
 
   <<__Override>>
   public static function fromJSON(
-    array<string, mixed> $json,
+    dict<string, mixed> $json,
     int $position,
     string $source,
   ): this {

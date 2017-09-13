@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<31e573c99683f232b7249cfb22e147bd>>
+ * @generated SignedSource<<2c55a4c678b64e762b2a98367157ef63>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -26,7 +26,7 @@ final class EmbeddedMemberSelectionExpression extends EditableSyntax {
 
   <<__Override>>
   public static function fromJSON(
-    array<string, mixed> $json,
+    dict<string, mixed> $json,
     int $position,
     string $source,
   ): this {

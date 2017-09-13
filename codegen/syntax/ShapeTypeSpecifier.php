@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5e42ff27e3bedc7d6d3edefd55bcf68f>>
+ * @generated SignedSource<<5de8bf9a033c821b6402b8aecd7c0a2f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -32,7 +32,7 @@ final class ShapeTypeSpecifier extends EditableSyntax {
 
   <<__Override>>
   public static function fromJSON(
-    array<string, mixed> $json,
+    dict<string, mixed> $json,
     int $position,
     string $source,
   ): this {

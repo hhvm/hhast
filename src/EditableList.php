@@ -77,11 +77,10 @@ final class EditableList extends EditableSyntax {
 
   <<__Override>>
   public static function fromJSON(
-    array<string, mixed> $json,
+    dict<string, mixed> $json,
     int $position,
     string $source,
   ): this {
-    // TODO Implement array map
     $children = vec[];
     $current_position = $position;
     foreach (/* UNSAFE_EXPR */$json['elements'] as $element) {
@@ -111,9 +110,9 @@ final class EditableList extends EditableSyntax {
       if ($new_child !== null && !$new_child->isMissing()) {
         if ($new_child->isList()) {
           foreach ($new_child->getChildren() as $n)
-            array_push($new_children, $n);
+            $new_children[] = $n;
         } else
-          array_push($new_children, $new_child);
+          $new_children[] = $new_child;
       }
     }
 

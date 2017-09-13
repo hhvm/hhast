@@ -212,7 +212,7 @@ final class CodegenSyntax extends CodegenBase {
       ->codegenMethod('fromJSON')
       ->setIsOverride()
       ->setIsStatic()
-      ->addParameter('array<string, mixed> $json')
+      ->addParameter('dict<string, mixed> $json')
       ->addParameter('int $position')
       ->addParameter('string $source')
       ->setReturnType('this')

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<897caff37602ef21f6b7967121a1b69b>>
+ * @generated SignedSource<<d4ee63aa4c050932adf56a4c725c91c5>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -18,7 +18,7 @@ final class XHPSimpleClassAttribute extends EditableSyntax {
 
   <<__Override>>
   public static function fromJSON(
-    array<string, mixed> $json,
+    dict<string, mixed> $json,
     int $position,
     string $source,
   ): this {

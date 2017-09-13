@@ -23,8 +23,9 @@ function execute(string ...$args): vec<string> {
   $results = array();
   $exit_code = null;
   exec($command.' 2>/dev/null', $results, $exit_code);
-  if ($exit_code !== 0)
+  if ($exit_code !== 0) {
     throw
       new \Exception("execute of '$command' failed with code '$exit_code'.");
+  }
   return vec($results);
 }

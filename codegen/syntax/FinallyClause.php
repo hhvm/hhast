@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0f735d6d7ea87295539fe5c4a4ba2276>>
+ * @generated SignedSource<<fb0beccd7782a7938bf5cce7fb0e7dab>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -20,7 +20,7 @@ final class FinallyClause extends EditableSyntax {
 
   <<__Override>>
   public static function fromJSON(
-    array<string, mixed> $json,
+    dict<string, mixed> $json,
     int $position,
     string $source,
   ): this {

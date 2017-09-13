@@ -207,8 +207,8 @@ final class CodegenRelations extends CodegenBase {
   }
 
   public function flatten(
-    array<string, mixed> $json,
-  ): Traversable<array<string, mixed>> {
+    dict<string, mixed> $json,
+  ): Traversable<dict<string, mixed>> {
     // UNSAFE_BLOCK making assumptions about JSON struct
     yield $json;
 

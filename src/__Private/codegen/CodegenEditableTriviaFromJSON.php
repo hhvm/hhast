@@ -28,7 +28,7 @@ final class CodegenEditableTriviaFromJSON extends CodegenBase {
         $cg
           ->codegenFunction('editable_trivia_from_json')
           ->setReturnType('HHAST\\EditableTrivia')
-          ->addParameter('array<string, mixed> $json')
+          ->addParameter('dict<string, mixed> $json')
           ->addParameter('int $position')
           ->addParameter('string $source')
           ->setBody(

@@ -52,8 +52,8 @@ abstract class EditableSyntax {
   private function _parented_preorder(
     Traversable<EditableSyntax> $parents,
   ): Traversable<(EditableSyntax, Traversable<EditableSyntax>)> {
-    $new_parents = $parents;
-    array_push($new_parents, $this);
+    $new_parents = vec($parents);
+    $new_parents[] = $this;
     yield tuple($this, $parents);
     foreach ($this->getChildren() as $child)
       foreach ($child->_parented_preorder($new_parents) as $descendant)
@@ -112,7 +112,7 @@ abstract class EditableSyntax {
   }
 
   public static function fromJSON(
-    array<string, mixed> $json,
+    dict<string, mixed> $json,
     int $position,
     string $source,
   ): EditableSyntax {
@@ -127,17 +127,17 @@ abstract class EditableSyntax {
     (function(
       EditableSyntax,
       TAccumulator,
-      array<EditableSyntax>,
+      vec<EditableSyntax>,
     ): TAccumulator) $reducer,
     TAccumulator $accumulator,
-    ?array<EditableSyntax> $parents = null,
+    ?vec<EditableSyntax> $parents = null,
   ): TAccumulator {
-    $new_parents = $parents ?? [];
-    array_push($new_parents, $this);
+    $new_parents = vec($parents ?? vec[]);
+    $new_parents[] =$this;
     foreach ($this->getChildren() as $child) {
       $accumulator = $child->reduce($reducer, $accumulator, $new_parents);
     }
-    return $reducer($this, $accumulator, $parents ?? []);
+    return $reducer($this, $accumulator, $parents ?? vec[]);
   }
 
   // Returns all the parents (and the node itself) of the first node
@@ -146,8 +146,9 @@ abstract class EditableSyntax {
     (function(EditableSyntax): bool) $predicate,
     ?Traversable<EditableSyntax> $parents = null,
   ): Traversable<EditableSyntax> {
-    $new_parents = $parents ?? [];
-    array_push($new_parents, $this);
+    $parents = $parents === null ? vec[] : vec($parents);
+    $new_parents = $parents;
+    $new_parents[] = $this;
     if ($predicate($this))
       return $new_parents;
     foreach ($this->getChildren() as $child) {
@@ -160,14 +161,14 @@ abstract class EditableSyntax {
 
   // Returns a list of nodes that match a predicate.
   public function filter(
-    (function(EditableSyntax, ?array<EditableSyntax>): bool) $predicate,
-  ): array<EditableSyntax> {
+    (function(EditableSyntax, ?vec<EditableSyntax>): bool) $predicate,
+  ): vec<EditableSyntax> {
     $reducer = ($node, $acc, $parents) ==> {
       if ($predicate($node, $parents))
-        array_push($acc, $node);
+        $acc[] = $node;
       return $acc;
     };
-    return $this->reduce($reducer, []);
+    return $this->reduce($reducer, vec[]);
   }
 
   public function getDescendantsOfType<T as EditableSyntax>(

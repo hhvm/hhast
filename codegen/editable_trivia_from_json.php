@@ -2,13 +2,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<08af87520bc7eea61cfd081b2b308892>>
+ * @generated SignedSource<<4aefcc261157ee3d4cb1cae88e8ce0ad>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
 
 function editable_trivia_from_json(
-  array<string, mixed> $json,
+  dict<string, mixed> $json,
   int $position,
   string $source,
 ): HHAST\EditableTrivia {

@@ -30,7 +30,7 @@ final class CodegenEditableSyntaxFromJSON extends CodegenBase {
         $cg
           ->codegenFunction('editable_syntax_from_json')
           ->setReturnType('HHAST\\EditableSyntax')
-          ->addParameter('array<string, mixed> $json')
+          ->addParameter('dict<string, mixed> $json')
           ->addParameter('int $position')
           ->addParameter('string $source')
           ->setBody(

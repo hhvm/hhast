@@ -46,7 +46,7 @@ abstract class EditableTrivia extends EditableSyntax {
 
   <<__Override>>
   public static function fromJSON(
-    array<string, mixed> $json,
+    dict<string, mixed> $json,
     int $position,
     string $source,
   ): EditableTrivia {

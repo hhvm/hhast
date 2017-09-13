@@ -21,7 +21,7 @@ function fold_map<TInput, TOutput, TAccumulation>(
   $acc = $initial;
   $result = vec[];
   foreach ($items as $item) {
-    array_push($result, $mapper($item, $acc));
+    $result[] = $mapper($item, $acc);
     $acc = $accumulator($item, $acc);
   }
   return $result;
