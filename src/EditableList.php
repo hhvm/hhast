@@ -54,7 +54,7 @@ final class EditableList extends EditableSyntax {
     }
   }
 
-  public static function to_list(
+  public static function fromItems(
     Traversable<EditableSyntax> $syntax_list,
   ): EditableSyntax {
     $syntax_list = vec($syntax_list);

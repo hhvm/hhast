@@ -119,7 +119,7 @@ abstract class EditableToken extends EditableSyntax {
       $position,
     );
 
-    $leading = EditableList::to_list($leading_list);
+    $leading = EditableList::fromItems($leading_list);
     $token_position = $position + $leading->getWidth();
     $token_width = TypeAssert::isInt($json['width']);
     $token_text = Str\slice($source, $token_position, $token_width);
@@ -130,7 +130,7 @@ abstract class EditableToken extends EditableSyntax {
       ($j, $p) ==> $j['width'] + $p,
       $trailing_position,
     );
-    $trailing = EditableList::to_list($trailing_list);
+    $trailing = EditableList::fromItems($trailing_list);
     return EditableToken::factory(
       /* HH_IGNORE_ERROR[4110] */ $json['kind'],
       $leading,
