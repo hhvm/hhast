@@ -18,6 +18,20 @@ use namespace HH\Lib\{C, Str, Vec};
 use namespace Facebook\HHAST;
 
 final class MustUseOverrideAttributeLinterTest extends TestCase {
+  use AutoFixingLinterTestTrait<
+    Linters\ASTLintError<
+      HHAST\MethodishDeclaration,
+      Linters\MustUseOverrideAttributeLinter,
+    >
+  >;
+
+
+  protected function getLinter(
+    string $file,
+  ): Linters\MustUseOverrideAttributeLinter {
+    return new Linters\MustUseOverrideAttributeLinter($file);
+  }
+
   public function getCleanExamples(): array<array<string>> {
     return [
       ['<?hh class Foo {}'],
@@ -50,23 +64,6 @@ final class MustUseOverrideAttributeLinterTest extends TestCase {
     ];
   }
 
-  /**
-   * @dataProvider getCleanExamples
-   */
-  public function testCleanExample(string $code): void {
-    $file = tempnam(
-      sys_get_temp_dir(),
-      'hhast-test',
-    );
-    file_put_contents($file, $code);
-    try {
-      $linter = new Linters\MustUseOverrideAttributeLinter($file);
-      expect(C\first($linter->getLintErrors()))->toBeNull();
-    } finally {
-      unlink($file);
-    }
-  }
-
   public function getDirtyFixtures(): array<array<string>> {
     return [
       ['overrides_parent'],
@@ -77,46 +74,5 @@ final class MustUseOverrideAttributeLinterTest extends TestCase {
       ['with_leading_comment'],
       ['with_leading_comment_and_other_attribute'],
     ];
-  }
-
-  /**
-   * @dataProvider getDirtyFixtures
-   */
-  public function testDirtyFixtures(string $fixture): void {
-    $fixture = 'MustUseOverrideAttributeLinter/'.$fixture.'.php';
-
-    $linter = new Linters\MustUseOverrideAttributeLinter(
-      __DIR__.'/fixtures/'.$fixture.'.in',
-    );
-
-    $out = $linter->getLintErrors()
-      |> Vec\map(
-        $$,
-        $error ==> shape(
-          'blame' => $error->getBlameCode(),
-          'blame_pretty' => $error->getPrettyBlameCode(),
-          'description' => $error->getDescription(),
-        ),
-      )
-      |> json_encode($$, JSON_PRETTY_PRINT)."\n";
-    $this->assertMatches($out, $fixture.'.expect');
-  }
-
-  /**
-   * @dataProvider getDirtyFixtures
-   */
-  public function testAutofix(string $fixture): void {
-    $fixture = 'MustUseOverrideAttributeLinter/'.$fixture.'.php';
-
-    $linter = new Linters\MustUseOverrideAttributeLinter(
-      __DIR__.'/fixtures/'.$fixture.'.in',
-    );
-
-    $code = $linter->getCodeWithFixedLintErrors($linter->getLintErrors());
-    $this->assertMatches(
-      $code,
-      $fixture.'.autofix.expect',
-      $fixture.'.in',
-    );
   }
 }
