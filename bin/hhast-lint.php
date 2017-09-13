@@ -23,6 +23,7 @@ final class LinterCLI {
   private static function getLinterClasses(
   ): Traversable<classname<Linters\BaseLinter>> {
     return vec[
+      Linters\MustUseBracesForControlFlowLinter::class,
       Linters\MustUseOverrideAttributeLinter::class,
     ];
   }
