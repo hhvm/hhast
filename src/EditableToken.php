@@ -79,11 +79,16 @@ abstract class EditableToken extends EditableSyntax {
     if (!$trailing instanceof EditableList) {
       return Missing();
     }
-    $child = C\firstx($trailing->getChildren());
-    if ($child instanceof WhiteSpace || $child instanceof EndOfLine) {
-      return $child;
+    $result = vec[];
+    foreach ($trailing->getChildren() as $child) {
+      if ($child instanceof WhiteSpace) {
+        $result[] = $child;
+      } else if ($child instanceof EndOfLine) {
+        $result[] = $child;
+        break;
+      }
     }
-    return Missing();
+    return EditableList::fromItems($result);
   }
 
   public function getTrailing(): EditableSyntax {

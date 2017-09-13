@@ -44,7 +44,9 @@ trait LinterTestTrait {
     file_put_contents($file, $code);
     try {
       $linter = $this->getLinter($file);
-      expect(C\first($linter->getLintErrors()))->toBeNull();
+      expect(C\first($linter->getLintErrors()))->toBeNull(
+        'Got lint errors on supposedly-clean example',
+      );
     } finally {
       unlink($file);
     }

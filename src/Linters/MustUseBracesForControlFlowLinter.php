@@ -14,10 +14,12 @@ namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
   CompoundStatement,
+  EditableList,
   EditableSyntax,
   EditableToken,
   ElseClause,
   ElseifClause,
+  EndOfLine,
   ForeachStatement,
   IfStatement,
   LeftBraceToken,
@@ -119,6 +121,20 @@ extends AutoFixingASTLinter<EditableSyntax> {
     );
     $last_token = $this->getLastHeadToken($node);
 
+    if (
+      $last_token->getTrailingWhitespace()
+      ->getDescendantsOfType(EndOfLine::class)
+      |>C\is_empty(vec($$))
+    ) {
+      $right_brace_leading = new WhiteSpace(' ');
+      $body_trailing = HHAST\Missing();
+    } else {
+      $right_brace_leading = $node
+        ->getFirstTokenx()->getLeadingWhitespace()
+        ->getChildrenOfType(WhiteSpace::class)
+        |> EditableList::fromItems($$);
+      $body_trailing = $body->getLastTokenx()->getTrailing();
+    }
     return $node
       ->replace(
         new CompoundStatement(
@@ -126,9 +142,12 @@ extends AutoFixingASTLinter<EditableSyntax> {
             new WhiteSpace(' '),
             $last_token->getTrailingWhitespace(),
           ),
-          $body,
+          $body->replace(
+            $body->getLastTokenx()->withTrailing($body_trailing),
+            $body->getLastTokenx(),
+          ),
           new RightBraceToken(
-            $node->getFirstTokenx()->getLeadingWhitespace(),
+            $right_brace_leading,
             $body->getLastTokenx()->getTrailingWhitespace(),
           ),
         ),
@@ -138,5 +157,14 @@ extends AutoFixingASTLinter<EditableSyntax> {
         $last_token->withTrailing(HHAST\Missing()),
         $last_token,
       );
+  }
+
+  <<__Override>>
+  public function getPrettyNode(EditableSyntax $node): EditableSyntax {
+    $token = $node->getFirstTokenx();
+    return $node->replace(
+      $token->withLeading($token->getLeadingWhitespace()),
+      $token,
+    );
   }
 }
