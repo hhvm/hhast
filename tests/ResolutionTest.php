@@ -189,7 +189,7 @@ final class ResolutionTest extends TestCase {
     string $expected,
   ): void {
     list($node, $parents) = self::getNodeAndParents($code);
-    expect(Resolution\resolve_type($type, $node, $parents))
+    expect(resolve_type($type, $node, $parents))
       ->toBeSame($expected);
   }
 }

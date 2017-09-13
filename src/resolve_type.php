@@ -10,11 +10,12 @@
  *
  */
 
-namespace Facebook\HHAST\__Private\Resolution;
+namespace Facebook\HHAST;
 
 use type Facebook\HHAST\EditableSyntax;
 use type Facebook\TypeAssert\TypeAssert;
 use namespace HH\Lib\{C, Str, Vec};
+use namespace Facebook\HHAST\__Private\Resolution;
 
 function resolve_type(
   string $type,
@@ -25,8 +26,8 @@ function resolve_type(
     return Str\strip_prefix($type, '\\');
   }
 
-  $ns = get_current_namespace($node, $parents);
-  $uses = get_current_uses($node, $parents);
+  $ns = Resolution\get_current_namespace($node, $parents);
+  $uses = Resolution\get_current_uses($node, $parents);
 
   if (Str\contains($type, '\\')) {
     $maybe_aliased = $type

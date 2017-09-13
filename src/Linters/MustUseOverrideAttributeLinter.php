@@ -23,7 +23,7 @@ use type Facebook\HHAST\{
   SimpleTypeSpecifier
 };
 use type Facebook\TypeAssert\TypeAssert;
-use function Facebook\HHAST\__Private\Resolution\resolve_type;
+use function Facebook\HHAST\resolve_type;
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
 
