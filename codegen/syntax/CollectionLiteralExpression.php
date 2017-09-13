@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a1e855ef1a8b41fee444c5b8d310a7de>>
+ * @generated SignedSource<<c482819989e0e1c4434728f569f1c31f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -69,7 +69,7 @@ final class CollectionLiteralExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function rewrite_children(
+  public function rewriteDescendants(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
   ): this {

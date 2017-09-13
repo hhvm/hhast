@@ -258,7 +258,7 @@ final class CodegenSyntax extends CodegenBase {
     $fields = Vec\map($syntax['fields'], $field ==> $field['field_name']);
 
     return $cg
-      ->codegenMethod('rewrite_children')
+      ->codegenMethod('rewriteDescendants')
       ->setIsOverride()
       ->addParameter('self::TRewriter $rewriter')
       ->addParameter('?Traversable<EditableSyntax> $parents = null')

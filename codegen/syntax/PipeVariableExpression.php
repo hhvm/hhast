@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1b75e9a05191e31085702a22226a7cb8>>
+ * @generated SignedSource<<ada761db326d2ae108ff3f355eb2d10c>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -37,7 +37,7 @@ final class PipeVariableExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function rewrite_children(
+  public function rewriteDescendants(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
   ): this {

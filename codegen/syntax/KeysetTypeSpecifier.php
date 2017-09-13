@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<aaecc095c72297ea50891a355699259a>>
+ * @generated SignedSource<<44d95ba47a2fa3cd7033bf06fe361542>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -85,7 +85,7 @@ final class KeysetTypeSpecifier extends EditableSyntax {
   }
 
   <<__Override>>
-  public function rewrite_children(
+  public function rewriteDescendants(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
   ): this {

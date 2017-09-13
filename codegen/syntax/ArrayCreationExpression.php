@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<559078181e5995aa5618ec40585746b8>>
+ * @generated SignedSource<<5a71346489bb52e596d1f972b8eaaafd>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -59,7 +59,7 @@ final class ArrayCreationExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function rewrite_children(
+  public function rewriteDescendants(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
   ): this {

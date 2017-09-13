@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<05b8ff0ec3bd3db9e4e987971ed832fa>>
+ * @generated SignedSource<<72219ee1fac3e39d9f297a84fa0c7a6b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -69,7 +69,7 @@ final class EvalExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function rewrite_children(
+  public function rewriteDescendants(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
   ): this {

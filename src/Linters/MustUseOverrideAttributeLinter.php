@@ -156,7 +156,7 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
             ) ?  HHAST\Missing() : new HHAST\WhiteSpace("\n"),
           ),
         ),
-      )->rewrite_children(
+      )->rewriteDescendants(
         ($n, $_) ==> $n === $first_token
           ? $first_token->withLeading(
             C\lastx($first_token->getLeading()->getChildren())

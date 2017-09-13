@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<375d8e4feb75a0dab85abfb6152c9cf0>>
+ * @generated SignedSource<<fdacc6207ccf0c5e6059efeb962b5561>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -37,7 +37,7 @@ final class SimpleTypeSpecifier extends EditableSyntax {
   }
 
   <<__Override>>
-  public function rewrite_children(
+  public function rewriteDescendants(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
   ): this {

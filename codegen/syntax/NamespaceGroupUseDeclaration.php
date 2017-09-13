@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<105b29a5ea57f2ee0a6217c2f905a9a7>>
+ * @generated SignedSource<<9fcf007042c3c058925f002de9f41a7a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -107,7 +107,7 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
   }
 
   <<__Override>>
-  public function rewrite_children(
+  public function rewriteDescendants(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
   ): this {

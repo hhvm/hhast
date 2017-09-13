@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7eb7c279a7f62a865285c63e75b9832e>>
+ * @generated SignedSource<<2e1dcfe6b1893abf05d68425d4ed83d5>>
  */
 namespace Facebook\HHAST;
 
@@ -40,7 +40,7 @@ final class PercentEqualToken extends EditableToken {
   }
 
   <<__Override>>
-  public function rewrite_children(
+  public function rewriteDescendants(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
   ): this {

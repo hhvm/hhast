@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5462e3cc372819f6dc984338a656c257>>
+ * @generated SignedSource<<74175cdad1bba9bbb09f61ac48e102b0>>
  */
 namespace Facebook\HHAST;
 
@@ -48,7 +48,7 @@ final class DecimalLiteralToken extends EditableToken {
   }
 
   <<__Override>>
-  public function rewrite_children(
+  public function rewriteDescendants(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
   ): this {

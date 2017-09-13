@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<95afce4870e0e9a562993ff6487d0455>>
+ * @generated SignedSource<<5398989b24ca1f2af5fb42cef9d2ff8e>>
  */
 namespace Facebook\HHAST;
 
@@ -53,7 +53,7 @@ final class DoubleQuotedStringLiteralTailToken extends EditableToken {
   }
 
   <<__Override>>
-  public function rewrite_children(
+  public function rewriteDescendants(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
   ): this {

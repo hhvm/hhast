@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<973319d76108ab7e78d2d83973877b2e>>
+ * @generated SignedSource<<7ae78502983ed64822c555e1d893e828>>
  */
 namespace Facebook\HHAST;
 
@@ -40,7 +40,7 @@ final class VecToken extends EditableToken {
   }
 
   <<__Override>>
-  public function rewrite_children(
+  public function rewriteDescendants(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
   ): this {

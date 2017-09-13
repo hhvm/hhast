@@ -64,7 +64,7 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
       return $shape;
     }
 
-    return $shape->rewrite_children(
+    return $shape->rewriteDescendants(
       ($node, $_) ==> {
         if ($node !== $last_field) {
           return $node;
@@ -76,7 +76,7 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
           ),
         )
           ->withItem(
-            $last_field->getItem()->rewrite_children(
+            $last_field->getItem()->rewriteDescendants(
               ($inner, $_) ==> {
                 if ($inner !== $last_field->getLastTokenx()) {
                   return $inner;

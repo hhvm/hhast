@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7ff625fe5087f3d0be83c03d8db366c3>>
+ * @generated SignedSource<<e1716f3912bc6b3e81c0998a542803ac>>
  */
 namespace Facebook\HHAST;
 
@@ -40,7 +40,7 @@ final class DollarDollarToken extends EditableToken {
   }
 
   <<__Override>>
-  public function rewrite_children(
+  public function rewriteDescendants(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
   ): this {

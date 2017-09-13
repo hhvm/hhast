@@ -198,7 +198,7 @@ abstract class EditableSyntax {
     EditableSyntax $new_node,
     EditableSyntax $target,
   ): this {
-    return $this->rewrite_children(
+    return $this->rewriteDescendants(
       ($node, $parents) ==> $node === $target ? $new_node : $node,
     );
   }
@@ -294,7 +294,7 @@ abstract class EditableSyntax {
     );
   }
 
-  abstract public function rewrite_children(
+  abstract public function rewriteDescendants(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
   ): this ;
@@ -304,7 +304,7 @@ abstract class EditableSyntax {
     ?Traversable<EditableSyntax> $parents = null,
   ): EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
-    $with_rewritten_children = $this->rewrite_children(
+    $with_rewritten_children = $this->rewriteDescendants(
       $rewriter,
       $parents,
     );

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<02c6b444dd0d8c0cde81efdd8dd19659>>
+ * @generated SignedSource<<b6674daa9b5108bf69507c4bfe5709ff>>
  */
 namespace Facebook\HHAST;
 
@@ -40,7 +40,7 @@ final class SuspendToken extends EditableToken {
   }
 
   <<__Override>>
-  public function rewrite_children(
+  public function rewriteDescendants(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
   ): this {

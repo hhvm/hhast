@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f1378137f6ab233769fcb20127c4e9bf>>
+ * @generated SignedSource<<5a53090b7d366d34c520c2d17674d2a2>>
  */
 namespace Facebook\HHAST;
 
@@ -40,7 +40,7 @@ final class CaratToken extends EditableToken {
   }
 
   <<__Override>>
-  public function rewrite_children(
+  public function rewriteDescendants(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
   ): this {

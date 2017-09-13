@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<777bacb4011f6ae52712dc47bb2032b7>>
+ * @generated SignedSource<<16fd17f08479df87e029d945aa6b7c78>>
  */
 namespace Facebook\HHAST;
 
@@ -48,7 +48,7 @@ final class HeredocStringLiteralToken extends EditableToken {
   }
 
   <<__Override>>
-  public function rewrite_children(
+  public function rewriteDescendants(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
   ): this {

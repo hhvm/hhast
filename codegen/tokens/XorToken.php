@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2f0f339afc1e644b5e1aed2a074acbd3>>
+ * @generated SignedSource<<ede2b439c9472d82f1ea5a84bd299b55>>
  */
 namespace Facebook\HHAST;
 
@@ -40,7 +40,7 @@ final class XorToken extends EditableToken {
   }
 
   <<__Override>>
-  public function rewrite_children(
+  public function rewriteDescendants(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
   ): this {

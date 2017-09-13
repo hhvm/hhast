@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7d9372a23920d4e1c991ef7a2a39a39b>>
+ * @generated SignedSource<<865dfe3b7c6ead29c0c726ed9f729328>>
  */
 namespace Facebook\HHAST;
 
@@ -40,7 +40,7 @@ final class ColonToken extends EditableToken {
   }
 
   <<__Override>>
-  public function rewrite_children(
+  public function rewriteDescendants(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
   ): this {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<49b1a9bb71c9105b7a0ab375cd8434a4>>
+ * @generated SignedSource<<104bcd10b34f055e5dba880e29332383>>
  */
 namespace Facebook\HHAST;
 
@@ -40,7 +40,7 @@ final class TupleToken extends EditableToken {
   }
 
   <<__Override>>
-  public function rewrite_children(
+  public function rewriteDescendants(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
   ): this {

@@ -207,7 +207,7 @@ final class CodegenTokens extends CodegenBase {
     self::TTokenSpec $token,
   ): CodegenMethod {
     $cg = $this->getCodegenFactory();
-    return $cg->codegenMethod('rewrite_children')
+    return $cg->codegenMethod('rewriteDescendants')
       ->setIsOverride()
       ->addParameter('self::TRewriter $rewriter')
       ->addParameter('?Traversable<EditableSyntax> $parents = null')

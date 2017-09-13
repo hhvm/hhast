@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f104f5aee195b8d97b10c3fac547b4d3>>
+ * @generated SignedSource<<59e9e29ceee9e04a400c6179e0a5b2fd>>
  */
 namespace Facebook\HHAST;
 
@@ -40,7 +40,7 @@ final class StarEqualToken extends EditableToken {
   }
 
   <<__Override>>
-  public function rewrite_children(
+  public function rewriteDescendants(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
   ): this {

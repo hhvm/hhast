@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<447638bdb6b99435e4714d68a1522823>>
+ * @generated SignedSource<<ad6d57de83f078984d2d83e48f43f9cf>>
  */
 namespace Facebook\HHAST;
 
@@ -40,7 +40,7 @@ final class CommaToken extends EditableToken {
   }
 
   <<__Override>>
-  public function rewrite_children(
+  public function rewriteDescendants(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
   ): this {

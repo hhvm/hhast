@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f02d8a48617f59e4bab0da62f0638799>>
+ * @generated SignedSource<<5c66e5971f134cd4db74fc80b1b82d34>>
  */
 namespace Facebook\HHAST;
 
@@ -40,7 +40,7 @@ final class ElseToken extends EditableToken {
   }
 
   <<__Override>>
-  public function rewrite_children(
+  public function rewriteDescendants(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
   ): this {

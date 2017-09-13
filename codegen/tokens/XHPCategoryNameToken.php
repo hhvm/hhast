@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<28b507c95d95e409970ed468791cd87a>>
+ * @generated SignedSource<<f0e2486497cdf2c0751a491e32d9616e>>
  */
 namespace Facebook\HHAST;
 
@@ -48,7 +48,7 @@ final class XHPCategoryNameToken extends EditableToken {
   }
 
   <<__Override>>
-  public function rewrite_children(
+  public function rewriteDescendants(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
   ): this {

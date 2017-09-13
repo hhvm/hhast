@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e089b08f3641c9fa94d042fdbacb7af5>>
+ * @generated SignedSource<<0df12b82f4ce8e41b9f851198d578148>>
  */
 namespace Facebook\HHAST;
 
@@ -40,7 +40,7 @@ final class LeftBracketToken extends EditableToken {
   }
 
   <<__Override>>
-  public function rewrite_children(
+  public function rewriteDescendants(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
   ): this {

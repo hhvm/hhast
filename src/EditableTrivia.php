@@ -54,7 +54,7 @@ abstract class EditableTrivia extends EditableSyntax {
   }
 
   <<__Override>>
-  final public function rewrite_children(
+  final public function rewriteDescendants(
     self::TRewriter $_rewriter,
     ?Traversable<EditableSyntax> $parents = null,
   ): this {

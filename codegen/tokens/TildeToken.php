@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<27747eb0cb863661b452ee923c5ff813>>
+ * @generated SignedSource<<0be8fe1c90cb376375ec2bc1b5cb6025>>
  */
 namespace Facebook\HHAST;
 
@@ -40,7 +40,7 @@ final class TildeToken extends EditableToken {
   }
 
   <<__Override>>
-  public function rewrite_children(
+  public function rewriteDescendants(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
   ): this {

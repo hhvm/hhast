@@ -93,7 +93,7 @@ final class EditableList extends EditableSyntax {
   }
 
   <<__Override>>
-  public function rewrite_children(
+  public function rewriteDescendants(
     self::TRewriter $rewriter,
     ?Traversable<EditableSyntax> $parents = null,
   ): this {
@@ -130,7 +130,7 @@ final class EditableList extends EditableSyntax {
     ?Traversable<EditableSyntax> $parents = null,
   ): EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
-    $with_rewritten_children = $this->rewrite_children(
+    $with_rewritten_children = $this->rewriteDescendants(
       $rewriter,
       $parents,
     );
