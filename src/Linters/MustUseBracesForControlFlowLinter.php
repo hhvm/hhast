@@ -17,14 +17,17 @@ use type Facebook\HHAST\{
   EditableSyntax,
   ForeachStatement,
   IfStatement,
-  WhileStatement
+  LeftBraceToken,
+  RightBraceToken,
+  WhileStatement,
+  WhiteSpace
 };
 use function Facebook\HHAST\resolve_type;
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
 
-class MustUseBlocksForControlFlowLinter
-extends ASTLinter<EditableSyntax> {
+class MustUseBracesForControlFlowLinter
+extends AutoFixingASTLinter<EditableSyntax> {
   protected static function getTargetType(): classname<EditableSyntax> {
     return EditableSyntax::class;
   }
@@ -45,7 +48,7 @@ extends ASTLinter<EditableSyntax> {
       $this,
       sprintf(
         '%s without braces',
-        $node->getSyntaxKind(),
+        $node->getSyntaxKind() |> Str\replace($$, '_', ' '),
       ),
       $node,
     );
@@ -62,5 +65,48 @@ extends ASTLinter<EditableSyntax> {
       return $node->getBody();
     }
     return null;
+  }
+
+  private function getRightParen(EditableSyntax $node): ?EditableSyntax {
+    if ($node instanceof IfStatement) {
+      return $node->getRightParen();
+    }
+    if ($node instanceof ForeachStatement) {
+      return $node->getRightParen();
+    }
+    if ($node instanceof WhileStatement) {
+      return $node->getRightParen();
+    }
+    return null;
+  }
+
+  public function getFixedNode(EditableSyntax $node): EditableSyntax {
+    $body = $this->getBody($node);
+    invariant(
+      $body !== null,
+      "Can't fix a node with no body",
+    );
+    $paren = $this->getRightParen($node);
+    if ($paren === null) {
+      return $node;
+    }
+
+    return $node->replace(
+      new CompoundStatement(
+        new LeftBraceToken(
+          new WhiteSpace(' '),
+          $paren->getLastTokenx()->getTrailing(),
+        ),
+        $body,
+        new RightBraceToken(
+          $node->getFirstTokenx()->getLeading(),
+          $body->getLastTokenx()->getTrailing(),
+        ),
+      ),
+      $body,
+    )->replace(
+      $paren->getLastTokenx()->withTrailing(HHAST\Missing()),
+      $paren->getLastTokenx(),
+    );
   }
 }
