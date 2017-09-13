@@ -159,7 +159,6 @@ extends AutoFixingASTLinter<EditableSyntax> {
       );
   }
 
-  <<__Override>>
   public function getPrettyNode(EditableSyntax $node): EditableSyntax {
     $token = $node->getFirstTokenx();
     return $node->replace(

@@ -73,6 +73,7 @@ final class MustUseOverrideAttributeLinterTest extends TestCase {
       ['with_other_attribute_with_value'],
       ['with_leading_comment'],
       ['with_leading_comment_and_other_attribute'],
+      ['with_generic_parent'],
     ];
   }
 }

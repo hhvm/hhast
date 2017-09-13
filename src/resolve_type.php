@@ -25,6 +25,10 @@ function resolve_type(
   if (Str\starts_with($type, '\\')) {
     return Str\strip_prefix($type, '\\');
   }
+  invariant(
+    !Str\contains($type, '<'),
+    'Call on the class name without generics',
+  );
 
   $ns = Resolution\get_current_namespace($node, $parents);
   $uses = Resolution\get_current_uses($node, $parents);

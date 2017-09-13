@@ -1,0 +1,7 @@
+[
+    {
+        "blame": "  public function getPrettyNode(EditableSyntax $node): EditableSyntax {\n  }\n",
+        "blame_pretty": "  public function getPrettyNode(EditableSyntax $node): EditableSyntax {",
+        "description": "Foo::getPrettyNode() overrides Facebook\\HHAST\\Linters\\ASTLinter::getPrettyNode() without <<__Override>>"
+    }
+]

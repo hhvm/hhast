@@ -19,6 +19,7 @@ use type Facebook\HHAST\{
   ClassToken,
   EditableSyntax,
   GenericTypeSpecifier,
+  ListItem,
   MethodishDeclaration,
   SimpleTypeSpecifier
 };
@@ -47,6 +48,9 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
     }
 
     $super = C\onlyx($class->getExtendsListx()->getChildren());
+    if ($super instanceof ListItem) {
+      $super = $super->getItem();
+    }
     if ($super instanceof GenericTypeSpecifier) {
       $super = $super->getClassType();
     }
@@ -75,7 +79,9 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
         ),
         $node
       );
-    } catch (\ReflectionException $_) {
+    } catch (\ReflectionException $e) {
+      $method = $node->getFunctionDeclHeader()->getName()->getCode()
+        |> Str\trim($$);
       return null;
     }
   }

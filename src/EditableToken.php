@@ -21,7 +21,6 @@ abstract class EditableToken extends EditableSyntax {
   private EditableSyntax $_trailing;
   private string $_text;
 
-  <<__Override>>
   public function __construct(
     string $token_kind,
     EditableSyntax $leading,
