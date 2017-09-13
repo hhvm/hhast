@@ -15,6 +15,9 @@ namespace Facebook\HHAST\Linters;
 use type Facebook\HHAST\{
   CompoundStatement,
   EditableSyntax,
+  EditableToken,
+  ElseClause,
+  ElseifClause,
   ForeachStatement,
   IfStatement,
   LeftBraceToken,
@@ -23,6 +26,7 @@ use type Facebook\HHAST\{
   WhiteSpace
 };
 use function Facebook\HHAST\resolve_type;
+use type Facebook\TypeAssert\TypeAssert;
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
 
@@ -44,6 +48,14 @@ extends AutoFixingASTLinter<EditableSyntax> {
       return null;
     }
 
+    // Consider '} else if {' to be the same as '} elseif {'
+    if (
+      $node instanceof ElseClause
+      && $body instanceof IfStatement
+    ) {
+      return null;
+    }
+
     return new ASTLintError(
       $this,
       sprintf(
@@ -58,6 +70,12 @@ extends AutoFixingASTLinter<EditableSyntax> {
     if ($node instanceof IfStatement) {
       return $node->getStatement();
     }
+    if ($node instanceof ElseClause) {
+      return $node->getStatement();
+    }
+    if ($node instanceof ElseifClause) {
+      return $node->getStatement();
+    }
     if ($node instanceof ForeachStatement) {
       return $node->getBody();
     }
@@ -67,17 +85,30 @@ extends AutoFixingASTLinter<EditableSyntax> {
     return null;
   }
 
-  private function getRightParen(EditableSyntax $node): ?EditableSyntax {
+  private function getLastHeadToken(EditableSyntax $node): EditableToken {
     if ($node instanceof IfStatement) {
-      return $node->getRightParen();
+      $paren = $node->getRightParen();
+      if ($paren !== null) {
+        return $paren->getLastTokenx();
+      }
+      return $node->getCondition()->getLastTokenx();
+    }
+    if ($node instanceof ElseClause) {
+      return $node->getKeyword();
+    }
+    if ($node instanceof ElseifClause) {
+      return $node->getRightParen()->getLastTokenx();
     }
     if ($node instanceof ForeachStatement) {
-      return $node->getRightParen();
+      return $node->getRightParen()->getLastTokenx();
     }
     if ($node instanceof WhileStatement) {
-      return $node->getRightParen();
+      return $node->getRightParen()->getLastTokenx();
     }
-    return null;
+    invariant_violation(
+      'unhandled type: %s',
+      get_class($node),
+    );
   }
 
   public function getFixedNode(EditableSyntax $node): EditableSyntax {
@@ -86,27 +117,26 @@ extends AutoFixingASTLinter<EditableSyntax> {
       $body !== null,
       "Can't fix a node with no body",
     );
-    $paren = $this->getRightParen($node);
-    if ($paren === null) {
-      return $node;
-    }
+    $last_token = $this->getLastHeadToken($node);
 
-    return $node->replace(
-      new CompoundStatement(
-        new LeftBraceToken(
-          new WhiteSpace(' '),
-          $paren->getLastTokenx()->getTrailing(),
+    return $node
+      ->replace(
+        new CompoundStatement(
+          new LeftBraceToken(
+            new WhiteSpace(' '),
+            $last_token->getTrailing(),
+          ),
+          $body,
+          new RightBraceToken(
+            $node->getFirstTokenx()->getLeading(),
+            $body->getLastTokenx()->getTrailing(),
+          ),
         ),
         $body,
-        new RightBraceToken(
-          $node->getFirstTokenx()->getLeading(),
-          $body->getLastTokenx()->getTrailing(),
-        ),
-      ),
-      $body,
-    )->replace(
-      $paren->getLastTokenx()->withTrailing(HHAST\Missing()),
-      $paren->getLastTokenx(),
-    );
+      )
+      ->replace(
+        $last_token->withTrailing(HHAST\Missing()),
+        $last_token,
+      );
   }
 }
