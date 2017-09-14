@@ -333,13 +333,13 @@ final class CodegenSyntax extends CodegenBase {
       );
     }
 
-    $children = $specs[$key];
+    $children = $specs[$key] |> Keyset\filter($$, $c ==> $c !== 'error');
 
     $nullable = C\contains_key($children, 'missing');
     if ($nullable) {
       $children = Keyset\filter(
         $children,
-        $child ==> $child !== 'missing' && $child !== 'error',
+        $child ==> $child !== 'missing',
       );
     }
 

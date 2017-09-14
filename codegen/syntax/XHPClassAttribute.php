@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<876154d5f23d9d29f5a9ea7ac51f0ca7>>
+ * @generated SignedSource<<af3d24a8111c6ffa85f00c948c47bc85>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -106,9 +106,8 @@ final class XHPClassAttribute extends EditableSyntax {
   }
 
   /**
-   * @returns GenericTypeSpecifier | SimpleTypeSpecifier | ErrorSyntax |
-   * XHPEnumType | NullableTypeSpecifier | VectorArrayTypeSpecifier |
-   * MapArrayTypeSpecifier
+   * @returns GenericTypeSpecifier | SimpleTypeSpecifier | XHPEnumType |
+   * NullableTypeSpecifier | VectorArrayTypeSpecifier | MapArrayTypeSpecifier
    */
   public function getType(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);

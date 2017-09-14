@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1631745fe6c855683fad6380c3c73fad>>
+ * @generated SignedSource<<285cd8e7a24966331d2f41a56598c626>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -94,7 +94,7 @@ final class WhereConstraint extends EditableSyntax {
   }
 
   /**
-   * @returns SimpleTypeSpecifier | GenericTypeSpecifier | ErrorSyntax
+   * @returns SimpleTypeSpecifier | GenericTypeSpecifier
    */
   public function getLeftType(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_type);
@@ -138,8 +138,7 @@ final class WhereConstraint extends EditableSyntax {
   }
 
   /**
-   * @returns SimpleTypeSpecifier | NullableTypeSpecifier |
-   * GenericTypeSpecifier | ErrorSyntax
+   * @returns SimpleTypeSpecifier | NullableTypeSpecifier | GenericTypeSpecifier
    */
   public function getRightType(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_type);

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<556ffebfdcc342625d4fd7bc1791e3a1>>
+ * @generated SignedSource<<2c70f2f74cd3fe8219efd8d336f0b86c>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -253,7 +253,7 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
   }
 
   /**
-   * @returns SimpleTypeSpecifier | ErrorSyntax | GenericTypeSpecifier |
+   * @returns SimpleTypeSpecifier | GenericTypeSpecifier |
    * NullableTypeSpecifier | SoftTypeSpecifier
    */
   public function getValue(): EditableSyntax {

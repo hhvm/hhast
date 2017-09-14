@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<efda7388fc7fdb0ab4c4bf4094c788d4>>
+ * @generated SignedSource<<d3b93c76b95dd7285523507fd4bc8af2>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -411,10 +411,10 @@ final class FunctionDeclarationHeader extends EditableSyntax {
   }
 
   /**
-   * @returns NameToken | DestructToken | ConstructToken | ErrorSyntax
+   * @returns NameToken | DestructToken | ConstructToken
    */
-  public function getName(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
+  public function getName(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
   }
 
   public function getTypeParameterListUNTYPED(): EditableSyntax {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a6ad0d065ccda5ec3c77c9c3f2c1673d>>
+ * @generated SignedSource<<ae215f24d11f2b9d9b6e54c9c5db21e8>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -202,10 +202,10 @@ final class CatchClause extends EditableSyntax {
   }
 
   /**
-   * @returns SimpleTypeSpecifier | ErrorSyntax
+   * @returns SimpleTypeSpecifier
    */
-  public function getType(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
+  public function getType(): SimpleTypeSpecifier {
+    return TypeAssert::isInstanceOf(SimpleTypeSpecifier::class, $this->_type);
   }
 
   public function getVariableUNTYPED(): EditableSyntax {
