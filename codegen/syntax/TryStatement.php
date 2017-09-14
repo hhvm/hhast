@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b051e7c7519c20ac059eaadf696b8634>>
+ * @generated SignedSource<<ae52e68649172f5ce03f11d3a7d1c241>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -57,12 +57,8 @@ final class TryStatement extends EditableSyntax {
       $source,
     );
     $position += $finally_clause->getWidth();
-    return new self(
-      $keyword,
-      $compound_statement,
-      $catch_clauses,
-      $finally_clause,
-    );
+    return
+      new self($keyword, $compound_statement, $catch_clauses, $finally_clause);
   }
 
   <<__Override>>
@@ -81,7 +77,8 @@ final class TryStatement extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $keyword = $this->_keyword->rewrite($rewriter, $parents);
-    $compound_statement = $this->_compound_statement->rewrite($rewriter, $parents);
+    $compound_statement =
+      $this->_compound_statement->rewrite($rewriter, $parents);
     $catch_clauses = $this->_catch_clauses->rewrite($rewriter, $parents);
     $finally_clause = $this->_finally_clause->rewrite($rewriter, $parents);
     if (
@@ -92,7 +89,8 @@ final class TryStatement extends EditableSyntax {
     ) {
       return $this;
     }
-    return new self($keyword, $compound_statement, $catch_clauses, $finally_clause);
+    return
+      new self($keyword, $compound_statement, $catch_clauses, $finally_clause);
   }
 
   public function getKeywordUNTYPED(): EditableSyntax {
@@ -146,7 +144,10 @@ final class TryStatement extends EditableSyntax {
    * @returns CompoundStatement
    */
   public function getCompoundStatement(): CompoundStatement {
-    return TypeAssert::isInstanceOf(CompoundStatement::class, $this->_compound_statement);
+    return TypeAssert::isInstanceOf(
+      CompoundStatement::class,
+      $this->_compound_statement,
+    );
   }
 
   public function getCatchClausesUNTYPED(): EditableSyntax {
@@ -213,13 +214,15 @@ final class TryStatement extends EditableSyntax {
     if ($this->_finally_clause->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(FinallyClause::class, $this->_finally_clause);
+    return
+      TypeAssert::isInstanceOf(FinallyClause::class, $this->_finally_clause);
   }
 
   /**
    * @returns FinallyClause
    */
   public function getFinallyClausex(): FinallyClause {
-    return TypeAssert::isInstanceOf(FinallyClause::class, $this->_finally_clause);
+    return
+      TypeAssert::isInstanceOf(FinallyClause::class, $this->_finally_clause);
   }
 }

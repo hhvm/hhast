@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f7561fd3256698ff708d16dbab04de76>>
+ * @generated SignedSource<<7bda0abe675de057f00f7b3226c84529>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -164,13 +164,15 @@ final class CompoundStatement extends EditableSyntax {
     if ($this->_right_brace->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+    return
+      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 
   /**
    * @returns RightBraceToken
    */
   public function getRightBracex(): RightBraceToken {
-    return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+    return
+      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 }

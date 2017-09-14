@@ -2,12 +2,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9102516a17c7a8f0aa5f55f690ad28b1>>
+ * @generated SignedSource<<071f29f744eede8bd97bd8aa4681ff85>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
 
-final class SwitchStatement extends EditableSyntax {
+final class SwitchStatement extends EditableSyntax
+  implements IControlFlowStatement {
 
   private EditableSyntax $_keyword;
   private EditableSyntax $_left_paren;
@@ -261,7 +262,8 @@ final class SwitchStatement extends EditableSyntax {
    * @returns RightParenToken
    */
   public function getRightParen(): RightParenToken {
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function getLeftBraceUNTYPED(): EditableSyntax {
@@ -374,13 +376,15 @@ final class SwitchStatement extends EditableSyntax {
     if ($this->_right_brace->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+    return
+      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 
   /**
    * @returns RightBraceToken
    */
   public function getRightBracex(): RightBraceToken {
-    return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+    return
+      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 }

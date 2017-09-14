@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a5d3f2dddfdf559aa622085a280f818b>>
+ * @generated SignedSource<<c73ce05201bc8c2704f46e901c697404>>
  */
 namespace Facebook\HHAST;
 
@@ -49,8 +49,7 @@ final class MinusToken extends EditableToken {
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
     if (
-      $leading === $this->getLeading() &&
-      $trailing === $this->getTrailing()
+      $leading === $this->getLeading() && $trailing === $this->getTrailing()
     ) {
       return $this;
     }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f7f6a798f43b682cffa5000852146dcc>>
+ * @generated SignedSource<<4ac1d27924f373d92f990632b6690ee1>>
  */
 namespace Facebook\HHAST;
 
@@ -49,8 +49,7 @@ final class PercentToken extends EditableToken {
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
     if (
-      $leading === $this->getLeading() &&
-      $trailing === $this->getTrailing()
+      $leading === $this->getLeading() && $trailing === $this->getTrailing()
     ) {
       return $this;
     }

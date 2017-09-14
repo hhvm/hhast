@@ -20,6 +20,7 @@ use type Facebook\HHAST\{
   EditableToken,
   EndOfLine,
   FunctionDeclaration,
+  IFunctionishDeclaration,
   MethodishDeclaration,
   NameToken,
   StaticToken
@@ -28,7 +29,7 @@ use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Vec};
 
 trait FunctionNamingLinterTrait {
-  require extends ASTLinter<EditableSyntax>;
+  require extends ASTLinter<IFunctionishDeclaration>;
 
   abstract public function getSuggestedNameForFunction(
     string $name,
@@ -59,8 +60,9 @@ trait FunctionNamingLinterTrait {
   }
 
   <<__Override>>
-  final protected static function getTargetType(): classname<EditableSyntax> {
-    return EditableSyntax::class;
+  final protected static function getTargetType(
+  ): classname<IFunctionishDeclaration> {
+    return IFunctionishDeclaration::class;
   }
 
   private function getCurrentNameNodeForFunctionOrMethod(
@@ -79,9 +81,9 @@ trait FunctionNamingLinterTrait {
 
   <<__Override>>
   final public function getLintErrorForNode(
-    EditableSyntax $node,
+    IFunctionishDeclaration $node,
     vec<EditableSyntax> $_parents,
-  ): ?ASTLintError<EditableSyntax, this> {
+  ): ?ASTLintError<IFunctionishDeclaration, this> {
     $token = $this->getCurrentNameNodeForFunctionOrMethod($node);
     if ($token === null) {
       return null;
@@ -123,8 +125,8 @@ trait FunctionNamingLinterTrait {
   }
 
   public function getPrettyNode(
-    EditableSyntax $node,
-  ): EditableSyntax {
+    IFunctionishDeclaration $node,
+  ): IFunctionishDeclaration {
     if ($node instanceof FunctionDeclaration) {
       $node = $node->withBody(HHAST\Missing());
     } else if ($node instanceof MethodishDeclaration) {

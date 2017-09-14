@@ -15,12 +15,13 @@ namespace Facebook\HHAST\Linters;
 use type Facebook\HHAST\{
   EditableSyntax,
   FunctionDeclaration,
+  IFunctionishDeclaration,
   MethodishDeclaration
 };
 use namespace HH\Lib\{C, Str};
 
 class CamelCasedMethodsUnderscoredFunctionsLinter extends ASTLinter<
-  EditableSyntax
+  IFunctionishDeclaration
 > {
   use FunctionNamingLinterTrait;
 

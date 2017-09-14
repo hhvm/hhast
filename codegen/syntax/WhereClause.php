@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a0669b311728f5ac900b6dfa8d3dc593>>
+ * @generated SignedSource<<5a4213a285ad841a7217d8bd06c6aee1>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -57,10 +57,7 @@ final class WhereClause extends EditableSyntax {
     $parents[] = $this;
     $keyword = $this->_keyword->rewrite($rewriter, $parents);
     $constraints = $this->_constraints->rewrite($rewriter, $parents);
-    if (
-      $keyword === $this->_keyword &&
-      $constraints === $this->_constraints
-    ) {
+    if ($keyword === $this->_keyword && $constraints === $this->_constraints) {
       return $this;
     }
     return new self($keyword, $constraints);

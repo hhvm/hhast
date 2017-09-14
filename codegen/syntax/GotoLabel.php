@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2e6024958b6f4ea1a229adb26b2ec3ba>>
+ * @generated SignedSource<<b05af1d05f63ae3e037a5b1776da0b66>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -54,10 +54,7 @@ final class GotoLabel extends EditableSyntax {
     $parents[] = $this;
     $name = $this->_name->rewrite($rewriter, $parents);
     $colon = $this->_colon->rewrite($rewriter, $parents);
-    if (
-      $name === $this->_name &&
-      $colon === $this->_colon
-    ) {
+    if ($name === $this->_name && $colon === $this->_colon) {
       return $this;
     }
     return new self($name, $colon);

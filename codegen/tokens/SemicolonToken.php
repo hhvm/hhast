@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1f4201b835f060d045a7f51f5293efa2>>
+ * @generated SignedSource<<a1f66ee9e412ee0caf9400d43240a897>>
  */
 namespace Facebook\HHAST;
 
@@ -49,8 +49,7 @@ final class SemicolonToken extends EditableToken {
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
     if (
-      $leading === $this->getLeading() &&
-      $trailing === $this->getTrailing()
+      $leading === $this->getLeading() && $trailing === $this->getTrailing()
     ) {
       return $this;
     }

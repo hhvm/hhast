@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1a917a56fcb83da27208718410346c8a>>
+ * @generated SignedSource<<2644614829706178983ce77f5e667ef0>>
  */
 namespace Facebook\HHAST;
 
@@ -49,8 +49,7 @@ final class AmpersandEqualToken extends EditableToken {
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
     if (
-      $leading === $this->getLeading() &&
-      $trailing === $this->getTrailing()
+      $leading === $this->getLeading() && $trailing === $this->getTrailing()
     ) {
       return $this;
     }

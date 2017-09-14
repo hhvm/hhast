@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0be8fe1c90cb376375ec2bc1b5cb6025>>
+ * @generated SignedSource<<231c5e7beeb7547e89f6acecd5bf27f2>>
  */
 namespace Facebook\HHAST;
 
@@ -49,8 +49,7 @@ final class TildeToken extends EditableToken {
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
     if (
-      $leading === $this->getLeading() &&
-      $trailing === $this->getTrailing()
+      $leading === $this->getLeading() && $trailing === $this->getTrailing()
     ) {
       return $this;
     }

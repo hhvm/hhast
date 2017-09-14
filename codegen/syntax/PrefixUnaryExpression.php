@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<756316676479fe195c1c3d3e1c2d4037>>
+ * @generated SignedSource<<4b4bd8ce80d8c4592c503aaed3002d3a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -57,10 +57,7 @@ final class PrefixUnaryExpression extends EditableSyntax {
     $parents[] = $this;
     $operator = $this->_operator->rewrite($rewriter, $parents);
     $operand = $this->_operand->rewrite($rewriter, $parents);
-    if (
-      $operator === $this->_operator &&
-      $operand === $this->_operand
-    ) {
+    if ($operator === $this->_operator && $operand === $this->_operand) {
       return $this;
     }
     return new self($operator, $operand);

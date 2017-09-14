@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d4629cf0c404bac6661bca74cd85edb3>>
+ * @generated SignedSource<<55b75180a04086d130f967aeaed59190>>
  */
 namespace Facebook\HHAST;
 
@@ -49,8 +49,7 @@ final class RightBracketToken extends EditableToken {
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
     if (
-      $leading === $this->getLeading() &&
-      $trailing === $this->getTrailing()
+      $leading === $this->getLeading() && $trailing === $this->getTrailing()
     ) {
       return $this;
     }

@@ -2,12 +2,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<19d28e1d758849befff63de78d489fc9>>
+ * @generated SignedSource<<82439bd1479885b7b3f29196d768785b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
 
-final class DoStatement extends EditableSyntax {
+final class DoStatement extends EditableSyntax
+  implements IControlFlowStatement, ILoopStatement {
 
   private EditableSyntax $_keyword;
   private EditableSyntax $_body;
@@ -320,7 +321,8 @@ final class DoStatement extends EditableSyntax {
    * @returns RightParenToken
    */
   public function getRightParen(): RightParenToken {
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function getSemicolonUNTYPED(): EditableSyntax {

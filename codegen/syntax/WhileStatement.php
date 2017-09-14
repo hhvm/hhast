@@ -2,12 +2,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0f5578795da4866596878cbc20de5f94>>
+ * @generated SignedSource<<809e17f1edacd1c85dc2a4fa1ed11697>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
 
-final class WhileStatement extends EditableSyntax {
+final class WhileStatement extends EditableSyntax
+  implements IControlFlowStatement, ILoopStatement {
 
   private EditableSyntax $_keyword;
   private EditableSyntax $_left_paren;
@@ -213,7 +214,8 @@ final class WhileStatement extends EditableSyntax {
    * @returns RightParenToken
    */
   public function getRightParen(): RightParenToken {
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function getBodyUNTYPED(): EditableSyntax {

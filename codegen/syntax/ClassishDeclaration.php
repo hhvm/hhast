@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3a3d18fad817fa1e949d62e806418633>>
+ * @generated SignedSource<<7f2083bad9d84749f761348bbca223fe>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -153,7 +153,8 @@ final class ClassishDeclaration extends EditableSyntax {
     $type_parameters = $this->_type_parameters->rewrite($rewriter, $parents);
     $extends_keyword = $this->_extends_keyword->rewrite($rewriter, $parents);
     $extends_list = $this->_extends_list->rewrite($rewriter, $parents);
-    $implements_keyword = $this->_implements_keyword->rewrite($rewriter, $parents);
+    $implements_keyword =
+      $this->_implements_keyword->rewrite($rewriter, $parents);
     $implements_list = $this->_implements_list->rewrite($rewriter, $parents);
     $body = $this->_body->rewrite($rewriter, $parents);
     if (
@@ -217,14 +218,20 @@ final class ClassishDeclaration extends EditableSyntax {
     if ($this->_attribute->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute);
+    return TypeAssert::isInstanceOf(
+      AttributeSpecification::class,
+      $this->_attribute,
+    );
   }
 
   /**
    * @returns AttributeSpecification
    */
   public function getAttributex(): AttributeSpecification {
-    return TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute);
+    return TypeAssert::isInstanceOf(
+      AttributeSpecification::class,
+      $this->_attribute,
+    );
   }
 
   public function getModifiersUNTYPED(): EditableSyntax {
@@ -379,14 +386,16 @@ final class ClassishDeclaration extends EditableSyntax {
     if ($this->_type_parameters->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(TypeParameters::class, $this->_type_parameters);
+    return
+      TypeAssert::isInstanceOf(TypeParameters::class, $this->_type_parameters);
   }
 
   /**
    * @returns TypeParameters
    */
   public function getTypeParametersx(): TypeParameters {
-    return TypeAssert::isInstanceOf(TypeParameters::class, $this->_type_parameters);
+    return
+      TypeAssert::isInstanceOf(TypeParameters::class, $this->_type_parameters);
   }
 
   public function getExtendsKeywordUNTYPED(): EditableSyntax {
@@ -422,14 +431,16 @@ final class ClassishDeclaration extends EditableSyntax {
     if ($this->_extends_keyword->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(ExtendsToken::class, $this->_extends_keyword);
+    return
+      TypeAssert::isInstanceOf(ExtendsToken::class, $this->_extends_keyword);
   }
 
   /**
    * @returns ExtendsToken
    */
   public function getExtendsKeywordx(): ExtendsToken {
-    return TypeAssert::isInstanceOf(ExtendsToken::class, $this->_extends_keyword);
+    return
+      TypeAssert::isInstanceOf(ExtendsToken::class, $this->_extends_keyword);
   }
 
   public function getExtendsListUNTYPED(): EditableSyntax {
@@ -508,14 +519,20 @@ final class ClassishDeclaration extends EditableSyntax {
     if ($this->_implements_keyword->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(ImplementsToken::class, $this->_implements_keyword);
+    return TypeAssert::isInstanceOf(
+      ImplementsToken::class,
+      $this->_implements_keyword,
+    );
   }
 
   /**
    * @returns ImplementsToken
    */
   public function getImplementsKeywordx(): ImplementsToken {
-    return TypeAssert::isInstanceOf(ImplementsToken::class, $this->_implements_keyword);
+    return TypeAssert::isInstanceOf(
+      ImplementsToken::class,
+      $this->_implements_keyword,
+    );
   }
 
   public function getImplementsListUNTYPED(): EditableSyntax {
@@ -551,14 +568,16 @@ final class ClassishDeclaration extends EditableSyntax {
     if ($this->_implements_list->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_implements_list);
+    return
+      TypeAssert::isInstanceOf(EditableList::class, $this->_implements_list);
   }
 
   /**
    * @returns EditableList
    */
   public function getImplementsListx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_implements_list);
+    return
+      TypeAssert::isInstanceOf(EditableList::class, $this->_implements_list);
   }
 
   public function getBodyUNTYPED(): EditableSyntax {

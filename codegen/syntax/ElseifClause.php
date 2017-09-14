@@ -2,12 +2,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<076e097cce59e796e3a8ef2570231818>>
+ * @generated SignedSource<<0cb1f0f223a911eaeedab522c18793f3>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
 
-final class ElseifClause extends EditableSyntax {
+final class ElseifClause extends EditableSyntax
+  implements IControlFlowStatement {
 
   private EditableSyntax $_keyword;
   private EditableSyntax $_left_paren;
@@ -66,13 +67,8 @@ final class ElseifClause extends EditableSyntax {
       $source,
     );
     $position += $statement->getWidth();
-    return new self(
-      $keyword,
-      $left_paren,
-      $condition,
-      $right_paren,
-      $statement,
-    );
+    return
+      new self($keyword, $left_paren, $condition, $right_paren, $statement);
   }
 
   <<__Override>>
@@ -105,7 +101,8 @@ final class ElseifClause extends EditableSyntax {
     ) {
       return $this;
     }
-    return new self($keyword, $left_paren, $condition, $right_paren, $statement);
+    return
+      new self($keyword, $left_paren, $condition, $right_paren, $statement);
   }
 
   public function getKeywordUNTYPED(): EditableSyntax {
@@ -218,7 +215,8 @@ final class ElseifClause extends EditableSyntax {
    * @returns RightParenToken
    */
   public function getRightParen(): RightParenToken {
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function getStatementUNTYPED(): EditableSyntax {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d7ccdd72e1cff4ac093551e3fa595a4a>>
+ * @generated SignedSource<<8882c596abc8b6e4ce6759dcbb1e8431>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -107,7 +107,8 @@ final class BinaryExpression extends EditableSyntax {
    * AnonymousFunction | PipeVariableExpression
    */
   public function getLeftOperand(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_operand);
+    return
+      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_operand);
   }
 
   public function getOperatorUNTYPED(): EditableSyntax {
@@ -176,6 +177,7 @@ final class BinaryExpression extends EditableSyntax {
    * QuestionToken
    */
   public function getRightOperand(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_operand);
+    return
+      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_operand);
   }
 }

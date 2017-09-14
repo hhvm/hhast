@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f2bae49664581254861b5464b48f38bc>>
+ * @generated SignedSource<<5918c92fa4f6e4b444fd01db71078c46>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -173,7 +173,8 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     $keyword = $this->_keyword->rewrite($rewriter, $parents);
     $ampersand = $this->_ampersand->rewrite($rewriter, $parents);
     $name = $this->_name->rewrite($rewriter, $parents);
-    $type_parameter_list = $this->_type_parameter_list->rewrite($rewriter, $parents);
+    $type_parameter_list =
+      $this->_type_parameter_list->rewrite($rewriter, $parents);
     $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
     $parameter_list = $this->_parameter_list->rewrite($rewriter, $parents);
     $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
@@ -452,14 +453,20 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     if ($this->_type_parameter_list->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(TypeParameters::class, $this->_type_parameter_list);
+    return TypeAssert::isInstanceOf(
+      TypeParameters::class,
+      $this->_type_parameter_list,
+    );
   }
 
   /**
    * @returns TypeParameters
    */
   public function getTypeParameterListx(): TypeParameters {
-    return TypeAssert::isInstanceOf(TypeParameters::class, $this->_type_parameter_list);
+    return TypeAssert::isInstanceOf(
+      TypeParameters::class,
+      $this->_type_parameter_list,
+    );
   }
 
   public function getLeftParenUNTYPED(): EditableSyntax {
@@ -542,14 +549,16 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     if ($this->_parameter_list->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_parameter_list);
+    return
+      TypeAssert::isInstanceOf(EditableList::class, $this->_parameter_list);
   }
 
   /**
    * @returns EditableList
    */
   public function getParameterListx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_parameter_list);
+    return
+      TypeAssert::isInstanceOf(EditableList::class, $this->_parameter_list);
   }
 
   public function getRightParenUNTYPED(): EditableSyntax {
@@ -587,14 +596,16 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     if ($this->_right_paren->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   /**
    * @returns RightParenToken
    */
   public function getRightParenx(): RightParenToken {
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function getColonUNTYPED(): EditableSyntax {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f3fc62d4385aa6f88629a30b90bafd78>>
+ * @generated SignedSource<<e897edc00f60413ee8069bd63b7c7c17>>
  */
 namespace Facebook\HHAST;
 
@@ -49,8 +49,7 @@ final class DollarToken extends EditableToken {
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
     if (
-      $leading === $this->getLeading() &&
-      $trailing === $this->getTrailing()
+      $leading === $this->getLeading() && $trailing === $this->getTrailing()
     ) {
       return $this;
     }

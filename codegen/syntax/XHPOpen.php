@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b7c6cb0dc294cceaddf31267b127a833>>
+ * @generated SignedSource<<52671d3ffb8c4b063e64df1ab04a0d51>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -98,7 +98,8 @@ final class XHPOpen extends EditableSyntax {
     if ($value === $this->_left_angle) {
       return $this;
     }
-    return new self($value, $this->_name, $this->_attributes, $this->_right_angle);
+    return
+      new self($value, $this->_name, $this->_attributes, $this->_right_angle);
   }
 
   public function hasLeftAngle(): bool {
@@ -120,7 +121,12 @@ final class XHPOpen extends EditableSyntax {
     if ($value === $this->_name) {
       return $this;
     }
-    return new self($this->_left_angle, $value, $this->_attributes, $this->_right_angle);
+    return new self(
+      $this->_left_angle,
+      $value,
+      $this->_attributes,
+      $this->_right_angle,
+    );
   }
 
   public function hasName(): bool {
@@ -142,7 +148,8 @@ final class XHPOpen extends EditableSyntax {
     if ($value === $this->_attributes) {
       return $this;
     }
-    return new self($this->_left_angle, $this->_name, $value, $this->_right_angle);
+    return
+      new self($this->_left_angle, $this->_name, $value, $this->_right_angle);
   }
 
   public function hasAttributes(): bool {
@@ -174,7 +181,8 @@ final class XHPOpen extends EditableSyntax {
     if ($value === $this->_right_angle) {
       return $this;
     }
-    return new self($this->_left_angle, $this->_name, $this->_attributes, $value);
+    return
+      new self($this->_left_angle, $this->_name, $this->_attributes, $value);
   }
 
   public function hasRightAngle(): bool {

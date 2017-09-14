@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<60e87f5493fd09f1b80c6cb05f889c24>>
+ * @generated SignedSource<<30d8fc4bf548cb0e74ddc50cd57fb0d1>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -125,7 +125,12 @@ final class IssetExpression extends EditableSyntax {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new self($this->_keyword, $value, $this->_argument_list, $this->_right_paren);
+    return new self(
+      $this->_keyword,
+      $value,
+      $this->_argument_list,
+      $this->_right_paren,
+    );
   }
 
   public function hasLeftParen(): bool {
@@ -147,7 +152,12 @@ final class IssetExpression extends EditableSyntax {
     if ($value === $this->_argument_list) {
       return $this;
     }
-    return new self($this->_keyword, $this->_left_paren, $value, $this->_right_paren);
+    return new self(
+      $this->_keyword,
+      $this->_left_paren,
+      $value,
+      $this->_right_paren,
+    );
   }
 
   public function hasArgumentList(): bool {
@@ -169,7 +179,12 @@ final class IssetExpression extends EditableSyntax {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new self($this->_keyword, $this->_left_paren, $this->_argument_list, $value);
+    return new self(
+      $this->_keyword,
+      $this->_left_paren,
+      $this->_argument_list,
+      $value,
+    );
   }
 
   public function hasRightParen(): bool {
@@ -180,6 +195,7 @@ final class IssetExpression extends EditableSyntax {
    * @returns RightParenToken
    */
   public function getRightParen(): RightParenToken {
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 }

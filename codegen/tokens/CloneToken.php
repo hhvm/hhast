@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d9dc0b92d5fc79bdfb86769e9be0108c>>
+ * @generated SignedSource<<999d2a30f93100ff884f097f6c7357bb>>
  */
 namespace Facebook\HHAST;
 
@@ -49,8 +49,7 @@ final class CloneToken extends EditableToken {
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
     if (
-      $leading === $this->getLeading() &&
-      $trailing === $this->getTrailing()
+      $leading === $this->getLeading() && $trailing === $this->getTrailing()
     ) {
       return $this;
     }

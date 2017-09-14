@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c4f24a4e4ef3d80a49ad5ee000bd087c>>
+ * @generated SignedSource<<5776337fbfcdb65df1edc2500dd1bed1>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -98,7 +98,8 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self($value, $this->_left_angle, $this->_type, $this->_right_angle);
+    return
+      new self($value, $this->_left_angle, $this->_type, $this->_right_angle);
   }
 
   public function hasKeyword(): bool {
@@ -142,7 +143,12 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
     if ($value === $this->_type) {
       return $this;
     }
-    return new self($this->_keyword, $this->_left_angle, $value, $this->_right_angle);
+    return new self(
+      $this->_keyword,
+      $this->_left_angle,
+      $value,
+      $this->_right_angle,
+    );
   }
 
   public function hasType(): bool {
@@ -176,6 +182,7 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
    * @returns GreaterThanToken
    */
   public function getRightAngle(): GreaterThanToken {
-    return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+    return
+      TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 }

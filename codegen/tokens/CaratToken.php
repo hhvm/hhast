@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5a53090b7d366d34c520c2d17674d2a2>>
+ * @generated SignedSource<<5dee3b266b00c7a44b491fc77526a79c>>
  */
 namespace Facebook\HHAST;
 
@@ -49,8 +49,7 @@ final class CaratToken extends EditableToken {
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
     if (
-      $leading === $this->getLeading() &&
-      $trailing === $this->getTrailing()
+      $leading === $this->getLeading() && $trailing === $this->getTrailing()
     ) {
       return $this;
     }

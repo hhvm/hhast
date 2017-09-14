@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7b224cc93ced2310d34ccb0c412e5aee>>
+ * @generated SignedSource<<67933026dfac6c8bc2fbb64861070f25>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -154,13 +154,15 @@ final class XHPClose extends EditableSyntax {
     if ($this->_right_angle->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+    return
+      TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 
   /**
    * @returns GreaterThanToken
    */
   public function getRightAnglex(): GreaterThanToken {
-    return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+    return
+      TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 }

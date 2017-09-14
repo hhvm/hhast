@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<00b6f5139f01b2739d98c4db6dafc9ca>>
+ * @generated SignedSource<<ab1d93cb0a54ecb961b9fd3fe5bd2be7>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -141,6 +141,7 @@ final class TypeParameters extends EditableSyntax {
    * @returns GreaterThanToken
    */
   public function getRightAngle(): GreaterThanToken {
-    return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+    return
+      TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 }

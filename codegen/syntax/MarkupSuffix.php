@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<de4c8e170aa87c311b1cb9f4ae587159>>
+ * @generated SignedSource<<0cb89ff686e2e4e75029dd2bfa9a1c58>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -55,7 +55,8 @@ final class MarkupSuffix extends EditableSyntax {
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
-    $less_than_question = $this->_less_than_question->rewrite($rewriter, $parents);
+    $less_than_question =
+      $this->_less_than_question->rewrite($rewriter, $parents);
     $name = $this->_name->rewrite($rewriter, $parents);
     if (
       $less_than_question === $this->_less_than_question &&
@@ -85,7 +86,10 @@ final class MarkupSuffix extends EditableSyntax {
    * @returns LessThanQuestionToken
    */
   public function getLessThanQuestion(): LessThanQuestionToken {
-    return TypeAssert::isInstanceOf(LessThanQuestionToken::class, $this->_less_than_question);
+    return TypeAssert::isInstanceOf(
+      LessThanQuestionToken::class,
+      $this->_less_than_question,
+    );
   }
 
   public function getNameUNTYPED(): EditableSyntax {

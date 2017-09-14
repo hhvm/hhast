@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fd264bc5116bbe21fd29c2e5705718ce>>
+ * @generated SignedSource<<a2be7d9d09d9e17bd9b293808f7269a0>>
  */
 namespace Facebook\HHAST;
 
@@ -49,8 +49,7 @@ final class FallthroughToken extends EditableToken {
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
     if (
-      $leading === $this->getLeading() &&
-      $trailing === $this->getTrailing()
+      $leading === $this->getLeading() && $trailing === $this->getTrailing()
     ) {
       return $this;
     }

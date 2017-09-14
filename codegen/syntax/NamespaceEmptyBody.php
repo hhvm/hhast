@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<40e24566cc8276f1fc4a5731dde78257>>
+ * @generated SignedSource<<166a52ba4e2a8b76c29ac7fec92b3db9>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -44,9 +44,7 @@ final class NamespaceEmptyBody extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
-    if (
-      $semicolon === $this->_semicolon
-    ) {
+    if ($semicolon === $this->_semicolon) {
       return $this;
     }
     return new self($semicolon);

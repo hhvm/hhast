@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b071d058c8d6eaa9b229c9ab69f2b360>>
+ * @generated SignedSource<<ab9a8cafb3255ff5fb40a46e42782591>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -98,7 +98,12 @@ final class ListExpression extends EditableSyntax {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self($value, $this->_left_paren, $this->_members, $this->_right_paren);
+    return new self(
+      $value,
+      $this->_left_paren,
+      $this->_members,
+      $this->_right_paren,
+    );
   }
 
   public function hasKeyword(): bool {
@@ -120,7 +125,8 @@ final class ListExpression extends EditableSyntax {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new self($this->_keyword, $value, $this->_members, $this->_right_paren);
+    return
+      new self($this->_keyword, $value, $this->_members, $this->_right_paren);
   }
 
   public function hasLeftParen(): bool {
@@ -142,7 +148,12 @@ final class ListExpression extends EditableSyntax {
     if ($value === $this->_members) {
       return $this;
     }
-    return new self($this->_keyword, $this->_left_paren, $value, $this->_right_paren);
+    return new self(
+      $this->_keyword,
+      $this->_left_paren,
+      $value,
+      $this->_right_paren,
+    );
   }
 
   public function hasMembers(): bool {
@@ -174,7 +185,8 @@ final class ListExpression extends EditableSyntax {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new self($this->_keyword, $this->_left_paren, $this->_members, $value);
+    return
+      new self($this->_keyword, $this->_left_paren, $this->_members, $value);
   }
 
   public function hasRightParen(): bool {
@@ -185,6 +197,7 @@ final class ListExpression extends EditableSyntax {
    * @returns RightParenToken
    */
   public function getRightParen(): RightParenToken {
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 }

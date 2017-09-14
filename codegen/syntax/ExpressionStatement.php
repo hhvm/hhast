@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f6ec6d9fe35d61633e2239b7d8efd724>>
+ * @generated SignedSource<<320f1f25e7f5ff734262e4bc40eb07a0>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -58,8 +58,7 @@ final class ExpressionStatement extends EditableSyntax {
     $expression = $this->_expression->rewrite($rewriter, $parents);
     $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
     if (
-      $expression === $this->_expression &&
-      $semicolon === $this->_semicolon
+      $expression === $this->_expression && $semicolon === $this->_semicolon
     ) {
       return $this;
     }

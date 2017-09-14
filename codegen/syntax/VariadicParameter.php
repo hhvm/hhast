@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8e9da2a3bfdb3f6f3d204442dda9757e>>
+ * @generated SignedSource<<a1c28af0d70ffecf3e06d50e0d6b7b02>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -44,9 +44,7 @@ final class VariadicParameter extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $ellipsis = $this->_ellipsis->rewrite($rewriter, $parents);
-    if (
-      $ellipsis === $this->_ellipsis
-    ) {
+    if ($ellipsis === $this->_ellipsis) {
       return $this;
     }
     return new self($ellipsis);

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d5d9e2246d4e63462a19581d68d26d2d>>
+ * @generated SignedSource<<74d82a8bd8e10b080d11ce4bf7f515d0>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -206,14 +206,16 @@ final class LambdaSignature extends EditableSyntax {
     if ($this->_right_paren->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   /**
    * @returns RightParenToken
    */
   public function getRightParenx(): RightParenToken {
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function getColonUNTYPED(): EditableSyntax {

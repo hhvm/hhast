@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<36bf7f3863259c4daf40735ac9c59519>>
+ * @generated SignedSource<<444d32cbd028d7d17987062d8b9c60f7>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -98,7 +98,8 @@ final class TupleExpression extends EditableSyntax {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self($value, $this->_left_paren, $this->_items, $this->_right_paren);
+    return
+      new self($value, $this->_left_paren, $this->_items, $this->_right_paren);
   }
 
   public function hasKeyword(): bool {
@@ -120,7 +121,8 @@ final class TupleExpression extends EditableSyntax {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new self($this->_keyword, $value, $this->_items, $this->_right_paren);
+    return
+      new self($this->_keyword, $value, $this->_items, $this->_right_paren);
   }
 
   public function hasLeftParen(): bool {
@@ -142,7 +144,12 @@ final class TupleExpression extends EditableSyntax {
     if ($value === $this->_items) {
       return $this;
     }
-    return new self($this->_keyword, $this->_left_paren, $value, $this->_right_paren);
+    return new self(
+      $this->_keyword,
+      $this->_left_paren,
+      $value,
+      $this->_right_paren,
+    );
   }
 
   public function hasItems(): bool {
@@ -175,6 +182,7 @@ final class TupleExpression extends EditableSyntax {
    * @returns RightParenToken
    */
   public function getRightParen(): RightParenToken {
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 }

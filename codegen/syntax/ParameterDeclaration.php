@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<332ea2b281bc2071fefb0372d35349df>>
+ * @generated SignedSource<<0e99448a13e5694b1977c8981a45a493>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -130,14 +130,20 @@ final class ParameterDeclaration extends EditableSyntax {
     if ($this->_attribute->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute);
+    return TypeAssert::isInstanceOf(
+      AttributeSpecification::class,
+      $this->_attribute,
+    );
   }
 
   /**
    * @returns AttributeSpecification
    */
   public function getAttributex(): AttributeSpecification {
-    return TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute);
+    return TypeAssert::isInstanceOf(
+      AttributeSpecification::class,
+      $this->_attribute,
+    );
   }
 
   public function getVisibilityUNTYPED(): EditableSyntax {
@@ -267,13 +273,15 @@ final class ParameterDeclaration extends EditableSyntax {
     if ($this->_default_value->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_default_value);
+    return
+      TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_default_value);
   }
 
   /**
    * @returns SimpleInitializer
    */
   public function getDefaultValuex(): SimpleInitializer {
-    return TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_default_value);
+    return
+      TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_default_value);
   }
 }

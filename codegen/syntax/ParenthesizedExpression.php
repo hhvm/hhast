@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<67679644dff9625e67a60eb308980db8>>
+ * @generated SignedSource<<43a22f66cc93c1551ed30d4bd29ab6cf>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -152,13 +152,15 @@ final class ParenthesizedExpression extends EditableSyntax {
     if ($this->_right_paren->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   /**
    * @returns RightParenToken
    */
   public function getRightParenx(): RightParenToken {
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 }

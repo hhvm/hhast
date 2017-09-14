@@ -2,12 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<af801c6f05fbe571405a27bad6d3f096>>
+ * @generated SignedSource<<283d9a7ed2e530d6631f8dfa49c40892>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
 
-final class ElseClause extends EditableSyntax {
+final class ElseClause extends EditableSyntax implements IControlFlowStatement {
 
   private EditableSyntax $_keyword;
   private EditableSyntax $_statement;
@@ -57,10 +57,7 @@ final class ElseClause extends EditableSyntax {
     $parents[] = $this;
     $keyword = $this->_keyword->rewrite($rewriter, $parents);
     $statement = $this->_statement->rewrite($rewriter, $parents);
-    if (
-      $keyword === $this->_keyword &&
-      $statement === $this->_statement
-    ) {
+    if ($keyword === $this->_keyword && $statement === $this->_statement) {
       return $this;
     }
     return new self($keyword, $statement);

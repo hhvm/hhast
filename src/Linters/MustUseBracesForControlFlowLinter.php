@@ -23,6 +23,7 @@ use type Facebook\HHAST\{
   ForeachStatement,
   IfStatement,
   LeftBraceToken,
+  IControlFlowStatement,
   RightBraceToken,
   WhileStatement,
   WhiteSpace
@@ -33,17 +34,17 @@ use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
 
 class MustUseBracesForControlFlowLinter
-extends AutoFixingASTLinter<EditableSyntax> {
+  extends AutoFixingASTLinter<IControlFlowStatement> {
   <<__Override>>
-  protected static function getTargetType(): classname<EditableSyntax> {
-    return EditableSyntax::class;
+  protected static function getTargetType(): classname<IControlFlowStatement> {
+    return IControlFlowStatement::class;
   }
 
   <<__Override>>
   public function getLintErrorForNode(
-    EditableSyntax $node,
+    IControlFlowStatement $node,
     vec<EditableSyntax> $parents,
-  ): ?ASTLintError<EditableSyntax, this> {
+  ): ?ASTLintError<IControlFlowStatement, this> {
     $body = $this->getBody($node);
     if ($body === null) {
       return null;
@@ -116,7 +117,7 @@ extends AutoFixingASTLinter<EditableSyntax> {
   }
 
   <<__Override>>
-  public function getFixedNode(EditableSyntax $node): EditableSyntax {
+  public function getFixedNode(IControlFlowStatement $node): IControlFlowStatement {
     $body = $this->getBody($node);
     invariant(
       $body !== null,
@@ -163,7 +164,7 @@ extends AutoFixingASTLinter<EditableSyntax> {
   }
 
   <<__Override>>
-  public function getPrettyNode(EditableSyntax $node): EditableSyntax {
+  public function getPrettyNode(IControlFlowStatement $node): IControlFlowStatement {
     $token = $node->getFirstTokenx();
     return $node->replace(
       $token->withLeading($token->getLeadingWhitespace()),

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4c79b5307563711f34bda6d457c6ae70>>
+ * @generated SignedSource<<e69f722fa3c21eafe9cdda5b62d457b8>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -66,13 +66,8 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
       $source,
     );
     $position += $right_angle->getWidth();
-    return new self(
-      $keyword,
-      $left_angle,
-      $type,
-      $trailing_comma,
-      $right_angle,
-    );
+    return
+      new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
   }
 
   <<__Override>>
@@ -105,7 +100,8 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
     ) {
       return $this;
     }
-    return new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
+    return
+      new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
   }
 
   public function getKeywordUNTYPED(): EditableSyntax {
@@ -227,7 +223,8 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
    * @returns Missing
    */
   public function getTrailingComma(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_trailing_comma);
+    return
+      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_trailing_comma);
   }
 
   public function getRightAngleUNTYPED(): EditableSyntax {
@@ -258,13 +255,15 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
     if ($this->_right_angle->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+    return
+      TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 
   /**
    * @returns GreaterThanToken
    */
   public function getRightAnglex(): GreaterThanToken {
-    return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+    return
+      TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 }

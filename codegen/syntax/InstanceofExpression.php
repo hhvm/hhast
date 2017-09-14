@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8093543a6084faae58af9b29a8bb8617>>
+ * @generated SignedSource<<5a389dfdb5d8dbf64feaf7c33a104086>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -100,7 +100,8 @@ final class InstanceofExpression extends EditableSyntax {
    * LiteralExpression
    */
   public function getLeftOperand(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_operand);
+    return
+      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_operand);
   }
 
   public function getOperatorUNTYPED(): EditableSyntax {
@@ -146,6 +147,7 @@ final class InstanceofExpression extends EditableSyntax {
    * MemberSelectionExpression | ParenthesizedExpression
    */
   public function getRightOperand(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_operand);
+    return
+      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_operand);
   }
 }

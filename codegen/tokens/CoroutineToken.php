@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1b1f1070616eaccc3f93ebce71f1b7ba>>
+ * @generated SignedSource<<fd365bd911c6146de96849aa697da963>>
  */
 namespace Facebook\HHAST;
 
@@ -49,8 +49,7 @@ final class CoroutineToken extends EditableToken {
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
     if (
-      $leading === $this->getLeading() &&
-      $trailing === $this->getTrailing()
+      $leading === $this->getLeading() && $trailing === $this->getTrailing()
     ) {
       return $this;
     }

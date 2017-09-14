@@ -52,6 +52,10 @@ final class CodegenSyntax extends CodegenBase {
       ->codegenClass($syntax['kind_name'])
       ->setIsFinal()
       ->setExtends('EditableSyntax')
+      ->setInterfaces(
+        (self::getMarkerInterfaces()[$syntax['kind_name']] ?? vec[])
+        |> Vec\map($$, $if ==> $cg->codegenImplementsInterface($if)),
+      )
       ->setConstructor($this->generateConstructor($syntax))
       ->addMethod($this->generateFromJSONMethod($syntax))
       ->addMethod($this->generateChildrenMethod($syntax))
@@ -409,5 +413,20 @@ final class CodegenSyntax extends CodegenBase {
     invariant($token !== null, 'Failed to find token for "%s"', $child);
 
     return $token['token_kind'].'Token';
+  }
+
+  private static function getMarkerInterfaces(): dict<string, vec<string>> {
+    return dict[
+      'DoStatement' => vec['IControlFlowStatement', 'ILoopStatement'],
+      'ElseClause' => vec['IControlFlowStatement'],
+      'ElseifClause' => vec['IControlFlowStatement'],
+      'ForStatement' => vec['IControlFlowStatement', 'ILoopStatement'],
+      'ForeachStatement' => vec['IControlFlowStatement', 'ILoopStatement'],
+      'FunctionDeclaration' => vec['IFunctionishDeclaration'],
+      'IfStatement' => vec['IControlFlowStatement'],
+      'MethodishDeclaration' => vec['IFunctionishDeclaration'],
+      'SwitchStatement' => vec['IControlFlowStatement'],
+      'WhileStatement' => vec['IControlFlowStatement', 'ILoopStatement'],
+    ];
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5686449c96358cdd94fd28949e2e27bb>>
+ * @generated SignedSource<<297a69839c4b360e4f9dada75fd7b318>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -31,19 +31,25 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
     string $source,
   ): this {
     $aliasing_name = EditableSyntax::fromJSON(
-      /* UNSAFE_EXPR */ $json['trait_use_conflict_resolution_item_aliasing_name'],
+      /* UNSAFE_EXPR */ $json[
+        'trait_use_conflict_resolution_item_aliasing_name'
+      ],
       $position,
       $source,
     );
     $position += $aliasing_name->getWidth();
     $aliasing_keyword = EditableSyntax::fromJSON(
-      /* UNSAFE_EXPR */ $json['trait_use_conflict_resolution_item_aliasing_keyword'],
+      /* UNSAFE_EXPR */ $json[
+        'trait_use_conflict_resolution_item_aliasing_keyword'
+      ],
       $position,
       $source,
     );
     $position += $aliasing_keyword->getWidth();
     $aliased_names = EditableSyntax::fromJSON(
-      /* UNSAFE_EXPR */ $json['trait_use_conflict_resolution_item_aliased_names'],
+      /* UNSAFE_EXPR */ $json[
+        'trait_use_conflict_resolution_item_aliased_names'
+      ],
       $position,
       $source,
     );
@@ -97,7 +103,8 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
    * @returns SimpleTypeSpecifier | ScopeResolutionExpression
    */
   public function getAliasingName(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_aliasing_name);
+    return
+      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_aliasing_name);
   }
 
   public function getAliasingKeywordUNTYPED(): EditableSyntax {
@@ -119,7 +126,8 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
    * @returns AsToken | InsteadofToken
    */
   public function getAliasingKeyword(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_aliasing_keyword);
+    return
+      TypeAssert::isInstanceOf(EditableToken::class, $this->_aliasing_keyword);
   }
 
   public function getAliasedNamesUNTYPED(): EditableSyntax {

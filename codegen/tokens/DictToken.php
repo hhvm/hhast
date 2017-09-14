@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fc367b3d550e37298e1d014da225ce23>>
+ * @generated SignedSource<<4fcbfe94ab4cd7a0e2da0822f668c642>>
  */
 namespace Facebook\HHAST;
 
@@ -49,8 +49,7 @@ final class DictToken extends EditableToken {
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
     if (
-      $leading === $this->getLeading() &&
-      $trailing === $this->getTrailing()
+      $leading === $this->getLeading() && $trailing === $this->getTrailing()
     ) {
       return $this;
     }

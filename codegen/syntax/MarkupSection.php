@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0d6b7124e69a328833d7d64b48d1f109>>
+ * @generated SignedSource<<63992610418f010b14fa00f9e286f6f4>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -112,14 +112,16 @@ final class MarkupSection extends EditableSyntax {
     if ($this->_prefix->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(QuestionGreaterThanToken::class, $this->_prefix);
+    return
+      TypeAssert::isInstanceOf(QuestionGreaterThanToken::class, $this->_prefix);
   }
 
   /**
    * @returns QuestionGreaterThanToken
    */
   public function getPrefixx(): QuestionGreaterThanToken {
-    return TypeAssert::isInstanceOf(QuestionGreaterThanToken::class, $this->_prefix);
+    return
+      TypeAssert::isInstanceOf(QuestionGreaterThanToken::class, $this->_prefix);
   }
 
   public function getTextUNTYPED(): EditableSyntax {
@@ -208,13 +210,15 @@ final class MarkupSection extends EditableSyntax {
     if ($this->_expression->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(ExpressionStatement::class, $this->_expression);
+    return
+      TypeAssert::isInstanceOf(ExpressionStatement::class, $this->_expression);
   }
 
   /**
    * @returns ExpressionStatement
    */
   public function getExpressionx(): ExpressionStatement {
-    return TypeAssert::isInstanceOf(ExpressionStatement::class, $this->_expression);
+    return
+      TypeAssert::isInstanceOf(ExpressionStatement::class, $this->_expression);
   }
 }

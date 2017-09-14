@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<262ca408203164c6e31d0eb97364210c>>
+ * @generated SignedSource<<431e8b15818273e22b6c96c9d7b80883>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -120,7 +120,12 @@ final class CastExpression extends EditableSyntax {
     if ($value === $this->_type) {
       return $this;
     }
-    return new self($this->_left_paren, $value, $this->_right_paren, $this->_operand);
+    return new self(
+      $this->_left_paren,
+      $value,
+      $this->_right_paren,
+      $this->_operand,
+    );
   }
 
   public function hasType(): bool {
@@ -154,7 +159,8 @@ final class CastExpression extends EditableSyntax {
    * @returns RightParenToken
    */
   public function getRightParen(): RightParenToken {
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function getOperandUNTYPED(): EditableSyntax {
@@ -165,7 +171,8 @@ final class CastExpression extends EditableSyntax {
     if ($value === $this->_operand) {
       return $this;
     }
-    return new self($this->_left_paren, $this->_type, $this->_right_paren, $value);
+    return
+      new self($this->_left_paren, $this->_type, $this->_right_paren, $value);
   }
 
   public function hasOperand(): bool {

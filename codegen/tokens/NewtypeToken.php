@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ad6e164bcb9035570076f02d8cad59f0>>
+ * @generated SignedSource<<7fcbfd8c477fb31246eecdfb46fb8694>>
  */
 namespace Facebook\HHAST;
 
@@ -49,8 +49,7 @@ final class NewtypeToken extends EditableToken {
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
     if (
-      $leading === $this->getLeading() &&
-      $trailing === $this->getTrailing()
+      $leading === $this->getLeading() && $trailing === $this->getTrailing()
     ) {
       return $this;
     }

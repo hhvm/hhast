@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fbfbd9b590a16c2f7024ec0889af9657>>
+ * @generated SignedSource<<768a4773438865d75da0d3a496035c99>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -66,13 +66,8 @@ final class ConstDeclaration extends EditableSyntax {
       $source,
     );
     $position += $semicolon->getWidth();
-    return new self(
-      $abstract,
-      $keyword,
-      $type_specifier,
-      $declarators,
-      $semicolon,
-    );
+    return
+      new self($abstract, $keyword, $type_specifier, $declarators, $semicolon);
   }
 
   <<__Override>>
@@ -105,7 +100,8 @@ final class ConstDeclaration extends EditableSyntax {
     ) {
       return $this;
     }
-    return new self($abstract, $keyword, $type_specifier, $declarators, $semicolon);
+    return
+      new self($abstract, $keyword, $type_specifier, $declarators, $semicolon);
   }
 
   public function getAbstractUNTYPED(): EditableSyntax {
@@ -200,7 +196,8 @@ final class ConstDeclaration extends EditableSyntax {
    * TypeConstant | ClassnameTypeSpecifier | NullableTypeSpecifier
    */
   public function getTypeSpecifier(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type_specifier);
+    return
+      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type_specifier);
   }
 
   public function getDeclaratorsUNTYPED(): EditableSyntax {

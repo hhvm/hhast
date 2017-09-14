@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2f8faf3dea89b791a3f5cf0a45940fa8>>
+ * @generated SignedSource<<1d8d3555f6e0d7ba1ad5e4e2b254f364>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -98,7 +98,12 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self($value, $this->_left_bracket, $this->_members, $this->_right_bracket);
+    return new self(
+      $value,
+      $this->_left_bracket,
+      $this->_members,
+      $this->_right_bracket,
+    );
   }
 
   public function hasKeyword(): bool {
@@ -120,7 +125,8 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
     if ($value === $this->_left_bracket) {
       return $this;
     }
-    return new self($this->_keyword, $value, $this->_members, $this->_right_bracket);
+    return
+      new self($this->_keyword, $value, $this->_members, $this->_right_bracket);
   }
 
   public function hasLeftBracket(): bool {
@@ -131,7 +137,8 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
    * @returns LeftBracketToken
    */
   public function getLeftBracket(): LeftBracketToken {
-    return TypeAssert::isInstanceOf(LeftBracketToken::class, $this->_left_bracket);
+    return
+      TypeAssert::isInstanceOf(LeftBracketToken::class, $this->_left_bracket);
   }
 
   public function getMembersUNTYPED(): EditableSyntax {
@@ -142,7 +149,12 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
     if ($value === $this->_members) {
       return $this;
     }
-    return new self($this->_keyword, $this->_left_bracket, $value, $this->_right_bracket);
+    return new self(
+      $this->_keyword,
+      $this->_left_bracket,
+      $value,
+      $this->_right_bracket,
+    );
   }
 
   public function hasMembers(): bool {
@@ -174,7 +186,8 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
     if ($value === $this->_right_bracket) {
       return $this;
     }
-    return new self($this->_keyword, $this->_left_bracket, $this->_members, $value);
+    return
+      new self($this->_keyword, $this->_left_bracket, $this->_members, $value);
   }
 
   public function hasRightBracket(): bool {
@@ -185,6 +198,7 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
    * @returns RightBracketToken
    */
   public function getRightBracket(): RightBracketToken {
-    return TypeAssert::isInstanceOf(RightBracketToken::class, $this->_right_bracket);
+    return
+      TypeAssert::isInstanceOf(RightBracketToken::class, $this->_right_bracket);
   }
 }

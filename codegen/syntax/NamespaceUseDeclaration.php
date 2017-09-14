@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6a81d195c068ae81befdd4dcf1c647f6>>
+ * @generated SignedSource<<605e45ec1c6d50e29d7384f9185e7253>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -120,7 +120,8 @@ final class NamespaceUseDeclaration extends EditableSyntax {
     if ($value === $this->_kind) {
       return $this;
     }
-    return new self($this->_keyword, $value, $this->_clauses, $this->_semicolon);
+    return
+      new self($this->_keyword, $value, $this->_clauses, $this->_semicolon);
   }
 
   public function hasKind(): bool {

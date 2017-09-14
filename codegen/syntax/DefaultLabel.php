@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<af590dc0feee200fb6b23753e4cbed6d>>
+ * @generated SignedSource<<dcb3872f405bf8b1dd021ed91f1c70ad>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -54,10 +54,7 @@ final class DefaultLabel extends EditableSyntax {
     $parents[] = $this;
     $keyword = $this->_keyword->rewrite($rewriter, $parents);
     $colon = $this->_colon->rewrite($rewriter, $parents);
-    if (
-      $keyword === $this->_keyword &&
-      $colon === $this->_colon
-    ) {
+    if ($keyword === $this->_keyword && $colon === $this->_colon) {
       return $this;
     }
     return new self($keyword, $colon);

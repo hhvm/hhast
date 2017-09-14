@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<63821d5ee49f9e18587a553dc2066e18>>
+ * @generated SignedSource<<80ea9f339e1d524e99c700d794bba799>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -57,10 +57,7 @@ final class PostfixUnaryExpression extends EditableSyntax {
     $parents[] = $this;
     $operand = $this->_operand->rewrite($rewriter, $parents);
     $operator = $this->_operator->rewrite($rewriter, $parents);
-    if (
-      $operand === $this->_operand &&
-      $operator === $this->_operator
-    ) {
+    if ($operand === $this->_operand && $operator === $this->_operator) {
       return $this;
     }
     return new self($operand, $operator);

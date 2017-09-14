@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<104bcd10b34f055e5dba880e29332383>>
+ * @generated SignedSource<<216ce283f76762a14ad126c488bafbfc>>
  */
 namespace Facebook\HHAST;
 
@@ -49,8 +49,7 @@ final class TupleToken extends EditableToken {
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
     if (
-      $leading === $this->getLeading() &&
-      $trailing === $this->getTrailing()
+      $leading === $this->getLeading() && $trailing === $this->getTrailing()
     ) {
       return $this;
     }

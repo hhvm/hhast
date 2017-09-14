@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0c000ff6919dbd8080cfb1832a7dbd6a>>
+ * @generated SignedSource<<66696203c6ffcab3cdb48ca395b59752>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -143,6 +143,7 @@ final class BracedExpression extends EditableSyntax {
    * @returns RightBraceToken
    */
   public function getRightBrace(): RightBraceToken {
-    return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+    return
+      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 }

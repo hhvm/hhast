@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bf936f972156afd920387e55efff2989>>
+ * @generated SignedSource<<f246750e0c2a8cba7cf130100b8d1e1a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -44,9 +44,7 @@ final class LiteralExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $expression = $this->_expression->rewrite($rewriter, $parents);
-    if (
-      $expression === $this->_expression
-    ) {
+    if ($expression === $this->_expression) {
       return $this;
     }
     return new self($expression);

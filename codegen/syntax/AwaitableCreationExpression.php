@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6088eb6862cf658fe8f46a1b634be14b>>
+ * @generated SignedSource<<a048dbeb084c81f3eeb0688495997c51>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -67,7 +67,8 @@ final class AwaitableCreationExpression extends EditableSyntax {
     $parents[] = $this;
     $async = $this->_async->rewrite($rewriter, $parents);
     $coroutine = $this->_coroutine->rewrite($rewriter, $parents);
-    $compound_statement = $this->_compound_statement->rewrite($rewriter, $parents);
+    $compound_statement =
+      $this->_compound_statement->rewrite($rewriter, $parents);
     if (
       $async === $this->_async &&
       $coroutine === $this->_coroutine &&
@@ -141,6 +142,9 @@ final class AwaitableCreationExpression extends EditableSyntax {
    * @returns CompoundStatement
    */
   public function getCompoundStatement(): CompoundStatement {
-    return TypeAssert::isInstanceOf(CompoundStatement::class, $this->_compound_statement);
+    return TypeAssert::isInstanceOf(
+      CompoundStatement::class,
+      $this->_compound_statement,
+    );
   }
 }

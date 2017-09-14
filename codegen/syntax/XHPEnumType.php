@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<242e0e25177f83e125e2566ef30c005e>>
+ * @generated SignedSource<<f31663c161ec8f304413f4723766c10a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -98,7 +98,8 @@ final class XHPEnumType extends EditableSyntax {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self($value, $this->_left_brace, $this->_values, $this->_right_brace);
+    return
+      new self($value, $this->_left_brace, $this->_values, $this->_right_brace);
   }
 
   public function hasKeyword(): bool {
@@ -120,7 +121,8 @@ final class XHPEnumType extends EditableSyntax {
     if ($value === $this->_left_brace) {
       return $this;
     }
-    return new self($this->_keyword, $value, $this->_values, $this->_right_brace);
+    return
+      new self($this->_keyword, $value, $this->_values, $this->_right_brace);
   }
 
   public function hasLeftBrace(): bool {
@@ -142,7 +144,12 @@ final class XHPEnumType extends EditableSyntax {
     if ($value === $this->_values) {
       return $this;
     }
-    return new self($this->_keyword, $this->_left_brace, $value, $this->_right_brace);
+    return new self(
+      $this->_keyword,
+      $this->_left_brace,
+      $value,
+      $this->_right_brace,
+    );
   }
 
   public function hasValues(): bool {
@@ -164,7 +171,8 @@ final class XHPEnumType extends EditableSyntax {
     if ($value === $this->_right_brace) {
       return $this;
     }
-    return new self($this->_keyword, $this->_left_brace, $this->_values, $value);
+    return
+      new self($this->_keyword, $this->_left_brace, $this->_values, $value);
   }
 
   public function hasRightBrace(): bool {
@@ -175,6 +183,7 @@ final class XHPEnumType extends EditableSyntax {
    * @returns RightBraceToken
    */
   public function getRightBrace(): RightBraceToken {
-    return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+    return
+      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 }

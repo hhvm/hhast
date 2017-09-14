@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ef3985466727537ccbfdc6cea46839d8>>
+ * @generated SignedSource<<2ae15bb0a8d46819ee322187fcde6aa5>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -98,7 +98,8 @@ final class Attribute extends EditableSyntax {
     if ($value === $this->_name) {
       return $this;
     }
-    return new self($value, $this->_left_paren, $this->_values, $this->_right_paren);
+    return
+      new self($value, $this->_left_paren, $this->_values, $this->_right_paren);
   }
 
   public function hasName(): bool {
@@ -152,7 +153,8 @@ final class Attribute extends EditableSyntax {
     if ($value === $this->_values) {
       return $this;
     }
-    return new self($this->_name, $this->_left_paren, $value, $this->_right_paren);
+    return
+      new self($this->_name, $this->_left_paren, $value, $this->_right_paren);
   }
 
   public function hasValues(): bool {
@@ -198,13 +200,15 @@ final class Attribute extends EditableSyntax {
     if ($this->_right_paren->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   /**
    * @returns RightParenToken
    */
   public function getRightParenx(): RightParenToken {
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 }

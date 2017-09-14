@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<713e5891d39ec19fe21ce845e0e99102>>
+ * @generated SignedSource<<f7d10db8492748fdb4f92588d0af0f67>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -98,7 +98,8 @@ final class PropertyDeclaration extends EditableSyntax {
     if ($value === $this->_modifiers) {
       return $this;
     }
-    return new self($value, $this->_type, $this->_declarators, $this->_semicolon);
+    return
+      new self($value, $this->_type, $this->_declarators, $this->_semicolon);
   }
 
   public function hasModifiers(): bool {
@@ -120,7 +121,12 @@ final class PropertyDeclaration extends EditableSyntax {
     if ($value === $this->_type) {
       return $this;
     }
-    return new self($this->_modifiers, $value, $this->_declarators, $this->_semicolon);
+    return new self(
+      $this->_modifiers,
+      $value,
+      $this->_declarators,
+      $this->_semicolon,
+    );
   }
 
   public function hasType(): bool {
@@ -167,7 +173,8 @@ final class PropertyDeclaration extends EditableSyntax {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new self($this->_modifiers, $this->_type, $this->_declarators, $value);
+    return
+      new self($this->_modifiers, $this->_type, $this->_declarators, $value);
   }
 
   public function hasSemicolon(): bool {

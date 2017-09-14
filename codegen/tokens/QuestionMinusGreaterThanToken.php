@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c440bbdc61d03b69a709b596506980c8>>
+ * @generated SignedSource<<785f51dca5a47a6d850a68e6d6bb3da7>>
  */
 namespace Facebook\HHAST;
 
@@ -49,8 +49,7 @@ final class QuestionMinusGreaterThanToken extends EditableToken {
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
     if (
-      $leading === $this->getLeading() &&
-      $trailing === $this->getTrailing()
+      $leading === $this->getLeading() && $trailing === $this->getTrailing()
     ) {
       return $this;
     }

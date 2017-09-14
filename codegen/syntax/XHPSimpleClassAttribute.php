@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<547c1dfa926057b3578a6a4a969bf226>>
+ * @generated SignedSource<<c19b5006b0cd6e9c94941b1216f29d1c>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -44,9 +44,7 @@ final class XHPSimpleClassAttribute extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $type = $this->_type->rewrite($rewriter, $parents);
-    if (
-      $type === $this->_type
-    ) {
+    if ($type === $this->_type) {
       return $this;
     }
     return new self($type);

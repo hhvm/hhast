@@ -2,12 +2,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<69c1c26e9f7ff219e2bc8336b94bf0ef>>
+ * @generated SignedSource<<ff16e1315c17a84172ac4d13edd7c62b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
 
-final class ForeachStatement extends EditableSyntax {
+final class ForeachStatement extends EditableSyntax
+  implements IControlFlowStatement, ILoopStatement {
 
   private EditableSyntax $_keyword;
   private EditableSyntax $_left_paren;
@@ -432,14 +433,16 @@ final class ForeachStatement extends EditableSyntax {
     if ($this->_arrow->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EqualGreaterThanToken::class, $this->_arrow);
+    return
+      TypeAssert::isInstanceOf(EqualGreaterThanToken::class, $this->_arrow);
   }
 
   /**
    * @returns EqualGreaterThanToken
    */
   public function getArrowx(): EqualGreaterThanToken {
-    return TypeAssert::isInstanceOf(EqualGreaterThanToken::class, $this->_arrow);
+    return
+      TypeAssert::isInstanceOf(EqualGreaterThanToken::class, $this->_arrow);
   }
 
   public function getValueUNTYPED(): EditableSyntax {
@@ -507,7 +510,8 @@ final class ForeachStatement extends EditableSyntax {
    * @returns RightParenToken
    */
   public function getRightParen(): RightParenToken {
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function getBodyUNTYPED(): EditableSyntax {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<edba7e41d19190bc69ad6729c69b2d29>>
+ * @generated SignedSource<<6bcd8c596c3cfacc5b47ecac311e6b83>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -54,10 +54,7 @@ final class NullableTypeSpecifier extends EditableSyntax {
     $parents[] = $this;
     $question = $this->_question->rewrite($rewriter, $parents);
     $type = $this->_type->rewrite($rewriter, $parents);
-    if (
-      $question === $this->_question &&
-      $type === $this->_type
-    ) {
+    if ($question === $this->_question && $type === $this->_type) {
       return $this;
     }
     return new self($question, $type);

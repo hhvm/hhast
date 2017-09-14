@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eb185cae5c361b0473d20f5c72fa0606>>
+ * @generated SignedSource<<c2916593c208ebabdeced7f3a8e6af0d>>
  */
 namespace Facebook\HHAST;
 
@@ -49,8 +49,7 @@ final class LeftBraceToken extends EditableToken {
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
     if (
-      $leading === $this->getLeading() &&
-      $trailing === $this->getTrailing()
+      $leading === $this->getLeading() && $trailing === $this->getTrailing()
     ) {
       return $this;
     }

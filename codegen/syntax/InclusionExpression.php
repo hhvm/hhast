@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bb4f898d2dc2540f038940c7edcd402f>>
+ * @generated SignedSource<<3a555863d09f7f524d4bc57f91319d4d>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -57,10 +57,7 @@ final class InclusionExpression extends EditableSyntax {
     $parents[] = $this;
     $require = $this->_require->rewrite($rewriter, $parents);
     $filename = $this->_filename->rewrite($rewriter, $parents);
-    if (
-      $require === $this->_require &&
-      $filename === $this->_filename
-    ) {
+    if ($require === $this->_require && $filename === $this->_filename) {
       return $this;
     }
     return new self($require, $filename);

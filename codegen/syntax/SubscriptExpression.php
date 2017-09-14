@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b5c1219a43dab7b0406a915574524b61>>
+ * @generated SignedSource<<a9bafd92c4a399438151b9483a26868e>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -98,7 +98,12 @@ final class SubscriptExpression extends EditableSyntax {
     if ($value === $this->_receiver) {
       return $this;
     }
-    return new self($value, $this->_left_bracket, $this->_index, $this->_right_bracket);
+    return new self(
+      $value,
+      $this->_left_bracket,
+      $this->_index,
+      $this->_right_bracket,
+    );
   }
 
   public function hasReceiver(): bool {
@@ -125,7 +130,8 @@ final class SubscriptExpression extends EditableSyntax {
     if ($value === $this->_left_bracket) {
       return $this;
     }
-    return new self($this->_receiver, $value, $this->_index, $this->_right_bracket);
+    return
+      new self($this->_receiver, $value, $this->_index, $this->_right_bracket);
   }
 
   public function hasLeftBracket(): bool {
@@ -147,7 +153,12 @@ final class SubscriptExpression extends EditableSyntax {
     if ($value === $this->_index) {
       return $this;
     }
-    return new self($this->_receiver, $this->_left_bracket, $value, $this->_right_bracket);
+    return new self(
+      $this->_receiver,
+      $this->_left_bracket,
+      $value,
+      $this->_right_bracket,
+    );
   }
 
   public function hasIndex(): bool {
@@ -175,7 +186,8 @@ final class SubscriptExpression extends EditableSyntax {
     if ($value === $this->_right_bracket) {
       return $this;
     }
-    return new self($this->_receiver, $this->_left_bracket, $this->_index, $value);
+    return
+      new self($this->_receiver, $this->_left_bracket, $this->_index, $value);
   }
 
   public function hasRightBracket(): bool {
@@ -189,13 +201,15 @@ final class SubscriptExpression extends EditableSyntax {
     if ($this->_right_bracket->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_right_bracket);
+    return
+      TypeAssert::isInstanceOf(EditableToken::class, $this->_right_bracket);
   }
 
   /**
    * @returns RightBracketToken | RightBraceToken
    */
   public function getRightBracketx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_right_bracket);
+    return
+      TypeAssert::isInstanceOf(EditableToken::class, $this->_right_bracket);
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<552eefdefc3f5ddc9801968c79b76e1d>>
+ * @generated SignedSource<<f84c31d5bd69974e6c155b1365cc07dd>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -119,7 +119,8 @@ final class FieldInitializer extends EditableSyntax {
    * @returns EqualGreaterThanToken
    */
   public function getArrow(): EqualGreaterThanToken {
-    return TypeAssert::isInstanceOf(EqualGreaterThanToken::class, $this->_arrow);
+    return
+      TypeAssert::isInstanceOf(EqualGreaterThanToken::class, $this->_arrow);
   }
 
   public function getValueUNTYPED(): EditableSyntax {

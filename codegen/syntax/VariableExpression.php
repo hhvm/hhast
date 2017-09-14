@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fc3a6deeb8d8b85295f326b8d1a8940a>>
+ * @generated SignedSource<<8148260e4d096ccfda66cc94343dab19>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -44,9 +44,7 @@ final class VariableExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $expression = $this->_expression->rewrite($rewriter, $parents);
-    if (
-      $expression === $this->_expression
-    ) {
+    if ($expression === $this->_expression) {
       return $this;
     }
     return new self($expression);

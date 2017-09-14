@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ad6d57de83f078984d2d83e48f43f9cf>>
+ * @generated SignedSource<<7f05d6607631be52d9c76911314560cf>>
  */
 namespace Facebook\HHAST;
 
@@ -49,8 +49,7 @@ final class CommaToken extends EditableToken {
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
     if (
-      $leading === $this->getLeading() &&
-      $trailing === $this->getTrailing()
+      $leading === $this->getLeading() && $trailing === $this->getTrailing()
     ) {
       return $this;
     }

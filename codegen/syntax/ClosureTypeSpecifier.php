@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<34c8140be9053ebbc1f99f86ad72f2cc>>
+ * @generated SignedSource<<27ec8ac51190b3e98bd30c0af75e51ae>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -140,10 +140,12 @@ final class ClosureTypeSpecifier extends EditableSyntax {
     $function_keyword = $this->_function_keyword->rewrite($rewriter, $parents);
     $inner_left_paren = $this->_inner_left_paren->rewrite($rewriter, $parents);
     $parameter_types = $this->_parameter_types->rewrite($rewriter, $parents);
-    $inner_right_paren = $this->_inner_right_paren->rewrite($rewriter, $parents);
+    $inner_right_paren =
+      $this->_inner_right_paren->rewrite($rewriter, $parents);
     $colon = $this->_colon->rewrite($rewriter, $parents);
     $return_type = $this->_return_type->rewrite($rewriter, $parents);
-    $outer_right_paren = $this->_outer_right_paren->rewrite($rewriter, $parents);
+    $outer_right_paren =
+      $this->_outer_right_paren->rewrite($rewriter, $parents);
     if (
       $outer_left_paren === $this->_outer_left_paren &&
       $coroutine === $this->_coroutine &&
@@ -199,7 +201,8 @@ final class ClosureTypeSpecifier extends EditableSyntax {
    * @returns LeftParenToken
    */
   public function getOuterLeftParen(): LeftParenToken {
-    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_outer_left_paren);
+    return
+      TypeAssert::isInstanceOf(LeftParenToken::class, $this->_outer_left_paren);
   }
 
   public function getCoroutineUNTYPED(): EditableSyntax {
@@ -263,7 +266,8 @@ final class ClosureTypeSpecifier extends EditableSyntax {
    * @returns FunctionToken
    */
   public function getFunctionKeyword(): FunctionToken {
-    return TypeAssert::isInstanceOf(FunctionToken::class, $this->_function_keyword);
+    return
+      TypeAssert::isInstanceOf(FunctionToken::class, $this->_function_keyword);
   }
 
   public function getInnerLeftParenUNTYPED(): EditableSyntax {
@@ -295,7 +299,8 @@ final class ClosureTypeSpecifier extends EditableSyntax {
    * @returns LeftParenToken
    */
   public function getInnerLeftParen(): LeftParenToken {
-    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_inner_left_paren);
+    return
+      TypeAssert::isInstanceOf(LeftParenToken::class, $this->_inner_left_paren);
   }
 
   public function getParameterTypesUNTYPED(): EditableSyntax {
@@ -330,14 +335,16 @@ final class ClosureTypeSpecifier extends EditableSyntax {
     if ($this->_parameter_types->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_parameter_types);
+    return
+      TypeAssert::isInstanceOf(EditableList::class, $this->_parameter_types);
   }
 
   /**
    * @returns EditableList
    */
   public function getParameterTypesx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_parameter_types);
+    return
+      TypeAssert::isInstanceOf(EditableList::class, $this->_parameter_types);
   }
 
   public function getInnerRightParenUNTYPED(): EditableSyntax {
@@ -369,7 +376,10 @@ final class ClosureTypeSpecifier extends EditableSyntax {
    * @returns RightParenToken
    */
   public function getInnerRightParen(): RightParenToken {
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_inner_right_paren);
+    return TypeAssert::isInstanceOf(
+      RightParenToken::class,
+      $this->_inner_right_paren,
+    );
   }
 
   public function getColonUNTYPED(): EditableSyntax {
@@ -465,6 +475,9 @@ final class ClosureTypeSpecifier extends EditableSyntax {
    * @returns RightParenToken
    */
   public function getOuterRightParen(): RightParenToken {
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_outer_right_paren);
+    return TypeAssert::isInstanceOf(
+      RightParenToken::class,
+      $this->_outer_right_paren,
+    );
   }
 }

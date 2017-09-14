@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<15f2efe8e41b20b391cd3ee2efbc1545>>
+ * @generated SignedSource<<e55364408d360b6eb7ecf8beb5faea0f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -44,9 +44,7 @@ final class QualifiedNameExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $expression = $this->_expression->rewrite($rewriter, $parents);
-    if (
-      $expression === $this->_expression
-    ) {
+    if ($expression === $this->_expression) {
       return $this;
     }
     return new self($expression);

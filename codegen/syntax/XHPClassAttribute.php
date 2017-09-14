@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<70e2eaf667ade8bde019d463c11beab3>>
+ * @generated SignedSource<<1ff2bec245bb33ccb048a9f84976948f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -98,7 +98,8 @@ final class XHPClassAttribute extends EditableSyntax {
     if ($value === $this->_type) {
       return $this;
     }
-    return new self($value, $this->_name, $this->_initializer, $this->_required);
+    return
+      new self($value, $this->_name, $this->_initializer, $this->_required);
   }
 
   public function hasType(): bool {
@@ -121,7 +122,8 @@ final class XHPClassAttribute extends EditableSyntax {
     if ($value === $this->_name) {
       return $this;
     }
-    return new self($this->_type, $value, $this->_initializer, $this->_required);
+    return
+      new self($this->_type, $value, $this->_initializer, $this->_required);
   }
 
   public function hasName(): bool {
@@ -157,14 +159,16 @@ final class XHPClassAttribute extends EditableSyntax {
     if ($this->_initializer->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
+    return
+      TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
   }
 
   /**
    * @returns SimpleInitializer
    */
   public function getInitializerx(): SimpleInitializer {
-    return TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
+    return
+      TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
   }
 
   public function getRequiredUNTYPED(): EditableSyntax {

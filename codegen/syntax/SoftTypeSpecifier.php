@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c486198bb8bc45546512636857179375>>
+ * @generated SignedSource<<bb443a7e5e4d8450532907d1714356c6>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -54,10 +54,7 @@ final class SoftTypeSpecifier extends EditableSyntax {
     $parents[] = $this;
     $at = $this->_at->rewrite($rewriter, $parents);
     $type = $this->_type->rewrite($rewriter, $parents);
-    if (
-      $at === $this->_at &&
-      $type === $this->_type
-    ) {
+    if ($at === $this->_at && $type === $this->_type) {
       return $this;
     }
     return new self($at, $type);

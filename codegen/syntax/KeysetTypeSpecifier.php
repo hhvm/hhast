@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<aa124074e0be0f1736aa6381a0d1c234>>
+ * @generated SignedSource<<41cd082626472bb152261a025729a8dd>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -66,13 +66,8 @@ final class KeysetTypeSpecifier extends EditableSyntax {
       $source,
     );
     $position += $right_angle->getWidth();
-    return new self(
-      $keyword,
-      $left_angle,
-      $type,
-      $trailing_comma,
-      $right_angle,
-    );
+    return
+      new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
   }
 
   <<__Override>>
@@ -105,7 +100,8 @@ final class KeysetTypeSpecifier extends EditableSyntax {
     ) {
       return $this;
     }
-    return new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
+    return
+      new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
   }
 
   public function getKeywordUNTYPED(): EditableSyntax {
@@ -217,7 +213,8 @@ final class KeysetTypeSpecifier extends EditableSyntax {
    * @returns Missing
    */
   public function getTrailingComma(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_trailing_comma);
+    return
+      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_trailing_comma);
   }
 
   public function getRightAngleUNTYPED(): EditableSyntax {
@@ -245,6 +242,7 @@ final class KeysetTypeSpecifier extends EditableSyntax {
    * @returns GreaterThanToken
    */
   public function getRightAngle(): GreaterThanToken {
-    return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+    return
+      TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 }

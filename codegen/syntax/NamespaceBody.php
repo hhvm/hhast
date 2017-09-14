@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<956503de0831ed2bcda53115e7310f92>>
+ * @generated SignedSource<<d054bc19128fa54a7e5afb2ee282108b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -154,13 +154,15 @@ final class NamespaceBody extends EditableSyntax {
     if ($this->_right_brace->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+    return
+      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 
   /**
    * @returns RightBraceToken
    */
   public function getRightBracex(): RightBraceToken {
-    return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+    return
+      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 }

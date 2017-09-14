@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2602048202eea1c64d8d71c81f71e383>>
+ * @generated SignedSource<<b6079d0a119528a8b8b7975811b67370>>
  */
 namespace Facebook\HHAST;
 
@@ -49,8 +49,7 @@ final class StarStarToken extends EditableToken {
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
     if (
-      $leading === $this->getLeading() &&
-      $trailing === $this->getTrailing()
+      $leading === $this->getLeading() && $trailing === $this->getTrailing()
     ) {
       return $this;
     }

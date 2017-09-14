@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<76a0ae8a9b617c03b61d4b37a51bb57e>>
+ * @generated SignedSource<<ddb83d76d657e24a64963be4440de925>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -148,7 +148,13 @@ final class LambdaExpression extends EditableSyntax {
     if ($value === $this->_coroutine) {
       return $this;
     }
-    return new self($this->_async, $value, $this->_signature, $this->_arrow, $this->_body);
+    return new self(
+      $this->_async,
+      $value,
+      $this->_signature,
+      $this->_arrow,
+      $this->_body,
+    );
   }
 
   public function hasCoroutine(): bool {
@@ -170,7 +176,13 @@ final class LambdaExpression extends EditableSyntax {
     if ($value === $this->_signature) {
       return $this;
     }
-    return new self($this->_async, $this->_coroutine, $value, $this->_arrow, $this->_body);
+    return new self(
+      $this->_async,
+      $this->_coroutine,
+      $value,
+      $this->_arrow,
+      $this->_body,
+    );
   }
 
   public function hasSignature(): bool {
@@ -212,14 +224,20 @@ final class LambdaExpression extends EditableSyntax {
     if ($this->_arrow->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EqualEqualGreaterThanToken::class, $this->_arrow);
+    return TypeAssert::isInstanceOf(
+      EqualEqualGreaterThanToken::class,
+      $this->_arrow,
+    );
   }
 
   /**
    * @returns EqualEqualGreaterThanToken
    */
   public function getArrowx(): EqualEqualGreaterThanToken {
-    return TypeAssert::isInstanceOf(EqualEqualGreaterThanToken::class, $this->_arrow);
+    return TypeAssert::isInstanceOf(
+      EqualEqualGreaterThanToken::class,
+      $this->_arrow,
+    );
   }
 
   public function getBodyUNTYPED(): EditableSyntax {

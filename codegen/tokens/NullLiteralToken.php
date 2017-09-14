@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fb494c7290c04f09df0b4bd5317f2f0f>>
+ * @generated SignedSource<<2d11920c2f647a75d8bd6fdf0178151c>>
  */
 namespace Facebook\HHAST;
 
@@ -49,8 +49,7 @@ final class NullLiteralToken extends EditableToken {
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
     if (
-      $leading === $this->getLeading() &&
-      $trailing === $this->getTrailing()
+      $leading === $this->getLeading() && $trailing === $this->getTrailing()
     ) {
       return $this;
     }

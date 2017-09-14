@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<47ea7bacab0cf26249f5c4b07aa7def7>>
+ * @generated SignedSource<<40d5fc60af321aa0320d392aec8442f9>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -249,6 +249,7 @@ final class TraitUseConflictResolution extends EditableSyntax {
    * @returns RightBraceToken
    */
   public function getRightBrace(): RightBraceToken {
-    return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+    return
+      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 }

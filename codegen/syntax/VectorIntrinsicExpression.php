@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3682dc3cc0bdd06ca9f5ee8c484a20c4>>
+ * @generated SignedSource<<9f6c14a567336c52e9383ac01fa959fd>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -98,7 +98,12 @@ final class VectorIntrinsicExpression extends EditableSyntax {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self($value, $this->_left_bracket, $this->_members, $this->_right_bracket);
+    return new self(
+      $value,
+      $this->_left_bracket,
+      $this->_members,
+      $this->_right_bracket,
+    );
   }
 
   public function hasKeyword(): bool {
@@ -120,7 +125,8 @@ final class VectorIntrinsicExpression extends EditableSyntax {
     if ($value === $this->_left_bracket) {
       return $this;
     }
-    return new self($this->_keyword, $value, $this->_members, $this->_right_bracket);
+    return
+      new self($this->_keyword, $value, $this->_members, $this->_right_bracket);
   }
 
   public function hasLeftBracket(): bool {
@@ -131,7 +137,8 @@ final class VectorIntrinsicExpression extends EditableSyntax {
    * @returns LeftBracketToken
    */
   public function getLeftBracket(): LeftBracketToken {
-    return TypeAssert::isInstanceOf(LeftBracketToken::class, $this->_left_bracket);
+    return
+      TypeAssert::isInstanceOf(LeftBracketToken::class, $this->_left_bracket);
   }
 
   public function getMembersUNTYPED(): EditableSyntax {
@@ -142,7 +149,12 @@ final class VectorIntrinsicExpression extends EditableSyntax {
     if ($value === $this->_members) {
       return $this;
     }
-    return new self($this->_keyword, $this->_left_bracket, $value, $this->_right_bracket);
+    return new self(
+      $this->_keyword,
+      $this->_left_bracket,
+      $value,
+      $this->_right_bracket,
+    );
   }
 
   public function hasMembers(): bool {
@@ -174,7 +186,8 @@ final class VectorIntrinsicExpression extends EditableSyntax {
     if ($value === $this->_right_bracket) {
       return $this;
     }
-    return new self($this->_keyword, $this->_left_bracket, $this->_members, $value);
+    return
+      new self($this->_keyword, $this->_left_bracket, $this->_members, $value);
   }
 
   public function hasRightBracket(): bool {
@@ -185,6 +198,7 @@ final class VectorIntrinsicExpression extends EditableSyntax {
    * @returns RightBracketToken
    */
   public function getRightBracket(): RightBracketToken {
-    return TypeAssert::isInstanceOf(RightBracketToken::class, $this->_right_bracket);
+    return
+      TypeAssert::isInstanceOf(RightBracketToken::class, $this->_right_bracket);
   }
 }

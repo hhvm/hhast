@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<50ce684b420c239c97d5ff1db226328a>>
+ * @generated SignedSource<<3868829993c168406185bcca5ab14dce>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -239,7 +239,8 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
    * @returns NamespacePrefixToken
    */
   public function getPrefix(): NamespacePrefixToken {
-    return TypeAssert::isInstanceOf(NamespacePrefixToken::class, $this->_prefix);
+    return
+      TypeAssert::isInstanceOf(NamespacePrefixToken::class, $this->_prefix);
   }
 
   public function getLeftBraceUNTYPED(): EditableSyntax {
@@ -332,14 +333,16 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
     if ($this->_right_brace->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+    return
+      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 
   /**
    * @returns RightBraceToken
    */
   public function getRightBracex(): RightBraceToken {
-    return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+    return
+      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 
   public function getSemicolonUNTYPED(): EditableSyntax {

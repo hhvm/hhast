@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c462334527473f14aa97cf2e3849cdc6>>
+ * @generated SignedSource<<58715c395e9649129a20694ca1861140>>
  */
 namespace Facebook\HHAST;
 
@@ -49,8 +49,7 @@ final class EnumToken extends EditableToken {
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
     if (
-      $leading === $this->getLeading() &&
-      $trailing === $this->getTrailing()
+      $leading === $this->getLeading() && $trailing === $this->getTrailing()
     ) {
       return $this;
     }

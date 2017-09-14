@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<719af7e04ace105d0c17d2492723daff>>
+ * @generated SignedSource<<380f3d801e169e34304aa638425cf251>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -57,10 +57,7 @@ final class StaticDeclarator extends EditableSyntax {
     $parents[] = $this;
     $name = $this->_name->rewrite($rewriter, $parents);
     $initializer = $this->_initializer->rewrite($rewriter, $parents);
-    if (
-      $name === $this->_name &&
-      $initializer === $this->_initializer
-    ) {
+    if ($name === $this->_name && $initializer === $this->_initializer) {
       return $this;
     }
     return new self($name, $initializer);
@@ -120,13 +117,15 @@ final class StaticDeclarator extends EditableSyntax {
     if ($this->_initializer->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
+    return
+      TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
   }
 
   /**
    * @returns SimpleInitializer
    */
   public function getInitializerx(): SimpleInitializer {
-    return TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
+    return
+      TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
   }
 }

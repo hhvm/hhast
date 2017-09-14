@@ -2,12 +2,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<14a67a70ae99e8a9576185608c14ea23>>
+ * @generated SignedSource<<bed6b18da24ed21b72230b667e737dda>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
 
-final class FunctionDeclaration extends EditableSyntax {
+final class FunctionDeclaration extends EditableSyntax
+  implements IFunctionishDeclaration {
 
   private EditableSyntax $_attribute_spec;
   private EditableSyntax $_declaration_header;
@@ -66,7 +67,8 @@ final class FunctionDeclaration extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $attribute_spec = $this->_attribute_spec->rewrite($rewriter, $parents);
-    $declaration_header = $this->_declaration_header->rewrite($rewriter, $parents);
+    $declaration_header =
+      $this->_declaration_header->rewrite($rewriter, $parents);
     $body = $this->_body->rewrite($rewriter, $parents);
     if (
       $attribute_spec === $this->_attribute_spec &&
@@ -100,14 +102,20 @@ final class FunctionDeclaration extends EditableSyntax {
     if ($this->_attribute_spec->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute_spec);
+    return TypeAssert::isInstanceOf(
+      AttributeSpecification::class,
+      $this->_attribute_spec,
+    );
   }
 
   /**
    * @returns AttributeSpecification
    */
   public function getAttributeSpecx(): AttributeSpecification {
-    return TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute_spec);
+    return TypeAssert::isInstanceOf(
+      AttributeSpecification::class,
+      $this->_attribute_spec,
+    );
   }
 
   public function getDeclarationHeaderUNTYPED(): EditableSyntax {
@@ -129,7 +137,10 @@ final class FunctionDeclaration extends EditableSyntax {
    * @returns FunctionDeclarationHeader
    */
   public function getDeclarationHeader(): FunctionDeclarationHeader {
-    return TypeAssert::isInstanceOf(FunctionDeclarationHeader::class, $this->_declaration_header);
+    return TypeAssert::isInstanceOf(
+      FunctionDeclarationHeader::class,
+      $this->_declaration_header,
+    );
   }
 
   public function getBodyUNTYPED(): EditableSyntax {

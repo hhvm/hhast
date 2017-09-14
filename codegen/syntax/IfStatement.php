@@ -2,12 +2,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2df7e4b19d81f89b9420b6befee4e631>>
+ * @generated SignedSource<<d0a1beb7e1e719537f465b961fc8529f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
 
-final class IfStatement extends EditableSyntax {
+final class IfStatement extends EditableSyntax
+  implements IControlFlowStatement {
 
   private EditableSyntax $_keyword;
   private EditableSyntax $_left_paren;
@@ -266,14 +267,16 @@ final class IfStatement extends EditableSyntax {
     if ($this->_right_paren->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   /**
    * @returns RightParenToken
    */
   public function getRightParenx(): RightParenToken {
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function getStatementUNTYPED(): EditableSyntax {
@@ -338,14 +341,16 @@ final class IfStatement extends EditableSyntax {
     if ($this->_elseif_clauses->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_elseif_clauses);
+    return
+      TypeAssert::isInstanceOf(EditableList::class, $this->_elseif_clauses);
   }
 
   /**
    * @returns EditableList
    */
   public function getElseifClausesx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_elseif_clauses);
+    return
+      TypeAssert::isInstanceOf(EditableList::class, $this->_elseif_clauses);
   }
 
   public function getElseClauseUNTYPED(): EditableSyntax {

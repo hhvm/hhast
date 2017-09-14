@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4595ff035913274030cbfc754712aead>>
+ * @generated SignedSource<<4251eb230d1a03df9319ff31b1d06fd8>>
  */
 namespace Facebook\HHAST;
 
@@ -49,8 +49,7 @@ final class DotEqualToken extends EditableToken {
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
     if (
-      $leading === $this->getLeading() &&
-      $trailing === $this->getTrailing()
+      $leading === $this->getLeading() && $trailing === $this->getTrailing()
     ) {
       return $this;
     }

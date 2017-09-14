@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<55ff031d8a85576f440262dc98a9bf8e>>
+ * @generated SignedSource<<596799e43fb85747bb765050ce91c969>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -75,14 +75,8 @@ final class CatchClause extends EditableSyntax {
       $source,
     );
     $position += $body->getWidth();
-    return new self(
-      $keyword,
-      $left_paren,
-      $type,
-      $variable,
-      $right_paren,
-      $body,
-    );
+    return
+      new self($keyword, $left_paren, $type, $variable, $right_paren, $body);
   }
 
   <<__Override>>
@@ -118,7 +112,8 @@ final class CatchClause extends EditableSyntax {
     ) {
       return $this;
     }
-    return new self($keyword, $left_paren, $type, $variable, $right_paren, $body);
+    return
+      new self($keyword, $left_paren, $type, $variable, $right_paren, $body);
   }
 
   public function getKeywordUNTYPED(): EditableSyntax {
@@ -276,14 +271,16 @@ final class CatchClause extends EditableSyntax {
     if ($this->_right_paren->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   /**
    * @returns RightParenToken
    */
   public function getRightParenx(): RightParenToken {
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function getBodyUNTYPED(): EditableSyntax {

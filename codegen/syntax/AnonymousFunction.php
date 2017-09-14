@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<72bf2468a1dbde07d9b32df248b2c3dd>>
+ * @generated SignedSource<<c80f9df02a0e8ae2bf2f7306860c6561>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -159,7 +159,8 @@ final class AnonymousFunction extends EditableSyntax {
     $parents[] = $this;
     $static_keyword = $this->_static_keyword->rewrite($rewriter, $parents);
     $async_keyword = $this->_async_keyword->rewrite($rewriter, $parents);
-    $coroutine_keyword = $this->_coroutine_keyword->rewrite($rewriter, $parents);
+    $coroutine_keyword =
+      $this->_coroutine_keyword->rewrite($rewriter, $parents);
     $function_keyword = $this->_function_keyword->rewrite($rewriter, $parents);
     $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
     $parameters = $this->_parameters->rewrite($rewriter, $parents);
@@ -317,7 +318,10 @@ final class AnonymousFunction extends EditableSyntax {
    * @returns Missing
    */
   public function getCoroutineKeyword(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_coroutine_keyword);
+    return TypeAssert::isInstanceOf(
+      EditableSyntax::class,
+      $this->_coroutine_keyword,
+    );
   }
 
   public function getFunctionKeywordUNTYPED(): EditableSyntax {
@@ -351,7 +355,8 @@ final class AnonymousFunction extends EditableSyntax {
    * @returns FunctionToken
    */
   public function getFunctionKeyword(): FunctionToken {
-    return TypeAssert::isInstanceOf(FunctionToken::class, $this->_function_keyword);
+    return
+      TypeAssert::isInstanceOf(FunctionToken::class, $this->_function_keyword);
   }
 
   public function getLeftParenUNTYPED(): EditableSyntax {
@@ -476,14 +481,16 @@ final class AnonymousFunction extends EditableSyntax {
     if ($this->_right_paren->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   /**
    * @returns RightParenToken
    */
   public function getRightParenx(): RightParenToken {
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function getColonUNTYPED(): EditableSyntax {
@@ -600,14 +607,16 @@ final class AnonymousFunction extends EditableSyntax {
     if ($this->_use->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(AnonymousFunctionUseClause::class, $this->_use);
+    return
+      TypeAssert::isInstanceOf(AnonymousFunctionUseClause::class, $this->_use);
   }
 
   /**
    * @returns AnonymousFunctionUseClause
    */
   public function getUsex(): AnonymousFunctionUseClause {
-    return TypeAssert::isInstanceOf(AnonymousFunctionUseClause::class, $this->_use);
+    return
+      TypeAssert::isInstanceOf(AnonymousFunctionUseClause::class, $this->_use);
   }
 
   public function getBodyUNTYPED(): EditableSyntax {

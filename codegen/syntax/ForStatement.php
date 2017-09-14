@@ -2,12 +2,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5599e753f18f74bd648c82da72871576>>
+ * @generated SignedSource<<1098a3f31d430d612834bb58aee40501>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
 
-final class ForStatement extends EditableSyntax {
+final class ForStatement extends EditableSyntax
+  implements IControlFlowStatement, ILoopStatement {
 
   private EditableSyntax $_keyword;
   private EditableSyntax $_left_paren;
@@ -305,7 +306,8 @@ final class ForStatement extends EditableSyntax {
    * @returns SemicolonToken
    */
   public function getFirstSemicolon(): SemicolonToken {
-    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_first_semicolon);
+    return
+      TypeAssert::isInstanceOf(SemicolonToken::class, $this->_first_semicolon);
   }
 
   public function getControlUNTYPED(): EditableSyntax {
@@ -379,7 +381,8 @@ final class ForStatement extends EditableSyntax {
    * @returns SemicolonToken
    */
   public function getSecondSemicolon(): SemicolonToken {
-    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_second_semicolon);
+    return
+      TypeAssert::isInstanceOf(SemicolonToken::class, $this->_second_semicolon);
   }
 
   public function getEndOfLoopUNTYPED(): EditableSyntax {
@@ -453,7 +456,8 @@ final class ForStatement extends EditableSyntax {
    * @returns RightParenToken
    */
   public function getRightParen(): RightParenToken {
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function getBodyUNTYPED(): EditableSyntax {

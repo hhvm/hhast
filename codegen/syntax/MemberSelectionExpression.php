@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1414e2171d157e5667e2bfd4701f8cb3>>
+ * @generated SignedSource<<c394a950f0ce80310a6ff84c338c0954>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -122,7 +122,8 @@ final class MemberSelectionExpression extends EditableSyntax {
    * @returns MinusGreaterThanToken
    */
   public function getOperator(): MinusGreaterThanToken {
-    return TypeAssert::isInstanceOf(MinusGreaterThanToken::class, $this->_operator);
+    return
+      TypeAssert::isInstanceOf(MinusGreaterThanToken::class, $this->_operator);
   }
 
   public function getNameUNTYPED(): EditableSyntax {

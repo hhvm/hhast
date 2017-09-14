@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0112bf88cd42258e97064adbf341c635>>
+ * @generated SignedSource<<23b8c496258e1d651002b8cfdd486c72>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -119,7 +119,8 @@ final class XHPChildrenParenthesizedList extends EditableSyntax {
    * @returns unknown
    */
   public function getXhpChildren(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_xhp_children);
+    return
+      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_xhp_children);
   }
 
   public function getRightParenUNTYPED(): EditableSyntax {

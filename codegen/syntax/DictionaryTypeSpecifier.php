@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<463dabdf6a1e27a80e27897205828005>>
+ * @generated SignedSource<<3c721d39762f3a55f2f367c8eadfbcae>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -98,7 +98,12 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self($value, $this->_left_angle, $this->_members, $this->_right_angle);
+    return new self(
+      $value,
+      $this->_left_angle,
+      $this->_members,
+      $this->_right_angle,
+    );
   }
 
   public function hasKeyword(): bool {
@@ -120,7 +125,8 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
     if ($value === $this->_left_angle) {
       return $this;
     }
-    return new self($this->_keyword, $value, $this->_members, $this->_right_angle);
+    return
+      new self($this->_keyword, $value, $this->_members, $this->_right_angle);
   }
 
   public function hasLeftAngle(): bool {
@@ -142,7 +148,12 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
     if ($value === $this->_members) {
       return $this;
     }
-    return new self($this->_keyword, $this->_left_angle, $value, $this->_right_angle);
+    return new self(
+      $this->_keyword,
+      $this->_left_angle,
+      $value,
+      $this->_right_angle,
+    );
   }
 
   public function hasMembers(): bool {
@@ -164,7 +175,8 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
     if ($value === $this->_right_angle) {
       return $this;
     }
-    return new self($this->_keyword, $this->_left_angle, $this->_members, $value);
+    return
+      new self($this->_keyword, $this->_left_angle, $this->_members, $value);
   }
 
   public function hasRightAngle(): bool {
@@ -175,6 +187,7 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
    * @returns GreaterThanToken
    */
   public function getRightAngle(): GreaterThanToken {
-    return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+    return
+      TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 }

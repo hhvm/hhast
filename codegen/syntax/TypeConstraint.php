@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d2d0e91c9dc2ae1b0cab4edf081bcaa9>>
+ * @generated SignedSource<<943dcd1c4462d11f8de590c7bb3dc69b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -54,10 +54,7 @@ final class TypeConstraint extends EditableSyntax {
     $parents[] = $this;
     $keyword = $this->_keyword->rewrite($rewriter, $parents);
     $type = $this->_type->rewrite($rewriter, $parents);
-    if (
-      $keyword === $this->_keyword &&
-      $type === $this->_type
-    ) {
+    if ($keyword === $this->_keyword && $type === $this->_type) {
       return $this;
     }
     return new self($keyword, $type);

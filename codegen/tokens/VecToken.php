@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7ae78502983ed64822c555e1d893e828>>
+ * @generated SignedSource<<ddab65d59245d49b939fbd93f5c8a0e0>>
  */
 namespace Facebook\HHAST;
 
@@ -49,8 +49,7 @@ final class VecToken extends EditableToken {
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
     if (
-      $leading === $this->getLeading() &&
-      $trailing === $this->getTrailing()
+      $leading === $this->getLeading() && $trailing === $this->getTrailing()
     ) {
       return $this;
     }

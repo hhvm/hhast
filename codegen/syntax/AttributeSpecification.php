@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<55671900fa457739d8ba311710ed76c0>>
+ * @generated SignedSource<<031a1ed4799a4b5a603cb7f494f3e9f8>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -65,9 +65,11 @@ final class AttributeSpecification extends EditableSyntax {
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
-    $left_double_angle = $this->_left_double_angle->rewrite($rewriter, $parents);
+    $left_double_angle =
+      $this->_left_double_angle->rewrite($rewriter, $parents);
     $attributes = $this->_attributes->rewrite($rewriter, $parents);
-    $right_double_angle = $this->_right_double_angle->rewrite($rewriter, $parents);
+    $right_double_angle =
+      $this->_right_double_angle->rewrite($rewriter, $parents);
     if (
       $left_double_angle === $this->_left_double_angle &&
       $attributes === $this->_attributes &&
@@ -97,7 +99,10 @@ final class AttributeSpecification extends EditableSyntax {
    * @returns LessThanLessThanToken
    */
   public function getLeftDoubleAngle(): LessThanLessThanToken {
-    return TypeAssert::isInstanceOf(LessThanLessThanToken::class, $this->_left_double_angle);
+    return TypeAssert::isInstanceOf(
+      LessThanLessThanToken::class,
+      $this->_left_double_angle,
+    );
   }
 
   public function getAttributesUNTYPED(): EditableSyntax {
@@ -108,7 +113,8 @@ final class AttributeSpecification extends EditableSyntax {
     if ($value === $this->_attributes) {
       return $this;
     }
-    return new self($this->_left_double_angle, $value, $this->_right_double_angle);
+    return
+      new self($this->_left_double_angle, $value, $this->_right_double_angle);
   }
 
   public function hasAttributes(): bool {
@@ -141,6 +147,9 @@ final class AttributeSpecification extends EditableSyntax {
    * @returns GreaterThanGreaterThanToken
    */
   public function getRightDoubleAngle(): GreaterThanGreaterThanToken {
-    return TypeAssert::isInstanceOf(GreaterThanGreaterThanToken::class, $this->_right_double_angle);
+    return TypeAssert::isInstanceOf(
+      GreaterThanGreaterThanToken::class,
+      $this->_right_double_angle,
+    );
   }
 }

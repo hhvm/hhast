@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<77fbe59408b86cf2791f6259c57b3d24>>
+ * @generated SignedSource<<3b1ddba5119daa0d43f5c45725eb505a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -57,10 +57,7 @@ final class YieldExpression extends EditableSyntax {
     $parents[] = $this;
     $keyword = $this->_keyword->rewrite($rewriter, $parents);
     $operand = $this->_operand->rewrite($rewriter, $parents);
-    if (
-      $keyword === $this->_keyword &&
-      $operand === $this->_operand
-    ) {
+    if ($keyword === $this->_keyword && $operand === $this->_operand) {
       return $this;
     }
     return new self($keyword, $operand);

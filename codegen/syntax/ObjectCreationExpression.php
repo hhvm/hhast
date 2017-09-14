@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e0bf4b97a7f782cb1db5e20a473818b6>>
+ * @generated SignedSource<<5d90cb61413e650f42e0f4169bca366d>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -66,13 +66,8 @@ final class ObjectCreationExpression extends EditableSyntax {
       $source,
     );
     $position += $right_paren->getWidth();
-    return new self(
-      $new_keyword,
-      $type,
-      $left_paren,
-      $argument_list,
-      $right_paren,
-    );
+    return
+      new self($new_keyword, $type, $left_paren, $argument_list, $right_paren);
   }
 
   <<__Override>>
@@ -105,7 +100,8 @@ final class ObjectCreationExpression extends EditableSyntax {
     ) {
       return $this;
     }
-    return new self($new_keyword, $type, $left_paren, $argument_list, $right_paren);
+    return
+      new self($new_keyword, $type, $left_paren, $argument_list, $right_paren);
   }
 
   public function getNewKeywordUNTYPED(): EditableSyntax {
@@ -272,13 +268,15 @@ final class ObjectCreationExpression extends EditableSyntax {
     if ($this->_right_paren->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   /**
    * @returns RightParenToken
    */
   public function getRightParenx(): RightParenToken {
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 }

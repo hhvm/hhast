@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b6674daa9b5108bf69507c4bfe5709ff>>
+ * @generated SignedSource<<5478c8fadabca30400ff42e3c04fc9f0>>
  */
 namespace Facebook\HHAST;
 
@@ -49,8 +49,7 @@ final class SuspendToken extends EditableToken {
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
     if (
-      $leading === $this->getLeading() &&
-      $trailing === $this->getTrailing()
+      $leading === $this->getLeading() && $trailing === $this->getTrailing()
     ) {
       return $this;
     }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cd825ce9a0ad9212a7809b2331167112>>
+ * @generated SignedSource<<71ed8ad6848706600d412802cc6910da>>
  */
 namespace Facebook\HHAST;
 
@@ -49,8 +49,7 @@ final class DoubleToken extends EditableToken {
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
     if (
-      $leading === $this->getLeading() &&
-      $trailing === $this->getTrailing()
+      $leading === $this->getLeading() && $trailing === $this->getTrailing()
     ) {
       return $this;
     }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ef9c732da70d44479baa7395f62fcb44>>
+ * @generated SignedSource<<9f9d9aa49117d6bd4c831851602cc10b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -331,14 +331,16 @@ final class TypeConstDeclaration extends EditableSyntax {
     if ($this->_type_constraint->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(TypeConstraint::class, $this->_type_constraint);
+    return
+      TypeAssert::isInstanceOf(TypeConstraint::class, $this->_type_constraint);
   }
 
   /**
    * @returns TypeConstraint
    */
   public function getTypeConstraintx(): TypeConstraint {
-    return TypeAssert::isInstanceOf(TypeConstraint::class, $this->_type_constraint);
+    return
+      TypeAssert::isInstanceOf(TypeConstraint::class, $this->_type_constraint);
   }
 
   public function getEqualUNTYPED(): EditableSyntax {
@@ -413,7 +415,8 @@ final class TypeConstDeclaration extends EditableSyntax {
    * GenericTypeSpecifier | TupleTypeSpecifier
    */
   public function getTypeSpecifier(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type_specifier);
+    return
+      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type_specifier);
   }
 
   public function getSemicolonUNTYPED(): EditableSyntax {

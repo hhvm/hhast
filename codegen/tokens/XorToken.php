@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ede2b439c9472d82f1ea5a84bd299b55>>
+ * @generated SignedSource<<a74435b46926c8dc912bedb064c4929e>>
  */
 namespace Facebook\HHAST;
 
@@ -49,8 +49,7 @@ final class XorToken extends EditableToken {
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
     if (
-      $leading === $this->getLeading() &&
-      $trailing === $this->getTrailing()
+      $leading === $this->getLeading() && $trailing === $this->getTrailing()
     ) {
       return $this;
     }

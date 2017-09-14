@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<94c2cbd262ddca4e08100f7e868e3054>>
+ * @generated SignedSource<<81ff28e8e954079cd2be7d06f76998fe>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -54,10 +54,7 @@ final class FinallyClause extends EditableSyntax {
     $parents[] = $this;
     $keyword = $this->_keyword->rewrite($rewriter, $parents);
     $body = $this->_body->rewrite($rewriter, $parents);
-    if (
-      $keyword === $this->_keyword &&
-      $body === $this->_body
-    ) {
+    if ($keyword === $this->_keyword && $body === $this->_body) {
       return $this;
     }
     return new self($keyword, $body);

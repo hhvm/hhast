@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<865dfe3b7c6ead29c0c726ed9f729328>>
+ * @generated SignedSource<<171bb2cdd1db2d5c9cf2fa8e89229ebe>>
  */
 namespace Facebook\HHAST;
 
@@ -49,8 +49,7 @@ final class ColonToken extends EditableToken {
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
     if (
-      $leading === $this->getLeading() &&
-      $trailing === $this->getTrailing()
+      $leading === $this->getLeading() && $trailing === $this->getTrailing()
     ) {
       return $this;
     }

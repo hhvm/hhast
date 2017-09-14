@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4aefcc261157ee3d4cb1cae88e8ce0ad>>
+ * @generated SignedSource<<9f91aa7c382898ca95d9f58e92d23d8e>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -13,7 +13,7 @@ function editable_trivia_from_json(
   string $source,
 ): HHAST\EditableTrivia {
   $trivia_text = substr($source, $position, $json['width']);
-  switch ((string) $json['kind']) {
+  switch ((string)$json['kind']) {
     case 'whitespace':
       return new HHAST\WhiteSpace($trivia_text);
     case 'end_of_line':
@@ -33,6 +33,6 @@ function editable_trivia_from_json(
     case 'fall_through':
       return new HHAST\FallThrough($trivia_text);
     default:
-      throw new \Exception('unexpected JSON kind: '.(string) $json['kind']);
+      throw new \Exception('unexpected JSON kind: '.(string)$json['kind']);
   }
 }

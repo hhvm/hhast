@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fc1c432dfd00ad3f34da3ef55fb2aa25>>
+ * @generated SignedSource<<d99fd767ec818982709a875aecdb9a68>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -54,10 +54,7 @@ final class XHPRequired extends EditableSyntax {
     $parents[] = $this;
     $at = $this->_at->rewrite($rewriter, $parents);
     $keyword = $this->_keyword->rewrite($rewriter, $parents);
-    if (
-      $at === $this->_at &&
-      $keyword === $this->_keyword
-    ) {
+    if ($at === $this->_at && $keyword === $this->_keyword) {
       return $this;
     }
     return new self($at, $keyword);

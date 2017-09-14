@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<11aea67924c233383bc0e855e9d15110>>
+ * @generated SignedSource<<2de655d8b5c21f0cca1f5bc61b733fc4>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -44,9 +44,7 @@ final class Script extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $declarations = $this->_declarations->rewrite($rewriter, $parents);
-    if (
-      $declarations === $this->_declarations
-    ) {
+    if ($declarations === $this->_declarations) {
       return $this;
     }
     return new self($declarations);

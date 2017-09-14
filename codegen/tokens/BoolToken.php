@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7a536fd3f49dd4b25a2c48346ccffffd>>
+ * @generated SignedSource<<ed97d566e152b48c3fa4d3de19eaef87>>
  */
 namespace Facebook\HHAST;
 
@@ -49,8 +49,7 @@ final class BoolToken extends EditableToken {
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
     if (
-      $leading === $this->getLeading() &&
-      $trailing === $this->getTrailing()
+      $leading === $this->getLeading() && $trailing === $this->getTrailing()
     ) {
       return $this;
     }

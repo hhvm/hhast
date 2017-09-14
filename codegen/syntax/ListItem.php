@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<66d0a64318ca985f3ca764a182ff69f9>>
+ * @generated SignedSource<<91cb50cab9c976f2029b590cdfd8de5f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -54,10 +54,7 @@ final class ListItem extends EditableSyntax {
     $parents[] = $this;
     $item = $this->_item->rewrite($rewriter, $parents);
     $separator = $this->_separator->rewrite($rewriter, $parents);
-    if (
-      $item === $this->_item &&
-      $separator === $this->_separator
-    ) {
+    if ($item === $this->_item && $separator === $this->_separator) {
       return $this;
     }
     return new self($item, $separator);

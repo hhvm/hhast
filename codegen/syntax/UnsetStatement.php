@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<16a49a617db47eeda354bc18dbecaa43>>
+ * @generated SignedSource<<84e6f4ff884259b6ebe36701efff85ef>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -66,13 +66,8 @@ final class UnsetStatement extends EditableSyntax {
       $source,
     );
     $position += $semicolon->getWidth();
-    return new self(
-      $keyword,
-      $left_paren,
-      $variables,
-      $right_paren,
-      $semicolon,
-    );
+    return
+      new self($keyword, $left_paren, $variables, $right_paren, $semicolon);
   }
 
   <<__Override>>
@@ -105,7 +100,8 @@ final class UnsetStatement extends EditableSyntax {
     ) {
       return $this;
     }
-    return new self($keyword, $left_paren, $variables, $right_paren, $semicolon);
+    return
+      new self($keyword, $left_paren, $variables, $right_paren, $semicolon);
   }
 
   public function getKeywordUNTYPED(): EditableSyntax {
@@ -220,14 +216,16 @@ final class UnsetStatement extends EditableSyntax {
     if ($this->_right_paren->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   /**
    * @returns RightParenToken
    */
   public function getRightParenx(): RightParenToken {
-    return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return
+      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
   public function getSemicolonUNTYPED(): EditableSyntax {

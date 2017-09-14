@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4c03d6ae926e5161548f786c60c130b0>>
+ * @generated SignedSource<<8a253341a22b8739438e92ecbb04617c>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -44,9 +44,7 @@ final class PipeVariableExpression extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $expression = $this->_expression->rewrite($rewriter, $parents);
-    if (
-      $expression === $this->_expression
-    ) {
+    if ($expression === $this->_expression) {
       return $this;
     }
     return new self($expression);

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e5d7f6323ef1616e5de3f8db1176504f>>
+ * @generated SignedSource<<391b29daa6d43c42d3d973dce883a9ec>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -289,13 +289,15 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     if ($this->_right_angle->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+    return
+      TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 
   /**
    * @returns GreaterThanToken
    */
   public function getRightAnglex(): GreaterThanToken {
-    return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+    return
+      TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 }

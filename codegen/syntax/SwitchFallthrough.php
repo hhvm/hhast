@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c05cfe0d740a2c482d51eac5b17d1937>>
+ * @generated SignedSource<<4a47761f3ef3bac7e85a4c594a2bb1fe>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -57,10 +57,7 @@ final class SwitchFallthrough extends EditableSyntax {
     $parents[] = $this;
     $keyword = $this->_keyword->rewrite($rewriter, $parents);
     $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
-    if (
-      $keyword === $this->_keyword &&
-      $semicolon === $this->_semicolon
-    ) {
+    if ($keyword === $this->_keyword && $semicolon === $this->_semicolon) {
       return $this;
     }
     return new self($keyword, $semicolon);

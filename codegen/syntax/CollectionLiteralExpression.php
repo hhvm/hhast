@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<edaa7a8d60dc388448da60c0ad0bd6a5>>
+ * @generated SignedSource<<16ddbad5cb7c461a25dfac869f82982b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -98,7 +98,12 @@ final class CollectionLiteralExpression extends EditableSyntax {
     if ($value === $this->_name) {
       return $this;
     }
-    return new self($value, $this->_left_brace, $this->_initializers, $this->_right_brace);
+    return new self(
+      $value,
+      $this->_left_brace,
+      $this->_initializers,
+      $this->_right_brace,
+    );
   }
 
   public function hasName(): bool {
@@ -120,7 +125,8 @@ final class CollectionLiteralExpression extends EditableSyntax {
     if ($value === $this->_left_brace) {
       return $this;
     }
-    return new self($this->_name, $value, $this->_initializers, $this->_right_brace);
+    return
+      new self($this->_name, $value, $this->_initializers, $this->_right_brace);
   }
 
   public function hasLeftBrace(): bool {
@@ -142,7 +148,8 @@ final class CollectionLiteralExpression extends EditableSyntax {
     if ($value === $this->_initializers) {
       return $this;
     }
-    return new self($this->_name, $this->_left_brace, $value, $this->_right_brace);
+    return
+      new self($this->_name, $this->_left_brace, $value, $this->_right_brace);
   }
 
   public function hasInitializers(): bool {
@@ -174,7 +181,8 @@ final class CollectionLiteralExpression extends EditableSyntax {
     if ($value === $this->_right_brace) {
       return $this;
     }
-    return new self($this->_name, $this->_left_brace, $this->_initializers, $value);
+    return
+      new self($this->_name, $this->_left_brace, $this->_initializers, $value);
   }
 
   public function hasRightBrace(): bool {
@@ -188,13 +196,15 @@ final class CollectionLiteralExpression extends EditableSyntax {
     if ($this->_right_brace->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+    return
+      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 
   /**
    * @returns RightBraceToken
    */
   public function getRightBracex(): RightBraceToken {
-    return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+    return
+      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 }

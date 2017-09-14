@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cd0e3fb3cca47b4c64475fd7b6668d58>>
+ * @generated SignedSource<<8d1f7dbb79a61d5743f256aca0fc5a3a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -127,7 +127,8 @@ final class AliasDeclaration extends EditableSyntax {
     $attribute_spec = $this->_attribute_spec->rewrite($rewriter, $parents);
     $keyword = $this->_keyword->rewrite($rewriter, $parents);
     $name = $this->_name->rewrite($rewriter, $parents);
-    $generic_parameter = $this->_generic_parameter->rewrite($rewriter, $parents);
+    $generic_parameter =
+      $this->_generic_parameter->rewrite($rewriter, $parents);
     $constraint = $this->_constraint->rewrite($rewriter, $parents);
     $equal = $this->_equal->rewrite($rewriter, $parents);
     $type = $this->_type->rewrite($rewriter, $parents);
@@ -187,14 +188,20 @@ final class AliasDeclaration extends EditableSyntax {
     if ($this->_attribute_spec->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute_spec);
+    return TypeAssert::isInstanceOf(
+      AttributeSpecification::class,
+      $this->_attribute_spec,
+    );
   }
 
   /**
    * @returns AttributeSpecification
    */
   public function getAttributeSpecx(): AttributeSpecification {
-    return TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute_spec);
+    return TypeAssert::isInstanceOf(
+      AttributeSpecification::class,
+      $this->_attribute_spec,
+    );
   }
 
   public function getKeywordUNTYPED(): EditableSyntax {
@@ -300,14 +307,20 @@ final class AliasDeclaration extends EditableSyntax {
     if ($this->_generic_parameter->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(TypeParameters::class, $this->_generic_parameter);
+    return TypeAssert::isInstanceOf(
+      TypeParameters::class,
+      $this->_generic_parameter,
+    );
   }
 
   /**
    * @returns TypeParameters
    */
   public function getGenericParameterx(): TypeParameters {
-    return TypeAssert::isInstanceOf(TypeParameters::class, $this->_generic_parameter);
+    return TypeAssert::isInstanceOf(
+      TypeParameters::class,
+      $this->_generic_parameter,
+    );
   }
 
   public function getConstraintUNTYPED(): EditableSyntax {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0d9cc0f10cfde32170fc81d6debe8697>>
+ * @generated SignedSource<<feca422c28b7e116d2e5c85ae6b82a38>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -54,10 +54,7 @@ final class SimpleInitializer extends EditableSyntax {
     $parents[] = $this;
     $equal = $this->_equal->rewrite($rewriter, $parents);
     $value = $this->_value->rewrite($rewriter, $parents);
-    if (
-      $equal === $this->_equal &&
-      $value === $this->_value
-    ) {
+    if ($equal === $this->_equal && $value === $this->_value) {
       return $this;
     }
     return new self($equal, $value);

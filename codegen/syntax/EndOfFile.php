@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9efcf3737f80f84a0d8aa78811f8c483>>
+ * @generated SignedSource<<9064ed0e3b4cb4ec390be9bc379daa8f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -44,9 +44,7 @@ final class EndOfFile extends EditableSyntax {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $token = $this->_token->rewrite($rewriter, $parents);
-    if (
-      $token === $this->_token
-    ) {
+    if ($token === $this->_token) {
       return $this;
     }
     return new self($token);

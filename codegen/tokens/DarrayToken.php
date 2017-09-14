@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b788e6a48a372ec4305020f242873fd9>>
+ * @generated SignedSource<<ba10ef187719ff58bc98ff365fe4c913>>
  */
 namespace Facebook\HHAST;
 
@@ -49,8 +49,7 @@ final class DarrayToken extends EditableToken {
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
     if (
-      $leading === $this->getLeading() &&
-      $trailing === $this->getTrailing()
+      $leading === $this->getLeading() && $trailing === $this->getTrailing()
     ) {
       return $this;
     }
