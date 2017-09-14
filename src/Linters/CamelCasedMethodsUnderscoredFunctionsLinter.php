@@ -19,7 +19,7 @@ use type Facebook\HHAST\{
 };
 use namespace HH\Lib\{C, Str};
 
-class CamelCaseMethodsUnderscoredFunctionsLinter extends ASTLinter<
+class CamelCasedMethodsUnderscoredFunctionsLinter extends ASTLinter<
   EditableSyntax
 > {
   use FunctionNamingLinterTrait;
@@ -51,12 +51,13 @@ class CamelCaseMethodsUnderscoredFunctionsLinter extends ASTLinter<
     }
 
     return preg_replace_callback(
-      '/[A-Z]/',
+      '/[A-Z]+/',
       $matches ==> '_'.Str\lowercase($matches[0]),
       $head,
     )
       |> Str\strip_prefix($$, '_')
       |> Str\strip_suffix($$, '_')
+      |> Str\replace($$, '__', '_')
       |> ($suffix === null ? $$ : $$.'_'.$suffix);
   }
 

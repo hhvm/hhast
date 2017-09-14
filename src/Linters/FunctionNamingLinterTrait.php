@@ -15,15 +15,17 @@ namespace Facebook\HHAST\Linters;
 use type Facebook\HHAST\{
   ConstructToken,
   DestructToken,
+  EditableList,
   EditableSyntax,
   EditableToken,
+  EndOfLine,
   FunctionDeclaration,
   MethodishDeclaration,
   NameToken,
   StaticToken
 };
 use namespace Facebook\HHAST;
-use namespace HH\Lib\C;
+use namespace HH\Lib\{C, Vec};
 
 trait FunctionNamingLinterTrait {
   require extends ASTLinter<EditableSyntax>;
@@ -124,14 +126,29 @@ trait FunctionNamingLinterTrait {
     EditableSyntax $node,
   ): EditableSyntax {
     if ($node instanceof FunctionDeclaration) {
-      return $node->withBody(HHAST\Missing());
+      $node = $node->withBody(HHAST\Missing());
+    } else if ($node instanceof MethodishDeclaration) {
+      $node = $node->withFunctionBody(HHAST\Missing());
+    } else {
+      invariant_violation(
+        'unhandled type: %s',
+        get_class($node),
+      );
     }
-    if ($node instanceof MethodishDeclaration) {
-      return $node->withFunctionBody(HHAST\Missing());
+    $leading = $node->getFirstTokenx()->getLeading();
+    if ($leading instanceof EditableList) {
+      $new = vec[];
+      foreach (Vec\reverse($leading->toVec()) as $child) {
+        $new[] = $child;
+        if ($child instanceof EndOfLine) {
+          break;
+        }
+      }
+      $leading = EditableList::fromItems(Vec\reverse($new));
     }
-    invariant_violation(
-      'unhandled type: %s',
-      get_class($node),
+    return $node->replace(
+      $node->getFirstTokenx()->withLeading($leading),
+      $node->getFirstTokenx(),
     );
   }
 }
