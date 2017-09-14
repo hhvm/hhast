@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3c9564fb14e4b04228d8ed3fe31cb91b>>
+ * @generated SignedSource<<9102516a17c7a8f0aa5f55f690ad28b1>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -288,7 +288,7 @@ final class SwitchStatement extends EditableSyntax {
   }
 
   /**
-   * @returns LeftBraceToken
+   * @returns LeftBraceToken | Missing
    */
   public function getLeftBrace(): ?LeftBraceToken {
     if ($this->_left_brace->isMissing()) {
@@ -328,7 +328,7 @@ final class SwitchStatement extends EditableSyntax {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList | Missing
    */
   public function getSections(): ?EditableList {
     if ($this->_sections->isMissing()) {
@@ -368,7 +368,7 @@ final class SwitchStatement extends EditableSyntax {
   }
 
   /**
-   * @returns RightBraceToken
+   * @returns RightBraceToken | Missing
    */
   public function getRightBrace(): ?RightBraceToken {
     if ($this->_right_brace->isMissing()) {

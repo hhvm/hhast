@@ -43,7 +43,7 @@ function get_uses_directly_in_scope(
     foreach ($clauses as $clause) {
       $uses[] = tuple(
         $clause->hasClauseKind() ? $clause->getClauseKind() : $kind,
-        Str\trim($clause->getName()->getCode()),
+        Str\trim($clause->getNameUNTYPED()->getCode()),
         $clause->getAlias(),
       );
     }
@@ -62,7 +62,7 @@ function get_uses_directly_in_scope(
     foreach ($clauses as $clause) {
       $uses[] = tuple(
         $clause->hasClauseKind() ? $clause->getClauseKind() : $kind,
-        $prefix.Str\trim($clause->getName()->getCode()),
+        $prefix.Str\trim($clause->getNameUNTYPED()->getCode()),
         $clause->getAlias(),
       );
     }
@@ -79,7 +79,7 @@ function get_uses_directly_in_scope(
       : $alias->getCode()
         |> Str\trim($$)
         |> Str\strip_prefix($$, '\\');
-    if ($kind->isMissing()) {
+    if ($kind === null) {
       $namespaces[$alias] = $name;
       $types[$alias] = $name;
     } else if ($kind instanceof NamespaceToken) {

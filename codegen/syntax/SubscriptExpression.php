@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c2d82f69f7669823472abf4818d62025>>
+ * @generated SignedSource<<b5c1219a43dab7b0406a915574524b61>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -155,13 +155,13 @@ final class SubscriptExpression extends EditableSyntax {
   }
 
   /**
-   * @returns LiteralExpression | VariableExpression | FunctionCallExpression |
-   * QualifiedNameExpression | ScopeResolutionExpression | BinaryExpression |
-   * PrefixUnaryExpression | CastExpression | ObjectCreationExpression |
-   * MemberSelectionExpression | PostfixUnaryExpression | SubscriptExpression |
-   * ArrayIntrinsicExpression | SafeMemberSelectionExpression |
-   * AnonymousFunction | YieldExpression | LambdaExpression | EvalExpression |
-   * ParenthesizedExpression
+   * @returns LiteralExpression | Missing | VariableExpression |
+   * FunctionCallExpression | QualifiedNameExpression |
+   * ScopeResolutionExpression | BinaryExpression | PrefixUnaryExpression |
+   * CastExpression | ObjectCreationExpression | MemberSelectionExpression |
+   * PostfixUnaryExpression | SubscriptExpression | ArrayIntrinsicExpression |
+   * SafeMemberSelectionExpression | AnonymousFunction | YieldExpression |
+   * LambdaExpression | EvalExpression | ParenthesizedExpression
    */
   public function getIndex(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_index);
@@ -183,9 +183,19 @@ final class SubscriptExpression extends EditableSyntax {
   }
 
   /**
+   * @returns RightBracketToken | RightBraceToken | Missing
+   */
+  public function getRightBracket(): ?EditableToken {
+    if ($this->_right_bracket->isMissing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_right_bracket);
+  }
+
+  /**
    * @returns RightBracketToken | RightBraceToken
    */
-  public function getRightBracket(): EditableToken {
+  public function getRightBracketx(): EditableToken {
     return TypeAssert::isInstanceOf(EditableToken::class, $this->_right_bracket);
   }
 }

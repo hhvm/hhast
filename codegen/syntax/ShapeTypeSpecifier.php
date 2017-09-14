@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3247860da4893b4529bcbc733d703d02>>
+ * @generated SignedSource<<dadf6f6f8ac4f0700cc0d4c8c10dbef9>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -180,7 +180,7 @@ final class ShapeTypeSpecifier extends EditableSyntax {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList | Missing
    */
   public function getFields(): ?EditableList {
     if ($this->_fields->isMissing()) {
@@ -218,7 +218,7 @@ final class ShapeTypeSpecifier extends EditableSyntax {
   }
 
   /**
-   * @returns DotDotDotToken
+   * @returns Missing | DotDotDotToken
    */
   public function getEllipsis(): ?DotDotDotToken {
     if ($this->_ellipsis->isMissing()) {

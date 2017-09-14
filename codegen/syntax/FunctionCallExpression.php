@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<80970d2c179011d17bdfdf58ed46f854>>
+ * @generated SignedSource<<daabb7b0737af1a6c1a7ffcf1882dac4>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -138,7 +138,7 @@ final class FunctionCallExpression extends EditableSyntax {
   }
 
   /**
-   * @returns LeftParenToken
+   * @returns LeftParenToken | Missing
    */
   public function getLeftParen(): ?LeftParenToken {
     if ($this->_left_paren->isMissing()) {
@@ -170,7 +170,7 @@ final class FunctionCallExpression extends EditableSyntax {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList | Missing
    */
   public function getArgumentList(): ?EditableList {
     if ($this->_argument_list->isMissing()) {
@@ -202,7 +202,7 @@ final class FunctionCallExpression extends EditableSyntax {
   }
 
   /**
-   * @returns RightParenToken
+   * @returns RightParenToken | Missing
    */
   public function getRightParen(): ?RightParenToken {
     if ($this->_right_paren->isMissing()) {

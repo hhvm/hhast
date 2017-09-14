@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d60ad6dfc3804f2f3cfbaf684296d752>>
+ * @generated SignedSource<<77fbe59408b86cf2791f6259c57b3d24>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -107,9 +107,9 @@ final class YieldExpression extends EditableSyntax {
    * @returns LiteralExpression | VariableExpression |
    * MemberSelectionExpression | FunctionCallExpression | BinaryExpression |
    * ElementInitializer | PrefixUnaryExpression | PostfixUnaryExpression |
-   * ParenthesizedExpression | LambdaExpression | QualifiedNameExpression |
-   * SubscriptExpression | BreakToken | ObjectCreationExpression |
-   * AnonymousFunction | TupleExpression
+   * ParenthesizedExpression | Missing | LambdaExpression |
+   * QualifiedNameExpression | SubscriptExpression | BreakToken |
+   * ObjectCreationExpression | AnonymousFunction | TupleExpression
    */
   public function getOperand(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operand);

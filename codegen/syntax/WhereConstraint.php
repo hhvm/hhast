@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<285cd8e7a24966331d2f41a56598c626>>
+ * @generated SignedSource<<f04452994b7f29572b16447dae937b64>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -116,9 +116,19 @@ final class WhereConstraint extends EditableSyntax {
   }
 
   /**
+   * @returns EqualToken | SuperToken | AsToken | Missing
+   */
+  public function getOperator(): ?EditableToken {
+    if ($this->_operator->isMissing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_operator);
+  }
+
+  /**
    * @returns EqualToken | SuperToken | AsToken
    */
-  public function getOperator(): EditableToken {
+  public function getOperatorx(): EditableToken {
     return TypeAssert::isInstanceOf(EditableToken::class, $this->_operator);
   }
 

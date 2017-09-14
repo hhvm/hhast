@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e6c8191fa37a98bde2417b7ada8e5843>>
+ * @generated SignedSource<<3a3d18fad817fa1e949d62e806418633>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -211,7 +211,7 @@ final class ClassishDeclaration extends EditableSyntax {
   }
 
   /**
-   * @returns AttributeSpecification
+   * @returns Missing | AttributeSpecification
    */
   public function getAttribute(): ?AttributeSpecification {
     if ($this->_attribute->isMissing()) {
@@ -254,7 +254,7 @@ final class ClassishDeclaration extends EditableSyntax {
   }
 
   /**
-   * @returns EditableList
+   * @returns Missing | EditableList
    */
   public function getModifiers(): ?EditableList {
     if ($this->_modifiers->isMissing()) {
@@ -297,9 +297,19 @@ final class ClassishDeclaration extends EditableSyntax {
   }
 
   /**
+   * @returns ClassToken | TraitToken | InterfaceToken | Missing
+   */
+  public function getKeyword(): ?EditableToken {
+    if ($this->_keyword->isMissing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_keyword);
+  }
+
+  /**
    * @returns ClassToken | TraitToken | InterfaceToken
    */
-  public function getKeyword(): EditableToken {
+  public function getKeywordx(): EditableToken {
     return TypeAssert::isInstanceOf(EditableToken::class, $this->_keyword);
   }
 
@@ -363,7 +373,7 @@ final class ClassishDeclaration extends EditableSyntax {
   }
 
   /**
-   * @returns TypeParameters
+   * @returns Missing | TypeParameters
    */
   public function getTypeParameters(): ?TypeParameters {
     if ($this->_type_parameters->isMissing()) {
@@ -406,7 +416,7 @@ final class ClassishDeclaration extends EditableSyntax {
   }
 
   /**
-   * @returns ExtendsToken
+   * @returns Missing | ExtendsToken
    */
   public function getExtendsKeyword(): ?ExtendsToken {
     if ($this->_extends_keyword->isMissing()) {
@@ -449,7 +459,7 @@ final class ClassishDeclaration extends EditableSyntax {
   }
 
   /**
-   * @returns EditableList
+   * @returns Missing | EditableList
    */
   public function getExtendsList(): ?EditableList {
     if ($this->_extends_list->isMissing()) {
@@ -492,7 +502,7 @@ final class ClassishDeclaration extends EditableSyntax {
   }
 
   /**
-   * @returns ImplementsToken
+   * @returns Missing | ImplementsToken
    */
   public function getImplementsKeyword(): ?ImplementsToken {
     if ($this->_implements_keyword->isMissing()) {
@@ -535,7 +545,7 @@ final class ClassishDeclaration extends EditableSyntax {
   }
 
   /**
-   * @returns EditableList
+   * @returns Missing | EditableList
    */
   public function getImplementsList(): ?EditableList {
     if ($this->_implements_list->isMissing()) {

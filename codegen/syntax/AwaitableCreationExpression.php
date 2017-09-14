@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d1054d6b9201b5cf7c3bf083efc8a321>>
+ * @generated SignedSource<<6088eb6862cf658fe8f46a1b634be14b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -116,10 +116,10 @@ final class AwaitableCreationExpression extends EditableSyntax {
   }
 
   /**
-   * @returns
+   * @returns Missing
    */
-  public function getCoroutine(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_coroutine);
+  public function getCoroutine(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_coroutine);
   }
 
   public function getCompoundStatementUNTYPED(): EditableSyntax {

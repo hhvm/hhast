@@ -334,6 +334,10 @@ final class CodegenSyntax extends CodegenBase {
     }
 
     $children = $specs[$key] |> Keyset\filter($$, $c ==> $c !== 'error');
+    $possible_types = Keyset\map(
+      $children,
+      $child ==> $this->getSyntaxClassForChild($child),
+    );
 
     $nullable = C\contains_key($children, 'missing');
     if ($nullable) {
@@ -343,31 +347,31 @@ final class CodegenSyntax extends CodegenBase {
       );
     }
 
-    $children =
-      Keyset\map($children, $child ==> $this->getSyntaxClassForChild($child));
-
-    if (C\count($children) !== 1) {
-      if (C\every($children, $child ==> Str\ends_with($child, 'Token'))) {
+    $count = C\count($children);
+    if ($count !== 1) {
+      if ($count > 1 && C\every($children, $child ==> Str\starts_with($child, 'token:'))) {
         return shape(
           'class' => 'EditableToken',
-          'nullable' => false,
-          'possibleTypes' => $children,
+          'nullable' => $nullable,
+          'possibleTypes' => $possible_types,
         );
       }
       return shape(
         'class' => 'EditableSyntax',
         'nullable' => false,
-        'possibleTypes' => $children,
+        'possibleTypes' => $possible_types,
       );
     }
 
     return shape(
-      'class' => C\firstx($children),
+      'class' => C\firstx($children)
+        |> $this->getSyntaxClassForChild($$),
       'nullable' => $nullable,
-      'possibleTypes' => $children,
+      'possibleTypes' => $possible_types,
     );
   }
 
+  <<__Memoize>>
   private function getSyntaxClassForChild(string $child): string {
     if ($child === 'token') {
       return 'EditableToken';

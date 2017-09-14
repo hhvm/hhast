@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0e5930216e6caeff6e6d6ac96cd77b3d>>
+ * @generated SignedSource<<d5d9e2246d4e63462a19581d68d26d2d>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -124,7 +124,7 @@ final class LambdaSignature extends EditableSyntax {
   }
 
   /**
-   * @returns LeftParenToken
+   * @returns LeftParenToken | Missing
    */
   public function getLeftParen(): ?LeftParenToken {
     if ($this->_left_paren->isMissing()) {
@@ -162,7 +162,7 @@ final class LambdaSignature extends EditableSyntax {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList | Missing
    */
   public function getParameters(): ?EditableList {
     if ($this->_parameters->isMissing()) {
@@ -200,7 +200,7 @@ final class LambdaSignature extends EditableSyntax {
   }
 
   /**
-   * @returns RightParenToken
+   * @returns RightParenToken | Missing
    */
   public function getRightParen(): ?RightParenToken {
     if ($this->_right_paren->isMissing()) {
@@ -238,7 +238,7 @@ final class LambdaSignature extends EditableSyntax {
   }
 
   /**
-   * @returns ColonToken
+   * @returns Missing | ColonToken
    */
   public function getColon(): ?ColonToken {
     if ($this->_colon->isMissing()) {
@@ -276,7 +276,8 @@ final class LambdaSignature extends EditableSyntax {
   }
 
   /**
-   * @returns SimpleTypeSpecifier | GenericTypeSpecifier | ClosureTypeSpecifier
+   * @returns Missing | SimpleTypeSpecifier | GenericTypeSpecifier |
+   * ClosureTypeSpecifier
    */
   public function getType(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<61f56f68b45b1537329d223ee00e3586>>
+ * @generated SignedSource<<bb40bdcec64f394b745479fc8ae0bfb0>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -140,9 +140,19 @@ final class SafeMemberSelectionExpression extends EditableSyntax {
   }
 
   /**
+   * @returns NameToken | XHPClassNameToken | Missing
+   */
+  public function getName(): ?EditableToken {
+    if ($this->_name->isMissing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+  }
+
+  /**
    * @returns NameToken | XHPClassNameToken
    */
-  public function getName(): EditableToken {
+  public function getNamex(): EditableToken {
     return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
   }
 }

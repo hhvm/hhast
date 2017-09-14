@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b1d98020cec85e5be42b74162e14e8b7>>
+ * @generated SignedSource<<618c5cab7a7a291771682d70f7590fb3>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -106,9 +106,19 @@ final class NamespaceUseClause extends EditableSyntax {
   }
 
   /**
+   * @returns Missing | FunctionToken | ConstToken
+   */
+  public function getClauseKind(): ?EditableToken {
+    if ($this->_clause_kind->isMissing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_clause_kind);
+  }
+
+  /**
    * @returns FunctionToken | ConstToken
    */
-  public function getClauseKind(): EditableToken {
+  public function getClauseKindx(): EditableToken {
     return TypeAssert::isInstanceOf(EditableToken::class, $this->_clause_kind);
   }
 
@@ -128,9 +138,19 @@ final class NamespaceUseClause extends EditableSyntax {
   }
 
   /**
+   * @returns NameToken | QualifiedNameToken | Missing
+   */
+  public function getName(): ?EditableToken {
+    if ($this->_name->isMissing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+  }
+
+  /**
    * @returns NameToken | QualifiedNameToken
    */
-  public function getName(): EditableToken {
+  public function getNamex(): EditableToken {
     return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
   }
 
@@ -150,7 +170,7 @@ final class NamespaceUseClause extends EditableSyntax {
   }
 
   /**
-   * @returns AsToken
+   * @returns Missing | AsToken
    */
   public function getAs(): ?AsToken {
     if ($this->_as->isMissing()) {
@@ -182,7 +202,7 @@ final class NamespaceUseClause extends EditableSyntax {
   }
 
   /**
-   * @returns NameToken
+   * @returns Missing | NameToken
    */
   public function getAlias(): ?NameToken {
     if ($this->_alias->isMissing()) {

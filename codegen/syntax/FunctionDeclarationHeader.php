@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d3b93c76b95dd7285523507fd4bc8af2>>
+ * @generated SignedSource<<f2bae49664581254861b5464b48f38bc>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -241,7 +241,7 @@ final class FunctionDeclarationHeader extends EditableSyntax {
   }
 
   /**
-   * @returns AsyncToken
+   * @returns Missing | AsyncToken
    */
   public function getAsync(): ?AsyncToken {
     if ($this->_async->isMissing()) {
@@ -286,10 +286,10 @@ final class FunctionDeclarationHeader extends EditableSyntax {
   }
 
   /**
-   * @returns
+   * @returns Missing
    */
-  public function getCoroutine(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_coroutine);
+  public function getCoroutine(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_coroutine);
   }
 
   public function getKeywordUNTYPED(): EditableSyntax {
@@ -321,7 +321,7 @@ final class FunctionDeclarationHeader extends EditableSyntax {
   }
 
   /**
-   * @returns FunctionToken
+   * @returns FunctionToken | Missing
    */
   public function getKeyword(): ?FunctionToken {
     if ($this->_keyword->isMissing()) {
@@ -366,7 +366,7 @@ final class FunctionDeclarationHeader extends EditableSyntax {
   }
 
   /**
-   * @returns AmpersandToken
+   * @returns Missing | AmpersandToken
    */
   public function getAmpersand(): ?AmpersandToken {
     if ($this->_ampersand->isMissing()) {
@@ -446,7 +446,7 @@ final class FunctionDeclarationHeader extends EditableSyntax {
   }
 
   /**
-   * @returns TypeParameters
+   * @returns Missing | TypeParameters
    */
   public function getTypeParameterList(): ?TypeParameters {
     if ($this->_type_parameter_list->isMissing()) {
@@ -491,7 +491,7 @@ final class FunctionDeclarationHeader extends EditableSyntax {
   }
 
   /**
-   * @returns LeftParenToken
+   * @returns LeftParenToken | Missing
    */
   public function getLeftParen(): ?LeftParenToken {
     if ($this->_left_paren->isMissing()) {
@@ -536,7 +536,7 @@ final class FunctionDeclarationHeader extends EditableSyntax {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList | Missing
    */
   public function getParameterList(): ?EditableList {
     if ($this->_parameter_list->isMissing()) {
@@ -581,7 +581,7 @@ final class FunctionDeclarationHeader extends EditableSyntax {
   }
 
   /**
-   * @returns RightParenToken
+   * @returns RightParenToken | Missing
    */
   public function getRightParen(): ?RightParenToken {
     if ($this->_right_paren->isMissing()) {
@@ -626,7 +626,7 @@ final class FunctionDeclarationHeader extends EditableSyntax {
   }
 
   /**
-   * @returns ColonToken
+   * @returns Missing | ColonToken
    */
   public function getColon(): ?ColonToken {
     if ($this->_colon->isMissing()) {
@@ -671,7 +671,7 @@ final class FunctionDeclarationHeader extends EditableSyntax {
   }
 
   /**
-   * @returns SimpleTypeSpecifier | DictionaryTypeSpecifier |
+   * @returns Missing | SimpleTypeSpecifier | DictionaryTypeSpecifier |
    * NullableTypeSpecifier | GenericTypeSpecifier | SoftTypeSpecifier |
    * MapArrayTypeSpecifier | ClosureTypeSpecifier | TupleTypeSpecifier |
    * KeysetTypeSpecifier | ShapeTypeSpecifier | VectorTypeSpecifier |
@@ -711,7 +711,7 @@ final class FunctionDeclarationHeader extends EditableSyntax {
   }
 
   /**
-   * @returns WhereClause
+   * @returns Missing | WhereClause
    */
   public function getWhereClause(): ?WhereClause {
     if ($this->_where_clause->isMissing()) {

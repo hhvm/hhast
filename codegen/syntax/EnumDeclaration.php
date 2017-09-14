@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c132dc5ce9511f5060148f9476adefd0>>
+ * @generated SignedSource<<0fe58cecdb8eeb7cea1af41760004c56>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -196,10 +196,10 @@ final class EnumDeclaration extends EditableSyntax {
   }
 
   /**
-   * @returns
+   * @returns Missing
    */
-  public function getAttributeSpec(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_attribute_spec);
+  public function getAttributeSpec(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_attribute_spec);
   }
 
   public function getKeywordUNTYPED(): EditableSyntax {
@@ -356,7 +356,7 @@ final class EnumDeclaration extends EditableSyntax {
   }
 
   /**
-   * @returns TypeConstraint
+   * @returns TypeConstraint | Missing
    */
   public function getType(): ?TypeConstraint {
     if ($this->_type->isMissing()) {
@@ -430,7 +430,7 @@ final class EnumDeclaration extends EditableSyntax {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList | Missing
    */
   public function getEnumerators(): ?EditableList {
     if ($this->_enumerators->isMissing()) {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fe745286ecce0d55c308557ff171cddf>>
+ * @generated SignedSource<<b051e7c7519c20ac059eaadf696b8634>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -170,7 +170,7 @@ final class TryStatement extends EditableSyntax {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList | Missing
    */
   public function getCatchClauses(): ?EditableList {
     if ($this->_catch_clauses->isMissing()) {
@@ -207,7 +207,7 @@ final class TryStatement extends EditableSyntax {
   }
 
   /**
-   * @returns FinallyClause
+   * @returns Missing | FinallyClause
    */
   public function getFinallyClause(): ?FinallyClause {
     if ($this->_finally_clause->isMissing()) {

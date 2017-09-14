@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<95a1d51252146cfb2d62c3960b20e7e0>>
+ * @generated SignedSource<<1414e2171d157e5667e2bfd4701f8cb3>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -141,7 +141,8 @@ final class MemberSelectionExpression extends EditableSyntax {
   }
 
   /**
-   * @returns NameToken | VariableToken | BracedExpression | XHPClassNameToken
+   * @returns NameToken | VariableToken | BracedExpression | Missing |
+   * XHPClassNameToken
    */
   public function getName(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);

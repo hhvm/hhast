@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<209c16187f971d92d52a20fcc9fafbb5>>
+ * @generated SignedSource<<34c8140be9053ebbc1f99f86ad72f2cc>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -228,10 +228,10 @@ final class ClosureTypeSpecifier extends EditableSyntax {
   }
 
   /**
-   * @returns
+   * @returns Missing
    */
-  public function getCoroutine(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_coroutine);
+  public function getCoroutine(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_coroutine);
   }
 
   public function getFunctionKeywordUNTYPED(): EditableSyntax {
@@ -324,7 +324,7 @@ final class ClosureTypeSpecifier extends EditableSyntax {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList | Missing
    */
   public function getParameterTypes(): ?EditableList {
     if ($this->_parameter_types->isMissing()) {

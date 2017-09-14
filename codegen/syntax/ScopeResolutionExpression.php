@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<32f1f8c27ab3fc0273fa8497f0be8f7b>>
+ * @generated SignedSource<<2ba1519826b167dd99f0e3e6a3e44ca1>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -141,7 +141,8 @@ final class ScopeResolutionExpression extends EditableSyntax {
   }
 
   /**
-   * @returns NameToken | VariableToken | ClassToken | PrefixUnaryExpression
+   * @returns NameToken | VariableToken | ClassToken | PrefixUnaryExpression |
+   * Missing
    */
   public function getName(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<af3d24a8111c6ffa85f00c948c47bc85>>
+ * @generated SignedSource<<70e2eaf667ade8bde019d463c11beab3>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -151,7 +151,7 @@ final class XHPClassAttribute extends EditableSyntax {
   }
 
   /**
-   * @returns SimpleInitializer
+   * @returns Missing | SimpleInitializer
    */
   public function getInitializer(): ?SimpleInitializer {
     if ($this->_initializer->isMissing()) {
@@ -183,7 +183,7 @@ final class XHPClassAttribute extends EditableSyntax {
   }
 
   /**
-   * @returns XHPRequired
+   * @returns Missing | XHPRequired
    */
   public function getRequired(): ?XHPRequired {
     if ($this->_required->isMissing()) {

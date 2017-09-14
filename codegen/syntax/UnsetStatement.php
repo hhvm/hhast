@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f88513355390ca5dc1e26bae326a3c9a>>
+ * @generated SignedSource<<16a49a617db47eeda354bc18dbecaa43>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -214,7 +214,7 @@ final class UnsetStatement extends EditableSyntax {
   }
 
   /**
-   * @returns RightParenToken
+   * @returns RightParenToken | Missing
    */
   public function getRightParen(): ?RightParenToken {
     if ($this->_right_paren->isMissing()) {
@@ -252,7 +252,7 @@ final class UnsetStatement extends EditableSyntax {
   }
 
   /**
-   * @returns SemicolonToken
+   * @returns SemicolonToken | Missing
    */
   public function getSemicolon(): ?SemicolonToken {
     if ($this->_semicolon->isMissing()) {

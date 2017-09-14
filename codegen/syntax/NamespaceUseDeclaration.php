@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8702e43f764b786fe4acfa3984bbdb98>>
+ * @generated SignedSource<<6a81d195c068ae81befdd4dcf1c647f6>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -128,9 +128,19 @@ final class NamespaceUseDeclaration extends EditableSyntax {
   }
 
   /**
+   * @returns Missing | ConstToken | FunctionToken
+   */
+  public function getKind(): ?EditableToken {
+    if ($this->_kind->isMissing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_kind);
+  }
+
+  /**
    * @returns ConstToken | FunctionToken
    */
-  public function getKind(): EditableToken {
+  public function getKindx(): EditableToken {
     return TypeAssert::isInstanceOf(EditableToken::class, $this->_kind);
   }
 
@@ -172,7 +182,7 @@ final class NamespaceUseDeclaration extends EditableSyntax {
   }
 
   /**
-   * @returns SemicolonToken
+   * @returns SemicolonToken | Missing
    */
   public function getSemicolon(): ?SemicolonToken {
     if ($this->_semicolon->isMissing()) {

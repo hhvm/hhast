@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c2c0902bc28e2ed9ef8ffa8d75deefb3>>
+ * @generated SignedSource<<021c9ed8fb33f57b18b3770fe8d8e8cc>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -185,7 +185,7 @@ final class ConditionalExpression extends EditableSyntax {
   }
 
   /**
-   * @returns LiteralExpression | SubscriptExpression |
+   * @returns LiteralExpression | SubscriptExpression | Missing |
    * ScopeResolutionExpression | VariableExpression | QualifiedNameExpression |
    * FunctionCallExpression | ArrayIntrinsicExpression |
    * ObjectCreationExpression | PrefixUnaryExpression | BinaryExpression |
@@ -218,7 +218,7 @@ final class ConditionalExpression extends EditableSyntax {
   }
 
   /**
-   * @returns ColonToken
+   * @returns ColonToken | Missing
    */
   public function getColon(): ?ColonToken {
     if ($this->_colon->isMissing()) {
@@ -261,8 +261,8 @@ final class ConditionalExpression extends EditableSyntax {
    * PrefixUnaryExpression | ObjectCreationExpression |
    * ArrayIntrinsicExpression | FunctionCallExpression | TupleExpression |
    * BinaryExpression | ParenthesizedExpression | ArrayCreationExpression |
-   * SubscriptExpression | IssetExpression | CastExpression | AnonymousFunction
-   * | LambdaExpression | MemberSelectionExpression
+   * SubscriptExpression | Missing | IssetExpression | CastExpression |
+   * AnonymousFunction | LambdaExpression | MemberSelectionExpression
    */
   public function getAlternative(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_alternative);

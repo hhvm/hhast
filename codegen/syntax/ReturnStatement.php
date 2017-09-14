@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cef87f0aa90d75026ccf1fe3a04379ec>>
+ * @generated SignedSource<<128960c84948c82de0f40f6f22f5a93a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -124,7 +124,7 @@ final class ReturnStatement extends EditableSyntax {
    * DictionaryIntrinsicExpression | ScopeResolutionExpression |
    * PrefixUnaryExpression | ParenthesizedExpression | PostfixUnaryExpression |
    * VectorIntrinsicExpression | InstanceofExpression |
-   * KeysetIntrinsicExpression | LambdaExpression | ShapeExpression |
+   * KeysetIntrinsicExpression | LambdaExpression | Missing | ShapeExpression |
    * TupleExpression | CollectionLiteralExpression |
    * SafeMemberSelectionExpression | YieldExpression | EvalExpression |
    * DarrayIntrinsicExpression | VarrayIntrinsicExpression |
@@ -150,7 +150,7 @@ final class ReturnStatement extends EditableSyntax {
   }
 
   /**
-   * @returns SemicolonToken
+   * @returns SemicolonToken | Missing
    */
   public function getSemicolon(): ?SemicolonToken {
     if ($this->_semicolon->isMissing()) {

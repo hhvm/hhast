@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<03d281605c8a77c63c3033684f0bd6b8>>
+ * @generated SignedSource<<66d0a64318ca985f3ca764a182ff69f9>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -96,12 +96,13 @@ final class ListItem extends EditableSyntax {
    * EvalExpression | VariadicParameter | NullableTypeSpecifier |
    * TupleTypeSpecifier | ClosureTypeSpecifier | XHPExpression |
    * XHPClassAttribute | FieldSpecifier | FieldInitializer | ShapeExpression |
-   * WhereConstraint | VectorArrayTypeSpecifier | AwaitableCreationExpression |
-   * DecoratedExpression | LeftBraceToken | TypeConstant | DefineExpression |
-   * VectorTypeSpecifier | VarrayIntrinsicExpression |
-   * DarrayIntrinsicExpression | XHPCategoryNameToken | ColonColonToken |
-   * SafeMemberSelectionExpression | NamespacePrefixToken | TupleExpression |
-   * SoftTypeSpecifier | TraitUseConflictResolutionItem | ShapeTypeSpecifier |
+   * WhereConstraint | Missing | VectorArrayTypeSpecifier |
+   * AwaitableCreationExpression | DecoratedExpression | LeftBraceToken |
+   * TypeConstant | DefineExpression | VectorTypeSpecifier |
+   * VarrayIntrinsicExpression | DarrayIntrinsicExpression |
+   * XHPCategoryNameToken | ColonColonToken | SafeMemberSelectionExpression |
+   * NamespacePrefixToken | TupleExpression | SoftTypeSpecifier |
+   * TraitUseConflictResolutionItem | ShapeTypeSpecifier |
    * MapArrayTypeSpecifier | ClassnameTypeSpecifier | LessThanLessThanToken |
    * NoreturnToken | XHPSimpleClassAttribute
    */
@@ -125,9 +126,19 @@ final class ListItem extends EditableSyntax {
   }
 
   /**
+   * @returns CommaToken | Missing | SemicolonToken
+   */
+  public function getSeparator(): ?EditableToken {
+    if ($this->_separator->isMissing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_separator);
+  }
+
+  /**
    * @returns CommaToken | SemicolonToken
    */
-  public function getSeparator(): EditableToken {
+  public function getSeparatorx(): EditableToken {
     return TypeAssert::isInstanceOf(EditableToken::class, $this->_separator);
   }
 }

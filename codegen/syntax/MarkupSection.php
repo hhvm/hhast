@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0ea8707d6ef2d19ca2d2f622311e87a4>>
+ * @generated SignedSource<<0d6b7124e69a328833d7d64b48d1f109>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -106,7 +106,7 @@ final class MarkupSection extends EditableSyntax {
   }
 
   /**
-   * @returns QuestionGreaterThanToken
+   * @returns Missing | QuestionGreaterThanToken
    */
   public function getPrefix(): ?QuestionGreaterThanToken {
     if ($this->_prefix->isMissing()) {
@@ -138,7 +138,7 @@ final class MarkupSection extends EditableSyntax {
   }
 
   /**
-   * @returns MarkupToken
+   * @returns MarkupToken | Missing
    */
   public function getText(): ?MarkupToken {
     if ($this->_text->isMissing()) {
@@ -170,7 +170,7 @@ final class MarkupSection extends EditableSyntax {
   }
 
   /**
-   * @returns MarkupSuffix
+   * @returns MarkupSuffix | Missing
    */
   public function getSuffix(): ?MarkupSuffix {
     if ($this->_suffix->isMissing()) {
@@ -202,7 +202,7 @@ final class MarkupSection extends EditableSyntax {
   }
 
   /**
-   * @returns ExpressionStatement
+   * @returns Missing | ExpressionStatement
    */
   public function getExpression(): ?ExpressionStatement {
     if ($this->_expression->isMissing()) {

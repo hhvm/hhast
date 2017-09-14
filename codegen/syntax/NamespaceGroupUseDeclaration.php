@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c3c67fe9abeba8b7c98291a5dd82a3a4>>
+ * @generated SignedSource<<50ce684b420c239c97d5ff1db226328a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -196,9 +196,19 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
   }
 
   /**
+   * @returns Missing | FunctionToken | ConstToken
+   */
+  public function getKind(): ?EditableToken {
+    if ($this->_kind->isMissing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_kind);
+  }
+
+  /**
    * @returns FunctionToken | ConstToken
    */
-  public function getKind(): EditableToken {
+  public function getKindx(): EditableToken {
     return TypeAssert::isInstanceOf(EditableToken::class, $this->_kind);
   }
 
@@ -316,7 +326,7 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
   }
 
   /**
-   * @returns RightBraceToken
+   * @returns RightBraceToken | Missing
    */
   public function getRightBrace(): ?RightBraceToken {
     if ($this->_right_brace->isMissing()) {
@@ -356,7 +366,7 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
   }
 
   /**
-   * @returns SemicolonToken
+   * @returns SemicolonToken | Missing
    */
   public function getSemicolon(): ?SemicolonToken {
     if ($this->_semicolon->isMissing()) {

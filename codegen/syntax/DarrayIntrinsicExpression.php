@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0bde0738a2208da0f24fb9cdf5a0ed22>>
+ * @generated SignedSource<<9ed9a9e66382bf20ff89ea8069a5ac0e>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -150,7 +150,7 @@ final class DarrayIntrinsicExpression extends EditableSyntax {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList | Missing
    */
   public function getMembers(): ?EditableList {
     if ($this->_members->isMissing()) {

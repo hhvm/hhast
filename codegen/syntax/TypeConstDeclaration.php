@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9dbd2addac36e91653b913a3df034491>>
+ * @generated SignedSource<<ef9c732da70d44479baa7395f62fcb44>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -181,7 +181,7 @@ final class TypeConstDeclaration extends EditableSyntax {
   }
 
   /**
-   * @returns AbstractToken
+   * @returns Missing | AbstractToken
    */
   public function getAbstract(): ?AbstractToken {
     if ($this->_abstract->isMissing()) {
@@ -284,7 +284,7 @@ final class TypeConstDeclaration extends EditableSyntax {
   }
 
   /**
-   * @returns NameToken
+   * @returns NameToken | Missing
    */
   public function getName(): ?NameToken {
     if ($this->_name->isMissing()) {
@@ -325,7 +325,7 @@ final class TypeConstDeclaration extends EditableSyntax {
   }
 
   /**
-   * @returns TypeConstraint
+   * @returns Missing | TypeConstraint
    */
   public function getTypeConstraint(): ?TypeConstraint {
     if ($this->_type_constraint->isMissing()) {
@@ -366,7 +366,7 @@ final class TypeConstDeclaration extends EditableSyntax {
   }
 
   /**
-   * @returns EqualToken
+   * @returns EqualToken | Missing
    */
   public function getEqual(): ?EqualToken {
     if ($this->_equal->isMissing()) {
@@ -408,7 +408,7 @@ final class TypeConstDeclaration extends EditableSyntax {
 
   /**
    * @returns DictionaryTypeSpecifier | KeysetTypeSpecifier |
-   * VectorTypeSpecifier | TypeConstant | SimpleTypeSpecifier |
+   * VectorTypeSpecifier | TypeConstant | Missing | SimpleTypeSpecifier |
    * ClosureTypeSpecifier | ShapeTypeSpecifier | NullableTypeSpecifier |
    * GenericTypeSpecifier | TupleTypeSpecifier
    */
@@ -441,7 +441,7 @@ final class TypeConstDeclaration extends EditableSyntax {
   }
 
   /**
-   * @returns SemicolonToken
+   * @returns SemicolonToken | Missing
    */
   public function getSemicolon(): ?SemicolonToken {
     if ($this->_semicolon->isMissing()) {

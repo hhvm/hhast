@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e6edfd598a960301961a1ff4e666fce2>>
+ * @generated SignedSource<<332ea2b281bc2071fefb0372d35349df>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -124,7 +124,7 @@ final class ParameterDeclaration extends EditableSyntax {
   }
 
   /**
-   * @returns AttributeSpecification
+   * @returns Missing | AttributeSpecification
    */
   public function getAttribute(): ?AttributeSpecification {
     if ($this->_attribute->isMissing()) {
@@ -162,9 +162,19 @@ final class ParameterDeclaration extends EditableSyntax {
   }
 
   /**
+   * @returns Missing | ProtectedToken | PublicToken | PrivateToken
+   */
+  public function getVisibility(): ?EditableToken {
+    if ($this->_visibility->isMissing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_visibility);
+  }
+
+  /**
    * @returns ProtectedToken | PublicToken | PrivateToken
    */
-  public function getVisibility(): EditableToken {
+  public function getVisibilityx(): EditableToken {
     return TypeAssert::isInstanceOf(EditableToken::class, $this->_visibility);
   }
 
@@ -190,7 +200,7 @@ final class ParameterDeclaration extends EditableSyntax {
   }
 
   /**
-   * @returns SimpleTypeSpecifier | NullableTypeSpecifier |
+   * @returns Missing | SimpleTypeSpecifier | NullableTypeSpecifier |
    * GenericTypeSpecifier | DictionaryTypeSpecifier | TypeConstant |
    * SoftTypeSpecifier | ClosureTypeSpecifier | TupleTypeSpecifier |
    * ClassnameTypeSpecifier | KeysetTypeSpecifier | ShapeTypeSpecifier |
@@ -223,7 +233,7 @@ final class ParameterDeclaration extends EditableSyntax {
   }
 
   /**
-   * @returns VariableToken | DecoratedExpression
+   * @returns VariableToken | DecoratedExpression | Missing
    */
   public function getName(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
@@ -251,7 +261,7 @@ final class ParameterDeclaration extends EditableSyntax {
   }
 
   /**
-   * @returns SimpleInitializer
+   * @returns Missing | SimpleInitializer
    */
   public function getDefaultValue(): ?SimpleInitializer {
     if ($this->_default_value->isMissing()) {

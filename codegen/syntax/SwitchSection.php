@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d8a8b196d4022d6209da0d52609309a2>>
+ * @generated SignedSource<<a943262d82c78fb33750f7e1e754b0a9>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -94,7 +94,7 @@ final class SwitchSection extends EditableSyntax {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList | Missing
    */
   public function getLabels(): ?EditableList {
     if ($this->_labels->isMissing()) {
@@ -126,7 +126,7 @@ final class SwitchSection extends EditableSyntax {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList | Missing
    */
   public function getStatements(): ?EditableList {
     if ($this->_statements->isMissing()) {
@@ -158,9 +158,9 @@ final class SwitchSection extends EditableSyntax {
   }
 
   /**
-   * @returns
+   * @returns Missing
    */
-  public function getFallthrough(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_fallthrough);
+  public function getFallthrough(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_fallthrough);
   }
 }

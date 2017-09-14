@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8f876aa5416dfb96350b06179b341c74>>
+ * @generated SignedSource<<5599e753f18f74bd648c82da72871576>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -260,7 +260,7 @@ final class ForStatement extends EditableSyntax {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList | Missing
    */
   public function getInitializer(): ?EditableList {
     if ($this->_initializer->isMissing()) {
@@ -334,7 +334,7 @@ final class ForStatement extends EditableSyntax {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList | Missing
    */
   public function getControl(): ?EditableList {
     if ($this->_control->isMissing()) {
@@ -408,7 +408,7 @@ final class ForStatement extends EditableSyntax {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList | Missing
    */
   public function getEndOfLoop(): ?EditableList {
     if ($this->_end_of_loop->isMissing()) {

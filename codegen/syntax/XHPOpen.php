@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<491df328320e785d77c1ae670ca093ac>>
+ * @generated SignedSource<<b7c6cb0dc294cceaddf31267b127a833>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -150,7 +150,7 @@ final class XHPOpen extends EditableSyntax {
   }
 
   /**
-   * @returns EditableList
+   * @returns Missing | EditableList
    */
   public function getAttributes(): ?EditableList {
     if ($this->_attributes->isMissing()) {
@@ -182,9 +182,19 @@ final class XHPOpen extends EditableSyntax {
   }
 
   /**
+   * @returns SlashGreaterThanToken | Missing | GreaterThanToken
+   */
+  public function getRightAngle(): ?EditableToken {
+    if ($this->_right_angle->isMissing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_right_angle);
+  }
+
+  /**
    * @returns SlashGreaterThanToken | GreaterThanToken
    */
-  public function getRightAngle(): EditableToken {
+  public function getRightAnglex(): EditableToken {
     return TypeAssert::isInstanceOf(EditableToken::class, $this->_right_angle);
   }
 }

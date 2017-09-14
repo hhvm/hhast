@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<102a6b55a5e63c711982a272978e17c5>>
+ * @generated SignedSource<<3a1c6ecad0ab784eabfcdce4be5656ab>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -116,7 +116,7 @@ final class ContinueStatement extends EditableSyntax {
   }
 
   /**
-   * @returns LiteralExpression | VariableExpression
+   * @returns Missing | LiteralExpression | VariableExpression
    */
   public function getLevel(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_level);

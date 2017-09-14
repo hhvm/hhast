@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4e4aabff3d10a2e2334647450b23bf38>>
+ * @generated SignedSource<<2df7e4b19d81f89b9420b6befee4e631>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -260,7 +260,7 @@ final class IfStatement extends EditableSyntax {
   }
 
   /**
-   * @returns RightParenToken
+   * @returns RightParenToken | Missing
    */
   public function getRightParen(): ?RightParenToken {
     if ($this->_right_paren->isMissing()) {
@@ -332,7 +332,7 @@ final class IfStatement extends EditableSyntax {
   }
 
   /**
-   * @returns EditableList
+   * @returns Missing | EditableList
    */
   public function getElseifClauses(): ?EditableList {
     if ($this->_elseif_clauses->isMissing()) {
@@ -372,7 +372,7 @@ final class IfStatement extends EditableSyntax {
   }
 
   /**
-   * @returns ElseClause
+   * @returns ElseClause | Missing
    */
   public function getElseClause(): ?ElseClause {
     if ($this->_else_clause->isMissing()) {

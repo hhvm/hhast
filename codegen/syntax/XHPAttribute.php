@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<123b5401ba9eef75516e5c6d2d63e63c>>
+ * @generated SignedSource<<ccf8bc202dd9b3c16b3b3c38dfcc952f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -116,7 +116,7 @@ final class XHPAttribute extends EditableSyntax {
   }
 
   /**
-   * @returns EqualToken
+   * @returns EqualToken | Missing
    */
   public function getEqual(): ?EqualToken {
     if ($this->_equal->isMissing()) {
@@ -148,7 +148,7 @@ final class XHPAttribute extends EditableSyntax {
   }
 
   /**
-   * @returns XHPStringLiteralToken | BracedExpression
+   * @returns XHPStringLiteralToken | BracedExpression | Missing
    */
   public function getExpression(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);

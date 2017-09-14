@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ae215f24d11f2b9d9b6e54c9c5db21e8>>
+ * @generated SignedSource<<55ff031d8a85576f440262dc98a9bf8e>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -231,7 +231,7 @@ final class CatchClause extends EditableSyntax {
   }
 
   /**
-   * @returns VariableToken
+   * @returns VariableToken | Missing
    */
   public function getVariable(): ?VariableToken {
     if ($this->_variable->isMissing()) {
@@ -270,7 +270,7 @@ final class CatchClause extends EditableSyntax {
   }
 
   /**
-   * @returns RightParenToken
+   * @returns RightParenToken | Missing
    */
   public function getRightParen(): ?RightParenToken {
     if ($this->_right_paren->isMissing()) {

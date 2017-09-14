@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7b19663fd313d5b2b2540f4dea8842dc>>
+ * @generated SignedSource<<4c79b5307563711f34bda6d457c6ae70>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -158,7 +158,7 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
   }
 
   /**
-   * @returns LessThanToken
+   * @returns Missing | LessThanToken
    */
   public function getLeftAngle(): ?LessThanToken {
     if ($this->_left_angle->isMissing()) {
@@ -224,10 +224,10 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
   }
 
   /**
-   * @returns
+   * @returns Missing
    */
-  public function getTrailingComma(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_trailing_comma);
+  public function getTrailingComma(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_trailing_comma);
   }
 
   public function getRightAngleUNTYPED(): EditableSyntax {
@@ -252,7 +252,7 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
   }
 
   /**
-   * @returns GreaterThanToken
+   * @returns Missing | GreaterThanToken
    */
   public function getRightAngle(): ?GreaterThanToken {
     if ($this->_right_angle->isMissing()) {

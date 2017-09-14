@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<87c4297871e91cf46e3958c06aa7f2a9>>
+ * @generated SignedSource<<47f7602f6d91f887532f673e76d9b450>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -150,7 +150,7 @@ final class ShapeExpression extends EditableSyntax {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList | Missing
    */
   public function getFields(): ?EditableList {
     if ($this->_fields->isMissing()) {

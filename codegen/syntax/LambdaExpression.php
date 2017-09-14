@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cb497557b56b0c4a7ce4cfc333bc5742>>
+ * @generated SignedSource<<76a0ae8a9b617c03b61d4b37a51bb57e>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -124,7 +124,7 @@ final class LambdaExpression extends EditableSyntax {
   }
 
   /**
-   * @returns AsyncToken
+   * @returns Missing | AsyncToken
    */
   public function getAsync(): ?AsyncToken {
     if ($this->_async->isMissing()) {
@@ -156,10 +156,10 @@ final class LambdaExpression extends EditableSyntax {
   }
 
   /**
-   * @returns
+   * @returns Missing
    */
-  public function getCoroutine(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_coroutine);
+  public function getCoroutine(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_coroutine);
   }
 
   public function getSignatureUNTYPED(): EditableSyntax {
@@ -206,7 +206,7 @@ final class LambdaExpression extends EditableSyntax {
   }
 
   /**
-   * @returns EqualEqualGreaterThanToken
+   * @returns EqualEqualGreaterThanToken | Missing
    */
   public function getArrow(): ?EqualEqualGreaterThanToken {
     if ($this->_arrow->isMissing()) {
@@ -249,7 +249,7 @@ final class LambdaExpression extends EditableSyntax {
    * PrefixUnaryExpression | LambdaExpression | LiteralExpression |
    * ConditionalExpression | SubscriptExpression | CastExpression |
    * ParenthesizedExpression | ArrayIntrinsicExpression |
-   * ObjectCreationExpression | TupleExpression
+   * ObjectCreationExpression | Missing | TupleExpression
    */
   public function getBody(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_body);

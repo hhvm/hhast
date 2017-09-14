@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<391e15913d1336d5b91641527d14c694>>
+ * @generated SignedSource<<f6ec6d9fe35d61633e2239b7d8efd724>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -83,17 +83,18 @@ final class ExpressionStatement extends EditableSyntax {
 
   /**
    * @returns BinaryExpression | FunctionCallExpression | PrefixUnaryExpression
-   * | YieldExpression | PostfixUnaryExpression | ObjectCreationExpression |
-   * InclusionExpression | DefineExpression | SubscriptExpression |
-   * VariableExpression | ScopeResolutionExpression | IssetExpression |
-   * EmptyExpression | EvalExpression | QualifiedNameExpression |
-   * RightBraceToken | ParenthesizedExpression | LiteralExpression |
-   * MemberSelectionExpression | XHPExpression | CollectionLiteralExpression |
-   * AnonymousFunction | LambdaExpression | ColonToken | CommaToken |
-   * RightParenToken | EqualGreaterThanToken | ConditionalExpression |
-   * SafeMemberSelectionExpression | TupleExpression | RightBracketToken |
-   * ArrayIntrinsicExpression | EqualEqualEqualToken | SlashToken |
-   * DarrayIntrinsicExpression | VarrayIntrinsicExpression | DotDotDotToken
+   * | YieldExpression | PostfixUnaryExpression | Missing |
+   * ObjectCreationExpression | InclusionExpression | DefineExpression |
+   * SubscriptExpression | VariableExpression | ScopeResolutionExpression |
+   * IssetExpression | EmptyExpression | EvalExpression |
+   * QualifiedNameExpression | RightBraceToken | ParenthesizedExpression |
+   * LiteralExpression | MemberSelectionExpression | XHPExpression |
+   * CollectionLiteralExpression | AnonymousFunction | LambdaExpression |
+   * ColonToken | CommaToken | RightParenToken | EqualGreaterThanToken |
+   * ConditionalExpression | SafeMemberSelectionExpression | TupleExpression |
+   * RightBracketToken | ArrayIntrinsicExpression | EqualEqualEqualToken |
+   * SlashToken | DarrayIntrinsicExpression | VarrayIntrinsicExpression |
+   * DotDotDotToken
    */
   public function getExpression(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
@@ -115,7 +116,7 @@ final class ExpressionStatement extends EditableSyntax {
   }
 
   /**
-   * @returns SemicolonToken
+   * @returns SemicolonToken | Missing
    */
   public function getSemicolon(): ?SemicolonToken {
     if ($this->_semicolon->isMissing()) {

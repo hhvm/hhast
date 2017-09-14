@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<adf6408ce98cc12344ab90aa11f0bfed>>
+ * @generated SignedSource<<69c1c26e9f7ff219e2bc8336b94bf0ef>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -315,7 +315,7 @@ final class ForeachStatement extends EditableSyntax {
   }
 
   /**
-   * @returns AwaitToken
+   * @returns Missing | AwaitToken
    */
   public function getAwaitKeyword(): ?AwaitToken {
     if ($this->_await_keyword->isMissing()) {
@@ -391,8 +391,8 @@ final class ForeachStatement extends EditableSyntax {
   }
 
   /**
-   * @returns VariableExpression | ListExpression | PrefixUnaryExpression |
-   * SubscriptExpression | MemberSelectionExpression |
+   * @returns Missing | VariableExpression | ListExpression |
+   * PrefixUnaryExpression | SubscriptExpression | MemberSelectionExpression |
    * ScopeResolutionExpression | FunctionCallExpression
    */
   public function getKey(): EditableSyntax {
@@ -426,7 +426,7 @@ final class ForeachStatement extends EditableSyntax {
   }
 
   /**
-   * @returns EqualGreaterThanToken
+   * @returns Missing | EqualGreaterThanToken
    */
   public function getArrow(): ?EqualGreaterThanToken {
     if ($this->_arrow->isMissing()) {

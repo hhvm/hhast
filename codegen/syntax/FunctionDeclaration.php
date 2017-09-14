@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a2c2378bdcfe530075690d222f044112>>
+ * @generated SignedSource<<14a67a70ae99e8a9576185608c14ea23>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -94,7 +94,7 @@ final class FunctionDeclaration extends EditableSyntax {
   }
 
   /**
-   * @returns AttributeSpecification
+   * @returns Missing | AttributeSpecification
    */
   public function getAttributeSpec(): ?AttributeSpecification {
     if ($this->_attribute_spec->isMissing()) {

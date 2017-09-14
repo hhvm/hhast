@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fe17716d1b9ebcdaa53a26a4c9e55668>>
+ * @generated SignedSource<<e96b164dabcc3d05c67f71bea9f01b4a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -106,7 +106,7 @@ final class FieldSpecifier extends EditableSyntax {
   }
 
   /**
-   * @returns QuestionToken
+   * @returns Missing | QuestionToken
    */
   public function getQuestion(): ?QuestionToken {
     if ($this->_question->isMissing()) {

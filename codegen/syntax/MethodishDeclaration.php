@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c97d24fb3699174a2700b3e54aad3e10>>
+ * @generated SignedSource<<c91bd4582f3888be0994d9c74c8e31d2>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -136,7 +136,7 @@ final class MethodishDeclaration extends EditableSyntax {
   }
 
   /**
-   * @returns AttributeSpecification
+   * @returns Missing | AttributeSpecification
    */
   public function getAttribute(): ?AttributeSpecification {
     if ($this->_attribute->isMissing()) {
@@ -174,7 +174,7 @@ final class MethodishDeclaration extends EditableSyntax {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList | Missing
    */
   public function getModifiers(): ?EditableList {
     if ($this->_modifiers->isMissing()) {
@@ -240,7 +240,7 @@ final class MethodishDeclaration extends EditableSyntax {
   }
 
   /**
-   * @returns CompoundStatement
+   * @returns CompoundStatement | Missing
    */
   public function getFunctionBody(): ?CompoundStatement {
     if ($this->_function_body->isMissing()) {
@@ -278,7 +278,7 @@ final class MethodishDeclaration extends EditableSyntax {
   }
 
   /**
-   * @returns SemicolonToken
+   * @returns Missing | SemicolonToken
    */
   public function getSemicolon(): ?SemicolonToken {
     if ($this->_semicolon->isMissing()) {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<47e1bdf313dc9b3b18e61b77a6e573f8>>
+ * @generated SignedSource<<47ea7bacab0cf26249f5c4b07aa7def7>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -208,7 +208,7 @@ final class TraitUseConflictResolution extends EditableSyntax {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList | Missing
    */
   public function getClauses(): ?EditableList {
     if ($this->_clauses->isMissing()) {

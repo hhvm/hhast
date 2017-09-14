@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dbd1f450f9e25ddbf1dbeec88148c5bc>>
+ * @generated SignedSource<<6f529427c17a535b1efe380ff6247619>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -116,10 +116,21 @@ final class NamespaceDeclaration extends EditableSyntax {
   }
 
   /**
+   * @returns NameToken | QualifiedNameToken | Missing | DictToken |
+   * KeysetToken | VecToken
+   */
+  public function getName(): ?EditableToken {
+    if ($this->_name->isMissing()) {
+      return null;
+    }
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+  }
+
+  /**
    * @returns NameToken | QualifiedNameToken | DictToken | KeysetToken |
    * VecToken
    */
-  public function getName(): EditableToken {
+  public function getNamex(): EditableToken {
     return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
   }
 

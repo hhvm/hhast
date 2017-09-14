@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2c70f2f74cd3fe8219efd8d336f0b86c>>
+ * @generated SignedSource<<e5d7f6323ef1616e5de3f8db1176504f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -283,7 +283,7 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
   }
 
   /**
-   * @returns GreaterThanToken
+   * @returns GreaterThanToken | Missing
    */
   public function getRightAngle(): ?GreaterThanToken {
     if ($this->_right_angle->isMissing()) {

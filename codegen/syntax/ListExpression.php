@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e57a99c41acc80fe231c46f9103f2c21>>
+ * @generated SignedSource<<b071d058c8d6eaa9b229c9ab69f2b360>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -150,7 +150,7 @@ final class ListExpression extends EditableSyntax {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList | Missing
    */
   public function getMembers(): ?EditableList {
     if ($this->_members->isMissing()) {

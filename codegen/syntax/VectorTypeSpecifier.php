@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fca60148cde14649b298e86bea8aa555>>
+ * @generated SignedSource<<d0aa569cf76378b2a67b4912767c9cb4>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -214,10 +214,10 @@ final class VectorTypeSpecifier extends EditableSyntax {
   }
 
   /**
-   * @returns
+   * @returns Missing
    */
-  public function getTrailingComma(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_trailing_comma);
+  public function getTrailingComma(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_trailing_comma);
   }
 
   public function getRightAngleUNTYPED(): EditableSyntax {

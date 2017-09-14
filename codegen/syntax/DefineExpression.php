@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dda15e72b39744a7972878e53d84fc26>>
+ * @generated SignedSource<<9b04260f5c5bd352bf1f53e70d346b9b>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -155,7 +155,7 @@ final class DefineExpression extends EditableSyntax {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList | Missing
    */
   public function getArgumentList(): ?EditableList {
     if ($this->_argument_list->isMissing()) {

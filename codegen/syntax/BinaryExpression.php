@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7fb2549cc5e2f73e2bcfdd713ad31b11>>
+ * @generated SignedSource<<d7ccdd72e1cff4ac093551e3fa595a4a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -169,10 +169,11 @@ final class BinaryExpression extends EditableSyntax {
    * ArrayCreationExpression | ScopeResolutionExpression |
    * QualifiedNameExpression | YieldExpression | IssetExpression |
    * EmptyExpression | EvalExpression | PostfixUnaryExpression |
-   * InclusionExpression | LambdaExpression | ShapeExpression | XHPExpression |
-   * AwaitableCreationExpression | InstanceofExpression | LeftBraceToken |
-   * CommaToken | TupleExpression | SafeMemberSelectionExpression |
-   * PipeVariableExpression | EndOfFileToken | QuestionToken
+   * InclusionExpression | LambdaExpression | ShapeExpression | Missing |
+   * XHPExpression | AwaitableCreationExpression | InstanceofExpression |
+   * LeftBraceToken | CommaToken | TupleExpression |
+   * SafeMemberSelectionExpression | PipeVariableExpression | EndOfFileToken |
+   * QuestionToken
    */
   public function getRightOperand(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_operand);

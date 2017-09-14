@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3d49d53d3b8a2e65a7b6bacbc774ed1e>>
+ * @generated SignedSource<<cd0e3fb3cca47b4c64475fd7b6668d58>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -181,7 +181,7 @@ final class AliasDeclaration extends EditableSyntax {
   }
 
   /**
-   * @returns AttributeSpecification
+   * @returns Missing | AttributeSpecification
    */
   public function getAttributeSpec(): ?AttributeSpecification {
     if ($this->_attribute_spec->isMissing()) {
@@ -253,7 +253,7 @@ final class AliasDeclaration extends EditableSyntax {
   }
 
   /**
-   * @returns NameToken
+   * @returns NameToken | Missing
    */
   public function getName(): ?NameToken {
     if ($this->_name->isMissing()) {
@@ -294,7 +294,7 @@ final class AliasDeclaration extends EditableSyntax {
   }
 
   /**
-   * @returns TypeParameters
+   * @returns Missing | TypeParameters
    */
   public function getGenericParameter(): ?TypeParameters {
     if ($this->_generic_parameter->isMissing()) {
@@ -335,7 +335,7 @@ final class AliasDeclaration extends EditableSyntax {
   }
 
   /**
-   * @returns TypeConstraint
+   * @returns Missing | TypeConstraint
    */
   public function getConstraint(): ?TypeConstraint {
     if ($this->_constraint->isMissing()) {
@@ -376,7 +376,7 @@ final class AliasDeclaration extends EditableSyntax {
   }
 
   /**
-   * @returns EqualToken
+   * @returns EqualToken | Missing
    */
   public function getEqual(): ?EqualToken {
     if ($this->_equal->isMissing()) {

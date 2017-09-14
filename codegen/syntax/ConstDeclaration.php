@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9779d880625004e0bf1692382eec3842>>
+ * @generated SignedSource<<fbfbd9b590a16c2f7024ec0889af9657>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -130,7 +130,7 @@ final class ConstDeclaration extends EditableSyntax {
   }
 
   /**
-   * @returns AbstractToken
+   * @returns Missing | AbstractToken
    */
   public function getAbstract(): ?AbstractToken {
     if ($this->_abstract->isMissing()) {
@@ -196,8 +196,8 @@ final class ConstDeclaration extends EditableSyntax {
   }
 
   /**
-   * @returns SimpleTypeSpecifier | GenericTypeSpecifier | TypeConstant |
-   * ClassnameTypeSpecifier | NullableTypeSpecifier
+   * @returns Missing | SimpleTypeSpecifier | GenericTypeSpecifier |
+   * TypeConstant | ClassnameTypeSpecifier | NullableTypeSpecifier
    */
   public function getTypeSpecifier(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type_specifier);

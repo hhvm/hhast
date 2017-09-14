@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<29a2bbb731e781d60a7a8808db234d14>>
+ * @generated SignedSource<<633e2810b8dcc59f0562e5b07beef6ea>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -150,7 +150,7 @@ final class KeysetIntrinsicExpression extends EditableSyntax {
   }
 
   /**
-   * @returns EditableList
+   * @returns Missing | EditableList
    */
   public function getMembers(): ?EditableList {
     if ($this->_members->isMissing()) {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1a920dacbcda9f8b481427edaee9cdac>>
+ * @generated SignedSource<<470da33820139fa000139c16a7e31267>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -316,10 +316,10 @@ final class DarrayTypeSpecifier extends EditableSyntax {
   }
 
   /**
-   * @returns
+   * @returns Missing
    */
-  public function getTrailingComma(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_trailing_comma);
+  public function getTrailingComma(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_trailing_comma);
   }
 
   public function getRightAngleUNTYPED(): EditableSyntax {

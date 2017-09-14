@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6a0247385854f81b3227cd8752533c85>>
+ * @generated SignedSource<<72bf2468a1dbde07d9b32df248b2c3dd>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -226,7 +226,7 @@ final class AnonymousFunction extends EditableSyntax {
   }
 
   /**
-   * @returns StaticToken
+   * @returns Missing | StaticToken
    */
   public function getStaticKeyword(): ?StaticToken {
     if ($this->_static_keyword->isMissing()) {
@@ -270,7 +270,7 @@ final class AnonymousFunction extends EditableSyntax {
   }
 
   /**
-   * @returns AsyncToken
+   * @returns Missing | AsyncToken
    */
   public function getAsyncKeyword(): ?AsyncToken {
     if ($this->_async_keyword->isMissing()) {
@@ -314,10 +314,10 @@ final class AnonymousFunction extends EditableSyntax {
   }
 
   /**
-   * @returns
+   * @returns Missing
    */
-  public function getCoroutineKeyword(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_coroutine_keyword);
+  public function getCoroutineKeyword(): EditableSyntax {
+    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_coroutine_keyword);
   }
 
   public function getFunctionKeywordUNTYPED(): EditableSyntax {
@@ -382,7 +382,7 @@ final class AnonymousFunction extends EditableSyntax {
   }
 
   /**
-   * @returns LeftParenToken
+   * @returns LeftParenToken | Missing
    */
   public function getLeftParen(): ?LeftParenToken {
     if ($this->_left_paren->isMissing()) {
@@ -426,7 +426,7 @@ final class AnonymousFunction extends EditableSyntax {
   }
 
   /**
-   * @returns EditableList
+   * @returns Missing | EditableList
    */
   public function getParameters(): ?EditableList {
     if ($this->_parameters->isMissing()) {
@@ -470,7 +470,7 @@ final class AnonymousFunction extends EditableSyntax {
   }
 
   /**
-   * @returns RightParenToken
+   * @returns RightParenToken | Missing
    */
   public function getRightParen(): ?RightParenToken {
     if ($this->_right_paren->isMissing()) {
@@ -514,7 +514,7 @@ final class AnonymousFunction extends EditableSyntax {
   }
 
   /**
-   * @returns ColonToken
+   * @returns Missing | ColonToken
    */
   public function getColon(): ?ColonToken {
     if ($this->_colon->isMissing()) {
@@ -558,9 +558,9 @@ final class AnonymousFunction extends EditableSyntax {
   }
 
   /**
-   * @returns GenericTypeSpecifier | SoftTypeSpecifier | SimpleTypeSpecifier |
-   * NullableTypeSpecifier | TupleTypeSpecifier | ClosureTypeSpecifier |
-   * MapArrayTypeSpecifier | VectorArrayTypeSpecifier
+   * @returns Missing | GenericTypeSpecifier | SoftTypeSpecifier |
+   * SimpleTypeSpecifier | NullableTypeSpecifier | TupleTypeSpecifier |
+   * ClosureTypeSpecifier | MapArrayTypeSpecifier | VectorArrayTypeSpecifier
    */
   public function getType(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
@@ -594,7 +594,7 @@ final class AnonymousFunction extends EditableSyntax {
   }
 
   /**
-   * @returns AnonymousFunctionUseClause
+   * @returns Missing | AnonymousFunctionUseClause
    */
   public function getUse(): ?AnonymousFunctionUseClause {
     if ($this->_use->isMissing()) {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c17280378042717558fd0654be2d04d7>>
+ * @generated SignedSource<<713e5891d39ec19fe21ce845e0e99102>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -128,7 +128,7 @@ final class PropertyDeclaration extends EditableSyntax {
   }
 
   /**
-   * @returns NullableTypeSpecifier | GenericTypeSpecifier |
+   * @returns Missing | NullableTypeSpecifier | GenericTypeSpecifier |
    * SimpleTypeSpecifier | TypeConstant | DictionaryTypeSpecifier |
    * MapArrayTypeSpecifier | VectorArrayTypeSpecifier | SoftTypeSpecifier |
    * TupleTypeSpecifier | ClosureTypeSpecifier
@@ -175,7 +175,7 @@ final class PropertyDeclaration extends EditableSyntax {
   }
 
   /**
-   * @returns SemicolonToken
+   * @returns SemicolonToken | Missing
    */
   public function getSemicolon(): ?SemicolonToken {
     if ($this->_semicolon->isMissing()) {
