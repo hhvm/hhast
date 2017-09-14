@@ -23,6 +23,10 @@ class LintError {
     return $this->linter->getFile();
   }
 
+  public function getPosition(): ?(int, int) {
+    return null;
+  }
+
   public function getDescription(): string {
     return $this->description;
   }

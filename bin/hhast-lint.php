@@ -96,13 +96,16 @@ final class LinterCLI {
 
     foreach ($errors as $error) {
       $had_errors = true;
+      $position = $error->getPosition();
       printf(
         "%s%s%s\n".
-        "  File: %s\n",
+        "  Location: %s\n",
         posix_isatty(STDOUT) ? "\e[1;31m" : '',
         $error->getDescription(),
         posix_isatty(STDOUT) ? "\e[0m" : '',
-        $error->getFile(),
+        $position === null
+          ? $error->getFile()
+          : sprintf('%s:%s:%s', $error->getFile(), $position[0], $position[1]),
       );
       if ($error instanceof Linters\FixableLintError && $error->isFixable()) {
         if (self::shouldFixLint($error)) {

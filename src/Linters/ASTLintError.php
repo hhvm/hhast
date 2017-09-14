@@ -13,6 +13,7 @@
 namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\EditableSyntax;
+use function Facebook\HHAST\find_position;
 
 class ASTLintError<
   Tnode as EditableSyntax,
@@ -30,6 +31,10 @@ class ASTLintError<
 
   final public function getBlameNode(): Tnode {
     return $this->node;
+  }
+
+  final public function getPosition(): (int, int) {
+    return find_position($this->linter->getAST(), $this->getBlameNode());
   }
 
   <<__Override>>
