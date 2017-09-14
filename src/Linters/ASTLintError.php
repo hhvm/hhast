@@ -33,6 +33,7 @@ class ASTLintError<
     return $this->node;
   }
 
+  <<__Override>>
   final public function getPosition(): (int, int) {
     return find_position($this->linter->getAST(), $this->getBlameNode());
   }
