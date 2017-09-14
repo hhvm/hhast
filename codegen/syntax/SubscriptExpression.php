@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d7a25ba619ac7b0e47eb610a5c341662>>
+ * @generated SignedSource<<c2d82f69f7669823472abf4818d62025>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -105,6 +105,14 @@ final class SubscriptExpression extends EditableSyntax {
     return !$this->_receiver->isMissing();
   }
 
+  /**
+   * @returns VariableExpression | FunctionCallExpression | SubscriptExpression
+   * | MemberSelectionExpression | ScopeResolutionExpression |
+   * ParenthesizedExpression | ArrayIntrinsicExpression | RightParenToken |
+   * QualifiedNameExpression | PrefixUnaryExpression | LiteralExpression |
+   * SafeMemberSelectionExpression | NamespacePrefixToken |
+   * ArrayCreationExpression | ObjectCreationExpression
+   */
   public function getReceiver(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_receiver);
   }
@@ -124,8 +132,11 @@ final class SubscriptExpression extends EditableSyntax {
     return !$this->_left_bracket->isMissing();
   }
 
-  public function getLeftBracket(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_bracket);
+  /**
+   * @returns LeftBracketToken | LeftBraceToken
+   */
+  public function getLeftBracket(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_left_bracket);
   }
 
   public function getIndexUNTYPED(): EditableSyntax {
@@ -143,6 +154,15 @@ final class SubscriptExpression extends EditableSyntax {
     return !$this->_index->isMissing();
   }
 
+  /**
+   * @returns LiteralExpression | VariableExpression | FunctionCallExpression |
+   * QualifiedNameExpression | ScopeResolutionExpression | BinaryExpression |
+   * PrefixUnaryExpression | CastExpression | ObjectCreationExpression |
+   * MemberSelectionExpression | PostfixUnaryExpression | SubscriptExpression |
+   * ArrayIntrinsicExpression | SafeMemberSelectionExpression |
+   * AnonymousFunction | YieldExpression | LambdaExpression | EvalExpression |
+   * ParenthesizedExpression
+   */
   public function getIndex(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_index);
   }
@@ -162,7 +182,10 @@ final class SubscriptExpression extends EditableSyntax {
     return !$this->_right_bracket->isMissing();
   }
 
-  public function getRightBracket(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_bracket);
+  /**
+   * @returns RightBracketToken | RightBraceToken
+   */
+  public function getRightBracket(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_right_bracket);
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<774bccc193ebdcbc32ca6a9073d26a8d>>
+ * @generated SignedSource<<873c002ce6ecb56f9e6933348288b743>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -93,6 +93,9 @@ final class GlobalStatement extends EditableSyntax {
     return !$this->_keyword->isMissing();
   }
 
+  /**
+   * @returns GlobalToken
+   */
   public function getKeyword(): GlobalToken {
     return TypeAssert::isInstanceOf(GlobalToken::class, $this->_keyword);
   }
@@ -112,6 +115,9 @@ final class GlobalStatement extends EditableSyntax {
     return !$this->_variables->isMissing();
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getVariables(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_variables);
   }
@@ -131,6 +137,9 @@ final class GlobalStatement extends EditableSyntax {
     return !$this->_semicolon->isMissing();
   }
 
+  /**
+   * @returns SemicolonToken
+   */
   public function getSemicolon(): SemicolonToken {
     return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }

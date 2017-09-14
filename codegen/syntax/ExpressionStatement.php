@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<674c55ee53e7f61fc648fb80215ac273>>
+ * @generated SignedSource<<391e15913d1336d5b91641527d14c694>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -81,6 +81,20 @@ final class ExpressionStatement extends EditableSyntax {
     return !$this->_expression->isMissing();
   }
 
+  /**
+   * @returns BinaryExpression | FunctionCallExpression | PrefixUnaryExpression
+   * | YieldExpression | PostfixUnaryExpression | ObjectCreationExpression |
+   * InclusionExpression | DefineExpression | SubscriptExpression |
+   * VariableExpression | ScopeResolutionExpression | IssetExpression |
+   * EmptyExpression | EvalExpression | QualifiedNameExpression |
+   * RightBraceToken | ParenthesizedExpression | LiteralExpression |
+   * MemberSelectionExpression | XHPExpression | CollectionLiteralExpression |
+   * AnonymousFunction | LambdaExpression | ColonToken | CommaToken |
+   * RightParenToken | EqualGreaterThanToken | ConditionalExpression |
+   * SafeMemberSelectionExpression | TupleExpression | RightBracketToken |
+   * ArrayIntrinsicExpression | EqualEqualEqualToken | SlashToken |
+   * DarrayIntrinsicExpression | VarrayIntrinsicExpression | DotDotDotToken
+   */
   public function getExpression(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
   }
@@ -100,6 +114,9 @@ final class ExpressionStatement extends EditableSyntax {
     return !$this->_semicolon->isMissing();
   }
 
+  /**
+   * @returns SemicolonToken
+   */
   public function getSemicolon(): ?SemicolonToken {
     if ($this->_semicolon->isMissing()) {
       return null;
@@ -107,6 +124,9 @@ final class ExpressionStatement extends EditableSyntax {
     return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 
+  /**
+   * @returns SemicolonToken
+   */
   public function getSemicolonx(): SemicolonToken {
     return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }

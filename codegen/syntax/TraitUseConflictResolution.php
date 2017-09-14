@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<38f347abbc8f486f92a833e24bce3f5f>>
+ * @generated SignedSource<<47e1bdf313dc9b3b18e61b77a6e573f8>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -123,6 +123,9 @@ final class TraitUseConflictResolution extends EditableSyntax {
     return !$this->_keyword->isMissing();
   }
 
+  /**
+   * @returns UseToken
+   */
   public function getKeyword(): UseToken {
     return TypeAssert::isInstanceOf(UseToken::class, $this->_keyword);
   }
@@ -148,6 +151,9 @@ final class TraitUseConflictResolution extends EditableSyntax {
     return !$this->_names->isMissing();
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getNames(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_names);
   }
@@ -173,6 +179,9 @@ final class TraitUseConflictResolution extends EditableSyntax {
     return !$this->_left_brace->isMissing();
   }
 
+  /**
+   * @returns LeftBraceToken
+   */
   public function getLeftBrace(): LeftBraceToken {
     return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
   }
@@ -198,6 +207,9 @@ final class TraitUseConflictResolution extends EditableSyntax {
     return !$this->_clauses->isMissing();
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getClauses(): ?EditableList {
     if ($this->_clauses->isMissing()) {
       return null;
@@ -205,6 +217,9 @@ final class TraitUseConflictResolution extends EditableSyntax {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_clauses);
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getClausesx(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_clauses);
   }
@@ -230,6 +245,9 @@ final class TraitUseConflictResolution extends EditableSyntax {
     return !$this->_right_brace->isMissing();
   }
 
+  /**
+   * @returns RightBraceToken
+   */
   public function getRightBrace(): RightBraceToken {
     return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }

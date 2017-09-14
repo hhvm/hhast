@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bb6bafbf4bc3c14166adece562debfca>>
+ * @generated SignedSource<<075d8f3954ba046855d8a0dd19360e6c>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -105,6 +105,9 @@ final class DictionaryIntrinsicExpression extends EditableSyntax {
     return !$this->_keyword->isMissing();
   }
 
+  /**
+   * @returns DictToken
+   */
   public function getKeyword(): DictToken {
     return TypeAssert::isInstanceOf(DictToken::class, $this->_keyword);
   }
@@ -124,6 +127,9 @@ final class DictionaryIntrinsicExpression extends EditableSyntax {
     return !$this->_left_bracket->isMissing();
   }
 
+  /**
+   * @returns LeftBracketToken
+   */
   public function getLeftBracket(): LeftBracketToken {
     return TypeAssert::isInstanceOf(LeftBracketToken::class, $this->_left_bracket);
   }
@@ -143,6 +149,9 @@ final class DictionaryIntrinsicExpression extends EditableSyntax {
     return !$this->_members->isMissing();
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getMembers(): ?EditableList {
     if ($this->_members->isMissing()) {
       return null;
@@ -150,6 +159,9 @@ final class DictionaryIntrinsicExpression extends EditableSyntax {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getMembersx(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
   }
@@ -169,6 +181,9 @@ final class DictionaryIntrinsicExpression extends EditableSyntax {
     return !$this->_right_bracket->isMissing();
   }
 
+  /**
+   * @returns RightBracketToken
+   */
   public function getRightBracket(): RightBracketToken {
     return TypeAssert::isInstanceOf(RightBracketToken::class, $this->_right_bracket);
   }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3762cecd685aba48a4bf406aae697f49>>
+ * @generated SignedSource<<c132dc5ce9511f5060148f9476adefd0>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -195,8 +195,11 @@ final class EnumDeclaration extends EditableSyntax {
     return !$this->_attribute_spec->isMissing();
   }
 
-  public function getAttributeSpec(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_attribute_spec);
+  /**
+   * @returns
+   */
+  public function getAttributeSpec(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_attribute_spec);
   }
 
   public function getKeywordUNTYPED(): EditableSyntax {
@@ -224,6 +227,9 @@ final class EnumDeclaration extends EditableSyntax {
     return !$this->_keyword->isMissing();
   }
 
+  /**
+   * @returns EnumToken
+   */
   public function getKeyword(): EnumToken {
     return TypeAssert::isInstanceOf(EnumToken::class, $this->_keyword);
   }
@@ -253,6 +259,9 @@ final class EnumDeclaration extends EditableSyntax {
     return !$this->_name->isMissing();
   }
 
+  /**
+   * @returns NameToken
+   */
   public function getName(): NameToken {
     return TypeAssert::isInstanceOf(NameToken::class, $this->_name);
   }
@@ -282,6 +291,9 @@ final class EnumDeclaration extends EditableSyntax {
     return !$this->_colon->isMissing();
   }
 
+  /**
+   * @returns ColonToken
+   */
   public function getColon(): ColonToken {
     return TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
   }
@@ -311,6 +323,9 @@ final class EnumDeclaration extends EditableSyntax {
     return !$this->_base->isMissing();
   }
 
+  /**
+   * @returns SimpleTypeSpecifier | ClassnameTypeSpecifier
+   */
   public function getBase(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_base);
   }
@@ -340,6 +355,9 @@ final class EnumDeclaration extends EditableSyntax {
     return !$this->_type->isMissing();
   }
 
+  /**
+   * @returns TypeConstraint
+   */
   public function getType(): ?TypeConstraint {
     if ($this->_type->isMissing()) {
       return null;
@@ -347,6 +365,9 @@ final class EnumDeclaration extends EditableSyntax {
     return TypeAssert::isInstanceOf(TypeConstraint::class, $this->_type);
   }
 
+  /**
+   * @returns TypeConstraint
+   */
   public function getTypex(): TypeConstraint {
     return TypeAssert::isInstanceOf(TypeConstraint::class, $this->_type);
   }
@@ -376,6 +397,9 @@ final class EnumDeclaration extends EditableSyntax {
     return !$this->_left_brace->isMissing();
   }
 
+  /**
+   * @returns LeftBraceToken
+   */
   public function getLeftBrace(): LeftBraceToken {
     return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
   }
@@ -405,6 +429,9 @@ final class EnumDeclaration extends EditableSyntax {
     return !$this->_enumerators->isMissing();
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getEnumerators(): ?EditableList {
     if ($this->_enumerators->isMissing()) {
       return null;
@@ -412,6 +439,9 @@ final class EnumDeclaration extends EditableSyntax {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_enumerators);
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getEnumeratorsx(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_enumerators);
   }
@@ -441,6 +471,9 @@ final class EnumDeclaration extends EditableSyntax {
     return !$this->_right_brace->isMissing();
   }
 
+  /**
+   * @returns RightBraceToken
+   */
   public function getRightBrace(): RightBraceToken {
     return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }

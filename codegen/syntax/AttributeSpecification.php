@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<66e40d7404310cb60825cbb0ba1a9866>>
+ * @generated SignedSource<<55671900fa457739d8ba311710ed76c0>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -93,6 +93,9 @@ final class AttributeSpecification extends EditableSyntax {
     return !$this->_left_double_angle->isMissing();
   }
 
+  /**
+   * @returns LessThanLessThanToken
+   */
   public function getLeftDoubleAngle(): LessThanLessThanToken {
     return TypeAssert::isInstanceOf(LessThanLessThanToken::class, $this->_left_double_angle);
   }
@@ -112,6 +115,9 @@ final class AttributeSpecification extends EditableSyntax {
     return !$this->_attributes->isMissing();
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getAttributes(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_attributes);
   }
@@ -131,6 +137,9 @@ final class AttributeSpecification extends EditableSyntax {
     return !$this->_right_double_angle->isMissing();
   }
 
+  /**
+   * @returns GreaterThanGreaterThanToken
+   */
   public function getRightDoubleAngle(): GreaterThanGreaterThanToken {
     return TypeAssert::isInstanceOf(GreaterThanGreaterThanToken::class, $this->_right_double_angle);
   }

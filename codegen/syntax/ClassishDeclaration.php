@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<223f8a2a1226cdc17a3cf780f459d9ad>>
+ * @generated SignedSource<<e6c8191fa37a98bde2417b7ada8e5843>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -210,6 +210,9 @@ final class ClassishDeclaration extends EditableSyntax {
     return !$this->_attribute->isMissing();
   }
 
+  /**
+   * @returns AttributeSpecification
+   */
   public function getAttribute(): ?AttributeSpecification {
     if ($this->_attribute->isMissing()) {
       return null;
@@ -217,6 +220,9 @@ final class ClassishDeclaration extends EditableSyntax {
     return TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute);
   }
 
+  /**
+   * @returns AttributeSpecification
+   */
   public function getAttributex(): AttributeSpecification {
     return TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute);
   }
@@ -247,6 +253,9 @@ final class ClassishDeclaration extends EditableSyntax {
     return !$this->_modifiers->isMissing();
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getModifiers(): ?EditableList {
     if ($this->_modifiers->isMissing()) {
       return null;
@@ -254,6 +263,9 @@ final class ClassishDeclaration extends EditableSyntax {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_modifiers);
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getModifiersx(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_modifiers);
   }
@@ -284,8 +296,11 @@ final class ClassishDeclaration extends EditableSyntax {
     return !$this->_keyword->isMissing();
   }
 
-  public function getKeyword(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_keyword);
+  /**
+   * @returns ClassToken | TraitToken | InterfaceToken
+   */
+  public function getKeyword(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_keyword);
   }
 
   public function getNameUNTYPED(): EditableSyntax {
@@ -314,8 +329,11 @@ final class ClassishDeclaration extends EditableSyntax {
     return !$this->_name->isMissing();
   }
 
-  public function getName(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
+  /**
+   * @returns NameToken | XHPClassNameToken
+   */
+  public function getName(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
   }
 
   public function getTypeParametersUNTYPED(): EditableSyntax {
@@ -344,6 +362,9 @@ final class ClassishDeclaration extends EditableSyntax {
     return !$this->_type_parameters->isMissing();
   }
 
+  /**
+   * @returns TypeParameters
+   */
   public function getTypeParameters(): ?TypeParameters {
     if ($this->_type_parameters->isMissing()) {
       return null;
@@ -351,6 +372,9 @@ final class ClassishDeclaration extends EditableSyntax {
     return TypeAssert::isInstanceOf(TypeParameters::class, $this->_type_parameters);
   }
 
+  /**
+   * @returns TypeParameters
+   */
   public function getTypeParametersx(): TypeParameters {
     return TypeAssert::isInstanceOf(TypeParameters::class, $this->_type_parameters);
   }
@@ -381,6 +405,9 @@ final class ClassishDeclaration extends EditableSyntax {
     return !$this->_extends_keyword->isMissing();
   }
 
+  /**
+   * @returns ExtendsToken
+   */
   public function getExtendsKeyword(): ?ExtendsToken {
     if ($this->_extends_keyword->isMissing()) {
       return null;
@@ -388,6 +415,9 @@ final class ClassishDeclaration extends EditableSyntax {
     return TypeAssert::isInstanceOf(ExtendsToken::class, $this->_extends_keyword);
   }
 
+  /**
+   * @returns ExtendsToken
+   */
   public function getExtendsKeywordx(): ExtendsToken {
     return TypeAssert::isInstanceOf(ExtendsToken::class, $this->_extends_keyword);
   }
@@ -418,6 +448,9 @@ final class ClassishDeclaration extends EditableSyntax {
     return !$this->_extends_list->isMissing();
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getExtendsList(): ?EditableList {
     if ($this->_extends_list->isMissing()) {
       return null;
@@ -425,6 +458,9 @@ final class ClassishDeclaration extends EditableSyntax {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_extends_list);
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getExtendsListx(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_extends_list);
   }
@@ -455,6 +491,9 @@ final class ClassishDeclaration extends EditableSyntax {
     return !$this->_implements_keyword->isMissing();
   }
 
+  /**
+   * @returns ImplementsToken
+   */
   public function getImplementsKeyword(): ?ImplementsToken {
     if ($this->_implements_keyword->isMissing()) {
       return null;
@@ -462,6 +501,9 @@ final class ClassishDeclaration extends EditableSyntax {
     return TypeAssert::isInstanceOf(ImplementsToken::class, $this->_implements_keyword);
   }
 
+  /**
+   * @returns ImplementsToken
+   */
   public function getImplementsKeywordx(): ImplementsToken {
     return TypeAssert::isInstanceOf(ImplementsToken::class, $this->_implements_keyword);
   }
@@ -492,6 +534,9 @@ final class ClassishDeclaration extends EditableSyntax {
     return !$this->_implements_list->isMissing();
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getImplementsList(): ?EditableList {
     if ($this->_implements_list->isMissing()) {
       return null;
@@ -499,6 +544,9 @@ final class ClassishDeclaration extends EditableSyntax {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_implements_list);
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getImplementsListx(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_implements_list);
   }
@@ -529,6 +577,9 @@ final class ClassishDeclaration extends EditableSyntax {
     return !$this->_body->isMissing();
   }
 
+  /**
+   * @returns ClassishBody
+   */
   public function getBody(): ClassishBody {
     return TypeAssert::isInstanceOf(ClassishBody::class, $this->_body);
   }

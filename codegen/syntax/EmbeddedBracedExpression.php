@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b075cbcbe2a59e0e8e4c47c613c79296>>
+ * @generated SignedSource<<fbc884296b748d7b91cb1406978f99b0>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -93,6 +93,9 @@ final class EmbeddedBracedExpression extends EditableSyntax {
     return !$this->_left_brace->isMissing();
   }
 
+  /**
+   * @returns unknown
+   */
   public function getLeftBrace(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_brace);
   }
@@ -112,6 +115,9 @@ final class EmbeddedBracedExpression extends EditableSyntax {
     return !$this->_expression->isMissing();
   }
 
+  /**
+   * @returns unknown
+   */
   public function getExpression(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
   }
@@ -131,6 +137,9 @@ final class EmbeddedBracedExpression extends EditableSyntax {
     return !$this->_right_brace->isMissing();
   }
 
+  /**
+   * @returns unknown
+   */
   public function getRightBrace(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_brace);
   }

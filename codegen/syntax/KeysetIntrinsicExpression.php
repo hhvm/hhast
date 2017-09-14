@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2e3f0cc02df679e29a817978143a4316>>
+ * @generated SignedSource<<29a2bbb731e781d60a7a8808db234d14>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -105,6 +105,9 @@ final class KeysetIntrinsicExpression extends EditableSyntax {
     return !$this->_keyword->isMissing();
   }
 
+  /**
+   * @returns KeysetToken
+   */
   public function getKeyword(): KeysetToken {
     return TypeAssert::isInstanceOf(KeysetToken::class, $this->_keyword);
   }
@@ -124,6 +127,9 @@ final class KeysetIntrinsicExpression extends EditableSyntax {
     return !$this->_left_bracket->isMissing();
   }
 
+  /**
+   * @returns LeftBracketToken
+   */
   public function getLeftBracket(): LeftBracketToken {
     return TypeAssert::isInstanceOf(LeftBracketToken::class, $this->_left_bracket);
   }
@@ -143,6 +149,9 @@ final class KeysetIntrinsicExpression extends EditableSyntax {
     return !$this->_members->isMissing();
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getMembers(): ?EditableList {
     if ($this->_members->isMissing()) {
       return null;
@@ -150,6 +159,9 @@ final class KeysetIntrinsicExpression extends EditableSyntax {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getMembersx(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
   }
@@ -169,6 +181,9 @@ final class KeysetIntrinsicExpression extends EditableSyntax {
     return !$this->_right_bracket->isMissing();
   }
 
+  /**
+   * @returns RightBracketToken
+   */
   public function getRightBracket(): RightBracketToken {
     return TypeAssert::isInstanceOf(RightBracketToken::class, $this->_right_bracket);
   }

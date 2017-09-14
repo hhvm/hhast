@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d9aa71ec9b2f8c8e605951d7e7b70829>>
+ * @generated SignedSource<<fe17716d1b9ebcdaa53a26a4c9e55668>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -105,6 +105,9 @@ final class FieldSpecifier extends EditableSyntax {
     return !$this->_question->isMissing();
   }
 
+  /**
+   * @returns QuestionToken
+   */
   public function getQuestion(): ?QuestionToken {
     if ($this->_question->isMissing()) {
       return null;
@@ -112,6 +115,9 @@ final class FieldSpecifier extends EditableSyntax {
     return TypeAssert::isInstanceOf(QuestionToken::class, $this->_question);
   }
 
+  /**
+   * @returns QuestionToken
+   */
   public function getQuestionx(): QuestionToken {
     return TypeAssert::isInstanceOf(QuestionToken::class, $this->_question);
   }
@@ -131,6 +137,9 @@ final class FieldSpecifier extends EditableSyntax {
     return !$this->_name->isMissing();
   }
 
+  /**
+   * @returns LiteralExpression | ScopeResolutionExpression
+   */
   public function getName(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }
@@ -150,6 +159,9 @@ final class FieldSpecifier extends EditableSyntax {
     return !$this->_arrow->isMissing();
   }
 
+  /**
+   * @returns EqualGreaterThanToken
+   */
   public function getArrow(): EqualGreaterThanToken {
     return TypeAssert::isInstanceOf(EqualGreaterThanToken::class, $this->_arrow);
   }
@@ -169,6 +181,10 @@ final class FieldSpecifier extends EditableSyntax {
     return !$this->_type->isMissing();
   }
 
+  /**
+   * @returns SimpleTypeSpecifier | NullableTypeSpecifier |
+   * GenericTypeSpecifier | TypeConstant | ShapeTypeSpecifier
+   */
   public function getType(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }

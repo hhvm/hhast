@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b84c187db0cdca79511b1f5cf57f1911>>
+ * @generated SignedSource<<556ffebfdcc342625d4fd7bc1791e3a1>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -136,6 +136,9 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     return !$this->_keyword->isMissing();
   }
 
+  /**
+   * @returns ArrayToken
+   */
   public function getKeyword(): ArrayToken {
     return TypeAssert::isInstanceOf(ArrayToken::class, $this->_keyword);
   }
@@ -162,6 +165,9 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     return !$this->_left_angle->isMissing();
   }
 
+  /**
+   * @returns LessThanToken
+   */
   public function getLeftAngle(): LessThanToken {
     return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
   }
@@ -188,6 +194,9 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     return !$this->_key->isMissing();
   }
 
+  /**
+   * @returns SimpleTypeSpecifier
+   */
   public function getKey(): SimpleTypeSpecifier {
     return TypeAssert::isInstanceOf(SimpleTypeSpecifier::class, $this->_key);
   }
@@ -214,6 +223,9 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     return !$this->_comma->isMissing();
   }
 
+  /**
+   * @returns CommaToken
+   */
   public function getComma(): CommaToken {
     return TypeAssert::isInstanceOf(CommaToken::class, $this->_comma);
   }
@@ -240,6 +252,10 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     return !$this->_value->isMissing();
   }
 
+  /**
+   * @returns SimpleTypeSpecifier | ErrorSyntax | GenericTypeSpecifier |
+   * NullableTypeSpecifier | SoftTypeSpecifier
+   */
   public function getValue(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_value);
   }
@@ -266,6 +282,9 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     return !$this->_right_angle->isMissing();
   }
 
+  /**
+   * @returns GreaterThanToken
+   */
   public function getRightAngle(): ?GreaterThanToken {
     if ($this->_right_angle->isMissing()) {
       return null;
@@ -273,6 +292,9 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }
 
+  /**
+   * @returns GreaterThanToken
+   */
   public function getRightAnglex(): GreaterThanToken {
     return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<41f9f1ae2fdf0b05fffe4ab8021e7d51>>
+ * @generated SignedSource<<3096aebd48585e3cb17136e8518fc0af>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -105,6 +105,9 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
     return !$this->_keyword->isMissing();
   }
 
+  /**
+   * @returns VarrayToken
+   */
   public function getKeyword(): VarrayToken {
     return TypeAssert::isInstanceOf(VarrayToken::class, $this->_keyword);
   }
@@ -124,6 +127,9 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
     return !$this->_left_bracket->isMissing();
   }
 
+  /**
+   * @returns LeftBracketToken
+   */
   public function getLeftBracket(): LeftBracketToken {
     return TypeAssert::isInstanceOf(LeftBracketToken::class, $this->_left_bracket);
   }
@@ -143,6 +149,9 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
     return !$this->_members->isMissing();
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getMembers(): ?EditableList {
     if ($this->_members->isMissing()) {
       return null;
@@ -150,6 +159,9 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getMembersx(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
   }
@@ -169,6 +181,9 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
     return !$this->_right_bracket->isMissing();
   }
 
+  /**
+   * @returns RightBracketToken
+   */
   public function getRightBracket(): RightBracketToken {
     return TypeAssert::isInstanceOf(RightBracketToken::class, $this->_right_bracket);
   }

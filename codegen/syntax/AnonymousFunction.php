@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<abe077a5a1584cf933883ffb3fd6d1be>>
+ * @generated SignedSource<<6a0247385854f81b3227cd8752533c85>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -225,6 +225,9 @@ final class AnonymousFunction extends EditableSyntax {
     return !$this->_static_keyword->isMissing();
   }
 
+  /**
+   * @returns StaticToken
+   */
   public function getStaticKeyword(): ?StaticToken {
     if ($this->_static_keyword->isMissing()) {
       return null;
@@ -232,6 +235,9 @@ final class AnonymousFunction extends EditableSyntax {
     return TypeAssert::isInstanceOf(StaticToken::class, $this->_static_keyword);
   }
 
+  /**
+   * @returns StaticToken
+   */
   public function getStaticKeywordx(): StaticToken {
     return TypeAssert::isInstanceOf(StaticToken::class, $this->_static_keyword);
   }
@@ -263,6 +269,9 @@ final class AnonymousFunction extends EditableSyntax {
     return !$this->_async_keyword->isMissing();
   }
 
+  /**
+   * @returns AsyncToken
+   */
   public function getAsyncKeyword(): ?AsyncToken {
     if ($this->_async_keyword->isMissing()) {
       return null;
@@ -270,6 +279,9 @@ final class AnonymousFunction extends EditableSyntax {
     return TypeAssert::isInstanceOf(AsyncToken::class, $this->_async_keyword);
   }
 
+  /**
+   * @returns AsyncToken
+   */
   public function getAsyncKeywordx(): AsyncToken {
     return TypeAssert::isInstanceOf(AsyncToken::class, $this->_async_keyword);
   }
@@ -301,8 +313,11 @@ final class AnonymousFunction extends EditableSyntax {
     return !$this->_coroutine_keyword->isMissing();
   }
 
-  public function getCoroutineKeyword(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_coroutine_keyword);
+  /**
+   * @returns
+   */
+  public function getCoroutineKeyword(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_coroutine_keyword);
   }
 
   public function getFunctionKeywordUNTYPED(): EditableSyntax {
@@ -332,6 +347,9 @@ final class AnonymousFunction extends EditableSyntax {
     return !$this->_function_keyword->isMissing();
   }
 
+  /**
+   * @returns FunctionToken
+   */
   public function getFunctionKeyword(): FunctionToken {
     return TypeAssert::isInstanceOf(FunctionToken::class, $this->_function_keyword);
   }
@@ -363,6 +381,9 @@ final class AnonymousFunction extends EditableSyntax {
     return !$this->_left_paren->isMissing();
   }
 
+  /**
+   * @returns LeftParenToken
+   */
   public function getLeftParen(): ?LeftParenToken {
     if ($this->_left_paren->isMissing()) {
       return null;
@@ -370,6 +391,9 @@ final class AnonymousFunction extends EditableSyntax {
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
 
+  /**
+   * @returns LeftParenToken
+   */
   public function getLeftParenx(): LeftParenToken {
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
@@ -401,6 +425,9 @@ final class AnonymousFunction extends EditableSyntax {
     return !$this->_parameters->isMissing();
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getParameters(): ?EditableList {
     if ($this->_parameters->isMissing()) {
       return null;
@@ -408,6 +435,9 @@ final class AnonymousFunction extends EditableSyntax {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_parameters);
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getParametersx(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_parameters);
   }
@@ -439,6 +469,9 @@ final class AnonymousFunction extends EditableSyntax {
     return !$this->_right_paren->isMissing();
   }
 
+  /**
+   * @returns RightParenToken
+   */
   public function getRightParen(): ?RightParenToken {
     if ($this->_right_paren->isMissing()) {
       return null;
@@ -446,6 +479,9 @@ final class AnonymousFunction extends EditableSyntax {
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
+  /**
+   * @returns RightParenToken
+   */
   public function getRightParenx(): RightParenToken {
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
@@ -477,6 +513,9 @@ final class AnonymousFunction extends EditableSyntax {
     return !$this->_colon->isMissing();
   }
 
+  /**
+   * @returns ColonToken
+   */
   public function getColon(): ?ColonToken {
     if ($this->_colon->isMissing()) {
       return null;
@@ -484,6 +523,9 @@ final class AnonymousFunction extends EditableSyntax {
     return TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
   }
 
+  /**
+   * @returns ColonToken
+   */
   public function getColonx(): ColonToken {
     return TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
   }
@@ -515,6 +557,11 @@ final class AnonymousFunction extends EditableSyntax {
     return !$this->_type->isMissing();
   }
 
+  /**
+   * @returns GenericTypeSpecifier | SoftTypeSpecifier | SimpleTypeSpecifier |
+   * NullableTypeSpecifier | TupleTypeSpecifier | ClosureTypeSpecifier |
+   * MapArrayTypeSpecifier | VectorArrayTypeSpecifier
+   */
   public function getType(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
@@ -546,6 +593,9 @@ final class AnonymousFunction extends EditableSyntax {
     return !$this->_use->isMissing();
   }
 
+  /**
+   * @returns AnonymousFunctionUseClause
+   */
   public function getUse(): ?AnonymousFunctionUseClause {
     if ($this->_use->isMissing()) {
       return null;
@@ -553,6 +603,9 @@ final class AnonymousFunction extends EditableSyntax {
     return TypeAssert::isInstanceOf(AnonymousFunctionUseClause::class, $this->_use);
   }
 
+  /**
+   * @returns AnonymousFunctionUseClause
+   */
   public function getUsex(): AnonymousFunctionUseClause {
     return TypeAssert::isInstanceOf(AnonymousFunctionUseClause::class, $this->_use);
   }
@@ -584,6 +637,9 @@ final class AnonymousFunction extends EditableSyntax {
     return !$this->_body->isMissing();
   }
 
+  /**
+   * @returns CompoundStatement
+   */
   public function getBody(): CompoundStatement {
     return TypeAssert::isInstanceOf(CompoundStatement::class, $this->_body);
   }

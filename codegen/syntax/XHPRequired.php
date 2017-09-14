@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2c56c81d46dd8bbb2e38f11a10e96647>>
+ * @generated SignedSource<<fc1c432dfd00ad3f34da3ef55fb2aa25>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -78,6 +78,9 @@ final class XHPRequired extends EditableSyntax {
     return !$this->_at->isMissing();
   }
 
+  /**
+   * @returns AtToken
+   */
   public function getAt(): AtToken {
     return TypeAssert::isInstanceOf(AtToken::class, $this->_at);
   }
@@ -97,6 +100,9 @@ final class XHPRequired extends EditableSyntax {
     return !$this->_keyword->isMissing();
   }
 
+  /**
+   * @returns RequiredToken
+   */
   public function getKeyword(): RequiredToken {
     return TypeAssert::isInstanceOf(RequiredToken::class, $this->_keyword);
   }

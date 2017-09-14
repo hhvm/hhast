@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<47320b67b0ed3c5b1aa7d792f64e0d74>>
+ * @generated SignedSource<<f88513355390ca5dc1e26bae326a3c9a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -129,6 +129,9 @@ final class UnsetStatement extends EditableSyntax {
     return !$this->_keyword->isMissing();
   }
 
+  /**
+   * @returns UnsetToken
+   */
   public function getKeyword(): UnsetToken {
     return TypeAssert::isInstanceOf(UnsetToken::class, $this->_keyword);
   }
@@ -154,6 +157,9 @@ final class UnsetStatement extends EditableSyntax {
     return !$this->_left_paren->isMissing();
   }
 
+  /**
+   * @returns LeftParenToken
+   */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
@@ -179,6 +185,9 @@ final class UnsetStatement extends EditableSyntax {
     return !$this->_variables->isMissing();
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getVariables(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_variables);
   }
@@ -204,6 +213,9 @@ final class UnsetStatement extends EditableSyntax {
     return !$this->_right_paren->isMissing();
   }
 
+  /**
+   * @returns RightParenToken
+   */
   public function getRightParen(): ?RightParenToken {
     if ($this->_right_paren->isMissing()) {
       return null;
@@ -211,6 +223,9 @@ final class UnsetStatement extends EditableSyntax {
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
+  /**
+   * @returns RightParenToken
+   */
   public function getRightParenx(): RightParenToken {
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
@@ -236,6 +251,9 @@ final class UnsetStatement extends EditableSyntax {
     return !$this->_semicolon->isMissing();
   }
 
+  /**
+   * @returns SemicolonToken
+   */
   public function getSemicolon(): ?SemicolonToken {
     if ($this->_semicolon->isMissing()) {
       return null;
@@ -243,6 +261,9 @@ final class UnsetStatement extends EditableSyntax {
     return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 
+  /**
+   * @returns SemicolonToken
+   */
   public function getSemicolonx(): SemicolonToken {
     return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<586e2d8f0ee5ca24c145f2fad2d03edc>>
+ * @generated SignedSource<<f9c92dafc6ff5dd2b08feca7a2133847>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -67,7 +67,14 @@ final class SimpleTypeSpecifier extends EditableSyntax {
     return !$this->_specifier->isMissing();
   }
 
-  public function getSpecifier(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_specifier);
+  /**
+   * @returns NameToken | ArrayToken | VoidToken | IntToken | StringToken |
+   * QualifiedNameToken | BoolToken | DoubleToken | FloatToken | DictToken |
+   * MixedToken | ArraykeyToken | VecToken | KeysetToken | SelfToken |
+   * ResourceToken | XHPClassNameToken | ThisToken | ParentToken | NumToken |
+   * VarrayToken | DarrayToken | NoreturnToken
+   */
+  public function getSpecifier(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_specifier);
   }
 }

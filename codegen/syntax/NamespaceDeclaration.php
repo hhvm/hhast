@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<265508b6729a10721895a7b2b12f0f8e>>
+ * @generated SignedSource<<dbd1f450f9e25ddbf1dbeec88148c5bc>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -93,6 +93,9 @@ final class NamespaceDeclaration extends EditableSyntax {
     return !$this->_keyword->isMissing();
   }
 
+  /**
+   * @returns NamespaceToken
+   */
   public function getKeyword(): NamespaceToken {
     return TypeAssert::isInstanceOf(NamespaceToken::class, $this->_keyword);
   }
@@ -112,8 +115,12 @@ final class NamespaceDeclaration extends EditableSyntax {
     return !$this->_name->isMissing();
   }
 
-  public function getName(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
+  /**
+   * @returns NameToken | QualifiedNameToken | DictToken | KeysetToken |
+   * VecToken
+   */
+  public function getName(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
   }
 
   public function getBodyUNTYPED(): EditableSyntax {
@@ -131,6 +138,9 @@ final class NamespaceDeclaration extends EditableSyntax {
     return !$this->_body->isMissing();
   }
 
+  /**
+   * @returns NamespaceBody | NamespaceEmptyBody
+   */
   public function getBody(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_body);
   }

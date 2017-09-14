@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eaeb681939cb343717fc024011be86b1>>
+ * @generated SignedSource<<5c55281ea1c4452aeb52834e60811434>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -93,8 +93,11 @@ final class TypeParameter extends EditableSyntax {
     return !$this->_variance->isMissing();
   }
 
-  public function getVariance(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_variance);
+  /**
+   * @returns PlusToken | MinusToken
+   */
+  public function getVariance(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_variance);
   }
 
   public function getNameUNTYPED(): EditableSyntax {
@@ -112,6 +115,9 @@ final class TypeParameter extends EditableSyntax {
     return !$this->_name->isMissing();
   }
 
+  /**
+   * @returns NameToken
+   */
   public function getName(): NameToken {
     return TypeAssert::isInstanceOf(NameToken::class, $this->_name);
   }
@@ -131,6 +137,9 @@ final class TypeParameter extends EditableSyntax {
     return !$this->_constraints->isMissing();
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getConstraints(): ?EditableList {
     if ($this->_constraints->isMissing()) {
       return null;
@@ -138,6 +147,9 @@ final class TypeParameter extends EditableSyntax {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_constraints);
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getConstraintsx(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_constraints);
   }

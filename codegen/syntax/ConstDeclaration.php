@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<15860d1c8cf16737e567c0ae1d5fb2ea>>
+ * @generated SignedSource<<9779d880625004e0bf1692382eec3842>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -129,6 +129,9 @@ final class ConstDeclaration extends EditableSyntax {
     return !$this->_abstract->isMissing();
   }
 
+  /**
+   * @returns AbstractToken
+   */
   public function getAbstract(): ?AbstractToken {
     if ($this->_abstract->isMissing()) {
       return null;
@@ -136,6 +139,9 @@ final class ConstDeclaration extends EditableSyntax {
     return TypeAssert::isInstanceOf(AbstractToken::class, $this->_abstract);
   }
 
+  /**
+   * @returns AbstractToken
+   */
   public function getAbstractx(): AbstractToken {
     return TypeAssert::isInstanceOf(AbstractToken::class, $this->_abstract);
   }
@@ -161,6 +167,9 @@ final class ConstDeclaration extends EditableSyntax {
     return !$this->_keyword->isMissing();
   }
 
+  /**
+   * @returns ConstToken
+   */
   public function getKeyword(): ConstToken {
     return TypeAssert::isInstanceOf(ConstToken::class, $this->_keyword);
   }
@@ -186,6 +195,10 @@ final class ConstDeclaration extends EditableSyntax {
     return !$this->_type_specifier->isMissing();
   }
 
+  /**
+   * @returns SimpleTypeSpecifier | GenericTypeSpecifier | TypeConstant |
+   * ClassnameTypeSpecifier | NullableTypeSpecifier
+   */
   public function getTypeSpecifier(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type_specifier);
   }
@@ -211,6 +224,9 @@ final class ConstDeclaration extends EditableSyntax {
     return !$this->_declarators->isMissing();
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getDeclarators(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_declarators);
   }
@@ -236,6 +252,9 @@ final class ConstDeclaration extends EditableSyntax {
     return !$this->_semicolon->isMissing();
   }
 
+  /**
+   * @returns SemicolonToken
+   */
   public function getSemicolon(): SemicolonToken {
     return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }

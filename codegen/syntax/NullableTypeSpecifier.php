@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<acb82816ab06b163096935033e7802bd>>
+ * @generated SignedSource<<edba7e41d19190bc69ad6729c69b2d29>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -78,6 +78,9 @@ final class NullableTypeSpecifier extends EditableSyntax {
     return !$this->_question->isMissing();
   }
 
+  /**
+   * @returns QuestionToken
+   */
   public function getQuestion(): QuestionToken {
     return TypeAssert::isInstanceOf(QuestionToken::class, $this->_question);
   }
@@ -97,6 +100,12 @@ final class NullableTypeSpecifier extends EditableSyntax {
     return !$this->_type->isMissing();
   }
 
+  /**
+   * @returns SimpleTypeSpecifier | GenericTypeSpecifier | TupleTypeSpecifier |
+   * MapArrayTypeSpecifier | DictionaryTypeSpecifier | ShapeTypeSpecifier |
+   * TypeConstant | ClosureTypeSpecifier | VectorArrayTypeSpecifier |
+   * KeysetTypeSpecifier | VectorTypeSpecifier
+   */
   public function getType(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }

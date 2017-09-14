@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b4c4eb08f1c4652468243eb17668e25f>>
+ * @generated SignedSource<<19d28e1d758849befff63de78d489fc9>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -165,6 +165,9 @@ final class DoStatement extends EditableSyntax {
     return !$this->_keyword->isMissing();
   }
 
+  /**
+   * @returns DoToken
+   */
   public function getKeyword(): DoToken {
     return TypeAssert::isInstanceOf(DoToken::class, $this->_keyword);
   }
@@ -192,6 +195,9 @@ final class DoStatement extends EditableSyntax {
     return !$this->_body->isMissing();
   }
 
+  /**
+   * @returns CompoundStatement | ExpressionStatement
+   */
   public function getBody(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_body);
   }
@@ -219,6 +225,9 @@ final class DoStatement extends EditableSyntax {
     return !$this->_while_keyword->isMissing();
   }
 
+  /**
+   * @returns WhileToken
+   */
   public function getWhileKeyword(): WhileToken {
     return TypeAssert::isInstanceOf(WhileToken::class, $this->_while_keyword);
   }
@@ -246,6 +255,9 @@ final class DoStatement extends EditableSyntax {
     return !$this->_left_paren->isMissing();
   }
 
+  /**
+   * @returns LeftParenToken
+   */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
@@ -273,6 +285,10 @@ final class DoStatement extends EditableSyntax {
     return !$this->_condition->isMissing();
   }
 
+  /**
+   * @returns LiteralExpression | BinaryExpression | VariableExpression |
+   * FunctionCallExpression | PrefixUnaryExpression | SubscriptExpression
+   */
   public function getCondition(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_condition);
   }
@@ -300,6 +316,9 @@ final class DoStatement extends EditableSyntax {
     return !$this->_right_paren->isMissing();
   }
 
+  /**
+   * @returns RightParenToken
+   */
   public function getRightParen(): RightParenToken {
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
@@ -327,6 +346,9 @@ final class DoStatement extends EditableSyntax {
     return !$this->_semicolon->isMissing();
   }
 
+  /**
+   * @returns SemicolonToken
+   */
   public function getSemicolon(): SemicolonToken {
     return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }

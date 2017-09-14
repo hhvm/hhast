@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0b349eb924cba686e4382de015fbb11b>>
+ * @generated SignedSource<<c2c0902bc28e2ed9ef8ffa8d75deefb3>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -123,6 +123,14 @@ final class ConditionalExpression extends EditableSyntax {
     return !$this->_test->isMissing();
   }
 
+  /**
+   * @returns ParenthesizedExpression | IssetExpression | VariableExpression |
+   * FunctionCallExpression | EmptyExpression | QualifiedNameExpression |
+   * BinaryExpression | LiteralExpression | MemberSelectionExpression |
+   * SubscriptExpression | PostfixUnaryExpression | ScopeResolutionExpression |
+   * ConditionalExpression | PrefixUnaryExpression | InstanceofExpression |
+   * LessThanToken | ColonToken
+   */
   public function getTest(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_test);
   }
@@ -148,6 +156,9 @@ final class ConditionalExpression extends EditableSyntax {
     return !$this->_question->isMissing();
   }
 
+  /**
+   * @returns QuestionToken
+   */
   public function getQuestion(): QuestionToken {
     return TypeAssert::isInstanceOf(QuestionToken::class, $this->_question);
   }
@@ -173,6 +184,14 @@ final class ConditionalExpression extends EditableSyntax {
     return !$this->_consequence->isMissing();
   }
 
+  /**
+   * @returns LiteralExpression | SubscriptExpression |
+   * ScopeResolutionExpression | VariableExpression | QualifiedNameExpression |
+   * FunctionCallExpression | ArrayIntrinsicExpression |
+   * ObjectCreationExpression | PrefixUnaryExpression | BinaryExpression |
+   * ParenthesizedExpression | CastExpression | CollectionLiteralExpression |
+   * MemberSelectionExpression | ArrayCreationExpression | LambdaExpression
+   */
   public function getConsequence(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_consequence);
   }
@@ -198,6 +217,9 @@ final class ConditionalExpression extends EditableSyntax {
     return !$this->_colon->isMissing();
   }
 
+  /**
+   * @returns ColonToken
+   */
   public function getColon(): ?ColonToken {
     if ($this->_colon->isMissing()) {
       return null;
@@ -205,6 +227,9 @@ final class ConditionalExpression extends EditableSyntax {
     return TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
   }
 
+  /**
+   * @returns ColonToken
+   */
   public function getColonx(): ColonToken {
     return TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
   }
@@ -230,6 +255,15 @@ final class ConditionalExpression extends EditableSyntax {
     return !$this->_alternative->isMissing();
   }
 
+  /**
+   * @returns LiteralExpression | VariableExpression |
+   * ScopeResolutionExpression | QualifiedNameExpression |
+   * PrefixUnaryExpression | ObjectCreationExpression |
+   * ArrayIntrinsicExpression | FunctionCallExpression | TupleExpression |
+   * BinaryExpression | ParenthesizedExpression | ArrayCreationExpression |
+   * SubscriptExpression | IssetExpression | CastExpression | AnonymousFunction
+   * | LambdaExpression | MemberSelectionExpression
+   */
   public function getAlternative(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_alternative);
   }

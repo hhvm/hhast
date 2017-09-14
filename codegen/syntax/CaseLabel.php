@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4376cbfbc6ae0abe8145e59a0e7217c8>>
+ * @generated SignedSource<<5dd7a95028864b66593e4e22e76c17ff>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -93,6 +93,9 @@ final class CaseLabel extends EditableSyntax {
     return !$this->_keyword->isMissing();
   }
 
+  /**
+   * @returns CaseToken
+   */
   public function getKeyword(): CaseToken {
     return TypeAssert::isInstanceOf(CaseToken::class, $this->_keyword);
   }
@@ -112,6 +115,11 @@ final class CaseLabel extends EditableSyntax {
     return !$this->_expression->isMissing();
   }
 
+  /**
+   * @returns LiteralExpression | ScopeResolutionExpression |
+   * VariableExpression | PrefixUnaryExpression | QualifiedNameExpression |
+   * FunctionCallExpression | ArrayIntrinsicExpression | InstanceofExpression
+   */
   public function getExpression(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
   }
@@ -131,7 +139,10 @@ final class CaseLabel extends EditableSyntax {
     return !$this->_colon->isMissing();
   }
 
-  public function getColon(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_colon);
+  /**
+   * @returns ColonToken | SemicolonToken
+   */
+  public function getColon(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_colon);
   }
 }

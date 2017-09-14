@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2198d89ee461c7338e3d830910ea8554>>
+ * @generated SignedSource<<7f9d779973ea62f955d5d66d0b441b98>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -93,6 +93,9 @@ final class XHPChildrenDeclaration extends EditableSyntax {
     return !$this->_keyword->isMissing();
   }
 
+  /**
+   * @returns unknown
+   */
   public function getKeyword(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_keyword);
   }
@@ -112,6 +115,9 @@ final class XHPChildrenDeclaration extends EditableSyntax {
     return !$this->_expression->isMissing();
   }
 
+  /**
+   * @returns unknown
+   */
   public function getExpression(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
   }
@@ -131,6 +137,9 @@ final class XHPChildrenDeclaration extends EditableSyntax {
     return !$this->_semicolon->isMissing();
   }
 
+  /**
+   * @returns unknown
+   */
   public function getSemicolon(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_semicolon);
   }

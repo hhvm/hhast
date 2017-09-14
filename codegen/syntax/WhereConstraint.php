@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0669fe8d45074fdaa026d594d549cee9>>
+ * @generated SignedSource<<1631745fe6c855683fad6380c3c73fad>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -93,6 +93,9 @@ final class WhereConstraint extends EditableSyntax {
     return !$this->_left_type->isMissing();
   }
 
+  /**
+   * @returns SimpleTypeSpecifier | GenericTypeSpecifier | ErrorSyntax
+   */
   public function getLeftType(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_type);
   }
@@ -112,8 +115,11 @@ final class WhereConstraint extends EditableSyntax {
     return !$this->_operator->isMissing();
   }
 
-  public function getOperator(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operator);
+  /**
+   * @returns EqualToken | SuperToken | AsToken
+   */
+  public function getOperator(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_operator);
   }
 
   public function getRightTypeUNTYPED(): EditableSyntax {
@@ -131,6 +137,10 @@ final class WhereConstraint extends EditableSyntax {
     return !$this->_right_type->isMissing();
   }
 
+  /**
+   * @returns SimpleTypeSpecifier | NullableTypeSpecifier |
+   * GenericTypeSpecifier | ErrorSyntax
+   */
   public function getRightType(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_type);
   }

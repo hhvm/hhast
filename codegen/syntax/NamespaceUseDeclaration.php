@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c742b81848dd0c2a9db410638654ae4c>>
+ * @generated SignedSource<<8702e43f764b786fe4acfa3984bbdb98>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -105,6 +105,9 @@ final class NamespaceUseDeclaration extends EditableSyntax {
     return !$this->_keyword->isMissing();
   }
 
+  /**
+   * @returns UseToken
+   */
   public function getKeyword(): UseToken {
     return TypeAssert::isInstanceOf(UseToken::class, $this->_keyword);
   }
@@ -124,8 +127,11 @@ final class NamespaceUseDeclaration extends EditableSyntax {
     return !$this->_kind->isMissing();
   }
 
-  public function getKind(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_kind);
+  /**
+   * @returns ConstToken | FunctionToken
+   */
+  public function getKind(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_kind);
   }
 
   public function getClausesUNTYPED(): EditableSyntax {
@@ -143,6 +149,9 @@ final class NamespaceUseDeclaration extends EditableSyntax {
     return !$this->_clauses->isMissing();
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getClauses(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_clauses);
   }
@@ -162,6 +171,9 @@ final class NamespaceUseDeclaration extends EditableSyntax {
     return !$this->_semicolon->isMissing();
   }
 
+  /**
+   * @returns SemicolonToken
+   */
   public function getSemicolon(): ?SemicolonToken {
     if ($this->_semicolon->isMissing()) {
       return null;
@@ -169,6 +181,9 @@ final class NamespaceUseDeclaration extends EditableSyntax {
     return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 
+  /**
+   * @returns SemicolonToken
+   */
   public function getSemicolonx(): SemicolonToken {
     return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }

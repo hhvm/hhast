@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<261411e8ad37d1bf4277fd93930b1877>>
+ * @generated SignedSource<<03d281605c8a77c63c3033684f0bd6b8>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -78,6 +78,33 @@ final class ListItem extends EditableSyntax {
     return !$this->_item->isMissing();
   }
 
+  /**
+   * @returns ParameterDeclaration | BinaryExpression | VariableExpression |
+   * LiteralExpression | ArrayIntrinsicExpression | ElementInitializer |
+   * PropertyDeclarator | IssetExpression | MemberSelectionExpression |
+   * EmptyExpression | PrefixUnaryExpression | ObjectCreationExpression |
+   * SimpleTypeSpecifier | FunctionCallExpression | QualifiedNameExpression |
+   * VariableToken | StaticDeclarator | PostfixUnaryExpression |
+   * ParenthesizedExpression | CollectionLiteralExpression |
+   * SubscriptExpression | Attribute | ArrayCreationExpression |
+   * ScopeResolutionExpression | ConditionalExpression | CastExpression |
+   * InstanceofExpression | NamespaceUseClause | ConstantDeclarator |
+   * VectorIntrinsicExpression | DictionaryIntrinsicExpression |
+   * KeysetIntrinsicExpression | AnonymousFunction | TypeParameter |
+   * GenericTypeSpecifier | LambdaExpression | PipeVariableExpression |
+   * DictionaryTypeSpecifier | ListExpression | InclusionExpression |
+   * EvalExpression | VariadicParameter | NullableTypeSpecifier |
+   * TupleTypeSpecifier | ClosureTypeSpecifier | XHPExpression |
+   * XHPClassAttribute | FieldSpecifier | FieldInitializer | ShapeExpression |
+   * WhereConstraint | VectorArrayTypeSpecifier | AwaitableCreationExpression |
+   * DecoratedExpression | LeftBraceToken | TypeConstant | DefineExpression |
+   * VectorTypeSpecifier | VarrayIntrinsicExpression |
+   * DarrayIntrinsicExpression | XHPCategoryNameToken | ColonColonToken |
+   * SafeMemberSelectionExpression | NamespacePrefixToken | TupleExpression |
+   * SoftTypeSpecifier | TraitUseConflictResolutionItem | ShapeTypeSpecifier |
+   * MapArrayTypeSpecifier | ClassnameTypeSpecifier | LessThanLessThanToken |
+   * NoreturnToken | XHPSimpleClassAttribute
+   */
   public function getItem(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_item);
   }
@@ -97,7 +124,10 @@ final class ListItem extends EditableSyntax {
     return !$this->_separator->isMissing();
   }
 
-  public function getSeparator(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_separator);
+  /**
+   * @returns CommaToken | SemicolonToken
+   */
+  public function getSeparator(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_separator);
   }
 }

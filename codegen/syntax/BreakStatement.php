@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bdaa1fd406dc6fd152fb88140a51a282>>
+ * @generated SignedSource<<8d2f66194a57b3c03babcab45f25c7e5>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -93,6 +93,9 @@ final class BreakStatement extends EditableSyntax {
     return !$this->_keyword->isMissing();
   }
 
+  /**
+   * @returns BreakToken
+   */
   public function getKeyword(): BreakToken {
     return TypeAssert::isInstanceOf(BreakToken::class, $this->_keyword);
   }
@@ -112,6 +115,9 @@ final class BreakStatement extends EditableSyntax {
     return !$this->_level->isMissing();
   }
 
+  /**
+   * @returns LiteralExpression | VariableExpression
+   */
   public function getLevel(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_level);
   }
@@ -131,6 +137,9 @@ final class BreakStatement extends EditableSyntax {
     return !$this->_semicolon->isMissing();
   }
 
+  /**
+   * @returns SemicolonToken
+   */
   public function getSemicolon(): SemicolonToken {
     return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }

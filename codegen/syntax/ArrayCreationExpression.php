@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<89e9a0e83531ab657451be40ba9db47b>>
+ * @generated SignedSource<<968c033172d348308e20a9f862fa5c86>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -93,6 +93,9 @@ final class ArrayCreationExpression extends EditableSyntax {
     return !$this->_left_bracket->isMissing();
   }
 
+  /**
+   * @returns LeftBracketToken
+   */
   public function getLeftBracket(): LeftBracketToken {
     return TypeAssert::isInstanceOf(LeftBracketToken::class, $this->_left_bracket);
   }
@@ -112,6 +115,9 @@ final class ArrayCreationExpression extends EditableSyntax {
     return !$this->_members->isMissing();
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getMembers(): ?EditableList {
     if ($this->_members->isMissing()) {
       return null;
@@ -119,6 +125,9 @@ final class ArrayCreationExpression extends EditableSyntax {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getMembersx(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
   }
@@ -138,6 +147,9 @@ final class ArrayCreationExpression extends EditableSyntax {
     return !$this->_right_bracket->isMissing();
   }
 
+  /**
+   * @returns RightBracketToken
+   */
   public function getRightBracket(): RightBracketToken {
     return TypeAssert::isInstanceOf(RightBracketToken::class, $this->_right_bracket);
   }

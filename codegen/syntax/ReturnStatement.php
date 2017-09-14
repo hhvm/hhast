@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7ac2881ef43e99d31e24cc1acd4a4582>>
+ * @generated SignedSource<<cef87f0aa90d75026ccf1fe3a04379ec>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -93,6 +93,9 @@ final class ReturnStatement extends EditableSyntax {
     return !$this->_keyword->isMissing();
   }
 
+  /**
+   * @returns ReturnToken
+   */
   public function getKeyword(): ReturnToken {
     return TypeAssert::isInstanceOf(ReturnToken::class, $this->_keyword);
   }
@@ -112,6 +115,21 @@ final class ReturnStatement extends EditableSyntax {
     return !$this->_expression->isMissing();
   }
 
+  /**
+   * @returns LiteralExpression | ArrayIntrinsicExpression |
+   * FunctionCallExpression | ObjectCreationExpression | VariableExpression |
+   * MemberSelectionExpression | ConditionalExpression | IssetExpression |
+   * BinaryExpression | SubscriptExpression | AnonymousFunction |
+   * CastExpression | QualifiedNameExpression | ArrayCreationExpression |
+   * DictionaryIntrinsicExpression | ScopeResolutionExpression |
+   * PrefixUnaryExpression | ParenthesizedExpression | PostfixUnaryExpression |
+   * VectorIntrinsicExpression | InstanceofExpression |
+   * KeysetIntrinsicExpression | LambdaExpression | ShapeExpression |
+   * TupleExpression | CollectionLiteralExpression |
+   * SafeMemberSelectionExpression | YieldExpression | EvalExpression |
+   * DarrayIntrinsicExpression | VarrayIntrinsicExpression |
+   * AwaitableCreationExpression | XHPExpression
+   */
   public function getExpression(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
   }
@@ -131,6 +149,9 @@ final class ReturnStatement extends EditableSyntax {
     return !$this->_semicolon->isMissing();
   }
 
+  /**
+   * @returns SemicolonToken
+   */
   public function getSemicolon(): ?SemicolonToken {
     if ($this->_semicolon->isMissing()) {
       return null;
@@ -138,6 +159,9 @@ final class ReturnStatement extends EditableSyntax {
     return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 
+  /**
+   * @returns SemicolonToken
+   */
   public function getSemicolonx(): SemicolonToken {
     return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }

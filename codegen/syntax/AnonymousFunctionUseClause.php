@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<264ff5f13bf8f79a410ca12128de8d83>>
+ * @generated SignedSource<<824d12dd0e63117411d284554450ec34>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -105,6 +105,9 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
     return !$this->_keyword->isMissing();
   }
 
+  /**
+   * @returns UseToken
+   */
   public function getKeyword(): UseToken {
     return TypeAssert::isInstanceOf(UseToken::class, $this->_keyword);
   }
@@ -124,6 +127,9 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
     return !$this->_left_paren->isMissing();
   }
 
+  /**
+   * @returns LeftParenToken
+   */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
@@ -143,6 +149,9 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
     return !$this->_variables->isMissing();
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getVariables(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_variables);
   }
@@ -162,6 +171,9 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
     return !$this->_right_paren->isMissing();
   }
 
+  /**
+   * @returns RightParenToken
+   */
   public function getRightParen(): RightParenToken {
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }

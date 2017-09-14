@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d6b125890c7e3645bdb6db7a620643cd>>
+ * @generated SignedSource<<2e6024958b6f4ea1a229adb26b2ec3ba>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -78,6 +78,9 @@ final class GotoLabel extends EditableSyntax {
     return !$this->_name->isMissing();
   }
 
+  /**
+   * @returns NameToken
+   */
   public function getName(): NameToken {
     return TypeAssert::isInstanceOf(NameToken::class, $this->_name);
   }
@@ -97,6 +100,9 @@ final class GotoLabel extends EditableSyntax {
     return !$this->_colon->isMissing();
   }
 
+  /**
+   * @returns ColonToken
+   */
   public function getColon(): ColonToken {
     return TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
   }

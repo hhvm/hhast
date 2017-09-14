@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ac71919706b21dc9d140eaaf687f067d>>
+ * @generated SignedSource<<80970d2c179011d17bdfdf58ed46f854>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -110,6 +110,14 @@ final class FunctionCallExpression extends EditableSyntax {
     return !$this->_receiver->isMissing();
   }
 
+  /**
+   * @returns QualifiedNameExpression | MemberSelectionExpression |
+   * ScopeResolutionExpression | VariableExpression | ParenthesizedExpression |
+   * SubscriptExpression | GenericTypeSpecifier | GreaterThanToken |
+   * SafeMemberSelectionExpression | FunctionCallExpression |
+   * ArrayCreationExpression | LiteralExpression | CommaToken |
+   * PrefixUnaryExpression
+   */
   public function getReceiver(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_receiver);
   }
@@ -129,6 +137,9 @@ final class FunctionCallExpression extends EditableSyntax {
     return !$this->_left_paren->isMissing();
   }
 
+  /**
+   * @returns LeftParenToken
+   */
   public function getLeftParen(): ?LeftParenToken {
     if ($this->_left_paren->isMissing()) {
       return null;
@@ -136,6 +147,9 @@ final class FunctionCallExpression extends EditableSyntax {
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
 
+  /**
+   * @returns LeftParenToken
+   */
   public function getLeftParenx(): LeftParenToken {
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
@@ -155,6 +169,9 @@ final class FunctionCallExpression extends EditableSyntax {
     return !$this->_argument_list->isMissing();
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getArgumentList(): ?EditableList {
     if ($this->_argument_list->isMissing()) {
       return null;
@@ -162,6 +179,9 @@ final class FunctionCallExpression extends EditableSyntax {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_argument_list);
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getArgumentListx(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_argument_list);
   }
@@ -181,6 +201,9 @@ final class FunctionCallExpression extends EditableSyntax {
     return !$this->_right_paren->isMissing();
   }
 
+  /**
+   * @returns RightParenToken
+   */
   public function getRightParen(): ?RightParenToken {
     if ($this->_right_paren->isMissing()) {
       return null;
@@ -188,6 +211,9 @@ final class FunctionCallExpression extends EditableSyntax {
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
+  /**
+   * @returns RightParenToken
+   */
   public function getRightParenx(): RightParenToken {
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }

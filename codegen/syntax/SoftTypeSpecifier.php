@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d5ca89ca1b1dd9bd8c5a1ec0d6f9acf9>>
+ * @generated SignedSource<<c486198bb8bc45546512636857179375>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -78,6 +78,9 @@ final class SoftTypeSpecifier extends EditableSyntax {
     return !$this->_at->isMissing();
   }
 
+  /**
+   * @returns AtToken
+   */
   public function getAt(): AtToken {
     return TypeAssert::isInstanceOf(AtToken::class, $this->_at);
   }
@@ -97,6 +100,11 @@ final class SoftTypeSpecifier extends EditableSyntax {
     return !$this->_type->isMissing();
   }
 
+  /**
+   * @returns SimpleTypeSpecifier | GenericTypeSpecifier |
+   * NullableTypeSpecifier | TupleTypeSpecifier | ClosureTypeSpecifier |
+   * MapArrayTypeSpecifier
+   */
   public function getType(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }

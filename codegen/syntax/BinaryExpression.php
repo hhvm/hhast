@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<adebc335cf0e17fc0dcaeb2fdca0a560>>
+ * @generated SignedSource<<7fb2549cc5e2f73e2bcfdd713ad31b11>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -93,6 +93,19 @@ final class BinaryExpression extends EditableSyntax {
     return !$this->_left_operand->isMissing();
   }
 
+  /**
+   * @returns BinaryExpression | LiteralExpression | VariableExpression |
+   * SubscriptExpression | MemberSelectionExpression | FunctionCallExpression |
+   * ParenthesizedExpression | ScopeResolutionExpression | IssetExpression |
+   * QualifiedNameExpression | ArrayIntrinsicExpression | ListExpression |
+   * PrefixUnaryExpression | PostfixUnaryExpression | XHPExpression |
+   * CastExpression | CollectionLiteralExpression | InstanceofExpression |
+   * ObjectCreationExpression | DictionaryIntrinsicExpression |
+   * ArrayCreationExpression | EmptyExpression | PercentToken | LessThanToken |
+   * KeysetIntrinsicExpression | SafeMemberSelectionExpression |
+   * VectorIntrinsicExpression | RightParenToken | EqualGreaterThanToken |
+   * AnonymousFunction | PipeVariableExpression
+   */
   public function getLeftOperand(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_operand);
   }
@@ -112,8 +125,22 @@ final class BinaryExpression extends EditableSyntax {
     return !$this->_operator->isMissing();
   }
 
-  public function getOperator(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operator);
+  /**
+   * @returns DotToken | EqualToken | EqualEqualToken | AmpersandAmpersandToken
+   * | DotEqualToken | PercentToken | GreaterThanToken | AmpersandToken |
+   * PlusToken | LessThanToken | EqualEqualEqualToken | LessThanEqualToken |
+   * ExclamationEqualEqualToken | ExclamationEqualToken | GreaterThanEqualToken
+   * | LessThanEqualGreaterThanToken | PlusEqualToken |
+   * GreaterThanGreaterThanEqualToken | MinusEqualToken | CaratToken | BarToken
+   * | BarEqualToken | AmpersandEqualToken | CaratEqualToken | StarEqualToken |
+   * LessThanLessThanToken | StarToken | MinusToken | XorToken | BarBarToken |
+   * StarStarToken | SlashToken | QuestionQuestionToken | BarGreaterThanToken |
+   * AndToken | GreaterThanGreaterThanToken | SlashEqualToken |
+   * StarStarEqualToken | PercentEqualToken | LessThanLessThanEqualToken |
+   * LessThanGreaterThanToken | OrToken
+   */
+  public function getOperator(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_operator);
   }
 
   public function getRightOperandUNTYPED(): EditableSyntax {
@@ -131,6 +158,22 @@ final class BinaryExpression extends EditableSyntax {
     return !$this->_right_operand->isMissing();
   }
 
+  /**
+   * @returns LiteralExpression | FunctionCallExpression |
+   * ObjectCreationExpression | VariableExpression | PrefixUnaryExpression |
+   * ArrayIntrinsicExpression | BinaryExpression | ParenthesizedExpression |
+   * MemberSelectionExpression | CollectionLiteralExpression |
+   * AnonymousFunction | VectorIntrinsicExpression |
+   * DictionaryIntrinsicExpression | KeysetIntrinsicExpression |
+   * SubscriptExpression | ConditionalExpression | CastExpression |
+   * ArrayCreationExpression | ScopeResolutionExpression |
+   * QualifiedNameExpression | YieldExpression | IssetExpression |
+   * EmptyExpression | EvalExpression | PostfixUnaryExpression |
+   * InclusionExpression | LambdaExpression | ShapeExpression | XHPExpression |
+   * AwaitableCreationExpression | InstanceofExpression | LeftBraceToken |
+   * CommaToken | TupleExpression | SafeMemberSelectionExpression |
+   * PipeVariableExpression | EndOfFileToken | QuestionToken
+   */
   public function getRightOperand(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_operand);
   }

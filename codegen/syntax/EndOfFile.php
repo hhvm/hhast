@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<df853c6734b248095cc45756d4a5130f>>
+ * @generated SignedSource<<9efcf3737f80f84a0d8aa78811f8c483>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -67,6 +67,9 @@ final class EndOfFile extends EditableSyntax {
     return !$this->_token->isMissing();
   }
 
+  /**
+   * @returns EndOfFileToken
+   */
   public function getToken(): EndOfFileToken {
     return TypeAssert::isInstanceOf(EndOfFileToken::class, $this->_token);
   }

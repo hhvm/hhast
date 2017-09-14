@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8250320ca88ef8d4d5550176a4049f54>>
+ * @generated SignedSource<<4784ab475e0a800908b3d5c82a3163c7>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -93,6 +93,9 @@ final class XHPExpression extends EditableSyntax {
     return !$this->_open->isMissing();
   }
 
+  /**
+   * @returns XHPOpen
+   */
   public function getOpen(): XHPOpen {
     return TypeAssert::isInstanceOf(XHPOpen::class, $this->_open);
   }
@@ -112,6 +115,9 @@ final class XHPExpression extends EditableSyntax {
     return !$this->_body->isMissing();
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getBody(): ?EditableList {
     if ($this->_body->isMissing()) {
       return null;
@@ -119,6 +125,9 @@ final class XHPExpression extends EditableSyntax {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_body);
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getBodyx(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_body);
   }
@@ -138,6 +147,9 @@ final class XHPExpression extends EditableSyntax {
     return !$this->_close->isMissing();
   }
 
+  /**
+   * @returns XHPClose
+   */
   public function getClose(): ?XHPClose {
     if ($this->_close->isMissing()) {
       return null;
@@ -145,6 +157,9 @@ final class XHPExpression extends EditableSyntax {
     return TypeAssert::isInstanceOf(XHPClose::class, $this->_close);
   }
 
+  /**
+   * @returns XHPClose
+   */
   public function getClosex(): XHPClose {
     return TypeAssert::isInstanceOf(XHPClose::class, $this->_close);
   }

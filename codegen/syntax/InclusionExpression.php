@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cc684f0096c929ca76c11dc9eb7baf67>>
+ * @generated SignedSource<<bb4f898d2dc2540f038940c7edcd402f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -81,8 +81,12 @@ final class InclusionExpression extends EditableSyntax {
     return !$this->_require->isMissing();
   }
 
-  public function getRequire(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_require);
+  /**
+   * @returns RequireToken | IncludeToken | Include_onceToken |
+   * Require_onceToken
+   */
+  public function getRequire(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_require);
   }
 
   public function getFilenameUNTYPED(): EditableSyntax {
@@ -100,6 +104,10 @@ final class InclusionExpression extends EditableSyntax {
     return !$this->_filename->isMissing();
   }
 
+  /**
+   * @returns LiteralExpression | QualifiedNameExpression | BinaryExpression |
+   * VariableExpression | SubscriptExpression | ParenthesizedExpression
+   */
   public function getFilename(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_filename);
   }

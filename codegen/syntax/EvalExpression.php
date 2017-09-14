@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d3b2784fa746c802f78f44ae17a7949a>>
+ * @generated SignedSource<<10924bf3a0dc0feb430f5c9c1854ba6a>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -105,6 +105,9 @@ final class EvalExpression extends EditableSyntax {
     return !$this->_keyword->isMissing();
   }
 
+  /**
+   * @returns EvalToken
+   */
   public function getKeyword(): EvalToken {
     return TypeAssert::isInstanceOf(EvalToken::class, $this->_keyword);
   }
@@ -124,6 +127,9 @@ final class EvalExpression extends EditableSyntax {
     return !$this->_left_paren->isMissing();
   }
 
+  /**
+   * @returns LeftParenToken
+   */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
@@ -143,6 +149,10 @@ final class EvalExpression extends EditableSyntax {
     return !$this->_argument->isMissing();
   }
 
+  /**
+   * @returns LiteralExpression | FunctionCallExpression | VariableExpression |
+   * BinaryExpression
+   */
   public function getArgument(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_argument);
   }
@@ -162,6 +172,9 @@ final class EvalExpression extends EditableSyntax {
     return !$this->_right_paren->isMissing();
   }
 
+  /**
+   * @returns RightParenToken
+   */
   public function getRightParen(): RightParenToken {
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6ca297649a027eaf92d764de81713c2c>>
+ * @generated SignedSource<<3d49d53d3b8a2e65a7b6bacbc774ed1e>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -180,6 +180,9 @@ final class AliasDeclaration extends EditableSyntax {
     return !$this->_attribute_spec->isMissing();
   }
 
+  /**
+   * @returns AttributeSpecification
+   */
   public function getAttributeSpec(): ?AttributeSpecification {
     if ($this->_attribute_spec->isMissing()) {
       return null;
@@ -187,6 +190,9 @@ final class AliasDeclaration extends EditableSyntax {
     return TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute_spec);
   }
 
+  /**
+   * @returns AttributeSpecification
+   */
   public function getAttributeSpecx(): AttributeSpecification {
     return TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute_spec);
   }
@@ -215,8 +221,11 @@ final class AliasDeclaration extends EditableSyntax {
     return !$this->_keyword->isMissing();
   }
 
-  public function getKeyword(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_keyword);
+  /**
+   * @returns TypeToken | NewtypeToken
+   */
+  public function getKeyword(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_keyword);
   }
 
   public function getNameUNTYPED(): EditableSyntax {
@@ -243,6 +252,9 @@ final class AliasDeclaration extends EditableSyntax {
     return !$this->_name->isMissing();
   }
 
+  /**
+   * @returns NameToken
+   */
   public function getName(): ?NameToken {
     if ($this->_name->isMissing()) {
       return null;
@@ -250,6 +262,9 @@ final class AliasDeclaration extends EditableSyntax {
     return TypeAssert::isInstanceOf(NameToken::class, $this->_name);
   }
 
+  /**
+   * @returns NameToken
+   */
   public function getNamex(): NameToken {
     return TypeAssert::isInstanceOf(NameToken::class, $this->_name);
   }
@@ -278,6 +293,9 @@ final class AliasDeclaration extends EditableSyntax {
     return !$this->_generic_parameter->isMissing();
   }
 
+  /**
+   * @returns TypeParameters
+   */
   public function getGenericParameter(): ?TypeParameters {
     if ($this->_generic_parameter->isMissing()) {
       return null;
@@ -285,6 +303,9 @@ final class AliasDeclaration extends EditableSyntax {
     return TypeAssert::isInstanceOf(TypeParameters::class, $this->_generic_parameter);
   }
 
+  /**
+   * @returns TypeParameters
+   */
   public function getGenericParameterx(): TypeParameters {
     return TypeAssert::isInstanceOf(TypeParameters::class, $this->_generic_parameter);
   }
@@ -313,6 +334,9 @@ final class AliasDeclaration extends EditableSyntax {
     return !$this->_constraint->isMissing();
   }
 
+  /**
+   * @returns TypeConstraint
+   */
   public function getConstraint(): ?TypeConstraint {
     if ($this->_constraint->isMissing()) {
       return null;
@@ -320,6 +344,9 @@ final class AliasDeclaration extends EditableSyntax {
     return TypeAssert::isInstanceOf(TypeConstraint::class, $this->_constraint);
   }
 
+  /**
+   * @returns TypeConstraint
+   */
   public function getConstraintx(): TypeConstraint {
     return TypeAssert::isInstanceOf(TypeConstraint::class, $this->_constraint);
   }
@@ -348,6 +375,9 @@ final class AliasDeclaration extends EditableSyntax {
     return !$this->_equal->isMissing();
   }
 
+  /**
+   * @returns EqualToken
+   */
   public function getEqual(): ?EqualToken {
     if ($this->_equal->isMissing()) {
       return null;
@@ -355,6 +385,9 @@ final class AliasDeclaration extends EditableSyntax {
     return TypeAssert::isInstanceOf(EqualToken::class, $this->_equal);
   }
 
+  /**
+   * @returns EqualToken
+   */
   public function getEqualx(): EqualToken {
     return TypeAssert::isInstanceOf(EqualToken::class, $this->_equal);
   }
@@ -383,6 +416,12 @@ final class AliasDeclaration extends EditableSyntax {
     return !$this->_type->isMissing();
   }
 
+  /**
+   * @returns SimpleTypeSpecifier | DictionaryTypeSpecifier |
+   * ShapeTypeSpecifier | TupleTypeSpecifier | ClosureTypeSpecifier |
+   * GenericTypeSpecifier | NullableTypeSpecifier | KeysetTypeSpecifier |
+   * VectorArrayTypeSpecifier
+   */
   public function getType(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
@@ -411,6 +450,9 @@ final class AliasDeclaration extends EditableSyntax {
     return !$this->_semicolon->isMissing();
   }
 
+  /**
+   * @returns SemicolonToken
+   */
   public function getSemicolon(): SemicolonToken {
     return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }

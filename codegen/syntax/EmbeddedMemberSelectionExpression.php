@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2c55a4c678b64e762b2a98367157ef63>>
+ * @generated SignedSource<<fa64e3180992289d1dd1c973837f00c1>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -93,6 +93,9 @@ final class EmbeddedMemberSelectionExpression extends EditableSyntax {
     return !$this->_object->isMissing();
   }
 
+  /**
+   * @returns unknown
+   */
   public function getObject(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_object);
   }
@@ -112,6 +115,9 @@ final class EmbeddedMemberSelectionExpression extends EditableSyntax {
     return !$this->_operator->isMissing();
   }
 
+  /**
+   * @returns unknown
+   */
   public function getOperator(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operator);
   }
@@ -131,6 +137,9 @@ final class EmbeddedMemberSelectionExpression extends EditableSyntax {
     return !$this->_name->isMissing();
   }
 
+  /**
+   * @returns unknown
+   */
   public function getName(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }

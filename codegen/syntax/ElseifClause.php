@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<69839d732e78c75e8e35f0a2f37db9f5>>
+ * @generated SignedSource<<076e097cce59e796e3a8ef2570231818>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -129,6 +129,9 @@ final class ElseifClause extends EditableSyntax {
     return !$this->_keyword->isMissing();
   }
 
+  /**
+   * @returns ElseifToken
+   */
   public function getKeyword(): ElseifToken {
     return TypeAssert::isInstanceOf(ElseifToken::class, $this->_keyword);
   }
@@ -154,6 +157,9 @@ final class ElseifClause extends EditableSyntax {
     return !$this->_left_paren->isMissing();
   }
 
+  /**
+   * @returns LeftParenToken
+   */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
@@ -179,6 +185,10 @@ final class ElseifClause extends EditableSyntax {
     return !$this->_condition->isMissing();
   }
 
+  /**
+   * @returns BinaryExpression | LiteralExpression | VariableExpression |
+   * FunctionCallExpression
+   */
   public function getCondition(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_condition);
   }
@@ -204,6 +214,9 @@ final class ElseifClause extends EditableSyntax {
     return !$this->_right_paren->isMissing();
   }
 
+  /**
+   * @returns RightParenToken
+   */
   public function getRightParen(): RightParenToken {
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
@@ -229,6 +242,9 @@ final class ElseifClause extends EditableSyntax {
     return !$this->_statement->isMissing();
   }
 
+  /**
+   * @returns CompoundStatement | ExpressionStatement
+   */
   public function getStatement(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_statement);
   }

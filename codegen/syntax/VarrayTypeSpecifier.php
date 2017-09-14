@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3323a6bcbdad6e7cc98a52fccdb25416>>
+ * @generated SignedSource<<21156269a7e16175ec15813e6d3791c8>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -129,6 +129,9 @@ final class VarrayTypeSpecifier extends EditableSyntax {
     return !$this->_keyword->isMissing();
   }
 
+  /**
+   * @returns VarrayToken
+   */
   public function getKeyword(): VarrayToken {
     return TypeAssert::isInstanceOf(VarrayToken::class, $this->_keyword);
   }
@@ -154,6 +157,9 @@ final class VarrayTypeSpecifier extends EditableSyntax {
     return !$this->_left_angle->isMissing();
   }
 
+  /**
+   * @returns LessThanToken
+   */
   public function getLeftAngle(): LessThanToken {
     return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
   }
@@ -179,6 +185,9 @@ final class VarrayTypeSpecifier extends EditableSyntax {
     return !$this->_type->isMissing();
   }
 
+  /**
+   * @returns SimpleTypeSpecifier
+   */
   public function getType(): SimpleTypeSpecifier {
     return TypeAssert::isInstanceOf(SimpleTypeSpecifier::class, $this->_type);
   }
@@ -204,8 +213,11 @@ final class VarrayTypeSpecifier extends EditableSyntax {
     return !$this->_trailing_comma->isMissing();
   }
 
-  public function getTrailingComma(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_trailing_comma);
+  /**
+   * @returns
+   */
+  public function getTrailingComma(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_trailing_comma);
   }
 
   public function getRightAngleUNTYPED(): EditableSyntax {
@@ -229,6 +241,9 @@ final class VarrayTypeSpecifier extends EditableSyntax {
     return !$this->_right_angle->isMissing();
   }
 
+  /**
+   * @returns GreaterThanToken
+   */
   public function getRightAngle(): GreaterThanToken {
     return TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
   }

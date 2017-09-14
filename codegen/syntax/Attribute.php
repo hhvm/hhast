@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2d2134bc652ac653590ce689de5b1484>>
+ * @generated SignedSource<<254c2266917800b8b6f48a3faeb5c40f>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -105,6 +105,9 @@ final class Attribute extends EditableSyntax {
     return !$this->_name->isMissing();
   }
 
+  /**
+   * @returns NameToken
+   */
   public function getName(): NameToken {
     return TypeAssert::isInstanceOf(NameToken::class, $this->_name);
   }
@@ -124,6 +127,9 @@ final class Attribute extends EditableSyntax {
     return !$this->_left_paren->isMissing();
   }
 
+  /**
+   * @returns LeftParenToken
+   */
   public function getLeftParen(): ?LeftParenToken {
     if ($this->_left_paren->isMissing()) {
       return null;
@@ -131,6 +137,9 @@ final class Attribute extends EditableSyntax {
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
 
+  /**
+   * @returns LeftParenToken
+   */
   public function getLeftParenx(): LeftParenToken {
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
@@ -150,6 +159,9 @@ final class Attribute extends EditableSyntax {
     return !$this->_values->isMissing();
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getValues(): ?EditableList {
     if ($this->_values->isMissing()) {
       return null;
@@ -157,6 +169,9 @@ final class Attribute extends EditableSyntax {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_values);
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getValuesx(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_values);
   }
@@ -176,6 +191,9 @@ final class Attribute extends EditableSyntax {
     return !$this->_right_paren->isMissing();
   }
 
+  /**
+   * @returns RightParenToken
+   */
   public function getRightParen(): ?RightParenToken {
     if ($this->_right_paren->isMissing()) {
       return null;
@@ -183,6 +201,9 @@ final class Attribute extends EditableSyntax {
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
 
+  /**
+   * @returns RightParenToken
+   */
   public function getRightParenx(): RightParenToken {
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }

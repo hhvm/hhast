@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<587870bf33f7074c0843db7df9a44287>>
+ * @generated SignedSource<<efce5297d19e1997a693f60ff8a2f625>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -93,6 +93,9 @@ final class GotoStatement extends EditableSyntax {
     return !$this->_keyword->isMissing();
   }
 
+  /**
+   * @returns GotoToken
+   */
   public function getKeyword(): GotoToken {
     return TypeAssert::isInstanceOf(GotoToken::class, $this->_keyword);
   }
@@ -112,6 +115,9 @@ final class GotoStatement extends EditableSyntax {
     return !$this->_label_name->isMissing();
   }
 
+  /**
+   * @returns NameToken
+   */
   public function getLabelName(): NameToken {
     return TypeAssert::isInstanceOf(NameToken::class, $this->_label_name);
   }
@@ -131,6 +137,9 @@ final class GotoStatement extends EditableSyntax {
     return !$this->_semicolon->isMissing();
   }
 
+  /**
+   * @returns SemicolonToken
+   */
   public function getSemicolon(): SemicolonToken {
     return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }

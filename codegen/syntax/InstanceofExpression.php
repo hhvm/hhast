@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4ce039d11daf3e56c12dba1f0f18c84e>>
+ * @generated SignedSource<<8093543a6084faae58af9b29a8bb8617>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -93,6 +93,12 @@ final class InstanceofExpression extends EditableSyntax {
     return !$this->_left_operand->isMissing();
   }
 
+  /**
+   * @returns VariableExpression | SubscriptExpression | FunctionCallExpression
+   * | ParenthesizedExpression | MemberSelectionExpression |
+   * ObjectCreationExpression | ScopeResolutionExpression | AnonymousFunction |
+   * LiteralExpression
+   */
   public function getLeftOperand(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_operand);
   }
@@ -112,6 +118,9 @@ final class InstanceofExpression extends EditableSyntax {
     return !$this->_operator->isMissing();
   }
 
+  /**
+   * @returns InstanceofToken
+   */
   public function getOperator(): InstanceofToken {
     return TypeAssert::isInstanceOf(InstanceofToken::class, $this->_operator);
   }
@@ -131,6 +140,11 @@ final class InstanceofExpression extends EditableSyntax {
     return !$this->_right_operand->isMissing();
   }
 
+  /**
+   * @returns QualifiedNameExpression | VariableExpression |
+   * ScopeResolutionExpression | SubscriptExpression |
+   * MemberSelectionExpression | ParenthesizedExpression
+   */
   public function getRightOperand(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_operand);
   }

@@ -20,7 +20,7 @@ use type Facebook\HackCodegen\{
 };
 
 use type Facebook\TypeAssert\TypeAssert;
-use namespace HH\Lib\{C, Str, Vec};
+use namespace HH\Lib\{C, Keyset, Str, Vec};
 
 final class CodegenSyntax extends CodegenBase {
   <<__Override>>
@@ -33,9 +33,10 @@ final class CodegenSyntax extends CodegenBase {
       if (C\contains_key($blacklist, $syntax['kind_name'])) {
         continue;
       }
-      $cg->codegenFile(
-        $this->getOutputDirectory().'/syntax/'.$syntax['kind_name'].'.php',
-      )
+      $cg
+        ->codegenFile(
+          $this->getOutputDirectory().'/syntax/'.$syntax['kind_name'].'.php',
+        )
         ->setNamespace('Facebook\\HHAST')
         ->useType(TypeAssert::class)
         ->addClass($this->generateClass($syntax))
@@ -67,7 +68,7 @@ final class CodegenSyntax extends CodegenBase {
       $class->addVar(
         $cg
           ->codegenMemberVar('_'.$field['field_name'])
-          ->setType('EditableSyntax')
+          ->setType('EditableSyntax'),
       );
     }
 
@@ -80,6 +81,7 @@ final class CodegenSyntax extends CodegenBase {
   ): Traversable<CodegenMethod> {
     $spec = $this->getTypeSpecForField($syntax, $underscored);
     $upper_camel = self::upper_camel($underscored);
+    $types = $spec['possibleTypes'];
 
     $cg = $this->getCodegenFactory();
     yield $cg
@@ -107,22 +109,20 @@ final class CodegenSyntax extends CodegenBase {
                 : '$this->_'.$inner['field_name'],
             ),
           )
-          ->getCode()
+          ->getCode(),
       );
 
     yield $cg
       ->codegenMethodf('has%s', $upper_camel)
       ->setReturnType('bool')
-      ->setBodyf(
-        'return !$this->_%s->isMissing();',
-        $underscored,
-      );
+      ->setBodyf('return !$this->_%s->isMissing();', $underscored);
 
     $type = $spec['nullable'] ? ('?'.$spec['class']) : $spec['class'];
 
     if (!$spec['nullable']) {
       yield $cg
         ->codegenMethodf('get%s', $upper_camel)
+        ->setDocBlock('@returns '.implode(' | ', $types))
         ->setReturnType($type)
         ->setBodyf(
           'return TypeAssert::isInstanceOf(%s::class, $this->_%s);',
@@ -134,6 +134,7 @@ final class CodegenSyntax extends CodegenBase {
 
     yield $cg
       ->codegenMethodf('get%s', $upper_camel)
+      ->setDocBlock('@returns '.implode(' | ', $types))
       ->setReturnType($type)
       ->setBody(
         $cg
@@ -146,11 +147,14 @@ final class CodegenSyntax extends CodegenBase {
             $spec['class'],
             $underscored,
           )
-          ->getCode()
+          ->getCode(),
       );
 
     yield $cg
       ->codegenMethodf('get%sx', $upper_camel)
+      ->setDocBlock(Vec\filter($types, $type ==> $type !== 'Missing')
+        |> implode(' | ', $$)
+        |> '@returns '.$$)
       ->setReturnType($spec['class'])
       ->setBodyf(
         'return TypeAssert::isInstanceOf(%s::class, $this->_%s);',
@@ -308,48 +312,63 @@ final class CodegenSyntax extends CodegenBase {
       );
   }
 
+  const type TFieldSpec = shape(
+    'class' => string,
+    'nullable' => bool,
+    'possibleTypes' => keyset<string>,
+  );
+
   private function getTypeSpecForField(
     Schema\TAST $syntax,
     string $field,
-  ): shape('class' => string, 'nullable' => bool) {
-    $key = sprintf(
-      '%s.%s_%s',
-      $syntax['description'],
-      $syntax['prefix'],
-      $field,
-    );
+  ): self::TFieldSpec {
+    $key =
+      sprintf('%s.%s_%s', $syntax['description'], $syntax['prefix'], $field);
     $specs = INFERRED_RELATIONSHIPS;
     if (!C\contains_key($specs, $key)) {
       return shape(
         'class' => 'EditableSyntax',
         'nullable' => false,
+        'possibleTypes' => keyset['unknown'],
       );
     }
 
     $children = $specs[$key];
+
     $nullable = C\contains_key($children, 'missing');
     if ($nullable) {
-      $children = Vec\filter(
+      $children = Keyset\filter(
         $children,
         $child ==> $child !== 'missing' && $child !== 'error',
       );
     }
+
+    $children =
+      Keyset\map($children, $child ==> $this->getSyntaxClassForChild($child));
+
     if (C\count($children) !== 1) {
+      if (C\every($children, $child ==> Str\ends_with($child, 'Token'))) {
+        return shape(
+          'class' => 'EditableToken',
+          'nullable' => false,
+          'possibleTypes' => $children,
+        );
+      }
       return shape(
         'class' => 'EditableSyntax',
         'nullable' => false,
+        'possibleTypes' => $children,
       );
     }
 
     return shape(
-      'class' => $this->getSyntaxClassForChild(C\firstx($children)),
+      'class' => C\firstx($children),
       'nullable' => $nullable,
+      'possibleTypes' => $children,
     );
   }
 
-  private function getSyntaxClassForChild(
-    string $child,
-  ): string {
+  private function getSyntaxClassForChild(string $child): string {
     if ($child === 'token') {
       return 'EditableToken';
     }
@@ -365,24 +384,15 @@ final class CodegenSyntax extends CodegenBase {
       $this->getSchema()['AST'],
       $syntax ==> $syntax['description'] === $child,
     );
-    invariant(
-      $ast !== null,
-      'Could not look up syntax "%s"',
-      $child,
-    );
+    invariant($ast !== null, 'Could not look up syntax "%s"', $child);
     return $ast['kind_name'];
   }
 
-  private function getTokenClassForChild(
-    string $child,
-  ): string {
+  private function getTokenClassForChild(string $child): string {
     $child = Str\strip_prefix($child, 'token:');
 
     $tokens = $this->getSchema()['tokens'];
-    $token = C\find(
-      $tokens,
-      $token ==> $token['token_text'] === $child,
-    );
+    $token = C\find($tokens, $token ==> $token['token_text'] === $child);
     if ($token !== null) {
       return $token['token_kind'].'Token';
     }
@@ -392,11 +402,7 @@ final class CodegenSyntax extends CodegenBase {
       $token ==> self::underscored($token['token_kind']) === $child,
     );
 
-    invariant(
-      $token !== null,
-      'Failed to find token for "%s"',
-      $child,
-    );
+    invariant($token !== null, 'Failed to find token for "%s"', $child);
 
     return $token['token_kind'].'Token';
   }

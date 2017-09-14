@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<39b67973583d25f67b772250b0975aed>>
+ * @generated SignedSource<<e6edfd598a960301961a1ff4e666fce2>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -123,6 +123,9 @@ final class ParameterDeclaration extends EditableSyntax {
     return !$this->_attribute->isMissing();
   }
 
+  /**
+   * @returns AttributeSpecification
+   */
   public function getAttribute(): ?AttributeSpecification {
     if ($this->_attribute->isMissing()) {
       return null;
@@ -130,6 +133,9 @@ final class ParameterDeclaration extends EditableSyntax {
     return TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute);
   }
 
+  /**
+   * @returns AttributeSpecification
+   */
   public function getAttributex(): AttributeSpecification {
     return TypeAssert::isInstanceOf(AttributeSpecification::class, $this->_attribute);
   }
@@ -155,8 +161,11 @@ final class ParameterDeclaration extends EditableSyntax {
     return !$this->_visibility->isMissing();
   }
 
-  public function getVisibility(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_visibility);
+  /**
+   * @returns ProtectedToken | PublicToken | PrivateToken
+   */
+  public function getVisibility(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_visibility);
   }
 
   public function getTypeUNTYPED(): EditableSyntax {
@@ -180,6 +189,14 @@ final class ParameterDeclaration extends EditableSyntax {
     return !$this->_type->isMissing();
   }
 
+  /**
+   * @returns SimpleTypeSpecifier | NullableTypeSpecifier |
+   * GenericTypeSpecifier | DictionaryTypeSpecifier | TypeConstant |
+   * SoftTypeSpecifier | ClosureTypeSpecifier | TupleTypeSpecifier |
+   * ClassnameTypeSpecifier | KeysetTypeSpecifier | ShapeTypeSpecifier |
+   * VectorTypeSpecifier | MapArrayTypeSpecifier | VarrayTypeSpecifier |
+   * DarrayTypeSpecifier | VectorArrayTypeSpecifier
+   */
   public function getType(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
   }
@@ -205,6 +222,9 @@ final class ParameterDeclaration extends EditableSyntax {
     return !$this->_name->isMissing();
   }
 
+  /**
+   * @returns VariableToken | DecoratedExpression
+   */
   public function getName(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
   }
@@ -230,6 +250,9 @@ final class ParameterDeclaration extends EditableSyntax {
     return !$this->_default_value->isMissing();
   }
 
+  /**
+   * @returns SimpleInitializer
+   */
   public function getDefaultValue(): ?SimpleInitializer {
     if ($this->_default_value->isMissing()) {
       return null;
@@ -237,6 +260,9 @@ final class ParameterDeclaration extends EditableSyntax {
     return TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_default_value);
   }
 
+  /**
+   * @returns SimpleInitializer
+   */
   public function getDefaultValuex(): SimpleInitializer {
     return TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_default_value);
   }

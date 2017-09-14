@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<633974ddc94d0bedd7309cf9c710173c>>
+ * @generated SignedSource<<0d9cc0f10cfde32170fc81d6debe8697>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -78,6 +78,9 @@ final class SimpleInitializer extends EditableSyntax {
     return !$this->_equal->isMissing();
   }
 
+  /**
+   * @returns EqualToken
+   */
   public function getEqual(): EqualToken {
     return TypeAssert::isInstanceOf(EqualToken::class, $this->_equal);
   }
@@ -97,6 +100,16 @@ final class SimpleInitializer extends EditableSyntax {
     return !$this->_value->isMissing();
   }
 
+  /**
+   * @returns LiteralExpression | ArrayIntrinsicExpression | BinaryExpression |
+   * ArrayCreationExpression | ScopeResolutionExpression |
+   * VectorIntrinsicExpression | DictionaryIntrinsicExpression |
+   * KeysetIntrinsicExpression | QualifiedNameExpression |
+   * CollectionLiteralExpression | PrefixUnaryExpression | ShapeExpression |
+   * ConditionalExpression | VarrayIntrinsicExpression |
+   * DarrayIntrinsicExpression | FunctionCallExpression |
+   * ParenthesizedExpression | TupleExpression
+   */
   public function getValue(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_value);
   }

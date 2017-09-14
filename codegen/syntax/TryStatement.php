@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e6772a21d1bc06c9297c8e60aa2b8ddc>>
+ * @generated SignedSource<<fe745286ecce0d55c308557ff171cddf>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -115,6 +115,9 @@ final class TryStatement extends EditableSyntax {
     return !$this->_keyword->isMissing();
   }
 
+  /**
+   * @returns TryToken
+   */
   public function getKeyword(): TryToken {
     return TypeAssert::isInstanceOf(TryToken::class, $this->_keyword);
   }
@@ -139,6 +142,9 @@ final class TryStatement extends EditableSyntax {
     return !$this->_compound_statement->isMissing();
   }
 
+  /**
+   * @returns CompoundStatement
+   */
   public function getCompoundStatement(): CompoundStatement {
     return TypeAssert::isInstanceOf(CompoundStatement::class, $this->_compound_statement);
   }
@@ -163,6 +169,9 @@ final class TryStatement extends EditableSyntax {
     return !$this->_catch_clauses->isMissing();
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getCatchClauses(): ?EditableList {
     if ($this->_catch_clauses->isMissing()) {
       return null;
@@ -170,6 +179,9 @@ final class TryStatement extends EditableSyntax {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_catch_clauses);
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getCatchClausesx(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_catch_clauses);
   }
@@ -194,6 +206,9 @@ final class TryStatement extends EditableSyntax {
     return !$this->_finally_clause->isMissing();
   }
 
+  /**
+   * @returns FinallyClause
+   */
   public function getFinallyClause(): ?FinallyClause {
     if ($this->_finally_clause->isMissing()) {
       return null;
@@ -201,6 +216,9 @@ final class TryStatement extends EditableSyntax {
     return TypeAssert::isInstanceOf(FinallyClause::class, $this->_finally_clause);
   }
 
+  /**
+   * @returns FinallyClause
+   */
   public function getFinallyClausex(): FinallyClause {
     return TypeAssert::isInstanceOf(FinallyClause::class, $this->_finally_clause);
   }

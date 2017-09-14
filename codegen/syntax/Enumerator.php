@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9cff8481acb90e13d9ad19e960736be9>>
+ * @generated SignedSource<<d83249f7fc5358d3b1357f4e0820f439>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -105,6 +105,9 @@ final class Enumerator extends EditableSyntax {
     return !$this->_name->isMissing();
   }
 
+  /**
+   * @returns NameToken
+   */
   public function getName(): NameToken {
     return TypeAssert::isInstanceOf(NameToken::class, $this->_name);
   }
@@ -124,6 +127,9 @@ final class Enumerator extends EditableSyntax {
     return !$this->_equal->isMissing();
   }
 
+  /**
+   * @returns EqualToken
+   */
   public function getEqual(): EqualToken {
     return TypeAssert::isInstanceOf(EqualToken::class, $this->_equal);
   }
@@ -143,6 +149,9 @@ final class Enumerator extends EditableSyntax {
     return !$this->_value->isMissing();
   }
 
+  /**
+   * @returns LiteralExpression | ScopeResolutionExpression | BinaryExpression
+   */
   public function getValue(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_value);
   }
@@ -162,6 +171,9 @@ final class Enumerator extends EditableSyntax {
     return !$this->_semicolon->isMissing();
   }
 
+  /**
+   * @returns SemicolonToken
+   */
   public function getSemicolon(): SemicolonToken {
     return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<194c4bb538e04ea85305f3b55e254f9d>>
+ * @generated SignedSource<<756316676479fe195c1c3d3e1c2d4037>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -81,8 +81,13 @@ final class PrefixUnaryExpression extends EditableSyntax {
     return !$this->_operator->isMissing();
   }
 
-  public function getOperator(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operator);
+  /**
+   * @returns PrintToken | MinusToken | AmpersandToken | TildeToken |
+   * ExclamationToken | DollarToken | PlusPlusToken | MinusMinusToken | AtToken
+   * | AwaitToken | CloneToken | PlusToken
+   */
+  public function getOperator(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_operator);
   }
 
   public function getOperandUNTYPED(): EditableSyntax {
@@ -100,6 +105,18 @@ final class PrefixUnaryExpression extends EditableSyntax {
     return !$this->_operand->isMissing();
   }
 
+  /**
+   * @returns LiteralExpression | VariableExpression | QualifiedNameExpression
+   * | FunctionCallExpression | IssetExpression | BracedExpression |
+   * BinaryExpression | ScopeResolutionExpression | SubscriptExpression |
+   * ParenthesizedExpression | VariableToken | MemberSelectionExpression |
+   * ObjectCreationExpression | PostfixUnaryExpression | PrefixUnaryExpression
+   * | InclusionExpression | CastExpression | EmptyExpression |
+   * ConditionalExpression | EvalExpression | DefineExpression |
+   * SafeMemberSelectionExpression | PipeVariableExpression |
+   * ArrayIntrinsicExpression | EndOfFileToken | LessThanToken |
+   * InstanceofExpression
+   */
   public function getOperand(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operand);
   }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<763f0d6c0da79598f8c289b87d960e0c>>
+ * @generated SignedSource<<4b8e95e1da257f7fcb5e5fc9bb07b0b4>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -93,6 +93,15 @@ final class ElementInitializer extends EditableSyntax {
     return !$this->_key->isMissing();
   }
 
+  /**
+   * @returns LiteralExpression | QualifiedNameExpression |
+   * ScopeResolutionExpression | VariableExpression | ArrayIntrinsicExpression
+   * | ObjectCreationExpression | VectorIntrinsicExpression |
+   * DictionaryIntrinsicExpression | KeysetIntrinsicExpression |
+   * CollectionLiteralExpression | PrefixUnaryExpression |
+   * FunctionCallExpression | BinaryExpression | ParenthesizedExpression |
+   * ArrayCreationExpression | CastExpression | AnonymousFunction
+   */
   public function getKey(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_key);
   }
@@ -112,6 +121,9 @@ final class ElementInitializer extends EditableSyntax {
     return !$this->_arrow->isMissing();
   }
 
+  /**
+   * @returns EqualGreaterThanToken
+   */
   public function getArrow(): EqualGreaterThanToken {
     return TypeAssert::isInstanceOf(EqualGreaterThanToken::class, $this->_arrow);
   }
@@ -131,6 +143,18 @@ final class ElementInitializer extends EditableSyntax {
     return !$this->_value->isMissing();
   }
 
+  /**
+   * @returns LiteralExpression | ObjectCreationExpression |
+   * PrefixUnaryExpression | CastExpression | QualifiedNameExpression |
+   * VariableExpression | ScopeResolutionExpression |
+   * DictionaryIntrinsicExpression | ArrayCreationExpression |
+   * VectorIntrinsicExpression | KeysetIntrinsicExpression |
+   * ConditionalExpression | FunctionCallExpression | BinaryExpression |
+   * ArrayIntrinsicExpression | MemberSelectionExpression |
+   * ParenthesizedExpression | CollectionLiteralExpression | AnonymousFunction
+   * | DarrayIntrinsicExpression | VarrayIntrinsicExpression |
+   * SubscriptExpression | IssetExpression | TupleExpression
+   */
   public function getValue(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_value);
   }

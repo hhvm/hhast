@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9df04849fedec643d7ff59a210775b17>>
+ * @generated SignedSource<<e1a6c0bcdac4c3654677ea7d388c04af>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -105,8 +105,11 @@ final class CollectionLiteralExpression extends EditableSyntax {
     return !$this->_name->isMissing();
   }
 
-  public function getName(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
+  /**
+   * @returns NameToken | QualifiedNameToken
+   */
+  public function getName(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
   }
 
   public function getLeftBraceUNTYPED(): EditableSyntax {
@@ -124,6 +127,9 @@ final class CollectionLiteralExpression extends EditableSyntax {
     return !$this->_left_brace->isMissing();
   }
 
+  /**
+   * @returns LeftBraceToken
+   */
   public function getLeftBrace(): LeftBraceToken {
     return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
   }
@@ -143,6 +149,9 @@ final class CollectionLiteralExpression extends EditableSyntax {
     return !$this->_initializers->isMissing();
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getInitializers(): ?EditableList {
     if ($this->_initializers->isMissing()) {
       return null;
@@ -150,6 +159,9 @@ final class CollectionLiteralExpression extends EditableSyntax {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_initializers);
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getInitializersx(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_initializers);
   }
@@ -169,6 +181,9 @@ final class CollectionLiteralExpression extends EditableSyntax {
     return !$this->_right_brace->isMissing();
   }
 
+  /**
+   * @returns RightBraceToken
+   */
   public function getRightBrace(): ?RightBraceToken {
     if ($this->_right_brace->isMissing()) {
       return null;
@@ -176,6 +191,9 @@ final class CollectionLiteralExpression extends EditableSyntax {
     return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 
+  /**
+   * @returns RightBraceToken
+   */
   public function getRightBracex(): RightBraceToken {
     return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }

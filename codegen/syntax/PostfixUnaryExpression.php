@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e88e50f85e397d2c6a9fc6d5cdf5839c>>
+ * @generated SignedSource<<63821d5ee49f9e18587a553dc2066e18>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -81,6 +81,10 @@ final class PostfixUnaryExpression extends EditableSyntax {
     return !$this->_operand->isMissing();
   }
 
+  /**
+   * @returns VariableExpression | PrefixUnaryExpression | SubscriptExpression
+   * | MemberSelectionExpression | ScopeResolutionExpression
+   */
   public function getOperand(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operand);
   }
@@ -100,7 +104,10 @@ final class PostfixUnaryExpression extends EditableSyntax {
     return !$this->_operator->isMissing();
   }
 
-  public function getOperator(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operator);
+  /**
+   * @returns PlusPlusToken | MinusMinusToken
+   */
+  public function getOperator(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_operator);
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cf7864d60778bf2ae886fe0d9c33f4cc>>
+ * @generated SignedSource<<02565083980b0b5e1edc2961c4c649fb>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -105,6 +105,9 @@ final class EmptyExpression extends EditableSyntax {
     return !$this->_keyword->isMissing();
   }
 
+  /**
+   * @returns EmptyToken
+   */
   public function getKeyword(): EmptyToken {
     return TypeAssert::isInstanceOf(EmptyToken::class, $this->_keyword);
   }
@@ -124,6 +127,9 @@ final class EmptyExpression extends EditableSyntax {
     return !$this->_left_paren->isMissing();
   }
 
+  /**
+   * @returns LeftParenToken
+   */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
@@ -143,6 +149,14 @@ final class EmptyExpression extends EditableSyntax {
     return !$this->_argument->isMissing();
   }
 
+  /**
+   * @returns MemberSelectionExpression | VariableExpression |
+   * SubscriptExpression | ScopeResolutionExpression | PrefixUnaryExpression |
+   * FunctionCallExpression | SafeMemberSelectionExpression |
+   * ArrayIntrinsicExpression | BinaryExpression | ParenthesizedExpression |
+   * ObjectCreationExpression | CollectionLiteralExpression | XHPExpression |
+   * ArrayCreationExpression | LiteralExpression
+   */
   public function getArgument(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_argument);
   }
@@ -162,6 +176,9 @@ final class EmptyExpression extends EditableSyntax {
     return !$this->_right_paren->isMissing();
   }
 
+  /**
+   * @returns RightParenToken
+   */
   public function getRightParen(): RightParenToken {
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }

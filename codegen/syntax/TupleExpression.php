@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f07b8e87f154a311bb92eeda44244e70>>
+ * @generated SignedSource<<36bf7f3863259c4daf40735ac9c59519>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -105,6 +105,9 @@ final class TupleExpression extends EditableSyntax {
     return !$this->_keyword->isMissing();
   }
 
+  /**
+   * @returns TupleToken
+   */
   public function getKeyword(): TupleToken {
     return TypeAssert::isInstanceOf(TupleToken::class, $this->_keyword);
   }
@@ -124,6 +127,9 @@ final class TupleExpression extends EditableSyntax {
     return !$this->_left_paren->isMissing();
   }
 
+  /**
+   * @returns LeftParenToken
+   */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
@@ -143,6 +149,9 @@ final class TupleExpression extends EditableSyntax {
     return !$this->_items->isMissing();
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getItems(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_items);
   }
@@ -162,6 +171,9 @@ final class TupleExpression extends EditableSyntax {
     return !$this->_right_paren->isMissing();
   }
 
+  /**
+   * @returns RightParenToken
+   */
   public function getRightParen(): RightParenToken {
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }

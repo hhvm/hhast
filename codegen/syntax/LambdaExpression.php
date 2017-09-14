@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b8d6f01f965cd60f7c73fb7a9fb6b225>>
+ * @generated SignedSource<<cb497557b56b0c4a7ce4cfc333bc5742>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -123,6 +123,9 @@ final class LambdaExpression extends EditableSyntax {
     return !$this->_async->isMissing();
   }
 
+  /**
+   * @returns AsyncToken
+   */
   public function getAsync(): ?AsyncToken {
     if ($this->_async->isMissing()) {
       return null;
@@ -130,6 +133,9 @@ final class LambdaExpression extends EditableSyntax {
     return TypeAssert::isInstanceOf(AsyncToken::class, $this->_async);
   }
 
+  /**
+   * @returns AsyncToken
+   */
   public function getAsyncx(): AsyncToken {
     return TypeAssert::isInstanceOf(AsyncToken::class, $this->_async);
   }
@@ -149,8 +155,11 @@ final class LambdaExpression extends EditableSyntax {
     return !$this->_coroutine->isMissing();
   }
 
-  public function getCoroutine(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_coroutine);
+  /**
+   * @returns
+   */
+  public function getCoroutine(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_coroutine);
   }
 
   public function getSignatureUNTYPED(): EditableSyntax {
@@ -168,6 +177,9 @@ final class LambdaExpression extends EditableSyntax {
     return !$this->_signature->isMissing();
   }
 
+  /**
+   * @returns VariableToken | LambdaSignature
+   */
   public function getSignature(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_signature);
   }
@@ -193,6 +205,9 @@ final class LambdaExpression extends EditableSyntax {
     return !$this->_arrow->isMissing();
   }
 
+  /**
+   * @returns EqualEqualGreaterThanToken
+   */
   public function getArrow(): ?EqualEqualGreaterThanToken {
     if ($this->_arrow->isMissing()) {
       return null;
@@ -200,6 +215,9 @@ final class LambdaExpression extends EditableSyntax {
     return TypeAssert::isInstanceOf(EqualEqualGreaterThanToken::class, $this->_arrow);
   }
 
+  /**
+   * @returns EqualEqualGreaterThanToken
+   */
   public function getArrowx(): EqualEqualGreaterThanToken {
     return TypeAssert::isInstanceOf(EqualEqualGreaterThanToken::class, $this->_arrow);
   }
@@ -225,6 +243,14 @@ final class LambdaExpression extends EditableSyntax {
     return !$this->_body->isMissing();
   }
 
+  /**
+   * @returns FunctionCallExpression | CompoundStatement |
+   * MemberSelectionExpression | VariableExpression | BinaryExpression |
+   * PrefixUnaryExpression | LambdaExpression | LiteralExpression |
+   * ConditionalExpression | SubscriptExpression | CastExpression |
+   * ParenthesizedExpression | ArrayIntrinsicExpression |
+   * ObjectCreationExpression | TupleExpression
+   */
   public function getBody(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_body);
   }

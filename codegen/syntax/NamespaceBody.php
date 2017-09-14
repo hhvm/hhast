@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<150c39877c605f9895a3b9c9527220a8>>
+ * @generated SignedSource<<59d0a15d751d03959a5a806c5ed1d7e8>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -93,6 +93,9 @@ final class NamespaceBody extends EditableSyntax {
     return !$this->_left_brace->isMissing();
   }
 
+  /**
+   * @returns LeftBraceToken
+   */
   public function getLeftBrace(): LeftBraceToken {
     return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
   }
@@ -112,6 +115,9 @@ final class NamespaceBody extends EditableSyntax {
     return !$this->_declarations->isMissing();
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getDeclarations(): ?EditableList {
     if ($this->_declarations->isMissing()) {
       return null;
@@ -119,6 +125,9 @@ final class NamespaceBody extends EditableSyntax {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_declarations);
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getDeclarationsx(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_declarations);
   }
@@ -138,6 +147,9 @@ final class NamespaceBody extends EditableSyntax {
     return !$this->_right_brace->isMissing();
   }
 
+  /**
+   * @returns RightBraceToken
+   */
   public function getRightBrace(): ?RightBraceToken {
     if ($this->_right_brace->isMissing()) {
       return null;
@@ -145,6 +157,9 @@ final class NamespaceBody extends EditableSyntax {
     return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 
+  /**
+   * @returns RightBraceToken
+   */
   public function getRightBracex(): RightBraceToken {
     return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }

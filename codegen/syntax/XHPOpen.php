@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4e600fdcf5120e1d37bc99a965634c34>>
+ * @generated SignedSource<<491df328320e785d77c1ae670ca093ac>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -105,6 +105,9 @@ final class XHPOpen extends EditableSyntax {
     return !$this->_left_angle->isMissing();
   }
 
+  /**
+   * @returns LessThanToken
+   */
   public function getLeftAngle(): LessThanToken {
     return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
   }
@@ -124,6 +127,9 @@ final class XHPOpen extends EditableSyntax {
     return !$this->_name->isMissing();
   }
 
+  /**
+   * @returns XHPElementNameToken
+   */
   public function getName(): XHPElementNameToken {
     return TypeAssert::isInstanceOf(XHPElementNameToken::class, $this->_name);
   }
@@ -143,6 +149,9 @@ final class XHPOpen extends EditableSyntax {
     return !$this->_attributes->isMissing();
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getAttributes(): ?EditableList {
     if ($this->_attributes->isMissing()) {
       return null;
@@ -150,6 +159,9 @@ final class XHPOpen extends EditableSyntax {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_attributes);
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getAttributesx(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_attributes);
   }
@@ -169,7 +181,10 @@ final class XHPOpen extends EditableSyntax {
     return !$this->_right_angle->isMissing();
   }
 
-  public function getRightAngle(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_angle);
+  /**
+   * @returns SlashGreaterThanToken | GreaterThanToken
+   */
+  public function getRightAngle(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_right_angle);
   }
 }

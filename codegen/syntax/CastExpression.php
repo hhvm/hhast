@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ff2da59b28dd4845db24a7846d0db52b>>
+ * @generated SignedSource<<262ca408203164c6e31d0eb97364210c>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -105,6 +105,9 @@ final class CastExpression extends EditableSyntax {
     return !$this->_left_paren->isMissing();
   }
 
+  /**
+   * @returns LeftParenToken
+   */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
@@ -124,8 +127,12 @@ final class CastExpression extends EditableSyntax {
     return !$this->_type->isMissing();
   }
 
-  public function getType(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
+  /**
+   * @returns DoubleToken | StringToken | BoolToken | IntToken | ArrayToken |
+   * ObjectToken | FloatToken | NameToken
+   */
+  public function getType(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_type);
   }
 
   public function getRightParenUNTYPED(): EditableSyntax {
@@ -143,6 +150,9 @@ final class CastExpression extends EditableSyntax {
     return !$this->_right_paren->isMissing();
   }
 
+  /**
+   * @returns RightParenToken
+   */
   public function getRightParen(): RightParenToken {
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
@@ -162,6 +172,16 @@ final class CastExpression extends EditableSyntax {
     return !$this->_operand->isMissing();
   }
 
+  /**
+   * @returns LiteralExpression | FunctionCallExpression | VariableExpression |
+   * ParenthesizedExpression | MemberSelectionExpression |
+   * ArrayCreationExpression | ArrayIntrinsicExpression |
+   * CollectionLiteralExpression | DictionaryIntrinsicExpression |
+   * CastExpression | ObjectCreationExpression | SubscriptExpression |
+   * ScopeResolutionExpression | PostfixUnaryExpression |
+   * QualifiedNameExpression | VectorIntrinsicExpression | XHPExpression |
+   * PrefixUnaryExpression | AnonymousFunction | InstanceofExpression
+   */
   public function getOperand(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operand);
   }

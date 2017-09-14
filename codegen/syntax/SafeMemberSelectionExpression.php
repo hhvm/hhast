@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bec8d153d6517c8923292ca8114bfbcc>>
+ * @generated SignedSource<<61f56f68b45b1537329d223ee00e3586>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -93,6 +93,11 @@ final class SafeMemberSelectionExpression extends EditableSyntax {
     return !$this->_object->isMissing();
   }
 
+  /**
+   * @returns VariableExpression | FunctionCallExpression |
+   * MemberSelectionExpression | SafeMemberSelectionExpression |
+   * PrefixUnaryExpression | ScopeResolutionExpression
+   */
   public function getObject(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_object);
   }
@@ -112,6 +117,9 @@ final class SafeMemberSelectionExpression extends EditableSyntax {
     return !$this->_operator->isMissing();
   }
 
+  /**
+   * @returns QuestionMinusGreaterThanToken
+   */
   public function getOperator(): QuestionMinusGreaterThanToken {
     return TypeAssert::isInstanceOf(QuestionMinusGreaterThanToken::class, $this->_operator);
   }
@@ -131,7 +139,10 @@ final class SafeMemberSelectionExpression extends EditableSyntax {
     return !$this->_name->isMissing();
   }
 
-  public function getName(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
+  /**
+   * @returns NameToken | XHPClassNameToken
+   */
+  public function getName(): EditableToken {
+    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
   }
 }

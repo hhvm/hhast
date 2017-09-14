@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1a34707b873e0ac5d6bd248357cb8fdf>>
+ * @generated SignedSource<<96ba13eae4b06bd2694beef0853151d1>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -93,6 +93,9 @@ final class ClassishBody extends EditableSyntax {
     return !$this->_left_brace->isMissing();
   }
 
+  /**
+   * @returns LeftBraceToken
+   */
   public function getLeftBrace(): ?LeftBraceToken {
     if ($this->_left_brace->isMissing()) {
       return null;
@@ -100,6 +103,9 @@ final class ClassishBody extends EditableSyntax {
     return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
   }
 
+  /**
+   * @returns LeftBraceToken
+   */
   public function getLeftBracex(): LeftBraceToken {
     return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
   }
@@ -119,6 +125,9 @@ final class ClassishBody extends EditableSyntax {
     return !$this->_elements->isMissing();
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getElements(): ?EditableList {
     if ($this->_elements->isMissing()) {
       return null;
@@ -126,6 +135,9 @@ final class ClassishBody extends EditableSyntax {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_elements);
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getElementsx(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_elements);
   }
@@ -145,6 +157,9 @@ final class ClassishBody extends EditableSyntax {
     return !$this->_right_brace->isMissing();
   }
 
+  /**
+   * @returns RightBraceToken
+   */
   public function getRightBrace(): ?RightBraceToken {
     if ($this->_right_brace->isMissing()) {
       return null;
@@ -152,6 +167,9 @@ final class ClassishBody extends EditableSyntax {
     return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }
 
+  /**
+   * @returns RightBraceToken
+   */
   public function getRightBracex(): RightBraceToken {
     return TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
   }

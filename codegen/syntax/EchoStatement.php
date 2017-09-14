@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<045ec116063e9cc5c953a819ca752619>>
+ * @generated SignedSource<<2492dc5bce43d99815999d509af8f3e5>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -93,6 +93,9 @@ final class EchoStatement extends EditableSyntax {
     return !$this->_keyword->isMissing();
   }
 
+  /**
+   * @returns EchoToken
+   */
   public function getKeyword(): EchoToken {
     return TypeAssert::isInstanceOf(EchoToken::class, $this->_keyword);
   }
@@ -112,6 +115,9 @@ final class EchoStatement extends EditableSyntax {
     return !$this->_expressions->isMissing();
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getExpressions(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_expressions);
   }
@@ -131,6 +137,9 @@ final class EchoStatement extends EditableSyntax {
     return !$this->_semicolon->isMissing();
   }
 
+  /**
+   * @returns SemicolonToken
+   */
   public function getSemicolon(): ?SemicolonToken {
     if ($this->_semicolon->isMissing()) {
       return null;
@@ -138,6 +147,9 @@ final class EchoStatement extends EditableSyntax {
     return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }
 
+  /**
+   * @returns SemicolonToken
+   */
   public function getSemicolonx(): SemicolonToken {
     return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
   }

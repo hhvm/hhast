@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9a7efe3f65286b4fc5dd02cd577dae3f>>
+ * @generated SignedSource<<dda15e72b39744a7972878e53d84fc26>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -110,6 +110,9 @@ final class DefineExpression extends EditableSyntax {
     return !$this->_keyword->isMissing();
   }
 
+  /**
+   * @returns DefineToken
+   */
   public function getKeyword(): DefineToken {
     return TypeAssert::isInstanceOf(DefineToken::class, $this->_keyword);
   }
@@ -129,6 +132,9 @@ final class DefineExpression extends EditableSyntax {
     return !$this->_left_paren->isMissing();
   }
 
+  /**
+   * @returns LeftParenToken
+   */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
@@ -148,6 +154,9 @@ final class DefineExpression extends EditableSyntax {
     return !$this->_argument_list->isMissing();
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getArgumentList(): ?EditableList {
     if ($this->_argument_list->isMissing()) {
       return null;
@@ -155,6 +164,9 @@ final class DefineExpression extends EditableSyntax {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_argument_list);
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getArgumentListx(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_argument_list);
   }
@@ -174,6 +186,9 @@ final class DefineExpression extends EditableSyntax {
     return !$this->_right_paren->isMissing();
   }
 
+  /**
+   * @returns RightParenToken
+   */
   public function getRightParen(): RightParenToken {
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1afb4ab18b2cb1efb3e627580d6921d1>>
+ * @generated SignedSource<<8e9da2a3bfdb3f6f3d204442dda9757e>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -67,6 +67,9 @@ final class VariadicParameter extends EditableSyntax {
     return !$this->_ellipsis->isMissing();
   }
 
+  /**
+   * @returns DotDotDotToken
+   */
   public function getEllipsis(): DotDotDotToken {
     return TypeAssert::isInstanceOf(DotDotDotToken::class, $this->_ellipsis);
   }

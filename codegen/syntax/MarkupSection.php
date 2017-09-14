@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e2dba746a5eb57c8d5a6cc6318351f9f>>
+ * @generated SignedSource<<0ea8707d6ef2d19ca2d2f622311e87a4>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -105,6 +105,9 @@ final class MarkupSection extends EditableSyntax {
     return !$this->_prefix->isMissing();
   }
 
+  /**
+   * @returns QuestionGreaterThanToken
+   */
   public function getPrefix(): ?QuestionGreaterThanToken {
     if ($this->_prefix->isMissing()) {
       return null;
@@ -112,6 +115,9 @@ final class MarkupSection extends EditableSyntax {
     return TypeAssert::isInstanceOf(QuestionGreaterThanToken::class, $this->_prefix);
   }
 
+  /**
+   * @returns QuestionGreaterThanToken
+   */
   public function getPrefixx(): QuestionGreaterThanToken {
     return TypeAssert::isInstanceOf(QuestionGreaterThanToken::class, $this->_prefix);
   }
@@ -131,6 +137,9 @@ final class MarkupSection extends EditableSyntax {
     return !$this->_text->isMissing();
   }
 
+  /**
+   * @returns MarkupToken
+   */
   public function getText(): ?MarkupToken {
     if ($this->_text->isMissing()) {
       return null;
@@ -138,6 +147,9 @@ final class MarkupSection extends EditableSyntax {
     return TypeAssert::isInstanceOf(MarkupToken::class, $this->_text);
   }
 
+  /**
+   * @returns MarkupToken
+   */
   public function getTextx(): MarkupToken {
     return TypeAssert::isInstanceOf(MarkupToken::class, $this->_text);
   }
@@ -157,6 +169,9 @@ final class MarkupSection extends EditableSyntax {
     return !$this->_suffix->isMissing();
   }
 
+  /**
+   * @returns MarkupSuffix
+   */
   public function getSuffix(): ?MarkupSuffix {
     if ($this->_suffix->isMissing()) {
       return null;
@@ -164,6 +179,9 @@ final class MarkupSection extends EditableSyntax {
     return TypeAssert::isInstanceOf(MarkupSuffix::class, $this->_suffix);
   }
 
+  /**
+   * @returns MarkupSuffix
+   */
   public function getSuffixx(): MarkupSuffix {
     return TypeAssert::isInstanceOf(MarkupSuffix::class, $this->_suffix);
   }
@@ -183,6 +201,9 @@ final class MarkupSection extends EditableSyntax {
     return !$this->_expression->isMissing();
   }
 
+  /**
+   * @returns ExpressionStatement
+   */
   public function getExpression(): ?ExpressionStatement {
     if ($this->_expression->isMissing()) {
       return null;
@@ -190,6 +211,9 @@ final class MarkupSection extends EditableSyntax {
     return TypeAssert::isInstanceOf(ExpressionStatement::class, $this->_expression);
   }
 
+  /**
+   * @returns ExpressionStatement
+   */
   public function getExpressionx(): ExpressionStatement {
     return TypeAssert::isInstanceOf(ExpressionStatement::class, $this->_expression);
   }

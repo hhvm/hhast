@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0b9d89a9ec3d39c13fbc7051afce96b9>>
+ * @generated SignedSource<<c05cfe0d740a2c482d51eac5b17d1937>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -81,6 +81,9 @@ final class SwitchFallthrough extends EditableSyntax {
     return !$this->_keyword->isMissing();
   }
 
+  /**
+   * @returns unknown
+   */
   public function getKeyword(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_keyword);
   }
@@ -100,6 +103,9 @@ final class SwitchFallthrough extends EditableSyntax {
     return !$this->_semicolon->isMissing();
   }
 
+  /**
+   * @returns unknown
+   */
   public function getSemicolon(): EditableSyntax {
     return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_semicolon);
   }

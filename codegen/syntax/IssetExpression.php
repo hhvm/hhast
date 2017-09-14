@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<aa460173c443342894c42891bb7d338a>>
+ * @generated SignedSource<<60e87f5493fd09f1b80c6cb05f889c24>>
  */
 namespace Facebook\HHAST;
 use type Facebook\TypeAssert\TypeAssert;
@@ -110,6 +110,9 @@ final class IssetExpression extends EditableSyntax {
     return !$this->_keyword->isMissing();
   }
 
+  /**
+   * @returns IssetToken
+   */
   public function getKeyword(): IssetToken {
     return TypeAssert::isInstanceOf(IssetToken::class, $this->_keyword);
   }
@@ -129,6 +132,9 @@ final class IssetExpression extends EditableSyntax {
     return !$this->_left_paren->isMissing();
   }
 
+  /**
+   * @returns LeftParenToken
+   */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
   }
@@ -148,6 +154,9 @@ final class IssetExpression extends EditableSyntax {
     return !$this->_argument_list->isMissing();
   }
 
+  /**
+   * @returns EditableList
+   */
   public function getArgumentList(): EditableList {
     return TypeAssert::isInstanceOf(EditableList::class, $this->_argument_list);
   }
@@ -167,6 +176,9 @@ final class IssetExpression extends EditableSyntax {
     return !$this->_right_paren->isMissing();
   }
 
+  /**
+   * @returns RightParenToken
+   */
   public function getRightParen(): RightParenToken {
     return TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
   }
