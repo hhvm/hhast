@@ -164,11 +164,13 @@ class MustUseBracesForControlFlowLinter
   }
 
   <<__Override>>
-  public function getPrettyNode(IControlFlowStatement $node): IControlFlowStatement {
+  public function getPrettyTextForNode(
+    IControlFlowStatement $node,
+    ?EditableSyntax $_context,
+  ): string {
     $token = $node->getFirstTokenx();
-    return $node->replace(
-      $token->withLeading($token->getLeadingWhitespace()),
-      $token,
-    );
+    return $node
+      ->replace($token->withLeading($token->getLeadingWhitespace()), $token)
+      ->getCode();
   }
 }

@@ -63,17 +63,4 @@ final class MustUseOverrideAttributeLinterTest extends TestCase {
       ],
     ];
   }
-
-  public function getDirtyFixtures(): array<array<string>> {
-    return [
-      ['overrides_parent'],
-      ['overrides_grandparent'],
-      ['with_leading_newline'],
-      ['with_other_attribute'],
-      ['with_other_attribute_with_value'],
-      ['with_leading_comment'],
-      ['with_leading_comment_and_other_attribute'],
-      ['with_generic_parent'],
-    ];
-  }
 }

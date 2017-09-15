@@ -246,7 +246,7 @@ final class LinterCLI {
   private static function renderLintBlame(
     Linters\LintError $error,
   ): void {
-    $blame = $error->getPrettyBlameCode();
+    $blame = $error->getPrettyBlame();
     if ($blame === null) {
       return;
     }

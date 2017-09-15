@@ -15,6 +15,6 @@ use type Facebook\HHAST\EditableSyntax;
 
 class Foo extends AutoFixingASTLinter<EditableSyntax> {
   <<__Override>>
-  public function getPrettyNode(EditableSyntax $node): EditableSyntax {
+  public function getPrettyTextForNode(EditableSyntax $node): EditableSyntax {
   }
  }

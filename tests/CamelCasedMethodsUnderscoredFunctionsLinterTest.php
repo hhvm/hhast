@@ -44,13 +44,4 @@ final class CamelCasedMethodsUnderscoredFunctionsLinterTest extends TestCase {
       ['<?hh function Foo(): __Private\Foo<T> {}'],
     ];
   }
-
-  public function getDirtyFixtures(): array<array<string>> {
-    return [
-      ['function_with_acronym'],
-      ['unknown_suffix'],
-      ['underscored_methods'],
-      ['camel_cased_functions'],
-    ];
-  }
 }

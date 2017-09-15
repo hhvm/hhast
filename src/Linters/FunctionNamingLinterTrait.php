@@ -124,9 +124,11 @@ trait FunctionNamingLinterTrait {
     );
   }
 
-  public function getPrettyNode(
+  <<__Override>>
+  public function getPrettyTextForNode(
     IFunctionishDeclaration $node,
-  ): IFunctionishDeclaration {
+    ?EditableSyntax $_context,
+  ): string {
     if ($node instanceof FunctionDeclaration) {
       $node = $node->withBody(HHAST\Missing());
     } else if ($node instanceof MethodishDeclaration) {
@@ -151,6 +153,7 @@ trait FunctionNamingLinterTrait {
     return $node->replace(
       $node->getFirstTokenx()->withLeading($leading),
       $node->getFirstTokenx(),
-    );
+      )
+      ->getCode();
   }
 }

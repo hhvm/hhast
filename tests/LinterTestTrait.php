@@ -23,7 +23,15 @@ trait LinterTestTrait {
   abstract protected function getLinter(string $file): Linters\BaseLinter ;
 
   abstract public function getCleanExamples(): array<array<string>>;
-  abstract public function getDirtyFixtures(): array<array<string>>;
+  final public function getDirtyFixtures(): array<array<string>> {
+    return static::class
+      |> explode('\\', $$)
+      |> C\lastx($$)
+      |> Str\strip_suffix($$, 'Test')
+      |> glob(__DIR__.'/fixtures/'.$$.'/*.php.in')
+      |> Vec\map($$, $path ==> [basename($path, '.php.in')])
+      |> array_values($$);
+  }
 
   final protected function getFullFixtureName(string $name): string {
     return static::class
@@ -65,7 +73,7 @@ trait LinterTestTrait {
         $$,
         $error ==> shape(
           'blame' => $error->getBlameCode(),
-          'blame_pretty' => $error->getPrettyBlameCode(),
+          'blame_pretty' => $error->getPrettyBlame(),
           'description' => $error->getDescription(),
         ),
       )

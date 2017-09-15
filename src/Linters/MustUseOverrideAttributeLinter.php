@@ -123,12 +123,13 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
   }
 
   <<__Override>>
-  public function getPrettyNode(
+  public function getPrettyTextForNode(
     MethodishDeclaration $node,
-  ): MethodishDeclaration {
+    ?EditableSyntax $_context,
+  ): string {
     $body = $node->getFunctionBody();
     if ($body === null) {
-      return $node;
+      return $node->getCode();
     }
 
     return $node->withFunctionBody(
@@ -136,7 +137,8 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
         ->withStatements(HHAST\Missing())
         ->withRightBrace(HHAST\Missing())
         ->withLeftBrace($body->getLeftBracex()->withTrailing(HHAST\Missing()))
-    );
+      )
+      ->getCode();
   }
 
   <<__Override>>

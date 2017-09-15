@@ -25,6 +25,7 @@ class ASTLintError<
     protected Tlinter $linter,
     string $description,
     private Tnode $node,
+    private ?EditableSyntax $context = null,
   ) {
     parent::__construct($linter, $description);
   }
@@ -44,8 +45,8 @@ class ASTLintError<
   }
 
   <<__Memoize, __Override>>
-  final public function getPrettyBlameCode(): string {
-    return $this->linter->getPrettyNode($this->node)->getCode();
+  final public function getPrettyBlame(): string {
+    return $this->linter->getPrettyTextForNode($this->node, $this->context);
   }
 
   final public function isFixable(): bool {
@@ -59,10 +60,8 @@ class ASTLintError<
       "Can't render fix for unfixable lint error",
     );
     return tuple(
-      $this->getPrettyBlameCode(),
-      $linter->getPrettyNode(
-        $linter->getFixedNode($this->node),
-      )->getCode(),
+      $this->getPrettyBlame(),
+      $linter->getPrettyTextForNode($this->node, $this->context),
     );
   }
 }

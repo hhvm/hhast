@@ -1,5 +1,5 @@
 <?hh // strict
-/**
+/*
  * Copyright (c) 2017, Facebook, Inc.
  * All rights reserved.
  *
@@ -10,10 +10,11 @@
  *
  */
 
-use type Facebook\HHAST\Linters\AutoFixingASTLinter;
-use type Facebook\HHAST\EditableSyntax;
-
-class Foo extends AutoFixingASTLinter<EditableSyntax> {
-  public function getPrettyTextForNode(EditableSyntax $node): EditableSyntax {
+async function nested_loop_waaits(
+): Awaitable<void> {
+  for ($i = 0; $i < 10; ++$i) {
+    for ($j = 0; $j < 10; ++$j) {
+      await do_async_stuff();
+    }
   }
- }
+}

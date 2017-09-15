@@ -40,14 +40,4 @@ final class MustUseBracesForControlFlowLinterTest extends TestCase {
       ['<?hh while(true) { x(); }'],
     ];
   }
-
-  public function getDirtyFixtures(): array<array<string>> {
-    return [
-      ['if_one_line'],
-      ['if_two_lines'],
-      ['if_else_two_lines'],
-      ['if_else_four_lines'],
-      ['if_else_comments'],
-    ];
-  }
 }

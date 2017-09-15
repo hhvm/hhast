@@ -151,7 +151,7 @@ abstract class EditableSyntax {
   public function find_with_parents(
     (function(EditableSyntax): bool) $predicate,
     ?Traversable<EditableSyntax> $parents = null,
-  ): Traversable<EditableSyntax> {
+  ): vec<EditableSyntax> {
     $parents = $parents === null ? vec[] : vec($parents);
     $new_parents = $parents;
     $new_parents[] = $this;
@@ -164,7 +164,7 @@ abstract class EditableSyntax {
         return $result;
       }
     }
-    return [];
+    return vec[];
   }
 
   // Returns a list of nodes that match a predicate.

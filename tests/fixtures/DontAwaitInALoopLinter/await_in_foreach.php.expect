@@ -1,0 +1,7 @@
+[
+    {
+        "blame": "await $item",
+        "blame_pretty": "Line 17:   foreach ($in as $item) {\nLine 18:     $out[] = await $item;",
+        "description": "Don't use await in a loop"
+    }
+]

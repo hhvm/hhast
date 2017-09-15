@@ -38,10 +38,11 @@ abstract class ASTLinter<T as HHAST\EditableSyntax> extends BaseLinter {
    * Some parts of the node may be irrelevant to the actual error; strip them
    * out here to display more concise messages to humans.
    */
-  public function getPrettyNode(
+  public function getPrettyTextForNode(
     T $node,
-  ): T {
-    return $node;
+    ?EditableSyntax $_context,
+  ): string {
+    return $node->getCode();
   }
 
   <<__Override>>
