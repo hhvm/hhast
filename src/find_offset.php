@@ -12,9 +12,9 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\C;
+use namespace HH\Lib\{C, Vec};
 
-function find_offset(
+function find_offset_after_leading(
   EditableSyntax $root,
   EditableSyntax $node,
 ): int {
@@ -22,30 +22,6 @@ function find_offset(
     return 0;
   }
 
-  $parents = null;
-  foreach ($root->parented_preorder() as $tuple) {
-    list($child, $parents) = $tuple;
-    if ($child === $node) {
-      break;
-    }
-  }
-  invariant(
-    $parents !== null,
-    'Failed to find parents',
-  );
-  $parents = vec($parents);
-
-  $parent = C\lastx($parents);
-  $within_parent = $node->getFirstToken()?->getLeading()?->getWidth() ?? 0;
-  foreach ($parent->getChildren() as $child) {
-    if ($child === $node) {
-      break;
-    }
-    $within_parent += $child->getWidth();
-  }
-
-  return $within_parent + find_offset(
-    $root,
-    $parent,
-  );
+  return find_offset_of_leading($root, $node)
+    + $node->getFirstTokenx()->getLeading()->getWidth();
 }

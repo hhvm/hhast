@@ -18,7 +18,7 @@ function find_position(
   EditableSyntax $root,
   EditableSyntax $node,
 ): (int, int) {
-  $offset = find_offset($root, $node);
+  $offset = find_offset_after_leading($root, $node);
   $lines = $root->getCode()
     |> Str\slice($$, 0, $offset)
     |> explode("\n", $$);
