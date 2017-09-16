@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "586b1da93a14312b2709efc90c4b76ec",
+    "content-hash": "6874cfdeebfa37f93559ab781e2330d4",
     "packages": [
         {
             "name": "facebook/definition-finder",
@@ -49,53 +49,6 @@
             "time": "2017-08-25T16:56:25+00:00"
         },
         {
-            "name": "facebook/hhvm-autoload",
-            "version": "v1.4.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/hhvm/hhvm-autoload.git",
-                "reference": "2e27a0a287fb17229c4096422bd477ba2388b81d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/hhvm-autoload/zipball/2e27a0a287fb17229c4096422bd477ba2388b81d",
-                "reference": "2e27a0a287fb17229c4096422bd477ba2388b81d",
-                "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "^1.0",
-                "facebook/definition-finder": "^1.0",
-                "fredemmott/hack-error-suppressor": "^1.0",
-                "hhvm": "^3.12",
-                "hhvm/type-assert": "^2.0"
-            },
-            "require-dev": {
-                "91carriage/phpunit-hhi": "^5.5",
-                "phpunit/phpunit": "^5.5"
-            },
-            "bin": [
-                "bin/hh-autoload"
-            ],
-            "type": "composer-plugin",
-            "extra": {
-                "class": [
-                    "Facebook\\AutoloadMap\\ComposerPlugin"
-                ]
-            },
-            "autoload": {
-                "classmap": [
-                    "src/Writer.php",
-                    "src/"
-                ],
-                "files": [
-                    "src/AutoloadMap.php",
-                    "src/Config.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "time": "2017-09-09T21:22:05+00:00"
-        },
-        {
             "name": "fredemmott/hack-error-suppressor",
             "version": "v1.0.1",
             "source": {
@@ -131,6 +84,56 @@
             ],
             "description": "Suppress HHVM's automatic conversion of typechecker errors to fatals.",
             "time": "2017-05-02T03:07:37+00:00"
+        },
+        {
+            "name": "hhvm/hhvm-autoload",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hhvm/hhvm-autoload.git",
+                "reference": "68878416e3197457b067d7a208f0f9f36f060c16"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hhvm/hhvm-autoload/zipball/68878416e3197457b067d7a208f0f9f36f060c16",
+                "reference": "68878416e3197457b067d7a208f0f9f36f060c16",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0",
+                "facebook/definition-finder": "^1.0",
+                "fredemmott/hack-error-suppressor": "^1.0",
+                "hhvm": "^3.12"
+            },
+            "replace": {
+                "facebook/hhvm-autoload": "1.*"
+            },
+            "require-dev": {
+                "91carriage/phpunit-hhi": "^5.5",
+                "phpunit/phpunit": "^5.5"
+            },
+            "bin": [
+                "bin/hh-autoload"
+            ],
+            "type": "composer-plugin",
+            "extra": {
+                "class": [
+                    "Facebook\\AutoloadMap\\ComposerPlugin"
+                ]
+            },
+            "autoload": {
+                "classmap": [
+                    "src/Writer.php",
+                    "src/"
+                ],
+                "files": [
+                    "src/AutoloadMap.php",
+                    "src/Config.php",
+                    "src/TypeAssert.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "time": "2017-09-16 19:00:56"
         },
         {
             "name": "hhvm/hsl",
@@ -1660,7 +1663,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "facebook/hack-codegen": 20
+        "facebook/hack-codegen": 20,
+        "hhvm/hhvm-autoload": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
