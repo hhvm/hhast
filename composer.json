@@ -6,6 +6,7 @@
         "facebook/fbexpect": "^0.2.0"
     },
     "require": {
-        "facebook/hhvm-autoload": "^1.4.3"
+        "facebook/hhvm-autoload": "^1.4.3",
+        "hhvm/hsl": ">=0.3 <= 2.0"
     }
 }
