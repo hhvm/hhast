@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6874cfdeebfa37f93559ab781e2330d4",
+    "content-hash": "bbce82ba49794f641b232e1b052d107c",
     "packages": [
         {
             "name": "facebook/definition-finder",
@@ -87,7 +87,7 @@
         },
         {
             "name": "hhvm/hhvm-autoload",
-            "version": "dev-master",
+            "version": "v1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/hhvm-autoload.git",
@@ -133,7 +133,7 @@
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2017-09-16 19:00:56"
+            "time": "2017-09-16T19:00:56+00:00"
         },
         {
             "name": "hhvm/hsl",
@@ -1663,8 +1663,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "facebook/hack-codegen": 20,
-        "hhvm/hhvm-autoload": 20
+        "facebook/hack-codegen": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
