@@ -1598,24 +1598,27 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/hack-codegen.git",
-                "reference": "cff826fb574923d3973d411d01358a24c2ad5da7"
+                "reference": "97bad201a33face23419e3835197847651bdf74a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/hack-codegen/zipball/cff826fb574923d3973d411d01358a24c2ad5da7",
-                "reference": "cff826fb574923d3973d411d01358a24c2ad5da7",
+                "url": "https://api.github.com/repos/hhvm/hack-codegen/zipball/97bad201a33face23419e3835197847651bdf74a",
+                "reference": "97bad201a33face23419e3835197847651bdf74a",
                 "shasum": ""
             },
             "require": {
-                "facebook/hhvm-autoload": "^1.4",
                 "hhvm": "^3.21",
+                "hhvm/hhvm-autoload": "^1.5",
                 "hhvm/hsl": "<1.0 >=0.3"
             },
             "require-dev": {
                 "91carriage/phpunit-hhi": "^5.6",
-                "hhvm/type-assert": "^2.0",
+                "hhvm/type-assert": "^3.0",
                 "phpunit/phpunit": "^5.7"
             },
+            "bin": [
+                "bin/hh-codegen-verify-signatures"
+            ],
             "type": "library",
             "autoload": {
                 "classmap": [
@@ -1655,7 +1658,7 @@
                 "code generation",
                 "hack"
             ],
-            "time": "2017-09-09 20:54:33"
+            "time": "2017-09-17T21:19:59+00:00"
         }
     ],
     "aliases": [],

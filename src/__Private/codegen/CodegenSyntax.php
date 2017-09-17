@@ -48,7 +48,7 @@ final class CodegenSyntax extends CodegenBase {
   private function generateClass(Schema\TAST $syntax): CodegenClass {
     $cg = $this->getCodegenFactory();
 
-    $class = $cg
+    return $cg
       ->codegenClass($syntax['kind_name'])
       ->setIsFinal()
       ->setExtends('EditableSyntax')
@@ -66,17 +66,15 @@ final class CodegenSyntax extends CodegenBase {
           $field ==> $this->generateFieldMethods($syntax, $field['field_name']),
         )
         |> Vec\flatten($$),
+      )
+      ->addProperties(
+        Vec\map(
+          $syntax['fields'],
+          $field ==> $cg
+            ->codegenProperty('_'.$field['field_name'])
+            ->setType('EditableSyntax')
+        )
       );
-
-    foreach ($syntax['fields'] as $field) {
-      $class->addVar(
-        $cg
-          ->codegenMemberVar('_'.$field['field_name'])
-          ->setType('EditableSyntax'),
-      );
-    }
-
-    return $class;
   }
 
   private function generateFieldMethods(
@@ -172,26 +170,32 @@ final class CodegenSyntax extends CodegenBase {
   ): CodegenConstructor {
     $cg = $this->getCodegenFactory();
 
-    $c = $cg->codegenConstructor();
-
-    $body = $cg
-      ->codegenHackBuilder()
-      ->addLinef(
-        'parent::__construct(%s);',
-        var_export($syntax['type_name'], true),
+    return $cg->codegenConstructor()
+      ->addParameters(
+        Vec\map(
+          $syntax['fields'],
+          $field ==> 'EditableSyntax $'.$field['field_name'],
+        ),
+      )
+      ->setBody(
+        $cg
+          ->codegenHackBuilder()
+          ->addLinef(
+            'parent::__construct(%s);',
+            var_export($syntax['type_name'], true),
+          )
+          ->addLines(
+            Vec\map(
+              $syntax['fields'],
+              $field ==> sprintf(
+                '$this->_%s = $%s;',
+                $field['field_name'],
+                $field['field_name'],
+              ),
+            ),
+          )
+          ->getCode()
       );
-
-    foreach ($syntax['fields'] as $field) {
-      $c->addParameterf('EditableSyntax $%s', $field['field_name']);
-      $body->addLinef(
-        '$this->_%s = $%s;',
-        $field['field_name'],
-        $field['field_name'],
-      );
-    }
-    $c->setBody($body->getCode());
-
-    return $c;
   }
 
   private function generateFromJSONMethod(Schema\TAST $syntax): CodegenMethod {

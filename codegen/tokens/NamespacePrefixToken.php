@@ -1,8 +1,8 @@
-<?hh
+<?hh // strict
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2e8432f7d6551a6cda799cce47615d27>>
+ * @generated SignedSource<<5a41985ff95e8564023393b4d14d3447>>
  */
 namespace Facebook\HHAST;
 

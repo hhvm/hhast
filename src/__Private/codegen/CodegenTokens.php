@@ -125,14 +125,17 @@ final class CodegenTokens extends CodegenBase {
     self::TTokenSpec $token,
   ): CodegenConstructor {
     $cg = $this->getCodegenFactory();
-    $it = $cg->codegenConstructor();
-    foreach ($token['fields'] as $field) {
-      $it->addParameterf(
-        '%s $%s',
-        $field['type'],
-        $field['name'],
+    $it = $cg->codegenConstructor()
+      ->addParameters(
+        Vec\map(
+          $token['fields'],
+          $field ==> sprintf(
+            '%s $%s',
+            $field['type'],
+            $field['name'],
+          ),
+        )
       );
-    }
 
     $parent_args = Vec\concat(
       vec[var_export($token['description'], true)],

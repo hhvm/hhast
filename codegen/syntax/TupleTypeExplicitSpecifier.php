@@ -1,8 +1,8 @@
-<?hh
+<?hh // strict
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ac975c7ecdb557bcd23740e5a52cc672>>
+ * @generated SignedSource<<3e69be965068137a18ec7665e5554386>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
