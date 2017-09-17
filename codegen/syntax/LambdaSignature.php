@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<74d82a8bd8e10b080d11ce4bf7f515d0>>
+ * @generated SignedSource<<1d104ac4e6c9dba290b306b878b1cbdd>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class LambdaSignature extends EditableSyntax {
 
@@ -130,14 +130,14 @@ final class LambdaSignature extends EditableSyntax {
     if ($this->_left_paren->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   /**
    * @returns LeftParenToken
    */
   public function getLeftParenx(): LeftParenToken {
-    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   public function getParametersUNTYPED(): EditableSyntax {
@@ -168,14 +168,14 @@ final class LambdaSignature extends EditableSyntax {
     if ($this->_parameters->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_parameters);
+    return TypeAssert\instance_of(EditableList::class, $this->_parameters);
   }
 
   /**
    * @returns EditableList
    */
   public function getParametersx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_parameters);
+    return TypeAssert\instance_of(EditableList::class, $this->_parameters);
   }
 
   public function getRightParenUNTYPED(): EditableSyntax {
@@ -206,16 +206,14 @@ final class LambdaSignature extends EditableSyntax {
     if ($this->_right_paren->isMissing()) {
       return null;
     }
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   /**
    * @returns RightParenToken
    */
   public function getRightParenx(): RightParenToken {
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   public function getColonUNTYPED(): EditableSyntax {
@@ -246,14 +244,14 @@ final class LambdaSignature extends EditableSyntax {
     if ($this->_colon->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
+    return TypeAssert\instance_of(ColonToken::class, $this->_colon);
   }
 
   /**
    * @returns ColonToken
    */
   public function getColonx(): ColonToken {
-    return TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
+    return TypeAssert\instance_of(ColonToken::class, $this->_colon);
   }
 
   public function getTypeUNTYPED(): EditableSyntax {
@@ -282,6 +280,6 @@ final class LambdaSignature extends EditableSyntax {
    * ClosureTypeSpecifier
    */
   public function getType(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_type);
   }
 }

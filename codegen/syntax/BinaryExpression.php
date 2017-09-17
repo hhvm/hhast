@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8882c596abc8b6e4ce6759dcbb1e8431>>
+ * @generated SignedSource<<19f78763b4178781edaf4117dc65bc6a>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class BinaryExpression extends EditableSyntax {
 
@@ -107,8 +107,7 @@ final class BinaryExpression extends EditableSyntax {
    * AnonymousFunction | PipeVariableExpression
    */
   public function getLeftOperand(): EditableSyntax {
-    return
-      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_operand);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_left_operand);
   }
 
   public function getOperatorUNTYPED(): EditableSyntax {
@@ -141,7 +140,7 @@ final class BinaryExpression extends EditableSyntax {
    * LessThanGreaterThanToken | OrToken
    */
   public function getOperator(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_operator);
+    return TypeAssert\instance_of(EditableToken::class, $this->_operator);
   }
 
   public function getRightOperandUNTYPED(): EditableSyntax {
@@ -177,7 +176,6 @@ final class BinaryExpression extends EditableSyntax {
    * QuestionToken
    */
   public function getRightOperand(): EditableSyntax {
-    return
-      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_operand);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_right_operand);
   }
 }

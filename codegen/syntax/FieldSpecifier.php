@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6221ad97f90625b27d9ba1f66583f695>>
+ * @generated SignedSource<<755fd49433fd16a109efb123d6648ae6>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class FieldSpecifier extends EditableSyntax {
 
@@ -112,14 +112,14 @@ final class FieldSpecifier extends EditableSyntax {
     if ($this->_question->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(QuestionToken::class, $this->_question);
+    return TypeAssert\instance_of(QuestionToken::class, $this->_question);
   }
 
   /**
    * @returns QuestionToken
    */
   public function getQuestionx(): QuestionToken {
-    return TypeAssert::isInstanceOf(QuestionToken::class, $this->_question);
+    return TypeAssert\instance_of(QuestionToken::class, $this->_question);
   }
 
   public function getNameUNTYPED(): EditableSyntax {
@@ -141,7 +141,7 @@ final class FieldSpecifier extends EditableSyntax {
    * @returns LiteralExpression | ScopeResolutionExpression
    */
   public function getName(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_name);
   }
 
   public function getArrowUNTYPED(): EditableSyntax {
@@ -163,8 +163,7 @@ final class FieldSpecifier extends EditableSyntax {
    * @returns EqualGreaterThanToken
    */
   public function getArrow(): EqualGreaterThanToken {
-    return
-      TypeAssert::isInstanceOf(EqualGreaterThanToken::class, $this->_arrow);
+    return TypeAssert\instance_of(EqualGreaterThanToken::class, $this->_arrow);
   }
 
   public function getTypeUNTYPED(): EditableSyntax {
@@ -187,6 +186,6 @@ final class FieldSpecifier extends EditableSyntax {
    * GenericTypeSpecifier | TypeConstant | ShapeTypeSpecifier
    */
   public function getType(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_type);
   }
 }

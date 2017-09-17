@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7f9d779973ea62f955d5d66d0b441b98>>
+ * @generated SignedSource<<0e75e69290c34bd32e8d600f26e473b1>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class XHPChildrenDeclaration extends EditableSyntax {
 
@@ -97,7 +97,7 @@ final class XHPChildrenDeclaration extends EditableSyntax {
    * @returns unknown
    */
   public function getKeyword(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_keyword);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_keyword);
   }
 
   public function getExpressionUNTYPED(): EditableSyntax {
@@ -119,7 +119,7 @@ final class XHPChildrenDeclaration extends EditableSyntax {
    * @returns unknown
    */
   public function getExpression(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_expression);
   }
 
   public function getSemicolonUNTYPED(): EditableSyntax {
@@ -141,6 +141,6 @@ final class XHPChildrenDeclaration extends EditableSyntax {
    * @returns unknown
    */
   public function getSemicolon(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_semicolon);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_semicolon);
   }
 }

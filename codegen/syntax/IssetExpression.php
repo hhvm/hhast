@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<30d8fc4bf548cb0e74ddc50cd57fb0d1>>
+ * @generated SignedSource<<65ae43d67c3e38dfc7b2ec487c996f56>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class IssetExpression extends EditableSyntax {
 
@@ -114,7 +114,7 @@ final class IssetExpression extends EditableSyntax {
    * @returns IssetToken
    */
   public function getKeyword(): IssetToken {
-    return TypeAssert::isInstanceOf(IssetToken::class, $this->_keyword);
+    return TypeAssert\instance_of(IssetToken::class, $this->_keyword);
   }
 
   public function getLeftParenUNTYPED(): EditableSyntax {
@@ -141,7 +141,7 @@ final class IssetExpression extends EditableSyntax {
    * @returns LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
-    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   public function getArgumentListUNTYPED(): EditableSyntax {
@@ -168,7 +168,7 @@ final class IssetExpression extends EditableSyntax {
    * @returns EditableList
    */
   public function getArgumentList(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_argument_list);
+    return TypeAssert\instance_of(EditableList::class, $this->_argument_list);
   }
 
   public function getRightParenUNTYPED(): EditableSyntax {
@@ -195,7 +195,6 @@ final class IssetExpression extends EditableSyntax {
    * @returns RightParenToken
    */
   public function getRightParen(): RightParenToken {
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 }

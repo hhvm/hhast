@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b05af1d05f63ae3e037a5b1776da0b66>>
+ * @generated SignedSource<<1a22291ca3c141dc72df350ca8d6622e>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class GotoLabel extends EditableSyntax {
 
@@ -79,7 +79,7 @@ final class GotoLabel extends EditableSyntax {
    * @returns NameToken
    */
   public function getName(): NameToken {
-    return TypeAssert::isInstanceOf(NameToken::class, $this->_name);
+    return TypeAssert\instance_of(NameToken::class, $this->_name);
   }
 
   public function getColonUNTYPED(): EditableSyntax {
@@ -101,6 +101,6 @@ final class GotoLabel extends EditableSyntax {
    * @returns ColonToken
    */
   public function getColon(): ColonToken {
-    return TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
+    return TypeAssert\instance_of(ColonToken::class, $this->_colon);
   }
 }

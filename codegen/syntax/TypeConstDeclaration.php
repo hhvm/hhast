@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9f9d9aa49117d6bd4c831851602cc10b>>
+ * @generated SignedSource<<5518f39f43054300397f1d986fe1e02e>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class TypeConstDeclaration extends EditableSyntax {
 
@@ -187,14 +187,14 @@ final class TypeConstDeclaration extends EditableSyntax {
     if ($this->_abstract->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(AbstractToken::class, $this->_abstract);
+    return TypeAssert\instance_of(AbstractToken::class, $this->_abstract);
   }
 
   /**
    * @returns AbstractToken
    */
   public function getAbstractx(): AbstractToken {
-    return TypeAssert::isInstanceOf(AbstractToken::class, $this->_abstract);
+    return TypeAssert\instance_of(AbstractToken::class, $this->_abstract);
   }
 
   public function getKeywordUNTYPED(): EditableSyntax {
@@ -225,7 +225,7 @@ final class TypeConstDeclaration extends EditableSyntax {
    * @returns ConstToken
    */
   public function getKeyword(): ConstToken {
-    return TypeAssert::isInstanceOf(ConstToken::class, $this->_keyword);
+    return TypeAssert\instance_of(ConstToken::class, $this->_keyword);
   }
 
   public function getTypeKeywordUNTYPED(): EditableSyntax {
@@ -256,7 +256,7 @@ final class TypeConstDeclaration extends EditableSyntax {
    * @returns TypeToken
    */
   public function getTypeKeyword(): TypeToken {
-    return TypeAssert::isInstanceOf(TypeToken::class, $this->_type_keyword);
+    return TypeAssert\instance_of(TypeToken::class, $this->_type_keyword);
   }
 
   public function getNameUNTYPED(): EditableSyntax {
@@ -290,14 +290,14 @@ final class TypeConstDeclaration extends EditableSyntax {
     if ($this->_name->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(NameToken::class, $this->_name);
+    return TypeAssert\instance_of(NameToken::class, $this->_name);
   }
 
   /**
    * @returns NameToken
    */
   public function getNamex(): NameToken {
-    return TypeAssert::isInstanceOf(NameToken::class, $this->_name);
+    return TypeAssert\instance_of(NameToken::class, $this->_name);
   }
 
   public function getTypeConstraintUNTYPED(): EditableSyntax {
@@ -332,7 +332,7 @@ final class TypeConstDeclaration extends EditableSyntax {
       return null;
     }
     return
-      TypeAssert::isInstanceOf(TypeConstraint::class, $this->_type_constraint);
+      TypeAssert\instance_of(TypeConstraint::class, $this->_type_constraint);
   }
 
   /**
@@ -340,7 +340,7 @@ final class TypeConstDeclaration extends EditableSyntax {
    */
   public function getTypeConstraintx(): TypeConstraint {
     return
-      TypeAssert::isInstanceOf(TypeConstraint::class, $this->_type_constraint);
+      TypeAssert\instance_of(TypeConstraint::class, $this->_type_constraint);
   }
 
   public function getEqualUNTYPED(): EditableSyntax {
@@ -374,14 +374,14 @@ final class TypeConstDeclaration extends EditableSyntax {
     if ($this->_equal->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EqualToken::class, $this->_equal);
+    return TypeAssert\instance_of(EqualToken::class, $this->_equal);
   }
 
   /**
    * @returns EqualToken
    */
   public function getEqualx(): EqualToken {
-    return TypeAssert::isInstanceOf(EqualToken::class, $this->_equal);
+    return TypeAssert\instance_of(EqualToken::class, $this->_equal);
   }
 
   public function getTypeSpecifierUNTYPED(): EditableSyntax {
@@ -416,7 +416,7 @@ final class TypeConstDeclaration extends EditableSyntax {
    */
   public function getTypeSpecifier(): EditableSyntax {
     return
-      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type_specifier);
+      TypeAssert\instance_of(EditableSyntax::class, $this->_type_specifier);
   }
 
   public function getSemicolonUNTYPED(): EditableSyntax {
@@ -450,13 +450,13 @@ final class TypeConstDeclaration extends EditableSyntax {
     if ($this->_semicolon->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 
   /**
    * @returns SemicolonToken
    */
   public function getSemicolonx(): SemicolonToken {
-    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 }

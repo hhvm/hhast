@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<809e17f1edacd1c85dc2a4fa1ed11697>>
+ * @generated SignedSource<<37c1b61cf5ab7676ddd2906972e11baf>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class WhileStatement extends EditableSyntax
   implements IControlFlowStatement, ILoopStatement {
@@ -128,7 +128,7 @@ final class WhileStatement extends EditableSyntax
    * @returns WhileToken
    */
   public function getKeyword(): WhileToken {
-    return TypeAssert::isInstanceOf(WhileToken::class, $this->_keyword);
+    return TypeAssert\instance_of(WhileToken::class, $this->_keyword);
   }
 
   public function getLeftParenUNTYPED(): EditableSyntax {
@@ -156,7 +156,7 @@ final class WhileStatement extends EditableSyntax
    * @returns LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
-    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   public function getConditionUNTYPED(): EditableSyntax {
@@ -186,7 +186,7 @@ final class WhileStatement extends EditableSyntax
    * PostfixUnaryExpression | VariableExpression | InstanceofExpression
    */
   public function getCondition(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_condition);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_condition);
   }
 
   public function getRightParenUNTYPED(): EditableSyntax {
@@ -214,8 +214,7 @@ final class WhileStatement extends EditableSyntax
    * @returns RightParenToken
    */
   public function getRightParen(): RightParenToken {
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   public function getBodyUNTYPED(): EditableSyntax {
@@ -244,6 +243,6 @@ final class WhileStatement extends EditableSyntax
    * ContinueStatement
    */
   public function getBody(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_body);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_body);
   }
 }

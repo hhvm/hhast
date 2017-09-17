@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ecb2412176e49df6015a0d4d6e51965b>>
+ * @generated SignedSource<<49c0cbeb05d4fe21e3facd3570988a80>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class TraitUse extends EditableSyntax {
 
@@ -97,7 +97,7 @@ final class TraitUse extends EditableSyntax {
    * @returns UseToken
    */
   public function getKeyword(): UseToken {
-    return TypeAssert::isInstanceOf(UseToken::class, $this->_keyword);
+    return TypeAssert\instance_of(UseToken::class, $this->_keyword);
   }
 
   public function getNamesUNTYPED(): EditableSyntax {
@@ -119,7 +119,7 @@ final class TraitUse extends EditableSyntax {
    * @returns EditableList
    */
   public function getNames(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_names);
+    return TypeAssert\instance_of(EditableList::class, $this->_names);
   }
 
   public function getSemicolonUNTYPED(): EditableSyntax {
@@ -141,6 +141,6 @@ final class TraitUse extends EditableSyntax {
    * @returns SemicolonToken
    */
   public function getSemicolon(): SemicolonToken {
-    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 }

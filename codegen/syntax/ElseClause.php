@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<283d9a7ed2e530d6631f8dfa49c40892>>
+ * @generated SignedSource<<9f6247aefbd9d754a81a204641cb5e03>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class ElseClause extends EditableSyntax implements IControlFlowStatement {
 
@@ -82,7 +82,7 @@ final class ElseClause extends EditableSyntax implements IControlFlowStatement {
    * @returns ElseToken
    */
   public function getKeyword(): ElseToken {
-    return TypeAssert::isInstanceOf(ElseToken::class, $this->_keyword);
+    return TypeAssert\instance_of(ElseToken::class, $this->_keyword);
   }
 
   public function getStatementUNTYPED(): EditableSyntax {
@@ -105,6 +105,6 @@ final class ElseClause extends EditableSyntax implements IControlFlowStatement {
    * ExpressionStatement | EchoStatement
    */
   public function getStatement(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_statement);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_statement);
   }
 }

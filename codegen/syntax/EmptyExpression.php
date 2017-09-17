@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3e527e9f347ee3a61b479ac26058d13b>>
+ * @generated SignedSource<<f94f5e7e805596e02935dc024648e003>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class EmptyExpression extends EditableSyntax {
 
@@ -114,7 +114,7 @@ final class EmptyExpression extends EditableSyntax {
    * @returns EmptyToken
    */
   public function getKeyword(): EmptyToken {
-    return TypeAssert::isInstanceOf(EmptyToken::class, $this->_keyword);
+    return TypeAssert\instance_of(EmptyToken::class, $this->_keyword);
   }
 
   public function getLeftParenUNTYPED(): EditableSyntax {
@@ -137,7 +137,7 @@ final class EmptyExpression extends EditableSyntax {
    * @returns LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
-    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   public function getArgumentUNTYPED(): EditableSyntax {
@@ -169,7 +169,7 @@ final class EmptyExpression extends EditableSyntax {
    * ArrayCreationExpression | LiteralExpression
    */
   public function getArgument(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_argument);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_argument);
   }
 
   public function getRightParenUNTYPED(): EditableSyntax {
@@ -192,7 +192,6 @@ final class EmptyExpression extends EditableSyntax {
    * @returns RightParenToken
    */
   public function getRightParen(): RightParenToken {
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 }

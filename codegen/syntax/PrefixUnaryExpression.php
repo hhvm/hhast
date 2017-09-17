@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4b4bd8ce80d8c4592c503aaed3002d3a>>
+ * @generated SignedSource<<c4436807353df926beffb0cc3e4f1251>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class PrefixUnaryExpression extends EditableSyntax {
 
@@ -84,7 +84,7 @@ final class PrefixUnaryExpression extends EditableSyntax {
    * | AwaitToken | CloneToken | PlusToken
    */
   public function getOperator(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_operator);
+    return TypeAssert\instance_of(EditableToken::class, $this->_operator);
   }
 
   public function getOperandUNTYPED(): EditableSyntax {
@@ -115,6 +115,6 @@ final class PrefixUnaryExpression extends EditableSyntax {
    * InstanceofExpression
    */
   public function getOperand(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operand);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_operand);
   }
 }

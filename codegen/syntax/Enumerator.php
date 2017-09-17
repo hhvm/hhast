@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d83249f7fc5358d3b1357f4e0820f439>>
+ * @generated SignedSource<<2d76f1343b9a28ebf5d70aa512a00946>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class Enumerator extends EditableSyntax {
 
@@ -109,7 +109,7 @@ final class Enumerator extends EditableSyntax {
    * @returns NameToken
    */
   public function getName(): NameToken {
-    return TypeAssert::isInstanceOf(NameToken::class, $this->_name);
+    return TypeAssert\instance_of(NameToken::class, $this->_name);
   }
 
   public function getEqualUNTYPED(): EditableSyntax {
@@ -131,7 +131,7 @@ final class Enumerator extends EditableSyntax {
    * @returns EqualToken
    */
   public function getEqual(): EqualToken {
-    return TypeAssert::isInstanceOf(EqualToken::class, $this->_equal);
+    return TypeAssert\instance_of(EqualToken::class, $this->_equal);
   }
 
   public function getValueUNTYPED(): EditableSyntax {
@@ -153,7 +153,7 @@ final class Enumerator extends EditableSyntax {
    * @returns LiteralExpression | ScopeResolutionExpression | BinaryExpression
    */
   public function getValue(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_value);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_value);
   }
 
   public function getSemicolonUNTYPED(): EditableSyntax {
@@ -175,6 +175,6 @@ final class Enumerator extends EditableSyntax {
    * @returns SemicolonToken
    */
   public function getSemicolon(): SemicolonToken {
-    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 }

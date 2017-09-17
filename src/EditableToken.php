@@ -12,7 +12,7 @@
 
 namespace Facebook\HHAST;
 
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Str};
 
 abstract class EditableToken extends EditableSyntax {
@@ -163,7 +163,7 @@ abstract class EditableToken extends EditableSyntax {
 
     $leading = EditableList::fromItems($leading_list);
     $token_position = $position + $leading->getWidth();
-    $token_width = TypeAssert::isInt($json['width']);
+    $token_width = TypeAssert\int($json['width']);
     $token_text = Str\slice($source, $token_position, $token_width);
     $trailing_position = $token_position + $token_width;
     $trailing_list = __Private\fold_map(

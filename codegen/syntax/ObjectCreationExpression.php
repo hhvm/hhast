@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5d90cb61413e650f42e0f4169bca366d>>
+ * @generated SignedSource<<adb508c847678f0fbd1a73722b4c5908>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class ObjectCreationExpression extends EditableSyntax {
 
@@ -129,7 +129,7 @@ final class ObjectCreationExpression extends EditableSyntax {
    * @returns NewToken
    */
   public function getNewKeyword(): NewToken {
-    return TypeAssert::isInstanceOf(NewToken::class, $this->_new_keyword);
+    return TypeAssert\instance_of(NewToken::class, $this->_new_keyword);
   }
 
   public function getTypeUNTYPED(): EditableSyntax {
@@ -161,7 +161,7 @@ final class ObjectCreationExpression extends EditableSyntax {
    * ParenthesizedExpression
    */
   public function getType(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_type);
   }
 
   public function getLeftParenUNTYPED(): EditableSyntax {
@@ -192,14 +192,14 @@ final class ObjectCreationExpression extends EditableSyntax {
     if ($this->_left_paren->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   /**
    * @returns LeftParenToken
    */
   public function getLeftParenx(): LeftParenToken {
-    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   public function getArgumentListUNTYPED(): EditableSyntax {
@@ -230,14 +230,14 @@ final class ObjectCreationExpression extends EditableSyntax {
     if ($this->_argument_list->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_argument_list);
+    return TypeAssert\instance_of(EditableList::class, $this->_argument_list);
   }
 
   /**
    * @returns EditableList
    */
   public function getArgumentListx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_argument_list);
+    return TypeAssert\instance_of(EditableList::class, $this->_argument_list);
   }
 
   public function getRightParenUNTYPED(): EditableSyntax {
@@ -268,15 +268,13 @@ final class ObjectCreationExpression extends EditableSyntax {
     if ($this->_right_paren->isMissing()) {
       return null;
     }
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   /**
    * @returns RightParenToken
    */
   public function getRightParenx(): RightParenToken {
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 }

@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3868829993c168406185bcca5ab14dce>>
+ * @generated SignedSource<<c365fd028b02aadf23b41dd48c33492a>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class NamespaceGroupUseDeclaration extends EditableSyntax {
 
@@ -169,7 +169,7 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
    * @returns UseToken
    */
   public function getKeyword(): UseToken {
-    return TypeAssert::isInstanceOf(UseToken::class, $this->_keyword);
+    return TypeAssert\instance_of(UseToken::class, $this->_keyword);
   }
 
   public function getKindUNTYPED(): EditableSyntax {
@@ -202,14 +202,14 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
     if ($this->_kind->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_kind);
+    return TypeAssert\instance_of(EditableToken::class, $this->_kind);
   }
 
   /**
    * @returns FunctionToken | ConstToken
    */
   public function getKindx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_kind);
+    return TypeAssert\instance_of(EditableToken::class, $this->_kind);
   }
 
   public function getPrefixUNTYPED(): EditableSyntax {
@@ -239,8 +239,7 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
    * @returns NamespacePrefixToken
    */
   public function getPrefix(): NamespacePrefixToken {
-    return
-      TypeAssert::isInstanceOf(NamespacePrefixToken::class, $this->_prefix);
+    return TypeAssert\instance_of(NamespacePrefixToken::class, $this->_prefix);
   }
 
   public function getLeftBraceUNTYPED(): EditableSyntax {
@@ -270,7 +269,7 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
    * @returns LeftBraceToken
    */
   public function getLeftBrace(): LeftBraceToken {
-    return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
+    return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
   }
 
   public function getClausesUNTYPED(): EditableSyntax {
@@ -300,7 +299,7 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
    * @returns EditableList
    */
   public function getClauses(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_clauses);
+    return TypeAssert\instance_of(EditableList::class, $this->_clauses);
   }
 
   public function getRightBraceUNTYPED(): EditableSyntax {
@@ -333,16 +332,14 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
     if ($this->_right_brace->isMissing()) {
       return null;
     }
-    return
-      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+    return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
   }
 
   /**
    * @returns RightBraceToken
    */
   public function getRightBracex(): RightBraceToken {
-    return
-      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+    return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
   }
 
   public function getSemicolonUNTYPED(): EditableSyntax {
@@ -375,13 +372,13 @@ final class NamespaceGroupUseDeclaration extends EditableSyntax {
     if ($this->_semicolon->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 
   /**
    * @returns SemicolonToken
    */
   public function getSemicolonx(): SemicolonToken {
-    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 }

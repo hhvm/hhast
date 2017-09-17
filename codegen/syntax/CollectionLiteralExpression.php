@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<16ddbad5cb7c461a25dfac869f82982b>>
+ * @generated SignedSource<<47b225dbf1d6547ac983c701f2cb7223>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class CollectionLiteralExpression extends EditableSyntax {
 
@@ -114,7 +114,7 @@ final class CollectionLiteralExpression extends EditableSyntax {
    * @returns NameToken | QualifiedNameToken
    */
   public function getName(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+    return TypeAssert\instance_of(EditableToken::class, $this->_name);
   }
 
   public function getLeftBraceUNTYPED(): EditableSyntax {
@@ -137,7 +137,7 @@ final class CollectionLiteralExpression extends EditableSyntax {
    * @returns LeftBraceToken
    */
   public function getLeftBrace(): LeftBraceToken {
-    return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
+    return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
   }
 
   public function getInitializersUNTYPED(): EditableSyntax {
@@ -163,14 +163,14 @@ final class CollectionLiteralExpression extends EditableSyntax {
     if ($this->_initializers->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_initializers);
+    return TypeAssert\instance_of(EditableList::class, $this->_initializers);
   }
 
   /**
    * @returns EditableList
    */
   public function getInitializersx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_initializers);
+    return TypeAssert\instance_of(EditableList::class, $this->_initializers);
   }
 
   public function getRightBraceUNTYPED(): EditableSyntax {
@@ -196,15 +196,13 @@ final class CollectionLiteralExpression extends EditableSyntax {
     if ($this->_right_brace->isMissing()) {
       return null;
     }
-    return
-      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+    return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
   }
 
   /**
    * @returns RightBraceToken
    */
   public function getRightBracex(): RightBraceToken {
-    return
-      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+    return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
   }
 }

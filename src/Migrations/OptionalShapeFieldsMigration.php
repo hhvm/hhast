@@ -14,7 +14,7 @@ namespace Facebook\HHAST\Migrations;
 
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class OptionalShapeFieldsMigration extends BaseMigration {
   private static function makeNullableFieldsOptional(
@@ -58,7 +58,7 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
     }
 
     $last_field = C\lastx($fields->getChildren())
-      |> TypeAssert::isInstanceOf(HHAST\ListItem::class, $$);
+      |> TypeAssert\instance_of(HHAST\ListItem::class, $$);
 
     if ($last_field->hasSeparator()) {
       return $shape;

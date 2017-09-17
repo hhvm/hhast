@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a4d6ee9670325df9f3d6cc873eea8749>>
+ * @generated SignedSource<<11213c638c9bae221c143491a419d7a6>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class DarrayTypeSpecifier extends EditableSyntax {
 
@@ -169,7 +169,7 @@ final class DarrayTypeSpecifier extends EditableSyntax {
    * @returns DarrayToken
    */
   public function getKeyword(): DarrayToken {
-    return TypeAssert::isInstanceOf(DarrayToken::class, $this->_keyword);
+    return TypeAssert\instance_of(DarrayToken::class, $this->_keyword);
   }
 
   public function getLeftAngleUNTYPED(): EditableSyntax {
@@ -199,7 +199,7 @@ final class DarrayTypeSpecifier extends EditableSyntax {
    * @returns LessThanToken
    */
   public function getLeftAngle(): LessThanToken {
-    return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
+    return TypeAssert\instance_of(LessThanToken::class, $this->_left_angle);
   }
 
   public function getKeyUNTYPED(): EditableSyntax {
@@ -229,7 +229,7 @@ final class DarrayTypeSpecifier extends EditableSyntax {
    * @returns SimpleTypeSpecifier
    */
   public function getKey(): SimpleTypeSpecifier {
-    return TypeAssert::isInstanceOf(SimpleTypeSpecifier::class, $this->_key);
+    return TypeAssert\instance_of(SimpleTypeSpecifier::class, $this->_key);
   }
 
   public function getCommaUNTYPED(): EditableSyntax {
@@ -259,7 +259,7 @@ final class DarrayTypeSpecifier extends EditableSyntax {
    * @returns CommaToken
    */
   public function getComma(): CommaToken {
-    return TypeAssert::isInstanceOf(CommaToken::class, $this->_comma);
+    return TypeAssert\instance_of(CommaToken::class, $this->_comma);
   }
 
   public function getValueUNTYPED(): EditableSyntax {
@@ -289,7 +289,7 @@ final class DarrayTypeSpecifier extends EditableSyntax {
    * @returns SimpleTypeSpecifier
    */
   public function getValue(): SimpleTypeSpecifier {
-    return TypeAssert::isInstanceOf(SimpleTypeSpecifier::class, $this->_value);
+    return TypeAssert\instance_of(SimpleTypeSpecifier::class, $this->_value);
   }
 
   public function getTrailingCommaUNTYPED(): EditableSyntax {
@@ -320,7 +320,7 @@ final class DarrayTypeSpecifier extends EditableSyntax {
    */
   public function getTrailingComma(): EditableSyntax {
     return
-      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_trailing_comma);
+      TypeAssert\instance_of(EditableSyntax::class, $this->_trailing_comma);
   }
 
   public function getRightAngleUNTYPED(): EditableSyntax {
@@ -350,7 +350,6 @@ final class DarrayTypeSpecifier extends EditableSyntax {
    * @returns GreaterThanToken
    */
   public function getRightAngle(): GreaterThanToken {
-    return
-      TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+    return TypeAssert\instance_of(GreaterThanToken::class, $this->_right_angle);
   }
 }

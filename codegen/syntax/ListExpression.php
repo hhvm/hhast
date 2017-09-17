@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ab9a8cafb3255ff5fb40a46e42782591>>
+ * @generated SignedSource<<0498314455f68675e7f79b8bcc564fa8>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class ListExpression extends EditableSyntax {
 
@@ -114,7 +114,7 @@ final class ListExpression extends EditableSyntax {
    * @returns ListToken
    */
   public function getKeyword(): ListToken {
-    return TypeAssert::isInstanceOf(ListToken::class, $this->_keyword);
+    return TypeAssert\instance_of(ListToken::class, $this->_keyword);
   }
 
   public function getLeftParenUNTYPED(): EditableSyntax {
@@ -137,7 +137,7 @@ final class ListExpression extends EditableSyntax {
    * @returns LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
-    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   public function getMembersUNTYPED(): EditableSyntax {
@@ -167,14 +167,14 @@ final class ListExpression extends EditableSyntax {
     if ($this->_members->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
+    return TypeAssert\instance_of(EditableList::class, $this->_members);
   }
 
   /**
    * @returns EditableList
    */
   public function getMembersx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
+    return TypeAssert\instance_of(EditableList::class, $this->_members);
   }
 
   public function getRightParenUNTYPED(): EditableSyntax {
@@ -197,7 +197,6 @@ final class ListExpression extends EditableSyntax {
    * @returns RightParenToken
    */
   public function getRightParen(): RightParenToken {
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 }

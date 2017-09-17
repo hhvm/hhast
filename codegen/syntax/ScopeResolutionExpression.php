@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2ba1519826b167dd99f0e3e6a3e44ca1>>
+ * @generated SignedSource<<b0105877ef57bad5081de405c45237fe>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class ScopeResolutionExpression extends EditableSyntax {
 
@@ -100,7 +100,7 @@ final class ScopeResolutionExpression extends EditableSyntax {
    * | SimpleTypeSpecifier | PipeVariableExpression
    */
   public function getQualifier(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_qualifier);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_qualifier);
   }
 
   public function getOperatorUNTYPED(): EditableSyntax {
@@ -122,7 +122,7 @@ final class ScopeResolutionExpression extends EditableSyntax {
    * @returns ColonColonToken
    */
   public function getOperator(): ColonColonToken {
-    return TypeAssert::isInstanceOf(ColonColonToken::class, $this->_operator);
+    return TypeAssert\instance_of(ColonColonToken::class, $this->_operator);
   }
 
   public function getNameUNTYPED(): EditableSyntax {
@@ -145,6 +145,6 @@ final class ScopeResolutionExpression extends EditableSyntax {
    * Missing
    */
   public function getName(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_name);
   }
 }

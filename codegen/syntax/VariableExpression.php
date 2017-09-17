@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8148260e4d096ccfda66cc94343dab19>>
+ * @generated SignedSource<<f6f44a651849c487387d421769eed9a7>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class VariableExpression extends EditableSyntax {
 
@@ -69,6 +69,6 @@ final class VariableExpression extends EditableSyntax {
    * @returns unknown
    */
   public function getExpression(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_expression);
   }
 }

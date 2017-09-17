@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<82439bd1479885b7b3f29196d768785b>>
+ * @generated SignedSource<<ac7aa7805f632875f173d20710aa582f>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class DoStatement extends EditableSyntax
   implements IControlFlowStatement, ILoopStatement {
@@ -170,7 +170,7 @@ final class DoStatement extends EditableSyntax
    * @returns DoToken
    */
   public function getKeyword(): DoToken {
-    return TypeAssert::isInstanceOf(DoToken::class, $this->_keyword);
+    return TypeAssert\instance_of(DoToken::class, $this->_keyword);
   }
 
   public function getBodyUNTYPED(): EditableSyntax {
@@ -200,7 +200,7 @@ final class DoStatement extends EditableSyntax
    * @returns CompoundStatement | ExpressionStatement
    */
   public function getBody(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_body);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_body);
   }
 
   public function getWhileKeywordUNTYPED(): EditableSyntax {
@@ -230,7 +230,7 @@ final class DoStatement extends EditableSyntax
    * @returns WhileToken
    */
   public function getWhileKeyword(): WhileToken {
-    return TypeAssert::isInstanceOf(WhileToken::class, $this->_while_keyword);
+    return TypeAssert\instance_of(WhileToken::class, $this->_while_keyword);
   }
 
   public function getLeftParenUNTYPED(): EditableSyntax {
@@ -260,7 +260,7 @@ final class DoStatement extends EditableSyntax
    * @returns LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
-    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   public function getConditionUNTYPED(): EditableSyntax {
@@ -291,7 +291,7 @@ final class DoStatement extends EditableSyntax
    * FunctionCallExpression | PrefixUnaryExpression | SubscriptExpression
    */
   public function getCondition(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_condition);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_condition);
   }
 
   public function getRightParenUNTYPED(): EditableSyntax {
@@ -321,8 +321,7 @@ final class DoStatement extends EditableSyntax
    * @returns RightParenToken
    */
   public function getRightParen(): RightParenToken {
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   public function getSemicolonUNTYPED(): EditableSyntax {
@@ -352,6 +351,6 @@ final class DoStatement extends EditableSyntax
    * @returns SemicolonToken
    */
   public function getSemicolon(): SemicolonToken {
-    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 }

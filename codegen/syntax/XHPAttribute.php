@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ccf8bc202dd9b3c16b3b3c38dfcc952f>>
+ * @generated SignedSource<<59cacfa720b96f71822200cd0e11aeb1>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class XHPAttribute extends EditableSyntax {
 
@@ -97,7 +97,7 @@ final class XHPAttribute extends EditableSyntax {
    * @returns XHPElementNameToken
    */
   public function getName(): XHPElementNameToken {
-    return TypeAssert::isInstanceOf(XHPElementNameToken::class, $this->_name);
+    return TypeAssert\instance_of(XHPElementNameToken::class, $this->_name);
   }
 
   public function getEqualUNTYPED(): EditableSyntax {
@@ -122,14 +122,14 @@ final class XHPAttribute extends EditableSyntax {
     if ($this->_equal->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EqualToken::class, $this->_equal);
+    return TypeAssert\instance_of(EqualToken::class, $this->_equal);
   }
 
   /**
    * @returns EqualToken
    */
   public function getEqualx(): EqualToken {
-    return TypeAssert::isInstanceOf(EqualToken::class, $this->_equal);
+    return TypeAssert\instance_of(EqualToken::class, $this->_equal);
   }
 
   public function getExpressionUNTYPED(): EditableSyntax {
@@ -151,6 +151,6 @@ final class XHPAttribute extends EditableSyntax {
    * @returns XHPStringLiteralToken | BracedExpression | Missing
    */
   public function getExpression(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_expression);
   }
 }

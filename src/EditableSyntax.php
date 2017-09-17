@@ -12,7 +12,7 @@
 
 namespace Facebook\HHAST;
 
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Vec;
 
 abstract class EditableSyntax {
@@ -214,7 +214,7 @@ abstract class EditableSyntax {
   }
 
   public function getFirstTokenx(): EditableToken {
-    return TypeAssert::isNotNull($this->getFirstToken());
+    return TypeAssert\not_null($this->getFirstToken());
   }
 
   public function getFirstToken(): ?EditableToken {
@@ -227,7 +227,7 @@ abstract class EditableSyntax {
   }
 
   public function getLastTokenx(): EditableToken {
-    return TypeAssert::isNotNull($this->getLastToken());
+    return TypeAssert\not_null($this->getLastToken());
   }
 
   public function getLastToken(): ?EditableToken {
@@ -258,7 +258,7 @@ abstract class EditableSyntax {
       if ($token === null) {
         throw new \Exception('Unable to find token to insert trivia.');
       }
-      $token = TypeAssert::isInstanceOf(EditableToken::class, $token);
+      $token = TypeAssert\instance_of(EditableToken::class, $token);
 
       // Inserting trivia before token is inserting to the right end of
       // the leading trivia.
@@ -295,7 +295,7 @@ abstract class EditableSyntax {
         throw new \Exception('Unable to find token to insert trivia.');
       }
 
-      $token = TypeAssert::isInstanceOf(EditableToken::class, $token);
+      $token = TypeAssert\instance_of(EditableToken::class, $token);
 
       // Inserting trivia after token is inserting to the left end of
       // the trailing trivia.

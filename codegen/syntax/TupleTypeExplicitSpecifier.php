@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bf74503e27f99a1f0188703c0bdd19dc>>
+ * @generated SignedSource<<ac975c7ecdb557bcd23740e5a52cc672>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class TupleTypeExplicitSpecifier extends EditableSyntax {
 
@@ -110,7 +110,7 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
    * @returns unknown
    */
   public function getKeyword(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_keyword);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_keyword);
   }
 
   public function getLeftAngleUNTYPED(): EditableSyntax {
@@ -133,7 +133,7 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
    * @returns unknown
    */
   public function getLeftAngle(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_angle);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_left_angle);
   }
 
   public function getTypesUNTYPED(): EditableSyntax {
@@ -160,7 +160,7 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
    * @returns unknown
    */
   public function getTypes(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_types);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_types);
   }
 
   public function getRightAngleUNTYPED(): EditableSyntax {
@@ -182,6 +182,6 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
    * @returns unknown
    */
   public function getRightAngle(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_angle);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_right_angle);
   }
 }

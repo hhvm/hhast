@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ff16e1315c17a84172ac4d13edd7c62b>>
+ * @generated SignedSource<<ecb389be6cbf63c35cabc5fd751e0bd2>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class ForeachStatement extends EditableSyntax
   implements IControlFlowStatement, ILoopStatement {
@@ -215,7 +215,7 @@ final class ForeachStatement extends EditableSyntax
    * @returns ForeachToken
    */
   public function getKeyword(): ForeachToken {
-    return TypeAssert::isInstanceOf(ForeachToken::class, $this->_keyword);
+    return TypeAssert\instance_of(ForeachToken::class, $this->_keyword);
   }
 
   public function getLeftParenUNTYPED(): EditableSyntax {
@@ -248,7 +248,7 @@ final class ForeachStatement extends EditableSyntax
    * @returns LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
-    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   public function getCollectionUNTYPED(): EditableSyntax {
@@ -286,7 +286,7 @@ final class ForeachStatement extends EditableSyntax
    * AnonymousFunction
    */
   public function getCollection(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_collection);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_collection);
   }
 
   public function getAwaitKeywordUNTYPED(): EditableSyntax {
@@ -322,14 +322,14 @@ final class ForeachStatement extends EditableSyntax
     if ($this->_await_keyword->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(AwaitToken::class, $this->_await_keyword);
+    return TypeAssert\instance_of(AwaitToken::class, $this->_await_keyword);
   }
 
   /**
    * @returns AwaitToken
    */
   public function getAwaitKeywordx(): AwaitToken {
-    return TypeAssert::isInstanceOf(AwaitToken::class, $this->_await_keyword);
+    return TypeAssert\instance_of(AwaitToken::class, $this->_await_keyword);
   }
 
   public function getAsUNTYPED(): EditableSyntax {
@@ -362,7 +362,7 @@ final class ForeachStatement extends EditableSyntax
    * @returns AsToken
    */
   public function getAs(): AsToken {
-    return TypeAssert::isInstanceOf(AsToken::class, $this->_as);
+    return TypeAssert\instance_of(AsToken::class, $this->_as);
   }
 
   public function getKeyUNTYPED(): EditableSyntax {
@@ -397,7 +397,7 @@ final class ForeachStatement extends EditableSyntax
    * ScopeResolutionExpression | FunctionCallExpression
    */
   public function getKey(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_key);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_key);
   }
 
   public function getArrowUNTYPED(): EditableSyntax {
@@ -433,16 +433,14 @@ final class ForeachStatement extends EditableSyntax
     if ($this->_arrow->isMissing()) {
       return null;
     }
-    return
-      TypeAssert::isInstanceOf(EqualGreaterThanToken::class, $this->_arrow);
+    return TypeAssert\instance_of(EqualGreaterThanToken::class, $this->_arrow);
   }
 
   /**
    * @returns EqualGreaterThanToken
    */
   public function getArrowx(): EqualGreaterThanToken {
-    return
-      TypeAssert::isInstanceOf(EqualGreaterThanToken::class, $this->_arrow);
+    return TypeAssert\instance_of(EqualGreaterThanToken::class, $this->_arrow);
   }
 
   public function getValueUNTYPED(): EditableSyntax {
@@ -477,7 +475,7 @@ final class ForeachStatement extends EditableSyntax
    * ScopeResolutionExpression
    */
   public function getValue(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_value);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_value);
   }
 
   public function getRightParenUNTYPED(): EditableSyntax {
@@ -510,8 +508,7 @@ final class ForeachStatement extends EditableSyntax
    * @returns RightParenToken
    */
   public function getRightParen(): RightParenToken {
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   public function getBodyUNTYPED(): EditableSyntax {
@@ -545,6 +542,6 @@ final class ForeachStatement extends EditableSyntax
    * EchoStatement
    */
   public function getBody(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_body);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_body);
   }
 }

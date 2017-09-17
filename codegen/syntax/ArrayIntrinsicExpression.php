@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0b0272efffe7474fa551c31ffec51149>>
+ * @generated SignedSource<<40b5a034179651d67c7bbae447db37c3>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class ArrayIntrinsicExpression extends EditableSyntax {
 
@@ -114,7 +114,7 @@ final class ArrayIntrinsicExpression extends EditableSyntax {
    * @returns ArrayToken
    */
   public function getKeyword(): ArrayToken {
-    return TypeAssert::isInstanceOf(ArrayToken::class, $this->_keyword);
+    return TypeAssert\instance_of(ArrayToken::class, $this->_keyword);
   }
 
   public function getLeftParenUNTYPED(): EditableSyntax {
@@ -137,7 +137,7 @@ final class ArrayIntrinsicExpression extends EditableSyntax {
    * @returns LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
-    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   public function getMembersUNTYPED(): EditableSyntax {
@@ -167,14 +167,14 @@ final class ArrayIntrinsicExpression extends EditableSyntax {
     if ($this->_members->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
+    return TypeAssert\instance_of(EditableList::class, $this->_members);
   }
 
   /**
    * @returns EditableList
    */
   public function getMembersx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
+    return TypeAssert\instance_of(EditableList::class, $this->_members);
   }
 
   public function getRightParenUNTYPED(): EditableSyntax {
@@ -200,15 +200,13 @@ final class ArrayIntrinsicExpression extends EditableSyntax {
     if ($this->_right_paren->isMissing()) {
       return null;
     }
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   /**
    * @returns RightParenToken
    */
   public function getRightParenx(): RightParenToken {
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 }

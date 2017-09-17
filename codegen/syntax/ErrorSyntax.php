@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a7adc7fd2b84eb121ff65327d6bc3f1f>>
+ * @generated SignedSource<<4f069020520adf99b998688b1634eb79>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class ErrorSyntax extends EditableSyntax {
 
@@ -77,6 +77,6 @@ final class ErrorSyntax extends EditableSyntax {
    * NamespaceToken | SelfToken | ParentToken | IntToken
    */
   public function getError(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_error);
+    return TypeAssert\instance_of(EditableToken::class, $this->_error);
   }
 }

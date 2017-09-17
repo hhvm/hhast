@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<80ea9f339e1d524e99c700d794bba799>>
+ * @generated SignedSource<<b85358a651426dbefbbd1e05b7b69b37>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class PostfixUnaryExpression extends EditableSyntax {
 
@@ -83,7 +83,7 @@ final class PostfixUnaryExpression extends EditableSyntax {
    * | MemberSelectionExpression | ScopeResolutionExpression
    */
   public function getOperand(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operand);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_operand);
   }
 
   public function getOperatorUNTYPED(): EditableSyntax {
@@ -105,6 +105,6 @@ final class PostfixUnaryExpression extends EditableSyntax {
    * @returns PlusPlusToken | MinusMinusToken
    */
   public function getOperator(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_operator);
+    return TypeAssert\instance_of(EditableToken::class, $this->_operator);
   }
 }

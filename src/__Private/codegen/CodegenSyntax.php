@@ -19,7 +19,7 @@ use type Facebook\HackCodegen\{
   HackBuilderValues
 };
 
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Keyset, Str, Vec};
 
 final class CodegenSyntax extends CodegenBase {
@@ -38,7 +38,7 @@ final class CodegenSyntax extends CodegenBase {
           $this->getOutputDirectory().'/syntax/'.$syntax['kind_name'].'.php',
         )
         ->setNamespace('Facebook\\HHAST')
-        ->useType(TypeAssert::class)
+        ->useNamespace('Facebook\\TypeAssert')
         ->addClass($this->generateClass($syntax))
         ->save();
     }
@@ -129,7 +129,7 @@ final class CodegenSyntax extends CodegenBase {
         ->setDocBlock('@returns '.implode(' | ', $types))
         ->setReturnType($type)
         ->setBodyf(
-          'return TypeAssert::isInstanceOf(%s::class, $this->_%s);',
+          'return TypeAssert\instance_of(%s::class, $this->_%s);',
           $type,
           $underscored,
         );
@@ -147,7 +147,7 @@ final class CodegenSyntax extends CodegenBase {
           ->addReturnf('null')
           ->endIfBlock()
           ->addReturnf(
-            'TypeAssert::isInstanceOf(%s::class, $this->_%s)',
+            'TypeAssert\instance_of(%s::class, $this->_%s)',
             $spec['class'],
             $underscored,
           )
@@ -161,7 +161,7 @@ final class CodegenSyntax extends CodegenBase {
         |> '@returns '.$$)
       ->setReturnType($spec['class'])
       ->setBodyf(
-        'return TypeAssert::isInstanceOf(%s::class, $this->_%s);',
+        'return TypeAssert\instance_of(%s::class, $this->_%s);',
         $spec['class'],
         $underscored,
       );

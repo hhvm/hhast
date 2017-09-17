@@ -13,7 +13,7 @@
 
 namespace Facebook\HHAST\__Private;
 
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 use namespace HH\Lib\{C, Dict, Str, Vec};
 use type Facebook\HHAST\__Private\Schema\TSchema as TSchema;
@@ -51,7 +51,7 @@ final class UpdateCodegen {
     $array = json_decode($json, /* associative array = */ true);
 
     return new self(
-      TypeAssert::matchesTypeStructure(
+      TypeAssert\matches_type_structure(
         type_structure(self::class, 'TSchema'),
         $array,
       ),

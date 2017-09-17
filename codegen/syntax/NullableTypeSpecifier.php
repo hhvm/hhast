@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6bcd8c596c3cfacc5b47ecac311e6b83>>
+ * @generated SignedSource<<4efe51252171f459107a3e3a441495c1>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class NullableTypeSpecifier extends EditableSyntax {
 
@@ -79,7 +79,7 @@ final class NullableTypeSpecifier extends EditableSyntax {
    * @returns QuestionToken
    */
   public function getQuestion(): QuestionToken {
-    return TypeAssert::isInstanceOf(QuestionToken::class, $this->_question);
+    return TypeAssert\instance_of(QuestionToken::class, $this->_question);
   }
 
   public function getTypeUNTYPED(): EditableSyntax {
@@ -104,6 +104,6 @@ final class NullableTypeSpecifier extends EditableSyntax {
    * KeysetTypeSpecifier | VectorTypeSpecifier
    */
   public function getType(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_type);
   }
 }

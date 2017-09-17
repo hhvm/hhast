@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1ff2bec245bb33ccb048a9f84976948f>>
+ * @generated SignedSource<<880db0cf56429a8afa328412675eb151>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class XHPClassAttribute extends EditableSyntax {
 
@@ -111,7 +111,7 @@ final class XHPClassAttribute extends EditableSyntax {
    * NullableTypeSpecifier | VectorArrayTypeSpecifier | MapArrayTypeSpecifier
    */
   public function getType(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_type);
   }
 
   public function getNameUNTYPED(): EditableSyntax {
@@ -134,7 +134,7 @@ final class XHPClassAttribute extends EditableSyntax {
    * @returns XHPElementNameToken
    */
   public function getName(): XHPElementNameToken {
-    return TypeAssert::isInstanceOf(XHPElementNameToken::class, $this->_name);
+    return TypeAssert\instance_of(XHPElementNameToken::class, $this->_name);
   }
 
   public function getInitializerUNTYPED(): EditableSyntax {
@@ -160,7 +160,7 @@ final class XHPClassAttribute extends EditableSyntax {
       return null;
     }
     return
-      TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
+      TypeAssert\instance_of(SimpleInitializer::class, $this->_initializer);
   }
 
   /**
@@ -168,7 +168,7 @@ final class XHPClassAttribute extends EditableSyntax {
    */
   public function getInitializerx(): SimpleInitializer {
     return
-      TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
+      TypeAssert\instance_of(SimpleInitializer::class, $this->_initializer);
   }
 
   public function getRequiredUNTYPED(): EditableSyntax {
@@ -193,13 +193,13 @@ final class XHPClassAttribute extends EditableSyntax {
     if ($this->_required->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(XHPRequired::class, $this->_required);
+    return TypeAssert\instance_of(XHPRequired::class, $this->_required);
   }
 
   /**
    * @returns XHPRequired
    */
   public function getRequiredx(): XHPRequired {
-    return TypeAssert::isInstanceOf(XHPRequired::class, $this->_required);
+    return TypeAssert\instance_of(XHPRequired::class, $this->_required);
   }
 }

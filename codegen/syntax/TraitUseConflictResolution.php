@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<40d5fc60af321aa0320d392aec8442f9>>
+ * @generated SignedSource<<268774d31c71752b0741c2b59ec86d7f>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class TraitUseConflictResolution extends EditableSyntax {
 
@@ -127,7 +127,7 @@ final class TraitUseConflictResolution extends EditableSyntax {
    * @returns UseToken
    */
   public function getKeyword(): UseToken {
-    return TypeAssert::isInstanceOf(UseToken::class, $this->_keyword);
+    return TypeAssert\instance_of(UseToken::class, $this->_keyword);
   }
 
   public function getNamesUNTYPED(): EditableSyntax {
@@ -155,7 +155,7 @@ final class TraitUseConflictResolution extends EditableSyntax {
    * @returns EditableList
    */
   public function getNames(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_names);
+    return TypeAssert\instance_of(EditableList::class, $this->_names);
   }
 
   public function getLeftBraceUNTYPED(): EditableSyntax {
@@ -183,7 +183,7 @@ final class TraitUseConflictResolution extends EditableSyntax {
    * @returns LeftBraceToken
    */
   public function getLeftBrace(): LeftBraceToken {
-    return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
+    return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
   }
 
   public function getClausesUNTYPED(): EditableSyntax {
@@ -214,14 +214,14 @@ final class TraitUseConflictResolution extends EditableSyntax {
     if ($this->_clauses->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_clauses);
+    return TypeAssert\instance_of(EditableList::class, $this->_clauses);
   }
 
   /**
    * @returns EditableList
    */
   public function getClausesx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_clauses);
+    return TypeAssert\instance_of(EditableList::class, $this->_clauses);
   }
 
   public function getRightBraceUNTYPED(): EditableSyntax {
@@ -249,7 +249,6 @@ final class TraitUseConflictResolution extends EditableSyntax {
    * @returns RightBraceToken
    */
   public function getRightBrace(): RightBraceToken {
-    return
-      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+    return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
   }
 }

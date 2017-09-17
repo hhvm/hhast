@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<46de3a0e88bd9e67c7aff03a54345afd>>
+ * @generated SignedSource<<f8e6e1c52c01c8918467f84be7124c5c>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class GenericTypeSpecifier extends EditableSyntax {
 
@@ -86,7 +86,7 @@ final class GenericTypeSpecifier extends EditableSyntax {
    * XHPClassNameToken
    */
   public function getClassType(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_class_type);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_class_type);
   }
 
   public function getArgumentListUNTYPED(): EditableSyntax {
@@ -108,7 +108,6 @@ final class GenericTypeSpecifier extends EditableSyntax {
    * @returns TypeArguments
    */
   public function getArgumentList(): TypeArguments {
-    return
-      TypeAssert::isInstanceOf(TypeArguments::class, $this->_argument_list);
+    return TypeAssert\instance_of(TypeArguments::class, $this->_argument_list);
   }
 }

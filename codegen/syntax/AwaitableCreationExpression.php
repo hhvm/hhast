@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a048dbeb084c81f3eeb0688495997c51>>
+ * @generated SignedSource<<73be4fc8e51b8d63fde32b464f0fdeba>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class AwaitableCreationExpression extends EditableSyntax {
 
@@ -98,7 +98,7 @@ final class AwaitableCreationExpression extends EditableSyntax {
    * @returns AsyncToken
    */
   public function getAsync(): AsyncToken {
-    return TypeAssert::isInstanceOf(AsyncToken::class, $this->_async);
+    return TypeAssert\instance_of(AsyncToken::class, $this->_async);
   }
 
   public function getCoroutineUNTYPED(): EditableSyntax {
@@ -120,7 +120,7 @@ final class AwaitableCreationExpression extends EditableSyntax {
    * @returns Missing
    */
   public function getCoroutine(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_coroutine);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_coroutine);
   }
 
   public function getCompoundStatementUNTYPED(): EditableSyntax {
@@ -142,7 +142,7 @@ final class AwaitableCreationExpression extends EditableSyntax {
    * @returns CompoundStatement
    */
   public function getCompoundStatement(): CompoundStatement {
-    return TypeAssert::isInstanceOf(
+    return TypeAssert\instance_of(
       CompoundStatement::class,
       $this->_compound_statement,
     );

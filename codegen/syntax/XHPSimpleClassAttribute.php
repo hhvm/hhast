@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c19b5006b0cd6e9c94941b1216f29d1c>>
+ * @generated SignedSource<<9a6c8aebb59ba40981697d2aef25fde0>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class XHPSimpleClassAttribute extends EditableSyntax {
 
@@ -69,6 +69,6 @@ final class XHPSimpleClassAttribute extends EditableSyntax {
    * @returns SimpleTypeSpecifier
    */
   public function getType(): SimpleTypeSpecifier {
-    return TypeAssert::isInstanceOf(SimpleTypeSpecifier::class, $this->_type);
+    return TypeAssert\instance_of(SimpleTypeSpecifier::class, $this->_type);
   }
 }

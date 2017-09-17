@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7f0d56cd9ed153a7b59be83fb9afd9d5>>
+ * @generated SignedSource<<fc90766a4365abacdea559f749f95bc4>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class EmbeddedSubscriptExpression extends EditableSyntax {
 
@@ -114,7 +114,7 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
    * @returns unknown
    */
   public function getReceiver(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_receiver);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_receiver);
   }
 
   public function getLeftBracketUNTYPED(): EditableSyntax {
@@ -137,8 +137,7 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
    * @returns unknown
    */
   public function getLeftBracket(): EditableSyntax {
-    return
-      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_bracket);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_left_bracket);
   }
 
   public function getIndexUNTYPED(): EditableSyntax {
@@ -165,7 +164,7 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
    * @returns unknown
    */
   public function getIndex(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_index);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_index);
   }
 
   public function getRightBracketUNTYPED(): EditableSyntax {
@@ -188,7 +187,6 @@ final class EmbeddedSubscriptExpression extends EditableSyntax {
    * @returns unknown
    */
   public function getRightBracket(): EditableSyntax {
-    return
-      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_bracket);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_right_bracket);
   }
 }

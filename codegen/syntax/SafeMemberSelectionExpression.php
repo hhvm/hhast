@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f193bfb60640e49e734090051257fac2>>
+ * @generated SignedSource<<d29d01d5df9c340e2ef3aee943e18691>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class SafeMemberSelectionExpression extends EditableSyntax {
 
@@ -99,7 +99,7 @@ final class SafeMemberSelectionExpression extends EditableSyntax {
    * PrefixUnaryExpression | ScopeResolutionExpression
    */
   public function getObject(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_object);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_object);
   }
 
   public function getOperatorUNTYPED(): EditableSyntax {
@@ -121,7 +121,7 @@ final class SafeMemberSelectionExpression extends EditableSyntax {
    * @returns QuestionMinusGreaterThanToken
    */
   public function getOperator(): QuestionMinusGreaterThanToken {
-    return TypeAssert::isInstanceOf(
+    return TypeAssert\instance_of(
       QuestionMinusGreaterThanToken::class,
       $this->_operator,
     );
@@ -149,13 +149,13 @@ final class SafeMemberSelectionExpression extends EditableSyntax {
     if ($this->_name->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+    return TypeAssert\instance_of(EditableToken::class, $this->_name);
   }
 
   /**
    * @returns NameToken | XHPClassNameToken
    */
   public function getNamex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+    return TypeAssert\instance_of(EditableToken::class, $this->_name);
   }
 }

@@ -13,7 +13,7 @@
 namespace Facebook\HHAST;
 
 use type Facebook\HHAST\EditableSyntax;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Str, Vec};
 use namespace Facebook\HHAST\__Private\Resolution;
 

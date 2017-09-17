@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<943dcd1c4462d11f8de590c7bb3dc69b>>
+ * @generated SignedSource<<3a096fbddb453536fbeeb6a321037c0e>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class TypeConstraint extends EditableSyntax {
 
@@ -79,7 +79,7 @@ final class TypeConstraint extends EditableSyntax {
    * @returns AsToken | SuperToken
    */
   public function getKeyword(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_keyword);
+    return TypeAssert\instance_of(EditableToken::class, $this->_keyword);
   }
 
   public function getTypeUNTYPED(): EditableSyntax {
@@ -103,6 +103,6 @@ final class TypeConstraint extends EditableSyntax {
    * ClassnameTypeSpecifier | KeysetTypeSpecifier
    */
   public function getType(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_type);
   }
 }

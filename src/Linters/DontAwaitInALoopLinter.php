@@ -31,7 +31,7 @@ use type Facebook\HHAST\{
   WhiteSpace
 };
 use function Facebook\HHAST\{Missing, find_position, find_offset};
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Vec};
 
 final class DontAwaitInALoopLinter
@@ -90,7 +90,7 @@ final class DontAwaitInALoopLinter
     $loops = $loops->toVec()
       |> Vec\map(
         $$,
-        $item ==> TypeAssert::isInstanceOf(
+        $item ==> TypeAssert\instance_of(
           ILoopStatement::class,
           $item,
         ),

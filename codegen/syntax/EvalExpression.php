@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7e0b014adc204cc42e5df3e2e2148b42>>
+ * @generated SignedSource<<01c46bd8ba8320320dcd0bab9cba5ec7>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class EvalExpression extends EditableSyntax {
 
@@ -114,7 +114,7 @@ final class EvalExpression extends EditableSyntax {
    * @returns EvalToken
    */
   public function getKeyword(): EvalToken {
-    return TypeAssert::isInstanceOf(EvalToken::class, $this->_keyword);
+    return TypeAssert\instance_of(EvalToken::class, $this->_keyword);
   }
 
   public function getLeftParenUNTYPED(): EditableSyntax {
@@ -137,7 +137,7 @@ final class EvalExpression extends EditableSyntax {
    * @returns LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
-    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   public function getArgumentUNTYPED(): EditableSyntax {
@@ -165,7 +165,7 @@ final class EvalExpression extends EditableSyntax {
    * BinaryExpression
    */
   public function getArgument(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_argument);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_argument);
   }
 
   public function getRightParenUNTYPED(): EditableSyntax {
@@ -188,7 +188,6 @@ final class EvalExpression extends EditableSyntax {
    * @returns RightParenToken
    */
   public function getRightParen(): RightParenToken {
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 }

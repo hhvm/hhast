@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5dd7a95028864b66593e4e22e76c17ff>>
+ * @generated SignedSource<<24b5f1975eb024cc454c87a3dda90b95>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class CaseLabel extends EditableSyntax {
 
@@ -97,7 +97,7 @@ final class CaseLabel extends EditableSyntax {
    * @returns CaseToken
    */
   public function getKeyword(): CaseToken {
-    return TypeAssert::isInstanceOf(CaseToken::class, $this->_keyword);
+    return TypeAssert\instance_of(CaseToken::class, $this->_keyword);
   }
 
   public function getExpressionUNTYPED(): EditableSyntax {
@@ -121,7 +121,7 @@ final class CaseLabel extends EditableSyntax {
    * FunctionCallExpression | ArrayIntrinsicExpression | InstanceofExpression
    */
   public function getExpression(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_expression);
   }
 
   public function getColonUNTYPED(): EditableSyntax {
@@ -143,6 +143,6 @@ final class CaseLabel extends EditableSyntax {
    * @returns ColonToken | SemicolonToken
    */
   public function getColon(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_colon);
+    return TypeAssert\instance_of(EditableToken::class, $this->_colon);
   }
 }

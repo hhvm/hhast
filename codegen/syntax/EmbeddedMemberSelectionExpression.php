@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fa64e3180992289d1dd1c973837f00c1>>
+ * @generated SignedSource<<2f5bc274c89e17001272ef43430b6293>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class EmbeddedMemberSelectionExpression extends EditableSyntax {
 
@@ -97,7 +97,7 @@ final class EmbeddedMemberSelectionExpression extends EditableSyntax {
    * @returns unknown
    */
   public function getObject(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_object);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_object);
   }
 
   public function getOperatorUNTYPED(): EditableSyntax {
@@ -119,7 +119,7 @@ final class EmbeddedMemberSelectionExpression extends EditableSyntax {
    * @returns unknown
    */
   public function getOperator(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operator);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_operator);
   }
 
   public function getNameUNTYPED(): EditableSyntax {
@@ -141,6 +141,6 @@ final class EmbeddedMemberSelectionExpression extends EditableSyntax {
    * @returns unknown
    */
   public function getName(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_name);
   }
 }

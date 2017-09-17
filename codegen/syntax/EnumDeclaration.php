@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1634357ef950c90f2f71c5e137476625>>
+ * @generated SignedSource<<92efb1244935a8fed1dd06d2648e1368>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class EnumDeclaration extends EditableSyntax {
 
@@ -200,7 +200,7 @@ final class EnumDeclaration extends EditableSyntax {
    */
   public function getAttributeSpec(): EditableSyntax {
     return
-      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_attribute_spec);
+      TypeAssert\instance_of(EditableSyntax::class, $this->_attribute_spec);
   }
 
   public function getKeywordUNTYPED(): EditableSyntax {
@@ -232,7 +232,7 @@ final class EnumDeclaration extends EditableSyntax {
    * @returns EnumToken
    */
   public function getKeyword(): EnumToken {
-    return TypeAssert::isInstanceOf(EnumToken::class, $this->_keyword);
+    return TypeAssert\instance_of(EnumToken::class, $this->_keyword);
   }
 
   public function getNameUNTYPED(): EditableSyntax {
@@ -264,7 +264,7 @@ final class EnumDeclaration extends EditableSyntax {
    * @returns NameToken
    */
   public function getName(): NameToken {
-    return TypeAssert::isInstanceOf(NameToken::class, $this->_name);
+    return TypeAssert\instance_of(NameToken::class, $this->_name);
   }
 
   public function getColonUNTYPED(): EditableSyntax {
@@ -296,7 +296,7 @@ final class EnumDeclaration extends EditableSyntax {
    * @returns ColonToken
    */
   public function getColon(): ColonToken {
-    return TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
+    return TypeAssert\instance_of(ColonToken::class, $this->_colon);
   }
 
   public function getBaseUNTYPED(): EditableSyntax {
@@ -328,7 +328,7 @@ final class EnumDeclaration extends EditableSyntax {
    * @returns SimpleTypeSpecifier | ClassnameTypeSpecifier
    */
   public function getBase(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_base);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_base);
   }
 
   public function getTypeUNTYPED(): EditableSyntax {
@@ -363,14 +363,14 @@ final class EnumDeclaration extends EditableSyntax {
     if ($this->_type->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(TypeConstraint::class, $this->_type);
+    return TypeAssert\instance_of(TypeConstraint::class, $this->_type);
   }
 
   /**
    * @returns TypeConstraint
    */
   public function getTypex(): TypeConstraint {
-    return TypeAssert::isInstanceOf(TypeConstraint::class, $this->_type);
+    return TypeAssert\instance_of(TypeConstraint::class, $this->_type);
   }
 
   public function getLeftBraceUNTYPED(): EditableSyntax {
@@ -402,7 +402,7 @@ final class EnumDeclaration extends EditableSyntax {
    * @returns LeftBraceToken
    */
   public function getLeftBrace(): LeftBraceToken {
-    return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
+    return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
   }
 
   public function getEnumeratorsUNTYPED(): EditableSyntax {
@@ -437,14 +437,14 @@ final class EnumDeclaration extends EditableSyntax {
     if ($this->_enumerators->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_enumerators);
+    return TypeAssert\instance_of(EditableList::class, $this->_enumerators);
   }
 
   /**
    * @returns EditableList
    */
   public function getEnumeratorsx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_enumerators);
+    return TypeAssert\instance_of(EditableList::class, $this->_enumerators);
   }
 
   public function getRightBraceUNTYPED(): EditableSyntax {
@@ -476,7 +476,6 @@ final class EnumDeclaration extends EditableSyntax {
    * @returns RightBraceToken
    */
   public function getRightBrace(): RightBraceToken {
-    return
-      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+    return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
   }
 }

@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<feca422c28b7e116d2e5c85ae6b82a38>>
+ * @generated SignedSource<<0e6c085291703d957b3cd791db05e01d>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class SimpleInitializer extends EditableSyntax {
 
@@ -79,7 +79,7 @@ final class SimpleInitializer extends EditableSyntax {
    * @returns EqualToken
    */
   public function getEqual(): EqualToken {
-    return TypeAssert::isInstanceOf(EqualToken::class, $this->_equal);
+    return TypeAssert\instance_of(EqualToken::class, $this->_equal);
   }
 
   public function getValueUNTYPED(): EditableSyntax {
@@ -108,6 +108,6 @@ final class SimpleInitializer extends EditableSyntax {
    * ParenthesizedExpression | TupleExpression
    */
   public function getValue(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_value);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_value);
   }
 }

@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6f529427c17a535b1efe380ff6247619>>
+ * @generated SignedSource<<868946e0272c5d24f2ae6993aeda6f0e>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class NamespaceDeclaration extends EditableSyntax {
 
@@ -97,7 +97,7 @@ final class NamespaceDeclaration extends EditableSyntax {
    * @returns NamespaceToken
    */
   public function getKeyword(): NamespaceToken {
-    return TypeAssert::isInstanceOf(NamespaceToken::class, $this->_keyword);
+    return TypeAssert\instance_of(NamespaceToken::class, $this->_keyword);
   }
 
   public function getNameUNTYPED(): EditableSyntax {
@@ -123,7 +123,7 @@ final class NamespaceDeclaration extends EditableSyntax {
     if ($this->_name->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+    return TypeAssert\instance_of(EditableToken::class, $this->_name);
   }
 
   /**
@@ -131,7 +131,7 @@ final class NamespaceDeclaration extends EditableSyntax {
    * VecToken
    */
   public function getNamex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+    return TypeAssert\instance_of(EditableToken::class, $this->_name);
   }
 
   public function getBodyUNTYPED(): EditableSyntax {
@@ -153,6 +153,6 @@ final class NamespaceDeclaration extends EditableSyntax {
    * @returns NamespaceBody | NamespaceEmptyBody
    */
   public function getBody(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_body);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_body);
   }
 }

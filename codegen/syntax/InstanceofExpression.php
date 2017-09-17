@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5a389dfdb5d8dbf64feaf7c33a104086>>
+ * @generated SignedSource<<0bc31973355f438817281aa3e36f1df3>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class InstanceofExpression extends EditableSyntax {
 
@@ -100,8 +100,7 @@ final class InstanceofExpression extends EditableSyntax {
    * LiteralExpression
    */
   public function getLeftOperand(): EditableSyntax {
-    return
-      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_operand);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_left_operand);
   }
 
   public function getOperatorUNTYPED(): EditableSyntax {
@@ -123,7 +122,7 @@ final class InstanceofExpression extends EditableSyntax {
    * @returns InstanceofToken
    */
   public function getOperator(): InstanceofToken {
-    return TypeAssert::isInstanceOf(InstanceofToken::class, $this->_operator);
+    return TypeAssert\instance_of(InstanceofToken::class, $this->_operator);
   }
 
   public function getRightOperandUNTYPED(): EditableSyntax {
@@ -147,7 +146,6 @@ final class InstanceofExpression extends EditableSyntax {
    * MemberSelectionExpression | ParenthesizedExpression
    */
   public function getRightOperand(): EditableSyntax {
-    return
-      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_operand);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_right_operand);
   }
 }

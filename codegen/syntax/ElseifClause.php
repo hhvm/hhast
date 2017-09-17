@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0cb1f0f223a911eaeedab522c18793f3>>
+ * @generated SignedSource<<41a9ec36c51427600fd2b1d9a5052a9b>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class ElseifClause extends EditableSyntax
   implements IControlFlowStatement {
@@ -130,7 +130,7 @@ final class ElseifClause extends EditableSyntax
    * @returns ElseifToken
    */
   public function getKeyword(): ElseifToken {
-    return TypeAssert::isInstanceOf(ElseifToken::class, $this->_keyword);
+    return TypeAssert\instance_of(ElseifToken::class, $this->_keyword);
   }
 
   public function getLeftParenUNTYPED(): EditableSyntax {
@@ -158,7 +158,7 @@ final class ElseifClause extends EditableSyntax
    * @returns LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
-    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   public function getConditionUNTYPED(): EditableSyntax {
@@ -187,7 +187,7 @@ final class ElseifClause extends EditableSyntax
    * FunctionCallExpression
    */
   public function getCondition(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_condition);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_condition);
   }
 
   public function getRightParenUNTYPED(): EditableSyntax {
@@ -215,8 +215,7 @@ final class ElseifClause extends EditableSyntax
    * @returns RightParenToken
    */
   public function getRightParen(): RightParenToken {
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   public function getStatementUNTYPED(): EditableSyntax {
@@ -244,6 +243,6 @@ final class ElseifClause extends EditableSyntax
    * @returns CompoundStatement | ExpressionStatement
    */
   public function getStatement(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_statement);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_statement);
   }
 }

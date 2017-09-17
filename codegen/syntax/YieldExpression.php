@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3b1ddba5119daa0d43f5c45725eb505a>>
+ * @generated SignedSource<<52c9ee77d8684208f1edef9b20a25b51>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class YieldExpression extends EditableSyntax {
 
@@ -82,7 +82,7 @@ final class YieldExpression extends EditableSyntax {
    * @returns YieldToken
    */
   public function getKeyword(): YieldToken {
-    return TypeAssert::isInstanceOf(YieldToken::class, $this->_keyword);
+    return TypeAssert\instance_of(YieldToken::class, $this->_keyword);
   }
 
   public function getOperandUNTYPED(): EditableSyntax {
@@ -109,6 +109,6 @@ final class YieldExpression extends EditableSyntax {
    * ObjectCreationExpression | AnonymousFunction | TupleExpression
    */
   public function getOperand(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operand);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_operand);
   }
 }

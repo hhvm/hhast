@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e70a66fc87ebbb11ef0c1b8e265fa341>>
+ * @generated SignedSource<<2f102abfee1d18fae329f7086ae3a5f1>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class ShapeExpression extends EditableSyntax {
 
@@ -110,7 +110,7 @@ final class ShapeExpression extends EditableSyntax {
    * @returns ShapeToken
    */
   public function getKeyword(): ShapeToken {
-    return TypeAssert::isInstanceOf(ShapeToken::class, $this->_keyword);
+    return TypeAssert\instance_of(ShapeToken::class, $this->_keyword);
   }
 
   public function getLeftParenUNTYPED(): EditableSyntax {
@@ -133,7 +133,7 @@ final class ShapeExpression extends EditableSyntax {
    * @returns LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
-    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   public function getFieldsUNTYPED(): EditableSyntax {
@@ -163,14 +163,14 @@ final class ShapeExpression extends EditableSyntax {
     if ($this->_fields->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_fields);
+    return TypeAssert\instance_of(EditableList::class, $this->_fields);
   }
 
   /**
    * @returns EditableList
    */
   public function getFieldsx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_fields);
+    return TypeAssert\instance_of(EditableList::class, $this->_fields);
   }
 
   public function getRightParenUNTYPED(): EditableSyntax {
@@ -193,7 +193,6 @@ final class ShapeExpression extends EditableSyntax {
    * @returns RightParenToken
    */
   public function getRightParen(): RightParenToken {
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 }

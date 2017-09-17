@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<91cb50cab9c976f2029b590cdfd8de5f>>
+ * @generated SignedSource<<8e94f5c8a8423d39ed63ddeb8a5e6a01>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class ListItem extends EditableSyntax {
 
@@ -104,7 +104,7 @@ final class ListItem extends EditableSyntax {
    * NoreturnToken | XHPSimpleClassAttribute
    */
   public function getItem(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_item);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_item);
   }
 
   public function getSeparatorUNTYPED(): EditableSyntax {
@@ -129,13 +129,13 @@ final class ListItem extends EditableSyntax {
     if ($this->_separator->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_separator);
+    return TypeAssert\instance_of(EditableToken::class, $this->_separator);
   }
 
   /**
    * @returns CommaToken | SemicolonToken
    */
   public function getSeparatorx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_separator);
+    return TypeAssert\instance_of(EditableToken::class, $this->_separator);
   }
 }

@@ -17,7 +17,7 @@ use type Facebook\HHAST\{
   NamespaceDeclaration,
   NamespaceEmptyBody
 };
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Str, Vec};
 
 function get_current_namespace(
@@ -66,7 +66,7 @@ function get_current_namespace(
 
   return $namespaces
     |> C\firstx($$)
-    |> TypeAssert::isInstanceOf(NamespaceDeclaration::class, $$)
+    |> TypeAssert\instance_of(NamespaceDeclaration::class, $$)
     |> $$->getNameUNTYPED()->getCode()
     |> Str\strip_prefix($$, '\\')
     |> Str\trim($$)

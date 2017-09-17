@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<da53daf0c0cc87af61732b25d649b0ad>>
+ * @generated SignedSource<<2d8ecbde66ba3918085b2013746702d4>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class ConstantDeclarator extends EditableSyntax {
 
@@ -82,7 +82,7 @@ final class ConstantDeclarator extends EditableSyntax {
    * @returns NameToken
    */
   public function getName(): NameToken {
-    return TypeAssert::isInstanceOf(NameToken::class, $this->_name);
+    return TypeAssert\instance_of(NameToken::class, $this->_name);
   }
 
   public function getInitializerUNTYPED(): EditableSyntax {
@@ -108,7 +108,7 @@ final class ConstantDeclarator extends EditableSyntax {
       return null;
     }
     return
-      TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
+      TypeAssert\instance_of(SimpleInitializer::class, $this->_initializer);
   }
 
   /**
@@ -116,6 +116,6 @@ final class ConstantDeclarator extends EditableSyntax {
    */
   public function getInitializerx(): SimpleInitializer {
     return
-      TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
+      TypeAssert\instance_of(SimpleInitializer::class, $this->_initializer);
   }
 }

@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f31663c161ec8f304413f4723766c10a>>
+ * @generated SignedSource<<6f0b354522ddbe1c7824f3753436cd10>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class XHPEnumType extends EditableSyntax {
 
@@ -110,7 +110,7 @@ final class XHPEnumType extends EditableSyntax {
    * @returns EnumToken
    */
   public function getKeyword(): EnumToken {
-    return TypeAssert::isInstanceOf(EnumToken::class, $this->_keyword);
+    return TypeAssert\instance_of(EnumToken::class, $this->_keyword);
   }
 
   public function getLeftBraceUNTYPED(): EditableSyntax {
@@ -133,7 +133,7 @@ final class XHPEnumType extends EditableSyntax {
    * @returns LeftBraceToken
    */
   public function getLeftBrace(): LeftBraceToken {
-    return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
+    return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
   }
 
   public function getValuesUNTYPED(): EditableSyntax {
@@ -160,7 +160,7 @@ final class XHPEnumType extends EditableSyntax {
    * @returns EditableList
    */
   public function getValues(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_values);
+    return TypeAssert\instance_of(EditableList::class, $this->_values);
   }
 
   public function getRightBraceUNTYPED(): EditableSyntax {
@@ -183,7 +183,6 @@ final class XHPEnumType extends EditableSyntax {
    * @returns RightBraceToken
    */
   public function getRightBrace(): RightBraceToken {
-    return
-      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+    return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
   }
 }

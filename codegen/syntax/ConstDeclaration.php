@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<768a4773438865d75da0d3a496035c99>>
+ * @generated SignedSource<<2031ccc39b357fb008cbfc60b81b6cc4>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class ConstDeclaration extends EditableSyntax {
 
@@ -132,14 +132,14 @@ final class ConstDeclaration extends EditableSyntax {
     if ($this->_abstract->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(AbstractToken::class, $this->_abstract);
+    return TypeAssert\instance_of(AbstractToken::class, $this->_abstract);
   }
 
   /**
    * @returns AbstractToken
    */
   public function getAbstractx(): AbstractToken {
-    return TypeAssert::isInstanceOf(AbstractToken::class, $this->_abstract);
+    return TypeAssert\instance_of(AbstractToken::class, $this->_abstract);
   }
 
   public function getKeywordUNTYPED(): EditableSyntax {
@@ -167,7 +167,7 @@ final class ConstDeclaration extends EditableSyntax {
    * @returns ConstToken
    */
   public function getKeyword(): ConstToken {
-    return TypeAssert::isInstanceOf(ConstToken::class, $this->_keyword);
+    return TypeAssert\instance_of(ConstToken::class, $this->_keyword);
   }
 
   public function getTypeSpecifierUNTYPED(): EditableSyntax {
@@ -197,7 +197,7 @@ final class ConstDeclaration extends EditableSyntax {
    */
   public function getTypeSpecifier(): EditableSyntax {
     return
-      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type_specifier);
+      TypeAssert\instance_of(EditableSyntax::class, $this->_type_specifier);
   }
 
   public function getDeclaratorsUNTYPED(): EditableSyntax {
@@ -225,7 +225,7 @@ final class ConstDeclaration extends EditableSyntax {
    * @returns EditableList
    */
   public function getDeclarators(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_declarators);
+    return TypeAssert\instance_of(EditableList::class, $this->_declarators);
   }
 
   public function getSemicolonUNTYPED(): EditableSyntax {
@@ -253,6 +253,6 @@ final class ConstDeclaration extends EditableSyntax {
    * @returns SemicolonToken
    */
   public function getSemicolon(): SemicolonToken {
-    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 }

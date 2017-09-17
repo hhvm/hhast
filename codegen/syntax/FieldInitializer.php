@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f84c31d5bd69974e6c155b1365cc07dd>>
+ * @generated SignedSource<<630d6ebfdee195ae80c095e446595be1>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class FieldInitializer extends EditableSyntax {
 
@@ -97,7 +97,7 @@ final class FieldInitializer extends EditableSyntax {
    * @returns LiteralExpression | ScopeResolutionExpression
    */
   public function getName(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_name);
   }
 
   public function getArrowUNTYPED(): EditableSyntax {
@@ -119,8 +119,7 @@ final class FieldInitializer extends EditableSyntax {
    * @returns EqualGreaterThanToken
    */
   public function getArrow(): EqualGreaterThanToken {
-    return
-      TypeAssert::isInstanceOf(EqualGreaterThanToken::class, $this->_arrow);
+    return TypeAssert\instance_of(EqualGreaterThanToken::class, $this->_arrow);
   }
 
   public function getValueUNTYPED(): EditableSyntax {
@@ -143,6 +142,6 @@ final class FieldInitializer extends EditableSyntax {
    * SubscriptExpression | ObjectCreationExpression | QualifiedNameExpression
    */
   public function getValue(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_value);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_value);
   }
 }

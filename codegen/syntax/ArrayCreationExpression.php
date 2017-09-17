@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2c1f5806979c3071c690f3052d4d6a33>>
+ * @generated SignedSource<<c5303c46bce8dfc0f18be27bd21cc96f>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class ArrayCreationExpression extends EditableSyntax {
 
@@ -98,7 +98,7 @@ final class ArrayCreationExpression extends EditableSyntax {
    */
   public function getLeftBracket(): LeftBracketToken {
     return
-      TypeAssert::isInstanceOf(LeftBracketToken::class, $this->_left_bracket);
+      TypeAssert\instance_of(LeftBracketToken::class, $this->_left_bracket);
   }
 
   public function getMembersUNTYPED(): EditableSyntax {
@@ -123,14 +123,14 @@ final class ArrayCreationExpression extends EditableSyntax {
     if ($this->_members->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
+    return TypeAssert\instance_of(EditableList::class, $this->_members);
   }
 
   /**
    * @returns EditableList
    */
   public function getMembersx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
+    return TypeAssert\instance_of(EditableList::class, $this->_members);
   }
 
   public function getRightBracketUNTYPED(): EditableSyntax {
@@ -153,6 +153,6 @@ final class ArrayCreationExpression extends EditableSyntax {
    */
   public function getRightBracket(): RightBracketToken {
     return
-      TypeAssert::isInstanceOf(RightBracketToken::class, $this->_right_bracket);
+      TypeAssert\instance_of(RightBracketToken::class, $this->_right_bracket);
   }
 }

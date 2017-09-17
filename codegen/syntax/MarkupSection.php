@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<63992610418f010b14fa00f9e286f6f4>>
+ * @generated SignedSource<<6773c90bad1d2da6a69d4b5cd0cc06ee>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class MarkupSection extends EditableSyntax {
 
@@ -113,7 +113,7 @@ final class MarkupSection extends EditableSyntax {
       return null;
     }
     return
-      TypeAssert::isInstanceOf(QuestionGreaterThanToken::class, $this->_prefix);
+      TypeAssert\instance_of(QuestionGreaterThanToken::class, $this->_prefix);
   }
 
   /**
@@ -121,7 +121,7 @@ final class MarkupSection extends EditableSyntax {
    */
   public function getPrefixx(): QuestionGreaterThanToken {
     return
-      TypeAssert::isInstanceOf(QuestionGreaterThanToken::class, $this->_prefix);
+      TypeAssert\instance_of(QuestionGreaterThanToken::class, $this->_prefix);
   }
 
   public function getTextUNTYPED(): EditableSyntax {
@@ -146,14 +146,14 @@ final class MarkupSection extends EditableSyntax {
     if ($this->_text->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(MarkupToken::class, $this->_text);
+    return TypeAssert\instance_of(MarkupToken::class, $this->_text);
   }
 
   /**
    * @returns MarkupToken
    */
   public function getTextx(): MarkupToken {
-    return TypeAssert::isInstanceOf(MarkupToken::class, $this->_text);
+    return TypeAssert\instance_of(MarkupToken::class, $this->_text);
   }
 
   public function getSuffixUNTYPED(): EditableSyntax {
@@ -178,14 +178,14 @@ final class MarkupSection extends EditableSyntax {
     if ($this->_suffix->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(MarkupSuffix::class, $this->_suffix);
+    return TypeAssert\instance_of(MarkupSuffix::class, $this->_suffix);
   }
 
   /**
    * @returns MarkupSuffix
    */
   public function getSuffixx(): MarkupSuffix {
-    return TypeAssert::isInstanceOf(MarkupSuffix::class, $this->_suffix);
+    return TypeAssert\instance_of(MarkupSuffix::class, $this->_suffix);
   }
 
   public function getExpressionUNTYPED(): EditableSyntax {
@@ -211,7 +211,7 @@ final class MarkupSection extends EditableSyntax {
       return null;
     }
     return
-      TypeAssert::isInstanceOf(ExpressionStatement::class, $this->_expression);
+      TypeAssert\instance_of(ExpressionStatement::class, $this->_expression);
   }
 
   /**
@@ -219,6 +219,6 @@ final class MarkupSection extends EditableSyntax {
    */
   public function getExpressionx(): ExpressionStatement {
     return
-      TypeAssert::isInstanceOf(ExpressionStatement::class, $this->_expression);
+      TypeAssert\instance_of(ExpressionStatement::class, $this->_expression);
   }
 }

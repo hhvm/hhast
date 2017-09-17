@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<81ff28e8e954079cd2be7d06f76998fe>>
+ * @generated SignedSource<<04fbe79b57dc2475be096bb370fae9e2>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class FinallyClause extends EditableSyntax {
 
@@ -79,7 +79,7 @@ final class FinallyClause extends EditableSyntax {
    * @returns FinallyToken
    */
   public function getKeyword(): FinallyToken {
-    return TypeAssert::isInstanceOf(FinallyToken::class, $this->_keyword);
+    return TypeAssert\instance_of(FinallyToken::class, $this->_keyword);
   }
 
   public function getBodyUNTYPED(): EditableSyntax {
@@ -101,6 +101,6 @@ final class FinallyClause extends EditableSyntax {
    * @returns CompoundStatement
    */
   public function getBody(): CompoundStatement {
-    return TypeAssert::isInstanceOf(CompoundStatement::class, $this->_body);
+    return TypeAssert\instance_of(CompoundStatement::class, $this->_body);
   }
 }

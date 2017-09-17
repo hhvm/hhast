@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<66696203c6ffcab3cdb48ca395b59752>>
+ * @generated SignedSource<<25533e4352c07c18546f6f726f2ec8df>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class BracedExpression extends EditableSyntax {
 
@@ -97,7 +97,7 @@ final class BracedExpression extends EditableSyntax {
    * @returns LeftBraceToken
    */
   public function getLeftBrace(): LeftBraceToken {
-    return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
+    return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
   }
 
   public function getExpressionUNTYPED(): EditableSyntax {
@@ -121,7 +121,7 @@ final class BracedExpression extends EditableSyntax {
    * PrefixUnaryExpression | SubscriptExpression | CollectionLiteralExpression
    */
   public function getExpression(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_expression);
   }
 
   public function getRightBraceUNTYPED(): EditableSyntax {
@@ -143,7 +143,6 @@ final class BracedExpression extends EditableSyntax {
    * @returns RightBraceToken
    */
   public function getRightBrace(): RightBraceToken {
-    return
-      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+    return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
   }
 }

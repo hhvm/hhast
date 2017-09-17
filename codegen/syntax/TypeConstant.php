@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0d1a44a92907d432726406f4a1cff90a>>
+ * @generated SignedSource<<7f3e7710b1cd771c0ed0e548c54241b3>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class TypeConstant extends EditableSyntax {
 
@@ -97,7 +97,7 @@ final class TypeConstant extends EditableSyntax {
    * @returns NameToken | ThisToken | TypeConstant | SelfToken | ParentToken
    */
   public function getLeftType(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_type);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_left_type);
   }
 
   public function getSeparatorUNTYPED(): EditableSyntax {
@@ -119,7 +119,7 @@ final class TypeConstant extends EditableSyntax {
    * @returns ColonColonToken
    */
   public function getSeparator(): ColonColonToken {
-    return TypeAssert::isInstanceOf(ColonColonToken::class, $this->_separator);
+    return TypeAssert\instance_of(ColonColonToken::class, $this->_separator);
   }
 
   public function getRightTypeUNTYPED(): EditableSyntax {
@@ -141,6 +141,6 @@ final class TypeConstant extends EditableSyntax {
    * @returns NameToken
    */
   public function getRightType(): NameToken {
-    return TypeAssert::isInstanceOf(NameToken::class, $this->_right_type);
+    return TypeAssert\instance_of(NameToken::class, $this->_right_type);
   }
 }

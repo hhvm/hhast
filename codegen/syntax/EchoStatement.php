@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b56146e69a5fdbd7e13f295759667a1d>>
+ * @generated SignedSource<<3607f3efa600bd049034162616b8d143>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class EchoStatement extends EditableSyntax {
 
@@ -97,7 +97,7 @@ final class EchoStatement extends EditableSyntax {
    * @returns EchoToken
    */
   public function getKeyword(): EchoToken {
-    return TypeAssert::isInstanceOf(EchoToken::class, $this->_keyword);
+    return TypeAssert\instance_of(EchoToken::class, $this->_keyword);
   }
 
   public function getExpressionsUNTYPED(): EditableSyntax {
@@ -119,7 +119,7 @@ final class EchoStatement extends EditableSyntax {
    * @returns EditableList
    */
   public function getExpressions(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_expressions);
+    return TypeAssert\instance_of(EditableList::class, $this->_expressions);
   }
 
   public function getSemicolonUNTYPED(): EditableSyntax {
@@ -144,13 +144,13 @@ final class EchoStatement extends EditableSyntax {
     if ($this->_semicolon->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 
   /**
    * @returns SemicolonToken
    */
   public function getSemicolonx(): SemicolonToken {
-    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 }

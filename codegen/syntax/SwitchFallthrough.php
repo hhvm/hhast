@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4a47761f3ef3bac7e85a4c594a2bb1fe>>
+ * @generated SignedSource<<0b564ba59bd66d40482b945fc339ca2c>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class SwitchFallthrough extends EditableSyntax {
 
@@ -82,7 +82,7 @@ final class SwitchFallthrough extends EditableSyntax {
    * @returns unknown
    */
   public function getKeyword(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_keyword);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_keyword);
   }
 
   public function getSemicolonUNTYPED(): EditableSyntax {
@@ -104,6 +104,6 @@ final class SwitchFallthrough extends EditableSyntax {
    * @returns unknown
    */
   public function getSemicolon(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_semicolon);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_semicolon);
   }
 }

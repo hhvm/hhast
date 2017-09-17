@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3c721d39762f3a55f2f367c8eadfbcae>>
+ * @generated SignedSource<<8353cdb983cf9158ab3d8f4f0132b43a>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class DictionaryTypeSpecifier extends EditableSyntax {
 
@@ -114,7 +114,7 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
    * @returns DictToken
    */
   public function getKeyword(): DictToken {
-    return TypeAssert::isInstanceOf(DictToken::class, $this->_keyword);
+    return TypeAssert\instance_of(DictToken::class, $this->_keyword);
   }
 
   public function getLeftAngleUNTYPED(): EditableSyntax {
@@ -137,7 +137,7 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
    * @returns LessThanToken
    */
   public function getLeftAngle(): LessThanToken {
-    return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
+    return TypeAssert\instance_of(LessThanToken::class, $this->_left_angle);
   }
 
   public function getMembersUNTYPED(): EditableSyntax {
@@ -164,7 +164,7 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
    * @returns EditableList
    */
   public function getMembers(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
+    return TypeAssert\instance_of(EditableList::class, $this->_members);
   }
 
   public function getRightAngleUNTYPED(): EditableSyntax {
@@ -187,7 +187,6 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
    * @returns GreaterThanToken
    */
   public function getRightAngle(): GreaterThanToken {
-    return
-      TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+    return TypeAssert\instance_of(GreaterThanToken::class, $this->_right_angle);
   }
 }

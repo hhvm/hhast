@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<52671d3ffb8c4b063e64df1ab04a0d51>>
+ * @generated SignedSource<<bcd48ac010f75f674cab140838bb3698>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class XHPOpen extends EditableSyntax {
 
@@ -110,7 +110,7 @@ final class XHPOpen extends EditableSyntax {
    * @returns LessThanToken
    */
   public function getLeftAngle(): LessThanToken {
-    return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
+    return TypeAssert\instance_of(LessThanToken::class, $this->_left_angle);
   }
 
   public function getNameUNTYPED(): EditableSyntax {
@@ -137,7 +137,7 @@ final class XHPOpen extends EditableSyntax {
    * @returns XHPElementNameToken
    */
   public function getName(): XHPElementNameToken {
-    return TypeAssert::isInstanceOf(XHPElementNameToken::class, $this->_name);
+    return TypeAssert\instance_of(XHPElementNameToken::class, $this->_name);
   }
 
   public function getAttributesUNTYPED(): EditableSyntax {
@@ -163,14 +163,14 @@ final class XHPOpen extends EditableSyntax {
     if ($this->_attributes->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_attributes);
+    return TypeAssert\instance_of(EditableList::class, $this->_attributes);
   }
 
   /**
    * @returns EditableList
    */
   public function getAttributesx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_attributes);
+    return TypeAssert\instance_of(EditableList::class, $this->_attributes);
   }
 
   public function getRightAngleUNTYPED(): EditableSyntax {
@@ -196,13 +196,13 @@ final class XHPOpen extends EditableSyntax {
     if ($this->_right_angle->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_right_angle);
+    return TypeAssert\instance_of(EditableToken::class, $this->_right_angle);
   }
 
   /**
    * @returns SlashGreaterThanToken | GreaterThanToken
    */
   public function getRightAnglex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_right_angle);
+    return TypeAssert\instance_of(EditableToken::class, $this->_right_angle);
   }
 }

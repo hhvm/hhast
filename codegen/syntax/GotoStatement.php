@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<efce5297d19e1997a693f60ff8a2f625>>
+ * @generated SignedSource<<94c518b1870defcbaf3c24f2b865dcc0>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class GotoStatement extends EditableSyntax {
 
@@ -97,7 +97,7 @@ final class GotoStatement extends EditableSyntax {
    * @returns GotoToken
    */
   public function getKeyword(): GotoToken {
-    return TypeAssert::isInstanceOf(GotoToken::class, $this->_keyword);
+    return TypeAssert\instance_of(GotoToken::class, $this->_keyword);
   }
 
   public function getLabelNameUNTYPED(): EditableSyntax {
@@ -119,7 +119,7 @@ final class GotoStatement extends EditableSyntax {
    * @returns NameToken
    */
   public function getLabelName(): NameToken {
-    return TypeAssert::isInstanceOf(NameToken::class, $this->_label_name);
+    return TypeAssert\instance_of(NameToken::class, $this->_label_name);
   }
 
   public function getSemicolonUNTYPED(): EditableSyntax {
@@ -141,6 +141,6 @@ final class GotoStatement extends EditableSyntax {
    * @returns SemicolonToken
    */
   public function getSemicolon(): SemicolonToken {
-    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 }

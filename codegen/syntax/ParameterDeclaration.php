@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0e99448a13e5694b1977c8981a45a493>>
+ * @generated SignedSource<<f5c6e809a945322247dda008d07a8e7b>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class ParameterDeclaration extends EditableSyntax {
 
@@ -130,20 +130,16 @@ final class ParameterDeclaration extends EditableSyntax {
     if ($this->_attribute->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(
-      AttributeSpecification::class,
-      $this->_attribute,
-    );
+    return
+      TypeAssert\instance_of(AttributeSpecification::class, $this->_attribute);
   }
 
   /**
    * @returns AttributeSpecification
    */
   public function getAttributex(): AttributeSpecification {
-    return TypeAssert::isInstanceOf(
-      AttributeSpecification::class,
-      $this->_attribute,
-    );
+    return
+      TypeAssert\instance_of(AttributeSpecification::class, $this->_attribute);
   }
 
   public function getVisibilityUNTYPED(): EditableSyntax {
@@ -174,14 +170,14 @@ final class ParameterDeclaration extends EditableSyntax {
     if ($this->_visibility->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_visibility);
+    return TypeAssert\instance_of(EditableToken::class, $this->_visibility);
   }
 
   /**
    * @returns ProtectedToken | PublicToken | PrivateToken
    */
   public function getVisibilityx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_visibility);
+    return TypeAssert\instance_of(EditableToken::class, $this->_visibility);
   }
 
   public function getTypeUNTYPED(): EditableSyntax {
@@ -214,7 +210,7 @@ final class ParameterDeclaration extends EditableSyntax {
    * DarrayTypeSpecifier | VectorArrayTypeSpecifier
    */
   public function getType(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_type);
   }
 
   public function getNameUNTYPED(): EditableSyntax {
@@ -242,7 +238,7 @@ final class ParameterDeclaration extends EditableSyntax {
    * @returns VariableToken | DecoratedExpression | Missing
    */
   public function getName(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_name);
   }
 
   public function getDefaultValueUNTYPED(): EditableSyntax {
@@ -274,7 +270,7 @@ final class ParameterDeclaration extends EditableSyntax {
       return null;
     }
     return
-      TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_default_value);
+      TypeAssert\instance_of(SimpleInitializer::class, $this->_default_value);
   }
 
   /**
@@ -282,6 +278,6 @@ final class ParameterDeclaration extends EditableSyntax {
    */
   public function getDefaultValuex(): SimpleInitializer {
     return
-      TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_default_value);
+      TypeAssert\instance_of(SimpleInitializer::class, $this->_default_value);
   }
 }

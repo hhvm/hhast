@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d99fd767ec818982709a875aecdb9a68>>
+ * @generated SignedSource<<640a2c17d85c031eb9e6ab165414a165>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class XHPRequired extends EditableSyntax {
 
@@ -79,7 +79,7 @@ final class XHPRequired extends EditableSyntax {
    * @returns AtToken
    */
   public function getAt(): AtToken {
-    return TypeAssert::isInstanceOf(AtToken::class, $this->_at);
+    return TypeAssert\instance_of(AtToken::class, $this->_at);
   }
 
   public function getKeywordUNTYPED(): EditableSyntax {
@@ -101,6 +101,6 @@ final class XHPRequired extends EditableSyntax {
    * @returns RequiredToken
    */
   public function getKeyword(): RequiredToken {
-    return TypeAssert::isInstanceOf(RequiredToken::class, $this->_keyword);
+    return TypeAssert\instance_of(RequiredToken::class, $this->_keyword);
   }
 }

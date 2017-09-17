@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8d1f7dbb79a61d5743f256aca0fc5a3a>>
+ * @generated SignedSource<<5e5133909a06c1da3bae2e029f132b6a>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class AliasDeclaration extends EditableSyntax {
 
@@ -188,7 +188,7 @@ final class AliasDeclaration extends EditableSyntax {
     if ($this->_attribute_spec->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(
+    return TypeAssert\instance_of(
       AttributeSpecification::class,
       $this->_attribute_spec,
     );
@@ -198,7 +198,7 @@ final class AliasDeclaration extends EditableSyntax {
    * @returns AttributeSpecification
    */
   public function getAttributeSpecx(): AttributeSpecification {
-    return TypeAssert::isInstanceOf(
+    return TypeAssert\instance_of(
       AttributeSpecification::class,
       $this->_attribute_spec,
     );
@@ -232,7 +232,7 @@ final class AliasDeclaration extends EditableSyntax {
    * @returns TypeToken | NewtypeToken
    */
   public function getKeyword(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_keyword);
+    return TypeAssert\instance_of(EditableToken::class, $this->_keyword);
   }
 
   public function getNameUNTYPED(): EditableSyntax {
@@ -266,14 +266,14 @@ final class AliasDeclaration extends EditableSyntax {
     if ($this->_name->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(NameToken::class, $this->_name);
+    return TypeAssert\instance_of(NameToken::class, $this->_name);
   }
 
   /**
    * @returns NameToken
    */
   public function getNamex(): NameToken {
-    return TypeAssert::isInstanceOf(NameToken::class, $this->_name);
+    return TypeAssert\instance_of(NameToken::class, $this->_name);
   }
 
   public function getGenericParameterUNTYPED(): EditableSyntax {
@@ -307,20 +307,16 @@ final class AliasDeclaration extends EditableSyntax {
     if ($this->_generic_parameter->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(
-      TypeParameters::class,
-      $this->_generic_parameter,
-    );
+    return
+      TypeAssert\instance_of(TypeParameters::class, $this->_generic_parameter);
   }
 
   /**
    * @returns TypeParameters
    */
   public function getGenericParameterx(): TypeParameters {
-    return TypeAssert::isInstanceOf(
-      TypeParameters::class,
-      $this->_generic_parameter,
-    );
+    return
+      TypeAssert\instance_of(TypeParameters::class, $this->_generic_parameter);
   }
 
   public function getConstraintUNTYPED(): EditableSyntax {
@@ -354,14 +350,14 @@ final class AliasDeclaration extends EditableSyntax {
     if ($this->_constraint->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(TypeConstraint::class, $this->_constraint);
+    return TypeAssert\instance_of(TypeConstraint::class, $this->_constraint);
   }
 
   /**
    * @returns TypeConstraint
    */
   public function getConstraintx(): TypeConstraint {
-    return TypeAssert::isInstanceOf(TypeConstraint::class, $this->_constraint);
+    return TypeAssert\instance_of(TypeConstraint::class, $this->_constraint);
   }
 
   public function getEqualUNTYPED(): EditableSyntax {
@@ -395,14 +391,14 @@ final class AliasDeclaration extends EditableSyntax {
     if ($this->_equal->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EqualToken::class, $this->_equal);
+    return TypeAssert\instance_of(EqualToken::class, $this->_equal);
   }
 
   /**
    * @returns EqualToken
    */
   public function getEqualx(): EqualToken {
-    return TypeAssert::isInstanceOf(EqualToken::class, $this->_equal);
+    return TypeAssert\instance_of(EqualToken::class, $this->_equal);
   }
 
   public function getTypeUNTYPED(): EditableSyntax {
@@ -436,7 +432,7 @@ final class AliasDeclaration extends EditableSyntax {
    * VectorArrayTypeSpecifier
    */
   public function getType(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_type);
   }
 
   public function getSemicolonUNTYPED(): EditableSyntax {
@@ -467,6 +463,6 @@ final class AliasDeclaration extends EditableSyntax {
    * @returns SemicolonToken
    */
   public function getSemicolon(): SemicolonToken {
-    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 }

@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b6da0b3008fc455549c02b3be300139f>>
+ * @generated SignedSource<<8c695f0cc48c13437227f45a65074ce5>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class DefineExpression extends EditableSyntax {
 
@@ -114,7 +114,7 @@ final class DefineExpression extends EditableSyntax {
    * @returns DefineToken
    */
   public function getKeyword(): DefineToken {
-    return TypeAssert::isInstanceOf(DefineToken::class, $this->_keyword);
+    return TypeAssert\instance_of(DefineToken::class, $this->_keyword);
   }
 
   public function getLeftParenUNTYPED(): EditableSyntax {
@@ -141,7 +141,7 @@ final class DefineExpression extends EditableSyntax {
    * @returns LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
-    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   public function getArgumentListUNTYPED(): EditableSyntax {
@@ -171,14 +171,14 @@ final class DefineExpression extends EditableSyntax {
     if ($this->_argument_list->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_argument_list);
+    return TypeAssert\instance_of(EditableList::class, $this->_argument_list);
   }
 
   /**
    * @returns EditableList
    */
   public function getArgumentListx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_argument_list);
+    return TypeAssert\instance_of(EditableList::class, $this->_argument_list);
   }
 
   public function getRightParenUNTYPED(): EditableSyntax {
@@ -205,7 +205,6 @@ final class DefineExpression extends EditableSyntax {
    * @returns RightParenToken
    */
   public function getRightParen(): RightParenToken {
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 }

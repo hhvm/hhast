@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<04821f0bccdcac0cbdd447693b68dcb8>>
+ * @generated SignedSource<<d68391bfb43054f1eb4ced9aeac9939a>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class AnonymousFunctionUseClause extends EditableSyntax {
 
@@ -114,7 +114,7 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
    * @returns UseToken
    */
   public function getKeyword(): UseToken {
-    return TypeAssert::isInstanceOf(UseToken::class, $this->_keyword);
+    return TypeAssert\instance_of(UseToken::class, $this->_keyword);
   }
 
   public function getLeftParenUNTYPED(): EditableSyntax {
@@ -137,7 +137,7 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
    * @returns LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
-    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   public function getVariablesUNTYPED(): EditableSyntax {
@@ -164,7 +164,7 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
    * @returns EditableList
    */
   public function getVariables(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_variables);
+    return TypeAssert\instance_of(EditableList::class, $this->_variables);
   }
 
   public function getRightParenUNTYPED(): EditableSyntax {
@@ -187,7 +187,6 @@ final class AnonymousFunctionUseClause extends EditableSyntax {
    * @returns RightParenToken
    */
   public function getRightParen(): RightParenToken {
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 }

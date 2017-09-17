@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7bda0abe675de057f00f7b3226c84529>>
+ * @generated SignedSource<<8d4f636af28f1c1bed18aa3cc78c76e6>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class CompoundStatement extends EditableSyntax {
 
@@ -100,14 +100,14 @@ final class CompoundStatement extends EditableSyntax {
     if ($this->_left_brace->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
+    return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
   }
 
   /**
    * @returns LeftBraceToken
    */
   public function getLeftBracex(): LeftBraceToken {
-    return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
+    return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
   }
 
   public function getStatementsUNTYPED(): EditableSyntax {
@@ -132,14 +132,14 @@ final class CompoundStatement extends EditableSyntax {
     if ($this->_statements->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_statements);
+    return TypeAssert\instance_of(EditableList::class, $this->_statements);
   }
 
   /**
    * @returns EditableList
    */
   public function getStatementsx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_statements);
+    return TypeAssert\instance_of(EditableList::class, $this->_statements);
   }
 
   public function getRightBraceUNTYPED(): EditableSyntax {
@@ -164,15 +164,13 @@ final class CompoundStatement extends EditableSyntax {
     if ($this->_right_brace->isMissing()) {
       return null;
     }
-    return
-      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+    return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
   }
 
   /**
    * @returns RightBraceToken
    */
   public function getRightBracex(): RightBraceToken {
-    return
-      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+    return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
   }
 }

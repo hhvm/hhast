@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<23b8c496258e1d651002b8cfdd486c72>>
+ * @generated SignedSource<<542e48198d4fc63f65ab14ad4cd7c598>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class XHPChildrenParenthesizedList extends EditableSyntax {
 
@@ -97,7 +97,7 @@ final class XHPChildrenParenthesizedList extends EditableSyntax {
    * @returns unknown
    */
   public function getLeftParen(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_left_paren);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_left_paren);
   }
 
   public function getXhpChildrenUNTYPED(): EditableSyntax {
@@ -119,8 +119,7 @@ final class XHPChildrenParenthesizedList extends EditableSyntax {
    * @returns unknown
    */
   public function getXhpChildren(): EditableSyntax {
-    return
-      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_xhp_children);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_xhp_children);
   }
 
   public function getRightParenUNTYPED(): EditableSyntax {
@@ -142,6 +141,6 @@ final class XHPChildrenParenthesizedList extends EditableSyntax {
    * @returns unknown
    */
   public function getRightParen(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_right_paren);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_right_paren);
   }
 }

@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7397c8bdbd45211c37827a5db0430dbd>>
+ * @generated SignedSource<<4ef0b5893bf0d3184f24ad36ac1ec261>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class ThrowStatement extends EditableSyntax {
 
@@ -97,7 +97,7 @@ final class ThrowStatement extends EditableSyntax {
    * @returns ThrowToken
    */
   public function getKeyword(): ThrowToken {
-    return TypeAssert::isInstanceOf(ThrowToken::class, $this->_keyword);
+    return TypeAssert\instance_of(ThrowToken::class, $this->_keyword);
   }
 
   public function getExpressionUNTYPED(): EditableSyntax {
@@ -120,7 +120,7 @@ final class ThrowStatement extends EditableSyntax {
    * FunctionCallExpression | ParenthesizedExpression | LiteralExpression
    */
   public function getExpression(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_expression);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_expression);
   }
 
   public function getSemicolonUNTYPED(): EditableSyntax {
@@ -142,6 +142,6 @@ final class ThrowStatement extends EditableSyntax {
    * @returns SemicolonToken
    */
   public function getSemicolon(): SemicolonToken {
-    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 }

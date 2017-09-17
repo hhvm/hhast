@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1c863ddbaa673b421765e016e93e5dce>>
+ * @generated SignedSource<<00c2b62d96b7cade1f68a34aa57dca6f>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class VarrayTypeSpecifier extends EditableSyntax {
 
@@ -129,7 +129,7 @@ final class VarrayTypeSpecifier extends EditableSyntax {
    * @returns VarrayToken
    */
   public function getKeyword(): VarrayToken {
-    return TypeAssert::isInstanceOf(VarrayToken::class, $this->_keyword);
+    return TypeAssert\instance_of(VarrayToken::class, $this->_keyword);
   }
 
   public function getLeftAngleUNTYPED(): EditableSyntax {
@@ -157,7 +157,7 @@ final class VarrayTypeSpecifier extends EditableSyntax {
    * @returns LessThanToken
    */
   public function getLeftAngle(): LessThanToken {
-    return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
+    return TypeAssert\instance_of(LessThanToken::class, $this->_left_angle);
   }
 
   public function getTypeUNTYPED(): EditableSyntax {
@@ -185,7 +185,7 @@ final class VarrayTypeSpecifier extends EditableSyntax {
    * @returns SimpleTypeSpecifier
    */
   public function getType(): SimpleTypeSpecifier {
-    return TypeAssert::isInstanceOf(SimpleTypeSpecifier::class, $this->_type);
+    return TypeAssert\instance_of(SimpleTypeSpecifier::class, $this->_type);
   }
 
   public function getTrailingCommaUNTYPED(): EditableSyntax {
@@ -214,7 +214,7 @@ final class VarrayTypeSpecifier extends EditableSyntax {
    */
   public function getTrailingComma(): EditableSyntax {
     return
-      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_trailing_comma);
+      TypeAssert\instance_of(EditableSyntax::class, $this->_trailing_comma);
   }
 
   public function getRightAngleUNTYPED(): EditableSyntax {
@@ -242,7 +242,6 @@ final class VarrayTypeSpecifier extends EditableSyntax {
    * @returns GreaterThanToken
    */
   public function getRightAngle(): GreaterThanToken {
-    return
-      TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+    return TypeAssert\instance_of(GreaterThanToken::class, $this->_right_angle);
   }
 }

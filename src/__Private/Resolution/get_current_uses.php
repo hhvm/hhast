@@ -20,7 +20,7 @@ use type Facebook\HHAST\{
   NamespaceUseDeclaration,
   Script
 };
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Dict, Vec};
 
 function get_current_uses(
@@ -43,7 +43,7 @@ function get_current_uses(
     $parent ==> $parent instanceof NamespaceBody,
   ) |> C\first($$);
   if ($namespace) {
-    $namespace = TypeAssert::isInstanceOf(NamespaceBody::class, $namespace);
+    $namespace = TypeAssert\instance_of(NamespaceBody::class, $namespace);
     $inner_uses = get_uses_directly_in_scope($namespace->getDeclarationsx());
     $uses['namespaces'] = Dict\merge(
       $uses['namespaces'],

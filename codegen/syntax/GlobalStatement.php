@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<873c002ce6ecb56f9e6933348288b743>>
+ * @generated SignedSource<<2ce8ec82263a4ea90cdb75fe7e393b33>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class GlobalStatement extends EditableSyntax {
 
@@ -97,7 +97,7 @@ final class GlobalStatement extends EditableSyntax {
    * @returns GlobalToken
    */
   public function getKeyword(): GlobalToken {
-    return TypeAssert::isInstanceOf(GlobalToken::class, $this->_keyword);
+    return TypeAssert\instance_of(GlobalToken::class, $this->_keyword);
   }
 
   public function getVariablesUNTYPED(): EditableSyntax {
@@ -119,7 +119,7 @@ final class GlobalStatement extends EditableSyntax {
    * @returns EditableList
    */
   public function getVariables(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_variables);
+    return TypeAssert\instance_of(EditableList::class, $this->_variables);
   }
 
   public function getSemicolonUNTYPED(): EditableSyntax {
@@ -141,6 +141,6 @@ final class GlobalStatement extends EditableSyntax {
    * @returns SemicolonToken
    */
   public function getSemicolon(): SemicolonToken {
-    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 }

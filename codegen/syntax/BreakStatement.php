@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f4a3ffc32b1161e65f87a371bd413f59>>
+ * @generated SignedSource<<c532408a81964f10df0d8cb4c4b6b69c>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class BreakStatement extends EditableSyntax {
 
@@ -97,7 +97,7 @@ final class BreakStatement extends EditableSyntax {
    * @returns BreakToken
    */
   public function getKeyword(): BreakToken {
-    return TypeAssert::isInstanceOf(BreakToken::class, $this->_keyword);
+    return TypeAssert\instance_of(BreakToken::class, $this->_keyword);
   }
 
   public function getLevelUNTYPED(): EditableSyntax {
@@ -119,7 +119,7 @@ final class BreakStatement extends EditableSyntax {
    * @returns Missing | LiteralExpression | VariableExpression
    */
   public function getLevel(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_level);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_level);
   }
 
   public function getSemicolonUNTYPED(): EditableSyntax {
@@ -141,6 +141,6 @@ final class BreakStatement extends EditableSyntax {
    * @returns SemicolonToken
    */
   public function getSemicolon(): SemicolonToken {
-    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 }

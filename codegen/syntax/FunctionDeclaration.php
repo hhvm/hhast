@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bed6b18da24ed21b72230b667e737dda>>
+ * @generated SignedSource<<283386c37a751f53307dfbdec7393b46>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class FunctionDeclaration extends EditableSyntax
   implements IFunctionishDeclaration {
@@ -102,7 +102,7 @@ final class FunctionDeclaration extends EditableSyntax
     if ($this->_attribute_spec->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(
+    return TypeAssert\instance_of(
       AttributeSpecification::class,
       $this->_attribute_spec,
     );
@@ -112,7 +112,7 @@ final class FunctionDeclaration extends EditableSyntax
    * @returns AttributeSpecification
    */
   public function getAttributeSpecx(): AttributeSpecification {
-    return TypeAssert::isInstanceOf(
+    return TypeAssert\instance_of(
       AttributeSpecification::class,
       $this->_attribute_spec,
     );
@@ -137,7 +137,7 @@ final class FunctionDeclaration extends EditableSyntax
    * @returns FunctionDeclarationHeader
    */
   public function getDeclarationHeader(): FunctionDeclarationHeader {
-    return TypeAssert::isInstanceOf(
+    return TypeAssert\instance_of(
       FunctionDeclarationHeader::class,
       $this->_declaration_header,
     );
@@ -162,6 +162,6 @@ final class FunctionDeclaration extends EditableSyntax
    * @returns CompoundStatement | SemicolonToken
    */
   public function getBody(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_body);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_body);
   }
 }

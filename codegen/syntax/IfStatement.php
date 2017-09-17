@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d0a1beb7e1e719537f465b961fc8529f>>
+ * @generated SignedSource<<b595d290d0729d4fefdd2d2bc01c1bc9>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class IfStatement extends EditableSyntax
   implements IControlFlowStatement {
@@ -170,7 +170,7 @@ final class IfStatement extends EditableSyntax
    * @returns IfToken
    */
   public function getKeyword(): IfToken {
-    return TypeAssert::isInstanceOf(IfToken::class, $this->_keyword);
+    return TypeAssert\instance_of(IfToken::class, $this->_keyword);
   }
 
   public function getLeftParenUNTYPED(): EditableSyntax {
@@ -200,7 +200,7 @@ final class IfStatement extends EditableSyntax
    * @returns LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
-    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   public function getConditionUNTYPED(): EditableSyntax {
@@ -234,7 +234,7 @@ final class IfStatement extends EditableSyntax
    * ParenthesizedExpression | EmptyExpression | ScopeResolutionExpression
    */
   public function getCondition(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_condition);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_condition);
   }
 
   public function getRightParenUNTYPED(): EditableSyntax {
@@ -267,16 +267,14 @@ final class IfStatement extends EditableSyntax
     if ($this->_right_paren->isMissing()) {
       return null;
     }
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   /**
    * @returns RightParenToken
    */
   public function getRightParenx(): RightParenToken {
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   public function getStatementUNTYPED(): EditableSyntax {
@@ -308,7 +306,7 @@ final class IfStatement extends EditableSyntax
    * GotoStatement | ContinueStatement | GlobalStatement
    */
   public function getStatement(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_statement);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_statement);
   }
 
   public function getElseifClausesUNTYPED(): EditableSyntax {
@@ -341,16 +339,14 @@ final class IfStatement extends EditableSyntax
     if ($this->_elseif_clauses->isMissing()) {
       return null;
     }
-    return
-      TypeAssert::isInstanceOf(EditableList::class, $this->_elseif_clauses);
+    return TypeAssert\instance_of(EditableList::class, $this->_elseif_clauses);
   }
 
   /**
    * @returns EditableList
    */
   public function getElseifClausesx(): EditableList {
-    return
-      TypeAssert::isInstanceOf(EditableList::class, $this->_elseif_clauses);
+    return TypeAssert\instance_of(EditableList::class, $this->_elseif_clauses);
   }
 
   public function getElseClauseUNTYPED(): EditableSyntax {
@@ -383,13 +379,13 @@ final class IfStatement extends EditableSyntax
     if ($this->_else_clause->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(ElseClause::class, $this->_else_clause);
+    return TypeAssert\instance_of(ElseClause::class, $this->_else_clause);
   }
 
   /**
    * @returns ElseClause
    */
   public function getElseClausex(): ElseClause {
-    return TypeAssert::isInstanceOf(ElseClause::class, $this->_else_clause);
+    return TypeAssert\instance_of(ElseClause::class, $this->_else_clause);
   }
 }

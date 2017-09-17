@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2de655d8b5c21f0cca1f5bc61b733fc4>>
+ * @generated SignedSource<<5a575dfee6d0c5b8903787442ee9fb75>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class Script extends EditableSyntax {
 
@@ -69,6 +69,6 @@ final class Script extends EditableSyntax {
    * @returns EditableList
    */
   public function getDeclarations(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_declarations);
+    return TypeAssert\instance_of(EditableList::class, $this->_declarations);
   }
 }

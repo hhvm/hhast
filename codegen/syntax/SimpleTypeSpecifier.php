@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7420ccb01cb8889817f868e4926ff163>>
+ * @generated SignedSource<<da1973bc4bbc2935c8ada83da44c1a3f>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class SimpleTypeSpecifier extends EditableSyntax {
 
@@ -73,6 +73,6 @@ final class SimpleTypeSpecifier extends EditableSyntax {
    * VarrayToken | DarrayToken | NoreturnToken
    */
   public function getSpecifier(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_specifier);
+    return TypeAssert\instance_of(EditableToken::class, $this->_specifier);
   }
 }

@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<584ec9752cda100caba3636245b7e68e>>
+ * @generated SignedSource<<a136950385db4771527747f65264fa28>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class ClassishBody extends EditableSyntax {
 
@@ -100,14 +100,14 @@ final class ClassishBody extends EditableSyntax {
     if ($this->_left_brace->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
+    return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
   }
 
   /**
    * @returns LeftBraceToken
    */
   public function getLeftBracex(): LeftBraceToken {
-    return TypeAssert::isInstanceOf(LeftBraceToken::class, $this->_left_brace);
+    return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
   }
 
   public function getElementsUNTYPED(): EditableSyntax {
@@ -132,14 +132,14 @@ final class ClassishBody extends EditableSyntax {
     if ($this->_elements->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_elements);
+    return TypeAssert\instance_of(EditableList::class, $this->_elements);
   }
 
   /**
    * @returns EditableList
    */
   public function getElementsx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_elements);
+    return TypeAssert\instance_of(EditableList::class, $this->_elements);
   }
 
   public function getRightBraceUNTYPED(): EditableSyntax {
@@ -164,15 +164,13 @@ final class ClassishBody extends EditableSyntax {
     if ($this->_right_brace->isMissing()) {
       return null;
     }
-    return
-      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+    return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
   }
 
   /**
    * @returns RightBraceToken
    */
   public function getRightBracex(): RightBraceToken {
-    return
-      TypeAssert::isInstanceOf(RightBraceToken::class, $this->_right_brace);
+    return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
   }
 }

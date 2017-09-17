@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1098a3f31d430d612834bb58aee40501>>
+ * @generated SignedSource<<91de34d91da96cbe5b9ed9368c7d678c>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class ForStatement extends EditableSyntax
   implements IControlFlowStatement, ILoopStatement {
@@ -200,7 +200,7 @@ final class ForStatement extends EditableSyntax
    * @returns ForToken
    */
   public function getKeyword(): ForToken {
-    return TypeAssert::isInstanceOf(ForToken::class, $this->_keyword);
+    return TypeAssert\instance_of(ForToken::class, $this->_keyword);
   }
 
   public function getLeftParenUNTYPED(): EditableSyntax {
@@ -232,7 +232,7 @@ final class ForStatement extends EditableSyntax
    * @returns LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
-    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   public function getInitializerUNTYPED(): EditableSyntax {
@@ -267,14 +267,14 @@ final class ForStatement extends EditableSyntax
     if ($this->_initializer->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_initializer);
+    return TypeAssert\instance_of(EditableList::class, $this->_initializer);
   }
 
   /**
    * @returns EditableList
    */
   public function getInitializerx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_initializer);
+    return TypeAssert\instance_of(EditableList::class, $this->_initializer);
   }
 
   public function getFirstSemicolonUNTYPED(): EditableSyntax {
@@ -307,7 +307,7 @@ final class ForStatement extends EditableSyntax
    */
   public function getFirstSemicolon(): SemicolonToken {
     return
-      TypeAssert::isInstanceOf(SemicolonToken::class, $this->_first_semicolon);
+      TypeAssert\instance_of(SemicolonToken::class, $this->_first_semicolon);
   }
 
   public function getControlUNTYPED(): EditableSyntax {
@@ -342,14 +342,14 @@ final class ForStatement extends EditableSyntax
     if ($this->_control->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_control);
+    return TypeAssert\instance_of(EditableList::class, $this->_control);
   }
 
   /**
    * @returns EditableList
    */
   public function getControlx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_control);
+    return TypeAssert\instance_of(EditableList::class, $this->_control);
   }
 
   public function getSecondSemicolonUNTYPED(): EditableSyntax {
@@ -382,7 +382,7 @@ final class ForStatement extends EditableSyntax
    */
   public function getSecondSemicolon(): SemicolonToken {
     return
-      TypeAssert::isInstanceOf(SemicolonToken::class, $this->_second_semicolon);
+      TypeAssert\instance_of(SemicolonToken::class, $this->_second_semicolon);
   }
 
   public function getEndOfLoopUNTYPED(): EditableSyntax {
@@ -417,14 +417,14 @@ final class ForStatement extends EditableSyntax
     if ($this->_end_of_loop->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_end_of_loop);
+    return TypeAssert\instance_of(EditableList::class, $this->_end_of_loop);
   }
 
   /**
    * @returns EditableList
    */
   public function getEndOfLoopx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_end_of_loop);
+    return TypeAssert\instance_of(EditableList::class, $this->_end_of_loop);
   }
 
   public function getRightParenUNTYPED(): EditableSyntax {
@@ -456,8 +456,7 @@ final class ForStatement extends EditableSyntax
    * @returns RightParenToken
    */
   public function getRightParen(): RightParenToken {
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   public function getBodyUNTYPED(): EditableSyntax {
@@ -490,6 +489,6 @@ final class ForStatement extends EditableSyntax
    * EchoStatement | ForStatement
    */
   public function getBody(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_body);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_body);
   }
 }

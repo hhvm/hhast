@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<67933026dfac6c8bc2fbb64861070f25>>
+ * @generated SignedSource<<816c3cd66b0a8ea2b151518ebdc5b9c3>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class XHPClose extends EditableSyntax {
 
@@ -97,7 +97,7 @@ final class XHPClose extends EditableSyntax {
    * @returns LessThanSlashToken | EndOfFileToken
    */
   public function getLeftAngle(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_left_angle);
+    return TypeAssert\instance_of(EditableToken::class, $this->_left_angle);
   }
 
   public function getNameUNTYPED(): EditableSyntax {
@@ -122,14 +122,14 @@ final class XHPClose extends EditableSyntax {
     if ($this->_name->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(XHPElementNameToken::class, $this->_name);
+    return TypeAssert\instance_of(XHPElementNameToken::class, $this->_name);
   }
 
   /**
    * @returns XHPElementNameToken
    */
   public function getNamex(): XHPElementNameToken {
-    return TypeAssert::isInstanceOf(XHPElementNameToken::class, $this->_name);
+    return TypeAssert\instance_of(XHPElementNameToken::class, $this->_name);
   }
 
   public function getRightAngleUNTYPED(): EditableSyntax {
@@ -154,15 +154,13 @@ final class XHPClose extends EditableSyntax {
     if ($this->_right_angle->isMissing()) {
       return null;
     }
-    return
-      TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+    return TypeAssert\instance_of(GreaterThanToken::class, $this->_right_angle);
   }
 
   /**
    * @returns GreaterThanToken
    */
   public function getRightAnglex(): GreaterThanToken {
-    return
-      TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+    return TypeAssert\instance_of(GreaterThanToken::class, $this->_right_angle);
   }
 }

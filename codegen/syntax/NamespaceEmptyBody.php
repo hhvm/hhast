@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<166a52ba4e2a8b76c29ac7fec92b3db9>>
+ * @generated SignedSource<<48af81539e374f2d5783ac85640f6fb0>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class NamespaceEmptyBody extends EditableSyntax {
 
@@ -69,6 +69,6 @@ final class NamespaceEmptyBody extends EditableSyntax {
    * @returns SemicolonToken
    */
   public function getSemicolon(): SemicolonToken {
-    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 }

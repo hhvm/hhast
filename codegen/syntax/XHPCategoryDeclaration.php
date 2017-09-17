@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b9341f1b3d3c62047e4996691685b413>>
+ * @generated SignedSource<<99b801af58bcf8f5999408ddfcb34f7e>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class XHPCategoryDeclaration extends EditableSyntax {
 
@@ -97,7 +97,7 @@ final class XHPCategoryDeclaration extends EditableSyntax {
    * @returns CategoryToken
    */
   public function getKeyword(): CategoryToken {
-    return TypeAssert::isInstanceOf(CategoryToken::class, $this->_keyword);
+    return TypeAssert\instance_of(CategoryToken::class, $this->_keyword);
   }
 
   public function getCategoriesUNTYPED(): EditableSyntax {
@@ -119,7 +119,7 @@ final class XHPCategoryDeclaration extends EditableSyntax {
    * @returns EditableList
    */
   public function getCategories(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_categories);
+    return TypeAssert\instance_of(EditableList::class, $this->_categories);
   }
 
   public function getSemicolonUNTYPED(): EditableSyntax {
@@ -141,6 +141,6 @@ final class XHPCategoryDeclaration extends EditableSyntax {
    * @returns SemicolonToken
    */
   public function getSemicolon(): SemicolonToken {
-    return TypeAssert::isInstanceOf(SemicolonToken::class, $this->_semicolon);
+    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 }

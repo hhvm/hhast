@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<431e8b15818273e22b6c96c9d7b80883>>
+ * @generated SignedSource<<72aba331ec786564054d0e7867c618e8>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class CastExpression extends EditableSyntax {
 
@@ -109,7 +109,7 @@ final class CastExpression extends EditableSyntax {
    * @returns LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
-    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   public function getTypeUNTYPED(): EditableSyntax {
@@ -137,7 +137,7 @@ final class CastExpression extends EditableSyntax {
    * ObjectToken | FloatToken | NameToken
    */
   public function getType(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_type);
+    return TypeAssert\instance_of(EditableToken::class, $this->_type);
   }
 
   public function getRightParenUNTYPED(): EditableSyntax {
@@ -159,8 +159,7 @@ final class CastExpression extends EditableSyntax {
    * @returns RightParenToken
    */
   public function getRightParen(): RightParenToken {
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   public function getOperandUNTYPED(): EditableSyntax {
@@ -190,6 +189,6 @@ final class CastExpression extends EditableSyntax {
    * PrefixUnaryExpression | AnonymousFunction | InstanceofExpression
    */
   public function getOperand(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_operand);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_operand);
   }
 }

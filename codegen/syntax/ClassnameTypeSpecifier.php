@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e69f722fa3c21eafe9cdda5b62d457b8>>
+ * @generated SignedSource<<2eaab1d316eced86b95e7b6693394eeb>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class ClassnameTypeSpecifier extends EditableSyntax {
 
@@ -129,7 +129,7 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
    * @returns ClassnameToken
    */
   public function getKeyword(): ClassnameToken {
-    return TypeAssert::isInstanceOf(ClassnameToken::class, $this->_keyword);
+    return TypeAssert\instance_of(ClassnameToken::class, $this->_keyword);
   }
 
   public function getLeftAngleUNTYPED(): EditableSyntax {
@@ -160,14 +160,14 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
     if ($this->_left_angle->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
+    return TypeAssert\instance_of(LessThanToken::class, $this->_left_angle);
   }
 
   /**
    * @returns LessThanToken
    */
   public function getLeftAnglex(): LessThanToken {
-    return TypeAssert::isInstanceOf(LessThanToken::class, $this->_left_angle);
+    return TypeAssert\instance_of(LessThanToken::class, $this->_left_angle);
   }
 
   public function getTypeUNTYPED(): EditableSyntax {
@@ -195,7 +195,7 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
    * @returns SimpleTypeSpecifier | TypeConstant | GenericTypeSpecifier
    */
   public function getType(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_type);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_type);
   }
 
   public function getTrailingCommaUNTYPED(): EditableSyntax {
@@ -224,7 +224,7 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
    */
   public function getTrailingComma(): EditableSyntax {
     return
-      TypeAssert::isInstanceOf(EditableSyntax::class, $this->_trailing_comma);
+      TypeAssert\instance_of(EditableSyntax::class, $this->_trailing_comma);
   }
 
   public function getRightAngleUNTYPED(): EditableSyntax {
@@ -255,15 +255,13 @@ final class ClassnameTypeSpecifier extends EditableSyntax {
     if ($this->_right_angle->isMissing()) {
       return null;
     }
-    return
-      TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+    return TypeAssert\instance_of(GreaterThanToken::class, $this->_right_angle);
   }
 
   /**
    * @returns GreaterThanToken
    */
   public function getRightAnglex(): GreaterThanToken {
-    return
-      TypeAssert::isInstanceOf(GreaterThanToken::class, $this->_right_angle);
+    return TypeAssert\instance_of(GreaterThanToken::class, $this->_right_angle);
   }
 }

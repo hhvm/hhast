@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<444d32cbd028d7d17987062d8b9c60f7>>
+ * @generated SignedSource<<5d02db9b4ac6565ff82313f1605d90ff>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class TupleExpression extends EditableSyntax {
 
@@ -110,7 +110,7 @@ final class TupleExpression extends EditableSyntax {
    * @returns TupleToken
    */
   public function getKeyword(): TupleToken {
-    return TypeAssert::isInstanceOf(TupleToken::class, $this->_keyword);
+    return TypeAssert\instance_of(TupleToken::class, $this->_keyword);
   }
 
   public function getLeftParenUNTYPED(): EditableSyntax {
@@ -133,7 +133,7 @@ final class TupleExpression extends EditableSyntax {
    * @returns LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
-    return TypeAssert::isInstanceOf(LeftParenToken::class, $this->_left_paren);
+    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   public function getItemsUNTYPED(): EditableSyntax {
@@ -160,7 +160,7 @@ final class TupleExpression extends EditableSyntax {
    * @returns EditableList
    */
   public function getItems(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_items);
+    return TypeAssert\instance_of(EditableList::class, $this->_items);
   }
 
   public function getRightParenUNTYPED(): EditableSyntax {
@@ -182,7 +182,6 @@ final class TupleExpression extends EditableSyntax {
    * @returns RightParenToken
    */
   public function getRightParen(): RightParenToken {
-    return
-      TypeAssert::isInstanceOf(RightParenToken::class, $this->_right_paren);
+    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 }

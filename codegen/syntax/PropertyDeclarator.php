@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dfab63c31d08714e54bdeca964b7ece7>>
+ * @generated SignedSource<<bea9859df6355c765d34c8ade474dfc9>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class PropertyDeclarator extends EditableSyntax {
 
@@ -85,14 +85,14 @@ final class PropertyDeclarator extends EditableSyntax {
     if ($this->_name->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(VariableToken::class, $this->_name);
+    return TypeAssert\instance_of(VariableToken::class, $this->_name);
   }
 
   /**
    * @returns VariableToken
    */
   public function getNamex(): VariableToken {
-    return TypeAssert::isInstanceOf(VariableToken::class, $this->_name);
+    return TypeAssert\instance_of(VariableToken::class, $this->_name);
   }
 
   public function getInitializerUNTYPED(): EditableSyntax {
@@ -118,7 +118,7 @@ final class PropertyDeclarator extends EditableSyntax {
       return null;
     }
     return
-      TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
+      TypeAssert\instance_of(SimpleInitializer::class, $this->_initializer);
   }
 
   /**
@@ -126,6 +126,6 @@ final class PropertyDeclarator extends EditableSyntax {
    */
   public function getInitializerx(): SimpleInitializer {
     return
-      TypeAssert::isInstanceOf(SimpleInitializer::class, $this->_initializer);
+      TypeAssert\instance_of(SimpleInitializer::class, $this->_initializer);
   }
 }

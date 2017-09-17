@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c394a950f0ce80310a6ff84c338c0954>>
+ * @generated SignedSource<<d4120cca06a5001383646d6ddeb27e4e>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class MemberSelectionExpression extends EditableSyntax {
 
@@ -100,7 +100,7 @@ final class MemberSelectionExpression extends EditableSyntax {
    * PipeVariableExpression
    */
   public function getObject(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_object);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_object);
   }
 
   public function getOperatorUNTYPED(): EditableSyntax {
@@ -123,7 +123,7 @@ final class MemberSelectionExpression extends EditableSyntax {
    */
   public function getOperator(): MinusGreaterThanToken {
     return
-      TypeAssert::isInstanceOf(MinusGreaterThanToken::class, $this->_operator);
+      TypeAssert\instance_of(MinusGreaterThanToken::class, $this->_operator);
   }
 
   public function getNameUNTYPED(): EditableSyntax {
@@ -146,6 +146,6 @@ final class MemberSelectionExpression extends EditableSyntax {
    * XHPClassNameToken
    */
   public function getName(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_name);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_name);
   }
 }

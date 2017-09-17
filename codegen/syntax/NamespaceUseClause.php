@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<618c5cab7a7a291771682d70f7590fb3>>
+ * @generated SignedSource<<fe694bf6d5bf0ea249131368b745019b>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class NamespaceUseClause extends EditableSyntax {
 
@@ -112,14 +112,14 @@ final class NamespaceUseClause extends EditableSyntax {
     if ($this->_clause_kind->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_clause_kind);
+    return TypeAssert\instance_of(EditableToken::class, $this->_clause_kind);
   }
 
   /**
    * @returns FunctionToken | ConstToken
    */
   public function getClauseKindx(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_clause_kind);
+    return TypeAssert\instance_of(EditableToken::class, $this->_clause_kind);
   }
 
   public function getNameUNTYPED(): EditableSyntax {
@@ -144,14 +144,14 @@ final class NamespaceUseClause extends EditableSyntax {
     if ($this->_name->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+    return TypeAssert\instance_of(EditableToken::class, $this->_name);
   }
 
   /**
    * @returns NameToken | QualifiedNameToken
    */
   public function getNamex(): EditableToken {
-    return TypeAssert::isInstanceOf(EditableToken::class, $this->_name);
+    return TypeAssert\instance_of(EditableToken::class, $this->_name);
   }
 
   public function getAsUNTYPED(): EditableSyntax {
@@ -176,14 +176,14 @@ final class NamespaceUseClause extends EditableSyntax {
     if ($this->_as->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(AsToken::class, $this->_as);
+    return TypeAssert\instance_of(AsToken::class, $this->_as);
   }
 
   /**
    * @returns AsToken
    */
   public function getAsx(): AsToken {
-    return TypeAssert::isInstanceOf(AsToken::class, $this->_as);
+    return TypeAssert\instance_of(AsToken::class, $this->_as);
   }
 
   public function getAliasUNTYPED(): EditableSyntax {
@@ -208,13 +208,13 @@ final class NamespaceUseClause extends EditableSyntax {
     if ($this->_alias->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(NameToken::class, $this->_alias);
+    return TypeAssert\instance_of(NameToken::class, $this->_alias);
   }
 
   /**
    * @returns NameToken
    */
   public function getAliasx(): NameToken {
-    return TypeAssert::isInstanceOf(NameToken::class, $this->_alias);
+    return TypeAssert\instance_of(NameToken::class, $this->_alias);
   }
 }

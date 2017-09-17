@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<27ec8ac51190b3e98bd30c0af75e51ae>>
+ * @generated SignedSource<<a931edbb65377410396ed6f0059f5e52>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class ClosureTypeSpecifier extends EditableSyntax {
 
@@ -202,7 +202,7 @@ final class ClosureTypeSpecifier extends EditableSyntax {
    */
   public function getOuterLeftParen(): LeftParenToken {
     return
-      TypeAssert::isInstanceOf(LeftParenToken::class, $this->_outer_left_paren);
+      TypeAssert\instance_of(LeftParenToken::class, $this->_outer_left_paren);
   }
 
   public function getCoroutineUNTYPED(): EditableSyntax {
@@ -234,7 +234,7 @@ final class ClosureTypeSpecifier extends EditableSyntax {
    * @returns Missing
    */
   public function getCoroutine(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_coroutine);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_coroutine);
   }
 
   public function getFunctionKeywordUNTYPED(): EditableSyntax {
@@ -267,7 +267,7 @@ final class ClosureTypeSpecifier extends EditableSyntax {
    */
   public function getFunctionKeyword(): FunctionToken {
     return
-      TypeAssert::isInstanceOf(FunctionToken::class, $this->_function_keyword);
+      TypeAssert\instance_of(FunctionToken::class, $this->_function_keyword);
   }
 
   public function getInnerLeftParenUNTYPED(): EditableSyntax {
@@ -300,7 +300,7 @@ final class ClosureTypeSpecifier extends EditableSyntax {
    */
   public function getInnerLeftParen(): LeftParenToken {
     return
-      TypeAssert::isInstanceOf(LeftParenToken::class, $this->_inner_left_paren);
+      TypeAssert\instance_of(LeftParenToken::class, $this->_inner_left_paren);
   }
 
   public function getParameterTypesUNTYPED(): EditableSyntax {
@@ -335,16 +335,14 @@ final class ClosureTypeSpecifier extends EditableSyntax {
     if ($this->_parameter_types->isMissing()) {
       return null;
     }
-    return
-      TypeAssert::isInstanceOf(EditableList::class, $this->_parameter_types);
+    return TypeAssert\instance_of(EditableList::class, $this->_parameter_types);
   }
 
   /**
    * @returns EditableList
    */
   public function getParameterTypesx(): EditableList {
-    return
-      TypeAssert::isInstanceOf(EditableList::class, $this->_parameter_types);
+    return TypeAssert\instance_of(EditableList::class, $this->_parameter_types);
   }
 
   public function getInnerRightParenUNTYPED(): EditableSyntax {
@@ -376,10 +374,8 @@ final class ClosureTypeSpecifier extends EditableSyntax {
    * @returns RightParenToken
    */
   public function getInnerRightParen(): RightParenToken {
-    return TypeAssert::isInstanceOf(
-      RightParenToken::class,
-      $this->_inner_right_paren,
-    );
+    return
+      TypeAssert\instance_of(RightParenToken::class, $this->_inner_right_paren);
   }
 
   public function getColonUNTYPED(): EditableSyntax {
@@ -411,7 +407,7 @@ final class ClosureTypeSpecifier extends EditableSyntax {
    * @returns ColonToken
    */
   public function getColon(): ColonToken {
-    return TypeAssert::isInstanceOf(ColonToken::class, $this->_colon);
+    return TypeAssert\instance_of(ColonToken::class, $this->_colon);
   }
 
   public function getReturnTypeUNTYPED(): EditableSyntax {
@@ -443,7 +439,7 @@ final class ClosureTypeSpecifier extends EditableSyntax {
    * @returns SimpleTypeSpecifier | NullableTypeSpecifier | GenericTypeSpecifier
    */
   public function getReturnType(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_return_type);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_return_type);
   }
 
   public function getOuterRightParenUNTYPED(): EditableSyntax {
@@ -475,9 +471,7 @@ final class ClosureTypeSpecifier extends EditableSyntax {
    * @returns RightParenToken
    */
   public function getOuterRightParen(): RightParenToken {
-    return TypeAssert::isInstanceOf(
-      RightParenToken::class,
-      $this->_outer_right_paren,
-    );
+    return
+      TypeAssert\instance_of(RightParenToken::class, $this->_outer_right_paren);
   }
 }

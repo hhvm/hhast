@@ -8,6 +8,6 @@
     },
     "require": {
         "hhvm/hsl": ">=0.3 <= 2.0",
-        "hhvm/type-assert": "^2.0"
+        "hhvm/type-assert": "^3.0"
     }
 }

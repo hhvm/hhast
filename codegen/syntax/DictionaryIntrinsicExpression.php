@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a98d0a875192cd23f70c555fd37c2874>>
+ * @generated SignedSource<<833d4c140fb03b469d71212f0027b62b>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class DictionaryIntrinsicExpression extends EditableSyntax {
 
@@ -114,7 +114,7 @@ final class DictionaryIntrinsicExpression extends EditableSyntax {
    * @returns DictToken
    */
   public function getKeyword(): DictToken {
-    return TypeAssert::isInstanceOf(DictToken::class, $this->_keyword);
+    return TypeAssert\instance_of(DictToken::class, $this->_keyword);
   }
 
   public function getLeftBracketUNTYPED(): EditableSyntax {
@@ -138,7 +138,7 @@ final class DictionaryIntrinsicExpression extends EditableSyntax {
    */
   public function getLeftBracket(): LeftBracketToken {
     return
-      TypeAssert::isInstanceOf(LeftBracketToken::class, $this->_left_bracket);
+      TypeAssert\instance_of(LeftBracketToken::class, $this->_left_bracket);
   }
 
   public function getMembersUNTYPED(): EditableSyntax {
@@ -168,14 +168,14 @@ final class DictionaryIntrinsicExpression extends EditableSyntax {
     if ($this->_members->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
+    return TypeAssert\instance_of(EditableList::class, $this->_members);
   }
 
   /**
    * @returns EditableList
    */
   public function getMembersx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
+    return TypeAssert\instance_of(EditableList::class, $this->_members);
   }
 
   public function getRightBracketUNTYPED(): EditableSyntax {
@@ -199,6 +199,6 @@ final class DictionaryIntrinsicExpression extends EditableSyntax {
    */
   public function getRightBracket(): RightBracketToken {
     return
-      TypeAssert::isInstanceOf(RightBracketToken::class, $this->_right_bracket);
+      TypeAssert\instance_of(RightBracketToken::class, $this->_right_bracket);
   }
 }

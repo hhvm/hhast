@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a943262d82c78fb33750f7e1e754b0a9>>
+ * @generated SignedSource<<a6a10def065daf008d54574590e9f66c>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class SwitchSection extends EditableSyntax {
 
@@ -100,14 +100,14 @@ final class SwitchSection extends EditableSyntax {
     if ($this->_labels->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_labels);
+    return TypeAssert\instance_of(EditableList::class, $this->_labels);
   }
 
   /**
    * @returns EditableList
    */
   public function getLabelsx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_labels);
+    return TypeAssert\instance_of(EditableList::class, $this->_labels);
   }
 
   public function getStatementsUNTYPED(): EditableSyntax {
@@ -132,14 +132,14 @@ final class SwitchSection extends EditableSyntax {
     if ($this->_statements->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_statements);
+    return TypeAssert\instance_of(EditableList::class, $this->_statements);
   }
 
   /**
    * @returns EditableList
    */
   public function getStatementsx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_statements);
+    return TypeAssert\instance_of(EditableList::class, $this->_statements);
   }
 
   public function getFallthroughUNTYPED(): EditableSyntax {
@@ -161,6 +161,6 @@ final class SwitchSection extends EditableSyntax {
    * @returns Missing
    */
   public function getFallthrough(): EditableSyntax {
-    return TypeAssert::isInstanceOf(EditableSyntax::class, $this->_fallthrough);
+    return TypeAssert\instance_of(EditableSyntax::class, $this->_fallthrough);
   }
 }

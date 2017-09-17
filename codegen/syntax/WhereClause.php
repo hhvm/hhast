@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5a4213a285ad841a7217d8bd06c6aee1>>
+ * @generated SignedSource<<64243c63ad7aa32003dc8f7c107fdd51>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class WhereClause extends EditableSyntax {
 
@@ -82,7 +82,7 @@ final class WhereClause extends EditableSyntax {
    * @returns WhereToken
    */
   public function getKeyword(): WhereToken {
-    return TypeAssert::isInstanceOf(WhereToken::class, $this->_keyword);
+    return TypeAssert\instance_of(WhereToken::class, $this->_keyword);
   }
 
   public function getConstraintsUNTYPED(): EditableSyntax {
@@ -104,6 +104,6 @@ final class WhereClause extends EditableSyntax {
    * @returns EditableList
    */
   public function getConstraints(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_constraints);
+    return TypeAssert\instance_of(EditableList::class, $this->_constraints);
   }
 }

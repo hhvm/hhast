@@ -29,7 +29,7 @@ use type Facebook\HHAST\{
   WhiteSpace
 };
 use function Facebook\HHAST\resolve_type;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
 

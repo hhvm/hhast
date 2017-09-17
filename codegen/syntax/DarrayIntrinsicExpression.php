@@ -2,10 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eae86bc4e7deb16d172f7599ae10f913>>
+ * @generated SignedSource<<4b7ccfd3141ad53cb742109a3ce2233c>>
  */
 namespace Facebook\HHAST;
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 
 final class DarrayIntrinsicExpression extends EditableSyntax {
 
@@ -114,7 +114,7 @@ final class DarrayIntrinsicExpression extends EditableSyntax {
    * @returns DarrayToken
    */
   public function getKeyword(): DarrayToken {
-    return TypeAssert::isInstanceOf(DarrayToken::class, $this->_keyword);
+    return TypeAssert\instance_of(DarrayToken::class, $this->_keyword);
   }
 
   public function getLeftBracketUNTYPED(): EditableSyntax {
@@ -138,7 +138,7 @@ final class DarrayIntrinsicExpression extends EditableSyntax {
    */
   public function getLeftBracket(): LeftBracketToken {
     return
-      TypeAssert::isInstanceOf(LeftBracketToken::class, $this->_left_bracket);
+      TypeAssert\instance_of(LeftBracketToken::class, $this->_left_bracket);
   }
 
   public function getMembersUNTYPED(): EditableSyntax {
@@ -168,14 +168,14 @@ final class DarrayIntrinsicExpression extends EditableSyntax {
     if ($this->_members->isMissing()) {
       return null;
     }
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
+    return TypeAssert\instance_of(EditableList::class, $this->_members);
   }
 
   /**
    * @returns EditableList
    */
   public function getMembersx(): EditableList {
-    return TypeAssert::isInstanceOf(EditableList::class, $this->_members);
+    return TypeAssert\instance_of(EditableList::class, $this->_members);
   }
 
   public function getRightBracketUNTYPED(): EditableSyntax {
@@ -199,6 +199,6 @@ final class DarrayIntrinsicExpression extends EditableSyntax {
    */
   public function getRightBracket(): RightBracketToken {
     return
-      TypeAssert::isInstanceOf(RightBracketToken::class, $this->_right_bracket);
+      TypeAssert\instance_of(RightBracketToken::class, $this->_right_bracket);
   }
 }

@@ -23,7 +23,7 @@ use type Facebook\HHAST\{
   MethodishDeclaration,
   SimpleTypeSpecifier
 };
-use type Facebook\TypeAssert\TypeAssert;
+use namespace Facebook\TypeAssert;
 use function Facebook\HHAST\resolve_type;
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
@@ -43,7 +43,7 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
     $class = $parents
       |> Vec\filter($$, $x ==> $x instanceof ClassishDeclaration)
       |> C\lastx($$)
-      |> TypeAssert::isInstanceOf(ClassishDeclaration::class, $$);
+      |> TypeAssert\instance_of(ClassishDeclaration::class, $$);
 
     if ($this->canIgnoreMethod($class, $node)) {
       return null;
