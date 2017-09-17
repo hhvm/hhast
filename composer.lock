@@ -1598,12 +1598,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/hack-codegen.git",
-                "reference": "97bad201a33face23419e3835197847651bdf74a"
+                "reference": "d15d45c2f367cd10df28a78a2a768761028e29d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/hack-codegen/zipball/97bad201a33face23419e3835197847651bdf74a",
-                "reference": "97bad201a33face23419e3835197847651bdf74a",
+                "url": "https://api.github.com/repos/hhvm/hack-codegen/zipball/d15d45c2f367cd10df28a78a2a768761028e29d6",
+                "reference": "d15d45c2f367cd10df28a78a2a768761028e29d6",
                 "shasum": ""
             },
             "require": {
@@ -1658,7 +1658,7 @@
                 "code generation",
                 "hack"
             ],
-            "time": "2017-09-17T21:19:59+00:00"
+            "time": "2017-09-17T22:21:25+00:00"
         }
     ],
     "aliases": [],
