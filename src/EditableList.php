@@ -65,7 +65,7 @@ final class EditableList extends EditableSyntax {
     }
   }
 
-  public static function concatenate_lists(
+  public static function concat(
     EditableSyntax $left,
     EditableSyntax $right,
   ): EditableSyntax {
