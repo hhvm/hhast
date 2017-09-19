@@ -133,10 +133,18 @@ class MustUseBracesForControlFlowLinter
       $right_brace_leading = new WhiteSpace(' ');
       $body_trailing = HHAST\Missing();
     } else {
-      $right_brace_leading = $node
-        ->getFirstTokenx()->getLeadingWhitespace()
-        ->getChildrenOfType(WhiteSpace::class)
-        |> EditableList::fromItems($$);
+      $whitespace_nodes = $node
+        ->getFirstTokenx()
+        ->getLeadingWhitespace()
+        ->toVec();
+      $no_newlines = vec[];
+      foreach (Vec\reverse($whitespace_nodes) as $whitespace) {
+        if ($whitespace instanceof EndOfLine) {
+          break;
+        }
+        $no_newlines[] = $whitespace;
+      }
+      $right_brace_leading = EditableList::fromItems(Vec\reverse($no_newlines));
       $body_trailing = $body->getLastTokenx()->getTrailing();
     }
     return $node
