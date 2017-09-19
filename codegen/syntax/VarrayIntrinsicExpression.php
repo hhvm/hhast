@@ -2,23 +2,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<de7950d731f6a103ba65001b12d05ae1>>
+ * @generated SignedSource<<59d6d2fd5f5828f710ed62c01d0c4908>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class VarrayIntrinsicExpression extends EditableSyntax {
+final class VarrayIntrinsicExpression extends EditableNode {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_left_bracket;
-  private EditableSyntax $_members;
-  private EditableSyntax $_right_bracket;
+  private EditableNode $_keyword;
+  private EditableNode $_left_bracket;
+  private EditableNode $_members;
+  private EditableNode $_right_bracket;
 
   public function __construct(
-    EditableSyntax $keyword,
-    EditableSyntax $left_bracket,
-    EditableSyntax $members,
-    EditableSyntax $right_bracket,
+    EditableNode $keyword,
+    EditableNode $left_bracket,
+    EditableNode $members,
+    EditableNode $right_bracket,
   ) {
     parent::__construct('varray_intrinsic_expression');
     $this->_keyword = $keyword;
@@ -33,25 +33,25 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['varray_intrinsic_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_bracket = EditableSyntax::fromJSON(
+    $left_bracket = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['varray_intrinsic_left_bracket'],
       $position,
       $source,
     );
     $position += $left_bracket->getWidth();
-    $members = EditableSyntax::fromJSON(
+    $members = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['varray_intrinsic_members'],
       $position,
       $source,
     );
     $position += $members->getWidth();
-    $right_bracket = EditableSyntax::fromJSON(
+    $right_bracket = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['varray_intrinsic_right_bracket'],
       $position,
       $source,
@@ -61,7 +61,7 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'left_bracket' => $this->_left_bracket;
     yield 'members' => $this->_members;
@@ -71,7 +71,7 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -90,11 +90,11 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
     return new self($keyword, $left_bracket, $members, $right_bracket);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -117,11 +117,11 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
     return TypeAssert\instance_of(VarrayToken::class, $this->_keyword);
   }
 
-  public function getLeftBracketUNTYPED(): EditableSyntax {
+  public function getLeftBracketUNTYPED(): EditableNode {
     return $this->_left_bracket;
   }
 
-  public function withLeftBracket(EditableSyntax $value): this {
+  public function withLeftBracket(EditableNode $value): this {
     if ($value === $this->_left_bracket) {
       return $this;
     }
@@ -141,11 +141,11 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
       TypeAssert\instance_of(LeftBracketToken::class, $this->_left_bracket);
   }
 
-  public function getMembersUNTYPED(): EditableSyntax {
+  public function getMembersUNTYPED(): EditableNode {
     return $this->_members;
   }
 
-  public function withMembers(EditableSyntax $value): this {
+  public function withMembers(EditableNode $value): this {
     if ($value === $this->_members) {
       return $this;
     }
@@ -178,11 +178,11 @@ final class VarrayIntrinsicExpression extends EditableSyntax {
     return TypeAssert\instance_of(EditableList::class, $this->_members);
   }
 
-  public function getRightBracketUNTYPED(): EditableSyntax {
+  public function getRightBracketUNTYPED(): EditableNode {
     return $this->_right_bracket;
   }
 
-  public function withRightBracket(EditableSyntax $value): this {
+  public function withRightBracket(EditableNode $value): this {
     if ($value === $this->_right_bracket) {
       return $this;
     }

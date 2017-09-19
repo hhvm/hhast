@@ -42,7 +42,7 @@ final class FixtureRewritingTest extends TestCase {
   }
 
   public function testRewriteComments(): void {
-    $rewriter = (HHAST\EditableSyntax $node, $_parents) ==> {
+    $rewriter = (HHAST\EditableNode $node, $_parents) ==> {
       if ($node instanceof HHAST\SingleLineComment) {
         return $node->withText('// blah blah blah');
       }

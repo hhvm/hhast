@@ -2,19 +2,19 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<264e1ba6731803748c15e9894dadc8d2>>
+ * @generated SignedSource<<d78b32459f8a35da776a8b35da4f7ddc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class MarkupSuffix extends EditableSyntax {
+final class MarkupSuffix extends EditableNode {
 
-  private EditableSyntax $_less_than_question;
-  private EditableSyntax $_name;
+  private EditableNode $_less_than_question;
+  private EditableNode $_name;
 
   public function __construct(
-    EditableSyntax $less_than_question,
-    EditableSyntax $name,
+    EditableNode $less_than_question,
+    EditableNode $name,
   ) {
     parent::__construct('markup_suffix');
     $this->_less_than_question = $less_than_question;
@@ -27,13 +27,13 @@ final class MarkupSuffix extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $less_than_question = EditableSyntax::fromJSON(
+    $less_than_question = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['markup_suffix_less_than_question'],
       $position,
       $source,
     );
     $position += $less_than_question->getWidth();
-    $name = EditableSyntax::fromJSON(
+    $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['markup_suffix_name'],
       $position,
       $source,
@@ -43,7 +43,7 @@ final class MarkupSuffix extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'less_than_question' => $this->_less_than_question;
     yield 'name' => $this->_name;
   }
@@ -51,7 +51,7 @@ final class MarkupSuffix extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -67,11 +67,11 @@ final class MarkupSuffix extends EditableSyntax {
     return new self($less_than_question, $name);
   }
 
-  public function getLessThanQuestionUNTYPED(): EditableSyntax {
+  public function getLessThanQuestionUNTYPED(): EditableNode {
     return $this->_less_than_question;
   }
 
-  public function withLessThanQuestion(EditableSyntax $value): this {
+  public function withLessThanQuestion(EditableNode $value): this {
     if ($value === $this->_less_than_question) {
       return $this;
     }
@@ -92,11 +92,11 @@ final class MarkupSuffix extends EditableSyntax {
     );
   }
 
-  public function getNameUNTYPED(): EditableSyntax {
+  public function getNameUNTYPED(): EditableNode {
     return $this->_name;
   }
 
-  public function withName(EditableSyntax $value): this {
+  public function withName(EditableNode $value): this {
     if ($value === $this->_name) {
       return $this;
     }

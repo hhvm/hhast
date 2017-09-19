@@ -2,21 +2,21 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<84d14a381bd7d32a8ae3ad39afaa2f50>>
+ * @generated SignedSource<<719a6c8c10d78a2c80cadbd214e76fd2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class XHPClose extends EditableSyntax {
+final class XHPClose extends EditableNode {
 
-  private EditableSyntax $_left_angle;
-  private EditableSyntax $_name;
-  private EditableSyntax $_right_angle;
+  private EditableNode $_left_angle;
+  private EditableNode $_name;
+  private EditableNode $_right_angle;
 
   public function __construct(
-    EditableSyntax $left_angle,
-    EditableSyntax $name,
-    EditableSyntax $right_angle,
+    EditableNode $left_angle,
+    EditableNode $name,
+    EditableNode $right_angle,
   ) {
     parent::__construct('xhp_close');
     $this->_left_angle = $left_angle;
@@ -30,19 +30,19 @@ final class XHPClose extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $left_angle = EditableSyntax::fromJSON(
+    $left_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_close_left_angle'],
       $position,
       $source,
     );
     $position += $left_angle->getWidth();
-    $name = EditableSyntax::fromJSON(
+    $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_close_name'],
       $position,
       $source,
     );
     $position += $name->getWidth();
-    $right_angle = EditableSyntax::fromJSON(
+    $right_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_close_right_angle'],
       $position,
       $source,
@@ -52,7 +52,7 @@ final class XHPClose extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'left_angle' => $this->_left_angle;
     yield 'name' => $this->_name;
     yield 'right_angle' => $this->_right_angle;
@@ -61,7 +61,7 @@ final class XHPClose extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -78,11 +78,11 @@ final class XHPClose extends EditableSyntax {
     return new self($left_angle, $name, $right_angle);
   }
 
-  public function getLeftAngleUNTYPED(): EditableSyntax {
+  public function getLeftAngleUNTYPED(): EditableNode {
     return $this->_left_angle;
   }
 
-  public function withLeftAngle(EditableSyntax $value): this {
+  public function withLeftAngle(EditableNode $value): this {
     if ($value === $this->_left_angle) {
       return $this;
     }
@@ -100,11 +100,11 @@ final class XHPClose extends EditableSyntax {
     return TypeAssert\instance_of(EditableToken::class, $this->_left_angle);
   }
 
-  public function getNameUNTYPED(): EditableSyntax {
+  public function getNameUNTYPED(): EditableNode {
     return $this->_name;
   }
 
-  public function withName(EditableSyntax $value): this {
+  public function withName(EditableNode $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -132,11 +132,11 @@ final class XHPClose extends EditableSyntax {
     return TypeAssert\instance_of(XHPElementNameToken::class, $this->_name);
   }
 
-  public function getRightAngleUNTYPED(): EditableSyntax {
+  public function getRightAngleUNTYPED(): EditableNode {
     return $this->_right_angle;
   }
 
-  public function withRightAngle(EditableSyntax $value): this {
+  public function withRightAngle(EditableNode $value): this {
     if ($value === $this->_right_angle) {
       return $this;
     }

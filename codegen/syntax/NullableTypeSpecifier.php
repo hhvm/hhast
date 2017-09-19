@@ -2,17 +2,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b2db0d8a81a9a6053dffa899e046c1f9>>
+ * @generated SignedSource<<ab89339234be2db43f42951dbfb66163>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class NullableTypeSpecifier extends EditableSyntax {
+final class NullableTypeSpecifier extends EditableNode {
 
-  private EditableSyntax $_question;
-  private EditableSyntax $_type;
+  private EditableNode $_question;
+  private EditableNode $_type;
 
-  public function __construct(EditableSyntax $question, EditableSyntax $type) {
+  public function __construct(EditableNode $question, EditableNode $type) {
     parent::__construct('nullable_type_specifier');
     $this->_question = $question;
     $this->_type = $type;
@@ -24,13 +24,13 @@ final class NullableTypeSpecifier extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $question = EditableSyntax::fromJSON(
+    $question = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['nullable_question'],
       $position,
       $source,
     );
     $position += $question->getWidth();
-    $type = EditableSyntax::fromJSON(
+    $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['nullable_type'],
       $position,
       $source,
@@ -40,7 +40,7 @@ final class NullableTypeSpecifier extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'question' => $this->_question;
     yield 'type' => $this->_type;
   }
@@ -48,7 +48,7 @@ final class NullableTypeSpecifier extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -60,11 +60,11 @@ final class NullableTypeSpecifier extends EditableSyntax {
     return new self($question, $type);
   }
 
-  public function getQuestionUNTYPED(): EditableSyntax {
+  public function getQuestionUNTYPED(): EditableNode {
     return $this->_question;
   }
 
-  public function withQuestion(EditableSyntax $value): this {
+  public function withQuestion(EditableNode $value): this {
     if ($value === $this->_question) {
       return $this;
     }
@@ -82,11 +82,11 @@ final class NullableTypeSpecifier extends EditableSyntax {
     return TypeAssert\instance_of(QuestionToken::class, $this->_question);
   }
 
-  public function getTypeUNTYPED(): EditableSyntax {
+  public function getTypeUNTYPED(): EditableNode {
     return $this->_type;
   }
 
-  public function withType(EditableSyntax $value): this {
+  public function withType(EditableNode $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -103,7 +103,7 @@ final class NullableTypeSpecifier extends EditableSyntax {
    * TypeConstant | ClosureTypeSpecifier | VectorArrayTypeSpecifier |
    * KeysetTypeSpecifier | VectorTypeSpecifier
    */
-  public function getType(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_type);
+  public function getType(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_type);
   }
 }

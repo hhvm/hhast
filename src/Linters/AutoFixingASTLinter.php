@@ -12,10 +12,10 @@
 
 namespace Facebook\HHAST\Linters;
 
-use type Facebook\HHAST\EditableSyntax;
+use type Facebook\HHAST\EditableNode;
 use namespace Facebook\HHAST;
 
-abstract class AutoFixingASTLinter<Tnode as EditableSyntax>
+abstract class AutoFixingASTLinter<Tnode as EditableNode>
 extends ASTLinter<Tnode>
 implements AutoFixingLinter<ASTLintError<Tnode, this>>{
 

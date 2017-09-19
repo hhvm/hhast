@@ -2,17 +2,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c07646ce779a9c00d9ac464aeb4d4aca>>
+ * @generated SignedSource<<90f5d177bd5b57ca53b71df05458bd81>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class GotoLabel extends EditableSyntax {
+final class GotoLabel extends EditableNode {
 
-  private EditableSyntax $_name;
-  private EditableSyntax $_colon;
+  private EditableNode $_name;
+  private EditableNode $_colon;
 
-  public function __construct(EditableSyntax $name, EditableSyntax $colon) {
+  public function __construct(EditableNode $name, EditableNode $colon) {
     parent::__construct('goto_label');
     $this->_name = $name;
     $this->_colon = $colon;
@@ -24,13 +24,13 @@ final class GotoLabel extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $name = EditableSyntax::fromJSON(
+    $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['goto_label_name'],
       $position,
       $source,
     );
     $position += $name->getWidth();
-    $colon = EditableSyntax::fromJSON(
+    $colon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['goto_label_colon'],
       $position,
       $source,
@@ -40,7 +40,7 @@ final class GotoLabel extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'name' => $this->_name;
     yield 'colon' => $this->_colon;
   }
@@ -48,7 +48,7 @@ final class GotoLabel extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -60,11 +60,11 @@ final class GotoLabel extends EditableSyntax {
     return new self($name, $colon);
   }
 
-  public function getNameUNTYPED(): EditableSyntax {
+  public function getNameUNTYPED(): EditableNode {
     return $this->_name;
   }
 
-  public function withName(EditableSyntax $value): this {
+  public function withName(EditableNode $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -82,11 +82,11 @@ final class GotoLabel extends EditableSyntax {
     return TypeAssert\instance_of(NameToken::class, $this->_name);
   }
 
-  public function getColonUNTYPED(): EditableSyntax {
+  public function getColonUNTYPED(): EditableNode {
     return $this->_colon;
   }
 
-  public function withColon(EditableSyntax $value): this {
+  public function withColon(EditableNode $value): this {
     if ($value === $this->_colon) {
       return $this;
     }

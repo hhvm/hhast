@@ -2,23 +2,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f3b8fa8beb2587c9ad04ad8714a7e085>>
+ * @generated SignedSource<<38735f0f203ee5156091d8b34f8f407c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class Enumerator extends EditableSyntax {
+final class Enumerator extends EditableNode {
 
-  private EditableSyntax $_name;
-  private EditableSyntax $_equal;
-  private EditableSyntax $_value;
-  private EditableSyntax $_semicolon;
+  private EditableNode $_name;
+  private EditableNode $_equal;
+  private EditableNode $_value;
+  private EditableNode $_semicolon;
 
   public function __construct(
-    EditableSyntax $name,
-    EditableSyntax $equal,
-    EditableSyntax $value,
-    EditableSyntax $semicolon,
+    EditableNode $name,
+    EditableNode $equal,
+    EditableNode $value,
+    EditableNode $semicolon,
   ) {
     parent::__construct('enumerator');
     $this->_name = $name;
@@ -33,25 +33,25 @@ final class Enumerator extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $name = EditableSyntax::fromJSON(
+    $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['enumerator_name'],
       $position,
       $source,
     );
     $position += $name->getWidth();
-    $equal = EditableSyntax::fromJSON(
+    $equal = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['enumerator_equal'],
       $position,
       $source,
     );
     $position += $equal->getWidth();
-    $value = EditableSyntax::fromJSON(
+    $value = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['enumerator_value'],
       $position,
       $source,
     );
     $position += $value->getWidth();
-    $semicolon = EditableSyntax::fromJSON(
+    $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['enumerator_semicolon'],
       $position,
       $source,
@@ -61,7 +61,7 @@ final class Enumerator extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'name' => $this->_name;
     yield 'equal' => $this->_equal;
     yield 'value' => $this->_value;
@@ -71,7 +71,7 @@ final class Enumerator extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -90,11 +90,11 @@ final class Enumerator extends EditableSyntax {
     return new self($name, $equal, $value, $semicolon);
   }
 
-  public function getNameUNTYPED(): EditableSyntax {
+  public function getNameUNTYPED(): EditableNode {
     return $this->_name;
   }
 
-  public function withName(EditableSyntax $value): this {
+  public function withName(EditableNode $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -112,11 +112,11 @@ final class Enumerator extends EditableSyntax {
     return TypeAssert\instance_of(NameToken::class, $this->_name);
   }
 
-  public function getEqualUNTYPED(): EditableSyntax {
+  public function getEqualUNTYPED(): EditableNode {
     return $this->_equal;
   }
 
-  public function withEqual(EditableSyntax $value): this {
+  public function withEqual(EditableNode $value): this {
     if ($value === $this->_equal) {
       return $this;
     }
@@ -134,11 +134,11 @@ final class Enumerator extends EditableSyntax {
     return TypeAssert\instance_of(EqualToken::class, $this->_equal);
   }
 
-  public function getValueUNTYPED(): EditableSyntax {
+  public function getValueUNTYPED(): EditableNode {
     return $this->_value;
   }
 
-  public function withValue(EditableSyntax $value): this {
+  public function withValue(EditableNode $value): this {
     if ($value === $this->_value) {
       return $this;
     }
@@ -152,15 +152,15 @@ final class Enumerator extends EditableSyntax {
   /**
    * @returns LiteralExpression | ScopeResolutionExpression | BinaryExpression
    */
-  public function getValue(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_value);
+  public function getValue(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_value);
   }
 
-  public function getSemicolonUNTYPED(): EditableSyntax {
+  public function getSemicolonUNTYPED(): EditableNode {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableSyntax $value): this {
+  public function withSemicolon(EditableNode $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

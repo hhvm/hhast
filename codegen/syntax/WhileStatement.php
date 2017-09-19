@@ -2,26 +2,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c8996e76401293bdfe1471a46d44b964>>
+ * @generated SignedSource<<7f6c8b1437aaff87c72c4fab2193a2c5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class WhileStatement extends EditableSyntax
+final class WhileStatement extends EditableNode
   implements IControlFlowStatement, ILoopStatement {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_left_paren;
-  private EditableSyntax $_condition;
-  private EditableSyntax $_right_paren;
-  private EditableSyntax $_body;
+  private EditableNode $_keyword;
+  private EditableNode $_left_paren;
+  private EditableNode $_condition;
+  private EditableNode $_right_paren;
+  private EditableNode $_body;
 
   public function __construct(
-    EditableSyntax $keyword,
-    EditableSyntax $left_paren,
-    EditableSyntax $condition,
-    EditableSyntax $right_paren,
-    EditableSyntax $body,
+    EditableNode $keyword,
+    EditableNode $left_paren,
+    EditableNode $condition,
+    EditableNode $right_paren,
+    EditableNode $body,
   ) {
     parent::__construct('while_statement');
     $this->_keyword = $keyword;
@@ -37,31 +37,31 @@ final class WhileStatement extends EditableSyntax
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['while_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_paren = EditableSyntax::fromJSON(
+    $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['while_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $condition = EditableSyntax::fromJSON(
+    $condition = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['while_condition'],
       $position,
       $source,
     );
     $position += $condition->getWidth();
-    $right_paren = EditableSyntax::fromJSON(
+    $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['while_right_paren'],
       $position,
       $source,
     );
     $position += $right_paren->getWidth();
-    $body = EditableSyntax::fromJSON(
+    $body = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['while_body'],
       $position,
       $source,
@@ -71,7 +71,7 @@ final class WhileStatement extends EditableSyntax
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'left_paren' => $this->_left_paren;
     yield 'condition' => $this->_condition;
@@ -82,7 +82,7 @@ final class WhileStatement extends EditableSyntax
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -103,11 +103,11 @@ final class WhileStatement extends EditableSyntax
     return new self($keyword, $left_paren, $condition, $right_paren, $body);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -131,11 +131,11 @@ final class WhileStatement extends EditableSyntax
     return TypeAssert\instance_of(WhileToken::class, $this->_keyword);
   }
 
-  public function getLeftParenUNTYPED(): EditableSyntax {
+  public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableSyntax $value): this {
+  public function withLeftParen(EditableNode $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -159,11 +159,11 @@ final class WhileStatement extends EditableSyntax
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
-  public function getConditionUNTYPED(): EditableSyntax {
+  public function getConditionUNTYPED(): EditableNode {
     return $this->_condition;
   }
 
-  public function withCondition(EditableSyntax $value): this {
+  public function withCondition(EditableNode $value): this {
     if ($value === $this->_condition) {
       return $this;
     }
@@ -185,15 +185,15 @@ final class WhileStatement extends EditableSyntax
    * | LiteralExpression | ParenthesizedExpression | IssetExpression |
    * PostfixUnaryExpression | VariableExpression | InstanceofExpression
    */
-  public function getCondition(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_condition);
+  public function getCondition(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_condition);
   }
 
-  public function getRightParenUNTYPED(): EditableSyntax {
+  public function getRightParenUNTYPED(): EditableNode {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableSyntax $value): this {
+  public function withRightParen(EditableNode $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -217,11 +217,11 @@ final class WhileStatement extends EditableSyntax
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
-  public function getBodyUNTYPED(): EditableSyntax {
+  public function getBodyUNTYPED(): EditableNode {
     return $this->_body;
   }
 
-  public function withBody(EditableSyntax $value): this {
+  public function withBody(EditableNode $value): this {
     if ($value === $this->_body) {
       return $this;
     }
@@ -242,7 +242,7 @@ final class WhileStatement extends EditableSyntax
    * @returns CompoundStatement | EchoStatement | ExpressionStatement |
    * ContinueStatement
    */
-  public function getBody(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_body);
+  public function getBody(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_body);
   }
 }

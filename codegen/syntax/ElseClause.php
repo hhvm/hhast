@@ -2,20 +2,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<18b82a492ae4f1cc0186ae61a4c56bc9>>
+ * @generated SignedSource<<902fe52a584926bc62598485fc36ec6c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class ElseClause extends EditableSyntax implements IControlFlowStatement {
+final class ElseClause extends EditableNode implements IControlFlowStatement {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_statement;
+  private EditableNode $_keyword;
+  private EditableNode $_statement;
 
-  public function __construct(
-    EditableSyntax $keyword,
-    EditableSyntax $statement,
-  ) {
+  public function __construct(EditableNode $keyword, EditableNode $statement) {
     parent::__construct('else_clause');
     $this->_keyword = $keyword;
     $this->_statement = $statement;
@@ -27,13 +24,13 @@ final class ElseClause extends EditableSyntax implements IControlFlowStatement {
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['else_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $statement = EditableSyntax::fromJSON(
+    $statement = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['else_statement'],
       $position,
       $source,
@@ -43,7 +40,7 @@ final class ElseClause extends EditableSyntax implements IControlFlowStatement {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'statement' => $this->_statement;
   }
@@ -51,7 +48,7 @@ final class ElseClause extends EditableSyntax implements IControlFlowStatement {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -63,11 +60,11 @@ final class ElseClause extends EditableSyntax implements IControlFlowStatement {
     return new self($keyword, $statement);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -85,11 +82,11 @@ final class ElseClause extends EditableSyntax implements IControlFlowStatement {
     return TypeAssert\instance_of(ElseToken::class, $this->_keyword);
   }
 
-  public function getStatementUNTYPED(): EditableSyntax {
+  public function getStatementUNTYPED(): EditableNode {
     return $this->_statement;
   }
 
-  public function withStatement(EditableSyntax $value): this {
+  public function withStatement(EditableNode $value): this {
     if ($value === $this->_statement) {
       return $this;
     }
@@ -104,7 +101,7 @@ final class ElseClause extends EditableSyntax implements IControlFlowStatement {
    * @returns CompoundStatement | IfStatement | ReturnStatement |
    * ExpressionStatement | EchoStatement
    */
-  public function getStatement(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_statement);
+  public function getStatement(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_statement);
   }
 }

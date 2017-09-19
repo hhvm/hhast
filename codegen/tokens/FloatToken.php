@@ -2,16 +2,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<127711b42db787a9157c6109ea588c0e>>
+ * @generated SignedSource<<61750ad711e1c9ab4fe0d57472a3bc00>>
  */
 namespace Facebook\HHAST;
 
 final class FloatToken extends EditableToken {
 
-  public function __construct(
-    EditableSyntax $leading,
-    EditableSyntax $trailing,
-  ) {
+  public function __construct(EditableNode $leading, EditableNode $trailing) {
     parent::__construct('float', $leading, $trailing, 'float');
   }
 
@@ -20,7 +17,7 @@ final class FloatToken extends EditableToken {
   }
 
   <<__Override>>
-  public function withLeading(EditableSyntax $value): this {
+  public function withLeading(EditableNode $value): this {
     if ($value === $this->getLeading()) {
       return $this;
     }
@@ -32,7 +29,7 @@ final class FloatToken extends EditableToken {
   }
 
   <<__Override>>
-  public function withTrailing(EditableSyntax $value): this {
+  public function withTrailing(EditableNode $value): this {
     if ($value === $this->getTrailing()) {
       return $this;
     }
@@ -42,7 +39,7 @@ final class FloatToken extends EditableToken {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

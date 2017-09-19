@@ -2,16 +2,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7ec46a61225c1dc22011f22bc43d39a1>>
+ * @generated SignedSource<<5a60a1b691ab52b93859a2d8848c54cd>>
  */
 namespace Facebook\HHAST;
 
 final class DollarToken extends EditableToken {
 
-  public function __construct(
-    EditableSyntax $leading,
-    EditableSyntax $trailing,
-  ) {
+  public function __construct(EditableNode $leading, EditableNode $trailing) {
     parent::__construct('$', $leading, $trailing, '$');
   }
 
@@ -20,7 +17,7 @@ final class DollarToken extends EditableToken {
   }
 
   <<__Override>>
-  public function withLeading(EditableSyntax $value): this {
+  public function withLeading(EditableNode $value): this {
     if ($value === $this->getLeading()) {
       return $this;
     }
@@ -32,7 +29,7 @@ final class DollarToken extends EditableToken {
   }
 
   <<__Override>>
-  public function withTrailing(EditableSyntax $value): this {
+  public function withTrailing(EditableNode $value): this {
     if ($value === $this->getTrailing()) {
       return $this;
     }
@@ -42,7 +39,7 @@ final class DollarToken extends EditableToken {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

@@ -2,23 +2,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<14bad4d33cda7aec634b15dcb4ff8bd7>>
+ * @generated SignedSource<<5e3583753a4de6ab9fe77f2b0b59b298>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class Attribute extends EditableSyntax {
+final class Attribute extends EditableNode {
 
-  private EditableSyntax $_name;
-  private EditableSyntax $_left_paren;
-  private EditableSyntax $_values;
-  private EditableSyntax $_right_paren;
+  private EditableNode $_name;
+  private EditableNode $_left_paren;
+  private EditableNode $_values;
+  private EditableNode $_right_paren;
 
   public function __construct(
-    EditableSyntax $name,
-    EditableSyntax $left_paren,
-    EditableSyntax $values,
-    EditableSyntax $right_paren,
+    EditableNode $name,
+    EditableNode $left_paren,
+    EditableNode $values,
+    EditableNode $right_paren,
   ) {
     parent::__construct('attribute');
     $this->_name = $name;
@@ -33,25 +33,25 @@ final class Attribute extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $name = EditableSyntax::fromJSON(
+    $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['attribute_name'],
       $position,
       $source,
     );
     $position += $name->getWidth();
-    $left_paren = EditableSyntax::fromJSON(
+    $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['attribute_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $values = EditableSyntax::fromJSON(
+    $values = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['attribute_values'],
       $position,
       $source,
     );
     $position += $values->getWidth();
-    $right_paren = EditableSyntax::fromJSON(
+    $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['attribute_right_paren'],
       $position,
       $source,
@@ -61,7 +61,7 @@ final class Attribute extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'name' => $this->_name;
     yield 'left_paren' => $this->_left_paren;
     yield 'values' => $this->_values;
@@ -71,7 +71,7 @@ final class Attribute extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -90,11 +90,11 @@ final class Attribute extends EditableSyntax {
     return new self($name, $left_paren, $values, $right_paren);
   }
 
-  public function getNameUNTYPED(): EditableSyntax {
+  public function getNameUNTYPED(): EditableNode {
     return $this->_name;
   }
 
-  public function withName(EditableSyntax $value): this {
+  public function withName(EditableNode $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -113,11 +113,11 @@ final class Attribute extends EditableSyntax {
     return TypeAssert\instance_of(NameToken::class, $this->_name);
   }
 
-  public function getLeftParenUNTYPED(): EditableSyntax {
+  public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableSyntax $value): this {
+  public function withLeftParen(EditableNode $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -145,11 +145,11 @@ final class Attribute extends EditableSyntax {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
-  public function getValuesUNTYPED(): EditableSyntax {
+  public function getValuesUNTYPED(): EditableNode {
     return $this->_values;
   }
 
-  public function withValues(EditableSyntax $value): this {
+  public function withValues(EditableNode $value): this {
     if ($value === $this->_values) {
       return $this;
     }
@@ -178,11 +178,11 @@ final class Attribute extends EditableSyntax {
     return TypeAssert\instance_of(EditableList::class, $this->_values);
   }
 
-  public function getRightParenUNTYPED(): EditableSyntax {
+  public function getRightParenUNTYPED(): EditableNode {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableSyntax $value): this {
+  public function withRightParen(EditableNode $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }

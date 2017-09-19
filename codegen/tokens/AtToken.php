@@ -2,16 +2,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<553c65090e2e3fcad57474c04a3da7cd>>
+ * @generated SignedSource<<8b58d4fd1a1f35d895d4513a777af70e>>
  */
 namespace Facebook\HHAST;
 
 final class AtToken extends EditableToken {
 
-  public function __construct(
-    EditableSyntax $leading,
-    EditableSyntax $trailing,
-  ) {
+  public function __construct(EditableNode $leading, EditableNode $trailing) {
     parent::__construct('@', $leading, $trailing, '@');
   }
 
@@ -20,7 +17,7 @@ final class AtToken extends EditableToken {
   }
 
   <<__Override>>
-  public function withLeading(EditableSyntax $value): this {
+  public function withLeading(EditableNode $value): this {
     if ($value === $this->getLeading()) {
       return $this;
     }
@@ -32,7 +29,7 @@ final class AtToken extends EditableToken {
   }
 
   <<__Override>>
-  public function withTrailing(EditableSyntax $value): this {
+  public function withTrailing(EditableNode $value): this {
     if ($value === $this->getTrailing()) {
       return $this;
     }
@@ -42,7 +39,7 @@ final class AtToken extends EditableToken {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

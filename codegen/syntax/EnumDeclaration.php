@@ -2,33 +2,33 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a22acbb24b8c0050cb62d66db198cc84>>
+ * @generated SignedSource<<384f36da78c530cb9b2b9483d1425132>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class EnumDeclaration extends EditableSyntax {
+final class EnumDeclaration extends EditableNode {
 
-  private EditableSyntax $_attribute_spec;
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_name;
-  private EditableSyntax $_colon;
-  private EditableSyntax $_base;
-  private EditableSyntax $_type;
-  private EditableSyntax $_left_brace;
-  private EditableSyntax $_enumerators;
-  private EditableSyntax $_right_brace;
+  private EditableNode $_attribute_spec;
+  private EditableNode $_keyword;
+  private EditableNode $_name;
+  private EditableNode $_colon;
+  private EditableNode $_base;
+  private EditableNode $_type;
+  private EditableNode $_left_brace;
+  private EditableNode $_enumerators;
+  private EditableNode $_right_brace;
 
   public function __construct(
-    EditableSyntax $attribute_spec,
-    EditableSyntax $keyword,
-    EditableSyntax $name,
-    EditableSyntax $colon,
-    EditableSyntax $base,
-    EditableSyntax $type,
-    EditableSyntax $left_brace,
-    EditableSyntax $enumerators,
-    EditableSyntax $right_brace,
+    EditableNode $attribute_spec,
+    EditableNode $keyword,
+    EditableNode $name,
+    EditableNode $colon,
+    EditableNode $base,
+    EditableNode $type,
+    EditableNode $left_brace,
+    EditableNode $enumerators,
+    EditableNode $right_brace,
   ) {
     parent::__construct('enum_declaration');
     $this->_attribute_spec = $attribute_spec;
@@ -48,55 +48,55 @@ final class EnumDeclaration extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $attribute_spec = EditableSyntax::fromJSON(
+    $attribute_spec = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['enum_attribute_spec'],
       $position,
       $source,
     );
     $position += $attribute_spec->getWidth();
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['enum_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $name = EditableSyntax::fromJSON(
+    $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['enum_name'],
       $position,
       $source,
     );
     $position += $name->getWidth();
-    $colon = EditableSyntax::fromJSON(
+    $colon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['enum_colon'],
       $position,
       $source,
     );
     $position += $colon->getWidth();
-    $base = EditableSyntax::fromJSON(
+    $base = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['enum_base'],
       $position,
       $source,
     );
     $position += $base->getWidth();
-    $type = EditableSyntax::fromJSON(
+    $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['enum_type'],
       $position,
       $source,
     );
     $position += $type->getWidth();
-    $left_brace = EditableSyntax::fromJSON(
+    $left_brace = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['enum_left_brace'],
       $position,
       $source,
     );
     $position += $left_brace->getWidth();
-    $enumerators = EditableSyntax::fromJSON(
+    $enumerators = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['enum_enumerators'],
       $position,
       $source,
     );
     $position += $enumerators->getWidth();
-    $right_brace = EditableSyntax::fromJSON(
+    $right_brace = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['enum_right_brace'],
       $position,
       $source,
@@ -116,7 +116,7 @@ final class EnumDeclaration extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'attribute_spec' => $this->_attribute_spec;
     yield 'keyword' => $this->_keyword;
     yield 'name' => $this->_name;
@@ -131,7 +131,7 @@ final class EnumDeclaration extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -170,11 +170,11 @@ final class EnumDeclaration extends EditableSyntax {
     );
   }
 
-  public function getAttributeSpecUNTYPED(): EditableSyntax {
+  public function getAttributeSpecUNTYPED(): EditableNode {
     return $this->_attribute_spec;
   }
 
-  public function withAttributeSpec(EditableSyntax $value): this {
+  public function withAttributeSpec(EditableNode $value): this {
     if ($value === $this->_attribute_spec) {
       return $this;
     }
@@ -198,16 +198,15 @@ final class EnumDeclaration extends EditableSyntax {
   /**
    * @returns Missing
    */
-  public function getAttributeSpec(): EditableSyntax {
-    return
-      TypeAssert\instance_of(EditableSyntax::class, $this->_attribute_spec);
+  public function getAttributeSpec(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_attribute_spec);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -235,11 +234,11 @@ final class EnumDeclaration extends EditableSyntax {
     return TypeAssert\instance_of(EnumToken::class, $this->_keyword);
   }
 
-  public function getNameUNTYPED(): EditableSyntax {
+  public function getNameUNTYPED(): EditableNode {
     return $this->_name;
   }
 
-  public function withName(EditableSyntax $value): this {
+  public function withName(EditableNode $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -267,11 +266,11 @@ final class EnumDeclaration extends EditableSyntax {
     return TypeAssert\instance_of(NameToken::class, $this->_name);
   }
 
-  public function getColonUNTYPED(): EditableSyntax {
+  public function getColonUNTYPED(): EditableNode {
     return $this->_colon;
   }
 
-  public function withColon(EditableSyntax $value): this {
+  public function withColon(EditableNode $value): this {
     if ($value === $this->_colon) {
       return $this;
     }
@@ -299,11 +298,11 @@ final class EnumDeclaration extends EditableSyntax {
     return TypeAssert\instance_of(ColonToken::class, $this->_colon);
   }
 
-  public function getBaseUNTYPED(): EditableSyntax {
+  public function getBaseUNTYPED(): EditableNode {
     return $this->_base;
   }
 
-  public function withBase(EditableSyntax $value): this {
+  public function withBase(EditableNode $value): this {
     if ($value === $this->_base) {
       return $this;
     }
@@ -327,15 +326,15 @@ final class EnumDeclaration extends EditableSyntax {
   /**
    * @returns SimpleTypeSpecifier | ClassnameTypeSpecifier
    */
-  public function getBase(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_base);
+  public function getBase(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_base);
   }
 
-  public function getTypeUNTYPED(): EditableSyntax {
+  public function getTypeUNTYPED(): EditableNode {
     return $this->_type;
   }
 
-  public function withType(EditableSyntax $value): this {
+  public function withType(EditableNode $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -373,11 +372,11 @@ final class EnumDeclaration extends EditableSyntax {
     return TypeAssert\instance_of(TypeConstraint::class, $this->_type);
   }
 
-  public function getLeftBraceUNTYPED(): EditableSyntax {
+  public function getLeftBraceUNTYPED(): EditableNode {
     return $this->_left_brace;
   }
 
-  public function withLeftBrace(EditableSyntax $value): this {
+  public function withLeftBrace(EditableNode $value): this {
     if ($value === $this->_left_brace) {
       return $this;
     }
@@ -405,11 +404,11 @@ final class EnumDeclaration extends EditableSyntax {
     return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
   }
 
-  public function getEnumeratorsUNTYPED(): EditableSyntax {
+  public function getEnumeratorsUNTYPED(): EditableNode {
     return $this->_enumerators;
   }
 
-  public function withEnumerators(EditableSyntax $value): this {
+  public function withEnumerators(EditableNode $value): this {
     if ($value === $this->_enumerators) {
       return $this;
     }
@@ -447,11 +446,11 @@ final class EnumDeclaration extends EditableSyntax {
     return TypeAssert\instance_of(EditableList::class, $this->_enumerators);
   }
 
-  public function getRightBraceUNTYPED(): EditableSyntax {
+  public function getRightBraceUNTYPED(): EditableNode {
     return $this->_right_brace;
   }
 
-  public function withRightBrace(EditableSyntax $value): this {
+  public function withRightBrace(EditableNode $value): this {
     if ($value === $this->_right_brace) {
       return $this;
     }

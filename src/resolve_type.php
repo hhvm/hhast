@@ -12,15 +12,15 @@
 
 namespace Facebook\HHAST;
 
-use type Facebook\HHAST\EditableSyntax;
+use type Facebook\HHAST\EditableNode;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Str, Vec};
 use namespace Facebook\HHAST\__Private\Resolution;
 
 function resolve_type(
   string $type,
-  EditableSyntax $node,
-  vec<EditableSyntax> $parents,
+  EditableNode $node,
+  vec<EditableNode> $parents,
 ): ?string {
   if (Str\starts_with($type, '\\')) {
     return Str\strip_prefix($type, '\\');

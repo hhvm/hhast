@@ -2,20 +2,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<11128f5cb4c84a728254ac0d2d88aa37>>
+ * @generated SignedSource<<64611a745289c18b7cfd020773dca2e2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class PostfixUnaryExpression extends EditableSyntax {
+final class PostfixUnaryExpression extends EditableNode {
 
-  private EditableSyntax $_operand;
-  private EditableSyntax $_operator;
+  private EditableNode $_operand;
+  private EditableNode $_operator;
 
-  public function __construct(
-    EditableSyntax $operand,
-    EditableSyntax $operator,
-  ) {
+  public function __construct(EditableNode $operand, EditableNode $operator) {
     parent::__construct('postfix_unary_expression');
     $this->_operand = $operand;
     $this->_operator = $operator;
@@ -27,13 +24,13 @@ final class PostfixUnaryExpression extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $operand = EditableSyntax::fromJSON(
+    $operand = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['postfix_unary_operand'],
       $position,
       $source,
     );
     $position += $operand->getWidth();
-    $operator = EditableSyntax::fromJSON(
+    $operator = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['postfix_unary_operator'],
       $position,
       $source,
@@ -43,7 +40,7 @@ final class PostfixUnaryExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'operand' => $this->_operand;
     yield 'operator' => $this->_operator;
   }
@@ -51,7 +48,7 @@ final class PostfixUnaryExpression extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -63,11 +60,11 @@ final class PostfixUnaryExpression extends EditableSyntax {
     return new self($operand, $operator);
   }
 
-  public function getOperandUNTYPED(): EditableSyntax {
+  public function getOperandUNTYPED(): EditableNode {
     return $this->_operand;
   }
 
-  public function withOperand(EditableSyntax $value): this {
+  public function withOperand(EditableNode $value): this {
     if ($value === $this->_operand) {
       return $this;
     }
@@ -82,15 +79,15 @@ final class PostfixUnaryExpression extends EditableSyntax {
    * @returns VariableExpression | PrefixUnaryExpression | SubscriptExpression
    * | MemberSelectionExpression | ScopeResolutionExpression
    */
-  public function getOperand(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_operand);
+  public function getOperand(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_operand);
   }
 
-  public function getOperatorUNTYPED(): EditableSyntax {
+  public function getOperatorUNTYPED(): EditableNode {
     return $this->_operator;
   }
 
-  public function withOperator(EditableSyntax $value): this {
+  public function withOperator(EditableNode $value): this {
     if ($value === $this->_operator) {
       return $this;
     }

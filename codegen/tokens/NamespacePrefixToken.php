@@ -2,15 +2,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5a41985ff95e8564023393b4d14d3447>>
+ * @generated SignedSource<<78badb2b1968d7101766ce7a76e2153d>>
  */
 namespace Facebook\HHAST;
 
 final class NamespacePrefixToken extends EditableToken {
 
   public function __construct(
-    EditableSyntax $leading,
-    EditableSyntax $trailing,
+    EditableNode $leading,
+    EditableNode $trailing,
     string $text,
   ) {
     parent::__construct('namespace_prefix', $leading, $trailing, $text);
@@ -21,7 +21,7 @@ final class NamespacePrefixToken extends EditableToken {
   }
 
   <<__Override>>
-  public function withLeading(EditableSyntax $value): this {
+  public function withLeading(EditableNode $value): this {
     if ($value === $this->getLeading()) {
       return $this;
     }
@@ -33,7 +33,7 @@ final class NamespacePrefixToken extends EditableToken {
   }
 
   <<__Override>>
-  public function withTrailing(EditableSyntax $value): this {
+  public function withTrailing(EditableNode $value): this {
     if ($value === $this->getTrailing()) {
       return $this;
     }
@@ -50,7 +50,7 @@ final class NamespacePrefixToken extends EditableToken {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

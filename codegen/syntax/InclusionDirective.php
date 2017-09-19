@@ -2,19 +2,19 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<06379cea7224cac121b2925ceb750fc8>>
+ * @generated SignedSource<<de8a9f204017c3cdca03f266cfd5dc87>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class InclusionDirective extends EditableSyntax {
+final class InclusionDirective extends EditableNode {
 
-  private EditableSyntax $_expression;
-  private EditableSyntax $_semicolon;
+  private EditableNode $_expression;
+  private EditableNode $_semicolon;
 
   public function __construct(
-    EditableSyntax $expression,
-    EditableSyntax $semicolon,
+    EditableNode $expression,
+    EditableNode $semicolon,
   ) {
     parent::__construct('inclusion_directive');
     $this->_expression = $expression;
@@ -27,13 +27,13 @@ final class InclusionDirective extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $expression = EditableSyntax::fromJSON(
+    $expression = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['inclusion_expression'],
       $position,
       $source,
     );
     $position += $expression->getWidth();
-    $semicolon = EditableSyntax::fromJSON(
+    $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['inclusion_semicolon'],
       $position,
       $source,
@@ -43,7 +43,7 @@ final class InclusionDirective extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'expression' => $this->_expression;
     yield 'semicolon' => $this->_semicolon;
   }
@@ -51,7 +51,7 @@ final class InclusionDirective extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -65,11 +65,11 @@ final class InclusionDirective extends EditableSyntax {
     return new self($expression, $semicolon);
   }
 
-  public function getExpressionUNTYPED(): EditableSyntax {
+  public function getExpressionUNTYPED(): EditableNode {
     return $this->_expression;
   }
 
-  public function withExpression(EditableSyntax $value): this {
+  public function withExpression(EditableNode $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
@@ -88,11 +88,11 @@ final class InclusionDirective extends EditableSyntax {
       TypeAssert\instance_of(InclusionExpression::class, $this->_expression);
   }
 
-  public function getSemicolonUNTYPED(): EditableSyntax {
+  public function getSemicolonUNTYPED(): EditableNode {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableSyntax $value): this {
+  public function withSemicolon(EditableNode $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

@@ -34,7 +34,7 @@ final class UpdateCodegen {
 
   public function generateQuick(): void {
     $generators = keyset[
-      CodegenEditableSyntaxFromJSON::class,
+      CodegenEditableNodeFromJSON::class,
       CodegenEditableTokenFromData::class,
       CodegenEditableTriviaFromJSON::class,
       CodegenTokens::class,

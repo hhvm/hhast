@@ -2,23 +2,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<258624d0e722dcd92d29347a9a492599>>
+ * @generated SignedSource<<438abc1ebd5af6f4f5786b75ae742f07>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class NamespaceUseDeclaration extends EditableSyntax {
+final class NamespaceUseDeclaration extends EditableNode {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_kind;
-  private EditableSyntax $_clauses;
-  private EditableSyntax $_semicolon;
+  private EditableNode $_keyword;
+  private EditableNode $_kind;
+  private EditableNode $_clauses;
+  private EditableNode $_semicolon;
 
   public function __construct(
-    EditableSyntax $keyword,
-    EditableSyntax $kind,
-    EditableSyntax $clauses,
-    EditableSyntax $semicolon,
+    EditableNode $keyword,
+    EditableNode $kind,
+    EditableNode $clauses,
+    EditableNode $semicolon,
   ) {
     parent::__construct('namespace_use_declaration');
     $this->_keyword = $keyword;
@@ -33,25 +33,25 @@ final class NamespaceUseDeclaration extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_use_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $kind = EditableSyntax::fromJSON(
+    $kind = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_use_kind'],
       $position,
       $source,
     );
     $position += $kind->getWidth();
-    $clauses = EditableSyntax::fromJSON(
+    $clauses = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_use_clauses'],
       $position,
       $source,
     );
     $position += $clauses->getWidth();
-    $semicolon = EditableSyntax::fromJSON(
+    $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_use_semicolon'],
       $position,
       $source,
@@ -61,7 +61,7 @@ final class NamespaceUseDeclaration extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'kind' => $this->_kind;
     yield 'clauses' => $this->_clauses;
@@ -71,7 +71,7 @@ final class NamespaceUseDeclaration extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -90,11 +90,11 @@ final class NamespaceUseDeclaration extends EditableSyntax {
     return new self($keyword, $kind, $clauses, $semicolon);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -112,11 +112,11 @@ final class NamespaceUseDeclaration extends EditableSyntax {
     return TypeAssert\instance_of(UseToken::class, $this->_keyword);
   }
 
-  public function getKindUNTYPED(): EditableSyntax {
+  public function getKindUNTYPED(): EditableNode {
     return $this->_kind;
   }
 
-  public function withKind(EditableSyntax $value): this {
+  public function withKind(EditableNode $value): this {
     if ($value === $this->_kind) {
       return $this;
     }
@@ -145,11 +145,11 @@ final class NamespaceUseDeclaration extends EditableSyntax {
     return TypeAssert\instance_of(EditableToken::class, $this->_kind);
   }
 
-  public function getClausesUNTYPED(): EditableSyntax {
+  public function getClausesUNTYPED(): EditableNode {
     return $this->_clauses;
   }
 
-  public function withClauses(EditableSyntax $value): this {
+  public function withClauses(EditableNode $value): this {
     if ($value === $this->_clauses) {
       return $this;
     }
@@ -167,11 +167,11 @@ final class NamespaceUseDeclaration extends EditableSyntax {
     return TypeAssert\instance_of(EditableList::class, $this->_clauses);
   }
 
-  public function getSemicolonUNTYPED(): EditableSyntax {
+  public function getSemicolonUNTYPED(): EditableNode {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableSyntax $value): this {
+  public function withSemicolon(EditableNode $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

@@ -2,17 +2,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e62e5d0e7e1be72fb54e57325148dd51>>
+ * @generated SignedSource<<15544657eab41840f1d423ac84e7a610>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class ListItem extends EditableSyntax {
+final class ListItem extends EditableNode {
 
-  private EditableSyntax $_item;
-  private EditableSyntax $_separator;
+  private EditableNode $_item;
+  private EditableNode $_separator;
 
-  public function __construct(EditableSyntax $item, EditableSyntax $separator) {
+  public function __construct(EditableNode $item, EditableNode $separator) {
     parent::__construct('list_item');
     $this->_item = $item;
     $this->_separator = $separator;
@@ -24,13 +24,13 @@ final class ListItem extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $item = EditableSyntax::fromJSON(
+    $item = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['list_item'],
       $position,
       $source,
     );
     $position += $item->getWidth();
-    $separator = EditableSyntax::fromJSON(
+    $separator = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['list_separator'],
       $position,
       $source,
@@ -40,7 +40,7 @@ final class ListItem extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'item' => $this->_item;
     yield 'separator' => $this->_separator;
   }
@@ -48,7 +48,7 @@ final class ListItem extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -60,11 +60,11 @@ final class ListItem extends EditableSyntax {
     return new self($item, $separator);
   }
 
-  public function getItemUNTYPED(): EditableSyntax {
+  public function getItemUNTYPED(): EditableNode {
     return $this->_item;
   }
 
-  public function withItem(EditableSyntax $value): this {
+  public function withItem(EditableNode $value): this {
     if ($value === $this->_item) {
       return $this;
     }
@@ -103,15 +103,15 @@ final class ListItem extends EditableSyntax {
    * MapArrayTypeSpecifier | ClassnameTypeSpecifier | LessThanLessThanToken |
    * NoreturnToken | XHPSimpleClassAttribute
    */
-  public function getItem(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_item);
+  public function getItem(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_item);
   }
 
-  public function getSeparatorUNTYPED(): EditableSyntax {
+  public function getSeparatorUNTYPED(): EditableNode {
     return $this->_separator;
   }
 
-  public function withSeparator(EditableSyntax $value): this {
+  public function withSeparator(EditableNode $value): this {
     if ($value === $this->_separator) {
       return $this;
     }

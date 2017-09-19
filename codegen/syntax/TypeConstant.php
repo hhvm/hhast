@@ -2,21 +2,21 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<35d5cb10c6058a46343109e2b3c0313e>>
+ * @generated SignedSource<<7361b7e974f7eeacf496b4a233f7229a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class TypeConstant extends EditableSyntax {
+final class TypeConstant extends EditableNode {
 
-  private EditableSyntax $_left_type;
-  private EditableSyntax $_separator;
-  private EditableSyntax $_right_type;
+  private EditableNode $_left_type;
+  private EditableNode $_separator;
+  private EditableNode $_right_type;
 
   public function __construct(
-    EditableSyntax $left_type,
-    EditableSyntax $separator,
-    EditableSyntax $right_type,
+    EditableNode $left_type,
+    EditableNode $separator,
+    EditableNode $right_type,
   ) {
     parent::__construct('type_constant');
     $this->_left_type = $left_type;
@@ -30,19 +30,19 @@ final class TypeConstant extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $left_type = EditableSyntax::fromJSON(
+    $left_type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_constant_left_type'],
       $position,
       $source,
     );
     $position += $left_type->getWidth();
-    $separator = EditableSyntax::fromJSON(
+    $separator = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_constant_separator'],
       $position,
       $source,
     );
     $position += $separator->getWidth();
-    $right_type = EditableSyntax::fromJSON(
+    $right_type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_constant_right_type'],
       $position,
       $source,
@@ -52,7 +52,7 @@ final class TypeConstant extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'left_type' => $this->_left_type;
     yield 'separator' => $this->_separator;
     yield 'right_type' => $this->_right_type;
@@ -61,7 +61,7 @@ final class TypeConstant extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -78,11 +78,11 @@ final class TypeConstant extends EditableSyntax {
     return new self($left_type, $separator, $right_type);
   }
 
-  public function getLeftTypeUNTYPED(): EditableSyntax {
+  public function getLeftTypeUNTYPED(): EditableNode {
     return $this->_left_type;
   }
 
-  public function withLeftType(EditableSyntax $value): this {
+  public function withLeftType(EditableNode $value): this {
     if ($value === $this->_left_type) {
       return $this;
     }
@@ -96,15 +96,15 @@ final class TypeConstant extends EditableSyntax {
   /**
    * @returns NameToken | ThisToken | TypeConstant | SelfToken | ParentToken
    */
-  public function getLeftType(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_left_type);
+  public function getLeftType(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_left_type);
   }
 
-  public function getSeparatorUNTYPED(): EditableSyntax {
+  public function getSeparatorUNTYPED(): EditableNode {
     return $this->_separator;
   }
 
-  public function withSeparator(EditableSyntax $value): this {
+  public function withSeparator(EditableNode $value): this {
     if ($value === $this->_separator) {
       return $this;
     }
@@ -122,11 +122,11 @@ final class TypeConstant extends EditableSyntax {
     return TypeAssert\instance_of(ColonColonToken::class, $this->_separator);
   }
 
-  public function getRightTypeUNTYPED(): EditableSyntax {
+  public function getRightTypeUNTYPED(): EditableNode {
     return $this->_right_type;
   }
 
-  public function withRightType(EditableSyntax $value): this {
+  public function withRightType(EditableNode $value): this {
     if ($value === $this->_right_type) {
       return $this;
     }

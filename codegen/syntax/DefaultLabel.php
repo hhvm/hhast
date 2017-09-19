@@ -2,17 +2,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5611920a755386402c36700373624b3a>>
+ * @generated SignedSource<<7095b05404568faa4e78de23fc42991c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class DefaultLabel extends EditableSyntax {
+final class DefaultLabel extends EditableNode {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_colon;
+  private EditableNode $_keyword;
+  private EditableNode $_colon;
 
-  public function __construct(EditableSyntax $keyword, EditableSyntax $colon) {
+  public function __construct(EditableNode $keyword, EditableNode $colon) {
     parent::__construct('default_label');
     $this->_keyword = $keyword;
     $this->_colon = $colon;
@@ -24,13 +24,13 @@ final class DefaultLabel extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['default_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $colon = EditableSyntax::fromJSON(
+    $colon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['default_colon'],
       $position,
       $source,
@@ -40,7 +40,7 @@ final class DefaultLabel extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'colon' => $this->_colon;
   }
@@ -48,7 +48,7 @@ final class DefaultLabel extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -60,11 +60,11 @@ final class DefaultLabel extends EditableSyntax {
     return new self($keyword, $colon);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -82,11 +82,11 @@ final class DefaultLabel extends EditableSyntax {
     return TypeAssert\instance_of(DefaultToken::class, $this->_keyword);
   }
 
-  public function getColonUNTYPED(): EditableSyntax {
+  public function getColonUNTYPED(): EditableNode {
     return $this->_colon;
   }
 
-  public function withColon(EditableSyntax $value): this {
+  public function withColon(EditableNode $value): this {
     if ($value === $this->_colon) {
       return $this;
     }

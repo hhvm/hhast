@@ -2,23 +2,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<70060ec6cc35481bfc1e8bf7f65ccf5e>>
+ * @generated SignedSource<<be81f1d312ab44cb95ce660abb98c3ff>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class XHPEnumType extends EditableSyntax {
+final class XHPEnumType extends EditableNode {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_left_brace;
-  private EditableSyntax $_values;
-  private EditableSyntax $_right_brace;
+  private EditableNode $_keyword;
+  private EditableNode $_left_brace;
+  private EditableNode $_values;
+  private EditableNode $_right_brace;
 
   public function __construct(
-    EditableSyntax $keyword,
-    EditableSyntax $left_brace,
-    EditableSyntax $values,
-    EditableSyntax $right_brace,
+    EditableNode $keyword,
+    EditableNode $left_brace,
+    EditableNode $values,
+    EditableNode $right_brace,
   ) {
     parent::__construct('xhp_enum_type');
     $this->_keyword = $keyword;
@@ -33,25 +33,25 @@ final class XHPEnumType extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_enum_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_brace = EditableSyntax::fromJSON(
+    $left_brace = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_enum_left_brace'],
       $position,
       $source,
     );
     $position += $left_brace->getWidth();
-    $values = EditableSyntax::fromJSON(
+    $values = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_enum_values'],
       $position,
       $source,
     );
     $position += $values->getWidth();
-    $right_brace = EditableSyntax::fromJSON(
+    $right_brace = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_enum_right_brace'],
       $position,
       $source,
@@ -61,7 +61,7 @@ final class XHPEnumType extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'left_brace' => $this->_left_brace;
     yield 'values' => $this->_values;
@@ -71,7 +71,7 @@ final class XHPEnumType extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -90,11 +90,11 @@ final class XHPEnumType extends EditableSyntax {
     return new self($keyword, $left_brace, $values, $right_brace);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -113,11 +113,11 @@ final class XHPEnumType extends EditableSyntax {
     return TypeAssert\instance_of(EnumToken::class, $this->_keyword);
   }
 
-  public function getLeftBraceUNTYPED(): EditableSyntax {
+  public function getLeftBraceUNTYPED(): EditableNode {
     return $this->_left_brace;
   }
 
-  public function withLeftBrace(EditableSyntax $value): this {
+  public function withLeftBrace(EditableNode $value): this {
     if ($value === $this->_left_brace) {
       return $this;
     }
@@ -136,11 +136,11 @@ final class XHPEnumType extends EditableSyntax {
     return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
   }
 
-  public function getValuesUNTYPED(): EditableSyntax {
+  public function getValuesUNTYPED(): EditableNode {
     return $this->_values;
   }
 
-  public function withValues(EditableSyntax $value): this {
+  public function withValues(EditableNode $value): this {
     if ($value === $this->_values) {
       return $this;
     }
@@ -163,11 +163,11 @@ final class XHPEnumType extends EditableSyntax {
     return TypeAssert\instance_of(EditableList::class, $this->_values);
   }
 
-  public function getRightBraceUNTYPED(): EditableSyntax {
+  public function getRightBraceUNTYPED(): EditableNode {
     return $this->_right_brace;
   }
 
-  public function withRightBrace(EditableSyntax $value): this {
+  public function withRightBrace(EditableNode $value): this {
     if ($value === $this->_right_brace) {
       return $this;
     }

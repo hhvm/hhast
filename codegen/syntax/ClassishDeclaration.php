@@ -2,35 +2,35 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2e629903ab173a747663bcb57fffe7c0>>
+ * @generated SignedSource<<e9078df8c8f9878cbd06d768a3fd1447>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class ClassishDeclaration extends EditableSyntax {
+final class ClassishDeclaration extends EditableNode {
 
-  private EditableSyntax $_attribute;
-  private EditableSyntax $_modifiers;
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_name;
-  private EditableSyntax $_type_parameters;
-  private EditableSyntax $_extends_keyword;
-  private EditableSyntax $_extends_list;
-  private EditableSyntax $_implements_keyword;
-  private EditableSyntax $_implements_list;
-  private EditableSyntax $_body;
+  private EditableNode $_attribute;
+  private EditableNode $_modifiers;
+  private EditableNode $_keyword;
+  private EditableNode $_name;
+  private EditableNode $_type_parameters;
+  private EditableNode $_extends_keyword;
+  private EditableNode $_extends_list;
+  private EditableNode $_implements_keyword;
+  private EditableNode $_implements_list;
+  private EditableNode $_body;
 
   public function __construct(
-    EditableSyntax $attribute,
-    EditableSyntax $modifiers,
-    EditableSyntax $keyword,
-    EditableSyntax $name,
-    EditableSyntax $type_parameters,
-    EditableSyntax $extends_keyword,
-    EditableSyntax $extends_list,
-    EditableSyntax $implements_keyword,
-    EditableSyntax $implements_list,
-    EditableSyntax $body,
+    EditableNode $attribute,
+    EditableNode $modifiers,
+    EditableNode $keyword,
+    EditableNode $name,
+    EditableNode $type_parameters,
+    EditableNode $extends_keyword,
+    EditableNode $extends_list,
+    EditableNode $implements_keyword,
+    EditableNode $implements_list,
+    EditableNode $body,
   ) {
     parent::__construct('classish_declaration');
     $this->_attribute = $attribute;
@@ -51,61 +51,61 @@ final class ClassishDeclaration extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $attribute = EditableSyntax::fromJSON(
+    $attribute = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['classish_attribute'],
       $position,
       $source,
     );
     $position += $attribute->getWidth();
-    $modifiers = EditableSyntax::fromJSON(
+    $modifiers = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['classish_modifiers'],
       $position,
       $source,
     );
     $position += $modifiers->getWidth();
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['classish_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $name = EditableSyntax::fromJSON(
+    $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['classish_name'],
       $position,
       $source,
     );
     $position += $name->getWidth();
-    $type_parameters = EditableSyntax::fromJSON(
+    $type_parameters = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['classish_type_parameters'],
       $position,
       $source,
     );
     $position += $type_parameters->getWidth();
-    $extends_keyword = EditableSyntax::fromJSON(
+    $extends_keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['classish_extends_keyword'],
       $position,
       $source,
     );
     $position += $extends_keyword->getWidth();
-    $extends_list = EditableSyntax::fromJSON(
+    $extends_list = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['classish_extends_list'],
       $position,
       $source,
     );
     $position += $extends_list->getWidth();
-    $implements_keyword = EditableSyntax::fromJSON(
+    $implements_keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['classish_implements_keyword'],
       $position,
       $source,
     );
     $position += $implements_keyword->getWidth();
-    $implements_list = EditableSyntax::fromJSON(
+    $implements_list = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['classish_implements_list'],
       $position,
       $source,
     );
     $position += $implements_list->getWidth();
-    $body = EditableSyntax::fromJSON(
+    $body = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['classish_body'],
       $position,
       $source,
@@ -126,7 +126,7 @@ final class ClassishDeclaration extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'attribute' => $this->_attribute;
     yield 'modifiers' => $this->_modifiers;
     yield 'keyword' => $this->_keyword;
@@ -142,7 +142,7 @@ final class ClassishDeclaration extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -185,11 +185,11 @@ final class ClassishDeclaration extends EditableSyntax {
     );
   }
 
-  public function getAttributeUNTYPED(): EditableSyntax {
+  public function getAttributeUNTYPED(): EditableNode {
     return $this->_attribute;
   }
 
-  public function withAttribute(EditableSyntax $value): this {
+  public function withAttribute(EditableNode $value): this {
     if ($value === $this->_attribute) {
       return $this;
     }
@@ -230,11 +230,11 @@ final class ClassishDeclaration extends EditableSyntax {
       TypeAssert\instance_of(AttributeSpecification::class, $this->_attribute);
   }
 
-  public function getModifiersUNTYPED(): EditableSyntax {
+  public function getModifiersUNTYPED(): EditableNode {
     return $this->_modifiers;
   }
 
-  public function withModifiers(EditableSyntax $value): this {
+  public function withModifiers(EditableNode $value): this {
     if ($value === $this->_modifiers) {
       return $this;
     }
@@ -273,11 +273,11 @@ final class ClassishDeclaration extends EditableSyntax {
     return TypeAssert\instance_of(EditableList::class, $this->_modifiers);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -316,11 +316,11 @@ final class ClassishDeclaration extends EditableSyntax {
     return TypeAssert\instance_of(EditableToken::class, $this->_keyword);
   }
 
-  public function getNameUNTYPED(): EditableSyntax {
+  public function getNameUNTYPED(): EditableNode {
     return $this->_name;
   }
 
-  public function withName(EditableSyntax $value): this {
+  public function withName(EditableNode $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -349,11 +349,11 @@ final class ClassishDeclaration extends EditableSyntax {
     return TypeAssert\instance_of(EditableToken::class, $this->_name);
   }
 
-  public function getTypeParametersUNTYPED(): EditableSyntax {
+  public function getTypeParametersUNTYPED(): EditableNode {
     return $this->_type_parameters;
   }
 
-  public function withTypeParameters(EditableSyntax $value): this {
+  public function withTypeParameters(EditableNode $value): this {
     if ($value === $this->_type_parameters) {
       return $this;
     }
@@ -394,11 +394,11 @@ final class ClassishDeclaration extends EditableSyntax {
       TypeAssert\instance_of(TypeParameters::class, $this->_type_parameters);
   }
 
-  public function getExtendsKeywordUNTYPED(): EditableSyntax {
+  public function getExtendsKeywordUNTYPED(): EditableNode {
     return $this->_extends_keyword;
   }
 
-  public function withExtendsKeyword(EditableSyntax $value): this {
+  public function withExtendsKeyword(EditableNode $value): this {
     if ($value === $this->_extends_keyword) {
       return $this;
     }
@@ -437,11 +437,11 @@ final class ClassishDeclaration extends EditableSyntax {
     return TypeAssert\instance_of(ExtendsToken::class, $this->_extends_keyword);
   }
 
-  public function getExtendsListUNTYPED(): EditableSyntax {
+  public function getExtendsListUNTYPED(): EditableNode {
     return $this->_extends_list;
   }
 
-  public function withExtendsList(EditableSyntax $value): this {
+  public function withExtendsList(EditableNode $value): this {
     if ($value === $this->_extends_list) {
       return $this;
     }
@@ -480,11 +480,11 @@ final class ClassishDeclaration extends EditableSyntax {
     return TypeAssert\instance_of(EditableList::class, $this->_extends_list);
   }
 
-  public function getImplementsKeywordUNTYPED(): EditableSyntax {
+  public function getImplementsKeywordUNTYPED(): EditableNode {
     return $this->_implements_keyword;
   }
 
-  public function withImplementsKeyword(EditableSyntax $value): this {
+  public function withImplementsKeyword(EditableNode $value): this {
     if ($value === $this->_implements_keyword) {
       return $this;
     }
@@ -529,11 +529,11 @@ final class ClassishDeclaration extends EditableSyntax {
     );
   }
 
-  public function getImplementsListUNTYPED(): EditableSyntax {
+  public function getImplementsListUNTYPED(): EditableNode {
     return $this->_implements_list;
   }
 
-  public function withImplementsList(EditableSyntax $value): this {
+  public function withImplementsList(EditableNode $value): this {
     if ($value === $this->_implements_list) {
       return $this;
     }
@@ -572,11 +572,11 @@ final class ClassishDeclaration extends EditableSyntax {
     return TypeAssert\instance_of(EditableList::class, $this->_implements_list);
   }
 
-  public function getBodyUNTYPED(): EditableSyntax {
+  public function getBodyUNTYPED(): EditableNode {
     return $this->_body;
   }
 
-  public function withBody(EditableSyntax $value): this {
+  public function withBody(EditableNode $value): this {
     if ($value === $this->_body) {
       return $this;
     }

@@ -2,21 +2,21 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e9c447e2cbb61c6fbe20a5bd51615038>>
+ * @generated SignedSource<<8cca4bd3fa8124c17c7ca11097258215>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class SwitchSection extends EditableSyntax {
+final class SwitchSection extends EditableNode {
 
-  private EditableSyntax $_labels;
-  private EditableSyntax $_statements;
-  private EditableSyntax $_fallthrough;
+  private EditableNode $_labels;
+  private EditableNode $_statements;
+  private EditableNode $_fallthrough;
 
   public function __construct(
-    EditableSyntax $labels,
-    EditableSyntax $statements,
-    EditableSyntax $fallthrough,
+    EditableNode $labels,
+    EditableNode $statements,
+    EditableNode $fallthrough,
   ) {
     parent::__construct('switch_section');
     $this->_labels = $labels;
@@ -30,19 +30,19 @@ final class SwitchSection extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $labels = EditableSyntax::fromJSON(
+    $labels = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['switch_section_labels'],
       $position,
       $source,
     );
     $position += $labels->getWidth();
-    $statements = EditableSyntax::fromJSON(
+    $statements = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['switch_section_statements'],
       $position,
       $source,
     );
     $position += $statements->getWidth();
-    $fallthrough = EditableSyntax::fromJSON(
+    $fallthrough = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['switch_section_fallthrough'],
       $position,
       $source,
@@ -52,7 +52,7 @@ final class SwitchSection extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'labels' => $this->_labels;
     yield 'statements' => $this->_statements;
     yield 'fallthrough' => $this->_fallthrough;
@@ -61,7 +61,7 @@ final class SwitchSection extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -78,11 +78,11 @@ final class SwitchSection extends EditableSyntax {
     return new self($labels, $statements, $fallthrough);
   }
 
-  public function getLabelsUNTYPED(): EditableSyntax {
+  public function getLabelsUNTYPED(): EditableNode {
     return $this->_labels;
   }
 
-  public function withLabels(EditableSyntax $value): this {
+  public function withLabels(EditableNode $value): this {
     if ($value === $this->_labels) {
       return $this;
     }
@@ -110,11 +110,11 @@ final class SwitchSection extends EditableSyntax {
     return TypeAssert\instance_of(EditableList::class, $this->_labels);
   }
 
-  public function getStatementsUNTYPED(): EditableSyntax {
+  public function getStatementsUNTYPED(): EditableNode {
     return $this->_statements;
   }
 
-  public function withStatements(EditableSyntax $value): this {
+  public function withStatements(EditableNode $value): this {
     if ($value === $this->_statements) {
       return $this;
     }
@@ -142,11 +142,11 @@ final class SwitchSection extends EditableSyntax {
     return TypeAssert\instance_of(EditableList::class, $this->_statements);
   }
 
-  public function getFallthroughUNTYPED(): EditableSyntax {
+  public function getFallthroughUNTYPED(): EditableNode {
     return $this->_fallthrough;
   }
 
-  public function withFallthrough(EditableSyntax $value): this {
+  public function withFallthrough(EditableNode $value): this {
     if ($value === $this->_fallthrough) {
       return $this;
     }
@@ -160,7 +160,7 @@ final class SwitchSection extends EditableSyntax {
   /**
    * @returns Missing
    */
-  public function getFallthrough(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_fallthrough);
+  public function getFallthrough(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_fallthrough);
   }
 }

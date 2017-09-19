@@ -2,16 +2,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<07d35ad1d1e451db1084314acf3a68f3>>
+ * @generated SignedSource<<574b099c883bd92b0c243722414133ef>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class QualifiedNameExpression extends EditableSyntax {
+final class QualifiedNameExpression extends EditableNode {
 
-  private EditableSyntax $_expression;
+  private EditableNode $_expression;
 
-  public function __construct(EditableSyntax $expression) {
+  public function __construct(EditableNode $expression) {
     parent::__construct('qualified_name_expression');
     $this->_expression = $expression;
   }
@@ -22,7 +22,7 @@ final class QualifiedNameExpression extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $expression = EditableSyntax::fromJSON(
+    $expression = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['qualified_name_expression'],
       $position,
       $source,
@@ -32,14 +32,14 @@ final class QualifiedNameExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'expression' => $this->_expression;
   }
 
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -50,11 +50,11 @@ final class QualifiedNameExpression extends EditableSyntax {
     return new self($expression);
   }
 
-  public function getExpressionUNTYPED(): EditableSyntax {
+  public function getExpressionUNTYPED(): EditableNode {
     return $this->_expression;
   }
 
-  public function withExpression(EditableSyntax $value): this {
+  public function withExpression(EditableNode $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
@@ -68,7 +68,7 @@ final class QualifiedNameExpression extends EditableSyntax {
   /**
    * @returns unknown
    */
-  public function getExpression(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_expression);
+  public function getExpression(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_expression);
   }
 }

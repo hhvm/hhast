@@ -12,7 +12,7 @@
 
 namespace Facebook\HHAST;
 
-final class Missing extends EditableSyntax {
+final class Missing extends EditableNode {
   <<__Override>>
   public function __construct() {
     parent::__construct('missing');
@@ -24,7 +24,7 @@ final class Missing extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield break;
   }
 
@@ -45,7 +45,7 @@ final class Missing extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     return $this;
   }

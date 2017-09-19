@@ -2,21 +2,21 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<39ec10d4aa7962c1a142a5a099d25b62>>
+ * @generated SignedSource<<23f95d01dd93214839485f2d8590e8a8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class SafeMemberSelectionExpression extends EditableSyntax {
+final class SafeMemberSelectionExpression extends EditableNode {
 
-  private EditableSyntax $_object;
-  private EditableSyntax $_operator;
-  private EditableSyntax $_name;
+  private EditableNode $_object;
+  private EditableNode $_operator;
+  private EditableNode $_name;
 
   public function __construct(
-    EditableSyntax $object,
-    EditableSyntax $operator,
-    EditableSyntax $name,
+    EditableNode $object,
+    EditableNode $operator,
+    EditableNode $name,
   ) {
     parent::__construct('safe_member_selection_expression');
     $this->_object = $object;
@@ -30,19 +30,19 @@ final class SafeMemberSelectionExpression extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $object = EditableSyntax::fromJSON(
+    $object = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['safe_member_object'],
       $position,
       $source,
     );
     $position += $object->getWidth();
-    $operator = EditableSyntax::fromJSON(
+    $operator = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['safe_member_operator'],
       $position,
       $source,
     );
     $position += $operator->getWidth();
-    $name = EditableSyntax::fromJSON(
+    $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['safe_member_name'],
       $position,
       $source,
@@ -52,7 +52,7 @@ final class SafeMemberSelectionExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'object' => $this->_object;
     yield 'operator' => $this->_operator;
     yield 'name' => $this->_name;
@@ -61,7 +61,7 @@ final class SafeMemberSelectionExpression extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -78,11 +78,11 @@ final class SafeMemberSelectionExpression extends EditableSyntax {
     return new self($object, $operator, $name);
   }
 
-  public function getObjectUNTYPED(): EditableSyntax {
+  public function getObjectUNTYPED(): EditableNode {
     return $this->_object;
   }
 
-  public function withObject(EditableSyntax $value): this {
+  public function withObject(EditableNode $value): this {
     if ($value === $this->_object) {
       return $this;
     }
@@ -98,15 +98,15 @@ final class SafeMemberSelectionExpression extends EditableSyntax {
    * MemberSelectionExpression | SafeMemberSelectionExpression |
    * PrefixUnaryExpression | ScopeResolutionExpression
    */
-  public function getObject(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_object);
+  public function getObject(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_object);
   }
 
-  public function getOperatorUNTYPED(): EditableSyntax {
+  public function getOperatorUNTYPED(): EditableNode {
     return $this->_operator;
   }
 
-  public function withOperator(EditableSyntax $value): this {
+  public function withOperator(EditableNode $value): this {
     if ($value === $this->_operator) {
       return $this;
     }
@@ -127,11 +127,11 @@ final class SafeMemberSelectionExpression extends EditableSyntax {
     );
   }
 
-  public function getNameUNTYPED(): EditableSyntax {
+  public function getNameUNTYPED(): EditableNode {
     return $this->_name;
   }
 
-  public function withName(EditableSyntax $value): this {
+  public function withName(EditableNode $value): this {
     if ($value === $this->_name) {
       return $this;
     }

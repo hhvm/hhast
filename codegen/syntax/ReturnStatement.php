@@ -2,21 +2,21 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<43337e8d84db0bea478745935c113cbc>>
+ * @generated SignedSource<<51a6a4e67f917e4115a4df3e3e32e166>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class ReturnStatement extends EditableSyntax {
+final class ReturnStatement extends EditableNode {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_expression;
-  private EditableSyntax $_semicolon;
+  private EditableNode $_keyword;
+  private EditableNode $_expression;
+  private EditableNode $_semicolon;
 
   public function __construct(
-    EditableSyntax $keyword,
-    EditableSyntax $expression,
-    EditableSyntax $semicolon,
+    EditableNode $keyword,
+    EditableNode $expression,
+    EditableNode $semicolon,
   ) {
     parent::__construct('return_statement');
     $this->_keyword = $keyword;
@@ -30,19 +30,19 @@ final class ReturnStatement extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['return_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $expression = EditableSyntax::fromJSON(
+    $expression = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['return_expression'],
       $position,
       $source,
     );
     $position += $expression->getWidth();
-    $semicolon = EditableSyntax::fromJSON(
+    $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['return_semicolon'],
       $position,
       $source,
@@ -52,7 +52,7 @@ final class ReturnStatement extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'expression' => $this->_expression;
     yield 'semicolon' => $this->_semicolon;
@@ -61,7 +61,7 @@ final class ReturnStatement extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -78,11 +78,11 @@ final class ReturnStatement extends EditableSyntax {
     return new self($keyword, $expression, $semicolon);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -100,11 +100,11 @@ final class ReturnStatement extends EditableSyntax {
     return TypeAssert\instance_of(ReturnToken::class, $this->_keyword);
   }
 
-  public function getExpressionUNTYPED(): EditableSyntax {
+  public function getExpressionUNTYPED(): EditableNode {
     return $this->_expression;
   }
 
-  public function withExpression(EditableSyntax $value): this {
+  public function withExpression(EditableNode $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
@@ -130,15 +130,15 @@ final class ReturnStatement extends EditableSyntax {
    * DarrayIntrinsicExpression | VarrayIntrinsicExpression |
    * AwaitableCreationExpression | XHPExpression
    */
-  public function getExpression(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_expression);
+  public function getExpression(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_expression);
   }
 
-  public function getSemicolonUNTYPED(): EditableSyntax {
+  public function getSemicolonUNTYPED(): EditableNode {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableSyntax $value): this {
+  public function withSemicolon(EditableNode $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

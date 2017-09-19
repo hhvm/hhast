@@ -2,31 +2,31 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1db0b52acedc3529d60f25cfaba714c8>>
+ * @generated SignedSource<<796b6b85325adfb6e316fc6fe1eaff6a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class AliasDeclaration extends EditableSyntax {
+final class AliasDeclaration extends EditableNode {
 
-  private EditableSyntax $_attribute_spec;
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_name;
-  private EditableSyntax $_generic_parameter;
-  private EditableSyntax $_constraint;
-  private EditableSyntax $_equal;
-  private EditableSyntax $_type;
-  private EditableSyntax $_semicolon;
+  private EditableNode $_attribute_spec;
+  private EditableNode $_keyword;
+  private EditableNode $_name;
+  private EditableNode $_generic_parameter;
+  private EditableNode $_constraint;
+  private EditableNode $_equal;
+  private EditableNode $_type;
+  private EditableNode $_semicolon;
 
   public function __construct(
-    EditableSyntax $attribute_spec,
-    EditableSyntax $keyword,
-    EditableSyntax $name,
-    EditableSyntax $generic_parameter,
-    EditableSyntax $constraint,
-    EditableSyntax $equal,
-    EditableSyntax $type,
-    EditableSyntax $semicolon,
+    EditableNode $attribute_spec,
+    EditableNode $keyword,
+    EditableNode $name,
+    EditableNode $generic_parameter,
+    EditableNode $constraint,
+    EditableNode $equal,
+    EditableNode $type,
+    EditableNode $semicolon,
   ) {
     parent::__construct('alias_declaration');
     $this->_attribute_spec = $attribute_spec;
@@ -45,49 +45,49 @@ final class AliasDeclaration extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $attribute_spec = EditableSyntax::fromJSON(
+    $attribute_spec = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['alias_attribute_spec'],
       $position,
       $source,
     );
     $position += $attribute_spec->getWidth();
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['alias_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $name = EditableSyntax::fromJSON(
+    $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['alias_name'],
       $position,
       $source,
     );
     $position += $name->getWidth();
-    $generic_parameter = EditableSyntax::fromJSON(
+    $generic_parameter = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['alias_generic_parameter'],
       $position,
       $source,
     );
     $position += $generic_parameter->getWidth();
-    $constraint = EditableSyntax::fromJSON(
+    $constraint = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['alias_constraint'],
       $position,
       $source,
     );
     $position += $constraint->getWidth();
-    $equal = EditableSyntax::fromJSON(
+    $equal = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['alias_equal'],
       $position,
       $source,
     );
     $position += $equal->getWidth();
-    $type = EditableSyntax::fromJSON(
+    $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['alias_type'],
       $position,
       $source,
     );
     $position += $type->getWidth();
-    $semicolon = EditableSyntax::fromJSON(
+    $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['alias_semicolon'],
       $position,
       $source,
@@ -106,7 +106,7 @@ final class AliasDeclaration extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'attribute_spec' => $this->_attribute_spec;
     yield 'keyword' => $this->_keyword;
     yield 'name' => $this->_name;
@@ -120,7 +120,7 @@ final class AliasDeclaration extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -157,11 +157,11 @@ final class AliasDeclaration extends EditableSyntax {
     );
   }
 
-  public function getAttributeSpecUNTYPED(): EditableSyntax {
+  public function getAttributeSpecUNTYPED(): EditableNode {
     return $this->_attribute_spec;
   }
 
-  public function withAttributeSpec(EditableSyntax $value): this {
+  public function withAttributeSpec(EditableNode $value): this {
     if ($value === $this->_attribute_spec) {
       return $this;
     }
@@ -204,11 +204,11 @@ final class AliasDeclaration extends EditableSyntax {
     );
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -235,11 +235,11 @@ final class AliasDeclaration extends EditableSyntax {
     return TypeAssert\instance_of(EditableToken::class, $this->_keyword);
   }
 
-  public function getNameUNTYPED(): EditableSyntax {
+  public function getNameUNTYPED(): EditableNode {
     return $this->_name;
   }
 
-  public function withName(EditableSyntax $value): this {
+  public function withName(EditableNode $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -276,11 +276,11 @@ final class AliasDeclaration extends EditableSyntax {
     return TypeAssert\instance_of(NameToken::class, $this->_name);
   }
 
-  public function getGenericParameterUNTYPED(): EditableSyntax {
+  public function getGenericParameterUNTYPED(): EditableNode {
     return $this->_generic_parameter;
   }
 
-  public function withGenericParameter(EditableSyntax $value): this {
+  public function withGenericParameter(EditableNode $value): this {
     if ($value === $this->_generic_parameter) {
       return $this;
     }
@@ -319,11 +319,11 @@ final class AliasDeclaration extends EditableSyntax {
       TypeAssert\instance_of(TypeParameters::class, $this->_generic_parameter);
   }
 
-  public function getConstraintUNTYPED(): EditableSyntax {
+  public function getConstraintUNTYPED(): EditableNode {
     return $this->_constraint;
   }
 
-  public function withConstraint(EditableSyntax $value): this {
+  public function withConstraint(EditableNode $value): this {
     if ($value === $this->_constraint) {
       return $this;
     }
@@ -360,11 +360,11 @@ final class AliasDeclaration extends EditableSyntax {
     return TypeAssert\instance_of(TypeConstraint::class, $this->_constraint);
   }
 
-  public function getEqualUNTYPED(): EditableSyntax {
+  public function getEqualUNTYPED(): EditableNode {
     return $this->_equal;
   }
 
-  public function withEqual(EditableSyntax $value): this {
+  public function withEqual(EditableNode $value): this {
     if ($value === $this->_equal) {
       return $this;
     }
@@ -401,11 +401,11 @@ final class AliasDeclaration extends EditableSyntax {
     return TypeAssert\instance_of(EqualToken::class, $this->_equal);
   }
 
-  public function getTypeUNTYPED(): EditableSyntax {
+  public function getTypeUNTYPED(): EditableNode {
     return $this->_type;
   }
 
-  public function withType(EditableSyntax $value): this {
+  public function withType(EditableNode $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -431,15 +431,15 @@ final class AliasDeclaration extends EditableSyntax {
    * GenericTypeSpecifier | NullableTypeSpecifier | KeysetTypeSpecifier |
    * VectorArrayTypeSpecifier
    */
-  public function getType(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_type);
+  public function getType(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_type);
   }
 
-  public function getSemicolonUNTYPED(): EditableSyntax {
+  public function getSemicolonUNTYPED(): EditableNode {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableSyntax $value): this {
+  public function withSemicolon(EditableNode $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

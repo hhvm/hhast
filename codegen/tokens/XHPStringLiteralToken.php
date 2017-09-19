@@ -2,15 +2,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8709f42f4bafad8147f762fd3701c262>>
+ * @generated SignedSource<<4b4ad7529e4d247abfa3804f15cccfd2>>
  */
 namespace Facebook\HHAST;
 
 final class XHPStringLiteralToken extends EditableToken {
 
   public function __construct(
-    EditableSyntax $leading,
-    EditableSyntax $trailing,
+    EditableNode $leading,
+    EditableNode $trailing,
     string $text,
   ) {
     parent::__construct('XHP_string_literal', $leading, $trailing, $text);
@@ -21,7 +21,7 @@ final class XHPStringLiteralToken extends EditableToken {
   }
 
   <<__Override>>
-  public function withLeading(EditableSyntax $value): this {
+  public function withLeading(EditableNode $value): this {
     if ($value === $this->getLeading()) {
       return $this;
     }
@@ -33,7 +33,7 @@ final class XHPStringLiteralToken extends EditableToken {
   }
 
   <<__Override>>
-  public function withTrailing(EditableSyntax $value): this {
+  public function withTrailing(EditableNode $value): this {
     if ($value === $this->getTrailing()) {
       return $this;
     }
@@ -50,7 +50,7 @@ final class XHPStringLiteralToken extends EditableToken {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

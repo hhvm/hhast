@@ -2,21 +2,21 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<be3eaf7f637968692360ae91e3cb2c61>>
+ * @generated SignedSource<<dffccb6bb083ee1cd2b0f5d067a4bdb5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class NamespaceDeclaration extends EditableSyntax {
+final class NamespaceDeclaration extends EditableNode {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_name;
-  private EditableSyntax $_body;
+  private EditableNode $_keyword;
+  private EditableNode $_name;
+  private EditableNode $_body;
 
   public function __construct(
-    EditableSyntax $keyword,
-    EditableSyntax $name,
-    EditableSyntax $body,
+    EditableNode $keyword,
+    EditableNode $name,
+    EditableNode $body,
   ) {
     parent::__construct('namespace_declaration');
     $this->_keyword = $keyword;
@@ -30,19 +30,19 @@ final class NamespaceDeclaration extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $name = EditableSyntax::fromJSON(
+    $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_name'],
       $position,
       $source,
     );
     $position += $name->getWidth();
-    $body = EditableSyntax::fromJSON(
+    $body = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_body'],
       $position,
       $source,
@@ -52,7 +52,7 @@ final class NamespaceDeclaration extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'name' => $this->_name;
     yield 'body' => $this->_body;
@@ -61,7 +61,7 @@ final class NamespaceDeclaration extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -78,11 +78,11 @@ final class NamespaceDeclaration extends EditableSyntax {
     return new self($keyword, $name, $body);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -100,11 +100,11 @@ final class NamespaceDeclaration extends EditableSyntax {
     return TypeAssert\instance_of(NamespaceToken::class, $this->_keyword);
   }
 
-  public function getNameUNTYPED(): EditableSyntax {
+  public function getNameUNTYPED(): EditableNode {
     return $this->_name;
   }
 
-  public function withName(EditableSyntax $value): this {
+  public function withName(EditableNode $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -134,11 +134,11 @@ final class NamespaceDeclaration extends EditableSyntax {
     return TypeAssert\instance_of(EditableToken::class, $this->_name);
   }
 
-  public function getBodyUNTYPED(): EditableSyntax {
+  public function getBodyUNTYPED(): EditableNode {
     return $this->_body;
   }
 
-  public function withBody(EditableSyntax $value): this {
+  public function withBody(EditableNode $value): this {
     if ($value === $this->_body) {
       return $this;
     }
@@ -152,7 +152,7 @@ final class NamespaceDeclaration extends EditableSyntax {
   /**
    * @returns NamespaceBody | NamespaceEmptyBody
    */
-  public function getBody(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_body);
+  public function getBody(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_body);
   }
 }

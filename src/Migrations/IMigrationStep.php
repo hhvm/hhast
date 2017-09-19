@@ -12,9 +12,9 @@
 
 namespace Facebook\HHAST\Migrations;
 
-use type Facebook\HHAST\EditableSyntax;
+use type Facebook\HHAST\EditableNode;
 
 interface IMigrationStep {
   public function getName(): string;
-  public function rewrite(EditableSyntax $in): EditableSyntax;
+  public function rewrite(EditableNode $in): EditableNode;
 }

@@ -2,27 +2,27 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a4101d2d3f97d920fcdd9694f224b02b>>
+ * @generated SignedSource<<1875ddb04941c026d31077facf6db220>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class MapArrayTypeSpecifier extends EditableSyntax {
+final class MapArrayTypeSpecifier extends EditableNode {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_left_angle;
-  private EditableSyntax $_key;
-  private EditableSyntax $_comma;
-  private EditableSyntax $_value;
-  private EditableSyntax $_right_angle;
+  private EditableNode $_keyword;
+  private EditableNode $_left_angle;
+  private EditableNode $_key;
+  private EditableNode $_comma;
+  private EditableNode $_value;
+  private EditableNode $_right_angle;
 
   public function __construct(
-    EditableSyntax $keyword,
-    EditableSyntax $left_angle,
-    EditableSyntax $key,
-    EditableSyntax $comma,
-    EditableSyntax $value,
-    EditableSyntax $right_angle,
+    EditableNode $keyword,
+    EditableNode $left_angle,
+    EditableNode $key,
+    EditableNode $comma,
+    EditableNode $value,
+    EditableNode $right_angle,
   ) {
     parent::__construct('map_array_type_specifier');
     $this->_keyword = $keyword;
@@ -39,37 +39,37 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['map_array_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_angle = EditableSyntax::fromJSON(
+    $left_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['map_array_left_angle'],
       $position,
       $source,
     );
     $position += $left_angle->getWidth();
-    $key = EditableSyntax::fromJSON(
+    $key = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['map_array_key'],
       $position,
       $source,
     );
     $position += $key->getWidth();
-    $comma = EditableSyntax::fromJSON(
+    $comma = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['map_array_comma'],
       $position,
       $source,
     );
     $position += $comma->getWidth();
-    $value = EditableSyntax::fromJSON(
+    $value = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['map_array_value'],
       $position,
       $source,
     );
     $position += $value->getWidth();
-    $right_angle = EditableSyntax::fromJSON(
+    $right_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['map_array_right_angle'],
       $position,
       $source,
@@ -79,7 +79,7 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'left_angle' => $this->_left_angle;
     yield 'key' => $this->_key;
@@ -91,7 +91,7 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -114,11 +114,11 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     return new self($keyword, $left_angle, $key, $comma, $value, $right_angle);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -143,11 +143,11 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     return TypeAssert\instance_of(ArrayToken::class, $this->_keyword);
   }
 
-  public function getLeftAngleUNTYPED(): EditableSyntax {
+  public function getLeftAngleUNTYPED(): EditableNode {
     return $this->_left_angle;
   }
 
-  public function withLeftAngle(EditableSyntax $value): this {
+  public function withLeftAngle(EditableNode $value): this {
     if ($value === $this->_left_angle) {
       return $this;
     }
@@ -172,11 +172,11 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     return TypeAssert\instance_of(LessThanToken::class, $this->_left_angle);
   }
 
-  public function getKeyUNTYPED(): EditableSyntax {
+  public function getKeyUNTYPED(): EditableNode {
     return $this->_key;
   }
 
-  public function withKey(EditableSyntax $value): this {
+  public function withKey(EditableNode $value): this {
     if ($value === $this->_key) {
       return $this;
     }
@@ -201,11 +201,11 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     return TypeAssert\instance_of(SimpleTypeSpecifier::class, $this->_key);
   }
 
-  public function getCommaUNTYPED(): EditableSyntax {
+  public function getCommaUNTYPED(): EditableNode {
     return $this->_comma;
   }
 
-  public function withComma(EditableSyntax $value): this {
+  public function withComma(EditableNode $value): this {
     if ($value === $this->_comma) {
       return $this;
     }
@@ -230,11 +230,11 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
     return TypeAssert\instance_of(CommaToken::class, $this->_comma);
   }
 
-  public function getValueUNTYPED(): EditableSyntax {
+  public function getValueUNTYPED(): EditableNode {
     return $this->_value;
   }
 
-  public function withValue(EditableSyntax $value): this {
+  public function withValue(EditableNode $value): this {
     if ($value === $this->_value) {
       return $this;
     }
@@ -256,15 +256,15 @@ final class MapArrayTypeSpecifier extends EditableSyntax {
    * @returns SimpleTypeSpecifier | GenericTypeSpecifier |
    * NullableTypeSpecifier | SoftTypeSpecifier
    */
-  public function getValue(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_value);
+  public function getValue(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_value);
   }
 
-  public function getRightAngleUNTYPED(): EditableSyntax {
+  public function getRightAngleUNTYPED(): EditableNode {
     return $this->_right_angle;
   }
 
-  public function withRightAngle(EditableSyntax $value): this {
+  public function withRightAngle(EditableNode $value): this {
     if ($value === $this->_right_angle) {
       return $this;
     }

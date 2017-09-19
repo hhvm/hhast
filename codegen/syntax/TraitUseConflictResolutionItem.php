@@ -2,21 +2,21 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cc65a4669b4c72990b9e3da2367225fb>>
+ * @generated SignedSource<<88548e53de0f51cf46307077005601a6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class TraitUseConflictResolutionItem extends EditableSyntax {
+final class TraitUseConflictResolutionItem extends EditableNode {
 
-  private EditableSyntax $_aliasing_name;
-  private EditableSyntax $_aliasing_keyword;
-  private EditableSyntax $_aliased_names;
+  private EditableNode $_aliasing_name;
+  private EditableNode $_aliasing_keyword;
+  private EditableNode $_aliased_names;
 
   public function __construct(
-    EditableSyntax $aliasing_name,
-    EditableSyntax $aliasing_keyword,
-    EditableSyntax $aliased_names,
+    EditableNode $aliasing_name,
+    EditableNode $aliasing_keyword,
+    EditableNode $aliased_names,
   ) {
     parent::__construct('trait_use_conflict_resolution_item');
     $this->_aliasing_name = $aliasing_name;
@@ -30,7 +30,7 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $aliasing_name = EditableSyntax::fromJSON(
+    $aliasing_name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json[
         'trait_use_conflict_resolution_item_aliasing_name'
       ],
@@ -38,7 +38,7 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
       $source,
     );
     $position += $aliasing_name->getWidth();
-    $aliasing_keyword = EditableSyntax::fromJSON(
+    $aliasing_keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json[
         'trait_use_conflict_resolution_item_aliasing_keyword'
       ],
@@ -46,7 +46,7 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
       $source,
     );
     $position += $aliasing_keyword->getWidth();
-    $aliased_names = EditableSyntax::fromJSON(
+    $aliased_names = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json[
         'trait_use_conflict_resolution_item_aliased_names'
       ],
@@ -58,7 +58,7 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'aliasing_name' => $this->_aliasing_name;
     yield 'aliasing_keyword' => $this->_aliasing_keyword;
     yield 'aliased_names' => $this->_aliased_names;
@@ -67,7 +67,7 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -84,11 +84,11 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
     return new self($aliasing_name, $aliasing_keyword, $aliased_names);
   }
 
-  public function getAliasingNameUNTYPED(): EditableSyntax {
+  public function getAliasingNameUNTYPED(): EditableNode {
     return $this->_aliasing_name;
   }
 
-  public function withAliasingName(EditableSyntax $value): this {
+  public function withAliasingName(EditableNode $value): this {
     if ($value === $this->_aliasing_name) {
       return $this;
     }
@@ -102,15 +102,15 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
   /**
    * @returns SimpleTypeSpecifier | ScopeResolutionExpression
    */
-  public function getAliasingName(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_aliasing_name);
+  public function getAliasingName(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_aliasing_name);
   }
 
-  public function getAliasingKeywordUNTYPED(): EditableSyntax {
+  public function getAliasingKeywordUNTYPED(): EditableNode {
     return $this->_aliasing_keyword;
   }
 
-  public function withAliasingKeyword(EditableSyntax $value): this {
+  public function withAliasingKeyword(EditableNode $value): this {
     if ($value === $this->_aliasing_keyword) {
       return $this;
     }
@@ -129,11 +129,11 @@ final class TraitUseConflictResolutionItem extends EditableSyntax {
       TypeAssert\instance_of(EditableToken::class, $this->_aliasing_keyword);
   }
 
-  public function getAliasedNamesUNTYPED(): EditableSyntax {
+  public function getAliasedNamesUNTYPED(): EditableNode {
     return $this->_aliased_names;
   }
 
-  public function withAliasedNames(EditableSyntax $value): this {
+  public function withAliasedNames(EditableNode $value): this {
     if ($value === $this->_aliased_names) {
       return $this;
     }

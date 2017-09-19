@@ -2,23 +2,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3ec40c9200bba3ca277b819f3b6ff4f5>>
+ * @generated SignedSource<<1576953644d7100c917d49b6a8705fb5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class PropertyDeclaration extends EditableSyntax {
+final class PropertyDeclaration extends EditableNode {
 
-  private EditableSyntax $_modifiers;
-  private EditableSyntax $_type;
-  private EditableSyntax $_declarators;
-  private EditableSyntax $_semicolon;
+  private EditableNode $_modifiers;
+  private EditableNode $_type;
+  private EditableNode $_declarators;
+  private EditableNode $_semicolon;
 
   public function __construct(
-    EditableSyntax $modifiers,
-    EditableSyntax $type,
-    EditableSyntax $declarators,
-    EditableSyntax $semicolon,
+    EditableNode $modifiers,
+    EditableNode $type,
+    EditableNode $declarators,
+    EditableNode $semicolon,
   ) {
     parent::__construct('property_declaration');
     $this->_modifiers = $modifiers;
@@ -33,25 +33,25 @@ final class PropertyDeclaration extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $modifiers = EditableSyntax::fromJSON(
+    $modifiers = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['property_modifiers'],
       $position,
       $source,
     );
     $position += $modifiers->getWidth();
-    $type = EditableSyntax::fromJSON(
+    $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['property_type'],
       $position,
       $source,
     );
     $position += $type->getWidth();
-    $declarators = EditableSyntax::fromJSON(
+    $declarators = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['property_declarators'],
       $position,
       $source,
     );
     $position += $declarators->getWidth();
-    $semicolon = EditableSyntax::fromJSON(
+    $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['property_semicolon'],
       $position,
       $source,
@@ -61,7 +61,7 @@ final class PropertyDeclaration extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'modifiers' => $this->_modifiers;
     yield 'type' => $this->_type;
     yield 'declarators' => $this->_declarators;
@@ -71,7 +71,7 @@ final class PropertyDeclaration extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -90,11 +90,11 @@ final class PropertyDeclaration extends EditableSyntax {
     return new self($modifiers, $type, $declarators, $semicolon);
   }
 
-  public function getModifiersUNTYPED(): EditableSyntax {
+  public function getModifiersUNTYPED(): EditableNode {
     return $this->_modifiers;
   }
 
-  public function withModifiers(EditableSyntax $value): this {
+  public function withModifiers(EditableNode $value): this {
     if ($value === $this->_modifiers) {
       return $this;
     }
@@ -109,15 +109,15 @@ final class PropertyDeclaration extends EditableSyntax {
   /**
    * @returns EditableList | VarToken
    */
-  public function getModifiers(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_modifiers);
+  public function getModifiers(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_modifiers);
   }
 
-  public function getTypeUNTYPED(): EditableSyntax {
+  public function getTypeUNTYPED(): EditableNode {
     return $this->_type;
   }
 
-  public function withType(EditableSyntax $value): this {
+  public function withType(EditableNode $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -139,15 +139,15 @@ final class PropertyDeclaration extends EditableSyntax {
    * MapArrayTypeSpecifier | VectorArrayTypeSpecifier | SoftTypeSpecifier |
    * TupleTypeSpecifier | ClosureTypeSpecifier
    */
-  public function getType(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_type);
+  public function getType(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_type);
   }
 
-  public function getDeclaratorsUNTYPED(): EditableSyntax {
+  public function getDeclaratorsUNTYPED(): EditableNode {
     return $this->_declarators;
   }
 
-  public function withDeclarators(EditableSyntax $value): this {
+  public function withDeclarators(EditableNode $value): this {
     if ($value === $this->_declarators) {
       return $this;
     }
@@ -165,11 +165,11 @@ final class PropertyDeclaration extends EditableSyntax {
     return TypeAssert\instance_of(EditableList::class, $this->_declarators);
   }
 
-  public function getSemicolonUNTYPED(): EditableSyntax {
+  public function getSemicolonUNTYPED(): EditableNode {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableSyntax $value): this {
+  public function withSemicolon(EditableNode $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

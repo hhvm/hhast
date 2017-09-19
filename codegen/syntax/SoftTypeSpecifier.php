@@ -2,17 +2,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0bfc53038313b1ecf0301ec1de80bfd1>>
+ * @generated SignedSource<<9bb9646a9f1ef42a94ed12a563c2c216>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class SoftTypeSpecifier extends EditableSyntax {
+final class SoftTypeSpecifier extends EditableNode {
 
-  private EditableSyntax $_at;
-  private EditableSyntax $_type;
+  private EditableNode $_at;
+  private EditableNode $_type;
 
-  public function __construct(EditableSyntax $at, EditableSyntax $type) {
+  public function __construct(EditableNode $at, EditableNode $type) {
     parent::__construct('soft_type_specifier');
     $this->_at = $at;
     $this->_type = $type;
@@ -24,13 +24,13 @@ final class SoftTypeSpecifier extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $at = EditableSyntax::fromJSON(
+    $at = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['soft_at'],
       $position,
       $source,
     );
     $position += $at->getWidth();
-    $type = EditableSyntax::fromJSON(
+    $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['soft_type'],
       $position,
       $source,
@@ -40,7 +40,7 @@ final class SoftTypeSpecifier extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'at' => $this->_at;
     yield 'type' => $this->_type;
   }
@@ -48,7 +48,7 @@ final class SoftTypeSpecifier extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -60,11 +60,11 @@ final class SoftTypeSpecifier extends EditableSyntax {
     return new self($at, $type);
   }
 
-  public function getAtUNTYPED(): EditableSyntax {
+  public function getAtUNTYPED(): EditableNode {
     return $this->_at;
   }
 
-  public function withAt(EditableSyntax $value): this {
+  public function withAt(EditableNode $value): this {
     if ($value === $this->_at) {
       return $this;
     }
@@ -82,11 +82,11 @@ final class SoftTypeSpecifier extends EditableSyntax {
     return TypeAssert\instance_of(AtToken::class, $this->_at);
   }
 
-  public function getTypeUNTYPED(): EditableSyntax {
+  public function getTypeUNTYPED(): EditableNode {
     return $this->_type;
   }
 
-  public function withType(EditableSyntax $value): this {
+  public function withType(EditableNode $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -102,7 +102,7 @@ final class SoftTypeSpecifier extends EditableSyntax {
    * NullableTypeSpecifier | TupleTypeSpecifier | ClosureTypeSpecifier |
    * MapArrayTypeSpecifier
    */
-  public function getType(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_type);
+  public function getType(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_type);
   }
 }

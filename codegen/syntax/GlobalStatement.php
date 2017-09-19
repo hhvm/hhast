@@ -2,21 +2,21 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ae51004043c6ebfc01452d54b2bba440>>
+ * @generated SignedSource<<0f380bfdcf8ba5fcc2dbd084381be3e4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class GlobalStatement extends EditableSyntax {
+final class GlobalStatement extends EditableNode {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_variables;
-  private EditableSyntax $_semicolon;
+  private EditableNode $_keyword;
+  private EditableNode $_variables;
+  private EditableNode $_semicolon;
 
   public function __construct(
-    EditableSyntax $keyword,
-    EditableSyntax $variables,
-    EditableSyntax $semicolon,
+    EditableNode $keyword,
+    EditableNode $variables,
+    EditableNode $semicolon,
   ) {
     parent::__construct('global_statement');
     $this->_keyword = $keyword;
@@ -30,19 +30,19 @@ final class GlobalStatement extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['global_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $variables = EditableSyntax::fromJSON(
+    $variables = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['global_variables'],
       $position,
       $source,
     );
     $position += $variables->getWidth();
-    $semicolon = EditableSyntax::fromJSON(
+    $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['global_semicolon'],
       $position,
       $source,
@@ -52,7 +52,7 @@ final class GlobalStatement extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'variables' => $this->_variables;
     yield 'semicolon' => $this->_semicolon;
@@ -61,7 +61,7 @@ final class GlobalStatement extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -78,11 +78,11 @@ final class GlobalStatement extends EditableSyntax {
     return new self($keyword, $variables, $semicolon);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -100,11 +100,11 @@ final class GlobalStatement extends EditableSyntax {
     return TypeAssert\instance_of(GlobalToken::class, $this->_keyword);
   }
 
-  public function getVariablesUNTYPED(): EditableSyntax {
+  public function getVariablesUNTYPED(): EditableNode {
     return $this->_variables;
   }
 
-  public function withVariables(EditableSyntax $value): this {
+  public function withVariables(EditableNode $value): this {
     if ($value === $this->_variables) {
       return $this;
     }
@@ -122,11 +122,11 @@ final class GlobalStatement extends EditableSyntax {
     return TypeAssert\instance_of(EditableList::class, $this->_variables);
   }
 
-  public function getSemicolonUNTYPED(): EditableSyntax {
+  public function getSemicolonUNTYPED(): EditableNode {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableSyntax $value): this {
+  public function withSemicolon(EditableNode $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

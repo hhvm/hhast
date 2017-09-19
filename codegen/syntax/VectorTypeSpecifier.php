@@ -2,25 +2,25 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<807148c4eadce7d9434e134f13542b44>>
+ * @generated SignedSource<<49f77aae0c1819ce32d3473dc340d6ed>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class VectorTypeSpecifier extends EditableSyntax {
+final class VectorTypeSpecifier extends EditableNode {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_left_angle;
-  private EditableSyntax $_type;
-  private EditableSyntax $_trailing_comma;
-  private EditableSyntax $_right_angle;
+  private EditableNode $_keyword;
+  private EditableNode $_left_angle;
+  private EditableNode $_type;
+  private EditableNode $_trailing_comma;
+  private EditableNode $_right_angle;
 
   public function __construct(
-    EditableSyntax $keyword,
-    EditableSyntax $left_angle,
-    EditableSyntax $type,
-    EditableSyntax $trailing_comma,
-    EditableSyntax $right_angle,
+    EditableNode $keyword,
+    EditableNode $left_angle,
+    EditableNode $type,
+    EditableNode $trailing_comma,
+    EditableNode $right_angle,
   ) {
     parent::__construct('vector_type_specifier');
     $this->_keyword = $keyword;
@@ -36,31 +36,31 @@ final class VectorTypeSpecifier extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['vector_type_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_angle = EditableSyntax::fromJSON(
+    $left_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['vector_type_left_angle'],
       $position,
       $source,
     );
     $position += $left_angle->getWidth();
-    $type = EditableSyntax::fromJSON(
+    $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['vector_type_type'],
       $position,
       $source,
     );
     $position += $type->getWidth();
-    $trailing_comma = EditableSyntax::fromJSON(
+    $trailing_comma = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['vector_type_trailing_comma'],
       $position,
       $source,
     );
     $position += $trailing_comma->getWidth();
-    $right_angle = EditableSyntax::fromJSON(
+    $right_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['vector_type_right_angle'],
       $position,
       $source,
@@ -71,7 +71,7 @@ final class VectorTypeSpecifier extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'left_angle' => $this->_left_angle;
     yield 'type' => $this->_type;
@@ -82,7 +82,7 @@ final class VectorTypeSpecifier extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -104,11 +104,11 @@ final class VectorTypeSpecifier extends EditableSyntax {
       new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -132,11 +132,11 @@ final class VectorTypeSpecifier extends EditableSyntax {
     return TypeAssert\instance_of(VecToken::class, $this->_keyword);
   }
 
-  public function getLeftAngleUNTYPED(): EditableSyntax {
+  public function getLeftAngleUNTYPED(): EditableNode {
     return $this->_left_angle;
   }
 
-  public function withLeftAngle(EditableSyntax $value): this {
+  public function withLeftAngle(EditableNode $value): this {
     if ($value === $this->_left_angle) {
       return $this;
     }
@@ -160,11 +160,11 @@ final class VectorTypeSpecifier extends EditableSyntax {
     return TypeAssert\instance_of(LessThanToken::class, $this->_left_angle);
   }
 
-  public function getTypeUNTYPED(): EditableSyntax {
+  public function getTypeUNTYPED(): EditableNode {
     return $this->_type;
   }
 
-  public function withType(EditableSyntax $value): this {
+  public function withType(EditableNode $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -184,15 +184,15 @@ final class VectorTypeSpecifier extends EditableSyntax {
   /**
    * @returns SimpleTypeSpecifier | VectorTypeSpecifier
    */
-  public function getType(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_type);
+  public function getType(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_type);
   }
 
-  public function getTrailingCommaUNTYPED(): EditableSyntax {
+  public function getTrailingCommaUNTYPED(): EditableNode {
     return $this->_trailing_comma;
   }
 
-  public function withTrailingComma(EditableSyntax $value): this {
+  public function withTrailingComma(EditableNode $value): this {
     if ($value === $this->_trailing_comma) {
       return $this;
     }
@@ -212,16 +212,15 @@ final class VectorTypeSpecifier extends EditableSyntax {
   /**
    * @returns Missing
    */
-  public function getTrailingComma(): EditableSyntax {
-    return
-      TypeAssert\instance_of(EditableSyntax::class, $this->_trailing_comma);
+  public function getTrailingComma(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_trailing_comma);
   }
 
-  public function getRightAngleUNTYPED(): EditableSyntax {
+  public function getRightAngleUNTYPED(): EditableNode {
     return $this->_right_angle;
   }
 
-  public function withRightAngle(EditableSyntax $value): this {
+  public function withRightAngle(EditableNode $value): this {
     if ($value === $this->_right_angle) {
       return $this;
     }

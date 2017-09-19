@@ -2,23 +2,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7adff22c78b5d9d7bcade885a92ea4a2>>
+ * @generated SignedSource<<a06580a53ada5ebc1bfca6178238a890>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class TryStatement extends EditableSyntax {
+final class TryStatement extends EditableNode {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_compound_statement;
-  private EditableSyntax $_catch_clauses;
-  private EditableSyntax $_finally_clause;
+  private EditableNode $_keyword;
+  private EditableNode $_compound_statement;
+  private EditableNode $_catch_clauses;
+  private EditableNode $_finally_clause;
 
   public function __construct(
-    EditableSyntax $keyword,
-    EditableSyntax $compound_statement,
-    EditableSyntax $catch_clauses,
-    EditableSyntax $finally_clause,
+    EditableNode $keyword,
+    EditableNode $compound_statement,
+    EditableNode $catch_clauses,
+    EditableNode $finally_clause,
   ) {
     parent::__construct('try_statement');
     $this->_keyword = $keyword;
@@ -33,25 +33,25 @@ final class TryStatement extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['try_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $compound_statement = EditableSyntax::fromJSON(
+    $compound_statement = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['try_compound_statement'],
       $position,
       $source,
     );
     $position += $compound_statement->getWidth();
-    $catch_clauses = EditableSyntax::fromJSON(
+    $catch_clauses = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['try_catch_clauses'],
       $position,
       $source,
     );
     $position += $catch_clauses->getWidth();
-    $finally_clause = EditableSyntax::fromJSON(
+    $finally_clause = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['try_finally_clause'],
       $position,
       $source,
@@ -62,7 +62,7 @@ final class TryStatement extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'compound_statement' => $this->_compound_statement;
     yield 'catch_clauses' => $this->_catch_clauses;
@@ -72,7 +72,7 @@ final class TryStatement extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -93,11 +93,11 @@ final class TryStatement extends EditableSyntax {
       new self($keyword, $compound_statement, $catch_clauses, $finally_clause);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -120,11 +120,11 @@ final class TryStatement extends EditableSyntax {
     return TypeAssert\instance_of(TryToken::class, $this->_keyword);
   }
 
-  public function getCompoundStatementUNTYPED(): EditableSyntax {
+  public function getCompoundStatementUNTYPED(): EditableNode {
     return $this->_compound_statement;
   }
 
-  public function withCompoundStatement(EditableSyntax $value): this {
+  public function withCompoundStatement(EditableNode $value): this {
     if ($value === $this->_compound_statement) {
       return $this;
     }
@@ -150,11 +150,11 @@ final class TryStatement extends EditableSyntax {
     );
   }
 
-  public function getCatchClausesUNTYPED(): EditableSyntax {
+  public function getCatchClausesUNTYPED(): EditableNode {
     return $this->_catch_clauses;
   }
 
-  public function withCatchClauses(EditableSyntax $value): this {
+  public function withCatchClauses(EditableNode $value): this {
     if ($value === $this->_catch_clauses) {
       return $this;
     }
@@ -187,11 +187,11 @@ final class TryStatement extends EditableSyntax {
     return TypeAssert\instance_of(EditableList::class, $this->_catch_clauses);
   }
 
-  public function getFinallyClauseUNTYPED(): EditableSyntax {
+  public function getFinallyClauseUNTYPED(): EditableNode {
     return $this->_finally_clause;
   }
 
-  public function withFinallyClause(EditableSyntax $value): this {
+  public function withFinallyClause(EditableNode $value): this {
     if ($value === $this->_finally_clause) {
       return $this;
     }

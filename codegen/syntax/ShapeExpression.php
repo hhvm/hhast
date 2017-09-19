@@ -2,23 +2,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0d489d018067c1d8803156ce9456023c>>
+ * @generated SignedSource<<7ca29272d4145edc2b5c33744774bc7c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class ShapeExpression extends EditableSyntax {
+final class ShapeExpression extends EditableNode {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_left_paren;
-  private EditableSyntax $_fields;
-  private EditableSyntax $_right_paren;
+  private EditableNode $_keyword;
+  private EditableNode $_left_paren;
+  private EditableNode $_fields;
+  private EditableNode $_right_paren;
 
   public function __construct(
-    EditableSyntax $keyword,
-    EditableSyntax $left_paren,
-    EditableSyntax $fields,
-    EditableSyntax $right_paren,
+    EditableNode $keyword,
+    EditableNode $left_paren,
+    EditableNode $fields,
+    EditableNode $right_paren,
   ) {
     parent::__construct('shape_expression');
     $this->_keyword = $keyword;
@@ -33,25 +33,25 @@ final class ShapeExpression extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['shape_expression_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_paren = EditableSyntax::fromJSON(
+    $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['shape_expression_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $fields = EditableSyntax::fromJSON(
+    $fields = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['shape_expression_fields'],
       $position,
       $source,
     );
     $position += $fields->getWidth();
-    $right_paren = EditableSyntax::fromJSON(
+    $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['shape_expression_right_paren'],
       $position,
       $source,
@@ -61,7 +61,7 @@ final class ShapeExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'left_paren' => $this->_left_paren;
     yield 'fields' => $this->_fields;
@@ -71,7 +71,7 @@ final class ShapeExpression extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -90,11 +90,11 @@ final class ShapeExpression extends EditableSyntax {
     return new self($keyword, $left_paren, $fields, $right_paren);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -113,11 +113,11 @@ final class ShapeExpression extends EditableSyntax {
     return TypeAssert\instance_of(ShapeToken::class, $this->_keyword);
   }
 
-  public function getLeftParenUNTYPED(): EditableSyntax {
+  public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableSyntax $value): this {
+  public function withLeftParen(EditableNode $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -136,11 +136,11 @@ final class ShapeExpression extends EditableSyntax {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
-  public function getFieldsUNTYPED(): EditableSyntax {
+  public function getFieldsUNTYPED(): EditableNode {
     return $this->_fields;
   }
 
-  public function withFields(EditableSyntax $value): this {
+  public function withFields(EditableNode $value): this {
     if ($value === $this->_fields) {
       return $this;
     }
@@ -173,11 +173,11 @@ final class ShapeExpression extends EditableSyntax {
     return TypeAssert\instance_of(EditableList::class, $this->_fields);
   }
 
-  public function getRightParenUNTYPED(): EditableSyntax {
+  public function getRightParenUNTYPED(): EditableNode {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableSyntax $value): this {
+  public function withRightParen(EditableNode $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }

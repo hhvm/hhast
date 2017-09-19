@@ -2,21 +2,21 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0d3aa24811ffa49c338b4799501902af>>
+ * @generated SignedSource<<06a60674130edf89cd35c2a0e4f1581f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class TraitUse extends EditableSyntax {
+final class TraitUse extends EditableNode {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_names;
-  private EditableSyntax $_semicolon;
+  private EditableNode $_keyword;
+  private EditableNode $_names;
+  private EditableNode $_semicolon;
 
   public function __construct(
-    EditableSyntax $keyword,
-    EditableSyntax $names,
-    EditableSyntax $semicolon,
+    EditableNode $keyword,
+    EditableNode $names,
+    EditableNode $semicolon,
   ) {
     parent::__construct('trait_use');
     $this->_keyword = $keyword;
@@ -30,19 +30,19 @@ final class TraitUse extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['trait_use_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $names = EditableSyntax::fromJSON(
+    $names = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['trait_use_names'],
       $position,
       $source,
     );
     $position += $names->getWidth();
-    $semicolon = EditableSyntax::fromJSON(
+    $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['trait_use_semicolon'],
       $position,
       $source,
@@ -52,7 +52,7 @@ final class TraitUse extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'names' => $this->_names;
     yield 'semicolon' => $this->_semicolon;
@@ -61,7 +61,7 @@ final class TraitUse extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -78,11 +78,11 @@ final class TraitUse extends EditableSyntax {
     return new self($keyword, $names, $semicolon);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -100,11 +100,11 @@ final class TraitUse extends EditableSyntax {
     return TypeAssert\instance_of(UseToken::class, $this->_keyword);
   }
 
-  public function getNamesUNTYPED(): EditableSyntax {
+  public function getNamesUNTYPED(): EditableNode {
     return $this->_names;
   }
 
-  public function withNames(EditableSyntax $value): this {
+  public function withNames(EditableNode $value): this {
     if ($value === $this->_names) {
       return $this;
     }
@@ -122,11 +122,11 @@ final class TraitUse extends EditableSyntax {
     return TypeAssert\instance_of(EditableList::class, $this->_names);
   }
 
-  public function getSemicolonUNTYPED(): EditableSyntax {
+  public function getSemicolonUNTYPED(): EditableNode {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableSyntax $value): this {
+  public function withSemicolon(EditableNode $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

@@ -2,21 +2,21 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<37e827c27ade3a36647cf29aa0d79f98>>
+ * @generated SignedSource<<2c0e481a1e1ef858065ccee01511e9f1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class TypeParameters extends EditableSyntax {
+final class TypeParameters extends EditableNode {
 
-  private EditableSyntax $_left_angle;
-  private EditableSyntax $_parameters;
-  private EditableSyntax $_right_angle;
+  private EditableNode $_left_angle;
+  private EditableNode $_parameters;
+  private EditableNode $_right_angle;
 
   public function __construct(
-    EditableSyntax $left_angle,
-    EditableSyntax $parameters,
-    EditableSyntax $right_angle,
+    EditableNode $left_angle,
+    EditableNode $parameters,
+    EditableNode $right_angle,
   ) {
     parent::__construct('type_parameters');
     $this->_left_angle = $left_angle;
@@ -30,19 +30,19 @@ final class TypeParameters extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $left_angle = EditableSyntax::fromJSON(
+    $left_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_parameters_left_angle'],
       $position,
       $source,
     );
     $position += $left_angle->getWidth();
-    $parameters = EditableSyntax::fromJSON(
+    $parameters = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_parameters_parameters'],
       $position,
       $source,
     );
     $position += $parameters->getWidth();
-    $right_angle = EditableSyntax::fromJSON(
+    $right_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_parameters_right_angle'],
       $position,
       $source,
@@ -52,7 +52,7 @@ final class TypeParameters extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'left_angle' => $this->_left_angle;
     yield 'parameters' => $this->_parameters;
     yield 'right_angle' => $this->_right_angle;
@@ -61,7 +61,7 @@ final class TypeParameters extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -78,11 +78,11 @@ final class TypeParameters extends EditableSyntax {
     return new self($left_angle, $parameters, $right_angle);
   }
 
-  public function getLeftAngleUNTYPED(): EditableSyntax {
+  public function getLeftAngleUNTYPED(): EditableNode {
     return $this->_left_angle;
   }
 
-  public function withLeftAngle(EditableSyntax $value): this {
+  public function withLeftAngle(EditableNode $value): this {
     if ($value === $this->_left_angle) {
       return $this;
     }
@@ -100,11 +100,11 @@ final class TypeParameters extends EditableSyntax {
     return TypeAssert\instance_of(LessThanToken::class, $this->_left_angle);
   }
 
-  public function getParametersUNTYPED(): EditableSyntax {
+  public function getParametersUNTYPED(): EditableNode {
     return $this->_parameters;
   }
 
-  public function withParameters(EditableSyntax $value): this {
+  public function withParameters(EditableNode $value): this {
     if ($value === $this->_parameters) {
       return $this;
     }
@@ -122,11 +122,11 @@ final class TypeParameters extends EditableSyntax {
     return TypeAssert\instance_of(EditableList::class, $this->_parameters);
   }
 
-  public function getRightAngleUNTYPED(): EditableSyntax {
+  public function getRightAngleUNTYPED(): EditableNode {
     return $this->_right_angle;
   }
 
-  public function withRightAngle(EditableSyntax $value): this {
+  public function withRightAngle(EditableNode $value): this {
     if ($value === $this->_right_angle) {
       return $this;
     }

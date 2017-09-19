@@ -2,39 +2,39 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<974dc78423f126d1b44643547c101f1f>>
+ * @generated SignedSource<<71c8b1c9ada737529216bac7f026953b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class FunctionDeclarationHeader extends EditableSyntax {
+final class FunctionDeclarationHeader extends EditableNode {
 
-  private EditableSyntax $_async;
-  private EditableSyntax $_coroutine;
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_ampersand;
-  private EditableSyntax $_name;
-  private EditableSyntax $_type_parameter_list;
-  private EditableSyntax $_left_paren;
-  private EditableSyntax $_parameter_list;
-  private EditableSyntax $_right_paren;
-  private EditableSyntax $_colon;
-  private EditableSyntax $_type;
-  private EditableSyntax $_where_clause;
+  private EditableNode $_async;
+  private EditableNode $_coroutine;
+  private EditableNode $_keyword;
+  private EditableNode $_ampersand;
+  private EditableNode $_name;
+  private EditableNode $_type_parameter_list;
+  private EditableNode $_left_paren;
+  private EditableNode $_parameter_list;
+  private EditableNode $_right_paren;
+  private EditableNode $_colon;
+  private EditableNode $_type;
+  private EditableNode $_where_clause;
 
   public function __construct(
-    EditableSyntax $async,
-    EditableSyntax $coroutine,
-    EditableSyntax $keyword,
-    EditableSyntax $ampersand,
-    EditableSyntax $name,
-    EditableSyntax $type_parameter_list,
-    EditableSyntax $left_paren,
-    EditableSyntax $parameter_list,
-    EditableSyntax $right_paren,
-    EditableSyntax $colon,
-    EditableSyntax $type,
-    EditableSyntax $where_clause,
+    EditableNode $async,
+    EditableNode $coroutine,
+    EditableNode $keyword,
+    EditableNode $ampersand,
+    EditableNode $name,
+    EditableNode $type_parameter_list,
+    EditableNode $left_paren,
+    EditableNode $parameter_list,
+    EditableNode $right_paren,
+    EditableNode $colon,
+    EditableNode $type,
+    EditableNode $where_clause,
   ) {
     parent::__construct('function_declaration_header');
     $this->_async = $async;
@@ -57,73 +57,73 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $async = EditableSyntax::fromJSON(
+    $async = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_async'],
       $position,
       $source,
     );
     $position += $async->getWidth();
-    $coroutine = EditableSyntax::fromJSON(
+    $coroutine = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_coroutine'],
       $position,
       $source,
     );
     $position += $coroutine->getWidth();
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $ampersand = EditableSyntax::fromJSON(
+    $ampersand = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_ampersand'],
       $position,
       $source,
     );
     $position += $ampersand->getWidth();
-    $name = EditableSyntax::fromJSON(
+    $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_name'],
       $position,
       $source,
     );
     $position += $name->getWidth();
-    $type_parameter_list = EditableSyntax::fromJSON(
+    $type_parameter_list = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_type_parameter_list'],
       $position,
       $source,
     );
     $position += $type_parameter_list->getWidth();
-    $left_paren = EditableSyntax::fromJSON(
+    $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $parameter_list = EditableSyntax::fromJSON(
+    $parameter_list = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_parameter_list'],
       $position,
       $source,
     );
     $position += $parameter_list->getWidth();
-    $right_paren = EditableSyntax::fromJSON(
+    $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_right_paren'],
       $position,
       $source,
     );
     $position += $right_paren->getWidth();
-    $colon = EditableSyntax::fromJSON(
+    $colon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_colon'],
       $position,
       $source,
     );
     $position += $colon->getWidth();
-    $type = EditableSyntax::fromJSON(
+    $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_type'],
       $position,
       $source,
     );
     $position += $type->getWidth();
-    $where_clause = EditableSyntax::fromJSON(
+    $where_clause = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_where_clause'],
       $position,
       $source,
@@ -146,7 +146,7 @@ final class FunctionDeclarationHeader extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'async' => $this->_async;
     yield 'coroutine' => $this->_coroutine;
     yield 'keyword' => $this->_keyword;
@@ -164,7 +164,7 @@ final class FunctionDeclarationHeader extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -213,11 +213,11 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     );
   }
 
-  public function getAsyncUNTYPED(): EditableSyntax {
+  public function getAsyncUNTYPED(): EditableNode {
     return $this->_async;
   }
 
-  public function withAsync(EditableSyntax $value): this {
+  public function withAsync(EditableNode $value): this {
     if ($value === $this->_async) {
       return $this;
     }
@@ -258,11 +258,11 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     return TypeAssert\instance_of(AsyncToken::class, $this->_async);
   }
 
-  public function getCoroutineUNTYPED(): EditableSyntax {
+  public function getCoroutineUNTYPED(): EditableNode {
     return $this->_coroutine;
   }
 
-  public function withCoroutine(EditableSyntax $value): this {
+  public function withCoroutine(EditableNode $value): this {
     if ($value === $this->_coroutine) {
       return $this;
     }
@@ -289,15 +289,15 @@ final class FunctionDeclarationHeader extends EditableSyntax {
   /**
    * @returns Missing
    */
-  public function getCoroutine(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_coroutine);
+  public function getCoroutine(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_coroutine);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -338,11 +338,11 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     return TypeAssert\instance_of(FunctionToken::class, $this->_keyword);
   }
 
-  public function getAmpersandUNTYPED(): EditableSyntax {
+  public function getAmpersandUNTYPED(): EditableNode {
     return $this->_ampersand;
   }
 
-  public function withAmpersand(EditableSyntax $value): this {
+  public function withAmpersand(EditableNode $value): this {
     if ($value === $this->_ampersand) {
       return $this;
     }
@@ -383,11 +383,11 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     return TypeAssert\instance_of(AmpersandToken::class, $this->_ampersand);
   }
 
-  public function getNameUNTYPED(): EditableSyntax {
+  public function getNameUNTYPED(): EditableNode {
     return $this->_name;
   }
 
-  public function withName(EditableSyntax $value): this {
+  public function withName(EditableNode $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -418,11 +418,11 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     return TypeAssert\instance_of(EditableToken::class, $this->_name);
   }
 
-  public function getTypeParameterListUNTYPED(): EditableSyntax {
+  public function getTypeParameterListUNTYPED(): EditableNode {
     return $this->_type_parameter_list;
   }
 
-  public function withTypeParameterList(EditableSyntax $value): this {
+  public function withTypeParameterList(EditableNode $value): this {
     if ($value === $this->_type_parameter_list) {
       return $this;
     }
@@ -469,11 +469,11 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     );
   }
 
-  public function getLeftParenUNTYPED(): EditableSyntax {
+  public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableSyntax $value): this {
+  public function withLeftParen(EditableNode $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -514,11 +514,11 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
-  public function getParameterListUNTYPED(): EditableSyntax {
+  public function getParameterListUNTYPED(): EditableNode {
     return $this->_parameter_list;
   }
 
-  public function withParameterList(EditableSyntax $value): this {
+  public function withParameterList(EditableNode $value): this {
     if ($value === $this->_parameter_list) {
       return $this;
     }
@@ -559,11 +559,11 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     return TypeAssert\instance_of(EditableList::class, $this->_parameter_list);
   }
 
-  public function getRightParenUNTYPED(): EditableSyntax {
+  public function getRightParenUNTYPED(): EditableNode {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableSyntax $value): this {
+  public function withRightParen(EditableNode $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -604,11 +604,11 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
-  public function getColonUNTYPED(): EditableSyntax {
+  public function getColonUNTYPED(): EditableNode {
     return $this->_colon;
   }
 
-  public function withColon(EditableSyntax $value): this {
+  public function withColon(EditableNode $value): this {
     if ($value === $this->_colon) {
       return $this;
     }
@@ -649,11 +649,11 @@ final class FunctionDeclarationHeader extends EditableSyntax {
     return TypeAssert\instance_of(ColonToken::class, $this->_colon);
   }
 
-  public function getTypeUNTYPED(): EditableSyntax {
+  public function getTypeUNTYPED(): EditableNode {
     return $this->_type;
   }
 
-  public function withType(EditableSyntax $value): this {
+  public function withType(EditableNode $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -685,15 +685,15 @@ final class FunctionDeclarationHeader extends EditableSyntax {
    * TypeConstant | VectorArrayTypeSpecifier | NoreturnToken |
    * ClassnameTypeSpecifier | DarrayTypeSpecifier | VarrayTypeSpecifier
    */
-  public function getType(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_type);
+  public function getType(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_type);
   }
 
-  public function getWhereClauseUNTYPED(): EditableSyntax {
+  public function getWhereClauseUNTYPED(): EditableNode {
     return $this->_where_clause;
   }
 
-  public function withWhereClause(EditableSyntax $value): this {
+  public function withWhereClause(EditableNode $value): this {
     if ($value === $this->_where_clause) {
       return $this;
     }

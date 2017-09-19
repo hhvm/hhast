@@ -14,10 +14,10 @@ namespace Facebook\HHAST;
 
 use namespace HH\Lib\{C, Vec};
 
-final class EditableList extends EditableSyntax {
-  private vec<EditableSyntax> $_children;
+final class EditableList extends EditableNode {
+  private vec<EditableNode> $_children;
   <<__Override>>
-  public function __construct(Traversable<EditableSyntax> $children) {
+  public function __construct(Traversable<EditableNode> $children) {
     parent::__construct('list');
     $this->_children = vec($children);
   }
@@ -28,12 +28,12 @@ final class EditableList extends EditableSyntax {
   }
 
   <<__Override>>
-  public function toVec(): vec<EditableSyntax> {
+  public function toVec(): vec<EditableNode> {
     return $this->_children;
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     $i = 0;
     foreach ($this->_children as $child) {
       yield (string) $i => $child;
@@ -41,9 +41,9 @@ final class EditableList extends EditableSyntax {
     }
   }
 
-  final public function getItemsOfType<T as EditableSyntax>(
+  final public function getItemsOfType<T as EditableNode>(
     classname<T> $what,
-  ): Traversable<EditableSyntax> {
+  ): Traversable<EditableNode> {
     foreach ($this->_children as $child) {
       if ($child instanceof ListItem) {
         $child = $child->getItem();
@@ -55,8 +55,8 @@ final class EditableList extends EditableSyntax {
   }
 
   public static function fromItems(
-    Traversable<EditableSyntax> $syntax_list,
-  ): EditableSyntax {
+    Traversable<EditableNode> $syntax_list,
+  ): EditableNode {
     $syntax_list = vec($syntax_list);
     if (C\count($syntax_list) === 0) {
       return Missing();
@@ -66,9 +66,9 @@ final class EditableList extends EditableSyntax {
   }
 
   public static function concat(
-    EditableSyntax $left,
-    EditableSyntax $right,
-  ): EditableSyntax {
+    EditableNode $left,
+    EditableNode $right,
+  ): EditableNode {
     if ($left->isMissing()) {
       return $right;
     }
@@ -87,7 +87,7 @@ final class EditableList extends EditableSyntax {
     $children = vec[];
     $current_position = $position;
     foreach (/* UNSAFE_EXPR */$json['elements'] as $element) {
-      $child = EditableSyntax::fromJSON($element, $current_position, $source);
+      $child = EditableNode::fromJSON($element, $current_position, $source);
       $children[] = $child;
       $current_position += $child->getWidth();
     }
@@ -97,7 +97,7 @@ final class EditableList extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
 
@@ -131,8 +131,8 @@ final class EditableList extends EditableSyntax {
   <<__Override>>
   public function rewrite(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+    ?Traversable<EditableNode> $parents = null,
+  ): EditableNode {
     $parents = $parents === null ? vec[] : vec($parents);
     $with_rewritten_children = $this->rewriteDescendants(
       $rewriter,

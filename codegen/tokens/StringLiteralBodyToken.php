@@ -2,15 +2,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4a0458859a48773f18b306cb117eac6b>>
+ * @generated SignedSource<<ff3442862636573d1a8be137f16638f9>>
  */
 namespace Facebook\HHAST;
 
 final class StringLiteralBodyToken extends EditableToken {
 
   public function __construct(
-    EditableSyntax $leading,
-    EditableSyntax $trailing,
+    EditableNode $leading,
+    EditableNode $trailing,
     string $text,
   ) {
     parent::__construct('string_literal_body', $leading, $trailing, $text);
@@ -21,7 +21,7 @@ final class StringLiteralBodyToken extends EditableToken {
   }
 
   <<__Override>>
-  public function withLeading(EditableSyntax $value): this {
+  public function withLeading(EditableNode $value): this {
     if ($value === $this->getLeading()) {
       return $this;
     }
@@ -33,7 +33,7 @@ final class StringLiteralBodyToken extends EditableToken {
   }
 
   <<__Override>>
-  public function withTrailing(EditableSyntax $value): this {
+  public function withTrailing(EditableNode $value): this {
     if ($value === $this->getTrailing()) {
       return $this;
     }
@@ -50,7 +50,7 @@ final class StringLiteralBodyToken extends EditableToken {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

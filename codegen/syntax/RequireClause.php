@@ -2,23 +2,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3314e5fdb4842c250170be0be3c99622>>
+ * @generated SignedSource<<5053de67870ad0c09ad8cd936219c756>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class RequireClause extends EditableSyntax {
+final class RequireClause extends EditableNode {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_kind;
-  private EditableSyntax $_name;
-  private EditableSyntax $_semicolon;
+  private EditableNode $_keyword;
+  private EditableNode $_kind;
+  private EditableNode $_name;
+  private EditableNode $_semicolon;
 
   public function __construct(
-    EditableSyntax $keyword,
-    EditableSyntax $kind,
-    EditableSyntax $name,
-    EditableSyntax $semicolon,
+    EditableNode $keyword,
+    EditableNode $kind,
+    EditableNode $name,
+    EditableNode $semicolon,
   ) {
     parent::__construct('require_clause');
     $this->_keyword = $keyword;
@@ -33,25 +33,25 @@ final class RequireClause extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['require_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $kind = EditableSyntax::fromJSON(
+    $kind = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['require_kind'],
       $position,
       $source,
     );
     $position += $kind->getWidth();
-    $name = EditableSyntax::fromJSON(
+    $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['require_name'],
       $position,
       $source,
     );
     $position += $name->getWidth();
-    $semicolon = EditableSyntax::fromJSON(
+    $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['require_semicolon'],
       $position,
       $source,
@@ -61,7 +61,7 @@ final class RequireClause extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'kind' => $this->_kind;
     yield 'name' => $this->_name;
@@ -71,7 +71,7 @@ final class RequireClause extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -90,11 +90,11 @@ final class RequireClause extends EditableSyntax {
     return new self($keyword, $kind, $name, $semicolon);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -112,11 +112,11 @@ final class RequireClause extends EditableSyntax {
     return TypeAssert\instance_of(RequireToken::class, $this->_keyword);
   }
 
-  public function getKindUNTYPED(): EditableSyntax {
+  public function getKindUNTYPED(): EditableNode {
     return $this->_kind;
   }
 
-  public function withKind(EditableSyntax $value): this {
+  public function withKind(EditableNode $value): this {
     if ($value === $this->_kind) {
       return $this;
     }
@@ -134,11 +134,11 @@ final class RequireClause extends EditableSyntax {
     return TypeAssert\instance_of(EditableToken::class, $this->_kind);
   }
 
-  public function getNameUNTYPED(): EditableSyntax {
+  public function getNameUNTYPED(): EditableNode {
     return $this->_name;
   }
 
-  public function withName(EditableSyntax $value): this {
+  public function withName(EditableNode $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -152,15 +152,15 @@ final class RequireClause extends EditableSyntax {
   /**
    * @returns SimpleTypeSpecifier | GenericTypeSpecifier
    */
-  public function getName(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_name);
+  public function getName(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_name);
   }
 
-  public function getSemicolonUNTYPED(): EditableSyntax {
+  public function getSemicolonUNTYPED(): EditableNode {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableSyntax $value): this {
+  public function withSemicolon(EditableNode $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

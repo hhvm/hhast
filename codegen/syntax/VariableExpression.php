@@ -2,16 +2,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4bb1465318c7e84e389bd76ce88a4ef1>>
+ * @generated SignedSource<<c62667dfc6cc5ed69369626f18543770>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class VariableExpression extends EditableSyntax {
+final class VariableExpression extends EditableNode {
 
-  private EditableSyntax $_expression;
+  private EditableNode $_expression;
 
-  public function __construct(EditableSyntax $expression) {
+  public function __construct(EditableNode $expression) {
     parent::__construct('variable_expression');
     $this->_expression = $expression;
   }
@@ -22,7 +22,7 @@ final class VariableExpression extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $expression = EditableSyntax::fromJSON(
+    $expression = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['variable_expression'],
       $position,
       $source,
@@ -32,14 +32,14 @@ final class VariableExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'expression' => $this->_expression;
   }
 
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -50,11 +50,11 @@ final class VariableExpression extends EditableSyntax {
     return new self($expression);
   }
 
-  public function getExpressionUNTYPED(): EditableSyntax {
+  public function getExpressionUNTYPED(): EditableNode {
     return $this->_expression;
   }
 
-  public function withExpression(EditableSyntax $value): this {
+  public function withExpression(EditableNode $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
@@ -68,7 +68,7 @@ final class VariableExpression extends EditableSyntax {
   /**
    * @returns unknown
    */
-  public function getExpression(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_expression);
+  public function getExpression(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_expression);
   }
 }

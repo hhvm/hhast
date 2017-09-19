@@ -2,23 +2,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cd1e752485d5815c530b1eb5324b4732>>
+ * @generated SignedSource<<3cdc5282f12591739a989072636a449b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class DictionaryTypeSpecifier extends EditableSyntax {
+final class DictionaryTypeSpecifier extends EditableNode {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_left_angle;
-  private EditableSyntax $_members;
-  private EditableSyntax $_right_angle;
+  private EditableNode $_keyword;
+  private EditableNode $_left_angle;
+  private EditableNode $_members;
+  private EditableNode $_right_angle;
 
   public function __construct(
-    EditableSyntax $keyword,
-    EditableSyntax $left_angle,
-    EditableSyntax $members,
-    EditableSyntax $right_angle,
+    EditableNode $keyword,
+    EditableNode $left_angle,
+    EditableNode $members,
+    EditableNode $right_angle,
   ) {
     parent::__construct('dictionary_type_specifier');
     $this->_keyword = $keyword;
@@ -33,25 +33,25 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['dictionary_type_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_angle = EditableSyntax::fromJSON(
+    $left_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['dictionary_type_left_angle'],
       $position,
       $source,
     );
     $position += $left_angle->getWidth();
-    $members = EditableSyntax::fromJSON(
+    $members = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['dictionary_type_members'],
       $position,
       $source,
     );
     $position += $members->getWidth();
-    $right_angle = EditableSyntax::fromJSON(
+    $right_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['dictionary_type_right_angle'],
       $position,
       $source,
@@ -61,7 +61,7 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'left_angle' => $this->_left_angle;
     yield 'members' => $this->_members;
@@ -71,7 +71,7 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -90,11 +90,11 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
     return new self($keyword, $left_angle, $members, $right_angle);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -117,11 +117,11 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
     return TypeAssert\instance_of(DictToken::class, $this->_keyword);
   }
 
-  public function getLeftAngleUNTYPED(): EditableSyntax {
+  public function getLeftAngleUNTYPED(): EditableNode {
     return $this->_left_angle;
   }
 
-  public function withLeftAngle(EditableSyntax $value): this {
+  public function withLeftAngle(EditableNode $value): this {
     if ($value === $this->_left_angle) {
       return $this;
     }
@@ -140,11 +140,11 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
     return TypeAssert\instance_of(LessThanToken::class, $this->_left_angle);
   }
 
-  public function getMembersUNTYPED(): EditableSyntax {
+  public function getMembersUNTYPED(): EditableNode {
     return $this->_members;
   }
 
-  public function withMembers(EditableSyntax $value): this {
+  public function withMembers(EditableNode $value): this {
     if ($value === $this->_members) {
       return $this;
     }
@@ -167,11 +167,11 @@ final class DictionaryTypeSpecifier extends EditableSyntax {
     return TypeAssert\instance_of(EditableList::class, $this->_members);
   }
 
-  public function getRightAngleUNTYPED(): EditableSyntax {
+  public function getRightAngleUNTYPED(): EditableNode {
     return $this->_right_angle;
   }
 
-  public function withRightAngle(EditableSyntax $value): this {
+  public function withRightAngle(EditableNode $value): this {
     if ($value === $this->_right_angle) {
       return $this;
     }

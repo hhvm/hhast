@@ -2,21 +2,21 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<943451aa3286bcc356ca2c4097d2e5e6>>
+ * @generated SignedSource<<8a4ed10ef629892698588b85e82daf4b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class XHPAttribute extends EditableSyntax {
+final class XHPAttribute extends EditableNode {
 
-  private EditableSyntax $_name;
-  private EditableSyntax $_equal;
-  private EditableSyntax $_expression;
+  private EditableNode $_name;
+  private EditableNode $_equal;
+  private EditableNode $_expression;
 
   public function __construct(
-    EditableSyntax $name,
-    EditableSyntax $equal,
-    EditableSyntax $expression,
+    EditableNode $name,
+    EditableNode $equal,
+    EditableNode $expression,
   ) {
     parent::__construct('xhp_attribute');
     $this->_name = $name;
@@ -30,19 +30,19 @@ final class XHPAttribute extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $name = EditableSyntax::fromJSON(
+    $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_attribute_name'],
       $position,
       $source,
     );
     $position += $name->getWidth();
-    $equal = EditableSyntax::fromJSON(
+    $equal = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_attribute_equal'],
       $position,
       $source,
     );
     $position += $equal->getWidth();
-    $expression = EditableSyntax::fromJSON(
+    $expression = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_attribute_expression'],
       $position,
       $source,
@@ -52,7 +52,7 @@ final class XHPAttribute extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'name' => $this->_name;
     yield 'equal' => $this->_equal;
     yield 'expression' => $this->_expression;
@@ -61,7 +61,7 @@ final class XHPAttribute extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -78,11 +78,11 @@ final class XHPAttribute extends EditableSyntax {
     return new self($name, $equal, $expression);
   }
 
-  public function getNameUNTYPED(): EditableSyntax {
+  public function getNameUNTYPED(): EditableNode {
     return $this->_name;
   }
 
-  public function withName(EditableSyntax $value): this {
+  public function withName(EditableNode $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -100,11 +100,11 @@ final class XHPAttribute extends EditableSyntax {
     return TypeAssert\instance_of(XHPElementNameToken::class, $this->_name);
   }
 
-  public function getEqualUNTYPED(): EditableSyntax {
+  public function getEqualUNTYPED(): EditableNode {
     return $this->_equal;
   }
 
-  public function withEqual(EditableSyntax $value): this {
+  public function withEqual(EditableNode $value): this {
     if ($value === $this->_equal) {
       return $this;
     }
@@ -132,11 +132,11 @@ final class XHPAttribute extends EditableSyntax {
     return TypeAssert\instance_of(EqualToken::class, $this->_equal);
   }
 
-  public function getExpressionUNTYPED(): EditableSyntax {
+  public function getExpressionUNTYPED(): EditableNode {
     return $this->_expression;
   }
 
-  public function withExpression(EditableSyntax $value): this {
+  public function withExpression(EditableNode $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
@@ -150,7 +150,7 @@ final class XHPAttribute extends EditableSyntax {
   /**
    * @returns XHPStringLiteralToken | BracedExpression | Missing
    */
-  public function getExpression(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_expression);
+  public function getExpression(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_expression);
   }
 }

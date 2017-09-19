@@ -2,15 +2,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<473ad1d7982ee8d4a552e7eda0d61843>>
+ * @generated SignedSource<<8d027f7094619a7999e9917c48caf112>>
  */
 namespace Facebook\HHAST;
 
 final class NowdocStringLiteralToken extends EditableToken {
 
   public function __construct(
-    EditableSyntax $leading,
-    EditableSyntax $trailing,
+    EditableNode $leading,
+    EditableNode $trailing,
     string $text,
   ) {
     parent::__construct('nowdoc_string_literal', $leading, $trailing, $text);
@@ -21,7 +21,7 @@ final class NowdocStringLiteralToken extends EditableToken {
   }
 
   <<__Override>>
-  public function withLeading(EditableSyntax $value): this {
+  public function withLeading(EditableNode $value): this {
     if ($value === $this->getLeading()) {
       return $this;
     }
@@ -33,7 +33,7 @@ final class NowdocStringLiteralToken extends EditableToken {
   }
 
   <<__Override>>
-  public function withTrailing(EditableSyntax $value): this {
+  public function withTrailing(EditableNode $value): this {
     if ($value === $this->getTrailing()) {
       return $this;
     }
@@ -50,7 +50,7 @@ final class NowdocStringLiteralToken extends EditableToken {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

@@ -2,23 +2,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e0cb7eea505ef686fd3fd73fd444243a>>
+ * @generated SignedSource<<8b89da57712c93575b6ad7e9d7a26e45>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class XHPOpen extends EditableSyntax {
+final class XHPOpen extends EditableNode {
 
-  private EditableSyntax $_left_angle;
-  private EditableSyntax $_name;
-  private EditableSyntax $_attributes;
-  private EditableSyntax $_right_angle;
+  private EditableNode $_left_angle;
+  private EditableNode $_name;
+  private EditableNode $_attributes;
+  private EditableNode $_right_angle;
 
   public function __construct(
-    EditableSyntax $left_angle,
-    EditableSyntax $name,
-    EditableSyntax $attributes,
-    EditableSyntax $right_angle,
+    EditableNode $left_angle,
+    EditableNode $name,
+    EditableNode $attributes,
+    EditableNode $right_angle,
   ) {
     parent::__construct('xhp_open');
     $this->_left_angle = $left_angle;
@@ -33,25 +33,25 @@ final class XHPOpen extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $left_angle = EditableSyntax::fromJSON(
+    $left_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_open_left_angle'],
       $position,
       $source,
     );
     $position += $left_angle->getWidth();
-    $name = EditableSyntax::fromJSON(
+    $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_open_name'],
       $position,
       $source,
     );
     $position += $name->getWidth();
-    $attributes = EditableSyntax::fromJSON(
+    $attributes = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_open_attributes'],
       $position,
       $source,
     );
     $position += $attributes->getWidth();
-    $right_angle = EditableSyntax::fromJSON(
+    $right_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_open_right_angle'],
       $position,
       $source,
@@ -61,7 +61,7 @@ final class XHPOpen extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'left_angle' => $this->_left_angle;
     yield 'name' => $this->_name;
     yield 'attributes' => $this->_attributes;
@@ -71,7 +71,7 @@ final class XHPOpen extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -90,11 +90,11 @@ final class XHPOpen extends EditableSyntax {
     return new self($left_angle, $name, $attributes, $right_angle);
   }
 
-  public function getLeftAngleUNTYPED(): EditableSyntax {
+  public function getLeftAngleUNTYPED(): EditableNode {
     return $this->_left_angle;
   }
 
-  public function withLeftAngle(EditableSyntax $value): this {
+  public function withLeftAngle(EditableNode $value): this {
     if ($value === $this->_left_angle) {
       return $this;
     }
@@ -113,11 +113,11 @@ final class XHPOpen extends EditableSyntax {
     return TypeAssert\instance_of(LessThanToken::class, $this->_left_angle);
   }
 
-  public function getNameUNTYPED(): EditableSyntax {
+  public function getNameUNTYPED(): EditableNode {
     return $this->_name;
   }
 
-  public function withName(EditableSyntax $value): this {
+  public function withName(EditableNode $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -140,11 +140,11 @@ final class XHPOpen extends EditableSyntax {
     return TypeAssert\instance_of(XHPElementNameToken::class, $this->_name);
   }
 
-  public function getAttributesUNTYPED(): EditableSyntax {
+  public function getAttributesUNTYPED(): EditableNode {
     return $this->_attributes;
   }
 
-  public function withAttributes(EditableSyntax $value): this {
+  public function withAttributes(EditableNode $value): this {
     if ($value === $this->_attributes) {
       return $this;
     }
@@ -173,11 +173,11 @@ final class XHPOpen extends EditableSyntax {
     return TypeAssert\instance_of(EditableList::class, $this->_attributes);
   }
 
-  public function getRightAngleUNTYPED(): EditableSyntax {
+  public function getRightAngleUNTYPED(): EditableNode {
     return $this->_right_angle;
   }
 
-  public function withRightAngle(EditableSyntax $value): this {
+  public function withRightAngle(EditableNode $value): this {
     if ($value === $this->_right_angle) {
       return $this;
     }

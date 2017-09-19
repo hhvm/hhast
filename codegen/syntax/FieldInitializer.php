@@ -2,21 +2,21 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c6896ed2de1f3ca760d87b123befc55e>>
+ * @generated SignedSource<<c506f57c2f3740cbfba488e3bb080aba>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class FieldInitializer extends EditableSyntax {
+final class FieldInitializer extends EditableNode {
 
-  private EditableSyntax $_name;
-  private EditableSyntax $_arrow;
-  private EditableSyntax $_value;
+  private EditableNode $_name;
+  private EditableNode $_arrow;
+  private EditableNode $_value;
 
   public function __construct(
-    EditableSyntax $name,
-    EditableSyntax $arrow,
-    EditableSyntax $value,
+    EditableNode $name,
+    EditableNode $arrow,
+    EditableNode $value,
   ) {
     parent::__construct('field_initializer');
     $this->_name = $name;
@@ -30,19 +30,19 @@ final class FieldInitializer extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $name = EditableSyntax::fromJSON(
+    $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['field_initializer_name'],
       $position,
       $source,
     );
     $position += $name->getWidth();
-    $arrow = EditableSyntax::fromJSON(
+    $arrow = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['field_initializer_arrow'],
       $position,
       $source,
     );
     $position += $arrow->getWidth();
-    $value = EditableSyntax::fromJSON(
+    $value = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['field_initializer_value'],
       $position,
       $source,
@@ -52,7 +52,7 @@ final class FieldInitializer extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'name' => $this->_name;
     yield 'arrow' => $this->_arrow;
     yield 'value' => $this->_value;
@@ -61,7 +61,7 @@ final class FieldInitializer extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -78,11 +78,11 @@ final class FieldInitializer extends EditableSyntax {
     return new self($name, $arrow, $value);
   }
 
-  public function getNameUNTYPED(): EditableSyntax {
+  public function getNameUNTYPED(): EditableNode {
     return $this->_name;
   }
 
-  public function withName(EditableSyntax $value): this {
+  public function withName(EditableNode $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -96,15 +96,15 @@ final class FieldInitializer extends EditableSyntax {
   /**
    * @returns LiteralExpression | ScopeResolutionExpression
    */
-  public function getName(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_name);
+  public function getName(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_name);
   }
 
-  public function getArrowUNTYPED(): EditableSyntax {
+  public function getArrowUNTYPED(): EditableNode {
     return $this->_arrow;
   }
 
-  public function withArrow(EditableSyntax $value): this {
+  public function withArrow(EditableNode $value): this {
     if ($value === $this->_arrow) {
       return $this;
     }
@@ -122,11 +122,11 @@ final class FieldInitializer extends EditableSyntax {
     return TypeAssert\instance_of(EqualGreaterThanToken::class, $this->_arrow);
   }
 
-  public function getValueUNTYPED(): EditableSyntax {
+  public function getValueUNTYPED(): EditableNode {
     return $this->_value;
   }
 
-  public function withValue(EditableSyntax $value): this {
+  public function withValue(EditableNode $value): this {
     if ($value === $this->_value) {
       return $this;
     }
@@ -141,7 +141,7 @@ final class FieldInitializer extends EditableSyntax {
    * @returns LiteralExpression | BinaryExpression | VariableExpression |
    * SubscriptExpression | ObjectCreationExpression | QualifiedNameExpression
    */
-  public function getValue(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_value);
+  public function getValue(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_value);
   }
 }

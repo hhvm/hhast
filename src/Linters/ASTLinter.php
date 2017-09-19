@@ -12,11 +12,11 @@
 
 namespace Facebook\HHAST\Linters;
 
-use type Facebook\HHAST\EditableSyntax;
+use type Facebook\HHAST\EditableNode;
 use namespace Facebook\HHAST;
 
-abstract class ASTLinter<T as HHAST\EditableSyntax> extends BaseLinter {
-  private HHAST\EditableSyntax $ast;
+abstract class ASTLinter<T as HHAST\EditableNode> extends BaseLinter {
+  private HHAST\EditableNode $ast;
 
   <<__Override>>
   public function __construct(
@@ -31,7 +31,7 @@ abstract class ASTLinter<T as HHAST\EditableSyntax> extends BaseLinter {
 
   abstract protected function getLintErrorForNode(
     T $node,
-    vec<EditableSyntax> $parents,
+    vec<EditableNode> $parents,
   ): ?ASTLintError<T, this>;
 
   /**
@@ -40,7 +40,7 @@ abstract class ASTLinter<T as HHAST\EditableSyntax> extends BaseLinter {
    */
   public function getPrettyTextForNode(
     T $node,
-    ?EditableSyntax $_context,
+    ?EditableNode $_context,
   ): string {
     return $node->getCode();
   }
@@ -63,7 +63,7 @@ abstract class ASTLinter<T as HHAST\EditableSyntax> extends BaseLinter {
     }
   }
 
-  public function getAST(): HHAST\EditableSyntax {
+  public function getAST(): HHAST\EditableNode {
     return $this->ast;
   }
 }

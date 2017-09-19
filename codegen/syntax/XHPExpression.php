@@ -2,21 +2,21 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f900f3dea81b159e5f00bf2f329e7f46>>
+ * @generated SignedSource<<b06b05753798dca030456df16f9b5067>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class XHPExpression extends EditableSyntax {
+final class XHPExpression extends EditableNode {
 
-  private EditableSyntax $_open;
-  private EditableSyntax $_body;
-  private EditableSyntax $_close;
+  private EditableNode $_open;
+  private EditableNode $_body;
+  private EditableNode $_close;
 
   public function __construct(
-    EditableSyntax $open,
-    EditableSyntax $body,
-    EditableSyntax $close,
+    EditableNode $open,
+    EditableNode $body,
+    EditableNode $close,
   ) {
     parent::__construct('xhp_expression');
     $this->_open = $open;
@@ -30,19 +30,19 @@ final class XHPExpression extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $open = EditableSyntax::fromJSON(
+    $open = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_open'],
       $position,
       $source,
     );
     $position += $open->getWidth();
-    $body = EditableSyntax::fromJSON(
+    $body = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_body'],
       $position,
       $source,
     );
     $position += $body->getWidth();
-    $close = EditableSyntax::fromJSON(
+    $close = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_close'],
       $position,
       $source,
@@ -52,7 +52,7 @@ final class XHPExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'open' => $this->_open;
     yield 'body' => $this->_body;
     yield 'close' => $this->_close;
@@ -61,7 +61,7 @@ final class XHPExpression extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -78,11 +78,11 @@ final class XHPExpression extends EditableSyntax {
     return new self($open, $body, $close);
   }
 
-  public function getOpenUNTYPED(): EditableSyntax {
+  public function getOpenUNTYPED(): EditableNode {
     return $this->_open;
   }
 
-  public function withOpen(EditableSyntax $value): this {
+  public function withOpen(EditableNode $value): this {
     if ($value === $this->_open) {
       return $this;
     }
@@ -100,11 +100,11 @@ final class XHPExpression extends EditableSyntax {
     return TypeAssert\instance_of(XHPOpen::class, $this->_open);
   }
 
-  public function getBodyUNTYPED(): EditableSyntax {
+  public function getBodyUNTYPED(): EditableNode {
     return $this->_body;
   }
 
-  public function withBody(EditableSyntax $value): this {
+  public function withBody(EditableNode $value): this {
     if ($value === $this->_body) {
       return $this;
     }
@@ -132,11 +132,11 @@ final class XHPExpression extends EditableSyntax {
     return TypeAssert\instance_of(EditableList::class, $this->_body);
   }
 
-  public function getCloseUNTYPED(): EditableSyntax {
+  public function getCloseUNTYPED(): EditableNode {
     return $this->_close;
   }
 
-  public function withClose(EditableSyntax $value): this {
+  public function withClose(EditableNode $value): this {
     if ($value === $this->_close) {
       return $this;
     }

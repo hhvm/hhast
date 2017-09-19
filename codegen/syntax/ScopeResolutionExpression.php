@@ -2,21 +2,21 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<af3cde14b1ac9740116b8179a76ce8fa>>
+ * @generated SignedSource<<f26439ea0081c381c7c9a9f0c16c6471>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class ScopeResolutionExpression extends EditableSyntax {
+final class ScopeResolutionExpression extends EditableNode {
 
-  private EditableSyntax $_qualifier;
-  private EditableSyntax $_operator;
-  private EditableSyntax $_name;
+  private EditableNode $_qualifier;
+  private EditableNode $_operator;
+  private EditableNode $_name;
 
   public function __construct(
-    EditableSyntax $qualifier,
-    EditableSyntax $operator,
-    EditableSyntax $name,
+    EditableNode $qualifier,
+    EditableNode $operator,
+    EditableNode $name,
   ) {
     parent::__construct('scope_resolution_expression');
     $this->_qualifier = $qualifier;
@@ -30,19 +30,19 @@ final class ScopeResolutionExpression extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $qualifier = EditableSyntax::fromJSON(
+    $qualifier = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['scope_resolution_qualifier'],
       $position,
       $source,
     );
     $position += $qualifier->getWidth();
-    $operator = EditableSyntax::fromJSON(
+    $operator = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['scope_resolution_operator'],
       $position,
       $source,
     );
     $position += $operator->getWidth();
-    $name = EditableSyntax::fromJSON(
+    $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['scope_resolution_name'],
       $position,
       $source,
@@ -52,7 +52,7 @@ final class ScopeResolutionExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'qualifier' => $this->_qualifier;
     yield 'operator' => $this->_operator;
     yield 'name' => $this->_name;
@@ -61,7 +61,7 @@ final class ScopeResolutionExpression extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -78,11 +78,11 @@ final class ScopeResolutionExpression extends EditableSyntax {
     return new self($qualifier, $operator, $name);
   }
 
-  public function getQualifierUNTYPED(): EditableSyntax {
+  public function getQualifierUNTYPED(): EditableNode {
     return $this->_qualifier;
   }
 
-  public function withQualifier(EditableSyntax $value): this {
+  public function withQualifier(EditableNode $value): this {
     if ($value === $this->_qualifier) {
       return $this;
     }
@@ -99,15 +99,15 @@ final class ScopeResolutionExpression extends EditableSyntax {
    * | ParenthesizedExpression | LiteralExpression | ScopeResolutionExpression
    * | SimpleTypeSpecifier | PipeVariableExpression
    */
-  public function getQualifier(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_qualifier);
+  public function getQualifier(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_qualifier);
   }
 
-  public function getOperatorUNTYPED(): EditableSyntax {
+  public function getOperatorUNTYPED(): EditableNode {
     return $this->_operator;
   }
 
-  public function withOperator(EditableSyntax $value): this {
+  public function withOperator(EditableNode $value): this {
     if ($value === $this->_operator) {
       return $this;
     }
@@ -125,11 +125,11 @@ final class ScopeResolutionExpression extends EditableSyntax {
     return TypeAssert\instance_of(ColonColonToken::class, $this->_operator);
   }
 
-  public function getNameUNTYPED(): EditableSyntax {
+  public function getNameUNTYPED(): EditableNode {
     return $this->_name;
   }
 
-  public function withName(EditableSyntax $value): this {
+  public function withName(EditableNode $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -144,7 +144,7 @@ final class ScopeResolutionExpression extends EditableSyntax {
    * @returns NameToken | VariableToken | ClassToken | PrefixUnaryExpression |
    * Missing
    */
-  public function getName(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_name);
+  public function getName(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_name);
   }
 }

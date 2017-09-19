@@ -2,21 +2,21 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a80fbce409d16a09af85077d45d028bb>>
+ * @generated SignedSource<<4e71097c66b79956e6e1e4d61b44a8aa>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class XHPCategoryDeclaration extends EditableSyntax {
+final class XHPCategoryDeclaration extends EditableNode {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_categories;
-  private EditableSyntax $_semicolon;
+  private EditableNode $_keyword;
+  private EditableNode $_categories;
+  private EditableNode $_semicolon;
 
   public function __construct(
-    EditableSyntax $keyword,
-    EditableSyntax $categories,
-    EditableSyntax $semicolon,
+    EditableNode $keyword,
+    EditableNode $categories,
+    EditableNode $semicolon,
   ) {
     parent::__construct('xhp_category_declaration');
     $this->_keyword = $keyword;
@@ -30,19 +30,19 @@ final class XHPCategoryDeclaration extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_category_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $categories = EditableSyntax::fromJSON(
+    $categories = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_category_categories'],
       $position,
       $source,
     );
     $position += $categories->getWidth();
-    $semicolon = EditableSyntax::fromJSON(
+    $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_category_semicolon'],
       $position,
       $source,
@@ -52,7 +52,7 @@ final class XHPCategoryDeclaration extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'categories' => $this->_categories;
     yield 'semicolon' => $this->_semicolon;
@@ -61,7 +61,7 @@ final class XHPCategoryDeclaration extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -78,11 +78,11 @@ final class XHPCategoryDeclaration extends EditableSyntax {
     return new self($keyword, $categories, $semicolon);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -100,11 +100,11 @@ final class XHPCategoryDeclaration extends EditableSyntax {
     return TypeAssert\instance_of(CategoryToken::class, $this->_keyword);
   }
 
-  public function getCategoriesUNTYPED(): EditableSyntax {
+  public function getCategoriesUNTYPED(): EditableNode {
     return $this->_categories;
   }
 
-  public function withCategories(EditableSyntax $value): this {
+  public function withCategories(EditableNode $value): this {
     if ($value === $this->_categories) {
       return $this;
     }
@@ -122,11 +122,11 @@ final class XHPCategoryDeclaration extends EditableSyntax {
     return TypeAssert\instance_of(EditableList::class, $this->_categories);
   }
 
-  public function getSemicolonUNTYPED(): EditableSyntax {
+  public function getSemicolonUNTYPED(): EditableNode {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableSyntax $value): this {
+  public function withSemicolon(EditableNode $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

@@ -2,30 +2,30 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0295a47c74276ef108a94b97cfebdeb6>>
+ * @generated SignedSource<<e5303389c13d24bbf3ffb2606a06eba8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class DoStatement extends EditableSyntax
+final class DoStatement extends EditableNode
   implements IControlFlowStatement, ILoopStatement {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_body;
-  private EditableSyntax $_while_keyword;
-  private EditableSyntax $_left_paren;
-  private EditableSyntax $_condition;
-  private EditableSyntax $_right_paren;
-  private EditableSyntax $_semicolon;
+  private EditableNode $_keyword;
+  private EditableNode $_body;
+  private EditableNode $_while_keyword;
+  private EditableNode $_left_paren;
+  private EditableNode $_condition;
+  private EditableNode $_right_paren;
+  private EditableNode $_semicolon;
 
   public function __construct(
-    EditableSyntax $keyword,
-    EditableSyntax $body,
-    EditableSyntax $while_keyword,
-    EditableSyntax $left_paren,
-    EditableSyntax $condition,
-    EditableSyntax $right_paren,
-    EditableSyntax $semicolon,
+    EditableNode $keyword,
+    EditableNode $body,
+    EditableNode $while_keyword,
+    EditableNode $left_paren,
+    EditableNode $condition,
+    EditableNode $right_paren,
+    EditableNode $semicolon,
   ) {
     parent::__construct('do_statement');
     $this->_keyword = $keyword;
@@ -43,43 +43,43 @@ final class DoStatement extends EditableSyntax
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['do_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $body = EditableSyntax::fromJSON(
+    $body = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['do_body'],
       $position,
       $source,
     );
     $position += $body->getWidth();
-    $while_keyword = EditableSyntax::fromJSON(
+    $while_keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['do_while_keyword'],
       $position,
       $source,
     );
     $position += $while_keyword->getWidth();
-    $left_paren = EditableSyntax::fromJSON(
+    $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['do_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $condition = EditableSyntax::fromJSON(
+    $condition = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['do_condition'],
       $position,
       $source,
     );
     $position += $condition->getWidth();
-    $right_paren = EditableSyntax::fromJSON(
+    $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['do_right_paren'],
       $position,
       $source,
     );
     $position += $right_paren->getWidth();
-    $semicolon = EditableSyntax::fromJSON(
+    $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['do_semicolon'],
       $position,
       $source,
@@ -97,7 +97,7 @@ final class DoStatement extends EditableSyntax
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'body' => $this->_body;
     yield 'while_keyword' => $this->_while_keyword;
@@ -110,7 +110,7 @@ final class DoStatement extends EditableSyntax
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -143,11 +143,11 @@ final class DoStatement extends EditableSyntax
     );
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -173,11 +173,11 @@ final class DoStatement extends EditableSyntax
     return TypeAssert\instance_of(DoToken::class, $this->_keyword);
   }
 
-  public function getBodyUNTYPED(): EditableSyntax {
+  public function getBodyUNTYPED(): EditableNode {
     return $this->_body;
   }
 
-  public function withBody(EditableSyntax $value): this {
+  public function withBody(EditableNode $value): this {
     if ($value === $this->_body) {
       return $this;
     }
@@ -199,15 +199,15 @@ final class DoStatement extends EditableSyntax
   /**
    * @returns CompoundStatement | ExpressionStatement
    */
-  public function getBody(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_body);
+  public function getBody(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_body);
   }
 
-  public function getWhileKeywordUNTYPED(): EditableSyntax {
+  public function getWhileKeywordUNTYPED(): EditableNode {
     return $this->_while_keyword;
   }
 
-  public function withWhileKeyword(EditableSyntax $value): this {
+  public function withWhileKeyword(EditableNode $value): this {
     if ($value === $this->_while_keyword) {
       return $this;
     }
@@ -233,11 +233,11 @@ final class DoStatement extends EditableSyntax
     return TypeAssert\instance_of(WhileToken::class, $this->_while_keyword);
   }
 
-  public function getLeftParenUNTYPED(): EditableSyntax {
+  public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableSyntax $value): this {
+  public function withLeftParen(EditableNode $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -263,11 +263,11 @@ final class DoStatement extends EditableSyntax
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
-  public function getConditionUNTYPED(): EditableSyntax {
+  public function getConditionUNTYPED(): EditableNode {
     return $this->_condition;
   }
 
-  public function withCondition(EditableSyntax $value): this {
+  public function withCondition(EditableNode $value): this {
     if ($value === $this->_condition) {
       return $this;
     }
@@ -290,15 +290,15 @@ final class DoStatement extends EditableSyntax
    * @returns LiteralExpression | BinaryExpression | VariableExpression |
    * FunctionCallExpression | PrefixUnaryExpression | SubscriptExpression
    */
-  public function getCondition(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_condition);
+  public function getCondition(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_condition);
   }
 
-  public function getRightParenUNTYPED(): EditableSyntax {
+  public function getRightParenUNTYPED(): EditableNode {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableSyntax $value): this {
+  public function withRightParen(EditableNode $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -324,11 +324,11 @@ final class DoStatement extends EditableSyntax
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
-  public function getSemicolonUNTYPED(): EditableSyntax {
+  public function getSemicolonUNTYPED(): EditableNode {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableSyntax $value): this {
+  public function withSemicolon(EditableNode $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

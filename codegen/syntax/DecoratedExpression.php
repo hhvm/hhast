@@ -2,19 +2,19 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a42f582bd26db5a36dd1c8736e635505>>
+ * @generated SignedSource<<269da13863635222c3a1a23a799c63c2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class DecoratedExpression extends EditableSyntax {
+final class DecoratedExpression extends EditableNode {
 
-  private EditableSyntax $_decorator;
-  private EditableSyntax $_expression;
+  private EditableNode $_decorator;
+  private EditableNode $_expression;
 
   public function __construct(
-    EditableSyntax $decorator,
-    EditableSyntax $expression,
+    EditableNode $decorator,
+    EditableNode $expression,
   ) {
     parent::__construct('decorated_expression');
     $this->_decorator = $decorator;
@@ -27,13 +27,13 @@ final class DecoratedExpression extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $decorator = EditableSyntax::fromJSON(
+    $decorator = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['decorated_expression_decorator'],
       $position,
       $source,
     );
     $position += $decorator->getWidth();
-    $expression = EditableSyntax::fromJSON(
+    $expression = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['decorated_expression_expression'],
       $position,
       $source,
@@ -43,7 +43,7 @@ final class DecoratedExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'decorator' => $this->_decorator;
     yield 'expression' => $this->_expression;
   }
@@ -51,7 +51,7 @@ final class DecoratedExpression extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -65,11 +65,11 @@ final class DecoratedExpression extends EditableSyntax {
     return new self($decorator, $expression);
   }
 
-  public function getDecoratorUNTYPED(): EditableSyntax {
+  public function getDecoratorUNTYPED(): EditableNode {
     return $this->_decorator;
   }
 
-  public function withDecorator(EditableSyntax $value): this {
+  public function withDecorator(EditableNode $value): this {
     if ($value === $this->_decorator) {
       return $this;
     }
@@ -87,11 +87,11 @@ final class DecoratedExpression extends EditableSyntax {
     return TypeAssert\instance_of(EditableToken::class, $this->_decorator);
   }
 
-  public function getExpressionUNTYPED(): EditableSyntax {
+  public function getExpressionUNTYPED(): EditableNode {
     return $this->_expression;
   }
 
-  public function withExpression(EditableSyntax $value): this {
+  public function withExpression(EditableNode $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
@@ -106,7 +106,7 @@ final class DecoratedExpression extends EditableSyntax {
    * @returns VariableToken | VariableExpression | ArrayCreationExpression |
    * DecoratedExpression | Missing | FunctionCallExpression
    */
-  public function getExpression(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_expression);
+  public function getExpression(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_expression);
   }
 }

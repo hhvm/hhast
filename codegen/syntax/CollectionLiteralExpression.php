@@ -2,23 +2,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<881b16b53d4b7946e246bdc895ea0ee3>>
+ * @generated SignedSource<<dd74edbb59499b4a00e2191927ff2a5c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class CollectionLiteralExpression extends EditableSyntax {
+final class CollectionLiteralExpression extends EditableNode {
 
-  private EditableSyntax $_name;
-  private EditableSyntax $_left_brace;
-  private EditableSyntax $_initializers;
-  private EditableSyntax $_right_brace;
+  private EditableNode $_name;
+  private EditableNode $_left_brace;
+  private EditableNode $_initializers;
+  private EditableNode $_right_brace;
 
   public function __construct(
-    EditableSyntax $name,
-    EditableSyntax $left_brace,
-    EditableSyntax $initializers,
-    EditableSyntax $right_brace,
+    EditableNode $name,
+    EditableNode $left_brace,
+    EditableNode $initializers,
+    EditableNode $right_brace,
   ) {
     parent::__construct('collection_literal_expression');
     $this->_name = $name;
@@ -33,25 +33,25 @@ final class CollectionLiteralExpression extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $name = EditableSyntax::fromJSON(
+    $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['collection_literal_name'],
       $position,
       $source,
     );
     $position += $name->getWidth();
-    $left_brace = EditableSyntax::fromJSON(
+    $left_brace = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['collection_literal_left_brace'],
       $position,
       $source,
     );
     $position += $left_brace->getWidth();
-    $initializers = EditableSyntax::fromJSON(
+    $initializers = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['collection_literal_initializers'],
       $position,
       $source,
     );
     $position += $initializers->getWidth();
-    $right_brace = EditableSyntax::fromJSON(
+    $right_brace = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['collection_literal_right_brace'],
       $position,
       $source,
@@ -61,7 +61,7 @@ final class CollectionLiteralExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'name' => $this->_name;
     yield 'left_brace' => $this->_left_brace;
     yield 'initializers' => $this->_initializers;
@@ -71,7 +71,7 @@ final class CollectionLiteralExpression extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -90,11 +90,11 @@ final class CollectionLiteralExpression extends EditableSyntax {
     return new self($name, $left_brace, $initializers, $right_brace);
   }
 
-  public function getNameUNTYPED(): EditableSyntax {
+  public function getNameUNTYPED(): EditableNode {
     return $this->_name;
   }
 
-  public function withName(EditableSyntax $value): this {
+  public function withName(EditableNode $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -117,11 +117,11 @@ final class CollectionLiteralExpression extends EditableSyntax {
     return TypeAssert\instance_of(EditableToken::class, $this->_name);
   }
 
-  public function getLeftBraceUNTYPED(): EditableSyntax {
+  public function getLeftBraceUNTYPED(): EditableNode {
     return $this->_left_brace;
   }
 
-  public function withLeftBrace(EditableSyntax $value): this {
+  public function withLeftBrace(EditableNode $value): this {
     if ($value === $this->_left_brace) {
       return $this;
     }
@@ -140,11 +140,11 @@ final class CollectionLiteralExpression extends EditableSyntax {
     return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
   }
 
-  public function getInitializersUNTYPED(): EditableSyntax {
+  public function getInitializersUNTYPED(): EditableNode {
     return $this->_initializers;
   }
 
-  public function withInitializers(EditableSyntax $value): this {
+  public function withInitializers(EditableNode $value): this {
     if ($value === $this->_initializers) {
       return $this;
     }
@@ -173,11 +173,11 @@ final class CollectionLiteralExpression extends EditableSyntax {
     return TypeAssert\instance_of(EditableList::class, $this->_initializers);
   }
 
-  public function getRightBraceUNTYPED(): EditableSyntax {
+  public function getRightBraceUNTYPED(): EditableNode {
     return $this->_right_brace;
   }
 
-  public function withRightBrace(EditableSyntax $value): this {
+  public function withRightBrace(EditableNode $value): this {
     if ($value === $this->_right_brace) {
       return $this;
     }

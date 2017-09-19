@@ -2,20 +2,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6780eb5340f689193a09756e2f2cbb53>>
+ * @generated SignedSource<<95af7705db859c080be8a3e071048357>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class InclusionExpression extends EditableSyntax {
+final class InclusionExpression extends EditableNode {
 
-  private EditableSyntax $_require;
-  private EditableSyntax $_filename;
+  private EditableNode $_require;
+  private EditableNode $_filename;
 
-  public function __construct(
-    EditableSyntax $require,
-    EditableSyntax $filename,
-  ) {
+  public function __construct(EditableNode $require, EditableNode $filename) {
     parent::__construct('inclusion_expression');
     $this->_require = $require;
     $this->_filename = $filename;
@@ -27,13 +24,13 @@ final class InclusionExpression extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $require = EditableSyntax::fromJSON(
+    $require = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['inclusion_require'],
       $position,
       $source,
     );
     $position += $require->getWidth();
-    $filename = EditableSyntax::fromJSON(
+    $filename = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['inclusion_filename'],
       $position,
       $source,
@@ -43,7 +40,7 @@ final class InclusionExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'require' => $this->_require;
     yield 'filename' => $this->_filename;
   }
@@ -51,7 +48,7 @@ final class InclusionExpression extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -63,11 +60,11 @@ final class InclusionExpression extends EditableSyntax {
     return new self($require, $filename);
   }
 
-  public function getRequireUNTYPED(): EditableSyntax {
+  public function getRequireUNTYPED(): EditableNode {
     return $this->_require;
   }
 
-  public function withRequire(EditableSyntax $value): this {
+  public function withRequire(EditableNode $value): this {
     if ($value === $this->_require) {
       return $this;
     }
@@ -86,11 +83,11 @@ final class InclusionExpression extends EditableSyntax {
     return TypeAssert\instance_of(EditableToken::class, $this->_require);
   }
 
-  public function getFilenameUNTYPED(): EditableSyntax {
+  public function getFilenameUNTYPED(): EditableNode {
     return $this->_filename;
   }
 
-  public function withFilename(EditableSyntax $value): this {
+  public function withFilename(EditableNode $value): this {
     if ($value === $this->_filename) {
       return $this;
     }
@@ -105,7 +102,7 @@ final class InclusionExpression extends EditableSyntax {
    * @returns LiteralExpression | QualifiedNameExpression | BinaryExpression |
    * VariableExpression | SubscriptExpression | ParenthesizedExpression
    */
-  public function getFilename(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_filename);
+  public function getFilename(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_filename);
   }
 }

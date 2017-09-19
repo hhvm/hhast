@@ -2,20 +2,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c299f87c3ffad73da397043833962f0d>>
+ * @generated SignedSource<<c0da8dfe070838af96277511e65cae0d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class StaticDeclarator extends EditableSyntax {
+final class StaticDeclarator extends EditableNode {
 
-  private EditableSyntax $_name;
-  private EditableSyntax $_initializer;
+  private EditableNode $_name;
+  private EditableNode $_initializer;
 
-  public function __construct(
-    EditableSyntax $name,
-    EditableSyntax $initializer,
-  ) {
+  public function __construct(EditableNode $name, EditableNode $initializer) {
     parent::__construct('static_declarator');
     $this->_name = $name;
     $this->_initializer = $initializer;
@@ -27,13 +24,13 @@ final class StaticDeclarator extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $name = EditableSyntax::fromJSON(
+    $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['static_name'],
       $position,
       $source,
     );
     $position += $name->getWidth();
-    $initializer = EditableSyntax::fromJSON(
+    $initializer = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['static_initializer'],
       $position,
       $source,
@@ -43,7 +40,7 @@ final class StaticDeclarator extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'name' => $this->_name;
     yield 'initializer' => $this->_initializer;
   }
@@ -51,7 +48,7 @@ final class StaticDeclarator extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -63,11 +60,11 @@ final class StaticDeclarator extends EditableSyntax {
     return new self($name, $initializer);
   }
 
-  public function getNameUNTYPED(): EditableSyntax {
+  public function getNameUNTYPED(): EditableNode {
     return $this->_name;
   }
 
-  public function withName(EditableSyntax $value): this {
+  public function withName(EditableNode $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -95,11 +92,11 @@ final class StaticDeclarator extends EditableSyntax {
     return TypeAssert\instance_of(VariableToken::class, $this->_name);
   }
 
-  public function getInitializerUNTYPED(): EditableSyntax {
+  public function getInitializerUNTYPED(): EditableNode {
     return $this->_initializer;
   }
 
-  public function withInitializer(EditableSyntax $value): this {
+  public function withInitializer(EditableNode $value): this {
     if ($value === $this->_initializer) {
       return $this;
     }

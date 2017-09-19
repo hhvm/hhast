@@ -17,7 +17,7 @@ use type Facebook\HHAST\{
   AttributeSpecification,
   ClassishDeclaration,
   ClassToken,
-  EditableSyntax,
+  EditableNode,
   GenericTypeSpecifier,
   ListItem,
   MethodishDeclaration,
@@ -38,7 +38,7 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
   <<__Override>>
   public function getLintErrorForNode(
     MethodishDeclaration $node,
-    vec<EditableSyntax> $parents,
+    vec<EditableNode> $parents,
   ): ?ASTLintError<MethodishDeclaration, this> {
     $class = $parents
       |> Vec\filter($$, $x ==> $x instanceof ClassishDeclaration)
@@ -125,7 +125,7 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
   <<__Override>>
   public function getPrettyTextForNode(
     MethodishDeclaration $node,
-    ?EditableSyntax $_context,
+    ?EditableNode $_context,
   ): string {
     $body = $node->getFunctionBody();
     if ($body === null) {

@@ -2,23 +2,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dd2cf7bc776a539db86b20891e561567>>
+ * @generated SignedSource<<f4be42edc70590ce40104a0ada2c8413>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class ArrayIntrinsicExpression extends EditableSyntax {
+final class ArrayIntrinsicExpression extends EditableNode {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_left_paren;
-  private EditableSyntax $_members;
-  private EditableSyntax $_right_paren;
+  private EditableNode $_keyword;
+  private EditableNode $_left_paren;
+  private EditableNode $_members;
+  private EditableNode $_right_paren;
 
   public function __construct(
-    EditableSyntax $keyword,
-    EditableSyntax $left_paren,
-    EditableSyntax $members,
-    EditableSyntax $right_paren,
+    EditableNode $keyword,
+    EditableNode $left_paren,
+    EditableNode $members,
+    EditableNode $right_paren,
   ) {
     parent::__construct('array_intrinsic_expression');
     $this->_keyword = $keyword;
@@ -33,25 +33,25 @@ final class ArrayIntrinsicExpression extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['array_intrinsic_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_paren = EditableSyntax::fromJSON(
+    $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['array_intrinsic_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $members = EditableSyntax::fromJSON(
+    $members = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['array_intrinsic_members'],
       $position,
       $source,
     );
     $position += $members->getWidth();
-    $right_paren = EditableSyntax::fromJSON(
+    $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['array_intrinsic_right_paren'],
       $position,
       $source,
@@ -61,7 +61,7 @@ final class ArrayIntrinsicExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'left_paren' => $this->_left_paren;
     yield 'members' => $this->_members;
@@ -71,7 +71,7 @@ final class ArrayIntrinsicExpression extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -90,11 +90,11 @@ final class ArrayIntrinsicExpression extends EditableSyntax {
     return new self($keyword, $left_paren, $members, $right_paren);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -117,11 +117,11 @@ final class ArrayIntrinsicExpression extends EditableSyntax {
     return TypeAssert\instance_of(ArrayToken::class, $this->_keyword);
   }
 
-  public function getLeftParenUNTYPED(): EditableSyntax {
+  public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableSyntax $value): this {
+  public function withLeftParen(EditableNode $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -140,11 +140,11 @@ final class ArrayIntrinsicExpression extends EditableSyntax {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
-  public function getMembersUNTYPED(): EditableSyntax {
+  public function getMembersUNTYPED(): EditableNode {
     return $this->_members;
   }
 
-  public function withMembers(EditableSyntax $value): this {
+  public function withMembers(EditableNode $value): this {
     if ($value === $this->_members) {
       return $this;
     }
@@ -177,11 +177,11 @@ final class ArrayIntrinsicExpression extends EditableSyntax {
     return TypeAssert\instance_of(EditableList::class, $this->_members);
   }
 
-  public function getRightParenUNTYPED(): EditableSyntax {
+  public function getRightParenUNTYPED(): EditableNode {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableSyntax $value): this {
+  public function withRightParen(EditableNode $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }

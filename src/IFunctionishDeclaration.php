@@ -13,5 +13,5 @@
  namespace Facebook\HHAST;
 
  interface IFunctionishDeclaration {
-   require extends EditableSyntax;
+   require extends EditableNode;
  }

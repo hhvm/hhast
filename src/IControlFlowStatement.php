@@ -13,5 +13,5 @@
  namespace Facebook\HHAST;
 
  interface IControlFlowStatement {
-   require extends EditableSyntax;
+   require extends EditableNode;
  }

@@ -2,25 +2,25 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ffbd7d22a7a7925e2ade61bd6744f951>>
+ * @generated SignedSource<<63029150780c4c4b5a65f56167f09f42>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class TraitUseConflictResolution extends EditableSyntax {
+final class TraitUseConflictResolution extends EditableNode {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_names;
-  private EditableSyntax $_left_brace;
-  private EditableSyntax $_clauses;
-  private EditableSyntax $_right_brace;
+  private EditableNode $_keyword;
+  private EditableNode $_names;
+  private EditableNode $_left_brace;
+  private EditableNode $_clauses;
+  private EditableNode $_right_brace;
 
   public function __construct(
-    EditableSyntax $keyword,
-    EditableSyntax $names,
-    EditableSyntax $left_brace,
-    EditableSyntax $clauses,
-    EditableSyntax $right_brace,
+    EditableNode $keyword,
+    EditableNode $names,
+    EditableNode $left_brace,
+    EditableNode $clauses,
+    EditableNode $right_brace,
   ) {
     parent::__construct('trait_use_conflict_resolution');
     $this->_keyword = $keyword;
@@ -36,31 +36,31 @@ final class TraitUseConflictResolution extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['trait_use_conflict_resolution_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $names = EditableSyntax::fromJSON(
+    $names = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['trait_use_conflict_resolution_names'],
       $position,
       $source,
     );
     $position += $names->getWidth();
-    $left_brace = EditableSyntax::fromJSON(
+    $left_brace = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['trait_use_conflict_resolution_left_brace'],
       $position,
       $source,
     );
     $position += $left_brace->getWidth();
-    $clauses = EditableSyntax::fromJSON(
+    $clauses = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['trait_use_conflict_resolution_clauses'],
       $position,
       $source,
     );
     $position += $clauses->getWidth();
-    $right_brace = EditableSyntax::fromJSON(
+    $right_brace = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['trait_use_conflict_resolution_right_brace'],
       $position,
       $source,
@@ -70,7 +70,7 @@ final class TraitUseConflictResolution extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'names' => $this->_names;
     yield 'left_brace' => $this->_left_brace;
@@ -81,7 +81,7 @@ final class TraitUseConflictResolution extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -102,11 +102,11 @@ final class TraitUseConflictResolution extends EditableSyntax {
     return new self($keyword, $names, $left_brace, $clauses, $right_brace);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -130,11 +130,11 @@ final class TraitUseConflictResolution extends EditableSyntax {
     return TypeAssert\instance_of(UseToken::class, $this->_keyword);
   }
 
-  public function getNamesUNTYPED(): EditableSyntax {
+  public function getNamesUNTYPED(): EditableNode {
     return $this->_names;
   }
 
-  public function withNames(EditableSyntax $value): this {
+  public function withNames(EditableNode $value): this {
     if ($value === $this->_names) {
       return $this;
     }
@@ -158,11 +158,11 @@ final class TraitUseConflictResolution extends EditableSyntax {
     return TypeAssert\instance_of(EditableList::class, $this->_names);
   }
 
-  public function getLeftBraceUNTYPED(): EditableSyntax {
+  public function getLeftBraceUNTYPED(): EditableNode {
     return $this->_left_brace;
   }
 
-  public function withLeftBrace(EditableSyntax $value): this {
+  public function withLeftBrace(EditableNode $value): this {
     if ($value === $this->_left_brace) {
       return $this;
     }
@@ -186,11 +186,11 @@ final class TraitUseConflictResolution extends EditableSyntax {
     return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
   }
 
-  public function getClausesUNTYPED(): EditableSyntax {
+  public function getClausesUNTYPED(): EditableNode {
     return $this->_clauses;
   }
 
-  public function withClauses(EditableSyntax $value): this {
+  public function withClauses(EditableNode $value): this {
     if ($value === $this->_clauses) {
       return $this;
     }
@@ -224,11 +224,11 @@ final class TraitUseConflictResolution extends EditableSyntax {
     return TypeAssert\instance_of(EditableList::class, $this->_clauses);
   }
 
-  public function getRightBraceUNTYPED(): EditableSyntax {
+  public function getRightBraceUNTYPED(): EditableNode {
     return $this->_right_brace;
   }
 
-  public function withRightBrace(EditableSyntax $value): this {
+  public function withRightBrace(EditableNode $value): this {
     if ($value === $this->_right_brace) {
       return $this;
     }

@@ -2,21 +2,21 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<01f42b7f8c5087b3ee03d865467fb71e>>
+ * @generated SignedSource<<d99ebb19a2c30b9d54393c92111d7794>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class ElementInitializer extends EditableSyntax {
+final class ElementInitializer extends EditableNode {
 
-  private EditableSyntax $_key;
-  private EditableSyntax $_arrow;
-  private EditableSyntax $_value;
+  private EditableNode $_key;
+  private EditableNode $_arrow;
+  private EditableNode $_value;
 
   public function __construct(
-    EditableSyntax $key,
-    EditableSyntax $arrow,
-    EditableSyntax $value,
+    EditableNode $key,
+    EditableNode $arrow,
+    EditableNode $value,
   ) {
     parent::__construct('element_initializer');
     $this->_key = $key;
@@ -30,19 +30,19 @@ final class ElementInitializer extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $key = EditableSyntax::fromJSON(
+    $key = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['element_key'],
       $position,
       $source,
     );
     $position += $key->getWidth();
-    $arrow = EditableSyntax::fromJSON(
+    $arrow = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['element_arrow'],
       $position,
       $source,
     );
     $position += $arrow->getWidth();
-    $value = EditableSyntax::fromJSON(
+    $value = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['element_value'],
       $position,
       $source,
@@ -52,7 +52,7 @@ final class ElementInitializer extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'key' => $this->_key;
     yield 'arrow' => $this->_arrow;
     yield 'value' => $this->_value;
@@ -61,7 +61,7 @@ final class ElementInitializer extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -78,11 +78,11 @@ final class ElementInitializer extends EditableSyntax {
     return new self($key, $arrow, $value);
   }
 
-  public function getKeyUNTYPED(): EditableSyntax {
+  public function getKeyUNTYPED(): EditableNode {
     return $this->_key;
   }
 
-  public function withKey(EditableSyntax $value): this {
+  public function withKey(EditableNode $value): this {
     if ($value === $this->_key) {
       return $this;
     }
@@ -102,15 +102,15 @@ final class ElementInitializer extends EditableSyntax {
    * FunctionCallExpression | BinaryExpression | ParenthesizedExpression |
    * ArrayCreationExpression | CastExpression | AnonymousFunction
    */
-  public function getKey(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_key);
+  public function getKey(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_key);
   }
 
-  public function getArrowUNTYPED(): EditableSyntax {
+  public function getArrowUNTYPED(): EditableNode {
     return $this->_arrow;
   }
 
-  public function withArrow(EditableSyntax $value): this {
+  public function withArrow(EditableNode $value): this {
     if ($value === $this->_arrow) {
       return $this;
     }
@@ -128,11 +128,11 @@ final class ElementInitializer extends EditableSyntax {
     return TypeAssert\instance_of(EqualGreaterThanToken::class, $this->_arrow);
   }
 
-  public function getValueUNTYPED(): EditableSyntax {
+  public function getValueUNTYPED(): EditableNode {
     return $this->_value;
   }
 
-  public function withValue(EditableSyntax $value): this {
+  public function withValue(EditableNode $value): this {
     if ($value === $this->_value) {
       return $this;
     }
@@ -155,7 +155,7 @@ final class ElementInitializer extends EditableSyntax {
    * | DarrayIntrinsicExpression | VarrayIntrinsicExpression |
    * SubscriptExpression | IssetExpression | TupleExpression
    */
-  public function getValue(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_value);
+  public function getValue(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_value);
   }
 }

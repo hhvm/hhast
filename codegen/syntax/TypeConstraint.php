@@ -2,17 +2,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<29281f15a71575b92a5f41fc6c99fa0f>>
+ * @generated SignedSource<<8bf651fb9afebbb4a9dfed2765307c27>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class TypeConstraint extends EditableSyntax {
+final class TypeConstraint extends EditableNode {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_type;
+  private EditableNode $_keyword;
+  private EditableNode $_type;
 
-  public function __construct(EditableSyntax $keyword, EditableSyntax $type) {
+  public function __construct(EditableNode $keyword, EditableNode $type) {
     parent::__construct('type_constraint');
     $this->_keyword = $keyword;
     $this->_type = $type;
@@ -24,13 +24,13 @@ final class TypeConstraint extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['constraint_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $type = EditableSyntax::fromJSON(
+    $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['constraint_type'],
       $position,
       $source,
@@ -40,7 +40,7 @@ final class TypeConstraint extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'type' => $this->_type;
   }
@@ -48,7 +48,7 @@ final class TypeConstraint extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -60,11 +60,11 @@ final class TypeConstraint extends EditableSyntax {
     return new self($keyword, $type);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -82,11 +82,11 @@ final class TypeConstraint extends EditableSyntax {
     return TypeAssert\instance_of(EditableToken::class, $this->_keyword);
   }
 
-  public function getTypeUNTYPED(): EditableSyntax {
+  public function getTypeUNTYPED(): EditableNode {
     return $this->_type;
   }
 
-  public function withType(EditableSyntax $value): this {
+  public function withType(EditableNode $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -102,7 +102,7 @@ final class TypeConstraint extends EditableSyntax {
    * NullableTypeSpecifier | TypeConstant | DictionaryTypeSpecifier |
    * ClassnameTypeSpecifier | KeysetTypeSpecifier
    */
-  public function getType(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_type);
+  public function getType(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_type);
   }
 }

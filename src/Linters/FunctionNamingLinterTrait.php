@@ -16,7 +16,7 @@ use type Facebook\HHAST\{
   ConstructToken,
   DestructToken,
   EditableList,
-  EditableSyntax,
+  EditableNode,
   EditableToken,
   EndOfLine,
   FunctionDeclaration,
@@ -66,7 +66,7 @@ trait FunctionNamingLinterTrait {
   }
 
   private function getCurrentNameNodeForFunctionOrMethod(
-    EditableSyntax $node,
+    EditableNode $node,
   ): ?EditableToken {
     if ($node instanceof FunctionDeclaration) {
       return $node->getDeclarationHeader()->getName();
@@ -82,7 +82,7 @@ trait FunctionNamingLinterTrait {
   <<__Override>>
   final public function getLintErrorForNode(
     IFunctionishDeclaration $node,
-    vec<EditableSyntax> $_parents,
+    vec<EditableNode> $_parents,
   ): ?ASTLintError<IFunctionishDeclaration, this> {
     $token = $this->getCurrentNameNodeForFunctionOrMethod($node);
     if ($token === null) {
@@ -127,7 +127,7 @@ trait FunctionNamingLinterTrait {
   <<__Override>>
   public function getPrettyTextForNode(
     IFunctionishDeclaration $node,
-    ?EditableSyntax $_context,
+    ?EditableNode $_context,
   ): string {
     if ($node instanceof FunctionDeclaration) {
       $node = $node->withBody(HHAST\Missing());

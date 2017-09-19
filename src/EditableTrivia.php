@@ -12,7 +12,7 @@
 
 namespace Facebook\HHAST;
 
-abstract class EditableTrivia extends EditableSyntax {
+abstract class EditableTrivia extends EditableNode {
   private string $_text;
   <<__Override>>
   public function __construct(string $trivia_kind, string $text) {
@@ -40,7 +40,7 @@ abstract class EditableTrivia extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield break;
   }
 
@@ -56,7 +56,7 @@ abstract class EditableTrivia extends EditableSyntax {
   <<__Override>>
   final public function rewriteDescendants(
     self::TRewriter $_rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     // Trivia have no children
     return $this;

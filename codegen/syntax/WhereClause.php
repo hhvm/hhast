@@ -2,19 +2,19 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<993b876e4bbdcb31b54762d8d2bd15eb>>
+ * @generated SignedSource<<03f2ebec6fe6e88a38aae8bdb2590ecf>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class WhereClause extends EditableSyntax {
+final class WhereClause extends EditableNode {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_constraints;
+  private EditableNode $_keyword;
+  private EditableNode $_constraints;
 
   public function __construct(
-    EditableSyntax $keyword,
-    EditableSyntax $constraints,
+    EditableNode $keyword,
+    EditableNode $constraints,
   ) {
     parent::__construct('where_clause');
     $this->_keyword = $keyword;
@@ -27,13 +27,13 @@ final class WhereClause extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['where_clause_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $constraints = EditableSyntax::fromJSON(
+    $constraints = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['where_clause_constraints'],
       $position,
       $source,
@@ -43,7 +43,7 @@ final class WhereClause extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'constraints' => $this->_constraints;
   }
@@ -51,7 +51,7 @@ final class WhereClause extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -63,11 +63,11 @@ final class WhereClause extends EditableSyntax {
     return new self($keyword, $constraints);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -85,11 +85,11 @@ final class WhereClause extends EditableSyntax {
     return TypeAssert\instance_of(WhereToken::class, $this->_keyword);
   }
 
-  public function getConstraintsUNTYPED(): EditableSyntax {
+  public function getConstraintsUNTYPED(): EditableNode {
     return $this->_constraints;
   }
 
-  public function withConstraints(EditableSyntax $value): this {
+  public function withConstraints(EditableNode $value): this {
     if ($value === $this->_constraints) {
       return $this;
     }

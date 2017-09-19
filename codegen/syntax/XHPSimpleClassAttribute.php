@@ -2,16 +2,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<42489bb0717090dc9a53ca931f1c71d7>>
+ * @generated SignedSource<<c6aecd4ddb6dccccab17b63e990d00e2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class XHPSimpleClassAttribute extends EditableSyntax {
+final class XHPSimpleClassAttribute extends EditableNode {
 
-  private EditableSyntax $_type;
+  private EditableNode $_type;
 
-  public function __construct(EditableSyntax $type) {
+  public function __construct(EditableNode $type) {
     parent::__construct('xhp_simple_class_attribute');
     $this->_type = $type;
   }
@@ -22,7 +22,7 @@ final class XHPSimpleClassAttribute extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $type = EditableSyntax::fromJSON(
+    $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_simple_class_attribute_type'],
       $position,
       $source,
@@ -32,14 +32,14 @@ final class XHPSimpleClassAttribute extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'type' => $this->_type;
   }
 
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -50,11 +50,11 @@ final class XHPSimpleClassAttribute extends EditableSyntax {
     return new self($type);
   }
 
-  public function getTypeUNTYPED(): EditableSyntax {
+  public function getTypeUNTYPED(): EditableNode {
     return $this->_type;
   }
 
-  public function withType(EditableSyntax $value): this {
+  public function withType(EditableNode $value): this {
     if ($value === $this->_type) {
       return $this;
     }

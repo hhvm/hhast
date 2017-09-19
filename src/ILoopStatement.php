@@ -13,6 +13,6 @@
 namespace Facebook\HHAST;
 
 interface ILoopStatement extends IControlFlowStatement {
-  public function getBody(): EditableSyntax;
-  public function withBody(EditableSyntax $body): this;
+  public function getBody(): EditableNode;
+  public function withBody(EditableNode $body): this;
 }

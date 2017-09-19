@@ -2,21 +2,21 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1d68540720d127aa6734316b5958beb0>>
+ * @generated SignedSource<<2efe7c207b5467baa3da565407ccecda>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class AwaitableCreationExpression extends EditableSyntax {
+final class AwaitableCreationExpression extends EditableNode {
 
-  private EditableSyntax $_async;
-  private EditableSyntax $_coroutine;
-  private EditableSyntax $_compound_statement;
+  private EditableNode $_async;
+  private EditableNode $_coroutine;
+  private EditableNode $_compound_statement;
 
   public function __construct(
-    EditableSyntax $async,
-    EditableSyntax $coroutine,
-    EditableSyntax $compound_statement,
+    EditableNode $async,
+    EditableNode $coroutine,
+    EditableNode $compound_statement,
   ) {
     parent::__construct('awaitable_creation_expression');
     $this->_async = $async;
@@ -30,19 +30,19 @@ final class AwaitableCreationExpression extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $async = EditableSyntax::fromJSON(
+    $async = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['awaitable_async'],
       $position,
       $source,
     );
     $position += $async->getWidth();
-    $coroutine = EditableSyntax::fromJSON(
+    $coroutine = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['awaitable_coroutine'],
       $position,
       $source,
     );
     $position += $coroutine->getWidth();
-    $compound_statement = EditableSyntax::fromJSON(
+    $compound_statement = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['awaitable_compound_statement'],
       $position,
       $source,
@@ -52,7 +52,7 @@ final class AwaitableCreationExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'async' => $this->_async;
     yield 'coroutine' => $this->_coroutine;
     yield 'compound_statement' => $this->_compound_statement;
@@ -61,7 +61,7 @@ final class AwaitableCreationExpression extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -79,11 +79,11 @@ final class AwaitableCreationExpression extends EditableSyntax {
     return new self($async, $coroutine, $compound_statement);
   }
 
-  public function getAsyncUNTYPED(): EditableSyntax {
+  public function getAsyncUNTYPED(): EditableNode {
     return $this->_async;
   }
 
-  public function withAsync(EditableSyntax $value): this {
+  public function withAsync(EditableNode $value): this {
     if ($value === $this->_async) {
       return $this;
     }
@@ -101,11 +101,11 @@ final class AwaitableCreationExpression extends EditableSyntax {
     return TypeAssert\instance_of(AsyncToken::class, $this->_async);
   }
 
-  public function getCoroutineUNTYPED(): EditableSyntax {
+  public function getCoroutineUNTYPED(): EditableNode {
     return $this->_coroutine;
   }
 
-  public function withCoroutine(EditableSyntax $value): this {
+  public function withCoroutine(EditableNode $value): this {
     if ($value === $this->_coroutine) {
       return $this;
     }
@@ -119,15 +119,15 @@ final class AwaitableCreationExpression extends EditableSyntax {
   /**
    * @returns Missing
    */
-  public function getCoroutine(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_coroutine);
+  public function getCoroutine(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_coroutine);
   }
 
-  public function getCompoundStatementUNTYPED(): EditableSyntax {
+  public function getCompoundStatementUNTYPED(): EditableNode {
     return $this->_compound_statement;
   }
 
-  public function withCompoundStatement(EditableSyntax $value): this {
+  public function withCompoundStatement(EditableNode $value): this {
     if ($value === $this->_compound_statement) {
       return $this;
     }

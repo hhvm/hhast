@@ -2,16 +2,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ceee168ada5ea3a7aa16c181f9964e80>>
+ * @generated SignedSource<<47871560e74789a1137b4d50f28c0a6c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class Script extends EditableSyntax {
+final class Script extends EditableNode {
 
-  private EditableSyntax $_declarations;
+  private EditableNode $_declarations;
 
-  public function __construct(EditableSyntax $declarations) {
+  public function __construct(EditableNode $declarations) {
     parent::__construct('script');
     $this->_declarations = $declarations;
   }
@@ -22,7 +22,7 @@ final class Script extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $declarations = EditableSyntax::fromJSON(
+    $declarations = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['script_declarations'],
       $position,
       $source,
@@ -32,14 +32,14 @@ final class Script extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'declarations' => $this->_declarations;
   }
 
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -50,11 +50,11 @@ final class Script extends EditableSyntax {
     return new self($declarations);
   }
 
-  public function getDeclarationsUNTYPED(): EditableSyntax {
+  public function getDeclarationsUNTYPED(): EditableNode {
     return $this->_declarations;
   }
 
-  public function withDeclarations(EditableSyntax $value): this {
+  public function withDeclarations(EditableNode $value): this {
     if ($value === $this->_declarations) {
       return $this;
     }

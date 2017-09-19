@@ -2,30 +2,29 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f0872de6ea19abad1dfdbb4a60520fa3>>
+ * @generated SignedSource<<e44282d934ba6378a40923420215833a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class IfStatement extends EditableSyntax
-  implements IControlFlowStatement {
+final class IfStatement extends EditableNode implements IControlFlowStatement {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_left_paren;
-  private EditableSyntax $_condition;
-  private EditableSyntax $_right_paren;
-  private EditableSyntax $_statement;
-  private EditableSyntax $_elseif_clauses;
-  private EditableSyntax $_else_clause;
+  private EditableNode $_keyword;
+  private EditableNode $_left_paren;
+  private EditableNode $_condition;
+  private EditableNode $_right_paren;
+  private EditableNode $_statement;
+  private EditableNode $_elseif_clauses;
+  private EditableNode $_else_clause;
 
   public function __construct(
-    EditableSyntax $keyword,
-    EditableSyntax $left_paren,
-    EditableSyntax $condition,
-    EditableSyntax $right_paren,
-    EditableSyntax $statement,
-    EditableSyntax $elseif_clauses,
-    EditableSyntax $else_clause,
+    EditableNode $keyword,
+    EditableNode $left_paren,
+    EditableNode $condition,
+    EditableNode $right_paren,
+    EditableNode $statement,
+    EditableNode $elseif_clauses,
+    EditableNode $else_clause,
   ) {
     parent::__construct('if_statement');
     $this->_keyword = $keyword;
@@ -43,43 +42,43 @@ final class IfStatement extends EditableSyntax
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['if_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_paren = EditableSyntax::fromJSON(
+    $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['if_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $condition = EditableSyntax::fromJSON(
+    $condition = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['if_condition'],
       $position,
       $source,
     );
     $position += $condition->getWidth();
-    $right_paren = EditableSyntax::fromJSON(
+    $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['if_right_paren'],
       $position,
       $source,
     );
     $position += $right_paren->getWidth();
-    $statement = EditableSyntax::fromJSON(
+    $statement = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['if_statement'],
       $position,
       $source,
     );
     $position += $statement->getWidth();
-    $elseif_clauses = EditableSyntax::fromJSON(
+    $elseif_clauses = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['if_elseif_clauses'],
       $position,
       $source,
     );
     $position += $elseif_clauses->getWidth();
-    $else_clause = EditableSyntax::fromJSON(
+    $else_clause = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['if_else_clause'],
       $position,
       $source,
@@ -97,7 +96,7 @@ final class IfStatement extends EditableSyntax
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'left_paren' => $this->_left_paren;
     yield 'condition' => $this->_condition;
@@ -110,7 +109,7 @@ final class IfStatement extends EditableSyntax
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -143,11 +142,11 @@ final class IfStatement extends EditableSyntax
     );
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -173,11 +172,11 @@ final class IfStatement extends EditableSyntax
     return TypeAssert\instance_of(IfToken::class, $this->_keyword);
   }
 
-  public function getLeftParenUNTYPED(): EditableSyntax {
+  public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableSyntax $value): this {
+  public function withLeftParen(EditableNode $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -203,11 +202,11 @@ final class IfStatement extends EditableSyntax
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
-  public function getConditionUNTYPED(): EditableSyntax {
+  public function getConditionUNTYPED(): EditableNode {
     return $this->_condition;
   }
 
-  public function withCondition(EditableSyntax $value): this {
+  public function withCondition(EditableNode $value): this {
     if ($value === $this->_condition) {
       return $this;
     }
@@ -233,15 +232,15 @@ final class IfStatement extends EditableSyntax
    * QualifiedNameExpression | CastExpression | MemberSelectionExpression |
    * ParenthesizedExpression | EmptyExpression | ScopeResolutionExpression
    */
-  public function getCondition(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_condition);
+  public function getCondition(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_condition);
   }
 
-  public function getRightParenUNTYPED(): EditableSyntax {
+  public function getRightParenUNTYPED(): EditableNode {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableSyntax $value): this {
+  public function withRightParen(EditableNode $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -277,11 +276,11 @@ final class IfStatement extends EditableSyntax
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
-  public function getStatementUNTYPED(): EditableSyntax {
+  public function getStatementUNTYPED(): EditableNode {
     return $this->_statement;
   }
 
-  public function withStatement(EditableSyntax $value): this {
+  public function withStatement(EditableNode $value): this {
     if ($value === $this->_statement) {
       return $this;
     }
@@ -305,15 +304,15 @@ final class IfStatement extends EditableSyntax
    * ThrowStatement | ReturnStatement | BreakStatement | UnsetStatement |
    * GotoStatement | ContinueStatement | GlobalStatement
    */
-  public function getStatement(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_statement);
+  public function getStatement(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_statement);
   }
 
-  public function getElseifClausesUNTYPED(): EditableSyntax {
+  public function getElseifClausesUNTYPED(): EditableNode {
     return $this->_elseif_clauses;
   }
 
-  public function withElseifClauses(EditableSyntax $value): this {
+  public function withElseifClauses(EditableNode $value): this {
     if ($value === $this->_elseif_clauses) {
       return $this;
     }
@@ -349,11 +348,11 @@ final class IfStatement extends EditableSyntax
     return TypeAssert\instance_of(EditableList::class, $this->_elseif_clauses);
   }
 
-  public function getElseClauseUNTYPED(): EditableSyntax {
+  public function getElseClauseUNTYPED(): EditableNode {
     return $this->_else_clause;
   }
 
-  public function withElseClause(EditableSyntax $value): this {
+  public function withElseClause(EditableNode $value): this {
     if ($value === $this->_else_clause) {
       return $this;
     }

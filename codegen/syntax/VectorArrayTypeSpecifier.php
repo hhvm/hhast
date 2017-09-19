@@ -2,23 +2,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e55281a4b06d5fdbd0b2c21644138f1e>>
+ * @generated SignedSource<<65e22518af5432db90b4c42cc508b3ec>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class VectorArrayTypeSpecifier extends EditableSyntax {
+final class VectorArrayTypeSpecifier extends EditableNode {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_left_angle;
-  private EditableSyntax $_type;
-  private EditableSyntax $_right_angle;
+  private EditableNode $_keyword;
+  private EditableNode $_left_angle;
+  private EditableNode $_type;
+  private EditableNode $_right_angle;
 
   public function __construct(
-    EditableSyntax $keyword,
-    EditableSyntax $left_angle,
-    EditableSyntax $type,
-    EditableSyntax $right_angle,
+    EditableNode $keyword,
+    EditableNode $left_angle,
+    EditableNode $type,
+    EditableNode $right_angle,
   ) {
     parent::__construct('vector_array_type_specifier');
     $this->_keyword = $keyword;
@@ -33,25 +33,25 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['vector_array_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_angle = EditableSyntax::fromJSON(
+    $left_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['vector_array_left_angle'],
       $position,
       $source,
     );
     $position += $left_angle->getWidth();
-    $type = EditableSyntax::fromJSON(
+    $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['vector_array_type'],
       $position,
       $source,
     );
     $position += $type->getWidth();
-    $right_angle = EditableSyntax::fromJSON(
+    $right_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['vector_array_right_angle'],
       $position,
       $source,
@@ -61,7 +61,7 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'left_angle' => $this->_left_angle;
     yield 'type' => $this->_type;
@@ -71,7 +71,7 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -90,11 +90,11 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
     return new self($keyword, $left_angle, $type, $right_angle);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -113,11 +113,11 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
     return TypeAssert\instance_of(ArrayToken::class, $this->_keyword);
   }
 
-  public function getLeftAngleUNTYPED(): EditableSyntax {
+  public function getLeftAngleUNTYPED(): EditableNode {
     return $this->_left_angle;
   }
 
-  public function withLeftAngle(EditableSyntax $value): this {
+  public function withLeftAngle(EditableNode $value): this {
     if ($value === $this->_left_angle) {
       return $this;
     }
@@ -135,11 +135,11 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
     return TypeAssert\instance_of(LessThanToken::class, $this->_left_angle);
   }
 
-  public function getTypeUNTYPED(): EditableSyntax {
+  public function getTypeUNTYPED(): EditableNode {
     return $this->_type;
   }
 
-  public function withType(EditableSyntax $value): this {
+  public function withType(EditableNode $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -159,15 +159,15 @@ final class VectorArrayTypeSpecifier extends EditableSyntax {
    * @returns SimpleTypeSpecifier | GenericTypeSpecifier |
    * VectorArrayTypeSpecifier | TupleTypeSpecifier | NullableTypeSpecifier
    */
-  public function getType(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_type);
+  public function getType(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_type);
   }
 
-  public function getRightAngleUNTYPED(): EditableSyntax {
+  public function getRightAngleUNTYPED(): EditableNode {
     return $this->_right_angle;
   }
 
-  public function withRightAngle(EditableSyntax $value): this {
+  public function withRightAngle(EditableNode $value): this {
     if ($value === $this->_right_angle) {
       return $this;
     }

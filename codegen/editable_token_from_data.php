@@ -2,15 +2,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<25f5315d71b12f5da9a6e4aedd7fa170>>
+ * @generated SignedSource<<a6754d7bc6f22d0d0023e50f1aef2355>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
 
 function editable_token_from_data(
   string $token_kind,
-  HHAST\EditableSyntax $leading,
-  HHAST\EditableSyntax $trailing,
+  HHAST\EditableNode $leading,
+  HHAST\EditableNode $trailing,
   string $token_text,
 ): HHAST\EditableToken {
   switch ($token_kind) {

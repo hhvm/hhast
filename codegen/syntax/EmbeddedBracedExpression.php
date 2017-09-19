@@ -2,21 +2,21 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0df651f2167ed806f6990a53520dcbb2>>
+ * @generated SignedSource<<d88651d6bd27df41dbe6ef0604da13b8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class EmbeddedBracedExpression extends EditableSyntax {
+final class EmbeddedBracedExpression extends EditableNode {
 
-  private EditableSyntax $_left_brace;
-  private EditableSyntax $_expression;
-  private EditableSyntax $_right_brace;
+  private EditableNode $_left_brace;
+  private EditableNode $_expression;
+  private EditableNode $_right_brace;
 
   public function __construct(
-    EditableSyntax $left_brace,
-    EditableSyntax $expression,
-    EditableSyntax $right_brace,
+    EditableNode $left_brace,
+    EditableNode $expression,
+    EditableNode $right_brace,
   ) {
     parent::__construct('embedded_braced_expression');
     $this->_left_brace = $left_brace;
@@ -30,19 +30,19 @@ final class EmbeddedBracedExpression extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $left_brace = EditableSyntax::fromJSON(
+    $left_brace = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['embedded_braced_expression_left_brace'],
       $position,
       $source,
     );
     $position += $left_brace->getWidth();
-    $expression = EditableSyntax::fromJSON(
+    $expression = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['embedded_braced_expression_expression'],
       $position,
       $source,
     );
     $position += $expression->getWidth();
-    $right_brace = EditableSyntax::fromJSON(
+    $right_brace = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['embedded_braced_expression_right_brace'],
       $position,
       $source,
@@ -52,7 +52,7 @@ final class EmbeddedBracedExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'left_brace' => $this->_left_brace;
     yield 'expression' => $this->_expression;
     yield 'right_brace' => $this->_right_brace;
@@ -61,7 +61,7 @@ final class EmbeddedBracedExpression extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -78,11 +78,11 @@ final class EmbeddedBracedExpression extends EditableSyntax {
     return new self($left_brace, $expression, $right_brace);
   }
 
-  public function getLeftBraceUNTYPED(): EditableSyntax {
+  public function getLeftBraceUNTYPED(): EditableNode {
     return $this->_left_brace;
   }
 
-  public function withLeftBrace(EditableSyntax $value): this {
+  public function withLeftBrace(EditableNode $value): this {
     if ($value === $this->_left_brace) {
       return $this;
     }
@@ -96,15 +96,15 @@ final class EmbeddedBracedExpression extends EditableSyntax {
   /**
    * @returns unknown
    */
-  public function getLeftBrace(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_left_brace);
+  public function getLeftBrace(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_left_brace);
   }
 
-  public function getExpressionUNTYPED(): EditableSyntax {
+  public function getExpressionUNTYPED(): EditableNode {
     return $this->_expression;
   }
 
-  public function withExpression(EditableSyntax $value): this {
+  public function withExpression(EditableNode $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
@@ -118,15 +118,15 @@ final class EmbeddedBracedExpression extends EditableSyntax {
   /**
    * @returns unknown
    */
-  public function getExpression(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_expression);
+  public function getExpression(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_expression);
   }
 
-  public function getRightBraceUNTYPED(): EditableSyntax {
+  public function getRightBraceUNTYPED(): EditableNode {
     return $this->_right_brace;
   }
 
-  public function withRightBrace(EditableSyntax $value): this {
+  public function withRightBrace(EditableNode $value): this {
     if ($value === $this->_right_brace) {
       return $this;
     }
@@ -140,7 +140,7 @@ final class EmbeddedBracedExpression extends EditableSyntax {
   /**
    * @returns unknown
    */
-  public function getRightBrace(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_right_brace);
+  public function getRightBrace(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_right_brace);
   }
 }

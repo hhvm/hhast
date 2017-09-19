@@ -2,20 +2,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<761fcb4cc7929fed745572261da643d5>>
+ * @generated SignedSource<<08ca5bc124ec45b082ded3b61b73ffa8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class PrefixUnaryExpression extends EditableSyntax {
+final class PrefixUnaryExpression extends EditableNode {
 
-  private EditableSyntax $_operator;
-  private EditableSyntax $_operand;
+  private EditableNode $_operator;
+  private EditableNode $_operand;
 
-  public function __construct(
-    EditableSyntax $operator,
-    EditableSyntax $operand,
-  ) {
+  public function __construct(EditableNode $operator, EditableNode $operand) {
     parent::__construct('prefix_unary_expression');
     $this->_operator = $operator;
     $this->_operand = $operand;
@@ -27,13 +24,13 @@ final class PrefixUnaryExpression extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $operator = EditableSyntax::fromJSON(
+    $operator = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['prefix_unary_operator'],
       $position,
       $source,
     );
     $position += $operator->getWidth();
-    $operand = EditableSyntax::fromJSON(
+    $operand = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['prefix_unary_operand'],
       $position,
       $source,
@@ -43,7 +40,7 @@ final class PrefixUnaryExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'operator' => $this->_operator;
     yield 'operand' => $this->_operand;
   }
@@ -51,7 +48,7 @@ final class PrefixUnaryExpression extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -63,11 +60,11 @@ final class PrefixUnaryExpression extends EditableSyntax {
     return new self($operator, $operand);
   }
 
-  public function getOperatorUNTYPED(): EditableSyntax {
+  public function getOperatorUNTYPED(): EditableNode {
     return $this->_operator;
   }
 
-  public function withOperator(EditableSyntax $value): this {
+  public function withOperator(EditableNode $value): this {
     if ($value === $this->_operator) {
       return $this;
     }
@@ -87,11 +84,11 @@ final class PrefixUnaryExpression extends EditableSyntax {
     return TypeAssert\instance_of(EditableToken::class, $this->_operator);
   }
 
-  public function getOperandUNTYPED(): EditableSyntax {
+  public function getOperandUNTYPED(): EditableNode {
     return $this->_operand;
   }
 
-  public function withOperand(EditableSyntax $value): this {
+  public function withOperand(EditableNode $value): this {
     if ($value === $this->_operand) {
       return $this;
     }
@@ -114,7 +111,7 @@ final class PrefixUnaryExpression extends EditableSyntax {
    * ArrayIntrinsicExpression | EndOfFileToken | LessThanToken |
    * InstanceofExpression
    */
-  public function getOperand(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_operand);
+  public function getOperand(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_operand);
   }
 }

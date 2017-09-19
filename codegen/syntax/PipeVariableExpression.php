@@ -2,16 +2,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b867a52ea3a9719f5ed7721b699214cc>>
+ * @generated SignedSource<<1678b9a01c6f95fd3b27642dabca9348>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class PipeVariableExpression extends EditableSyntax {
+final class PipeVariableExpression extends EditableNode {
 
-  private EditableSyntax $_expression;
+  private EditableNode $_expression;
 
-  public function __construct(EditableSyntax $expression) {
+  public function __construct(EditableNode $expression) {
     parent::__construct('pipe_variable_expression');
     $this->_expression = $expression;
   }
@@ -22,7 +22,7 @@ final class PipeVariableExpression extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $expression = EditableSyntax::fromJSON(
+    $expression = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['pipe_variable_expression'],
       $position,
       $source,
@@ -32,14 +32,14 @@ final class PipeVariableExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'expression' => $this->_expression;
   }
 
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -50,11 +50,11 @@ final class PipeVariableExpression extends EditableSyntax {
     return new self($expression);
   }
 
-  public function getExpressionUNTYPED(): EditableSyntax {
+  public function getExpressionUNTYPED(): EditableNode {
     return $this->_expression;
   }
 
-  public function withExpression(EditableSyntax $value): this {
+  public function withExpression(EditableNode $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
@@ -68,7 +68,7 @@ final class PipeVariableExpression extends EditableSyntax {
   /**
    * @returns unknown
    */
-  public function getExpression(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_expression);
+  public function getExpression(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_expression);
   }
 }

@@ -2,21 +2,21 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<90c1c277f8ee6b08407c27490a418ffc>>
+ * @generated SignedSource<<47efe35ebfcf35da9c72d9f3b03afa22>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class TupleTypeSpecifier extends EditableSyntax {
+final class TupleTypeSpecifier extends EditableNode {
 
-  private EditableSyntax $_left_paren;
-  private EditableSyntax $_types;
-  private EditableSyntax $_right_paren;
+  private EditableNode $_left_paren;
+  private EditableNode $_types;
+  private EditableNode $_right_paren;
 
   public function __construct(
-    EditableSyntax $left_paren,
-    EditableSyntax $types,
-    EditableSyntax $right_paren,
+    EditableNode $left_paren,
+    EditableNode $types,
+    EditableNode $right_paren,
   ) {
     parent::__construct('tuple_type_specifier');
     $this->_left_paren = $left_paren;
@@ -30,19 +30,19 @@ final class TupleTypeSpecifier extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $left_paren = EditableSyntax::fromJSON(
+    $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['tuple_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $types = EditableSyntax::fromJSON(
+    $types = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['tuple_types'],
       $position,
       $source,
     );
     $position += $types->getWidth();
-    $right_paren = EditableSyntax::fromJSON(
+    $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['tuple_right_paren'],
       $position,
       $source,
@@ -52,7 +52,7 @@ final class TupleTypeSpecifier extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'left_paren' => $this->_left_paren;
     yield 'types' => $this->_types;
     yield 'right_paren' => $this->_right_paren;
@@ -61,7 +61,7 @@ final class TupleTypeSpecifier extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -78,11 +78,11 @@ final class TupleTypeSpecifier extends EditableSyntax {
     return new self($left_paren, $types, $right_paren);
   }
 
-  public function getLeftParenUNTYPED(): EditableSyntax {
+  public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableSyntax $value): this {
+  public function withLeftParen(EditableNode $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -100,11 +100,11 @@ final class TupleTypeSpecifier extends EditableSyntax {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
-  public function getTypesUNTYPED(): EditableSyntax {
+  public function getTypesUNTYPED(): EditableNode {
     return $this->_types;
   }
 
-  public function withTypes(EditableSyntax $value): this {
+  public function withTypes(EditableNode $value): this {
     if ($value === $this->_types) {
       return $this;
     }
@@ -122,11 +122,11 @@ final class TupleTypeSpecifier extends EditableSyntax {
     return TypeAssert\instance_of(EditableList::class, $this->_types);
   }
 
-  public function getRightParenUNTYPED(): EditableSyntax {
+  public function getRightParenUNTYPED(): EditableNode {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableSyntax $value): this {
+  public function withRightParen(EditableNode $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }

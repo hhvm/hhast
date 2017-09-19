@@ -2,21 +2,21 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ff76adcb7464e821b8a80f3ecb0c6bde>>
+ * @generated SignedSource<<027f8dc5eaee0224fcdd0aa4cc4459e7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class FunctionStaticStatement extends EditableSyntax {
+final class FunctionStaticStatement extends EditableNode {
 
-  private EditableSyntax $_static_keyword;
-  private EditableSyntax $_declarations;
-  private EditableSyntax $_semicolon;
+  private EditableNode $_static_keyword;
+  private EditableNode $_declarations;
+  private EditableNode $_semicolon;
 
   public function __construct(
-    EditableSyntax $static_keyword,
-    EditableSyntax $declarations,
-    EditableSyntax $semicolon,
+    EditableNode $static_keyword,
+    EditableNode $declarations,
+    EditableNode $semicolon,
   ) {
     parent::__construct('function_static_statement');
     $this->_static_keyword = $static_keyword;
@@ -30,19 +30,19 @@ final class FunctionStaticStatement extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $static_keyword = EditableSyntax::fromJSON(
+    $static_keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['static_static_keyword'],
       $position,
       $source,
     );
     $position += $static_keyword->getWidth();
-    $declarations = EditableSyntax::fromJSON(
+    $declarations = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['static_declarations'],
       $position,
       $source,
     );
     $position += $declarations->getWidth();
-    $semicolon = EditableSyntax::fromJSON(
+    $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['static_semicolon'],
       $position,
       $source,
@@ -52,7 +52,7 @@ final class FunctionStaticStatement extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'static_keyword' => $this->_static_keyword;
     yield 'declarations' => $this->_declarations;
     yield 'semicolon' => $this->_semicolon;
@@ -61,7 +61,7 @@ final class FunctionStaticStatement extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -78,11 +78,11 @@ final class FunctionStaticStatement extends EditableSyntax {
     return new self($static_keyword, $declarations, $semicolon);
   }
 
-  public function getStaticKeywordUNTYPED(): EditableSyntax {
+  public function getStaticKeywordUNTYPED(): EditableNode {
     return $this->_static_keyword;
   }
 
-  public function withStaticKeyword(EditableSyntax $value): this {
+  public function withStaticKeyword(EditableNode $value): this {
     if ($value === $this->_static_keyword) {
       return $this;
     }
@@ -100,11 +100,11 @@ final class FunctionStaticStatement extends EditableSyntax {
     return TypeAssert\instance_of(StaticToken::class, $this->_static_keyword);
   }
 
-  public function getDeclarationsUNTYPED(): EditableSyntax {
+  public function getDeclarationsUNTYPED(): EditableNode {
     return $this->_declarations;
   }
 
-  public function withDeclarations(EditableSyntax $value): this {
+  public function withDeclarations(EditableNode $value): this {
     if ($value === $this->_declarations) {
       return $this;
     }
@@ -122,11 +122,11 @@ final class FunctionStaticStatement extends EditableSyntax {
     return TypeAssert\instance_of(EditableList::class, $this->_declarations);
   }
 
-  public function getSemicolonUNTYPED(): EditableSyntax {
+  public function getSemicolonUNTYPED(): EditableNode {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableSyntax $value): this {
+  public function withSemicolon(EditableNode $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

@@ -2,21 +2,21 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cb4781cd40f482252fc0d3cf9c044c2b>>
+ * @generated SignedSource<<d7e61d669777ce76671c67ae1a046f75>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class BreakStatement extends EditableSyntax {
+final class BreakStatement extends EditableNode {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_level;
-  private EditableSyntax $_semicolon;
+  private EditableNode $_keyword;
+  private EditableNode $_level;
+  private EditableNode $_semicolon;
 
   public function __construct(
-    EditableSyntax $keyword,
-    EditableSyntax $level,
-    EditableSyntax $semicolon,
+    EditableNode $keyword,
+    EditableNode $level,
+    EditableNode $semicolon,
   ) {
     parent::__construct('break_statement');
     $this->_keyword = $keyword;
@@ -30,19 +30,19 @@ final class BreakStatement extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['break_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $level = EditableSyntax::fromJSON(
+    $level = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['break_level'],
       $position,
       $source,
     );
     $position += $level->getWidth();
-    $semicolon = EditableSyntax::fromJSON(
+    $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['break_semicolon'],
       $position,
       $source,
@@ -52,7 +52,7 @@ final class BreakStatement extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'level' => $this->_level;
     yield 'semicolon' => $this->_semicolon;
@@ -61,7 +61,7 @@ final class BreakStatement extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -78,11 +78,11 @@ final class BreakStatement extends EditableSyntax {
     return new self($keyword, $level, $semicolon);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -100,11 +100,11 @@ final class BreakStatement extends EditableSyntax {
     return TypeAssert\instance_of(BreakToken::class, $this->_keyword);
   }
 
-  public function getLevelUNTYPED(): EditableSyntax {
+  public function getLevelUNTYPED(): EditableNode {
     return $this->_level;
   }
 
-  public function withLevel(EditableSyntax $value): this {
+  public function withLevel(EditableNode $value): this {
     if ($value === $this->_level) {
       return $this;
     }
@@ -118,15 +118,15 @@ final class BreakStatement extends EditableSyntax {
   /**
    * @returns Missing | LiteralExpression | VariableExpression
    */
-  public function getLevel(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_level);
+  public function getLevel(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_level);
   }
 
-  public function getSemicolonUNTYPED(): EditableSyntax {
+  public function getSemicolonUNTYPED(): EditableNode {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableSyntax $value): this {
+  public function withSemicolon(EditableNode $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

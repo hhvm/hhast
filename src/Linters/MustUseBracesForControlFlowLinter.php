@@ -15,7 +15,7 @@ namespace Facebook\HHAST\Linters;
 use type Facebook\HHAST\{
   CompoundStatement,
   EditableList,
-  EditableSyntax,
+  EditableNode,
   EditableToken,
   ElseClause,
   ElseifClause,
@@ -43,7 +43,7 @@ class MustUseBracesForControlFlowLinter
   <<__Override>>
   public function getLintErrorForNode(
     IControlFlowStatement $node,
-    vec<EditableSyntax> $parents,
+    vec<EditableNode> $parents,
   ): ?ASTLintError<IControlFlowStatement, this> {
     $body = $this->getBody($node);
     if ($body === null) {
@@ -71,7 +71,7 @@ class MustUseBracesForControlFlowLinter
     );
   }
 
-  private function getBody(EditableSyntax $node): ?EditableSyntax {
+  private function getBody(EditableNode $node): ?EditableNode {
     if ($node instanceof IfStatement) {
       return $node->getStatement();
     }
@@ -90,7 +90,7 @@ class MustUseBracesForControlFlowLinter
     return null;
   }
 
-  private function getLastHeadToken(EditableSyntax $node): EditableToken {
+  private function getLastHeadToken(EditableNode $node): EditableToken {
     if ($node instanceof IfStatement) {
       $paren = $node->getRightParen();
       if ($paren !== null) {
@@ -174,7 +174,7 @@ class MustUseBracesForControlFlowLinter
   <<__Override>>
   public function getPrettyTextForNode(
     IControlFlowStatement $node,
-    ?EditableSyntax $_context,
+    ?EditableNode $_context,
   ): string {
     $token = $node->getFirstTokenx();
     return $node

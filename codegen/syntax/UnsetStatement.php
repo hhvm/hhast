@@ -2,25 +2,25 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4176eca5a9a86cea09a05c5abd7171d9>>
+ * @generated SignedSource<<1edd0873c836ae19eca82de94515bcd1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class UnsetStatement extends EditableSyntax {
+final class UnsetStatement extends EditableNode {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_left_paren;
-  private EditableSyntax $_variables;
-  private EditableSyntax $_right_paren;
-  private EditableSyntax $_semicolon;
+  private EditableNode $_keyword;
+  private EditableNode $_left_paren;
+  private EditableNode $_variables;
+  private EditableNode $_right_paren;
+  private EditableNode $_semicolon;
 
   public function __construct(
-    EditableSyntax $keyword,
-    EditableSyntax $left_paren,
-    EditableSyntax $variables,
-    EditableSyntax $right_paren,
-    EditableSyntax $semicolon,
+    EditableNode $keyword,
+    EditableNode $left_paren,
+    EditableNode $variables,
+    EditableNode $right_paren,
+    EditableNode $semicolon,
   ) {
     parent::__construct('unset_statement');
     $this->_keyword = $keyword;
@@ -36,31 +36,31 @@ final class UnsetStatement extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['unset_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_paren = EditableSyntax::fromJSON(
+    $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['unset_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $variables = EditableSyntax::fromJSON(
+    $variables = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['unset_variables'],
       $position,
       $source,
     );
     $position += $variables->getWidth();
-    $right_paren = EditableSyntax::fromJSON(
+    $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['unset_right_paren'],
       $position,
       $source,
     );
     $position += $right_paren->getWidth();
-    $semicolon = EditableSyntax::fromJSON(
+    $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['unset_semicolon'],
       $position,
       $source,
@@ -71,7 +71,7 @@ final class UnsetStatement extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'left_paren' => $this->_left_paren;
     yield 'variables' => $this->_variables;
@@ -82,7 +82,7 @@ final class UnsetStatement extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -104,11 +104,11 @@ final class UnsetStatement extends EditableSyntax {
       new self($keyword, $left_paren, $variables, $right_paren, $semicolon);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -132,11 +132,11 @@ final class UnsetStatement extends EditableSyntax {
     return TypeAssert\instance_of(UnsetToken::class, $this->_keyword);
   }
 
-  public function getLeftParenUNTYPED(): EditableSyntax {
+  public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableSyntax $value): this {
+  public function withLeftParen(EditableNode $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -160,11 +160,11 @@ final class UnsetStatement extends EditableSyntax {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
-  public function getVariablesUNTYPED(): EditableSyntax {
+  public function getVariablesUNTYPED(): EditableNode {
     return $this->_variables;
   }
 
-  public function withVariables(EditableSyntax $value): this {
+  public function withVariables(EditableNode $value): this {
     if ($value === $this->_variables) {
       return $this;
     }
@@ -188,11 +188,11 @@ final class UnsetStatement extends EditableSyntax {
     return TypeAssert\instance_of(EditableList::class, $this->_variables);
   }
 
-  public function getRightParenUNTYPED(): EditableSyntax {
+  public function getRightParenUNTYPED(): EditableNode {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableSyntax $value): this {
+  public function withRightParen(EditableNode $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -226,11 +226,11 @@ final class UnsetStatement extends EditableSyntax {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
-  public function getSemicolonUNTYPED(): EditableSyntax {
+  public function getSemicolonUNTYPED(): EditableNode {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableSyntax $value): this {
+  public function withSemicolon(EditableNode $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

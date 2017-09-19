@@ -2,23 +2,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ab5b0635584e8027c0a7eeb1d60de1c7>>
+ * @generated SignedSource<<0e524bd0484321b729fe30bccb12e8f9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class EmptyExpression extends EditableSyntax {
+final class EmptyExpression extends EditableNode {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_left_paren;
-  private EditableSyntax $_argument;
-  private EditableSyntax $_right_paren;
+  private EditableNode $_keyword;
+  private EditableNode $_left_paren;
+  private EditableNode $_argument;
+  private EditableNode $_right_paren;
 
   public function __construct(
-    EditableSyntax $keyword,
-    EditableSyntax $left_paren,
-    EditableSyntax $argument,
-    EditableSyntax $right_paren,
+    EditableNode $keyword,
+    EditableNode $left_paren,
+    EditableNode $argument,
+    EditableNode $right_paren,
   ) {
     parent::__construct('empty_expression');
     $this->_keyword = $keyword;
@@ -33,25 +33,25 @@ final class EmptyExpression extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['empty_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_paren = EditableSyntax::fromJSON(
+    $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['empty_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $argument = EditableSyntax::fromJSON(
+    $argument = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['empty_argument'],
       $position,
       $source,
     );
     $position += $argument->getWidth();
-    $right_paren = EditableSyntax::fromJSON(
+    $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['empty_right_paren'],
       $position,
       $source,
@@ -61,7 +61,7 @@ final class EmptyExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'left_paren' => $this->_left_paren;
     yield 'argument' => $this->_argument;
@@ -71,7 +71,7 @@ final class EmptyExpression extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -90,11 +90,11 @@ final class EmptyExpression extends EditableSyntax {
     return new self($keyword, $left_paren, $argument, $right_paren);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -117,11 +117,11 @@ final class EmptyExpression extends EditableSyntax {
     return TypeAssert\instance_of(EmptyToken::class, $this->_keyword);
   }
 
-  public function getLeftParenUNTYPED(): EditableSyntax {
+  public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableSyntax $value): this {
+  public function withLeftParen(EditableNode $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -140,11 +140,11 @@ final class EmptyExpression extends EditableSyntax {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
-  public function getArgumentUNTYPED(): EditableSyntax {
+  public function getArgumentUNTYPED(): EditableNode {
     return $this->_argument;
   }
 
-  public function withArgument(EditableSyntax $value): this {
+  public function withArgument(EditableNode $value): this {
     if ($value === $this->_argument) {
       return $this;
     }
@@ -168,15 +168,15 @@ final class EmptyExpression extends EditableSyntax {
    * ObjectCreationExpression | CollectionLiteralExpression | XHPExpression |
    * ArrayCreationExpression | LiteralExpression
    */
-  public function getArgument(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_argument);
+  public function getArgument(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_argument);
   }
 
-  public function getRightParenUNTYPED(): EditableSyntax {
+  public function getRightParenUNTYPED(): EditableNode {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableSyntax $value): this {
+  public function withRightParen(EditableNode $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }

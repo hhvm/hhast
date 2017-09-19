@@ -2,23 +2,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f7c75d47c3bf0ef1b3a6d62687b63aae>>
+ * @generated SignedSource<<a3952559cd5336d0f23a8088d98ffa47>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class NamespaceUseClause extends EditableSyntax {
+final class NamespaceUseClause extends EditableNode {
 
-  private EditableSyntax $_clause_kind;
-  private EditableSyntax $_name;
-  private EditableSyntax $_as;
-  private EditableSyntax $_alias;
+  private EditableNode $_clause_kind;
+  private EditableNode $_name;
+  private EditableNode $_as;
+  private EditableNode $_alias;
 
   public function __construct(
-    EditableSyntax $clause_kind,
-    EditableSyntax $name,
-    EditableSyntax $as,
-    EditableSyntax $alias,
+    EditableNode $clause_kind,
+    EditableNode $name,
+    EditableNode $as,
+    EditableNode $alias,
   ) {
     parent::__construct('namespace_use_clause');
     $this->_clause_kind = $clause_kind;
@@ -33,25 +33,25 @@ final class NamespaceUseClause extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $clause_kind = EditableSyntax::fromJSON(
+    $clause_kind = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_use_clause_kind'],
       $position,
       $source,
     );
     $position += $clause_kind->getWidth();
-    $name = EditableSyntax::fromJSON(
+    $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_use_name'],
       $position,
       $source,
     );
     $position += $name->getWidth();
-    $as = EditableSyntax::fromJSON(
+    $as = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_use_as'],
       $position,
       $source,
     );
     $position += $as->getWidth();
-    $alias = EditableSyntax::fromJSON(
+    $alias = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_use_alias'],
       $position,
       $source,
@@ -61,7 +61,7 @@ final class NamespaceUseClause extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'clause_kind' => $this->_clause_kind;
     yield 'name' => $this->_name;
     yield 'as' => $this->_as;
@@ -71,7 +71,7 @@ final class NamespaceUseClause extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -90,11 +90,11 @@ final class NamespaceUseClause extends EditableSyntax {
     return new self($clause_kind, $name, $as, $alias);
   }
 
-  public function getClauseKindUNTYPED(): EditableSyntax {
+  public function getClauseKindUNTYPED(): EditableNode {
     return $this->_clause_kind;
   }
 
-  public function withClauseKind(EditableSyntax $value): this {
+  public function withClauseKind(EditableNode $value): this {
     if ($value === $this->_clause_kind) {
       return $this;
     }
@@ -122,11 +122,11 @@ final class NamespaceUseClause extends EditableSyntax {
     return TypeAssert\instance_of(EditableToken::class, $this->_clause_kind);
   }
 
-  public function getNameUNTYPED(): EditableSyntax {
+  public function getNameUNTYPED(): EditableNode {
     return $this->_name;
   }
 
-  public function withName(EditableSyntax $value): this {
+  public function withName(EditableNode $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -154,11 +154,11 @@ final class NamespaceUseClause extends EditableSyntax {
     return TypeAssert\instance_of(EditableToken::class, $this->_name);
   }
 
-  public function getAsUNTYPED(): EditableSyntax {
+  public function getAsUNTYPED(): EditableNode {
     return $this->_as;
   }
 
-  public function withAs(EditableSyntax $value): this {
+  public function withAs(EditableNode $value): this {
     if ($value === $this->_as) {
       return $this;
     }
@@ -186,11 +186,11 @@ final class NamespaceUseClause extends EditableSyntax {
     return TypeAssert\instance_of(AsToken::class, $this->_as);
   }
 
-  public function getAliasUNTYPED(): EditableSyntax {
+  public function getAliasUNTYPED(): EditableNode {
     return $this->_alias;
   }
 
-  public function withAlias(EditableSyntax $value): this {
+  public function withAlias(EditableNode $value): this {
     if ($value === $this->_alias) {
       return $this;
     }

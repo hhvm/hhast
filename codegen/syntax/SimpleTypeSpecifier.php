@@ -2,16 +2,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b18ce2c870d586df4b0ac918ff958c01>>
+ * @generated SignedSource<<03d0b665bac1eacde339e193b399a064>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class SimpleTypeSpecifier extends EditableSyntax {
+final class SimpleTypeSpecifier extends EditableNode {
 
-  private EditableSyntax $_specifier;
+  private EditableNode $_specifier;
 
-  public function __construct(EditableSyntax $specifier) {
+  public function __construct(EditableNode $specifier) {
     parent::__construct('simple_type_specifier');
     $this->_specifier = $specifier;
   }
@@ -22,7 +22,7 @@ final class SimpleTypeSpecifier extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $specifier = EditableSyntax::fromJSON(
+    $specifier = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['simple_type_specifier'],
       $position,
       $source,
@@ -32,14 +32,14 @@ final class SimpleTypeSpecifier extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'specifier' => $this->_specifier;
   }
 
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -50,11 +50,11 @@ final class SimpleTypeSpecifier extends EditableSyntax {
     return new self($specifier);
   }
 
-  public function getSpecifierUNTYPED(): EditableSyntax {
+  public function getSpecifierUNTYPED(): EditableNode {
     return $this->_specifier;
   }
 
-  public function withSpecifier(EditableSyntax $value): this {
+  public function withSpecifier(EditableNode $value): this {
     if ($value === $this->_specifier) {
       return $this;
     }

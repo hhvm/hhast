@@ -2,23 +2,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d0a06fd281b3c90022c602c58c2b3fa8>>
+ * @generated SignedSource<<b9bf7a6db6b63d680ea08c27c2131e52>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class CastExpression extends EditableSyntax {
+final class CastExpression extends EditableNode {
 
-  private EditableSyntax $_left_paren;
-  private EditableSyntax $_type;
-  private EditableSyntax $_right_paren;
-  private EditableSyntax $_operand;
+  private EditableNode $_left_paren;
+  private EditableNode $_type;
+  private EditableNode $_right_paren;
+  private EditableNode $_operand;
 
   public function __construct(
-    EditableSyntax $left_paren,
-    EditableSyntax $type,
-    EditableSyntax $right_paren,
-    EditableSyntax $operand,
+    EditableNode $left_paren,
+    EditableNode $type,
+    EditableNode $right_paren,
+    EditableNode $operand,
   ) {
     parent::__construct('cast_expression');
     $this->_left_paren = $left_paren;
@@ -33,25 +33,25 @@ final class CastExpression extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $left_paren = EditableSyntax::fromJSON(
+    $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['cast_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $type = EditableSyntax::fromJSON(
+    $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['cast_type'],
       $position,
       $source,
     );
     $position += $type->getWidth();
-    $right_paren = EditableSyntax::fromJSON(
+    $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['cast_right_paren'],
       $position,
       $source,
     );
     $position += $right_paren->getWidth();
-    $operand = EditableSyntax::fromJSON(
+    $operand = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['cast_operand'],
       $position,
       $source,
@@ -61,7 +61,7 @@ final class CastExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'left_paren' => $this->_left_paren;
     yield 'type' => $this->_type;
     yield 'right_paren' => $this->_right_paren;
@@ -71,7 +71,7 @@ final class CastExpression extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -90,11 +90,11 @@ final class CastExpression extends EditableSyntax {
     return new self($left_paren, $type, $right_paren, $operand);
   }
 
-  public function getLeftParenUNTYPED(): EditableSyntax {
+  public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableSyntax $value): this {
+  public function withLeftParen(EditableNode $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -112,11 +112,11 @@ final class CastExpression extends EditableSyntax {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
-  public function getTypeUNTYPED(): EditableSyntax {
+  public function getTypeUNTYPED(): EditableNode {
     return $this->_type;
   }
 
-  public function withType(EditableSyntax $value): this {
+  public function withType(EditableNode $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -140,11 +140,11 @@ final class CastExpression extends EditableSyntax {
     return TypeAssert\instance_of(EditableToken::class, $this->_type);
   }
 
-  public function getRightParenUNTYPED(): EditableSyntax {
+  public function getRightParenUNTYPED(): EditableNode {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableSyntax $value): this {
+  public function withRightParen(EditableNode $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -162,11 +162,11 @@ final class CastExpression extends EditableSyntax {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
-  public function getOperandUNTYPED(): EditableSyntax {
+  public function getOperandUNTYPED(): EditableNode {
     return $this->_operand;
   }
 
-  public function withOperand(EditableSyntax $value): this {
+  public function withOperand(EditableNode $value): this {
     if ($value === $this->_operand) {
       return $this;
     }
@@ -188,7 +188,7 @@ final class CastExpression extends EditableSyntax {
    * QualifiedNameExpression | VectorIntrinsicExpression | XHPExpression |
    * PrefixUnaryExpression | AnonymousFunction | InstanceofExpression
    */
-  public function getOperand(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_operand);
+  public function getOperand(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_operand);
   }
 }

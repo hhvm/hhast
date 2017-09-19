@@ -2,29 +2,29 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8633b6b8760d4234209ab45b331c3e06>>
+ * @generated SignedSource<<4fa7986c88671c2edca1339adceb0290>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class DarrayTypeSpecifier extends EditableSyntax {
+final class DarrayTypeSpecifier extends EditableNode {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_left_angle;
-  private EditableSyntax $_key;
-  private EditableSyntax $_comma;
-  private EditableSyntax $_value;
-  private EditableSyntax $_trailing_comma;
-  private EditableSyntax $_right_angle;
+  private EditableNode $_keyword;
+  private EditableNode $_left_angle;
+  private EditableNode $_key;
+  private EditableNode $_comma;
+  private EditableNode $_value;
+  private EditableNode $_trailing_comma;
+  private EditableNode $_right_angle;
 
   public function __construct(
-    EditableSyntax $keyword,
-    EditableSyntax $left_angle,
-    EditableSyntax $key,
-    EditableSyntax $comma,
-    EditableSyntax $value,
-    EditableSyntax $trailing_comma,
-    EditableSyntax $right_angle,
+    EditableNode $keyword,
+    EditableNode $left_angle,
+    EditableNode $key,
+    EditableNode $comma,
+    EditableNode $value,
+    EditableNode $trailing_comma,
+    EditableNode $right_angle,
   ) {
     parent::__construct('darray_type_specifier');
     $this->_keyword = $keyword;
@@ -42,43 +42,43 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['darray_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_angle = EditableSyntax::fromJSON(
+    $left_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['darray_left_angle'],
       $position,
       $source,
     );
     $position += $left_angle->getWidth();
-    $key = EditableSyntax::fromJSON(
+    $key = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['darray_key'],
       $position,
       $source,
     );
     $position += $key->getWidth();
-    $comma = EditableSyntax::fromJSON(
+    $comma = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['darray_comma'],
       $position,
       $source,
     );
     $position += $comma->getWidth();
-    $value = EditableSyntax::fromJSON(
+    $value = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['darray_value'],
       $position,
       $source,
     );
     $position += $value->getWidth();
-    $trailing_comma = EditableSyntax::fromJSON(
+    $trailing_comma = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['darray_trailing_comma'],
       $position,
       $source,
     );
     $position += $trailing_comma->getWidth();
-    $right_angle = EditableSyntax::fromJSON(
+    $right_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['darray_right_angle'],
       $position,
       $source,
@@ -96,7 +96,7 @@ final class DarrayTypeSpecifier extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'left_angle' => $this->_left_angle;
     yield 'key' => $this->_key;
@@ -109,7 +109,7 @@ final class DarrayTypeSpecifier extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -142,11 +142,11 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     );
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -172,11 +172,11 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     return TypeAssert\instance_of(DarrayToken::class, $this->_keyword);
   }
 
-  public function getLeftAngleUNTYPED(): EditableSyntax {
+  public function getLeftAngleUNTYPED(): EditableNode {
     return $this->_left_angle;
   }
 
-  public function withLeftAngle(EditableSyntax $value): this {
+  public function withLeftAngle(EditableNode $value): this {
     if ($value === $this->_left_angle) {
       return $this;
     }
@@ -202,11 +202,11 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     return TypeAssert\instance_of(LessThanToken::class, $this->_left_angle);
   }
 
-  public function getKeyUNTYPED(): EditableSyntax {
+  public function getKeyUNTYPED(): EditableNode {
     return $this->_key;
   }
 
-  public function withKey(EditableSyntax $value): this {
+  public function withKey(EditableNode $value): this {
     if ($value === $this->_key) {
       return $this;
     }
@@ -232,11 +232,11 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     return TypeAssert\instance_of(SimpleTypeSpecifier::class, $this->_key);
   }
 
-  public function getCommaUNTYPED(): EditableSyntax {
+  public function getCommaUNTYPED(): EditableNode {
     return $this->_comma;
   }
 
-  public function withComma(EditableSyntax $value): this {
+  public function withComma(EditableNode $value): this {
     if ($value === $this->_comma) {
       return $this;
     }
@@ -262,11 +262,11 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     return TypeAssert\instance_of(CommaToken::class, $this->_comma);
   }
 
-  public function getValueUNTYPED(): EditableSyntax {
+  public function getValueUNTYPED(): EditableNode {
     return $this->_value;
   }
 
-  public function withValue(EditableSyntax $value): this {
+  public function withValue(EditableNode $value): this {
     if ($value === $this->_value) {
       return $this;
     }
@@ -292,11 +292,11 @@ final class DarrayTypeSpecifier extends EditableSyntax {
     return TypeAssert\instance_of(SimpleTypeSpecifier::class, $this->_value);
   }
 
-  public function getTrailingCommaUNTYPED(): EditableSyntax {
+  public function getTrailingCommaUNTYPED(): EditableNode {
     return $this->_trailing_comma;
   }
 
-  public function withTrailingComma(EditableSyntax $value): this {
+  public function withTrailingComma(EditableNode $value): this {
     if ($value === $this->_trailing_comma) {
       return $this;
     }
@@ -318,16 +318,15 @@ final class DarrayTypeSpecifier extends EditableSyntax {
   /**
    * @returns Missing
    */
-  public function getTrailingComma(): EditableSyntax {
-    return
-      TypeAssert\instance_of(EditableSyntax::class, $this->_trailing_comma);
+  public function getTrailingComma(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_trailing_comma);
   }
 
-  public function getRightAngleUNTYPED(): EditableSyntax {
+  public function getRightAngleUNTYPED(): EditableNode {
     return $this->_right_angle;
   }
 
-  public function withRightAngle(EditableSyntax $value): this {
+  public function withRightAngle(EditableNode $value): this {
     if ($value === $this->_right_angle) {
       return $this;
     }

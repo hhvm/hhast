@@ -2,26 +2,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<562c2f8f4668409ece298a71a6fe92f6>>
+ * @generated SignedSource<<204f13bb46dabcbc16f939b74167a1ed>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class MethodishDeclaration extends EditableSyntax
+final class MethodishDeclaration extends EditableNode
   implements IFunctionishDeclaration {
 
-  private EditableSyntax $_attribute;
-  private EditableSyntax $_modifiers;
-  private EditableSyntax $_function_decl_header;
-  private EditableSyntax $_function_body;
-  private EditableSyntax $_semicolon;
+  private EditableNode $_attribute;
+  private EditableNode $_modifiers;
+  private EditableNode $_function_decl_header;
+  private EditableNode $_function_body;
+  private EditableNode $_semicolon;
 
   public function __construct(
-    EditableSyntax $attribute,
-    EditableSyntax $modifiers,
-    EditableSyntax $function_decl_header,
-    EditableSyntax $function_body,
-    EditableSyntax $semicolon,
+    EditableNode $attribute,
+    EditableNode $modifiers,
+    EditableNode $function_decl_header,
+    EditableNode $function_body,
+    EditableNode $semicolon,
   ) {
     parent::__construct('methodish_declaration');
     $this->_attribute = $attribute;
@@ -37,31 +37,31 @@ final class MethodishDeclaration extends EditableSyntax
     int $position,
     string $source,
   ): this {
-    $attribute = EditableSyntax::fromJSON(
+    $attribute = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['methodish_attribute'],
       $position,
       $source,
     );
     $position += $attribute->getWidth();
-    $modifiers = EditableSyntax::fromJSON(
+    $modifiers = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['methodish_modifiers'],
       $position,
       $source,
     );
     $position += $modifiers->getWidth();
-    $function_decl_header = EditableSyntax::fromJSON(
+    $function_decl_header = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['methodish_function_decl_header'],
       $position,
       $source,
     );
     $position += $function_decl_header->getWidth();
-    $function_body = EditableSyntax::fromJSON(
+    $function_body = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['methodish_function_body'],
       $position,
       $source,
     );
     $position += $function_body->getWidth();
-    $semicolon = EditableSyntax::fromJSON(
+    $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['methodish_semicolon'],
       $position,
       $source,
@@ -77,7 +77,7 @@ final class MethodishDeclaration extends EditableSyntax
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'attribute' => $this->_attribute;
     yield 'modifiers' => $this->_modifiers;
     yield 'function_decl_header' => $this->_function_decl_header;
@@ -88,7 +88,7 @@ final class MethodishDeclaration extends EditableSyntax
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -116,11 +116,11 @@ final class MethodishDeclaration extends EditableSyntax
     );
   }
 
-  public function getAttributeUNTYPED(): EditableSyntax {
+  public function getAttributeUNTYPED(): EditableNode {
     return $this->_attribute;
   }
 
-  public function withAttribute(EditableSyntax $value): this {
+  public function withAttribute(EditableNode $value): this {
     if ($value === $this->_attribute) {
       return $this;
     }
@@ -156,11 +156,11 @@ final class MethodishDeclaration extends EditableSyntax
       TypeAssert\instance_of(AttributeSpecification::class, $this->_attribute);
   }
 
-  public function getModifiersUNTYPED(): EditableSyntax {
+  public function getModifiersUNTYPED(): EditableNode {
     return $this->_modifiers;
   }
 
-  public function withModifiers(EditableSyntax $value): this {
+  public function withModifiers(EditableNode $value): this {
     if ($value === $this->_modifiers) {
       return $this;
     }
@@ -194,11 +194,11 @@ final class MethodishDeclaration extends EditableSyntax
     return TypeAssert\instance_of(EditableList::class, $this->_modifiers);
   }
 
-  public function getFunctionDeclHeaderUNTYPED(): EditableSyntax {
+  public function getFunctionDeclHeaderUNTYPED(): EditableNode {
     return $this->_function_decl_header;
   }
 
-  public function withFunctionDeclHeader(EditableSyntax $value): this {
+  public function withFunctionDeclHeader(EditableNode $value): this {
     if ($value === $this->_function_decl_header) {
       return $this;
     }
@@ -225,11 +225,11 @@ final class MethodishDeclaration extends EditableSyntax
     );
   }
 
-  public function getFunctionBodyUNTYPED(): EditableSyntax {
+  public function getFunctionBodyUNTYPED(): EditableNode {
     return $this->_function_body;
   }
 
-  public function withFunctionBody(EditableSyntax $value): this {
+  public function withFunctionBody(EditableNode $value): this {
     if ($value === $this->_function_body) {
       return $this;
     }
@@ -265,11 +265,11 @@ final class MethodishDeclaration extends EditableSyntax
       TypeAssert\instance_of(CompoundStatement::class, $this->_function_body);
   }
 
-  public function getSemicolonUNTYPED(): EditableSyntax {
+  public function getSemicolonUNTYPED(): EditableNode {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableSyntax $value): this {
+  public function withSemicolon(EditableNode $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

@@ -2,25 +2,25 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8507211ceb30499dc0fb4fce3c17f96d>>
+ * @generated SignedSource<<74d870e8e69b8e99a6f858ee6711d9a3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class ConditionalExpression extends EditableSyntax {
+final class ConditionalExpression extends EditableNode {
 
-  private EditableSyntax $_test;
-  private EditableSyntax $_question;
-  private EditableSyntax $_consequence;
-  private EditableSyntax $_colon;
-  private EditableSyntax $_alternative;
+  private EditableNode $_test;
+  private EditableNode $_question;
+  private EditableNode $_consequence;
+  private EditableNode $_colon;
+  private EditableNode $_alternative;
 
   public function __construct(
-    EditableSyntax $test,
-    EditableSyntax $question,
-    EditableSyntax $consequence,
-    EditableSyntax $colon,
-    EditableSyntax $alternative,
+    EditableNode $test,
+    EditableNode $question,
+    EditableNode $consequence,
+    EditableNode $colon,
+    EditableNode $alternative,
   ) {
     parent::__construct('conditional_expression');
     $this->_test = $test;
@@ -36,31 +36,31 @@ final class ConditionalExpression extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $test = EditableSyntax::fromJSON(
+    $test = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['conditional_test'],
       $position,
       $source,
     );
     $position += $test->getWidth();
-    $question = EditableSyntax::fromJSON(
+    $question = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['conditional_question'],
       $position,
       $source,
     );
     $position += $question->getWidth();
-    $consequence = EditableSyntax::fromJSON(
+    $consequence = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['conditional_consequence'],
       $position,
       $source,
     );
     $position += $consequence->getWidth();
-    $colon = EditableSyntax::fromJSON(
+    $colon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['conditional_colon'],
       $position,
       $source,
     );
     $position += $colon->getWidth();
-    $alternative = EditableSyntax::fromJSON(
+    $alternative = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['conditional_alternative'],
       $position,
       $source,
@@ -70,7 +70,7 @@ final class ConditionalExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'test' => $this->_test;
     yield 'question' => $this->_question;
     yield 'consequence' => $this->_consequence;
@@ -81,7 +81,7 @@ final class ConditionalExpression extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -102,11 +102,11 @@ final class ConditionalExpression extends EditableSyntax {
     return new self($test, $question, $consequence, $colon, $alternative);
   }
 
-  public function getTestUNTYPED(): EditableSyntax {
+  public function getTestUNTYPED(): EditableNode {
     return $this->_test;
   }
 
-  public function withTest(EditableSyntax $value): this {
+  public function withTest(EditableNode $value): this {
     if ($value === $this->_test) {
       return $this;
     }
@@ -131,15 +131,15 @@ final class ConditionalExpression extends EditableSyntax {
    * ConditionalExpression | PrefixUnaryExpression | InstanceofExpression |
    * LessThanToken | ColonToken
    */
-  public function getTest(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_test);
+  public function getTest(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_test);
   }
 
-  public function getQuestionUNTYPED(): EditableSyntax {
+  public function getQuestionUNTYPED(): EditableNode {
     return $this->_question;
   }
 
-  public function withQuestion(EditableSyntax $value): this {
+  public function withQuestion(EditableNode $value): this {
     if ($value === $this->_question) {
       return $this;
     }
@@ -163,11 +163,11 @@ final class ConditionalExpression extends EditableSyntax {
     return TypeAssert\instance_of(QuestionToken::class, $this->_question);
   }
 
-  public function getConsequenceUNTYPED(): EditableSyntax {
+  public function getConsequenceUNTYPED(): EditableNode {
     return $this->_consequence;
   }
 
-  public function withConsequence(EditableSyntax $value): this {
+  public function withConsequence(EditableNode $value): this {
     if ($value === $this->_consequence) {
       return $this;
     }
@@ -192,15 +192,15 @@ final class ConditionalExpression extends EditableSyntax {
    * ParenthesizedExpression | CastExpression | CollectionLiteralExpression |
    * MemberSelectionExpression | ArrayCreationExpression | LambdaExpression
    */
-  public function getConsequence(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_consequence);
+  public function getConsequence(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_consequence);
   }
 
-  public function getColonUNTYPED(): EditableSyntax {
+  public function getColonUNTYPED(): EditableNode {
     return $this->_colon;
   }
 
-  public function withColon(EditableSyntax $value): this {
+  public function withColon(EditableNode $value): this {
     if ($value === $this->_colon) {
       return $this;
     }
@@ -234,11 +234,11 @@ final class ConditionalExpression extends EditableSyntax {
     return TypeAssert\instance_of(ColonToken::class, $this->_colon);
   }
 
-  public function getAlternativeUNTYPED(): EditableSyntax {
+  public function getAlternativeUNTYPED(): EditableNode {
     return $this->_alternative;
   }
 
-  public function withAlternative(EditableSyntax $value): this {
+  public function withAlternative(EditableNode $value): this {
     if ($value === $this->_alternative) {
       return $this;
     }
@@ -264,7 +264,7 @@ final class ConditionalExpression extends EditableSyntax {
    * SubscriptExpression | Missing | IssetExpression | CastExpression |
    * AnonymousFunction | LambdaExpression | MemberSelectionExpression
    */
-  public function getAlternative(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_alternative);
+  public function getAlternative(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_alternative);
   }
 }

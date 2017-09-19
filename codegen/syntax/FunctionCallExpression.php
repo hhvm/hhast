@@ -2,23 +2,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7a414a02322275dfa516e9b00adf48f0>>
+ * @generated SignedSource<<db42ef156bdd85ebafd7ad27ac326930>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class FunctionCallExpression extends EditableSyntax {
+final class FunctionCallExpression extends EditableNode {
 
-  private EditableSyntax $_receiver;
-  private EditableSyntax $_left_paren;
-  private EditableSyntax $_argument_list;
-  private EditableSyntax $_right_paren;
+  private EditableNode $_receiver;
+  private EditableNode $_left_paren;
+  private EditableNode $_argument_list;
+  private EditableNode $_right_paren;
 
   public function __construct(
-    EditableSyntax $receiver,
-    EditableSyntax $left_paren,
-    EditableSyntax $argument_list,
-    EditableSyntax $right_paren,
+    EditableNode $receiver,
+    EditableNode $left_paren,
+    EditableNode $argument_list,
+    EditableNode $right_paren,
   ) {
     parent::__construct('function_call_expression');
     $this->_receiver = $receiver;
@@ -33,25 +33,25 @@ final class FunctionCallExpression extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $receiver = EditableSyntax::fromJSON(
+    $receiver = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_call_receiver'],
       $position,
       $source,
     );
     $position += $receiver->getWidth();
-    $left_paren = EditableSyntax::fromJSON(
+    $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_call_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $argument_list = EditableSyntax::fromJSON(
+    $argument_list = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_call_argument_list'],
       $position,
       $source,
     );
     $position += $argument_list->getWidth();
-    $right_paren = EditableSyntax::fromJSON(
+    $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_call_right_paren'],
       $position,
       $source,
@@ -61,7 +61,7 @@ final class FunctionCallExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'receiver' => $this->_receiver;
     yield 'left_paren' => $this->_left_paren;
     yield 'argument_list' => $this->_argument_list;
@@ -71,7 +71,7 @@ final class FunctionCallExpression extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -90,11 +90,11 @@ final class FunctionCallExpression extends EditableSyntax {
     return new self($receiver, $left_paren, $argument_list, $right_paren);
   }
 
-  public function getReceiverUNTYPED(): EditableSyntax {
+  public function getReceiverUNTYPED(): EditableNode {
     return $this->_receiver;
   }
 
-  public function withReceiver(EditableSyntax $value): this {
+  public function withReceiver(EditableNode $value): this {
     if ($value === $this->_receiver) {
       return $this;
     }
@@ -118,15 +118,15 @@ final class FunctionCallExpression extends EditableSyntax {
    * ArrayCreationExpression | LiteralExpression | CommaToken |
    * PrefixUnaryExpression
    */
-  public function getReceiver(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_receiver);
+  public function getReceiver(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_receiver);
   }
 
-  public function getLeftParenUNTYPED(): EditableSyntax {
+  public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableSyntax $value): this {
+  public function withLeftParen(EditableNode $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -159,11 +159,11 @@ final class FunctionCallExpression extends EditableSyntax {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
-  public function getArgumentListUNTYPED(): EditableSyntax {
+  public function getArgumentListUNTYPED(): EditableNode {
     return $this->_argument_list;
   }
 
-  public function withArgumentList(EditableSyntax $value): this {
+  public function withArgumentList(EditableNode $value): this {
     if ($value === $this->_argument_list) {
       return $this;
     }
@@ -196,11 +196,11 @@ final class FunctionCallExpression extends EditableSyntax {
     return TypeAssert\instance_of(EditableList::class, $this->_argument_list);
   }
 
-  public function getRightParenUNTYPED(): EditableSyntax {
+  public function getRightParenUNTYPED(): EditableNode {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableSyntax $value): this {
+  public function withRightParen(EditableNode $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }

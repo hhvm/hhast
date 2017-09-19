@@ -13,7 +13,7 @@
 namespace Facebook\HHAST\__Private\Resolution;
 
 use type Facebook\HHAST\{
-  EditableSyntax,
+  EditableNode,
   NamespaceDeclaration,
   NamespaceEmptyBody
 };
@@ -21,8 +21,8 @@ use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Str, Vec};
 
 function get_current_namespace(
-  EditableSyntax $node,
-  vec<EditableSyntax> $parents,
+  EditableNode $node,
+  vec<EditableNode> $parents,
 ): ?string {
   $parents = vec($parents);
 

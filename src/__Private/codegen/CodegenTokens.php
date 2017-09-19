@@ -37,12 +37,12 @@ final class CodegenTokens extends CodegenBase {
     $leading_trailing = vec[
       shape(
         'name' => 'leading',
-        'type' => 'EditableSyntax',
+        'type' => 'EditableNode',
         'override' => true,
       ),
       shape(
         'name' => 'trailing',
-        'type' => 'EditableSyntax',
+        'type' => 'EditableNode',
         'override' => true,
       ),
     ];
@@ -213,7 +213,7 @@ final class CodegenTokens extends CodegenBase {
     return $cg->codegenMethod('rewriteDescendants')
       ->setIsOverride()
       ->addParameter('self::TRewriter $rewriter')
-      ->addParameter('?Traversable<EditableSyntax> $parents = null')
+      ->addParameter('?Traversable<EditableNode> $parents = null')
       ->setReturnType('this')
       ->setBody(
         $cg->codegenHackBuilder()

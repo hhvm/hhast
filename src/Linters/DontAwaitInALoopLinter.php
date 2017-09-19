@@ -19,7 +19,7 @@ use type Facebook\HHAST\{
   CompoundStatement,
   DotDotDotToken,
   EditableList,
-  EditableSyntax,
+  EditableNode,
   EndOfLine,
   IControlFlowStatement,
   ILoopStatement,
@@ -44,7 +44,7 @@ final class DontAwaitInALoopLinter
   <<__Override>>
   public function getLintErrorForNode(
     PrefixUnaryExpression $node,
-    vec<EditableSyntax> $parents,
+    vec<EditableNode> $parents,
   ): ?ASTLintError<PrefixUnaryExpression, this> {
     if (!$node->getOperator() instanceof AwaitToken) {
       return null;
@@ -71,7 +71,7 @@ final class DontAwaitInALoopLinter
     );
   }
 
-  private static function isAsyncBoundary(EditableSyntax $node): bool {
+  private static function isAsyncBoundary(EditableNode $node): bool {
     return
       $node instanceof AnonymousFunction
       || $node instanceof AwaitableCreationExpression
@@ -81,7 +81,7 @@ final class DontAwaitInALoopLinter
   <<__Override>>
   public function getPrettyTextForNode(
     PrefixUnaryExpression $blame,
-    ?EditableSyntax $loops,
+    ?EditableNode $loops,
   ): string {
     invariant(
       $loops instanceof EditableList,

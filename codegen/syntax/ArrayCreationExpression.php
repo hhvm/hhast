@@ -2,21 +2,21 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3ab4cf592f5a5a20b955bbc86f2d0e9c>>
+ * @generated SignedSource<<57cc1ea31537898811380fb0e326c202>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class ArrayCreationExpression extends EditableSyntax {
+final class ArrayCreationExpression extends EditableNode {
 
-  private EditableSyntax $_left_bracket;
-  private EditableSyntax $_members;
-  private EditableSyntax $_right_bracket;
+  private EditableNode $_left_bracket;
+  private EditableNode $_members;
+  private EditableNode $_right_bracket;
 
   public function __construct(
-    EditableSyntax $left_bracket,
-    EditableSyntax $members,
-    EditableSyntax $right_bracket,
+    EditableNode $left_bracket,
+    EditableNode $members,
+    EditableNode $right_bracket,
   ) {
     parent::__construct('array_creation_expression');
     $this->_left_bracket = $left_bracket;
@@ -30,19 +30,19 @@ final class ArrayCreationExpression extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $left_bracket = EditableSyntax::fromJSON(
+    $left_bracket = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['array_creation_left_bracket'],
       $position,
       $source,
     );
     $position += $left_bracket->getWidth();
-    $members = EditableSyntax::fromJSON(
+    $members = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['array_creation_members'],
       $position,
       $source,
     );
     $position += $members->getWidth();
-    $right_bracket = EditableSyntax::fromJSON(
+    $right_bracket = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['array_creation_right_bracket'],
       $position,
       $source,
@@ -52,7 +52,7 @@ final class ArrayCreationExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'left_bracket' => $this->_left_bracket;
     yield 'members' => $this->_members;
     yield 'right_bracket' => $this->_right_bracket;
@@ -61,7 +61,7 @@ final class ArrayCreationExpression extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -78,11 +78,11 @@ final class ArrayCreationExpression extends EditableSyntax {
     return new self($left_bracket, $members, $right_bracket);
   }
 
-  public function getLeftBracketUNTYPED(): EditableSyntax {
+  public function getLeftBracketUNTYPED(): EditableNode {
     return $this->_left_bracket;
   }
 
-  public function withLeftBracket(EditableSyntax $value): this {
+  public function withLeftBracket(EditableNode $value): this {
     if ($value === $this->_left_bracket) {
       return $this;
     }
@@ -101,11 +101,11 @@ final class ArrayCreationExpression extends EditableSyntax {
       TypeAssert\instance_of(LeftBracketToken::class, $this->_left_bracket);
   }
 
-  public function getMembersUNTYPED(): EditableSyntax {
+  public function getMembersUNTYPED(): EditableNode {
     return $this->_members;
   }
 
-  public function withMembers(EditableSyntax $value): this {
+  public function withMembers(EditableNode $value): this {
     if ($value === $this->_members) {
       return $this;
     }
@@ -133,11 +133,11 @@ final class ArrayCreationExpression extends EditableSyntax {
     return TypeAssert\instance_of(EditableList::class, $this->_members);
   }
 
-  public function getRightBracketUNTYPED(): EditableSyntax {
+  public function getRightBracketUNTYPED(): EditableNode {
     return $this->_right_bracket;
   }
 
-  public function withRightBracket(EditableSyntax $value): this {
+  public function withRightBracket(EditableNode $value): this {
     if ($value === $this->_right_bracket) {
       return $this;
     }

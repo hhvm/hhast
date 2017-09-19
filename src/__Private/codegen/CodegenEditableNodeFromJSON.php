@@ -16,20 +16,20 @@ use namespace HH\Lib\C;
 
 use type Facebook\HackCodegen\HackBuilderValues;
 
-final class CodegenEditableSyntaxFromJSON extends CodegenBase {
+final class CodegenEditableNodeFromJSON extends CodegenBase {
   <<__Override>>
   public function generate(): void {
     $cg = $this->getCodegenFactory();
 
     $cg
       ->codegenFile($this->getOutputDirectory().
-        '/editable_syntax_from_json.php')
+        '/editable_node_from_json.php')
       ->setNamespace('Facebook\\HHAST\\__Private')
       ->useNamespace('Facebook\\HHAST')
       ->addFunction(
         $cg
-          ->codegenFunction('editable_syntax_from_json')
-          ->setReturnType('HHAST\\EditableSyntax')
+          ->codegenFunction('editable_node_from_json')
+          ->setReturnType('HHAST\\EditableNode')
           ->addParameter('dict<string, mixed> $json')
           ->addParameter('int $position')
           ->addParameter('string $source')

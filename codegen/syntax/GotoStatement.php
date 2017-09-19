@@ -2,21 +2,21 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<de0a8bfbd9eacbdb7a53e32919d8b848>>
+ * @generated SignedSource<<35465b9c9c7e9e9d0af4c15aa3fd88b9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class GotoStatement extends EditableSyntax {
+final class GotoStatement extends EditableNode {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_label_name;
-  private EditableSyntax $_semicolon;
+  private EditableNode $_keyword;
+  private EditableNode $_label_name;
+  private EditableNode $_semicolon;
 
   public function __construct(
-    EditableSyntax $keyword,
-    EditableSyntax $label_name,
-    EditableSyntax $semicolon,
+    EditableNode $keyword,
+    EditableNode $label_name,
+    EditableNode $semicolon,
   ) {
     parent::__construct('goto_statement');
     $this->_keyword = $keyword;
@@ -30,19 +30,19 @@ final class GotoStatement extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['goto_statement_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $label_name = EditableSyntax::fromJSON(
+    $label_name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['goto_statement_label_name'],
       $position,
       $source,
     );
     $position += $label_name->getWidth();
-    $semicolon = EditableSyntax::fromJSON(
+    $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['goto_statement_semicolon'],
       $position,
       $source,
@@ -52,7 +52,7 @@ final class GotoStatement extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'label_name' => $this->_label_name;
     yield 'semicolon' => $this->_semicolon;
@@ -61,7 +61,7 @@ final class GotoStatement extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -78,11 +78,11 @@ final class GotoStatement extends EditableSyntax {
     return new self($keyword, $label_name, $semicolon);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -100,11 +100,11 @@ final class GotoStatement extends EditableSyntax {
     return TypeAssert\instance_of(GotoToken::class, $this->_keyword);
   }
 
-  public function getLabelNameUNTYPED(): EditableSyntax {
+  public function getLabelNameUNTYPED(): EditableNode {
     return $this->_label_name;
   }
 
-  public function withLabelName(EditableSyntax $value): this {
+  public function withLabelName(EditableNode $value): this {
     if ($value === $this->_label_name) {
       return $this;
     }
@@ -122,11 +122,11 @@ final class GotoStatement extends EditableSyntax {
     return TypeAssert\instance_of(NameToken::class, $this->_label_name);
   }
 
-  public function getSemicolonUNTYPED(): EditableSyntax {
+  public function getSemicolonUNTYPED(): EditableNode {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableSyntax $value): this {
+  public function withSemicolon(EditableNode $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

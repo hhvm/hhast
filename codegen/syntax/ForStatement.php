@@ -2,34 +2,34 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eb85d0f65a7aa9c31bcab2a9a938f415>>
+ * @generated SignedSource<<8cfc64fa4e0af88d3cc502da47d8b1ab>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class ForStatement extends EditableSyntax
+final class ForStatement extends EditableNode
   implements IControlFlowStatement, ILoopStatement {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_left_paren;
-  private EditableSyntax $_initializer;
-  private EditableSyntax $_first_semicolon;
-  private EditableSyntax $_control;
-  private EditableSyntax $_second_semicolon;
-  private EditableSyntax $_end_of_loop;
-  private EditableSyntax $_right_paren;
-  private EditableSyntax $_body;
+  private EditableNode $_keyword;
+  private EditableNode $_left_paren;
+  private EditableNode $_initializer;
+  private EditableNode $_first_semicolon;
+  private EditableNode $_control;
+  private EditableNode $_second_semicolon;
+  private EditableNode $_end_of_loop;
+  private EditableNode $_right_paren;
+  private EditableNode $_body;
 
   public function __construct(
-    EditableSyntax $keyword,
-    EditableSyntax $left_paren,
-    EditableSyntax $initializer,
-    EditableSyntax $first_semicolon,
-    EditableSyntax $control,
-    EditableSyntax $second_semicolon,
-    EditableSyntax $end_of_loop,
-    EditableSyntax $right_paren,
-    EditableSyntax $body,
+    EditableNode $keyword,
+    EditableNode $left_paren,
+    EditableNode $initializer,
+    EditableNode $first_semicolon,
+    EditableNode $control,
+    EditableNode $second_semicolon,
+    EditableNode $end_of_loop,
+    EditableNode $right_paren,
+    EditableNode $body,
   ) {
     parent::__construct('for_statement');
     $this->_keyword = $keyword;
@@ -49,55 +49,55 @@ final class ForStatement extends EditableSyntax
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['for_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_paren = EditableSyntax::fromJSON(
+    $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['for_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $initializer = EditableSyntax::fromJSON(
+    $initializer = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['for_initializer'],
       $position,
       $source,
     );
     $position += $initializer->getWidth();
-    $first_semicolon = EditableSyntax::fromJSON(
+    $first_semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['for_first_semicolon'],
       $position,
       $source,
     );
     $position += $first_semicolon->getWidth();
-    $control = EditableSyntax::fromJSON(
+    $control = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['for_control'],
       $position,
       $source,
     );
     $position += $control->getWidth();
-    $second_semicolon = EditableSyntax::fromJSON(
+    $second_semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['for_second_semicolon'],
       $position,
       $source,
     );
     $position += $second_semicolon->getWidth();
-    $end_of_loop = EditableSyntax::fromJSON(
+    $end_of_loop = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['for_end_of_loop'],
       $position,
       $source,
     );
     $position += $end_of_loop->getWidth();
-    $right_paren = EditableSyntax::fromJSON(
+    $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['for_right_paren'],
       $position,
       $source,
     );
     $position += $right_paren->getWidth();
-    $body = EditableSyntax::fromJSON(
+    $body = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['for_body'],
       $position,
       $source,
@@ -117,7 +117,7 @@ final class ForStatement extends EditableSyntax
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'left_paren' => $this->_left_paren;
     yield 'initializer' => $this->_initializer;
@@ -132,7 +132,7 @@ final class ForStatement extends EditableSyntax
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -171,11 +171,11 @@ final class ForStatement extends EditableSyntax
     );
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -203,11 +203,11 @@ final class ForStatement extends EditableSyntax
     return TypeAssert\instance_of(ForToken::class, $this->_keyword);
   }
 
-  public function getLeftParenUNTYPED(): EditableSyntax {
+  public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableSyntax $value): this {
+  public function withLeftParen(EditableNode $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -235,11 +235,11 @@ final class ForStatement extends EditableSyntax
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
-  public function getInitializerUNTYPED(): EditableSyntax {
+  public function getInitializerUNTYPED(): EditableNode {
     return $this->_initializer;
   }
 
-  public function withInitializer(EditableSyntax $value): this {
+  public function withInitializer(EditableNode $value): this {
     if ($value === $this->_initializer) {
       return $this;
     }
@@ -277,11 +277,11 @@ final class ForStatement extends EditableSyntax
     return TypeAssert\instance_of(EditableList::class, $this->_initializer);
   }
 
-  public function getFirstSemicolonUNTYPED(): EditableSyntax {
+  public function getFirstSemicolonUNTYPED(): EditableNode {
     return $this->_first_semicolon;
   }
 
-  public function withFirstSemicolon(EditableSyntax $value): this {
+  public function withFirstSemicolon(EditableNode $value): this {
     if ($value === $this->_first_semicolon) {
       return $this;
     }
@@ -310,11 +310,11 @@ final class ForStatement extends EditableSyntax
       TypeAssert\instance_of(SemicolonToken::class, $this->_first_semicolon);
   }
 
-  public function getControlUNTYPED(): EditableSyntax {
+  public function getControlUNTYPED(): EditableNode {
     return $this->_control;
   }
 
-  public function withControl(EditableSyntax $value): this {
+  public function withControl(EditableNode $value): this {
     if ($value === $this->_control) {
       return $this;
     }
@@ -352,11 +352,11 @@ final class ForStatement extends EditableSyntax
     return TypeAssert\instance_of(EditableList::class, $this->_control);
   }
 
-  public function getSecondSemicolonUNTYPED(): EditableSyntax {
+  public function getSecondSemicolonUNTYPED(): EditableNode {
     return $this->_second_semicolon;
   }
 
-  public function withSecondSemicolon(EditableSyntax $value): this {
+  public function withSecondSemicolon(EditableNode $value): this {
     if ($value === $this->_second_semicolon) {
       return $this;
     }
@@ -385,11 +385,11 @@ final class ForStatement extends EditableSyntax
       TypeAssert\instance_of(SemicolonToken::class, $this->_second_semicolon);
   }
 
-  public function getEndOfLoopUNTYPED(): EditableSyntax {
+  public function getEndOfLoopUNTYPED(): EditableNode {
     return $this->_end_of_loop;
   }
 
-  public function withEndOfLoop(EditableSyntax $value): this {
+  public function withEndOfLoop(EditableNode $value): this {
     if ($value === $this->_end_of_loop) {
       return $this;
     }
@@ -427,11 +427,11 @@ final class ForStatement extends EditableSyntax
     return TypeAssert\instance_of(EditableList::class, $this->_end_of_loop);
   }
 
-  public function getRightParenUNTYPED(): EditableSyntax {
+  public function getRightParenUNTYPED(): EditableNode {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableSyntax $value): this {
+  public function withRightParen(EditableNode $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -459,11 +459,11 @@ final class ForStatement extends EditableSyntax
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
-  public function getBodyUNTYPED(): EditableSyntax {
+  public function getBodyUNTYPED(): EditableNode {
     return $this->_body;
   }
 
-  public function withBody(EditableSyntax $value): this {
+  public function withBody(EditableNode $value): this {
     if ($value === $this->_body) {
       return $this;
     }
@@ -488,7 +488,7 @@ final class ForStatement extends EditableSyntax
    * @returns ExpressionStatement | CompoundStatement | UnsetStatement |
    * EchoStatement | ForStatement
    */
-  public function getBody(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_body);
+  public function getBody(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_body);
   }
 }

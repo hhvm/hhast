@@ -2,16 +2,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<68c28cc8f03cc855f88a746e171b6f06>>
+ * @generated SignedSource<<1bdc61996ec4797a935c39c1abae9c2b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class NamespaceEmptyBody extends EditableSyntax {
+final class NamespaceEmptyBody extends EditableNode {
 
-  private EditableSyntax $_semicolon;
+  private EditableNode $_semicolon;
 
-  public function __construct(EditableSyntax $semicolon) {
+  public function __construct(EditableNode $semicolon) {
     parent::__construct('namespace_empty_body');
     $this->_semicolon = $semicolon;
   }
@@ -22,7 +22,7 @@ final class NamespaceEmptyBody extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $semicolon = EditableSyntax::fromJSON(
+    $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_semicolon'],
       $position,
       $source,
@@ -32,14 +32,14 @@ final class NamespaceEmptyBody extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'semicolon' => $this->_semicolon;
   }
 
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -50,11 +50,11 @@ final class NamespaceEmptyBody extends EditableSyntax {
     return new self($semicolon);
   }
 
-  public function getSemicolonUNTYPED(): EditableSyntax {
+  public function getSemicolonUNTYPED(): EditableNode {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableSyntax $value): this {
+  public function withSemicolon(EditableNode $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

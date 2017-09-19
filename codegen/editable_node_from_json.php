@@ -2,16 +2,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e12a96f8bf99691759d82164d51f4c49>>
+ * @generated SignedSource<<732adbbb41690280f195f5b36e471540>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
 
-function editable_syntax_from_json(
+function editable_node_from_json(
   dict<string, mixed> $json,
   int $position,
   string $source,
-): HHAST\EditableSyntax {
+): HHAST\EditableNode {
   switch ((string)$json['kind']) {
     case 'token':
       return HHAST\EditableToken::fromJSON(/* HH_IGNORE_ERROR[4110] */

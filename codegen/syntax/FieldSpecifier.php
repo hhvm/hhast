@@ -2,23 +2,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<316bf988115685bd2470feccba4f1e33>>
+ * @generated SignedSource<<b7ce4449f87be9e9d5ba7c7ff3d2b3d7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class FieldSpecifier extends EditableSyntax {
+final class FieldSpecifier extends EditableNode {
 
-  private EditableSyntax $_question;
-  private EditableSyntax $_name;
-  private EditableSyntax $_arrow;
-  private EditableSyntax $_type;
+  private EditableNode $_question;
+  private EditableNode $_name;
+  private EditableNode $_arrow;
+  private EditableNode $_type;
 
   public function __construct(
-    EditableSyntax $question,
-    EditableSyntax $name,
-    EditableSyntax $arrow,
-    EditableSyntax $type,
+    EditableNode $question,
+    EditableNode $name,
+    EditableNode $arrow,
+    EditableNode $type,
   ) {
     parent::__construct('field_specifier');
     $this->_question = $question;
@@ -33,25 +33,25 @@ final class FieldSpecifier extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $question = EditableSyntax::fromJSON(
+    $question = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['field_question'],
       $position,
       $source,
     );
     $position += $question->getWidth();
-    $name = EditableSyntax::fromJSON(
+    $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['field_name'],
       $position,
       $source,
     );
     $position += $name->getWidth();
-    $arrow = EditableSyntax::fromJSON(
+    $arrow = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['field_arrow'],
       $position,
       $source,
     );
     $position += $arrow->getWidth();
-    $type = EditableSyntax::fromJSON(
+    $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['field_type'],
       $position,
       $source,
@@ -61,7 +61,7 @@ final class FieldSpecifier extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'question' => $this->_question;
     yield 'name' => $this->_name;
     yield 'arrow' => $this->_arrow;
@@ -71,7 +71,7 @@ final class FieldSpecifier extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -90,11 +90,11 @@ final class FieldSpecifier extends EditableSyntax {
     return new self($question, $name, $arrow, $type);
   }
 
-  public function getQuestionUNTYPED(): EditableSyntax {
+  public function getQuestionUNTYPED(): EditableNode {
     return $this->_question;
   }
 
-  public function withQuestion(EditableSyntax $value): this {
+  public function withQuestion(EditableNode $value): this {
     if ($value === $this->_question) {
       return $this;
     }
@@ -122,11 +122,11 @@ final class FieldSpecifier extends EditableSyntax {
     return TypeAssert\instance_of(QuestionToken::class, $this->_question);
   }
 
-  public function getNameUNTYPED(): EditableSyntax {
+  public function getNameUNTYPED(): EditableNode {
     return $this->_name;
   }
 
-  public function withName(EditableSyntax $value): this {
+  public function withName(EditableNode $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -140,15 +140,15 @@ final class FieldSpecifier extends EditableSyntax {
   /**
    * @returns LiteralExpression | ScopeResolutionExpression
    */
-  public function getName(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_name);
+  public function getName(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_name);
   }
 
-  public function getArrowUNTYPED(): EditableSyntax {
+  public function getArrowUNTYPED(): EditableNode {
     return $this->_arrow;
   }
 
-  public function withArrow(EditableSyntax $value): this {
+  public function withArrow(EditableNode $value): this {
     if ($value === $this->_arrow) {
       return $this;
     }
@@ -166,11 +166,11 @@ final class FieldSpecifier extends EditableSyntax {
     return TypeAssert\instance_of(EqualGreaterThanToken::class, $this->_arrow);
   }
 
-  public function getTypeUNTYPED(): EditableSyntax {
+  public function getTypeUNTYPED(): EditableNode {
     return $this->_type;
   }
 
-  public function withType(EditableSyntax $value): this {
+  public function withType(EditableNode $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -185,7 +185,7 @@ final class FieldSpecifier extends EditableSyntax {
    * @returns SimpleTypeSpecifier | NullableTypeSpecifier |
    * GenericTypeSpecifier | TypeConstant | ShapeTypeSpecifier
    */
-  public function getType(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_type);
+  public function getType(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_type);
   }
 }

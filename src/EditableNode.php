@@ -15,9 +15,9 @@ namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Vec;
 
-abstract class EditableSyntax {
+abstract class EditableNode {
   const type TRewriter =
-    (function(EditableSyntax, ?Traversable<EditableSyntax>): EditableSyntax);
+    (function(EditableNode, ?Traversable<EditableNode>): EditableNode);
 
   private string $_syntax_kind;
   protected ?int $_width;
@@ -30,9 +30,9 @@ abstract class EditableSyntax {
   }
 
   public abstract function getChildren(
-  ): KeyedTraversable<string, EditableSyntax>;
+  ): KeyedTraversable<string, EditableNode>;
 
-  final public function getChildrenOfType<T as EditableSyntax>(
+  final public function getChildrenOfType<T as EditableNode>(
     classname<T> $what,
   ): KeyedTraversable<string, T> {
     foreach ($this->getChildren() as $k => $node) {
@@ -42,7 +42,7 @@ abstract class EditableSyntax {
     }
   }
 
-  public function preorder(): Traversable<EditableSyntax> {
+  public function preorder(): Traversable<EditableNode> {
     yield $this;
     foreach ($this->getChildren() as $child) {
       foreach ($child->preorder() as $descendant) {
@@ -52,8 +52,8 @@ abstract class EditableSyntax {
   }
 
   private function _parented_preorder(
-    Traversable<EditableSyntax> $parents,
-  ): Traversable<(EditableSyntax, Traversable<EditableSyntax>)> {
+    Traversable<EditableNode> $parents,
+  ): Traversable<(EditableNode, Traversable<EditableNode>)> {
     $new_parents = vec($parents);
     $new_parents[] = $this;
     yield tuple($this, $parents);
@@ -65,7 +65,7 @@ abstract class EditableSyntax {
   }
 
   public function parented_preorder(
-  ): Traversable<(EditableSyntax, Traversable<EditableSyntax>)> {
+  ): Traversable<(EditableNode, Traversable<EditableNode>)> {
     return $this->_parented_preorder([]);
   }
 
@@ -112,22 +112,22 @@ abstract class EditableSyntax {
     dict<string, mixed> $json,
     int $position,
     string $source,
-  ): EditableSyntax {
-    return __Private\editable_syntax_from_json($json, $position, $source);
+  ): EditableNode {
+    return __Private\editable_node_from_json($json, $position, $source);
   }
 
-  public function toVec(): vec<EditableSyntax> {
+  public function toVec(): vec<EditableNode> {
     return vec[$this];
   }
 
   public function reduce<TAccumulator>(
     (function(
-      EditableSyntax,
+      EditableNode,
       TAccumulator,
-      vec<EditableSyntax>,
+      vec<EditableNode>,
     ): TAccumulator) $reducer,
     TAccumulator $accumulator,
-    ?vec<EditableSyntax> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): TAccumulator {
     $new_parents = vec($parents ?? vec[]);
     $new_parents[] =$this;
@@ -140,9 +140,9 @@ abstract class EditableSyntax {
   // Returns all the parents (and the node itself) of the first node
   // that matches a predicate, or [] if there is no such node.
   public function find_with_parents(
-    (function(EditableSyntax): bool) $predicate,
-    ?Traversable<EditableSyntax> $parents = null,
-  ): vec<EditableSyntax> {
+    (function(EditableNode): bool) $predicate,
+    ?Traversable<EditableNode> $parents = null,
+  ): vec<EditableNode> {
     $parents = $parents === null ? vec[] : vec($parents);
     $new_parents = $parents;
     $new_parents[] = $this;
@@ -160,8 +160,8 @@ abstract class EditableSyntax {
 
   // Returns a list of nodes that match a predicate.
   public function filter(
-    (function(EditableSyntax, ?vec<EditableSyntax>): bool) $predicate,
-  ): vec<EditableSyntax> {
+    (function(EditableNode, ?vec<EditableNode>): bool) $predicate,
+  ): vec<EditableNode> {
     $reducer = ($node, $acc, $parents) ==> {
       if ($predicate($node, $parents)) {
         $acc[] = $node;
@@ -171,7 +171,7 @@ abstract class EditableSyntax {
     return $this->reduce($reducer, vec[]);
   }
 
-  public function getDescendantsOfType<T as EditableSyntax>(
+  public function getDescendantsOfType<T as EditableNode>(
     classname<T> $what,
   ): Traversable<T> {
     foreach ($this->preorder() as $child) {
@@ -183,21 +183,21 @@ abstract class EditableSyntax {
   }
 
   public function remove_where(
-    (function(EditableSyntax, ?Traversable<EditableSyntax>): bool) $predicate,
-  ): EditableSyntax {
+    (function(EditableNode, ?Traversable<EditableNode>): bool) $predicate,
+  ): EditableNode {
     return $this->rewrite(
       ($node, $parents) ==>
         $predicate($node, $parents) ? Missing::getInstance() : $node,
     );
   }
 
-  public function without(EditableSyntax $target): EditableSyntax {
+  public function without(EditableNode $target): EditableNode {
     return $this->remove_where(($node, $parents) ==> $node === $target);
   }
 
   public function replace(
-    EditableSyntax $new_node,
-    EditableSyntax $target,
+    EditableNode $new_node,
+    EditableNode $target,
   ): this {
     return $this->rewriteDescendants(
       ($node, $parents) ==> $node === $target ? $new_node : $node,
@@ -231,8 +231,8 @@ abstract class EditableSyntax {
   }
 
   public function insert_before(
-    EditableSyntax $new_node,
-    EditableSyntax $target,
+    EditableNode $new_node,
+    EditableNode $target,
   ): this {
     // Inserting before missing is an error.
     if ($target->isMissing()) {
@@ -266,8 +266,8 @@ abstract class EditableSyntax {
   }
 
   public function insert_after(
-    EditableSyntax $new_node,
-    EditableSyntax $target,
+    EditableNode $new_node,
+    EditableNode $target,
   ): this {
 
     // Inserting after missing is an error.
@@ -304,13 +304,13 @@ abstract class EditableSyntax {
 
   abstract public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this ;
 
   public function rewrite(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
-  ): EditableSyntax {
+    ?Traversable<EditableNode> $parents = null,
+  ): EditableNode {
     $parents = $parents === null ? vec[] : vec($parents);
     $with_rewritten_children = $this->rewriteDescendants(
       $rewriter,

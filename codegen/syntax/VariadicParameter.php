@@ -2,16 +2,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8e8dffcd23fb23ff8866208cfa065627>>
+ * @generated SignedSource<<923912ac1963a2178a349cd58d57533d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class VariadicParameter extends EditableSyntax {
+final class VariadicParameter extends EditableNode {
 
-  private EditableSyntax $_ellipsis;
+  private EditableNode $_ellipsis;
 
-  public function __construct(EditableSyntax $ellipsis) {
+  public function __construct(EditableNode $ellipsis) {
     parent::__construct('variadic_parameter');
     $this->_ellipsis = $ellipsis;
   }
@@ -22,7 +22,7 @@ final class VariadicParameter extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $ellipsis = EditableSyntax::fromJSON(
+    $ellipsis = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['variadic_parameter_ellipsis'],
       $position,
       $source,
@@ -32,14 +32,14 @@ final class VariadicParameter extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'ellipsis' => $this->_ellipsis;
   }
 
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -50,11 +50,11 @@ final class VariadicParameter extends EditableSyntax {
     return new self($ellipsis);
   }
 
-  public function getEllipsisUNTYPED(): EditableSyntax {
+  public function getEllipsisUNTYPED(): EditableNode {
     return $this->_ellipsis;
   }
 
-  public function withEllipsis(EditableSyntax $value): this {
+  public function withEllipsis(EditableNode $value): this {
     if ($value === $this->_ellipsis) {
       return $this;
     }

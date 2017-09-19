@@ -2,25 +2,25 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4ad6a3954c206afd8af9439cbfa76e0e>>
+ * @generated SignedSource<<79ee0f987119c3a19fbbca217a3d7566>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class ParameterDeclaration extends EditableSyntax {
+final class ParameterDeclaration extends EditableNode {
 
-  private EditableSyntax $_attribute;
-  private EditableSyntax $_visibility;
-  private EditableSyntax $_type;
-  private EditableSyntax $_name;
-  private EditableSyntax $_default_value;
+  private EditableNode $_attribute;
+  private EditableNode $_visibility;
+  private EditableNode $_type;
+  private EditableNode $_name;
+  private EditableNode $_default_value;
 
   public function __construct(
-    EditableSyntax $attribute,
-    EditableSyntax $visibility,
-    EditableSyntax $type,
-    EditableSyntax $name,
-    EditableSyntax $default_value,
+    EditableNode $attribute,
+    EditableNode $visibility,
+    EditableNode $type,
+    EditableNode $name,
+    EditableNode $default_value,
   ) {
     parent::__construct('parameter_declaration');
     $this->_attribute = $attribute;
@@ -36,31 +36,31 @@ final class ParameterDeclaration extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $attribute = EditableSyntax::fromJSON(
+    $attribute = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['parameter_attribute'],
       $position,
       $source,
     );
     $position += $attribute->getWidth();
-    $visibility = EditableSyntax::fromJSON(
+    $visibility = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['parameter_visibility'],
       $position,
       $source,
     );
     $position += $visibility->getWidth();
-    $type = EditableSyntax::fromJSON(
+    $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['parameter_type'],
       $position,
       $source,
     );
     $position += $type->getWidth();
-    $name = EditableSyntax::fromJSON(
+    $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['parameter_name'],
       $position,
       $source,
     );
     $position += $name->getWidth();
-    $default_value = EditableSyntax::fromJSON(
+    $default_value = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['parameter_default_value'],
       $position,
       $source,
@@ -70,7 +70,7 @@ final class ParameterDeclaration extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'attribute' => $this->_attribute;
     yield 'visibility' => $this->_visibility;
     yield 'type' => $this->_type;
@@ -81,7 +81,7 @@ final class ParameterDeclaration extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -102,11 +102,11 @@ final class ParameterDeclaration extends EditableSyntax {
     return new self($attribute, $visibility, $type, $name, $default_value);
   }
 
-  public function getAttributeUNTYPED(): EditableSyntax {
+  public function getAttributeUNTYPED(): EditableNode {
     return $this->_attribute;
   }
 
-  public function withAttribute(EditableSyntax $value): this {
+  public function withAttribute(EditableNode $value): this {
     if ($value === $this->_attribute) {
       return $this;
     }
@@ -142,11 +142,11 @@ final class ParameterDeclaration extends EditableSyntax {
       TypeAssert\instance_of(AttributeSpecification::class, $this->_attribute);
   }
 
-  public function getVisibilityUNTYPED(): EditableSyntax {
+  public function getVisibilityUNTYPED(): EditableNode {
     return $this->_visibility;
   }
 
-  public function withVisibility(EditableSyntax $value): this {
+  public function withVisibility(EditableNode $value): this {
     if ($value === $this->_visibility) {
       return $this;
     }
@@ -180,11 +180,11 @@ final class ParameterDeclaration extends EditableSyntax {
     return TypeAssert\instance_of(EditableToken::class, $this->_visibility);
   }
 
-  public function getTypeUNTYPED(): EditableSyntax {
+  public function getTypeUNTYPED(): EditableNode {
     return $this->_type;
   }
 
-  public function withType(EditableSyntax $value): this {
+  public function withType(EditableNode $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -209,15 +209,15 @@ final class ParameterDeclaration extends EditableSyntax {
    * VectorTypeSpecifier | MapArrayTypeSpecifier | VarrayTypeSpecifier |
    * DarrayTypeSpecifier | VectorArrayTypeSpecifier
    */
-  public function getType(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_type);
+  public function getType(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_type);
   }
 
-  public function getNameUNTYPED(): EditableSyntax {
+  public function getNameUNTYPED(): EditableNode {
     return $this->_name;
   }
 
-  public function withName(EditableSyntax $value): this {
+  public function withName(EditableNode $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -237,15 +237,15 @@ final class ParameterDeclaration extends EditableSyntax {
   /**
    * @returns VariableToken | DecoratedExpression | Missing
    */
-  public function getName(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_name);
+  public function getName(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_name);
   }
 
-  public function getDefaultValueUNTYPED(): EditableSyntax {
+  public function getDefaultValueUNTYPED(): EditableNode {
     return $this->_default_value;
   }
 
-  public function withDefaultValue(EditableSyntax $value): this {
+  public function withDefaultValue(EditableNode $value): this {
     if ($value === $this->_default_value) {
       return $this;
     }

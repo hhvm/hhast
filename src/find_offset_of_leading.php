@@ -15,8 +15,8 @@ namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Vec};
 
 function find_offset_of_leading(
-  EditableSyntax $root,
-  EditableSyntax $node,
+  EditableNode $root,
+  EditableNode $node,
 ): int {
   if ($root === $node) {
     return 0;

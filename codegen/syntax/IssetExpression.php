@@ -2,23 +2,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8fd5378879fca7ff49c15032e28a0ab4>>
+ * @generated SignedSource<<a6e81be53398ddf47dda11ef74f358c4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class IssetExpression extends EditableSyntax {
+final class IssetExpression extends EditableNode {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_left_paren;
-  private EditableSyntax $_argument_list;
-  private EditableSyntax $_right_paren;
+  private EditableNode $_keyword;
+  private EditableNode $_left_paren;
+  private EditableNode $_argument_list;
+  private EditableNode $_right_paren;
 
   public function __construct(
-    EditableSyntax $keyword,
-    EditableSyntax $left_paren,
-    EditableSyntax $argument_list,
-    EditableSyntax $right_paren,
+    EditableNode $keyword,
+    EditableNode $left_paren,
+    EditableNode $argument_list,
+    EditableNode $right_paren,
   ) {
     parent::__construct('isset_expression');
     $this->_keyword = $keyword;
@@ -33,25 +33,25 @@ final class IssetExpression extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['isset_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_paren = EditableSyntax::fromJSON(
+    $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['isset_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $argument_list = EditableSyntax::fromJSON(
+    $argument_list = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['isset_argument_list'],
       $position,
       $source,
     );
     $position += $argument_list->getWidth();
-    $right_paren = EditableSyntax::fromJSON(
+    $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['isset_right_paren'],
       $position,
       $source,
@@ -61,7 +61,7 @@ final class IssetExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'left_paren' => $this->_left_paren;
     yield 'argument_list' => $this->_argument_list;
@@ -71,7 +71,7 @@ final class IssetExpression extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -90,11 +90,11 @@ final class IssetExpression extends EditableSyntax {
     return new self($keyword, $left_paren, $argument_list, $right_paren);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -117,11 +117,11 @@ final class IssetExpression extends EditableSyntax {
     return TypeAssert\instance_of(IssetToken::class, $this->_keyword);
   }
 
-  public function getLeftParenUNTYPED(): EditableSyntax {
+  public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableSyntax $value): this {
+  public function withLeftParen(EditableNode $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -144,11 +144,11 @@ final class IssetExpression extends EditableSyntax {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
-  public function getArgumentListUNTYPED(): EditableSyntax {
+  public function getArgumentListUNTYPED(): EditableNode {
     return $this->_argument_list;
   }
 
-  public function withArgumentList(EditableSyntax $value): this {
+  public function withArgumentList(EditableNode $value): this {
     if ($value === $this->_argument_list) {
       return $this;
     }
@@ -171,11 +171,11 @@ final class IssetExpression extends EditableSyntax {
     return TypeAssert\instance_of(EditableList::class, $this->_argument_list);
   }
 
-  public function getRightParenUNTYPED(): EditableSyntax {
+  public function getRightParenUNTYPED(): EditableNode {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableSyntax $value): this {
+  public function withRightParen(EditableNode $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }

@@ -2,23 +2,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3cb67a163a184486497a5ed251eb733b>>
+ * @generated SignedSource<<6b2c80e8c714676e092850016329e889>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class XHPClassAttribute extends EditableSyntax {
+final class XHPClassAttribute extends EditableNode {
 
-  private EditableSyntax $_type;
-  private EditableSyntax $_name;
-  private EditableSyntax $_initializer;
-  private EditableSyntax $_required;
+  private EditableNode $_type;
+  private EditableNode $_name;
+  private EditableNode $_initializer;
+  private EditableNode $_required;
 
   public function __construct(
-    EditableSyntax $type,
-    EditableSyntax $name,
-    EditableSyntax $initializer,
-    EditableSyntax $required,
+    EditableNode $type,
+    EditableNode $name,
+    EditableNode $initializer,
+    EditableNode $required,
   ) {
     parent::__construct('xhp_class_attribute');
     $this->_type = $type;
@@ -33,25 +33,25 @@ final class XHPClassAttribute extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $type = EditableSyntax::fromJSON(
+    $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_attribute_decl_type'],
       $position,
       $source,
     );
     $position += $type->getWidth();
-    $name = EditableSyntax::fromJSON(
+    $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_attribute_decl_name'],
       $position,
       $source,
     );
     $position += $name->getWidth();
-    $initializer = EditableSyntax::fromJSON(
+    $initializer = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_attribute_decl_initializer'],
       $position,
       $source,
     );
     $position += $initializer->getWidth();
-    $required = EditableSyntax::fromJSON(
+    $required = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_attribute_decl_required'],
       $position,
       $source,
@@ -61,7 +61,7 @@ final class XHPClassAttribute extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'type' => $this->_type;
     yield 'name' => $this->_name;
     yield 'initializer' => $this->_initializer;
@@ -71,7 +71,7 @@ final class XHPClassAttribute extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -90,11 +90,11 @@ final class XHPClassAttribute extends EditableSyntax {
     return new self($type, $name, $initializer, $required);
   }
 
-  public function getTypeUNTYPED(): EditableSyntax {
+  public function getTypeUNTYPED(): EditableNode {
     return $this->_type;
   }
 
-  public function withType(EditableSyntax $value): this {
+  public function withType(EditableNode $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -110,15 +110,15 @@ final class XHPClassAttribute extends EditableSyntax {
    * @returns GenericTypeSpecifier | SimpleTypeSpecifier | XHPEnumType |
    * NullableTypeSpecifier | VectorArrayTypeSpecifier | MapArrayTypeSpecifier
    */
-  public function getType(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_type);
+  public function getType(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_type);
   }
 
-  public function getNameUNTYPED(): EditableSyntax {
+  public function getNameUNTYPED(): EditableNode {
     return $this->_name;
   }
 
-  public function withName(EditableSyntax $value): this {
+  public function withName(EditableNode $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -137,11 +137,11 @@ final class XHPClassAttribute extends EditableSyntax {
     return TypeAssert\instance_of(XHPElementNameToken::class, $this->_name);
   }
 
-  public function getInitializerUNTYPED(): EditableSyntax {
+  public function getInitializerUNTYPED(): EditableNode {
     return $this->_initializer;
   }
 
-  public function withInitializer(EditableSyntax $value): this {
+  public function withInitializer(EditableNode $value): this {
     if ($value === $this->_initializer) {
       return $this;
     }
@@ -171,11 +171,11 @@ final class XHPClassAttribute extends EditableSyntax {
       TypeAssert\instance_of(SimpleInitializer::class, $this->_initializer);
   }
 
-  public function getRequiredUNTYPED(): EditableSyntax {
+  public function getRequiredUNTYPED(): EditableNode {
     return $this->_required;
   }
 
-  public function withRequired(EditableSyntax $value): this {
+  public function withRequired(EditableNode $value): this {
     if ($value === $this->_required) {
       return $this;
     }

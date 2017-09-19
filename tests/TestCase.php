@@ -58,7 +58,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase {
 
   protected static function getNodeAndParents(
     string $code,
-  ): (EditableSyntax, vec<EditableSyntax>) {
+  ): (EditableNode, vec<EditableNode>) {
     $ast = from_code($code);
     $node = $ast->getDescendantsOfType(ClassishDeclaration::class) |> C\firstx($$);
     $parents = vec($ast->find_with_parents($x ==> $x === $node));

@@ -2,17 +2,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<37c34817b35234128d7c01f389e77d71>>
+ * @generated SignedSource<<d410ac342289f4297801889a81b99eac>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class FinallyClause extends EditableSyntax {
+final class FinallyClause extends EditableNode {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_body;
+  private EditableNode $_keyword;
+  private EditableNode $_body;
 
-  public function __construct(EditableSyntax $keyword, EditableSyntax $body) {
+  public function __construct(EditableNode $keyword, EditableNode $body) {
     parent::__construct('finally_clause');
     $this->_keyword = $keyword;
     $this->_body = $body;
@@ -24,13 +24,13 @@ final class FinallyClause extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['finally_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $body = EditableSyntax::fromJSON(
+    $body = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['finally_body'],
       $position,
       $source,
@@ -40,7 +40,7 @@ final class FinallyClause extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'body' => $this->_body;
   }
@@ -48,7 +48,7 @@ final class FinallyClause extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -60,11 +60,11 @@ final class FinallyClause extends EditableSyntax {
     return new self($keyword, $body);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -82,11 +82,11 @@ final class FinallyClause extends EditableSyntax {
     return TypeAssert\instance_of(FinallyToken::class, $this->_keyword);
   }
 
-  public function getBodyUNTYPED(): EditableSyntax {
+  public function getBodyUNTYPED(): EditableNode {
     return $this->_body;
   }
 
-  public function withBody(EditableSyntax $value): this {
+  public function withBody(EditableNode $value): this {
     if ($value === $this->_body) {
       return $this;
     }

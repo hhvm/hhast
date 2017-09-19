@@ -2,20 +2,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7f32c6ba7b4ac26107447a84ac1a3c4b>>
+ * @generated SignedSource<<40fc163c5046ccdf919886282fc16026>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class YieldExpression extends EditableSyntax {
+final class YieldExpression extends EditableNode {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_operand;
+  private EditableNode $_keyword;
+  private EditableNode $_operand;
 
-  public function __construct(
-    EditableSyntax $keyword,
-    EditableSyntax $operand,
-  ) {
+  public function __construct(EditableNode $keyword, EditableNode $operand) {
     parent::__construct('yield_expression');
     $this->_keyword = $keyword;
     $this->_operand = $operand;
@@ -27,13 +24,13 @@ final class YieldExpression extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['yield_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $operand = EditableSyntax::fromJSON(
+    $operand = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['yield_operand'],
       $position,
       $source,
@@ -43,7 +40,7 @@ final class YieldExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'operand' => $this->_operand;
   }
@@ -51,7 +48,7 @@ final class YieldExpression extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -63,11 +60,11 @@ final class YieldExpression extends EditableSyntax {
     return new self($keyword, $operand);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -85,11 +82,11 @@ final class YieldExpression extends EditableSyntax {
     return TypeAssert\instance_of(YieldToken::class, $this->_keyword);
   }
 
-  public function getOperandUNTYPED(): EditableSyntax {
+  public function getOperandUNTYPED(): EditableNode {
     return $this->_operand;
   }
 
-  public function withOperand(EditableSyntax $value): this {
+  public function withOperand(EditableNode $value): this {
     if ($value === $this->_operand) {
       return $this;
     }
@@ -108,7 +105,7 @@ final class YieldExpression extends EditableSyntax {
    * QualifiedNameExpression | SubscriptExpression | BreakToken |
    * ObjectCreationExpression | AnonymousFunction | TupleExpression
    */
-  public function getOperand(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_operand);
+  public function getOperand(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_operand);
   }
 }

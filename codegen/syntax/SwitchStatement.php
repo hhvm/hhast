@@ -2,30 +2,30 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<01a58d9dde424dfbdfdb71b14261e93f>>
+ * @generated SignedSource<<8717290f2035e4b58d2a9cf1c0bd4972>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class SwitchStatement extends EditableSyntax
+final class SwitchStatement extends EditableNode
   implements IControlFlowStatement {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_left_paren;
-  private EditableSyntax $_expression;
-  private EditableSyntax $_right_paren;
-  private EditableSyntax $_left_brace;
-  private EditableSyntax $_sections;
-  private EditableSyntax $_right_brace;
+  private EditableNode $_keyword;
+  private EditableNode $_left_paren;
+  private EditableNode $_expression;
+  private EditableNode $_right_paren;
+  private EditableNode $_left_brace;
+  private EditableNode $_sections;
+  private EditableNode $_right_brace;
 
   public function __construct(
-    EditableSyntax $keyword,
-    EditableSyntax $left_paren,
-    EditableSyntax $expression,
-    EditableSyntax $right_paren,
-    EditableSyntax $left_brace,
-    EditableSyntax $sections,
-    EditableSyntax $right_brace,
+    EditableNode $keyword,
+    EditableNode $left_paren,
+    EditableNode $expression,
+    EditableNode $right_paren,
+    EditableNode $left_brace,
+    EditableNode $sections,
+    EditableNode $right_brace,
   ) {
     parent::__construct('switch_statement');
     $this->_keyword = $keyword;
@@ -43,43 +43,43 @@ final class SwitchStatement extends EditableSyntax
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['switch_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_paren = EditableSyntax::fromJSON(
+    $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['switch_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $expression = EditableSyntax::fromJSON(
+    $expression = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['switch_expression'],
       $position,
       $source,
     );
     $position += $expression->getWidth();
-    $right_paren = EditableSyntax::fromJSON(
+    $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['switch_right_paren'],
       $position,
       $source,
     );
     $position += $right_paren->getWidth();
-    $left_brace = EditableSyntax::fromJSON(
+    $left_brace = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['switch_left_brace'],
       $position,
       $source,
     );
     $position += $left_brace->getWidth();
-    $sections = EditableSyntax::fromJSON(
+    $sections = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['switch_sections'],
       $position,
       $source,
     );
     $position += $sections->getWidth();
-    $right_brace = EditableSyntax::fromJSON(
+    $right_brace = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['switch_right_brace'],
       $position,
       $source,
@@ -97,7 +97,7 @@ final class SwitchStatement extends EditableSyntax
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'left_paren' => $this->_left_paren;
     yield 'expression' => $this->_expression;
@@ -110,7 +110,7 @@ final class SwitchStatement extends EditableSyntax
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -143,11 +143,11 @@ final class SwitchStatement extends EditableSyntax
     );
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -173,11 +173,11 @@ final class SwitchStatement extends EditableSyntax
     return TypeAssert\instance_of(SwitchToken::class, $this->_keyword);
   }
 
-  public function getLeftParenUNTYPED(): EditableSyntax {
+  public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableSyntax $value): this {
+  public function withLeftParen(EditableNode $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -203,11 +203,11 @@ final class SwitchStatement extends EditableSyntax
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
-  public function getExpressionUNTYPED(): EditableSyntax {
+  public function getExpressionUNTYPED(): EditableNode {
     return $this->_expression;
   }
 
-  public function withExpression(EditableSyntax $value): this {
+  public function withExpression(EditableNode $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
@@ -231,15 +231,15 @@ final class SwitchStatement extends EditableSyntax
    * SubscriptExpression | ConditionalExpression | ObjectCreationExpression |
    * PrefixUnaryExpression | LiteralExpression | MemberSelectionExpression
    */
-  public function getExpression(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_expression);
+  public function getExpression(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_expression);
   }
 
-  public function getRightParenUNTYPED(): EditableSyntax {
+  public function getRightParenUNTYPED(): EditableNode {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableSyntax $value): this {
+  public function withRightParen(EditableNode $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -265,11 +265,11 @@ final class SwitchStatement extends EditableSyntax
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
-  public function getLeftBraceUNTYPED(): EditableSyntax {
+  public function getLeftBraceUNTYPED(): EditableNode {
     return $this->_left_brace;
   }
 
-  public function withLeftBrace(EditableSyntax $value): this {
+  public function withLeftBrace(EditableNode $value): this {
     if ($value === $this->_left_brace) {
       return $this;
     }
@@ -305,11 +305,11 @@ final class SwitchStatement extends EditableSyntax
     return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
   }
 
-  public function getSectionsUNTYPED(): EditableSyntax {
+  public function getSectionsUNTYPED(): EditableNode {
     return $this->_sections;
   }
 
-  public function withSections(EditableSyntax $value): this {
+  public function withSections(EditableNode $value): this {
     if ($value === $this->_sections) {
       return $this;
     }
@@ -345,11 +345,11 @@ final class SwitchStatement extends EditableSyntax
     return TypeAssert\instance_of(EditableList::class, $this->_sections);
   }
 
-  public function getRightBraceUNTYPED(): EditableSyntax {
+  public function getRightBraceUNTYPED(): EditableNode {
     return $this->_right_brace;
   }
 
-  public function withRightBrace(EditableSyntax $value): this {
+  public function withRightBrace(EditableNode $value): this {
     if ($value === $this->_right_brace) {
       return $this;
     }

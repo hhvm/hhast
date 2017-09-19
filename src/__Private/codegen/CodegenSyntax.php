@@ -51,7 +51,7 @@ final class CodegenSyntax extends CodegenBase {
     return $cg
       ->codegenClass($syntax['kind_name'])
       ->setIsFinal()
-      ->setExtends('EditableSyntax')
+      ->setExtends('EditableNode')
       ->setInterfaces(
         (self::getMarkerInterfaces()[$syntax['kind_name']] ?? vec[])
         |> Vec\map($$, $if ==> $cg->codegenImplementsInterface($if)),
@@ -72,7 +72,7 @@ final class CodegenSyntax extends CodegenBase {
           $syntax['fields'],
           $field ==> $cg
             ->codegenProperty('_'.$field['field_name'])
-            ->setType('EditableSyntax')
+            ->setType('EditableNode')
         )
       );
   }
@@ -88,13 +88,13 @@ final class CodegenSyntax extends CodegenBase {
     $cg = $this->getCodegenFactory();
     yield $cg
       ->codegenMethodf('get%sUNTYPED', $upper_camel)
-      ->setReturnType('EditableSyntax')
+      ->setReturnType('EditableNode')
       ->setBodyf('return $this->_%s;', $underscored);
 
     yield $cg
       ->codegenMethodf('with%s', $upper_camel)
       ->setReturnType('this')
-      ->addParameter('EditableSyntax $value')
+      ->addParameter('EditableNode $value')
       ->setBody(
         $cg
           ->codegenHackBuilder()
@@ -174,7 +174,7 @@ final class CodegenSyntax extends CodegenBase {
       ->addParameters(
         Vec\map(
           $syntax['fields'],
-          $field ==> 'EditableSyntax $'.$field['field_name'],
+          $field ==> 'EditableNode $'.$field['field_name'],
         ),
       )
       ->setBody(
@@ -206,7 +206,7 @@ final class CodegenSyntax extends CodegenBase {
       $body
         ->addf('$%s = ', $field['field_name'])
         ->addMultilineCall(
-          'EditableSyntax::fromJSON',
+          'EditableNode::fromJSON',
           vec[
             sprintf(
               '/* UNSAFE_EXPR */ $json[\'%s_%s\']',
@@ -244,7 +244,7 @@ final class CodegenSyntax extends CodegenBase {
     return $cg
       ->codegenMethod('getChildren')
       ->setIsOverride()
-      ->setReturnType('KeyedTraversable<string, EditableSyntax>')
+      ->setReturnType('KeyedTraversable<string, EditableNode>')
       ->setBody(
         $cg
           ->codegenHackBuilder()
@@ -273,7 +273,7 @@ final class CodegenSyntax extends CodegenBase {
       ->codegenMethod('rewriteDescendants')
       ->setIsOverride()
       ->addParameter('self::TRewriter $rewriter')
-      ->addParameter('?Traversable<EditableSyntax> $parents = null')
+      ->addParameter('?Traversable<EditableNode> $parents = null')
       ->setReturnType('this')
       ->setBody(
         $cg
@@ -335,7 +335,7 @@ final class CodegenSyntax extends CodegenBase {
     $specs = INFERRED_RELATIONSHIPS;
     if (!C\contains_key($specs, $key)) {
       return shape(
-        'class' => 'EditableSyntax',
+        'class' => 'EditableNode',
         'nullable' => false,
         'possibleTypes' => keyset['unknown'],
       );
@@ -365,7 +365,7 @@ final class CodegenSyntax extends CodegenBase {
         );
       }
       return shape(
-        'class' => 'EditableSyntax',
+        'class' => 'EditableNode',
         'nullable' => false,
         'possibleTypes' => $possible_types,
       );

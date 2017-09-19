@@ -2,21 +2,21 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<377bd58fd9e439ed91c54ce5963d1c76>>
+ * @generated SignedSource<<9338aa0879cb0019ab61f94110bf0bd2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class CaseLabel extends EditableSyntax {
+final class CaseLabel extends EditableNode {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_expression;
-  private EditableSyntax $_colon;
+  private EditableNode $_keyword;
+  private EditableNode $_expression;
+  private EditableNode $_colon;
 
   public function __construct(
-    EditableSyntax $keyword,
-    EditableSyntax $expression,
-    EditableSyntax $colon,
+    EditableNode $keyword,
+    EditableNode $expression,
+    EditableNode $colon,
   ) {
     parent::__construct('case_label');
     $this->_keyword = $keyword;
@@ -30,19 +30,19 @@ final class CaseLabel extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['case_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $expression = EditableSyntax::fromJSON(
+    $expression = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['case_expression'],
       $position,
       $source,
     );
     $position += $expression->getWidth();
-    $colon = EditableSyntax::fromJSON(
+    $colon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['case_colon'],
       $position,
       $source,
@@ -52,7 +52,7 @@ final class CaseLabel extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'expression' => $this->_expression;
     yield 'colon' => $this->_colon;
@@ -61,7 +61,7 @@ final class CaseLabel extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -78,11 +78,11 @@ final class CaseLabel extends EditableSyntax {
     return new self($keyword, $expression, $colon);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -100,11 +100,11 @@ final class CaseLabel extends EditableSyntax {
     return TypeAssert\instance_of(CaseToken::class, $this->_keyword);
   }
 
-  public function getExpressionUNTYPED(): EditableSyntax {
+  public function getExpressionUNTYPED(): EditableNode {
     return $this->_expression;
   }
 
-  public function withExpression(EditableSyntax $value): this {
+  public function withExpression(EditableNode $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
@@ -120,15 +120,15 @@ final class CaseLabel extends EditableSyntax {
    * VariableExpression | PrefixUnaryExpression | QualifiedNameExpression |
    * FunctionCallExpression | ArrayIntrinsicExpression | InstanceofExpression
    */
-  public function getExpression(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_expression);
+  public function getExpression(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_expression);
   }
 
-  public function getColonUNTYPED(): EditableSyntax {
+  public function getColonUNTYPED(): EditableNode {
     return $this->_colon;
   }
 
-  public function withColon(EditableSyntax $value): this {
+  public function withColon(EditableNode $value): this {
     if ($value === $this->_colon) {
       return $this;
     }

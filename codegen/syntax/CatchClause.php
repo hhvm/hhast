@@ -2,27 +2,27 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8e493fc829c78b9ffbc7ef94bb5dcb17>>
+ * @generated SignedSource<<fd091aa9d460ca73cb77d26b719853ed>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class CatchClause extends EditableSyntax {
+final class CatchClause extends EditableNode {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_left_paren;
-  private EditableSyntax $_type;
-  private EditableSyntax $_variable;
-  private EditableSyntax $_right_paren;
-  private EditableSyntax $_body;
+  private EditableNode $_keyword;
+  private EditableNode $_left_paren;
+  private EditableNode $_type;
+  private EditableNode $_variable;
+  private EditableNode $_right_paren;
+  private EditableNode $_body;
 
   public function __construct(
-    EditableSyntax $keyword,
-    EditableSyntax $left_paren,
-    EditableSyntax $type,
-    EditableSyntax $variable,
-    EditableSyntax $right_paren,
-    EditableSyntax $body,
+    EditableNode $keyword,
+    EditableNode $left_paren,
+    EditableNode $type,
+    EditableNode $variable,
+    EditableNode $right_paren,
+    EditableNode $body,
   ) {
     parent::__construct('catch_clause');
     $this->_keyword = $keyword;
@@ -39,37 +39,37 @@ final class CatchClause extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['catch_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_paren = EditableSyntax::fromJSON(
+    $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['catch_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $type = EditableSyntax::fromJSON(
+    $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['catch_type'],
       $position,
       $source,
     );
     $position += $type->getWidth();
-    $variable = EditableSyntax::fromJSON(
+    $variable = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['catch_variable'],
       $position,
       $source,
     );
     $position += $variable->getWidth();
-    $right_paren = EditableSyntax::fromJSON(
+    $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['catch_right_paren'],
       $position,
       $source,
     );
     $position += $right_paren->getWidth();
-    $body = EditableSyntax::fromJSON(
+    $body = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['catch_body'],
       $position,
       $source,
@@ -80,7 +80,7 @@ final class CatchClause extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'left_paren' => $this->_left_paren;
     yield 'type' => $this->_type;
@@ -92,7 +92,7 @@ final class CatchClause extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -116,11 +116,11 @@ final class CatchClause extends EditableSyntax {
       new self($keyword, $left_paren, $type, $variable, $right_paren, $body);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -145,11 +145,11 @@ final class CatchClause extends EditableSyntax {
     return TypeAssert\instance_of(CatchToken::class, $this->_keyword);
   }
 
-  public function getLeftParenUNTYPED(): EditableSyntax {
+  public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableSyntax $value): this {
+  public function withLeftParen(EditableNode $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -174,11 +174,11 @@ final class CatchClause extends EditableSyntax {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
-  public function getTypeUNTYPED(): EditableSyntax {
+  public function getTypeUNTYPED(): EditableNode {
     return $this->_type;
   }
 
-  public function withType(EditableSyntax $value): this {
+  public function withType(EditableNode $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -203,11 +203,11 @@ final class CatchClause extends EditableSyntax {
     return TypeAssert\instance_of(SimpleTypeSpecifier::class, $this->_type);
   }
 
-  public function getVariableUNTYPED(): EditableSyntax {
+  public function getVariableUNTYPED(): EditableNode {
     return $this->_variable;
   }
 
-  public function withVariable(EditableSyntax $value): this {
+  public function withVariable(EditableNode $value): this {
     if ($value === $this->_variable) {
       return $this;
     }
@@ -242,11 +242,11 @@ final class CatchClause extends EditableSyntax {
     return TypeAssert\instance_of(VariableToken::class, $this->_variable);
   }
 
-  public function getRightParenUNTYPED(): EditableSyntax {
+  public function getRightParenUNTYPED(): EditableNode {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableSyntax $value): this {
+  public function withRightParen(EditableNode $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -281,11 +281,11 @@ final class CatchClause extends EditableSyntax {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
-  public function getBodyUNTYPED(): EditableSyntax {
+  public function getBodyUNTYPED(): EditableNode {
     return $this->_body;
   }
 
-  public function withBody(EditableSyntax $value): this {
+  public function withBody(EditableNode $value): this {
     if ($value === $this->_body) {
       return $this;
     }

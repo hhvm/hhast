@@ -2,16 +2,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a5907522b8738f40d6b603c6ae7020c3>>
+ * @generated SignedSource<<e635d9f26eff41fc4c74d716f63aae0d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class EndOfFile extends EditableSyntax {
+final class EndOfFile extends EditableNode {
 
-  private EditableSyntax $_token;
+  private EditableNode $_token;
 
-  public function __construct(EditableSyntax $token) {
+  public function __construct(EditableNode $token) {
     parent::__construct('end_of_file');
     $this->_token = $token;
   }
@@ -22,7 +22,7 @@ final class EndOfFile extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $token = EditableSyntax::fromJSON(
+    $token = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['end_of_file_token'],
       $position,
       $source,
@@ -32,14 +32,14 @@ final class EndOfFile extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'token' => $this->_token;
   }
 
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -50,11 +50,11 @@ final class EndOfFile extends EditableSyntax {
     return new self($token);
   }
 
-  public function getTokenUNTYPED(): EditableSyntax {
+  public function getTokenUNTYPED(): EditableNode {
     return $this->_token;
   }
 
-  public function withToken(EditableSyntax $value): this {
+  public function withToken(EditableNode $value): this {
     if ($value === $this->_token) {
       return $this;
     }

@@ -2,37 +2,37 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8066eceb13ef40e0877045ed09ce60e0>>
+ * @generated SignedSource<<0040b2826afa90b19b077c3424981417>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class AnonymousFunction extends EditableSyntax {
+final class AnonymousFunction extends EditableNode {
 
-  private EditableSyntax $_static_keyword;
-  private EditableSyntax $_async_keyword;
-  private EditableSyntax $_coroutine_keyword;
-  private EditableSyntax $_function_keyword;
-  private EditableSyntax $_left_paren;
-  private EditableSyntax $_parameters;
-  private EditableSyntax $_right_paren;
-  private EditableSyntax $_colon;
-  private EditableSyntax $_type;
-  private EditableSyntax $_use;
-  private EditableSyntax $_body;
+  private EditableNode $_static_keyword;
+  private EditableNode $_async_keyword;
+  private EditableNode $_coroutine_keyword;
+  private EditableNode $_function_keyword;
+  private EditableNode $_left_paren;
+  private EditableNode $_parameters;
+  private EditableNode $_right_paren;
+  private EditableNode $_colon;
+  private EditableNode $_type;
+  private EditableNode $_use;
+  private EditableNode $_body;
 
   public function __construct(
-    EditableSyntax $static_keyword,
-    EditableSyntax $async_keyword,
-    EditableSyntax $coroutine_keyword,
-    EditableSyntax $function_keyword,
-    EditableSyntax $left_paren,
-    EditableSyntax $parameters,
-    EditableSyntax $right_paren,
-    EditableSyntax $colon,
-    EditableSyntax $type,
-    EditableSyntax $use,
-    EditableSyntax $body,
+    EditableNode $static_keyword,
+    EditableNode $async_keyword,
+    EditableNode $coroutine_keyword,
+    EditableNode $function_keyword,
+    EditableNode $left_paren,
+    EditableNode $parameters,
+    EditableNode $right_paren,
+    EditableNode $colon,
+    EditableNode $type,
+    EditableNode $use,
+    EditableNode $body,
   ) {
     parent::__construct('anonymous_function');
     $this->_static_keyword = $static_keyword;
@@ -54,67 +54,67 @@ final class AnonymousFunction extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $static_keyword = EditableSyntax::fromJSON(
+    $static_keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_static_keyword'],
       $position,
       $source,
     );
     $position += $static_keyword->getWidth();
-    $async_keyword = EditableSyntax::fromJSON(
+    $async_keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_async_keyword'],
       $position,
       $source,
     );
     $position += $async_keyword->getWidth();
-    $coroutine_keyword = EditableSyntax::fromJSON(
+    $coroutine_keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_coroutine_keyword'],
       $position,
       $source,
     );
     $position += $coroutine_keyword->getWidth();
-    $function_keyword = EditableSyntax::fromJSON(
+    $function_keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_function_keyword'],
       $position,
       $source,
     );
     $position += $function_keyword->getWidth();
-    $left_paren = EditableSyntax::fromJSON(
+    $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $parameters = EditableSyntax::fromJSON(
+    $parameters = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_parameters'],
       $position,
       $source,
     );
     $position += $parameters->getWidth();
-    $right_paren = EditableSyntax::fromJSON(
+    $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_right_paren'],
       $position,
       $source,
     );
     $position += $right_paren->getWidth();
-    $colon = EditableSyntax::fromJSON(
+    $colon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_colon'],
       $position,
       $source,
     );
     $position += $colon->getWidth();
-    $type = EditableSyntax::fromJSON(
+    $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_type'],
       $position,
       $source,
     );
     $position += $type->getWidth();
-    $use = EditableSyntax::fromJSON(
+    $use = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_use'],
       $position,
       $source,
     );
     $position += $use->getWidth();
-    $body = EditableSyntax::fromJSON(
+    $body = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_body'],
       $position,
       $source,
@@ -136,7 +136,7 @@ final class AnonymousFunction extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'static_keyword' => $this->_static_keyword;
     yield 'async_keyword' => $this->_async_keyword;
     yield 'coroutine_keyword' => $this->_coroutine_keyword;
@@ -153,7 +153,7 @@ final class AnonymousFunction extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -199,11 +199,11 @@ final class AnonymousFunction extends EditableSyntax {
     );
   }
 
-  public function getStaticKeywordUNTYPED(): EditableSyntax {
+  public function getStaticKeywordUNTYPED(): EditableNode {
     return $this->_static_keyword;
   }
 
-  public function withStaticKeyword(EditableSyntax $value): this {
+  public function withStaticKeyword(EditableNode $value): this {
     if ($value === $this->_static_keyword) {
       return $this;
     }
@@ -243,11 +243,11 @@ final class AnonymousFunction extends EditableSyntax {
     return TypeAssert\instance_of(StaticToken::class, $this->_static_keyword);
   }
 
-  public function getAsyncKeywordUNTYPED(): EditableSyntax {
+  public function getAsyncKeywordUNTYPED(): EditableNode {
     return $this->_async_keyword;
   }
 
-  public function withAsyncKeyword(EditableSyntax $value): this {
+  public function withAsyncKeyword(EditableNode $value): this {
     if ($value === $this->_async_keyword) {
       return $this;
     }
@@ -287,11 +287,11 @@ final class AnonymousFunction extends EditableSyntax {
     return TypeAssert\instance_of(AsyncToken::class, $this->_async_keyword);
   }
 
-  public function getCoroutineKeywordUNTYPED(): EditableSyntax {
+  public function getCoroutineKeywordUNTYPED(): EditableNode {
     return $this->_coroutine_keyword;
   }
 
-  public function withCoroutineKeyword(EditableSyntax $value): this {
+  public function withCoroutineKeyword(EditableNode $value): this {
     if ($value === $this->_coroutine_keyword) {
       return $this;
     }
@@ -317,16 +317,16 @@ final class AnonymousFunction extends EditableSyntax {
   /**
    * @returns Missing
    */
-  public function getCoroutineKeyword(): EditableSyntax {
+  public function getCoroutineKeyword(): EditableNode {
     return
-      TypeAssert\instance_of(EditableSyntax::class, $this->_coroutine_keyword);
+      TypeAssert\instance_of(EditableNode::class, $this->_coroutine_keyword);
   }
 
-  public function getFunctionKeywordUNTYPED(): EditableSyntax {
+  public function getFunctionKeywordUNTYPED(): EditableNode {
     return $this->_function_keyword;
   }
 
-  public function withFunctionKeyword(EditableSyntax $value): this {
+  public function withFunctionKeyword(EditableNode $value): this {
     if ($value === $this->_function_keyword) {
       return $this;
     }
@@ -357,11 +357,11 @@ final class AnonymousFunction extends EditableSyntax {
       TypeAssert\instance_of(FunctionToken::class, $this->_function_keyword);
   }
 
-  public function getLeftParenUNTYPED(): EditableSyntax {
+  public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableSyntax $value): this {
+  public function withLeftParen(EditableNode $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -401,11 +401,11 @@ final class AnonymousFunction extends EditableSyntax {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
-  public function getParametersUNTYPED(): EditableSyntax {
+  public function getParametersUNTYPED(): EditableNode {
     return $this->_parameters;
   }
 
-  public function withParameters(EditableSyntax $value): this {
+  public function withParameters(EditableNode $value): this {
     if ($value === $this->_parameters) {
       return $this;
     }
@@ -445,11 +445,11 @@ final class AnonymousFunction extends EditableSyntax {
     return TypeAssert\instance_of(EditableList::class, $this->_parameters);
   }
 
-  public function getRightParenUNTYPED(): EditableSyntax {
+  public function getRightParenUNTYPED(): EditableNode {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableSyntax $value): this {
+  public function withRightParen(EditableNode $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -489,11 +489,11 @@ final class AnonymousFunction extends EditableSyntax {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
-  public function getColonUNTYPED(): EditableSyntax {
+  public function getColonUNTYPED(): EditableNode {
     return $this->_colon;
   }
 
-  public function withColon(EditableSyntax $value): this {
+  public function withColon(EditableNode $value): this {
     if ($value === $this->_colon) {
       return $this;
     }
@@ -533,11 +533,11 @@ final class AnonymousFunction extends EditableSyntax {
     return TypeAssert\instance_of(ColonToken::class, $this->_colon);
   }
 
-  public function getTypeUNTYPED(): EditableSyntax {
+  public function getTypeUNTYPED(): EditableNode {
     return $this->_type;
   }
 
-  public function withType(EditableSyntax $value): this {
+  public function withType(EditableNode $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -565,15 +565,15 @@ final class AnonymousFunction extends EditableSyntax {
    * SimpleTypeSpecifier | NullableTypeSpecifier | TupleTypeSpecifier |
    * ClosureTypeSpecifier | MapArrayTypeSpecifier | VectorArrayTypeSpecifier
    */
-  public function getType(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_type);
+  public function getType(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_type);
   }
 
-  public function getUseUNTYPED(): EditableSyntax {
+  public function getUseUNTYPED(): EditableNode {
     return $this->_use;
   }
 
-  public function withUse(EditableSyntax $value): this {
+  public function withUse(EditableNode $value): this {
     if ($value === $this->_use) {
       return $this;
     }
@@ -615,11 +615,11 @@ final class AnonymousFunction extends EditableSyntax {
       TypeAssert\instance_of(AnonymousFunctionUseClause::class, $this->_use);
   }
 
-  public function getBodyUNTYPED(): EditableSyntax {
+  public function getBodyUNTYPED(): EditableNode {
     return $this->_body;
   }
 
-  public function withBody(EditableSyntax $value): this {
+  public function withBody(EditableNode $value): this {
     if ($value === $this->_body) {
       return $this;
     }

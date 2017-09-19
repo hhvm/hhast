@@ -2,36 +2,36 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0786f3b0c4e22dfa8d0d0660a9c2bf0d>>
+ * @generated SignedSource<<2f24e4b3edf1a7365fb14feabddb2a26>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class ForeachStatement extends EditableSyntax
+final class ForeachStatement extends EditableNode
   implements IControlFlowStatement, ILoopStatement {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_left_paren;
-  private EditableSyntax $_collection;
-  private EditableSyntax $_await_keyword;
-  private EditableSyntax $_as;
-  private EditableSyntax $_key;
-  private EditableSyntax $_arrow;
-  private EditableSyntax $_value;
-  private EditableSyntax $_right_paren;
-  private EditableSyntax $_body;
+  private EditableNode $_keyword;
+  private EditableNode $_left_paren;
+  private EditableNode $_collection;
+  private EditableNode $_await_keyword;
+  private EditableNode $_as;
+  private EditableNode $_key;
+  private EditableNode $_arrow;
+  private EditableNode $_value;
+  private EditableNode $_right_paren;
+  private EditableNode $_body;
 
   public function __construct(
-    EditableSyntax $keyword,
-    EditableSyntax $left_paren,
-    EditableSyntax $collection,
-    EditableSyntax $await_keyword,
-    EditableSyntax $as,
-    EditableSyntax $key,
-    EditableSyntax $arrow,
-    EditableSyntax $value,
-    EditableSyntax $right_paren,
-    EditableSyntax $body,
+    EditableNode $keyword,
+    EditableNode $left_paren,
+    EditableNode $collection,
+    EditableNode $await_keyword,
+    EditableNode $as,
+    EditableNode $key,
+    EditableNode $arrow,
+    EditableNode $value,
+    EditableNode $right_paren,
+    EditableNode $body,
   ) {
     parent::__construct('foreach_statement');
     $this->_keyword = $keyword;
@@ -52,61 +52,61 @@ final class ForeachStatement extends EditableSyntax
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['foreach_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_paren = EditableSyntax::fromJSON(
+    $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['foreach_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $collection = EditableSyntax::fromJSON(
+    $collection = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['foreach_collection'],
       $position,
       $source,
     );
     $position += $collection->getWidth();
-    $await_keyword = EditableSyntax::fromJSON(
+    $await_keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['foreach_await_keyword'],
       $position,
       $source,
     );
     $position += $await_keyword->getWidth();
-    $as = EditableSyntax::fromJSON(
+    $as = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['foreach_as'],
       $position,
       $source,
     );
     $position += $as->getWidth();
-    $key = EditableSyntax::fromJSON(
+    $key = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['foreach_key'],
       $position,
       $source,
     );
     $position += $key->getWidth();
-    $arrow = EditableSyntax::fromJSON(
+    $arrow = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['foreach_arrow'],
       $position,
       $source,
     );
     $position += $arrow->getWidth();
-    $value = EditableSyntax::fromJSON(
+    $value = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['foreach_value'],
       $position,
       $source,
     );
     $position += $value->getWidth();
-    $right_paren = EditableSyntax::fromJSON(
+    $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['foreach_right_paren'],
       $position,
       $source,
     );
     $position += $right_paren->getWidth();
-    $body = EditableSyntax::fromJSON(
+    $body = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['foreach_body'],
       $position,
       $source,
@@ -127,7 +127,7 @@ final class ForeachStatement extends EditableSyntax
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'left_paren' => $this->_left_paren;
     yield 'collection' => $this->_collection;
@@ -143,7 +143,7 @@ final class ForeachStatement extends EditableSyntax
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -185,11 +185,11 @@ final class ForeachStatement extends EditableSyntax
     );
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -218,11 +218,11 @@ final class ForeachStatement extends EditableSyntax
     return TypeAssert\instance_of(ForeachToken::class, $this->_keyword);
   }
 
-  public function getLeftParenUNTYPED(): EditableSyntax {
+  public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableSyntax $value): this {
+  public function withLeftParen(EditableNode $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -251,11 +251,11 @@ final class ForeachStatement extends EditableSyntax
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
-  public function getCollectionUNTYPED(): EditableSyntax {
+  public function getCollectionUNTYPED(): EditableNode {
     return $this->_collection;
   }
 
-  public function withCollection(EditableSyntax $value): this {
+  public function withCollection(EditableNode $value): this {
     if ($value === $this->_collection) {
       return $this;
     }
@@ -285,15 +285,15 @@ final class ForeachStatement extends EditableSyntax
    * ScopeResolutionExpression | ParenthesizedExpression | CastExpression |
    * AnonymousFunction
    */
-  public function getCollection(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_collection);
+  public function getCollection(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_collection);
   }
 
-  public function getAwaitKeywordUNTYPED(): EditableSyntax {
+  public function getAwaitKeywordUNTYPED(): EditableNode {
     return $this->_await_keyword;
   }
 
-  public function withAwaitKeyword(EditableSyntax $value): this {
+  public function withAwaitKeyword(EditableNode $value): this {
     if ($value === $this->_await_keyword) {
       return $this;
     }
@@ -332,11 +332,11 @@ final class ForeachStatement extends EditableSyntax
     return TypeAssert\instance_of(AwaitToken::class, $this->_await_keyword);
   }
 
-  public function getAsUNTYPED(): EditableSyntax {
+  public function getAsUNTYPED(): EditableNode {
     return $this->_as;
   }
 
-  public function withAs(EditableSyntax $value): this {
+  public function withAs(EditableNode $value): this {
     if ($value === $this->_as) {
       return $this;
     }
@@ -365,11 +365,11 @@ final class ForeachStatement extends EditableSyntax
     return TypeAssert\instance_of(AsToken::class, $this->_as);
   }
 
-  public function getKeyUNTYPED(): EditableSyntax {
+  public function getKeyUNTYPED(): EditableNode {
     return $this->_key;
   }
 
-  public function withKey(EditableSyntax $value): this {
+  public function withKey(EditableNode $value): this {
     if ($value === $this->_key) {
       return $this;
     }
@@ -396,15 +396,15 @@ final class ForeachStatement extends EditableSyntax
    * PrefixUnaryExpression | SubscriptExpression | MemberSelectionExpression |
    * ScopeResolutionExpression | FunctionCallExpression
    */
-  public function getKey(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_key);
+  public function getKey(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_key);
   }
 
-  public function getArrowUNTYPED(): EditableSyntax {
+  public function getArrowUNTYPED(): EditableNode {
     return $this->_arrow;
   }
 
-  public function withArrow(EditableSyntax $value): this {
+  public function withArrow(EditableNode $value): this {
     if ($value === $this->_arrow) {
       return $this;
     }
@@ -443,11 +443,11 @@ final class ForeachStatement extends EditableSyntax
     return TypeAssert\instance_of(EqualGreaterThanToken::class, $this->_arrow);
   }
 
-  public function getValueUNTYPED(): EditableSyntax {
+  public function getValueUNTYPED(): EditableNode {
     return $this->_value;
   }
 
-  public function withValue(EditableSyntax $value): this {
+  public function withValue(EditableNode $value): this {
     if ($value === $this->_value) {
       return $this;
     }
@@ -474,15 +474,15 @@ final class ForeachStatement extends EditableSyntax
    * FunctionCallExpression | SubscriptExpression | MemberSelectionExpression |
    * ScopeResolutionExpression
    */
-  public function getValue(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_value);
+  public function getValue(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_value);
   }
 
-  public function getRightParenUNTYPED(): EditableSyntax {
+  public function getRightParenUNTYPED(): EditableNode {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableSyntax $value): this {
+  public function withRightParen(EditableNode $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -511,11 +511,11 @@ final class ForeachStatement extends EditableSyntax
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
-  public function getBodyUNTYPED(): EditableSyntax {
+  public function getBodyUNTYPED(): EditableNode {
     return $this->_body;
   }
 
-  public function withBody(EditableSyntax $value): this {
+  public function withBody(EditableNode $value): this {
     if ($value === $this->_body) {
       return $this;
     }
@@ -541,7 +541,7 @@ final class ForeachStatement extends EditableSyntax
    * @returns CompoundStatement | ForeachStatement | ExpressionStatement |
    * EchoStatement
    */
-  public function getBody(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_body);
+  public function getBody(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_body);
   }
 }

@@ -13,7 +13,7 @@
 namespace Facebook\HHAST\__Private\Resolution;
 
 use type Facebook\HHAST\{
-  EditableSyntax,
+  EditableNode,
   NamespaceBody,
   NamespaceDeclaration,
   NamespaceEmptyBody,
@@ -24,8 +24,8 @@ use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Dict, Vec};
 
 function get_current_uses(
-  EditableSyntax $node,
-  vec<EditableSyntax> $parents,
+  EditableNode $node,
+  vec<EditableNode> $parents,
 ): shape(
   'namespaces' => dict<string, string>,
   'types' => dict<string, string>,

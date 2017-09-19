@@ -2,31 +2,31 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a7d9977fb01394bea893f6ffb8ed7f41>>
+ * @generated SignedSource<<03391d37ce838c7b2d32e4988637c477>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class TypeConstDeclaration extends EditableSyntax {
+final class TypeConstDeclaration extends EditableNode {
 
-  private EditableSyntax $_abstract;
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_type_keyword;
-  private EditableSyntax $_name;
-  private EditableSyntax $_type_constraint;
-  private EditableSyntax $_equal;
-  private EditableSyntax $_type_specifier;
-  private EditableSyntax $_semicolon;
+  private EditableNode $_abstract;
+  private EditableNode $_keyword;
+  private EditableNode $_type_keyword;
+  private EditableNode $_name;
+  private EditableNode $_type_constraint;
+  private EditableNode $_equal;
+  private EditableNode $_type_specifier;
+  private EditableNode $_semicolon;
 
   public function __construct(
-    EditableSyntax $abstract,
-    EditableSyntax $keyword,
-    EditableSyntax $type_keyword,
-    EditableSyntax $name,
-    EditableSyntax $type_constraint,
-    EditableSyntax $equal,
-    EditableSyntax $type_specifier,
-    EditableSyntax $semicolon,
+    EditableNode $abstract,
+    EditableNode $keyword,
+    EditableNode $type_keyword,
+    EditableNode $name,
+    EditableNode $type_constraint,
+    EditableNode $equal,
+    EditableNode $type_specifier,
+    EditableNode $semicolon,
   ) {
     parent::__construct('type_const_declaration');
     $this->_abstract = $abstract;
@@ -45,49 +45,49 @@ final class TypeConstDeclaration extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $abstract = EditableSyntax::fromJSON(
+    $abstract = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_const_abstract'],
       $position,
       $source,
     );
     $position += $abstract->getWidth();
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_const_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $type_keyword = EditableSyntax::fromJSON(
+    $type_keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_const_type_keyword'],
       $position,
       $source,
     );
     $position += $type_keyword->getWidth();
-    $name = EditableSyntax::fromJSON(
+    $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_const_name'],
       $position,
       $source,
     );
     $position += $name->getWidth();
-    $type_constraint = EditableSyntax::fromJSON(
+    $type_constraint = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_const_type_constraint'],
       $position,
       $source,
     );
     $position += $type_constraint->getWidth();
-    $equal = EditableSyntax::fromJSON(
+    $equal = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_const_equal'],
       $position,
       $source,
     );
     $position += $equal->getWidth();
-    $type_specifier = EditableSyntax::fromJSON(
+    $type_specifier = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_const_type_specifier'],
       $position,
       $source,
     );
     $position += $type_specifier->getWidth();
-    $semicolon = EditableSyntax::fromJSON(
+    $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_const_semicolon'],
       $position,
       $source,
@@ -106,7 +106,7 @@ final class TypeConstDeclaration extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'abstract' => $this->_abstract;
     yield 'keyword' => $this->_keyword;
     yield 'type_keyword' => $this->_type_keyword;
@@ -120,7 +120,7 @@ final class TypeConstDeclaration extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -156,11 +156,11 @@ final class TypeConstDeclaration extends EditableSyntax {
     );
   }
 
-  public function getAbstractUNTYPED(): EditableSyntax {
+  public function getAbstractUNTYPED(): EditableNode {
     return $this->_abstract;
   }
 
-  public function withAbstract(EditableSyntax $value): this {
+  public function withAbstract(EditableNode $value): this {
     if ($value === $this->_abstract) {
       return $this;
     }
@@ -197,11 +197,11 @@ final class TypeConstDeclaration extends EditableSyntax {
     return TypeAssert\instance_of(AbstractToken::class, $this->_abstract);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -228,11 +228,11 @@ final class TypeConstDeclaration extends EditableSyntax {
     return TypeAssert\instance_of(ConstToken::class, $this->_keyword);
   }
 
-  public function getTypeKeywordUNTYPED(): EditableSyntax {
+  public function getTypeKeywordUNTYPED(): EditableNode {
     return $this->_type_keyword;
   }
 
-  public function withTypeKeyword(EditableSyntax $value): this {
+  public function withTypeKeyword(EditableNode $value): this {
     if ($value === $this->_type_keyword) {
       return $this;
     }
@@ -259,11 +259,11 @@ final class TypeConstDeclaration extends EditableSyntax {
     return TypeAssert\instance_of(TypeToken::class, $this->_type_keyword);
   }
 
-  public function getNameUNTYPED(): EditableSyntax {
+  public function getNameUNTYPED(): EditableNode {
     return $this->_name;
   }
 
-  public function withName(EditableSyntax $value): this {
+  public function withName(EditableNode $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -300,11 +300,11 @@ final class TypeConstDeclaration extends EditableSyntax {
     return TypeAssert\instance_of(NameToken::class, $this->_name);
   }
 
-  public function getTypeConstraintUNTYPED(): EditableSyntax {
+  public function getTypeConstraintUNTYPED(): EditableNode {
     return $this->_type_constraint;
   }
 
-  public function withTypeConstraint(EditableSyntax $value): this {
+  public function withTypeConstraint(EditableNode $value): this {
     if ($value === $this->_type_constraint) {
       return $this;
     }
@@ -343,11 +343,11 @@ final class TypeConstDeclaration extends EditableSyntax {
       TypeAssert\instance_of(TypeConstraint::class, $this->_type_constraint);
   }
 
-  public function getEqualUNTYPED(): EditableSyntax {
+  public function getEqualUNTYPED(): EditableNode {
     return $this->_equal;
   }
 
-  public function withEqual(EditableSyntax $value): this {
+  public function withEqual(EditableNode $value): this {
     if ($value === $this->_equal) {
       return $this;
     }
@@ -384,11 +384,11 @@ final class TypeConstDeclaration extends EditableSyntax {
     return TypeAssert\instance_of(EqualToken::class, $this->_equal);
   }
 
-  public function getTypeSpecifierUNTYPED(): EditableSyntax {
+  public function getTypeSpecifierUNTYPED(): EditableNode {
     return $this->_type_specifier;
   }
 
-  public function withTypeSpecifier(EditableSyntax $value): this {
+  public function withTypeSpecifier(EditableNode $value): this {
     if ($value === $this->_type_specifier) {
       return $this;
     }
@@ -414,16 +414,15 @@ final class TypeConstDeclaration extends EditableSyntax {
    * ClosureTypeSpecifier | ShapeTypeSpecifier | NullableTypeSpecifier |
    * GenericTypeSpecifier | TupleTypeSpecifier
    */
-  public function getTypeSpecifier(): EditableSyntax {
-    return
-      TypeAssert\instance_of(EditableSyntax::class, $this->_type_specifier);
+  public function getTypeSpecifier(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_type_specifier);
   }
 
-  public function getSemicolonUNTYPED(): EditableSyntax {
+  public function getSemicolonUNTYPED(): EditableNode {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableSyntax $value): this {
+  public function withSemicolon(EditableNode $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

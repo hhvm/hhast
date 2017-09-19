@@ -2,25 +2,25 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4e8e3f1831154d4c75d77b53d8737d0b>>
+ * @generated SignedSource<<45817a9b135f2fad68fa8be46809e2ac>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class LambdaExpression extends EditableSyntax {
+final class LambdaExpression extends EditableNode {
 
-  private EditableSyntax $_async;
-  private EditableSyntax $_coroutine;
-  private EditableSyntax $_signature;
-  private EditableSyntax $_arrow;
-  private EditableSyntax $_body;
+  private EditableNode $_async;
+  private EditableNode $_coroutine;
+  private EditableNode $_signature;
+  private EditableNode $_arrow;
+  private EditableNode $_body;
 
   public function __construct(
-    EditableSyntax $async,
-    EditableSyntax $coroutine,
-    EditableSyntax $signature,
-    EditableSyntax $arrow,
-    EditableSyntax $body,
+    EditableNode $async,
+    EditableNode $coroutine,
+    EditableNode $signature,
+    EditableNode $arrow,
+    EditableNode $body,
   ) {
     parent::__construct('lambda_expression');
     $this->_async = $async;
@@ -36,31 +36,31 @@ final class LambdaExpression extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $async = EditableSyntax::fromJSON(
+    $async = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['lambda_async'],
       $position,
       $source,
     );
     $position += $async->getWidth();
-    $coroutine = EditableSyntax::fromJSON(
+    $coroutine = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['lambda_coroutine'],
       $position,
       $source,
     );
     $position += $coroutine->getWidth();
-    $signature = EditableSyntax::fromJSON(
+    $signature = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['lambda_signature'],
       $position,
       $source,
     );
     $position += $signature->getWidth();
-    $arrow = EditableSyntax::fromJSON(
+    $arrow = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['lambda_arrow'],
       $position,
       $source,
     );
     $position += $arrow->getWidth();
-    $body = EditableSyntax::fromJSON(
+    $body = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['lambda_body'],
       $position,
       $source,
@@ -70,7 +70,7 @@ final class LambdaExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'async' => $this->_async;
     yield 'coroutine' => $this->_coroutine;
     yield 'signature' => $this->_signature;
@@ -81,7 +81,7 @@ final class LambdaExpression extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -102,11 +102,11 @@ final class LambdaExpression extends EditableSyntax {
     return new self($async, $coroutine, $signature, $arrow, $body);
   }
 
-  public function getAsyncUNTYPED(): EditableSyntax {
+  public function getAsyncUNTYPED(): EditableNode {
     return $this->_async;
   }
 
-  public function withAsync(EditableSyntax $value): this {
+  public function withAsync(EditableNode $value): this {
     if ($value === $this->_async) {
       return $this;
     }
@@ -140,11 +140,11 @@ final class LambdaExpression extends EditableSyntax {
     return TypeAssert\instance_of(AsyncToken::class, $this->_async);
   }
 
-  public function getCoroutineUNTYPED(): EditableSyntax {
+  public function getCoroutineUNTYPED(): EditableNode {
     return $this->_coroutine;
   }
 
-  public function withCoroutine(EditableSyntax $value): this {
+  public function withCoroutine(EditableNode $value): this {
     if ($value === $this->_coroutine) {
       return $this;
     }
@@ -164,15 +164,15 @@ final class LambdaExpression extends EditableSyntax {
   /**
    * @returns Missing
    */
-  public function getCoroutine(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_coroutine);
+  public function getCoroutine(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_coroutine);
   }
 
-  public function getSignatureUNTYPED(): EditableSyntax {
+  public function getSignatureUNTYPED(): EditableNode {
     return $this->_signature;
   }
 
-  public function withSignature(EditableSyntax $value): this {
+  public function withSignature(EditableNode $value): this {
     if ($value === $this->_signature) {
       return $this;
     }
@@ -192,15 +192,15 @@ final class LambdaExpression extends EditableSyntax {
   /**
    * @returns VariableToken | LambdaSignature
    */
-  public function getSignature(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_signature);
+  public function getSignature(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_signature);
   }
 
-  public function getArrowUNTYPED(): EditableSyntax {
+  public function getArrowUNTYPED(): EditableNode {
     return $this->_arrow;
   }
 
-  public function withArrow(EditableSyntax $value): this {
+  public function withArrow(EditableNode $value): this {
     if ($value === $this->_arrow) {
       return $this;
     }
@@ -236,11 +236,11 @@ final class LambdaExpression extends EditableSyntax {
       TypeAssert\instance_of(EqualEqualGreaterThanToken::class, $this->_arrow);
   }
 
-  public function getBodyUNTYPED(): EditableSyntax {
+  public function getBodyUNTYPED(): EditableNode {
     return $this->_body;
   }
 
-  public function withBody(EditableSyntax $value): this {
+  public function withBody(EditableNode $value): this {
     if ($value === $this->_body) {
       return $this;
     }
@@ -265,7 +265,7 @@ final class LambdaExpression extends EditableSyntax {
    * ParenthesizedExpression | ArrayIntrinsicExpression |
    * ObjectCreationExpression | Missing | TupleExpression
    */
-  public function getBody(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_body);
+  public function getBody(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_body);
   }
 }

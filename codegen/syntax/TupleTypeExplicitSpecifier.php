@@ -2,23 +2,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3e69be965068137a18ec7665e5554386>>
+ * @generated SignedSource<<62fe2b963452cbe446d48c4768109b0d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class TupleTypeExplicitSpecifier extends EditableSyntax {
+final class TupleTypeExplicitSpecifier extends EditableNode {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_left_angle;
-  private EditableSyntax $_types;
-  private EditableSyntax $_right_angle;
+  private EditableNode $_keyword;
+  private EditableNode $_left_angle;
+  private EditableNode $_types;
+  private EditableNode $_right_angle;
 
   public function __construct(
-    EditableSyntax $keyword,
-    EditableSyntax $left_angle,
-    EditableSyntax $types,
-    EditableSyntax $right_angle,
+    EditableNode $keyword,
+    EditableNode $left_angle,
+    EditableNode $types,
+    EditableNode $right_angle,
   ) {
     parent::__construct('tuple_type_explicit_specifier');
     $this->_keyword = $keyword;
@@ -33,25 +33,25 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['tuple_type_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $left_angle = EditableSyntax::fromJSON(
+    $left_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['tuple_type_left_angle'],
       $position,
       $source,
     );
     $position += $left_angle->getWidth();
-    $types = EditableSyntax::fromJSON(
+    $types = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['tuple_type_types'],
       $position,
       $source,
     );
     $position += $types->getWidth();
-    $right_angle = EditableSyntax::fromJSON(
+    $right_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['tuple_type_right_angle'],
       $position,
       $source,
@@ -61,7 +61,7 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'left_angle' => $this->_left_angle;
     yield 'types' => $this->_types;
@@ -71,7 +71,7 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -90,11 +90,11 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
     return new self($keyword, $left_angle, $types, $right_angle);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -109,15 +109,15 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
   /**
    * @returns unknown
    */
-  public function getKeyword(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_keyword);
+  public function getKeyword(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_keyword);
   }
 
-  public function getLeftAngleUNTYPED(): EditableSyntax {
+  public function getLeftAngleUNTYPED(): EditableNode {
     return $this->_left_angle;
   }
 
-  public function withLeftAngle(EditableSyntax $value): this {
+  public function withLeftAngle(EditableNode $value): this {
     if ($value === $this->_left_angle) {
       return $this;
     }
@@ -132,15 +132,15 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
   /**
    * @returns unknown
    */
-  public function getLeftAngle(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_left_angle);
+  public function getLeftAngle(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_left_angle);
   }
 
-  public function getTypesUNTYPED(): EditableSyntax {
+  public function getTypesUNTYPED(): EditableNode {
     return $this->_types;
   }
 
-  public function withTypes(EditableSyntax $value): this {
+  public function withTypes(EditableNode $value): this {
     if ($value === $this->_types) {
       return $this;
     }
@@ -159,15 +159,15 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
   /**
    * @returns unknown
    */
-  public function getTypes(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_types);
+  public function getTypes(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_types);
   }
 
-  public function getRightAngleUNTYPED(): EditableSyntax {
+  public function getRightAngleUNTYPED(): EditableNode {
     return $this->_right_angle;
   }
 
-  public function withRightAngle(EditableSyntax $value): this {
+  public function withRightAngle(EditableNode $value): this {
     if ($value === $this->_right_angle) {
       return $this;
     }
@@ -181,7 +181,7 @@ final class TupleTypeExplicitSpecifier extends EditableSyntax {
   /**
    * @returns unknown
    */
-  public function getRightAngle(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_right_angle);
+  public function getRightAngle(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_right_angle);
   }
 }

@@ -15,16 +15,16 @@ namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Str};
 
-abstract class EditableToken extends EditableSyntax {
+abstract class EditableToken extends EditableNode {
   private string $_token_kind;
-  private EditableSyntax $_leading;
-  private EditableSyntax $_trailing;
+  private EditableNode $_leading;
+  private EditableNode $_trailing;
   private string $_text;
 
   public function __construct(
     string $token_kind,
-    EditableSyntax $leading,
-    EditableSyntax $trailing,
+    EditableNode $leading,
+    EditableNode $trailing,
     string $text,
   ) {
     parent::__construct('token');
@@ -43,11 +43,11 @@ abstract class EditableToken extends EditableSyntax {
     return $this->_text;
   }
 
-  public function getLeading(): EditableSyntax {
+  public function getLeading(): EditableNode {
     return $this->_leading;
   }
 
-  final public function getLeadingWhitespace(): EditableSyntax {
+  final public function getLeadingWhitespace(): EditableNode {
     $leading = $this->getLeading();
     if ($leading->isMissing()) {
       return $leading;
@@ -67,7 +67,7 @@ abstract class EditableToken extends EditableSyntax {
     return $last;
   }
 
-  final public function getTrailingWhitespace(): EditableSyntax {
+  final public function getTrailingWhitespace(): EditableNode {
     $trailing = $this->getTrailing();
     if ($trailing->isMissing()) {
       return $trailing;
@@ -90,12 +90,12 @@ abstract class EditableToken extends EditableSyntax {
     return EditableList::fromItems($result);
   }
 
-  public function getTrailing(): EditableSyntax {
+  public function getTrailing(): EditableNode {
     return $this->_trailing;
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'leading' => $this->getLeading();
     yield 'trailing' => $this->getTrailing();
   }
@@ -112,16 +112,16 @@ abstract class EditableToken extends EditableSyntax {
       $this->getTrailing()->getCode();
   }
 
-  public abstract function withLeading(EditableSyntax $leading): EditableToken;
+  public abstract function withLeading(EditableNode $leading): EditableToken;
 
   public abstract function withTrailing(
-    EditableSyntax $trailing,
+    EditableNode $trailing,
   ): EditableToken;
 
   private static function factory(
     string $token_kind,
-    EditableSyntax $leading,
-    EditableSyntax $trailing,
+    EditableNode $leading,
+    EditableNode $trailing,
     string $token_text,
   ): EditableToken {
     return __Private\editable_token_from_data(
@@ -135,12 +135,12 @@ abstract class EditableToken extends EditableSyntax {
   <<__Override>>
   public function reduce<TAccumulator>(
     (function(
-      EditableSyntax,
+      EditableNode,
       TAccumulator,
-      vec<EditableSyntax>,
+      vec<EditableNode>,
     ): TAccumulator) $reducer,
     TAccumulator $accumulator,
-    ?vec<EditableSyntax> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): TAccumulator {
     $accumulator = $this->getLeading()->reduce($reducer, $accumulator);
     $accumulator = $reducer($this, $accumulator, $parents ?? vec[]);
@@ -156,7 +156,7 @@ abstract class EditableToken extends EditableSyntax {
   ): EditableToken {
     $leading_list = __Private\fold_map(
       /* HH_IGNORE_ERROR[4110] */ $json['leading'],
-      ($j, $p) ==> EditableSyntax::fromJSON($j, $p, $source),
+      ($j, $p) ==> EditableNode::fromJSON($j, $p, $source),
       ($j, $p) ==> $j['width'] + $p,
       $position,
     );
@@ -168,7 +168,7 @@ abstract class EditableToken extends EditableSyntax {
     $trailing_position = $token_position + $token_width;
     $trailing_list = __Private\fold_map(
       /* HH_IGNORE_ERROR[4110] */ $json['trailing'],
-      ($j, $p) ==> EditableSyntax::fromJSON($j, $p, $source),
+      ($j, $p) ==> EditableNode::fromJSON($j, $p, $source),
       ($j, $p) ==> $j['width'] + $p,
       $trailing_position,
     );

@@ -2,21 +2,21 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6013194c9a00e7be53b7de97c2867b9d>>
+ * @generated SignedSource<<0928fd7ee1b35d86c573feaf21866cc1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class CompoundStatement extends EditableSyntax {
+final class CompoundStatement extends EditableNode {
 
-  private EditableSyntax $_left_brace;
-  private EditableSyntax $_statements;
-  private EditableSyntax $_right_brace;
+  private EditableNode $_left_brace;
+  private EditableNode $_statements;
+  private EditableNode $_right_brace;
 
   public function __construct(
-    EditableSyntax $left_brace,
-    EditableSyntax $statements,
-    EditableSyntax $right_brace,
+    EditableNode $left_brace,
+    EditableNode $statements,
+    EditableNode $right_brace,
   ) {
     parent::__construct('compound_statement');
     $this->_left_brace = $left_brace;
@@ -30,19 +30,19 @@ final class CompoundStatement extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $left_brace = EditableSyntax::fromJSON(
+    $left_brace = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['compound_left_brace'],
       $position,
       $source,
     );
     $position += $left_brace->getWidth();
-    $statements = EditableSyntax::fromJSON(
+    $statements = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['compound_statements'],
       $position,
       $source,
     );
     $position += $statements->getWidth();
-    $right_brace = EditableSyntax::fromJSON(
+    $right_brace = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['compound_right_brace'],
       $position,
       $source,
@@ -52,7 +52,7 @@ final class CompoundStatement extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'left_brace' => $this->_left_brace;
     yield 'statements' => $this->_statements;
     yield 'right_brace' => $this->_right_brace;
@@ -61,7 +61,7 @@ final class CompoundStatement extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -78,11 +78,11 @@ final class CompoundStatement extends EditableSyntax {
     return new self($left_brace, $statements, $right_brace);
   }
 
-  public function getLeftBraceUNTYPED(): EditableSyntax {
+  public function getLeftBraceUNTYPED(): EditableNode {
     return $this->_left_brace;
   }
 
-  public function withLeftBrace(EditableSyntax $value): this {
+  public function withLeftBrace(EditableNode $value): this {
     if ($value === $this->_left_brace) {
       return $this;
     }
@@ -110,11 +110,11 @@ final class CompoundStatement extends EditableSyntax {
     return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
   }
 
-  public function getStatementsUNTYPED(): EditableSyntax {
+  public function getStatementsUNTYPED(): EditableNode {
     return $this->_statements;
   }
 
-  public function withStatements(EditableSyntax $value): this {
+  public function withStatements(EditableNode $value): this {
     if ($value === $this->_statements) {
       return $this;
     }
@@ -142,11 +142,11 @@ final class CompoundStatement extends EditableSyntax {
     return TypeAssert\instance_of(EditableList::class, $this->_statements);
   }
 
-  public function getRightBraceUNTYPED(): EditableSyntax {
+  public function getRightBraceUNTYPED(): EditableNode {
     return $this->_right_brace;
   }
 
-  public function withRightBrace(EditableSyntax $value): this {
+  public function withRightBrace(EditableNode $value): this {
     if ($value === $this->_right_brace) {
       return $this;
     }

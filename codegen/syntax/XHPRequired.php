@@ -2,17 +2,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9cffebf268e2ff893c1eb92d24e4b26a>>
+ * @generated SignedSource<<0377ba36ba7354127827b70c8ec48f50>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class XHPRequired extends EditableSyntax {
+final class XHPRequired extends EditableNode {
 
-  private EditableSyntax $_at;
-  private EditableSyntax $_keyword;
+  private EditableNode $_at;
+  private EditableNode $_keyword;
 
-  public function __construct(EditableSyntax $at, EditableSyntax $keyword) {
+  public function __construct(EditableNode $at, EditableNode $keyword) {
     parent::__construct('xhp_required');
     $this->_at = $at;
     $this->_keyword = $keyword;
@@ -24,13 +24,13 @@ final class XHPRequired extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $at = EditableSyntax::fromJSON(
+    $at = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_required_at'],
       $position,
       $source,
     );
     $position += $at->getWidth();
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_required_keyword'],
       $position,
       $source,
@@ -40,7 +40,7 @@ final class XHPRequired extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'at' => $this->_at;
     yield 'keyword' => $this->_keyword;
   }
@@ -48,7 +48,7 @@ final class XHPRequired extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -60,11 +60,11 @@ final class XHPRequired extends EditableSyntax {
     return new self($at, $keyword);
   }
 
-  public function getAtUNTYPED(): EditableSyntax {
+  public function getAtUNTYPED(): EditableNode {
     return $this->_at;
   }
 
-  public function withAt(EditableSyntax $value): this {
+  public function withAt(EditableNode $value): this {
     if ($value === $this->_at) {
       return $this;
     }
@@ -82,11 +82,11 @@ final class XHPRequired extends EditableSyntax {
     return TypeAssert\instance_of(AtToken::class, $this->_at);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }

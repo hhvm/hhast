@@ -31,8 +31,8 @@ final class CodegenEditableTokenFromData extends CodegenBase {
           ->codegenFunction('editable_token_from_data')
           ->setReturnType('HHAST\\EditableToken')
           ->addParameter('string $token_kind')
-          ->addParameter('HHAST\\EditableSyntax $leading')
-          ->addParameter('HHAST\\EditableSyntax $trailing')
+          ->addParameter('HHAST\\EditableNode $leading')
+          ->addParameter('HHAST\\EditableNode $trailing')
           ->addParameter('string $token_text')
           ->setBody(
             $cg

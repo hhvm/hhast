@@ -2,25 +2,25 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6d73e9dcc4ec006af667878ab54d9bc6>>
+ * @generated SignedSource<<833ccbd74e9316a37deaf916efe949ac>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class LambdaSignature extends EditableSyntax {
+final class LambdaSignature extends EditableNode {
 
-  private EditableSyntax $_left_paren;
-  private EditableSyntax $_parameters;
-  private EditableSyntax $_right_paren;
-  private EditableSyntax $_colon;
-  private EditableSyntax $_type;
+  private EditableNode $_left_paren;
+  private EditableNode $_parameters;
+  private EditableNode $_right_paren;
+  private EditableNode $_colon;
+  private EditableNode $_type;
 
   public function __construct(
-    EditableSyntax $left_paren,
-    EditableSyntax $parameters,
-    EditableSyntax $right_paren,
-    EditableSyntax $colon,
-    EditableSyntax $type,
+    EditableNode $left_paren,
+    EditableNode $parameters,
+    EditableNode $right_paren,
+    EditableNode $colon,
+    EditableNode $type,
   ) {
     parent::__construct('lambda_signature');
     $this->_left_paren = $left_paren;
@@ -36,31 +36,31 @@ final class LambdaSignature extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $left_paren = EditableSyntax::fromJSON(
+    $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['lambda_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $parameters = EditableSyntax::fromJSON(
+    $parameters = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['lambda_parameters'],
       $position,
       $source,
     );
     $position += $parameters->getWidth();
-    $right_paren = EditableSyntax::fromJSON(
+    $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['lambda_right_paren'],
       $position,
       $source,
     );
     $position += $right_paren->getWidth();
-    $colon = EditableSyntax::fromJSON(
+    $colon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['lambda_colon'],
       $position,
       $source,
     );
     $position += $colon->getWidth();
-    $type = EditableSyntax::fromJSON(
+    $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['lambda_type'],
       $position,
       $source,
@@ -70,7 +70,7 @@ final class LambdaSignature extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'left_paren' => $this->_left_paren;
     yield 'parameters' => $this->_parameters;
     yield 'right_paren' => $this->_right_paren;
@@ -81,7 +81,7 @@ final class LambdaSignature extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -102,11 +102,11 @@ final class LambdaSignature extends EditableSyntax {
     return new self($left_paren, $parameters, $right_paren, $colon, $type);
   }
 
-  public function getLeftParenUNTYPED(): EditableSyntax {
+  public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableSyntax $value): this {
+  public function withLeftParen(EditableNode $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -140,11 +140,11 @@ final class LambdaSignature extends EditableSyntax {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
-  public function getParametersUNTYPED(): EditableSyntax {
+  public function getParametersUNTYPED(): EditableNode {
     return $this->_parameters;
   }
 
-  public function withParameters(EditableSyntax $value): this {
+  public function withParameters(EditableNode $value): this {
     if ($value === $this->_parameters) {
       return $this;
     }
@@ -178,11 +178,11 @@ final class LambdaSignature extends EditableSyntax {
     return TypeAssert\instance_of(EditableList::class, $this->_parameters);
   }
 
-  public function getRightParenUNTYPED(): EditableSyntax {
+  public function getRightParenUNTYPED(): EditableNode {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableSyntax $value): this {
+  public function withRightParen(EditableNode $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -216,11 +216,11 @@ final class LambdaSignature extends EditableSyntax {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
-  public function getColonUNTYPED(): EditableSyntax {
+  public function getColonUNTYPED(): EditableNode {
     return $this->_colon;
   }
 
-  public function withColon(EditableSyntax $value): this {
+  public function withColon(EditableNode $value): this {
     if ($value === $this->_colon) {
       return $this;
     }
@@ -254,11 +254,11 @@ final class LambdaSignature extends EditableSyntax {
     return TypeAssert\instance_of(ColonToken::class, $this->_colon);
   }
 
-  public function getTypeUNTYPED(): EditableSyntax {
+  public function getTypeUNTYPED(): EditableNode {
     return $this->_type;
   }
 
-  public function withType(EditableSyntax $value): this {
+  public function withType(EditableNode $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -279,7 +279,7 @@ final class LambdaSignature extends EditableSyntax {
    * @returns Missing | SimpleTypeSpecifier | GenericTypeSpecifier |
    * ClosureTypeSpecifier
    */
-  public function getType(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_type);
+  public function getType(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_type);
   }
 }

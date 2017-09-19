@@ -13,7 +13,7 @@
 namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
-  EditableSyntax,
+  EditableNode,
   FunctionDeclaration,
   IFunctionishDeclaration,
   MethodishDeclaration

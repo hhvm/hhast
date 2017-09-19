@@ -2,22 +2,22 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e25440732a7a2ae6a46cbbd0d94c2fd5>>
+ * @generated SignedSource<<1b6359f41a356d13bba195043de155dc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class FunctionDeclaration extends EditableSyntax
+final class FunctionDeclaration extends EditableNode
   implements IFunctionishDeclaration {
 
-  private EditableSyntax $_attribute_spec;
-  private EditableSyntax $_declaration_header;
-  private EditableSyntax $_body;
+  private EditableNode $_attribute_spec;
+  private EditableNode $_declaration_header;
+  private EditableNode $_body;
 
   public function __construct(
-    EditableSyntax $attribute_spec,
-    EditableSyntax $declaration_header,
-    EditableSyntax $body,
+    EditableNode $attribute_spec,
+    EditableNode $declaration_header,
+    EditableNode $body,
   ) {
     parent::__construct('function_declaration');
     $this->_attribute_spec = $attribute_spec;
@@ -31,19 +31,19 @@ final class FunctionDeclaration extends EditableSyntax
     int $position,
     string $source,
   ): this {
-    $attribute_spec = EditableSyntax::fromJSON(
+    $attribute_spec = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_attribute_spec'],
       $position,
       $source,
     );
     $position += $attribute_spec->getWidth();
-    $declaration_header = EditableSyntax::fromJSON(
+    $declaration_header = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_declaration_header'],
       $position,
       $source,
     );
     $position += $declaration_header->getWidth();
-    $body = EditableSyntax::fromJSON(
+    $body = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_body'],
       $position,
       $source,
@@ -53,7 +53,7 @@ final class FunctionDeclaration extends EditableSyntax
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'attribute_spec' => $this->_attribute_spec;
     yield 'declaration_header' => $this->_declaration_header;
     yield 'body' => $this->_body;
@@ -62,7 +62,7 @@ final class FunctionDeclaration extends EditableSyntax
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -80,11 +80,11 @@ final class FunctionDeclaration extends EditableSyntax
     return new self($attribute_spec, $declaration_header, $body);
   }
 
-  public function getAttributeSpecUNTYPED(): EditableSyntax {
+  public function getAttributeSpecUNTYPED(): EditableNode {
     return $this->_attribute_spec;
   }
 
-  public function withAttributeSpec(EditableSyntax $value): this {
+  public function withAttributeSpec(EditableNode $value): this {
     if ($value === $this->_attribute_spec) {
       return $this;
     }
@@ -118,11 +118,11 @@ final class FunctionDeclaration extends EditableSyntax
     );
   }
 
-  public function getDeclarationHeaderUNTYPED(): EditableSyntax {
+  public function getDeclarationHeaderUNTYPED(): EditableNode {
     return $this->_declaration_header;
   }
 
-  public function withDeclarationHeader(EditableSyntax $value): this {
+  public function withDeclarationHeader(EditableNode $value): this {
     if ($value === $this->_declaration_header) {
       return $this;
     }
@@ -143,11 +143,11 @@ final class FunctionDeclaration extends EditableSyntax
     );
   }
 
-  public function getBodyUNTYPED(): EditableSyntax {
+  public function getBodyUNTYPED(): EditableNode {
     return $this->_body;
   }
 
-  public function withBody(EditableSyntax $value): this {
+  public function withBody(EditableNode $value): this {
     if ($value === $this->_body) {
       return $this;
     }
@@ -161,7 +161,7 @@ final class FunctionDeclaration extends EditableSyntax
   /**
    * @returns CompoundStatement | SemicolonToken
    */
-  public function getBody(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_body);
+  public function getBody(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_body);
   }
 }

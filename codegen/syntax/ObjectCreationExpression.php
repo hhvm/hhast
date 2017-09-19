@@ -2,25 +2,25 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7f859d8ab72ccf53db3769acf429e4d1>>
+ * @generated SignedSource<<dfdaaf4a90da782b589e59f1854ca559>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class ObjectCreationExpression extends EditableSyntax {
+final class ObjectCreationExpression extends EditableNode {
 
-  private EditableSyntax $_new_keyword;
-  private EditableSyntax $_type;
-  private EditableSyntax $_left_paren;
-  private EditableSyntax $_argument_list;
-  private EditableSyntax $_right_paren;
+  private EditableNode $_new_keyword;
+  private EditableNode $_type;
+  private EditableNode $_left_paren;
+  private EditableNode $_argument_list;
+  private EditableNode $_right_paren;
 
   public function __construct(
-    EditableSyntax $new_keyword,
-    EditableSyntax $type,
-    EditableSyntax $left_paren,
-    EditableSyntax $argument_list,
-    EditableSyntax $right_paren,
+    EditableNode $new_keyword,
+    EditableNode $type,
+    EditableNode $left_paren,
+    EditableNode $argument_list,
+    EditableNode $right_paren,
   ) {
     parent::__construct('object_creation_expression');
     $this->_new_keyword = $new_keyword;
@@ -36,31 +36,31 @@ final class ObjectCreationExpression extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $new_keyword = EditableSyntax::fromJSON(
+    $new_keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['object_creation_new_keyword'],
       $position,
       $source,
     );
     $position += $new_keyword->getWidth();
-    $type = EditableSyntax::fromJSON(
+    $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['object_creation_type'],
       $position,
       $source,
     );
     $position += $type->getWidth();
-    $left_paren = EditableSyntax::fromJSON(
+    $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['object_creation_left_paren'],
       $position,
       $source,
     );
     $position += $left_paren->getWidth();
-    $argument_list = EditableSyntax::fromJSON(
+    $argument_list = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['object_creation_argument_list'],
       $position,
       $source,
     );
     $position += $argument_list->getWidth();
-    $right_paren = EditableSyntax::fromJSON(
+    $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['object_creation_right_paren'],
       $position,
       $source,
@@ -71,7 +71,7 @@ final class ObjectCreationExpression extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'new_keyword' => $this->_new_keyword;
     yield 'type' => $this->_type;
     yield 'left_paren' => $this->_left_paren;
@@ -82,7 +82,7 @@ final class ObjectCreationExpression extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -104,11 +104,11 @@ final class ObjectCreationExpression extends EditableSyntax {
       new self($new_keyword, $type, $left_paren, $argument_list, $right_paren);
   }
 
-  public function getNewKeywordUNTYPED(): EditableSyntax {
+  public function getNewKeywordUNTYPED(): EditableNode {
     return $this->_new_keyword;
   }
 
-  public function withNewKeyword(EditableSyntax $value): this {
+  public function withNewKeyword(EditableNode $value): this {
     if ($value === $this->_new_keyword) {
       return $this;
     }
@@ -132,11 +132,11 @@ final class ObjectCreationExpression extends EditableSyntax {
     return TypeAssert\instance_of(NewToken::class, $this->_new_keyword);
   }
 
-  public function getTypeUNTYPED(): EditableSyntax {
+  public function getTypeUNTYPED(): EditableNode {
     return $this->_type;
   }
 
-  public function withType(EditableSyntax $value): this {
+  public function withType(EditableNode $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -160,15 +160,15 @@ final class ObjectCreationExpression extends EditableSyntax {
    * MemberSelectionExpression | ScopeResolutionExpression |
    * ParenthesizedExpression
    */
-  public function getType(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_type);
+  public function getType(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_type);
   }
 
-  public function getLeftParenUNTYPED(): EditableSyntax {
+  public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableSyntax $value): this {
+  public function withLeftParen(EditableNode $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -202,11 +202,11 @@ final class ObjectCreationExpression extends EditableSyntax {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
-  public function getArgumentListUNTYPED(): EditableSyntax {
+  public function getArgumentListUNTYPED(): EditableNode {
     return $this->_argument_list;
   }
 
-  public function withArgumentList(EditableSyntax $value): this {
+  public function withArgumentList(EditableNode $value): this {
     if ($value === $this->_argument_list) {
       return $this;
     }
@@ -240,11 +240,11 @@ final class ObjectCreationExpression extends EditableSyntax {
     return TypeAssert\instance_of(EditableList::class, $this->_argument_list);
   }
 
-  public function getRightParenUNTYPED(): EditableSyntax {
+  public function getRightParenUNTYPED(): EditableNode {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableSyntax $value): this {
+  public function withRightParen(EditableNode $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }

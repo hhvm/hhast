@@ -2,20 +2,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7cd822fe05fa7091bcc09b97da1dd92f>>
+ * @generated SignedSource<<135c21dd25d5c6c4e3e357827a47fa94>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class SwitchFallthrough extends EditableSyntax {
+final class SwitchFallthrough extends EditableNode {
 
-  private EditableSyntax $_keyword;
-  private EditableSyntax $_semicolon;
+  private EditableNode $_keyword;
+  private EditableNode $_semicolon;
 
-  public function __construct(
-    EditableSyntax $keyword,
-    EditableSyntax $semicolon,
-  ) {
+  public function __construct(EditableNode $keyword, EditableNode $semicolon) {
     parent::__construct('switch_fallthrough');
     $this->_keyword = $keyword;
     $this->_semicolon = $semicolon;
@@ -27,13 +24,13 @@ final class SwitchFallthrough extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $keyword = EditableSyntax::fromJSON(
+    $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['fallthrough_keyword'],
       $position,
       $source,
     );
     $position += $keyword->getWidth();
-    $semicolon = EditableSyntax::fromJSON(
+    $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['fallthrough_semicolon'],
       $position,
       $source,
@@ -43,7 +40,7 @@ final class SwitchFallthrough extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'keyword' => $this->_keyword;
     yield 'semicolon' => $this->_semicolon;
   }
@@ -51,7 +48,7 @@ final class SwitchFallthrough extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -63,11 +60,11 @@ final class SwitchFallthrough extends EditableSyntax {
     return new self($keyword, $semicolon);
   }
 
-  public function getKeywordUNTYPED(): EditableSyntax {
+  public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableSyntax $value): this {
+  public function withKeyword(EditableNode $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -81,15 +78,15 @@ final class SwitchFallthrough extends EditableSyntax {
   /**
    * @returns unknown
    */
-  public function getKeyword(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_keyword);
+  public function getKeyword(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_keyword);
   }
 
-  public function getSemicolonUNTYPED(): EditableSyntax {
+  public function getSemicolonUNTYPED(): EditableNode {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableSyntax $value): this {
+  public function withSemicolon(EditableNode $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }
@@ -103,7 +100,7 @@ final class SwitchFallthrough extends EditableSyntax {
   /**
    * @returns unknown
    */
-  public function getSemicolon(): EditableSyntax {
-    return TypeAssert\instance_of(EditableSyntax::class, $this->_semicolon);
+  public function getSemicolon(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_semicolon);
   }
 }

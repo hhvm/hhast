@@ -2,21 +2,21 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<65a8605128a51f2de311ecde9aa32a16>>
+ * @generated SignedSource<<e7ed1b0a48a7296945b1eab1082c7d2a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class TypeParameter extends EditableSyntax {
+final class TypeParameter extends EditableNode {
 
-  private EditableSyntax $_variance;
-  private EditableSyntax $_name;
-  private EditableSyntax $_constraints;
+  private EditableNode $_variance;
+  private EditableNode $_name;
+  private EditableNode $_constraints;
 
   public function __construct(
-    EditableSyntax $variance,
-    EditableSyntax $name,
-    EditableSyntax $constraints,
+    EditableNode $variance,
+    EditableNode $name,
+    EditableNode $constraints,
   ) {
     parent::__construct('type_parameter');
     $this->_variance = $variance;
@@ -30,19 +30,19 @@ final class TypeParameter extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $variance = EditableSyntax::fromJSON(
+    $variance = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_variance'],
       $position,
       $source,
     );
     $position += $variance->getWidth();
-    $name = EditableSyntax::fromJSON(
+    $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_name'],
       $position,
       $source,
     );
     $position += $name->getWidth();
-    $constraints = EditableSyntax::fromJSON(
+    $constraints = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_constraints'],
       $position,
       $source,
@@ -52,7 +52,7 @@ final class TypeParameter extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'variance' => $this->_variance;
     yield 'name' => $this->_name;
     yield 'constraints' => $this->_constraints;
@@ -61,7 +61,7 @@ final class TypeParameter extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -78,11 +78,11 @@ final class TypeParameter extends EditableSyntax {
     return new self($variance, $name, $constraints);
   }
 
-  public function getVarianceUNTYPED(): EditableSyntax {
+  public function getVarianceUNTYPED(): EditableNode {
     return $this->_variance;
   }
 
-  public function withVariance(EditableSyntax $value): this {
+  public function withVariance(EditableNode $value): this {
     if ($value === $this->_variance) {
       return $this;
     }
@@ -110,11 +110,11 @@ final class TypeParameter extends EditableSyntax {
     return TypeAssert\instance_of(EditableToken::class, $this->_variance);
   }
 
-  public function getNameUNTYPED(): EditableSyntax {
+  public function getNameUNTYPED(): EditableNode {
     return $this->_name;
   }
 
-  public function withName(EditableSyntax $value): this {
+  public function withName(EditableNode $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -132,11 +132,11 @@ final class TypeParameter extends EditableSyntax {
     return TypeAssert\instance_of(NameToken::class, $this->_name);
   }
 
-  public function getConstraintsUNTYPED(): EditableSyntax {
+  public function getConstraintsUNTYPED(): EditableNode {
     return $this->_constraints;
   }
 
-  public function withConstraints(EditableSyntax $value): this {
+  public function withConstraints(EditableNode $value): this {
     if ($value === $this->_constraints) {
       return $this;
     }

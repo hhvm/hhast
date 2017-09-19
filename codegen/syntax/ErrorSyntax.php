@@ -2,16 +2,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<818c8cd4c3bf901c8587e9e8dea08814>>
+ * @generated SignedSource<<bb5a8067fb70231f9639658122967d13>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class ErrorSyntax extends EditableSyntax {
+final class ErrorSyntax extends EditableNode {
 
-  private EditableSyntax $_error;
+  private EditableNode $_error;
 
-  public function __construct(EditableSyntax $error) {
+  public function __construct(EditableNode $error) {
     parent::__construct('error');
     $this->_error = $error;
   }
@@ -22,7 +22,7 @@ final class ErrorSyntax extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $error = EditableSyntax::fromJSON(
+    $error = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['error_error'],
       $position,
       $source,
@@ -32,14 +32,14 @@ final class ErrorSyntax extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'error' => $this->_error;
   }
 
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -50,11 +50,11 @@ final class ErrorSyntax extends EditableSyntax {
     return new self($error);
   }
 
-  public function getErrorUNTYPED(): EditableSyntax {
+  public function getErrorUNTYPED(): EditableNode {
     return $this->_error;
   }
 
-  public function withError(EditableSyntax $value): this {
+  public function withError(EditableNode $value): this {
     if ($value === $this->_error) {
       return $this;
     }

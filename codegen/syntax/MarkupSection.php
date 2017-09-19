@@ -2,23 +2,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1dfb8611b422efb821380a025bff7574>>
+ * @generated SignedSource<<396f7ea57d876a1a02eb179e24b7a0af>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class MarkupSection extends EditableSyntax {
+final class MarkupSection extends EditableNode {
 
-  private EditableSyntax $_prefix;
-  private EditableSyntax $_text;
-  private EditableSyntax $_suffix;
-  private EditableSyntax $_expression;
+  private EditableNode $_prefix;
+  private EditableNode $_text;
+  private EditableNode $_suffix;
+  private EditableNode $_expression;
 
   public function __construct(
-    EditableSyntax $prefix,
-    EditableSyntax $text,
-    EditableSyntax $suffix,
-    EditableSyntax $expression,
+    EditableNode $prefix,
+    EditableNode $text,
+    EditableNode $suffix,
+    EditableNode $expression,
   ) {
     parent::__construct('markup_section');
     $this->_prefix = $prefix;
@@ -33,25 +33,25 @@ final class MarkupSection extends EditableSyntax {
     int $position,
     string $source,
   ): this {
-    $prefix = EditableSyntax::fromJSON(
+    $prefix = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['markup_prefix'],
       $position,
       $source,
     );
     $position += $prefix->getWidth();
-    $text = EditableSyntax::fromJSON(
+    $text = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['markup_text'],
       $position,
       $source,
     );
     $position += $text->getWidth();
-    $suffix = EditableSyntax::fromJSON(
+    $suffix = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['markup_suffix'],
       $position,
       $source,
     );
     $position += $suffix->getWidth();
-    $expression = EditableSyntax::fromJSON(
+    $expression = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['markup_expression'],
       $position,
       $source,
@@ -61,7 +61,7 @@ final class MarkupSection extends EditableSyntax {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableSyntax> {
+  public function getChildren(): KeyedTraversable<string, EditableNode> {
     yield 'prefix' => $this->_prefix;
     yield 'text' => $this->_text;
     yield 'suffix' => $this->_suffix;
@@ -71,7 +71,7 @@ final class MarkupSection extends EditableSyntax {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableSyntax> $parents = null,
+    ?Traversable<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
@@ -90,11 +90,11 @@ final class MarkupSection extends EditableSyntax {
     return new self($prefix, $text, $suffix, $expression);
   }
 
-  public function getPrefixUNTYPED(): EditableSyntax {
+  public function getPrefixUNTYPED(): EditableNode {
     return $this->_prefix;
   }
 
-  public function withPrefix(EditableSyntax $value): this {
+  public function withPrefix(EditableNode $value): this {
     if ($value === $this->_prefix) {
       return $this;
     }
@@ -124,11 +124,11 @@ final class MarkupSection extends EditableSyntax {
       TypeAssert\instance_of(QuestionGreaterThanToken::class, $this->_prefix);
   }
 
-  public function getTextUNTYPED(): EditableSyntax {
+  public function getTextUNTYPED(): EditableNode {
     return $this->_text;
   }
 
-  public function withText(EditableSyntax $value): this {
+  public function withText(EditableNode $value): this {
     if ($value === $this->_text) {
       return $this;
     }
@@ -156,11 +156,11 @@ final class MarkupSection extends EditableSyntax {
     return TypeAssert\instance_of(MarkupToken::class, $this->_text);
   }
 
-  public function getSuffixUNTYPED(): EditableSyntax {
+  public function getSuffixUNTYPED(): EditableNode {
     return $this->_suffix;
   }
 
-  public function withSuffix(EditableSyntax $value): this {
+  public function withSuffix(EditableNode $value): this {
     if ($value === $this->_suffix) {
       return $this;
     }
@@ -188,11 +188,11 @@ final class MarkupSection extends EditableSyntax {
     return TypeAssert\instance_of(MarkupSuffix::class, $this->_suffix);
   }
 
-  public function getExpressionUNTYPED(): EditableSyntax {
+  public function getExpressionUNTYPED(): EditableNode {
     return $this->_expression;
   }
 
-  public function withExpression(EditableSyntax $value): this {
+  public function withExpression(EditableNode $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
