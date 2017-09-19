@@ -166,7 +166,7 @@ final class CodegenTokens extends CodegenBase {
     $cg = $this->getCodegenFactory();
     foreach ($token['fields'] as $field) {
       $underscored = $field['name'];
-      $upper_camel = self::upper_camel($underscored);
+      $upper_camel = StrP\upper_camel($underscored);
 
       if ($field['type'] !== 'string') {
         yield $cg
@@ -198,7 +198,7 @@ final class CodegenTokens extends CodegenBase {
                 $token['fields'],
                 $inner ==> $inner === $field
                   ? '$value'
-                  : '$this->get'.self::upper_camel($inner['name']).'()'
+                  : '$this->get'.StrP\upper_camel($inner['name']).'()'
               ),
             )
             ->getCode()
@@ -226,12 +226,12 @@ final class CodegenTokens extends CodegenBase {
                 ? sprintf(
                   '$%s = $this->get%s();',
                   $field['name'],
-                  self::upper_camel($field['name']),
+                  StrP\upper_camel($field['name']),
                 )
                 : sprintf(
                   '$%s = $this->get%s()->rewrite($rewriter, $parents);',
                   $field['name'],
-                  self::upper_camel($field['name']),
+                  StrP\upper_camel($field['name']),
                 )
             ),
           )
@@ -243,7 +243,7 @@ final class CodegenTokens extends CodegenBase {
               $field ==> sprintf(
                 '$%s === $this->get%s() &&',
                 $field['name'],
-                self::upper_camel($field['name']),
+                StrP\upper_camel($field['name']),
               ),
             )
             |> (

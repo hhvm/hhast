@@ -82,7 +82,7 @@ final class CodegenSyntax extends CodegenBase {
     string $underscored,
   ): Traversable<CodegenMethod> {
     $spec = $this->getTypeSpecForField($syntax, $underscored);
-    $upper_camel = self::upper_camel($underscored);
+    $upper_camel = StrP\upper_camel($underscored);
     $types = $spec['possibleTypes'];
 
     $cg = $this->getCodegenFactory();
