@@ -69,15 +69,6 @@ abstract class EditableSyntax {
     return $this->_parented_preorder([]);
   }
 
-  public function postorder(): Traversable<EditableSyntax> {
-    foreach ($this->getChildren() as $child) {
-      foreach ($child->preorder() as $descendant) {
-        yield $descendant;
-      }
-    }
-    yield $this;
-  }
-
   public function isToken(): bool {
     return false;
   }
