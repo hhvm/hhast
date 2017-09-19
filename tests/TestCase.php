@@ -61,7 +61,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase {
   ): (EditableNode, vec<EditableNode>) {
     $ast = from_code($code);
     $node = $ast->getDescendantsOfType(ClassishDeclaration::class) |> C\firstx($$);
-    $parents = vec($ast->find_with_parents($x ==> $x === $node));
+    $parents = vec($ast->findWithParents($x ==> $x === $node));
     return tuple($node, $parents);
   }
 }

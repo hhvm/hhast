@@ -28,7 +28,7 @@ function find_offset_of_leading(
     !C\is_empty($root->filter(($it, $_p) ==> $it === $node)),
     'node is not a descendant of root',
   );
-  $stack = $root->find_with_parents($it ==> $it === $node);
+  $stack = $root->findWithParents($it ==> $it === $node);
   invariant(
     !C\is_empty($stack),
     'did not find node in root',

@@ -139,7 +139,7 @@ abstract class EditableNode {
 
   // Returns all the parents (and the node itself) of the first node
   // that matches a predicate, or [] if there is no such node.
-  public function find_with_parents(
+  public function findWithParents(
     (function(EditableNode): bool) $predicate,
     ?Traversable<EditableNode> $parents = null,
   ): vec<EditableNode> {
@@ -150,7 +150,7 @@ abstract class EditableNode {
       return $new_parents;
     }
     foreach ($this->getChildren() as $child) {
-      $result = $child->find_with_parents($predicate, $new_parents);
+      $result = $child->findWithParents($predicate, $new_parents);
       if (count($result) != 0) {
         return $result;
       }
