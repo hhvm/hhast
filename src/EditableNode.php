@@ -51,22 +51,22 @@ abstract class EditableNode {
     }
   }
 
-  private function _parented_preorder(
+  private function parentedPreorder(
     Traversable<EditableNode> $parents,
   ): Traversable<(EditableNode, Traversable<EditableNode>)> {
     $new_parents = vec($parents);
     $new_parents[] = $this;
     yield tuple($this, $parents);
     foreach ($this->getChildren() as $child) {
-      foreach ($child->_parented_preorder($new_parents) as $descendant) {
+      foreach ($child->parentedPreorder($new_parents) as $descendant) {
         yield $descendant;
       }
     }
   }
 
-  public function parented_preorder(
+  public function traverse(
   ): Traversable<(EditableNode, Traversable<EditableNode>)> {
-    return $this->_parented_preorder([]);
+    return $this->parentedPreorder(vec[]);
   }
 
   public function isToken(): bool {
