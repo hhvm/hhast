@@ -1,0 +1,12 @@
+[
+    {
+        "blame": "  public function foo_bar(): void {}\n",
+        "blame_pretty": "  public function foo_bar(): void ",
+        "description": "Method \"foo_bar\" does not match conventions; consider renaming to \"fooBar\""
+    },
+    {
+        "blame": "  public function herp_derp(): void {}\n",
+        "blame_pretty": "  public function herp_derp(): void ",
+        "description": "Method \"herp_derp\" does not match conventions; consider renaming to \"herpDerp\""
+    }
+]

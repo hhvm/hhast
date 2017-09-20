@@ -26,7 +26,7 @@ use type Facebook\HHAST\{
   StaticToken
 };
 use namespace Facebook\HHAST;
-use namespace HH\Lib\{C, Vec};
+use namespace HH\Lib\{C, Str, Vec};
 
 trait FunctionNamingLinterTrait {
   require extends ASTLinter<IFunctionishDeclaration>;
@@ -72,7 +72,7 @@ trait FunctionNamingLinterTrait {
       return $node->getDeclarationHeader()->getName();
     }
 
-    if($node instanceof MethodishDeclaration) {
+    if ($node instanceof MethodishDeclaration) {
       return $node->getFunctionDeclHeader()->getName();
     }
 
@@ -92,6 +92,10 @@ trait FunctionNamingLinterTrait {
       return null;
     }
     $old = $token->getText();
+    if (Str\starts_with($old, '__')) {
+      return null;
+    }
+
     $what = null;
     if ($node instanceof FunctionDeclaration) {
       $what = 'Function';
