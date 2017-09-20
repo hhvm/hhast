@@ -13,23 +13,23 @@
 
 type TType = shape(
   'foo' => string,
-  ?'bar' => ?string,
+  'bar' => ?string,
   'baz' => shape(
-    ?'herp' => ?string,
+    'herp' => ?string,
   ),
 );
 
 newtype TNewtype = shape(
   'foo' => string,
-  ?'bar' => ?string,
+  'bar' => ?string,
   'baz' => shape(
-    ?'herp' => ?string,
+    'herp' => ?string,
   ),
 );
 
-type TNoTrailingCommaOneline = shape(?'foo' => ?string);
+type TNoTrailingCommaOneline = shape('foo' => ?string);
 type TNoTrailingComma = shape(
-  ?'foo' => ?string
+  'foo' => ?string
 );
 
 type TEmptyShape = shape();
@@ -39,12 +39,12 @@ $foo = shape('foo' => 'string');
 class A {
   const type TFoo = shape(
     'foo' => string,
-    ?'bar' => ?string,
+    'bar' => ?string,
     'baz' => shape(
-      ?'herp' => ?string,
+      'herp' => ?string,
     ),
   );
 
-  public function foo(): Awaitable<shape('foo' => string, ?'bar' => ?string)> {
+  public function foo(): Awaitable<shape('foo' => string, 'bar' => ?string)> {
   }
 }
