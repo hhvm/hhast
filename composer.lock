@@ -4,111 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0a522ef1df050d65df95666779aff064",
+    "content-hash": "780416967a87a96539225d0ba367ab7e",
     "packages": [
-        {
-            "name": "91carriage/phpunit-hhi",
-            "version": "5.7.1",
-            "source": {
-                "type": "git",
-                "url": "https://git.simon.geek.nz/91-carriage/phpunit-hhi.git",
-                "reference": "6864897f023f111d8b72fb7340c1ef5d0d9f8a45"
-            },
-            "require": {
-                "hhvm": ">=3.12.0"
-            },
-            "conflict": {
-                "phpunit/phpunit": "<5.7.15"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "*"
-            },
-            "suggest": {
-                "91carriage/dbunit-hhi": "HHI files for use with DbUnit"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "6.0.x-dev",
-                    "dev-phpunit-5.7": "5.7.x-dev",
-                    "dev-phpunit-5.6": "5.6.x-dev",
-                    "dev-phpunit-5.5": "5.5.x-dev",
-                    "dev-phpunit-5.4": "5.4.x-dev",
-                    "dev-phpunit-5.3": "5.3.x-dev",
-                    "dev-phpunit-5.2": "5.2.x-dev",
-                    "dev-phpunit-5.1": "5.1.x-dev",
-                    "dev-phpunit-5.0": "5.0.x-dev",
-                    "dev-phpunit-4.8": "4.8.x-dev"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "HHI definitions for PHPUnit",
-            "homepage": "https://git.simon.geek.nz/91-carriage/phpunit-hhi",
-            "keywords": [
-                "hack",
-                "hhvm",
-                "phpunit",
-                "testing"
-            ],
-            "time": "2017-04-09T02:42:01+00:00"
-        },
-        {
-            "name": "doctrine/instantiator",
-            "version": "1.0.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/instantiator.git",
-                "reference": "8e884e78f9f0eb1329e445619e04456e64d8051d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/8e884e78f9f0eb1329e445619e04456e64d8051d",
-                "reference": "8e884e78f9f0eb1329e445619e04456e64d8051d",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3,<8.0-DEV"
-            },
-            "require-dev": {
-                "athletic/athletic": "~0.1.8",
-                "ext-pdo": "*",
-                "ext-phar": "*",
-                "phpunit/phpunit": "~4.0",
-                "squizlabs/php_codesniffer": "~2.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Doctrine\\Instantiator\\": "src/Doctrine/Instantiator/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Marco Pivetta",
-                    "email": "ocramius@gmail.com",
-                    "homepage": "http://ocramius.github.com/"
-                }
-            ],
-            "description": "A small, lightweight utility to instantiate objects in PHP without invoking their constructors",
-            "homepage": "https://github.com/doctrine/instantiator",
-            "keywords": [
-                "constructor",
-                "instantiate"
-            ],
-            "time": "2015-06-14T21:17:01+00:00"
-        },
         {
             "name": "facebook/definition-finder",
             "version": "v1.6.2",
@@ -150,38 +47,6 @@
                 "hhvm"
             ],
             "time": "2017-08-25T16:56:25+00:00"
-        },
-        {
-            "name": "facebook/fbexpect",
-            "version": "v0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/hhvm/fbexpect.git",
-                "reference": "0e9cbf067c17d6bfafe7ca14ff76372d75ec886d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/fbexpect/zipball/0e9cbf067c17d6bfafe7ca14ff76372d75ec886d",
-                "reference": "0e9cbf067c17d6bfafe7ca14ff76372d75ec886d",
-                "shasum": ""
-            },
-            "require": {
-                "91carriage/phpunit-hhi": "^5.7",
-                "phpunit/phpunit": "^5.7"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ],
-                "files": [
-                    "src/expect.php",
-                    "src/utils.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "description": "Unit test helpers for Facebook projects",
-            "time": "2017-08-01T16:44:27+00:00"
         },
         {
             "name": "fredemmott/hack-error-suppressor",
@@ -300,26 +165,26 @@
         },
         {
             "name": "hhvm/type-assert",
-            "version": "v3.0",
+            "version": "v3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/type-assert.git",
-                "reference": "84c6a6f22957e9e7fcf97a315d1b1ab493066b0d"
+                "reference": "2247f0dabd3bc6621136f4f473dc02b0150e3683"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/type-assert/zipball/84c6a6f22957e9e7fcf97a315d1b1ab493066b0d",
-                "reference": "84c6a6f22957e9e7fcf97a315d1b1ab493066b0d",
+                "url": "https://api.github.com/repos/hhvm/type-assert/zipball/2247f0dabd3bc6621136f4f473dc02b0150e3683",
+                "reference": "2247f0dabd3bc6621136f4f473dc02b0150e3683",
                 "shasum": ""
             },
             "require": {
-                "facebook/fbexpect": "^0.2.0",
-                "facebook/hhvm-autoload": "^1.4",
                 "hhvm": "~3.21",
-                "hhvm/hsl": "^0.3"
+                "hhvm/hsl": ">=0.3 <2.0"
             },
             "require-dev": {
                 "91carriage/phpunit-hhi": "~5.1",
+                "facebook/fbexpect": "^0.2.0 | ^0.3.0",
+                "hhvm/hhvm-autoload": "^1.4",
                 "phpunit/phpunit": "~5.1"
             },
             "type": "library",
@@ -329,7 +194,212 @@
                 "TypeAssert",
                 "hack"
             ],
-            "time": "2017-09-14T17:11:04+00:00"
+            "time": "2017-09-20T18:34:38+00:00"
+        }
+    ],
+    "packages-dev": [
+        {
+            "name": "91carriage/phpunit-hhi",
+            "version": "5.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.simon.geek.nz/91-carriage/phpunit-hhi.git",
+                "reference": "6864897f023f111d8b72fb7340c1ef5d0d9f8a45"
+            },
+            "require": {
+                "hhvm": ">=3.12.0"
+            },
+            "conflict": {
+                "phpunit/phpunit": "<5.7.15"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "suggest": {
+                "91carriage/dbunit-hhi": "HHI files for use with DbUnit"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "6.0.x-dev",
+                    "dev-phpunit-5.7": "5.7.x-dev",
+                    "dev-phpunit-5.6": "5.6.x-dev",
+                    "dev-phpunit-5.5": "5.5.x-dev",
+                    "dev-phpunit-5.4": "5.4.x-dev",
+                    "dev-phpunit-5.3": "5.3.x-dev",
+                    "dev-phpunit-5.2": "5.2.x-dev",
+                    "dev-phpunit-5.1": "5.1.x-dev",
+                    "dev-phpunit-5.0": "5.0.x-dev",
+                    "dev-phpunit-4.8": "4.8.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "HHI definitions for PHPUnit",
+            "homepage": "https://git.simon.geek.nz/91-carriage/phpunit-hhi",
+            "keywords": [
+                "hack",
+                "hhvm",
+                "phpunit",
+                "testing"
+            ],
+            "time": "2017-04-09T02:42:01+00:00"
+        },
+        {
+            "name": "doctrine/instantiator",
+            "version": "1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/instantiator.git",
+                "reference": "8e884e78f9f0eb1329e445619e04456e64d8051d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/8e884e78f9f0eb1329e445619e04456e64d8051d",
+                "reference": "8e884e78f9f0eb1329e445619e04456e64d8051d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3,<8.0-DEV"
+            },
+            "require-dev": {
+                "athletic/athletic": "~0.1.8",
+                "ext-pdo": "*",
+                "ext-phar": "*",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Doctrine\\Instantiator\\": "src/Doctrine/Instantiator/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marco Pivetta",
+                    "email": "ocramius@gmail.com",
+                    "homepage": "http://ocramius.github.com/"
+                }
+            ],
+            "description": "A small, lightweight utility to instantiate objects in PHP without invoking their constructors",
+            "homepage": "https://github.com/doctrine/instantiator",
+            "keywords": [
+                "constructor",
+                "instantiate"
+            ],
+            "time": "2015-06-14T21:17:01+00:00"
+        },
+        {
+            "name": "facebook/fbexpect",
+            "version": "v0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hhvm/fbexpect.git",
+                "reference": "d650f97d7da0b7bbaf7a3641feca4cdb41414dce"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hhvm/fbexpect/zipball/d650f97d7da0b7bbaf7a3641feca4cdb41414dce",
+                "reference": "d650f97d7da0b7bbaf7a3641feca4cdb41414dce",
+                "shasum": ""
+            },
+            "require": {
+                "91carriage/phpunit-hhi": "^5.7",
+                "phpunit/phpunit": "^5.7"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ],
+                "files": [
+                    "src/expect.php",
+                    "src/utils.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Unit test helpers for Facebook projects",
+            "time": "2017-09-20T18:27:43+00:00"
+        },
+        {
+            "name": "facebook/hack-codegen",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hhvm/hack-codegen.git",
+                "reference": "d15d45c2f367cd10df28a78a2a768761028e29d6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hhvm/hack-codegen/zipball/d15d45c2f367cd10df28a78a2a768761028e29d6",
+                "reference": "d15d45c2f367cd10df28a78a2a768761028e29d6",
+                "shasum": ""
+            },
+            "require": {
+                "hhvm": "^3.21",
+                "hhvm/hhvm-autoload": "^1.5",
+                "hhvm/hsl": "<1.0 >=0.3"
+            },
+            "require-dev": {
+                "91carriage/phpunit-hhi": "^5.6",
+                "hhvm/type-assert": "^3.0",
+                "phpunit/phpunit": "^5.7"
+            },
+            "bin": [
+                "bin/hh-codegen-verify-signatures"
+            ],
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "lib/",
+                    "src/"
+                ],
+                "files": [
+                    "lib/typedefs.php",
+                    "lib/utils.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Drew Hoskins",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Gaurav Kumar",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Alejandro Marcu",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Matthieu Martin",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Fred Emmott",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Hack Codegen is a library for programatically generating Hack code",
+            "keywords": [
+                "code generation",
+                "hack"
+            ],
+            "time": "2017-09-17 22:21:25"
         },
         {
             "name": "myclabs/deep-copy",
@@ -1589,76 +1659,6 @@
                 "validate"
             ],
             "time": "2016-11-23T20:04:58+00:00"
-        }
-    ],
-    "packages-dev": [
-        {
-            "name": "facebook/hack-codegen",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/hhvm/hack-codegen.git",
-                "reference": "d15d45c2f367cd10df28a78a2a768761028e29d6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/hack-codegen/zipball/d15d45c2f367cd10df28a78a2a768761028e29d6",
-                "reference": "d15d45c2f367cd10df28a78a2a768761028e29d6",
-                "shasum": ""
-            },
-            "require": {
-                "hhvm": "^3.21",
-                "hhvm/hhvm-autoload": "^1.5",
-                "hhvm/hsl": "<1.0 >=0.3"
-            },
-            "require-dev": {
-                "91carriage/phpunit-hhi": "^5.6",
-                "hhvm/type-assert": "^3.0",
-                "phpunit/phpunit": "^5.7"
-            },
-            "bin": [
-                "bin/hh-codegen-verify-signatures"
-            ],
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "lib/",
-                    "src/"
-                ],
-                "files": [
-                    "lib/typedefs.php",
-                    "lib/utils.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "Drew Hoskins",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Gaurav Kumar",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Alejandro Marcu",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Matthieu Martin",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Fred Emmott",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Hack Codegen is a library for programatically generating Hack code",
-            "keywords": [
-                "code generation",
-                "hack"
-            ],
-            "time": "2017-09-17T22:21:25+00:00"
         }
     ],
     "aliases": [],
