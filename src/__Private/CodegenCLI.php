@@ -20,11 +20,6 @@ final class CodegenCLI extends CLIBase {
   private ?string $hhvmPath = null;
 
   <<__Override>>
-  protected static function acceptsArguments(): bool {
-    return false;
-  }
-
-  <<__Override>>
   protected function getSupportedOptions(): vec<CLIOptions\CLIOption> {
     return vec[
       CLIOptions\with_required_value(

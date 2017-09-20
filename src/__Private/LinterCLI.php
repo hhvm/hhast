@@ -15,10 +15,9 @@ use type Facebook\TypeAssert\TypeAssert;
 use namespace Facebook\HHAST\Linters;
 use namespace HH\Lib\{C, Dict, Str, Vec};
 
-final class LinterCLI extends CLIBase {
-  <<__Override>>
-  protected static function acceptsArguments(): bool {
-    return true;
+final class LinterCLI extends CLIWithRequiredArguments {
+  public static function getHelpTextForRequiredArguments(): vec<string> {
+    return vec['PATH'];
   }
 
   <<__Override>>

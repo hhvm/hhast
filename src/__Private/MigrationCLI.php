@@ -19,11 +19,11 @@ use type Facebook\HHAST\Migrations\{
   OptionalShapeFieldsMigration
 };
 
-final class MigrationCLI extends CLIBase {
+final class MigrationCLI extends CLIWithRequiredArguments {
   private keyset<classname<BaseMigration>> $migrations = keyset[];
 
-  public static function acceptsArguments(): bool {
-    return true;
+  public static function getHelpTextForRequiredArguments(): vec<string> {
+    return vec['PATH'];
   }
 
   protected function getSupportedOptions(): vec<CLIOptions\CLIOption> {

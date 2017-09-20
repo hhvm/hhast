@@ -11,6 +11,7 @@
 
 namespace Facebook\HHAST\__Private;
 
+use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Dict, Str, Vec};
 
 abstract class CLIBase {
@@ -18,8 +19,6 @@ abstract class CLIBase {
 
   abstract protected function getSupportedOptions(
   ): vec<CLIOptions\CLIOption>;
-
-  abstract protected static function acceptsArguments(): bool;
 
   abstract public function mainAsync(): Awaitable<int>;
 
@@ -29,7 +28,7 @@ abstract class CLIBase {
 
   final protected function getArguments(): vec<string> {
     invariant(
-      static::acceptsArguments(),
+      ($_ = $this) instanceof CLIWithArguments,
       "Calling getArguments(), but don't accept arguments",
     );
     return $this->arguments;
@@ -144,7 +143,7 @@ abstract class CLIBase {
     if (C\is_empty($arguments)) {
       return;
     }
-    if (static::acceptsArguments()) {
+    if (($_ = $this) instanceof CLIWithArguments) {
       $this->arguments = $arguments;
       return;
     }
@@ -163,15 +162,25 @@ abstract class CLIBase {
     if (C\is_empty($opts)) {
       $usage .= ' [-h|--help]';
     } else {
-      $usage .= ' [OPTION]...';
+      $usage .= ' [OPTIONS]';
     }
-    if (static::acceptsArguments()) {
-      $usage .= ' [ARGUMENTS]';
+    if ($this instanceof CLIWithRequiredArguments) {
+      $class = TypeAssert\classname_of(
+        CLIWithRequiredArguments::class,
+        static::class,
+      );
+      $usage .= ' '.implode(' ', $class::getHelpTextForRequiredArguments()).
+        ' ['.$class::getHelpTextForOptionalArguments().' ...]';
+    } else if ($this instanceof CLIWithArguments) {
+      $class = TypeAssert\classname_of(CLIWithArguments::class, static::class);
+      $usage .= ' ['.$class::getHelpTextForOptionalArguments().' ...]';
     }
     fprintf($file, "%s\n", $usage);
     if (C\is_empty($opts)) {
       return;
     }
+
+    fprintf($file, "\nOptions:\n");
     foreach ($opts as $opt) {
       $short = $opt->getShort();
       $long = $opt->getLong();
