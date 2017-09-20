@@ -133,22 +133,6 @@ abstract class EditableToken extends EditableNode {
   }
 
   <<__Override>>
-  public function reduce<TAccumulator>(
-    (function(
-      EditableNode,
-      TAccumulator,
-      vec<EditableNode>,
-    ): TAccumulator) $reducer,
-    TAccumulator $accumulator,
-    ?vec<EditableNode> $parents = null,
-  ): TAccumulator {
-    $accumulator = $this->getLeading()->reduce($reducer, $accumulator);
-    $accumulator = $reducer($this, $accumulator, $parents ?? vec[]);
-    $accumulator = $this->getTrailing()->reduce($reducer, $accumulator);
-    return $accumulator;
-  }
-
-  <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     int $position,

@@ -30,11 +30,11 @@ final class FixtureRewritingTest extends TestCase {
     $tries = $original->getDescendantsOfType(HHAST\TryStatement::class);
     $first_try_body = C\firstx($tries)->getCompoundStatement();
 
-    $rewritten = $original->insert_before($comment, $first_try_body);
+    $rewritten = $original->insertBefore($first_try_body, $comment);
 
     $catches = $rewritten->getDescendantsOfType(HHAST\CatchClause::class);
     $left_brace = C\firstx($catches)->getBody()->getLeftBracex();
-    $rewritten = $rewritten->insert_after($comment, $left_brace);
+    $rewritten = $rewritten->insertAfter($left_brace, $comment);
 
     $code = $rewritten->getCode();
 
@@ -67,7 +67,7 @@ final class FixtureRewritingTest extends TestCase {
     $ast = HHAST\from_file(__DIR__.'/fixtures/remove.php.in');
 
     // Remove all try statements
-    $ast = $ast->remove_where(
+    $ast = $ast->removeWhere(
       ($node, $_parents) ==> $node instanceof HHAST\TryStatement,
     );
 

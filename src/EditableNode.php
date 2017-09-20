@@ -51,7 +51,7 @@ abstract class EditableNode {
     }
   }
 
-  private function parentedPreorder(
+  private function traverseImpl(
     Traversable<EditableNode> $parents,
   ): KeyedTraversable<EditableNode, Traversable<EditableNode>> {
     $new_parents = vec($parents);
@@ -59,7 +59,7 @@ abstract class EditableNode {
     yield $this => $parents;
     foreach ($this->getChildren() as $child) {
       foreach (
-        $child->parentedPreorder($new_parents) as $child => $child_parents
+        $child->traverseImpl($new_parents) as $child => $child_parents
       ) {
         yield $child => $child_parents;
       }
@@ -68,7 +68,7 @@ abstract class EditableNode {
 
   public function traverseWithParents(
   ): KeyedTraversable<EditableNode, Traversable<EditableNode>> {
-    return $this->parentedPreorder(vec[]);
+    return $this->traverseImpl(vec[]);
   }
 
   public function isToken(): bool {
@@ -122,23 +122,6 @@ abstract class EditableNode {
     return vec[$this];
   }
 
-  public function reduce<TAccumulator>(
-    (function(
-      EditableNode,
-      TAccumulator,
-      vec<EditableNode>,
-    ): TAccumulator) $reducer,
-    TAccumulator $accumulator,
-    ?vec<EditableNode> $parents = null,
-  ): TAccumulator {
-    $new_parents = vec($parents ?? vec[]);
-    $new_parents[] =$this;
-    foreach ($this->getChildren() as $child) {
-      $accumulator = $child->reduce($reducer, $accumulator, $new_parents);
-    }
-    return $reducer($this, $accumulator, $parents ?? vec[]);
-  }
-
   // Returns all the parents (and the node itself) of the first node
   // that matches a predicate, or [] if there is no such node.
   public function findWithParents(
@@ -160,31 +143,31 @@ abstract class EditableNode {
     return vec[];
   }
 
-  // Returns a list of nodes that match a predicate.
-  public function filter(
-    (function(EditableNode, ?vec<EditableNode>): bool) $predicate,
+  public function getDescendantsWhere(
+    (function(EditableNode, Traversable<EditableNode>):bool) $filter,
   ): vec<EditableNode> {
-    $reducer = ($node, $acc, $parents) ==> {
-      if ($predicate($node, $parents)) {
-        $acc[] = $node;
+    $out = vec[];
+    foreach ($this->traverseWithParents() as $node => $parents) {
+      if ($filter($node, $parents)) {
+        $out[] = $node;
       }
-      return $acc;
-    };
-    return $this->reduce($reducer, vec[]);
+    }
+    return $out;
   }
 
   public function getDescendantsOfType<T as EditableNode>(
     classname<T> $what,
-  ): Traversable<T> {
+  ): vec<T> {
+    $out = vec[];
     foreach ($this->traverse() as $child) {
       if ($child instanceof $what) {
-        yield $child;
+        $out[] = $child;
       }
     }
-    yield break;
+    return $out;
   }
 
-  public function remove_where(
+  public function removeWhere(
     (function(EditableNode, ?Traversable<EditableNode>): bool) $predicate,
   ): EditableNode {
     return $this->rewrite(
@@ -194,7 +177,7 @@ abstract class EditableNode {
   }
 
   public function without(EditableNode $target): EditableNode {
-    return $this->remove_where(($node, $parents) ==> $node === $target);
+    return $this->removeWhere(($node, $parents) ==> $node === $target);
   }
 
   public function replace(
@@ -232,9 +215,9 @@ abstract class EditableNode {
     return null;
   }
 
-  public function insert_before(
-    EditableNode $new_node,
+  public function insertBefore(
     EditableNode $target,
+    EditableNode $new_node,
   ): this {
     // Inserting before missing is an error.
     if ($target->isMissing()) {
@@ -267,9 +250,9 @@ abstract class EditableNode {
     );
   }
 
-  public function insert_after(
-    EditableNode $new_node,
+  public function insertAfter(
     EditableNode $target,
+    EditableNode $new_node,
   ): this {
 
     // Inserting after missing is an error.
