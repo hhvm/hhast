@@ -1,5 +1,4 @@
-#!/usr/bin/env hhvm
-<?hh
+<?hh // strict
 /**
  * Copyright (c) 2017, Facebook, Inc.
  * All rights reserved.
@@ -8,7 +7,6 @@
  * LICENSE file in the "hack" directory of this source tree. An additional
  * grant of patent rights can be found in the PATENTS file in the same
  * directory.
- *
  */
 
 namespace Facebook\HHAST\__Private;
@@ -17,9 +15,15 @@ use type Facebook\TypeAssert\TypeAssert;
 use namespace Facebook\HHAST\Linters;
 use namespace HH\Lib\{C, Dict, Str, Vec};
 
-require_once(__DIR__.'/../vendor/hh_autoload.php');
+final class LinterCLI extends CLIBase {
+  protected static function takesArguments(): bool {
+    return true;
+  }
 
-final class LinterCLI {
+  protected function getSupportedOptions(): vec<CLIOptions\CLIOption> {
+    return vec[];
+  }
+
   private static function getLinterClasses(
   ): Traversable<classname<Linters\BaseLinter>> {
     return vec[
@@ -35,7 +39,8 @@ final class LinterCLI {
     return self::getLinterClasses()
       |> Vec\map(
         $$,
-        $class ==> (new $class($path))->getLintErrors(),
+        (classname<Linters\BaseLinter> $class) ==>
+          (new $class($path))->getLintErrors(),
       )
       |> Vec\flatten($$);
   }
@@ -76,20 +81,20 @@ final class LinterCLI {
     }
   }
 
-  public static function main(vec<string> $argv): void {
-    $is_help = ($argv[1] ?? null) === '--help';
-    $is_bad = C\count($argv) !== 2
-      || (Str\starts_with($argv[1], '--') && !$is_help);
-
-    if ($is_bad || $is_help) {
-      printf(
-        "Usage: %s (--help|FILE_OR_DIRECTORY)\n",
-        $argv[0],
-      );
-      exit($is_help ? 0 : 1);
+  public async function mainAsync(): Awaitable<int> {
+    $had_errors = false;
+    foreach ($this->getArguments() as $argument) {
+      $errors_in_arg = self::processArgument($argument);
+      $had_errors = $had_errors || $errors_in_arg;
     }
+    if (!$had_errors) {
+      print("No errors.\n");
+    }
+    return $had_errors ? 2 : 0;
+  }
 
-    $errors = self::lintPath($argv[1]);
+  private static function processArgument(string $argument): bool {
+    $errors = self::lintPath($argument);
 
     $had_errors = false;
     $to_fix = vec[];
@@ -117,13 +122,11 @@ final class LinterCLI {
     }
 
     if (!$had_errors) {
-      print("No errors.\n");
-      exit(0);
+      return false;
     }
 
     self::fixErrors($to_fix);
-
-    exit(2);
+    return true;
   }
 
   private static function fixErrors(
@@ -265,5 +268,3 @@ final class LinterCLI {
     );
   }
 }
-
-LinterCLI::main(vec($argv));
