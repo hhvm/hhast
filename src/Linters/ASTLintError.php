@@ -59,9 +59,10 @@ class ASTLintError<
       $linter instanceof AutoFixingASTLinter,
       "Can't render fix for unfixable lint error",
     );
+    $node = $linter->getFixedNode($this->node);
     return tuple(
       $this->getPrettyBlame(),
-      $linter->getPrettyTextForNode($this->node, $this->context),
+      $linter->getPrettyTextForNode($node, $this->context),
     );
   }
 }
