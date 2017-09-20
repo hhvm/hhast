@@ -13,7 +13,7 @@
 
 namespace Facebook\HHAST;
 
-use function Facebook\FBExpect\expect;
+use function Facebook\HHAST\TestLib\expect;
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str};
 
@@ -38,7 +38,7 @@ final class FixtureRewritingTest extends TestCase {
 
     $code = $rewritten->getCode();
 
-    $this->assertMatches($code, 'insert.php.expect');
+    expect($code)->toMatchExpectFile('insert.php.expect');
   }
 
   public function testRewriteComments(): void {
@@ -60,7 +60,7 @@ final class FixtureRewritingTest extends TestCase {
     )
       ->rewrite($rewriter)
       ->getCode();
-    $this->assertMatches($code, 'rewrite_comments.php.expect');
+    expect($code)->toMatchExpectFile('rewrite_comments.php.expect');
   }
 
   public function testRemove(): void {
@@ -75,9 +75,6 @@ final class FixtureRewritingTest extends TestCase {
     $methods = $ast->getDescendantsOfType(HHAST\MethodishDeclaration::class);
     $ast = $ast->without(C\firstx($methods));
 
-    $this->assertMatches(
-      $ast->getCode(),
-      'remove.php.expect',
-    );
+    expect($ast->getCode())->toMatchExpectFile('remove.php.expect');
   }
 }

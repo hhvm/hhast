@@ -13,7 +13,7 @@
 
 namespace Facebook\HHAST;
 
-use function Facebook\FBExpect\expect;
+use function Facebook\HHAST\TestLib\expect;
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str};
 
@@ -90,10 +90,7 @@ final class MigrationsTest extends TestCase {
 
     $ast = $migration->migrateAst($ast);
 
-    $this->assertMatches(
-      $ast->getCode(),
-      $fixture.'.expect',
-    );
+    expect($ast->getCode())->toMatchExpectFile($fixture.'.expect');
   }
 
   /**

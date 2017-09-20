@@ -13,7 +13,7 @@
 
 namespace Facebook\HHAST;
 
-use function Facebook\FBExpect\expect;
+use function Facebook\HHAST\TestLib\expect;
 use namespace HH\Lib\{C, Str, Vec};
 use namespace Facebook\HHAST;
 
@@ -34,8 +34,7 @@ trait AutoFixingLinterTestTrait<Terror as Linters\FixableLintError> {
     $linter = $this->getLinter(__DIR__.'/fixtures/'.$fixture.'.in');
 
     $code = $linter->getCodeWithFixedLintErrors($linter->getLintErrors());
-    $this->assertMatches(
-      $code,
+    expect($code)->toMatchExpectFileWithInputFile(
       $fixture.'.autofix.expect',
       $fixture.'.in',
     );

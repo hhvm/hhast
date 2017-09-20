@@ -13,7 +13,7 @@
 
 namespace Facebook\HHAST;
 
-use function Facebook\FBExpect\expect;
+use function Facebook\HHAST\TestLib\expect;
 use namespace HH\Lib\{C, Str, Vec};
 use namespace Facebook\HHAST;
 
@@ -78,6 +78,6 @@ trait LinterTestTrait {
         ),
       )
       |> json_encode($$, JSON_PRETTY_PRINT)."\n";
-    $this->assertMatches($out, $fixture.'.expect');
+    expect($out)->toMatchExpectFile($fixture.'.expect');
   }
 }
