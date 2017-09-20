@@ -3,16 +3,38 @@ We want to make contributing to this project as easy and transparent as
 possible.
 
 ## Our Development Process
-We will continue developing HHAST in Facebook and synchronizing
-periodically our internal repository with this github repository.
-We will also accept pull requests in this repository and incorporate
-them in our internal repository.
+We develop HHAST purely on GitHub, and welcome pull requests.
+
+## Major Components
+ - `codegen/schema.json`: this is regenerated from `hh_parse --schema`, and is
+   usually only updated when there is a new future or change in the Hack
+   language itself. It is unlikely you'll need to update this.
+ - `codegen/inferred_relationships.php`: a list of what types we consider valid
+   in each field of each kind of AST node; as this isn't included in the schema,
+   it is inferred from the HHVM and Hack unit tests. This should only need to
+   be regenerated when there are changes to the Hack language itself. It is
+   unlikely you'll need to update this, and regenerating it is *very* slow.
+ - the base classes for AST nodes: `src/Editable{Node,Token,List}.php`: these
+   are hand-written, and changes to functionality that don't require
+   per-subclass type information should go here
+ - the remainder of `codegen/`: these are subclasses of
+   `Editable{Node,Token,List}` - one for each kind of node that exists in the
+   AST schema. These classes should only contain methods that can not be
+   correctly implemented in the hand-written base classes. If you need to
+   extend any of these, **do not modify them directly** - instead, edit the
+   code that generates them in `src/__Private/codegen/`, and run
+   `bin/update-codegen.php`.
+ - the linter framework
+ - the migration framework
 
 ## Pull Requests
 We actively welcome your pull requests.
 1. Fork the repo and create your branch from `master`.
 2. If you've added code that should be tested, add tests
-3. Ensure the test suite passes and the example still work
+3. Ensure that:
+ - the test suite passes
+ - all linters pass
+ - the codegen regenerates with no changes
 4. If you haven't already, complete the Contributor License Agreement ("CLA").
 
 ## Contributor License Agreement ("CLA")
@@ -34,6 +56,7 @@ outlined on that page and do not file a public issue.
 * 2 spaces for indentation rather than tabs
 * 80 character line length
 * Be consistent with existing code
+* Be consistent with `hackfmt`
 
 We do not follow the PSR guidelines.
 
