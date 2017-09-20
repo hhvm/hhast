@@ -50,8 +50,7 @@ abstract class ASTLinter<T as HHAST\EditableNode> extends BaseLinter {
   ): Traversable<ASTLintError<T, this>> {
     $target = static::getTargetType();
 
-    foreach ($this->ast->traverse() as $node) {
-      list($node, $parents) = $node;
+    foreach ($this->ast->traverseWithParents() as $node => $parents) {
       $parents = vec($parents);
 
       if ($node instanceof $target) {

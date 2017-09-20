@@ -42,10 +42,10 @@ abstract class EditableNode {
     }
   }
 
-  public function preorder(): Traversable<EditableNode> {
+  public function traverse(): Traversable<EditableNode> {
     yield $this;
     foreach ($this->getChildren() as $child) {
-      foreach ($child->preorder() as $descendant) {
+      foreach ($child->traverse() as $descendant) {
         yield $descendant;
       }
     }
@@ -53,19 +53,21 @@ abstract class EditableNode {
 
   private function parentedPreorder(
     Traversable<EditableNode> $parents,
-  ): Traversable<(EditableNode, Traversable<EditableNode>)> {
+  ): KeyedTraversable<EditableNode, Traversable<EditableNode>> {
     $new_parents = vec($parents);
     $new_parents[] = $this;
-    yield tuple($this, $parents);
+    yield $this => $parents;
     foreach ($this->getChildren() as $child) {
-      foreach ($child->parentedPreorder($new_parents) as $descendant) {
-        yield $descendant;
+      foreach (
+        $child->parentedPreorder($new_parents) as $child => $child_parents
+      ) {
+        yield $child => $child_parents;
       }
     }
   }
 
-  public function traverse(
-  ): Traversable<(EditableNode, Traversable<EditableNode>)> {
+  public function traverseWithParents(
+  ): KeyedTraversable<EditableNode, Traversable<EditableNode>> {
     return $this->parentedPreorder(vec[]);
   }
 
@@ -174,7 +176,7 @@ abstract class EditableNode {
   public function getDescendantsOfType<T as EditableNode>(
     classname<T> $what,
   ): Traversable<T> {
-    foreach ($this->preorder() as $child) {
+    foreach ($this->traverse() as $child) {
       if ($child instanceof $what) {
         yield $child;
       }
