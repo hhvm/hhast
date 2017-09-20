@@ -1,4 +1,4 @@
-#!/usr/bin/env hhvm -d hhvm.hack.lang.look_for_typechecker=0
+#!/usr/bin/env hhvm
 <?hh
 /**
  * Copyright (c) 2017, Facebook, Inc.
