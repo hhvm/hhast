@@ -19,10 +19,12 @@ final class CodegenCLI extends CLIBase {
 
   private ?string $hhvmPath = null;
 
+  <<__Override>>
   protected static function takesArguments(): bool {
     return false;
   }
 
+  <<__Override>>
   protected function getSupportedOptions(): vec<CLIOptions\CLIOption> {
     return vec[
       CLIOptions\with_required_value(
@@ -33,6 +35,7 @@ final class CodegenCLI extends CLIBase {
     ];
   }
 
+  <<__Override>>
   public async function mainAsync(): Awaitable<int> {
     $generators = keyset[
       CodegenEditableNodeFromJSON::class,

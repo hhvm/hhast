@@ -16,10 +16,12 @@ use namespace Facebook\HHAST\Linters;
 use namespace HH\Lib\{C, Dict, Str, Vec};
 
 final class LinterCLI extends CLIBase {
+  <<__Override>>
   protected static function takesArguments(): bool {
     return true;
   }
 
+  <<__Override>>
   protected function getSupportedOptions(): vec<CLIOptions\CLIOption> {
     return vec[];
   }
@@ -81,6 +83,7 @@ final class LinterCLI extends CLIBase {
     }
   }
 
+  <<__Override>>
   public async function mainAsync(): Awaitable<int> {
     $had_errors = false;
     foreach ($this->getArguments() as $argument) {
