@@ -17,7 +17,7 @@ use namespace HH\Lib\{C, Dict, Str, Vec};
 
 final class LinterCLI extends CLIBase {
   <<__Override>>
-  protected static function takesArguments(): bool {
+  protected static function acceptsArguments(): bool {
     return true;
   }
 

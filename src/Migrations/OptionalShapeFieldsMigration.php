@@ -48,101 +48,15 @@ final class OptionalShapeFieldsMigration extends BaseMigration {
     return $node->withItem($field);
   }
 
-  // Required for adding ellipsis
-  private static function addTrailingCommaToFields(
-    HHAST\ShapeTypeSpecifier $shape,
-  ): HHAST\ShapeTypeSpecifier {
-    $fields = $shape->getFields();
-    if ($fields === null) {
-      return $shape;
-    }
-
-    $last_field = C\lastx($fields->getChildren())
-      |> TypeAssert\instance_of(HHAST\ListItem::class, $$);
-
-    if ($last_field->hasSeparator()) {
-      return $shape;
-    }
-
-    return $shape->rewriteDescendants(
-      ($node, $_) ==> {
-        if ($node !== $last_field) {
-          return $node;
-        }
-        return $last_field->withSeparator(
-          new HHAST\CommaToken(
-            HHAST\Missing(),
-            $last_field->getLastTokenx()->getTrailing(),
-          ),
-        )
-          ->withItem(
-            $last_field->getItem()->rewriteDescendants(
-              ($inner, $_) ==> {
-                if ($inner !== $last_field->getLastTokenx()) {
-                  return $inner;
-                }
-                return $last_field
-                  ->getLastTokenx()
-                  ->withTrailing(HHAST\Missing());
-              },
-            ),
-          );
-      }
-    );
-  }
-
-  private static function allowImplicitSubtypes(
-    HHAST\ShapeTypeSpecifier $shape,
-  ): HHAST\ShapeTypeSpecifier {
-    if ($shape->hasEllipsis()) {
-      return $shape;
-    }
-    $fields = $shape->getDescendantsOfType(HHAST\FieldSpecifier::class);
-    $first_field = C\first($fields);
-    if ($first_field === null) {
-      return $shape->withEllipsis(
-        new HHAST\DotDotDotToken(HHAST\Missing(), HHAST\Missing()),
-      );
-    }
-
-    return $shape->withEllipsis(
-      new HHAST\DotDotDotToken(
-        Str\contains($shape->getCode(), "\n")
-          ? $first_field->getFirstTokenx()->getLeading()
-          : new HHAST\WhiteSpace(' '),
-        C\lastx($shape->getFieldsx()->getChildren())
-          ->getLastTokenx()
-          ->getTrailing(),
-      ),
-    );
-
-    return $shape;
-  }
-
   <<__Override>>
   final public function getSteps(
   ): Traversable<IMigrationStep> {
-    $make_step = ($name, $impl) ==> new TypedMigrationStep(
-      $name,
-      HHAST\ShapeTypeSpecifier::class,
-      HHAST\ShapeTypeSpecifier::class,
-      $impl,
-    );
-
     return vec[
       new TypedMigrationStep(
         'make nullable fields optional',
         HHAST\ListItem::class,
         HHAST\ListItem::class,
         $node ==> self::makeNullableFieldsOptional($node),
-      ),
-      $make_step(
-        'add trailing commas to fields',
-        $node ==> self::addTrailingCommaToFields($node),
-      ),
-      $make_step(
-        'allow implicit subtypes',
-        $node ==> self::allowImplicitSubtypes($node),
       ),
     ];
   }

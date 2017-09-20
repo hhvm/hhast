@@ -20,7 +20,7 @@ final class CodegenCLI extends CLIBase {
   private ?string $hhvmPath = null;
 
   <<__Override>>
-  protected static function takesArguments(): bool {
+  protected static function acceptsArguments(): bool {
     return false;
   }
 

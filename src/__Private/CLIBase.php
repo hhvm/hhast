@@ -1,5 +1,4 @@
 <?hh // strict
-
 /**
  * Copyright (c) 2016, Facebook, Inc.
  * All rights reserved.
@@ -9,7 +8,6 @@
  * grant of patent rights can be found in the PATENTS file in the same
  * directory.
  */
-
 
 namespace Facebook\HHAST\__Private;
 
@@ -21,7 +19,7 @@ abstract class CLIBase {
   abstract protected function getSupportedOptions(
   ): vec<CLIOptions\CLIOption>;
 
-  abstract protected static function takesArguments(): bool;
+  abstract protected static function acceptsArguments(): bool;
 
   abstract public function mainAsync(): Awaitable<int>;
 
@@ -31,7 +29,7 @@ abstract class CLIBase {
 
   final protected function getArguments(): vec<string> {
     invariant(
-      static::takesArguments(),
+      static::acceptsArguments(),
       "Calling getArguments(), but don't accept arguments",
     );
     return $this->arguments;
@@ -146,7 +144,7 @@ abstract class CLIBase {
     if (C\is_empty($arguments)) {
       return;
     }
-    if (static::takesArguments()) {
+    if (static::acceptsArguments()) {
       $this->arguments = $arguments;
       return;
     }
@@ -167,7 +165,7 @@ abstract class CLIBase {
     } else {
       $usage .= ' [OPTION]...';
     }
-    if (static::takesArguments()) {
+    if (static::acceptsArguments()) {
       $usage .= ' [ARGUMENTS]';
     }
     fprintf($file, "%s\n", $usage);
