@@ -67,7 +67,7 @@ final class LinterCLI extends CLIWithArguments {
     if ($this->isVerbose(1)) {
       printf("Linting %s...\n", $path);
     }
-    $errors = vec[];
+    $all_errors = vec[];
     $config = $config->getConfigForFile($path);
 
     foreach ($config['linters'] as $class) {
@@ -81,14 +81,14 @@ final class LinterCLI extends CLIWithArguments {
       $this->bumpCounter($class.'#getLintErrors', $start, $end);
 
       $start = microtime(true);
-      $errors = Vec\concat(
-        $errors,
+      $all_errors = Vec\concat(
+        $all_errors,
         $this->processErrors($linter, $config, $errors),
       );
       $end = microtime(true);
       $this->bumpCounter($class.'#processErrors', $start, $end);
     }
-    return $errors;
+    return $all_errors;
   }
 
   private function lintDirectory(
