@@ -47,7 +47,7 @@ final class LinterCLI extends CLIWithArguments {
       CLIOptions\flag(
         () ==> { $this->profile = true; },
         'Output performance counters when finished',
-        'profile',
+        '--perf',
       ),
       CLIOptions\flag(
         () ==> { $this->verbosity = 1; },
