@@ -1,0 +1,10 @@
+{
+  "roots": [ "src/", "codegen/", "tests/" ],
+  "builtinLinters": "all",
+  "overrides": [
+    {
+      "patterns": [ "codegen/*" ],
+      "disableAllAutoFixes": true
+    }
+  ]
+}

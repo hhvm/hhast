@@ -17,7 +17,7 @@ use namespace HH\Lib\{C, Keyset, Str, Vec};
 use type Facebook\HHAST\Linters\BaseLinter;
 
 final class LinterCLIConfig {
-  const type TConfig = shape(
+  const type TFileConfig = shape(
     'linters' => keyset<classname<BaseLinter>>,
     'autoFixBlacklist' => keyset<classname<BaseLinter>>,
   );
@@ -79,19 +79,44 @@ final class LinterCLIConfig {
   ) {
   }
 
-  public static function createFromFile(string $path): this {
+  <<__Memoize>>
+  private static function getFromConfigFile(string $path): this {
     return new self(self::getConfigFromFile($path));
   }
 
-  public static function createDefault(): this {
+  <<__Memoize>>
+  private static function getDefault(): this {
     return new self(shape('roots' => vec[]));
+  }
+
+  public static function getForPath(string $path): this {
+    $path = realpath($path);
+    if (is_dir($path)) {
+      return self::getForPathImpl($path);
+    }
+    return self::getForPathImpl(dirname($path));
+  }
+
+  <<__Memoize>>
+  private static function getForPathImpl(string $path): this {
+    if ($path === '') {
+      return self::getDefault();
+    }
+    $config_file = $path.'/hhast-lint.json';
+    if (file_exists($config_file)) {
+      return self::getFromConfigFile($config_file);
+    }
+    return explode('/', $path)
+      |> Vec\take($$, C\count($$) - 1)
+      |> implode('/', $$)
+      |> self::getForPathImpl($$);
   }
 
   public function getRoots(): vec<string> {
     return $this->configFile['roots'];
   }
 
-  public function getConfigForFile(string $file_path): self::TConfig {
+  public function getConfigForFile(string $file_path): self::TFileConfig {
     $linters = $this->configFile['extraLinters'] ?? vec[];
     $blacklist = $this->configFile['disabledLinters'] ?? vec[];
     $autofix_blacklist = $this->configFile['disabledAutoFixes'] ?? vec[];
