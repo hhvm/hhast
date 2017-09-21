@@ -10,4 +10,4 @@
 set -e
 
 hh_parse --schema > "$(dirname "$0")/../codegen/schema.json"
-"$(dirname "$0")/update-codegen.php"
+"$(dirname "$0")/update-codegen" "$@"
