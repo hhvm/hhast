@@ -23,7 +23,8 @@ use type Facebook\HHAST\{
   IFunctionishDeclaration,
   MethodishDeclaration,
   NameToken,
-  StaticToken
+  StaticToken,
+  __Private\PerfCounter
 };
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
@@ -84,6 +85,8 @@ trait FunctionNamingLinterTrait {
     IFunctionishDeclaration $node,
     vec<EditableNode> $_parents,
   ): ?ASTLintError<IFunctionishDeclaration, this> {
+    $perf = (new PerfCounter(static::class.'#relevanceCheck'))
+      ->endAtScopeExit();
     $token = $this->getCurrentNameNodeForFunctionOrMethod($node);
     if ($token === null) {
       return null;
@@ -96,6 +99,8 @@ trait FunctionNamingLinterTrait {
       return null;
     }
 
+    $perf = (new PerfCounter(static::class.'#getSuggestion'))
+      ->endAtScopeExit();
     $what = null;
     if ($node instanceof FunctionDeclaration) {
       $what = 'Function';
