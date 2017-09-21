@@ -16,14 +16,9 @@ use namespace Facebook\HHAST\Linters;
 use namespace HH\Lib\{C, Dict, Str, Vec};
 
 final class LinterCLI extends CLIWithArguments {
-  private dict<string, float> $perfCounters = dict[];
-  private bool $profile = false;
+  private bool $printPerfCounters = false;
   private int $verbosity = 0;
 
-  private function bumpCounter(string $name, float $start, float $end): void {
-    $count = $this->perfCounters[$name] ?? 0.0;
-    $this->perfCounters[$name] = $count + ($end - $start);
-  }
 
   private function verbosePrintf(
     int $level,
@@ -45,7 +40,7 @@ final class LinterCLI extends CLIWithArguments {
   protected function getSupportedOptions(): vec<CLIOptions\CLIOption> {
     return vec[
       CLIOptions\flag(
-        () ==> { $this->profile = true; },
+        () ==> { $this->printPerfCounters = true; },
         'Output performance counters when finished',
         '--perf',
       ),
@@ -58,7 +53,7 @@ final class LinterCLI extends CLIWithArguments {
       CLIOptions\flag(
         () ==> {
           $this->verbosity = 2;
-          $this->profile = true;
+          $this->printPerfCounters = true;
         },
         'Print a lot more output',
         '--extra-verbose',
@@ -79,19 +74,17 @@ final class LinterCLI extends CLIWithArguments {
     foreach ($config['linters'] as $class) {
       $this->verbosePrintf(2, " - %s\n", $class);
 
-      $start = microtime(true);
+      $c = new PerfCounter($class.'#getLintErrors');
       $linter = new $class($path);
       $errors = $linter->getLintErrors();
-      $end = microtime(true);
-      $this->bumpCounter($class.'#getLintErrors', $start, $end);
+      $c->end();
 
-      $start = microtime(true);
+      $c = new PerfCounter($class.'#processErrors');
       $all_errors = Vec\concat(
         $all_errors,
         $this->processErrors($linter, $config, $errors),
       );
-      $end = microtime(true);
-      $this->bumpCounter($class.'#processErrors', $start, $end);
+      $c->end();
     }
     return $all_errors;
   }
@@ -162,8 +155,8 @@ final class LinterCLI extends CLIWithArguments {
     if (!$had_errors) {
       print("No errors.\n");
     }
-    if ($this->profile) {
-      $counters = Dict\sort_by_key($this->perfCounters);
+    if ($this->printPerfCounters) {
+      $counters = Dict\sort_by_key(PerfCounter::getCounters());
       foreach ($counters as $name => $value) {
         printf("PERF %2.2fs %s\n", $value, $name);
       }
@@ -178,10 +171,9 @@ final class LinterCLI extends CLIWithArguments {
   ): Traversable<Linters\LintError> {
     $class = get_class($linter);
     $to_fix = vec[];
-    $error_start = microtime(true);
+    $yield_perf = new PerfCounter($class.'#yieldError');
     foreach ($errors as $error) {
-      $error_end = microtime(true);
-      $this->bumpCounter($class.'#yieldError', $error_start, $error_end);
+      $yield_perf->end();
 
       $position = $error->getPosition();
       printf(
@@ -195,12 +187,11 @@ final class LinterCLI extends CLIWithArguments {
           : sprintf('%s:%s:%s', $error->getFile(), $position[0], $position[1]),
       );
 
-      $start = microtime(true);
+      $c = new PerfCounter($class.'#isFixable');
       $fixable = $error instanceof Linters\FixableLintError
         && (!C\contains_key($config['autoFixBlacklist'], $class))
         && $error->isFixable();
-      $end = microtime(true);
-      $this->bumpCounter($class.'#isFixable', $start, $end);
+      $c->end();
 
       if ($error instanceof Linters\FixableLintError && $fixable) {
         if (self::shouldFixLint($error)) {
@@ -212,16 +203,14 @@ final class LinterCLI extends CLIWithArguments {
         self::renderLintBlame($error);
         yield $error;
       }
-      $error_start = microtime(true);
+      $yield_perf = new PerfCounter($class.'#yieldError');
     }
-    $error_end = microtime(true);
-    $this->bumpCounter($class.'#yieldError', $error_start, $error_end);
+    $yield_perf->end();
 
     if (!C\is_empty($to_fix)) {
-      $start = microtime(true);
+      $c = new PerfCounter($class.'#fix');
       self::fixErrors($linter, $to_fix);
-      $end = microtime(true);
-      $this->bumpCounter($class.'#fix', $start, $end);
+      $c->end();
     }
   }
 
