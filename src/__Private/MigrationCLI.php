@@ -44,7 +44,7 @@ final class MigrationCLI extends CLIWithRequiredArguments {
           $this->migrations[] = ImplicitShapeSubtypesMigration::class;
         },
         'Apply all migrations for moving from 3.22 to 3.23',
-        'for-hhvm-3.23',
+        'hhvm-3.22-to-3.23',
       ),
     ];
   }
