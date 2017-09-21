@@ -25,8 +25,15 @@ final class LinterCLI extends CLIWithArguments {
     $this->perfCounters[$name] = $count + ($end - $start);
   }
 
-  private function isVerbose(int $level): bool {
-    return $this->verbosity >= $level;
+  private function verbosePrintf(
+    int $level,
+    \HH\FormatString<\PlainSprintf> $format,
+    mixed ...$args
+  ): void {
+    if ($this->verbosity < $level) {
+      return;
+    }
+    print(vsprintf($format, $args));
   }
 
   <<__Override>>
@@ -64,16 +71,14 @@ final class LinterCLI extends CLIWithArguments {
     LinterCLIConfig $config,
     string $path,
   ): Traversable<Linters\LintError> {
-    if ($this->isVerbose(1)) {
-      printf("Linting %s...\n", $path);
-    }
+    $this->verbosePrintf(1, "Linting %s...\n", $path);
+
     $all_errors = vec[];
     $config = $config->getConfigForFile($path);
 
     foreach ($config['linters'] as $class) {
-      if ($this->isVerbose(2)) {
-        printf(" - %s\n", $class);
-      }
+      $this->verbosePrintf(2, " - %s\n", $class);
+
       $start = microtime(true);
       $linter = new $class($path);
       $errors = $linter->getLintErrors();
