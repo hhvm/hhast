@@ -92,6 +92,10 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
     ClassishDeclaration $class,
     MethodishDeclaration $method,
   ): bool {
+    if (!$class->hasExtendsKeyword()) {
+      return true;
+    }
+
     $name = $method->getFunctionDeclHeader()->getName();
     if ($name instanceof HHAST\ConstructToken) {
       return true;
@@ -102,10 +106,6 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
     }
 
     if (!$class->getKeyword() instanceof ClassToken) {
-      return true;
-    }
-
-    if (!$class->hasExtendsList()) {
       return true;
     }
 
