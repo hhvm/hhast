@@ -24,7 +24,24 @@ abstract class ASTLinter<T as HHAST\EditableNode> extends BaseLinter {
   ) {
     parent::__construct($file);
 
-    $this->ast = HHAST\from_file($file);
+    $this->ast = self::getASTFromFile($file);
+  }
+
+  private static function getASTFromFile(string $file): HHAST\EditableNode {
+    static $cache = null;
+
+    $hash = sha1(file_get_contents($file), /* raw = */ true);
+    if ($cache !== null && $cache['hash'] === $hash) {
+      return $cache['ast'];
+    }
+
+    $ast = HHAST\from_file($file);
+
+    $cache = shape(
+      'hash' => $hash,
+      'ast' => $ast,
+    );
+    return $ast;
   }
 
   abstract protected static function getTargetType(): classname<T>;
