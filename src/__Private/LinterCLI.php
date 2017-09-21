@@ -30,6 +30,7 @@ final class LinterCLI extends CLIWithRequiredArguments {
   ): Traversable<classname<Linters\BaseLinter>> {
     return vec[
       Linters\CamelCasedMethodsUnderscoredFunctionsLinter::class,
+      Linters\DontAwaitInALoopLinter::class,
       Linters\MustUseBracesForControlFlowLinter::class,
       Linters\MustUseOverrideAttributeLinter::class,
     ];
@@ -38,13 +39,15 @@ final class LinterCLI extends CLIWithRequiredArguments {
   private static function lintFile(
     string $path,
   ): Traversable<Linters\LintError> {
-    return self::getLinterClasses()
-      |> Vec\map(
-        $$,
-        (classname<Linters\BaseLinter> $class) ==>
-          (new $class($path))->getLintErrors(),
-      )
-      |> Vec\flatten($$);
+    $errors = vec[];
+    foreach (self::getLinterClasses() as $class) {
+      $linter = new $class($path);
+      $errors = Vec\concat(
+        $errors,
+        self::processErrors($linter, $linter->getLintErrors()),
+      );
+    }
+    return $errors;
   }
 
   private static function lintDirectory(
@@ -98,12 +101,15 @@ final class LinterCLI extends CLIWithRequiredArguments {
 
   private static function processArgument(string $argument): bool {
     $errors = self::lintPath($argument);
+    return C\first($errors) === null;
+  }
 
-    $had_errors = false;
+  private static function processErrors(
+    Linters\BaseLinter $linter,
+    Traversable<Linters\LintError> $errors,
+  ): Traversable<Linters\LintError> {
     $to_fix = vec[];
-
     foreach ($errors as $error) {
-      $had_errors = true;
       $position = $error->getPosition();
       printf(
         "%s%s%s\n".
@@ -118,52 +124,34 @@ final class LinterCLI extends CLIWithRequiredArguments {
       if ($error instanceof Linters\FixableLintError && $error->isFixable()) {
         if (self::shouldFixLint($error)) {
           $to_fix[] = $error;
+        } else {
+          yield $error;
         }
       } else {
         self::renderLintBlame($error);
+        yield $error;
       }
     }
 
-    if (!$had_errors) {
-      return false;
+    if (!C\is_empty($to_fix)) {
+      self::fixErrors($linter, $to_fix);
     }
-
-    self::fixErrors($to_fix);
-    return true;
   }
 
   private static function fixErrors(
+    Linters\BaseLinter $linter,
     vec<Linters\FixableLintError> $errors,
   ): void {
-    $by_file = Dict\group_by(
-      $errors,
-      $error ==> $error->getFile(),
+    invariant(
+      $linter instanceof Linters\AutoFixingLinter,
+      '%s is not an auto-fixing-linter',
+      get_class($linter),
     );
-    foreach ($by_file as $file => $errors) {
-      $linters = $errors
-        |> Vec\map(
-          $$,
-          $error ==> $error->getLinter(),
-        )
-        |> Vec\unique_by(
-          $$,
-          $linter ==> get_class($linter),
-        );
-      foreach ($linters as $linter) {
-        invariant(
-          $linter instanceof Linters\AutoFixingLinter,
-          '%s is not an auto-fixing-linter',
-          get_class($linter),
-        );
 
-        // TODO: if multiple linters modify the same file, we currently
-        // have a problem
-        file_put_contents(
-          $file,
-          $linter->getCodeWithFixedLintErrors($errors),
-        );
-      }
-    }
+    file_put_contents(
+      $linter->getFile(),
+      $linter->getCodeWithFixedLintErrors($errors),
+    );
   }
 
   private static function shouldFixLint(
