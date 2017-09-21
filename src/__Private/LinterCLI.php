@@ -129,6 +129,8 @@ final class LinterCLI extends CLIWithArguments {
 
   <<__Override>>
   public async function mainAsync(): Awaitable<int> {
+    $perf = new PerfCounter(__CLASS__);
+
     $roots = $this->getArguments();
     if (C\is_empty($roots)) {
       $config = LinterCLIConfig::getForPath(getcwd());
@@ -155,10 +157,12 @@ final class LinterCLI extends CLIWithArguments {
     if (!$had_errors) {
       print("No errors.\n");
     }
+
+    $perf->end();
     if ($this->printPerfCounters) {
       $counters = Dict\sort_by_key(PerfCounter::getCounters());
       foreach ($counters as $name => $value) {
-        printf("PERF %2.2fs %s\n", $value, $name);
+        printf("PERF %5.2fs %s\n", $value, $name);
       }
     }
     return $had_errors ? 2 : 0;

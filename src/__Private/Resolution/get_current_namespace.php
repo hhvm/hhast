@@ -15,7 +15,9 @@ namespace Facebook\HHAST\__Private\Resolution;
 use type Facebook\HHAST\{
   EditableNode,
   NamespaceDeclaration,
-  NamespaceEmptyBody
+  NamespaceEmptyBody,
+  Script,
+  __Private\PerfCounter
 };
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Str, Vec};
@@ -24,6 +26,7 @@ function get_current_namespace(
   EditableNode $node,
   vec<EditableNode> $parents,
 ): ?string {
+  $c = (new PerfCounter(__FUNCTION__))->endAtScopeExit();
   $parents = vec($parents);
 
   $namespaces = Vec\filter(
@@ -36,39 +39,34 @@ function get_current_namespace(
     "Can't nest namespace blocks",
   );
 
+  // No blocks, just a declaration;
   if (C\is_empty($namespaces)) {
-    $namespaces = $parents
+    $c2 = (new PerfCounter(__FUNCTION__.'#declaration'))->endAtScopeExit();
+    $root = $parents
       |> C\firstx($$)
-      |> $$->getDescendantsOfType(NamespaceDeclaration::class)
-      |> Vec\filter(
-        $$,
-        $ns ==> {
-          $body = $ns->getBody();
-          return $body->isMissing() || $body instanceof NamespaceEmptyBody;
-        },
-      );
-    invariant(
-      C\count($namespaces) <= 1,
-      "Can't have multiple namespace declarations",
-    );
-    if (C\is_empty($namespaces)) {
+      |> TypeAssert\instance_of(Script::class, $$);
+    $ns = $root
+      ->getDeclarations()
+      ->getChildrenOfType(NamespaceDeclaration::class)
+      |> C\first($$);
+    if ($ns === null) {
       return null;
     }
-    return C\firstx($namespaces)
-      ->getNameUNTYPED()->getCode()
-      |> Str\strip_prefix($$, '\\')
-      |> Str\trim($$);
+    $body = $ns->getBodyUNTYPED();
+    invariant(
+      $body->isMissing() || $body instanceof NamespaceEmptyBody,
+      "if using namespace blocks, all code must be in a NS block",
+    );
+    return Str\strip_prefix($ns->getNamex()->getText(), '\\');
   }
 
-  if (C\is_empty($namespaces)) {
-    return null;
-  }
+  $c2 = (new PerfCounter(__FUNCTION__.'#blocks'))->endAtScopeExit();
 
   return $namespaces
     |> C\firstx($$)
     |> TypeAssert\instance_of(NamespaceDeclaration::class, $$)
     |> $$->getNameUNTYPED()->getCode()
-    |> Str\strip_prefix($$, '\\')
     |> Str\trim($$)
+    |> Str\strip_prefix($$, '\\')
     |> $$ === '' ? null : $$;
 }

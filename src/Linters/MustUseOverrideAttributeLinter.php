@@ -27,6 +27,7 @@ use namespace Facebook\TypeAssert;
 use function Facebook\HHAST\resolve_type;
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
+use type Facebook\HHAST\__Private\PerfCounter;
 
 class MustUseOverrideAttributeLinter
 extends AutoFixingASTLinter<MethodishDeclaration> {
@@ -49,17 +50,13 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
       return null;
     }
 
-    $super = C\onlyx($class->getExtendsListx()->getChildren());
-    if ($super instanceof ListItem) {
-      $super = $super->getItem();
-    }
-    if ($super instanceof GenericTypeSpecifier) {
-      $super = $super->getClassType();
-    }
-    $super = $super->getCode()
-      |> Str\trim($$)
-      |> resolve_type($$, $node, $parents);
+    $c = new PerfCounter(self::class.'#findSuper');
+    $super = self::findSuper($class, $parents);
+    $c->end();
     try {
+      $c = (new PerfCounter(self::class.'#reflectionMethod'))
+        ->endAtScopeExit();
+
       $method = $node->getFunctionDeclHeader()->getName()->getCode()
         |> Str\trim($$);
 
@@ -88,10 +85,32 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
     }
   }
 
+  private static function findSuper(
+    ClassishDeclaration $class,
+    vec<EditableNode> $parents,
+  ): string {
+    $super = C\onlyx($class->getExtendsListx()->getChildren());
+    if ($super instanceof ListItem) {
+      $super = $super->getItem();
+    }
+    if ($super instanceof GenericTypeSpecifier) {
+      $super = $super->getClassType();
+    }
+    return $super->getCode()
+      |> Str\trim($$)
+      |> PerfCounter::tap(
+        static::class.'#resolveSuper',
+        ($x) ==> resolve_type($x, $class, $parents),
+        $$
+      )
+      |> TypeAssert\not_null($$);
+  }
+
   private function canIgnoreMethod(
     ClassishDeclaration $class,
     MethodishDeclaration $method,
   ): bool {
+    $c = (new PerfCounter(static::class.'#canIgnoreMethod'))->endAtScopeExit();
     if (!$class->hasExtendsKeyword()) {
       return true;
     }
