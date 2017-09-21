@@ -22,10 +22,12 @@ use type Facebook\HHAST\Migrations\{
 final class MigrationCLI extends CLIWithRequiredArguments {
   private keyset<classname<BaseMigration>> $migrations = keyset[];
 
+  <<__Override>>
   public static function getHelpTextForRequiredArguments(): vec<string> {
     return vec['PATH'];
   }
 
+  <<__Override>>
   protected function getSupportedOptions(): vec<CLIOptions\CLIOption> {
     return vec[
       CLIOptions\flag(
@@ -73,6 +75,7 @@ final class MigrationCLI extends CLIWithRequiredArguments {
     }
   }
 
+  <<__Override>>
   public async function mainAsync(): Awaitable<int> {
     if (C\is_empty($this->migrations)) {
       fprintf(STDERR, "You must specify at least one migration!\n\n");

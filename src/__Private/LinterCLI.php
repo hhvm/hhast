@@ -16,6 +16,7 @@ use namespace Facebook\HHAST\Linters;
 use namespace HH\Lib\{C, Dict, Str, Vec};
 
 final class LinterCLI extends CLIWithRequiredArguments {
+  <<__Override>>
   public static function getHelpTextForRequiredArguments(): vec<string> {
     return vec['PATH'];
   }
