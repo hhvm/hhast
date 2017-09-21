@@ -25,7 +25,7 @@ final class CodegenCLI extends CLIBase {
       CLIOptions\with_required_value(
         $path ==> { $this->hhvmPath = $path; },
         'Update inferred relationships based on the HHVM and Hack tests',
-        'hhvm-path',
+        '--hhvm-path',
       ),
     ];
   }

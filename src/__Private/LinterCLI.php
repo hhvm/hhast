@@ -52,8 +52,8 @@ final class LinterCLI extends CLIWithArguments {
       CLIOptions\flag(
         () ==> { $this->verbosity = 1; },
         'Print some more output',
-        'verbose',
-        'v',
+        '--verbose',
+        '-v',
       ),
       CLIOptions\flag(
         () ==> {
@@ -61,8 +61,8 @@ final class LinterCLI extends CLIWithArguments {
           $this->profile = true;
         },
         'Print a lot more output',
-        'extra-verbose',
-        'vv',
+        '--extra-verbose',
+        '-vv',
       ),
     ];
   }

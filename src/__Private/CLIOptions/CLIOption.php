@@ -11,12 +11,38 @@
 
 namespace Facebook\HHAST\__Private\CLIOptions;
 
+use namespace HH\Lib\Str;
+
 abstract class CLIOption {
+  private string $long;
+  private ?string $short = null;
+
   public function __construct(
     private string $helpText,
-    private string $long,
-    private ?string $short,
+    string $long,
+    ?string $short,
   ) {
+    invariant(
+      Str\starts_with($long, '--'),
+      "long argument '%s' doesn't start with '--'",
+      $long,
+    );
+    $this->long = Str\strip_prefix($long, '--');
+    if ($short === null) {
+      return;
+    }
+
+    invariant(
+      Str\starts_with($short, '-'),
+      "short argument '%s' doesn't start with '-'",
+      $short,
+    );
+    invariant(
+      !Str\starts_with($short, '--'),
+      "short argument '%s' shouldn't start with '--'",
+      $short,
+    );
+    $this->short = Str\strip_prefix($short, '-');
   }
 
   final public function getHelpText(): string {

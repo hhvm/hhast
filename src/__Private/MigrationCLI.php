@@ -33,12 +33,12 @@ final class MigrationCLI extends CLIWithRequiredArguments {
       CLIOptions\flag(
         () ==> { $this->migrations[] = ImplicitShapeSubtypesMigration::class; },
         'Allow implicit structural subtyping of all shapes',
-        'implicit-shape-subtypes',
+        '--implicit-shape-subtypes',
       ),
       CLIOptions\flag(
         () ==> { $this->migrations[] = OptionalShapeFieldsMigration::class; },
         'Migrate nullable shape fields to be both nullable and optional',
-        'optional-shape-fields',
+        '--optional-shape-fields',
       ),
       CLIOptions\flag(
         () ==> {
@@ -46,7 +46,7 @@ final class MigrationCLI extends CLIWithRequiredArguments {
           $this->migrations[] = ImplicitShapeSubtypesMigration::class;
         },
         'Apply all migrations for moving from 3.22 to 3.23',
-        'hhvm-3.22-to-3.23',
+        '--hhvm-3.22-to-3.23',
       ),
     ];
   }
