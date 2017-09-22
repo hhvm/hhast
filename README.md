@@ -14,6 +14,8 @@ HHAST has 3 main APIs:
 
 ## Linters
 
+[user documentation](docs/linters-usage.md)
+
 ![screenshot of lint errors](docs/linters.png)
 
 Linters are designed for subjective or style changes which do not substantially alter the behavior of the code, and may be rejected on a case-by-case basis. Lint errors can provide a suggested fix, which may be based on an AST mutation, but doesn't have to be.

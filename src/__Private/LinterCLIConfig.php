@@ -17,11 +17,6 @@ use namespace HH\Lib\{C, Keyset, Str, Vec};
 use type Facebook\HHAST\Linters\BaseLinter;
 
 final class LinterCLIConfig {
-  const type TFileConfig = shape(
-    'linters' => keyset<classname<BaseLinter>>,
-    'autoFixBlacklist' => keyset<classname<BaseLinter>>,
-  );
-
   const type TConfigFile = shape(
     // Where to lint, eg '[ "src/", "codegen/", "tests/" ]
     'roots' => vec<string>,
@@ -55,6 +50,11 @@ final class LinterCLIConfig {
       'disabledAutoFixes' => ?vec<string>,
       'disableAllAutoFixes' => ?bool,
     )>,
+  );
+
+  const type TFileConfig = shape(
+    'linters' => keyset<classname<BaseLinter>>,
+    'autoFixBlacklist' => keyset<classname<BaseLinter>>,
   );
 
   private static function getNamedLinterGroup(
