@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<71c8b1c9ada737529216bac7f026953b>>
+ * @generated SignedSource<<14139385e327441c1a43926e6e1f6e09>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -147,18 +147,20 @@ final class FunctionDeclarationHeader extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'async' => $this->_async;
-    yield 'coroutine' => $this->_coroutine;
-    yield 'keyword' => $this->_keyword;
-    yield 'ampersand' => $this->_ampersand;
-    yield 'name' => $this->_name;
-    yield 'type_parameter_list' => $this->_type_parameter_list;
-    yield 'left_paren' => $this->_left_paren;
-    yield 'parameter_list' => $this->_parameter_list;
-    yield 'right_paren' => $this->_right_paren;
-    yield 'colon' => $this->_colon;
-    yield 'type' => $this->_type;
-    yield 'where_clause' => $this->_where_clause;
+    return dict[
+      'async' => $this->_async,
+      'coroutine' => $this->_coroutine,
+      'keyword' => $this->_keyword,
+      'ampersand' => $this->_ampersand,
+      'name' => $this->_name,
+      'type_parameter_list' => $this->_type_parameter_list,
+      'left_paren' => $this->_left_paren,
+      'parameter_list' => $this->_parameter_list,
+      'right_paren' => $this->_right_paren,
+      'colon' => $this->_colon,
+      'type' => $this->_type,
+      'where_clause' => $this->_where_clause,
+    ];
   }
 
   <<__Override>>

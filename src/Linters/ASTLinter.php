@@ -33,6 +33,8 @@ abstract class ASTLinter<T as HHAST\EditableNode> extends BaseLinter {
 
     $perf = (new PerfCounter(static::class.'#getASTFromFile'))
       ->endAtScopeExit();
+    $perf2 = (new PerfCounter(self::class.'#getASTFromFile'))
+      ->endAtScopeExit();
 
     $hash = sha1(file_get_contents($file), /* raw = */ true);
     if ($cache !== null && $cache['hash'] === $hash) {
@@ -71,9 +73,7 @@ abstract class ASTLinter<T as HHAST\EditableNode> extends BaseLinter {
   ): Traversable<ASTLintError<T, this>> {
     $target = static::getTargetType();
 
-    foreach ($this->ast->traverseWithParents() as $node => $parents) {
-      $parents = vec($parents);
-
+    foreach ($this->ast->traverseWithParents() as list($node, $parents)) {
       if ($node instanceof $target) {
         $error = $this->getLintErrorForNode($node, $parents);
         if ($error !== null) {

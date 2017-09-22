@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4fa7986c88671c2edca1339adceb0290>>
+ * @generated SignedSource<<b9437127997460da03a7c4e2d84efd95>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -97,13 +97,15 @@ final class DarrayTypeSpecifier extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'keyword' => $this->_keyword;
-    yield 'left_angle' => $this->_left_angle;
-    yield 'key' => $this->_key;
-    yield 'comma' => $this->_comma;
-    yield 'value' => $this->_value;
-    yield 'trailing_comma' => $this->_trailing_comma;
-    yield 'right_angle' => $this->_right_angle;
+    return dict[
+      'keyword' => $this->_keyword,
+      'left_angle' => $this->_left_angle,
+      'key' => $this->_key,
+      'comma' => $this->_comma,
+      'value' => $this->_value,
+      'trailing_comma' => $this->_trailing_comma,
+      'right_angle' => $this->_right_angle,
+    ];
   }
 
   <<__Override>>

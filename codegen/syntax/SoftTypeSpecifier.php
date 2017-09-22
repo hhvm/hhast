@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9bb9646a9f1ef42a94ed12a563c2c216>>
+ * @generated SignedSource<<a169d0b5f0dab863aa26496c5d0f1463>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,8 +41,7 @@ final class SoftTypeSpecifier extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'at' => $this->_at;
-    yield 'type' => $this->_type;
+    return dict['at' => $this->_at, 'type' => $this->_type];
   }
 
   <<__Override>>

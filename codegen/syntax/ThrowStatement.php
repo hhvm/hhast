@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b275cd30aff260cc692da40748b6fc9e>>
+ * @generated SignedSource<<183e3478db43806dca16a8c70f2f22d1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,9 +53,11 @@ final class ThrowStatement extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'keyword' => $this->_keyword;
-    yield 'expression' => $this->_expression;
-    yield 'semicolon' => $this->_semicolon;
+    return dict[
+      'keyword' => $this->_keyword,
+      'expression' => $this->_expression,
+      'semicolon' => $this->_semicolon,
+    ];
   }
 
   <<__Override>>

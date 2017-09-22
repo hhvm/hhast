@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<38735f0f203ee5156091d8b34f8f407c>>
+ * @generated SignedSource<<b6c5078a0f730e57d721d9916dda53f8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,10 +62,12 @@ final class Enumerator extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'name' => $this->_name;
-    yield 'equal' => $this->_equal;
-    yield 'value' => $this->_value;
-    yield 'semicolon' => $this->_semicolon;
+    return dict[
+      'name' => $this->_name,
+      'equal' => $this->_equal,
+      'value' => $this->_value,
+      'semicolon' => $this->_semicolon,
+    ];
   }
 
   <<__Override>>

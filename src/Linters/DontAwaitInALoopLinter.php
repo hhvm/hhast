@@ -28,7 +28,8 @@ use type Facebook\HHAST\{
   SingleLineComment,
   PrefixUnaryExpression,
   RightBraceToken,
-  WhiteSpace
+  WhiteSpace,
+  __Private\PerfCounter
 };
 use function Facebook\HHAST\{Missing, find_position, find_offset};
 use namespace Facebook\TypeAssert;

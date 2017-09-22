@@ -16,11 +16,12 @@ use type Facebook\HackCodegen\{
   CodegenClass,
   CodegenConstructor,
   CodegenMethod,
+  HackBuilderKeys,
   HackBuilderValues
 };
 
 use namespace Facebook\TypeAssert;
-use namespace HH\Lib\{C, Keyset, Str, Vec};
+use namespace HH\Lib\{C, Dict, Keyset, Str, Vec};
 
 final class CodegenSyntax extends CodegenBase {
   <<__Override>>
@@ -248,17 +249,22 @@ final class CodegenSyntax extends CodegenBase {
       ->setBody(
         $cg
           ->codegenHackBuilder()
-          ->addLines(
-            Vec\map(
-              $syntax['fields'],
-              $field ==> sprintf(
-                'yield %s => $this->_%s;',
-                var_export($field['field_name'], true),
-                $field['field_name'],
-              ),
+          ->add('return ')
+          ->addValue(
+            $syntax['fields']
+            |> Vec\map($$, $field ==> $field['field_name'])
+            |> Dict\pull(
+              $$,
+              $field ==> '$this->_'.$field,
+              $field ==> $field,
+            ),
+            HackBuilderValues::dict(
+              HackBuilderKeys::export(),
+              HackBuilderValues::literal(),
             ),
           )
-          ->getCode(),
+          ->add(';')
+          ->getCode()
       );
   }
 

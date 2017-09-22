@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7ca29272d4145edc2b5c33744774bc7c>>
+ * @generated SignedSource<<1f713213ba82439c366c4413b9e40067>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,10 +62,12 @@ final class ShapeExpression extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'keyword' => $this->_keyword;
-    yield 'left_paren' => $this->_left_paren;
-    yield 'fields' => $this->_fields;
-    yield 'right_paren' => $this->_right_paren;
+    return dict[
+      'keyword' => $this->_keyword,
+      'left_paren' => $this->_left_paren,
+      'fields' => $this->_fields,
+      'right_paren' => $this->_right_paren,
+    ];
   }
 
   <<__Override>>

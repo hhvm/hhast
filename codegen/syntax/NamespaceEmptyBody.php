@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1bdc61996ec4797a935c39c1abae9c2b>>
+ * @generated SignedSource<<ac4183eef7026ed24add1e552e8c7a66>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,7 +33,7 @@ final class NamespaceEmptyBody extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'semicolon' => $this->_semicolon;
+    return dict['semicolon' => $this->_semicolon];
   }
 
   <<__Override>>

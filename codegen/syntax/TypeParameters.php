@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2c0e481a1e1ef858065ccee01511e9f1>>
+ * @generated SignedSource<<84b384cc83b0d3958b57a77511f7eb05>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,9 +53,11 @@ final class TypeParameters extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'left_angle' => $this->_left_angle;
-    yield 'parameters' => $this->_parameters;
-    yield 'right_angle' => $this->_right_angle;
+    return dict[
+      'left_angle' => $this->_left_angle,
+      'parameters' => $this->_parameters,
+      'right_angle' => $this->_right_angle,
+    ];
   }
 
   <<__Override>>

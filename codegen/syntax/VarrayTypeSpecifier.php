@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0cf08d3e1f49190d4b3fae6fc51a6ca8>>
+ * @generated SignedSource<<0a09715e18df873ae54881369f7348b5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -72,11 +72,13 @@ final class VarrayTypeSpecifier extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'keyword' => $this->_keyword;
-    yield 'left_angle' => $this->_left_angle;
-    yield 'type' => $this->_type;
-    yield 'trailing_comma' => $this->_trailing_comma;
-    yield 'right_angle' => $this->_right_angle;
+    return dict[
+      'keyword' => $this->_keyword,
+      'left_angle' => $this->_left_angle,
+      'type' => $this->_type,
+      'trailing_comma' => $this->_trailing_comma,
+      'right_angle' => $this->_right_angle,
+    ];
   }
 
   <<__Override>>

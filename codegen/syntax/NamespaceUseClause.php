@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a3952559cd5336d0f23a8088d98ffa47>>
+ * @generated SignedSource<<c213fd831ccf16b1a8c6b37ffe6e68e7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,10 +62,12 @@ final class NamespaceUseClause extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'clause_kind' => $this->_clause_kind;
-    yield 'name' => $this->_name;
-    yield 'as' => $this->_as;
-    yield 'alias' => $this->_alias;
+    return dict[
+      'clause_kind' => $this->_clause_kind,
+      'name' => $this->_name,
+      'as' => $this->_as,
+      'alias' => $this->_alias,
+    ];
   }
 
   <<__Override>>

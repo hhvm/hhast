@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a06580a53ada5ebc1bfca6178238a890>>
+ * @generated SignedSource<<5d55006ee842c14caa272948b249ccb9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -63,10 +63,12 @@ final class TryStatement extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'keyword' => $this->_keyword;
-    yield 'compound_statement' => $this->_compound_statement;
-    yield 'catch_clauses' => $this->_catch_clauses;
-    yield 'finally_clause' => $this->_finally_clause;
+    return dict[
+      'keyword' => $this->_keyword,
+      'compound_statement' => $this->_compound_statement,
+      'catch_clauses' => $this->_catch_clauses,
+      'finally_clause' => $this->_finally_clause,
+    ];
   }
 
   <<__Override>>

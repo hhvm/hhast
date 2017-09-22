@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c0da8dfe070838af96277511e65cae0d>>
+ * @generated SignedSource<<75b90a93f54f2f0f467dfdec6d73d127>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,8 +41,7 @@ final class StaticDeclarator extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'name' => $this->_name;
-    yield 'initializer' => $this->_initializer;
+    return dict['name' => $this->_name, 'initializer' => $this->_initializer];
   }
 
   <<__Override>>

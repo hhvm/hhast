@@ -12,7 +12,7 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\{C, Vec};
+use namespace HH\Lib\{C, Dict, Vec};
 
 final class EditableList extends EditableNode {
   private vec<EditableNode> $_children;
@@ -34,24 +34,26 @@ final class EditableList extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    $i = 0;
-    foreach ($this->_children as $child) {
-      yield (string) $i => $child;
-      $i++;
-    }
+    return Dict\pull_with_key(
+      $this->_children,
+      ($_, $v) ==> $v,
+      ($k, $_) ==> (string) $k,
+    );
   }
 
   final public function getItemsOfType<T as EditableNode>(
     classname<T> $what,
   ): Traversable<EditableNode> {
+    $out = vec[];
     foreach ($this->_children as $child) {
       if ($child instanceof ListItem) {
         $child = $child->getItem();
       }
       if ($child instanceof $what) {
-        yield $child;
+        $out[] = $child;
       }
     }
+    return $out;
   }
 
   public static function fromItems(

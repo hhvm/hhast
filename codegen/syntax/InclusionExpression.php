@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<95af7705db859c080be8a3e071048357>>
+ * @generated SignedSource<<8ecfe1a2d3122143630e3d63b56f342d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,8 +41,7 @@ final class InclusionExpression extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'require' => $this->_require;
-    yield 'filename' => $this->_filename;
+    return dict['require' => $this->_require, 'filename' => $this->_filename];
   }
 
   <<__Override>>

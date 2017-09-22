@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e635d9f26eff41fc4c74d716f63aae0d>>
+ * @generated SignedSource<<9d688371bf6010f8296da7ca2e703d6c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,7 +33,7 @@ final class EndOfFile extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'token' => $this->_token;
+    return dict['token' => $this->_token];
   }
 
   <<__Override>>

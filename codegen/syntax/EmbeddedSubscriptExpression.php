@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0fe04de0401f67c9fbf74ab5635fea09>>
+ * @generated SignedSource<<5f95ea4821234484525479c6ef472621>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,10 +62,12 @@ final class EmbeddedSubscriptExpression extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'receiver' => $this->_receiver;
-    yield 'left_bracket' => $this->_left_bracket;
-    yield 'index' => $this->_index;
-    yield 'right_bracket' => $this->_right_bracket;
+    return dict[
+      'receiver' => $this->_receiver,
+      'left_bracket' => $this->_left_bracket,
+      'index' => $this->_index,
+      'right_bracket' => $this->_right_bracket,
+    ];
   }
 
   <<__Override>>

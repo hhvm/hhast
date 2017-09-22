@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c62667dfc6cc5ed69369626f18543770>>
+ * @generated SignedSource<<090cbc4873d6c60aa5fec733b5769e7f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,7 +33,7 @@ final class VariableExpression extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'expression' => $this->_expression;
+    return dict['expression' => $this->_expression];
   }
 
   <<__Override>>

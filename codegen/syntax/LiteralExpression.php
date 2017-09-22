@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ed6c317b96760ae486985d7125d39dbf>>
+ * @generated SignedSource<<452f183040f6552a6cf82908f9259ea1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,7 +33,7 @@ final class LiteralExpression extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'expression' => $this->_expression;
+    return dict['expression' => $this->_expression];
   }
 
   <<__Override>>

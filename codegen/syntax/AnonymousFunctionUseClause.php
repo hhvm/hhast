@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9fe504aeb304116de9b5da44f7ba8dbd>>
+ * @generated SignedSource<<135f10eee16641a5c266a499e7ebb4ff>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,10 +62,12 @@ final class AnonymousFunctionUseClause extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'keyword' => $this->_keyword;
-    yield 'left_paren' => $this->_left_paren;
-    yield 'variables' => $this->_variables;
-    yield 'right_paren' => $this->_right_paren;
+    return dict[
+      'keyword' => $this->_keyword,
+      'left_paren' => $this->_left_paren,
+      'variables' => $this->_variables,
+      'right_paren' => $this->_right_paren,
+    ];
   }
 
   <<__Override>>

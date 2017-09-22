@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0e524bd0484321b729fe30bccb12e8f9>>
+ * @generated SignedSource<<c1cb3fde1cc81d22341083cc49c72013>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,10 +62,12 @@ final class EmptyExpression extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'keyword' => $this->_keyword;
-    yield 'left_paren' => $this->_left_paren;
-    yield 'argument' => $this->_argument;
-    yield 'right_paren' => $this->_right_paren;
+    return dict[
+      'keyword' => $this->_keyword,
+      'left_paren' => $this->_left_paren,
+      'argument' => $this->_argument,
+      'right_paren' => $this->_right_paren,
+    ];
   }
 
   <<__Override>>

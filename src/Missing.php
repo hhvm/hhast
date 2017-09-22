@@ -25,7 +25,7 @@ final class Missing extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield break;
+    return dict[];
   }
 
   <<__Memoize>>

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<796b6b85325adfb6e316fc6fe1eaff6a>>
+ * @generated SignedSource<<14361bd419c5877541fb62df8ec5b785>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,14 +107,16 @@ final class AliasDeclaration extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'attribute_spec' => $this->_attribute_spec;
-    yield 'keyword' => $this->_keyword;
-    yield 'name' => $this->_name;
-    yield 'generic_parameter' => $this->_generic_parameter;
-    yield 'constraint' => $this->_constraint;
-    yield 'equal' => $this->_equal;
-    yield 'type' => $this->_type;
-    yield 'semicolon' => $this->_semicolon;
+    return dict[
+      'attribute_spec' => $this->_attribute_spec,
+      'keyword' => $this->_keyword,
+      'name' => $this->_name,
+      'generic_parameter' => $this->_generic_parameter,
+      'constraint' => $this->_constraint,
+      'equal' => $this->_equal,
+      'type' => $this->_type,
+      'semicolon' => $this->_semicolon,
+    ];
   }
 
   <<__Override>>

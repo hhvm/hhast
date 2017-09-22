@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<396f7ea57d876a1a02eb179e24b7a0af>>
+ * @generated SignedSource<<dfb5be56f0c635620ba14738116af92d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,10 +62,12 @@ final class MarkupSection extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'prefix' => $this->_prefix;
-    yield 'text' => $this->_text;
-    yield 'suffix' => $this->_suffix;
-    yield 'expression' => $this->_expression;
+    return dict[
+      'prefix' => $this->_prefix,
+      'text' => $this->_text,
+      'suffix' => $this->_suffix,
+      'expression' => $this->_expression,
+    ];
   }
 
   <<__Override>>

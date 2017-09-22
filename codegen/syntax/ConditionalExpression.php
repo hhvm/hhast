@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<74d870e8e69b8e99a6f858ee6711d9a3>>
+ * @generated SignedSource<<5755501437f02b581b2c660b3f1668c7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -71,11 +71,13 @@ final class ConditionalExpression extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'test' => $this->_test;
-    yield 'question' => $this->_question;
-    yield 'consequence' => $this->_consequence;
-    yield 'colon' => $this->_colon;
-    yield 'alternative' => $this->_alternative;
+    return dict[
+      'test' => $this->_test,
+      'question' => $this->_question,
+      'consequence' => $this->_consequence,
+      'colon' => $this->_colon,
+      'alternative' => $this->_alternative,
+    ];
   }
 
   <<__Override>>

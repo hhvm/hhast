@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e5303389c13d24bbf3ffb2606a06eba8>>
+ * @generated SignedSource<<1ec3649e81d9685b241764468d13055f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -98,13 +98,15 @@ final class DoStatement extends EditableNode
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'keyword' => $this->_keyword;
-    yield 'body' => $this->_body;
-    yield 'while_keyword' => $this->_while_keyword;
-    yield 'left_paren' => $this->_left_paren;
-    yield 'condition' => $this->_condition;
-    yield 'right_paren' => $this->_right_paren;
-    yield 'semicolon' => $this->_semicolon;
+    return dict[
+      'keyword' => $this->_keyword,
+      'body' => $this->_body,
+      'while_keyword' => $this->_while_keyword,
+      'left_paren' => $this->_left_paren,
+      'condition' => $this->_condition,
+      'right_paren' => $this->_right_paren,
+      'semicolon' => $this->_semicolon,
+    ];
   }
 
   <<__Override>>

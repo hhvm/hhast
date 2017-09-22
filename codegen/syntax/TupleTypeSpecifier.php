@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<47efe35ebfcf35da9c72d9f3b03afa22>>
+ * @generated SignedSource<<76651efa1934227f8493b37317a4da0f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,9 +53,11 @@ final class TupleTypeSpecifier extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'left_paren' => $this->_left_paren;
-    yield 'types' => $this->_types;
-    yield 'right_paren' => $this->_right_paren;
+    return dict[
+      'left_paren' => $this->_left_paren,
+      'types' => $this->_types,
+      'right_paren' => $this->_right_paren,
+    ];
   }
 
   <<__Override>>

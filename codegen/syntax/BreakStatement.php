@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d7e61d669777ce76671c67ae1a046f75>>
+ * @generated SignedSource<<4839e761891783f799fac682ab0c1d85>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,9 +53,11 @@ final class BreakStatement extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'keyword' => $this->_keyword;
-    yield 'level' => $this->_level;
-    yield 'semicolon' => $this->_semicolon;
+    return dict[
+      'keyword' => $this->_keyword,
+      'level' => $this->_level,
+      'semicolon' => $this->_semicolon,
+    ];
   }
 
   <<__Override>>

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<06a60674130edf89cd35c2a0e4f1581f>>
+ * @generated SignedSource<<c11581b1896b153a83208659181b066c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,9 +53,11 @@ final class TraitUse extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'keyword' => $this->_keyword;
-    yield 'names' => $this->_names;
-    yield 'semicolon' => $this->_semicolon;
+    return dict[
+      'keyword' => $this->_keyword,
+      'names' => $this->_names,
+      'semicolon' => $this->_semicolon,
+    ];
   }
 
   <<__Override>>

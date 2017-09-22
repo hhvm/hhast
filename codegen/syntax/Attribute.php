@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5e3583753a4de6ab9fe77f2b0b59b298>>
+ * @generated SignedSource<<a63469ef475527014157dec1c4f2b1f9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,10 +62,12 @@ final class Attribute extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'name' => $this->_name;
-    yield 'left_paren' => $this->_left_paren;
-    yield 'values' => $this->_values;
-    yield 'right_paren' => $this->_right_paren;
+    return dict[
+      'name' => $this->_name,
+      'left_paren' => $this->_left_paren,
+      'values' => $this->_values,
+      'right_paren' => $this->_right_paren,
+    ];
   }
 
   <<__Override>>

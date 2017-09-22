@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9338aa0879cb0019ab61f94110bf0bd2>>
+ * @generated SignedSource<<a5be51abd86c70920e5b6e4d098738bc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,9 +53,11 @@ final class CaseLabel extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'keyword' => $this->_keyword;
-    yield 'expression' => $this->_expression;
-    yield 'colon' => $this->_colon;
+    return dict[
+      'keyword' => $this->_keyword,
+      'expression' => $this->_expression,
+      'colon' => $this->_colon,
+    ];
   }
 
   <<__Override>>

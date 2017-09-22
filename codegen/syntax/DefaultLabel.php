@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7095b05404568faa4e78de23fc42991c>>
+ * @generated SignedSource<<7a516d9ef297fc511811b0f97c8c4803>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,8 +41,7 @@ final class DefaultLabel extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'keyword' => $this->_keyword;
-    yield 'colon' => $this->_colon;
+    return dict['keyword' => $this->_keyword, 'colon' => $this->_colon];
   }
 
   <<__Override>>

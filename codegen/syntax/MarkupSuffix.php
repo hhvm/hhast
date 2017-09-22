@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d78b32459f8a35da776a8b35da4f7ddc>>
+ * @generated SignedSource<<5e4c4e2a34818041eb60ca4b9b334d33>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -44,8 +44,10 @@ final class MarkupSuffix extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'less_than_question' => $this->_less_than_question;
-    yield 'name' => $this->_name;
+    return dict[
+      'less_than_question' => $this->_less_than_question,
+      'name' => $this->_name,
+    ];
   }
 
   <<__Override>>

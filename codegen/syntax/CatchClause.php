@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fd091aa9d460ca73cb77d26b719853ed>>
+ * @generated SignedSource<<a550b652b9898b01f9972bf1184e1093>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -81,12 +81,14 @@ final class CatchClause extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'keyword' => $this->_keyword;
-    yield 'left_paren' => $this->_left_paren;
-    yield 'type' => $this->_type;
-    yield 'variable' => $this->_variable;
-    yield 'right_paren' => $this->_right_paren;
-    yield 'body' => $this->_body;
+    return dict[
+      'keyword' => $this->_keyword,
+      'left_paren' => $this->_left_paren,
+      'type' => $this->_type,
+      'variable' => $this->_variable,
+      'right_paren' => $this->_right_paren,
+      'body' => $this->_body,
+    ];
   }
 
   <<__Override>>

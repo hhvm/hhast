@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2efe7c207b5467baa3da565407ccecda>>
+ * @generated SignedSource<<420a0f7a11aa1d8b0a51be131ca2d46a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,9 +53,11 @@ final class AwaitableCreationExpression extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'async' => $this->_async;
-    yield 'coroutine' => $this->_coroutine;
-    yield 'compound_statement' => $this->_compound_statement;
+    return dict[
+      'async' => $this->_async,
+      'coroutine' => $this->_coroutine,
+      'compound_statement' => $this->_compound_statement,
+    ];
   }
 
   <<__Override>>

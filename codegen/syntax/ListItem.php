@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<15544657eab41840f1d423ac84e7a610>>
+ * @generated SignedSource<<13e3944cefce6fa2f93c621a68fb9974>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,8 +41,7 @@ final class ListItem extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'item' => $this->_item;
-    yield 'separator' => $this->_separator;
+    return dict['item' => $this->_item, 'separator' => $this->_separator];
   }
 
   <<__Override>>

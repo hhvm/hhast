@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e7ed1b0a48a7296945b1eab1082c7d2a>>
+ * @generated SignedSource<<b8aa6c26f51e3a4a74d98f8c672b6529>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,9 +53,11 @@ final class TypeParameter extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'variance' => $this->_variance;
-    yield 'name' => $this->_name;
-    yield 'constraints' => $this->_constraints;
+    return dict[
+      'variance' => $this->_variance,
+      'name' => $this->_name,
+      'constraints' => $this->_constraints,
+    ];
   }
 
   <<__Override>>

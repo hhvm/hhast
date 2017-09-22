@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e9078df8c8f9878cbd06d768a3fd1447>>
+ * @generated SignedSource<<230572f6cbf91e447073a2636043bf5e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -127,16 +127,18 @@ final class ClassishDeclaration extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'attribute' => $this->_attribute;
-    yield 'modifiers' => $this->_modifiers;
-    yield 'keyword' => $this->_keyword;
-    yield 'name' => $this->_name;
-    yield 'type_parameters' => $this->_type_parameters;
-    yield 'extends_keyword' => $this->_extends_keyword;
-    yield 'extends_list' => $this->_extends_list;
-    yield 'implements_keyword' => $this->_implements_keyword;
-    yield 'implements_list' => $this->_implements_list;
-    yield 'body' => $this->_body;
+    return dict[
+      'attribute' => $this->_attribute,
+      'modifiers' => $this->_modifiers,
+      'keyword' => $this->_keyword,
+      'name' => $this->_name,
+      'type_parameters' => $this->_type_parameters,
+      'extends_keyword' => $this->_extends_keyword,
+      'extends_list' => $this->_extends_list,
+      'implements_keyword' => $this->_implements_keyword,
+      'implements_list' => $this->_implements_list,
+      'body' => $this->_body,
+    ];
   }
 
   <<__Override>>

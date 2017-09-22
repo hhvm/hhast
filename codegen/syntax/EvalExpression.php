@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2fc327edf9fc865c936ecc5aef7e1d11>>
+ * @generated SignedSource<<fadc032b418e115e9c59eeed5c601387>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,10 +62,12 @@ final class EvalExpression extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'keyword' => $this->_keyword;
-    yield 'left_paren' => $this->_left_paren;
-    yield 'argument' => $this->_argument;
-    yield 'right_paren' => $this->_right_paren;
+    return dict[
+      'keyword' => $this->_keyword,
+      'left_paren' => $this->_left_paren,
+      'argument' => $this->_argument,
+      'right_paren' => $this->_right_paren,
+    ];
   }
 
   <<__Override>>

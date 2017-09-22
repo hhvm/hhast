@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0928fd7ee1b35d86c573feaf21866cc1>>
+ * @generated SignedSource<<1a9bc27cb620f09ba8907ddfe7513f44>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,9 +53,11 @@ final class CompoundStatement extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'left_brace' => $this->_left_brace;
-    yield 'statements' => $this->_statements;
-    yield 'right_brace' => $this->_right_brace;
+    return dict[
+      'left_brace' => $this->_left_brace,
+      'statements' => $this->_statements,
+      'right_brace' => $this->_right_brace,
+    ];
   }
 
   <<__Override>>

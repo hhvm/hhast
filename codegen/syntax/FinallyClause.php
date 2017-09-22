@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d410ac342289f4297801889a81b99eac>>
+ * @generated SignedSource<<408999ecbbef2296a4f2b2da20adbbde>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,8 +41,7 @@ final class FinallyClause extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'keyword' => $this->_keyword;
-    yield 'body' => $this->_body;
+    return dict['keyword' => $this->_keyword, 'body' => $this->_body];
   }
 
   <<__Override>>

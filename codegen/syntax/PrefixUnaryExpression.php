@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<08ca5bc124ec45b082ded3b61b73ffa8>>
+ * @generated SignedSource<<6ecc9b89443819b04e3533cb5ffca5e1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,8 +41,7 @@ final class PrefixUnaryExpression extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'operator' => $this->_operator;
-    yield 'operand' => $this->_operand;
+    return dict['operator' => $this->_operator, 'operand' => $this->_operand];
   }
 
   <<__Override>>

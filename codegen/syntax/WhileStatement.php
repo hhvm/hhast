@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7f6c8b1437aaff87c72c4fab2193a2c5>>
+ * @generated SignedSource<<efb258caa2bf0f8a553f27fca4888f43>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -72,11 +72,13 @@ final class WhileStatement extends EditableNode
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'keyword' => $this->_keyword;
-    yield 'left_paren' => $this->_left_paren;
-    yield 'condition' => $this->_condition;
-    yield 'right_paren' => $this->_right_paren;
-    yield 'body' => $this->_body;
+    return dict[
+      'keyword' => $this->_keyword,
+      'left_paren' => $this->_left_paren,
+      'condition' => $this->_condition,
+      'right_paren' => $this->_right_paren,
+      'body' => $this->_body,
+    ];
   }
 
   <<__Override>>

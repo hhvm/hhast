@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8cca4bd3fa8124c17c7ca11097258215>>
+ * @generated SignedSource<<3046102f1c2b28421e96da892d3a9e81>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,9 +53,11 @@ final class SwitchSection extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'labels' => $this->_labels;
-    yield 'statements' => $this->_statements;
-    yield 'fallthrough' => $this->_fallthrough;
+    return dict[
+      'labels' => $this->_labels,
+      'statements' => $this->_statements,
+      'fallthrough' => $this->_fallthrough,
+    ];
   }
 
   <<__Override>>

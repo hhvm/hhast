@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d2b4e70db10c47d8e520c43848a166f9>>
+ * @generated SignedSource<<f45521f56faa96ab3a9fb417092bb13a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -72,11 +72,13 @@ final class ElseifClause extends EditableNode implements IControlFlowStatement {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'keyword' => $this->_keyword;
-    yield 'left_paren' => $this->_left_paren;
-    yield 'condition' => $this->_condition;
-    yield 'right_paren' => $this->_right_paren;
-    yield 'statement' => $this->_statement;
+    return dict[
+      'keyword' => $this->_keyword,
+      'left_paren' => $this->_left_paren,
+      'condition' => $this->_condition,
+      'right_paren' => $this->_right_paren,
+      'statement' => $this->_statement,
+    ];
   }
 
   <<__Override>>

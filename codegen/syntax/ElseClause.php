@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<902fe52a584926bc62598485fc36ec6c>>
+ * @generated SignedSource<<f121edce7af46e35590e9d2450f3d968>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,8 +41,7 @@ final class ElseClause extends EditableNode implements IControlFlowStatement {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'keyword' => $this->_keyword;
-    yield 'statement' => $this->_statement;
+    return dict['keyword' => $this->_keyword, 'statement' => $this->_statement];
   }
 
   <<__Override>>

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<de8a9f204017c3cdca03f266cfd5dc87>>
+ * @generated SignedSource<<adc96b3da1193b1c8e081ba94cd1a0be>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -44,8 +44,10 @@ final class InclusionDirective extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'expression' => $this->_expression;
-    yield 'semicolon' => $this->_semicolon;
+    return dict[
+      'expression' => $this->_expression,
+      'semicolon' => $this->_semicolon,
+    ];
   }
 
   <<__Override>>

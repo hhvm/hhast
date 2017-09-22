@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<833ccbd74e9316a37deaf916efe949ac>>
+ * @generated SignedSource<<1fb1642bea5cef308b8e667e69a8a1aa>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -71,11 +71,13 @@ final class LambdaSignature extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'left_paren' => $this->_left_paren;
-    yield 'parameters' => $this->_parameters;
-    yield 'right_paren' => $this->_right_paren;
-    yield 'colon' => $this->_colon;
-    yield 'type' => $this->_type;
+    return dict[
+      'left_paren' => $this->_left_paren,
+      'parameters' => $this->_parameters,
+      'right_paren' => $this->_right_paren,
+      'colon' => $this->_colon,
+      'type' => $this->_type,
+    ];
   }
 
   <<__Override>>

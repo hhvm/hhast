@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bb5a8067fb70231f9639658122967d13>>
+ * @generated SignedSource<<e844a15d2f85c52b268d802c6b67900a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,7 +33,7 @@ final class ErrorSyntax extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'error' => $this->_error;
+    return dict['error' => $this->_error];
   }
 
   <<__Override>>

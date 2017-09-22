@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<269da13863635222c3a1a23a799c63c2>>
+ * @generated SignedSource<<db2663665e65b77a29fa4cad0e6a3505>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -44,8 +44,10 @@ final class DecoratedExpression extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'decorator' => $this->_decorator;
-    yield 'expression' => $this->_expression;
+    return dict[
+      'decorator' => $this->_decorator,
+      'expression' => $this->_expression,
+    ];
   }
 
   <<__Override>>

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dfdaaf4a90da782b589e59f1854ca559>>
+ * @generated SignedSource<<123e2aa9005f018e63a3f42dc351774e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -72,11 +72,13 @@ final class ObjectCreationExpression extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'new_keyword' => $this->_new_keyword;
-    yield 'type' => $this->_type;
-    yield 'left_paren' => $this->_left_paren;
-    yield 'argument_list' => $this->_argument_list;
-    yield 'right_paren' => $this->_right_paren;
+    return dict[
+      'new_keyword' => $this->_new_keyword,
+      'type' => $this->_type,
+      'left_paren' => $this->_left_paren,
+      'argument_list' => $this->_argument_list,
+      'right_paren' => $this->_right_paren,
+    ];
   }
 
   <<__Override>>

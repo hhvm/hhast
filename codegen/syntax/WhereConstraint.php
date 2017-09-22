@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9a11346c874ef26e640a2eadd21dd0f8>>
+ * @generated SignedSource<<ce21cf98c164ce2b57a6e9a71439900e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,9 +53,11 @@ final class WhereConstraint extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'left_type' => $this->_left_type;
-    yield 'operator' => $this->_operator;
-    yield 'right_type' => $this->_right_type;
+    return dict[
+      'left_type' => $this->_left_type,
+      'operator' => $this->_operator,
+      'right_type' => $this->_right_type,
+    ];
   }
 
   <<__Override>>

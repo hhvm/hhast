@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c453b34f7401b76c35d1074fd238fe14>>
+ * @generated SignedSource<<51dab85aa3bcbff75c65ed362454b25c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,9 +53,11 @@ final class NamespaceBody extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'left_brace' => $this->_left_brace;
-    yield 'declarations' => $this->_declarations;
-    yield 'right_brace' => $this->_right_brace;
+    return dict[
+      'left_brace' => $this->_left_brace,
+      'declarations' => $this->_declarations,
+      'right_brace' => $this->_right_brace,
+    ];
   }
 
   <<__Override>>

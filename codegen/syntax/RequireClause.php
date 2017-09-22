@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5053de67870ad0c09ad8cd936219c756>>
+ * @generated SignedSource<<b69caba561330fa2e4e110ced1882baa>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,10 +62,12 @@ final class RequireClause extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'keyword' => $this->_keyword;
-    yield 'kind' => $this->_kind;
-    yield 'name' => $this->_name;
-    yield 'semicolon' => $this->_semicolon;
+    return dict[
+      'keyword' => $this->_keyword,
+      'kind' => $this->_kind,
+      'name' => $this->_name,
+      'semicolon' => $this->_semicolon,
+    ];
   }
 
   <<__Override>>

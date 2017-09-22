@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6554ddda66aeebc9270c08121e87dd3c>>
+ * @generated SignedSource<<c04bb84ab2ea4284182767f8914f7da3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,9 +53,11 @@ final class BracedExpression extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'left_brace' => $this->_left_brace;
-    yield 'expression' => $this->_expression;
-    yield 'right_brace' => $this->_right_brace;
+    return dict[
+      'left_brace' => $this->_left_brace,
+      'expression' => $this->_expression,
+      'right_brace' => $this->_right_brace,
+    ];
   }
 
   <<__Override>>

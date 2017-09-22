@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1b6359f41a356d13bba195043de155dc>>
+ * @generated SignedSource<<a68eb569bf7a01ec52b651a31c32480f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -54,9 +54,11 @@ final class FunctionDeclaration extends EditableNode
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'attribute_spec' => $this->_attribute_spec;
-    yield 'declaration_header' => $this->_declaration_header;
-    yield 'body' => $this->_body;
+    return dict[
+      'attribute_spec' => $this->_attribute_spec,
+      'declaration_header' => $this->_declaration_header,
+      'body' => $this->_body,
+    ];
   }
 
   <<__Override>>

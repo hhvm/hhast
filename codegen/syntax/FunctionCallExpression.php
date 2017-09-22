@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<db42ef156bdd85ebafd7ad27ac326930>>
+ * @generated SignedSource<<107f1c12c3dc8a716fc7d9fd9e7545e4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,10 +62,12 @@ final class FunctionCallExpression extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'receiver' => $this->_receiver;
-    yield 'left_paren' => $this->_left_paren;
-    yield 'argument_list' => $this->_argument_list;
-    yield 'right_paren' => $this->_right_paren;
+    return dict[
+      'receiver' => $this->_receiver,
+      'left_paren' => $this->_left_paren,
+      'argument_list' => $this->_argument_list,
+      'right_paren' => $this->_right_paren,
+    ];
   }
 
   <<__Override>>

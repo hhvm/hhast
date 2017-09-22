@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<135c21dd25d5c6c4e3e357827a47fa94>>
+ * @generated SignedSource<<255e3b6675aefb78acbd2943a85ee49c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,8 +41,7 @@ final class SwitchFallthrough extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'keyword' => $this->_keyword;
-    yield 'semicolon' => $this->_semicolon;
+    return dict['keyword' => $this->_keyword, 'semicolon' => $this->_semicolon];
   }
 
   <<__Override>>

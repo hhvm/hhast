@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8bf651fb9afebbb4a9dfed2765307c27>>
+ * @generated SignedSource<<097f8b4a48580b7617b688669774f424>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,8 +41,7 @@ final class TypeConstraint extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'keyword' => $this->_keyword;
-    yield 'type' => $this->_type;
+    return dict['keyword' => $this->_keyword, 'type' => $this->_type];
   }
 
   <<__Override>>

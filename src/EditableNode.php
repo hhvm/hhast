@@ -35,39 +35,41 @@ abstract class EditableNode {
   final public function getChildrenOfType<T as EditableNode>(
     classname<T> $what,
   ): KeyedTraversable<string, T> {
+    $out = dict[];
     foreach ($this->getChildren() as $k => $node) {
       if ($node instanceof $what) {
-        yield $k => $node;
+        $out[$k] = $node;
       }
     }
+    return $out;
   }
 
   public function traverse(): Traversable<EditableNode> {
-    yield $this;
+    $out = vec[$this];
     foreach ($this->getChildren() as $child) {
       foreach ($child->traverse() as $descendant) {
-        yield $descendant;
+        $out[] = $descendant;
       }
     }
+    return $out;
   }
 
   private function traverseImpl(
-    Traversable<EditableNode> $parents,
-  ): KeyedTraversable<EditableNode, Traversable<EditableNode>> {
+    vec<EditableNode> $parents,
+  ): Traversable<(EditableNode, vec<EditableNode>)> {
     $new_parents = vec($parents);
     $new_parents[] = $this;
-    yield $this => $parents;
+    $out = vec[tuple($this, $parents)];
     foreach ($this->getChildren() as $child) {
-      foreach (
-        $child->traverseImpl($new_parents) as $child => $child_parents
-      ) {
-        yield $child => $child_parents;
+      foreach ($child->traverseImpl($new_parents) as list($child, $child_parents)) {
+        $out[] = tuple($child, $child_parents);
       }
     }
+    return $out;
   }
 
   public function traverseWithParents(
-  ): KeyedTraversable<EditableNode, Traversable<EditableNode>> {
+  ): Traversable<(EditableNode, vec<EditableNode>)> {
     return $this->traverseImpl(vec[]);
   }
 
@@ -147,7 +149,7 @@ abstract class EditableNode {
     (function(EditableNode, Traversable<EditableNode>):bool) $filter,
   ): vec<EditableNode> {
     $out = vec[];
-    foreach ($this->traverseWithParents() as $node => $parents) {
+    foreach ($this->traverseWithParents() as list($node, $parents)) {
       if ($filter($node, $parents)) {
         $out[] = $node;
       }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6b2c80e8c714676e092850016329e889>>
+ * @generated SignedSource<<353da51de0acae239c4f06b964c894f6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,10 +62,12 @@ final class XHPClassAttribute extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'type' => $this->_type;
-    yield 'name' => $this->_name;
-    yield 'initializer' => $this->_initializer;
-    yield 'required' => $this->_required;
+    return dict[
+      'type' => $this->_type,
+      'name' => $this->_name,
+      'initializer' => $this->_initializer,
+      'required' => $this->_required,
+    ];
   }
 
   <<__Override>>

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c506f57c2f3740cbfba488e3bb080aba>>
+ * @generated SignedSource<<8c8cfcf3ad3986ab7d7f202776d93d24>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,9 +53,11 @@ final class FieldInitializer extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'name' => $this->_name;
-    yield 'arrow' => $this->_arrow;
-    yield 'value' => $this->_value;
+    return dict[
+      'name' => $this->_name,
+      'arrow' => $this->_arrow,
+      'value' => $this->_value,
+    ];
   }
 
   <<__Override>>

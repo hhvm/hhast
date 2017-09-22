@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<be81f1d312ab44cb95ce660abb98c3ff>>
+ * @generated SignedSource<<8c80fe9e7a782451462160d92a96a683>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,10 +62,12 @@ final class XHPEnumType extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'keyword' => $this->_keyword;
-    yield 'left_brace' => $this->_left_brace;
-    yield 'values' => $this->_values;
-    yield 'right_brace' => $this->_right_brace;
+    return dict[
+      'keyword' => $this->_keyword,
+      'left_brace' => $this->_left_brace,
+      'values' => $this->_values,
+      'right_brace' => $this->_right_brace,
+    ];
   }
 
   <<__Override>>

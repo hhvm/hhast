@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4e71097c66b79956e6e1e4d61b44a8aa>>
+ * @generated SignedSource<<65cfc7f5ace583f1c8458cbee14352e7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,9 +53,11 @@ final class XHPCategoryDeclaration extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'keyword' => $this->_keyword;
-    yield 'categories' => $this->_categories;
-    yield 'semicolon' => $this->_semicolon;
+    return dict[
+      'keyword' => $this->_keyword,
+      'categories' => $this->_categories,
+      'semicolon' => $this->_semicolon,
+    ];
   }
 
   <<__Override>>

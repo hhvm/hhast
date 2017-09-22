@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d59709937ba3c0b11c0c5e91e4140e7f>>
+ * @generated SignedSource<<720fd6b8525e658eedfec05ebb7d8481>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,8 +41,7 @@ final class ConstantDeclarator extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'name' => $this->_name;
-    yield 'initializer' => $this->_initializer;
+    return dict['name' => $this->_name, 'initializer' => $this->_initializer];
   }
 
   <<__Override>>

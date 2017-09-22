@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<03d0b665bac1eacde339e193b399a064>>
+ * @generated SignedSource<<e6783ed5ce17e0a31604a2e5ee2b5ff7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,7 +33,7 @@ final class SimpleTypeSpecifier extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'specifier' => $this->_specifier;
+    return dict['specifier' => $this->_specifier];
   }
 
   <<__Override>>

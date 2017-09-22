@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0f380bfdcf8ba5fcc2dbd084381be3e4>>
+ * @generated SignedSource<<04a3ae0497b30e978b5182556dbe5da4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,9 +53,11 @@ final class GlobalStatement extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'keyword' => $this->_keyword;
-    yield 'variables' => $this->_variables;
-    yield 'semicolon' => $this->_semicolon;
+    return dict[
+      'keyword' => $this->_keyword,
+      'variables' => $this->_variables,
+      'semicolon' => $this->_semicolon,
+    ];
   }
 
   <<__Override>>

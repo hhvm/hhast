@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3777eabb6faa19afa45b8f18b7cf14b8>>
+ * @generated SignedSource<<b8a378d2e0bbc13abbc3383ab8bbd1df>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,10 +62,12 @@ final class VectorIntrinsicExpression extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'keyword' => $this->_keyword;
-    yield 'left_bracket' => $this->_left_bracket;
-    yield 'members' => $this->_members;
-    yield 'right_bracket' => $this->_right_bracket;
+    return dict[
+      'keyword' => $this->_keyword,
+      'left_bracket' => $this->_left_bracket,
+      'members' => $this->_members,
+      'right_bracket' => $this->_right_bracket,
+    ];
   }
 
   <<__Override>>

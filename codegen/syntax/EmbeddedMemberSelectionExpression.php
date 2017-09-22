@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6dc0611811686d78f72793d4897ab811>>
+ * @generated SignedSource<<0d6bd0955fd6eac94b55669bf4f07650>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,9 +53,11 @@ final class EmbeddedMemberSelectionExpression extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'object' => $this->_object;
-    yield 'operator' => $this->_operator;
-    yield 'name' => $this->_name;
+    return dict[
+      'object' => $this->_object,
+      'operator' => $this->_operator,
+      'name' => $this->_name,
+    ];
   }
 
   <<__Override>>

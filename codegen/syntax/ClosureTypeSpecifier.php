@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<101db37a5967971128c61d3d5762bb4d>>
+ * @generated SignedSource<<cfa50e8c5abf64452c038fc8dac566db>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -117,15 +117,17 @@ final class ClosureTypeSpecifier extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'outer_left_paren' => $this->_outer_left_paren;
-    yield 'coroutine' => $this->_coroutine;
-    yield 'function_keyword' => $this->_function_keyword;
-    yield 'inner_left_paren' => $this->_inner_left_paren;
-    yield 'parameter_types' => $this->_parameter_types;
-    yield 'inner_right_paren' => $this->_inner_right_paren;
-    yield 'colon' => $this->_colon;
-    yield 'return_type' => $this->_return_type;
-    yield 'outer_right_paren' => $this->_outer_right_paren;
+    return dict[
+      'outer_left_paren' => $this->_outer_left_paren,
+      'coroutine' => $this->_coroutine,
+      'function_keyword' => $this->_function_keyword,
+      'inner_left_paren' => $this->_inner_left_paren,
+      'parameter_types' => $this->_parameter_types,
+      'inner_right_paren' => $this->_inner_right_paren,
+      'colon' => $this->_colon,
+      'return_type' => $this->_return_type,
+      'outer_right_paren' => $this->_outer_right_paren,
+    ];
   }
 
   <<__Override>>

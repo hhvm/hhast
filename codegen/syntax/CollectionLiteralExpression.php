@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dd74edbb59499b4a00e2191927ff2a5c>>
+ * @generated SignedSource<<2a70a09aead8058c7769e3eac4c15f3c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,10 +62,12 @@ final class CollectionLiteralExpression extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'name' => $this->_name;
-    yield 'left_brace' => $this->_left_brace;
-    yield 'initializers' => $this->_initializers;
-    yield 'right_brace' => $this->_right_brace;
+    return dict[
+      'name' => $this->_name,
+      'left_brace' => $this->_left_brace,
+      'initializers' => $this->_initializers,
+      'right_brace' => $this->_right_brace,
+    ];
   }
 
   <<__Override>>

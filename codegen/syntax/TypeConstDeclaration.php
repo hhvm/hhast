@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<03391d37ce838c7b2d32e4988637c477>>
+ * @generated SignedSource<<6ddf2feba5a66597566a8ab956cd91d3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,14 +107,16 @@ final class TypeConstDeclaration extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'abstract' => $this->_abstract;
-    yield 'keyword' => $this->_keyword;
-    yield 'type_keyword' => $this->_type_keyword;
-    yield 'name' => $this->_name;
-    yield 'type_constraint' => $this->_type_constraint;
-    yield 'equal' => $this->_equal;
-    yield 'type_specifier' => $this->_type_specifier;
-    yield 'semicolon' => $this->_semicolon;
+    return dict[
+      'abstract' => $this->_abstract,
+      'keyword' => $this->_keyword,
+      'type_keyword' => $this->_type_keyword,
+      'name' => $this->_name,
+      'type_constraint' => $this->_type_constraint,
+      'equal' => $this->_equal,
+      'type_specifier' => $this->_type_specifier,
+      'semicolon' => $this->_semicolon,
+    ];
   }
 
   <<__Override>>

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<819019fd65faf3bf3cf6c866e43708b0>>
+ * @generated SignedSource<<7138674a24a135197a96ec392ced23a2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,9 +53,11 @@ final class ParenthesizedExpression extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'left_paren' => $this->_left_paren;
-    yield 'expression' => $this->_expression;
-    yield 'right_paren' => $this->_right_paren;
+    return dict[
+      'left_paren' => $this->_left_paren,
+      'expression' => $this->_expression,
+      'right_paren' => $this->_right_paren,
+    ];
   }
 
   <<__Override>>

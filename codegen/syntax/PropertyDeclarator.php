@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<32250268fc120bbcd69d5f8586009099>>
+ * @generated SignedSource<<20b0820417d1ec4b56c1776e7dcf4b20>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,8 +41,7 @@ final class PropertyDeclarator extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'name' => $this->_name;
-    yield 'initializer' => $this->_initializer;
+    return dict['name' => $this->_name, 'initializer' => $this->_initializer];
   }
 
   <<__Override>>

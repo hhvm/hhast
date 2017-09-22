@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b9bf7a6db6b63d680ea08c27c2131e52>>
+ * @generated SignedSource<<3ef9282909e45ce293c0a38d9b6f13ea>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,10 +62,12 @@ final class CastExpression extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'left_paren' => $this->_left_paren;
-    yield 'type' => $this->_type;
-    yield 'right_paren' => $this->_right_paren;
-    yield 'operand' => $this->_operand;
+    return dict[
+      'left_paren' => $this->_left_paren,
+      'type' => $this->_type,
+      'right_paren' => $this->_right_paren,
+      'operand' => $this->_operand,
+    ];
   }
 
   <<__Override>>

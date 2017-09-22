@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<79ee0f987119c3a19fbbca217a3d7566>>
+ * @generated SignedSource<<a5c893858ab047f318b93b298387c7b4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -71,11 +71,13 @@ final class ParameterDeclaration extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'attribute' => $this->_attribute;
-    yield 'visibility' => $this->_visibility;
-    yield 'type' => $this->_type;
-    yield 'name' => $this->_name;
-    yield 'default_value' => $this->_default_value;
+    return dict[
+      'attribute' => $this->_attribute,
+      'visibility' => $this->_visibility,
+      'type' => $this->_type,
+      'name' => $this->_name,
+      'default_value' => $this->_default_value,
+    ];
   }
 
   <<__Override>>

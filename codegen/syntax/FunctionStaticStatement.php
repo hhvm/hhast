@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<027f8dc5eaee0224fcdd0aa4cc4459e7>>
+ * @generated SignedSource<<5845e23fefe6be35e04cfd7d33203225>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,9 +53,11 @@ final class FunctionStaticStatement extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'static_keyword' => $this->_static_keyword;
-    yield 'declarations' => $this->_declarations;
-    yield 'semicolon' => $this->_semicolon;
+    return dict[
+      'static_keyword' => $this->_static_keyword,
+      'declarations' => $this->_declarations,
+      'semicolon' => $this->_semicolon,
+    ];
   }
 
   <<__Override>>

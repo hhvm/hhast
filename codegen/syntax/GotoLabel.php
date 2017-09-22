@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<90f5d177bd5b57ca53b71df05458bd81>>
+ * @generated SignedSource<<7a31c19cb43eb7436b17e54016a4ce2d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,8 +41,7 @@ final class GotoLabel extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'name' => $this->_name;
-    yield 'colon' => $this->_colon;
+    return dict['name' => $this->_name, 'colon' => $this->_colon];
   }
 
   <<__Override>>

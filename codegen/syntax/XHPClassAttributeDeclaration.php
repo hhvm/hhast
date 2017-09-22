@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<617afc81bf376f4008117ea8a3daa6dd>>
+ * @generated SignedSource<<0f1e3f101cec6e8a4430372fe12e6301>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,9 +53,11 @@ final class XHPClassAttributeDeclaration extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'keyword' => $this->_keyword;
-    yield 'attributes' => $this->_attributes;
-    yield 'semicolon' => $this->_semicolon;
+    return dict[
+      'keyword' => $this->_keyword,
+      'attributes' => $this->_attributes,
+      'semicolon' => $this->_semicolon,
+    ];
   }
 
   <<__Override>>

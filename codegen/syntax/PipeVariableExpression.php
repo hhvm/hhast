@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1678b9a01c6f95fd3b27642dabca9348>>
+ * @generated SignedSource<<886379e4d8a5293a48510cbb366a4ec0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,7 +33,7 @@ final class PipeVariableExpression extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'expression' => $this->_expression;
+    return dict['expression' => $this->_expression];
   }
 
   <<__Override>>

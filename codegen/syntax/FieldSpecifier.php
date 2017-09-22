@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b7ce4449f87be9e9d5ba7c7ff3d2b3d7>>
+ * @generated SignedSource<<80d9b09b44f3be9821743505de084004>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,10 +62,12 @@ final class FieldSpecifier extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'question' => $this->_question;
-    yield 'name' => $this->_name;
-    yield 'arrow' => $this->_arrow;
-    yield 'type' => $this->_type;
+    return dict[
+      'question' => $this->_question,
+      'name' => $this->_name,
+      'arrow' => $this->_arrow,
+      'type' => $this->_type,
+    ];
   }
 
   <<__Override>>

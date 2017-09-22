@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<244f680fb3f0adfff09a17e5268d1737>>
+ * @generated SignedSource<<8a7d64e67c686dc9dc282b145d1e5f02>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -44,8 +44,10 @@ final class ExpressionStatement extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'expression' => $this->_expression;
-    yield 'semicolon' => $this->_semicolon;
+    return dict[
+      'expression' => $this->_expression,
+      'semicolon' => $this->_semicolon,
+    ];
   }
 
   <<__Override>>

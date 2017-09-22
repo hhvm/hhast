@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<64611a745289c18b7cfd020773dca2e2>>
+ * @generated SignedSource<<4d68e88533f8239edf51671ae611dcc9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,8 +41,7 @@ final class PostfixUnaryExpression extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'operand' => $this->_operand;
-    yield 'operator' => $this->_operator;
+    return dict['operand' => $this->_operand, 'operator' => $this->_operator];
   }
 
   <<__Override>>

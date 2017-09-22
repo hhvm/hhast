@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f26439ea0081c381c7c9a9f0c16c6471>>
+ * @generated SignedSource<<d73f5c54c6bece0411f126c753fc01ab>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,9 +53,11 @@ final class ScopeResolutionExpression extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'qualifier' => $this->_qualifier;
-    yield 'operator' => $this->_operator;
-    yield 'name' => $this->_name;
+    return dict[
+      'qualifier' => $this->_qualifier,
+      'operator' => $this->_operator,
+      'name' => $this->_name,
+    ];
   }
 
   <<__Override>>

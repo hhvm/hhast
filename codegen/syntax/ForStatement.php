@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8cfc64fa4e0af88d3cc502da47d8b1ab>>
+ * @generated SignedSource<<94040c8d91017b58621e259472caa187>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -118,15 +118,17 @@ final class ForStatement extends EditableNode
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'keyword' => $this->_keyword;
-    yield 'left_paren' => $this->_left_paren;
-    yield 'initializer' => $this->_initializer;
-    yield 'first_semicolon' => $this->_first_semicolon;
-    yield 'control' => $this->_control;
-    yield 'second_semicolon' => $this->_second_semicolon;
-    yield 'end_of_loop' => $this->_end_of_loop;
-    yield 'right_paren' => $this->_right_paren;
-    yield 'body' => $this->_body;
+    return dict[
+      'keyword' => $this->_keyword,
+      'left_paren' => $this->_left_paren,
+      'initializer' => $this->_initializer,
+      'first_semicolon' => $this->_first_semicolon,
+      'control' => $this->_control,
+      'second_semicolon' => $this->_second_semicolon,
+      'end_of_loop' => $this->_end_of_loop,
+      'right_paren' => $this->_right_paren,
+      'body' => $this->_body,
+    ];
   }
 
   <<__Override>>

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e1d790d1a9fd14baeec783e7dd118a36>>
+ * @generated SignedSource<<e0ea53e010321b5141f55ee2a116baec>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -71,11 +71,13 @@ final class ShapeTypeSpecifier extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'keyword' => $this->_keyword;
-    yield 'left_paren' => $this->_left_paren;
-    yield 'fields' => $this->_fields;
-    yield 'ellipsis' => $this->_ellipsis;
-    yield 'right_paren' => $this->_right_paren;
+    return dict[
+      'keyword' => $this->_keyword,
+      'left_paren' => $this->_left_paren,
+      'fields' => $this->_fields,
+      'ellipsis' => $this->_ellipsis,
+      'right_paren' => $this->_right_paren,
+    ];
   }
 
   <<__Override>>

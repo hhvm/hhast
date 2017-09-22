@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8b89da57712c93575b6ad7e9d7a26e45>>
+ * @generated SignedSource<<8d275bdf469eeb087530e3068595bac0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,10 +62,12 @@ final class XHPOpen extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'left_angle' => $this->_left_angle;
-    yield 'name' => $this->_name;
-    yield 'attributes' => $this->_attributes;
-    yield 'right_angle' => $this->_right_angle;
+    return dict[
+      'left_angle' => $this->_left_angle,
+      'name' => $this->_name,
+      'attributes' => $this->_attributes,
+      'right_angle' => $this->_right_angle,
+    ];
   }
 
   <<__Override>>

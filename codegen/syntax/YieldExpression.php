@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<40fc163c5046ccdf919886282fc16026>>
+ * @generated SignedSource<<9d069e5069730ce8e93ee4d2fcb175e8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,8 +41,7 @@ final class YieldExpression extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'keyword' => $this->_keyword;
-    yield 'operand' => $this->_operand;
+    return dict['keyword' => $this->_keyword, 'operand' => $this->_operand];
   }
 
   <<__Override>>

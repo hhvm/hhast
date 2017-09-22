@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0040b2826afa90b19b077c3424981417>>
+ * @generated SignedSource<<0cabd83953abb98f44de42455b66473b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -137,17 +137,19 @@ final class AnonymousFunction extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'static_keyword' => $this->_static_keyword;
-    yield 'async_keyword' => $this->_async_keyword;
-    yield 'coroutine_keyword' => $this->_coroutine_keyword;
-    yield 'function_keyword' => $this->_function_keyword;
-    yield 'left_paren' => $this->_left_paren;
-    yield 'parameters' => $this->_parameters;
-    yield 'right_paren' => $this->_right_paren;
-    yield 'colon' => $this->_colon;
-    yield 'type' => $this->_type;
-    yield 'use' => $this->_use;
-    yield 'body' => $this->_body;
+    return dict[
+      'static_keyword' => $this->_static_keyword,
+      'async_keyword' => $this->_async_keyword,
+      'coroutine_keyword' => $this->_coroutine_keyword,
+      'function_keyword' => $this->_function_keyword,
+      'left_paren' => $this->_left_paren,
+      'parameters' => $this->_parameters,
+      'right_paren' => $this->_right_paren,
+      'colon' => $this->_colon,
+      'type' => $this->_type,
+      'use' => $this->_use,
+      'body' => $this->_body,
+    ];
   }
 
   <<__Override>>

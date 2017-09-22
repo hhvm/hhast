@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<63029150780c4c4b5a65f56167f09f42>>
+ * @generated SignedSource<<18109df82bf6eacfca0c96d1ae2c8afb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -71,11 +71,13 @@ final class TraitUseConflictResolution extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'keyword' => $this->_keyword;
-    yield 'names' => $this->_names;
-    yield 'left_brace' => $this->_left_brace;
-    yield 'clauses' => $this->_clauses;
-    yield 'right_brace' => $this->_right_brace;
+    return dict[
+      'keyword' => $this->_keyword,
+      'names' => $this->_names,
+      'left_brace' => $this->_left_brace,
+      'clauses' => $this->_clauses,
+      'right_brace' => $this->_right_brace,
+    ];
   }
 
   <<__Override>>

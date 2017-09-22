@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<923912ac1963a2178a349cd58d57533d>>
+ * @generated SignedSource<<fe42ff99b7a7da9e8f488889ee712b86>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,7 +33,7 @@ final class VariadicParameter extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'ellipsis' => $this->_ellipsis;
+    return dict['ellipsis' => $this->_ellipsis];
   }
 
   <<__Override>>

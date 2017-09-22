@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2f24e4b3edf1a7365fb14feabddb2a26>>
+ * @generated SignedSource<<0d18cb87bfea3496b361006015a44b40>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -128,16 +128,18 @@ final class ForeachStatement extends EditableNode
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'keyword' => $this->_keyword;
-    yield 'left_paren' => $this->_left_paren;
-    yield 'collection' => $this->_collection;
-    yield 'await_keyword' => $this->_await_keyword;
-    yield 'as' => $this->_as;
-    yield 'key' => $this->_key;
-    yield 'arrow' => $this->_arrow;
-    yield 'value' => $this->_value;
-    yield 'right_paren' => $this->_right_paren;
-    yield 'body' => $this->_body;
+    return dict[
+      'keyword' => $this->_keyword,
+      'left_paren' => $this->_left_paren,
+      'collection' => $this->_collection,
+      'await_keyword' => $this->_await_keyword,
+      'as' => $this->_as,
+      'key' => $this->_key,
+      'arrow' => $this->_arrow,
+      'value' => $this->_value,
+      'right_paren' => $this->_right_paren,
+      'body' => $this->_body,
+    ];
   }
 
   <<__Override>>

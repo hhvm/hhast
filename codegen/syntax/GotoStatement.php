@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<35465b9c9c7e9e9d0af4c15aa3fd88b9>>
+ * @generated SignedSource<<841abdcc8b34a326d5a0becdb78478af>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,9 +53,11 @@ final class GotoStatement extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'keyword' => $this->_keyword;
-    yield 'label_name' => $this->_label_name;
-    yield 'semicolon' => $this->_semicolon;
+    return dict[
+      'keyword' => $this->_keyword,
+      'label_name' => $this->_label_name,
+      'semicolon' => $this->_semicolon,
+    ];
   }
 
   <<__Override>>

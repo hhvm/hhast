@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<384f36da78c530cb9b2b9483d1425132>>
+ * @generated SignedSource<<e653ed6dd62a459af30849aafe2805c7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -117,15 +117,17 @@ final class EnumDeclaration extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'attribute_spec' => $this->_attribute_spec;
-    yield 'keyword' => $this->_keyword;
-    yield 'name' => $this->_name;
-    yield 'colon' => $this->_colon;
-    yield 'base' => $this->_base;
-    yield 'type' => $this->_type;
-    yield 'left_brace' => $this->_left_brace;
-    yield 'enumerators' => $this->_enumerators;
-    yield 'right_brace' => $this->_right_brace;
+    return dict[
+      'attribute_spec' => $this->_attribute_spec,
+      'keyword' => $this->_keyword,
+      'name' => $this->_name,
+      'colon' => $this->_colon,
+      'base' => $this->_base,
+      'type' => $this->_type,
+      'left_brace' => $this->_left_brace,
+      'enumerators' => $this->_enumerators,
+      'right_brace' => $this->_right_brace,
+    ];
   }
 
   <<__Override>>

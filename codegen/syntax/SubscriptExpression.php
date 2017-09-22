@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a7cb0386d564f53e06c2abf7c99da349>>
+ * @generated SignedSource<<28078bf1283b6ff858f81482bc24073b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,10 +62,12 @@ final class SubscriptExpression extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'receiver' => $this->_receiver;
-    yield 'left_bracket' => $this->_left_bracket;
-    yield 'index' => $this->_index;
-    yield 'right_bracket' => $this->_right_bracket;
+    return dict[
+      'receiver' => $this->_receiver,
+      'left_bracket' => $this->_left_bracket,
+      'index' => $this->_index,
+      'right_bracket' => $this->_right_bracket,
+    ];
   }
 
   <<__Override>>

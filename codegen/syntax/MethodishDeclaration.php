@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<204f13bb46dabcbc16f939b74167a1ed>>
+ * @generated SignedSource<<bdc8646419e4034c379f67f0256fae10>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -78,11 +78,13 @@ final class MethodishDeclaration extends EditableNode
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'attribute' => $this->_attribute;
-    yield 'modifiers' => $this->_modifiers;
-    yield 'function_decl_header' => $this->_function_decl_header;
-    yield 'function_body' => $this->_function_body;
-    yield 'semicolon' => $this->_semicolon;
+    return dict[
+      'attribute' => $this->_attribute,
+      'modifiers' => $this->_modifiers,
+      'function_decl_header' => $this->_function_decl_header,
+      'function_body' => $this->_function_body,
+      'semicolon' => $this->_semicolon,
+    ];
   }
 
   <<__Override>>

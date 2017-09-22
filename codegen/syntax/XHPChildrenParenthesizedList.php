@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9986eb77b998320a30a1d0f4b7307263>>
+ * @generated SignedSource<<02deb69e0f4db283aabfdf25cd7d1088>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,9 +53,11 @@ final class XHPChildrenParenthesizedList extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'left_paren' => $this->_left_paren;
-    yield 'xhp_children' => $this->_xhp_children;
-    yield 'right_paren' => $this->_right_paren;
+    return dict[
+      'left_paren' => $this->_left_paren,
+      'xhp_children' => $this->_xhp_children,
+      'right_paren' => $this->_right_paren,
+    ];
   }
 
   <<__Override>>

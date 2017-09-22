@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ab89339234be2db43f42951dbfb66163>>
+ * @generated SignedSource<<ab9b6d955d8ff11df4723b873825710b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,8 +41,7 @@ final class NullableTypeSpecifier extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'question' => $this->_question;
-    yield 'type' => $this->_type;
+    return dict['question' => $this->_question, 'type' => $this->_type];
   }
 
   <<__Override>>

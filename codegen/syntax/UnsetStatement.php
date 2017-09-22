@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1edd0873c836ae19eca82de94515bcd1>>
+ * @generated SignedSource<<4e32f394b4ff6019a034af89e60131fa>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -72,11 +72,13 @@ final class UnsetStatement extends EditableNode {
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    yield 'keyword' => $this->_keyword;
-    yield 'left_paren' => $this->_left_paren;
-    yield 'variables' => $this->_variables;
-    yield 'right_paren' => $this->_right_paren;
-    yield 'semicolon' => $this->_semicolon;
+    return dict[
+      'keyword' => $this->_keyword,
+      'left_paren' => $this->_left_paren,
+      'variables' => $this->_variables,
+      'right_paren' => $this->_right_paren,
+      'semicolon' => $this->_semicolon,
+    ];
   }
 
   <<__Override>>
