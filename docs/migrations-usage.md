@@ -20,3 +20,9 @@ Options:
   -h, --help
 	display this text and exit
 ```
+
+Run `hhast-migrate` specifying the migrations you want to run, and the paths to apply it to; for example:
+
+```
+$ bin/hhast-migrate --hhvm-3.22-to-3.23 ~/code/myproject/src/
+```
