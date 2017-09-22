@@ -38,5 +38,10 @@ trait AutoFixingLinterTestTrait<Terror as Linters\FixableLintError> {
       $fixture.'.autofix.expect',
       $fixture.'.in',
     );
+
+    $linter = $this->getLinter(
+      __DIR__.'/fixtures/'.$fixture.'.autofix.expect'
+    );
+    expect(vec($linter->getLintErrors()))->toBeSame(vec[]);
   }
 }
