@@ -1,4 +1,4 @@
-# HHAST: Using Linters In Your Project
+# HHAST: Linters
 
 ## Quick Start
 

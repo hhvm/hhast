@@ -19,11 +19,11 @@ use type Facebook\HHAST\Migrations\{
   OptionalShapeFieldsMigration
 };
 
-final class MigrationCLI extends CLIWithRequiredArguments {
-  private keyset<classname<BaseMigration>> $migrations = keyset[];
+class MigrationCLI extends CLIWithRequiredArguments {
+  protected keyset<classname<BaseMigration>> $migrations = keyset[];
 
   <<__Override>>
-  public static function getHelpTextForRequiredArguments(): vec<string> {
+  final public static function getHelpTextForRequiredArguments(): vec<string> {
     return vec['PATH'];
   }
 
@@ -51,7 +51,7 @@ final class MigrationCLI extends CLIWithRequiredArguments {
     ];
   }
 
-  private function migrateFile(
+  final private function migrateFile(
     string $file,
   ): void {
     $ast = ast_from_file($file);
@@ -61,7 +61,7 @@ final class MigrationCLI extends CLIWithRequiredArguments {
     file_put_contents($file, $ast->getCode());
   }
 
-  private function migrateDirectory(
+  final private function migrateDirectory(
     string $directory,
   ): void {
     $it = new \RecursiveIteratorIterator(
@@ -75,7 +75,6 @@ final class MigrationCLI extends CLIWithRequiredArguments {
     }
   }
 
-  <<__Override>>
   public async function mainAsync(): Awaitable<int> {
     if (C\is_empty($this->migrations)) {
       fprintf(STDERR, "You must specify at least one migration!\n\n");

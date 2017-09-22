@@ -31,6 +31,8 @@ Linters can be used both interactively, or unattended. Autofixing is not support
 
 ## Migrations
 
+[user documentation](docs/migrations-usage.md)
+
 ![screenshot of a migration](docs/migrations.png)
 
 Migrations are for sweeping changes you want to apply across your entire codebase, and are often more complex. Taking this into account, the migration framework has built-in support for multi-step migrations (unlike linters). AST-aware migrations can be a powerful tool for:
