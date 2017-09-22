@@ -1,4 +1,6 @@
 {
+    "name": "hhvm/hhast",
+    "bin": [ "bin/hhast-lint" ],
     "require-dev": {
         "facebook/hack-codegen": "dev-master",
         "phpunit/phpunit": "^5.7",
