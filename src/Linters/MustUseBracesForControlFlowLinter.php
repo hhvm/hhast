@@ -149,25 +149,25 @@ class MustUseBracesForControlFlowLinter
     }
     return $node
       ->replace(
+      $body,
         new CompoundStatement(
           new LeftBraceToken(
             new WhiteSpace(' '),
             $last_token->getTrailingWhitespace(),
           ),
           $body->replace(
-            $body->getLastTokenx()->withTrailing($body_trailing),
             $body->getLastTokenx(),
+            $body->getLastTokenx()->withTrailing($body_trailing),
           ),
           new RightBraceToken(
             $right_brace_leading,
             $body->getLastTokenx()->getTrailingWhitespace(),
           ),
         ),
-        $body,
       )
       ->replace(
-        $last_token->withTrailing(HHAST\Missing()),
         $last_token,
+        $last_token->withTrailing(HHAST\Missing()),
       );
   }
 
@@ -178,7 +178,7 @@ class MustUseBracesForControlFlowLinter
   ): string {
     $token = $node->getFirstTokenx();
     return $node
-      ->replace($token->withLeading($token->getLeadingWhitespace()), $token)
+      ->replace($token, $token->withLeading($token->getLeadingWhitespace()))
       ->getCode();
   }
 }

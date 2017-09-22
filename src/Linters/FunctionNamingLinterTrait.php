@@ -160,8 +160,8 @@ trait FunctionNamingLinterTrait {
       $leading = EditableList::fromItems(Vec\reverse($new));
     }
     return $node->replace(
-      $node->getFirstTokenx()->withLeading($leading),
       $node->getFirstTokenx(),
+      $node->getFirstTokenx()->withLeading($leading),
       )
       ->getCode();
   }

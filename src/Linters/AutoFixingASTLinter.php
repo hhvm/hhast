@@ -36,7 +36,7 @@ implements AutoFixingLinter<ASTLintError<Tnode, this>>{
       );
       $old = $error->getBlameNode();
       $new = $this->getFixedNode($old);
-      $ast = $ast->replace($new, $old);
+      $ast = $ast->replace($old, $new);
     }
     return $ast->getCode();
   }

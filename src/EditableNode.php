@@ -13,11 +13,11 @@
 namespace Facebook\HHAST;
 
 use namespace Facebook\TypeAssert;
-use namespace HH\Lib\Vec;
+use namespace HH\Lib\{Dict, Vec};
 
 abstract class EditableNode {
   const type TRewriter =
-    (function(EditableNode, ?Traversable<EditableNode>): EditableNode);
+    (function(EditableNode, ?vec<EditableNode>): EditableNode);
 
   private string $_syntax_kind;
   protected ?int $_width;
@@ -31,6 +31,15 @@ abstract class EditableNode {
 
   public abstract function getChildren(
   ): KeyedTraversable<string, EditableNode>;
+
+  public function getChildrenWhere(
+    (function(EditableNode):bool) $filter,
+  ): KeyedTraversable<string, EditableNode> {
+    return Dict\filter(
+      $this->getChildren(),
+      $child ==> $filter($child),
+    );
+  }
 
   final public function getChildrenOfType<T as EditableNode>(
     classname<T> $what,
@@ -128,7 +137,7 @@ abstract class EditableNode {
   // that matches a predicate, or [] if there is no such node.
   public function findWithParents(
     (function(EditableNode): bool) $predicate,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): vec<EditableNode> {
     $parents = $parents === null ? vec[] : vec($parents);
     $new_parents = $parents;
@@ -146,7 +155,7 @@ abstract class EditableNode {
   }
 
   public function getDescendantsWhere(
-    (function(EditableNode, Traversable<EditableNode>):bool) $filter,
+    (function(EditableNode, vec<EditableNode>):bool) $filter,
   ): vec<EditableNode> {
     $out = vec[];
     foreach ($this->traverseWithParents() as list($node, $parents)) {
@@ -170,7 +179,7 @@ abstract class EditableNode {
   }
 
   public function removeWhere(
-    (function(EditableNode, ?Traversable<EditableNode>): bool) $predicate,
+    (function(EditableNode, ?vec<EditableNode>): bool) $predicate,
   ): EditableNode {
     return $this->rewrite(
       ($node, $parents) ==>
@@ -183,8 +192,8 @@ abstract class EditableNode {
   }
 
   public function replace(
-    EditableNode $new_node,
     EditableNode $target,
+    EditableNode $new_node,
   ): this {
     return $this->rewriteDescendants(
       ($node, $parents) ==> $node === $target ? $new_node : $node,
@@ -243,12 +252,12 @@ abstract class EditableNode {
       $new_leading =
         EditableList::concat($token->getLeading(), $new_node);
       $new_token = $token->withLeading($new_leading);
-      return $this->replace($new_token, $token);
+      return $this->replace($token, $new_token);
     }
 
     return $this->replace(
-      EditableList::concat($new_node, $target),
       $target,
+      EditableList::concat($new_node, $target),
     );
   }
 
@@ -280,23 +289,23 @@ abstract class EditableNode {
       $new_trailing =
         EditableList::concat($new_node, $token->getTrailing());
       $new_token = $token->withTrailing($new_trailing);
-      return $this->replace($new_token, $token);
+      return $this->replace($token, $new_token);
     }
 
     return $this->replace(
-      EditableList::concat($target, $new_node),
       $target,
+      EditableList::concat($target, $new_node),
     );
   }
 
   abstract public function rewriteDescendants(
     self::TRewriter $rewriter,
     ?Traversable<EditableNode> $parents = null,
-  ): this ;
+  ): this;
 
   public function rewrite(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): EditableNode {
     $parents = $parents === null ? vec[] : vec($parents);
     $with_rewritten_children = $this->rewriteDescendants(

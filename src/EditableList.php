@@ -133,7 +133,7 @@ final class EditableList extends EditableNode {
   <<__Override>>
   public function rewrite(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): EditableNode {
     $parents = $parents === null ? vec[] : vec($parents);
     $with_rewritten_children = $this->rewriteDescendants(
