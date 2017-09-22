@@ -3,3 +3,4 @@ vendor/
 tests/fixtures/*.out
 tests/fixtures/**/*.out
 *.swo
+.DS_Store
