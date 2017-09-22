@@ -75,6 +75,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
     }
   }
 
+  <<__Override>>
   public async function mainAsync(): Awaitable<int> {
     if (C\is_empty($this->migrations)) {
       fprintf(STDERR, "You must specify at least one migration!\n\n");
