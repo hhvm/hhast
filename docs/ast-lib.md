@@ -19,6 +19,14 @@ hhvm composer require hhvm/hhast
 
 For every type of node in the full fidelity AST, there is a generated class extending `EditableNode`, `EditableToken`, or `EditableTrivia`; for example, class declarations are represented by the [`ClassishDeclaration`](../codegen/syntax/ClassishDeclaration.php) class. These define accessors for every field on the node.
 
+Additionally, several interfaces are defined for convenience, which are not present in the FFP schema:
+
+ - `IControlFlowStatement`: implemented by structures like `if` and looping constructs
+ - `IFunctionishDeclaration`: implemented by both function and method declarations
+ - `ILoopStatement`: sub-interface of `IControlFlowStatement`, specifically for looping constructs
+
+These are primarily useful for `instanceof` checks, or as a value for `classname<EditableNode>` when calling `get(Children|Descendants)OfType()`.
+
 For the basic API, see below; for usage examples, see:
  - [the unit tests](../tests/)
  - [the linters](../src/Linters/)
