@@ -14,7 +14,8 @@ HHAST has 3 main APIs:
 
 ## Linters
 
-[user documentation](docs/linters-usage.md)
+ - [user documentation](docs/linters-usage.md)
+ - [developer documentation](docs/linters-development.md)
 
 ![screenshot of lint errors](docs/linters.png)
 

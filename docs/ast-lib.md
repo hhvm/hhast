@@ -82,5 +82,5 @@ If `Missing` is considered a valid value, additional methods are defined:
 ## Advice
 
  - install `jq` or another JSON prettifier, and examine files containing AST structures you're interested in with `hh_parse --full-fidelity-json $file | jq`
- - use an IDE with autocompletion; there are far too many AST node types for memorizing the APIs to be a workable strategy
+ - use an IDE with autocompletion; there are far too many AST node types for memorizing the APIs to be practical
  - if you are using the write API, write unit tests with various combinations of leading and trailing whitespace and comments
