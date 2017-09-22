@@ -1,5 +1,13 @@
 # HHAST: Low-Level AST Library
 
+## Installation
+
+```
+hhvm composer require hhvm/hhast
+```
+
+## Introduction
+
 [`Facebook\HHAST\from_file()`](../src/entrypoints.php) is the main entry point to the library; it will get you an instance of
 [`EditableNode`](../src/EditableNode.php), most likely a [`Script`](../codegen/syntax/Script.php). The main classes are:
 
