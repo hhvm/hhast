@@ -1,0 +1,4 @@
+bin/update-* export-ignore
+src/__Private/codegen/ export-ignore
+src/__Private/CodegenCLI.php export-ignore
+tests/ export-ignore
