@@ -44,7 +44,7 @@ class MustUseBracesForControlFlowLinter
   public function getLintErrorForNode(
     IControlFlowStatement $node,
     vec<EditableNode> $parents,
-  ): ?ASTLintError<IControlFlowStatement, this> {
+  ): ?FixableASTLintError<IControlFlowStatement> {
     $body = $this->getBody($node);
     if ($body === null) {
       return null;
@@ -61,7 +61,7 @@ class MustUseBracesForControlFlowLinter
       return null;
     }
 
-    return new ASTLintError(
+    return new FixableASTLintError(
       $this,
       sprintf(
         '%s without braces',

@@ -16,13 +16,13 @@ use type Facebook\HHAST\EditableNode;
 use namespace Facebook\HHAST;
 
 abstract class AutoFixingASTLinter<Tnode as EditableNode>
-extends ASTLinter<Tnode>
-implements AutoFixingLinter<ASTLintError<Tnode, this>>{
+extends BaseASTLinter<Tnode, FixableASTLintError<Tnode>>
+implements AutoFixingLinter<FixableASTLintError<Tnode>> {
 
   abstract public function getFixedNode(Tnode $node): Tnode;
 
   final public function getCodeWithFixedLintErrors(
-    Traversable<ASTLintError<Tnode, this>> $errors,
+    Traversable<FixableASTLintError<Tnode>> $errors,
   ): string {
     $ast = $this->getAST();
     foreach ($errors as $error) {

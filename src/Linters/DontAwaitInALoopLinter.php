@@ -46,7 +46,7 @@ final class DontAwaitInALoopLinter
   public function getLintErrorForNode(
     PrefixUnaryExpression $node,
     vec<EditableNode> $parents,
-  ): ?ASTLintError<PrefixUnaryExpression, this> {
+  ): ?ASTLintError<PrefixUnaryExpression> {
     if (!$node->getOperator() instanceof AwaitToken) {
       return null;
     }

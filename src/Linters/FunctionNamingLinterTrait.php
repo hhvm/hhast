@@ -84,7 +84,7 @@ trait FunctionNamingLinterTrait {
   final public function getLintErrorForNode(
     IFunctionishDeclaration $node,
     vec<EditableNode> $_parents,
-  ): ?ASTLintError<IFunctionishDeclaration, this> {
+  ): ?ASTLintError<IFunctionishDeclaration> {
     $perf = (new PerfCounter(static::class.'#relevanceCheck'))
       ->endAtScopeExit();
     $token = $this->getCurrentNameNodeForFunctionOrMethod($node);

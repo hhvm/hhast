@@ -40,7 +40,7 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
   public function getLintErrorForNode(
     MethodishDeclaration $node,
     vec<EditableNode> $parents,
-  ): ?ASTLintError<MethodishDeclaration, this> {
+  ): ?FixableASTLintError<MethodishDeclaration> {
     $class = $parents
       |> Vec\filter($$, $x ==> $x instanceof ClassishDeclaration)
       |> C\lastx($$)
@@ -65,7 +65,7 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
         $method,
       );
 
-      return new ASTLintError(
+      return new FixableASTLintError(
         $this,
         sprintf(
           '%s::%s() overrides %s::%s() without <<__Override>>',
