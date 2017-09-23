@@ -74,8 +74,10 @@ final class LinterCLI extends CLIWithArguments {
     foreach ($config['linters'] as $class) {
       $this->verbosePrintf(2, " - %s\n", $class);
 
-      $c = new PerfCounter($class.'#getLintErrors');
+      $c = new PerfCounter($class.'#construct');
       $linter = new $class($path);
+      $c->end();
+      $c = new PerfCounter($class.'#getLintErrors');
       $errors = $linter->getLintErrors();
       $c->end();
 
