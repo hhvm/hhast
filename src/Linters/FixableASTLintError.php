@@ -45,4 +45,8 @@ class FixableASTLintError<
       $linter->getPrettyTextForNode($node, $this->context),
     );
   }
+
+  final public function shouldRenderBlameAndFixAsDiff(): bool {
+    return true;
+  }
 }

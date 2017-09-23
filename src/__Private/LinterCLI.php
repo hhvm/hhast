@@ -230,10 +230,7 @@ final class LinterCLI extends CLIWithArguments {
       get_class($linter),
     );
 
-    file_put_contents(
-      $linter->getFile(),
-      $linter->getCodeWithFixedLintErrors($errors),
-    );
+    $linter->fixLintErrors($errors);
   }
 
   private static function shouldFixLint(
@@ -256,16 +253,28 @@ final class LinterCLI extends CLIWithArguments {
 
     $colors = posix_isatty(STDOUT);
 
+    if ($error->shouldRenderBlameAndFixAsDiff()) {
+      $blame_color = "\e[31m"; // red
+      $blame_marker = '-';
+      $fix_marker = '+';
+      $fix_color = "\e[32m"; // green
+    } else {
+      $blame_color = "\e[33m"; // yellow
+      $blame_marker = '  >';
+      $fix_marker = '  ';
+      $fix_color = "\e[33m"; // yellow
+    }
+
     printf(
       "  Code:\n".
       "%s%s%s\n".
       "  Suggested fix:\n".
       "%s%s%s\n",
-      $colors ? "\e[31m" : '',
-      $prefix_lines($old, '  -'),
+      $colors ? $blame_color : '',
+      $prefix_lines($old, '  '.$blame_marker),
       $colors ? "\e[0m" : '',
-      $colors ? "\e[32m" : '',
-      $prefix_lines($new, '  +'),
+      $colors ? $fix_color : '',
+      $prefix_lines($new, '  '.$fix_marker),
       $colors ? "\e[0m" : '',
     );
 

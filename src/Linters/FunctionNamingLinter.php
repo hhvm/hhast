@@ -13,6 +13,7 @@
 namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
+  ClassishDeclaration,
   ConstructToken,
   DestructToken,
   EditableList,
@@ -29,8 +30,10 @@ use type Facebook\HHAST\{
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
 
-trait FunctionNamingLinterTrait {
-  require extends ASTLinter<IFunctionishDeclaration>;
+abstract class FunctionNamingLinter extends BaseASTLinter<
+  IFunctionishDeclaration,
+  FunctionNamingLintError
+> implements AutoFixingLinter<FunctionNamingLintError> {
 
   abstract public function getSuggestedNameForFunction(
     string $name,
@@ -49,13 +52,24 @@ trait FunctionNamingLinterTrait {
 
   protected function getErrorDescription(
     string $what,
+    ?string $class,
     string $name,
     string $suggestion,
   ): string {
+    if ($class === null) {
+      return sprintf(
+        '%s "%s()" does not match conventions; consider renaming to "%s"',
+        $what,
+        $name,
+        $suggestion,
+      );
+    }
     return sprintf(
-      '%s "%s" does not match conventions; consider renaming to "%s"',
+      '%s "%s()" in class "%s" does not match conventions; consider renaming '.
+      'to "%s"',
       $what,
       $name,
+      $class,
       $suggestion,
     );
   }
@@ -83,8 +97,8 @@ trait FunctionNamingLinterTrait {
   <<__Override>>
   final public function getLintErrorForNode(
     IFunctionishDeclaration $node,
-    vec<EditableNode> $_parents,
-  ): ?ASTLintError<IFunctionishDeclaration> {
+    vec<EditableNode> $parents,
+  ): ?FunctionNamingLintError {
     $perf = (new PerfCounter(static::class.'#relevanceCheck'))
       ->endAtScopeExit();
     $token = $this->getCurrentNameNodeForFunctionOrMethod($node);
@@ -101,7 +115,6 @@ trait FunctionNamingLinterTrait {
 
     $perf = (new PerfCounter(static::class.'#getSuggestion'))
       ->endAtScopeExit();
-    $what = null;
     if ($node instanceof FunctionDeclaration) {
       $what = 'Function';
       $new = $this->getSuggestedNameForFunction($old, $node);
@@ -126,9 +139,29 @@ trait FunctionNamingLinterTrait {
     if ($old === $new) {
       return null;
     }
-    return new ASTLintError(
+
+    $ns = HHAST\__Private\Resolution\get_current_namespace($node, $parents);
+    if ($node instanceof FunctionDeclaration) {
+      $class = null;
+    } else {
+      $class = C\find(
+        Vec\reverse($parents),
+        $c ==> $c instanceof ClassishDeclaration,
+      );
+      invariant(
+        $class instanceof ClassishDeclaration,
+        'failed to find a class for a method',
+      );
+      $class = $class->getName()->getText();
+    }
+
+    return new FunctionNamingLintError(
       $this,
-      $this->getErrorDescription($what, $old, $new),
+      $this->getErrorDescription($what, $class, $old, $new),
+      $ns,
+      $class,
+      $old,
+      $new,
       $node,
     );
   }
@@ -164,5 +197,13 @@ trait FunctionNamingLinterTrait {
       $node->getFirstTokenx()->withLeading($leading),
       )
       ->getCode();
+  }
+
+  final public function fixLintErrors(
+    Traversable<FunctionNamingLintError> $errors,
+  ): void {
+    foreach ($errors as $error) {
+      $error->refactorWithHHClient();
+    }
   }
 }

@@ -31,9 +31,13 @@ trait AutoFixingLinterTestTrait<Terror as Linters\FixableLintError> {
   final public function testAutofix(string $fixture): void {
     $fixture = $this->getFullFixtureName($fixture);
 
-    $linter = $this->getLinter(__DIR__.'/fixtures/'.$fixture.'.in');
+    $in = __DIR__.'/fixtures/'.$fixture.'.in';
+    $out = Str\strip_suffix($in, '.in').'.autofix.out';
+    copy($in, $out);
+    $linter = $this->getLinter($out);
 
-    $code = $linter->getCodeWithFixedLintErrors($linter->getLintErrors());
+    $linter->fixLintErrors($linter->getLintErrors());
+    $code = file_get_contents($out);
     expect($code)->toMatchExpectFileWithInputFile(
       $fixture.'.autofix.expect',
       $fixture.'.in',

@@ -2,6 +2,6 @@
     {
         "blame": "\/**\n * Copyright (c) 2016, Facebook, Inc.\n * All rights reserved.\n *\n * This source code is licensed under the BSD-style license found in the\n * LICENSE file in the root directory of this source tree. An additional\n * grant of patent rights can be found in the PATENTS file in the same\n * directory.\n *\n *\/\n\n function foo_HERPDERP(): void {\n }\n",
         "blame_pretty": "\n function foo_HERPDERP(): void ",
-        "description": "Function \"foo_HERPDERP\" does not match conventions; consider renaming to \"foo_herpderp\""
+        "description": "Function \"foo_HERPDERP()\" does not match conventions; consider renaming to \"foo_herpderp\""
     }
 ]

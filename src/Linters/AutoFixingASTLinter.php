@@ -21,9 +21,9 @@ implements AutoFixingLinter<FixableASTLintError<Tnode>> {
 
   abstract public function getFixedNode(Tnode $node): Tnode;
 
-  final public function getCodeWithFixedLintErrors(
+  final public function fixLintErrors(
     Traversable<FixableASTLintError<Tnode>> $errors,
-  ): string {
+  ): void {
     $ast = $this->getAST();
     foreach ($errors as $error) {
       invariant(
@@ -38,6 +38,9 @@ implements AutoFixingLinter<FixableASTLintError<Tnode>> {
       $new = $this->getFixedNode($old);
       $ast = $ast->replace($old, $new);
     }
-    return $ast->getCode();
+    file_put_contents(
+      $this->getFile(),
+      $ast->getCode(),
+    );
   }
 }

@@ -18,4 +18,6 @@ interface FixableLintError {
   public function isFixable(): bool;
 
   public function getReadableFix(): (string, string);
+
+  public function shouldRenderBlameAndFixAsDiff(): bool;
 }
