@@ -37,6 +37,8 @@ We actively welcome your pull requests.
  - the codegen regenerates with no changes
 4. If you haven't already, complete the Contributor License Agreement ("CLA").
 
+We generally won't accept pull requests that add functionality that is duplicated in `hh_client` or `hackfmt`; if you think a situation is worth an exception, please file an issue first for discussion to reduce wasted time.
+
 ## Contributor License Agreement ("CLA")
 In order to accept your pull request, we need you to submit a CLA. You only need
 to do this once to work on any of Facebook's open source projects.
