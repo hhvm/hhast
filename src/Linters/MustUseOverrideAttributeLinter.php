@@ -21,6 +21,7 @@ use type Facebook\HHAST\{
   GenericTypeSpecifier,
   ListItem,
   MethodishDeclaration,
+  PrivateToken,
   SimpleTypeSpecifier
 };
 use namespace Facebook\TypeAssert;
@@ -121,6 +122,13 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
     }
 
     if ($name instanceof HHAST\DestructToken) {
+      return true;
+    }
+
+    $private = $method->getModifiersx()->getDescendantsOfType(
+      PrivateToken::class,
+    ) |> C\first($$);
+    if ($private !== null) {
       return true;
     }
 
