@@ -13,6 +13,26 @@
 
 namespace Facebook\HHAST\__Private;
 
-require_once(__DIR__.'/../vendor/hh_autoload.php');
+$root = realpath(__DIR__.'/..');
+$found_autoloader = false;
+while (true) {
+  $autoloader = $root.'/vendor/hh_autoload.php';
+  if (file_exists($autoloader)) {
+    $found_autoloader = true;
+    require_once($autoloader);
+    break;
+  }
+  if ($root === '') {
+    break;
+  }
+  $parts = explode('/', $root);
+  array_pop($parts);
+  $root = implode('/', $parts);
+}
+
+if (!$found_autoloader) {
+  fprintf(STDERR, "Failed to find autoloader.\n");
+  exit(1);
+}
 
 exit(\HH\Asio\join((new LinterCLI(vec($argv)))->mainAsync()));
