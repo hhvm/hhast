@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f11dbd75243663383313db9dbd3811b7>>
+ * @generated SignedSource<<7738524da61efe09a4b654fcd681797f>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -491,6 +491,10 @@ function editable_node_from_json(
     case 'list_item':
       return HHAST\ListItem::fromJSON($json, $file, $offset, $source);
     default:
-      throw new \Exception('unexpected JSON kind: '.(string)$json['kind']);
+      throw new HHAST\UnsupportedASTNodeError(
+        $file,
+        $offset,
+        (string)$json['kind'],
+      );
   }
 }

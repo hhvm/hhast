@@ -29,7 +29,7 @@ final class CodegenEditableTriviaFromJSON extends CodegenBase {
           ->codegenFunction('editable_trivia_from_json')
           ->setReturnType('HHAST\\EditableTrivia')
           ->addParameter('dict<string, mixed> $json')
-          ->addParameter('string $_file')
+          ->addParameter('string $file')
           ->addParameter('int $offset')
           ->addParameter('string $source')
           ->setBody(
@@ -56,8 +56,13 @@ final class CodegenEditableTriviaFromJSON extends CodegenBase {
                 },
               )
               ->addDefault()
-              ->addLine(
-                'throw new \\Exception(\'unexpected JSON kind: \'.(string) $json[\'kind\']);',
+              ->addMultilineCall(
+                'throw new HHAST\\UnsupportedASTNodeError',
+                vec[
+                  '$file',
+                  '$offset',
+                  '(string) $json[\'kind\']',
+                ],
               )
               ->endDefault()
               ->endSwitch()

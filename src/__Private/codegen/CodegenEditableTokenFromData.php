@@ -30,6 +30,8 @@ final class CodegenEditableTokenFromData extends CodegenBase {
         $cg
           ->codegenFunction('editable_token_from_data')
           ->setReturnType('HHAST\\EditableToken')
+          ->addParameter('string $file')
+          ->addParameter('int $offset')
           ->addParameter('string $token_kind')
           ->addParameter('HHAST\\EditableNode $leading')
           ->addParameter('HHAST\\EditableNode $trailing')
@@ -81,8 +83,13 @@ final class CodegenEditableTokenFromData extends CodegenBase {
                 },
               )
               ->addDefault()
-              ->addLine(
-                'throw new \\Exception(\'unexpected token kind: \'.$token_kind);',
+              ->addMultilineCall(
+                'throw new HHAST\\UnsupportedTokenError',
+                vec[
+                  '$file',
+                  '$offset',
+                  '$token_kind',
+                ],
               )
               ->endDefault()
               ->endSwitch()

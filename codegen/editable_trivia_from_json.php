@@ -2,14 +2,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1e41afcddfd90f6355af2959651153a0>>
+ * @generated SignedSource<<60392e5bab65e688266598f7491dd93d>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
 
 function editable_trivia_from_json(
   dict<string, mixed> $json,
-  string $_file,
+  string $file,
   int $offset,
   string $source,
 ): HHAST\EditableTrivia {
@@ -34,6 +34,10 @@ function editable_trivia_from_json(
     case 'fall_through':
       return new HHAST\FallThrough($trivia_text);
     default:
-      throw new \Exception('unexpected JSON kind: '.(string)$json['kind']);
+      throw new HHAST\UnsupportedASTNodeError(
+        $file,
+        $offset,
+        (string)$json['kind'],
+      );
   }
 }

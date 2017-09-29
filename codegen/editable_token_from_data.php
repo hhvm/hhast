@@ -2,12 +2,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a6754d7bc6f22d0d0023e50f1aef2355>>
+ * @generated SignedSource<<4d96b7b2643934a63aef56b2bcaa8db1>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
 
 function editable_token_from_data(
+  string $file,
+  int $offset,
   string $token_kind,
   HHAST\EditableNode $leading,
   HHAST\EditableNode $trailing,
@@ -426,6 +428,6 @@ function editable_token_from_data(
     case 'markup':
       return new HHAST\MarkupToken($leading, $trailing, $token_text);
     default:
-      throw new \Exception('unexpected token kind: '.$token_kind);
+      throw new HHAST\UnsupportedTokenError($file, $offset, $token_kind);
   }
 }

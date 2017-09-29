@@ -121,12 +121,16 @@ abstract class EditableToken extends EditableNode {
   ): EditableToken;
 
   private static function factory(
+    string $file,
+    int $offset,
     string $token_kind,
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text,
   ): EditableToken {
     return __Private\editable_token_from_data(
+      $file,
+      $offset,
       $token_kind,
       $leading,
       $trailing,
@@ -161,6 +165,8 @@ abstract class EditableToken extends EditableNode {
     );
     $trailing = EditableList::fromItems($trailing_list);
     return EditableToken::factory(
+      $file,
+      $token_position,
       /* HH_IGNORE_ERROR[4110] */ $json['kind'],
       $leading,
       $trailing,

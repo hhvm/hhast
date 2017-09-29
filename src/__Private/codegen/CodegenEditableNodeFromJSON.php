@@ -90,8 +90,13 @@ final class CodegenEditableNodeFromJSON extends CodegenBase {
                 },
               )
               ->addDefault()
-              ->addLine(
-                'throw new \\Exception(\'unexpected JSON kind: \'.(string) $json[\'kind\']);',
+              ->addMultilineCall(
+                'throw new HHAST\\UnsupportedASTNodeError',
+                vec[
+                  '$file',
+                  '$offset',
+                  '(string) $json[\'kind\']',
+                ],
               )
               ->endDefault()
               ->endSwitch()
