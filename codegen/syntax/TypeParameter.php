@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b8aa6c26f51e3a4a74d98f8c672b6529>>
+ * @generated SignedSource<<d95cbbca14a40e453aabe42aa857ab23>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,27 +27,31 @@ final class TypeParameter extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $variance = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_variance'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $variance->getWidth();
+    $offset += $variance->getWidth();
     $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_name'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $name->getWidth();
+    $offset += $name->getWidth();
     $constraints = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_constraints'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $constraints->getWidth();
+    $offset += $constraints->getWidth();
     return new self($variance, $name, $constraints);
   }
 

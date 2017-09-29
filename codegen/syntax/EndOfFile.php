@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9d688371bf6010f8296da7ca2e703d6c>>
+ * @generated SignedSource<<1ff83f78dfca5d594a1ac91f5e79c22d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -19,21 +19,25 @@ final class EndOfFile extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $token = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['end_of_file_token'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $token->getWidth();
+    $offset += $token->getWidth();
     return new self($token);
   }
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    return dict['token' => $this->_token];
+    return dict[
+      'token' => $this->_token,
+    ];
   }
 
   <<__Override>>

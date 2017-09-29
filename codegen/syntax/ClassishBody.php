@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3cb603452be3d38eae4a741566ae5750>>
+ * @generated SignedSource<<04a75dd621232a1e698d9587d9fe8c09>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,27 +27,31 @@ final class ClassishBody extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $left_brace = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['classish_body_left_brace'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_brace->getWidth();
+    $offset += $left_brace->getWidth();
     $elements = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['classish_body_elements'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $elements->getWidth();
+    $offset += $elements->getWidth();
     $right_brace = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['classish_body_right_brace'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_brace->getWidth();
+    $offset += $right_brace->getWidth();
     return new self($left_brace, $elements, $right_brace);
   }
 

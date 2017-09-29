@@ -29,14 +29,15 @@ final class CodegenEditableTriviaFromJSON extends CodegenBase {
           ->codegenFunction('editable_trivia_from_json')
           ->setReturnType('HHAST\\EditableTrivia')
           ->addParameter('dict<string, mixed> $json')
-          ->addParameter('int $position')
+          ->addParameter('string $_file')
+          ->addParameter('int $offset')
           ->addParameter('string $source')
           ->setBody(
             $cg
               ->codegenHackBuilder()
               ->addAssignment(
                 '$trivia_text',
-                'substr($source, $position, $json[\'width\'])',
+                'substr($source, $offset, $json[\'width\'])',
                 HackBuilderValues::literal(),
               )
               ->startSwitch('(string) $json[\'kind\']')

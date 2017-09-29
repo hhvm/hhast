@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5b1c7ebf1fd4362a7e810017539cd0d5>>
+ * @generated SignedSource<<3780a35f79fe87fcc45b71d87fa02759>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,27 +27,31 @@ final class ArrayCreationExpression extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $left_bracket = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['array_creation_left_bracket'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_bracket->getWidth();
+    $offset += $left_bracket->getWidth();
     $members = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['array_creation_members'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $members->getWidth();
+    $offset += $members->getWidth();
     $right_bracket = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['array_creation_right_bracket'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_bracket->getWidth();
+    $offset += $right_bracket->getWidth();
     return new self($left_bracket, $members, $right_bracket);
   }
 

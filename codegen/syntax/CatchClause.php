@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a550b652b9898b01f9972bf1184e1093>>
+ * @generated SignedSource<<6324667fe483d3e3eda098906064baea>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,45 +36,52 @@ final class CatchClause extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['catch_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $keyword->getWidth();
+    $offset += $keyword->getWidth();
     $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['catch_left_paren'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_paren->getWidth();
+    $offset += $left_paren->getWidth();
     $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['catch_type'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $type->getWidth();
+    $offset += $type->getWidth();
     $variable = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['catch_variable'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $variable->getWidth();
+    $offset += $variable->getWidth();
     $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['catch_right_paren'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_paren->getWidth();
+    $offset += $right_paren->getWidth();
     $body = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['catch_body'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $body->getWidth();
+    $offset += $body->getWidth();
     return
       new self($keyword, $left_paren, $type, $variable, $right_paren, $body);
   }

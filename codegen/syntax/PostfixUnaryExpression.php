@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4d68e88533f8239edf51671ae611dcc9>>
+ * @generated SignedSource<<4b76882e9a1b4261a97ba58d9e3aeeda>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -21,27 +21,33 @@ final class PostfixUnaryExpression extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $operand = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['postfix_unary_operand'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $operand->getWidth();
+    $offset += $operand->getWidth();
     $operator = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['postfix_unary_operator'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $operator->getWidth();
+    $offset += $operator->getWidth();
     return new self($operand, $operator);
   }
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    return dict['operand' => $this->_operand, 'operator' => $this->_operator];
+    return dict[
+      'operand' => $this->_operand,
+      'operator' => $this->_operator,
+    ];
   }
 
   <<__Override>>

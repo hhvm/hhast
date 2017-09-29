@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a63469ef475527014157dec1c4f2b1f9>>
+ * @generated SignedSource<<9021e8ecd51dbdc982fe83f10fb9fdb2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,33 +30,38 @@ final class Attribute extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['attribute_name'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $name->getWidth();
+    $offset += $name->getWidth();
     $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['attribute_left_paren'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_paren->getWidth();
+    $offset += $left_paren->getWidth();
     $values = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['attribute_values'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $values->getWidth();
+    $offset += $values->getWidth();
     $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['attribute_right_paren'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_paren->getWidth();
+    $offset += $right_paren->getWidth();
     return new self($name, $left_paren, $values, $right_paren);
   }
 

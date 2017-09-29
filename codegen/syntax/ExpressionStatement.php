@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8a7d64e67c686dc9dc282b145d1e5f02>>
+ * @generated SignedSource<<2de0a06b4efbe39105a2c0db802bd403>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -24,21 +24,24 @@ final class ExpressionStatement extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $expression = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['expression_statement_expression'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $expression->getWidth();
+    $offset += $expression->getWidth();
     $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['expression_statement_semicolon'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $semicolon->getWidth();
+    $offset += $semicolon->getWidth();
     return new self($expression, $semicolon);
   }
 

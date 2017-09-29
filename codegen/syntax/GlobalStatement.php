@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<04a3ae0497b30e978b5182556dbe5da4>>
+ * @generated SignedSource<<5551b2a97198292777ce601127350c46>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,27 +27,31 @@ final class GlobalStatement extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['global_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $keyword->getWidth();
+    $offset += $keyword->getWidth();
     $variables = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['global_variables'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $variables->getWidth();
+    $offset += $variables->getWidth();
     $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['global_semicolon'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $semicolon->getWidth();
+    $offset += $semicolon->getWidth();
     return new self($keyword, $variables, $semicolon);
   }
 

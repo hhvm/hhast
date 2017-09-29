@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fadc032b418e115e9c59eeed5c601387>>
+ * @generated SignedSource<<920f9c0baf68abc70a0c4769416412e0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,33 +30,38 @@ final class EvalExpression extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['eval_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $keyword->getWidth();
+    $offset += $keyword->getWidth();
     $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['eval_left_paren'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_paren->getWidth();
+    $offset += $left_paren->getWidth();
     $argument = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['eval_argument'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $argument->getWidth();
+    $offset += $argument->getWidth();
     $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['eval_right_paren'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_paren->getWidth();
+    $offset += $right_paren->getWidth();
     return new self($keyword, $left_paren, $argument, $right_paren);
   }
 

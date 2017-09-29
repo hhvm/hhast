@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3ef9282909e45ce293c0a38d9b6f13ea>>
+ * @generated SignedSource<<f1de58176c43f521666ead388061e230>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,33 +30,38 @@ final class CastExpression extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['cast_left_paren'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_paren->getWidth();
+    $offset += $left_paren->getWidth();
     $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['cast_type'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $type->getWidth();
+    $offset += $type->getWidth();
     $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['cast_right_paren'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_paren->getWidth();
+    $offset += $right_paren->getWidth();
     $operand = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['cast_operand'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $operand->getWidth();
+    $offset += $operand->getWidth();
     return new self($left_paren, $type, $right_paren, $operand);
   }
 

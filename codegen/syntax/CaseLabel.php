@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a5be51abd86c70920e5b6e4d098738bc>>
+ * @generated SignedSource<<0af3b2968d7d30074498b22135d203b1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,27 +27,31 @@ final class CaseLabel extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['case_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $keyword->getWidth();
+    $offset += $keyword->getWidth();
     $expression = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['case_expression'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $expression->getWidth();
+    $offset += $expression->getWidth();
     $colon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['case_colon'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $colon->getWidth();
+    $offset += $colon->getWidth();
     return new self($keyword, $expression, $colon);
   }
 

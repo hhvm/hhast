@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<14edf841dbde6cee9a745196abdedb58>>
+ * @generated SignedSource<<5f80b5544676c1f2c751a140d3b4c06d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,33 +27,37 @@ final class TraitUseConflictResolutionItem extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $aliasing_name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json[
         'trait_use_conflict_resolution_item_aliasing_name'
       ],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $aliasing_name->getWidth();
+    $offset += $aliasing_name->getWidth();
     $aliasing_keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json[
         'trait_use_conflict_resolution_item_aliasing_keyword'
       ],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $aliasing_keyword->getWidth();
+    $offset += $aliasing_keyword->getWidth();
     $aliased_names = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json[
         'trait_use_conflict_resolution_item_aliased_names'
       ],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $aliased_names->getWidth();
+    $offset += $aliased_names->getWidth();
     return new self($aliasing_name, $aliasing_keyword, $aliased_names);
   }
 

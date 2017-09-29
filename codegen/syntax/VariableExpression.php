@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<090cbc4873d6c60aa5fec733b5769e7f>>
+ * @generated SignedSource<<a4f3f1ebb4e6284b4f674fd21ddf58e6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -19,21 +19,25 @@ final class VariableExpression extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $expression = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['variable_expression'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $expression->getWidth();
+    $offset += $expression->getWidth();
     return new self($expression);
   }
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    return dict['expression' => $this->_expression];
+    return dict[
+      'expression' => $this->_expression,
+    ];
   }
 
   <<__Override>>

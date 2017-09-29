@@ -47,10 +47,11 @@ abstract class EditableTrivia extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): EditableTrivia {
-    return __Private\editable_trivia_from_json($json, $position, $source);
+    return __Private\editable_trivia_from_json($json, $file, $offset, $source);
   }
 
   <<__Override>>

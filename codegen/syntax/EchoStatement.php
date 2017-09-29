@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<df3ec36f9e8e92054114481b55d47829>>
+ * @generated SignedSource<<ed8f68b737e6568b6d15eb0b44b848d2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,27 +27,31 @@ final class EchoStatement extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['echo_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $keyword->getWidth();
+    $offset += $keyword->getWidth();
     $expressions = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['echo_expressions'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $expressions->getWidth();
+    $offset += $expressions->getWidth();
     $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['echo_semicolon'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $semicolon->getWidth();
+    $offset += $semicolon->getWidth();
     return new self($keyword, $expressions, $semicolon);
   }
 

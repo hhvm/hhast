@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6488d58ab076a76a1ac3e40b9225e563>>
+ * @generated SignedSource<<903a35adcbe568821b40ade1e85c1dbd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,39 +33,45 @@ final class KeysetTypeSpecifier extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['keyset_type_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $keyword->getWidth();
+    $offset += $keyword->getWidth();
     $left_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['keyset_type_left_angle'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_angle->getWidth();
+    $offset += $left_angle->getWidth();
     $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['keyset_type_type'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $type->getWidth();
+    $offset += $type->getWidth();
     $trailing_comma = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['keyset_type_trailing_comma'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $trailing_comma->getWidth();
+    $offset += $trailing_comma->getWidth();
     $right_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['keyset_type_right_angle'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_angle->getWidth();
+    $offset += $right_angle->getWidth();
     return
       new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
   }

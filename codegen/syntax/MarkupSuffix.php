@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5e4c4e2a34818041eb60ca4b9b334d33>>
+ * @generated SignedSource<<b4947663be40f406ff7a7596794dae07>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -24,21 +24,24 @@ final class MarkupSuffix extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $less_than_question = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['markup_suffix_less_than_question'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $less_than_question->getWidth();
+    $offset += $less_than_question->getWidth();
     $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['markup_suffix_name'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $name->getWidth();
+    $offset += $name->getWidth();
     return new self($less_than_question, $name);
   }
 

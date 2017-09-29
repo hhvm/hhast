@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ab9b6d955d8ff11df4723b873825710b>>
+ * @generated SignedSource<<d720abd0401fb9ae6af09c8d29b286ef>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -21,27 +21,33 @@ final class NullableTypeSpecifier extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $question = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['nullable_question'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $question->getWidth();
+    $offset += $question->getWidth();
     $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['nullable_type'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $type->getWidth();
+    $offset += $type->getWidth();
     return new self($question, $type);
   }
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    return dict['question' => $this->_question, 'type' => $this->_type];
+    return dict[
+      'question' => $this->_question,
+      'type' => $this->_type,
+    ];
   }
 
   <<__Override>>

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<072dfae93a3f313326480edb28d40100>>
+ * @generated SignedSource<<0ed16d30414e42d4e932059eda582ea6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,51 +39,59 @@ final class NamespaceGroupUseDeclaration extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_group_use_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $keyword->getWidth();
+    $offset += $keyword->getWidth();
     $kind = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_group_use_kind'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $kind->getWidth();
+    $offset += $kind->getWidth();
     $prefix = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_group_use_prefix'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $prefix->getWidth();
+    $offset += $prefix->getWidth();
     $left_brace = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_group_use_left_brace'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_brace->getWidth();
+    $offset += $left_brace->getWidth();
     $clauses = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_group_use_clauses'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $clauses->getWidth();
+    $offset += $clauses->getWidth();
     $right_brace = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_group_use_right_brace'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_brace->getWidth();
+    $offset += $right_brace->getWidth();
     $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_group_use_semicolon'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $semicolon->getWidth();
+    $offset += $semicolon->getWidth();
     return new self(
       $keyword,
       $kind,

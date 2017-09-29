@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9a27b4bb819bd7c75574ff40321e9840>>
+ * @generated SignedSource<<289cce82decea79545adb3222f3d3ff8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -24,21 +24,24 @@ final class GenericTypeSpecifier extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $class_type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['generic_class_type'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $class_type->getWidth();
+    $offset += $class_type->getWidth();
     $argument_list = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['generic_argument_list'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $argument_list->getWidth();
+    $offset += $argument_list->getWidth();
     return new self($class_type, $argument_list);
   }
 

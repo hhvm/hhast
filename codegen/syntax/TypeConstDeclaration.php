@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6ddf2feba5a66597566a8ab956cd91d3>>
+ * @generated SignedSource<<49aebe3acb8c3e0e43d8a04890a4ea04>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -42,57 +42,66 @@ final class TypeConstDeclaration extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $abstract = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_const_abstract'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $abstract->getWidth();
+    $offset += $abstract->getWidth();
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_const_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $keyword->getWidth();
+    $offset += $keyword->getWidth();
     $type_keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_const_type_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $type_keyword->getWidth();
+    $offset += $type_keyword->getWidth();
     $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_const_name'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $name->getWidth();
+    $offset += $name->getWidth();
     $type_constraint = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_const_type_constraint'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $type_constraint->getWidth();
+    $offset += $type_constraint->getWidth();
     $equal = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_const_equal'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $equal->getWidth();
+    $offset += $equal->getWidth();
     $type_specifier = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_const_type_specifier'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $type_specifier->getWidth();
+    $offset += $type_specifier->getWidth();
     $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_const_semicolon'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $semicolon->getWidth();
+    $offset += $semicolon->getWidth();
     return new self(
       $abstract,
       $keyword,

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7a31c19cb43eb7436b17e54016a4ce2d>>
+ * @generated SignedSource<<000b51216a8a8fc0d85c4317596c0756>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -21,27 +21,33 @@ final class GotoLabel extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['goto_label_name'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $name->getWidth();
+    $offset += $name->getWidth();
     $colon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['goto_label_colon'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $colon->getWidth();
+    $offset += $colon->getWidth();
     return new self($name, $colon);
   }
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    return dict['name' => $this->_name, 'colon' => $this->_colon];
+    return dict[
+      'name' => $this->_name,
+      'colon' => $this->_colon,
+    ];
   }
 
   <<__Override>>

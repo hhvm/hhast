@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1f713213ba82439c366c4413b9e40067>>
+ * @generated SignedSource<<b91bf72e8ff78d70336353d9dd4f9142>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,33 +30,38 @@ final class ShapeExpression extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['shape_expression_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $keyword->getWidth();
+    $offset += $keyword->getWidth();
     $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['shape_expression_left_paren'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_paren->getWidth();
+    $offset += $left_paren->getWidth();
     $fields = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['shape_expression_fields'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $fields->getWidth();
+    $offset += $fields->getWidth();
     $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['shape_expression_right_paren'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_paren->getWidth();
+    $offset += $right_paren->getWidth();
     return new self($keyword, $left_paren, $fields, $right_paren);
   }
 

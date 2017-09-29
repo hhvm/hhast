@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7138674a24a135197a96ec392ced23a2>>
+ * @generated SignedSource<<4fee324195e469d83f55b56af63a466e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,27 +27,31 @@ final class ParenthesizedExpression extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['parenthesized_expression_left_paren'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_paren->getWidth();
+    $offset += $left_paren->getWidth();
     $expression = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['parenthesized_expression_expression'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $expression->getWidth();
+    $offset += $expression->getWidth();
     $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['parenthesized_expression_right_paren'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_paren->getWidth();
+    $offset += $right_paren->getWidth();
     return new self($left_paren, $expression, $right_paren);
   }
 

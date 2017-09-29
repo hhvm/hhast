@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9b9c9b0ccafcdcd555a0ecf034cca6d7>>
+ * @generated SignedSource<<fcc76974d02217b9e06be7e01e5988a0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,27 +27,31 @@ final class XHPAttribute extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_attribute_name'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $name->getWidth();
+    $offset += $name->getWidth();
     $equal = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_attribute_equal'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $equal->getWidth();
+    $offset += $equal->getWidth();
     $expression = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_attribute_expression'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $expression->getWidth();
+    $offset += $expression->getWidth();
     return new self($name, $equal, $expression);
   }
 

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ba7b3f9c6f3330f98c46c30f0f2358f8>>
+ * @generated SignedSource<<0e7680ef5558f9cfad490471b501a50d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,33 +30,38 @@ final class DarrayIntrinsicExpression extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['darray_intrinsic_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $keyword->getWidth();
+    $offset += $keyword->getWidth();
     $left_bracket = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['darray_intrinsic_left_bracket'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_bracket->getWidth();
+    $offset += $left_bracket->getWidth();
     $members = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['darray_intrinsic_members'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $members->getWidth();
+    $offset += $members->getWidth();
     $right_bracket = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['darray_intrinsic_right_bracket'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_bracket->getWidth();
+    $offset += $right_bracket->getWidth();
     return new self($keyword, $left_bracket, $members, $right_bracket);
   }
 

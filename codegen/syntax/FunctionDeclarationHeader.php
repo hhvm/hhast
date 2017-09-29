@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<14139385e327441c1a43926e6e1f6e09>>
+ * @generated SignedSource<<b8d0eb52385c607d42026c73dde2eda3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -54,81 +54,94 @@ final class FunctionDeclarationHeader extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $async = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_async'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $async->getWidth();
+    $offset += $async->getWidth();
     $coroutine = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_coroutine'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $coroutine->getWidth();
+    $offset += $coroutine->getWidth();
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $keyword->getWidth();
+    $offset += $keyword->getWidth();
     $ampersand = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_ampersand'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $ampersand->getWidth();
+    $offset += $ampersand->getWidth();
     $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_name'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $name->getWidth();
+    $offset += $name->getWidth();
     $type_parameter_list = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_type_parameter_list'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $type_parameter_list->getWidth();
+    $offset += $type_parameter_list->getWidth();
     $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_left_paren'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_paren->getWidth();
+    $offset += $left_paren->getWidth();
     $parameter_list = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_parameter_list'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $parameter_list->getWidth();
+    $offset += $parameter_list->getWidth();
     $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_right_paren'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_paren->getWidth();
+    $offset += $right_paren->getWidth();
     $colon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_colon'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $colon->getWidth();
+    $offset += $colon->getWidth();
     $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_type'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $type->getWidth();
+    $offset += $type->getWidth();
     $where_clause = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_where_clause'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $where_clause->getWidth();
+    $offset += $where_clause->getWidth();
     return new self(
       $async,
       $coroutine,

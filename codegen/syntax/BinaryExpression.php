@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7e3dbaec9bb044d089958b17b5b4ced1>>
+ * @generated SignedSource<<3bb7e3846d9defef1dec0650b6f40466>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,27 +27,31 @@ final class BinaryExpression extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $left_operand = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['binary_left_operand'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_operand->getWidth();
+    $offset += $left_operand->getWidth();
     $operator = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['binary_operator'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $operator->getWidth();
+    $offset += $operator->getWidth();
     $right_operand = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['binary_right_operand'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_operand->getWidth();
+    $offset += $right_operand->getWidth();
     return new self($left_operand, $operator, $right_operand);
   }
 

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<de3aa8a188d2f54beca964c051e21273>>
+ * @generated SignedSource<<dcd7df0fd9b398973f2ebe6b76b5f208>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -21,27 +21,33 @@ final class XHPRequired extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $at = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_required_at'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $at->getWidth();
+    $offset += $at->getWidth();
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_required_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $keyword->getWidth();
+    $offset += $keyword->getWidth();
     return new self($at, $keyword);
   }
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    return dict['at' => $this->_at, 'keyword' => $this->_keyword];
+    return dict[
+      'at' => $this->_at,
+      'keyword' => $this->_keyword,
+    ];
   }
 
   <<__Override>>

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f121edce7af46e35590e9d2450f3d968>>
+ * @generated SignedSource<<2fac6d52ab6b40aacc8dc3fc3442d6b5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -21,27 +21,33 @@ final class ElseClause extends EditableNode implements IControlFlowStatement {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['else_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $keyword->getWidth();
+    $offset += $keyword->getWidth();
     $statement = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['else_statement'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $statement->getWidth();
+    $offset += $statement->getWidth();
     return new self($keyword, $statement);
   }
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    return dict['keyword' => $this->_keyword, 'statement' => $this->_statement];
+    return dict[
+      'keyword' => $this->_keyword,
+      'statement' => $this->_statement,
+    ];
   }
 
   <<__Override>>

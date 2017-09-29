@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<70084ef7da1029a77626f2da1586d6c5>>
+ * @generated SignedSource<<5f1fc1a5a6940c1956b2245dc7717b78>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -21,27 +21,33 @@ final class SimpleInitializer extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $equal = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['simple_initializer_equal'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $equal->getWidth();
+    $offset += $equal->getWidth();
     $value = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['simple_initializer_value'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $value->getWidth();
+    $offset += $value->getWidth();
     return new self($equal, $value);
   }
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    return dict['equal' => $this->_equal, 'value' => $this->_value];
+    return dict[
+      'equal' => $this->_equal,
+      'value' => $this->_value,
+    ];
   }
 
   <<__Override>>

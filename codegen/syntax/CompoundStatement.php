@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1a9bc27cb620f09ba8907ddfe7513f44>>
+ * @generated SignedSource<<c9434bb45507cea098968bafee8bc889>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,27 +27,31 @@ final class CompoundStatement extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $left_brace = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['compound_left_brace'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_brace->getWidth();
+    $offset += $left_brace->getWidth();
     $statements = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['compound_statements'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $statements->getWidth();
+    $offset += $statements->getWidth();
     $right_brace = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['compound_right_brace'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_brace->getWidth();
+    $offset += $right_brace->getWidth();
     return new self($left_brace, $statements, $right_brace);
   }
 

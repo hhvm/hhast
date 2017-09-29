@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<51dab85aa3bcbff75c65ed362454b25c>>
+ * @generated SignedSource<<151eded19f3637e913ef6206b815e631>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,27 +27,31 @@ final class NamespaceBody extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $left_brace = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_left_brace'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_brace->getWidth();
+    $offset += $left_brace->getWidth();
     $declarations = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_declarations'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $declarations->getWidth();
+    $offset += $declarations->getWidth();
     $right_brace = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_right_brace'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_brace->getWidth();
+    $offset += $right_brace->getWidth();
     return new self($left_brace, $declarations, $right_brace);
   }
 

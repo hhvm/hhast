@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<14361bd419c5877541fb62df8ec5b785>>
+ * @generated SignedSource<<c4bd4bf45406a14a7fea5c95d669ed0b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -42,57 +42,66 @@ final class AliasDeclaration extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $attribute_spec = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['alias_attribute_spec'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $attribute_spec->getWidth();
+    $offset += $attribute_spec->getWidth();
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['alias_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $keyword->getWidth();
+    $offset += $keyword->getWidth();
     $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['alias_name'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $name->getWidth();
+    $offset += $name->getWidth();
     $generic_parameter = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['alias_generic_parameter'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $generic_parameter->getWidth();
+    $offset += $generic_parameter->getWidth();
     $constraint = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['alias_constraint'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $constraint->getWidth();
+    $offset += $constraint->getWidth();
     $equal = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['alias_equal'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $equal->getWidth();
+    $offset += $equal->getWidth();
     $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['alias_type'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $type->getWidth();
+    $offset += $type->getWidth();
     $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['alias_semicolon'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $semicolon->getWidth();
+    $offset += $semicolon->getWidth();
     return new self(
       $attribute_spec,
       $keyword,

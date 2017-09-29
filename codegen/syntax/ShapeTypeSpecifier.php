@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e0ea53e010321b5141f55ee2a116baec>>
+ * @generated SignedSource<<937a3f69a1987f86863c00df122229e3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,39 +33,45 @@ final class ShapeTypeSpecifier extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['shape_type_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $keyword->getWidth();
+    $offset += $keyword->getWidth();
     $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['shape_type_left_paren'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_paren->getWidth();
+    $offset += $left_paren->getWidth();
     $fields = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['shape_type_fields'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $fields->getWidth();
+    $offset += $fields->getWidth();
     $ellipsis = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['shape_type_ellipsis'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $ellipsis->getWidth();
+    $offset += $ellipsis->getWidth();
     $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['shape_type_right_paren'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_paren->getWidth();
+    $offset += $right_paren->getWidth();
     return new self($keyword, $left_paren, $fields, $ellipsis, $right_paren);
   }
 

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<59fb9903d0876421d2f3a97195400867>>
+ * @generated SignedSource<<2a8f9137c00a2366e5d12e570bcef88c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,39 +33,45 @@ final class ClassnameTypeSpecifier extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['classname_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $keyword->getWidth();
+    $offset += $keyword->getWidth();
     $left_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['classname_left_angle'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_angle->getWidth();
+    $offset += $left_angle->getWidth();
     $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['classname_type'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $type->getWidth();
+    $offset += $type->getWidth();
     $trailing_comma = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['classname_trailing_comma'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $trailing_comma->getWidth();
+    $offset += $trailing_comma->getWidth();
     $right_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['classname_right_angle'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_angle->getWidth();
+    $offset += $right_angle->getWidth();
     return
       new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
   }

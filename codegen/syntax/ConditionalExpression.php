@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5755501437f02b581b2c660b3f1668c7>>
+ * @generated SignedSource<<5c83c0f3ff061f1b50390e97b5f2021c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,39 +33,45 @@ final class ConditionalExpression extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $test = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['conditional_test'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $test->getWidth();
+    $offset += $test->getWidth();
     $question = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['conditional_question'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $question->getWidth();
+    $offset += $question->getWidth();
     $consequence = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['conditional_consequence'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $consequence->getWidth();
+    $offset += $consequence->getWidth();
     $colon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['conditional_colon'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $colon->getWidth();
+    $offset += $colon->getWidth();
     $alternative = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['conditional_alternative'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $alternative->getWidth();
+    $offset += $alternative->getWidth();
     return new self($test, $question, $consequence, $colon, $alternative);
   }
 

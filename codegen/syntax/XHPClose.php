@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<327bc04bd08311ef7c7ea154f82fb418>>
+ * @generated SignedSource<<2872afa77b81eb37ef5bf9d0caf53bb2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,27 +27,31 @@ final class XHPClose extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $left_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_close_left_angle'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_angle->getWidth();
+    $offset += $left_angle->getWidth();
     $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_close_name'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $name->getWidth();
+    $offset += $name->getWidth();
     $right_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_close_right_angle'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_angle->getWidth();
+    $offset += $right_angle->getWidth();
     return new self($left_angle, $name, $right_angle);
   }
 

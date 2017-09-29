@@ -36,6 +36,7 @@ final class Missing extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $_json,
+    string $_file,
     int $_position,
     string $_source,
   ): this {

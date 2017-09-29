@@ -123,10 +123,11 @@ abstract class EditableNode {
 
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): EditableNode {
-    return __Private\editable_node_from_json($json, $position, $source);
+    return __Private\editable_node_from_json($json, $file, $offset, $source);
   }
 
   public function toVec(): vec<EditableNode> {

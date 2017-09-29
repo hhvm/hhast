@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bdc8646419e4034c379f67f0256fae10>>
+ * @generated SignedSource<<187258450b4819b287c7926e8912dd44>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -34,39 +34,45 @@ final class MethodishDeclaration extends EditableNode
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $attribute = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['methodish_attribute'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $attribute->getWidth();
+    $offset += $attribute->getWidth();
     $modifiers = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['methodish_modifiers'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $modifiers->getWidth();
+    $offset += $modifiers->getWidth();
     $function_decl_header = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['methodish_function_decl_header'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $function_decl_header->getWidth();
+    $offset += $function_decl_header->getWidth();
     $function_body = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['methodish_function_body'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $function_body->getWidth();
+    $offset += $function_body->getWidth();
     $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['methodish_semicolon'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $semicolon->getWidth();
+    $offset += $semicolon->getWidth();
     return new self(
       $attribute,
       $modifiers,

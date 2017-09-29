@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e653ed6dd62a459af30849aafe2805c7>>
+ * @generated SignedSource<<489fdaf4056d22acccc5a5ed541312ce>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -45,63 +45,73 @@ final class EnumDeclaration extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $attribute_spec = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['enum_attribute_spec'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $attribute_spec->getWidth();
+    $offset += $attribute_spec->getWidth();
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['enum_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $keyword->getWidth();
+    $offset += $keyword->getWidth();
     $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['enum_name'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $name->getWidth();
+    $offset += $name->getWidth();
     $colon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['enum_colon'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $colon->getWidth();
+    $offset += $colon->getWidth();
     $base = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['enum_base'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $base->getWidth();
+    $offset += $base->getWidth();
     $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['enum_type'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $type->getWidth();
+    $offset += $type->getWidth();
     $left_brace = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['enum_left_brace'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_brace->getWidth();
+    $offset += $left_brace->getWidth();
     $enumerators = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['enum_enumerators'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $enumerators->getWidth();
+    $offset += $enumerators->getWidth();
     $right_brace = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['enum_right_brace'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_brace->getWidth();
+    $offset += $right_brace->getWidth();
     return new self(
       $attribute_spec,
       $keyword,

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6973e42a7b7c6a860717763500816a80>>
+ * @generated SignedSource<<4bc525566959ddd16b6e4ac348fdc73b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,27 +27,31 @@ final class InstanceofExpression extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $left_operand = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['instanceof_left_operand'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_operand->getWidth();
+    $offset += $left_operand->getWidth();
     $operator = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['instanceof_operator'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $operator->getWidth();
+    $offset += $operator->getWidth();
     $right_operand = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['instanceof_right_operand'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_operand->getWidth();
+    $offset += $right_operand->getWidth();
     return new self($left_operand, $operator, $right_operand);
   }
 

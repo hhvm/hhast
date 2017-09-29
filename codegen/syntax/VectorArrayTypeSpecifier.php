@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<03e7c2e62369c973026f7ab0842c2135>>
+ * @generated SignedSource<<38280fdb38a6d203e369ff264b3dce45>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,33 +30,38 @@ final class VectorArrayTypeSpecifier extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['vector_array_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $keyword->getWidth();
+    $offset += $keyword->getWidth();
     $left_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['vector_array_left_angle'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_angle->getWidth();
+    $offset += $left_angle->getWidth();
     $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['vector_array_type'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $type->getWidth();
+    $offset += $type->getWidth();
     $right_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['vector_array_right_angle'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_angle->getWidth();
+    $offset += $right_angle->getWidth();
     return new self($keyword, $left_angle, $type, $right_angle);
   }
 

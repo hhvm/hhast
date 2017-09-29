@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fe42ff99b7a7da9e8f488889ee712b86>>
+ * @generated SignedSource<<c07d3fbf99f77e2337ae89900c0f6dea>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -19,21 +19,25 @@ final class VariadicParameter extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $ellipsis = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['variadic_parameter_ellipsis'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $ellipsis->getWidth();
+    $offset += $ellipsis->getWidth();
     return new self($ellipsis);
   }
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    return dict['ellipsis' => $this->_ellipsis];
+    return dict[
+      'ellipsis' => $this->_ellipsis,
+    ];
   }
 
   <<__Override>>

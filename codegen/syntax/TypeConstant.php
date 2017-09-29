@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<736cdbbc98c9b717192f7c5abcf65744>>
+ * @generated SignedSource<<8856f02d33737eff5e9cb49b43b0375a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,27 +27,31 @@ final class TypeConstant extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $left_type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_constant_left_type'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_type->getWidth();
+    $offset += $left_type->getWidth();
     $separator = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_constant_separator'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $separator->getWidth();
+    $offset += $separator->getWidth();
     $right_type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_constant_right_type'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_type->getWidth();
+    $offset += $right_type->getWidth();
     return new self($left_type, $separator, $right_type);
   }
 

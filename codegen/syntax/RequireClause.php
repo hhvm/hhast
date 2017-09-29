@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b69caba561330fa2e4e110ced1882baa>>
+ * @generated SignedSource<<50ed921452d9a17b5d9321ef8f6fc485>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,33 +30,38 @@ final class RequireClause extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['require_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $keyword->getWidth();
+    $offset += $keyword->getWidth();
     $kind = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['require_kind'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $kind->getWidth();
+    $offset += $kind->getWidth();
     $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['require_name'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $name->getWidth();
+    $offset += $name->getWidth();
     $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['require_semicolon'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $semicolon->getWidth();
+    $offset += $semicolon->getWidth();
     return new self($keyword, $kind, $name, $semicolon);
   }
 

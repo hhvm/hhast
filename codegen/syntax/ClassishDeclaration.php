@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<230572f6cbf91e447073a2636043bf5e>>
+ * @generated SignedSource<<0ee93e6d7f762953d77d3b7b58c3343f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -48,69 +48,80 @@ final class ClassishDeclaration extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $attribute = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['classish_attribute'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $attribute->getWidth();
+    $offset += $attribute->getWidth();
     $modifiers = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['classish_modifiers'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $modifiers->getWidth();
+    $offset += $modifiers->getWidth();
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['classish_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $keyword->getWidth();
+    $offset += $keyword->getWidth();
     $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['classish_name'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $name->getWidth();
+    $offset += $name->getWidth();
     $type_parameters = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['classish_type_parameters'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $type_parameters->getWidth();
+    $offset += $type_parameters->getWidth();
     $extends_keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['classish_extends_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $extends_keyword->getWidth();
+    $offset += $extends_keyword->getWidth();
     $extends_list = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['classish_extends_list'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $extends_list->getWidth();
+    $offset += $extends_list->getWidth();
     $implements_keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['classish_implements_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $implements_keyword->getWidth();
+    $offset += $implements_keyword->getWidth();
     $implements_list = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['classish_implements_list'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $implements_list->getWidth();
+    $offset += $implements_list->getWidth();
     $body = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['classish_body'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $body->getWidth();
+    $offset += $body->getWidth();
     return new self(
       $attribute,
       $modifiers,

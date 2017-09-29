@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<13e3944cefce6fa2f93c621a68fb9974>>
+ * @generated SignedSource<<b3a4ffc711f6e1031ade44f02b9a2d56>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -21,27 +21,33 @@ final class ListItem extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $item = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['list_item'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $item->getWidth();
+    $offset += $item->getWidth();
     $separator = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['list_separator'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $separator->getWidth();
+    $offset += $separator->getWidth();
     return new self($item, $separator);
   }
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    return dict['item' => $this->_item, 'separator' => $this->_separator];
+    return dict[
+      'item' => $this->_item,
+      'separator' => $this->_separator,
+    ];
   }
 
   <<__Override>>

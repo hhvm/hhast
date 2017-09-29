@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<408999ecbbef2296a4f2b2da20adbbde>>
+ * @generated SignedSource<<3d322c56090feae26e3dee4a1f25edff>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -21,27 +21,33 @@ final class FinallyClause extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['finally_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $keyword->getWidth();
+    $offset += $keyword->getWidth();
     $body = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['finally_body'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $body->getWidth();
+    $offset += $body->getWidth();
     return new self($keyword, $body);
   }
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    return dict['keyword' => $this->_keyword, 'body' => $this->_body];
+    return dict[
+      'keyword' => $this->_keyword,
+      'body' => $this->_body,
+    ];
   }
 
   <<__Override>>

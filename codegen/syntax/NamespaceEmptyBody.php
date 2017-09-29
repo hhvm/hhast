@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ac4183eef7026ed24add1e552e8c7a66>>
+ * @generated SignedSource<<e21f29263fe0e0fb6f3f1b783e7b04d6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -19,21 +19,25 @@ final class NamespaceEmptyBody extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_semicolon'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $semicolon->getWidth();
+    $offset += $semicolon->getWidth();
     return new self($semicolon);
   }
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    return dict['semicolon' => $this->_semicolon];
+    return dict[
+      'semicolon' => $this->_semicolon,
+    ];
   }
 
   <<__Override>>

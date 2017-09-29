@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2a70a09aead8058c7769e3eac4c15f3c>>
+ * @generated SignedSource<<988b6ca5c85689af24b2badadb1a09bb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,33 +30,38 @@ final class CollectionLiteralExpression extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['collection_literal_name'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $name->getWidth();
+    $offset += $name->getWidth();
     $left_brace = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['collection_literal_left_brace'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_brace->getWidth();
+    $offset += $left_brace->getWidth();
     $initializers = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['collection_literal_initializers'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $initializers->getWidth();
+    $offset += $initializers->getWidth();
     $right_brace = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['collection_literal_right_brace'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_brace->getWidth();
+    $offset += $right_brace->getWidth();
     return new self($name, $left_brace, $initializers, $right_brace);
   }
 

@@ -12,9 +12,13 @@
 
 namespace Facebook\HHAST;
 
-function from_json(dict<string, mixed> $json): EditableNode {
+function from_json(
+  dict<string, mixed> $json,
+  ?string $file = null,
+): EditableNode {
   return EditableNode::fromJSON(
     /* HH_IGNORE_ERROR[4110] */ $json['parse_tree'],
+    $file ?? '! no file !',
     0,
     /* HH_IGNORE_ERROR[4110] */ $json['program_text'],
   );
@@ -43,7 +47,7 @@ function json_from_file(string $file): dict<string, mixed> {
 
 function from_file(string $file): EditableNode {
   $json = json_from_file($file);
-  return from_json($json);
+  return from_json($json, $file);
 }
 
 function json_from_text(string $text): dict<string, mixed> {

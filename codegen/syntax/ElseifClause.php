@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f45521f56faa96ab3a9fb417092bb13a>>
+ * @generated SignedSource<<3505203654ec0f27462bc4ff94b59ce8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,39 +33,45 @@ final class ElseifClause extends EditableNode implements IControlFlowStatement {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['elseif_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $keyword->getWidth();
+    $offset += $keyword->getWidth();
     $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['elseif_left_paren'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_paren->getWidth();
+    $offset += $left_paren->getWidth();
     $condition = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['elseif_condition'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $condition->getWidth();
+    $offset += $condition->getWidth();
     $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['elseif_right_paren'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_paren->getWidth();
+    $offset += $right_paren->getWidth();
     $statement = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['elseif_statement'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $statement->getWidth();
+    $offset += $statement->getWidth();
     return
       new self($keyword, $left_paren, $condition, $right_paren, $statement);
   }

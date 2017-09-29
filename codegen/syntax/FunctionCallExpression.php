@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<107f1c12c3dc8a716fc7d9fd9e7545e4>>
+ * @generated SignedSource<<ed6b7ad73a780f72008dcf78b949fcd9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,33 +30,38 @@ final class FunctionCallExpression extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $receiver = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_call_receiver'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $receiver->getWidth();
+    $offset += $receiver->getWidth();
     $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_call_left_paren'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_paren->getWidth();
+    $offset += $left_paren->getWidth();
     $argument_list = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_call_argument_list'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $argument_list->getWidth();
+    $offset += $argument_list->getWidth();
     $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_call_right_paren'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_paren->getWidth();
+    $offset += $right_paren->getWidth();
     return new self($receiver, $left_paren, $argument_list, $right_paren);
   }
 

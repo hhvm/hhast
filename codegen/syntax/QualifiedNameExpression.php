@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0729bb30b3f0c106117634dd94e9d5ec>>
+ * @generated SignedSource<<f6945ea3e8b0f8ab00c11455c8b9e0fb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -19,21 +19,25 @@ final class QualifiedNameExpression extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $expression = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['qualified_name_expression'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $expression->getWidth();
+    $offset += $expression->getWidth();
     return new self($expression);
   }
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    return dict['expression' => $this->_expression];
+    return dict[
+      'expression' => $this->_expression,
+    ];
   }
 
   <<__Override>>

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<94040c8d91017b58621e259472caa187>>
+ * @generated SignedSource<<eacc02bed8ac08c7bbbf59e7fb764253>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -46,63 +46,73 @@ final class ForStatement extends EditableNode
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['for_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $keyword->getWidth();
+    $offset += $keyword->getWidth();
     $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['for_left_paren'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_paren->getWidth();
+    $offset += $left_paren->getWidth();
     $initializer = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['for_initializer'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $initializer->getWidth();
+    $offset += $initializer->getWidth();
     $first_semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['for_first_semicolon'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $first_semicolon->getWidth();
+    $offset += $first_semicolon->getWidth();
     $control = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['for_control'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $control->getWidth();
+    $offset += $control->getWidth();
     $second_semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['for_second_semicolon'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $second_semicolon->getWidth();
+    $offset += $second_semicolon->getWidth();
     $end_of_loop = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['for_end_of_loop'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $end_of_loop->getWidth();
+    $offset += $end_of_loop->getWidth();
     $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['for_right_paren'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_paren->getWidth();
+    $offset += $right_paren->getWidth();
     $body = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['for_body'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $body->getWidth();
+    $offset += $body->getWidth();
     return new self(
       $keyword,
       $left_paren,

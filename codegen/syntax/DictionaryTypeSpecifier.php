@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0e3b4860b961d320e6f916ec306ea0bc>>
+ * @generated SignedSource<<9062c676034f8b9d82dfb0edbcc3050e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,33 +30,38 @@ final class DictionaryTypeSpecifier extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['dictionary_type_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $keyword->getWidth();
+    $offset += $keyword->getWidth();
     $left_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['dictionary_type_left_angle'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_angle->getWidth();
+    $offset += $left_angle->getWidth();
     $members = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['dictionary_type_members'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $members->getWidth();
+    $offset += $members->getWidth();
     $right_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['dictionary_type_right_angle'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_angle->getWidth();
+    $offset += $right_angle->getWidth();
     return new self($keyword, $left_angle, $members, $right_angle);
   }
 

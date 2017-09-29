@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<353da51de0acae239c4f06b964c894f6>>
+ * @generated SignedSource<<3f199c1c1cd1b33ce707a00493f02b39>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,33 +30,38 @@ final class XHPClassAttribute extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_attribute_decl_type'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $type->getWidth();
+    $offset += $type->getWidth();
     $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_attribute_decl_name'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $name->getWidth();
+    $offset += $name->getWidth();
     $initializer = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_attribute_decl_initializer'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $initializer->getWidth();
+    $offset += $initializer->getWidth();
     $required = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_attribute_decl_required'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $required->getWidth();
+    $offset += $required->getWidth();
     return new self($type, $name, $initializer, $required);
   }
 

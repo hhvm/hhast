@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<db2663665e65b77a29fa4cad0e6a3505>>
+ * @generated SignedSource<<aca09f1ec5aa18ffa4b1162b6c12c25c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -24,21 +24,24 @@ final class DecoratedExpression extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $decorator = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['decorated_expression_decorator'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $decorator->getWidth();
+    $offset += $decorator->getWidth();
     $expression = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['decorated_expression_expression'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $expression->getWidth();
+    $offset += $expression->getWidth();
     return new self($decorator, $expression);
   }
 

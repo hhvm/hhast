@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b8a378d2e0bbc13abbc3383ab8bbd1df>>
+ * @generated SignedSource<<7396b1289d14b24939f41b0c1f91f65f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,33 +30,38 @@ final class VectorIntrinsicExpression extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['vector_intrinsic_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $keyword->getWidth();
+    $offset += $keyword->getWidth();
     $left_bracket = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['vector_intrinsic_left_bracket'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_bracket->getWidth();
+    $offset += $left_bracket->getWidth();
     $members = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['vector_intrinsic_members'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $members->getWidth();
+    $offset += $members->getWidth();
     $right_bracket = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['vector_intrinsic_right_bracket'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_bracket->getWidth();
+    $offset += $right_bracket->getWidth();
     return new self($keyword, $left_bracket, $members, $right_bracket);
   }
 

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a68eb569bf7a01ec52b651a31c32480f>>
+ * @generated SignedSource<<414e2a2421fcb74ac48838daacf98497>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -28,27 +28,31 @@ final class FunctionDeclaration extends EditableNode
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $attribute_spec = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_attribute_spec'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $attribute_spec->getWidth();
+    $offset += $attribute_spec->getWidth();
     $declaration_header = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_declaration_header'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $declaration_header->getWidth();
+    $offset += $declaration_header->getWidth();
     $body = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_body'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $body->getWidth();
+    $offset += $body->getWidth();
     return new self($attribute_spec, $declaration_header, $body);
   }
 

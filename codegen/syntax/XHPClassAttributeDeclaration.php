@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0f1e3f101cec6e8a4430372fe12e6301>>
+ * @generated SignedSource<<3cb71bc3866a4b541b8d294b9c4a3ede>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,27 +27,31 @@ final class XHPClassAttributeDeclaration extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_attribute_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $keyword->getWidth();
+    $offset += $keyword->getWidth();
     $attributes = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_attribute_attributes'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $attributes->getWidth();
+    $offset += $attributes->getWidth();
     $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_attribute_semicolon'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $semicolon->getWidth();
+    $offset += $semicolon->getWidth();
     return new self($keyword, $attributes, $semicolon);
   }
 

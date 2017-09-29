@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<097f8b4a48580b7617b688669774f424>>
+ * @generated SignedSource<<e6278ffc65af8c7e80782050fabd2150>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -21,27 +21,33 @@ final class TypeConstraint extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['constraint_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $keyword->getWidth();
+    $offset += $keyword->getWidth();
     $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['constraint_type'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $type->getWidth();
+    $offset += $type->getWidth();
     return new self($keyword, $type);
   }
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    return dict['keyword' => $this->_keyword, 'type' => $this->_type];
+    return dict[
+      'keyword' => $this->_keyword,
+      'type' => $this->_type,
+    ];
   }
 
   <<__Override>>

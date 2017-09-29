@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a5c893858ab047f318b93b298387c7b4>>
+ * @generated SignedSource<<3474aa756b80815b34e52c5414722344>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,39 +33,45 @@ final class ParameterDeclaration extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $attribute = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['parameter_attribute'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $attribute->getWidth();
+    $offset += $attribute->getWidth();
     $visibility = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['parameter_visibility'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $visibility->getWidth();
+    $offset += $visibility->getWidth();
     $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['parameter_type'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $type->getWidth();
+    $offset += $type->getWidth();
     $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['parameter_name'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $name->getWidth();
+    $offset += $name->getWidth();
     $default_value = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['parameter_default_value'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $default_value->getWidth();
+    $offset += $default_value->getWidth();
     return new self($attribute, $visibility, $type, $name, $default_value);
   }
 

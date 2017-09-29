@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<123e2aa9005f018e63a3f42dc351774e>>
+ * @generated SignedSource<<9236786c9589d1638b7c854430007717>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,39 +33,45 @@ final class ObjectCreationExpression extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $new_keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['object_creation_new_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $new_keyword->getWidth();
+    $offset += $new_keyword->getWidth();
     $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['object_creation_type'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $type->getWidth();
+    $offset += $type->getWidth();
     $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['object_creation_left_paren'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_paren->getWidth();
+    $offset += $left_paren->getWidth();
     $argument_list = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['object_creation_argument_list'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $argument_list->getWidth();
+    $offset += $argument_list->getWidth();
     $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['object_creation_right_paren'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_paren->getWidth();
+    $offset += $right_paren->getWidth();
     return
       new self($new_keyword, $type, $left_paren, $argument_list, $right_paren);
   }

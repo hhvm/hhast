@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3cd6888f13fd59acd20a725fc60a63e0>>
+ * @generated SignedSource<<839dba7f047e959be6cab2f635809e46>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,45 +36,52 @@ final class MapArrayTypeSpecifier extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['map_array_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $keyword->getWidth();
+    $offset += $keyword->getWidth();
     $left_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['map_array_left_angle'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_angle->getWidth();
+    $offset += $left_angle->getWidth();
     $key = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['map_array_key'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $key->getWidth();
+    $offset += $key->getWidth();
     $comma = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['map_array_comma'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $comma->getWidth();
+    $offset += $comma->getWidth();
     $value = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['map_array_value'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $value->getWidth();
+    $offset += $value->getWidth();
     $right_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['map_array_right_angle'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_angle->getWidth();
+    $offset += $right_angle->getWidth();
     return new self($keyword, $left_angle, $key, $comma, $value, $right_angle);
   }
 

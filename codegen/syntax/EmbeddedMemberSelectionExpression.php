@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0d6bd0955fd6eac94b55669bf4f07650>>
+ * @generated SignedSource<<a851d8f0d8602349fc224bbf941bab12>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,27 +27,31 @@ final class EmbeddedMemberSelectionExpression extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $object = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['embedded_member_object'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $object->getWidth();
+    $offset += $object->getWidth();
     $operator = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['embedded_member_operator'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $operator->getWidth();
+    $offset += $operator->getWidth();
     $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['embedded_member_name'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $name->getWidth();
+    $offset += $name->getWidth();
     return new self($object, $operator, $name);
   }
 

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<420a0f7a11aa1d8b0a51be131ca2d46a>>
+ * @generated SignedSource<<00033ebf8bfa22628d9e0bb8664eeb89>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,27 +27,31 @@ final class AwaitableCreationExpression extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $async = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['awaitable_async'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $async->getWidth();
+    $offset += $async->getWidth();
     $coroutine = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['awaitable_coroutine'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $coroutine->getWidth();
+    $offset += $coroutine->getWidth();
     $compound_statement = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['awaitable_compound_statement'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $compound_statement->getWidth();
+    $offset += $compound_statement->getWidth();
     return new self($async, $coroutine, $compound_statement);
   }
 

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<292eece1bf089ac291979636a6e57990>>
+ * @generated SignedSource<<46d327fe94522b1745ecd5b2ab4041f8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -24,28 +24,33 @@ final class WhereClause extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['where_clause_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $keyword->getWidth();
+    $offset += $keyword->getWidth();
     $constraints = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['where_clause_constraints'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $constraints->getWidth();
+    $offset += $constraints->getWidth();
     return new self($keyword, $constraints);
   }
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    return
-      dict['keyword' => $this->_keyword, 'constraints' => $this->_constraints];
+    return dict[
+      'keyword' => $this->_keyword,
+      'constraints' => $this->_constraints,
+    ];
   }
 
   <<__Override>>

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<720fd6b8525e658eedfec05ebb7d8481>>
+ * @generated SignedSource<<627b81457cc727fdc5df189a2403daff>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -21,27 +21,33 @@ final class ConstantDeclarator extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['constant_declarator_name'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $name->getWidth();
+    $offset += $name->getWidth();
     $initializer = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['constant_declarator_initializer'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $initializer->getWidth();
+    $offset += $initializer->getWidth();
     return new self($name, $initializer);
   }
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    return dict['name' => $this->_name, 'initializer' => $this->_initializer];
+    return dict[
+      'name' => $this->_name,
+      'initializer' => $this->_initializer,
+    ];
   }
 
   <<__Override>>

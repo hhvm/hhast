@@ -214,11 +214,12 @@ final class CodegenSyntax extends CodegenBase {
               $syntax['prefix'],
               $field['field_name'],
             ),
-            '$position',
+            '$file',
+            '$offset',
             '$source',
           ],
         )
-        ->addLinef('$position += $%s->getWidth();', $field['field_name']);
+        ->addLinef('$offset += $%s->getWidth();', $field['field_name']);
     }
 
     return $cg
@@ -226,7 +227,8 @@ final class CodegenSyntax extends CodegenBase {
       ->setIsOverride()
       ->setIsStatic()
       ->addParameter('dict<string, mixed> $json')
-      ->addParameter('int $position')
+      ->addParameter('string $file')
+      ->addParameter('int $offset')
       ->addParameter('string $source')
       ->setReturnType('this')
       ->setBody(

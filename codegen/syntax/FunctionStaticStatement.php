@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5845e23fefe6be35e04cfd7d33203225>>
+ * @generated SignedSource<<9baefdbcb3aa2c52657149db7e713dee>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,27 +27,31 @@ final class FunctionStaticStatement extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $static_keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['static_static_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $static_keyword->getWidth();
+    $offset += $static_keyword->getWidth();
     $declarations = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['static_declarations'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $declarations->getWidth();
+    $offset += $declarations->getWidth();
     $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['static_semicolon'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $semicolon->getWidth();
+    $offset += $semicolon->getWidth();
     return new self($static_keyword, $declarations, $semicolon);
   }
 

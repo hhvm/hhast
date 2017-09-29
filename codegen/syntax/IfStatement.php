@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<43c560d8459498077f3118ef8bba2db1>>
+ * @generated SignedSource<<d4371538ac688be7376bc743eed1f248>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,51 +39,59 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['if_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $keyword->getWidth();
+    $offset += $keyword->getWidth();
     $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['if_left_paren'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_paren->getWidth();
+    $offset += $left_paren->getWidth();
     $condition = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['if_condition'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $condition->getWidth();
+    $offset += $condition->getWidth();
     $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['if_right_paren'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_paren->getWidth();
+    $offset += $right_paren->getWidth();
     $statement = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['if_statement'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $statement->getWidth();
+    $offset += $statement->getWidth();
     $elseif_clauses = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['if_elseif_clauses'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $elseif_clauses->getWidth();
+    $offset += $elseif_clauses->getWidth();
     $else_clause = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['if_else_clause'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $else_clause->getWidth();
+    $offset += $else_clause->getWidth();
     return new self(
       $keyword,
       $left_paren,

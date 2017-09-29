@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e6783ed5ce17e0a31604a2e5ee2b5ff7>>
+ * @generated SignedSource<<8b91d6d3115eb5093715d718fda80b22>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -19,21 +19,25 @@ final class SimpleTypeSpecifier extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $specifier = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['simple_type_specifier'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $specifier->getWidth();
+    $offset += $specifier->getWidth();
     return new self($specifier);
   }
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    return dict['specifier' => $this->_specifier];
+    return dict[
+      'specifier' => $this->_specifier,
+    ];
   }
 
   <<__Override>>

@@ -31,22 +31,29 @@ final class CodegenEditableNodeFromJSON extends CodegenBase {
           ->codegenFunction('editable_node_from_json')
           ->setReturnType('HHAST\\EditableNode')
           ->addParameter('dict<string, mixed> $json')
-          ->addParameter('int $position')
+          ->addParameter('string $file')
+          ->addParameter('int $offset')
           ->addParameter('string $source')
           ->setBody(
             $cg
               ->codegenHackBuilder()
               ->startSwitch('(string) $json[\'kind\']')
               ->addCase('token', HackBuilderValues::export())
-              ->addReturnf(
-                'HHAST\\EditableToken::fromJSON(/* HH_IGNORE_ERROR[4110] */ $json[\'token\'], $position, $source)',
+              ->add('return ')
+              ->addMultilineCall(
+                'HHAST\\EditableToken::fromJSON',
+                vec[
+                  '/* HH_IGNORE_ERROR[4110] */ $json[\'token\']',
+                  '$file',
+                  '$offset',
+                  '$source',
+                ],
               )
               ->unindent()
               ->addCase('list', HackBuilderValues::export())
-              ->addReturnf(
-                'HHAST\\EditableList::fromJSON($json, $position, $source)',
+              ->returnCasef(
+                'HHAST\\EditableList::fromJSON($json, $file, $offset, $source)',
               )
-              ->unindent()
               ->addCase('missing', HackBuilderValues::export())
               ->addReturnf('HHAST\\Missing()')
               ->unindent()
@@ -59,7 +66,7 @@ final class CodegenEditableNodeFromJSON extends CodegenBase {
                       HackBuilderValues::export(),
                     )
                     ->addReturnf(
-                      'HHAST\\%s::fromJSON($json, $position, $source)',
+                      'HHAST\\%s::fromJSON($json, $file, $offset, $source)',
                       $trivia['trivia_kind_name'],
                     )
                     ->unindent();
@@ -76,7 +83,7 @@ final class CodegenEditableNodeFromJSON extends CodegenBase {
                   $body
                     ->addCase($ast['description'], HackBuilderValues::export())
                     ->addReturnf(
-                      'HHAST\\%s::fromJSON($json, $position, $source)',
+                      'HHAST\\%s::fromJSON($json, $file, $offset, $source)',
                       $ast['kind_name'],
                     )
                     ->unindent();

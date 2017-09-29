@@ -83,13 +83,15 @@ final class EditableList extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $children = vec[];
-    $current_position = $position;
+    $current_position = $offset;
     foreach (/* UNSAFE_EXPR */$json['elements'] as $element) {
-      $child = EditableNode::fromJSON($element, $current_position, $source);
+      $child =
+        EditableNode::fromJSON($element, $file, $current_position, $source);
       $children[] = $child;
       $current_position += $child->getWidth();
     }

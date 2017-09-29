@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<65cfc7f5ace583f1c8458cbee14352e7>>
+ * @generated SignedSource<<cab7052d8276bad001b2d2e2a90a32a8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,27 +27,31 @@ final class XHPCategoryDeclaration extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_category_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $keyword->getWidth();
+    $offset += $keyword->getWidth();
     $categories = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_category_categories'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $categories->getWidth();
+    $offset += $categories->getWidth();
     $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_category_semicolon'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $semicolon->getWidth();
+    $offset += $semicolon->getWidth();
     return new self($keyword, $categories, $semicolon);
   }
 

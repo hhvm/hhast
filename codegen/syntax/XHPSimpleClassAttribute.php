@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<27ed3774e6f12d0ad22df6ef87af7729>>
+ * @generated SignedSource<<06ff319f24164854b41f9e4f1116e89d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -19,21 +19,25 @@ final class XHPSimpleClassAttribute extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_simple_class_attribute_type'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $type->getWidth();
+    $offset += $type->getWidth();
     return new self($type);
   }
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    return dict['type' => $this->_type];
+    return dict[
+      'type' => $this->_type,
+    ];
   }
 
   <<__Override>>

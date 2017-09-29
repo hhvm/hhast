@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ce21cf98c164ce2b57a6e9a71439900e>>
+ * @generated SignedSource<<28838e46a75f17886601bded588d4534>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,27 +27,31 @@ final class WhereConstraint extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $left_type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['where_constraint_left_type'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_type->getWidth();
+    $offset += $left_type->getWidth();
     $operator = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['where_constraint_operator'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $operator->getWidth();
+    $offset += $operator->getWidth();
     $right_type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['where_constraint_right_type'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_type->getWidth();
+    $offset += $right_type->getWidth();
     return new self($left_type, $operator, $right_type);
   }
 

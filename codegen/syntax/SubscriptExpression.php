@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<28078bf1283b6ff858f81482bc24073b>>
+ * @generated SignedSource<<0b210c39f681563f8707f535eeeac77e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,33 +30,38 @@ final class SubscriptExpression extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $receiver = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['subscript_receiver'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $receiver->getWidth();
+    $offset += $receiver->getWidth();
     $left_bracket = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['subscript_left_bracket'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_bracket->getWidth();
+    $offset += $left_bracket->getWidth();
     $index = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['subscript_index'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $index->getWidth();
+    $offset += $index->getWidth();
     $right_bracket = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['subscript_right_bracket'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_bracket->getWidth();
+    $offset += $right_bracket->getWidth();
     return new self($receiver, $left_bracket, $index, $right_bracket);
   }
 

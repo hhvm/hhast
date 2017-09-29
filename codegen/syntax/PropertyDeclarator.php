@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<20b0820417d1ec4b56c1776e7dcf4b20>>
+ * @generated SignedSource<<655e86222f152e4dc0b29b28636e8289>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -21,27 +21,33 @@ final class PropertyDeclarator extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['property_name'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $name->getWidth();
+    $offset += $name->getWidth();
     $initializer = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['property_initializer'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $initializer->getWidth();
+    $offset += $initializer->getWidth();
     return new self($name, $initializer);
   }
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    return dict['name' => $this->_name, 'initializer' => $this->_initializer];
+    return dict[
+      'name' => $this->_name,
+      'initializer' => $this->_initializer,
+    ];
   }
 
   <<__Override>>

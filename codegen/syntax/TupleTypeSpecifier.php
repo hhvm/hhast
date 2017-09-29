@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<76651efa1934227f8493b37317a4da0f>>
+ * @generated SignedSource<<240135ab3c5793dfb62397cab56a1eda>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,27 +27,31 @@ final class TupleTypeSpecifier extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['tuple_left_paren'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_paren->getWidth();
+    $offset += $left_paren->getWidth();
     $types = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['tuple_types'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $types->getWidth();
+    $offset += $types->getWidth();
     $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['tuple_right_paren'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_paren->getWidth();
+    $offset += $right_paren->getWidth();
     return new self($left_paren, $types, $right_paren);
   }
 

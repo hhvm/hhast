@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9d069e5069730ce8e93ee4d2fcb175e8>>
+ * @generated SignedSource<<76c6f8f70e93e5cd0a7ca80a581edca2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -21,27 +21,33 @@ final class YieldExpression extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['yield_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $keyword->getWidth();
+    $offset += $keyword->getWidth();
     $operand = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['yield_operand'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $operand->getWidth();
+    $offset += $operand->getWidth();
     return new self($keyword, $operand);
   }
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    return dict['keyword' => $this->_keyword, 'operand' => $this->_operand];
+    return dict[
+      'keyword' => $this->_keyword,
+      'operand' => $this->_operand,
+    ];
   }
 
   <<__Override>>

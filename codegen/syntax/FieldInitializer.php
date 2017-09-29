@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8c8cfcf3ad3986ab7d7f202776d93d24>>
+ * @generated SignedSource<<56c0090ac3688285c5e0efc2327ac4ad>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,27 +27,31 @@ final class FieldInitializer extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['field_initializer_name'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $name->getWidth();
+    $offset += $name->getWidth();
     $arrow = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['field_initializer_arrow'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $arrow->getWidth();
+    $offset += $arrow->getWidth();
     $value = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['field_initializer_value'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $value->getWidth();
+    $offset += $value->getWidth();
     return new self($name, $arrow, $value);
   }
 

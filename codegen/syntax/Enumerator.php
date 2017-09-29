@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b6c5078a0f730e57d721d9916dda53f8>>
+ * @generated SignedSource<<cadd4ca04406ea76c9dbf12220958a49>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,33 +30,38 @@ final class Enumerator extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['enumerator_name'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $name->getWidth();
+    $offset += $name->getWidth();
     $equal = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['enumerator_equal'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $equal->getWidth();
+    $offset += $equal->getWidth();
     $value = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['enumerator_value'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $value->getWidth();
+    $offset += $value->getWidth();
     $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['enumerator_semicolon'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $semicolon->getWidth();
+    $offset += $semicolon->getWidth();
     return new self($name, $equal, $value, $semicolon);
   }
 

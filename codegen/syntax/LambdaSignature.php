@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1fb1642bea5cef308b8e667e69a8a1aa>>
+ * @generated SignedSource<<21a066cd0ffd53de60e1953fecf02bf0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,39 +33,45 @@ final class LambdaSignature extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['lambda_left_paren'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_paren->getWidth();
+    $offset += $left_paren->getWidth();
     $parameters = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['lambda_parameters'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $parameters->getWidth();
+    $offset += $parameters->getWidth();
     $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['lambda_right_paren'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_paren->getWidth();
+    $offset += $right_paren->getWidth();
     $colon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['lambda_colon'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $colon->getWidth();
+    $offset += $colon->getWidth();
     $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['lambda_type'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $type->getWidth();
+    $offset += $type->getWidth();
     return new self($left_paren, $parameters, $right_paren, $colon, $type);
   }
 

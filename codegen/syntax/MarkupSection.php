@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dfb5be56f0c635620ba14738116af92d>>
+ * @generated SignedSource<<198b058797aa134e926853138fabc69a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,33 +30,38 @@ final class MarkupSection extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $prefix = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['markup_prefix'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $prefix->getWidth();
+    $offset += $prefix->getWidth();
     $text = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['markup_text'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $text->getWidth();
+    $offset += $text->getWidth();
     $suffix = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['markup_suffix'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $suffix->getWidth();
+    $offset += $suffix->getWidth();
     $expression = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['markup_expression'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $expression->getWidth();
+    $offset += $expression->getWidth();
     return new self($prefix, $text, $suffix, $expression);
   }
 

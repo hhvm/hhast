@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<02deb69e0f4db283aabfdf25cd7d1088>>
+ * @generated SignedSource<<26b40216de6decf2bcc500cd3994c0ac>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,27 +27,31 @@ final class XHPChildrenParenthesizedList extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_children_list_left_paren'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_paren->getWidth();
+    $offset += $left_paren->getWidth();
     $xhp_children = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_children_list_xhp_children'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $xhp_children->getWidth();
+    $offset += $xhp_children->getWidth();
     $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_children_list_right_paren'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_paren->getWidth();
+    $offset += $right_paren->getWidth();
     return new self($left_paren, $xhp_children, $right_paren);
   }
 

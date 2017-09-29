@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<84b384cc83b0d3958b57a77511f7eb05>>
+ * @generated SignedSource<<79a6f108d8a695c3a750c777da8305ad>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,27 +27,31 @@ final class TypeParameters extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $left_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_parameters_left_angle'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_angle->getWidth();
+    $offset += $left_angle->getWidth();
     $parameters = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_parameters_parameters'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $parameters->getWidth();
+    $offset += $parameters->getWidth();
     $right_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_parameters_right_angle'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_angle->getWidth();
+    $offset += $right_angle->getWidth();
     return new self($left_angle, $parameters, $right_angle);
   }
 

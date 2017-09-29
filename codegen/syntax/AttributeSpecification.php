@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<38b035c03c06ca6a733331f87f4501bb>>
+ * @generated SignedSource<<a48d428f248708949cb8b431e9f8e23a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,27 +27,31 @@ final class AttributeSpecification extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $left_double_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['attribute_specification_left_double_angle'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_double_angle->getWidth();
+    $offset += $left_double_angle->getWidth();
     $attributes = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['attribute_specification_attributes'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $attributes->getWidth();
+    $offset += $attributes->getWidth();
     $right_double_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['attribute_specification_right_double_angle'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_double_angle->getWidth();
+    $offset += $right_double_angle->getWidth();
     return new self($left_double_angle, $attributes, $right_double_angle);
   }
 

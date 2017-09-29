@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b9437127997460da03a7c4e2d84efd95>>
+ * @generated SignedSource<<809bed933ce9e99c951cd57c16fa5fe0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,51 +39,59 @@ final class DarrayTypeSpecifier extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['darray_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $keyword->getWidth();
+    $offset += $keyword->getWidth();
     $left_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['darray_left_angle'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_angle->getWidth();
+    $offset += $left_angle->getWidth();
     $key = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['darray_key'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $key->getWidth();
+    $offset += $key->getWidth();
     $comma = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['darray_comma'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $comma->getWidth();
+    $offset += $comma->getWidth();
     $value = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['darray_value'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $value->getWidth();
+    $offset += $value->getWidth();
     $trailing_comma = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['darray_trailing_comma'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $trailing_comma->getWidth();
+    $offset += $trailing_comma->getWidth();
     $right_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['darray_right_angle'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_angle->getWidth();
+    $offset += $right_angle->getWidth();
     return new self(
       $keyword,
       $left_angle,

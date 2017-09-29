@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0cabd83953abb98f44de42455b66473b>>
+ * @generated SignedSource<<190d91c050de10cd8abb4fbc0585b382>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -51,75 +51,87 @@ final class AnonymousFunction extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $static_keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_static_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $static_keyword->getWidth();
+    $offset += $static_keyword->getWidth();
     $async_keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_async_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $async_keyword->getWidth();
+    $offset += $async_keyword->getWidth();
     $coroutine_keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_coroutine_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $coroutine_keyword->getWidth();
+    $offset += $coroutine_keyword->getWidth();
     $function_keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_function_keyword'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $function_keyword->getWidth();
+    $offset += $function_keyword->getWidth();
     $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_left_paren'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $left_paren->getWidth();
+    $offset += $left_paren->getWidth();
     $parameters = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_parameters'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $parameters->getWidth();
+    $offset += $parameters->getWidth();
     $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_right_paren'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $right_paren->getWidth();
+    $offset += $right_paren->getWidth();
     $colon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_colon'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $colon->getWidth();
+    $offset += $colon->getWidth();
     $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_type'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $type->getWidth();
+    $offset += $type->getWidth();
     $use = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_use'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $use->getWidth();
+    $offset += $use->getWidth();
     $body = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_body'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $body->getWidth();
+    $offset += $body->getWidth();
     return new self(
       $static_keyword,
       $async_keyword,

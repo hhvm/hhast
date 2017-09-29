@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a169d0b5f0dab863aa26496c5d0f1463>>
+ * @generated SignedSource<<2bb9c2c5b1b461db3d125a4b2c1e5354>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -21,27 +21,33 @@ final class SoftTypeSpecifier extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $at = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['soft_at'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $at->getWidth();
+    $offset += $at->getWidth();
     $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['soft_type'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $type->getWidth();
+    $offset += $type->getWidth();
     return new self($at, $type);
   }
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    return dict['at' => $this->_at, 'type' => $this->_type];
+    return dict[
+      'at' => $this->_at,
+      'type' => $this->_type,
+    ];
   }
 
   <<__Override>>

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<80d9b09b44f3be9821743505de084004>>
+ * @generated SignedSource<<daf35e8f446b793bb873ef597aecda5f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,33 +30,38 @@ final class FieldSpecifier extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $question = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['field_question'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $question->getWidth();
+    $offset += $question->getWidth();
     $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['field_name'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $name->getWidth();
+    $offset += $name->getWidth();
     $arrow = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['field_arrow'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $arrow->getWidth();
+    $offset += $arrow->getWidth();
     $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['field_type'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $type->getWidth();
+    $offset += $type->getWidth();
     return new self($question, $name, $arrow, $type);
   }
 

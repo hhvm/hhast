@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e844a15d2f85c52b268d802c6b67900a>>
+ * @generated SignedSource<<b94293a6c6bc2639116ff07290ba525a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -19,21 +19,25 @@ final class ErrorSyntax extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $error = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['error_error'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $error->getWidth();
+    $offset += $error->getWidth();
     return new self($error);
   }
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    return dict['error' => $this->_error];
+    return dict[
+      'error' => $this->_error,
+    ];
   }
 
   <<__Override>>

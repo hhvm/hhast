@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8ecfe1a2d3122143630e3d63b56f342d>>
+ * @generated SignedSource<<7de5ed7d0be60b6e7b9b1e5aca0a28a1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -21,27 +21,33 @@ final class InclusionExpression extends EditableNode {
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
-    int $position,
+    string $file,
+    int $offset,
     string $source,
   ): this {
     $require = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['inclusion_require'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $require->getWidth();
+    $offset += $require->getWidth();
     $filename = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['inclusion_filename'],
-      $position,
+      $file,
+      $offset,
       $source,
     );
-    $position += $filename->getWidth();
+    $offset += $filename->getWidth();
     return new self($require, $filename);
   }
 
   <<__Override>>
   public function getChildren(): KeyedTraversable<string, EditableNode> {
-    return dict['require' => $this->_require, 'filename' => $this->_filename];
+    return dict[
+      'require' => $this->_require,
+      'filename' => $this->_filename,
+    ];
   }
 
   <<__Override>>
