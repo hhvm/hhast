@@ -17,19 +17,8 @@ use namespace HH\Lib\{C, Dict, Str, Vec};
 
 final class LinterCLI extends CLIWithArguments {
   private bool $printPerfCounters = false;
-  private int $verbosity = 0;
 
-
-  private function verbosePrintf(
-    int $level,
-    \HH\FormatString<\PlainSprintf> $format,
-    mixed ...$args
-  ): void {
-    if ($this->verbosity < $level) {
-      return;
-    }
-    print(vsprintf($format, $args));
-  }
+  use CLIWithVerbosityTrait;
 
   <<__Override>>
   public static function getHelpTextForOptionalArguments(): string {
@@ -44,21 +33,7 @@ final class LinterCLI extends CLIWithArguments {
         'Output performance counters when finished',
         '--perf',
       ),
-      CLIOptions\flag(
-        () ==> { $this->verbosity = 1; },
-        'Print some more output',
-        '--verbose',
-        '-v',
-      ),
-      CLIOptions\flag(
-        () ==> {
-          $this->verbosity = 2;
-          $this->printPerfCounters = true;
-        },
-        'Print a lot more output',
-        '--extra-verbose',
-        '-vv',
-      ),
+      $this->getVerbosityOption(),
     ];
   }
 

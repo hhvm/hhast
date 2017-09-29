@@ -12,7 +12,7 @@
 namespace Facebook\HHAST\__Private;
 
 use function Facebook\HHAST\from_file as ast_from_file;
-use namespace HH\Lib\C;
+use namespace HH\Lib\{C, Str};
 use type Facebook\HHAST\Migrations\{
   BaseMigration,
   ImplicitShapeSubtypesMigration,
@@ -20,7 +20,10 @@ use type Facebook\HHAST\Migrations\{
 };
 
 class MigrationCLI extends CLIWithRequiredArguments {
+  use CLIWithVerbosityTrait;
+
   protected keyset<classname<BaseMigration>> $migrations = keyset[];
+  private bool $includeVendor = false;
 
   <<__Override>>
   final public static function getHelpTextForRequiredArguments(): vec<string> {
@@ -48,12 +51,19 @@ class MigrationCLI extends CLIWithRequiredArguments {
         'Apply all migrations for moving from 3.22 to 3.23',
         '--hhvm-3.22-to-3.23',
       ),
+      CLIOptions\flag(
+        () ==> { $this->includeVendor = true; },
+        'Also migrate files in vendor/ subdirectories',
+        '--include-vendor',
+      ),
+      $this->getVerbosityOption(),
     ];
   }
 
   final private function migrateFile(
     string $file,
   ): void {
+    $this->verbosePrintf(2, "Migrating file %s...\n", $file);
     $ast = ast_from_file($file);
     foreach ($this->migrations as $migration) {
       $ast = (new $migration())->migrateAst($ast);
@@ -61,9 +71,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
     file_put_contents($file, $ast->getCode());
   }
 
-  final private function migrateDirectory(
-    string $directory,
-  ): void {
+  final private function migrateDirectory(string $directory): void {
     $it = new \RecursiveIteratorIterator(
       new \RecursiveDirectoryIterator($directory),
     );
@@ -71,7 +79,18 @@ class MigrationCLI extends CLIWithRequiredArguments {
       if (!$info->isFile()) {
         continue;
       }
-      $this->migrateFile($info->getPathname());
+      $file = $info->getPathname();
+      if (!$this->includeVendor) {
+        if (Str\contains($file, '/vendor/')) {
+          $this->verbosePrintf(
+            1,
+            "Skipping file '%s' because it is in vendor/\n",
+            $file,
+          );
+          continue;
+        }
+      }
+      $this->migrateFile($file);
     }
   }
 
