@@ -212,7 +212,7 @@ final class LinterCLIConfig {
       JSON_FB_LOOSE | JSON_FB_HACK_ARRAYS,
     );
     if ($data === null) {
-      throw new \Exception('Failed to parse JSON in '.$file);
+      throw new \Exception('Failed to parse JSON in configuration file '.$file);
     }
     try {
       return TypeAssert\matches_type_structure(
