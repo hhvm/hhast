@@ -153,16 +153,22 @@ final class LinterCLI extends CLIWithArguments {
     $class = get_class($linter);
     $to_fix = vec[];
     $yield_perf = new PerfCounter($class.'#yieldError');
+    $colors = posix_isatty(STDOUT);
+
     foreach ($errors as $error) {
       $yield_perf->end();
 
       $position = $error->getPosition();
       printf(
         "%s%s%s\n".
+        "  %sLinter: %s%s\n".
         "  Location: %s\n",
-        posix_isatty(STDOUT) ? "\e[1;31m" : '',
+        $colors ? "\e[1;31m" : '',
         $error->getDescription(),
-        posix_isatty(STDOUT) ? "\e[0m" : '',
+        $colors ? "\e[0m" : '',
+        $colors ? "\e[90m" : '',
+        get_class($error->getLinter()),
+        $colors ? "\e[0m" : '',
         $position === null
           ? $error->getFile()
           : sprintf('%s:%s:%s', $error->getFile(), $position[0], $position[1]),
