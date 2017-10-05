@@ -156,7 +156,7 @@ final class LinterCLIConfig {
     );
 
     $linters = $normalize($linters);
-    $blacklist = $normalize($linters);
+    $blacklist = $normalize($blacklist);
     $autofix_blacklist = $normalize($autofix_blacklist);
 
     $linters = Keyset\union(
