@@ -24,10 +24,6 @@ function find_offset_of_leading(
 
   $parents = null;
   $found = false;
-  invariant(
-    !C\is_empty($root->getDescendantsWhere(($it, $_p) ==> $it === $node)),
-    'node is not a descendant of root',
-  );
   $stack = $root->findWithParents($it ==> $it === $node);
   invariant(
     !C\is_empty($stack),
