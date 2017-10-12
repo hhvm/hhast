@@ -2,14 +2,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5ef89b43b2fe35488ff2f15480899bd7>>
+ * @generated SignedSource<<437aa8a781ec1a65ad13fa0098d42991>>
  */
 namespace Facebook\HHAST;
 
 final class CaseToken extends EditableToken {
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct('case', $leading, $trailing, 'case');
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    string $token_text = 'case',
+  ) {
+    parent::__construct('case', $leading, $trailing, $token_text);
   }
 
   public function hasLeading(): bool {

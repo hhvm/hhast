@@ -2,14 +2,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<aef7529a4236959d63e363f66fe1741e>>
+ * @generated SignedSource<<1361f19bdbcbf9c18b0696a2a75c8113>>
  */
 namespace Facebook\HHAST;
 
 final class ShapeToken extends EditableToken {
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct('shape', $leading, $trailing, 'shape');
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    string $token_text = 'shape',
+  ) {
+    parent::__construct('shape', $leading, $trailing, $token_text);
   }
 
   public function hasLeading(): bool {

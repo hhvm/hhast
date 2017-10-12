@@ -2,14 +2,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<68f38b9dcbe5a4fd5decdcdeba41c457>>
+ * @generated SignedSource<<911e4f76da9b0c72ddf94ca5bad52405>>
  */
 namespace Facebook\HHAST;
 
 final class Require_onceToken extends EditableToken {
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct('require_once', $leading, $trailing, 'require_once');
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    string $token_text = 'require_once',
+  ) {
+    parent::__construct('require_once', $leading, $trailing, $token_text);
   }
 
   public function hasLeading(): bool {

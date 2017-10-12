@@ -2,14 +2,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<52189afd0a4bafbaab91eccf387a422a>>
+ * @generated SignedSource<<cb9bd7b1c6f0a0f4eafefcd471fd0a41>>
  */
 namespace Facebook\HHAST;
 
 final class DoubleToken extends EditableToken {
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct('double', $leading, $trailing, 'double');
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    string $token_text = 'double',
+  ) {
+    parent::__construct('double', $leading, $trailing, $token_text);
   }
 
   public function hasLeading(): bool {

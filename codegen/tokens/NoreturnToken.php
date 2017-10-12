@@ -2,14 +2,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c0fc3acd29bd96be9190194ca5110d83>>
+ * @generated SignedSource<<31b2c11ceac5b120d789c61a51310ec9>>
  */
 namespace Facebook\HHAST;
 
 final class NoreturnToken extends EditableToken {
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct('noreturn', $leading, $trailing, 'noreturn');
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    string $token_text = 'noreturn',
+  ) {
+    parent::__construct('noreturn', $leading, $trailing, $token_text);
   }
 
   public function hasLeading(): bool {

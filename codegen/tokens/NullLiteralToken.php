@@ -2,14 +2,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1130b35919f451a53908fa6d500f83b2>>
+ * @generated SignedSource<<28201f5337b7c37c3fa973c7752267ae>>
  */
 namespace Facebook\HHAST;
 
 final class NullLiteralToken extends EditableToken {
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct('null', $leading, $trailing, 'null');
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    string $token_text = 'null',
+  ) {
+    parent::__construct('null', $leading, $trailing, $token_text);
   }
 
   public function hasLeading(): bool {

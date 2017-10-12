@@ -144,8 +144,17 @@ final class CodegenTokens extends CodegenBase {
         $field ==> '$'.$field['name'],
       ),
     );
-    if ($token['text'] !== null) {
-      $parent_args[] = var_export($token['text'], true);
+    $text = $token['text'];
+    if ($text !== null) {
+      if (Str\uppercase($text) === Str\lowercase($text)) {
+        $parent_args[] = var_export($text, true);
+      } else {
+        $it->addParameterf(
+          'string $token_text = %s',
+          var_export($text, true),
+        );
+        $parent_args[] = '$token_text';
+      }
     }
 
     $it->setBody(

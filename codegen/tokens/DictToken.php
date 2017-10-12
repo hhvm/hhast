@@ -2,14 +2,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e3b0ce4315266f8bafd9c9fc9c807873>>
+ * @generated SignedSource<<76cd6691c62a0eeff6c9e0a8a9b79d22>>
  */
 namespace Facebook\HHAST;
 
 final class DictToken extends EditableToken {
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct('dict', $leading, $trailing, 'dict');
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    string $token_text = 'dict',
+  ) {
+    parent::__construct('dict', $leading, $trailing, $token_text);
   }
 
   public function hasLeading(): bool {

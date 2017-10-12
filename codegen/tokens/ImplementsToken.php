@@ -2,14 +2,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<516478a75264c2031b574f48a894b1c4>>
+ * @generated SignedSource<<66f90b5de001c2e06c945d77ccf63b7b>>
  */
 namespace Facebook\HHAST;
 
 final class ImplementsToken extends EditableToken {
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct('implements', $leading, $trailing, 'implements');
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    string $token_text = 'implements',
+  ) {
+    parent::__construct('implements', $leading, $trailing, $token_text);
   }
 
   public function hasLeading(): bool {

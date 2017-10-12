@@ -2,14 +2,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fff559a5182f57e125671cfeb3724857>>
+ * @generated SignedSource<<dad17578bc14d55fea773bf35d0bc3b0>>
  */
 namespace Facebook\HHAST;
 
 final class WhileToken extends EditableToken {
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct('while', $leading, $trailing, 'while');
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    string $token_text = 'while',
+  ) {
+    parent::__construct('while', $leading, $trailing, $token_text);
   }
 
   public function hasLeading(): bool {

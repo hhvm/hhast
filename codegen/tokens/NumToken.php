@@ -2,14 +2,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<90e3c5f1c0bf3e3e4227f61ec35c374e>>
+ * @generated SignedSource<<4e4719c2779ef60d3159f513ad9f0a96>>
  */
 namespace Facebook\HHAST;
 
 final class NumToken extends EditableToken {
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct('num', $leading, $trailing, 'num');
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    string $token_text = 'num',
+  ) {
+    parent::__construct('num', $leading, $trailing, $token_text);
   }
 
   public function hasLeading(): bool {

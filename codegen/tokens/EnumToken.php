@@ -2,14 +2,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9a0e0979023021dbf2076558cb1121fa>>
+ * @generated SignedSource<<40329cd2a89043ad8e99cf311839f8d4>>
  */
 namespace Facebook\HHAST;
 
 final class EnumToken extends EditableToken {
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct('enum', $leading, $trailing, 'enum');
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    string $token_text = 'enum',
+  ) {
+    parent::__construct('enum', $leading, $trailing, $token_text);
   }
 
   public function hasLeading(): bool {

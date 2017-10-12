@@ -2,14 +2,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1dca12d978f3a443dfcceb506e20c3d9>>
+ * @generated SignedSource<<e80808934573b3c3b44da333919c5c19>>
  */
 namespace Facebook\HHAST;
 
 final class UnsetToken extends EditableToken {
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct('unset', $leading, $trailing, 'unset');
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    string $token_text = 'unset',
+  ) {
+    parent::__construct('unset', $leading, $trailing, $token_text);
   }
 
   public function hasLeading(): bool {

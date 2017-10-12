@@ -2,14 +2,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<628f363f194b9d1018008ae259825a30>>
+ * @generated SignedSource<<4c3ec7b2c66c1465cf998e7edba179f1>>
  */
 namespace Facebook\HHAST;
 
 final class ConstToken extends EditableToken {
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct('const', $leading, $trailing, 'const');
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    string $token_text = 'const',
+  ) {
+    parent::__construct('const', $leading, $trailing, $token_text);
   }
 
   public function hasLeading(): bool {

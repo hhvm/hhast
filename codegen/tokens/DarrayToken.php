@@ -2,14 +2,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eea286b86fb829aeaad9f62b6608f8f0>>
+ * @generated SignedSource<<2f412db6c45af956daf37fbcf71fb151>>
  */
 namespace Facebook\HHAST;
 
 final class DarrayToken extends EditableToken {
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct('darray', $leading, $trailing, 'darray');
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    string $token_text = 'darray',
+  ) {
+    parent::__construct('darray', $leading, $trailing, $token_text);
   }
 
   public function hasLeading(): bool {

@@ -2,14 +2,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b3ed2c6bcba43c5c7eb00f981f4d25b8>>
+ * @generated SignedSource<<b523cd24e8493c5672adce693987b91f>>
  */
 namespace Facebook\HHAST;
 
 final class BreakToken extends EditableToken {
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct('break', $leading, $trailing, 'break');
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    string $token_text = 'break',
+  ) {
+    parent::__construct('break', $leading, $trailing, $token_text);
   }
 
   public function hasLeading(): bool {

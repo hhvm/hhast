@@ -2,14 +2,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<56c4e2b94fe12eb9011c05ef8f932836>>
+ * @generated SignedSource<<8b3fbbaed2a187d6b5f3c6742aa2d7f8>>
  */
 namespace Facebook\HHAST;
 
 final class XorToken extends EditableToken {
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct('xor', $leading, $trailing, 'xor');
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    string $token_text = 'xor',
+  ) {
+    parent::__construct('xor', $leading, $trailing, $token_text);
   }
 
   public function hasLeading(): bool {

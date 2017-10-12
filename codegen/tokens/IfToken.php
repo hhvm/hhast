@@ -2,14 +2,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bb3d112641555c04791bcc5e275bb873>>
+ * @generated SignedSource<<02adab20a3777ca47d81b55961bcd972>>
  */
 namespace Facebook\HHAST;
 
 final class IfToken extends EditableToken {
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct('if', $leading, $trailing, 'if');
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    string $token_text = 'if',
+  ) {
+    parent::__construct('if', $leading, $trailing, $token_text);
   }
 
   public function hasLeading(): bool {

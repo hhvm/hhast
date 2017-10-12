@@ -2,14 +2,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<07b0e30995d23b22068a3fc1e8e99c77>>
+ * @generated SignedSource<<b5a08cd2a7ab8a834b73500486a98f61>>
  */
 namespace Facebook\HHAST;
 
 final class OrToken extends EditableToken {
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct('or', $leading, $trailing, 'or');
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    string $token_text = 'or',
+  ) {
+    parent::__construct('or', $leading, $trailing, $token_text);
   }
 
   public function hasLeading(): bool {

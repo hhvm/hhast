@@ -2,14 +2,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<20a2a4a45a06a8a63943bc715102d775>>
+ * @generated SignedSource<<1171a21447ffeb2f38aef4e3818910a5>>
  */
 namespace Facebook\HHAST;
 
 final class FallthroughToken extends EditableToken {
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct('fallthrough', $leading, $trailing, 'fallthrough');
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    string $token_text = 'fallthrough',
+  ) {
+    parent::__construct('fallthrough', $leading, $trailing, $token_text);
   }
 
   public function hasLeading(): bool {

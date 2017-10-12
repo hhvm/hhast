@@ -151,6 +151,11 @@ final class RewriteBehaviorTest extends TestCase {
       ->toBeInstanceOf(HHAST\Missing::class);
   }
 
+  public function testRewritePreservesCaseOfFixedTextTokens(): void {
+    $code = "<?hh NuLl; aRrAy; aNd; oR; cAsE";
+    expect(HHAST\from_code($code)->getCode())->toBeSame($code);
+  }
+
   public function testRewritesNewChildren(): void {
     $orig = HHAST\from_code(
       "<?hh type T = shape('subshape' => shape('subfield' => string));",

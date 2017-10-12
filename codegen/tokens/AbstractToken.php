@@ -2,14 +2,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<08d8595c7f327bf691890c534155bfb7>>
+ * @generated SignedSource<<0f3035c0dd03a949e8cdf80f6e88a33d>>
  */
 namespace Facebook\HHAST;
 
 final class AbstractToken extends EditableToken {
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct('abstract', $leading, $trailing, 'abstract');
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    string $token_text = 'abstract',
+  ) {
+    parent::__construct('abstract', $leading, $trailing, $token_text);
   }
 
   public function hasLeading(): bool {

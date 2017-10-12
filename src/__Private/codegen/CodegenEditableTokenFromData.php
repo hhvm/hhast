@@ -13,6 +13,7 @@
 namespace Facebook\HHAST\__Private;
 
 use type Facebook\HackCodegen\HackBuilderValues;
+use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Str;
 
 final class CodegenEditableTokenFromData extends CodegenBase {
@@ -57,15 +58,22 @@ final class CodegenEditableTokenFromData extends CodegenBase {
               ->addCaseBlocks(
                 new Vector($tokens['fixedText']),
                 ($token, $body) ==> {
-                  $body
-                    ->addCase(
-                      $token['token_text'],
-                      HackBuilderValues::export(),
-                    )
-                    ->returnCasef(
+                  $text = TypeAssert\not_null($token['token_text']);
+                  $body->addCase(
+                    $text,
+                    HackBuilderValues::export(),
+                  );
+                  if (Str\lowercase($text) === Str\uppercase($text)) {
+                    $body->returnCasef(
                       'new HHAST\\%sToken($leading, $trailing)',
                       $token['token_kind'],
                     );
+                  } else {
+                    $body->returnCasef(
+                      'new HHAST\\%sToken($leading, $trailing, $token_text)',
+                      $token['token_kind'],
+                    );
+                  }
                 },
               )
               ->addCaseBlocks(

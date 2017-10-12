@@ -2,14 +2,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<61750ad711e1c9ab4fe0d57472a3bc00>>
+ * @generated SignedSource<<d9e494fa99618df1cac29ad2096a0dd8>>
  */
 namespace Facebook\HHAST;
 
 final class FloatToken extends EditableToken {
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct('float', $leading, $trailing, 'float');
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    string $token_text = 'float',
+  ) {
+    parent::__construct('float', $leading, $trailing, $token_text);
   }
 
   public function hasLeading(): bool {

@@ -2,14 +2,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a4b9f73272b0b5a1de8de508e79a5619>>
+ * @generated SignedSource<<ec14eb142f9b63a2a57c8ac32a2b14a9>>
  */
 namespace Facebook\HHAST;
 
 final class ForeachToken extends EditableToken {
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct('foreach', $leading, $trailing, 'foreach');
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    string $token_text = 'foreach',
+  ) {
+    parent::__construct('foreach', $leading, $trailing, $token_text);
   }
 
   public function hasLeading(): bool {
