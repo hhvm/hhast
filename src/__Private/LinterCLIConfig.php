@@ -24,31 +24,31 @@ final class LinterCLIConfig {
     //   'all' | 'default' | 'none'
     // 'default' is currently the same as 'all', but may be more conservative
     // in the future
-    'builtinLinters' => ?NamedLinterGroup,
+    ?'builtinLinters' => NamedLinterGroup,
     // Equivalent to 'use namespace' for the config options that take
     // linter classnames - e.g:
     //   "namespaceAliases": { "HHAST": "Facebook\\HAST\\Linters" },
     //   "extraLinters": [ "HHAST\\SomeContentiousLinter" ],
-    'namespaceAliases' => ?dict<string, string>,
+    ?'namespaceAliases' => dict<string, string>,
     // Class names for additional linters that should be used for this project
-    'extraLinters' => ?vec<string>,
+    ?'extraLinters' => vec<string>,
     // Class names for specific linters you'd like to disable; useful if you'd
     // like `"builtinLinters": "all"` or `"default"` except for one or two.
-    'disabledLinters' => ?vec<string>,
+    ?'disabledLinters' => vec<string>,
     // Class names for linters where the autofixes should never be applied
-    'disabledAutoFixes' => ?vec<string>,
+    ?'disabledAutoFixes' => vec<string>,
     // Disable all autofixes; probably more useful as an override - for example,
     // hhast disables all autofixes in the codegen/ directory.
     // Defaults to false.
-    'disableAllAutoFixes' => ?bool,
+    ?'disableAllAutoFixes' => bool,
     // Override any of the above for a subset of files in the project
-    'overrides' => ?vec<shape(
+    ?'overrides' => vec<shape(
       // Which files this override applies to (uses `fnmatch()`)
       'patterns' => vec<string>,
-      'extraLinters' => ?vec<string>,
-      'disabledLinters' => ?vec<string>,
-      'disabledAutoFixes' => ?vec<string>,
-      'disableAllAutoFixes' => ?bool,
+      ?'extraLinters' => vec<string>,
+      ?'disabledLinters' => vec<string>,
+      ?'disabledAutoFixes' => vec<string>,
+      ?'disableAllAutoFixes' => bool,
     )>,
   );
 
