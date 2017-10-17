@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0db8a1660fbcddb2501ea02ed199e8b0",
+    "content-hash": "f7c0a3ddda1045350b85781d7b2e56f9",
     "packages": [
         {
             "name": "facebook/definition-finder",
@@ -166,20 +166,20 @@
         },
         {
             "name": "hhvm/type-assert",
-            "version": "v3.0.3",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/type-assert.git",
-                "reference": "f2dececcfab97ae1b36439fa8ff09b7ae36cf10f"
+                "reference": "119f317b3a911963befc2ae4118a39c86a2975fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/type-assert/zipball/f2dececcfab97ae1b36439fa8ff09b7ae36cf10f",
-                "reference": "f2dececcfab97ae1b36439fa8ff09b7ae36cf10f",
+                "url": "https://api.github.com/repos/hhvm/type-assert/zipball/119f317b3a911963befc2ae4118a39c86a2975fc",
+                "reference": "119f317b3a911963befc2ae4118a39c86a2975fc",
                 "shasum": ""
             },
             "require": {
-                "hhvm": ">= 3.21.3",
+                "hhvm": ">= 3.22.0 <3.23.0",
                 "hhvm/hsl": ">=0.3 <2.0"
             },
             "require-dev": {
@@ -195,7 +195,7 @@
                 "TypeAssert",
                 "hack"
             ],
-            "time": "2017-10-02T16:23:15+00:00"
+            "time": "2017-10-17 21:59:30"
         }
     ],
     "packages-dev": [
@@ -1666,6 +1666,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "hhvm/type-assert": 20,
         "facebook/hack-codegen": 20
     },
     "prefer-stable": false,
