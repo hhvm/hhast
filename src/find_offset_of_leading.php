@@ -37,7 +37,9 @@ function find_offset_of_leading(
     C\lastx($stack) === $node,
     'expected node at top of stack',
   );
-  $parent = $stack[C\count($stack) - 2];
+
+  $stack_count = C\count($stack);
+  $parent = $stack[$stack_count - 2];
 
   $within_parent = 0;
   foreach ($parent->getChildren() as $child) {
@@ -47,7 +49,7 @@ function find_offset_of_leading(
     $within_parent += $child->getWidth();
   }
 
-  array_pop($stack);
+  $stack = Vec\take($stack, $stack_count - 1);
 
   return $within_parent + find_offset_of_leading(
     $root,
