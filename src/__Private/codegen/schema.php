@@ -34,4 +34,6 @@ type TSchema = shape(
   'trivia' => array<TTrivia>,
   'tokens' => array<TToken>,
   'AST' => array<TAST>,
+  ?'description' => string,
+  ?'version' => string,
 );
