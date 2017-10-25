@@ -53,6 +53,69 @@ final class CodegenEditableTokenFromData extends CodegenBase {
       ->codegenFile($this->getOutputDirectory().'/editable_token_from_data.php')
       ->setNamespace('Facebook\\HHAST\\__Private')
       ->useNamespace('Facebook\\HHAST')
+      ->addClass(
+        $cg
+          ->codegenClass('TokenClassMap<T super HHAST\EditableToken>')
+          ->addConst(
+            'dict<string, classname<T>> WITH_TEXT',
+            $cg
+              ->codegenHackBuilder()
+              ->addValue(
+                $class_map_with_text,
+                HackBuilderValues::dict(
+                  HackBuilderKeys::export(),
+                  HackBuilderValues::literal(),
+                ),
+              )
+              ->getCode(),
+            null,
+            HackBuilderValues::literal()
+          )
+          ->addConst(
+            'dict<string, classname<T>> WITHOUT_TEXT',
+            $cg
+              ->codegenHackBuilder()
+              ->addValue(
+                $class_map,
+                HackBuilderValues::dict(
+                  HackBuilderKeys::export(),
+                  HackBuilderValues::literal(),
+                ),
+              )
+              ->getCode(),
+            null,
+            HackBuilderValues::literal()
+          )
+      )
+      ->addFunction(
+        $cg
+          ->codegenFunction('make_token_with_text<T super HHAST\EditableToken>')
+          ->setReturnType('HHAST\\EditableToken')
+          ->addParameter('classname<T> $cls')
+          ->addParameter('HHAST\\EditableNode $leading')
+          ->addParameter('HHAST\\EditableNode $trailing')
+          ->addParameter('string $token_text')
+          ->setBody(
+            $cg
+              ->codegenHackBuilder()
+              ->add('return new $cls($leading, $trailing, $token_text);')
+              ->getCode()
+          )
+      )
+      ->addFunction(
+        $cg
+          ->codegenFunction('make_token<T super HHAST\EditableToken>')
+          ->setReturnType('HHAST\\EditableToken')
+          ->addParameter('classname<T> $cls')
+          ->addParameter('HHAST\\EditableNode $leading')
+          ->addParameter('HHAST\\EditableNode $trailing')
+          ->setBody(
+            $cg
+              ->codegenHackBuilder()
+              ->add('return new $cls($leading, $trailing);')
+              ->getCode()
+          )
+      )
       ->addFunction(
         $cg
           ->codegenFunction('editable_token_from_data')
@@ -66,28 +129,10 @@ final class CodegenEditableTokenFromData extends CodegenBase {
           ->setBody(
             $cg
               ->codegenHackBuilder()
-              ->add('static $class_map_with_text =')
-              ->addValue(
-                $class_map_with_text,
-                HackBuilderValues::dict(
-                  HackBuilderKeys::export(),
-                  HackBuilderValues::literal(),
-                ),
-              )
-              ->addLine(';')
-              ->add('static $class_map =')
-              ->addValue(
-                $class_map,
-                HackBuilderValues::dict(
-                  HackBuilderKeys::export(),
-                  HackBuilderValues::literal(),
-                ),
-              )
-              ->addLine(';')
-              ->add('$cls = idx($class_map, $token_kind);')
-              ->add('if ($cls !== null) { return new $cls($leading, $trailing); }')
-              ->add('$cls = idx($class_map_with_text, $token_kind);')
-              ->add('if ($cls !== null) { return new $cls($leading, $trailing, $token_text); }')
+              ->add('$cls = TokenClassMap::WITHOUT_TEXT[$token_kind] ?? null;')
+              ->add('if ($cls !== null) { return make_token($cls, $leading, $trailing); }')
+              ->add('$cls = TokenClassMap::WITH_TEXT[$token_kind] ?? null;')
+              ->add('if ($cls !== null) { return make_token_with_text($cls, $leading, $trailing, $token_text); }')
               ->addMultilineCall(
                 'throw new HHAST\\UnsupportedTokenError',
                 vec[
