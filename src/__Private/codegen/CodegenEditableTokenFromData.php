@@ -30,7 +30,7 @@ final class CodegenEditableTokenFromData extends CodegenBase {
     $class_map_with_text = dict[];
 
     foreach ($tokens['noText'] as $token) {
-      $kind = self::underscored($token['token_kind']);
+      $kind = StrP\underscored($token['token_kind']);
       $class_map[$kind] = sprintf('HHAST\\%sToken::class', $token['token_kind']);
     }
 
@@ -45,7 +45,7 @@ final class CodegenEditableTokenFromData extends CodegenBase {
     }
 
     foreach ($tokens['variableText'] as $token) {
-      $kind = self::underscored($token['token_kind']);
+      $kind = StrP\underscored($token['token_kind']);
       $class_map_with_text[$kind] = sprintf('HHAST\\%sToken::class', $token['token_kind']);
     }
 

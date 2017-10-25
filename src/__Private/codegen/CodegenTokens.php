@@ -71,7 +71,7 @@ final class CodegenTokens extends CodegenBase {
       $tokens['variableText'],
       $token ==> shape(
         'kind' => $token['token_kind'],
-        'description' => self::underscored($token['token_kind']),
+        'description' => StrP\underscored($token['token_kind']),
         'text' => null,
         'fields' => Vec\concat(
           $leading_trailing,

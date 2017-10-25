@@ -419,7 +419,7 @@ final class CodegenSyntax extends CodegenBase {
 
     $token = C\find(
       $tokens,
-      $token ==> self::underscored($token['token_kind']) === $child,
+      $token ==> StrP\underscored($token['token_kind']) === $child,
     );
 
     invariant($token !== null, 'Failed to find token for "%s"', $child);
