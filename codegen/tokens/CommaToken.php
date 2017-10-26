@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7c8d3b459321c091aea34e8c0b2011fe>>
+ * @generated SignedSource<<0ee5e1d7c7835d6ab8ceea96bbe4837d>>
  */
 namespace Facebook\HHAST;
 
-final class CommaToken extends NoTextEditableToken {
+final class CommaToken extends EditableTokenWithFixedText {
 
   const string KIND = ',';
   const string TEXT = ',';

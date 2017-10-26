@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e79f40d568a20ff12b0f6672f013e34e>>
+ * @generated SignedSource<<81144b6091c3ddfe63f0b8a07f9f65ec>>
  */
 namespace Facebook\HHAST;
 
-final class ThrowToken extends TextEditableToken {
+final class ThrowToken extends EditableTokenWithVariableText {
 
   const string KIND = 'throw';
 

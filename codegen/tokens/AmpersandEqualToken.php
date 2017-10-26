@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<174c81a3f80cd41508f3134f5b17cd5c>>
+ * @generated SignedSource<<1b44af0af206fd9c1210607c29f78983>>
  */
 namespace Facebook\HHAST;
 
-final class AmpersandEqualToken extends NoTextEditableToken {
+final class AmpersandEqualToken extends EditableTokenWithFixedText {
 
   const string KIND = '&=';
   const string TEXT = '&=';

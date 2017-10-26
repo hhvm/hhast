@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<753908e356d4341683a5ef471a1a4a91>>
+ * @generated SignedSource<<5c73016208d46d58d35db70d7e1acc86>>
  */
 namespace Facebook\HHAST;
 
-final class TildeToken extends NoTextEditableToken {
+final class TildeToken extends EditableTokenWithFixedText {
 
   const string KIND = '~';
   const string TEXT = '~';

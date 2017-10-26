@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7d77902f868329e8439992c6b4f6e4ae>>
+ * @generated SignedSource<<764c07fa89e05470d1dc6b83f78c5012>>
  */
 namespace Facebook\HHAST;
 
-final class CaseToken extends TextEditableToken {
+final class CaseToken extends EditableTokenWithVariableText {
 
   const string KIND = 'case';
 

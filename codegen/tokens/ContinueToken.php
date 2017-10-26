@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2408ccadece229086b8536582266a306>>
+ * @generated SignedSource<<5e2d497dda299fd8755d6e78dd3e196c>>
  */
 namespace Facebook\HHAST;
 
-final class ContinueToken extends TextEditableToken {
+final class ContinueToken extends EditableTokenWithVariableText {
 
   const string KIND = 'continue';
 

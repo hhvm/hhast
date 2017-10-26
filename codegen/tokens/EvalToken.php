@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4cb73f7329e5140dec28c4251789c3c2>>
+ * @generated SignedSource<<42f32d0193c9b944f6ab9fccb4a7e308>>
  */
 namespace Facebook\HHAST;
 
-final class EvalToken extends TextEditableToken {
+final class EvalToken extends EditableTokenWithVariableText {
 
   const string KIND = 'eval';
 

@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e0124dcc8e187e0c66385a5d933eb327>>
+ * @generated SignedSource<<0cbbcfaca937586ae2d8aba0bef87168>>
  */
 namespace Facebook\HHAST;
 
-final class SuspendToken extends TextEditableToken {
+final class SuspendToken extends EditableTokenWithVariableText {
 
   const string KIND = 'suspend';
 

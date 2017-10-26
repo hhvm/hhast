@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f867c498f5f706c1c01b5d5c04b6edb7>>
+ * @generated SignedSource<<d319e17c4f8468bb98b63b7b5f7cd5c3>>
  */
 namespace Facebook\HHAST;
 
-final class FallthroughToken extends TextEditableToken {
+final class FallthroughToken extends EditableTokenWithVariableText {
 
   const string KIND = 'fallthrough';
 

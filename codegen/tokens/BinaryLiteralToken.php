@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2a89c0a12712af7001b93f028bfe3a14>>
+ * @generated SignedSource<<c08b1c17c386c556dc62d818a7c6907b>>
  */
 namespace Facebook\HHAST;
 
-final class BinaryLiteralToken extends TextEditableToken {
+final class BinaryLiteralToken extends EditableTokenWithVariableText {
 
   const string KIND = 'binary_literal';
 

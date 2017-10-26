@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c4ec06fd18fdcaff9c584d50ad8091a2>>
+ * @generated SignedSource<<7cc8243a855c5769fb67a3b6ad8c1d62>>
  */
 namespace Facebook\HHAST;
 
-final class EndOfFileToken extends NoTextEditableToken {
+final class EndOfFileToken extends EditableTokenWithFixedText {
 
   const string KIND = 'EndOfFile';
   const string TEXT = '';

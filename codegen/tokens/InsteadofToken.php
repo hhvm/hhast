@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<abed352772b113369d8ef99318fca873>>
+ * @generated SignedSource<<faec0b1a6069c837d8c43928e003d4b1>>
  */
 namespace Facebook\HHAST;
 
-final class InsteadofToken extends TextEditableToken {
+final class InsteadofToken extends EditableTokenWithVariableText {
 
   const string KIND = 'insteadof';
 

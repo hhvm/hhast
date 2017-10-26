@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b1bd0c19557a9b0eb7faf0980a374bce>>
+ * @generated SignedSource<<8bbbfc09e5b470c80307cb1a0b00d2cb>>
  */
 namespace Facebook\HHAST;
 
-final class CoroutineToken extends TextEditableToken {
+final class CoroutineToken extends EditableTokenWithVariableText {
 
   const string KIND = 'coroutine';
 

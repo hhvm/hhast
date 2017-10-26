@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5121e512acabde649e64f8b376312f37>>
+ * @generated SignedSource<<511995bdfbb2225b139d72587efcd429>>
  */
 namespace Facebook\HHAST;
 
-final class SemicolonToken extends NoTextEditableToken {
+final class SemicolonToken extends EditableTokenWithFixedText {
 
   const string KIND = ';';
   const string TEXT = ';';

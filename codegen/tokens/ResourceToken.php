@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4b81c2ae18e0f9d4ee4326d385d3c4cb>>
+ * @generated SignedSource<<87479de869ed7ba4a74f5d78094a1390>>
  */
 namespace Facebook\HHAST;
 
-final class ResourceToken extends TextEditableToken {
+final class ResourceToken extends EditableTokenWithVariableText {
 
   const string KIND = 'resource';
 

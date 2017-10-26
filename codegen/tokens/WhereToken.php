@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3bbab8b95f3bc94ce2a7eac63687fde4>>
+ * @generated SignedSource<<41d3c2ca49b4d980199397b7227a2bc2>>
  */
 namespace Facebook\HHAST;
 
-final class WhereToken extends TextEditableToken {
+final class WhereToken extends EditableTokenWithVariableText {
 
   const string KIND = 'where';
 

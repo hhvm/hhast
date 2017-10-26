@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<af40bbfa8c2fe29c9259f5b1987c7149>>
+ * @generated SignedSource<<43c3cab88ba378934c815b99bc3fc4cf>>
  */
 namespace Facebook\HHAST;
 
-final class FloatingLiteralToken extends TextEditableToken {
+final class FloatingLiteralToken extends EditableTokenWithVariableText {
 
   const string KIND = 'floating_literal';
 

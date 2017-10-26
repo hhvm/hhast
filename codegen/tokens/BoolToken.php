@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2eda62272ca0382bdf96db1719645a96>>
+ * @generated SignedSource<<c397d5e16222f32dbd0819945cc86293>>
  */
 namespace Facebook\HHAST;
 
-final class BoolToken extends TextEditableToken {
+final class BoolToken extends EditableTokenWithVariableText {
 
   const string KIND = 'bool';
 

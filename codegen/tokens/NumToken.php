@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8f165871cd2d24eec0396f1d379ef9eb>>
+ * @generated SignedSource<<71e7a2a4596dc24f71633024de8e7a6e>>
  */
 namespace Facebook\HHAST;
 
-final class NumToken extends TextEditableToken {
+final class NumToken extends EditableTokenWithVariableText {
 
   const string KIND = 'num';
 

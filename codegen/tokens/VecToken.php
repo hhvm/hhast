@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a90815105e58c3b0a3cf8b4a9b46268e>>
+ * @generated SignedSource<<8c44777f6eb2df047da784d81a8879fc>>
  */
 namespace Facebook\HHAST;
 
-final class VecToken extends TextEditableToken {
+final class VecToken extends EditableTokenWithVariableText {
 
   const string KIND = 'vec';
 

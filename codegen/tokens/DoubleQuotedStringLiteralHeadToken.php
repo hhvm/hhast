@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b69d789eb2bb973a2560472a1c288b6d>>
+ * @generated SignedSource<<92a50353cc25f143030c747881c7f1b7>>
  */
 namespace Facebook\HHAST;
 
-final class DoubleQuotedStringLiteralHeadToken extends TextEditableToken {
+final class DoubleQuotedStringLiteralHeadToken
+  extends EditableTokenWithVariableText {
 
   const string KIND = 'double_quoted_string_literal_head';
 

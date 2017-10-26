@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<96a9fce461b9e709d8d715a440f98bda>>
+ * @generated SignedSource<<d1c67c3174d79c828d072844165cb3e2>>
  */
 namespace Facebook\HHAST;
 
-final class EnumToken extends TextEditableToken {
+final class EnumToken extends EditableTokenWithVariableText {
 
   const string KIND = 'enum';
 

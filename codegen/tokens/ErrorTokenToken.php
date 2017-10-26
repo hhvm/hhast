@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4563cebd56a0130b52b7791b5e8aee16>>
+ * @generated SignedSource<<657e85e1e72ab02e1840d0da2c9f9944>>
  */
 namespace Facebook\HHAST;
 
-final class ErrorTokenToken extends TextEditableToken {
+final class ErrorTokenToken extends EditableTokenWithVariableText {
 
   const string KIND = 'error_token';
 

@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cf94bcf769044ca432b2a8d0cda7b2cd>>
+ * @generated SignedSource<<41af96c0778eb9904c31f1bdbf094e58>>
  */
 namespace Facebook\HHAST;
 
-final class IssetToken extends TextEditableToken {
+final class IssetToken extends EditableTokenWithVariableText {
 
   const string KIND = 'isset';
 

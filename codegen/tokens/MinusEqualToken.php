@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e5fbb8d4f03d67de54d5ac356257768e>>
+ * @generated SignedSource<<3dbcb6902ca20f6a5256b797d52a5f22>>
  */
 namespace Facebook\HHAST;
 
-final class MinusEqualToken extends NoTextEditableToken {
+final class MinusEqualToken extends EditableTokenWithFixedText {
 
   const string KIND = '-=';
   const string TEXT = '-=';

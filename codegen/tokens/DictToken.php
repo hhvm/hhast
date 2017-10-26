@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<167aaa3d072026f49e6e4398f8fa5c7c>>
+ * @generated SignedSource<<df9167826952f4b8a83eb95d26fc6c41>>
  */
 namespace Facebook\HHAST;
 
-final class DictToken extends TextEditableToken {
+final class DictToken extends EditableTokenWithVariableText {
 
   const string KIND = 'dict';
 

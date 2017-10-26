@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6861eb68bd6d898af90a2dd1ac818741>>
+ * @generated SignedSource<<e241f4af410b93ff0d01bec7170bf9b4>>
  */
 namespace Facebook\HHAST;
 
-final class GotoToken extends TextEditableToken {
+final class GotoToken extends EditableTokenWithVariableText {
 
   const string KIND = 'goto';
 

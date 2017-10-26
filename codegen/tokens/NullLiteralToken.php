@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<58c1d4b1e0c30cd1d959392edab934c8>>
+ * @generated SignedSource<<2415258818b44c05687a2322ccdbdabd>>
  */
 namespace Facebook\HHAST;
 
-final class NullLiteralToken extends TextEditableToken {
+final class NullLiteralToken extends EditableTokenWithVariableText {
 
   const string KIND = 'null';
 

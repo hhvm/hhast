@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b70a3893b9e78c423a65699b95db6963>>
+ * @generated SignedSource<<a2d6f801d2c805c4e82d61977c2ba8fb>>
  */
 namespace Facebook\HHAST;
 
-final class SuperToken extends TextEditableToken {
+final class SuperToken extends EditableTokenWithVariableText {
 
   const string KIND = 'super';
 

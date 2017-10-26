@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d5a49e128b46dc8b123cac56615883b4>>
+ * @generated SignedSource<<07a00f36da51ab79f7f7a740cc456cc7>>
  */
 namespace Facebook\HHAST;
 
-final class DollarDollarToken extends NoTextEditableToken {
+final class DollarDollarToken extends EditableTokenWithFixedText {
 
   const string KIND = '$$';
   const string TEXT = '$$';

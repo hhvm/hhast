@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4e78a62c9badf3aaee1fcf6ac0c8d4c6>>
+ * @generated SignedSource<<03bbb29549c566705bfa517e6f708eee>>
  */
 namespace Facebook\HHAST;
 
-final class CloneToken extends TextEditableToken {
+final class CloneToken extends EditableTokenWithVariableText {
 
   const string KIND = 'clone';
 

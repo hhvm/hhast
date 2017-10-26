@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fc8d0c47bca9627d1d7173c11862af38>>
+ * @generated SignedSource<<19aec051c9774aa9bb110165ff69ce3c>>
  */
 namespace Facebook\HHAST;
 
-final class ArraykeyToken extends TextEditableToken {
+final class ArraykeyToken extends EditableTokenWithVariableText {
 
   const string KIND = 'arraykey';
 

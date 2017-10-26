@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<69a9fe4dfb09e1e921bb8b81a183a172>>
+ * @generated SignedSource<<331d23346c44cf1c278dab906cf2b884>>
  */
 namespace Facebook\HHAST;
 
-final class BreakToken extends TextEditableToken {
+final class BreakToken extends EditableTokenWithVariableText {
 
   const string KIND = 'break';
 

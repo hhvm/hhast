@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bc3acde75e39e37c3b3f51a82970b755>>
+ * @generated SignedSource<<43de2330e15bc751ea02976a4542fbcf>>
  */
 namespace Facebook\HHAST;
 
-final class Include_onceToken extends TextEditableToken {
+final class Include_onceToken extends EditableTokenWithVariableText {
 
   const string KIND = 'include_once';
 

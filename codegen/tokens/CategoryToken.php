@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7feb40711c8771a894ba16785d0d1bf1>>
+ * @generated SignedSource<<d9762730178f2d9c2441c41bdf57d6aa>>
  */
 namespace Facebook\HHAST;
 
-final class CategoryToken extends TextEditableToken {
+final class CategoryToken extends EditableTokenWithVariableText {
 
   const string KIND = 'category';
 

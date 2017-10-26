@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<71fcfa6a5704443c51fb1d1d053c9887>>
+ * @generated SignedSource<<f8001d8094f5d9fd02960862c046e258>>
  */
 namespace Facebook\HHAST;
 
-final class ReturnToken extends TextEditableToken {
+final class ReturnToken extends EditableTokenWithVariableText {
 
   const string KIND = 'return';
 

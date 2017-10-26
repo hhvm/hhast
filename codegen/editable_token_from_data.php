@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e99084535380330f8d09419b59c1e720>>
+ * @generated SignedSource<<65624e1a16177a44b9dd3187295bb1c3>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -28,7 +28,7 @@ function editable_token_from_data(
 
 class TokenClassMap {
 
-  const dict<string, classname<HHAST\TextEditableToken>>
+  const dict<string, classname<HHAST\EditableTokenWithVariableText>>
     WITH_TEXT = dict[
       'abstract' => HHAST\AbstractToken::class,
       'and' => HHAST\AndToken::class,
@@ -162,7 +162,7 @@ class TokenClassMap {
       'XHP_comment' => HHAST\XHPCommentToken::class,
       'markup' => HHAST\MarkupToken::class,
     ];
-  const dict<string, classname<HHAST\NoTextEditableToken>>
+  const dict<string, classname<HHAST\EditableTokenWithFixedText>>
     WITHOUT_TEXT = dict[
       'end_of_file' => HHAST\EndOfFileToken::class,
       '[' => HHAST\LeftBracketToken::class,

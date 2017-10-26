@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<56f7775ed29ce9fb21e42fb7dc55a19c>>
+ * @generated SignedSource<<b43d306b30a2cbbfdcccab00ccfed5e5>>
  */
 namespace Facebook\HHAST;
 
-final class MarkupToken extends TextEditableToken {
+final class MarkupToken extends EditableTokenWithVariableText {
 
   const string KIND = 'markup';
 

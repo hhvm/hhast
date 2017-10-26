@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ff962df68fb98f30f73bafd95598c1a2>>
+ * @generated SignedSource<<84f35ff585f351757ede85e0168e0ce8>>
  */
 namespace Facebook\HHAST;
 
-final class MixedToken extends TextEditableToken {
+final class MixedToken extends EditableTokenWithVariableText {
 
   const string KIND = 'mixed';
 

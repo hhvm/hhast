@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8f51b27952ce3169a834a053e4c7ee3d>>
+ * @generated SignedSource<<c09ca4e72812bf1328bea1f651b23f10>>
  */
 namespace Facebook\HHAST;
 
-final class Require_onceToken extends TextEditableToken {
+final class Require_onceToken extends EditableTokenWithVariableText {
 
   const string KIND = 'require_once';
 

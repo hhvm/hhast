@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cb52f97d178e23302a5facbe5cb2548c>>
+ * @generated SignedSource<<67f14f6092d4ebb7da397dcb98f55bd5>>
  */
 namespace Facebook\HHAST;
 
-final class VoidToken extends TextEditableToken {
+final class VoidToken extends EditableTokenWithVariableText {
 
   const string KIND = 'void';
 

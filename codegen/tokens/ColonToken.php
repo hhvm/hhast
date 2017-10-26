@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<672f8717a909c865c64dbbfe6e517e29>>
+ * @generated SignedSource<<68fea3a2e9b3ddfe11bd8d28e4159f03>>
  */
 namespace Facebook\HHAST;
 
-final class ColonToken extends NoTextEditableToken {
+final class ColonToken extends EditableTokenWithFixedText {
 
   const string KIND = ':';
   const string TEXT = ':';

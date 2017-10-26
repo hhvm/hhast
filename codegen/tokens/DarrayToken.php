@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8b3e81d6537b3e3818bc343384039f15>>
+ * @generated SignedSource<<74a4063f07abbadf3d186fad16af22c9>>
  */
 namespace Facebook\HHAST;
 
-final class DarrayToken extends TextEditableToken {
+final class DarrayToken extends EditableTokenWithVariableText {
 
   const string KIND = 'darray';
 

@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<08bbb3694aa2ae258b91f574125f2875>>
+ * @generated SignedSource<<0e0c25dd3c6965d2e9ff7776dc6ae16c>>
  */
 namespace Facebook\HHAST;
 
-final class IntToken extends TextEditableToken {
+final class IntToken extends EditableTokenWithVariableText {
 
   const string KIND = 'int';
 

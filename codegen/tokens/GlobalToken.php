@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e40a2fc6211fbb966e1afc73f56bc833>>
+ * @generated SignedSource<<2351b6c79523c4e864c22b4db953ee0e>>
  */
 namespace Facebook\HHAST;
 
-final class GlobalToken extends TextEditableToken {
+final class GlobalToken extends EditableTokenWithVariableText {
 
   const string KIND = 'global';
 

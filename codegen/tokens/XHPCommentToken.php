@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<524e31af3b7d1e4f21c3123e38f2f677>>
+ * @generated SignedSource<<5bea34b675f97fdf9659b36a379e0fbe>>
  */
 namespace Facebook\HHAST;
 
-final class XHPCommentToken extends TextEditableToken {
+final class XHPCommentToken extends EditableTokenWithVariableText {
 
   const string KIND = 'XHP_comment';
 

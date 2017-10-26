@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6603a62367d7c8905a3a3ef95153cef0>>
+ * @generated SignedSource<<fea4588d792960a0a5284728c7e8c7e9>>
  */
 namespace Facebook\HHAST;
 
-final class TupleToken extends TextEditableToken {
+final class TupleToken extends EditableTokenWithVariableText {
 
   const string KIND = 'tuple';
 

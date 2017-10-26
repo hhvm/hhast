@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ba5aa08e2bec38981570d2b3ccd02c8c>>
+ * @generated SignedSource<<6de9f5bd16fa933e043b5d64471c290b>>
  */
 namespace Facebook\HHAST;
 
-final class CatchToken extends TextEditableToken {
+final class CatchToken extends EditableTokenWithVariableText {
 
   const string KIND = 'catch';
 

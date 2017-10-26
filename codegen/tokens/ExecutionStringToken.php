@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6b882029814f3109962cab1dead54941>>
+ * @generated SignedSource<<41c3bd872ff8e8f3d851dfc72d4a1994>>
  */
 namespace Facebook\HHAST;
 
-final class ExecutionStringToken extends TextEditableToken {
+final class ExecutionStringToken extends EditableTokenWithVariableText {
 
   const string KIND = 'execution_string';
 

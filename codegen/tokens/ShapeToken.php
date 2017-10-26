@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<539fab1ded5d03df72ae5841eac98bb0>>
+ * @generated SignedSource<<b727d34bd3a25548f6decff84260c96a>>
  */
 namespace Facebook\HHAST;
 
-final class ShapeToken extends TextEditableToken {
+final class ShapeToken extends EditableTokenWithVariableText {
 
   const string KIND = 'shape';
 

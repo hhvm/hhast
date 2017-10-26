@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6c535d542d7da60bc6a735721a387fc8>>
+ * @generated SignedSource<<71405926b9447fa759d806e2d1af0fb9>>
  */
 namespace Facebook\HHAST;
 
-final class PublicToken extends TextEditableToken {
+final class PublicToken extends EditableTokenWithVariableText {
 
   const string KIND = 'public';
 

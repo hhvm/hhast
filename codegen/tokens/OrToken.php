@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f0d44a87b3176e45f46e07daf1aaf685>>
+ * @generated SignedSource<<017f8f97d040f90cc12cd8a507a7e88a>>
  */
 namespace Facebook\HHAST;
 
-final class OrToken extends TextEditableToken {
+final class OrToken extends EditableTokenWithVariableText {
 
   const string KIND = 'or';
 

@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<660e23ad12e33ffe8ca59bab09d3ab0c>>
+ * @generated SignedSource<<f694a493889493f0ce01d988000086e3>>
  */
 namespace Facebook\HHAST;
 
-final class AwaitToken extends TextEditableToken {
+final class AwaitToken extends EditableTokenWithVariableText {
 
   const string KIND = 'await';
 

@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e46000e66f82d616762eb0264680d1ea>>
+ * @generated SignedSource<<d7c1825d74c12a0cdd80830eaee9d74d>>
  */
 namespace Facebook\HHAST;
 
-final class NowdocStringLiteralToken extends TextEditableToken {
+final class NowdocStringLiteralToken extends EditableTokenWithVariableText {
 
   const string KIND = 'nowdoc_string_literal';
 

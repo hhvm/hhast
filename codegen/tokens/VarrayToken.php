@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0ba6ddbf2891bfdd746001c6b39d114d>>
+ * @generated SignedSource<<5c367634be0c8ff49a95da77f58d9490>>
  */
 namespace Facebook\HHAST;
 
-final class VarrayToken extends TextEditableToken {
+final class VarrayToken extends EditableTokenWithVariableText {
 
   const string KIND = 'varray';
 

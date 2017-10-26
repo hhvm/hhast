@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e32c817f56094a02f3fe9ed91c8d35a8>>
+ * @generated SignedSource<<c6616f4b7d1c76ae40f2e4db6cd5cbaf>>
  */
 namespace Facebook\HHAST;
 
-final class PlusPlusToken extends NoTextEditableToken {
+final class PlusPlusToken extends EditableTokenWithFixedText {
 
   const string KIND = '++';
   const string TEXT = '++';

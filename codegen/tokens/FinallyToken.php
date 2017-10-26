@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8de6203e5fca7e40213e31c18ac93b24>>
+ * @generated SignedSource<<8ac27c40ce845073e7e21f2135c43a3f>>
  */
 namespace Facebook\HHAST;
 
-final class FinallyToken extends TextEditableToken {
+final class FinallyToken extends EditableTokenWithVariableText {
 
   const string KIND = 'finally';
 

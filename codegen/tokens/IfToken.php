@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<531fc6aecbaaa7246cc39f0d14c253b5>>
+ * @generated SignedSource<<ec743be612e0e71ad07c7581207dd27d>>
  */
 namespace Facebook\HHAST;
 
-final class IfToken extends TextEditableToken {
+final class IfToken extends EditableTokenWithVariableText {
 
   const string KIND = 'if';
 

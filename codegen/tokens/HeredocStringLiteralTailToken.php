@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b3ff06e2b1ca668db06732ffda3124b2>>
+ * @generated SignedSource<<c61e7e06b440892d1a09ce97a853e144>>
  */
 namespace Facebook\HHAST;
 
-final class HeredocStringLiteralTailToken extends TextEditableToken {
+final class HeredocStringLiteralTailToken
+  extends EditableTokenWithVariableText {
 
   const string KIND = 'heredoc_string_literal_tail';
 

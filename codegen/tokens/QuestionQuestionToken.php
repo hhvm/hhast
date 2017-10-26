@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2ba52608b82ca208d401455b552ad215>>
+ * @generated SignedSource<<3150fe33ac6614137420ba8ef51b3459>>
  */
 namespace Facebook\HHAST;
 
-final class QuestionQuestionToken extends NoTextEditableToken {
+final class QuestionQuestionToken extends EditableTokenWithFixedText {
 
   const string KIND = '??';
   const string TEXT = '??';

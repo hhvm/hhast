@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6d358c6ffaf156e0524a5ab7b3947686>>
+ * @generated SignedSource<<792c2ccce5706868e2601957a06f5019>>
  */
 namespace Facebook\HHAST;
 
-final class NameToken extends TextEditableToken {
+final class NameToken extends EditableTokenWithVariableText {
 
   const string KIND = 'name';
 

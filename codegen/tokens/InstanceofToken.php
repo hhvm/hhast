@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f1c4c91c950dc45e90af8f41f3c538e4>>
+ * @generated SignedSource<<c79423108e4b39125c75c8987b32e886>>
  */
 namespace Facebook\HHAST;
 
-final class InstanceofToken extends TextEditableToken {
+final class InstanceofToken extends EditableTokenWithVariableText {
 
   const string KIND = 'instanceof';
 

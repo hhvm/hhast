@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c9e414fe69f2b3b1536c283cbd75e1e7>>
+ * @generated SignedSource<<91f805403afdcda810c6ed01c4072e09>>
  */
 namespace Facebook\HHAST;
 
-final class WhileToken extends TextEditableToken {
+final class WhileToken extends EditableTokenWithVariableText {
 
   const string KIND = 'while';
 

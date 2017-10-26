@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<50e0a07c36ae59a88426d3480f02533f>>
+ * @generated SignedSource<<57107299a3f03ddea47ba128c25c2208>>
  */
 namespace Facebook\HHAST;
 
-final class YieldToken extends TextEditableToken {
+final class YieldToken extends EditableTokenWithVariableText {
 
   const string KIND = 'yield';
 

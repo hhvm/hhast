@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7c3eab3e1671b1948a98ebf2d07b02fe>>
+ * @generated SignedSource<<501af4301883094e81ecb6d742fa2ac3>>
  */
 namespace Facebook\HHAST;
 
-final class ForeachToken extends TextEditableToken {
+final class ForeachToken extends EditableTokenWithVariableText {
 
   const string KIND = 'foreach';
 

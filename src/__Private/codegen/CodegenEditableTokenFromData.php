@@ -57,7 +57,7 @@ final class CodegenEditableTokenFromData extends CodegenBase {
         $cg
           ->codegenClass('TokenClassMap')
           ->addConst(
-            'dict<string, classname<HHAST\TextEditableToken>> WITH_TEXT',
+            'dict<string, classname<HHAST\EditableTokenWithVariableText>> WITH_TEXT',
             $cg
               ->codegenHackBuilder()
               ->addValue(
@@ -72,7 +72,7 @@ final class CodegenEditableTokenFromData extends CodegenBase {
             HackBuilderValues::literal()
           )
           ->addConst(
-            'dict<string, classname<HHAST\NoTextEditableToken>> WITHOUT_TEXT',
+            'dict<string, classname<HHAST\EditableTokenWithFixedText>> WITHOUT_TEXT',
             $cg
               ->codegenHackBuilder()
               ->addValue(

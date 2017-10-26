@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e78bbbd72aae5aa82732a7934e8b0647>>
+ * @generated SignedSource<<a231cfa3802fad6b0591f904569c178e>>
  */
 namespace Facebook\HHAST;
 
-final class UnsetToken extends TextEditableToken {
+final class UnsetToken extends EditableTokenWithVariableText {
 
   const string KIND = 'unset';
 

@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<788ebc20997130c06fcd04f659b7d530>>
+ * @generated SignedSource<<1c368a67cfb6a91f3709476484407bd6>>
  */
 namespace Facebook\HHAST;
 
-final class ParentToken extends TextEditableToken {
+final class ParentToken extends EditableTokenWithVariableText {
 
   const string KIND = 'parent';
 

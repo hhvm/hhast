@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b4127df5ecff92f44db4772b9c7961b7>>
+ * @generated SignedSource<<600ed847c1b173f7178079da0323ac5e>>
  */
 namespace Facebook\HHAST;
 
-final class KeysetToken extends TextEditableToken {
+final class KeysetToken extends EditableTokenWithVariableText {
 
   const string KIND = 'keyset';
 

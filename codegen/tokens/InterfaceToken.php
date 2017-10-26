@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<70a811b7e2f1e45d1f58e950fce177eb>>
+ * @generated SignedSource<<618da9e38a90caea4308f25c0ed1a126>>
  */
 namespace Facebook\HHAST;
 
-final class InterfaceToken extends TextEditableToken {
+final class InterfaceToken extends EditableTokenWithVariableText {
 
   const string KIND = 'interface';
 

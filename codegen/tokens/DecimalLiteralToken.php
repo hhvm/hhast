@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a54198c03c30908bcec8ccfb137b1e16>>
+ * @generated SignedSource<<ae74f3dbeecf7337b08c3edb21174278>>
  */
 namespace Facebook\HHAST;
 
-final class DecimalLiteralToken extends TextEditableToken {
+final class DecimalLiteralToken extends EditableTokenWithVariableText {
 
   const string KIND = 'decimal_literal';
 

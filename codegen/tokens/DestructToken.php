@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b125b1de86816617e0b35d84da362dab>>
+ * @generated SignedSource<<e42d549eac274305416e0de65ff74a89>>
  */
 namespace Facebook\HHAST;
 
-final class DestructToken extends TextEditableToken {
+final class DestructToken extends EditableTokenWithVariableText {
 
   const string KIND = '__destruct';
 

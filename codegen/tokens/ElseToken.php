@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c995d0487b663380b1479641664269be>>
+ * @generated SignedSource<<f8351075e84cbbc747ce1868a76b6213>>
  */
 namespace Facebook\HHAST;
 
-final class ElseToken extends TextEditableToken {
+final class ElseToken extends EditableTokenWithVariableText {
 
   const string KIND = 'else';
 

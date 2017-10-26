@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c6921eb898eb2e51d273cb940b7533ce>>
+ * @generated SignedSource<<7178a217106e1ef51ac0da7a81bb011a>>
  */
 namespace Facebook\HHAST;
 
-final class GreaterThanGreaterThanEqualToken extends NoTextEditableToken {
+final class GreaterThanGreaterThanEqualToken
+  extends EditableTokenWithFixedText {
 
   const string KIND = '>>=';
   const string TEXT = '>>=';

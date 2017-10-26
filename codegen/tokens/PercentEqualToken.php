@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<936e7e9bd4b611da8f3bb20269599d6b>>
+ * @generated SignedSource<<21d46369f4b14f57e3f1bbe825d8a881>>
  */
 namespace Facebook\HHAST;
 
-final class PercentEqualToken extends NoTextEditableToken {
+final class PercentEqualToken extends EditableTokenWithFixedText {
 
   const string KIND = '%=';
   const string TEXT = '%=';

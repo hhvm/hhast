@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<34940f1b55f518e3c0a0a6ffc54d097c>>
+ * @generated SignedSource<<76b42890e4808e876838f97650695c81>>
  */
 namespace Facebook\HHAST;
 
-final class XorToken extends TextEditableToken {
+final class XorToken extends EditableTokenWithVariableText {
 
   const string KIND = 'xor';
 

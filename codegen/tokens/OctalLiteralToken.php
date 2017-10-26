@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4b14e5ca581a1a06d98579c90b78ab44>>
+ * @generated SignedSource<<43b6e2c1f43a4997c3f4eaca906038c0>>
  */
 namespace Facebook\HHAST;
 
-final class OctalLiteralToken extends TextEditableToken {
+final class OctalLiteralToken extends EditableTokenWithVariableText {
 
   const string KIND = 'octal_literal';
 

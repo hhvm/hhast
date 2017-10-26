@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<22b8205375608939551814a329608949>>
+ * @generated SignedSource<<fef3036aa613a8fe14c4b8498d254b0e>>
  */
 namespace Facebook\HHAST;
 
-final class XHPStringLiteralToken extends TextEditableToken {
+final class XHPStringLiteralToken extends EditableTokenWithVariableText {
 
   const string KIND = 'XHP_string_literal';
 

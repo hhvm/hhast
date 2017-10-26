@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a2fbe26af11bc9eb1bae584f9540c25e>>
+ * @generated SignedSource<<2f53674c895dceb1156648d7629b94e4>>
  */
 namespace Facebook\HHAST;
 
-final class NamespacePrefixToken extends TextEditableToken {
+final class NamespacePrefixToken extends EditableTokenWithVariableText {
 
   const string KIND = 'namespace_prefix';
 

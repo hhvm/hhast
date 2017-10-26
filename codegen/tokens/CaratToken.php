@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ee1f4deddbc3c89b090cbcd1329906dc>>
+ * @generated SignedSource<<6d616ef9908d68dfb9515a97ab30a72f>>
  */
 namespace Facebook\HHAST;
 
-final class CaratToken extends NoTextEditableToken {
+final class CaratToken extends EditableTokenWithFixedText {
 
   const string KIND = '^';
   const string TEXT = '^';

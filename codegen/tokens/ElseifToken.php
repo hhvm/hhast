@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<629a041cb8293b0d70cadd58067fa656>>
+ * @generated SignedSource<<40925da7985b2d29f920350789114ace>>
  */
 namespace Facebook\HHAST;
 
-final class ElseifToken extends TextEditableToken {
+final class ElseifToken extends EditableTokenWithVariableText {
 
   const string KIND = 'elseif';
 

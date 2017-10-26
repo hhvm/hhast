@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1947df1f39667886fbac486ed804322d>>
+ * @generated SignedSource<<9db46a4b468085f9bfda7b0f2de59d60>>
  */
 namespace Facebook\HHAST;
 
-final class RightBraceToken extends NoTextEditableToken {
+final class RightBraceToken extends EditableTokenWithFixedText {
 
   const string KIND = '}';
   const string TEXT = '}';

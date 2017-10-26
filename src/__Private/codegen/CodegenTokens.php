@@ -135,14 +135,14 @@ final class CodegenTokens extends CodegenBase {
     self::TTokenSpec $token,
   ): string {
 
-    $cls = 'NoTextEditableToken';
+    $cls = 'EditableTokenWithFixedText';
     $text = $token['text'];
     if ($text !== null && (Str\uppercase($text) !== Str\lowercase($text))) {
-      $cls = 'TextEditableToken';
+      $cls = 'EditableTokenWithVariableText';
     } else {
       foreach ($token['fields'] as $field) {
         if ($field['name'] == 'text'){
-          $cls = 'TextEditableToken';
+          $cls = 'EditableTokenWithVariableText';
         }
       }
     }

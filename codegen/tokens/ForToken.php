@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d9a6ef25592543dde5bd30686aa01adc>>
+ * @generated SignedSource<<5a84225ccac63c01ae6a0967b4a628b9>>
  */
 namespace Facebook\HHAST;
 
-final class ForToken extends TextEditableToken {
+final class ForToken extends EditableTokenWithVariableText {
 
   const string KIND = 'for';
 

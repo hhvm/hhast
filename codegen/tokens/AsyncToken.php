@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a75fe62964570f6856952ccc50bd3886>>
+ * @generated SignedSource<<2c85188c948854dd7545cd47c468d686>>
  */
 namespace Facebook\HHAST;
 
-final class AsyncToken extends TextEditableToken {
+final class AsyncToken extends EditableTokenWithVariableText {
 
   const string KIND = 'async';
 

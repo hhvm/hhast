@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<70e94ea4bfdabcf7ffe5815c035f2f9f>>
+ * @generated SignedSource<<88cb528552b3aed25db5c86ed0eed285>>
  */
 namespace Facebook\HHAST;
 
-final class SwitchToken extends TextEditableToken {
+final class SwitchToken extends EditableTokenWithVariableText {
 
   const string KIND = 'switch';
 

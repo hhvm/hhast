@@ -2,11 +2,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a2b7d97ca97ec92528f8a5ef9fe7d0d4>>
+ * @generated SignedSource<<0ff82949bb3caeeda19130434a3dc907>>
  */
 namespace Facebook\HHAST;
 
-final class BooleanLiteralToken extends TextEditableToken {
+final class BooleanLiteralToken extends EditableTokenWithVariableText {
 
   const string KIND = 'boolean_literal';
 
