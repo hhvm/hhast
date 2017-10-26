@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f7c0a3ddda1045350b85781d7b2e56f9",
+    "content-hash": "6eb7edace31a972e8e4d3ce9ad202013",
     "packages": [
         {
             "name": "facebook/definition-finder",
@@ -87,16 +87,16 @@
         },
         {
             "name": "hhvm/hhvm-autoload",
-            "version": "v1.5.1",
+            "version": "v1.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/hhvm-autoload.git",
-                "reference": "4c373d9af5764d46f0093cc34eed7c875267bace"
+                "reference": "e91e24c69118505999e6f7e9e051b03c85f634b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/hhvm-autoload/zipball/4c373d9af5764d46f0093cc34eed7c875267bace",
-                "reference": "4c373d9af5764d46f0093cc34eed7c875267bace",
+                "url": "https://api.github.com/repos/hhvm/hhvm-autoload/zipball/e91e24c69118505999e6f7e9e051b03c85f634b4",
+                "reference": "e91e24c69118505999e6f7e9e051b03c85f634b4",
                 "shasum": ""
             },
             "require": {
@@ -133,20 +133,20 @@
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2017-10-10T23:42:41+00:00"
+            "time": "2017-10-20T01:23:28+00:00"
         },
         {
             "name": "hhvm/hsl",
-            "version": "v0.7",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/hsl.git",
-                "reference": "c5a3f28fad4e379bd305085fc2c28e8df450c6a2"
+                "reference": "99ed4bce2170d12e38654f8502482fcac5b80352"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/hsl/zipball/c5a3f28fad4e379bd305085fc2c28e8df450c6a2",
-                "reference": "c5a3f28fad4e379bd305085fc2c28e8df450c6a2",
+                "url": "https://api.github.com/repos/hhvm/hsl/zipball/99ed4bce2170d12e38654f8502482fcac5b80352",
+                "reference": "99ed4bce2170d12e38654f8502482fcac5b80352",
                 "shasum": ""
             },
             "require": {
@@ -162,7 +162,7 @@
             "type": "library",
             "notification-url": "https://packagist.org/downloads/",
             "description": "The Hack Standard Library",
-            "time": "2017-10-09T22:38:19+00:00"
+            "time": "2017-10-26T18:38:35+00:00"
         },
         {
             "name": "hhvm/type-assert",
@@ -170,17 +170,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/type-assert.git",
-                "reference": "119f317b3a911963befc2ae4118a39c86a2975fc"
+                "reference": "e437cbab50530ba3ec09fed8a59abf2eb1a2115b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/type-assert/zipball/119f317b3a911963befc2ae4118a39c86a2975fc",
-                "reference": "119f317b3a911963befc2ae4118a39c86a2975fc",
+                "url": "https://api.github.com/repos/hhvm/type-assert/zipball/e437cbab50530ba3ec09fed8a59abf2eb1a2115b",
+                "reference": "e437cbab50530ba3ec09fed8a59abf2eb1a2115b",
                 "shasum": ""
             },
             "require": {
-                "hhvm": ">= 3.22.0 <3.23.0",
-                "hhvm/hsl": ">=0.3 <2.0"
+                "hhvm": ">= 3.22.0",
+                "hhvm/hsl": "^1.0"
             },
             "require-dev": {
                 "91carriage/phpunit-hhi": "~5.1",
@@ -195,7 +195,7 @@
                 "TypeAssert",
                 "hack"
             ],
-            "time": "2017-10-17 21:59:30"
+            "time": "2017-10-26T20:42:05+00:00"
         }
     ],
     "packages-dev": [
@@ -340,23 +340,24 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/hack-codegen.git",
-                "reference": "c3749101e5059f21a8fc13f0c550c9877b7ad3ef"
+                "reference": "9c7ae172facea55f4c795f9e0d3d71623305dd54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/hack-codegen/zipball/c3749101e5059f21a8fc13f0c550c9877b7ad3ef",
-                "reference": "c3749101e5059f21a8fc13f0c550c9877b7ad3ef",
+                "url": "https://api.github.com/repos/hhvm/hack-codegen/zipball/9c7ae172facea55f4c795f9e0d3d71623305dd54",
+                "reference": "9c7ae172facea55f4c795f9e0d3d71623305dd54",
                 "shasum": ""
             },
             "require": {
                 "hhvm": ">=3.22.0",
                 "hhvm/hhvm-autoload": "^1.5",
-                "hhvm/hsl": "<1.0 >=0.3"
+                "hhvm/hsl": "^1.0.0"
             },
             "require-dev": {
                 "91carriage/phpunit-hhi": "^5.6",
-                "hhvm/hhast": "^v0.1",
-                "hhvm/type-assert": "^3.0",
+                "facebook/fbexpect": "^0.3.0",
+                "hhvm/hhast": "dev-master",
+                "hhvm/type-assert": "dev-master",
                 "phpunit/phpunit": "^5.7"
             },
             "bin": [
@@ -401,41 +402,44 @@
                 "code generation",
                 "hack"
             ],
-            "time": "2017-10-17 19:47:47"
+            "time": "2017-10-26T20:37:11+00:00"
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.6.1",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "8e6e04167378abf1ddb4d3522d8755c5fd90d102"
+                "reference": "3b8a3a99ba1f6a3952ac2747d989303cbd6b7a3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/8e6e04167378abf1ddb4d3522d8755c5fd90d102",
-                "reference": "8e6e04167378abf1ddb4d3522d8755c5fd90d102",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/3b8a3a99ba1f6a3952ac2747d989303cbd6b7a3e",
+                "reference": "3b8a3a99ba1f6a3952ac2747d989303cbd6b7a3e",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4.0"
+                "php": "^5.6 || ^7.0"
             },
             "require-dev": {
-                "doctrine/collections": "1.*",
-                "phpunit/phpunit": "~4.1"
+                "doctrine/collections": "^1.0",
+                "doctrine/common": "^2.6",
+                "phpunit/phpunit": "^4.1"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "DeepCopy\\": "src/DeepCopy/"
-                }
+                },
+                "files": [
+                    "src/DeepCopy/deep_copy.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "description": "Create deep copies (clones) of your objects",
-            "homepage": "https://github.com/myclabs/DeepCopy",
             "keywords": [
                 "clone",
                 "copy",
@@ -443,7 +447,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2017-04-12T18:52:22+00:00"
+            "time": "2017-10-19T19:58:43+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -1672,7 +1676,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "hhvm": ">=3.22.0 <3.23.0"
+        "hhvm": ">=3.22.0"
     },
     "platform-dev": []
 }
