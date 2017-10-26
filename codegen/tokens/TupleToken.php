@@ -2,18 +2,20 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6c2748c4223ae5546ec0fb090b08b046>>
+ * @generated SignedSource<<6603a62367d7c8905a3a3ef95153cef0>>
  */
 namespace Facebook\HHAST;
 
-final class TupleToken extends EditableToken {
+final class TupleToken extends TextEditableToken {
+
+  const string KIND = 'tuple';
 
   public function __construct(
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'tuple',
   ) {
-    parent::__construct('tuple', $leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text);
   }
 
   public function hasLeading(): bool {

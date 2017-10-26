@@ -2,23 +2,20 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<343aa9298ef8fd5b3a38a266f87311e3>>
+ * @generated SignedSource<<3d7abde3e070d79c08d42d5d839e8caa>>
  */
 namespace Facebook\HHAST;
 
-final class HeredocStringLiteralHeadToken extends EditableToken {
+final class HeredocStringLiteralHeadToken extends TextEditableToken {
+
+  const string KIND = 'heredoc_string_literal_head';
 
   public function __construct(
     EditableNode $leading,
     EditableNode $trailing,
     string $text,
   ) {
-    parent::__construct(
-      'heredoc_string_literal_head',
-      $leading,
-      $trailing,
-      $text,
-    );
+    parent::__construct($leading, $trailing, $text);
   }
 
   public function hasLeading(): bool {

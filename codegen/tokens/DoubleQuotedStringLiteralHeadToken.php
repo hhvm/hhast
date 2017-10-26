@@ -2,23 +2,20 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<617840a162131e41a8d16f31cca9c418>>
+ * @generated SignedSource<<b69d789eb2bb973a2560472a1c288b6d>>
  */
 namespace Facebook\HHAST;
 
-final class DoubleQuotedStringLiteralHeadToken extends EditableToken {
+final class DoubleQuotedStringLiteralHeadToken extends TextEditableToken {
+
+  const string KIND = 'double_quoted_string_literal_head';
 
   public function __construct(
     EditableNode $leading,
     EditableNode $trailing,
     string $text,
   ) {
-    parent::__construct(
-      'double_quoted_string_literal_head',
-      $leading,
-      $trailing,
-      $text,
-    );
+    parent::__construct($leading, $trailing, $text);
   }
 
   public function hasLeading(): bool {

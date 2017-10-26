@@ -2,14 +2,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<105c01f7fe52709d8672b3a18490fd27>>
+ * @generated SignedSource<<1947df1f39667886fbac486ed804322d>>
  */
 namespace Facebook\HHAST;
 
-final class RightBraceToken extends EditableToken {
+final class RightBraceToken extends NoTextEditableToken {
+
+  const string KIND = '}';
+  const string TEXT = '}';
 
   public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct('}', $leading, $trailing, '}');
+    parent::__construct($leading, $trailing);
   }
 
   public function hasLeading(): bool {

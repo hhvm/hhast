@@ -2,18 +2,20 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d3b408f5df6d95c56cd831719612ec54>>
+ * @generated SignedSource<<a90815105e58c3b0a3cf8b4a9b46268e>>
  */
 namespace Facebook\HHAST;
 
-final class VecToken extends EditableToken {
+final class VecToken extends TextEditableToken {
+
+  const string KIND = 'vec';
 
   public function __construct(
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'vec',
   ) {
-    parent::__construct('vec', $leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text);
   }
 
   public function hasLeading(): bool {

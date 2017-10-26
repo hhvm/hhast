@@ -2,18 +2,20 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c9341ae7df987754921d66fee25e4f64>>
+ * @generated SignedSource<<b125b1de86816617e0b35d84da362dab>>
  */
 namespace Facebook\HHAST;
 
-final class DestructToken extends EditableToken {
+final class DestructToken extends TextEditableToken {
+
+  const string KIND = '__destruct';
 
   public function __construct(
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = '__destruct',
   ) {
-    parent::__construct('__destruct', $leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text);
   }
 
   public function hasLeading(): bool {

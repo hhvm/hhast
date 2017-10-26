@@ -2,14 +2,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5a60a1b691ab52b93859a2d8848c54cd>>
+ * @generated SignedSource<<cbdcbaa0854d5ca701fc93ff2183b2e8>>
  */
 namespace Facebook\HHAST;
 
-final class DollarToken extends EditableToken {
+final class DollarToken extends NoTextEditableToken {
+
+  const string KIND = '$';
+  const string TEXT = '$';
 
   public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct('$', $leading, $trailing, '$');
+    parent::__construct($leading, $trailing);
   }
 
   public function hasLeading(): bool {

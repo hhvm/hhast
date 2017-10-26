@@ -2,18 +2,20 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<78badb2b1968d7101766ce7a76e2153d>>
+ * @generated SignedSource<<a2fbe26af11bc9eb1bae584f9540c25e>>
  */
 namespace Facebook\HHAST;
 
-final class NamespacePrefixToken extends EditableToken {
+final class NamespacePrefixToken extends TextEditableToken {
+
+  const string KIND = 'namespace_prefix';
 
   public function __construct(
     EditableNode $leading,
     EditableNode $trailing,
     string $text,
   ) {
-    parent::__construct('namespace_prefix', $leading, $trailing, $text);
+    parent::__construct($leading, $trailing, $text);
   }
 
   public function hasLeading(): bool {

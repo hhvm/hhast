@@ -2,18 +2,20 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5efe0e8ea5149de310a70f1ac38c6c1b>>
+ * @generated SignedSource<<4b14e5ca581a1a06d98579c90b78ab44>>
  */
 namespace Facebook\HHAST;
 
-final class OctalLiteralToken extends EditableToken {
+final class OctalLiteralToken extends TextEditableToken {
+
+  const string KIND = 'octal_literal';
 
   public function __construct(
     EditableNode $leading,
     EditableNode $trailing,
     string $text,
   ) {
-    parent::__construct('octal_literal', $leading, $trailing, $text);
+    parent::__construct($leading, $trailing, $text);
   }
 
   public function hasLeading(): bool {

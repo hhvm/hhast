@@ -2,27 +2,10 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<99104cd71e5e8cd32c629d44be7e189b>>
+ * @generated SignedSource<<e99084535380330f8d09419b59c1e720>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
-
-function make_token_with_text<T super HHAST\EditableToken>(
-  classname<T> $cls,
-  HHAST\EditableNode $leading,
-  HHAST\EditableNode $trailing,
-  string $token_text,
-): HHAST\EditableToken {
-  return new $cls($leading, $trailing, $token_text);
-}
-
-function make_token<T super HHAST\EditableToken>(
-  classname<T> $cls,
-  HHAST\EditableNode $leading,
-  HHAST\EditableNode $trailing,
-): HHAST\EditableToken {
-  return new $cls($leading, $trailing);
-}
 
 function editable_token_from_data(
   string $file,
@@ -34,18 +17,18 @@ function editable_token_from_data(
 ): HHAST\EditableToken {
   $cls = TokenClassMap::WITHOUT_TEXT[$token_kind] ?? null;
   if ($cls !== null) {
-    return make_token($cls, $leading, $trailing);
+    return new $cls($leading, $trailing);
   }
   $cls = TokenClassMap::WITH_TEXT[$token_kind] ?? null;
   if ($cls !== null) {
-    return make_token_with_text($cls, $leading, $trailing, $token_text);
+    return new $cls($leading, $trailing, $token_text);
   }
   throw new HHAST\UnsupportedTokenError($file, $offset, $token_kind);
 }
 
-class TokenClassMap<T super HHAST\EditableToken> {
+class TokenClassMap {
 
-  const dict<string, classname<T>>
+  const dict<string, classname<HHAST\TextEditableToken>>
     WITH_TEXT = dict[
       'abstract' => HHAST\AbstractToken::class,
       'and' => HHAST\AndToken::class,
@@ -179,7 +162,7 @@ class TokenClassMap<T super HHAST\EditableToken> {
       'XHP_comment' => HHAST\XHPCommentToken::class,
       'markup' => HHAST\MarkupToken::class,
     ];
-  const dict<string, classname<T>>
+  const dict<string, classname<HHAST\NoTextEditableToken>>
     WITHOUT_TEXT = dict[
       'end_of_file' => HHAST\EndOfFileToken::class,
       '[' => HHAST\LeftBracketToken::class,

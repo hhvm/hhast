@@ -112,13 +112,42 @@ final class CodegenTokens extends CodegenBase {
     self::TTokenSpec $token,
   ): CodegenClass {
     $cg = $this->getCodegenFactory();
-    return $cg
+    $cc = $cg
       ->codegenClass($token['kind'].'Token')
       ->setIsFinal()
-      ->setExtends('EditableToken')
+      ->setExtends($this->generateExtends($token))
+      ->addConst('string KIND', $token['description'])
       ->setConstructor($this->generateConstructor($token))
       ->addMethods($this->generateFieldMethods($token))
       ->addMethod($this->generateRewriteChildrenMethod($token));
+
+    $text = $token['text'];
+    if ($text !== null) {
+      if (Str\uppercase($text) === Str\lowercase($text)) {
+        $cc->addConst('string TEXT', $text);
+      }
+    }
+
+    return $cc;
+  }
+
+  public function generateExtends(
+    self::TTokenSpec $token,
+  ): string {
+
+    $cls = 'NoTextEditableToken';
+    $text = $token['text'];
+    if ($text !== null && (Str\uppercase($text) !== Str\lowercase($text))) {
+      $cls = 'TextEditableToken';
+    } else {
+      foreach ($token['fields'] as $field) {
+        if ($field['name'] == 'text'){
+          $cls = 'TextEditableToken';
+        }
+      }
+    }
+
+    return $cls;
   }
 
   public function generateConstructor(
@@ -137,18 +166,13 @@ final class CodegenTokens extends CodegenBase {
         )
       );
 
-    $parent_args = Vec\concat(
-      vec[var_export($token['description'], true)],
-      Vec\map(
+    $parent_args = Vec\map(
         $token['fields'],
         $field ==> '$'.$field['name'],
-      ),
     );
     $text = $token['text'];
     if ($text !== null) {
-      if (Str\uppercase($text) === Str\lowercase($text)) {
-        $parent_args[] = var_export($text, true);
-      } else {
+      if (Str\uppercase($text) !== Str\lowercase($text)) {
         $it->addParameterf(
           'string $token_text = %s',
           var_export($text, true),

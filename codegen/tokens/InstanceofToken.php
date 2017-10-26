@@ -2,18 +2,20 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6db91192bfd8cab10037a706f34098aa>>
+ * @generated SignedSource<<f1c4c91c950dc45e90af8f41f3c538e4>>
  */
 namespace Facebook\HHAST;
 
-final class InstanceofToken extends EditableToken {
+final class InstanceofToken extends TextEditableToken {
+
+  const string KIND = 'instanceof';
 
   public function __construct(
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'instanceof',
   ) {
-    parent::__construct('instanceof', $leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text);
   }
 
   public function hasLeading(): bool {
