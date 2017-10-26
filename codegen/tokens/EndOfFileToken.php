@@ -2,14 +2,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<77068f145c1ce6864739e84b5024c18f>>
+ * @generated SignedSource<<c4ec06fd18fdcaff9c584d50ad8091a2>>
  */
 namespace Facebook\HHAST;
 
-final class EndOfFileToken extends EditableToken {
+final class EndOfFileToken extends NoTextEditableToken {
+
+  const string KIND = 'EndOfFile';
+  const string TEXT = '';
 
   public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct('EndOfFile', $leading, $trailing, '');
+    parent::__construct($leading, $trailing);
   }
 
   public function hasLeading(): bool {

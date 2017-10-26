@@ -2,14 +2,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2985a1e3c9024dbc336117e728bbc65a>>
+ * @generated SignedSource<<12c4147f0c6ae92d79b57f37e8957fc7>>
  */
 namespace Facebook\HHAST;
 
-final class CaratEqualToken extends EditableToken {
+final class CaratEqualToken extends NoTextEditableToken {
+
+  const string KIND = '^=';
+  const string TEXT = '^=';
 
   public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct('^=', $leading, $trailing, '^=');
+    parent::__construct($leading, $trailing);
   }
 
   public function hasLeading(): bool {

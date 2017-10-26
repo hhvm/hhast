@@ -2,18 +2,20 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<79e614f3bcbe52f269bad6aa03af04f1>>
+ * @generated SignedSource<<b1bd0c19557a9b0eb7faf0980a374bce>>
  */
 namespace Facebook\HHAST;
 
-final class CoroutineToken extends EditableToken {
+final class CoroutineToken extends TextEditableToken {
+
+  const string KIND = 'coroutine';
 
   public function __construct(
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'coroutine',
   ) {
-    parent::__construct('coroutine', $leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text);
   }
 
   public function hasLeading(): bool {

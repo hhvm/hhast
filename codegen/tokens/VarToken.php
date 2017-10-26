@@ -2,18 +2,20 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f648871df31d35161262447822246b83>>
+ * @generated SignedSource<<e69b30bd467f9ee4ce3fb95dee7a6fcb>>
  */
 namespace Facebook\HHAST;
 
-final class VarToken extends EditableToken {
+final class VarToken extends TextEditableToken {
+
+  const string KIND = 'var';
 
   public function __construct(
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'var',
   ) {
-    parent::__construct('var', $leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text);
   }
 
   public function hasLeading(): bool {

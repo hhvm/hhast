@@ -2,14 +2,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<980afc70207f9b91ac95f9c72699fe60>>
+ * @generated SignedSource<<e5fbb8d4f03d67de54d5ac356257768e>>
  */
 namespace Facebook\HHAST;
 
-final class MinusEqualToken extends EditableToken {
+final class MinusEqualToken extends NoTextEditableToken {
+
+  const string KIND = '-=';
+  const string TEXT = '-=';
 
   public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct('-=', $leading, $trailing, '-=');
+    parent::__construct($leading, $trailing);
   }
 
   public function hasLeading(): bool {

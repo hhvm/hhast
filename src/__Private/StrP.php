@@ -21,3 +21,13 @@ function upper_camel(string $in): string {
     $in,
   );
 }
+
+<<__Memoize>>
+function underscored(string $in): string {
+  return preg_replace_callback(
+    '/[A-Z][a-z]+/',
+    $matches ==> '_'.Str\lowercase($matches[0]),
+    $in,
+  )
+    |> Str\strip_prefix($$, '_');
+}

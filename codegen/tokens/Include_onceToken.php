@@ -2,18 +2,20 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0ba77cb454154dc7c5092f5c4fcd23c5>>
+ * @generated SignedSource<<bc3acde75e39e37c3b3f51a82970b755>>
  */
 namespace Facebook\HHAST;
 
-final class Include_onceToken extends EditableToken {
+final class Include_onceToken extends TextEditableToken {
+
+  const string KIND = 'include_once';
 
   public function __construct(
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'include_once',
   ) {
-    parent::__construct('include_once', $leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text);
   }
 
   public function hasLeading(): bool {

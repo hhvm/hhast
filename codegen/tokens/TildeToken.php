@@ -2,14 +2,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<16e9a4b28fd3cff131c243776d60feca>>
+ * @generated SignedSource<<753908e356d4341683a5ef471a1a4a91>>
  */
 namespace Facebook\HHAST;
 
-final class TildeToken extends EditableToken {
+final class TildeToken extends NoTextEditableToken {
+
+  const string KIND = '~';
+  const string TEXT = '~';
 
   public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct('~', $leading, $trailing, '~');
+    parent::__construct($leading, $trailing);
   }
 
   public function hasLeading(): bool {

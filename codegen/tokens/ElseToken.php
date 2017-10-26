@@ -2,18 +2,20 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c8e31d3d157d02aabe62b44e3309163a>>
+ * @generated SignedSource<<c995d0487b663380b1479641664269be>>
  */
 namespace Facebook\HHAST;
 
-final class ElseToken extends EditableToken {
+final class ElseToken extends TextEditableToken {
+
+  const string KIND = 'else';
 
   public function __construct(
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'else',
   ) {
-    parent::__construct('else', $leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text);
   }
 
   public function hasLeading(): bool {

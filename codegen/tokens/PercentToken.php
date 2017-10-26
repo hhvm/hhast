@@ -2,14 +2,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7bd079248a62a2b836adc5246e2fe585>>
+ * @generated SignedSource<<736876e558b3fce7bd0914a15733ea74>>
  */
 namespace Facebook\HHAST;
 
-final class PercentToken extends EditableToken {
+final class PercentToken extends NoTextEditableToken {
+
+  const string KIND = '%';
+  const string TEXT = '%';
 
   public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct('%', $leading, $trailing, '%');
+    parent::__construct($leading, $trailing);
   }
 
   public function hasLeading(): bool {
