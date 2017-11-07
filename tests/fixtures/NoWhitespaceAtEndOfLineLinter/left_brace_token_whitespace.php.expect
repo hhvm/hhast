@@ -1,0 +1,7 @@
+[
+    {
+        "blame": "function test() {    ",
+        "blame_pretty": "function test() {    ",
+        "description": "trailing whitespace at end of line"
+    }
+]
