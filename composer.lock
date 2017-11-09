@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2a0ff5ff6c8d4ac41179793c70818a4b",
+    "content-hash": "0cff407a5447ec9930eb6ccbde5c2779",
     "packages": [
         {
             "name": "facebook/definition-finder",
@@ -166,7 +166,7 @@
         },
         {
             "name": "hhvm/type-assert",
-            "version": "dev-master",
+            "version": "v3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/type-assert.git",
@@ -1660,7 +1660,6 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "hhvm/type-assert": 20,
         "facebook/hack-codegen": 20
     },
     "prefer-stable": false,

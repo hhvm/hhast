@@ -11,6 +11,6 @@
     "require": {
         "hhvm": "^3.21.0",
         "hhvm/hsl": "^1.0.0",
-        "hhvm/type-assert": "dev-master"
+        "hhvm/type-assert": "^3.1"
     }
 }
