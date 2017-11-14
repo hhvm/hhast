@@ -2,7 +2,6 @@
     "name": "hhvm/hhast",
     "bin": [ "bin/hhast-lint" ],
     "require-dev": {
-        "facebook/hack-codegen": "dev-master",
         "phpunit/phpunit": "^5.7",
         "91carriage/phpunit-hhi": "^5.7",
         "facebook/fbexpect": "^0.3.0",
@@ -11,6 +10,7 @@
     "require": {
         "hhvm": "^3.21.0",
         "hhvm/hsl": "^1.0.0",
-        "hhvm/type-assert": "^3.1"
+        "hhvm/type-assert": "^3.1",
+        "facebook/hack-codegen": "^3.0"
     }
 }

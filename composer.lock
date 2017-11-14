@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0cff407a5447ec9930eb6ccbde5c2779",
+    "content-hash": "d9513b15e60a83edd12b6162ba99d414",
     "packages": [
         {
             "name": "facebook/definition-finder",
@@ -47,6 +47,66 @@
                 "hhvm"
             ],
             "time": "2017-10-10T23:29:38+00:00"
+        },
+        {
+            "name": "facebook/hack-codegen",
+            "version": "v3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hhvm/hack-codegen.git",
+                "reference": "58ef9bb48d79c3d81e792b2bba16c8fcaa910ec0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hhvm/hack-codegen/zipball/58ef9bb48d79c3d81e792b2bba16c8fcaa910ec0",
+                "reference": "58ef9bb48d79c3d81e792b2bba16c8fcaa910ec0",
+                "shasum": ""
+            },
+            "require": {
+                "hhvm": ">=3.21.0",
+                "hhvm/hhvm-autoload": "^1.5",
+                "hhvm/hsl": "^1.0.0"
+            },
+            "require-dev": {
+                "91carriage/phpunit-hhi": "^5.6",
+                "facebook/fbexpect": "^0.3.0",
+                "hhvm/hhast": "^0.4.0",
+                "hhvm/type-assert": "^3.1",
+                "phpunit/phpunit": "^5.7"
+            },
+            "bin": [
+                "bin/hh-codegen-verify-signatures"
+            ],
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Drew Hoskins",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Gaurav Kumar",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Alejandro Marcu",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Matthieu Martin",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Fred Emmott",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Hack Codegen is a library for programatically generating Hack code",
+            "keywords": [
+                "code generation",
+                "hack"
+            ],
+            "time": "2017-11-14T22:31:08+00:00"
         },
         {
             "name": "fredemmott/hack-error-suppressor",
@@ -333,66 +393,6 @@
             "notification-url": "https://packagist.org/downloads/",
             "description": "Unit test helpers for Facebook projects",
             "time": "2017-09-20T18:27:43+00:00"
-        },
-        {
-            "name": "facebook/hack-codegen",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/hhvm/hack-codegen.git",
-                "reference": "8147bbb47d41ef525fcdb7c6e8af68ca7fa21448"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/hack-codegen/zipball/8147bbb47d41ef525fcdb7c6e8af68ca7fa21448",
-                "reference": "8147bbb47d41ef525fcdb7c6e8af68ca7fa21448",
-                "shasum": ""
-            },
-            "require": {
-                "hhvm": ">=3.21.0",
-                "hhvm/hhvm-autoload": "^1.5",
-                "hhvm/hsl": "^1.0.0"
-            },
-            "require-dev": {
-                "91carriage/phpunit-hhi": "^5.6",
-                "facebook/fbexpect": "^0.3.0",
-                "hhvm/hhast": "dev-master",
-                "hhvm/type-assert": "dev-master",
-                "phpunit/phpunit": "^5.7"
-            },
-            "bin": [
-                "bin/hh-codegen-verify-signatures"
-            ],
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "Drew Hoskins",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Gaurav Kumar",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Alejandro Marcu",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Matthieu Martin",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Fred Emmott",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Hack Codegen is a library for programatically generating Hack code",
-            "keywords": [
-                "code generation",
-                "hack"
-            ],
-            "time": "2017-11-09T18:17:38+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -1659,9 +1659,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "facebook/hack-codegen": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
