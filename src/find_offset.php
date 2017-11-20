@@ -22,6 +22,12 @@ function find_offset_after_leading(
     return 0;
   }
 
-  return find_offset_of_leading($root, $node)
-    + $node->getFirstTokenx()->getLeading()->getWidth();
+  $leading_offset = find_offset_of_leading($root, $node);
+
+  $first_token = $node->getFirstToken();
+  if ($first_token === null) {
+    return $leading_offset;
+  }
+
+  return $leading_offset + $first_token->getLeading()->getWidth();
 }
