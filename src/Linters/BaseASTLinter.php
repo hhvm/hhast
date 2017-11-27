@@ -14,9 +14,7 @@ namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\EditableNode;
 use type Facebook\HHAST\__Private\PerfCounter;
-use function Facebook\HHAST\find_line;
 use namespace Facebook\HHAST;
-use namespace HH\Lib\Str;
 
 abstract class BaseASTLinter<T as HHAST\EditableNode, +Terror as ASTLintError<T>> extends BaseLinter {
   private HHAST\EditableNode $ast;
@@ -74,36 +72,16 @@ abstract class BaseASTLinter<T as HHAST\EditableNode, +Terror as ASTLintError<T>
   final public function getLintErrors(
   ): Traversable<Terror> {
     $target = static::getTargetType();
-    $r = new \ReflectionClass($this);
-    $linter_name = $r->getShortName();
 
     foreach ($this->ast->traverseWithParents() as list($node, $parents)) {
       if ($node instanceof $target) {
         $error = $this->getLintErrorForNode($node, $parents);
 
-        if ($error !== null && !$this->isLinterDisabled($linter_name, $node)) {
+        if ($error !== null && !$this->isLinterDisabled($error)) {
           yield $error;
         }
       }
     }
-  }
-
-  /**
-   * Allow users to disable specific cases where a linter is used.
-   *
-   * For example if migrating from a banned function the existing usages can be marked to pass the linter:
-   *
-   * banned_function_call(); # DisableBannedFunctionsLinter
-   **/
-  protected function isLinterDisabled(
-    string $linter_name,
-    EditableNode $node,
-  ): bool {
-    // This node caused the error, let's find the line
-    $line = find_line($this->getAST(), $node);
-
-    // Check to see if the line contains the DisableLinterName keyword
-    return Str\search($line, "Disable".$linter_name) !== null;
   }
 
   final public function getAST(): HHAST\EditableNode {

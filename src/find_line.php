@@ -14,19 +14,28 @@ namespace Facebook\HHAST;
 
 use namespace HH\Lib\Str;
 
-function find_line(
-  EditableNode $root,
-  EditableNode $node,
-): string {
-  $offset = find_offset_after_leading($root, $node);
-  $code = $root->getCode();
-  $endline_pos = Str\search($code, "\n", $offset);
-
-  // If we can't find the end of the line it is possible we're the last line of a file
-  // without a final endline, so returning anything from offset onwards...
-  if ($endline_pos !== null) {
-    return Str\slice($code, $offset, $endline_pos - $offset);
-  }else{
-    return Str\slice($code, $offset);
+/*
+ * Attempt to find the line that this error occured on and return
+ */
+function find_line(Linters\LintError $error): ?string {
+  if ($error == null) {
+    return null;
   }
+
+  $position = $error->getPosition();
+  if ($position == null) {
+    return null;
+  }
+
+  $code = file_get_contents($error->getFile());
+  $lines = explode("\n", $code);
+
+  // The position is a count of the number of lines, -1 to get the array entry
+  $line_pos = $position[0] - 1;
+
+  if (count($lines) < $line_pos) {
+    return null;
+  }
+
+  return $lines[$line_pos];
 }
