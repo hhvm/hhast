@@ -29,10 +29,8 @@ class LineLintError extends LintError {
 
   <<__Override>>
   public function getBlameCode(): ?string {
-
     $line = $this->position[0] - 1;
     invariant($line >= 0, 'line number should never be negative');
     return $this->linter->getLine($line);
   }
-
 }

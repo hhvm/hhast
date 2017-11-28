@@ -27,7 +27,6 @@ class FixableLineLintError extends LineLintError implements FixableLintError {
   }
 
   public function getReadableFix(): (string, string) {
-
     $original = $this->getBlameCode();
     invariant($original !== null, 'blame line should never be null');
     $fixed = $this->linter->getFixedLine($original);
@@ -37,5 +36,4 @@ class FixableLineLintError extends LineLintError implements FixableLintError {
   public function shouldRenderBlameAndFixAsDiff(): bool {
     return true;
   }
-
 }
