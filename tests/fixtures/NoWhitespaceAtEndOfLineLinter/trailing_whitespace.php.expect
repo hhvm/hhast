@@ -1,0 +1,7 @@
+[
+    {
+        "blame": "print('foo');    ",
+        "blame_pretty": "print('foo');    ",
+        "description": "trailing whitespace at end of line"
+    }
+]
