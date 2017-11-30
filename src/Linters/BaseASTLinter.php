@@ -85,7 +85,7 @@ abstract class BaseASTLinter<T as HHAST\EditableNode, +Terror as ASTLintError<T>
     }
   }
 
-   /**
+  /**
    * Allow users to disable either all linter errors of this type in a file or
    * specific cases where a linter is used.
    **/
