@@ -22,10 +22,6 @@ final class NoWhitespaceAtEndOfLineLinter
     $lines = $this->getLinesFromFile();
     $errs = vec[];
 
-    if ($this->isLinterDisabledForFile($lines)){
-      return $errs;
-    }
-
     foreach ($lines as $ln => $line) {
       for ($i = strlen($line) - 1; $i >= 0; $i--) {
         $char = $line[$i];

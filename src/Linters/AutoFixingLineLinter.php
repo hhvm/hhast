@@ -31,20 +31,4 @@ abstract class AutoFixingLineLinter<Terr as FixableLineLintError>
     }
     \file_put_contents($this->getFile(), Str\join($lines, "\n"));
   }
-
-  /**
-   * Is this linter error disabled for the entire file?
-   */
-  protected function isLinterDisabledForFile(vec<string> $lines): bool {
-    $ignore_all = $this->markerIgnoreAll();
-
-    foreach($lines as $line){
-      if(Str\contains($line, $ignore_all)) {
-        return true;
-      }
-    }
-
-    return false;
-  }
-
 }

@@ -56,6 +56,11 @@ final class LinterCLI extends CLIWithArguments {
       $c = new PerfCounter($class.'#construct');
       $linter = new $class($path);
       $c->end();
+
+      if ($linter->isLinterDisabledForFile($path)) {
+        continue;
+      }
+
       $c = new PerfCounter($class.'#getLintErrors');
       $errors = $linter->getLintErrors();
       $c->end();

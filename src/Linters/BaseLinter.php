@@ -12,6 +12,8 @@
 
 namespace Facebook\HHAST\Linters;
 
+use namespace HH\Lib\Str;
+
 <<__ConsistentConstruct>>
 abstract class BaseLinter {
   abstract public function getLintErrors(
@@ -48,6 +50,16 @@ abstract class BaseLinter {
    */
   protected function markerFixMe(): string {
     return 'HHAST_FIXME['.$this->getLinterName().']';
+  }
+
+  /**
+   * Is this linter error disabled for the entire file?
+   * Memoized since this should not change per run.
+   */
+  <<__Memoize>>
+  public function isLinterDisabledForFile(string $file_name): bool {
+    $code = file_get_contents($file_name);
+    return Str\contains($code, $this->markerIgnoreAll());
   }
 
 }

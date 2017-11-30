@@ -90,11 +90,6 @@ abstract class BaseASTLinter<T as HHAST\EditableNode, +Terror as ASTLintError<T>
    * specific cases where a linter is used.
    **/
   protected function isLinterDisabled(EditableNode $node, LintError $error): bool {
-    // This class of linter errors might be disabled for the entire file, let's find out.
-    if($this->isLinterDisabledForFile($error->getFile())){
-      return true;
-    }
-
     // Is this specific instance of the linter error disabled?
     $token = $node->getFirstToken();
     if ($token === null) {
@@ -102,16 +97,6 @@ abstract class BaseASTLinter<T as HHAST\EditableNode, +Terror as ASTLintError<T>
     }
 
     return Str\contains($token->getLeading()->getCode(), $this->markerFixMe());
-  }
-
-  /**
-   * Is this linter error disabled for the entire file?
-   * Memoized since this should not change per run.
-   */
-  <<__Memoize>>
-  protected function isLinterDisabledForFile(string $file_name): bool {
-    $code = file_get_contents($file_name);
-    return Str\contains($code, $this->markerIgnoreAll());
   }
 
   final public function getAST(): HHAST\EditableNode {
