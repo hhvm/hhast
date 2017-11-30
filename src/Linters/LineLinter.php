@@ -13,6 +13,7 @@
 namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\Linters\{BaseLinter};
+use namespace HH\Lib\Str;
 
 abstract class LineLinter extends BaseLinter {
 
@@ -25,4 +26,5 @@ abstract class LineLinter extends BaseLinter {
   public function getLine(int $l): ?string {
     return idx($this->getLinesFromFile(), $l);
   }
+
 }

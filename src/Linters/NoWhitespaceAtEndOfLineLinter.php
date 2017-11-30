@@ -21,12 +21,24 @@ final class NoWhitespaceAtEndOfLineLinter
   public function getLintErrors(): Traversable<FixableLineLintError> {
     $lines = $this->getLinesFromFile();
     $errs = vec[];
+
+    if ($this->isLinterDisabledForFile($lines)){
+      return $errs;
+    }
+
     foreach ($lines as $ln => $line) {
       for ($i = strlen($line) - 1; $i >= 0; $i--) {
         $char = $line[$i];
         if ($char !== ' ') {
           break;
         }
+
+        // Looks like we have an error. Let's see if we should ignore this one
+        $previous_line = $lines[$ln-1];
+        if ($previous_line && Str\contains($previous_line, $this->markerFixMe())) {
+          break;
+        }
+
         $errs[] = new FixableLineLintError(
           $this,
           'trailing whitespace at end of line',

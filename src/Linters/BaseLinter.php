@@ -32,23 +32,25 @@ abstract class BaseLinter {
     return $this->file;
   }
 
-  /**
-   * Allow users to disable specific cases where a linter is used.
-   *
-   * For example if migrating from a banned function the existing usages can be marked to pass the linter:
-   *
-   * banned_function_call(); # DisableBannedFunctionsLinter
-   **/
-  public function isLinterDisabled(LintError $error): bool {
-    $code = find_line($error);
-
-    if ($code === null) {
-      return false;
-    } else {
-      // Check to see if the code contains the DisableLinterName keyword
-      $r = new \ReflectionClass($this);
-      $linter_name = $r->getShortName();
-      return Str\search($code, "Disable".$linter_name) !== null;
-    }
+  // A simple name for the linter, based on the class name
+  <<__Memoize>>
+  public function getLinterName(): string {
+    $r = new \ReflectionClass($this);
+    return $r->getShortName();
   }
+
+  /**
+   * A user can choose to ignore all errors reported by this linter for a whole file using this string as a marker
+   */
+  protected function markerIgnoreAll(): string {
+    return 'HHAST_IGNORE_ALL['.$this->getLinterName().']';
+  }
+
+  /**
+   * A user can choose to ignore a specific error reported by this linter using this string as a marker
+   */
+  protected function markerFixMe(): string {
+    return 'HHAST_FIXME['.$this->getLinterName().']';
+  }
+
 }

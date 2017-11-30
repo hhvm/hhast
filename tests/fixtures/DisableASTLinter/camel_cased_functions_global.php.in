@@ -10,16 +10,19 @@
  *
  */
 
+// This disables this linter for the entire file.
+// HHAST_IGNORE_ALL[CamelCasedMethodsUnderscoredFunctionsLinter]
+
 function failMefooBar(): void {
 }
 
-function fooBar(): void { # DisableCamelCasedMethodsUnderscoredFunctionsLinter
+function fooBar(): void {
 }
 
-function HerpDerpSlash(): FooBar { // DisableCamelCasedMethodsUnderscoredFunctionsLinter
+function HerpDerpSlash(): FooBar {
 }
 
-function HerpDerp(): FooBar { /* DisableCamelCasedMethodsUnderscoredFunctionsLinter */
+function HerpDerp(): FooBar {
 }
 
 function failMefooBarAgain(): void {
