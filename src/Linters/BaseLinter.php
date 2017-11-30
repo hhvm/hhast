@@ -12,9 +12,6 @@
 
 namespace Facebook\HHAST\Linters;
 
-use namespace HH\Lib\Str;
-use function Facebook\HHAST\{find_line};
-
 <<__ConsistentConstruct>>
 abstract class BaseLinter {
   abstract public function getLintErrors(

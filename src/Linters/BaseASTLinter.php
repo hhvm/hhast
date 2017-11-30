@@ -101,7 +101,7 @@ abstract class BaseASTLinter<T as HHAST\EditableNode, +Terror as ASTLintError<T>
       return false;
     }
 
-    return Str\contains($token->getLeading()->getCode(), $this->markerFixMe()); 
+    return Str\contains($token->getLeading()->getCode(), $this->markerFixMe());
   }
 
   /**
