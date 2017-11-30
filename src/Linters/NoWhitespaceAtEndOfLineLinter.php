@@ -34,8 +34,7 @@ final class NoWhitespaceAtEndOfLineLinter
         }
 
         // Looks like we have an error. Let's see if we should ignore this one
-        $previous_line = $lines[$ln-1];
-        if ($previous_line && Str\contains($previous_line, $this->markerFixMe())) {
+        if ($ln-1 >= 0 && Str\contains($lines[$ln-1], $this->markerFixMe())) {
           break;
         }
 
