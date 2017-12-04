@@ -27,10 +27,7 @@ final class DisableLineLinterTest extends TestCase {
 
   public function getCleanExamples(): array<array<string>> {
     return [
-      ['<?hh',
-        '/* HHAST_FIXME[NoWhitespaceAtEndOfLineLinter] */',
-        'function CamelCasing() { return null; }         '
-      ],
+      ['<?hh /* HHAST_FIXME[NoWhitespaceAtEndOfLine] */ function CamelCasing() { return null; }         '],
     ];
   }
 }

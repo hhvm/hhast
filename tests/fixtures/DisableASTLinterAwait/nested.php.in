@@ -1,5 +1,5 @@
-<?hh
-/**
+<?hh // strict
+/*
  * Copyright (c) 2017, Facebook, Inc.
  * All rights reserved.
  *
@@ -9,11 +9,14 @@
  * directory.
  *
  */
-// this one should error
-function test() {    
-  print('baz');
-}
 
-// this one should not
-// HHAST_FIXME[NoWhitespaceAtEndOfLine]
-print('foo');    
+
+async function nested_loop_waaits(
+): Awaitable<void> {
+  for ($i = 0; $i < 10; ++$i) {
+    for ($j = 0; $j < 10; ++$j) {
+      /* HHAST_FIXME[DontAwaitInALoop] */
+      await do_async_stuff();
+    }
+  }
+}

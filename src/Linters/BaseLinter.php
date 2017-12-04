@@ -13,6 +13,7 @@
 namespace Facebook\HHAST\Linters;
 
 use namespace HH\Lib\Str;
+use namespace HH\Lib\C;
 
 <<__ConsistentConstruct>>
 abstract class BaseLinter {
@@ -34,21 +35,31 @@ abstract class BaseLinter {
   // A simple name for the linter, based on the class name
   <<__Memoize>>
   public function getLinterName(): string {
-    $r = new \ReflectionClass($this);
-    return $r->getShortName();
+    return get_class($this)
+      |> Str\split($$, '\\')
+      |> C\lastx($$)
+      |> Str\strip_suffix($$, 'Linter');
   }
 
   /**
    * A user can choose to ignore all errors reported by this linter for a whole file using this string as a marker
    */
-  protected function markerIgnoreAll(): string {
+  public function markerIgnoreAll(): string {
     return 'HHAST_IGNORE_ALL['.$this->getLinterName().']';
   }
 
   /**
    * A user can choose to ignore a specific error reported by this linter using this string as a marker
    */
-  protected function markerFixMe(): string {
+  public function markerIgnoreError(): string {
+    return 'HHAST_IGNORE_ERROR['.$this->getLinterName().']';
+  }
+
+  /**
+   * A user can choose to ignore a specific error reported by this linter using this string as a marker.
+   * The difference to HHAST_IGNORE_ERROR is that we expect this one to be fixed.
+   */
+  public function markerFixMe(): string {
     return 'HHAST_FIXME['.$this->getLinterName().']';
   }
 

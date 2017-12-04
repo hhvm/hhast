@@ -17,31 +17,24 @@ use namespace HH\Lib\Str;
 final class NoWhitespaceAtEndOfLineLinter
   extends AutoFixingLineLinter<FixableLineLintError> {
 
-  <<__Override>>
-  public function getLintErrors(): Traversable<FixableLineLintError> {
-    $lines = $this->getLinesFromFile();
+   <<__Override>> 
+  public function getLintErrorsForLine(string $line, int $line_number): Traversable<FixableLineLintError> {
     $errs = vec[];
 
-    foreach ($lines as $ln => $line) {
-      for ($i = strlen($line) - 1; $i >= 0; $i--) {
-        $char = $line[$i];
-        if ($char !== ' ') {
-          break;
-        }
-
-        // Looks like we have an error. Let's see if we should ignore this one
-        if ($ln-1 >= 0 && Str\contains($lines[$ln-1], $this->markerFixMe())) {
-          break;
-        }
-
-        $errs[] = new FixableLineLintError(
-          $this,
-          'trailing whitespace at end of line',
-          tuple($ln + 1, $i + 1),
-        );
+    for ($i = strlen($line) - 1; $i >= 0; $i--) {
+      $char = $line[$i];
+      if ($char !== ' ') {
         break;
       }
+
+      $errs[] = new FixableLineLintError(
+        $this,
+        'trailing whitespace at end of line',
+        tuple($line_number + 1, $i + 1),
+      );
+      break;
     }
+
     return $errs;
   }
 

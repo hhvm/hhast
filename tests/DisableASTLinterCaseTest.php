@@ -16,7 +16,7 @@ namespace Facebook\HHAST;
  * Testing that we can disable a specific linter. Using CamelCasedMethodsUnderscoredFunctionsLinter
  * as the example.
  */
-final class DisableASTLinterTest extends TestCase {
+final class DisableASTLinterCaseTest extends TestCase {
   use LinterTestTrait;
 
   protected function getLinter(
@@ -27,9 +27,7 @@ final class DisableASTLinterTest extends TestCase {
 
   public function getCleanExamples(): array<array<string>> {
     return [
-      ['<?hh',
-        '/* HHAST_FIXME[CamelCasedMethodsUnderscoredFunctionsLinter] */',
-        'function CamelCasing() { return null; }'
+      ['<?hh /* HHAST_FIXME[CamelCasedMethodsUnderscoredFunctions] */ function CamelCasing() { return null; }'
       ],
     ];
   }

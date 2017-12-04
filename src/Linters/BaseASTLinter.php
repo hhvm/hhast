@@ -15,10 +15,10 @@ namespace Facebook\HHAST\Linters;
 use type Facebook\HHAST\EditableNode;
 use type Facebook\HHAST\__Private\PerfCounter;
 use namespace Facebook\HHAST;
-use namespace HH\Lib\Str;
 
 abstract class BaseASTLinter<T as HHAST\EditableNode, +Terror as ASTLintError<T>> extends BaseLinter {
   private HHAST\EditableNode $ast;
+  private DisableASTLinter $disable_check;
 
   <<__Override>>
   public function __construct(
@@ -27,6 +27,7 @@ abstract class BaseASTLinter<T as HHAST\EditableNode, +Terror as ASTLintError<T>
     parent::__construct($file);
 
     $this->ast = self::getASTFromFile($file);
+    $this->disable_check = new DisableASTLinter();
   }
 
   private static function getASTFromFile(string $file): HHAST\EditableNode {
@@ -78,25 +79,11 @@ abstract class BaseASTLinter<T as HHAST\EditableNode, +Terror as ASTLintError<T>
       if ($node instanceof $target) {
         $error = $this->getLintErrorForNode($node, $parents);
 
-        if ($error !== null && !$this->isLinterDisabled($node, $error)) {
+        if ($error !== null && !$this->disable_check->isLinterDisabled($this, $node, $parents, $error)) {
           yield $error;
         }
       }
     }
-  }
-
-  /**
-   * Allow users to disable either all linter errors of this type in a file or
-   * specific cases where a linter is used.
-   **/
-  protected function isLinterDisabled(EditableNode $node, LintError $error): bool {
-    // Is this specific instance of the linter error disabled?
-    $token = $node->getFirstToken();
-    if ($token === null) {
-      return false;
-    }
-
-    return Str\contains($token->getLeading()->getCode(), $this->markerFixMe());
   }
 
   final public function getAST(): HHAST\EditableNode {
