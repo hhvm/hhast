@@ -17,7 +17,7 @@ use namespace Facebook\HHAST;
 use namespace HH\Lib\Str;
 
 abstract class AutoFixingLineLinter<Terr as FixableLineLintError>
-  extends LineLinter implements AutoFixingLinter<Terr> {
+  extends LineLinter<Terr> implements AutoFixingLinter<Terr> {
 
   abstract public function getFixedLine(string $line): string;
 
