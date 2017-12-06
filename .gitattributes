@@ -2,4 +2,4 @@ bin/update-* export-ignore
 src/__Private/codegen/ export-ignore
 src/__Private/CodegenCLI.php export-ignore
 tests/ export-ignore
-codegen/ linguist-generated=true
+codegen/ linguist-generated
