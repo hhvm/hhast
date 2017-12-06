@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<187258450b4819b287c7926e8912dd44>>
+ * @generated SignedSource<<a314cf790a6c8519ebfb9cf8b74d7f35>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -83,7 +83,7 @@ final class MethodishDeclaration extends EditableNode
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableNode> {
+  public function getChildren(): dict<string, EditableNode> {
     return dict[
       'attribute' => $this->_attribute,
       'modifiers' => $this->_modifiers,
@@ -96,7 +96,7 @@ final class MethodishDeclaration extends EditableNode
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

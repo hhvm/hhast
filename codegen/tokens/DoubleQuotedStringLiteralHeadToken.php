@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<92a50353cc25f143030c747881c7f1b7>>
+ * @generated SignedSource<<daba521411ebf41941adbb43ae3fb2a8>>
  */
 namespace Facebook\HHAST;
 
@@ -53,7 +53,7 @@ final class DoubleQuotedStringLiteralHeadToken
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

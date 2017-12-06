@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<331d23346c44cf1c278dab906cf2b884>>
+ * @generated SignedSource<<9a6730df8d9c115e5fa9613db2d34fc4>>
  */
 namespace Facebook\HHAST;
 
@@ -45,7 +45,7 @@ final class BreakToken extends EditableTokenWithVariableText {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

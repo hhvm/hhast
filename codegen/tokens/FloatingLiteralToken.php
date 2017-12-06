@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<43c3cab88ba378934c815b99bc3fc4cf>>
+ * @generated SignedSource<<afd37d143ae3bbe200f0d6f14e42e82a>>
  */
 namespace Facebook\HHAST;
 
@@ -52,7 +52,7 @@ final class FloatingLiteralToken extends EditableTokenWithVariableText {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

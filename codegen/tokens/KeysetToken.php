@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<600ed847c1b173f7178079da0323ac5e>>
+ * @generated SignedSource<<35c6be750274a8f9af5df2967fa0e906>>
  */
 namespace Facebook\HHAST;
 
@@ -45,7 +45,7 @@ final class KeysetToken extends EditableTokenWithVariableText {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
