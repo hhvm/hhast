@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5c73016208d46d58d35db70d7e1acc86>>
+ * @generated SignedSource<<46853d426079cb2391938c7e06563b61>>
  */
 namespace Facebook\HHAST;
 
@@ -42,7 +42,7 @@ final class TildeToken extends EditableTokenWithFixedText {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

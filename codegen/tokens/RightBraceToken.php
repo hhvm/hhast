@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9db46a4b468085f9bfda7b0f2de59d60>>
+ * @generated SignedSource<<0a47460ac0d105ac7f98bbf4ceb73c2e>>
  */
 namespace Facebook\HHAST;
 
@@ -42,7 +42,7 @@ final class RightBraceToken extends EditableTokenWithFixedText {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

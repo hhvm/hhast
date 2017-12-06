@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<095b4f9220e2b261ab51f9ff5df29067>>
+ * @generated SignedSource<<2c433c9915f8240bc6e8c215e62ea9d8>>
  */
 namespace Facebook\HHAST;
 
@@ -42,7 +42,7 @@ final class AmpersandAmpersandToken extends EditableTokenWithFixedText {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

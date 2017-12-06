@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7178a217106e1ef51ac0da7a81bb011a>>
+ * @generated SignedSource<<561507018ecebc2c1e1b95539a6613e3>>
  */
 namespace Facebook\HHAST;
 
@@ -43,7 +43,7 @@ final class GreaterThanGreaterThanEqualToken
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

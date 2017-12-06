@@ -95,7 +95,7 @@ abstract class EditableToken extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableNode> {
+  public function getChildren(): dict<string, EditableNode> {
     return dict[
       'leading' => $this->getLeading(),
       'trailing' => $this->getTrailing(),

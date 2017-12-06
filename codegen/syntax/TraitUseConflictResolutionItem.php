@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5f80b5544676c1f2c751a140d3b4c06d>>
+ * @generated SignedSource<<85a0d6d99c83660a198ba35adb96753f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,7 +62,7 @@ final class TraitUseConflictResolutionItem extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableNode> {
+  public function getChildren(): dict<string, EditableNode> {
     return dict[
       'aliasing_name' => $this->_aliasing_name,
       'aliasing_keyword' => $this->_aliasing_keyword,
@@ -73,7 +73,7 @@ final class TraitUseConflictResolutionItem extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

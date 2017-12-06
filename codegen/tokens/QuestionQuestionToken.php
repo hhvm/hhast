@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3150fe33ac6614137420ba8ef51b3459>>
+ * @generated SignedSource<<56bf279972581732cdbb6f5579f35559>>
  */
 namespace Facebook\HHAST;
 
@@ -42,7 +42,7 @@ final class QuestionQuestionToken extends EditableTokenWithFixedText {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

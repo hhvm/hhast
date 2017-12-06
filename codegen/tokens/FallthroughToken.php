@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d319e17c4f8468bb98b63b7b5f7cd5c3>>
+ * @generated SignedSource<<6658a2501630801d976e92cddd83f887>>
  */
 namespace Facebook\HHAST;
 
@@ -45,7 +45,7 @@ final class FallthroughToken extends EditableTokenWithVariableText {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

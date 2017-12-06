@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<511995bdfbb2225b139d72587efcd429>>
+ * @generated SignedSource<<03990ae1d17a571c5c39bf582823c25f>>
  */
 namespace Facebook\HHAST;
 
@@ -42,7 +42,7 @@ final class SemicolonToken extends EditableTokenWithFixedText {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
