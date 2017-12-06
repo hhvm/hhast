@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<198f044a0f83c7ad39dd0c4ba7cd6998>>
+ * @generated SignedSource<<22fe8ed978cb71ba452208580cd1eae4>>
  */
 namespace Facebook\HHAST;
 
@@ -42,7 +42,7 @@ final class StarStarToken extends EditableTokenWithFixedText {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

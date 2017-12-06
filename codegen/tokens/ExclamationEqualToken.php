@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fbe3c8203be502d11e1d5987086c8f98>>
+ * @generated SignedSource<<da0a903201fc632ac00eb57d6475d71b>>
  */
 namespace Facebook\HHAST;
 
@@ -42,7 +42,7 @@ final class ExclamationEqualToken extends EditableTokenWithFixedText {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

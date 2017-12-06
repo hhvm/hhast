@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b8eda5645a82e94acdfcb3f5a40efd3b>>
+ * @generated SignedSource<<1a49d8f88aa02cee60badd8039b5dd5a>>
  */
 namespace Facebook\HHAST;
 
@@ -42,7 +42,7 @@ final class ColonColonToken extends EditableTokenWithFixedText {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

@@ -40,7 +40,7 @@ abstract class EditableTrivia extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableNode> {
+  public function getChildren(): dict<string, EditableNode> {
     return dict[];
   }
 
@@ -57,7 +57,7 @@ abstract class EditableTrivia extends EditableNode {
   <<__Override>>
   final public function rewriteDescendants(
     self::TRewriter $_rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     // Trivia have no children
     return $this;

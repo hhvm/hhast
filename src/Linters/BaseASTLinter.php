@@ -50,7 +50,7 @@ abstract class BaseASTLinter<T as HHAST\EditableNode, +Terror as ASTLintError<T>
     return $ast;
   }
 
-  private function getASTWithParents(): Traversable<(EditableNode, vec<EditableNode>)> {
+  private function getASTWithParents(): vec<(EditableNode, vec<EditableNode>)> {
     static $cache = null;
 
     $hash = sha1(file_get_contents($this->getFile()), /* raw = */ true);

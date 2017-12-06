@@ -17,7 +17,7 @@ use namespace HH\Lib\{C, Dict, Vec};
 final class EditableList extends EditableNode {
   private vec<EditableNode> $_children;
   <<__Override>>
-  public function __construct(Traversable<EditableNode> $children) {
+  public function __construct(vec<EditableNode> $children) {
     parent::__construct('list');
     $this->_children = vec($children);
   }
@@ -33,7 +33,7 @@ final class EditableList extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableNode> {
+  public function getChildren(): dict<string, EditableNode> {
     return Dict\pull_with_key(
       $this->_children,
       ($_, $v) ==> $v,
@@ -43,7 +43,7 @@ final class EditableList extends EditableNode {
 
   final public function getItemsOfType<T as EditableNode>(
     classname<T> $what,
-  ): Traversable<EditableNode> {
+  ): vec<EditableNode> {
     $out = vec[];
     foreach ($this->_children as $child) {
       if ($child instanceof ListItem) {
@@ -57,7 +57,7 @@ final class EditableList extends EditableNode {
   }
 
   public static function fromItems(
-    Traversable<EditableNode> $syntax_list,
+    vec<EditableNode> $syntax_list,
   ): EditableNode {
     $syntax_list = vec($syntax_list);
     if (C\count($syntax_list) === 0) {
@@ -101,7 +101,7 @@ final class EditableList extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
 

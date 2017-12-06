@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c61e7e06b440892d1a09ce97a853e144>>
+ * @generated SignedSource<<5ab39f298467a592f70aa45b541e5442>>
  */
 namespace Facebook\HHAST;
 
@@ -53,7 +53,7 @@ final class HeredocStringLiteralTailToken
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

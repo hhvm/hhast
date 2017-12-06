@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8bbbfc09e5b470c80307cb1a0b00d2cb>>
+ * @generated SignedSource<<faa12b15f2f839b71a6dad46ab21e861>>
  */
 namespace Facebook\HHAST;
 
@@ -45,7 +45,7 @@ final class CoroutineToken extends EditableTokenWithVariableText {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

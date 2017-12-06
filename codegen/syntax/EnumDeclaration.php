@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<489fdaf4056d22acccc5a5ed541312ce>>
+ * @generated SignedSource<<8a36c756bd0b033746de6f92b1060ee1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -126,7 +126,7 @@ final class EnumDeclaration extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableNode> {
+  public function getChildren(): dict<string, EditableNode> {
     return dict[
       'attribute_spec' => $this->_attribute_spec,
       'keyword' => $this->_keyword,
@@ -143,7 +143,7 @@ final class EnumDeclaration extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

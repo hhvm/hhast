@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f3619ce4d4a75bcbf8c490c105e3d0eb>>
+ * @generated SignedSource<<a7ea95c40249b2a8e2ba741ae574ac7b>>
  */
 namespace Facebook\HHAST;
 
@@ -45,7 +45,7 @@ final class ListToken extends EditableTokenWithVariableText {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
