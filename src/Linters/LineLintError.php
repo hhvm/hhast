@@ -15,7 +15,7 @@ namespace Facebook\HHAST\Linters;
 class LineLintError extends LintError {
 
   public function __construct(
-    private LineLinter<LineLintError> $linter,
+    private LineLinter $linter,
     private string $description,
     private (int, int) $position,
   ) {

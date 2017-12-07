@@ -13,8 +13,8 @@
 async function spin_forever_async(
 ): Awaitable<void> {
   while(true) {
-  	/* HHAST_FIXME[DontAwaitInALoop] */
-  	await HH\Asio\later();
+    /* HHAST_FIXME[DontAwaitInALoop] */
+    await HH\Asio\later();
   }
 }
 
