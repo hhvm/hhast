@@ -79,7 +79,12 @@ abstract class BaseASTLinter<T as HHAST\EditableNode, +Terror as ASTLintError<T>
       if ($node instanceof $target) {
         $error = $this->getLintErrorForNode($node, $parents);
 
-        if ($error !== null && !$this->disable_check->isLinterDisabled($this, $node, $parents, $error)) {
+        if (
+          $error !== null &&
+          !$this
+            ->disable_check
+            ->isLinterDisabled($this, $node, $parents, $error)
+        ) {
           yield $error;
         }
       }

@@ -19,17 +19,17 @@ namespace Facebook\HHAST;
 final class DisableLineLinterTest extends TestCase {
   use LinterTestTrait;
 
-  protected function getLinter(
-    string $file,
-  ): Linters\BaseLinter {
+  protected function getLinter(string $file): Linters\BaseLinter {
     return new Linters\NoWhitespaceAtEndOfLineLinter($file);
   }
 
   public function getCleanExamples(): array<array<string>> {
     return [
-      ['<?hh'.
-       " /* HHAST_FIXME[NoWhitespaceAtEndOfLine] */\n".
-       ' function NoWhiteSpace() { return null; }         '],
+      [
+        '<?hh'.
+        " /* HHAST_FIXME[NoWhitespaceAtEndOfLine] */\n".
+        ' function NoWhiteSpace() { return null; }         ',
+      ],
     ];
   }
 }

@@ -19,16 +19,13 @@ namespace Facebook\HHAST;
 final class DisableASTLinterCaseTest extends TestCase {
   use LinterTestTrait;
 
-  protected function getLinter(
-    string $file,
-  ): Linters\BaseLinter {
+  protected function getLinter(string $file): Linters\BaseLinter {
     return new Linters\CamelCasedMethodsUnderscoredFunctionsLinter($file);
   }
 
   public function getCleanExamples(): array<array<string>> {
     return [
-      ['<?hh /* HHAST_FIXME[CamelCasedMethodsUnderscoredFunctions] */ function CamelCasing() { return null; }'
-      ],
+      ['<?hh /* HHAST_FIXME[CamelCasedMethodsUnderscoredFunctions] */ function CamelCasing() { return null; }'],
     ];
   }
 }

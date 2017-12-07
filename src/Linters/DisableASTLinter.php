@@ -38,19 +38,23 @@ class DisableASTLinter {
     BaseLinter $linter,
     EditableNode $node,
     vec<EditableNode> $parents,
-    LintError $error
+    LintError $error,
   ): bool {
     $token = $node->getFirstToken();
     $fixme = $linter->markerFixMe();
     $ignore = $linter->markerIgnoreError();
-    
-    return $this->isDisabledInCurrentNode($token, $fixme, $ignore) || 
+
+    return $this->isDisabledInCurrentNode($token, $fixme, $ignore) ||
       $this->isDisabledInSiblingNode($parents, $fixme, $ignore) ||
       $this->isDisabledInUpToStatement($parents, $fixme, $ignore);
   }
 
   // Check the current token's leading trivia. For example a comment on the line before
-  protected function isDisabledInCurrentNode(?EditableToken $token, string $fixme, string $ignore): bool {
+  protected function isDisabledInCurrentNode(
+    ?EditableToken $token,
+    string $fixme,
+    string $ignore,
+  ): bool {
     if ($token === null) {
       return false;
     }
@@ -60,7 +64,11 @@ class DisableASTLinter {
   }
 
   // Check sibling node as the comment might be attached there instead of on the current node
-  protected function isDisabledInSiblingNode(vec<EditableNode> $parents, string $fixme, string $ignore): bool {
+  protected function isDisabledInSiblingNode(
+    vec<EditableNode> $parents,
+    string $fixme,
+    string $ignore,
+  ): bool {
     $parent = C\last($parents);
     if ($parent == null) {
       return false;
@@ -75,7 +83,7 @@ class DisableASTLinter {
     if ($token !== null) {
       $trailing = $token->getTrailing()->getCode();
 
-      if (Str\contains($trailing, $fixme) || Str\contains($trailing, $ignore)){
+      if (Str\contains($trailing, $fixme) || Str\contains($trailing, $ignore)) {
         return true;
       }
     }
@@ -84,11 +92,16 @@ class DisableASTLinter {
   }
 
   // Walk up the parents and check the leading trivia until we hit a Statement type node.
-  protected function isDisabledInUpToStatement(vec<EditableNode> $parents, string $fixme, string $ignore): bool {
+  protected function isDisabledInUpToStatement(
+    vec<EditableNode> $parents,
+    string $fixme,
+    string $ignore,
+  ): bool {
     $parents = Vec\reverse($parents);
 
-    foreach($parents as $parent){
-      if ($parent instanceof IControlFlowStatement ||
+    foreach ($parents as $parent) {
+      if (
+        $parent instanceof IControlFlowStatement ||
         $parent instanceof BreakStatement ||
         $parent instanceof ContinueStatement ||
         $parent instanceof EchoStatement ||
@@ -104,7 +117,7 @@ class DisableASTLinter {
       $token = $parent->getFirstToken();
       if ($token !== null) {
         $leading = $token->getCode();
-        if (Str\contains($leading, $fixme) || Str\contains($leading, $ignore)){
+        if (Str\contains($leading, $fixme) || Str\contains($leading, $ignore)) {
           return true;
         }
       }

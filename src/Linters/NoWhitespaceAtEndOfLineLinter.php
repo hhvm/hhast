@@ -32,7 +32,7 @@ final class NoWhitespaceAtEndOfLineLinter
       }
 
       // We got an error. Let's check the previous line to see if it is marked as ignorable
-      if ($ln-1 >= 0 && $this->isLinterDisabled($lines[$ln-1])) {
+      if ($ln - 1 >= 0 && $this->isLinterDisabled($lines[$ln - 1])) {
         continue;
       }
 
@@ -42,7 +42,10 @@ final class NoWhitespaceAtEndOfLineLinter
     return $errs;
   }
 
-  public function getLintErrorsForLine(string $line, int $line_number): Traversable<FixableLineLintError> {
+  public function getLintErrorsForLine(
+    string $line,
+    int $line_number,
+  ): Traversable<FixableLineLintError> {
     $errs = vec[];
 
     for ($i = strlen($line) - 1; $i >= 0; $i--) {
@@ -64,7 +67,8 @@ final class NoWhitespaceAtEndOfLineLinter
 
   // Check if this linter has been disabled by a comment on the previous line.
   public function isLinterDisabled(string $previous_line): bool {
-    return Str\contains($previous_line, $this->markerFixMe()) || Str\contains($previous_line, $this->markerIgnoreError());
+    return Str\contains($previous_line, $this->markerFixMe()) ||
+      Str\contains($previous_line, $this->markerIgnoreError());
   }
 
   <<__Override>>
