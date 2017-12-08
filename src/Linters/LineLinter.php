@@ -13,8 +13,9 @@
 namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\Linters\{BaseLinter};
+use namespace HH\Lib\{C, Str, Vec};
 
-abstract class LineLinter extends BaseLinter {
+abstract class LineLinter<+Terror as LineLintError> extends BaseLinter {
 
   public function getLinesFromFile(): vec<string> {
     $code = file_get_contents($this->getFile());
@@ -25,4 +26,24 @@ abstract class LineLinter extends BaseLinter {
   public function getLine(int $l): ?string {
     return idx($this->getLinesFromFile(), $l);
   }
+
+  <<__Override>>
+  public function getLintErrors(): Traversable<Terror> {
+    $lines = $this->getLinesFromFile();
+    $errs = vec[];
+
+    foreach ($lines as $ln => $line) {
+      $line_errors = vec($this->getLintErrorsForLine($line, $ln));
+
+      $errs = Vec\concat($errs, $line_errors);
+    }
+
+    return $errs;
+  }
+
+  // This is the part that actually parses each line of code and attempts to find one or more lint errors
+  abstract public function getLintErrorsForLine(
+    string $line,
+    int $line_number,
+  ): Traversable<Terror>;
 }

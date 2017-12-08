@@ -18,23 +18,26 @@ final class NoWhitespaceAtEndOfLineLinter
   extends AutoFixingLineLinter<FixableLineLintError> {
 
   <<__Override>>
-  public function getLintErrors(): Traversable<FixableLineLintError> {
-    $lines = $this->getLinesFromFile();
+  public function getLintErrorsForLine(
+    string $line,
+    int $line_number,
+  ): Traversable<FixableLineLintError> {
     $errs = vec[];
-    foreach ($lines as $ln => $line) {
-      for ($i = strlen($line) - 1; $i >= 0; $i--) {
-        $char = $line[$i];
-        if ($char !== ' ') {
-          break;
-        }
-        $errs[] = new FixableLineLintError(
-          $this,
-          'trailing whitespace at end of line',
-          tuple($ln + 1, $i + 1),
-        );
+
+    for ($i = Str\length($line) - 1; $i >= 0; $i--) {
+      $char = $line[$i];
+      if ($char !== ' ') {
         break;
       }
+
+      $errs[] = new FixableLineLintError(
+        $this,
+        'trailing whitespace at end of line',
+        tuple($line_number + 1, $i + 1),
+      );
+      break;
     }
+
     return $errs;
   }
 
