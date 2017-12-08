@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7de5ed7d0be60b6e7b9b1e5aca0a28a1>>
+ * @generated SignedSource<<e46480e40d361b38d54db5453514b0e4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -43,7 +43,7 @@ final class InclusionExpression extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableNode> {
+  public function getChildren(): dict<string, EditableNode> {
     return dict[
       'require' => $this->_require,
       'filename' => $this->_filename,
@@ -53,7 +53,7 @@ final class InclusionExpression extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

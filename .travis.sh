@@ -8,6 +8,8 @@ hhvm -d hhvm.php7.all=1 /usr/local/bin/composer install
 
 hh_client
 
+vendor/bin/hh-codegen-verify-signatures codegen/
+
 hhvm -d hhvm.php7.all=0 vendor/bin/phpunit tests/
 hhvm -d hhvm.php7.all=1 vendor/bin/phpunit tests/
 

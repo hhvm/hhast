@@ -247,7 +247,7 @@ final class CodegenSyntax extends CodegenBase {
     return $cg
       ->codegenMethod('getChildren')
       ->setIsOverride()
-      ->setReturnType('KeyedTraversable<string, EditableNode>')
+      ->setReturnType('dict<string, EditableNode>')
       ->setBody(
         $cg
           ->codegenHackBuilder()
@@ -281,7 +281,7 @@ final class CodegenSyntax extends CodegenBase {
       ->codegenMethod('rewriteDescendants')
       ->setIsOverride()
       ->addParameter('self::TRewriter $rewriter')
-      ->addParameter('?Traversable<EditableNode> $parents = null')
+      ->addParameter('?vec<EditableNode> $parents = null')
       ->setReturnType('this')
       ->setBody(
         $cg

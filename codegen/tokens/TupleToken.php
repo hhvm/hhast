@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fea4588d792960a0a5284728c7e8c7e9>>
+ * @generated SignedSource<<3a86db03cdcf68537b27ae2acc4ad7a8>>
  */
 namespace Facebook\HHAST;
 
@@ -45,7 +45,7 @@ final class TupleToken extends EditableTokenWithVariableText {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

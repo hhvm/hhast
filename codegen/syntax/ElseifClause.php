@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3505203654ec0f27462bc4ff94b59ce8>>
+ * @generated SignedSource<<4e0ff6d641a0f3d462e33ea7de6bbe5a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -77,7 +77,7 @@ final class ElseifClause extends EditableNode implements IControlFlowStatement {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableNode> {
+  public function getChildren(): dict<string, EditableNode> {
     return dict[
       'keyword' => $this->_keyword,
       'left_paren' => $this->_left_paren,
@@ -90,7 +90,7 @@ final class ElseifClause extends EditableNode implements IControlFlowStatement {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

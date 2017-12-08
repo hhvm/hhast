@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d720abd0401fb9ae6af09c8d29b286ef>>
+ * @generated SignedSource<<3618a95df21469506b88cd9cc58102bb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -43,7 +43,7 @@ final class NullableTypeSpecifier extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableNode> {
+  public function getChildren(): dict<string, EditableNode> {
     return dict[
       'question' => $this->_question,
       'type' => $this->_type,
@@ -53,7 +53,7 @@ final class NullableTypeSpecifier extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

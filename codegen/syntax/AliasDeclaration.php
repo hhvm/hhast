@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c4bd4bf45406a14a7fea5c95d669ed0b>>
+ * @generated SignedSource<<78490aee9e0b3479f03b7ab82d425268>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -115,7 +115,7 @@ final class AliasDeclaration extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableNode> {
+  public function getChildren(): dict<string, EditableNode> {
     return dict[
       'attribute_spec' => $this->_attribute_spec,
       'keyword' => $this->_keyword,
@@ -131,7 +131,7 @@ final class AliasDeclaration extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

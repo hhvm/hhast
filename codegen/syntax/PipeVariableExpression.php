@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8d06e7e158f1e030a60561a730f828be>>
+ * @generated SignedSource<<d906aceb49538dbaa8c97cd6e0df3336>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -34,7 +34,7 @@ final class PipeVariableExpression extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableNode> {
+  public function getChildren(): dict<string, EditableNode> {
     return dict[
       'expression' => $this->_expression,
     ];
@@ -43,7 +43,7 @@ final class PipeVariableExpression extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

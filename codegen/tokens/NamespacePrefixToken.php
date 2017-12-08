@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2f53674c895dceb1156648d7629b94e4>>
+ * @generated SignedSource<<69566b36b98b6b6ee3f1e02a491eb1eb>>
  */
 namespace Facebook\HHAST;
 
@@ -52,7 +52,7 @@ final class NamespacePrefixToken extends EditableTokenWithVariableText {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

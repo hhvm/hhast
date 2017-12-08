@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2de0a06b4efbe39105a2c0db802bd403>>
+ * @generated SignedSource<<0adc87863137f17c42a88c68a58dcf4d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -46,7 +46,7 @@ final class ExpressionStatement extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableNode> {
+  public function getChildren(): dict<string, EditableNode> {
     return dict[
       'expression' => $this->_expression,
       'semicolon' => $this->_semicolon,
@@ -56,7 +56,7 @@ final class ExpressionStatement extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

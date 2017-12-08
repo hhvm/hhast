@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5c83c0f3ff061f1b50390e97b5f2021c>>
+ * @generated SignedSource<<d0c0e0cef6e0bfc67929f8ccf1bccf0a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -76,7 +76,7 @@ final class ConditionalExpression extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableNode> {
+  public function getChildren(): dict<string, EditableNode> {
     return dict[
       'test' => $this->_test,
       'question' => $this->_question,
@@ -89,7 +89,7 @@ final class ConditionalExpression extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

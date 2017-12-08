@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<79d138cea7cf4f283a1da9ef54d08c67>>
+ * @generated SignedSource<<5e835e3a1536e9908eaf6f16279479fe>>
  */
 namespace Facebook\HHAST;
 
@@ -42,7 +42,7 @@ final class PlusToken extends EditableTokenWithFixedText {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
