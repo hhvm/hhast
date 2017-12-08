@@ -13,9 +13,7 @@
 namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\Linters\{BaseLinter};
-use namespace HH\Lib\C;
-use namespace HH\Lib\Vec;
-use namespace HH\Lib\Str;
+use namespace HH\Lib\{C, Str, Vec};
 
 abstract class LineLinter<+Terror as LineLintError> extends BaseLinter {
 
@@ -44,5 +42,8 @@ abstract class LineLinter<+Terror as LineLintError> extends BaseLinter {
   }
 
   // This is the part that actually parses each line of code and attempts to find one or more lint errors
-  abstract public function getLintErrorsForLine(string $line, int $line_number): Traversable<Terror>;
+  abstract public function getLintErrorsForLine(
+    string $line,
+    int $line_number,
+  ): Traversable<Terror>;
 }

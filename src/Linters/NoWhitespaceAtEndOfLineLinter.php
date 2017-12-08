@@ -17,11 +17,14 @@ use namespace HH\Lib\Str;
 final class NoWhitespaceAtEndOfLineLinter
   extends AutoFixingLineLinter<FixableLineLintError> {
 
-   <<__Override>> 
-  public function getLintErrorsForLine(string $line, int $line_number): Traversable<FixableLineLintError> {
+  <<__Override>>
+  public function getLintErrorsForLine(
+    string $line,
+    int $line_number,
+  ): Traversable<FixableLineLintError> {
     $errs = vec[];
 
-    for ($i = strlen($line) - 1; $i >= 0; $i--) {
+    for ($i = Str\length($line) - 1; $i >= 0; $i--) {
       $char = $line[$i];
       if ($char !== ' ') {
         break;
