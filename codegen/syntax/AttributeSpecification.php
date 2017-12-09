@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a48d428f248708949cb8b431e9f8e23a>>
+ * @generated SignedSource<<9dc3ed1b094713b962976621b5dacfcb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -56,7 +56,7 @@ final class AttributeSpecification extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableNode> {
+  public function getChildren(): dict<string, EditableNode> {
     return dict[
       'left_double_angle' => $this->_left_double_angle,
       'attributes' => $this->_attributes,
@@ -67,7 +67,7 @@ final class AttributeSpecification extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

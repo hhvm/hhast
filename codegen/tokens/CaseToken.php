@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<764c07fa89e05470d1dc6b83f78c5012>>
+ * @generated SignedSource<<3b1684c6ff096435a2ccf07d36c8fc68>>
  */
 namespace Facebook\HHAST;
 
@@ -45,7 +45,7 @@ final class CaseToken extends EditableTokenWithVariableText {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

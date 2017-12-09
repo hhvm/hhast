@@ -51,7 +51,7 @@ final class DontAwaitInALoopLinter
       return null;
     }
     $parents = Vec\reverse($parents);
-    $loops = [];
+    $loops = vec[];
     foreach ($parents as $parent) {
       if (self::isAsyncBoundary($parent)) {
         return null;

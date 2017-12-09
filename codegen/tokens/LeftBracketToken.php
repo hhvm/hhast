@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ba903954236a935dd936b93a2728d672>>
+ * @generated SignedSource<<f1d4934ea8c5dc3bc869d8ccd5104aca>>
  */
 namespace Facebook\HHAST;
 
@@ -42,7 +42,7 @@ final class LeftBracketToken extends EditableTokenWithFixedText {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

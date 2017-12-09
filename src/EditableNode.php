@@ -30,11 +30,11 @@ abstract class EditableNode {
   }
 
   public abstract function getChildren(
-  ): KeyedTraversable<string, EditableNode>;
+  ): dict<string, EditableNode>;
 
   public function getChildrenWhere(
     (function(EditableNode):bool) $filter,
-  ): KeyedTraversable<string, EditableNode> {
+  ): dict<string, EditableNode> {
     return Dict\filter(
       $this->getChildren(),
       $child ==> $filter($child),
@@ -43,7 +43,7 @@ abstract class EditableNode {
 
   final public function getChildrenOfType<T as EditableNode>(
     classname<T> $what,
-  ): KeyedTraversable<string, T> {
+  ): dict<string, T> {
     $out = dict[];
     foreach ($this->getChildren() as $k => $node) {
       if ($node instanceof $what) {
@@ -53,7 +53,7 @@ abstract class EditableNode {
     return $out;
   }
 
-  public function traverse(): Traversable<EditableNode> {
+  public function traverse(): vec<EditableNode> {
     $out = vec[$this];
     foreach ($this->getChildren() as $child) {
       foreach ($child->traverse() as $descendant) {
@@ -65,7 +65,7 @@ abstract class EditableNode {
 
   private function traverseImpl(
     vec<EditableNode> $parents,
-  ): Traversable<(EditableNode, vec<EditableNode>)> {
+  ): vec<(EditableNode, vec<EditableNode>)> {
     $new_parents = vec($parents);
     $new_parents[] = $this;
     $out = vec[tuple($this, $parents)];
@@ -78,7 +78,7 @@ abstract class EditableNode {
   }
 
   public function traverseWithParents(
-  ): Traversable<(EditableNode, vec<EditableNode>)> {
+  ): vec<(EditableNode, vec<EditableNode>)> {
     return $this->traverseImpl(vec[]);
   }
 
@@ -301,7 +301,7 @@ abstract class EditableNode {
 
   abstract public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this;
 
   public function rewrite(

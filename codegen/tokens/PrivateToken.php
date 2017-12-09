@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<61156453ef6a09ccb0f6fb50071ece1d>>
+ * @generated SignedSource<<705f108256ccb7d2218db7de4bf98bcf>>
  */
 namespace Facebook\HHAST;
 
@@ -45,7 +45,7 @@ final class PrivateToken extends EditableTokenWithVariableText {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

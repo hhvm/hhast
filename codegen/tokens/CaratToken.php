@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6d616ef9908d68dfb9515a97ab30a72f>>
+ * @generated SignedSource<<501d296545dca9876180d80818b49e7c>>
  */
 namespace Facebook\HHAST;
 
@@ -42,7 +42,7 @@ final class CaratToken extends EditableTokenWithFixedText {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1982302b7c33c31b0312e299005a545f>>
+ * @generated SignedSource<<0ba561a7cd54bb0c856e39528e9ddcba>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -66,7 +66,7 @@ final class EmptyExpression extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableNode> {
+  public function getChildren(): dict<string, EditableNode> {
     return dict[
       'keyword' => $this->_keyword,
       'left_paren' => $this->_left_paren,
@@ -78,7 +78,7 @@ final class EmptyExpression extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

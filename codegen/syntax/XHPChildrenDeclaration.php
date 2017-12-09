@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<007a629458e07ad3de70b208436050ab>>
+ * @generated SignedSource<<e6271892c415086e43310c70637fd9b6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -56,7 +56,7 @@ final class XHPChildrenDeclaration extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableNode> {
+  public function getChildren(): dict<string, EditableNode> {
     return dict[
       'keyword' => $this->_keyword,
       'expression' => $this->_expression,
@@ -67,7 +67,7 @@ final class XHPChildrenDeclaration extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

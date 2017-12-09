@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<289cce82decea79545adb3222f3d3ff8>>
+ * @generated SignedSource<<9b4e86e31eb77b312bd1ce6c8009310d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -46,7 +46,7 @@ final class GenericTypeSpecifier extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableNode> {
+  public function getChildren(): dict<string, EditableNode> {
     return dict[
       'class_type' => $this->_class_type,
       'argument_list' => $this->_argument_list,
@@ -56,7 +56,7 @@ final class GenericTypeSpecifier extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

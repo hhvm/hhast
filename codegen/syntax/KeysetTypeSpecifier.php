@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<903a35adcbe568821b40ade1e85c1dbd>>
+ * @generated SignedSource<<049e477e21690965a7aacb5b1c9df9d7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -77,7 +77,7 @@ final class KeysetTypeSpecifier extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableNode> {
+  public function getChildren(): dict<string, EditableNode> {
     return dict[
       'keyword' => $this->_keyword,
       'left_angle' => $this->_left_angle,
@@ -90,7 +90,7 @@ final class KeysetTypeSpecifier extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

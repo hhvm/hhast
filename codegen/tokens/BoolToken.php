@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c397d5e16222f32dbd0819945cc86293>>
+ * @generated SignedSource<<5297b6428ed22bef002ee08b82a85391>>
  */
 namespace Facebook\HHAST;
 
@@ -45,7 +45,7 @@ final class BoolToken extends EditableTokenWithVariableText {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

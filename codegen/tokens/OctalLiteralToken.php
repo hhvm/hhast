@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<43b6e2c1f43a4997c3f4eaca906038c0>>
+ * @generated SignedSource<<ddb5f3a3bb330d83849c375ec4fc4f5e>>
  */
 namespace Facebook\HHAST;
 
@@ -52,7 +52,7 @@ final class OctalLiteralToken extends EditableTokenWithVariableText {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

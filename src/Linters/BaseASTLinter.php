@@ -51,6 +51,23 @@ abstract class BaseASTLinter<T as HHAST\EditableNode, +Terror as ASTLintError<T>
     return $ast;
   }
 
+  private function getASTWithParents(): vec<(EditableNode, vec<EditableNode>)> {
+    static $cache = null;
+
+    $hash = sha1(file_get_contents($this->getFile()), /* raw = */ true);
+    if ($cache !== null && $cache['hash'] === $hash) {
+      return $cache['astWithParents'];
+    }
+
+    $ast = $this->ast->traverseWithParents();
+
+    $cache = shape(
+      'hash' => $hash,
+      'astWithParents' => $ast,
+    );
+    return $ast;
+  }
+
   abstract protected static function getTargetType(): classname<T>;
 
   abstract protected function getLintErrorForNode(
@@ -74,7 +91,7 @@ abstract class BaseASTLinter<T as HHAST\EditableNode, +Terror as ASTLintError<T>
   ): Traversable<Terror> {
     $target = static::getTargetType();
 
-    foreach ($this->ast->traverseWithParents() as list($node, $parents)) {
+    foreach ($this->getASTWithParents() as list($node, $parents)) {
       if ($node instanceof $target) {
         $error = $this->getLintErrorForNode($node, $parents);
 

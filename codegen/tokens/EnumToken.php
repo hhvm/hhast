@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d1c67c3174d79c828d072844165cb3e2>>
+ * @generated SignedSource<<e6419eb8ca47cb6a212203dfd1657e28>>
  */
 namespace Facebook\HHAST;
 
@@ -45,7 +45,7 @@ final class EnumToken extends EditableTokenWithVariableText {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<000b51216a8a8fc0d85c4317596c0756>>
+ * @generated SignedSource<<dbb050c75ea3e4a0454fd3577b5138c5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -43,7 +43,7 @@ final class GotoLabel extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): KeyedTraversable<string, EditableNode> {
+  public function getChildren(): dict<string, EditableNode> {
     return dict[
       'name' => $this->_name,
       'colon' => $this->_colon,
@@ -53,7 +53,7 @@ final class GotoLabel extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?Traversable<EditableNode> $parents = null,
+    ?vec<EditableNode> $parents = null,
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
