@@ -35,10 +35,25 @@ abstract class LineLinter<+Terror as LineLintError> extends BaseLinter {
     foreach ($lines as $ln => $line) {
       $line_errors = vec($this->getLintErrorsForLine($line, $ln));
 
+      if (C\is_empty($line_errors)) {
+        continue;
+      }
+
+      // We got an error. Let's check the previous line to see if it is marked as ignorable
+      if ($ln - 1 >= 0 && $this->isLinterSuppressed($lines[$ln - 1])) {
+        continue;
+      }
+
       $errs = Vec\concat($errs, $line_errors);
     }
 
     return $errs;
+  }
+
+  // Check if this linter has been disabled by a comment on the previous line.
+  protected function isLinterSuppressed(string $previous_line): bool {
+    return Str\contains($previous_line, $this->markerFixMe()) ||
+      Str\contains($previous_line, $this->markerIgnoreError());
   }
 
   // This is the part that actually parses each line of code and attempts to find one or more lint errors

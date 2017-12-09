@@ -1,0 +1,7 @@
+[
+    {
+        "blame": "await HH\\Asio\\later()",
+        "blame_pretty": "  while(true) await HH\\Asio\\later();",
+        "description": "Don't use await in a loop"
+    }
+]

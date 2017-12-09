@@ -15,6 +15,7 @@ namespace Facebook\HHAST\Linters;
 use type Facebook\HHAST\EditableNode;
 use type Facebook\HHAST\__Private\PerfCounter;
 use namespace Facebook\HHAST;
+use namespace Facebook\HHAST\Linters\SuppressASTLinter;
 
 abstract class BaseASTLinter<T as HHAST\EditableNode, +Terror as ASTLintError<T>> extends BaseLinter {
   private HHAST\EditableNode $ast;
@@ -93,7 +94,11 @@ abstract class BaseASTLinter<T as HHAST\EditableNode, +Terror as ASTLintError<T>
     foreach ($this->getASTWithParents() as list($node, $parents)) {
       if ($node instanceof $target) {
         $error = $this->getLintErrorForNode($node, $parents);
-        if ($error !== null) {
+
+        if (
+          $error !== null &&
+          !SuppressASTLinter\is_linter_error_suppressed($this, $node, $parents, $error)
+        ) {
           yield $error;
         }
       }
