@@ -16,7 +16,7 @@ namespace Facebook\HHAST;
  * Testing that we can disable a specific linter. Using DontAwaitInALoopLinter
  * as the example.
  */
-final class DisableASTLinterAwaitTest extends TestCase {
+final class SuppressASTLinterAwaitTest extends TestCase {
   use LinterTestTrait;
 
   protected function getLinter(string $file): Linters\BaseLinter {

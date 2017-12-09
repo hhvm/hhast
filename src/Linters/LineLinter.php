@@ -62,4 +62,3 @@ abstract class LineLinter<+Terror as LineLintError> extends BaseLinter {
     int $line_number,
   ): Traversable<Terror>;
 }
-

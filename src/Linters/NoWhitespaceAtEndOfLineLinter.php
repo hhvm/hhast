@@ -12,7 +12,7 @@
 
 namespace Facebook\HHAST\Linters;
 
-use namespace HH\Lib\{C, Str, Vec};
+use namespace HH\Lib\Str;
 
 final class NoWhitespaceAtEndOfLineLinter
   extends AutoFixingLineLinter<FixableLineLintError> {

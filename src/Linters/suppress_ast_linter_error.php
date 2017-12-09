@@ -14,15 +14,15 @@ namespace Facebook\HHAST\Linters\SuppressASTLinter;
 
 use type Facebook\HHAST\{
   BreakStatement,
-  ContinueStatement, 
-  EchoStatement, 
-  EditableNode, 
-  EditableToken, 
-  GotoStatement, 
-  IControlFlowStatement, 
-  ReturnStatement, 
-  ThrowStatement, 
-  TryStatement, 
+  ContinueStatement,
+  EchoStatement,
+  EditableNode,
+  EditableToken,
+  GotoStatement,
+  IControlFlowStatement,
+  ReturnStatement,
+  ThrowStatement,
+  TryStatement,
   UnsetStatement
 };
 use type Facebook\HHAST\Linters\{

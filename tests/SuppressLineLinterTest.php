@@ -13,21 +13,22 @@
 namespace Facebook\HHAST;
 
 /**
- * Testing that we can disable a specific linter. Using
- * CamelCasedMethodsUnderscoredFunctionsLinter as the example.
+ * Testing that we can suppress a specific line based linter. Using NoWhitespaceAtEndOfLineLinter
+ * as the example.
  */
-final class DisableASTLinterCaseTest extends TestCase {
+final class SuppressLineLinterTest extends TestCase {
   use LinterTestTrait;
 
   protected function getLinter(string $file): Linters\BaseLinter {
-    return new Linters\CamelCasedMethodsUnderscoredFunctionsLinter($file);
+    return new Linters\NoWhitespaceAtEndOfLineLinter($file);
   }
 
   public function getCleanExamples(): array<array<string>> {
     return [
-      ['<?hh '.
-       '/* HHAST_FIXME[CamelCasedMethodsUnderscoredFunctions] */. '.
-       'function CamelCasing() { return null; }'
+      [
+        '<?hh'.
+        " /* HHAST_FIXME[NoWhitespaceAtEndOfLine] */\n".
+        ' function NoWhiteSpace() { return null; }         ',
       ],
     ];
   }

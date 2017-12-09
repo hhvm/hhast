@@ -12,8 +12,7 @@
 
 namespace Facebook\HHAST\Linters;
 
-use namespace HH\Lib\Str;
-use namespace HH\Lib\C;
+use namespace HH\Lib\{C, Str};
 
 <<__ConsistentConstruct>>
 abstract class BaseLinter {
@@ -42,21 +41,24 @@ abstract class BaseLinter {
   }
 
   /**
-   * A user can choose to ignore all errors reported by this linter for a whole file using this string as a marker
+   * A user can choose to ignore all errors reported by this linter for a
+   * whole file using this string as a marker
    */
   public function markerIgnoreAll(): string {
     return 'HHAST_IGNORE_ALL['.$this->getLinterName().']';
   }
 
   /**
-   * A user can choose to ignore a specific error reported by this linter using this string as a marker
+   * A user can choose to ignore a specific error reported by this linter
+   * using this string as a marker
    */
   public function markerIgnoreError(): string {
     return 'HHAST_IGNORE_ERROR['.$this->getLinterName().']';
   }
 
   /**
-   * A user can choose to ignore a specific error reported by this linter using this string as a marker.
+   * A user can choose to ignore a specific error reported by this linter
+   * using this string as a marker.
    * The difference to HHAST_IGNORE_ERROR is that we expect this one to be fixed.
    */
   public function markerFixMe(): string {
@@ -68,7 +70,7 @@ abstract class BaseLinter {
    * Memoized since this should not change per run.
    */
   <<__Memoize>>
-  public function isLinterDisabledForFile(): bool {
+  public function isLinterSuppressedForFile(): bool {
     $code = file_get_contents($this->getFile());
     return Str\contains($code, $this->markerIgnoreAll());
   }
