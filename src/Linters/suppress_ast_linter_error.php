@@ -43,8 +43,8 @@ function is_linter_error_suppressed(
   LintError $error,
 ): bool {
   $token = $node->getFirstToken();
-  $fixme = $linter->markerFixMe();
-  $ignore = $linter->markerIgnoreError();
+  $fixme = $linter->getFixmeMarker();
+  $ignore = $linter->getIgnoreSingleErrorMarker();
 
   return is_linter_suppressed_in_current_node($token, $fixme, $ignore) ||
     is_linter_suppressed_in_sibling_node($parents, $fixme, $ignore) ||

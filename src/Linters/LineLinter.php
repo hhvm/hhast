@@ -18,8 +18,8 @@ use namespace HH\Lib\{C, Str, Vec};
 abstract class LineLinter<+Terror as LineLintError> extends BaseLinter {
 
   public function getLinesFromFile(): vec<string> {
-    $code = file_get_contents($this->getFile());
-    $lines = explode("\n", $code);
+    $code = \file_get_contents($this->getFile());
+    $lines = Str\split($code, "\n");
     return vec($lines);
   }
 
@@ -50,13 +50,14 @@ abstract class LineLinter<+Terror as LineLintError> extends BaseLinter {
     return $errs;
   }
 
-  // Check if this linter has been disabled by a comment on the previous line.
+  /** Check if this linter has been disabled by a comment on the previous line.
+   */
   protected function isLinterSuppressed(string $previous_line): bool {
-    return Str\contains($previous_line, $this->markerFixMe()) ||
-      Str\contains($previous_line, $this->markerIgnoreError());
+    return Str\contains($previous_line, $this->getFixmeMarker()) ||
+      Str\contains($previous_line, $this->getIgnoreSingleErrorMarker());
   }
 
-  // This is the part that actually parses each line of code and attempts to find one or more lint errors
+  /** Parse a single line of code and attempts to find lint errors */
   abstract public function getLintErrorsForLine(
     string $line,
     int $line_number,

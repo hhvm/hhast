@@ -34,7 +34,7 @@ abstract class BaseLinter {
   // A simple name for the linter, based on the class name
   <<__Memoize>>
   public function getLinterName(): string {
-    return get_class($this)
+    return static::class
       |> Str\split($$, '\\')
       |> C\lastx($$)
       |> Str\strip_suffix($$, 'Linter');
@@ -44,7 +44,7 @@ abstract class BaseLinter {
    * A user can choose to ignore all errors reported by this linter for a
    * whole file using this string as a marker
    */
-  public function markerIgnoreAll(): string {
+  public function getIgnoreAllMarker(): string {
     return 'HHAST_IGNORE_ALL['.$this->getLinterName().']';
   }
 
@@ -52,16 +52,18 @@ abstract class BaseLinter {
    * A user can choose to ignore a specific error reported by this linter
    * using this string as a marker
    */
-  public function markerIgnoreError(): string {
+  public function getIgnoreSingleErrorMarker(): string {
     return 'HHAST_IGNORE_ERROR['.$this->getLinterName().']';
   }
 
   /**
    * A user can choose to ignore a specific error reported by this linter
    * using this string as a marker.
-   * The difference to HHAST_IGNORE_ERROR is that we expect this one to be fixed.
+   *
+   * The difference to HHAST_IGNORE_ERROR is that we expect this one to be
+   * fixed.
    */
-  public function markerFixMe(): string {
+  public function getFixmeMarker(): string {
     return 'HHAST_FIXME['.$this->getLinterName().']';
   }
 
@@ -71,8 +73,8 @@ abstract class BaseLinter {
    */
   <<__Memoize>>
   public function isLinterSuppressedForFile(): bool {
-    $code = file_get_contents($this->getFile());
-    return Str\contains($code, $this->markerIgnoreAll());
+    $code = \file_get_contents($this->getFile());
+    return Str\contains($code, $this->getIgnoreAllMarker());
   }
 
 }
