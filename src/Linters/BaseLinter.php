@@ -68,8 +68,8 @@ abstract class BaseLinter {
    * Memoized since this should not change per run.
    */
   <<__Memoize>>
-  public function isLinterDisabledForFile(string $file_name): bool {
-    $code = file_get_contents($file_name);
+  public function isLinterDisabledForFile(): bool {
+    $code = file_get_contents($this->getFile());
     return Str\contains($code, $this->markerIgnoreAll());
   }
 

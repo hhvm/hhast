@@ -57,7 +57,7 @@ final class LinterCLI extends CLIWithArguments {
       $linter = new $class($path);
       $c->end();
 
-      if ($linter->isLinterDisabledForFile($path)) {
+      if ($linter->isLinterDisabledForFile()) {
         continue;
       }
 

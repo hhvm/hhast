@@ -12,9 +12,7 @@
 
 namespace Facebook\HHAST\Linters;
 
-use namespace HH\Lib\Str;
-use namespace HH\Lib\C;
-use namespace HH\Lib\Vec;
+use namespace HH\Lib\{C, Str, Vec};
 
 final class NoWhitespaceAtEndOfLineLinter
   extends AutoFixingLineLinter<FixableLineLintError> {
@@ -48,7 +46,7 @@ final class NoWhitespaceAtEndOfLineLinter
   ): Traversable<FixableLineLintError> {
     $errs = vec[];
 
-    for ($i = strlen($line) - 1; $i >= 0; $i--) {
+    for ($i = Str\length($line) - 1; $i >= 0; $i--) {
       $char = $line[$i];
       if ($char !== ' ') {
         break;

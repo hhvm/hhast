@@ -15,10 +15,10 @@ namespace Facebook\HHAST\Linters;
 use type Facebook\HHAST\EditableNode;
 use type Facebook\HHAST\__Private\PerfCounter;
 use namespace Facebook\HHAST;
+use namespace Facebook\HHAST\Linters\SuppressASTLinter;
 
 abstract class BaseASTLinter<T as HHAST\EditableNode, +Terror as ASTLintError<T>> extends BaseLinter {
   private HHAST\EditableNode $ast;
-  private DisableASTLinter $disable_check;
 
   <<__Override>>
   public function __construct(
@@ -27,7 +27,6 @@ abstract class BaseASTLinter<T as HHAST\EditableNode, +Terror as ASTLintError<T>
     parent::__construct($file);
 
     $this->ast = self::getASTFromFile($file);
-    $this->disable_check = new DisableASTLinter();
   }
 
   private static function getASTFromFile(string $file): HHAST\EditableNode {
@@ -81,9 +80,7 @@ abstract class BaseASTLinter<T as HHAST\EditableNode, +Terror as ASTLintError<T>
 
         if (
           $error !== null &&
-          !$this
-            ->disable_check
-            ->isLinterDisabled($this, $node, $parents, $error)
+          !SuppressASTLinter\is_linter_error_suppressed($this, $node, $parents, $error)
         ) {
           yield $error;
         }
