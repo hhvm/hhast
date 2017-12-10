@@ -70,6 +70,7 @@ final class LinterCLIConfig {
 
     return vec[
       Linters\CamelCasedMethodsUnderscoredFunctionsLinter::class,
+      Linters\NoWhitespaceAtEndOfLineLinter::class,
       Linters\DontAwaitInALoopLinter::class,
       Linters\MustUseBracesForControlFlowLinter::class,
       Linters\MustUseOverrideAttributeLinter::class,
