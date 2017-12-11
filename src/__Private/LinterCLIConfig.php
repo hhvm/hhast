@@ -62,15 +62,16 @@ final class LinterCLIConfig {
   const vec<classname<BaseLinter>>
     DEFAULT_LINTERS = vec[
       Linters\CamelCasedMethodsUnderscoredFunctionsLinter::class,
-      Linters\NoWhitespaceAtEndOfLineLinter::class,
       Linters\DontAwaitInALoopLinter::class,
       Linters\MustUseBracesForControlFlowLinter::class,
       Linters\MustUseOverrideAttributeLinter::class,
+      Linters\NoWhitespaceAtEndOfLineLinter::class,
     ];
 
   const vec<classname<BaseLinter>>
     NON_DEFAULT_LINTERS = vec[
       Linters\NoStringInterpolationLinter::class,
+      Linters\UseStatementWithAsLinter::class,
     ];
 
   private static function getNamedLinterGroup(

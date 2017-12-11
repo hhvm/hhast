@@ -14,9 +14,8 @@
 namespace Facebook\HHAST\TestLib;
 
 use namespace HH\Lib\{C, Str};
-use type Facebook\FBExpect\ExpectObj as ExpectBase;
 
-final class ExpectObj<T> extends ExpectBase<T> {
+final class ExpectObj<T> extends \Facebook\FBExpect\ExpectObj<T> {
   public function __construct(
     protected ImmVector<T> $vars,
   ) {

@@ -1,0 +1,22 @@
+[
+    {
+        "blame": "Foo as Bar",
+        "blame_pretty": "Foo as Bar",
+        "description": "Don't use `as` in `use` statements: it makes code less readable and less greppable."
+    },
+    {
+        "blame": "Foo as Bar",
+        "blame_pretty": "Foo as Bar",
+        "description": "Don't use `as` in `use` statements: it makes code less readable and less greppable."
+    },
+    {
+        "blame": "Foo as Bar \/* trailing comment *\/",
+        "blame_pretty": "Foo as Bar \/* trailing comment *\/",
+        "description": "Don't use `as` in `use` statements: it makes code less readable and less greppable."
+    },
+    {
+        "blame": "  Baz as HerpDerp",
+        "blame_pretty": "  Baz as HerpDerp",
+        "description": "Don't use `as` in `use` statements: it makes code less readable and less greppable."
+    }
+]

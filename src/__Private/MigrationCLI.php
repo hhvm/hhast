@@ -11,7 +11,7 @@
 
 namespace Facebook\HHAST\__Private;
 
-use function Facebook\HHAST\from_file as ast_from_file;
+use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str};
 use type Facebook\HHAST\Migrations\{
   BaseMigration,
@@ -81,7 +81,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
         $file,
       );
     }
-    $ast = ast_from_file($file);
+    $ast = HHAST\from_file($file);
     foreach ($this->migrations as $migration) {
       $ast = (new $migration())->migrateAst($ast);
     }
