@@ -19,7 +19,7 @@ abstract class AutoFixingASTLinter<Tnode as EditableNode>
 extends BaseASTLinter<Tnode, FixableASTLintError<Tnode>>
 implements AutoFixingLinter<FixableASTLintError<Tnode>> {
 
-  abstract public function getFixedNode(Tnode $node): Tnode;
+  abstract public function getFixedNode(Tnode $node): EditableNode;
 
   final public function fixLintErrors(
     Traversable<FixableASTLintError<Tnode>> $errors,

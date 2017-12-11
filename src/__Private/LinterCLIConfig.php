@@ -59,22 +59,31 @@ final class LinterCLIConfig {
     'autoFixBlacklist' => keyset<classname<BaseLinter>>,
   );
 
-  private static function getNamedLinterGroup(
-    NamedLinterGroup $group,
-  ): vec<classname<BaseLinter>> {
-    if ($group === NamedLinterGroup::NO_BUILTINS) {
-      return vec[];
-    }
-
-    // all is the same as default, for now
-
-    return vec[
+  const vec<classname<BaseLinter>>
+    DEFAULT_LINTERS = vec[
       Linters\CamelCasedMethodsUnderscoredFunctionsLinter::class,
       Linters\NoWhitespaceAtEndOfLineLinter::class,
       Linters\DontAwaitInALoopLinter::class,
       Linters\MustUseBracesForControlFlowLinter::class,
       Linters\MustUseOverrideAttributeLinter::class,
     ];
+
+  const vec<classname<BaseLinter>>
+    NON_DEFAULT_LINTERS = vec[
+      Linters\NoStringInterpolationLinter::class,
+    ];
+
+  private static function getNamedLinterGroup(
+    NamedLinterGroup $group,
+  ): vec<classname<BaseLinter>> {
+    switch ($group) {
+      case NamedLinterGroup::NO_BUILTINS:
+        return vec[];
+      case NamedLinterGroup::DEFAULT_BUILTINS:
+        return self::DEFAULT_LINTERS;
+      case NamedLinterGroup::ALL_BUILTINS:
+        return Vec\concat(self::DEFAULT_LINTERS, self::NON_DEFAULT_LINTERS);
+    }
   }
 
   private function __construct(
