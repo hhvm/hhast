@@ -24,6 +24,8 @@ use type Facebook\HHAST\{
   EmbeddedBracedExpression,
   LiteralExpression,
   NameToken,
+  QualifiedNameExpression,
+  QualifiedNameToken,
   StringLiteralBodyToken,
   VariableToken,
   __Private\PerfCounter,
@@ -132,9 +134,12 @@ final class NoStringInterpolationLinter
           'expression.',
         );
         $inner = $next->getExpression();
+        if ($inner instanceof QualifiedNameExpression) {
+          $inner = $inner->getExpression();
+        }
         invariant(
           $inner instanceof NameToken,
-          '${} should contain a variable name',
+          '"${}" should contain a variable name',
         );
         $new_children[] =
           new VariableToken(Missing(), Missing(), '$'.$inner->getText());
