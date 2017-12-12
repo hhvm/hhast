@@ -88,6 +88,11 @@ function is_linter_suppressed_in_sibling_node(
     if (Str\contains($trailing, $fixme) || Str\contains($trailing, $ignore)) {
       return true;
     }
+
+    $leading = $token->getLeading()->getCode();
+    if (Str\contains($leading, $fixme) || Str\contains($leading, $ignore)) {
+      return true;
+    }
   }
 
   return false;
@@ -108,6 +113,7 @@ function is_linter_suppressed_up_to_statement(
       $parent instanceof ContinueStatement ||
       $parent instanceof EchoStatement ||
       $parent instanceof GotoStatement ||
+      $parent instanceof ReturnStatement ||
       $parent instanceof ThrowStatement ||
       $parent instanceof TryStatement ||
       $parent instanceof UnsetStatement
