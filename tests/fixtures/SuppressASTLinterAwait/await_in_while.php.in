@@ -18,9 +18,9 @@ async function spin_forever_async(
   }
 }
 
-// This one should fail since the FIXME is outside the loop.
+// This one should fail since the FIXME is outside the scope.
+/* HHAST_FIXME[DontAwaitInALoop] */
 async function spin_forever_async_fail(
 ): Awaitable<void> {
-  /* HHAST_FIXME[DontAwaitInALoop] */
   while(true) await HH\Asio\later();
 }
