@@ -106,14 +106,6 @@ function is_linter_suppressed_up_to_statement(
   $parents = Vec\reverse($parents);
 
   foreach ($parents as $parent) {
-    $token = $parent->getFirstToken();
-    if ($token !== null) {
-      $leading = $token->getCode();
-      if (Str\contains($leading, $fixme) || Str\contains($leading, $ignore)) {
-        return true;
-      }
-    }
-
     if (
       $parent instanceof IControlFlowStatement ||
       $parent instanceof BreakStatement ||
@@ -126,6 +118,14 @@ function is_linter_suppressed_up_to_statement(
       $parent instanceof UnsetStatement
     ) {
       return false;
+    }
+
+    $token = $parent->getFirstToken();
+    if ($token !== null) {
+      $leading = $token->getCode();
+      if (Str\contains($leading, $fixme) || Str\contains($leading, $ignore)) {
+        return true;
+      }
     }
   }
 
