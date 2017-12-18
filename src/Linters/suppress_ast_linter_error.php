@@ -84,8 +84,12 @@ function is_linter_suppressed_in_sibling_node(
   $token = $sibling->getLastToken();
   if ($token !== null) {
     $trailing = $token->getTrailing()->getCode();
-
     if (Str\contains($trailing, $fixme) || Str\contains($trailing, $ignore)) {
+      return true;
+    }
+
+    $leading = $token->getLeading()->getCode();
+    if (Str\contains($leading, $fixme) || Str\contains($leading, $ignore)) {
       return true;
     }
   }
