@@ -23,7 +23,7 @@ function execute(string ...$args): vec<string> {
   $results = array();
   $exit_code = null;
   $perf = new PerfCounter(__FUNCTION__.'#subprocess');
-  exec(implode(' ', $command).' 2>/dev/null', $results, $exit_code);
+  exec(implode(' ', $command).' 2>/dev/null', &$results, &$exit_code);
   $perf->end();
   if ($exit_code !== 0) {
     throw new SubprocessException($command, (int)$exit_code);
