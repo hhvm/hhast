@@ -21,7 +21,9 @@ use type Facebook\HackCodegen\{
 use namespace HH\Lib\{C, Dict, Str};
 
 abstract class CodegenBase {
-  public function __construct(private Schema\TSchema $schema) {
+  public function __construct(
+      private Schema\TSchema $schema,
+      private dict<string, keyset<string>> $relationships) {
   }
 
   abstract public function generate(): void;
@@ -38,6 +40,10 @@ abstract class CodegenBase {
 
   final protected function getSchema(): Schema\TSchema {
     return $this->schema;
+  }
+
+  final protected function getRelationships(): dict<string, keyset<string>> {
+    return $this->relationships;
   }
 
   protected function getSchemaTokens(

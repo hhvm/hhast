@@ -340,7 +340,7 @@ final class CodegenSyntax extends CodegenBase {
   ): self::TFieldSpec {
     $key =
       sprintf('%s.%s_%s', $syntax['description'], $syntax['prefix'], $field);
-    $specs = INFERRED_RELATIONSHIPS;
+    $specs = $this->getRelationships();
     if (!C\contains_key($specs, $key)) {
       return shape(
         'class' => 'EditableNode',

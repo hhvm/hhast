@@ -41,16 +41,20 @@ final class CodegenCLI extends CLIBase {
       CodegenSyntax::class,
     ];
     $schema = $this->getSchema();
-    foreach ($generators as $generator) {
-      (new $generator($schema))->generate();
-    }
-
     $hhvm = $this->hhvmPath;
-    if ($hhvm === null) {
-      return 0;
+    if ($hhvm !== null) {
+      $relationships = dict[];
+      foreach ($generators as $generator) {
+        (new $generator($schema, $relationships))->generate();
+      }
+      (new CodegenRelations($hhvm, $schema))->generate();
     }
 
-    (new CodegenRelations($hhvm, $schema))->generate();
+    $relationships = INFERRED_RELATIONSHIPS;
+    foreach ($generators as $generator) {
+      (new $generator($schema, $relationships))->generate();
+    }
+
     return 0;
   }
 

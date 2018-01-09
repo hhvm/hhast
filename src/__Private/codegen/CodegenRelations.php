@@ -25,7 +25,8 @@ final class CodegenRelations extends CodegenBase {
     private string $hhvmRoot,
     Schema\TSchema $schema,
   ) {
-    parent::__construct($schema);
+    $relationships = dict[];
+    parent::__construct($schema, $relationships);
   }
 
   <<__Override>>
