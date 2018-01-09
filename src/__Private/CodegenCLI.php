@@ -18,14 +18,20 @@ final class CodegenCLI extends CLIBase {
   const type TSchema = Schema\TSchema;
 
   private ?string $hhvmPath = null;
+  private bool $rebuildRelationships = false;
 
   <<__Override>>
   protected function getSupportedOptions(): vec<CLIOptions\CLIOption> {
     return vec[
       CLIOptions\with_required_value(
         $path ==> { $this->hhvmPath = $path; },
-        'Update inferred relationships based on the HHVM and Hack tests',
+        'Path to HHVM source tree',
         '--hhvm-path',
+      ),
+      CLIOptions\flag(
+        () ==> { $this->rebuildRelationships = true; },
+        'Update inferred relationships based on the HHVM and Hack tests; requires --hhvm-path',
+        '--rebuild-relationships',
       ),
     ];
   }
@@ -41,8 +47,13 @@ final class CodegenCLI extends CLIBase {
       CodegenSyntax::class,
     ];
     $schema = $this->getSchema();
-    $hhvm = $this->hhvmPath;
-    if ($hhvm !== null) {
+    $rebuild_relationships = $this->rebuildRelationships;
+    if ($rebuild_relationships) {
+      $hhvm = $this->hhvmPath;
+      if ($hhvm === null) {
+        fprintf(STDERR, "--hhvm-path is required when rebuilding relationships.\n");
+        return 1;
+      }
       $relationships = dict[];
       foreach ($generators as $generator) {
         (new $generator($schema, $relationships))->generate();
