@@ -53,9 +53,9 @@ final class CodegenRelations extends CodegenBase {
 
     $cg->codegenFile($this->getOutputDirectory().'/inferred_relationships.php')
       ->setNamespace('Facebook\\HHAST\\__Private')
-      ->setPseudoMainHeader(
+      ->addConst(
+        'dict<string, keyset<string>> INFERRED_RELATIONSHIPS',
         $cg->codegenHackBuilder()
-          ->add('const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = ')
           ->addValue(
             $result,
             HackBuilderValues::dict(
@@ -64,9 +64,9 @@ final class CodegenRelations extends CodegenBase {
                 HackBuilderValues::export(),
               ),
             ),
-          )
-          ->addLine(';')
-          ->getCode()
+          ),
+        /* comment = */ null,
+        HackBuilderValues::code(),
       )
       ->save();
     print("... done!\n");

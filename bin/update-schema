@@ -7,7 +7,10 @@
 # grant of patent rights can be found in the PATENTS file in the same
 # directory.
 
-set -e
+set -ex
 
-hh_parse --schema > "$(dirname "$0")/../codegen/schema.json"
-"$(dirname "$0")/update-codegen" "$@"
+DIR="$(dirname "$0")"
+rm -rf "$DIR/../codegen"
+mkdir "$DIR/../codegen"
+hh_parse --schema > "$DIR/../codegen/schema.json"
+exec hhvm -d hhvm.hack.lang.look_for_typechecker=0 "$DIR/update-codegen" --rebuild-relationships "$@"
