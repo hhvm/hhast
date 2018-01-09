@@ -11,6 +11,6 @@
         "hhvm": "^3.24.0 <3.25.0",
         "hhvm/hsl": "^1.0.0",
         "hhvm/type-assert": "^3.1",
-        "facebook/hack-codegen": "^3.0"
+        "facebook/hack-codegen": "~3.0.3"
     }
 }

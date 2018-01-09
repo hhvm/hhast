@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d93c15bbed3a35b379ab594600373c43",
+    "content-hash": "c5c29e6b4f49eac201015f60fa4de214",
     "packages": [
         {
             "name": "facebook/definition-finder",
@@ -50,16 +50,16 @@
         },
         {
             "name": "facebook/hack-codegen",
-            "version": "v3.0.2",
+            "version": "v3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/hack-codegen.git",
-                "reference": "595b169e4929dd5acc698c97088b8add3c8e142a"
+                "reference": "4a6fd111c7f1d1b6d2e73f2668637223e8592aa3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/hack-codegen/zipball/595b169e4929dd5acc698c97088b8add3c8e142a",
-                "reference": "595b169e4929dd5acc698c97088b8add3c8e142a",
+                "url": "https://api.github.com/repos/hhvm/hack-codegen/zipball/4a6fd111c7f1d1b6d2e73f2668637223e8592aa3",
+                "reference": "4a6fd111c7f1d1b6d2e73f2668637223e8592aa3",
                 "shasum": ""
             },
             "require": {
@@ -106,7 +106,7 @@
                 "code generation",
                 "hack"
             ],
-            "time": "2018-01-08T23:39:45+00:00"
+            "time": "2018-01-09T19:54:23+00:00"
         },
         {
             "name": "fredemmott/hack-error-suppressor",
@@ -261,14 +261,14 @@
     "packages-dev": [
         {
             "name": "91carriage/phpunit-hhi",
-            "version": "5.7.1",
+            "version": "5.7.2",
             "source": {
                 "type": "git",
                 "url": "https://git.simon.geek.nz/91-carriage/phpunit-hhi.git",
-                "reference": "6864897f023f111d8b72fb7340c1ef5d0d9f8a45"
+                "reference": "b2ca7d221fa4ac6b4331e0dbc32cdc918ab8b11f"
             },
             "require": {
-                "hhvm": ">=3.12.0"
+                "hhvm": ">=3.23.0"
             },
             "conflict": {
                 "phpunit/phpunit": "<5.7.15"
@@ -306,7 +306,7 @@
                 "phpunit",
                 "testing"
             ],
-            "time": "2017-04-09T02:42:01+00:00"
+            "time": "2018-01-09T08:14:01+00:00"
         },
         {
             "name": "doctrine/instantiator",
