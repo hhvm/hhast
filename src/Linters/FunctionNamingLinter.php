@@ -112,7 +112,6 @@ abstract class FunctionNamingLinter extends BaseASTLinter<
     if (Str\starts_with($old, '__')) {
       return null;
     }
-
     $perf = (new PerfCounter(static::class.'#getSuggestion'))
       ->endAtScopeExit();
     if ($node instanceof FunctionDeclaration) {
@@ -120,7 +119,7 @@ abstract class FunctionNamingLinter extends BaseASTLinter<
       $new = $this->getSuggestedNameForFunction($old, $node);
     } else if ($node instanceof MethodishDeclaration) {
       if (
-        $node->getModifiersUNTYPED()->getDescendantsOfType(
+        $node->getFunctionDeclHeader()->getModifiersx()->getDescendantsOfType(
           StaticToken::class,
         ) |> C\is_empty(vec($$))
       ) {

@@ -125,7 +125,7 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
       return true;
     }
 
-    $private = $method->getModifiersx()->getDescendantsOfType(
+    $private = $method->getFunctionDeclHeader()->getModifiersx()->getDescendantsOfType(
       PrivateToken::class,
     ) |> C\first($$);
     if ($private !== null) {
