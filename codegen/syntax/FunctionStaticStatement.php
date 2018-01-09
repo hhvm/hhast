@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<32a37b9a5d77f0e940798d39d3cab9da>>
+ * @generated SignedSource<<e2759a82add8f6917a6a1eaeedfef52b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -144,19 +144,9 @@ final class FunctionStaticStatement extends EditableNode {
   }
 
   /**
-   * @returns SemicolonToken | Missing
-   */
-  public function getSemicolon(): ?SemicolonToken {
-    if ($this->_semicolon->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
-  }
-
-  /**
    * @returns SemicolonToken
    */
-  public function getSemicolonx(): SemicolonToken {
+  public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 }

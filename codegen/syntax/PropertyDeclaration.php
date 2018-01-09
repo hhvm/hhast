@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<983fc005c224273fbd818ed47f81c8dc>>
+ * @generated SignedSource<<b6c38b5be86ca3ad8a8417f2d4ff7136>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -141,10 +141,11 @@ final class PropertyDeclaration extends EditableNode {
   }
 
   /**
-   * @returns Missing | NullableTypeSpecifier | GenericTypeSpecifier |
-   * SimpleTypeSpecifier | TypeConstant | DictionaryTypeSpecifier |
-   * MapArrayTypeSpecifier | VectorArrayTypeSpecifier | SoftTypeSpecifier |
-   * TupleTypeSpecifier | ClosureTypeSpecifier
+   * @returns Missing | SimpleTypeSpecifier | NullableTypeSpecifier |
+   * GenericTypeSpecifier | VarrayTypeSpecifier | DarrayTypeSpecifier |
+   * VectorArrayTypeSpecifier | SoftTypeSpecifier | TupleTypeSpecifier |
+   * TypeConstant | MapArrayTypeSpecifier | DictionaryTypeSpecifier |
+   * ClosureTypeSpecifier
    */
   public function getType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);
@@ -189,19 +190,9 @@ final class PropertyDeclaration extends EditableNode {
   }
 
   /**
-   * @returns SemicolonToken | Missing
-   */
-  public function getSemicolon(): ?SemicolonToken {
-    if ($this->_semicolon->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
-  }
-
-  /**
    * @returns SemicolonToken
    */
-  public function getSemicolonx(): SemicolonToken {
+  public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 }

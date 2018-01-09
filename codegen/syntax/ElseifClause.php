@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4e0ff6d641a0f3d462e33ea7de6bbe5a>>
+ * @generated SignedSource<<b3cd9b5b4e59650b663f0e04c713fa79>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -190,8 +190,8 @@ final class ElseifClause extends EditableNode implements IControlFlowStatement {
   }
 
   /**
-   * @returns BinaryExpression | LiteralExpression | VariableExpression |
-   * FunctionCallExpression
+   * @returns LiteralExpression | BinaryExpression | FunctionCallExpression |
+   * VariableExpression
    */
   public function getCondition(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_condition);

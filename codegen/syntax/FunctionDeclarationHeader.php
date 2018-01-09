@@ -2,15 +2,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6437ad8795a7b0695800ea78302c3d23>>
+ * @generated SignedSource<<884d1dacb11c8e8b51c2f2310e964dea>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 final class FunctionDeclarationHeader extends EditableNode {
 
-  private EditableNode $_async;
-  private EditableNode $_coroutine;
+  private EditableNode $_modifiers;
   private EditableNode $_keyword;
   private EditableNode $_ampersand;
   private EditableNode $_name;
@@ -23,8 +22,7 @@ final class FunctionDeclarationHeader extends EditableNode {
   private EditableNode $_where_clause;
 
   public function __construct(
-    EditableNode $async,
-    EditableNode $coroutine,
+    EditableNode $modifiers,
     EditableNode $keyword,
     EditableNode $ampersand,
     EditableNode $name,
@@ -37,8 +35,7 @@ final class FunctionDeclarationHeader extends EditableNode {
     EditableNode $where_clause,
   ) {
     parent::__construct('function_declaration_header');
-    $this->_async = $async;
-    $this->_coroutine = $coroutine;
+    $this->_modifiers = $modifiers;
     $this->_keyword = $keyword;
     $this->_ampersand = $ampersand;
     $this->_name = $name;
@@ -58,20 +55,13 @@ final class FunctionDeclarationHeader extends EditableNode {
     int $offset,
     string $source,
   ): this {
-    $async = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['function_async'],
+    $modifiers = EditableNode::fromJSON(
+      /* UNSAFE_EXPR */ $json['function_modifiers'],
       $file,
       $offset,
       $source,
     );
-    $offset += $async->getWidth();
-    $coroutine = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['function_coroutine'],
-      $file,
-      $offset,
-      $source,
-    );
-    $offset += $coroutine->getWidth();
+    $offset += $modifiers->getWidth();
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_keyword'],
       $file,
@@ -143,8 +133,7 @@ final class FunctionDeclarationHeader extends EditableNode {
     );
     $offset += $where_clause->getWidth();
     return new self(
-      $async,
-      $coroutine,
+      $modifiers,
       $keyword,
       $ampersand,
       $name,
@@ -161,8 +150,7 @@ final class FunctionDeclarationHeader extends EditableNode {
   <<__Override>>
   public function getChildren(): dict<string, EditableNode> {
     return dict[
-      'async' => $this->_async,
-      'coroutine' => $this->_coroutine,
+      'modifiers' => $this->_modifiers,
       'keyword' => $this->_keyword,
       'ampersand' => $this->_ampersand,
       'name' => $this->_name,
@@ -183,8 +171,7 @@ final class FunctionDeclarationHeader extends EditableNode {
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
-    $async = $this->_async->rewrite($rewriter, $parents);
-    $coroutine = $this->_coroutine->rewrite($rewriter, $parents);
+    $modifiers = $this->_modifiers->rewrite($rewriter, $parents);
     $keyword = $this->_keyword->rewrite($rewriter, $parents);
     $ampersand = $this->_ampersand->rewrite($rewriter, $parents);
     $name = $this->_name->rewrite($rewriter, $parents);
@@ -197,8 +184,7 @@ final class FunctionDeclarationHeader extends EditableNode {
     $type = $this->_type->rewrite($rewriter, $parents);
     $where_clause = $this->_where_clause->rewrite($rewriter, $parents);
     if (
-      $async === $this->_async &&
-      $coroutine === $this->_coroutine &&
+      $modifiers === $this->_modifiers &&
       $keyword === $this->_keyword &&
       $ampersand === $this->_ampersand &&
       $name === $this->_name &&
@@ -213,8 +199,7 @@ final class FunctionDeclarationHeader extends EditableNode {
       return $this;
     }
     return new self(
-      $async,
-      $coroutine,
+      $modifiers,
       $keyword,
       $ampersand,
       $name,
@@ -228,17 +213,16 @@ final class FunctionDeclarationHeader extends EditableNode {
     );
   }
 
-  public function getAsyncUNTYPED(): EditableNode {
-    return $this->_async;
+  public function getModifiersUNTYPED(): EditableNode {
+    return $this->_modifiers;
   }
 
-  public function withAsync(EditableNode $value): this {
-    if ($value === $this->_async) {
+  public function withModifiers(EditableNode $value): this {
+    if ($value === $this->_modifiers) {
       return $this;
     }
     return new self(
       $value,
-      $this->_coroutine,
       $this->_keyword,
       $this->_ampersand,
       $this->_name,
@@ -252,60 +236,25 @@ final class FunctionDeclarationHeader extends EditableNode {
     );
   }
 
-  public function hasAsync(): bool {
-    return !$this->_async->isMissing();
+  public function hasModifiers(): bool {
+    return !$this->_modifiers->isMissing();
   }
 
   /**
-   * @returns Missing | AsyncToken
+   * @returns EditableList | Missing
    */
-  public function getAsync(): ?AsyncToken {
-    if ($this->_async->isMissing()) {
+  public function getModifiers(): ?EditableList {
+    if ($this->_modifiers->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(AsyncToken::class, $this->_async);
+    return TypeAssert\instance_of(EditableList::class, $this->_modifiers);
   }
 
   /**
-   * @returns AsyncToken
+   * @returns EditableList
    */
-  public function getAsyncx(): AsyncToken {
-    return TypeAssert\instance_of(AsyncToken::class, $this->_async);
-  }
-
-  public function getCoroutineUNTYPED(): EditableNode {
-    return $this->_coroutine;
-  }
-
-  public function withCoroutine(EditableNode $value): this {
-    if ($value === $this->_coroutine) {
-      return $this;
-    }
-    return new self(
-      $this->_async,
-      $value,
-      $this->_keyword,
-      $this->_ampersand,
-      $this->_name,
-      $this->_type_parameter_list,
-      $this->_left_paren,
-      $this->_parameter_list,
-      $this->_right_paren,
-      $this->_colon,
-      $this->_type,
-      $this->_where_clause,
-    );
-  }
-
-  public function hasCoroutine(): bool {
-    return !$this->_coroutine->isMissing();
-  }
-
-  /**
-   * @returns Missing
-   */
-  public function getCoroutine(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_coroutine);
+  public function getModifiersx(): EditableList {
+    return TypeAssert\instance_of(EditableList::class, $this->_modifiers);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -317,8 +266,7 @@ final class FunctionDeclarationHeader extends EditableNode {
       return $this;
     }
     return new self(
-      $this->_async,
-      $this->_coroutine,
+      $this->_modifiers,
       $value,
       $this->_ampersand,
       $this->_name,
@@ -362,8 +310,7 @@ final class FunctionDeclarationHeader extends EditableNode {
       return $this;
     }
     return new self(
-      $this->_async,
-      $this->_coroutine,
+      $this->_modifiers,
       $this->_keyword,
       $value,
       $this->_name,
@@ -407,8 +354,7 @@ final class FunctionDeclarationHeader extends EditableNode {
       return $this;
     }
     return new self(
-      $this->_async,
-      $this->_coroutine,
+      $this->_modifiers,
       $this->_keyword,
       $this->_ampersand,
       $value,
@@ -427,7 +373,7 @@ final class FunctionDeclarationHeader extends EditableNode {
   }
 
   /**
-   * @returns NameToken | DestructToken | ConstructToken
+   * @returns NameToken | ConstructToken | DestructToken
    */
   public function getName(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_name);
@@ -442,8 +388,7 @@ final class FunctionDeclarationHeader extends EditableNode {
       return $this;
     }
     return new self(
-      $this->_async,
-      $this->_coroutine,
+      $this->_modifiers,
       $this->_keyword,
       $this->_ampersand,
       $this->_name,
@@ -493,8 +438,7 @@ final class FunctionDeclarationHeader extends EditableNode {
       return $this;
     }
     return new self(
-      $this->_async,
-      $this->_coroutine,
+      $this->_modifiers,
       $this->_keyword,
       $this->_ampersand,
       $this->_name,
@@ -538,8 +482,7 @@ final class FunctionDeclarationHeader extends EditableNode {
       return $this;
     }
     return new self(
-      $this->_async,
-      $this->_coroutine,
+      $this->_modifiers,
       $this->_keyword,
       $this->_ampersand,
       $this->_name,
@@ -558,7 +501,7 @@ final class FunctionDeclarationHeader extends EditableNode {
   }
 
   /**
-   * @returns EditableList | Missing
+   * @returns Missing | EditableList
    */
   public function getParameterList(): ?EditableList {
     if ($this->_parameter_list->isMissing()) {
@@ -583,8 +526,7 @@ final class FunctionDeclarationHeader extends EditableNode {
       return $this;
     }
     return new self(
-      $this->_async,
-      $this->_coroutine,
+      $this->_modifiers,
       $this->_keyword,
       $this->_ampersand,
       $this->_name,
@@ -628,8 +570,7 @@ final class FunctionDeclarationHeader extends EditableNode {
       return $this;
     }
     return new self(
-      $this->_async,
-      $this->_coroutine,
+      $this->_modifiers,
       $this->_keyword,
       $this->_ampersand,
       $this->_name,
@@ -673,8 +614,7 @@ final class FunctionDeclarationHeader extends EditableNode {
       return $this;
     }
     return new self(
-      $this->_async,
-      $this->_coroutine,
+      $this->_modifiers,
       $this->_keyword,
       $this->_ampersand,
       $this->_name,
@@ -693,12 +633,12 @@ final class FunctionDeclarationHeader extends EditableNode {
   }
 
   /**
-   * @returns Missing | SimpleTypeSpecifier | DictionaryTypeSpecifier |
-   * NullableTypeSpecifier | GenericTypeSpecifier | SoftTypeSpecifier |
-   * MapArrayTypeSpecifier | ClosureTypeSpecifier | TupleTypeSpecifier |
-   * KeysetTypeSpecifier | ShapeTypeSpecifier | VectorTypeSpecifier |
-   * TypeConstant | VectorArrayTypeSpecifier | NoreturnToken |
-   * ClassnameTypeSpecifier | DarrayTypeSpecifier | VarrayTypeSpecifier
+   * @returns Missing | SimpleTypeSpecifier | ShapeTypeSpecifier |
+   * ClosureTypeSpecifier | GenericTypeSpecifier | SoftTypeSpecifier |
+   * TupleTypeSpecifier | VectorTypeSpecifier | NullableTypeSpecifier |
+   * MapArrayTypeSpecifier | DictionaryTypeSpecifier | KeysetTypeSpecifier |
+   * VarrayTypeSpecifier | DarrayTypeSpecifier | VectorArrayTypeSpecifier |
+   * NoreturnToken | TypeConstant | ClassnameTypeSpecifier
    */
   public function getType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);
@@ -713,8 +653,7 @@ final class FunctionDeclarationHeader extends EditableNode {
       return $this;
     }
     return new self(
-      $this->_async,
-      $this->_coroutine,
+      $this->_modifiers,
       $this->_keyword,
       $this->_ampersand,
       $this->_name,

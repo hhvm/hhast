@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<814d057db68c2f4db21f8d9b57af5570>>
+ * @generated SignedSource<<813b3645d7f6d34ff3f1791fdf95949b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -291,12 +291,12 @@ final class ForeachStatement extends EditableNode
   }
 
   /**
-   * @returns MemberSelectionExpression | VariableExpression |
+   * @returns VariableExpression | VectorIntrinsicExpression |
    * ArrayIntrinsicExpression | FunctionCallExpression |
-   * ArrayCreationExpression | SubscriptExpression | PrefixUnaryExpression |
-   * CollectionLiteralExpression | ObjectCreationExpression |
-   * ScopeResolutionExpression | ParenthesizedExpression | CastExpression |
-   * AnonymousFunction
+   * MemberSelectionExpression | ArrayCreationExpression | SubscriptExpression
+   * | ObjectCreationExpression | PrefixUnaryExpression |
+   * ParenthesizedExpression | ScopeResolutionExpression | CastExpression |
+   * CollectionLiteralExpression | AnonymousFunction
    */
   public function getCollection(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_collection);
@@ -406,8 +406,8 @@ final class ForeachStatement extends EditableNode
 
   /**
    * @returns Missing | VariableExpression | ListExpression |
-   * PrefixUnaryExpression | SubscriptExpression | MemberSelectionExpression |
-   * ScopeResolutionExpression | FunctionCallExpression
+   * PrefixUnaryExpression | SubscriptExpression | FunctionCallExpression |
+   * MemberSelectionExpression | ScopeResolutionExpression
    */
   public function getKey(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_key);
@@ -483,7 +483,7 @@ final class ForeachStatement extends EditableNode
   }
 
   /**
-   * @returns PrefixUnaryExpression | VariableExpression | ListExpression |
+   * @returns VariableExpression | PrefixUnaryExpression | ListExpression |
    * FunctionCallExpression | SubscriptExpression | MemberSelectionExpression |
    * ScopeResolutionExpression
    */
@@ -551,7 +551,7 @@ final class ForeachStatement extends EditableNode
   }
 
   /**
-   * @returns CompoundStatement | ForeachStatement | ExpressionStatement |
+   * @returns CompoundStatement | ExpressionStatement | ForeachStatement |
    * EchoStatement
    */
   public function getBody(): EditableNode {

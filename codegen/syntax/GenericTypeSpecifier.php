@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9b4e86e31eb77b312bd1ce6c8009310d>>
+ * @generated SignedSource<<d7ec969e244ee7127dfe6a557854ef3f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -87,8 +87,7 @@ final class GenericTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns NameToken | QualifiedNameExpression | QualifiedNameToken |
-   * XHPClassNameToken
+   * @returns NameToken | StringToken | QualifiedName | XHPClassNameToken
    */
   public function getClassType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_class_type);

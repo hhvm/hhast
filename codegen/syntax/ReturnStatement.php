@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0f9fe1b1a1135e85894ff6a92d82f628>>
+ * @generated SignedSource<<ce7fcd40d9ed98692f3d1e2fae0a9029>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -122,19 +122,19 @@ final class ReturnStatement extends EditableNode {
   }
 
   /**
-   * @returns LiteralExpression | ArrayIntrinsicExpression |
-   * FunctionCallExpression | ObjectCreationExpression | VariableExpression |
-   * MemberSelectionExpression | ConditionalExpression | IssetExpression |
-   * BinaryExpression | SubscriptExpression | AnonymousFunction |
-   * CastExpression | QualifiedNameExpression | ArrayCreationExpression |
-   * DictionaryIntrinsicExpression | ScopeResolutionExpression |
-   * PrefixUnaryExpression | ParenthesizedExpression | PostfixUnaryExpression |
-   * VectorIntrinsicExpression | InstanceofExpression |
-   * KeysetIntrinsicExpression | LambdaExpression | Missing | ShapeExpression |
-   * TupleExpression | CollectionLiteralExpression |
-   * SafeMemberSelectionExpression | YieldExpression | EvalExpression |
-   * DarrayIntrinsicExpression | VarrayIntrinsicExpression |
-   * AwaitableCreationExpression | XHPExpression
+   * @returns ArrayIntrinsicExpression | FunctionCallExpression |
+   * LiteralExpression | BinaryExpression | ObjectCreationExpression |
+   * CastExpression | ConditionalExpression | VariableExpression |
+   * PrefixUnaryExpression | MemberSelectionExpression | AnonymousFunction |
+   * LambdaExpression | IssetExpression | PostfixUnaryExpression |
+   * SubscriptExpression | Missing | ScopeResolutionExpression |
+   * InstanceofExpression | ParenthesizedExpression | ArrayCreationExpression |
+   * VectorIntrinsicExpression | NameToken | DictionaryIntrinsicExpression |
+   * ShapeExpression | KeysetIntrinsicExpression | CollectionLiteralExpression
+   * | DarrayIntrinsicExpression | VarrayIntrinsicExpression | TupleExpression
+   * | SafeMemberSelectionExpression | QualifiedName | YieldFromExpression |
+   * EvalExpression | FunctionCallWithTypeArgumentsExpression | XHPExpression |
+   * AwaitableCreationExpression
    */
   public function getExpression(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_expression);
@@ -156,19 +156,9 @@ final class ReturnStatement extends EditableNode {
   }
 
   /**
-   * @returns SemicolonToken | Missing
-   */
-  public function getSemicolon(): ?SemicolonToken {
-    if ($this->_semicolon->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
-  }
-
-  /**
    * @returns SemicolonToken
    */
-  public function getSemicolonx(): SemicolonToken {
+  public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 }

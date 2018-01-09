@@ -2,25 +2,28 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c79b9551e54861347313f2f374b771c5>>
+ * @generated SignedSource<<f21111c76bba788d41d103d5d2c076ee>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 final class XHPEnumType extends EditableNode {
 
+  private EditableNode $_optional;
   private EditableNode $_keyword;
   private EditableNode $_left_brace;
   private EditableNode $_values;
   private EditableNode $_right_brace;
 
   public function __construct(
+    EditableNode $optional,
     EditableNode $keyword,
     EditableNode $left_brace,
     EditableNode $values,
     EditableNode $right_brace,
   ) {
     parent::__construct('xhp_enum_type');
+    $this->_optional = $optional;
     $this->_keyword = $keyword;
     $this->_left_brace = $left_brace;
     $this->_values = $values;
@@ -34,6 +37,13 @@ final class XHPEnumType extends EditableNode {
     int $offset,
     string $source,
   ): this {
+    $optional = EditableNode::fromJSON(
+      /* UNSAFE_EXPR */ $json['xhp_enum_optional'],
+      $file,
+      $offset,
+      $source,
+    );
+    $offset += $optional->getWidth();
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_enum_keyword'],
       $file,
@@ -62,12 +72,13 @@ final class XHPEnumType extends EditableNode {
       $source,
     );
     $offset += $right_brace->getWidth();
-    return new self($keyword, $left_brace, $values, $right_brace);
+    return new self($optional, $keyword, $left_brace, $values, $right_brace);
   }
 
   <<__Override>>
   public function getChildren(): dict<string, EditableNode> {
     return dict[
+      'optional' => $this->_optional,
       'keyword' => $this->_keyword,
       'left_brace' => $this->_left_brace,
       'values' => $this->_values,
@@ -82,11 +93,13 @@ final class XHPEnumType extends EditableNode {
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
+    $optional = $this->_optional->rewrite($rewriter, $parents);
     $keyword = $this->_keyword->rewrite($rewriter, $parents);
     $left_brace = $this->_left_brace->rewrite($rewriter, $parents);
     $values = $this->_values->rewrite($rewriter, $parents);
     $right_brace = $this->_right_brace->rewrite($rewriter, $parents);
     if (
+      $optional === $this->_optional &&
       $keyword === $this->_keyword &&
       $left_brace === $this->_left_brace &&
       $values === $this->_values &&
@@ -94,7 +107,35 @@ final class XHPEnumType extends EditableNode {
     ) {
       return $this;
     }
-    return new self($keyword, $left_brace, $values, $right_brace);
+    return new self($optional, $keyword, $left_brace, $values, $right_brace);
+  }
+
+  public function getOptionalUNTYPED(): EditableNode {
+    return $this->_optional;
+  }
+
+  public function withOptional(EditableNode $value): this {
+    if ($value === $this->_optional) {
+      return $this;
+    }
+    return new self(
+      $value,
+      $this->_keyword,
+      $this->_left_brace,
+      $this->_values,
+      $this->_right_brace,
+    );
+  }
+
+  public function hasOptional(): bool {
+    return !$this->_optional->isMissing();
+  }
+
+  /**
+   * @returns Missing
+   */
+  public function getOptional(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_optional);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -105,8 +146,13 @@ final class XHPEnumType extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return
-      new self($value, $this->_left_brace, $this->_values, $this->_right_brace);
+    return new self(
+      $this->_optional,
+      $value,
+      $this->_left_brace,
+      $this->_values,
+      $this->_right_brace,
+    );
   }
 
   public function hasKeyword(): bool {
@@ -128,8 +174,13 @@ final class XHPEnumType extends EditableNode {
     if ($value === $this->_left_brace) {
       return $this;
     }
-    return
-      new self($this->_keyword, $value, $this->_values, $this->_right_brace);
+    return new self(
+      $this->_optional,
+      $this->_keyword,
+      $value,
+      $this->_values,
+      $this->_right_brace,
+    );
   }
 
   public function hasLeftBrace(): bool {
@@ -152,6 +203,7 @@ final class XHPEnumType extends EditableNode {
       return $this;
     }
     return new self(
+      $this->_optional,
       $this->_keyword,
       $this->_left_brace,
       $value,
@@ -178,8 +230,13 @@ final class XHPEnumType extends EditableNode {
     if ($value === $this->_right_brace) {
       return $this;
     }
-    return
-      new self($this->_keyword, $this->_left_brace, $this->_values, $value);
+    return new self(
+      $this->_optional,
+      $this->_keyword,
+      $this->_left_brace,
+      $this->_values,
+      $value,
+    );
   }
 
   public function hasRightBrace(): bool {

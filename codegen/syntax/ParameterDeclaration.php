@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2d34cb8c675a42c5904bf285f902a53f>>
+ * @generated SignedSource<<399dbe1e3c3b8e2aae5ece712cfada1d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,6 +11,7 @@ final class ParameterDeclaration extends EditableNode {
 
   private EditableNode $_attribute;
   private EditableNode $_visibility;
+  private EditableNode $_call_convention;
   private EditableNode $_type;
   private EditableNode $_name;
   private EditableNode $_default_value;
@@ -18,6 +19,7 @@ final class ParameterDeclaration extends EditableNode {
   public function __construct(
     EditableNode $attribute,
     EditableNode $visibility,
+    EditableNode $call_convention,
     EditableNode $type,
     EditableNode $name,
     EditableNode $default_value,
@@ -25,6 +27,7 @@ final class ParameterDeclaration extends EditableNode {
     parent::__construct('parameter_declaration');
     $this->_attribute = $attribute;
     $this->_visibility = $visibility;
+    $this->_call_convention = $call_convention;
     $this->_type = $type;
     $this->_name = $name;
     $this->_default_value = $default_value;
@@ -51,6 +54,13 @@ final class ParameterDeclaration extends EditableNode {
       $source,
     );
     $offset += $visibility->getWidth();
+    $call_convention = EditableNode::fromJSON(
+      /* UNSAFE_EXPR */ $json['parameter_call_convention'],
+      $file,
+      $offset,
+      $source,
+    );
+    $offset += $call_convention->getWidth();
     $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['parameter_type'],
       $file,
@@ -72,7 +82,14 @@ final class ParameterDeclaration extends EditableNode {
       $source,
     );
     $offset += $default_value->getWidth();
-    return new self($attribute, $visibility, $type, $name, $default_value);
+    return new self(
+      $attribute,
+      $visibility,
+      $call_convention,
+      $type,
+      $name,
+      $default_value,
+    );
   }
 
   <<__Override>>
@@ -80,6 +97,7 @@ final class ParameterDeclaration extends EditableNode {
     return dict[
       'attribute' => $this->_attribute,
       'visibility' => $this->_visibility,
+      'call_convention' => $this->_call_convention,
       'type' => $this->_type,
       'name' => $this->_name,
       'default_value' => $this->_default_value,
@@ -95,19 +113,28 @@ final class ParameterDeclaration extends EditableNode {
     $parents[] = $this;
     $attribute = $this->_attribute->rewrite($rewriter, $parents);
     $visibility = $this->_visibility->rewrite($rewriter, $parents);
+    $call_convention = $this->_call_convention->rewrite($rewriter, $parents);
     $type = $this->_type->rewrite($rewriter, $parents);
     $name = $this->_name->rewrite($rewriter, $parents);
     $default_value = $this->_default_value->rewrite($rewriter, $parents);
     if (
       $attribute === $this->_attribute &&
       $visibility === $this->_visibility &&
+      $call_convention === $this->_call_convention &&
       $type === $this->_type &&
       $name === $this->_name &&
       $default_value === $this->_default_value
     ) {
       return $this;
     }
-    return new self($attribute, $visibility, $type, $name, $default_value);
+    return new self(
+      $attribute,
+      $visibility,
+      $call_convention,
+      $type,
+      $name,
+      $default_value,
+    );
   }
 
   public function getAttributeUNTYPED(): EditableNode {
@@ -121,6 +148,7 @@ final class ParameterDeclaration extends EditableNode {
     return new self(
       $value,
       $this->_visibility,
+      $this->_call_convention,
       $this->_type,
       $this->_name,
       $this->_default_value,
@@ -161,6 +189,7 @@ final class ParameterDeclaration extends EditableNode {
     return new self(
       $this->_attribute,
       $value,
+      $this->_call_convention,
       $this->_type,
       $this->_name,
       $this->_default_value,
@@ -172,7 +201,7 @@ final class ParameterDeclaration extends EditableNode {
   }
 
   /**
-   * @returns Missing | ProtectedToken | PublicToken | PrivateToken
+   * @returns Missing | PublicToken | ProtectedToken | PrivateToken
    */
   public function getVisibility(): ?EditableToken {
     if ($this->_visibility->isMissing()) {
@@ -182,10 +211,49 @@ final class ParameterDeclaration extends EditableNode {
   }
 
   /**
-   * @returns ProtectedToken | PublicToken | PrivateToken
+   * @returns PublicToken | ProtectedToken | PrivateToken
    */
   public function getVisibilityx(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_visibility);
+  }
+
+  public function getCallConventionUNTYPED(): EditableNode {
+    return $this->_call_convention;
+  }
+
+  public function withCallConvention(EditableNode $value): this {
+    if ($value === $this->_call_convention) {
+      return $this;
+    }
+    return new self(
+      $this->_attribute,
+      $this->_visibility,
+      $value,
+      $this->_type,
+      $this->_name,
+      $this->_default_value,
+    );
+  }
+
+  public function hasCallConvention(): bool {
+    return !$this->_call_convention->isMissing();
+  }
+
+  /**
+   * @returns Missing | InoutToken
+   */
+  public function getCallConvention(): ?InoutToken {
+    if ($this->_call_convention->isMissing()) {
+      return null;
+    }
+    return TypeAssert\instance_of(InoutToken::class, $this->_call_convention);
+  }
+
+  /**
+   * @returns InoutToken
+   */
+  public function getCallConventionx(): InoutToken {
+    return TypeAssert\instance_of(InoutToken::class, $this->_call_convention);
   }
 
   public function getTypeUNTYPED(): EditableNode {
@@ -199,6 +267,7 @@ final class ParameterDeclaration extends EditableNode {
     return new self(
       $this->_attribute,
       $this->_visibility,
+      $this->_call_convention,
       $value,
       $this->_name,
       $this->_default_value,
@@ -210,12 +279,12 @@ final class ParameterDeclaration extends EditableNode {
   }
 
   /**
-   * @returns Missing | SimpleTypeSpecifier | NullableTypeSpecifier |
-   * GenericTypeSpecifier | DictionaryTypeSpecifier | TypeConstant |
-   * SoftTypeSpecifier | ClosureTypeSpecifier | TupleTypeSpecifier |
-   * ClassnameTypeSpecifier | KeysetTypeSpecifier | ShapeTypeSpecifier |
-   * VectorTypeSpecifier | MapArrayTypeSpecifier | VarrayTypeSpecifier |
-   * DarrayTypeSpecifier | VectorArrayTypeSpecifier
+   * @returns SimpleTypeSpecifier | Missing | ShapeTypeSpecifier |
+   * GenericTypeSpecifier | ClosureTypeSpecifier | NullableTypeSpecifier |
+   * TupleTypeSpecifier | SoftTypeSpecifier | VectorTypeSpecifier |
+   * TypeConstant | ClassnameTypeSpecifier | DictionaryTypeSpecifier |
+   * KeysetTypeSpecifier | MapArrayTypeSpecifier | VectorArrayTypeSpecifier |
+   * VarrayTypeSpecifier | DarrayTypeSpecifier
    */
   public function getType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);
@@ -232,6 +301,7 @@ final class ParameterDeclaration extends EditableNode {
     return new self(
       $this->_attribute,
       $this->_visibility,
+      $this->_call_convention,
       $this->_type,
       $value,
       $this->_default_value,
@@ -260,6 +330,7 @@ final class ParameterDeclaration extends EditableNode {
     return new self(
       $this->_attribute,
       $this->_visibility,
+      $this->_call_convention,
       $this->_type,
       $this->_name,
       $value,

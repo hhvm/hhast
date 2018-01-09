@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<43ac7f5b476a172ea79d8dca166a7939>>
+ * @generated SignedSource<<9b8905799360480cae7f125289a1a2b8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -118,12 +118,11 @@ final class SubscriptExpression extends EditableNode {
   }
 
   /**
-   * @returns VariableExpression | FunctionCallExpression | SubscriptExpression
-   * | MemberSelectionExpression | ScopeResolutionExpression |
-   * ParenthesizedExpression | ArrayIntrinsicExpression | RightParenToken |
-   * QualifiedNameExpression | PrefixUnaryExpression | LiteralExpression |
-   * SafeMemberSelectionExpression | NamespacePrefixToken |
-   * ArrayCreationExpression | ObjectCreationExpression
+   * @returns SubscriptExpression | FunctionCallExpression |
+   * ScopeResolutionExpression | VariableExpression | MemberSelectionExpression
+   * | ArrayIntrinsicExpression | ParenthesizedExpression | RightParenToken |
+   * NameToken | LiteralExpression | PrefixUnaryExpression |
+   * SafeMemberSelectionExpression | ArrayCreationExpression
    */
   public function getReceiver(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_receiver);
@@ -174,12 +173,12 @@ final class SubscriptExpression extends EditableNode {
 
   /**
    * @returns LiteralExpression | Missing | VariableExpression |
-   * FunctionCallExpression | QualifiedNameExpression |
-   * ScopeResolutionExpression | BinaryExpression | PrefixUnaryExpression |
-   * CastExpression | ObjectCreationExpression | MemberSelectionExpression |
-   * PostfixUnaryExpression | SubscriptExpression | ArrayIntrinsicExpression |
-   * SafeMemberSelectionExpression | AnonymousFunction | YieldExpression |
-   * LambdaExpression | EvalExpression | ParenthesizedExpression
+   * FunctionCallExpression | NameToken | ScopeResolutionExpression |
+   * BinaryExpression | CastExpression | PrefixUnaryExpression |
+   * PostfixUnaryExpression | ArrayIntrinsicExpression |
+   * ObjectCreationExpression | MemberSelectionExpression | SubscriptExpression
+   * | SafeMemberSelectionExpression | AnonymousFunction |
+   * ParenthesizedExpression
    */
   public function getIndex(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_index);

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a314cf790a6c8519ebfb9cf8b74d7f35>>
+ * @generated SignedSource<<3aa2f5fd2577ae9b8b9b5b3c750143fe>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,21 +11,18 @@ final class MethodishDeclaration extends EditableNode
   implements IFunctionishDeclaration {
 
   private EditableNode $_attribute;
-  private EditableNode $_modifiers;
   private EditableNode $_function_decl_header;
   private EditableNode $_function_body;
   private EditableNode $_semicolon;
 
   public function __construct(
     EditableNode $attribute,
-    EditableNode $modifiers,
     EditableNode $function_decl_header,
     EditableNode $function_body,
     EditableNode $semicolon,
   ) {
     parent::__construct('methodish_declaration');
     $this->_attribute = $attribute;
-    $this->_modifiers = $modifiers;
     $this->_function_decl_header = $function_decl_header;
     $this->_function_body = $function_body;
     $this->_semicolon = $semicolon;
@@ -45,13 +42,6 @@ final class MethodishDeclaration extends EditableNode
       $source,
     );
     $offset += $attribute->getWidth();
-    $modifiers = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['methodish_modifiers'],
-      $file,
-      $offset,
-      $source,
-    );
-    $offset += $modifiers->getWidth();
     $function_decl_header = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['methodish_function_decl_header'],
       $file,
@@ -73,20 +63,14 @@ final class MethodishDeclaration extends EditableNode
       $source,
     );
     $offset += $semicolon->getWidth();
-    return new self(
-      $attribute,
-      $modifiers,
-      $function_decl_header,
-      $function_body,
-      $semicolon,
-    );
+    return
+      new self($attribute, $function_decl_header, $function_body, $semicolon);
   }
 
   <<__Override>>
   public function getChildren(): dict<string, EditableNode> {
     return dict[
       'attribute' => $this->_attribute,
-      'modifiers' => $this->_modifiers,
       'function_decl_header' => $this->_function_decl_header,
       'function_body' => $this->_function_body,
       'semicolon' => $this->_semicolon,
@@ -101,27 +85,20 @@ final class MethodishDeclaration extends EditableNode
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $attribute = $this->_attribute->rewrite($rewriter, $parents);
-    $modifiers = $this->_modifiers->rewrite($rewriter, $parents);
     $function_decl_header =
       $this->_function_decl_header->rewrite($rewriter, $parents);
     $function_body = $this->_function_body->rewrite($rewriter, $parents);
     $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
     if (
       $attribute === $this->_attribute &&
-      $modifiers === $this->_modifiers &&
       $function_decl_header === $this->_function_decl_header &&
       $function_body === $this->_function_body &&
       $semicolon === $this->_semicolon
     ) {
       return $this;
     }
-    return new self(
-      $attribute,
-      $modifiers,
-      $function_decl_header,
-      $function_body,
-      $semicolon,
-    );
+    return
+      new self($attribute, $function_decl_header, $function_body, $semicolon);
   }
 
   public function getAttributeUNTYPED(): EditableNode {
@@ -134,7 +111,6 @@ final class MethodishDeclaration extends EditableNode
     }
     return new self(
       $value,
-      $this->_modifiers,
       $this->_function_decl_header,
       $this->_function_body,
       $this->_semicolon,
@@ -164,44 +140,6 @@ final class MethodishDeclaration extends EditableNode
       TypeAssert\instance_of(AttributeSpecification::class, $this->_attribute);
   }
 
-  public function getModifiersUNTYPED(): EditableNode {
-    return $this->_modifiers;
-  }
-
-  public function withModifiers(EditableNode $value): this {
-    if ($value === $this->_modifiers) {
-      return $this;
-    }
-    return new self(
-      $this->_attribute,
-      $value,
-      $this->_function_decl_header,
-      $this->_function_body,
-      $this->_semicolon,
-    );
-  }
-
-  public function hasModifiers(): bool {
-    return !$this->_modifiers->isMissing();
-  }
-
-  /**
-   * @returns EditableList | Missing
-   */
-  public function getModifiers(): ?EditableList {
-    if ($this->_modifiers->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(EditableList::class, $this->_modifiers);
-  }
-
-  /**
-   * @returns EditableList
-   */
-  public function getModifiersx(): EditableList {
-    return TypeAssert\instance_of(EditableList::class, $this->_modifiers);
-  }
-
   public function getFunctionDeclHeaderUNTYPED(): EditableNode {
     return $this->_function_decl_header;
   }
@@ -212,7 +150,6 @@ final class MethodishDeclaration extends EditableNode
     }
     return new self(
       $this->_attribute,
-      $this->_modifiers,
       $value,
       $this->_function_body,
       $this->_semicolon,
@@ -243,7 +180,6 @@ final class MethodishDeclaration extends EditableNode
     }
     return new self(
       $this->_attribute,
-      $this->_modifiers,
       $this->_function_decl_header,
       $value,
       $this->_semicolon,
@@ -283,7 +219,6 @@ final class MethodishDeclaration extends EditableNode
     }
     return new self(
       $this->_attribute,
-      $this->_modifiers,
       $this->_function_decl_header,
       $this->_function_body,
       $value,

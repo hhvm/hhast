@@ -2,20 +2,20 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<69566b36b98b6b6ee3f1e02a491eb1eb>>
+ * @generated SignedSource<<fa51b4cc468549fc1fc8278c94ec7c0b>>
  */
 namespace Facebook\HHAST;
 
-final class NamespacePrefixToken extends EditableTokenWithVariableText {
+final class DeclareToken extends EditableTokenWithVariableText {
 
-  const string KIND = 'namespace_prefix';
+  const string KIND = 'declare';
 
   public function __construct(
     EditableNode $leading,
     EditableNode $trailing,
-    string $text,
+    string $token_text = 'declare',
   ) {
-    parent::__construct($leading, $trailing, $text);
+    parent::__construct($leading, $trailing, $token_text);
   }
 
   public function hasLeading(): bool {
@@ -27,7 +27,7 @@ final class NamespacePrefixToken extends EditableTokenWithVariableText {
     if ($value === $this->getLeading()) {
       return $this;
     }
-    return new self($value, $this->getTrailing(), $this->getText());
+    return new self($value, $this->getTrailing());
   }
 
   public function hasTrailing(): bool {
@@ -39,14 +39,7 @@ final class NamespacePrefixToken extends EditableTokenWithVariableText {
     if ($value === $this->getTrailing()) {
       return $this;
     }
-    return new self($this->getLeading(), $value, $this->getText());
-  }
-
-  public function withText(string $value): this {
-    if ($value === $this->getText()) {
-      return $this;
-    }
-    return new self($this->getLeading(), $this->getTrailing(), $value);
+    return new self($this->getLeading(), $value);
   }
 
   <<__Override>>
@@ -58,14 +51,11 @@ final class NamespacePrefixToken extends EditableTokenWithVariableText {
     $parents[] = $this;
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
-    $text = $this->getText();
     if (
-      $leading === $this->getLeading() &&
-      $trailing === $this->getTrailing() &&
-      $text === $this->getText()
+      $leading === $this->getLeading() && $trailing === $this->getTrailing()
     ) {
       return $this;
     }
-    return new self($leading, $trailing, $text);
+    return new self($leading, $trailing);
   }
 }

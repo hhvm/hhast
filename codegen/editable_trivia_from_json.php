@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<60392e5bab65e688266598f7491dd93d>>
+ * @generated SignedSource<<192fe7d6dc487b7ce19b623c72bcef30>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -33,6 +33,10 @@ function editable_trivia_from_json(
       return new HHAST\IgnoreError($trivia_text);
     case 'fall_through':
       return new HHAST\FallThrough($trivia_text);
+    case 'extra_token_error':
+      return new HHAST\ExtraTokenError($trivia_text);
+    case 'after_halt_compiler':
+      return new HHAST\AfterHaltCompiler($trivia_text);
     default:
       throw new HHAST\UnsupportedASTNodeError(
         $file,

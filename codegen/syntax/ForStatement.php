@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8f4414e992c97af3638545a95ede928b>>
+ * @generated SignedSource<<bb72524e059d8324d83d7fb01056f427>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -497,8 +497,8 @@ final class ForStatement extends EditableNode
   }
 
   /**
-   * @returns ExpressionStatement | CompoundStatement | UnsetStatement |
-   * EchoStatement | ForStatement
+   * @returns CompoundStatement | ExpressionStatement | EchoStatement |
+   * ForStatement | UnsetStatement
    */
   public function getBody(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_body);

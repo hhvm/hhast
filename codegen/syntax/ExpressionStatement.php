@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0adc87863137f17c42a88c68a58dcf4d>>
+ * @generated SignedSource<<3f4623727b14d8fad8b554f49d1573bf>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -86,19 +86,19 @@ final class ExpressionStatement extends EditableNode {
   }
 
   /**
-   * @returns BinaryExpression | FunctionCallExpression | PrefixUnaryExpression
-   * | YieldExpression | PostfixUnaryExpression | Missing |
-   * ObjectCreationExpression | InclusionExpression | DefineExpression |
-   * SubscriptExpression | VariableExpression | ScopeResolutionExpression |
-   * IssetExpression | EmptyExpression | EvalExpression |
-   * QualifiedNameExpression | RightBraceToken | ParenthesizedExpression |
-   * LiteralExpression | MemberSelectionExpression | XHPExpression |
-   * CollectionLiteralExpression | AnonymousFunction | LambdaExpression |
-   * ColonToken | CommaToken | RightParenToken | EqualGreaterThanToken |
-   * ConditionalExpression | SafeMemberSelectionExpression | TupleExpression |
-   * RightBracketToken | ArrayIntrinsicExpression | EqualEqualEqualToken |
-   * SlashToken | DarrayIntrinsicExpression | VarrayIntrinsicExpression |
-   * DotDotDotToken
+   * @returns FunctionCallExpression | BinaryExpression | XHPExpression |
+   * PrefixUnaryExpression | PostfixUnaryExpression | Missing |
+   * ObjectCreationExpression | YieldExpression | DefineExpression |
+   * InclusionExpression | EvalExpression | NameToken |
+   * ScopeResolutionExpression | SubscriptExpression | IssetExpression |
+   * EmptyExpression | LiteralExpression | AnonymousFunction |
+   * ParenthesizedExpression | MemberSelectionExpression | VariableExpression |
+   * CollectionLiteralExpression | FunctionCallWithTypeArgumentsExpression |
+   * LambdaExpression | TupleExpression | CommaToken | YieldFromExpression |
+   * ConditionalExpression | RightBraceToken | SafeMemberSelectionExpression |
+   * QualifiedName | HaltCompilerExpression | ColonToken | EqualEqualEqualToken
+   * | DarrayIntrinsicExpression | VarrayIntrinsicExpression |
+   * ArrayIntrinsicExpression | RightParenToken
    */
   public function getExpression(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_expression);

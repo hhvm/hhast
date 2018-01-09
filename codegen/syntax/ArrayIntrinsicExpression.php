@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0ab84ce4e93490c2a3ff56e52a787b45>>
+ * @generated SignedSource<<4e3010966d3a3c9b641f886739809977>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -168,7 +168,7 @@ final class ArrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList | Missing
+   * @returns Missing | EditableList
    */
   public function getMembers(): ?EditableList {
     if ($this->_members->isMissing()) {
@@ -201,19 +201,9 @@ final class ArrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns RightParenToken | Missing
-   */
-  public function getRightParen(): ?RightParenToken {
-    if ($this->_right_paren->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
-  }
-
-  /**
    * @returns RightParenToken
    */
-  public function getRightParenx(): RightParenToken {
+  public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 }

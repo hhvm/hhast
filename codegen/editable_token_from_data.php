@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<65624e1a16177a44b9dd3187295bb1c3>>
+ * @generated SignedSource<<45004a2265b835ddbd1b836daeab55cb>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -52,6 +52,7 @@ class TokenClassMap {
       'continue' => HHAST\ContinueToken::class,
       'coroutine' => HHAST\CoroutineToken::class,
       'darray' => HHAST\DarrayToken::class,
+      'declare' => HHAST\DeclareToken::class,
       'default' => HHAST\DefaultToken::class,
       'define' => HHAST\DefineToken::class,
       '__destruct' => HHAST\DestructToken::class,
@@ -62,6 +63,7 @@ class TokenClassMap {
       'else' => HHAST\ElseToken::class,
       'elseif' => HHAST\ElseifToken::class,
       'empty' => HHAST\EmptyToken::class,
+      'endif' => HHAST\EndifToken::class,
       'enum' => HHAST\EnumToken::class,
       'eval' => HHAST\EvalToken::class,
       'extends' => HHAST\ExtendsToken::class,
@@ -71,6 +73,7 @@ class TokenClassMap {
       'finally' => HHAST\FinallyToken::class,
       'for' => HHAST\ForToken::class,
       'foreach' => HHAST\ForeachToken::class,
+      'from' => HHAST\FromToken::class,
       'function' => HHAST\FunctionToken::class,
       'global' => HHAST\GlobalToken::class,
       'goto' => HHAST\GotoToken::class,
@@ -78,10 +81,12 @@ class TokenClassMap {
       'implements' => HHAST\ImplementsToken::class,
       'include' => HHAST\IncludeToken::class,
       'include_once' => HHAST\Include_onceToken::class,
+      'inout' => HHAST\InoutToken::class,
       'instanceof' => HHAST\InstanceofToken::class,
       'insteadof' => HHAST\InsteadofToken::class,
       'int' => HHAST\IntToken::class,
       'interface' => HHAST\InterfaceToken::class,
+      'is' => HHAST\IsToken::class,
       'isset' => HHAST\IssetToken::class,
       'keyset' => HHAST\KeysetToken::class,
       'list' => HHAST\ListToken::class,
@@ -118,6 +123,7 @@ class TokenClassMap {
       'type' => HHAST\TypeToken::class,
       'unset' => HHAST\UnsetToken::class,
       'use' => HHAST\UseToken::class,
+      'using' => HHAST\UsingToken::class,
       'var' => HHAST\VarToken::class,
       'varray' => HHAST\VarrayToken::class,
       'vec' => HHAST\VecToken::class,
@@ -127,17 +133,20 @@ class TokenClassMap {
       'xor' => HHAST\XorToken::class,
       'yield' => HHAST\YieldToken::class,
       'null' => HHAST\NullLiteralToken::class,
+      '__halt_compiler' => HHAST\HaltCompilerToken::class,
       'error_token' => HHAST\ErrorTokenToken::class,
       'name' => HHAST\NameToken::class,
-      'qualified_name' => HHAST\QualifiedNameToken::class,
       'variable' => HHAST\VariableToken::class,
-      'namespace_prefix' => HHAST\NamespacePrefixToken::class,
       'decimal_literal' => HHAST\DecimalLiteralToken::class,
       'octal_literal' => HHAST\OctalLiteralToken::class,
       'hexadecimal_literal' => HHAST\HexadecimalLiteralToken::class,
       'binary_literal' => HHAST\BinaryLiteralToken::class,
       'floating_literal' => HHAST\FloatingLiteralToken::class,
-      'execution_string' => HHAST\ExecutionStringToken::class,
+      'execution_string_literal' => HHAST\ExecutionStringLiteralToken::class,
+      'execution_string_literal_head' =>
+        HHAST\ExecutionStringLiteralHeadToken::class,
+      'execution_string_literal_tail' =>
+        HHAST\ExecutionStringLiteralTailToken::class,
       'single_quoted_string_literal' =>
         HHAST\SingleQuotedStringLiteralToken::class,
       'double_quoted_string_literal' =>
@@ -165,6 +174,7 @@ class TokenClassMap {
   const dict<string, classname<HHAST\EditableTokenWithFixedText>>
     WITHOUT_TEXT = dict[
       'end_of_file' => HHAST\EndOfFileToken::class,
+      '\\' => HHAST\BackslashToken::class,
       '[' => HHAST\LeftBracketToken::class,
       ']' => HHAST\RightBracketToken::class,
       '(' => HHAST\LeftParenToken::class,
@@ -202,6 +212,7 @@ class TokenClassMap {
       '&&' => HHAST\AmpersandAmpersandToken::class,
       '||' => HHAST\BarBarToken::class,
       '?' => HHAST\QuestionToken::class,
+      '?:' => HHAST\QuestionColonToken::class,
       '??' => HHAST\QuestionQuestionToken::class,
       ':' => HHAST\ColonToken::class,
       ';' => HHAST\SemicolonToken::class,

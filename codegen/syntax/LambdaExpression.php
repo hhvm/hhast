@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fec01f5dbd9b5261b760695a597355aa>>
+ * @generated SignedSource<<203c3c2de96964c89aa9317780197daf>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -170,10 +170,20 @@ final class LambdaExpression extends EditableNode {
   }
 
   /**
-   * @returns Missing
+   * @returns Missing | CoroutineToken
    */
-  public function getCoroutine(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_coroutine);
+  public function getCoroutine(): ?CoroutineToken {
+    if ($this->_coroutine->isMissing()) {
+      return null;
+    }
+    return TypeAssert\instance_of(CoroutineToken::class, $this->_coroutine);
+  }
+
+  /**
+   * @returns CoroutineToken
+   */
+  public function getCoroutinex(): CoroutineToken {
+    return TypeAssert\instance_of(CoroutineToken::class, $this->_coroutine);
   }
 
   public function getSignatureUNTYPED(): EditableNode {
@@ -226,20 +236,9 @@ final class LambdaExpression extends EditableNode {
   }
 
   /**
-   * @returns EqualEqualGreaterThanToken | Missing
-   */
-  public function getArrow(): ?EqualEqualGreaterThanToken {
-    if ($this->_arrow->isMissing()) {
-      return null;
-    }
-    return
-      TypeAssert\instance_of(EqualEqualGreaterThanToken::class, $this->_arrow);
-  }
-
-  /**
    * @returns EqualEqualGreaterThanToken
    */
-  public function getArrowx(): EqualEqualGreaterThanToken {
+  public function getArrow(): EqualEqualGreaterThanToken {
     return
       TypeAssert\instance_of(EqualEqualGreaterThanToken::class, $this->_arrow);
   }
@@ -266,12 +265,11 @@ final class LambdaExpression extends EditableNode {
   }
 
   /**
-   * @returns FunctionCallExpression | CompoundStatement |
-   * MemberSelectionExpression | VariableExpression | BinaryExpression |
-   * PrefixUnaryExpression | LambdaExpression | LiteralExpression |
-   * ConditionalExpression | SubscriptExpression | CastExpression |
-   * ParenthesizedExpression | ArrayIntrinsicExpression |
-   * ObjectCreationExpression | Missing | TupleExpression
+   * @returns CompoundStatement | SubscriptExpression | FunctionCallExpression
+   * | LambdaExpression | BinaryExpression | VariableExpression |
+   * LiteralExpression | MemberSelectionExpression | PrefixUnaryExpression |
+   * ArrayIntrinsicExpression | ConditionalExpression | CastExpression |
+   * ParenthesizedExpression | ObjectCreationExpression
    */
   public function getBody(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_body);

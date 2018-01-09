@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8a36c756bd0b033746de6f92b1060ee1>>
+ * @generated SignedSource<<c2b0f794058da1dc59fe9ebb79ee324f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -336,7 +336,8 @@ final class EnumDeclaration extends EditableNode {
   }
 
   /**
-   * @returns SimpleTypeSpecifier | ClassnameTypeSpecifier
+   * @returns SimpleTypeSpecifier | ClassnameTypeSpecifier |
+   * GenericTypeSpecifier
    */
   public function getBase(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_base);

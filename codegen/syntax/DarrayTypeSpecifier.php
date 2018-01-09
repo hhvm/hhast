@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0eb540c44888a49a8d7e3bad7be7e325>>
+ * @generated SignedSource<<66552f80f625872f1a0434f8ceefa4e5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -296,10 +296,11 @@ final class DarrayTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns SimpleTypeSpecifier
+   * @returns SimpleTypeSpecifier | VarrayTypeSpecifier | DarrayTypeSpecifier |
+   * VectorArrayTypeSpecifier
    */
-  public function getValue(): SimpleTypeSpecifier {
-    return TypeAssert\instance_of(SimpleTypeSpecifier::class, $this->_value);
+  public function getValue(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_value);
   }
 
   public function getTrailingCommaUNTYPED(): EditableNode {

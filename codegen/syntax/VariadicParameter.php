@@ -2,17 +2,25 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a89ece80bfc0a1f9d5f5cbddbf8c00bc>>
+ * @generated SignedSource<<c579b7780557b0f29d1af3f508fecf94>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 final class VariadicParameter extends EditableNode {
 
+  private EditableNode $_call_convention;
+  private EditableNode $_type;
   private EditableNode $_ellipsis;
 
-  public function __construct(EditableNode $ellipsis) {
+  public function __construct(
+    EditableNode $call_convention,
+    EditableNode $type,
+    EditableNode $ellipsis,
+  ) {
     parent::__construct('variadic_parameter');
+    $this->_call_convention = $call_convention;
+    $this->_type = $type;
     $this->_ellipsis = $ellipsis;
   }
 
@@ -23,6 +31,20 @@ final class VariadicParameter extends EditableNode {
     int $offset,
     string $source,
   ): this {
+    $call_convention = EditableNode::fromJSON(
+      /* UNSAFE_EXPR */ $json['variadic_parameter_call_convention'],
+      $file,
+      $offset,
+      $source,
+    );
+    $offset += $call_convention->getWidth();
+    $type = EditableNode::fromJSON(
+      /* UNSAFE_EXPR */ $json['variadic_parameter_type'],
+      $file,
+      $offset,
+      $source,
+    );
+    $offset += $type->getWidth();
     $ellipsis = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['variadic_parameter_ellipsis'],
       $file,
@@ -30,12 +52,14 @@ final class VariadicParameter extends EditableNode {
       $source,
     );
     $offset += $ellipsis->getWidth();
-    return new self($ellipsis);
+    return new self($call_convention, $type, $ellipsis);
   }
 
   <<__Override>>
   public function getChildren(): dict<string, EditableNode> {
     return dict[
+      'call_convention' => $this->_call_convention,
+      'type' => $this->_type,
       'ellipsis' => $this->_ellipsis,
     ];
   }
@@ -47,11 +71,71 @@ final class VariadicParameter extends EditableNode {
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
+    $call_convention = $this->_call_convention->rewrite($rewriter, $parents);
+    $type = $this->_type->rewrite($rewriter, $parents);
     $ellipsis = $this->_ellipsis->rewrite($rewriter, $parents);
-    if ($ellipsis === $this->_ellipsis) {
+    if (
+      $call_convention === $this->_call_convention &&
+      $type === $this->_type &&
+      $ellipsis === $this->_ellipsis
+    ) {
       return $this;
     }
-    return new self($ellipsis);
+    return new self($call_convention, $type, $ellipsis);
+  }
+
+  public function getCallConventionUNTYPED(): EditableNode {
+    return $this->_call_convention;
+  }
+
+  public function withCallConvention(EditableNode $value): this {
+    if ($value === $this->_call_convention) {
+      return $this;
+    }
+    return new self($value, $this->_type, $this->_ellipsis);
+  }
+
+  public function hasCallConvention(): bool {
+    return !$this->_call_convention->isMissing();
+  }
+
+  /**
+   * @returns Missing
+   */
+  public function getCallConvention(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_call_convention);
+  }
+
+  public function getTypeUNTYPED(): EditableNode {
+    return $this->_type;
+  }
+
+  public function withType(EditableNode $value): this {
+    if ($value === $this->_type) {
+      return $this;
+    }
+    return new self($this->_call_convention, $value, $this->_ellipsis);
+  }
+
+  public function hasType(): bool {
+    return !$this->_type->isMissing();
+  }
+
+  /**
+   * @returns Missing | SimpleTypeSpecifier
+   */
+  public function getType(): ?SimpleTypeSpecifier {
+    if ($this->_type->isMissing()) {
+      return null;
+    }
+    return TypeAssert\instance_of(SimpleTypeSpecifier::class, $this->_type);
+  }
+
+  /**
+   * @returns SimpleTypeSpecifier
+   */
+  public function getTypex(): SimpleTypeSpecifier {
+    return TypeAssert\instance_of(SimpleTypeSpecifier::class, $this->_type);
   }
 
   public function getEllipsisUNTYPED(): EditableNode {
@@ -62,7 +146,7 @@ final class VariadicParameter extends EditableNode {
     if ($value === $this->_ellipsis) {
       return $this;
     }
-    return new self($value);
+    return new self($this->_call_convention, $this->_type, $value);
   }
 
   public function hasEllipsis(): bool {

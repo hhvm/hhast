@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<633c23863f255510fabfeb2db34773fd>>
+ * @generated SignedSource<<a87bf56df8e7e6e5b127f2a298d54fdb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -13,7 +13,7 @@ final class ClosureTypeSpecifier extends EditableNode {
   private EditableNode $_coroutine;
   private EditableNode $_function_keyword;
   private EditableNode $_inner_left_paren;
-  private EditableNode $_parameter_types;
+  private EditableNode $_parameter_list;
   private EditableNode $_inner_right_paren;
   private EditableNode $_colon;
   private EditableNode $_return_type;
@@ -24,7 +24,7 @@ final class ClosureTypeSpecifier extends EditableNode {
     EditableNode $coroutine,
     EditableNode $function_keyword,
     EditableNode $inner_left_paren,
-    EditableNode $parameter_types,
+    EditableNode $parameter_list,
     EditableNode $inner_right_paren,
     EditableNode $colon,
     EditableNode $return_type,
@@ -35,7 +35,7 @@ final class ClosureTypeSpecifier extends EditableNode {
     $this->_coroutine = $coroutine;
     $this->_function_keyword = $function_keyword;
     $this->_inner_left_paren = $inner_left_paren;
-    $this->_parameter_types = $parameter_types;
+    $this->_parameter_list = $parameter_list;
     $this->_inner_right_paren = $inner_right_paren;
     $this->_colon = $colon;
     $this->_return_type = $return_type;
@@ -77,13 +77,13 @@ final class ClosureTypeSpecifier extends EditableNode {
       $source,
     );
     $offset += $inner_left_paren->getWidth();
-    $parameter_types = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['closure_parameter_types'],
+    $parameter_list = EditableNode::fromJSON(
+      /* UNSAFE_EXPR */ $json['closure_parameter_list'],
       $file,
       $offset,
       $source,
     );
-    $offset += $parameter_types->getWidth();
+    $offset += $parameter_list->getWidth();
     $inner_right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['closure_inner_right_paren'],
       $file,
@@ -117,7 +117,7 @@ final class ClosureTypeSpecifier extends EditableNode {
       $coroutine,
       $function_keyword,
       $inner_left_paren,
-      $parameter_types,
+      $parameter_list,
       $inner_right_paren,
       $colon,
       $return_type,
@@ -132,7 +132,7 @@ final class ClosureTypeSpecifier extends EditableNode {
       'coroutine' => $this->_coroutine,
       'function_keyword' => $this->_function_keyword,
       'inner_left_paren' => $this->_inner_left_paren,
-      'parameter_types' => $this->_parameter_types,
+      'parameter_list' => $this->_parameter_list,
       'inner_right_paren' => $this->_inner_right_paren,
       'colon' => $this->_colon,
       'return_type' => $this->_return_type,
@@ -151,7 +151,7 @@ final class ClosureTypeSpecifier extends EditableNode {
     $coroutine = $this->_coroutine->rewrite($rewriter, $parents);
     $function_keyword = $this->_function_keyword->rewrite($rewriter, $parents);
     $inner_left_paren = $this->_inner_left_paren->rewrite($rewriter, $parents);
-    $parameter_types = $this->_parameter_types->rewrite($rewriter, $parents);
+    $parameter_list = $this->_parameter_list->rewrite($rewriter, $parents);
     $inner_right_paren =
       $this->_inner_right_paren->rewrite($rewriter, $parents);
     $colon = $this->_colon->rewrite($rewriter, $parents);
@@ -163,7 +163,7 @@ final class ClosureTypeSpecifier extends EditableNode {
       $coroutine === $this->_coroutine &&
       $function_keyword === $this->_function_keyword &&
       $inner_left_paren === $this->_inner_left_paren &&
-      $parameter_types === $this->_parameter_types &&
+      $parameter_list === $this->_parameter_list &&
       $inner_right_paren === $this->_inner_right_paren &&
       $colon === $this->_colon &&
       $return_type === $this->_return_type &&
@@ -176,7 +176,7 @@ final class ClosureTypeSpecifier extends EditableNode {
       $coroutine,
       $function_keyword,
       $inner_left_paren,
-      $parameter_types,
+      $parameter_list,
       $inner_right_paren,
       $colon,
       $return_type,
@@ -197,7 +197,7 @@ final class ClosureTypeSpecifier extends EditableNode {
       $this->_coroutine,
       $this->_function_keyword,
       $this->_inner_left_paren,
-      $this->_parameter_types,
+      $this->_parameter_list,
       $this->_inner_right_paren,
       $this->_colon,
       $this->_return_type,
@@ -230,7 +230,7 @@ final class ClosureTypeSpecifier extends EditableNode {
       $value,
       $this->_function_keyword,
       $this->_inner_left_paren,
-      $this->_parameter_types,
+      $this->_parameter_list,
       $this->_inner_right_paren,
       $this->_colon,
       $this->_return_type,
@@ -243,10 +243,20 @@ final class ClosureTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns Missing
+   * @returns Missing | CoroutineToken
    */
-  public function getCoroutine(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_coroutine);
+  public function getCoroutine(): ?CoroutineToken {
+    if ($this->_coroutine->isMissing()) {
+      return null;
+    }
+    return TypeAssert\instance_of(CoroutineToken::class, $this->_coroutine);
+  }
+
+  /**
+   * @returns CoroutineToken
+   */
+  public function getCoroutinex(): CoroutineToken {
+    return TypeAssert\instance_of(CoroutineToken::class, $this->_coroutine);
   }
 
   public function getFunctionKeywordUNTYPED(): EditableNode {
@@ -262,7 +272,7 @@ final class ClosureTypeSpecifier extends EditableNode {
       $this->_coroutine,
       $value,
       $this->_inner_left_paren,
-      $this->_parameter_types,
+      $this->_parameter_list,
       $this->_inner_right_paren,
       $this->_colon,
       $this->_return_type,
@@ -295,7 +305,7 @@ final class ClosureTypeSpecifier extends EditableNode {
       $this->_coroutine,
       $this->_function_keyword,
       $value,
-      $this->_parameter_types,
+      $this->_parameter_list,
       $this->_inner_right_paren,
       $this->_colon,
       $this->_return_type,
@@ -315,12 +325,12 @@ final class ClosureTypeSpecifier extends EditableNode {
       TypeAssert\instance_of(LeftParenToken::class, $this->_inner_left_paren);
   }
 
-  public function getParameterTypesUNTYPED(): EditableNode {
-    return $this->_parameter_types;
+  public function getParameterListUNTYPED(): EditableNode {
+    return $this->_parameter_list;
   }
 
-  public function withParameterTypes(EditableNode $value): this {
-    if ($value === $this->_parameter_types) {
+  public function withParameterList(EditableNode $value): this {
+    if ($value === $this->_parameter_list) {
       return $this;
     }
     return new self(
@@ -336,25 +346,25 @@ final class ClosureTypeSpecifier extends EditableNode {
     );
   }
 
-  public function hasParameterTypes(): bool {
-    return !$this->_parameter_types->isMissing();
+  public function hasParameterList(): bool {
+    return !$this->_parameter_list->isMissing();
   }
 
   /**
    * @returns EditableList | Missing
    */
-  public function getParameterTypes(): ?EditableList {
-    if ($this->_parameter_types->isMissing()) {
+  public function getParameterList(): ?EditableList {
+    if ($this->_parameter_list->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableList::class, $this->_parameter_types);
+    return TypeAssert\instance_of(EditableList::class, $this->_parameter_list);
   }
 
   /**
    * @returns EditableList
    */
-  public function getParameterTypesx(): EditableList {
-    return TypeAssert\instance_of(EditableList::class, $this->_parameter_types);
+  public function getParameterListx(): EditableList {
+    return TypeAssert\instance_of(EditableList::class, $this->_parameter_list);
   }
 
   public function getInnerRightParenUNTYPED(): EditableNode {
@@ -370,7 +380,7 @@ final class ClosureTypeSpecifier extends EditableNode {
       $this->_coroutine,
       $this->_function_keyword,
       $this->_inner_left_paren,
-      $this->_parameter_types,
+      $this->_parameter_list,
       $value,
       $this->_colon,
       $this->_return_type,
@@ -403,7 +413,7 @@ final class ClosureTypeSpecifier extends EditableNode {
       $this->_coroutine,
       $this->_function_keyword,
       $this->_inner_left_paren,
-      $this->_parameter_types,
+      $this->_parameter_list,
       $this->_inner_right_paren,
       $value,
       $this->_return_type,
@@ -435,7 +445,7 @@ final class ClosureTypeSpecifier extends EditableNode {
       $this->_coroutine,
       $this->_function_keyword,
       $this->_inner_left_paren,
-      $this->_parameter_types,
+      $this->_parameter_list,
       $this->_inner_right_paren,
       $this->_colon,
       $value,
@@ -448,7 +458,8 @@ final class ClosureTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns SimpleTypeSpecifier | NullableTypeSpecifier | GenericTypeSpecifier
+   * @returns SimpleTypeSpecifier | GenericTypeSpecifier |
+   * NullableTypeSpecifier | ClosureTypeSpecifier
    */
   public function getReturnType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_return_type);
@@ -467,7 +478,7 @@ final class ClosureTypeSpecifier extends EditableNode {
       $this->_coroutine,
       $this->_function_keyword,
       $this->_inner_left_paren,
-      $this->_parameter_types,
+      $this->_parameter_list,
       $this->_inner_right_paren,
       $this->_colon,
       $this->_return_type,

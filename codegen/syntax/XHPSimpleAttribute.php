@@ -2,12 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7a60e3204ad38817f14d121272f1b2a9>>
+ * @generated SignedSource<<5f37defd63f945ca5ad67a5d687e7053>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class XHPAttribute extends EditableNode {
+final class XHPSimpleAttribute extends EditableNode {
 
   private EditableNode $_name;
   private EditableNode $_equal;
@@ -18,7 +18,7 @@ final class XHPAttribute extends EditableNode {
     EditableNode $equal,
     EditableNode $expression,
   ) {
-    parent::__construct('xhp_attribute');
+    parent::__construct('xhp_simple_attribute');
     $this->_name = $name;
     $this->_equal = $equal;
     $this->_expression = $expression;
@@ -32,21 +32,21 @@ final class XHPAttribute extends EditableNode {
     string $source,
   ): this {
     $name = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['xhp_attribute_name'],
+      /* UNSAFE_EXPR */ $json['xhp_simple_attribute_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
     $equal = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['xhp_attribute_equal'],
+      /* UNSAFE_EXPR */ $json['xhp_simple_attribute_equal'],
       $file,
       $offset,
       $source,
     );
     $offset += $equal->getWidth();
     $expression = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['xhp_attribute_expression'],
+      /* UNSAFE_EXPR */ $json['xhp_simple_attribute_expression'],
       $file,
       $offset,
       $source,
@@ -154,7 +154,7 @@ final class XHPAttribute extends EditableNode {
   }
 
   /**
-   * @returns XHPStringLiteralToken | BracedExpression | Missing
+   * @returns BracedExpression | XHPStringLiteralToken | Missing
    */
   public function getExpression(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_expression);

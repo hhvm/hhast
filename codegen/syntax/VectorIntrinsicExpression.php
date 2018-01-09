@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<27fd1756f130306202bf7fe5df0e25fe>>
+ * @generated SignedSource<<a96f55e1c60c8772d1da14c3121a2130>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -169,7 +169,7 @@ final class VectorIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns Missing | EditableList
+   * @returns EditableList | Missing
    */
   public function getMembers(): ?EditableList {
     if ($this->_members->isMissing()) {

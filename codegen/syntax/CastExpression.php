@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d42833c1d2c8a761db1f293335f43918>>
+ * @generated SignedSource<<08db012fc3c1e69d8895dca139114483>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -140,8 +140,8 @@ final class CastExpression extends EditableNode {
   }
 
   /**
-   * @returns DoubleToken | StringToken | BoolToken | IntToken | ArrayToken |
-   * ObjectToken | FloatToken | NameToken
+   * @returns IntToken | DoubleToken | StringToken | BoolToken | ObjectToken |
+   * ArrayToken | FloatToken | UnsetToken | NameToken
    */
   public function getType(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_type);
@@ -186,14 +186,14 @@ final class CastExpression extends EditableNode {
   }
 
   /**
-   * @returns LiteralExpression | FunctionCallExpression | VariableExpression |
-   * ParenthesizedExpression | MemberSelectionExpression |
-   * ArrayCreationExpression | ArrayIntrinsicExpression |
+   * @returns VariableExpression | ParenthesizedExpression | LiteralExpression
+   * | FunctionCallExpression | MemberSelectionExpression | SubscriptExpression
+   * | ObjectCreationExpression | NameToken | ArrayIntrinsicExpression |
+   * CastExpression | ArrayCreationExpression | ScopeResolutionExpression |
+   * VectorIntrinsicExpression | PostfixUnaryExpression |
    * CollectionLiteralExpression | DictionaryIntrinsicExpression |
-   * CastExpression | ObjectCreationExpression | SubscriptExpression |
-   * ScopeResolutionExpression | PostfixUnaryExpression |
-   * QualifiedNameExpression | VectorIntrinsicExpression | XHPExpression |
-   * PrefixUnaryExpression | AnonymousFunction | InstanceofExpression
+   * XHPExpression | InstanceofExpression | AnonymousFunction |
+   * PrefixUnaryExpression
    */
   public function getOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_operand);

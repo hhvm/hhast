@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d7bdfbb690c7aed210569dd10ee4a94e>>
+ * @generated SignedSource<<aea9512f25ffee8c3b52a55812463486>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -122,14 +122,14 @@ final class ParenthesizedExpression extends EditableNode {
   }
 
   /**
-   * @returns FunctionCallExpression | BinaryExpression | ConditionalExpression
-   * | LiteralExpression | PrefixUnaryExpression | ObjectCreationExpression |
-   * PostfixUnaryExpression | AnonymousFunction | InstanceofExpression |
-   * VariableExpression | ParenthesizedExpression | ArrayIntrinsicExpression |
-   * XHPExpression | IssetExpression | ScopeResolutionExpression |
-   * SubscriptExpression | MemberSelectionExpression |
-   * CollectionLiteralExpression | LambdaExpression | RightParenToken |
-   * QualifiedNameExpression | CastExpression | YieldExpression |
+   * @returns BinaryExpression | PrefixUnaryExpression | ConditionalExpression
+   * | FunctionCallExpression | PostfixUnaryExpression |
+   * CollectionLiteralExpression | ObjectCreationExpression |
+   * VariableExpression | LiteralExpression | InstanceofExpression |
+   * ArrayIntrinsicExpression | IssetExpression | XHPExpression |
+   * ParenthesizedExpression | ScopeResolutionExpression | SubscriptExpression
+   * | MemberSelectionExpression | AnonymousFunction | LambdaExpression |
+   * CastExpression | YieldExpression | NameToken | QualifiedName |
    * EmptyExpression | InclusionExpression | QuestionToken
    */
   public function getExpression(): EditableNode {

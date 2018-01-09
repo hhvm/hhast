@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bf44d8c11687776fce2a2753a4716061>>
+ * @generated SignedSource<<36c2814cb8dc0f1fd4696964de0de0fd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -164,7 +164,7 @@ final class XHPOpen extends EditableNode {
   }
 
   /**
-   * @returns Missing | EditableList
+   * @returns EditableList | Missing
    */
   public function getAttributes(): ?EditableList {
     if ($this->_attributes->isMissing()) {
@@ -197,7 +197,7 @@ final class XHPOpen extends EditableNode {
   }
 
   /**
-   * @returns SlashGreaterThanToken | Missing | GreaterThanToken
+   * @returns SlashGreaterThanToken | GreaterThanToken | Missing
    */
   public function getRightAngle(): ?EditableToken {
     if ($this->_right_angle->isMissing()) {

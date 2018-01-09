@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e94cf70425faa94b55964adf6d1caf74>>
+ * @generated SignedSource<<588509f9db7183e918adfe054241b0c5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -218,19 +218,9 @@ final class UnsetStatement extends EditableNode {
   }
 
   /**
-   * @returns RightParenToken | Missing
-   */
-  public function getRightParen(): ?RightParenToken {
-    if ($this->_right_paren->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
-  }
-
-  /**
    * @returns RightParenToken
    */
-  public function getRightParenx(): RightParenToken {
+  public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
@@ -256,19 +246,9 @@ final class UnsetStatement extends EditableNode {
   }
 
   /**
-   * @returns SemicolonToken | Missing
-   */
-  public function getSemicolon(): ?SemicolonToken {
-    if ($this->_semicolon->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
-  }
-
-  /**
    * @returns SemicolonToken
    */
-  public function getSemicolonx(): SemicolonToken {
+  public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 }

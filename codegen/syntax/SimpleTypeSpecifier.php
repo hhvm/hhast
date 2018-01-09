@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0dee6afa771831e99d3f30645be5a04c>>
+ * @generated SignedSource<<c1e7519680074a90823f9ed79d5ffae0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -70,13 +70,13 @@ final class SimpleTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns NameToken | ArrayToken | VoidToken | IntToken | StringToken |
-   * QualifiedNameToken | BoolToken | DoubleToken | FloatToken | DictToken |
-   * MixedToken | ArraykeyToken | VecToken | KeysetToken | SelfToken |
-   * ResourceToken | XHPClassNameToken | ThisToken | ParentToken | NumToken |
-   * VarrayToken | DarrayToken | NoreturnToken
+   * @returns XHPClassNameToken | MixedToken | NameToken | IntToken | VarToken
+   * | StringToken | SelfToken | ArrayToken | VoidToken | BoolToken |
+   * FloatToken | ResourceToken | ThisToken | ParentToken | DoubleToken |
+   * NumToken | ObjectToken | VecToken | DictToken | KeysetToken |
+   * QualifiedName | ArraykeyToken | VarrayToken | DarrayToken | NoreturnToken
    */
-  public function getSpecifier(): EditableToken {
-    return TypeAssert\instance_of(EditableToken::class, $this->_specifier);
+  public function getSpecifier(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_specifier);
   }
 }

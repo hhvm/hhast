@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<77c9ac2ecafdef9bb6f827637190d257>>
+ * @generated SignedSource<<69ff6c5ac12912588d4cf541f13ab48a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -118,12 +118,10 @@ final class FunctionCallExpression extends EditableNode {
   }
 
   /**
-   * @returns QualifiedNameExpression | MemberSelectionExpression |
-   * ScopeResolutionExpression | VariableExpression | ParenthesizedExpression |
-   * SubscriptExpression | GenericTypeSpecifier | GreaterThanToken |
-   * SafeMemberSelectionExpression | FunctionCallExpression |
-   * ArrayCreationExpression | LiteralExpression | CommaToken |
-   * PrefixUnaryExpression
+   * @returns ScopeResolutionExpression | NameToken | VariableExpression |
+   * MemberSelectionExpression | ParenthesizedExpression | SubscriptExpression
+   * | QualifiedName | FunctionCallExpression | ArrayCreationExpression |
+   * LiteralExpression | SafeMemberSelectionExpression | PrefixUnaryExpression
    */
   public function getReceiver(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_receiver);
@@ -150,19 +148,9 @@ final class FunctionCallExpression extends EditableNode {
   }
 
   /**
-   * @returns LeftParenToken | Missing
-   */
-  public function getLeftParen(): ?LeftParenToken {
-    if ($this->_left_paren->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
-  }
-
-  /**
    * @returns LeftParenToken
    */
-  public function getLeftParenx(): LeftParenToken {
+  public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
@@ -187,7 +175,7 @@ final class FunctionCallExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList | Missing
+   * @returns Missing | EditableList
    */
   public function getArgumentList(): ?EditableList {
     if ($this->_argument_list->isMissing()) {

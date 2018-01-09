@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c45ad448247616bff28ddf0751d7d2e8>>
+ * @generated SignedSource<<b791c4acf6da61756a336a6f1fd99b57>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -237,9 +237,9 @@ final class SwitchStatement extends EditableNode
   }
 
   /**
-   * @returns BinaryExpression | VariableExpression | FunctionCallExpression |
-   * SubscriptExpression | ConditionalExpression | ObjectCreationExpression |
-   * PrefixUnaryExpression | LiteralExpression | MemberSelectionExpression
+   * @returns VariableExpression | BinaryExpression | SubscriptExpression |
+   * FunctionCallExpression | ObjectCreationExpression | PrefixUnaryExpression
+   * | LiteralExpression | MemberSelectionExpression
    */
   public function getExpression(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_expression);

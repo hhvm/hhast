@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<568d1c7e326fc0a3ed5ff6ade00e7412>>
+ * @generated SignedSource<<b2326aa4e104d921b2b67f0d359d4151>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -100,7 +100,8 @@ final class FieldInitializer extends EditableNode {
   }
 
   /**
-   * @returns LiteralExpression | ScopeResolutionExpression
+   * @returns LiteralExpression | QuestionToken | VariableExpression |
+   * ScopeResolutionExpression
    */
   public function getName(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_name);
@@ -145,7 +146,8 @@ final class FieldInitializer extends EditableNode {
 
   /**
    * @returns LiteralExpression | BinaryExpression | VariableExpression |
-   * SubscriptExpression | ObjectCreationExpression | QualifiedNameExpression
+   * VectorIntrinsicExpression | SubscriptExpression | ArrayIntrinsicExpression
+   * | NameToken | ObjectCreationExpression
    */
   public function getValue(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_value);

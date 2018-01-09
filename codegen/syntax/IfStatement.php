@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5deb04c82100a0577731cae331546394>>
+ * @generated SignedSource<<40b028ecae97407f8603f2ef1ccb69b4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -236,11 +236,12 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
   }
 
   /**
-   * @returns BinaryExpression | FunctionCallExpression | PrefixUnaryExpression
-   * | LiteralExpression | SubscriptExpression | IssetExpression |
-   * VariableExpression | ArrayIntrinsicExpression | InstanceofExpression |
-   * QualifiedNameExpression | CastExpression | MemberSelectionExpression |
-   * ParenthesizedExpression | EmptyExpression | ScopeResolutionExpression
+   * @returns PrefixUnaryExpression | BinaryExpression | VariableExpression |
+   * FunctionCallExpression | LiteralExpression | IssetExpression |
+   * SubscriptExpression | ArrayIntrinsicExpression | MemberSelectionExpression
+   * | CastExpression | InstanceofExpression | NameToken |
+   * ParenthesizedExpression | EmptyExpression | ScopeResolutionExpression |
+   * IsExpression
    */
   public function getCondition(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_condition);
@@ -270,19 +271,9 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
   }
 
   /**
-   * @returns RightParenToken | Missing
-   */
-  public function getRightParen(): ?RightParenToken {
-    if ($this->_right_paren->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
-  }
-
-  /**
    * @returns RightParenToken
    */
-  public function getRightParenx(): RightParenToken {
+  public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
@@ -310,9 +301,9 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
   }
 
   /**
-   * @returns CompoundStatement | ExpressionStatement | EchoStatement |
-   * ThrowStatement | ReturnStatement | BreakStatement | UnsetStatement |
-   * GotoStatement | ContinueStatement | GlobalStatement
+   * @returns CompoundStatement | ThrowStatement | ReturnStatement |
+   * BreakStatement | ExpressionStatement | UnsetStatement | EchoStatement |
+   * GlobalStatement | ContinueStatement | GotoStatement
    */
   public function getStatement(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_statement);
@@ -382,7 +373,7 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
   }
 
   /**
-   * @returns ElseClause | Missing
+   * @returns Missing | ElseClause
    */
   public function getElseClause(): ?ElseClause {
     if ($this->_else_clause->isMissing()) {

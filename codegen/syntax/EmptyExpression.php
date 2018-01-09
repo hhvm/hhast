@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0ba561a7cd54bb0c856e39528e9ddcba>>
+ * @generated SignedSource<<1c2d307e0f66546b3ee7e79ba69a6689>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -169,11 +169,11 @@ final class EmptyExpression extends EditableNode {
 
   /**
    * @returns MemberSelectionExpression | VariableExpression |
-   * SubscriptExpression | ScopeResolutionExpression | PrefixUnaryExpression |
-   * FunctionCallExpression | SafeMemberSelectionExpression |
-   * ArrayIntrinsicExpression | BinaryExpression | ParenthesizedExpression |
-   * ObjectCreationExpression | CollectionLiteralExpression | XHPExpression |
-   * ArrayCreationExpression | LiteralExpression
+   * PrefixUnaryExpression | ScopeResolutionExpression | SubscriptExpression |
+   * BinaryExpression | CollectionLiteralExpression | XHPExpression |
+   * FunctionCallExpression | ParenthesizedExpression |
+   * ArrayIntrinsicExpression | ObjectCreationExpression |
+   * SafeMemberSelectionExpression | ArrayCreationExpression | LiteralExpression
    */
   public function getArgument(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_argument);

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9586e509e9904d50682c4c80580c5d1e>>
+ * @generated SignedSource<<e2acef198f302a484ce147f37a32b26a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -114,7 +114,7 @@ final class XHPClassAttribute extends EditableNode {
   }
 
   /**
-   * @returns GenericTypeSpecifier | SimpleTypeSpecifier | XHPEnumType |
+   * @returns SimpleTypeSpecifier | GenericTypeSpecifier | XHPEnumType |
    * NullableTypeSpecifier | VectorArrayTypeSpecifier | MapArrayTypeSpecifier
    */
   public function getType(): EditableNode {

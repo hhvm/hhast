@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ed095562db3303b697affcd341db8516>>
+ * @generated SignedSource<<fddb4b57fd9bd8c1d961a75f964ad495>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -113,7 +113,7 @@ final class NamespaceUseClause extends EditableNode {
   }
 
   /**
-   * @returns Missing | FunctionToken | ConstToken
+   * @returns Missing | ConstToken | FunctionToken
    */
   public function getClauseKind(): ?EditableToken {
     if ($this->_clause_kind->isMissing()) {
@@ -123,7 +123,7 @@ final class NamespaceUseClause extends EditableNode {
   }
 
   /**
-   * @returns FunctionToken | ConstToken
+   * @returns ConstToken | FunctionToken
    */
   public function getClauseKindx(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_clause_kind);
@@ -145,20 +145,10 @@ final class NamespaceUseClause extends EditableNode {
   }
 
   /**
-   * @returns NameToken | QualifiedNameToken | Missing
+   * @returns QualifiedName | NameToken
    */
-  public function getName(): ?EditableToken {
-    if ($this->_name->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(EditableToken::class, $this->_name);
-  }
-
-  /**
-   * @returns NameToken | QualifiedNameToken
-   */
-  public function getNamex(): EditableToken {
-    return TypeAssert\instance_of(EditableToken::class, $this->_name);
+  public function getName(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_name);
   }
 
   public function getAsUNTYPED(): EditableNode {

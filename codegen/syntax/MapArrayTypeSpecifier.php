@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a3b4a1efa293c511085b1e560aeaeee4>>
+ * @generated SignedSource<<bca8764a6af59e9066dc371dcb5b1147>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -262,8 +262,8 @@ final class MapArrayTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns SimpleTypeSpecifier | GenericTypeSpecifier |
-   * NullableTypeSpecifier | SoftTypeSpecifier
+   * @returns SimpleTypeSpecifier | ShapeTypeSpecifier | SoftTypeSpecifier |
+   * NullableTypeSpecifier | GenericTypeSpecifier | Missing
    */
   public function getValue(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_value);
@@ -292,19 +292,9 @@ final class MapArrayTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns GreaterThanToken | Missing
-   */
-  public function getRightAngle(): ?GreaterThanToken {
-    if ($this->_right_angle->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(GreaterThanToken::class, $this->_right_angle);
-  }
-
-  /**
    * @returns GreaterThanToken
    */
-  public function getRightAnglex(): GreaterThanToken {
+  public function getRightAngle(): GreaterThanToken {
     return TypeAssert\instance_of(GreaterThanToken::class, $this->_right_angle);
   }
 }

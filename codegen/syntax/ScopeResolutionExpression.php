@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a7f93252be4008a05ec307895537a041>>
+ * @generated SignedSource<<f7d2ddb0a3b50354e7177d11ae71a991>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -100,10 +100,11 @@ final class ScopeResolutionExpression extends EditableNode {
   }
 
   /**
-   * @returns QualifiedNameExpression | SelfToken | VariableExpression |
-   * StaticToken | PrefixUnaryExpression | ParentToken | FunctionCallExpression
-   * | ParenthesizedExpression | LiteralExpression | ScopeResolutionExpression
-   * | SimpleTypeSpecifier | PipeVariableExpression
+   * @returns StaticToken | XHPClassNameToken | NameToken | SelfToken |
+   * ParentToken | VariableExpression | PrefixUnaryExpression |
+   * GenericTypeSpecifier | SimpleTypeSpecifier | QualifiedName |
+   * FunctionCallExpression | ParenthesizedExpression | LiteralExpression |
+   * ScopeResolutionExpression | PipeVariableExpression
    */
   public function getQualifier(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_qualifier);
@@ -148,7 +149,7 @@ final class ScopeResolutionExpression extends EditableNode {
 
   /**
    * @returns NameToken | VariableToken | ClassToken | PrefixUnaryExpression |
-   * Missing
+   * BracedExpression
    */
   public function getName(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_name);

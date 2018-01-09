@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<127bc2a87cb6dcaafc631c67032f44d3>>
+ * @generated SignedSource<<d92cb3e19211e5be46b77691e4f43571>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -100,9 +100,9 @@ final class SafeMemberSelectionExpression extends EditableNode {
   }
 
   /**
-   * @returns VariableExpression | FunctionCallExpression |
-   * MemberSelectionExpression | SafeMemberSelectionExpression |
-   * PrefixUnaryExpression | ScopeResolutionExpression
+   * @returns ScopeResolutionExpression | VariableExpression |
+   * MemberSelectionExpression | FunctionCallExpression |
+   * SafeMemberSelectionExpression | PrefixUnaryExpression
    */
   public function getObject(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_object);
@@ -149,19 +149,9 @@ final class SafeMemberSelectionExpression extends EditableNode {
   }
 
   /**
-   * @returns NameToken | XHPClassNameToken | Missing
+   * @returns NameToken | XHPClassNameToken | PrefixUnaryExpression
    */
-  public function getName(): ?EditableToken {
-    if ($this->_name->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(EditableToken::class, $this->_name);
-  }
-
-  /**
-   * @returns NameToken | XHPClassNameToken
-   */
-  public function getNamex(): EditableToken {
-    return TypeAssert\instance_of(EditableToken::class, $this->_name);
+  public function getName(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_name);
   }
 }

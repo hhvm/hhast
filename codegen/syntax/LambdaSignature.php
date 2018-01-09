@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fbfed957d3fe487f9565b24c10d22f5d>>
+ * @generated SignedSource<<112ad13da98a0534d93cc3a50554c964>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -132,19 +132,9 @@ final class LambdaSignature extends EditableNode {
   }
 
   /**
-   * @returns LeftParenToken | Missing
-   */
-  public function getLeftParen(): ?LeftParenToken {
-    if ($this->_left_paren->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
-  }
-
-  /**
    * @returns LeftParenToken
    */
-  public function getLeftParenx(): LeftParenToken {
+  public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
@@ -170,7 +160,7 @@ final class LambdaSignature extends EditableNode {
   }
 
   /**
-   * @returns EditableList | Missing
+   * @returns Missing | EditableList
    */
   public function getParameters(): ?EditableList {
     if ($this->_parameters->isMissing()) {
@@ -208,19 +198,9 @@ final class LambdaSignature extends EditableNode {
   }
 
   /**
-   * @returns RightParenToken | Missing
-   */
-  public function getRightParen(): ?RightParenToken {
-    if ($this->_right_paren->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
-  }
-
-  /**
    * @returns RightParenToken
    */
-  public function getRightParenx(): RightParenToken {
+  public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 

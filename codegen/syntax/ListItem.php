@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<785fc81183edc687a1b6c16e9558088d>>
+ * @generated SignedSource<<6a4fe7f02a8593156d6dfd4857accb89>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -81,32 +81,31 @@ final class ListItem extends EditableNode {
   }
 
   /**
-   * @returns ParameterDeclaration | BinaryExpression | VariableExpression |
-   * LiteralExpression | ArrayIntrinsicExpression | ElementInitializer |
-   * PropertyDeclarator | IssetExpression | MemberSelectionExpression |
-   * EmptyExpression | PrefixUnaryExpression | ObjectCreationExpression |
-   * SimpleTypeSpecifier | FunctionCallExpression | QualifiedNameExpression |
-   * VariableToken | StaticDeclarator | PostfixUnaryExpression |
-   * ParenthesizedExpression | CollectionLiteralExpression |
-   * SubscriptExpression | Attribute | ArrayCreationExpression |
-   * ScopeResolutionExpression | ConditionalExpression | CastExpression |
-   * InstanceofExpression | NamespaceUseClause | ConstantDeclarator |
-   * VectorIntrinsicExpression | DictionaryIntrinsicExpression |
-   * KeysetIntrinsicExpression | AnonymousFunction | TypeParameter |
-   * GenericTypeSpecifier | LambdaExpression | PipeVariableExpression |
-   * DictionaryTypeSpecifier | ListExpression | InclusionExpression |
-   * EvalExpression | VariadicParameter | NullableTypeSpecifier |
-   * TupleTypeSpecifier | ClosureTypeSpecifier | XHPExpression |
-   * XHPClassAttribute | FieldSpecifier | FieldInitializer | ShapeExpression |
-   * WhereConstraint | Missing | VectorArrayTypeSpecifier |
-   * AwaitableCreationExpression | DecoratedExpression | LeftBraceToken |
-   * TypeConstant | DefineExpression | VectorTypeSpecifier |
-   * VarrayIntrinsicExpression | DarrayIntrinsicExpression |
-   * XHPCategoryNameToken | ColonColonToken | SafeMemberSelectionExpression |
-   * NamespacePrefixToken | TupleExpression | SoftTypeSpecifier |
-   * TraitUseConflictResolutionItem | ShapeTypeSpecifier |
-   * MapArrayTypeSpecifier | ClassnameTypeSpecifier | LessThanLessThanToken |
-   * NoreturnToken | XHPSimpleClassAttribute
+   * @returns SimpleTypeSpecifier | XHPClassAttribute | ParameterDeclaration |
+   * BinaryExpression | LiteralExpression | FunctionCallExpression |
+   * VariableExpression | PropertyDeclarator | ScopeResolutionExpression |
+   * SubscriptExpression | PrefixUnaryExpression | PostfixUnaryExpression |
+   * ArrayIntrinsicExpression | ElementInitializer | ParenthesizedExpression |
+   * VariableToken | FieldSpecifier | FieldInitializer | TypeParameter |
+   * Attribute | ShapeExpression | ConstantDeclarator |
+   * ObjectCreationExpression | NameToken | LambdaExpression |
+   * VectorIntrinsicExpression | CollectionLiteralExpression |
+   * MemberSelectionExpression | StaticDeclarator | GenericTypeSpecifier |
+   * ClosureParameterTypeSpecifier | InstanceofExpression | WhereConstraint |
+   * AnonymousFunction | XHPExpression | CastExpression | IssetExpression |
+   * TraitUseAliasItem | EmptyExpression | NullableTypeSpecifier |
+   * TupleTypeSpecifier | ClosureTypeSpecifier | ConditionalExpression |
+   * ArrayCreationExpression | NamespaceUseClause |
+   * DictionaryIntrinsicExpression | KeysetIntrinsicExpression |
+   * InclusionExpression | Missing | ListExpression | PipeVariableExpression |
+   * QualifiedName | VariadicParameter | DictionaryTypeSpecifier |
+   * EvalExpression | DecoratedExpression | VarrayIntrinsicExpression |
+   * DarrayIntrinsicExpression | VectorArrayTypeSpecifier | TupleExpression |
+   * TraitUsePrecedenceItem | VectorTypeSpecifier | TypeConstant |
+   * AwaitableCreationExpression | SafeMemberSelectionExpression |
+   * DefineExpression | ShapeTypeSpecifier | XHPCategoryNameToken |
+   * NoreturnToken | MapArrayTypeSpecifier | XHPSimpleClassAttribute |
+   * ClassnameTypeSpecifier
    */
   public function getItem(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_item);
@@ -128,7 +127,7 @@ final class ListItem extends EditableNode {
   }
 
   /**
-   * @returns CommaToken | Missing | SemicolonToken
+   * @returns Missing | CommaToken | SemicolonToken | BackslashToken
    */
   public function getSeparator(): ?EditableToken {
     if ($this->_separator->isMissing()) {
@@ -138,7 +137,7 @@ final class ListItem extends EditableNode {
   }
 
   /**
-   * @returns CommaToken | SemicolonToken
+   * @returns CommaToken | SemicolonToken | BackslashToken
    */
   public function getSeparatorx(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_separator);

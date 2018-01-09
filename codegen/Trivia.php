@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7f1a0a72ae38a86a7c5deba856ac4e6f>>
+ * @generated SignedSource<<5f911f9f8323e28a643a2fdfc45d29e5>>
  */
 namespace Facebook\HHAST;
 
@@ -122,6 +122,34 @@ final class FallThrough extends EditableTrivia {
 
   public function __construct(string $text) {
     parent::__construct('fall_through', $text);
+  }
+
+  public function withText(string $text): this {
+    if ($text === $this->getText()) {
+      return $this;
+    }
+    return new self($text);
+  }
+}
+
+final class ExtraTokenError extends EditableTrivia {
+
+  public function __construct(string $text) {
+    parent::__construct('extra_token_error', $text);
+  }
+
+  public function withText(string $text): this {
+    if ($text === $this->getText()) {
+      return $this;
+    }
+    return new self($text);
+  }
+}
+
+final class AfterHaltCompiler extends EditableTrivia {
+
+  public function __construct(string $text) {
+    parent::__construct('after_halt_compiler', $text);
   }
 
   public function withText(string $text): this {

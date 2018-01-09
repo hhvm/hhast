@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b5d71df9df44d45df12860a9bb30fe26>>
+ * @generated SignedSource<<418ded091d4ee5e1db1a9f44f04efdda>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -136,7 +136,7 @@ final class NamespaceUseDeclaration extends EditableNode {
   }
 
   /**
-   * @returns Missing | ConstToken | FunctionToken
+   * @returns Missing | NamespaceToken | TypeToken | FunctionToken | ConstToken
    */
   public function getKind(): ?EditableToken {
     if ($this->_kind->isMissing()) {
@@ -146,7 +146,7 @@ final class NamespaceUseDeclaration extends EditableNode {
   }
 
   /**
-   * @returns ConstToken | FunctionToken
+   * @returns NamespaceToken | TypeToken | FunctionToken | ConstToken
    */
   public function getKindx(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_kind);
@@ -190,19 +190,9 @@ final class NamespaceUseDeclaration extends EditableNode {
   }
 
   /**
-   * @returns SemicolonToken | Missing
-   */
-  public function getSemicolon(): ?SemicolonToken {
-    if ($this->_semicolon->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
-  }
-
-  /**
    * @returns SemicolonToken
    */
-  public function getSemicolonx(): SemicolonToken {
+  public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 }

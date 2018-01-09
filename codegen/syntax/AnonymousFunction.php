@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f0081f15ba98dc3d4c93b0a94fdc0653>>
+ * @generated SignedSource<<d0e60a47eb09ef882d94130905a9e637>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -329,11 +329,22 @@ final class AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns Missing
+   * @returns Missing | CoroutineToken
    */
-  public function getCoroutineKeyword(): EditableNode {
+  public function getCoroutineKeyword(): ?CoroutineToken {
+    if ($this->_coroutine_keyword->isMissing()) {
+      return null;
+    }
     return
-      TypeAssert\instance_of(EditableNode::class, $this->_coroutine_keyword);
+      TypeAssert\instance_of(CoroutineToken::class, $this->_coroutine_keyword);
+  }
+
+  /**
+   * @returns CoroutineToken
+   */
+  public function getCoroutineKeywordx(): CoroutineToken {
+    return
+      TypeAssert\instance_of(CoroutineToken::class, $this->_coroutine_keyword);
   }
 
   public function getFunctionKeywordUNTYPED(): EditableNode {
@@ -443,7 +454,7 @@ final class AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns Missing | EditableList
+   * @returns EditableList | Missing
    */
   public function getParameters(): ?EditableList {
     if ($this->_parameters->isMissing()) {
@@ -575,9 +586,9 @@ final class AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns Missing | GenericTypeSpecifier | SoftTypeSpecifier |
-   * SimpleTypeSpecifier | NullableTypeSpecifier | TupleTypeSpecifier |
-   * ClosureTypeSpecifier | MapArrayTypeSpecifier | VectorArrayTypeSpecifier
+   * @returns Missing | SimpleTypeSpecifier | SoftTypeSpecifier |
+   * GenericTypeSpecifier | NullableTypeSpecifier | TupleTypeSpecifier |
+   * ClosureTypeSpecifier | VectorArrayTypeSpecifier | MapArrayTypeSpecifier
    */
   public function getType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);

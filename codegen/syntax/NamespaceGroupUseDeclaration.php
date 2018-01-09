@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6177ecd1bfcd5396da0f09bcb2fe3bc7>>
+ * @generated SignedSource<<c1f48d9c51b97ad8099c17557564471f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -206,7 +206,7 @@ final class NamespaceGroupUseDeclaration extends EditableNode {
   }
 
   /**
-   * @returns Missing | FunctionToken | ConstToken
+   * @returns TypeToken | NamespaceToken | Missing | ConstToken | FunctionToken
    */
   public function getKind(): ?EditableToken {
     if ($this->_kind->isMissing()) {
@@ -216,7 +216,7 @@ final class NamespaceGroupUseDeclaration extends EditableNode {
   }
 
   /**
-   * @returns FunctionToken | ConstToken
+   * @returns TypeToken | NamespaceToken | ConstToken | FunctionToken
    */
   public function getKindx(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_kind);
@@ -246,10 +246,10 @@ final class NamespaceGroupUseDeclaration extends EditableNode {
   }
 
   /**
-   * @returns NamespacePrefixToken
+   * @returns QualifiedName
    */
-  public function getPrefix(): NamespacePrefixToken {
-    return TypeAssert\instance_of(NamespacePrefixToken::class, $this->_prefix);
+  public function getPrefix(): QualifiedName {
+    return TypeAssert\instance_of(QualifiedName::class, $this->_prefix);
   }
 
   public function getLeftBraceUNTYPED(): EditableNode {

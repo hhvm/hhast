@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<65338256728d653e27a0f76ed6a2c87d>>
+ * @generated SignedSource<<4a36f24e4d6a290b02e7ac5508f3be59>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -103,14 +103,14 @@ final class SimpleInitializer extends EditableNode {
   }
 
   /**
-   * @returns LiteralExpression | ArrayIntrinsicExpression | BinaryExpression |
-   * ArrayCreationExpression | ScopeResolutionExpression |
-   * VectorIntrinsicExpression | DictionaryIntrinsicExpression |
-   * KeysetIntrinsicExpression | QualifiedNameExpression |
-   * CollectionLiteralExpression | PrefixUnaryExpression | ShapeExpression |
-   * ConditionalExpression | VarrayIntrinsicExpression |
-   * DarrayIntrinsicExpression | FunctionCallExpression |
-   * ParenthesizedExpression | TupleExpression
+   * @returns LiteralExpression | ArrayIntrinsicExpression | ShapeExpression |
+   * CollectionLiteralExpression | NameToken | ScopeResolutionExpression |
+   * SubscriptExpression | ArrayCreationExpression | VectorIntrinsicExpression
+   * | DictionaryIntrinsicExpression | KeysetIntrinsicExpression |
+   * PrefixUnaryExpression | BinaryExpression | ConditionalExpression |
+   * VarrayIntrinsicExpression | DarrayIntrinsicExpression | QualifiedName |
+   * FunctionCallExpression | ParenthesizedExpression | TupleExpression |
+   * XHPExpression
    */
   public function getValue(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_value);

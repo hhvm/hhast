@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1eb733ac40292cd078c21022e87c56f7>>
+ * @generated SignedSource<<e4b1fc6373d425a3b17b7081e0b03c1d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -113,7 +113,7 @@ final class MarkupSuffix extends EditableNode {
   }
 
   /**
-   * @returns Missing | NameToken | EqualToken
+   * @returns NameToken | EqualToken | Missing
    */
   public function getName(): ?EditableToken {
     if ($this->_name->isMissing()) {

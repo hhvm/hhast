@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<78490aee9e0b3479f03b7ab82d425268>>
+ * @generated SignedSource<<c5e7d9a6d0adc2f02281fe154ab62870>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -271,19 +271,9 @@ final class AliasDeclaration extends EditableNode {
   }
 
   /**
-   * @returns NameToken | Missing
-   */
-  public function getName(): ?NameToken {
-    if ($this->_name->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(NameToken::class, $this->_name);
-  }
-
-  /**
    * @returns NameToken
    */
-  public function getNamex(): NameToken {
+  public function getName(): NameToken {
     return TypeAssert\instance_of(NameToken::class, $this->_name);
   }
 
@@ -396,19 +386,9 @@ final class AliasDeclaration extends EditableNode {
   }
 
   /**
-   * @returns EqualToken | Missing
-   */
-  public function getEqual(): ?EqualToken {
-    if ($this->_equal->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(EqualToken::class, $this->_equal);
-  }
-
-  /**
    * @returns EqualToken
    */
-  public function getEqualx(): EqualToken {
+  public function getEqual(): EqualToken {
     return TypeAssert\instance_of(EqualToken::class, $this->_equal);
   }
 
@@ -437,10 +417,10 @@ final class AliasDeclaration extends EditableNode {
   }
 
   /**
-   * @returns SimpleTypeSpecifier | DictionaryTypeSpecifier |
-   * ShapeTypeSpecifier | TupleTypeSpecifier | ClosureTypeSpecifier |
-   * GenericTypeSpecifier | NullableTypeSpecifier | KeysetTypeSpecifier |
-   * VectorArrayTypeSpecifier
+   * @returns ShapeTypeSpecifier | SimpleTypeSpecifier |
+   * DictionaryTypeSpecifier | ClosureTypeSpecifier | MapArrayTypeSpecifier |
+   * TupleTypeSpecifier | GenericTypeSpecifier | NullableTypeSpecifier |
+   * VectorArrayTypeSpecifier | KeysetTypeSpecifier
    */
   public function getType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);

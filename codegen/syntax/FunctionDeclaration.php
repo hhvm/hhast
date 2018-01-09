@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6919e87e53d24cea2161b42f0740e645>>
+ * @generated SignedSource<<8c60b6661636bfbdad337343d3e37b4a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -165,9 +165,9 @@ final class FunctionDeclaration extends EditableNode
   }
 
   /**
-   * @returns CompoundStatement | SemicolonToken
+   * @returns CompoundStatement
    */
-  public function getBody(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_body);
+  public function getBody(): CompoundStatement {
+    return TypeAssert\instance_of(CompoundStatement::class, $this->_body);
   }
 }
