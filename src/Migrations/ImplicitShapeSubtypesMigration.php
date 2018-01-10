@@ -16,7 +16,7 @@ use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
 use namespace Facebook\TypeAssert;
 
-final class ImplicitShapeSubtypesMigration extends BaseMigration {
+final class ImplicitShapeSubtypesMigration extends StepBasedMigration {
   // Required for adding ellipsis
   private static function addTrailingCommaToFields(
     HHAST\ShapeTypeSpecifier $shape,

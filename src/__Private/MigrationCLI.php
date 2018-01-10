@@ -15,6 +15,7 @@ use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str};
 use type Facebook\HHAST\Migrations\{
   BaseMigration,
+  CallTimePassByReferenceMigration,
   ImplicitShapeSubtypesMigration,
   OptionalShapeFieldsMigration
 };
@@ -58,6 +59,20 @@ class MigrationCLI extends CLIWithRequiredArguments {
         '--hhvm-3.22-to-3.23',
       ),
       CLIOptions\flag(
+        () ==> {
+          $this->migrations[] = CallTimePassByReferenceMigration::class;
+        },
+        'Add required ampersands at call sites for byref arguments',
+        '--ctpbr',
+      ),
+      CLIOptions\flag(
+        () ==> {
+          $this->migrations[] = CallTimePassByReferenceMigration::class;
+        },
+        'Apply all migrations for moving from 3.23 to 3.24',
+        '--hhvm-3.23-to-3.24',
+      ),
+      CLIOptions\flag(
         () ==> { $this->includeVendor = true; },
         'Also migrate files in vendor/ subdirectories',
         '--include-vendor',
@@ -83,9 +98,14 @@ class MigrationCLI extends CLIWithRequiredArguments {
     }
     $ast = HHAST\from_file($file);
     foreach ($this->migrations as $migration) {
-      $ast = (new $migration())->migrateAst($ast);
+      $new_ast = (new $migration())->migrateFile($file, $ast);
+      if ($ast !== $new_ast) {
+        $ast = $new_ast;
+        // Some migrations need to run the typechecker, so it needs to be up to
+        // date on disk
+        \file_put_contents($file, $ast->getCode());
+      }
     }
-    file_put_contents($file, $ast->getCode());
   }
 
   final private function migrateDirectory(string $directory): void {

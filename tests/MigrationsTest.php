@@ -16,6 +16,7 @@ namespace Facebook\HHAST;
 use function Facebook\HHAST\TestLib\expect;
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str};
+use namespace Facebook\TypeAssert;
 
 final class MigrationsTest extends TestCase {
   public function getMigrations(
@@ -29,21 +30,33 @@ final class MigrationsTest extends TestCase {
         Migrations\ImplicitShapeSubtypesMigration::class,
         'migrations/implicit_shape_subtypes.php',
       ),
+      tuple(
+        Migrations\CallTimePassByReferenceMigration::class,
+        'migrations/call_time_pass_by_reference.php',
+      ),
     ];
   }
 
   public function getMigrationSteps(
   ): array<(
-    classname<Migrations\BaseMigration>,
+    classname<Migrations\StepBasedMigration>,
     Migrations\IMigrationStep,
     string
   )> {
     $out = array();
     foreach ($this->getMigrations() as $row) {
       list($class, $fixture) = $row;
-      foreach ((new $class())->getSteps() as $step) {
+      $instance = new $class();
+      if (!$instance instanceof Migrations\StepBasedMigration) {
+        continue;
+      }
+      $refined = TypeAssert\classname_of(
+        Migrations\StepBasedMigration::class,
+        $class,
+      );
+      foreach ($instance->getSteps() as $step) {
         $out[] = tuple(
-          $class,
+          $refined,
           $step,
           $fixture,
         );
@@ -57,7 +70,7 @@ final class MigrationsTest extends TestCase {
    * @dataProvider getMigrationSteps
    */
   public function testMigrationStepsAreIdempotent(
-    classname<Migrations\BaseMigration> $migration,
+    classname<Migrations\StepBasedMigration> $migration,
     Migrations\IMigrationStep $step,
     string $fixture,
   ): void {
@@ -88,11 +101,15 @@ final class MigrationsTest extends TestCase {
     classname<Migrations\BaseMigration> $migration,
     string $fixture,
   ): void {
-    $ast = HHAST\from_file(__DIR__.'/fixtures/'.$fixture.'.in');
+    using $temp = new TestLib\TemporaryProject(
+      __DIR__.'/fixtures/'.$fixture.'.in',
+    );
+    $file = $temp->getFilePath();
+    $ast = HHAST\from_file($file);
 
     $migration = new $migration();
 
-    $ast = $migration->migrateAst($ast);
+    $ast = $migration->migrateFile($file, $ast);
 
     expect($ast->getCode())->toMatchExpectFile($fixture.'.expect');
   }
@@ -104,28 +121,33 @@ final class MigrationsTest extends TestCase {
     classname<Migrations\BaseMigration> $migration,
     string $fixture,
   ): void {
-    $ast = HHAST\from_file(__DIR__.'/fixtures/'.$fixture.'.in');
+    using $temp = new TestLib\TemporaryProject(
+      __DIR__.'/fixtures/'.$fixture.'.in',
+    );
+    $file = $temp->getFilePath();
+    $ast = HHAST\from_file($file);
 
     $migration = new $migration();
 
-    $ast = $migration->migrateAst($ast);
+    $ast = $migration->migrateFile($file, $ast);
+    \file_put_contents($file, $ast->getCode());
 
     expect(
-      $migration->migrateAst($ast)->getCode()
+      $migration->migrateFile($file, $ast)->getCode()
     )->toBeSame(
       $ast->getCode(),
       'Migrating the AST twice should produce identical text to once',
     );
 
     expect(
-      $migration->migrateAst($ast),
+      $migration->migrateFile($file, $ast),
     )->toEqual(
       $ast,
       'Migrating the AST twice should get you an equal AST object',
     );
 
     expect(
-      $migration->migrateAst($ast),
+      $migration->migrateFile($file, $ast),
     )->toBeSame(
       $ast,
       'Migrating the AST twice should get you the same AST object',

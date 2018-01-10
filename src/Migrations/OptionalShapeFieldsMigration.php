@@ -16,7 +16,7 @@ use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
 use namespace Facebook\TypeAssert;
 
-final class OptionalShapeFieldsMigration extends BaseMigration {
+final class OptionalShapeFieldsMigration extends StepBasedMigration {
   private static function makeNullableFieldsOptional(
     HHAST\ListItem $node,
   ): HHAST\ListItem {

@@ -14,10 +14,17 @@ namespace Facebook\HHAST\Migrations;
 
 use type Facebook\HHAST\EditableNode;
 
-<<__ConsistentConstruct>>
-abstract class BaseMigration {
-  abstract public function migrateFile(
+abstract class StepBasedMigration extends BaseMigration {
+  abstract public function getSteps(): Traversable<IMigrationStep>;
+
+  <<__Override>>
+  final public function migrateFile(
     string $path,
     EditableNode $ast,
-  ): EditableNode;
+  ): EditableNode {
+    foreach ($this->getSteps() as $step) {
+      $ast = $ast->rewrite(($node, $_) ==> $step->rewrite($node));
+    }
+    return $ast;
+  }
 }

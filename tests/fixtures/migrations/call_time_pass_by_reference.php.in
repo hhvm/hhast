@@ -1,4 +1,5 @@
 <?hh // strict
+
 /**
  * Copyright (c) 2016, Facebook, Inc.
  * All rights reserved.
@@ -10,14 +11,12 @@
  *
  */
 
-namespace Facebook\HHAST\Migrations;
+function foo(): void {
+  $a = vec[];
+  sort($a);
+  print($a);
 
-use type Facebook\HHAST\EditableNode;
-
-<<__ConsistentConstruct>>
-abstract class BaseMigration {
-  abstract public function migrateFile(
-    string $path,
-    EditableNode $ast,
-  ): EditableNode;
+  $stdout = [];
+  $exit_code = null;
+  exec('foo', $stdout, /* two in one line, with leading */ $exit_code);
 }
