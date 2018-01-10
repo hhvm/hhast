@@ -14,6 +14,7 @@ namespace Facebook\HHAST\__Private\Resolution;
 
 use type Facebook\HHAST\{
   EditableNode,
+  NamespaceBody,
   NamespaceDeclaration,
   NamespaceEmptyBody,
   Script,
@@ -52,12 +53,16 @@ function get_current_namespace(
     if ($ns === null) {
       return null;
     }
-    $body = $ns->getBodyUNTYPED();
+    $body = $ns->getBody();
+    if ($body instanceof NamespaceBody) {
+      var_dump($root->getCode());
+    }
     invariant(
       $body->isMissing() || $body instanceof NamespaceEmptyBody,
-      "if using namespace blocks, all code must be in a NS block",
+      "if using namespace blocks, all code must be in a NS block - got %s",
+      \get_class($body),
     );
-    return Str\strip_prefix($ns->getNamex()->getText(), '\\');
+    return $ns->getQualifiedNameAsString();
   }
 
   $c2 = (new PerfCounter(__FUNCTION__.'#blocks'))->endAtScopeExit();
@@ -65,7 +70,7 @@ function get_current_namespace(
   return $namespaces
     |> C\firstx($$)
     |> TypeAssert\instance_of(NamespaceDeclaration::class, $$)
-    |> $$->getNameUNTYPED()->getCode()
+    |> $$->getName()->getCode()
     |> Str\trim($$)
     |> Str\strip_prefix($$, '\\')
     |> $$ === '' ? null : $$;

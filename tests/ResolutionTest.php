@@ -31,25 +31,9 @@ final class ResolutionTest extends TestCase {
       ->toBeSame('MyNS\\SubNS');
   }
 
-  public function testWithNamespaceStatementAndLeadingBackslash(): void {
-    list($node, $parents) = self::getNodeAndParents(
-      '<?hh namespace \\MyNS\\SubNS; class Foo {}'
-    );
-    expect(Resolution\get_current_namespace($node, $parents))
-      ->toBeSame('MyNS\\SubNS');
-  }
-
   public function testWithNamespaceBlock(): void {
     list($node, $parents) = self::getNodeAndParents(
       '<?hh namespace MyNS\\SubNS { class Foo {} }'
-    );
-    expect(Resolution\get_current_namespace($node, $parents))
-      ->toBeSame('MyNS\\SubNS');
-  }
-
-  public function testWithNamespaceBlockAndLeadingBackslash(): void {
-    list($node, $parents) = self::getNodeAndParents(
-      '<?hh namespace \\MyNS\\SubNS { class Foo {} }'
     );
     expect(Resolution\get_current_namespace($node, $parents))
       ->toBeSame('MyNS\\SubNS');

@@ -46,8 +46,8 @@ class UseStatementWithAsLinter extends AutoFixingASTLinter<NamespaceUseClause> {
       ->withAs(HHAST\Missing())
       ->withAlias(HHAST\Missing())
       ->replace(
-        $node->getNamex(),
-        $node->getNamex()
+        $node->getName()->getLastTokenx(),
+        $node->getName()->getLastTokenx()
           ->withTrailing($node->getAliasx()->getLastTokenx()->getTrailing()),
       );
   }
