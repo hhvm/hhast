@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c579b7780557b0f29d1af3f508fecf94>>
+ * @generated SignedSource<<550c5e775e3801d663f52ac427ab4059>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class VariadicParameter extends EditableNode {
 
   private EditableNode $_call_convention;
@@ -52,7 +53,7 @@ final class VariadicParameter extends EditableNode {
       $source,
     );
     $offset += $ellipsis->getWidth();
-    return new self($call_convention, $type, $ellipsis);
+    return new static($call_convention, $type, $ellipsis);
   }
 
   <<__Override>>
@@ -81,7 +82,7 @@ final class VariadicParameter extends EditableNode {
     ) {
       return $this;
     }
-    return new self($call_convention, $type, $ellipsis);
+    return new static($call_convention, $type, $ellipsis);
   }
 
   public function getCallConventionUNTYPED(): EditableNode {
@@ -92,7 +93,7 @@ final class VariadicParameter extends EditableNode {
     if ($value === $this->_call_convention) {
       return $this;
     }
-    return new self($value, $this->_type, $this->_ellipsis);
+    return new static($value, $this->_type, $this->_ellipsis);
   }
 
   public function hasCallConvention(): bool {
@@ -114,7 +115,7 @@ final class VariadicParameter extends EditableNode {
     if ($value === $this->_type) {
       return $this;
     }
-    return new self($this->_call_convention, $value, $this->_ellipsis);
+    return new static($this->_call_convention, $value, $this->_ellipsis);
   }
 
   public function hasType(): bool {
@@ -146,7 +147,7 @@ final class VariadicParameter extends EditableNode {
     if ($value === $this->_ellipsis) {
       return $this;
     }
-    return new self($this->_call_convention, $this->_type, $value);
+    return new static($this->_call_convention, $this->_type, $value);
   }
 
   public function hasEllipsis(): bool {

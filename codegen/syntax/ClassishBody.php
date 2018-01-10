@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0061ed10338ae28af019964ba9b949a0>>
+ * @generated SignedSource<<a754ff9f451cfbded6bde968d1300c96>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class ClassishBody extends EditableNode {
 
   private EditableNode $_left_brace;
@@ -52,7 +53,7 @@ final class ClassishBody extends EditableNode {
       $source,
     );
     $offset += $right_brace->getWidth();
-    return new self($left_brace, $elements, $right_brace);
+    return new static($left_brace, $elements, $right_brace);
   }
 
   <<__Override>>
@@ -81,7 +82,7 @@ final class ClassishBody extends EditableNode {
     ) {
       return $this;
     }
-    return new self($left_brace, $elements, $right_brace);
+    return new static($left_brace, $elements, $right_brace);
   }
 
   public function getLeftBraceUNTYPED(): EditableNode {
@@ -92,7 +93,7 @@ final class ClassishBody extends EditableNode {
     if ($value === $this->_left_brace) {
       return $this;
     }
-    return new self($value, $this->_elements, $this->_right_brace);
+    return new static($value, $this->_elements, $this->_right_brace);
   }
 
   public function hasLeftBrace(): bool {
@@ -124,7 +125,7 @@ final class ClassishBody extends EditableNode {
     if ($value === $this->_elements) {
       return $this;
     }
-    return new self($this->_left_brace, $value, $this->_right_brace);
+    return new static($this->_left_brace, $value, $this->_right_brace);
   }
 
   public function hasElements(): bool {
@@ -156,7 +157,7 @@ final class ClassishBody extends EditableNode {
     if ($value === $this->_right_brace) {
       return $this;
     }
-    return new self($this->_left_brace, $this->_elements, $value);
+    return new static($this->_left_brace, $this->_elements, $value);
   }
 
   public function hasRightBrace(): bool {

@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b226dbc27f1925d0fe1c69f6f3f0d4a7>>
+ * @generated SignedSource<<a62763915f34d9eac3a2cea04e7d680d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class XHPSpreadAttribute extends EditableNode {
 
   private EditableNode $_left_brace;
@@ -62,7 +63,7 @@ final class XHPSpreadAttribute extends EditableNode {
       $source,
     );
     $offset += $right_brace->getWidth();
-    return new self($left_brace, $spread_operator, $expression, $right_brace);
+    return new static($left_brace, $spread_operator, $expression, $right_brace);
   }
 
   <<__Override>>
@@ -94,7 +95,7 @@ final class XHPSpreadAttribute extends EditableNode {
     ) {
       return $this;
     }
-    return new self($left_brace, $spread_operator, $expression, $right_brace);
+    return new static($left_brace, $spread_operator, $expression, $right_brace);
   }
 
   public function getLeftBraceUNTYPED(): EditableNode {
@@ -105,7 +106,7 @@ final class XHPSpreadAttribute extends EditableNode {
     if ($value === $this->_left_brace) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_spread_operator,
       $this->_expression,
@@ -132,7 +133,7 @@ final class XHPSpreadAttribute extends EditableNode {
     if ($value === $this->_spread_operator) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_left_brace,
       $value,
       $this->_expression,
@@ -160,7 +161,7 @@ final class XHPSpreadAttribute extends EditableNode {
     if ($value === $this->_expression) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_left_brace,
       $this->_spread_operator,
       $value,
@@ -187,7 +188,7 @@ final class XHPSpreadAttribute extends EditableNode {
     if ($value === $this->_right_brace) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_left_brace,
       $this->_spread_operator,
       $this->_expression,

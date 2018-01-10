@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2b21c2295a473c023e412e782b732a49>>
+ * @generated SignedSource<<4b55e50280b96dcbfa8eaebab93400ed>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class ObjectCreationExpression extends EditableNode {
 
   private EditableNode $_new_keyword;
@@ -39,7 +40,7 @@ final class ObjectCreationExpression extends EditableNode {
       $source,
     );
     $offset += $object->getWidth();
-    return new self($new_keyword, $object);
+    return new static($new_keyword, $object);
   }
 
   <<__Override>>
@@ -62,7 +63,7 @@ final class ObjectCreationExpression extends EditableNode {
     if ($new_keyword === $this->_new_keyword && $object === $this->_object) {
       return $this;
     }
-    return new self($new_keyword, $object);
+    return new static($new_keyword, $object);
   }
 
   public function getNewKeywordUNTYPED(): EditableNode {
@@ -73,7 +74,7 @@ final class ObjectCreationExpression extends EditableNode {
     if ($value === $this->_new_keyword) {
       return $this;
     }
-    return new self($value, $this->_object);
+    return new static($value, $this->_object);
   }
 
   public function hasNewKeyword(): bool {
@@ -95,7 +96,7 @@ final class ObjectCreationExpression extends EditableNode {
     if ($value === $this->_object) {
       return $this;
     }
-    return new self($this->_new_keyword, $value);
+    return new static($this->_new_keyword, $value);
   }
 
   public function hasObject(): bool {

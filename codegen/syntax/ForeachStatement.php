@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<813b3645d7f6d34ff3f1791fdf95949b>>
+ * @generated SignedSource<<307682d31eec7073ca4445e31fceb205>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class ForeachStatement extends EditableNode
   implements IControlFlowStatement, ILoopStatement {
 
@@ -123,7 +124,7 @@ final class ForeachStatement extends EditableNode
       $source,
     );
     $offset += $body->getWidth();
-    return new self(
+    return new static(
       $keyword,
       $left_paren,
       $collection,
@@ -184,7 +185,7 @@ final class ForeachStatement extends EditableNode
     ) {
       return $this;
     }
-    return new self(
+    return new static(
       $keyword,
       $left_paren,
       $collection,
@@ -206,7 +207,7 @@ final class ForeachStatement extends EditableNode
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_left_paren,
       $this->_collection,
@@ -239,7 +240,7 @@ final class ForeachStatement extends EditableNode
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $value,
       $this->_collection,
@@ -272,7 +273,7 @@ final class ForeachStatement extends EditableNode
     if ($value === $this->_collection) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $value,
@@ -310,7 +311,7 @@ final class ForeachStatement extends EditableNode
     if ($value === $this->_await_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_collection,
@@ -353,7 +354,7 @@ final class ForeachStatement extends EditableNode
     if ($value === $this->_as) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_collection,
@@ -386,7 +387,7 @@ final class ForeachStatement extends EditableNode
     if ($value === $this->_key) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_collection,
@@ -421,7 +422,7 @@ final class ForeachStatement extends EditableNode
     if ($value === $this->_arrow) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_collection,
@@ -464,7 +465,7 @@ final class ForeachStatement extends EditableNode
     if ($value === $this->_value) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_collection,
@@ -499,7 +500,7 @@ final class ForeachStatement extends EditableNode
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_collection,
@@ -532,7 +533,7 @@ final class ForeachStatement extends EditableNode
     if ($value === $this->_body) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_collection,

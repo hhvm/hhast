@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a811e9744f0c48112169900436fa98c4>>
+ * @generated SignedSource<<6310b91ba8622821e690328bb0b84984>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class ArrayCreationExpression extends EditableNode {
 
   private EditableNode $_left_bracket;
@@ -52,7 +53,7 @@ final class ArrayCreationExpression extends EditableNode {
       $source,
     );
     $offset += $right_bracket->getWidth();
-    return new self($left_bracket, $members, $right_bracket);
+    return new static($left_bracket, $members, $right_bracket);
   }
 
   <<__Override>>
@@ -81,7 +82,7 @@ final class ArrayCreationExpression extends EditableNode {
     ) {
       return $this;
     }
-    return new self($left_bracket, $members, $right_bracket);
+    return new static($left_bracket, $members, $right_bracket);
   }
 
   public function getLeftBracketUNTYPED(): EditableNode {
@@ -92,7 +93,7 @@ final class ArrayCreationExpression extends EditableNode {
     if ($value === $this->_left_bracket) {
       return $this;
     }
-    return new self($value, $this->_members, $this->_right_bracket);
+    return new static($value, $this->_members, $this->_right_bracket);
   }
 
   public function hasLeftBracket(): bool {
@@ -115,7 +116,7 @@ final class ArrayCreationExpression extends EditableNode {
     if ($value === $this->_members) {
       return $this;
     }
-    return new self($this->_left_bracket, $value, $this->_right_bracket);
+    return new static($this->_left_bracket, $value, $this->_right_bracket);
   }
 
   public function hasMembers(): bool {
@@ -147,7 +148,7 @@ final class ArrayCreationExpression extends EditableNode {
     if ($value === $this->_right_bracket) {
       return $this;
     }
-    return new self($this->_left_bracket, $this->_members, $value);
+    return new static($this->_left_bracket, $this->_members, $value);
   }
 
   public function hasRightBracket(): bool {

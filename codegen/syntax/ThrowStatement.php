@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9c4613f5382802f70735d3b8501a8352>>
+ * @generated SignedSource<<d48b4c994a6c371680ffa1e9f92718fc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class ThrowStatement extends EditableNode {
 
   private EditableNode $_keyword;
@@ -52,7 +53,7 @@ final class ThrowStatement extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
-    return new self($keyword, $expression, $semicolon);
+    return new static($keyword, $expression, $semicolon);
   }
 
   <<__Override>>
@@ -81,7 +82,7 @@ final class ThrowStatement extends EditableNode {
     ) {
       return $this;
     }
-    return new self($keyword, $expression, $semicolon);
+    return new static($keyword, $expression, $semicolon);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -92,7 +93,7 @@ final class ThrowStatement extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self($value, $this->_expression, $this->_semicolon);
+    return new static($value, $this->_expression, $this->_semicolon);
   }
 
   public function hasKeyword(): bool {
@@ -114,7 +115,7 @@ final class ThrowStatement extends EditableNode {
     if ($value === $this->_expression) {
       return $this;
     }
-    return new self($this->_keyword, $value, $this->_semicolon);
+    return new static($this->_keyword, $value, $this->_semicolon);
   }
 
   public function hasExpression(): bool {
@@ -137,7 +138,7 @@ final class ThrowStatement extends EditableNode {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new self($this->_keyword, $this->_expression, $value);
+    return new static($this->_keyword, $this->_expression, $value);
   }
 
   public function hasSemicolon(): bool {

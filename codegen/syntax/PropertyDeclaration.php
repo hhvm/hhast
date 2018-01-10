@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b6c38b5be86ca3ad8a8417f2d4ff7136>>
+ * @generated SignedSource<<009cd1daac9c16589fc14d52aafaf091>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class PropertyDeclaration extends EditableNode {
 
   private EditableNode $_modifiers;
@@ -62,7 +63,7 @@ final class PropertyDeclaration extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
-    return new self($modifiers, $type, $declarators, $semicolon);
+    return new static($modifiers, $type, $declarators, $semicolon);
   }
 
   <<__Override>>
@@ -94,7 +95,7 @@ final class PropertyDeclaration extends EditableNode {
     ) {
       return $this;
     }
-    return new self($modifiers, $type, $declarators, $semicolon);
+    return new static($modifiers, $type, $declarators, $semicolon);
   }
 
   public function getModifiersUNTYPED(): EditableNode {
@@ -106,7 +107,7 @@ final class PropertyDeclaration extends EditableNode {
       return $this;
     }
     return
-      new self($value, $this->_type, $this->_declarators, $this->_semicolon);
+      new static($value, $this->_type, $this->_declarators, $this->_semicolon);
   }
 
   public function hasModifiers(): bool {
@@ -128,7 +129,7 @@ final class PropertyDeclaration extends EditableNode {
     if ($value === $this->_type) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_modifiers,
       $value,
       $this->_declarators,
@@ -159,7 +160,8 @@ final class PropertyDeclaration extends EditableNode {
     if ($value === $this->_declarators) {
       return $this;
     }
-    return new self($this->_modifiers, $this->_type, $value, $this->_semicolon);
+    return
+      new static($this->_modifiers, $this->_type, $value, $this->_semicolon);
   }
 
   public function hasDeclarators(): bool {
@@ -182,7 +184,7 @@ final class PropertyDeclaration extends EditableNode {
       return $this;
     }
     return
-      new self($this->_modifiers, $this->_type, $this->_declarators, $value);
+      new static($this->_modifiers, $this->_type, $this->_declarators, $value);
   }
 
   public function hasSemicolon(): bool {

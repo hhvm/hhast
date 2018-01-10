@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2eb7db3c08424e3fe1cd8144f6a5b73d>>
+ * @generated SignedSource<<3c82f10ddd62f3435440aeb724dd4f53>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class ElseifColonClause extends EditableNode {
 
   private EditableNode $_keyword;
@@ -82,7 +83,7 @@ final class ElseifColonClause extends EditableNode {
       $source,
     );
     $offset += $statement->getWidth();
-    return new self(
+    return new static(
       $keyword,
       $left_paren,
       $condition,
@@ -127,7 +128,7 @@ final class ElseifColonClause extends EditableNode {
     ) {
       return $this;
     }
-    return new self(
+    return new static(
       $keyword,
       $left_paren,
       $condition,
@@ -145,7 +146,7 @@ final class ElseifColonClause extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_left_paren,
       $this->_condition,
@@ -174,7 +175,7 @@ final class ElseifColonClause extends EditableNode {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $value,
       $this->_condition,
@@ -203,7 +204,7 @@ final class ElseifColonClause extends EditableNode {
     if ($value === $this->_condition) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $value,
@@ -232,7 +233,7 @@ final class ElseifColonClause extends EditableNode {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_condition,
@@ -261,7 +262,7 @@ final class ElseifColonClause extends EditableNode {
     if ($value === $this->_colon) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_condition,
@@ -290,7 +291,7 @@ final class ElseifColonClause extends EditableNode {
     if ($value === $this->_statement) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_condition,

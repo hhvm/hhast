@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<32126451515cf26307b8b0fa9f295b4e>>
+ * @generated SignedSource<<458ba4bc9ab83aa40da3855e8f3767b6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class XHPSimpleClassAttribute extends EditableNode {
 
   private EditableNode $_type;
@@ -30,7 +31,7 @@ final class XHPSimpleClassAttribute extends EditableNode {
       $source,
     );
     $offset += $type->getWidth();
-    return new self($type);
+    return new static($type);
   }
 
   <<__Override>>
@@ -51,7 +52,7 @@ final class XHPSimpleClassAttribute extends EditableNode {
     if ($type === $this->_type) {
       return $this;
     }
-    return new self($type);
+    return new static($type);
   }
 
   public function getTypeUNTYPED(): EditableNode {
@@ -62,7 +63,7 @@ final class XHPSimpleClassAttribute extends EditableNode {
     if ($value === $this->_type) {
       return $this;
     }
-    return new self($value);
+    return new static($value);
   }
 
   public function hasType(): bool {

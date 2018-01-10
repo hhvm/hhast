@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bb72524e059d8324d83d7fb01056f427>>
+ * @generated SignedSource<<ddb8f836626fcb9f713858265f904b3f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class ForStatement extends EditableNode
   implements IControlFlowStatement, ILoopStatement {
 
@@ -113,7 +114,7 @@ final class ForStatement extends EditableNode
       $source,
     );
     $offset += $body->getWidth();
-    return new self(
+    return new static(
       $keyword,
       $left_paren,
       $initializer,
@@ -170,7 +171,7 @@ final class ForStatement extends EditableNode
     ) {
       return $this;
     }
-    return new self(
+    return new static(
       $keyword,
       $left_paren,
       $initializer,
@@ -191,7 +192,7 @@ final class ForStatement extends EditableNode
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_left_paren,
       $this->_initializer,
@@ -223,7 +224,7 @@ final class ForStatement extends EditableNode
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $value,
       $this->_initializer,
@@ -255,7 +256,7 @@ final class ForStatement extends EditableNode
     if ($value === $this->_initializer) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $value,
@@ -297,7 +298,7 @@ final class ForStatement extends EditableNode
     if ($value === $this->_first_semicolon) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_initializer,
@@ -330,7 +331,7 @@ final class ForStatement extends EditableNode
     if ($value === $this->_control) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_initializer,
@@ -372,7 +373,7 @@ final class ForStatement extends EditableNode
     if ($value === $this->_second_semicolon) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_initializer,
@@ -405,7 +406,7 @@ final class ForStatement extends EditableNode
     if ($value === $this->_end_of_loop) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_initializer,
@@ -447,7 +448,7 @@ final class ForStatement extends EditableNode
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_initializer,
@@ -479,7 +480,7 @@ final class ForStatement extends EditableNode
     if ($value === $this->_body) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_initializer,

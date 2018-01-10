@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e2759a82add8f6917a6a1eaeedfef52b>>
+ * @generated SignedSource<<8a5fb84e77bd3b0dfd074ce2fc504c7b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class FunctionStaticStatement extends EditableNode {
 
   private EditableNode $_static_keyword;
@@ -52,7 +53,7 @@ final class FunctionStaticStatement extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
-    return new self($static_keyword, $declarations, $semicolon);
+    return new static($static_keyword, $declarations, $semicolon);
   }
 
   <<__Override>>
@@ -81,7 +82,7 @@ final class FunctionStaticStatement extends EditableNode {
     ) {
       return $this;
     }
-    return new self($static_keyword, $declarations, $semicolon);
+    return new static($static_keyword, $declarations, $semicolon);
   }
 
   public function getStaticKeywordUNTYPED(): EditableNode {
@@ -92,7 +93,7 @@ final class FunctionStaticStatement extends EditableNode {
     if ($value === $this->_static_keyword) {
       return $this;
     }
-    return new self($value, $this->_declarations, $this->_semicolon);
+    return new static($value, $this->_declarations, $this->_semicolon);
   }
 
   public function hasStaticKeyword(): bool {
@@ -114,7 +115,7 @@ final class FunctionStaticStatement extends EditableNode {
     if ($value === $this->_declarations) {
       return $this;
     }
-    return new self($this->_static_keyword, $value, $this->_semicolon);
+    return new static($this->_static_keyword, $value, $this->_semicolon);
   }
 
   public function hasDeclarations(): bool {
@@ -136,7 +137,7 @@ final class FunctionStaticStatement extends EditableNode {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new self($this->_static_keyword, $this->_declarations, $value);
+    return new static($this->_static_keyword, $this->_declarations, $value);
   }
 
   public function hasSemicolon(): bool {

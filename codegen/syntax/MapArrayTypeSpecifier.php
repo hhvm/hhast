@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bca8764a6af59e9066dc371dcb5b1147>>
+ * @generated SignedSource<<4b1722c14a873dc5da6a77dc0910e916>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class MapArrayTypeSpecifier extends EditableNode {
 
   private EditableNode $_keyword;
@@ -82,7 +83,8 @@ final class MapArrayTypeSpecifier extends EditableNode {
       $source,
     );
     $offset += $right_angle->getWidth();
-    return new self($keyword, $left_angle, $key, $comma, $value, $right_angle);
+    return
+      new static($keyword, $left_angle, $key, $comma, $value, $right_angle);
   }
 
   <<__Override>>
@@ -120,7 +122,8 @@ final class MapArrayTypeSpecifier extends EditableNode {
     ) {
       return $this;
     }
-    return new self($keyword, $left_angle, $key, $comma, $value, $right_angle);
+    return
+      new static($keyword, $left_angle, $key, $comma, $value, $right_angle);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -131,7 +134,7 @@ final class MapArrayTypeSpecifier extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_left_angle,
       $this->_key,
@@ -160,7 +163,7 @@ final class MapArrayTypeSpecifier extends EditableNode {
     if ($value === $this->_left_angle) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $value,
       $this->_key,
@@ -189,7 +192,7 @@ final class MapArrayTypeSpecifier extends EditableNode {
     if ($value === $this->_key) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_angle,
       $value,
@@ -218,7 +221,7 @@ final class MapArrayTypeSpecifier extends EditableNode {
     if ($value === $this->_comma) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_angle,
       $this->_key,
@@ -247,7 +250,7 @@ final class MapArrayTypeSpecifier extends EditableNode {
     if ($value === $this->_value) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_angle,
       $this->_key,
@@ -277,7 +280,7 @@ final class MapArrayTypeSpecifier extends EditableNode {
     if ($value === $this->_right_angle) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_angle,
       $this->_key,

@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e4b1fc6373d425a3b17b7081e0b03c1d>>
+ * @generated SignedSource<<23a63a099ef274410d1e04c5ea064bc6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class MarkupSuffix extends EditableNode {
 
   private EditableNode $_less_than_question;
@@ -42,7 +43,7 @@ final class MarkupSuffix extends EditableNode {
       $source,
     );
     $offset += $name->getWidth();
-    return new self($less_than_question, $name);
+    return new static($less_than_question, $name);
   }
 
   <<__Override>>
@@ -69,7 +70,7 @@ final class MarkupSuffix extends EditableNode {
     ) {
       return $this;
     }
-    return new self($less_than_question, $name);
+    return new static($less_than_question, $name);
   }
 
   public function getLessThanQuestionUNTYPED(): EditableNode {
@@ -80,7 +81,7 @@ final class MarkupSuffix extends EditableNode {
     if ($value === $this->_less_than_question) {
       return $this;
     }
-    return new self($value, $this->_name);
+    return new static($value, $this->_name);
   }
 
   public function hasLessThanQuestion(): bool {
@@ -105,7 +106,7 @@ final class MarkupSuffix extends EditableNode {
     if ($value === $this->_name) {
       return $this;
     }
-    return new self($this->_less_than_question, $value);
+    return new static($this->_less_than_question, $value);
   }
 
   public function hasName(): bool {

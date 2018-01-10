@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a602ef8f87de5530d4a48a94e7d63db5>>
+ * @generated SignedSource<<37d35c713bcc86a84950766d4d80ccd2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class SwitchSection extends EditableNode {
 
   private EditableNode $_labels;
@@ -52,7 +53,7 @@ final class SwitchSection extends EditableNode {
       $source,
     );
     $offset += $fallthrough->getWidth();
-    return new self($labels, $statements, $fallthrough);
+    return new static($labels, $statements, $fallthrough);
   }
 
   <<__Override>>
@@ -81,7 +82,7 @@ final class SwitchSection extends EditableNode {
     ) {
       return $this;
     }
-    return new self($labels, $statements, $fallthrough);
+    return new static($labels, $statements, $fallthrough);
   }
 
   public function getLabelsUNTYPED(): EditableNode {
@@ -92,7 +93,7 @@ final class SwitchSection extends EditableNode {
     if ($value === $this->_labels) {
       return $this;
     }
-    return new self($value, $this->_statements, $this->_fallthrough);
+    return new static($value, $this->_statements, $this->_fallthrough);
   }
 
   public function hasLabels(): bool {
@@ -124,7 +125,7 @@ final class SwitchSection extends EditableNode {
     if ($value === $this->_statements) {
       return $this;
     }
-    return new self($this->_labels, $value, $this->_fallthrough);
+    return new static($this->_labels, $value, $this->_fallthrough);
   }
 
   public function hasStatements(): bool {
@@ -156,7 +157,7 @@ final class SwitchSection extends EditableNode {
     if ($value === $this->_fallthrough) {
       return $this;
     }
-    return new self($this->_labels, $this->_statements, $value);
+    return new static($this->_labels, $this->_statements, $value);
   }
 
   public function hasFallthrough(): bool {

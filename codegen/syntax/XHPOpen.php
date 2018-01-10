@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<36c2814cb8dc0f1fd4696964de0de0fd>>
+ * @generated SignedSource<<d880f788c6ecb2afc6c1e2b6a113c6df>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class XHPOpen extends EditableNode {
 
   private EditableNode $_left_angle;
@@ -62,7 +63,7 @@ final class XHPOpen extends EditableNode {
       $source,
     );
     $offset += $right_angle->getWidth();
-    return new self($left_angle, $name, $attributes, $right_angle);
+    return new static($left_angle, $name, $attributes, $right_angle);
   }
 
   <<__Override>>
@@ -94,7 +95,7 @@ final class XHPOpen extends EditableNode {
     ) {
       return $this;
     }
-    return new self($left_angle, $name, $attributes, $right_angle);
+    return new static($left_angle, $name, $attributes, $right_angle);
   }
 
   public function getLeftAngleUNTYPED(): EditableNode {
@@ -106,7 +107,7 @@ final class XHPOpen extends EditableNode {
       return $this;
     }
     return
-      new self($value, $this->_name, $this->_attributes, $this->_right_angle);
+      new static($value, $this->_name, $this->_attributes, $this->_right_angle);
   }
 
   public function hasLeftAngle(): bool {
@@ -128,7 +129,7 @@ final class XHPOpen extends EditableNode {
     if ($value === $this->_name) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_left_angle,
       $value,
       $this->_attributes,
@@ -156,7 +157,7 @@ final class XHPOpen extends EditableNode {
       return $this;
     }
     return
-      new self($this->_left_angle, $this->_name, $value, $this->_right_angle);
+      new static($this->_left_angle, $this->_name, $value, $this->_right_angle);
   }
 
   public function hasAttributes(): bool {
@@ -189,7 +190,7 @@ final class XHPOpen extends EditableNode {
       return $this;
     }
     return
-      new self($this->_left_angle, $this->_name, $this->_attributes, $value);
+      new static($this->_left_angle, $this->_name, $this->_attributes, $value);
   }
 
   public function hasRightAngle(): bool {

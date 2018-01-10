@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dbb050c75ea3e4a0454fd3577b5138c5>>
+ * @generated SignedSource<<82b080dfcbda62af9e09655d0cdec139>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class GotoLabel extends EditableNode {
 
   private EditableNode $_name;
@@ -39,7 +40,7 @@ final class GotoLabel extends EditableNode {
       $source,
     );
     $offset += $colon->getWidth();
-    return new self($name, $colon);
+    return new static($name, $colon);
   }
 
   <<__Override>>
@@ -62,7 +63,7 @@ final class GotoLabel extends EditableNode {
     if ($name === $this->_name && $colon === $this->_colon) {
       return $this;
     }
-    return new self($name, $colon);
+    return new static($name, $colon);
   }
 
   public function getNameUNTYPED(): EditableNode {
@@ -73,7 +74,7 @@ final class GotoLabel extends EditableNode {
     if ($value === $this->_name) {
       return $this;
     }
-    return new self($value, $this->_colon);
+    return new static($value, $this->_colon);
   }
 
   public function hasName(): bool {
@@ -95,7 +96,7 @@ final class GotoLabel extends EditableNode {
     if ($value === $this->_colon) {
       return $this;
     }
-    return new self($this->_name, $value);
+    return new static($this->_name, $value);
   }
 
   public function hasColon(): bool {

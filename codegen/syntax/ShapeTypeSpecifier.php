@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4d5b63b257011d6d8098accc088808cc>>
+ * @generated SignedSource<<b587877583ea3862cf9484cf44fea00e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class ShapeTypeSpecifier extends EditableNode {
 
   private EditableNode $_keyword;
@@ -72,7 +73,7 @@ final class ShapeTypeSpecifier extends EditableNode {
       $source,
     );
     $offset += $right_paren->getWidth();
-    return new self($keyword, $left_paren, $fields, $ellipsis, $right_paren);
+    return new static($keyword, $left_paren, $fields, $ellipsis, $right_paren);
   }
 
   <<__Override>>
@@ -107,7 +108,7 @@ final class ShapeTypeSpecifier extends EditableNode {
     ) {
       return $this;
     }
-    return new self($keyword, $left_paren, $fields, $ellipsis, $right_paren);
+    return new static($keyword, $left_paren, $fields, $ellipsis, $right_paren);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -118,7 +119,7 @@ final class ShapeTypeSpecifier extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_left_paren,
       $this->_fields,
@@ -146,7 +147,7 @@ final class ShapeTypeSpecifier extends EditableNode {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $value,
       $this->_fields,
@@ -174,7 +175,7 @@ final class ShapeTypeSpecifier extends EditableNode {
     if ($value === $this->_fields) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $value,
@@ -212,7 +213,7 @@ final class ShapeTypeSpecifier extends EditableNode {
     if ($value === $this->_ellipsis) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_fields,
@@ -250,7 +251,7 @@ final class ShapeTypeSpecifier extends EditableNode {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_fields,

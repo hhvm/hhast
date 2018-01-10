@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<30ee1b1f6446003f4b99822b11644b63>>
+ * @generated SignedSource<<d223cac1ba8696c5b7a331eacb65c2c0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class IfEndIfStatement extends EditableNode {
 
   private EditableNode $_keyword;
@@ -122,7 +123,7 @@ final class IfEndIfStatement extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
-    return new self(
+    return new static(
       $keyword,
       $left_paren,
       $condition,
@@ -185,7 +186,7 @@ final class IfEndIfStatement extends EditableNode {
     ) {
       return $this;
     }
-    return new self(
+    return new static(
       $keyword,
       $left_paren,
       $condition,
@@ -207,7 +208,7 @@ final class IfEndIfStatement extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_left_paren,
       $this->_condition,
@@ -240,7 +241,7 @@ final class IfEndIfStatement extends EditableNode {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $value,
       $this->_condition,
@@ -273,7 +274,7 @@ final class IfEndIfStatement extends EditableNode {
     if ($value === $this->_condition) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $value,
@@ -306,7 +307,7 @@ final class IfEndIfStatement extends EditableNode {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_condition,
@@ -339,7 +340,7 @@ final class IfEndIfStatement extends EditableNode {
     if ($value === $this->_colon) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_condition,
@@ -372,7 +373,7 @@ final class IfEndIfStatement extends EditableNode {
     if ($value === $this->_statement) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_condition,
@@ -405,7 +406,7 @@ final class IfEndIfStatement extends EditableNode {
     if ($value === $this->_elseif_colon_clauses) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_condition,
@@ -439,7 +440,7 @@ final class IfEndIfStatement extends EditableNode {
     if ($value === $this->_else_colon_clause) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_condition,
@@ -473,7 +474,7 @@ final class IfEndIfStatement extends EditableNode {
     if ($value === $this->_endif_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_condition,
@@ -506,7 +507,7 @@ final class IfEndIfStatement extends EditableNode {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_condition,

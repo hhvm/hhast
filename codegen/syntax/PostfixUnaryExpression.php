@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2d55ab06849d51112137f5ada1376f79>>
+ * @generated SignedSource<<7642e82495b3d437748ee9d696b7e004>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class PostfixUnaryExpression extends EditableNode {
 
   private EditableNode $_operand;
@@ -39,7 +40,7 @@ final class PostfixUnaryExpression extends EditableNode {
       $source,
     );
     $offset += $operator->getWidth();
-    return new self($operand, $operator);
+    return new static($operand, $operator);
   }
 
   <<__Override>>
@@ -62,7 +63,7 @@ final class PostfixUnaryExpression extends EditableNode {
     if ($operand === $this->_operand && $operator === $this->_operator) {
       return $this;
     }
-    return new self($operand, $operator);
+    return new static($operand, $operator);
   }
 
   public function getOperandUNTYPED(): EditableNode {
@@ -73,7 +74,7 @@ final class PostfixUnaryExpression extends EditableNode {
     if ($value === $this->_operand) {
       return $this;
     }
-    return new self($value, $this->_operator);
+    return new static($value, $this->_operator);
   }
 
   public function hasOperand(): bool {
@@ -96,7 +97,7 @@ final class PostfixUnaryExpression extends EditableNode {
     if ($value === $this->_operator) {
       return $this;
     }
-    return new self($this->_operand, $value);
+    return new static($this->_operand, $value);
   }
 
   public function hasOperator(): bool {

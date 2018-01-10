@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<913b74f09cdb0110caee60475887b39f>>
+ * @generated SignedSource<<ba07866c0885c2801498fa420ff7e0c9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class Enumerator extends EditableNode {
 
   private EditableNode $_name;
@@ -62,7 +63,7 @@ final class Enumerator extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
-    return new self($name, $equal, $value, $semicolon);
+    return new static($name, $equal, $value, $semicolon);
   }
 
   <<__Override>>
@@ -94,7 +95,7 @@ final class Enumerator extends EditableNode {
     ) {
       return $this;
     }
-    return new self($name, $equal, $value, $semicolon);
+    return new static($name, $equal, $value, $semicolon);
   }
 
   public function getNameUNTYPED(): EditableNode {
@@ -105,7 +106,7 @@ final class Enumerator extends EditableNode {
     if ($value === $this->_name) {
       return $this;
     }
-    return new self($value, $this->_equal, $this->_value, $this->_semicolon);
+    return new static($value, $this->_equal, $this->_value, $this->_semicolon);
   }
 
   public function hasName(): bool {
@@ -127,7 +128,7 @@ final class Enumerator extends EditableNode {
     if ($value === $this->_equal) {
       return $this;
     }
-    return new self($this->_name, $value, $this->_value, $this->_semicolon);
+    return new static($this->_name, $value, $this->_value, $this->_semicolon);
   }
 
   public function hasEqual(): bool {
@@ -149,7 +150,7 @@ final class Enumerator extends EditableNode {
     if ($value === $this->_value) {
       return $this;
     }
-    return new self($this->_name, $this->_equal, $value, $this->_semicolon);
+    return new static($this->_name, $this->_equal, $value, $this->_semicolon);
   }
 
   public function hasValue(): bool {
@@ -171,7 +172,7 @@ final class Enumerator extends EditableNode {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new self($this->_name, $this->_equal, $this->_value, $value);
+    return new static($this->_name, $this->_equal, $this->_value, $value);
   }
 
   public function hasSemicolon(): bool {

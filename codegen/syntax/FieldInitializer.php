@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b2326aa4e104d921b2b67f0d359d4151>>
+ * @generated SignedSource<<c122928673b6c9a0900f910dd3efc16c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class FieldInitializer extends EditableNode {
 
   private EditableNode $_name;
@@ -52,7 +53,7 @@ final class FieldInitializer extends EditableNode {
       $source,
     );
     $offset += $value->getWidth();
-    return new self($name, $arrow, $value);
+    return new static($name, $arrow, $value);
   }
 
   <<__Override>>
@@ -81,7 +82,7 @@ final class FieldInitializer extends EditableNode {
     ) {
       return $this;
     }
-    return new self($name, $arrow, $value);
+    return new static($name, $arrow, $value);
   }
 
   public function getNameUNTYPED(): EditableNode {
@@ -92,7 +93,7 @@ final class FieldInitializer extends EditableNode {
     if ($value === $this->_name) {
       return $this;
     }
-    return new self($value, $this->_arrow, $this->_value);
+    return new static($value, $this->_arrow, $this->_value);
   }
 
   public function hasName(): bool {
@@ -115,7 +116,7 @@ final class FieldInitializer extends EditableNode {
     if ($value === $this->_arrow) {
       return $this;
     }
-    return new self($this->_name, $value, $this->_value);
+    return new static($this->_name, $value, $this->_value);
   }
 
   public function hasArrow(): bool {
@@ -137,7 +138,7 @@ final class FieldInitializer extends EditableNode {
     if ($value === $this->_value) {
       return $this;
     }
-    return new self($this->_name, $this->_arrow, $value);
+    return new static($this->_name, $this->_arrow, $value);
   }
 
   public function hasValue(): bool {

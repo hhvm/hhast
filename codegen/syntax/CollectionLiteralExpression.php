@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bcc16963ced9141ab2677d4d3b19dec5>>
+ * @generated SignedSource<<0b0bc8dd5612e8a26f51d41baa4df584>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class CollectionLiteralExpression extends EditableNode {
 
   private EditableNode $_name;
@@ -62,7 +63,7 @@ final class CollectionLiteralExpression extends EditableNode {
       $source,
     );
     $offset += $right_brace->getWidth();
-    return new self($name, $left_brace, $initializers, $right_brace);
+    return new static($name, $left_brace, $initializers, $right_brace);
   }
 
   <<__Override>>
@@ -94,7 +95,7 @@ final class CollectionLiteralExpression extends EditableNode {
     ) {
       return $this;
     }
-    return new self($name, $left_brace, $initializers, $right_brace);
+    return new static($name, $left_brace, $initializers, $right_brace);
   }
 
   public function getNameUNTYPED(): EditableNode {
@@ -105,7 +106,7 @@ final class CollectionLiteralExpression extends EditableNode {
     if ($value === $this->_name) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_left_brace,
       $this->_initializers,
@@ -132,8 +133,12 @@ final class CollectionLiteralExpression extends EditableNode {
     if ($value === $this->_left_brace) {
       return $this;
     }
-    return
-      new self($this->_name, $value, $this->_initializers, $this->_right_brace);
+    return new static(
+      $this->_name,
+      $value,
+      $this->_initializers,
+      $this->_right_brace,
+    );
   }
 
   public function hasLeftBrace(): bool {
@@ -156,7 +161,7 @@ final class CollectionLiteralExpression extends EditableNode {
       return $this;
     }
     return
-      new self($this->_name, $this->_left_brace, $value, $this->_right_brace);
+      new static($this->_name, $this->_left_brace, $value, $this->_right_brace);
   }
 
   public function hasInitializers(): bool {
@@ -188,8 +193,12 @@ final class CollectionLiteralExpression extends EditableNode {
     if ($value === $this->_right_brace) {
       return $this;
     }
-    return
-      new self($this->_name, $this->_left_brace, $this->_initializers, $value);
+    return new static(
+      $this->_name,
+      $this->_left_brace,
+      $this->_initializers,
+      $value,
+    );
   }
 
   public function hasRightBrace(): bool {

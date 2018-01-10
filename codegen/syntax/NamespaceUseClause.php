@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fddb4b57fd9bd8c1d961a75f964ad495>>
+ * @generated SignedSource<<e7edd72012c4b86c09628506dde5d80b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class NamespaceUseClause extends EditableNode {
 
   private EditableNode $_clause_kind;
@@ -62,7 +63,7 @@ final class NamespaceUseClause extends EditableNode {
       $source,
     );
     $offset += $alias->getWidth();
-    return new self($clause_kind, $name, $as, $alias);
+    return new static($clause_kind, $name, $as, $alias);
   }
 
   <<__Override>>
@@ -94,7 +95,7 @@ final class NamespaceUseClause extends EditableNode {
     ) {
       return $this;
     }
-    return new self($clause_kind, $name, $as, $alias);
+    return new static($clause_kind, $name, $as, $alias);
   }
 
   public function getClauseKindUNTYPED(): EditableNode {
@@ -105,7 +106,7 @@ final class NamespaceUseClause extends EditableNode {
     if ($value === $this->_clause_kind) {
       return $this;
     }
-    return new self($value, $this->_name, $this->_as, $this->_alias);
+    return new static($value, $this->_name, $this->_as, $this->_alias);
   }
 
   public function hasClauseKind(): bool {
@@ -137,7 +138,7 @@ final class NamespaceUseClause extends EditableNode {
     if ($value === $this->_name) {
       return $this;
     }
-    return new self($this->_clause_kind, $value, $this->_as, $this->_alias);
+    return new static($this->_clause_kind, $value, $this->_as, $this->_alias);
   }
 
   public function hasName(): bool {
@@ -159,7 +160,7 @@ final class NamespaceUseClause extends EditableNode {
     if ($value === $this->_as) {
       return $this;
     }
-    return new self($this->_clause_kind, $this->_name, $value, $this->_alias);
+    return new static($this->_clause_kind, $this->_name, $value, $this->_alias);
   }
 
   public function hasAs(): bool {
@@ -191,7 +192,7 @@ final class NamespaceUseClause extends EditableNode {
     if ($value === $this->_alias) {
       return $this;
     }
-    return new self($this->_clause_kind, $this->_name, $this->_as, $value);
+    return new static($this->_clause_kind, $this->_name, $this->_as, $value);
   }
 
   public function hasAlias(): bool {

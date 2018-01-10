@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c5e7d9a6d0adc2f02281fe154ab62870>>
+ * @generated SignedSource<<d0c515ff68a842a91fde0f8a7f49a9e8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class AliasDeclaration extends EditableNode {
 
   private EditableNode $_attribute_spec;
@@ -102,7 +103,7 @@ final class AliasDeclaration extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
-    return new self(
+    return new static(
       $attribute_spec,
       $keyword,
       $name,
@@ -156,7 +157,7 @@ final class AliasDeclaration extends EditableNode {
     ) {
       return $this;
     }
-    return new self(
+    return new static(
       $attribute_spec,
       $keyword,
       $name,
@@ -176,7 +177,7 @@ final class AliasDeclaration extends EditableNode {
     if ($value === $this->_attribute_spec) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_keyword,
       $this->_name,
@@ -223,7 +224,7 @@ final class AliasDeclaration extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_attribute_spec,
       $value,
       $this->_name,
@@ -254,7 +255,7 @@ final class AliasDeclaration extends EditableNode {
     if ($value === $this->_name) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_attribute_spec,
       $this->_keyword,
       $value,
@@ -285,7 +286,7 @@ final class AliasDeclaration extends EditableNode {
     if ($value === $this->_generic_parameter) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_attribute_spec,
       $this->_keyword,
       $this->_name,
@@ -328,7 +329,7 @@ final class AliasDeclaration extends EditableNode {
     if ($value === $this->_constraint) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_attribute_spec,
       $this->_keyword,
       $this->_name,
@@ -369,7 +370,7 @@ final class AliasDeclaration extends EditableNode {
     if ($value === $this->_equal) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_attribute_spec,
       $this->_keyword,
       $this->_name,
@@ -400,7 +401,7 @@ final class AliasDeclaration extends EditableNode {
     if ($value === $this->_type) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_attribute_spec,
       $this->_keyword,
       $this->_name,
@@ -434,7 +435,7 @@ final class AliasDeclaration extends EditableNode {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_attribute_spec,
       $this->_keyword,
       $this->_name,

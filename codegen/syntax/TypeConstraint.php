@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c1ab56cda17771034b17b81c1980d3e4>>
+ * @generated SignedSource<<99f4e09652a649352f1698b5c301fcee>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class TypeConstraint extends EditableNode {
 
   private EditableNode $_keyword;
@@ -39,7 +40,7 @@ final class TypeConstraint extends EditableNode {
       $source,
     );
     $offset += $type->getWidth();
-    return new self($keyword, $type);
+    return new static($keyword, $type);
   }
 
   <<__Override>>
@@ -62,7 +63,7 @@ final class TypeConstraint extends EditableNode {
     if ($keyword === $this->_keyword && $type === $this->_type) {
       return $this;
     }
-    return new self($keyword, $type);
+    return new static($keyword, $type);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -73,7 +74,7 @@ final class TypeConstraint extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self($value, $this->_type);
+    return new static($value, $this->_type);
   }
 
   public function hasKeyword(): bool {
@@ -95,7 +96,7 @@ final class TypeConstraint extends EditableNode {
     if ($value === $this->_type) {
       return $this;
     }
-    return new self($this->_keyword, $value);
+    return new static($this->_keyword, $value);
   }
 
   public function hasType(): bool {

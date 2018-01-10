@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2a70950858b3fb59af2996d343ec318a>>
+ * @generated SignedSource<<c85d2181f7b477b78fb9b055c6a59b01>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class VectorTypeSpecifier extends EditableNode {
 
   private EditableNode $_keyword;
@@ -73,7 +74,7 @@ final class VectorTypeSpecifier extends EditableNode {
     );
     $offset += $right_angle->getWidth();
     return
-      new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
+      new static($keyword, $left_angle, $type, $trailing_comma, $right_angle);
   }
 
   <<__Override>>
@@ -109,7 +110,7 @@ final class VectorTypeSpecifier extends EditableNode {
       return $this;
     }
     return
-      new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
+      new static($keyword, $left_angle, $type, $trailing_comma, $right_angle);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -120,7 +121,7 @@ final class VectorTypeSpecifier extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_left_angle,
       $this->_type,
@@ -148,7 +149,7 @@ final class VectorTypeSpecifier extends EditableNode {
     if ($value === $this->_left_angle) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $value,
       $this->_type,
@@ -176,7 +177,7 @@ final class VectorTypeSpecifier extends EditableNode {
     if ($value === $this->_type) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_angle,
       $value,
@@ -204,7 +205,7 @@ final class VectorTypeSpecifier extends EditableNode {
     if ($value === $this->_trailing_comma) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_angle,
       $this->_type,
@@ -232,7 +233,7 @@ final class VectorTypeSpecifier extends EditableNode {
     if ($value === $this->_right_angle) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_angle,
       $this->_type,

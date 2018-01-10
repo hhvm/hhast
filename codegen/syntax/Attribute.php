@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<970026d10e6d6aebe66e5058f489f33b>>
+ * @generated SignedSource<<2c444d3358a008a98161b6fd8d412ad4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class Attribute extends EditableNode {
 
   private EditableNode $_name;
@@ -62,7 +63,7 @@ final class Attribute extends EditableNode {
       $source,
     );
     $offset += $right_paren->getWidth();
-    return new self($name, $left_paren, $values, $right_paren);
+    return new static($name, $left_paren, $values, $right_paren);
   }
 
   <<__Override>>
@@ -94,7 +95,7 @@ final class Attribute extends EditableNode {
     ) {
       return $this;
     }
-    return new self($name, $left_paren, $values, $right_paren);
+    return new static($name, $left_paren, $values, $right_paren);
   }
 
   public function getNameUNTYPED(): EditableNode {
@@ -105,8 +106,12 @@ final class Attribute extends EditableNode {
     if ($value === $this->_name) {
       return $this;
     }
-    return
-      new self($value, $this->_left_paren, $this->_values, $this->_right_paren);
+    return new static(
+      $value,
+      $this->_left_paren,
+      $this->_values,
+      $this->_right_paren,
+    );
   }
 
   public function hasName(): bool {
@@ -128,7 +133,8 @@ final class Attribute extends EditableNode {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new self($this->_name, $value, $this->_values, $this->_right_paren);
+    return
+      new static($this->_name, $value, $this->_values, $this->_right_paren);
   }
 
   public function hasLeftParen(): bool {
@@ -161,7 +167,7 @@ final class Attribute extends EditableNode {
       return $this;
     }
     return
-      new self($this->_name, $this->_left_paren, $value, $this->_right_paren);
+      new static($this->_name, $this->_left_paren, $value, $this->_right_paren);
   }
 
   public function hasValues(): bool {
@@ -193,7 +199,7 @@ final class Attribute extends EditableNode {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new self($this->_name, $this->_left_paren, $this->_values, $value);
+    return new static($this->_name, $this->_left_paren, $this->_values, $value);
   }
 
   public function hasRightParen(): bool {

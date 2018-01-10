@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<049e477e21690965a7aacb5b1c9df9d7>>
+ * @generated SignedSource<<397aa5d66bb2bef50c3d87ac79f5eb89>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class KeysetTypeSpecifier extends EditableNode {
 
   private EditableNode $_keyword;
@@ -73,7 +74,7 @@ final class KeysetTypeSpecifier extends EditableNode {
     );
     $offset += $right_angle->getWidth();
     return
-      new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
+      new static($keyword, $left_angle, $type, $trailing_comma, $right_angle);
   }
 
   <<__Override>>
@@ -109,7 +110,7 @@ final class KeysetTypeSpecifier extends EditableNode {
       return $this;
     }
     return
-      new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
+      new static($keyword, $left_angle, $type, $trailing_comma, $right_angle);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -120,7 +121,7 @@ final class KeysetTypeSpecifier extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_left_angle,
       $this->_type,
@@ -148,7 +149,7 @@ final class KeysetTypeSpecifier extends EditableNode {
     if ($value === $this->_left_angle) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $value,
       $this->_type,
@@ -176,7 +177,7 @@ final class KeysetTypeSpecifier extends EditableNode {
     if ($value === $this->_type) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_angle,
       $value,
@@ -204,7 +205,7 @@ final class KeysetTypeSpecifier extends EditableNode {
     if ($value === $this->_trailing_comma) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_angle,
       $this->_type,
@@ -232,7 +233,7 @@ final class KeysetTypeSpecifier extends EditableNode {
     if ($value === $this->_right_angle) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_angle,
       $this->_type,

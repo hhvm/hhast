@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1edaa1b049c212b8bae1d821b320dbfc>>
+ * @generated SignedSource<<15737a0b9c3e25a5949dd5eeec93fa4f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class PrefixUnaryExpression extends EditableNode {
 
   private EditableNode $_operator;
@@ -39,7 +40,7 @@ final class PrefixUnaryExpression extends EditableNode {
       $source,
     );
     $offset += $operand->getWidth();
-    return new self($operator, $operand);
+    return new static($operator, $operand);
   }
 
   <<__Override>>
@@ -62,7 +63,7 @@ final class PrefixUnaryExpression extends EditableNode {
     if ($operator === $this->_operator && $operand === $this->_operand) {
       return $this;
     }
-    return new self($operator, $operand);
+    return new static($operator, $operand);
   }
 
   public function getOperatorUNTYPED(): EditableNode {
@@ -73,7 +74,7 @@ final class PrefixUnaryExpression extends EditableNode {
     if ($value === $this->_operator) {
       return $this;
     }
-    return new self($value, $this->_operand);
+    return new static($value, $this->_operand);
   }
 
   public function hasOperator(): bool {
@@ -97,7 +98,7 @@ final class PrefixUnaryExpression extends EditableNode {
     if ($value === $this->_operand) {
       return $this;
     }
-    return new self($this->_operator, $value);
+    return new static($this->_operator, $value);
   }
 
   public function hasOperand(): bool {

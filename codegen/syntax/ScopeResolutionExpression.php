@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f7d2ddb0a3b50354e7177d11ae71a991>>
+ * @generated SignedSource<<07e16dc661b67bb0ca7f2abab376235d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class ScopeResolutionExpression extends EditableNode {
 
   private EditableNode $_qualifier;
@@ -52,7 +53,7 @@ final class ScopeResolutionExpression extends EditableNode {
       $source,
     );
     $offset += $name->getWidth();
-    return new self($qualifier, $operator, $name);
+    return new static($qualifier, $operator, $name);
   }
 
   <<__Override>>
@@ -81,7 +82,7 @@ final class ScopeResolutionExpression extends EditableNode {
     ) {
       return $this;
     }
-    return new self($qualifier, $operator, $name);
+    return new static($qualifier, $operator, $name);
   }
 
   public function getQualifierUNTYPED(): EditableNode {
@@ -92,7 +93,7 @@ final class ScopeResolutionExpression extends EditableNode {
     if ($value === $this->_qualifier) {
       return $this;
     }
-    return new self($value, $this->_operator, $this->_name);
+    return new static($value, $this->_operator, $this->_name);
   }
 
   public function hasQualifier(): bool {
@@ -118,7 +119,7 @@ final class ScopeResolutionExpression extends EditableNode {
     if ($value === $this->_operator) {
       return $this;
     }
-    return new self($this->_qualifier, $value, $this->_name);
+    return new static($this->_qualifier, $value, $this->_name);
   }
 
   public function hasOperator(): bool {
@@ -140,7 +141,7 @@ final class ScopeResolutionExpression extends EditableNode {
     if ($value === $this->_name) {
       return $this;
     }
-    return new self($this->_qualifier, $this->_operator, $value);
+    return new static($this->_qualifier, $this->_operator, $value);
   }
 
   public function hasName(): bool {

@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fa27bc9839bce4d180263631237a4fab>>
+ * @generated SignedSource<<b82a27d114c503b3b28798b523426088>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class QualifiedName extends EditableNode {
 
   private EditableNode $_parts;
@@ -30,7 +31,7 @@ final class QualifiedName extends EditableNode {
       $source,
     );
     $offset += $parts->getWidth();
-    return new self($parts);
+    return new static($parts);
   }
 
   <<__Override>>
@@ -51,7 +52,7 @@ final class QualifiedName extends EditableNode {
     if ($parts === $this->_parts) {
       return $this;
     }
-    return new self($parts);
+    return new static($parts);
   }
 
   public function getPartsUNTYPED(): EditableNode {
@@ -62,7 +63,7 @@ final class QualifiedName extends EditableNode {
     if ($value === $this->_parts) {
       return $this;
     }
-    return new self($value);
+    return new static($value);
   }
 
   public function hasParts(): bool {

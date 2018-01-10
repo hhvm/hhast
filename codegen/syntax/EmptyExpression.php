@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1c2d307e0f66546b3ee7e79ba69a6689>>
+ * @generated SignedSource<<02573496969e44a2ef90803777096ccb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class EmptyExpression extends EditableNode {
 
   private EditableNode $_keyword;
@@ -62,7 +63,7 @@ final class EmptyExpression extends EditableNode {
       $source,
     );
     $offset += $right_paren->getWidth();
-    return new self($keyword, $left_paren, $argument, $right_paren);
+    return new static($keyword, $left_paren, $argument, $right_paren);
   }
 
   <<__Override>>
@@ -94,7 +95,7 @@ final class EmptyExpression extends EditableNode {
     ) {
       return $this;
     }
-    return new self($keyword, $left_paren, $argument, $right_paren);
+    return new static($keyword, $left_paren, $argument, $right_paren);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -105,7 +106,7 @@ final class EmptyExpression extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_left_paren,
       $this->_argument,
@@ -132,8 +133,12 @@ final class EmptyExpression extends EditableNode {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return
-      new self($this->_keyword, $value, $this->_argument, $this->_right_paren);
+    return new static(
+      $this->_keyword,
+      $value,
+      $this->_argument,
+      $this->_right_paren,
+    );
   }
 
   public function hasLeftParen(): bool {
@@ -155,7 +160,7 @@ final class EmptyExpression extends EditableNode {
     if ($value === $this->_argument) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $value,
@@ -188,7 +193,7 @@ final class EmptyExpression extends EditableNode {
       return $this;
     }
     return
-      new self($this->_keyword, $this->_left_paren, $this->_argument, $value);
+      new static($this->_keyword, $this->_left_paren, $this->_argument, $value);
   }
 
   public function hasRightParen(): bool {

@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1474c8cc21ae66fd69274663d7a892ab>>
+ * @generated SignedSource<<5fad2f05eda0367caf2276a63dc1ee0d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class DeclareBlockStatement extends EditableNode {
 
   private EditableNode $_keyword;
@@ -72,7 +73,7 @@ final class DeclareBlockStatement extends EditableNode {
       $source,
     );
     $offset += $body->getWidth();
-    return new self($keyword, $left_paren, $expression, $right_paren, $body);
+    return new static($keyword, $left_paren, $expression, $right_paren, $body);
   }
 
   <<__Override>>
@@ -107,7 +108,7 @@ final class DeclareBlockStatement extends EditableNode {
     ) {
       return $this;
     }
-    return new self($keyword, $left_paren, $expression, $right_paren, $body);
+    return new static($keyword, $left_paren, $expression, $right_paren, $body);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -118,7 +119,7 @@ final class DeclareBlockStatement extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_left_paren,
       $this->_expression,
@@ -146,7 +147,7 @@ final class DeclareBlockStatement extends EditableNode {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $value,
       $this->_expression,
@@ -174,7 +175,7 @@ final class DeclareBlockStatement extends EditableNode {
     if ($value === $this->_expression) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $value,
@@ -202,7 +203,7 @@ final class DeclareBlockStatement extends EditableNode {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_expression,
@@ -230,7 +231,7 @@ final class DeclareBlockStatement extends EditableNode {
     if ($value === $this->_body) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_expression,

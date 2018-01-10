@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4f9fa453886b5ed4bcc1efd1f11b8edb>>
+ * @generated SignedSource<<f5eb829034b0c17e7f896fdce83e7399>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class TraitUseConflictResolution extends EditableNode {
 
   private EditableNode $_keyword;
@@ -72,7 +73,7 @@ final class TraitUseConflictResolution extends EditableNode {
       $source,
     );
     $offset += $right_brace->getWidth();
-    return new self($keyword, $names, $left_brace, $clauses, $right_brace);
+    return new static($keyword, $names, $left_brace, $clauses, $right_brace);
   }
 
   <<__Override>>
@@ -107,7 +108,7 @@ final class TraitUseConflictResolution extends EditableNode {
     ) {
       return $this;
     }
-    return new self($keyword, $names, $left_brace, $clauses, $right_brace);
+    return new static($keyword, $names, $left_brace, $clauses, $right_brace);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -118,7 +119,7 @@ final class TraitUseConflictResolution extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_names,
       $this->_left_brace,
@@ -146,7 +147,7 @@ final class TraitUseConflictResolution extends EditableNode {
     if ($value === $this->_names) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $value,
       $this->_left_brace,
@@ -174,7 +175,7 @@ final class TraitUseConflictResolution extends EditableNode {
     if ($value === $this->_left_brace) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_names,
       $value,
@@ -202,7 +203,7 @@ final class TraitUseConflictResolution extends EditableNode {
     if ($value === $this->_clauses) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_names,
       $this->_left_brace,
@@ -240,7 +241,7 @@ final class TraitUseConflictResolution extends EditableNode {
     if ($value === $this->_right_brace) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_names,
       $this->_left_brace,

@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<821080b8659a63c9b81dba42090a47da>>
+ * @generated SignedSource<<f2441588c008b34d65c144570207e1bb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class SwitchFallthrough extends EditableNode {
 
   private EditableNode $_keyword;
@@ -39,7 +40,7 @@ final class SwitchFallthrough extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
-    return new self($keyword, $semicolon);
+    return new static($keyword, $semicolon);
   }
 
   <<__Override>>
@@ -62,7 +63,7 @@ final class SwitchFallthrough extends EditableNode {
     if ($keyword === $this->_keyword && $semicolon === $this->_semicolon) {
       return $this;
     }
-    return new self($keyword, $semicolon);
+    return new static($keyword, $semicolon);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -73,7 +74,7 @@ final class SwitchFallthrough extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self($value, $this->_semicolon);
+    return new static($value, $this->_semicolon);
   }
 
   public function hasKeyword(): bool {
@@ -95,7 +96,7 @@ final class SwitchFallthrough extends EditableNode {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new self($this->_keyword, $value);
+    return new static($this->_keyword, $value);
   }
 
   public function hasSemicolon(): bool {

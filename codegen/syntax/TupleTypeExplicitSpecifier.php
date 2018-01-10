@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f51a6a769e9c8490a7b205181e15dc8a>>
+ * @generated SignedSource<<6a64cdae0cf8c3fe64daa94ec6bc417c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class TupleTypeExplicitSpecifier extends EditableNode {
 
   private EditableNode $_keyword;
@@ -62,7 +63,7 @@ final class TupleTypeExplicitSpecifier extends EditableNode {
       $source,
     );
     $offset += $right_angle->getWidth();
-    return new self($keyword, $left_angle, $types, $right_angle);
+    return new static($keyword, $left_angle, $types, $right_angle);
   }
 
   <<__Override>>
@@ -94,7 +95,7 @@ final class TupleTypeExplicitSpecifier extends EditableNode {
     ) {
       return $this;
     }
-    return new self($keyword, $left_angle, $types, $right_angle);
+    return new static($keyword, $left_angle, $types, $right_angle);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -105,8 +106,12 @@ final class TupleTypeExplicitSpecifier extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return
-      new self($value, $this->_left_angle, $this->_types, $this->_right_angle);
+    return new static(
+      $value,
+      $this->_left_angle,
+      $this->_types,
+      $this->_right_angle,
+    );
   }
 
   public function hasKeyword(): bool {
@@ -129,7 +134,7 @@ final class TupleTypeExplicitSpecifier extends EditableNode {
       return $this;
     }
     return
-      new self($this->_keyword, $value, $this->_types, $this->_right_angle);
+      new static($this->_keyword, $value, $this->_types, $this->_right_angle);
   }
 
   public function hasLeftAngle(): bool {
@@ -151,7 +156,7 @@ final class TupleTypeExplicitSpecifier extends EditableNode {
     if ($value === $this->_types) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_angle,
       $value,
@@ -178,7 +183,8 @@ final class TupleTypeExplicitSpecifier extends EditableNode {
     if ($value === $this->_right_angle) {
       return $this;
     }
-    return new self($this->_keyword, $this->_left_angle, $this->_types, $value);
+    return
+      new static($this->_keyword, $this->_left_angle, $this->_types, $value);
   }
 
   public function hasRightAngle(): bool {

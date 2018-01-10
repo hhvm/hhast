@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ff0ecaa8d7bc679d7b88cf321e0360ef>>
+ * @generated SignedSource<<26455431123fb612d04ec75c4d22865a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class ShapeExpression extends EditableNode {
 
   private EditableNode $_keyword;
@@ -62,7 +63,7 @@ final class ShapeExpression extends EditableNode {
       $source,
     );
     $offset += $right_paren->getWidth();
-    return new self($keyword, $left_paren, $fields, $right_paren);
+    return new static($keyword, $left_paren, $fields, $right_paren);
   }
 
   <<__Override>>
@@ -94,7 +95,7 @@ final class ShapeExpression extends EditableNode {
     ) {
       return $this;
     }
-    return new self($keyword, $left_paren, $fields, $right_paren);
+    return new static($keyword, $left_paren, $fields, $right_paren);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -105,8 +106,12 @@ final class ShapeExpression extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return
-      new self($value, $this->_left_paren, $this->_fields, $this->_right_paren);
+    return new static(
+      $value,
+      $this->_left_paren,
+      $this->_fields,
+      $this->_right_paren,
+    );
   }
 
   public function hasKeyword(): bool {
@@ -129,7 +134,7 @@ final class ShapeExpression extends EditableNode {
       return $this;
     }
     return
-      new self($this->_keyword, $value, $this->_fields, $this->_right_paren);
+      new static($this->_keyword, $value, $this->_fields, $this->_right_paren);
   }
 
   public function hasLeftParen(): bool {
@@ -151,7 +156,7 @@ final class ShapeExpression extends EditableNode {
     if ($value === $this->_fields) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $value,
@@ -189,7 +194,7 @@ final class ShapeExpression extends EditableNode {
       return $this;
     }
     return
-      new self($this->_keyword, $this->_left_paren, $this->_fields, $value);
+      new static($this->_keyword, $this->_left_paren, $this->_fields, $value);
   }
 
   public function hasRightParen(): bool {

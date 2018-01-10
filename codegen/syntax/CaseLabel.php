@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f00c2f3f27d77990a18eeb4627677563>>
+ * @generated SignedSource<<47c8c1bee7b93c2bfe5c7f608eeffbda>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class CaseLabel extends EditableNode {
 
   private EditableNode $_keyword;
@@ -52,7 +53,7 @@ final class CaseLabel extends EditableNode {
       $source,
     );
     $offset += $colon->getWidth();
-    return new self($keyword, $expression, $colon);
+    return new static($keyword, $expression, $colon);
   }
 
   <<__Override>>
@@ -81,7 +82,7 @@ final class CaseLabel extends EditableNode {
     ) {
       return $this;
     }
-    return new self($keyword, $expression, $colon);
+    return new static($keyword, $expression, $colon);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -92,7 +93,7 @@ final class CaseLabel extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self($value, $this->_expression, $this->_colon);
+    return new static($value, $this->_expression, $this->_colon);
   }
 
   public function hasKeyword(): bool {
@@ -114,7 +115,7 @@ final class CaseLabel extends EditableNode {
     if ($value === $this->_expression) {
       return $this;
     }
-    return new self($this->_keyword, $value, $this->_colon);
+    return new static($this->_keyword, $value, $this->_colon);
   }
 
   public function hasExpression(): bool {
@@ -138,7 +139,7 @@ final class CaseLabel extends EditableNode {
     if ($value === $this->_colon) {
       return $this;
     }
-    return new self($this->_keyword, $this->_expression, $value);
+    return new static($this->_keyword, $this->_expression, $value);
   }
 
   public function hasColon(): bool {

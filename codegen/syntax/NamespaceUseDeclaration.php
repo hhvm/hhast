@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<418ded091d4ee5e1db1a9f44f04efdda>>
+ * @generated SignedSource<<035c8449f4ad80469d3122dd898f8c4d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class NamespaceUseDeclaration extends EditableNode {
 
   private EditableNode $_keyword;
@@ -62,7 +63,7 @@ final class NamespaceUseDeclaration extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
-    return new self($keyword, $kind, $clauses, $semicolon);
+    return new static($keyword, $kind, $clauses, $semicolon);
   }
 
   <<__Override>>
@@ -94,7 +95,7 @@ final class NamespaceUseDeclaration extends EditableNode {
     ) {
       return $this;
     }
-    return new self($keyword, $kind, $clauses, $semicolon);
+    return new static($keyword, $kind, $clauses, $semicolon);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -105,7 +106,7 @@ final class NamespaceUseDeclaration extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self($value, $this->_kind, $this->_clauses, $this->_semicolon);
+    return new static($value, $this->_kind, $this->_clauses, $this->_semicolon);
   }
 
   public function hasKeyword(): bool {
@@ -128,7 +129,7 @@ final class NamespaceUseDeclaration extends EditableNode {
       return $this;
     }
     return
-      new self($this->_keyword, $value, $this->_clauses, $this->_semicolon);
+      new static($this->_keyword, $value, $this->_clauses, $this->_semicolon);
   }
 
   public function hasKind(): bool {
@@ -160,7 +161,7 @@ final class NamespaceUseDeclaration extends EditableNode {
     if ($value === $this->_clauses) {
       return $this;
     }
-    return new self($this->_keyword, $this->_kind, $value, $this->_semicolon);
+    return new static($this->_keyword, $this->_kind, $value, $this->_semicolon);
   }
 
   public function hasClauses(): bool {
@@ -182,7 +183,7 @@ final class NamespaceUseDeclaration extends EditableNode {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new self($this->_keyword, $this->_kind, $this->_clauses, $value);
+    return new static($this->_keyword, $this->_kind, $this->_clauses, $value);
   }
 
   public function hasSemicolon(): bool {

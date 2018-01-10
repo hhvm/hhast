@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e2acef198f302a484ce147f37a32b26a>>
+ * @generated SignedSource<<4645ab1e0166e8bfbe65b51cb78afdca>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class XHPClassAttribute extends EditableNode {
 
   private EditableNode $_type;
@@ -62,7 +63,7 @@ final class XHPClassAttribute extends EditableNode {
       $source,
     );
     $offset += $required->getWidth();
-    return new self($type, $name, $initializer, $required);
+    return new static($type, $name, $initializer, $required);
   }
 
   <<__Override>>
@@ -94,7 +95,7 @@ final class XHPClassAttribute extends EditableNode {
     ) {
       return $this;
     }
-    return new self($type, $name, $initializer, $required);
+    return new static($type, $name, $initializer, $required);
   }
 
   public function getTypeUNTYPED(): EditableNode {
@@ -106,7 +107,7 @@ final class XHPClassAttribute extends EditableNode {
       return $this;
     }
     return
-      new self($value, $this->_name, $this->_initializer, $this->_required);
+      new static($value, $this->_name, $this->_initializer, $this->_required);
   }
 
   public function hasType(): bool {
@@ -130,7 +131,7 @@ final class XHPClassAttribute extends EditableNode {
       return $this;
     }
     return
-      new self($this->_type, $value, $this->_initializer, $this->_required);
+      new static($this->_type, $value, $this->_initializer, $this->_required);
   }
 
   public function hasName(): bool {
@@ -152,7 +153,7 @@ final class XHPClassAttribute extends EditableNode {
     if ($value === $this->_initializer) {
       return $this;
     }
-    return new self($this->_type, $this->_name, $value, $this->_required);
+    return new static($this->_type, $this->_name, $value, $this->_required);
   }
 
   public function hasInitializer(): bool {
@@ -186,7 +187,7 @@ final class XHPClassAttribute extends EditableNode {
     if ($value === $this->_required) {
       return $this;
     }
-    return new self($this->_type, $this->_name, $this->_initializer, $value);
+    return new static($this->_type, $this->_name, $this->_initializer, $value);
   }
 
   public function hasRequired(): bool {

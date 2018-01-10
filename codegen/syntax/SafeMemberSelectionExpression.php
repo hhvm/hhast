@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d92cb3e19211e5be46b77691e4f43571>>
+ * @generated SignedSource<<cc97a4c9abf07683e9eba3177e73a5ac>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class SafeMemberSelectionExpression extends EditableNode {
 
   private EditableNode $_object;
@@ -52,7 +53,7 @@ final class SafeMemberSelectionExpression extends EditableNode {
       $source,
     );
     $offset += $name->getWidth();
-    return new self($object, $operator, $name);
+    return new static($object, $operator, $name);
   }
 
   <<__Override>>
@@ -81,7 +82,7 @@ final class SafeMemberSelectionExpression extends EditableNode {
     ) {
       return $this;
     }
-    return new self($object, $operator, $name);
+    return new static($object, $operator, $name);
   }
 
   public function getObjectUNTYPED(): EditableNode {
@@ -92,7 +93,7 @@ final class SafeMemberSelectionExpression extends EditableNode {
     if ($value === $this->_object) {
       return $this;
     }
-    return new self($value, $this->_operator, $this->_name);
+    return new static($value, $this->_operator, $this->_name);
   }
 
   public function hasObject(): bool {
@@ -116,7 +117,7 @@ final class SafeMemberSelectionExpression extends EditableNode {
     if ($value === $this->_operator) {
       return $this;
     }
-    return new self($this->_object, $value, $this->_name);
+    return new static($this->_object, $value, $this->_name);
   }
 
   public function hasOperator(): bool {
@@ -141,7 +142,7 @@ final class SafeMemberSelectionExpression extends EditableNode {
     if ($value === $this->_name) {
       return $this;
     }
-    return new self($this->_object, $this->_operator, $value);
+    return new static($this->_object, $this->_operator, $value);
   }
 
   public function hasName(): bool {

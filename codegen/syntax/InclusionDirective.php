@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bee3640157b3ec9404de40d0334e25b7>>
+ * @generated SignedSource<<42881a652b8bfd4ba526aabe50e27393>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class InclusionDirective extends EditableNode {
 
   private EditableNode $_expression;
@@ -42,7 +43,7 @@ final class InclusionDirective extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
-    return new self($expression, $semicolon);
+    return new static($expression, $semicolon);
   }
 
   <<__Override>>
@@ -67,7 +68,7 @@ final class InclusionDirective extends EditableNode {
     ) {
       return $this;
     }
-    return new self($expression, $semicolon);
+    return new static($expression, $semicolon);
   }
 
   public function getExpressionUNTYPED(): EditableNode {
@@ -78,7 +79,7 @@ final class InclusionDirective extends EditableNode {
     if ($value === $this->_expression) {
       return $this;
     }
-    return new self($value, $this->_semicolon);
+    return new static($value, $this->_semicolon);
   }
 
   public function hasExpression(): bool {
@@ -101,7 +102,7 @@ final class InclusionDirective extends EditableNode {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new self($this->_expression, $value);
+    return new static($this->_expression, $value);
   }
 
   public function hasSemicolon(): bool {

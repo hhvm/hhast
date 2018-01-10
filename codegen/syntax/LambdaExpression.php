@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<203c3c2de96964c89aa9317780197daf>>
+ * @generated SignedSource<<9c7cc0748c969b238505077a2ad0bc62>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class LambdaExpression extends EditableNode {
 
   private EditableNode $_async;
@@ -72,7 +73,7 @@ final class LambdaExpression extends EditableNode {
       $source,
     );
     $offset += $body->getWidth();
-    return new self($async, $coroutine, $signature, $arrow, $body);
+    return new static($async, $coroutine, $signature, $arrow, $body);
   }
 
   <<__Override>>
@@ -107,7 +108,7 @@ final class LambdaExpression extends EditableNode {
     ) {
       return $this;
     }
-    return new self($async, $coroutine, $signature, $arrow, $body);
+    return new static($async, $coroutine, $signature, $arrow, $body);
   }
 
   public function getAsyncUNTYPED(): EditableNode {
@@ -118,7 +119,7 @@ final class LambdaExpression extends EditableNode {
     if ($value === $this->_async) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_coroutine,
       $this->_signature,
@@ -156,7 +157,7 @@ final class LambdaExpression extends EditableNode {
     if ($value === $this->_coroutine) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_async,
       $value,
       $this->_signature,
@@ -194,7 +195,7 @@ final class LambdaExpression extends EditableNode {
     if ($value === $this->_signature) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_async,
       $this->_coroutine,
       $value,
@@ -222,7 +223,7 @@ final class LambdaExpression extends EditableNode {
     if ($value === $this->_arrow) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_async,
       $this->_coroutine,
       $this->_signature,
@@ -251,7 +252,7 @@ final class LambdaExpression extends EditableNode {
     if ($value === $this->_body) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_async,
       $this->_coroutine,
       $this->_signature,

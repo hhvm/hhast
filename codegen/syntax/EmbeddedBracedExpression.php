@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<95c2b5bd17382d4a0bbd0b1504812892>>
+ * @generated SignedSource<<8192bba6de7fd7b962df68305e6edf8b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class EmbeddedBracedExpression extends EditableNode {
 
   private EditableNode $_left_brace;
@@ -52,7 +53,7 @@ final class EmbeddedBracedExpression extends EditableNode {
       $source,
     );
     $offset += $right_brace->getWidth();
-    return new self($left_brace, $expression, $right_brace);
+    return new static($left_brace, $expression, $right_brace);
   }
 
   <<__Override>>
@@ -81,7 +82,7 @@ final class EmbeddedBracedExpression extends EditableNode {
     ) {
       return $this;
     }
-    return new self($left_brace, $expression, $right_brace);
+    return new static($left_brace, $expression, $right_brace);
   }
 
   public function getLeftBraceUNTYPED(): EditableNode {
@@ -92,7 +93,7 @@ final class EmbeddedBracedExpression extends EditableNode {
     if ($value === $this->_left_brace) {
       return $this;
     }
-    return new self($value, $this->_expression, $this->_right_brace);
+    return new static($value, $this->_expression, $this->_right_brace);
   }
 
   public function hasLeftBrace(): bool {
@@ -114,7 +115,7 @@ final class EmbeddedBracedExpression extends EditableNode {
     if ($value === $this->_expression) {
       return $this;
     }
-    return new self($this->_left_brace, $value, $this->_right_brace);
+    return new static($this->_left_brace, $value, $this->_right_brace);
   }
 
   public function hasExpression(): bool {
@@ -136,7 +137,7 @@ final class EmbeddedBracedExpression extends EditableNode {
     if ($value === $this->_right_brace) {
       return $this;
     }
-    return new self($this->_left_brace, $this->_expression, $value);
+    return new static($this->_left_brace, $this->_expression, $value);
   }
 
   public function hasRightBrace(): bool {

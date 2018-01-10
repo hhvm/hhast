@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cc827a54d8919261701b17e61be71f9e>>
+ * @generated SignedSource<<6a406fa205ab05528d869f4a30a3a1bb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class UsingStatementFunctionScoped extends EditableNode {
 
   private EditableNode $_await_keyword;
@@ -62,7 +63,7 @@ final class UsingStatementFunctionScoped extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
-    return new self($await_keyword, $using_keyword, $expression, $semicolon);
+    return new static($await_keyword, $using_keyword, $expression, $semicolon);
   }
 
   <<__Override>>
@@ -94,7 +95,7 @@ final class UsingStatementFunctionScoped extends EditableNode {
     ) {
       return $this;
     }
-    return new self($await_keyword, $using_keyword, $expression, $semicolon);
+    return new static($await_keyword, $using_keyword, $expression, $semicolon);
   }
 
   public function getAwaitKeywordUNTYPED(): EditableNode {
@@ -105,7 +106,7 @@ final class UsingStatementFunctionScoped extends EditableNode {
     if ($value === $this->_await_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_using_keyword,
       $this->_expression,
@@ -142,7 +143,7 @@ final class UsingStatementFunctionScoped extends EditableNode {
     if ($value === $this->_using_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_await_keyword,
       $value,
       $this->_expression,
@@ -169,7 +170,7 @@ final class UsingStatementFunctionScoped extends EditableNode {
     if ($value === $this->_expression) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_await_keyword,
       $this->_using_keyword,
       $value,
@@ -198,7 +199,7 @@ final class UsingStatementFunctionScoped extends EditableNode {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_await_keyword,
       $this->_using_keyword,
       $this->_expression,

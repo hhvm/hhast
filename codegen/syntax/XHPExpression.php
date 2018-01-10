@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<62c539a17dcabe6e58749e12d3abbfa6>>
+ * @generated SignedSource<<ec7fa5c8343c5bd83955880b08e6e430>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class XHPExpression extends EditableNode {
 
   private EditableNode $_open;
@@ -52,7 +53,7 @@ final class XHPExpression extends EditableNode {
       $source,
     );
     $offset += $close->getWidth();
-    return new self($open, $body, $close);
+    return new static($open, $body, $close);
   }
 
   <<__Override>>
@@ -81,7 +82,7 @@ final class XHPExpression extends EditableNode {
     ) {
       return $this;
     }
-    return new self($open, $body, $close);
+    return new static($open, $body, $close);
   }
 
   public function getOpenUNTYPED(): EditableNode {
@@ -92,7 +93,7 @@ final class XHPExpression extends EditableNode {
     if ($value === $this->_open) {
       return $this;
     }
-    return new self($value, $this->_body, $this->_close);
+    return new static($value, $this->_body, $this->_close);
   }
 
   public function hasOpen(): bool {
@@ -114,7 +115,7 @@ final class XHPExpression extends EditableNode {
     if ($value === $this->_body) {
       return $this;
     }
-    return new self($this->_open, $value, $this->_close);
+    return new static($this->_open, $value, $this->_close);
   }
 
   public function hasBody(): bool {
@@ -146,7 +147,7 @@ final class XHPExpression extends EditableNode {
     if ($value === $this->_close) {
       return $this;
     }
-    return new self($this->_open, $this->_body, $value);
+    return new static($this->_open, $this->_body, $value);
   }
 
   public function hasClose(): bool {

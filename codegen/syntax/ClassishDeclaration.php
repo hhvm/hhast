@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<23471bd481b59e6a77fe29f92480de86>>
+ * @generated SignedSource<<174dc271ae04163c1e8fc9c90bf05bdf>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class ClassishDeclaration extends EditableNode {
 
   private EditableNode $_attribute;
@@ -122,7 +123,7 @@ final class ClassishDeclaration extends EditableNode {
       $source,
     );
     $offset += $body->getWidth();
-    return new self(
+    return new static(
       $attribute,
       $modifiers,
       $keyword,
@@ -184,7 +185,7 @@ final class ClassishDeclaration extends EditableNode {
     ) {
       return $this;
     }
-    return new self(
+    return new static(
       $attribute,
       $modifiers,
       $keyword,
@@ -206,7 +207,7 @@ final class ClassishDeclaration extends EditableNode {
     if ($value === $this->_attribute) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_modifiers,
       $this->_keyword,
@@ -251,7 +252,7 @@ final class ClassishDeclaration extends EditableNode {
     if ($value === $this->_modifiers) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_attribute,
       $value,
       $this->_keyword,
@@ -294,7 +295,7 @@ final class ClassishDeclaration extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_attribute,
       $this->_modifiers,
       $value,
@@ -327,7 +328,7 @@ final class ClassishDeclaration extends EditableNode {
     if ($value === $this->_name) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_attribute,
       $this->_modifiers,
       $this->_keyword,
@@ -360,7 +361,7 @@ final class ClassishDeclaration extends EditableNode {
     if ($value === $this->_type_parameters) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_attribute,
       $this->_modifiers,
       $this->_keyword,
@@ -405,7 +406,7 @@ final class ClassishDeclaration extends EditableNode {
     if ($value === $this->_extends_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_attribute,
       $this->_modifiers,
       $this->_keyword,
@@ -448,7 +449,7 @@ final class ClassishDeclaration extends EditableNode {
     if ($value === $this->_extends_list) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_attribute,
       $this->_modifiers,
       $this->_keyword,
@@ -491,7 +492,7 @@ final class ClassishDeclaration extends EditableNode {
     if ($value === $this->_implements_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_attribute,
       $this->_modifiers,
       $this->_keyword,
@@ -540,7 +541,7 @@ final class ClassishDeclaration extends EditableNode {
     if ($value === $this->_implements_list) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_attribute,
       $this->_modifiers,
       $this->_keyword,
@@ -583,7 +584,7 @@ final class ClassishDeclaration extends EditableNode {
     if ($value === $this->_body) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_attribute,
       $this->_modifiers,
       $this->_keyword,

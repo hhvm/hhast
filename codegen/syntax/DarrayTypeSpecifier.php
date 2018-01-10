@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<66552f80f625872f1a0434f8ceefa4e5>>
+ * @generated SignedSource<<e9c9d7d88e67ec03080fd26930330a3c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class DarrayTypeSpecifier extends EditableNode {
 
   private EditableNode $_keyword;
@@ -92,7 +93,7 @@ final class DarrayTypeSpecifier extends EditableNode {
       $source,
     );
     $offset += $right_angle->getWidth();
-    return new self(
+    return new static(
       $keyword,
       $left_angle,
       $key,
@@ -141,7 +142,7 @@ final class DarrayTypeSpecifier extends EditableNode {
     ) {
       return $this;
     }
-    return new self(
+    return new static(
       $keyword,
       $left_angle,
       $key,
@@ -160,7 +161,7 @@ final class DarrayTypeSpecifier extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_left_angle,
       $this->_key,
@@ -190,7 +191,7 @@ final class DarrayTypeSpecifier extends EditableNode {
     if ($value === $this->_left_angle) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $value,
       $this->_key,
@@ -220,7 +221,7 @@ final class DarrayTypeSpecifier extends EditableNode {
     if ($value === $this->_key) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_angle,
       $value,
@@ -250,7 +251,7 @@ final class DarrayTypeSpecifier extends EditableNode {
     if ($value === $this->_comma) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_angle,
       $this->_key,
@@ -280,7 +281,7 @@ final class DarrayTypeSpecifier extends EditableNode {
     if ($value === $this->_value) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_angle,
       $this->_key,
@@ -311,7 +312,7 @@ final class DarrayTypeSpecifier extends EditableNode {
     if ($value === $this->_trailing_comma) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_angle,
       $this->_key,
@@ -341,7 +342,7 @@ final class DarrayTypeSpecifier extends EditableNode {
     if ($value === $this->_right_angle) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_angle,
       $this->_key,

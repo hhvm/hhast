@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0f56319f10c2d8691254afd7eb920fcf>>
+ * @generated SignedSource<<f461e816a2f8bf9859d7823a52d516e0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class TypeConstant extends EditableNode {
 
   private EditableNode $_left_type;
@@ -52,7 +53,7 @@ final class TypeConstant extends EditableNode {
       $source,
     );
     $offset += $right_type->getWidth();
-    return new self($left_type, $separator, $right_type);
+    return new static($left_type, $separator, $right_type);
   }
 
   <<__Override>>
@@ -81,7 +82,7 @@ final class TypeConstant extends EditableNode {
     ) {
       return $this;
     }
-    return new self($left_type, $separator, $right_type);
+    return new static($left_type, $separator, $right_type);
   }
 
   public function getLeftTypeUNTYPED(): EditableNode {
@@ -92,7 +93,7 @@ final class TypeConstant extends EditableNode {
     if ($value === $this->_left_type) {
       return $this;
     }
-    return new self($value, $this->_separator, $this->_right_type);
+    return new static($value, $this->_separator, $this->_right_type);
   }
 
   public function hasLeftType(): bool {
@@ -114,7 +115,7 @@ final class TypeConstant extends EditableNode {
     if ($value === $this->_separator) {
       return $this;
     }
-    return new self($this->_left_type, $value, $this->_right_type);
+    return new static($this->_left_type, $value, $this->_right_type);
   }
 
   public function hasSeparator(): bool {
@@ -136,7 +137,7 @@ final class TypeConstant extends EditableNode {
     if ($value === $this->_right_type) {
       return $this;
     }
-    return new self($this->_left_type, $this->_separator, $value);
+    return new static($this->_left_type, $this->_separator, $value);
   }
 
   public function hasRightType(): bool {

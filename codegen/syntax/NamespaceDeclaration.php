@@ -2,12 +2,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3e69734a61d63c5ea235fbe9d0b2e03c>>
+ * @generated SignedSource<<7b1da85afe6b56e383baa7118fcc442d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
-final class NamespaceDeclaration extends EditableNode {
+<<__ConsistentConstruct>>
+abstract class NamespaceDeclarationGeneratedBase extends EditableNode {
 
   private EditableNode $_keyword;
   private EditableNode $_name;
@@ -52,7 +53,7 @@ final class NamespaceDeclaration extends EditableNode {
       $source,
     );
     $offset += $body->getWidth();
-    return new self($keyword, $name, $body);
+    return new static($keyword, $name, $body);
   }
 
   <<__Override>>
@@ -81,7 +82,7 @@ final class NamespaceDeclaration extends EditableNode {
     ) {
       return $this;
     }
-    return new self($keyword, $name, $body);
+    return new static($keyword, $name, $body);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -92,7 +93,7 @@ final class NamespaceDeclaration extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self($value, $this->_name, $this->_body);
+    return new static($value, $this->_name, $this->_body);
   }
 
   public function hasKeyword(): bool {
@@ -114,7 +115,7 @@ final class NamespaceDeclaration extends EditableNode {
     if ($value === $this->_name) {
       return $this;
     }
-    return new self($this->_keyword, $value, $this->_body);
+    return new static($this->_keyword, $value, $this->_body);
   }
 
   public function hasName(): bool {
@@ -136,7 +137,7 @@ final class NamespaceDeclaration extends EditableNode {
     if ($value === $this->_body) {
       return $this;
     }
-    return new self($this->_keyword, $this->_name, $value);
+    return new static($this->_keyword, $this->_name, $value);
   }
 
   public function hasBody(): bool {

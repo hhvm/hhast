@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<66b4e698fb77439426d7144850d3530d>>
+ * @generated SignedSource<<34ab35679919ab7796035fb1a183dd0f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class InclusionExpression extends EditableNode {
 
   private EditableNode $_require;
@@ -39,7 +40,7 @@ final class InclusionExpression extends EditableNode {
       $source,
     );
     $offset += $filename->getWidth();
-    return new self($require, $filename);
+    return new static($require, $filename);
   }
 
   <<__Override>>
@@ -62,7 +63,7 @@ final class InclusionExpression extends EditableNode {
     if ($require === $this->_require && $filename === $this->_filename) {
       return $this;
     }
-    return new self($require, $filename);
+    return new static($require, $filename);
   }
 
   public function getRequireUNTYPED(): EditableNode {
@@ -73,7 +74,7 @@ final class InclusionExpression extends EditableNode {
     if ($value === $this->_require) {
       return $this;
     }
-    return new self($value, $this->_filename);
+    return new static($value, $this->_filename);
   }
 
   public function hasRequire(): bool {
@@ -96,7 +97,7 @@ final class InclusionExpression extends EditableNode {
     if ($value === $this->_filename) {
       return $this;
     }
-    return new self($this->_require, $value);
+    return new static($this->_require, $value);
   }
 
   public function hasFilename(): bool {

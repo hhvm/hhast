@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<399dbe1e3c3b8e2aae5ece712cfada1d>>
+ * @generated SignedSource<<bc059da39a1ab5e8eb7dec3cc7bafee6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class ParameterDeclaration extends EditableNode {
 
   private EditableNode $_attribute;
@@ -82,7 +83,7 @@ final class ParameterDeclaration extends EditableNode {
       $source,
     );
     $offset += $default_value->getWidth();
-    return new self(
+    return new static(
       $attribute,
       $visibility,
       $call_convention,
@@ -127,7 +128,7 @@ final class ParameterDeclaration extends EditableNode {
     ) {
       return $this;
     }
-    return new self(
+    return new static(
       $attribute,
       $visibility,
       $call_convention,
@@ -145,7 +146,7 @@ final class ParameterDeclaration extends EditableNode {
     if ($value === $this->_attribute) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_visibility,
       $this->_call_convention,
@@ -186,7 +187,7 @@ final class ParameterDeclaration extends EditableNode {
     if ($value === $this->_visibility) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_attribute,
       $value,
       $this->_call_convention,
@@ -225,7 +226,7 @@ final class ParameterDeclaration extends EditableNode {
     if ($value === $this->_call_convention) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_attribute,
       $this->_visibility,
       $value,
@@ -264,7 +265,7 @@ final class ParameterDeclaration extends EditableNode {
     if ($value === $this->_type) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_attribute,
       $this->_visibility,
       $this->_call_convention,
@@ -298,7 +299,7 @@ final class ParameterDeclaration extends EditableNode {
     if ($value === $this->_name) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_attribute,
       $this->_visibility,
       $this->_call_convention,
@@ -327,7 +328,7 @@ final class ParameterDeclaration extends EditableNode {
     if ($value === $this->_default_value) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_attribute,
       $this->_visibility,
       $this->_call_convention,

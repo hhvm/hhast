@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<54ce4a0491b917a0c3cb1d069a9d1a7b>>
+ * @generated SignedSource<<f8c5d779fc82a25b0294ad5d4866962b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class WhereConstraint extends EditableNode {
 
   private EditableNode $_left_type;
@@ -52,7 +53,7 @@ final class WhereConstraint extends EditableNode {
       $source,
     );
     $offset += $right_type->getWidth();
-    return new self($left_type, $operator, $right_type);
+    return new static($left_type, $operator, $right_type);
   }
 
   <<__Override>>
@@ -81,7 +82,7 @@ final class WhereConstraint extends EditableNode {
     ) {
       return $this;
     }
-    return new self($left_type, $operator, $right_type);
+    return new static($left_type, $operator, $right_type);
   }
 
   public function getLeftTypeUNTYPED(): EditableNode {
@@ -92,7 +93,7 @@ final class WhereConstraint extends EditableNode {
     if ($value === $this->_left_type) {
       return $this;
     }
-    return new self($value, $this->_operator, $this->_right_type);
+    return new static($value, $this->_operator, $this->_right_type);
   }
 
   public function hasLeftType(): bool {
@@ -114,7 +115,7 @@ final class WhereConstraint extends EditableNode {
     if ($value === $this->_operator) {
       return $this;
     }
-    return new self($this->_left_type, $value, $this->_right_type);
+    return new static($this->_left_type, $value, $this->_right_type);
   }
 
   public function hasOperator(): bool {
@@ -136,7 +137,7 @@ final class WhereConstraint extends EditableNode {
     if ($value === $this->_right_type) {
       return $this;
     }
-    return new self($this->_left_type, $this->_operator, $value);
+    return new static($this->_left_type, $this->_operator, $value);
   }
 
   public function hasRightType(): bool {

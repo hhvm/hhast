@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<74166360d9755704ebf59bbce44fcff9>>
+ * @generated SignedSource<<ee03c1e5b523e6651beb35fa389a6319>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class YieldFromExpression extends EditableNode {
 
   private EditableNode $_yield_keyword;
@@ -52,7 +53,7 @@ final class YieldFromExpression extends EditableNode {
       $source,
     );
     $offset += $operand->getWidth();
-    return new self($yield_keyword, $from_keyword, $operand);
+    return new static($yield_keyword, $from_keyword, $operand);
   }
 
   <<__Override>>
@@ -81,7 +82,7 @@ final class YieldFromExpression extends EditableNode {
     ) {
       return $this;
     }
-    return new self($yield_keyword, $from_keyword, $operand);
+    return new static($yield_keyword, $from_keyword, $operand);
   }
 
   public function getYieldKeywordUNTYPED(): EditableNode {
@@ -92,7 +93,7 @@ final class YieldFromExpression extends EditableNode {
     if ($value === $this->_yield_keyword) {
       return $this;
     }
-    return new self($value, $this->_from_keyword, $this->_operand);
+    return new static($value, $this->_from_keyword, $this->_operand);
   }
 
   public function hasYieldKeyword(): bool {
@@ -114,7 +115,7 @@ final class YieldFromExpression extends EditableNode {
     if ($value === $this->_from_keyword) {
       return $this;
     }
-    return new self($this->_yield_keyword, $value, $this->_operand);
+    return new static($this->_yield_keyword, $value, $this->_operand);
   }
 
   public function hasFromKeyword(): bool {
@@ -136,7 +137,7 @@ final class YieldFromExpression extends EditableNode {
     if ($value === $this->_operand) {
       return $this;
     }
-    return new self($this->_yield_keyword, $this->_from_keyword, $value);
+    return new static($this->_yield_keyword, $this->_from_keyword, $value);
   }
 
   public function hasOperand(): bool {

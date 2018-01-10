@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a07eed7da452918e19e6a66f5e01e619>>
+ * @generated SignedSource<<be44cbf888921287917a34da03264389>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class VarrayTypeSpecifier extends EditableNode {
 
   private EditableNode $_keyword;
@@ -73,7 +74,7 @@ final class VarrayTypeSpecifier extends EditableNode {
     );
     $offset += $right_angle->getWidth();
     return
-      new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
+      new static($keyword, $left_angle, $type, $trailing_comma, $right_angle);
   }
 
   <<__Override>>
@@ -109,7 +110,7 @@ final class VarrayTypeSpecifier extends EditableNode {
       return $this;
     }
     return
-      new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
+      new static($keyword, $left_angle, $type, $trailing_comma, $right_angle);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -120,7 +121,7 @@ final class VarrayTypeSpecifier extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_left_angle,
       $this->_type,
@@ -148,7 +149,7 @@ final class VarrayTypeSpecifier extends EditableNode {
     if ($value === $this->_left_angle) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $value,
       $this->_type,
@@ -176,7 +177,7 @@ final class VarrayTypeSpecifier extends EditableNode {
     if ($value === $this->_type) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_angle,
       $value,
@@ -205,7 +206,7 @@ final class VarrayTypeSpecifier extends EditableNode {
     if ($value === $this->_trailing_comma) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_angle,
       $this->_type,
@@ -233,7 +234,7 @@ final class VarrayTypeSpecifier extends EditableNode {
     if ($value === $this->_right_angle) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_angle,
       $this->_type,

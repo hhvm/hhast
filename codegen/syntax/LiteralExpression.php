@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<be3ab5de28c6841b829222517bb0f485>>
+ * @generated SignedSource<<84bb45615452159b6561107033f9bef3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class LiteralExpression extends EditableNode {
 
   private EditableNode $_expression;
@@ -30,7 +31,7 @@ final class LiteralExpression extends EditableNode {
       $source,
     );
     $offset += $expression->getWidth();
-    return new self($expression);
+    return new static($expression);
   }
 
   <<__Override>>
@@ -51,7 +52,7 @@ final class LiteralExpression extends EditableNode {
     if ($expression === $this->_expression) {
       return $this;
     }
-    return new self($expression);
+    return new static($expression);
   }
 
   public function getExpressionUNTYPED(): EditableNode {
@@ -62,7 +63,7 @@ final class LiteralExpression extends EditableNode {
     if ($value === $this->_expression) {
       return $this;
     }
-    return new self($value);
+    return new static($value);
   }
 
   public function hasExpression(): bool {

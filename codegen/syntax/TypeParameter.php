@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cfae72efd777f9c5103e70dd37a0d222>>
+ * @generated SignedSource<<15fcc7617b837cf719c299ecf0e17a23>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class TypeParameter extends EditableNode {
 
   private EditableNode $_variance;
@@ -52,7 +53,7 @@ final class TypeParameter extends EditableNode {
       $source,
     );
     $offset += $constraints->getWidth();
-    return new self($variance, $name, $constraints);
+    return new static($variance, $name, $constraints);
   }
 
   <<__Override>>
@@ -81,7 +82,7 @@ final class TypeParameter extends EditableNode {
     ) {
       return $this;
     }
-    return new self($variance, $name, $constraints);
+    return new static($variance, $name, $constraints);
   }
 
   public function getVarianceUNTYPED(): EditableNode {
@@ -92,7 +93,7 @@ final class TypeParameter extends EditableNode {
     if ($value === $this->_variance) {
       return $this;
     }
-    return new self($value, $this->_name, $this->_constraints);
+    return new static($value, $this->_name, $this->_constraints);
   }
 
   public function hasVariance(): bool {
@@ -124,7 +125,7 @@ final class TypeParameter extends EditableNode {
     if ($value === $this->_name) {
       return $this;
     }
-    return new self($this->_variance, $value, $this->_constraints);
+    return new static($this->_variance, $value, $this->_constraints);
   }
 
   public function hasName(): bool {
@@ -146,7 +147,7 @@ final class TypeParameter extends EditableNode {
     if ($value === $this->_constraints) {
       return $this;
     }
-    return new self($this->_variance, $this->_name, $value);
+    return new static($this->_variance, $this->_name, $value);
   }
 
   public function hasConstraints(): bool {

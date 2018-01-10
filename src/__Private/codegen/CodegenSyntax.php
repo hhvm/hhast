@@ -36,22 +36,35 @@ final class CodegenSyntax extends CodegenBase {
       }
       $cg
         ->codegenFile(
-          $this->getOutputDirectory().'/syntax/'.$syntax['kind_name'].'.php',
+          $this->getOutputDirectory().'/syntax/'.$syntax['kind_name'].'.php'
         )
         ->setNamespace('Facebook\\HHAST')
         ->useNamespace('Facebook\\TypeAssert')
         ->addClass($this->generateClass($syntax))
         ->save();
     }
+  }
 
+  private static function isAbstract(Schema\TAST $syntax): bool {
+    return C\contains_key(
+      self::getKindsWithManualSubclasses(),
+      $syntax['kind_name'],
+    );
   }
 
   private function generateClass(Schema\TAST $syntax): CodegenClass {
     $cg = $this->getCodegenFactory();
+    $is_abstract = self::isAbstract($syntax);
+    $class_name = $syntax['kind_name'];
+    if ($is_abstract) {
+      $class_name .= 'GeneratedBase';
+    }
 
     return $cg
-      ->codegenClass($syntax['kind_name'])
-      ->setIsFinal()
+      ->codegenClass($class_name)
+      ->addEmptyUserAttribute('__ConsistentConstruct')
+      ->setIsFinal(!$is_abstract)
+      ->setIsAbstract($is_abstract)
       ->setExtends('EditableNode')
       ->setInterfaces(
         (self::getMarkerInterfaces()[$syntax['kind_name']] ?? vec[])
@@ -104,7 +117,7 @@ final class CodegenSyntax extends CodegenBase {
           ->endIfBlock()
           ->add('return new ')
           ->addMultilineCall(
-            'self',
+            'static',
             Vec\map(
               $syntax['fields'],
               $inner ==> $inner['field_name'] == $underscored
@@ -234,7 +247,7 @@ final class CodegenSyntax extends CodegenBase {
       ->setBody(
         $body
           ->addMultilineCall(
-            'return new self',
+            'return new static',
             Vec\map($syntax['fields'], $field ==> '$'.$field['field_name']),
           )
           ->getCode(),
@@ -321,7 +334,7 @@ final class CodegenSyntax extends CodegenBase {
           ->addLine('}')
           ->add('return ')
           ->addMultilineCall(
-            'new self',
+            'new static',
             Vec\map($fields, $field ==> '$'.$field),
           )
           ->getCode(),
@@ -439,6 +452,12 @@ final class CodegenSyntax extends CodegenBase {
       'MethodishDeclaration' => vec['IFunctionishDeclaration'],
       'SwitchStatement' => vec['IControlFlowStatement'],
       'WhileStatement' => vec['IControlFlowStatement', 'ILoopStatement'],
+    ];
+  }
+
+  private static function getKindsWithManualSubclasses(): keyset<string> {
+    return keyset[
+      'NamespaceDeclaration',
     ];
   }
 }

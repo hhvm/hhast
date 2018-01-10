@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3aa2f5fd2577ae9b8b9b5b3c750143fe>>
+ * @generated SignedSource<<e42b14caa6e5db98bc01b52d6a77469d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class MethodishDeclaration extends EditableNode
   implements IFunctionishDeclaration {
 
@@ -64,7 +65,7 @@ final class MethodishDeclaration extends EditableNode
     );
     $offset += $semicolon->getWidth();
     return
-      new self($attribute, $function_decl_header, $function_body, $semicolon);
+      new static($attribute, $function_decl_header, $function_body, $semicolon);
   }
 
   <<__Override>>
@@ -98,7 +99,7 @@ final class MethodishDeclaration extends EditableNode
       return $this;
     }
     return
-      new self($attribute, $function_decl_header, $function_body, $semicolon);
+      new static($attribute, $function_decl_header, $function_body, $semicolon);
   }
 
   public function getAttributeUNTYPED(): EditableNode {
@@ -109,7 +110,7 @@ final class MethodishDeclaration extends EditableNode
     if ($value === $this->_attribute) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_function_decl_header,
       $this->_function_body,
@@ -148,7 +149,7 @@ final class MethodishDeclaration extends EditableNode
     if ($value === $this->_function_decl_header) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_attribute,
       $value,
       $this->_function_body,
@@ -178,7 +179,7 @@ final class MethodishDeclaration extends EditableNode
     if ($value === $this->_function_body) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_attribute,
       $this->_function_decl_header,
       $value,
@@ -217,7 +218,7 @@ final class MethodishDeclaration extends EditableNode
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_attribute,
       $this->_function_decl_header,
       $this->_function_body,

@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f8f5b4e2b5cf4e0d19cebaaa6be4da2f>>
+ * @generated SignedSource<<cf8cf998cc7743b7820088302d156b33>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class GotoStatement extends EditableNode {
 
   private EditableNode $_keyword;
@@ -52,7 +53,7 @@ final class GotoStatement extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
-    return new self($keyword, $label_name, $semicolon);
+    return new static($keyword, $label_name, $semicolon);
   }
 
   <<__Override>>
@@ -81,7 +82,7 @@ final class GotoStatement extends EditableNode {
     ) {
       return $this;
     }
-    return new self($keyword, $label_name, $semicolon);
+    return new static($keyword, $label_name, $semicolon);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -92,7 +93,7 @@ final class GotoStatement extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self($value, $this->_label_name, $this->_semicolon);
+    return new static($value, $this->_label_name, $this->_semicolon);
   }
 
   public function hasKeyword(): bool {
@@ -114,7 +115,7 @@ final class GotoStatement extends EditableNode {
     if ($value === $this->_label_name) {
       return $this;
     }
-    return new self($this->_keyword, $value, $this->_semicolon);
+    return new static($this->_keyword, $value, $this->_semicolon);
   }
 
   public function hasLabelName(): bool {
@@ -136,7 +137,7 @@ final class GotoStatement extends EditableNode {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new self($this->_keyword, $this->_label_name, $value);
+    return new static($this->_keyword, $this->_label_name, $value);
   }
 
   public function hasSemicolon(): bool {

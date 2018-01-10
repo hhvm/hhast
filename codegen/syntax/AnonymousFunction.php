@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d0e60a47eb09ef882d94130905a9e637>>
+ * @generated SignedSource<<da2ed05df9befaa6c335413d5729abb4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class AnonymousFunction extends EditableNode {
 
   private EditableNode $_static_keyword;
@@ -132,7 +133,7 @@ final class AnonymousFunction extends EditableNode {
       $source,
     );
     $offset += $body->getWidth();
-    return new self(
+    return new static(
       $static_keyword,
       $async_keyword,
       $coroutine_keyword,
@@ -198,7 +199,7 @@ final class AnonymousFunction extends EditableNode {
     ) {
       return $this;
     }
-    return new self(
+    return new static(
       $static_keyword,
       $async_keyword,
       $coroutine_keyword,
@@ -221,7 +222,7 @@ final class AnonymousFunction extends EditableNode {
     if ($value === $this->_static_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_async_keyword,
       $this->_coroutine_keyword,
@@ -265,7 +266,7 @@ final class AnonymousFunction extends EditableNode {
     if ($value === $this->_async_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_static_keyword,
       $value,
       $this->_coroutine_keyword,
@@ -309,7 +310,7 @@ final class AnonymousFunction extends EditableNode {
     if ($value === $this->_coroutine_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_static_keyword,
       $this->_async_keyword,
       $value,
@@ -355,7 +356,7 @@ final class AnonymousFunction extends EditableNode {
     if ($value === $this->_function_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_static_keyword,
       $this->_async_keyword,
       $this->_coroutine_keyword,
@@ -390,7 +391,7 @@ final class AnonymousFunction extends EditableNode {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_static_keyword,
       $this->_async_keyword,
       $this->_coroutine_keyword,
@@ -434,7 +435,7 @@ final class AnonymousFunction extends EditableNode {
     if ($value === $this->_parameters) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_static_keyword,
       $this->_async_keyword,
       $this->_coroutine_keyword,
@@ -478,7 +479,7 @@ final class AnonymousFunction extends EditableNode {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_static_keyword,
       $this->_async_keyword,
       $this->_coroutine_keyword,
@@ -522,7 +523,7 @@ final class AnonymousFunction extends EditableNode {
     if ($value === $this->_colon) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_static_keyword,
       $this->_async_keyword,
       $this->_coroutine_keyword,
@@ -566,7 +567,7 @@ final class AnonymousFunction extends EditableNode {
     if ($value === $this->_type) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_static_keyword,
       $this->_async_keyword,
       $this->_coroutine_keyword,
@@ -602,7 +603,7 @@ final class AnonymousFunction extends EditableNode {
     if ($value === $this->_use) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_static_keyword,
       $this->_async_keyword,
       $this->_coroutine_keyword,
@@ -648,7 +649,7 @@ final class AnonymousFunction extends EditableNode {
     if ($value === $this->_body) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_static_keyword,
       $this->_async_keyword,
       $this->_coroutine_keyword,

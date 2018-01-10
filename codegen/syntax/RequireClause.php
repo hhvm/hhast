@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<340c3a920e6970ea99a0c3b874a865a9>>
+ * @generated SignedSource<<f4911bcaea59e489770793135da9ff83>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class RequireClause extends EditableNode {
 
   private EditableNode $_keyword;
@@ -62,7 +63,7 @@ final class RequireClause extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
-    return new self($keyword, $kind, $name, $semicolon);
+    return new static($keyword, $kind, $name, $semicolon);
   }
 
   <<__Override>>
@@ -94,7 +95,7 @@ final class RequireClause extends EditableNode {
     ) {
       return $this;
     }
-    return new self($keyword, $kind, $name, $semicolon);
+    return new static($keyword, $kind, $name, $semicolon);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -105,7 +106,7 @@ final class RequireClause extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self($value, $this->_kind, $this->_name, $this->_semicolon);
+    return new static($value, $this->_kind, $this->_name, $this->_semicolon);
   }
 
   public function hasKeyword(): bool {
@@ -127,7 +128,7 @@ final class RequireClause extends EditableNode {
     if ($value === $this->_kind) {
       return $this;
     }
-    return new self($this->_keyword, $value, $this->_name, $this->_semicolon);
+    return new static($this->_keyword, $value, $this->_name, $this->_semicolon);
   }
 
   public function hasKind(): bool {
@@ -149,7 +150,7 @@ final class RequireClause extends EditableNode {
     if ($value === $this->_name) {
       return $this;
     }
-    return new self($this->_keyword, $this->_kind, $value, $this->_semicolon);
+    return new static($this->_keyword, $this->_kind, $value, $this->_semicolon);
   }
 
   public function hasName(): bool {
@@ -171,7 +172,7 @@ final class RequireClause extends EditableNode {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new self($this->_keyword, $this->_kind, $this->_name, $value);
+    return new static($this->_keyword, $this->_kind, $this->_name, $value);
   }
 
   public function hasSemicolon(): bool {

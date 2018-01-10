@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9b8905799360480cae7f125289a1a2b8>>
+ * @generated SignedSource<<e46adc38da3d8e052d81f67bab4e9ebc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class SubscriptExpression extends EditableNode {
 
   private EditableNode $_receiver;
@@ -62,7 +63,7 @@ final class SubscriptExpression extends EditableNode {
       $source,
     );
     $offset += $right_bracket->getWidth();
-    return new self($receiver, $left_bracket, $index, $right_bracket);
+    return new static($receiver, $left_bracket, $index, $right_bracket);
   }
 
   <<__Override>>
@@ -94,7 +95,7 @@ final class SubscriptExpression extends EditableNode {
     ) {
       return $this;
     }
-    return new self($receiver, $left_bracket, $index, $right_bracket);
+    return new static($receiver, $left_bracket, $index, $right_bracket);
   }
 
   public function getReceiverUNTYPED(): EditableNode {
@@ -105,7 +106,7 @@ final class SubscriptExpression extends EditableNode {
     if ($value === $this->_receiver) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_left_bracket,
       $this->_index,
@@ -136,8 +137,12 @@ final class SubscriptExpression extends EditableNode {
     if ($value === $this->_left_bracket) {
       return $this;
     }
-    return
-      new self($this->_receiver, $value, $this->_index, $this->_right_bracket);
+    return new static(
+      $this->_receiver,
+      $value,
+      $this->_index,
+      $this->_right_bracket,
+    );
   }
 
   public function hasLeftBracket(): bool {
@@ -159,7 +164,7 @@ final class SubscriptExpression extends EditableNode {
     if ($value === $this->_index) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_receiver,
       $this->_left_bracket,
       $value,
@@ -193,7 +198,7 @@ final class SubscriptExpression extends EditableNode {
       return $this;
     }
     return
-      new self($this->_receiver, $this->_left_bracket, $this->_index, $value);
+      new static($this->_receiver, $this->_left_bracket, $this->_index, $value);
   }
 
   public function hasRightBracket(): bool {

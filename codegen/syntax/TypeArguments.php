@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<86df41707f1a14198913acac23caf5f3>>
+ * @generated SignedSource<<a8d50c9ba1628ed04f29206417fc8c79>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class TypeArguments extends EditableNode {
 
   private EditableNode $_left_angle;
@@ -52,7 +53,7 @@ final class TypeArguments extends EditableNode {
       $source,
     );
     $offset += $right_angle->getWidth();
-    return new self($left_angle, $types, $right_angle);
+    return new static($left_angle, $types, $right_angle);
   }
 
   <<__Override>>
@@ -81,7 +82,7 @@ final class TypeArguments extends EditableNode {
     ) {
       return $this;
     }
-    return new self($left_angle, $types, $right_angle);
+    return new static($left_angle, $types, $right_angle);
   }
 
   public function getLeftAngleUNTYPED(): EditableNode {
@@ -92,7 +93,7 @@ final class TypeArguments extends EditableNode {
     if ($value === $this->_left_angle) {
       return $this;
     }
-    return new self($value, $this->_types, $this->_right_angle);
+    return new static($value, $this->_types, $this->_right_angle);
   }
 
   public function hasLeftAngle(): bool {
@@ -114,7 +115,7 @@ final class TypeArguments extends EditableNode {
     if ($value === $this->_types) {
       return $this;
     }
-    return new self($this->_left_angle, $value, $this->_right_angle);
+    return new static($this->_left_angle, $value, $this->_right_angle);
   }
 
   public function hasTypes(): bool {
@@ -136,7 +137,7 @@ final class TypeArguments extends EditableNode {
     if ($value === $this->_right_angle) {
       return $this;
     }
-    return new self($this->_left_angle, $this->_types, $value);
+    return new static($this->_left_angle, $this->_types, $value);
   }
 
   public function hasRightAngle(): bool {

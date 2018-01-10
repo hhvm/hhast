@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2553bb310e8db8313bd74e371b570090>>
+ * @generated SignedSource<<ab605cf403f8c2e40e83af5d4c8dcee3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class ConditionalExpression extends EditableNode {
 
   private EditableNode $_test;
@@ -72,7 +73,7 @@ final class ConditionalExpression extends EditableNode {
       $source,
     );
     $offset += $alternative->getWidth();
-    return new self($test, $question, $consequence, $colon, $alternative);
+    return new static($test, $question, $consequence, $colon, $alternative);
   }
 
   <<__Override>>
@@ -107,7 +108,7 @@ final class ConditionalExpression extends EditableNode {
     ) {
       return $this;
     }
-    return new self($test, $question, $consequence, $colon, $alternative);
+    return new static($test, $question, $consequence, $colon, $alternative);
   }
 
   public function getTestUNTYPED(): EditableNode {
@@ -118,7 +119,7 @@ final class ConditionalExpression extends EditableNode {
     if ($value === $this->_test) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_question,
       $this->_consequence,
@@ -151,7 +152,7 @@ final class ConditionalExpression extends EditableNode {
     if ($value === $this->_question) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_test,
       $value,
       $this->_consequence,
@@ -179,7 +180,7 @@ final class ConditionalExpression extends EditableNode {
     if ($value === $this->_consequence) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_test,
       $this->_question,
       $value,
@@ -213,7 +214,7 @@ final class ConditionalExpression extends EditableNode {
     if ($value === $this->_colon) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_test,
       $this->_question,
       $this->_consequence,
@@ -251,7 +252,7 @@ final class ConditionalExpression extends EditableNode {
     if ($value === $this->_alternative) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_test,
       $this->_question,
       $this->_consequence,

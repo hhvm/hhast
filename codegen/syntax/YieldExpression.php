@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<43fa4ec09a23370cb97aa28a1e2eba30>>
+ * @generated SignedSource<<c507806198fb27973b3a12231e315fd9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class YieldExpression extends EditableNode {
 
   private EditableNode $_keyword;
@@ -39,7 +40,7 @@ final class YieldExpression extends EditableNode {
       $source,
     );
     $offset += $operand->getWidth();
-    return new self($keyword, $operand);
+    return new static($keyword, $operand);
   }
 
   <<__Override>>
@@ -62,7 +63,7 @@ final class YieldExpression extends EditableNode {
     if ($keyword === $this->_keyword && $operand === $this->_operand) {
       return $this;
     }
-    return new self($keyword, $operand);
+    return new static($keyword, $operand);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -73,7 +74,7 @@ final class YieldExpression extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self($value, $this->_operand);
+    return new static($value, $this->_operand);
   }
 
   public function hasKeyword(): bool {
@@ -95,7 +96,7 @@ final class YieldExpression extends EditableNode {
     if ($value === $this->_operand) {
       return $this;
     }
-    return new self($this->_keyword, $value);
+    return new static($this->_keyword, $value);
   }
 
   public function hasOperand(): bool {

@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<aea9512f25ffee8c3b52a55812463486>>
+ * @generated SignedSource<<bffa3c0cf8e047ab7c8e68aca63198a7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class ParenthesizedExpression extends EditableNode {
 
   private EditableNode $_left_paren;
@@ -52,7 +53,7 @@ final class ParenthesizedExpression extends EditableNode {
       $source,
     );
     $offset += $right_paren->getWidth();
-    return new self($left_paren, $expression, $right_paren);
+    return new static($left_paren, $expression, $right_paren);
   }
 
   <<__Override>>
@@ -81,7 +82,7 @@ final class ParenthesizedExpression extends EditableNode {
     ) {
       return $this;
     }
-    return new self($left_paren, $expression, $right_paren);
+    return new static($left_paren, $expression, $right_paren);
   }
 
   public function getLeftParenUNTYPED(): EditableNode {
@@ -92,7 +93,7 @@ final class ParenthesizedExpression extends EditableNode {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new self($value, $this->_expression, $this->_right_paren);
+    return new static($value, $this->_expression, $this->_right_paren);
   }
 
   public function hasLeftParen(): bool {
@@ -114,7 +115,7 @@ final class ParenthesizedExpression extends EditableNode {
     if ($value === $this->_expression) {
       return $this;
     }
-    return new self($this->_left_paren, $value, $this->_right_paren);
+    return new static($this->_left_paren, $value, $this->_right_paren);
   }
 
   public function hasExpression(): bool {
@@ -144,7 +145,7 @@ final class ParenthesizedExpression extends EditableNode {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new self($this->_left_paren, $this->_expression, $value);
+    return new static($this->_left_paren, $this->_expression, $value);
   }
 
   public function hasRightParen(): bool {

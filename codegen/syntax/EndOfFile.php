@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<85290d39fca52f3a04c7b4321adc47c4>>
+ * @generated SignedSource<<d31bc6d08d4acac53b309207c3eb8068>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class EndOfFile extends EditableNode {
 
   private EditableNode $_token;
@@ -30,7 +31,7 @@ final class EndOfFile extends EditableNode {
       $source,
     );
     $offset += $token->getWidth();
-    return new self($token);
+    return new static($token);
   }
 
   <<__Override>>
@@ -51,7 +52,7 @@ final class EndOfFile extends EditableNode {
     if ($token === $this->_token) {
       return $this;
     }
-    return new self($token);
+    return new static($token);
   }
 
   public function getTokenUNTYPED(): EditableNode {
@@ -62,7 +63,7 @@ final class EndOfFile extends EditableNode {
     if ($value === $this->_token) {
       return $this;
     }
-    return new self($value);
+    return new static($value);
   }
 
   public function hasToken(): bool {

@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5f37defd63f945ca5ad67a5d687e7053>>
+ * @generated SignedSource<<18d93286b2a46d2a5350c7366b8f2784>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class XHPSimpleAttribute extends EditableNode {
 
   private EditableNode $_name;
@@ -52,7 +53,7 @@ final class XHPSimpleAttribute extends EditableNode {
       $source,
     );
     $offset += $expression->getWidth();
-    return new self($name, $equal, $expression);
+    return new static($name, $equal, $expression);
   }
 
   <<__Override>>
@@ -81,7 +82,7 @@ final class XHPSimpleAttribute extends EditableNode {
     ) {
       return $this;
     }
-    return new self($name, $equal, $expression);
+    return new static($name, $equal, $expression);
   }
 
   public function getNameUNTYPED(): EditableNode {
@@ -92,7 +93,7 @@ final class XHPSimpleAttribute extends EditableNode {
     if ($value === $this->_name) {
       return $this;
     }
-    return new self($value, $this->_equal, $this->_expression);
+    return new static($value, $this->_equal, $this->_expression);
   }
 
   public function hasName(): bool {
@@ -114,7 +115,7 @@ final class XHPSimpleAttribute extends EditableNode {
     if ($value === $this->_equal) {
       return $this;
     }
-    return new self($this->_name, $value, $this->_expression);
+    return new static($this->_name, $value, $this->_expression);
   }
 
   public function hasEqual(): bool {
@@ -146,7 +147,7 @@ final class XHPSimpleAttribute extends EditableNode {
     if ($value === $this->_expression) {
       return $this;
     }
-    return new self($this->_name, $this->_equal, $value);
+    return new static($this->_name, $this->_equal, $value);
   }
 
   public function hasExpression(): bool {

@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9dc3ed1b094713b962976621b5dacfcb>>
+ * @generated SignedSource<<0ef2e559ed47cd2d7163d9770aa57fff>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class AttributeSpecification extends EditableNode {
 
   private EditableNode $_left_double_angle;
@@ -52,7 +53,7 @@ final class AttributeSpecification extends EditableNode {
       $source,
     );
     $offset += $right_double_angle->getWidth();
-    return new self($left_double_angle, $attributes, $right_double_angle);
+    return new static($left_double_angle, $attributes, $right_double_angle);
   }
 
   <<__Override>>
@@ -83,7 +84,7 @@ final class AttributeSpecification extends EditableNode {
     ) {
       return $this;
     }
-    return new self($left_double_angle, $attributes, $right_double_angle);
+    return new static($left_double_angle, $attributes, $right_double_angle);
   }
 
   public function getLeftDoubleAngleUNTYPED(): EditableNode {
@@ -94,7 +95,7 @@ final class AttributeSpecification extends EditableNode {
     if ($value === $this->_left_double_angle) {
       return $this;
     }
-    return new self($value, $this->_attributes, $this->_right_double_angle);
+    return new static($value, $this->_attributes, $this->_right_double_angle);
   }
 
   public function hasLeftDoubleAngle(): bool {
@@ -120,7 +121,7 @@ final class AttributeSpecification extends EditableNode {
       return $this;
     }
     return
-      new self($this->_left_double_angle, $value, $this->_right_double_angle);
+      new static($this->_left_double_angle, $value, $this->_right_double_angle);
   }
 
   public function hasAttributes(): bool {
@@ -142,7 +143,7 @@ final class AttributeSpecification extends EditableNode {
     if ($value === $this->_right_double_angle) {
       return $this;
     }
-    return new self($this->_left_double_angle, $this->_attributes, $value);
+    return new static($this->_left_double_angle, $this->_attributes, $value);
   }
 
   public function hasRightDoubleAngle(): bool {

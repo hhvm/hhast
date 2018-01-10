@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<47494571ed5d84a31c35a7e2c86f5a67>>
+ * @generated SignedSource<<91d758ed6e69cd48a5b0098a361b814e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class DictionaryTypeSpecifier extends EditableNode {
 
   private EditableNode $_keyword;
@@ -62,7 +63,7 @@ final class DictionaryTypeSpecifier extends EditableNode {
       $source,
     );
     $offset += $right_angle->getWidth();
-    return new self($keyword, $left_angle, $members, $right_angle);
+    return new static($keyword, $left_angle, $members, $right_angle);
   }
 
   <<__Override>>
@@ -94,7 +95,7 @@ final class DictionaryTypeSpecifier extends EditableNode {
     ) {
       return $this;
     }
-    return new self($keyword, $left_angle, $members, $right_angle);
+    return new static($keyword, $left_angle, $members, $right_angle);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -105,7 +106,7 @@ final class DictionaryTypeSpecifier extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_left_angle,
       $this->_members,
@@ -133,7 +134,7 @@ final class DictionaryTypeSpecifier extends EditableNode {
       return $this;
     }
     return
-      new self($this->_keyword, $value, $this->_members, $this->_right_angle);
+      new static($this->_keyword, $value, $this->_members, $this->_right_angle);
   }
 
   public function hasLeftAngle(): bool {
@@ -155,7 +156,7 @@ final class DictionaryTypeSpecifier extends EditableNode {
     if ($value === $this->_members) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_angle,
       $value,
@@ -183,7 +184,7 @@ final class DictionaryTypeSpecifier extends EditableNode {
       return $this;
     }
     return
-      new self($this->_keyword, $this->_left_angle, $this->_members, $value);
+      new static($this->_keyword, $this->_left_angle, $this->_members, $value);
   }
 
   public function hasRightAngle(): bool {

@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c1f48d9c51b97ad8099c17557564471f>>
+ * @generated SignedSource<<830cd2d2e5b826abde9e003223097916>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class NamespaceGroupUseDeclaration extends EditableNode {
 
   private EditableNode $_keyword;
@@ -92,7 +93,7 @@ final class NamespaceGroupUseDeclaration extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
-    return new self(
+    return new static(
       $keyword,
       $kind,
       $prefix,
@@ -141,7 +142,7 @@ final class NamespaceGroupUseDeclaration extends EditableNode {
     ) {
       return $this;
     }
-    return new self(
+    return new static(
       $keyword,
       $kind,
       $prefix,
@@ -160,7 +161,7 @@ final class NamespaceGroupUseDeclaration extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_kind,
       $this->_prefix,
@@ -190,7 +191,7 @@ final class NamespaceGroupUseDeclaration extends EditableNode {
     if ($value === $this->_kind) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $value,
       $this->_prefix,
@@ -230,7 +231,7 @@ final class NamespaceGroupUseDeclaration extends EditableNode {
     if ($value === $this->_prefix) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_kind,
       $value,
@@ -260,7 +261,7 @@ final class NamespaceGroupUseDeclaration extends EditableNode {
     if ($value === $this->_left_brace) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_kind,
       $this->_prefix,
@@ -290,7 +291,7 @@ final class NamespaceGroupUseDeclaration extends EditableNode {
     if ($value === $this->_clauses) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_kind,
       $this->_prefix,
@@ -320,7 +321,7 @@ final class NamespaceGroupUseDeclaration extends EditableNode {
     if ($value === $this->_right_brace) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_kind,
       $this->_prefix,
@@ -360,7 +361,7 @@ final class NamespaceGroupUseDeclaration extends EditableNode {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_kind,
       $this->_prefix,

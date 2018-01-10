@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0b6175d094c0fa6826bb6a165d5120e6>>
+ * @generated SignedSource<<d11fe8de06d0b88b59c1670d51898a10>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class FieldSpecifier extends EditableNode {
 
   private EditableNode $_question;
@@ -62,7 +63,7 @@ final class FieldSpecifier extends EditableNode {
       $source,
     );
     $offset += $type->getWidth();
-    return new self($question, $name, $arrow, $type);
+    return new static($question, $name, $arrow, $type);
   }
 
   <<__Override>>
@@ -94,7 +95,7 @@ final class FieldSpecifier extends EditableNode {
     ) {
       return $this;
     }
-    return new self($question, $name, $arrow, $type);
+    return new static($question, $name, $arrow, $type);
   }
 
   public function getQuestionUNTYPED(): EditableNode {
@@ -105,7 +106,7 @@ final class FieldSpecifier extends EditableNode {
     if ($value === $this->_question) {
       return $this;
     }
-    return new self($value, $this->_name, $this->_arrow, $this->_type);
+    return new static($value, $this->_name, $this->_arrow, $this->_type);
   }
 
   public function hasQuestion(): bool {
@@ -137,7 +138,7 @@ final class FieldSpecifier extends EditableNode {
     if ($value === $this->_name) {
       return $this;
     }
-    return new self($this->_question, $value, $this->_arrow, $this->_type);
+    return new static($this->_question, $value, $this->_arrow, $this->_type);
   }
 
   public function hasName(): bool {
@@ -159,7 +160,7 @@ final class FieldSpecifier extends EditableNode {
     if ($value === $this->_arrow) {
       return $this;
     }
-    return new self($this->_question, $this->_name, $value, $this->_type);
+    return new static($this->_question, $this->_name, $value, $this->_type);
   }
 
   public function hasArrow(): bool {
@@ -181,7 +182,7 @@ final class FieldSpecifier extends EditableNode {
     if ($value === $this->_type) {
       return $this;
     }
-    return new self($this->_question, $this->_name, $this->_arrow, $value);
+    return new static($this->_question, $this->_name, $this->_arrow, $value);
   }
 
   public function hasType(): bool {

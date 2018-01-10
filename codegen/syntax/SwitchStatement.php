@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b791c4acf6da61756a336a6f1fd99b57>>
+ * @generated SignedSource<<3397f73bf7a21b70a914c497a7f8b05b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class SwitchStatement extends EditableNode
   implements IControlFlowStatement {
 
@@ -93,7 +94,7 @@ final class SwitchStatement extends EditableNode
       $source,
     );
     $offset += $right_brace->getWidth();
-    return new self(
+    return new static(
       $keyword,
       $left_paren,
       $expression,
@@ -142,7 +143,7 @@ final class SwitchStatement extends EditableNode
     ) {
       return $this;
     }
-    return new self(
+    return new static(
       $keyword,
       $left_paren,
       $expression,
@@ -161,7 +162,7 @@ final class SwitchStatement extends EditableNode
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_left_paren,
       $this->_expression,
@@ -191,7 +192,7 @@ final class SwitchStatement extends EditableNode
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $value,
       $this->_expression,
@@ -221,7 +222,7 @@ final class SwitchStatement extends EditableNode
     if ($value === $this->_expression) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $value,
@@ -253,7 +254,7 @@ final class SwitchStatement extends EditableNode
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_expression,
@@ -283,7 +284,7 @@ final class SwitchStatement extends EditableNode
     if ($value === $this->_left_brace) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_expression,
@@ -323,7 +324,7 @@ final class SwitchStatement extends EditableNode
     if ($value === $this->_sections) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_expression,
@@ -363,7 +364,7 @@ final class SwitchStatement extends EditableNode
     if ($value === $this->_right_brace) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_expression,

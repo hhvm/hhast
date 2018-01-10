@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<da6222e25f7129b882c05ec8b833ff38>>
+ * @generated SignedSource<<2862cbc4d0a79ea64ddc59f805a1340c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class CatchClause extends EditableNode {
 
   private EditableNode $_keyword;
@@ -83,7 +84,7 @@ final class CatchClause extends EditableNode {
     );
     $offset += $body->getWidth();
     return
-      new self($keyword, $left_paren, $type, $variable, $right_paren, $body);
+      new static($keyword, $left_paren, $type, $variable, $right_paren, $body);
   }
 
   <<__Override>>
@@ -122,7 +123,7 @@ final class CatchClause extends EditableNode {
       return $this;
     }
     return
-      new self($keyword, $left_paren, $type, $variable, $right_paren, $body);
+      new static($keyword, $left_paren, $type, $variable, $right_paren, $body);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -133,7 +134,7 @@ final class CatchClause extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_left_paren,
       $this->_type,
@@ -162,7 +163,7 @@ final class CatchClause extends EditableNode {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $value,
       $this->_type,
@@ -191,7 +192,7 @@ final class CatchClause extends EditableNode {
     if ($value === $this->_type) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $value,
@@ -220,7 +221,7 @@ final class CatchClause extends EditableNode {
     if ($value === $this->_variable) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_type,
@@ -259,7 +260,7 @@ final class CatchClause extends EditableNode {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_type,
@@ -298,7 +299,7 @@ final class CatchClause extends EditableNode {
     if ($value === $this->_body) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_type,

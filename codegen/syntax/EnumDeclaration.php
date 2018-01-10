@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c2b0f794058da1dc59fe9ebb79ee324f>>
+ * @generated SignedSource<<8f50a658b1eca7d0329bbcd22b80e091>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class EnumDeclaration extends EditableNode {
 
   private EditableNode $_attribute_spec;
@@ -112,7 +113,7 @@ final class EnumDeclaration extends EditableNode {
       $source,
     );
     $offset += $right_brace->getWidth();
-    return new self(
+    return new static(
       $attribute_spec,
       $keyword,
       $name,
@@ -169,7 +170,7 @@ final class EnumDeclaration extends EditableNode {
     ) {
       return $this;
     }
-    return new self(
+    return new static(
       $attribute_spec,
       $keyword,
       $name,
@@ -190,7 +191,7 @@ final class EnumDeclaration extends EditableNode {
     if ($value === $this->_attribute_spec) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_keyword,
       $this->_name,
@@ -222,7 +223,7 @@ final class EnumDeclaration extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_attribute_spec,
       $value,
       $this->_name,
@@ -254,7 +255,7 @@ final class EnumDeclaration extends EditableNode {
     if ($value === $this->_name) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_attribute_spec,
       $this->_keyword,
       $value,
@@ -286,7 +287,7 @@ final class EnumDeclaration extends EditableNode {
     if ($value === $this->_colon) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_attribute_spec,
       $this->_keyword,
       $this->_name,
@@ -318,7 +319,7 @@ final class EnumDeclaration extends EditableNode {
     if ($value === $this->_base) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_attribute_spec,
       $this->_keyword,
       $this->_name,
@@ -351,7 +352,7 @@ final class EnumDeclaration extends EditableNode {
     if ($value === $this->_type) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_attribute_spec,
       $this->_keyword,
       $this->_name,
@@ -393,7 +394,7 @@ final class EnumDeclaration extends EditableNode {
     if ($value === $this->_left_brace) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_attribute_spec,
       $this->_keyword,
       $this->_name,
@@ -425,7 +426,7 @@ final class EnumDeclaration extends EditableNode {
     if ($value === $this->_enumerators) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_attribute_spec,
       $this->_keyword,
       $this->_name,
@@ -467,7 +468,7 @@ final class EnumDeclaration extends EditableNode {
     if ($value === $this->_right_brace) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_attribute_spec,
       $this->_keyword,
       $this->_name,

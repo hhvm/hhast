@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<31a36c4f5dc8808c85b8f55e96d42133>>
+ * @generated SignedSource<<3020c8403e0039979f077031e6d51661>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class SoftTypeSpecifier extends EditableNode {
 
   private EditableNode $_at;
@@ -39,7 +40,7 @@ final class SoftTypeSpecifier extends EditableNode {
       $source,
     );
     $offset += $type->getWidth();
-    return new self($at, $type);
+    return new static($at, $type);
   }
 
   <<__Override>>
@@ -62,7 +63,7 @@ final class SoftTypeSpecifier extends EditableNode {
     if ($at === $this->_at && $type === $this->_type) {
       return $this;
     }
-    return new self($at, $type);
+    return new static($at, $type);
   }
 
   public function getAtUNTYPED(): EditableNode {
@@ -73,7 +74,7 @@ final class SoftTypeSpecifier extends EditableNode {
     if ($value === $this->_at) {
       return $this;
     }
-    return new self($value, $this->_type);
+    return new static($value, $this->_type);
   }
 
   public function hasAt(): bool {
@@ -95,7 +96,7 @@ final class SoftTypeSpecifier extends EditableNode {
     if ($value === $this->_type) {
       return $this;
     }
-    return new self($this->_at, $value);
+    return new static($this->_at, $value);
   }
 
   public function hasType(): bool {

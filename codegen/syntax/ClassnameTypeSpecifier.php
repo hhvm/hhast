@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<23eb4b5779f376669977bddac26519bc>>
+ * @generated SignedSource<<b44ab76d838f0600d6d4b5f833a1539a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class ClassnameTypeSpecifier extends EditableNode {
 
   private EditableNode $_keyword;
@@ -73,7 +74,7 @@ final class ClassnameTypeSpecifier extends EditableNode {
     );
     $offset += $right_angle->getWidth();
     return
-      new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
+      new static($keyword, $left_angle, $type, $trailing_comma, $right_angle);
   }
 
   <<__Override>>
@@ -109,7 +110,7 @@ final class ClassnameTypeSpecifier extends EditableNode {
       return $this;
     }
     return
-      new self($keyword, $left_angle, $type, $trailing_comma, $right_angle);
+      new static($keyword, $left_angle, $type, $trailing_comma, $right_angle);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -120,7 +121,7 @@ final class ClassnameTypeSpecifier extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_left_angle,
       $this->_type,
@@ -148,7 +149,7 @@ final class ClassnameTypeSpecifier extends EditableNode {
     if ($value === $this->_left_angle) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $value,
       $this->_type,
@@ -186,7 +187,7 @@ final class ClassnameTypeSpecifier extends EditableNode {
     if ($value === $this->_type) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_angle,
       $value,
@@ -214,7 +215,7 @@ final class ClassnameTypeSpecifier extends EditableNode {
     if ($value === $this->_trailing_comma) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_angle,
       $this->_type,
@@ -242,7 +243,7 @@ final class ClassnameTypeSpecifier extends EditableNode {
     if ($value === $this->_right_angle) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_angle,
       $this->_type,

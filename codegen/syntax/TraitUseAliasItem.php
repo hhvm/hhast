@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b2bdc141bfb14aebb59e39267290fa9d>>
+ * @generated SignedSource<<22a7605d4ed46cdb3de067bee9534387>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class TraitUseAliasItem extends EditableNode {
 
   private EditableNode $_aliasing_name;
@@ -62,7 +63,7 @@ final class TraitUseAliasItem extends EditableNode {
       $source,
     );
     $offset += $aliased_name->getWidth();
-    return new self($aliasing_name, $keyword, $modifiers, $aliased_name);
+    return new static($aliasing_name, $keyword, $modifiers, $aliased_name);
   }
 
   <<__Override>>
@@ -94,7 +95,7 @@ final class TraitUseAliasItem extends EditableNode {
     ) {
       return $this;
     }
-    return new self($aliasing_name, $keyword, $modifiers, $aliased_name);
+    return new static($aliasing_name, $keyword, $modifiers, $aliased_name);
   }
 
   public function getAliasingNameUNTYPED(): EditableNode {
@@ -105,7 +106,7 @@ final class TraitUseAliasItem extends EditableNode {
     if ($value === $this->_aliasing_name) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_keyword,
       $this->_modifiers,
@@ -132,7 +133,7 @@ final class TraitUseAliasItem extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_aliasing_name,
       $value,
       $this->_modifiers,
@@ -159,7 +160,7 @@ final class TraitUseAliasItem extends EditableNode {
     if ($value === $this->_modifiers) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_aliasing_name,
       $this->_keyword,
       $value,
@@ -196,7 +197,7 @@ final class TraitUseAliasItem extends EditableNode {
     if ($value === $this->_aliased_name) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_aliasing_name,
       $this->_keyword,
       $this->_modifiers,

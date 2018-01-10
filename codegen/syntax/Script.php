@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1893f4509dda6f2d9ce1e5982368e790>>
+ * @generated SignedSource<<50947d9fe78f89f39e73f6752c2a2385>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class Script extends EditableNode {
 
   private EditableNode $_declarations;
@@ -30,7 +31,7 @@ final class Script extends EditableNode {
       $source,
     );
     $offset += $declarations->getWidth();
-    return new self($declarations);
+    return new static($declarations);
   }
 
   <<__Override>>
@@ -51,7 +52,7 @@ final class Script extends EditableNode {
     if ($declarations === $this->_declarations) {
       return $this;
     }
-    return new self($declarations);
+    return new static($declarations);
   }
 
   public function getDeclarationsUNTYPED(): EditableNode {
@@ -62,7 +63,7 @@ final class Script extends EditableNode {
     if ($value === $this->_declarations) {
       return $this;
     }
-    return new self($value);
+    return new static($value);
   }
 
   public function hasDeclarations(): bool {

@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bf4d31f9c6b5108e076a96598b723b38>>
+ * @generated SignedSource<<f912125c30a4e1616a4987ddbedf51a9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class ElseColonClause extends EditableNode {
 
   private EditableNode $_keyword;
@@ -52,7 +53,7 @@ final class ElseColonClause extends EditableNode {
       $source,
     );
     $offset += $statement->getWidth();
-    return new self($keyword, $colon, $statement);
+    return new static($keyword, $colon, $statement);
   }
 
   <<__Override>>
@@ -81,7 +82,7 @@ final class ElseColonClause extends EditableNode {
     ) {
       return $this;
     }
-    return new self($keyword, $colon, $statement);
+    return new static($keyword, $colon, $statement);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -92,7 +93,7 @@ final class ElseColonClause extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self($value, $this->_colon, $this->_statement);
+    return new static($value, $this->_colon, $this->_statement);
   }
 
   public function hasKeyword(): bool {
@@ -114,7 +115,7 @@ final class ElseColonClause extends EditableNode {
     if ($value === $this->_colon) {
       return $this;
     }
-    return new self($this->_keyword, $value, $this->_statement);
+    return new static($this->_keyword, $value, $this->_statement);
   }
 
   public function hasColon(): bool {
@@ -136,7 +137,7 @@ final class ElseColonClause extends EditableNode {
     if ($value === $this->_statement) {
       return $this;
     }
-    return new self($this->_keyword, $this->_colon, $value);
+    return new static($this->_keyword, $this->_colon, $value);
   }
 
   public function hasStatement(): bool {

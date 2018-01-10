@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<64e474bc600c03014908f82db1c34dcf>>
+ * @generated SignedSource<<c9691930ca231abc033110e0dfaf2d92>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class NamespaceEmptyBody extends EditableNode {
 
   private EditableNode $_semicolon;
@@ -30,7 +31,7 @@ final class NamespaceEmptyBody extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
-    return new self($semicolon);
+    return new static($semicolon);
   }
 
   <<__Override>>
@@ -51,7 +52,7 @@ final class NamespaceEmptyBody extends EditableNode {
     if ($semicolon === $this->_semicolon) {
       return $this;
     }
-    return new self($semicolon);
+    return new static($semicolon);
   }
 
   public function getSemicolonUNTYPED(): EditableNode {
@@ -62,7 +63,7 @@ final class NamespaceEmptyBody extends EditableNode {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new self($value);
+    return new static($value);
   }
 
   public function hasSemicolon(): bool {

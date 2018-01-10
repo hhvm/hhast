@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<40b028ecae97407f8603f2ef1ccb69b4>>
+ * @generated SignedSource<<58c9fae6cb544dc0fdf8d07ece2e4203>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class IfStatement extends EditableNode implements IControlFlowStatement {
 
   private EditableNode $_keyword;
@@ -92,7 +93,7 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
       $source,
     );
     $offset += $else_clause->getWidth();
-    return new self(
+    return new static(
       $keyword,
       $left_paren,
       $condition,
@@ -141,7 +142,7 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
     ) {
       return $this;
     }
-    return new self(
+    return new static(
       $keyword,
       $left_paren,
       $condition,
@@ -160,7 +161,7 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_left_paren,
       $this->_condition,
@@ -190,7 +191,7 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $value,
       $this->_condition,
@@ -220,7 +221,7 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
     if ($value === $this->_condition) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $value,
@@ -255,7 +256,7 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_condition,
@@ -285,7 +286,7 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
     if ($value === $this->_statement) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_condition,
@@ -317,7 +318,7 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
     if ($value === $this->_elseif_clauses) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_condition,
@@ -357,7 +358,7 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
     if ($value === $this->_else_clause) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_condition,

@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<588509f9db7183e918adfe054241b0c5>>
+ * @generated SignedSource<<a043654819d113f7c87c5cc5c67ce464>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class UnsetStatement extends EditableNode {
 
   private EditableNode $_keyword;
@@ -73,7 +74,7 @@ final class UnsetStatement extends EditableNode {
     );
     $offset += $semicolon->getWidth();
     return
-      new self($keyword, $left_paren, $variables, $right_paren, $semicolon);
+      new static($keyword, $left_paren, $variables, $right_paren, $semicolon);
   }
 
   <<__Override>>
@@ -109,7 +110,7 @@ final class UnsetStatement extends EditableNode {
       return $this;
     }
     return
-      new self($keyword, $left_paren, $variables, $right_paren, $semicolon);
+      new static($keyword, $left_paren, $variables, $right_paren, $semicolon);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -120,7 +121,7 @@ final class UnsetStatement extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_left_paren,
       $this->_variables,
@@ -148,7 +149,7 @@ final class UnsetStatement extends EditableNode {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $value,
       $this->_variables,
@@ -176,7 +177,7 @@ final class UnsetStatement extends EditableNode {
     if ($value === $this->_variables) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $value,
@@ -204,7 +205,7 @@ final class UnsetStatement extends EditableNode {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_variables,
@@ -232,7 +233,7 @@ final class UnsetStatement extends EditableNode {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_variables,

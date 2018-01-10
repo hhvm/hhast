@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6a4fe7f02a8593156d6dfd4857accb89>>
+ * @generated SignedSource<<6e52b35cac29278b479c6e622d047db5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class ListItem extends EditableNode {
 
   private EditableNode $_item;
@@ -39,7 +40,7 @@ final class ListItem extends EditableNode {
       $source,
     );
     $offset += $separator->getWidth();
-    return new self($item, $separator);
+    return new static($item, $separator);
   }
 
   <<__Override>>
@@ -62,7 +63,7 @@ final class ListItem extends EditableNode {
     if ($item === $this->_item && $separator === $this->_separator) {
       return $this;
     }
-    return new self($item, $separator);
+    return new static($item, $separator);
   }
 
   public function getItemUNTYPED(): EditableNode {
@@ -73,7 +74,7 @@ final class ListItem extends EditableNode {
     if ($value === $this->_item) {
       return $this;
     }
-    return new self($value, $this->_separator);
+    return new static($value, $this->_separator);
   }
 
   public function hasItem(): bool {
@@ -119,7 +120,7 @@ final class ListItem extends EditableNode {
     if ($value === $this->_separator) {
       return $this;
     }
-    return new self($this->_item, $value);
+    return new static($this->_item, $value);
   }
 
   public function hasSeparator(): bool {

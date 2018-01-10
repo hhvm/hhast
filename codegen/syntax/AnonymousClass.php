@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<aa61db15b9dea1ad59b8f0010ce87dcd>>
+ * @generated SignedSource<<f6c550002874dc1a103eb889cdb46eec>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class AnonymousClass extends EditableNode {
 
   private EditableNode $_class_keyword;
@@ -112,7 +113,7 @@ final class AnonymousClass extends EditableNode {
       $source,
     );
     $offset += $body->getWidth();
-    return new self(
+    return new static(
       $class_keyword,
       $left_paren,
       $argument_list,
@@ -170,7 +171,7 @@ final class AnonymousClass extends EditableNode {
     ) {
       return $this;
     }
-    return new self(
+    return new static(
       $class_keyword,
       $left_paren,
       $argument_list,
@@ -191,7 +192,7 @@ final class AnonymousClass extends EditableNode {
     if ($value === $this->_class_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_left_paren,
       $this->_argument_list,
@@ -223,7 +224,7 @@ final class AnonymousClass extends EditableNode {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_class_keyword,
       $value,
       $this->_argument_list,
@@ -265,7 +266,7 @@ final class AnonymousClass extends EditableNode {
     if ($value === $this->_argument_list) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_class_keyword,
       $this->_left_paren,
       $value,
@@ -307,7 +308,7 @@ final class AnonymousClass extends EditableNode {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_class_keyword,
       $this->_left_paren,
       $this->_argument_list,
@@ -349,7 +350,7 @@ final class AnonymousClass extends EditableNode {
     if ($value === $this->_extends_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_class_keyword,
       $this->_left_paren,
       $this->_argument_list,
@@ -391,7 +392,7 @@ final class AnonymousClass extends EditableNode {
     if ($value === $this->_extends_list) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_class_keyword,
       $this->_left_paren,
       $this->_argument_list,
@@ -433,7 +434,7 @@ final class AnonymousClass extends EditableNode {
     if ($value === $this->_implements_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_class_keyword,
       $this->_left_paren,
       $this->_argument_list,
@@ -481,7 +482,7 @@ final class AnonymousClass extends EditableNode {
     if ($value === $this->_implements_list) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_class_keyword,
       $this->_left_paren,
       $this->_argument_list,
@@ -523,7 +524,7 @@ final class AnonymousClass extends EditableNode {
     if ($value === $this->_body) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_class_keyword,
       $this->_left_paren,
       $this->_argument_list,

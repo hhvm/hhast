@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<52d1b9f6210862a3e81654d291e4ef1e>>
+ * @generated SignedSource<<61b0df1745a211433fe52288be813d05>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class NullableTypeSpecifier extends EditableNode {
 
   private EditableNode $_question;
@@ -39,7 +40,7 @@ final class NullableTypeSpecifier extends EditableNode {
       $source,
     );
     $offset += $type->getWidth();
-    return new self($question, $type);
+    return new static($question, $type);
   }
 
   <<__Override>>
@@ -62,7 +63,7 @@ final class NullableTypeSpecifier extends EditableNode {
     if ($question === $this->_question && $type === $this->_type) {
       return $this;
     }
-    return new self($question, $type);
+    return new static($question, $type);
   }
 
   public function getQuestionUNTYPED(): EditableNode {
@@ -73,7 +74,7 @@ final class NullableTypeSpecifier extends EditableNode {
     if ($value === $this->_question) {
       return $this;
     }
-    return new self($value, $this->_type);
+    return new static($value, $this->_type);
   }
 
   public function hasQuestion(): bool {
@@ -95,7 +96,7 @@ final class NullableTypeSpecifier extends EditableNode {
     if ($value === $this->_type) {
       return $this;
     }
-    return new self($this->_question, $value);
+    return new static($this->_question, $value);
   }
 
   public function hasType(): bool {

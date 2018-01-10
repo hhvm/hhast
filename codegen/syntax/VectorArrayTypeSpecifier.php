@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8df69e5df10d6381344902d31cdaeedb>>
+ * @generated SignedSource<<c7852eaac377e27d2afff6ef4fd68536>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class VectorArrayTypeSpecifier extends EditableNode {
 
   private EditableNode $_keyword;
@@ -62,7 +63,7 @@ final class VectorArrayTypeSpecifier extends EditableNode {
       $source,
     );
     $offset += $right_angle->getWidth();
-    return new self($keyword, $left_angle, $type, $right_angle);
+    return new static($keyword, $left_angle, $type, $right_angle);
   }
 
   <<__Override>>
@@ -94,7 +95,7 @@ final class VectorArrayTypeSpecifier extends EditableNode {
     ) {
       return $this;
     }
-    return new self($keyword, $left_angle, $type, $right_angle);
+    return new static($keyword, $left_angle, $type, $right_angle);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -106,7 +107,7 @@ final class VectorArrayTypeSpecifier extends EditableNode {
       return $this;
     }
     return
-      new self($value, $this->_left_angle, $this->_type, $this->_right_angle);
+      new static($value, $this->_left_angle, $this->_type, $this->_right_angle);
   }
 
   public function hasKeyword(): bool {
@@ -128,7 +129,8 @@ final class VectorArrayTypeSpecifier extends EditableNode {
     if ($value === $this->_left_angle) {
       return $this;
     }
-    return new self($this->_keyword, $value, $this->_type, $this->_right_angle);
+    return
+      new static($this->_keyword, $value, $this->_type, $this->_right_angle);
   }
 
   public function hasLeftAngle(): bool {
@@ -150,7 +152,7 @@ final class VectorArrayTypeSpecifier extends EditableNode {
     if ($value === $this->_type) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_angle,
       $value,
@@ -179,7 +181,8 @@ final class VectorArrayTypeSpecifier extends EditableNode {
     if ($value === $this->_right_angle) {
       return $this;
     }
-    return new self($this->_keyword, $this->_left_angle, $this->_type, $value);
+    return
+      new static($this->_keyword, $this->_left_angle, $this->_type, $value);
   }
 
   public function hasRightAngle(): bool {

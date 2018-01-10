@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<112ad13da98a0534d93cc3a50554c964>>
+ * @generated SignedSource<<87fd9c67e1c5239eec51145fa8439811>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class LambdaSignature extends EditableNode {
 
   private EditableNode $_left_paren;
@@ -72,7 +73,7 @@ final class LambdaSignature extends EditableNode {
       $source,
     );
     $offset += $type->getWidth();
-    return new self($left_paren, $parameters, $right_paren, $colon, $type);
+    return new static($left_paren, $parameters, $right_paren, $colon, $type);
   }
 
   <<__Override>>
@@ -107,7 +108,7 @@ final class LambdaSignature extends EditableNode {
     ) {
       return $this;
     }
-    return new self($left_paren, $parameters, $right_paren, $colon, $type);
+    return new static($left_paren, $parameters, $right_paren, $colon, $type);
   }
 
   public function getLeftParenUNTYPED(): EditableNode {
@@ -118,7 +119,7 @@ final class LambdaSignature extends EditableNode {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_parameters,
       $this->_right_paren,
@@ -146,7 +147,7 @@ final class LambdaSignature extends EditableNode {
     if ($value === $this->_parameters) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_left_paren,
       $value,
       $this->_right_paren,
@@ -184,7 +185,7 @@ final class LambdaSignature extends EditableNode {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_left_paren,
       $this->_parameters,
       $value,
@@ -212,7 +213,7 @@ final class LambdaSignature extends EditableNode {
     if ($value === $this->_colon) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_left_paren,
       $this->_parameters,
       $this->_right_paren,
@@ -250,7 +251,7 @@ final class LambdaSignature extends EditableNode {
     if ($value === $this->_type) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_left_paren,
       $this->_parameters,
       $this->_right_paren,

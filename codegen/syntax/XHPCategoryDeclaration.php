@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<55bbd276a8bb9a39a711b0b1b2d44716>>
+ * @generated SignedSource<<48fb3d76c9d03b041f128e589f7e2e0b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class XHPCategoryDeclaration extends EditableNode {
 
   private EditableNode $_keyword;
@@ -52,7 +53,7 @@ final class XHPCategoryDeclaration extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
-    return new self($keyword, $categories, $semicolon);
+    return new static($keyword, $categories, $semicolon);
   }
 
   <<__Override>>
@@ -81,7 +82,7 @@ final class XHPCategoryDeclaration extends EditableNode {
     ) {
       return $this;
     }
-    return new self($keyword, $categories, $semicolon);
+    return new static($keyword, $categories, $semicolon);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -92,7 +93,7 @@ final class XHPCategoryDeclaration extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self($value, $this->_categories, $this->_semicolon);
+    return new static($value, $this->_categories, $this->_semicolon);
   }
 
   public function hasKeyword(): bool {
@@ -114,7 +115,7 @@ final class XHPCategoryDeclaration extends EditableNode {
     if ($value === $this->_categories) {
       return $this;
     }
-    return new self($this->_keyword, $value, $this->_semicolon);
+    return new static($this->_keyword, $value, $this->_semicolon);
   }
 
   public function hasCategories(): bool {
@@ -136,7 +137,7 @@ final class XHPCategoryDeclaration extends EditableNode {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new self($this->_keyword, $this->_categories, $value);
+    return new static($this->_keyword, $this->_categories, $value);
   }
 
   public function hasSemicolon(): bool {

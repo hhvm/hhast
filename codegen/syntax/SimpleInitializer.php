@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4a36f24e4d6a290b02e7ac5508f3be59>>
+ * @generated SignedSource<<0ebdbdc81c662d4d79a411349fe402c6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class SimpleInitializer extends EditableNode {
 
   private EditableNode $_equal;
@@ -39,7 +40,7 @@ final class SimpleInitializer extends EditableNode {
       $source,
     );
     $offset += $value->getWidth();
-    return new self($equal, $value);
+    return new static($equal, $value);
   }
 
   <<__Override>>
@@ -62,7 +63,7 @@ final class SimpleInitializer extends EditableNode {
     if ($equal === $this->_equal && $value === $this->_value) {
       return $this;
     }
-    return new self($equal, $value);
+    return new static($equal, $value);
   }
 
   public function getEqualUNTYPED(): EditableNode {
@@ -73,7 +74,7 @@ final class SimpleInitializer extends EditableNode {
     if ($value === $this->_equal) {
       return $this;
     }
-    return new self($value, $this->_value);
+    return new static($value, $this->_value);
   }
 
   public function hasEqual(): bool {
@@ -95,7 +96,7 @@ final class SimpleInitializer extends EditableNode {
     if ($value === $this->_value) {
       return $this;
     }
-    return new self($this->_equal, $value);
+    return new static($this->_equal, $value);
   }
 
   public function hasValue(): bool {

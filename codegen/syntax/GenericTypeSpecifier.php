@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d7ec969e244ee7127dfe6a557854ef3f>>
+ * @generated SignedSource<<5326d6c5d5327470fcbd6c993e55a5a3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class GenericTypeSpecifier extends EditableNode {
 
   private EditableNode $_class_type;
@@ -42,7 +43,7 @@ final class GenericTypeSpecifier extends EditableNode {
       $source,
     );
     $offset += $argument_list->getWidth();
-    return new self($class_type, $argument_list);
+    return new static($class_type, $argument_list);
   }
 
   <<__Override>>
@@ -68,7 +69,7 @@ final class GenericTypeSpecifier extends EditableNode {
     ) {
       return $this;
     }
-    return new self($class_type, $argument_list);
+    return new static($class_type, $argument_list);
   }
 
   public function getClassTypeUNTYPED(): EditableNode {
@@ -79,7 +80,7 @@ final class GenericTypeSpecifier extends EditableNode {
     if ($value === $this->_class_type) {
       return $this;
     }
-    return new self($value, $this->_argument_list);
+    return new static($value, $this->_argument_list);
   }
 
   public function hasClassType(): bool {
@@ -101,7 +102,7 @@ final class GenericTypeSpecifier extends EditableNode {
     if ($value === $this->_argument_list) {
       return $this;
     }
-    return new self($this->_class_type, $value);
+    return new static($this->_class_type, $value);
   }
 
   public function hasArgumentList(): bool {

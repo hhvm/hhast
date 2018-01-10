@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cb5277a7b0fb27963aa35765680804f7>>
+ * @generated SignedSource<<9357e4dd5ec1cc5e1397232ec9aea3d3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class DecoratedExpression extends EditableNode {
 
   private EditableNode $_decorator;
@@ -42,7 +43,7 @@ final class DecoratedExpression extends EditableNode {
       $source,
     );
     $offset += $expression->getWidth();
-    return new self($decorator, $expression);
+    return new static($decorator, $expression);
   }
 
   <<__Override>>
@@ -67,7 +68,7 @@ final class DecoratedExpression extends EditableNode {
     ) {
       return $this;
     }
-    return new self($decorator, $expression);
+    return new static($decorator, $expression);
   }
 
   public function getDecoratorUNTYPED(): EditableNode {
@@ -78,7 +79,7 @@ final class DecoratedExpression extends EditableNode {
     if ($value === $this->_decorator) {
       return $this;
     }
-    return new self($value, $this->_expression);
+    return new static($value, $this->_expression);
   }
 
   public function hasDecorator(): bool {
@@ -100,7 +101,7 @@ final class DecoratedExpression extends EditableNode {
     if ($value === $this->_expression) {
       return $this;
     }
-    return new self($this->_decorator, $value);
+    return new static($this->_decorator, $value);
   }
 
   public function hasExpression(): bool {

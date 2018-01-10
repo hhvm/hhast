@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3f4623727b14d8fad8b554f49d1573bf>>
+ * @generated SignedSource<<256b5ee4cb76a7d1c433dfbf78255ff2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class ExpressionStatement extends EditableNode {
 
   private EditableNode $_expression;
@@ -42,7 +43,7 @@ final class ExpressionStatement extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
-    return new self($expression, $semicolon);
+    return new static($expression, $semicolon);
   }
 
   <<__Override>>
@@ -67,7 +68,7 @@ final class ExpressionStatement extends EditableNode {
     ) {
       return $this;
     }
-    return new self($expression, $semicolon);
+    return new static($expression, $semicolon);
   }
 
   public function getExpressionUNTYPED(): EditableNode {
@@ -78,7 +79,7 @@ final class ExpressionStatement extends EditableNode {
     if ($value === $this->_expression) {
       return $this;
     }
-    return new self($value, $this->_semicolon);
+    return new static($value, $this->_semicolon);
   }
 
   public function hasExpression(): bool {
@@ -112,7 +113,7 @@ final class ExpressionStatement extends EditableNode {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new self($this->_expression, $value);
+    return new static($this->_expression, $value);
   }
 
   public function hasSemicolon(): bool {

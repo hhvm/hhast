@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<54c9fc99bf5945c9bd4b9641bbc76f5c>>
+ * @generated SignedSource<<8f031c70ef6ec20d7220d8cdd0614da3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class DictionaryIntrinsicExpression extends EditableNode {
 
   private EditableNode $_keyword;
@@ -62,7 +63,7 @@ final class DictionaryIntrinsicExpression extends EditableNode {
       $source,
     );
     $offset += $right_bracket->getWidth();
-    return new self($keyword, $left_bracket, $members, $right_bracket);
+    return new static($keyword, $left_bracket, $members, $right_bracket);
   }
 
   <<__Override>>
@@ -94,7 +95,7 @@ final class DictionaryIntrinsicExpression extends EditableNode {
     ) {
       return $this;
     }
-    return new self($keyword, $left_bracket, $members, $right_bracket);
+    return new static($keyword, $left_bracket, $members, $right_bracket);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -105,7 +106,7 @@ final class DictionaryIntrinsicExpression extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_left_bracket,
       $this->_members,
@@ -132,8 +133,12 @@ final class DictionaryIntrinsicExpression extends EditableNode {
     if ($value === $this->_left_bracket) {
       return $this;
     }
-    return
-      new self($this->_keyword, $value, $this->_members, $this->_right_bracket);
+    return new static(
+      $this->_keyword,
+      $value,
+      $this->_members,
+      $this->_right_bracket,
+    );
   }
 
   public function hasLeftBracket(): bool {
@@ -156,7 +161,7 @@ final class DictionaryIntrinsicExpression extends EditableNode {
     if ($value === $this->_members) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_bracket,
       $value,
@@ -193,8 +198,12 @@ final class DictionaryIntrinsicExpression extends EditableNode {
     if ($value === $this->_right_bracket) {
       return $this;
     }
-    return
-      new self($this->_keyword, $this->_left_bracket, $this->_members, $value);
+    return new static(
+      $this->_keyword,
+      $this->_left_bracket,
+      $this->_members,
+      $value,
+    );
   }
 
   public function hasRightBracket(): bool {

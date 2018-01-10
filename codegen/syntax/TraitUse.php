@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<252a683f635327dbc1cbb33ef766bc1b>>
+ * @generated SignedSource<<e825fa4873659a08a881d4aa47020dbc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class TraitUse extends EditableNode {
 
   private EditableNode $_keyword;
@@ -52,7 +53,7 @@ final class TraitUse extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
-    return new self($keyword, $names, $semicolon);
+    return new static($keyword, $names, $semicolon);
   }
 
   <<__Override>>
@@ -81,7 +82,7 @@ final class TraitUse extends EditableNode {
     ) {
       return $this;
     }
-    return new self($keyword, $names, $semicolon);
+    return new static($keyword, $names, $semicolon);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -92,7 +93,7 @@ final class TraitUse extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self($value, $this->_names, $this->_semicolon);
+    return new static($value, $this->_names, $this->_semicolon);
   }
 
   public function hasKeyword(): bool {
@@ -114,7 +115,7 @@ final class TraitUse extends EditableNode {
     if ($value === $this->_names) {
       return $this;
     }
-    return new self($this->_keyword, $value, $this->_semicolon);
+    return new static($this->_keyword, $value, $this->_semicolon);
   }
 
   public function hasNames(): bool {
@@ -136,7 +137,7 @@ final class TraitUse extends EditableNode {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new self($this->_keyword, $this->_names, $value);
+    return new static($this->_keyword, $this->_names, $value);
   }
 
   public function hasSemicolon(): bool {

@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<602d2125895492928d7353daf1f02377>>
+ * @generated SignedSource<<7aafb8bc2d36a63169ebae787f279f96>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class ClosureParameterTypeSpecifier extends EditableNode {
 
   private EditableNode $_call_convention;
@@ -42,7 +43,7 @@ final class ClosureParameterTypeSpecifier extends EditableNode {
       $source,
     );
     $offset += $type->getWidth();
-    return new self($call_convention, $type);
+    return new static($call_convention, $type);
   }
 
   <<__Override>>
@@ -67,7 +68,7 @@ final class ClosureParameterTypeSpecifier extends EditableNode {
     ) {
       return $this;
     }
-    return new self($call_convention, $type);
+    return new static($call_convention, $type);
   }
 
   public function getCallConventionUNTYPED(): EditableNode {
@@ -78,7 +79,7 @@ final class ClosureParameterTypeSpecifier extends EditableNode {
     if ($value === $this->_call_convention) {
       return $this;
     }
-    return new self($value, $this->_type);
+    return new static($value, $this->_type);
   }
 
   public function hasCallConvention(): bool {
@@ -110,7 +111,7 @@ final class ClosureParameterTypeSpecifier extends EditableNode {
     if ($value === $this->_type) {
       return $this;
     }
-    return new self($this->_call_convention, $value);
+    return new static($this->_call_convention, $value);
   }
 
   public function hasType(): bool {

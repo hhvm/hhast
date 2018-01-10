@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<884d1dacb11c8e8b51c2f2310e964dea>>
+ * @generated SignedSource<<4dcca7ca8b691fac5053086828830198>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class FunctionDeclarationHeader extends EditableNode {
 
   private EditableNode $_modifiers;
@@ -132,7 +133,7 @@ final class FunctionDeclarationHeader extends EditableNode {
       $source,
     );
     $offset += $where_clause->getWidth();
-    return new self(
+    return new static(
       $modifiers,
       $keyword,
       $ampersand,
@@ -198,7 +199,7 @@ final class FunctionDeclarationHeader extends EditableNode {
     ) {
       return $this;
     }
-    return new self(
+    return new static(
       $modifiers,
       $keyword,
       $ampersand,
@@ -221,7 +222,7 @@ final class FunctionDeclarationHeader extends EditableNode {
     if ($value === $this->_modifiers) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_keyword,
       $this->_ampersand,
@@ -265,7 +266,7 @@ final class FunctionDeclarationHeader extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_modifiers,
       $value,
       $this->_ampersand,
@@ -309,7 +310,7 @@ final class FunctionDeclarationHeader extends EditableNode {
     if ($value === $this->_ampersand) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_modifiers,
       $this->_keyword,
       $value,
@@ -353,7 +354,7 @@ final class FunctionDeclarationHeader extends EditableNode {
     if ($value === $this->_name) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_modifiers,
       $this->_keyword,
       $this->_ampersand,
@@ -387,7 +388,7 @@ final class FunctionDeclarationHeader extends EditableNode {
     if ($value === $this->_type_parameter_list) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_modifiers,
       $this->_keyword,
       $this->_ampersand,
@@ -437,7 +438,7 @@ final class FunctionDeclarationHeader extends EditableNode {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_modifiers,
       $this->_keyword,
       $this->_ampersand,
@@ -481,7 +482,7 @@ final class FunctionDeclarationHeader extends EditableNode {
     if ($value === $this->_parameter_list) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_modifiers,
       $this->_keyword,
       $this->_ampersand,
@@ -525,7 +526,7 @@ final class FunctionDeclarationHeader extends EditableNode {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_modifiers,
       $this->_keyword,
       $this->_ampersand,
@@ -569,7 +570,7 @@ final class FunctionDeclarationHeader extends EditableNode {
     if ($value === $this->_colon) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_modifiers,
       $this->_keyword,
       $this->_ampersand,
@@ -613,7 +614,7 @@ final class FunctionDeclarationHeader extends EditableNode {
     if ($value === $this->_type) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_modifiers,
       $this->_keyword,
       $this->_ampersand,
@@ -652,7 +653,7 @@ final class FunctionDeclarationHeader extends EditableNode {
     if ($value === $this->_where_clause) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_modifiers,
       $this->_keyword,
       $this->_ampersand,

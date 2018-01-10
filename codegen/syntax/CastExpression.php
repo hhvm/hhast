@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<08db012fc3c1e69d8895dca139114483>>
+ * @generated SignedSource<<af669ac3d5501b80ae27844dc8f6298d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class CastExpression extends EditableNode {
 
   private EditableNode $_left_paren;
@@ -62,7 +63,7 @@ final class CastExpression extends EditableNode {
       $source,
     );
     $offset += $operand->getWidth();
-    return new self($left_paren, $type, $right_paren, $operand);
+    return new static($left_paren, $type, $right_paren, $operand);
   }
 
   <<__Override>>
@@ -94,7 +95,7 @@ final class CastExpression extends EditableNode {
     ) {
       return $this;
     }
-    return new self($left_paren, $type, $right_paren, $operand);
+    return new static($left_paren, $type, $right_paren, $operand);
   }
 
   public function getLeftParenUNTYPED(): EditableNode {
@@ -105,7 +106,8 @@ final class CastExpression extends EditableNode {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new self($value, $this->_type, $this->_right_paren, $this->_operand);
+    return
+      new static($value, $this->_type, $this->_right_paren, $this->_operand);
   }
 
   public function hasLeftParen(): bool {
@@ -127,7 +129,7 @@ final class CastExpression extends EditableNode {
     if ($value === $this->_type) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_left_paren,
       $value,
       $this->_right_paren,
@@ -155,7 +157,8 @@ final class CastExpression extends EditableNode {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new self($this->_left_paren, $this->_type, $value, $this->_operand);
+    return
+      new static($this->_left_paren, $this->_type, $value, $this->_operand);
   }
 
   public function hasRightParen(): bool {
@@ -178,7 +181,7 @@ final class CastExpression extends EditableNode {
       return $this;
     }
     return
-      new self($this->_left_paren, $this->_type, $this->_right_paren, $value);
+      new static($this->_left_paren, $this->_type, $this->_right_paren, $value);
   }
 
   public function hasOperand(): bool {

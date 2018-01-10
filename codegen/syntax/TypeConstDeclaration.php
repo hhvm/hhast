@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8b5057c3a5e67c347bbb734563427946>>
+ * @generated SignedSource<<bd286ec7634a6af7d4b668932ce74be6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class TypeConstDeclaration extends EditableNode {
 
   private EditableNode $_abstract;
@@ -112,7 +113,7 @@ final class TypeConstDeclaration extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
-    return new self(
+    return new static(
       $abstract,
       $keyword,
       $type_keyword,
@@ -169,7 +170,7 @@ final class TypeConstDeclaration extends EditableNode {
     ) {
       return $this;
     }
-    return new self(
+    return new static(
       $abstract,
       $keyword,
       $type_keyword,
@@ -190,7 +191,7 @@ final class TypeConstDeclaration extends EditableNode {
     if ($value === $this->_abstract) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_keyword,
       $this->_type_keyword,
@@ -232,7 +233,7 @@ final class TypeConstDeclaration extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_abstract,
       $value,
       $this->_type_keyword,
@@ -264,7 +265,7 @@ final class TypeConstDeclaration extends EditableNode {
     if ($value === $this->_type_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_abstract,
       $this->_keyword,
       $value,
@@ -296,7 +297,7 @@ final class TypeConstDeclaration extends EditableNode {
     if ($value === $this->_name) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_abstract,
       $this->_keyword,
       $this->_type_keyword,
@@ -328,7 +329,7 @@ final class TypeConstDeclaration extends EditableNode {
     if ($value === $this->_type_parameters) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_abstract,
       $this->_keyword,
       $this->_type_keyword,
@@ -372,7 +373,7 @@ final class TypeConstDeclaration extends EditableNode {
     if ($value === $this->_type_constraint) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_abstract,
       $this->_keyword,
       $this->_type_keyword,
@@ -416,7 +417,7 @@ final class TypeConstDeclaration extends EditableNode {
     if ($value === $this->_equal) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_abstract,
       $this->_keyword,
       $this->_type_keyword,
@@ -458,7 +459,7 @@ final class TypeConstDeclaration extends EditableNode {
     if ($value === $this->_type_specifier) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_abstract,
       $this->_keyword,
       $this->_type_keyword,
@@ -493,7 +494,7 @@ final class TypeConstDeclaration extends EditableNode {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_abstract,
       $this->_keyword,
       $this->_type_keyword,

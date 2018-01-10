@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<42c03889aef1167643b80fc31e75b346>>
+ * @generated SignedSource<<40d4f3ff5e4a920c00d40f747c9f6563>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class TupleTypeSpecifier extends EditableNode {
 
   private EditableNode $_left_paren;
@@ -52,7 +53,7 @@ final class TupleTypeSpecifier extends EditableNode {
       $source,
     );
     $offset += $right_paren->getWidth();
-    return new self($left_paren, $types, $right_paren);
+    return new static($left_paren, $types, $right_paren);
   }
 
   <<__Override>>
@@ -81,7 +82,7 @@ final class TupleTypeSpecifier extends EditableNode {
     ) {
       return $this;
     }
-    return new self($left_paren, $types, $right_paren);
+    return new static($left_paren, $types, $right_paren);
   }
 
   public function getLeftParenUNTYPED(): EditableNode {
@@ -92,7 +93,7 @@ final class TupleTypeSpecifier extends EditableNode {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new self($value, $this->_types, $this->_right_paren);
+    return new static($value, $this->_types, $this->_right_paren);
   }
 
   public function hasLeftParen(): bool {
@@ -114,7 +115,7 @@ final class TupleTypeSpecifier extends EditableNode {
     if ($value === $this->_types) {
       return $this;
     }
-    return new self($this->_left_paren, $value, $this->_right_paren);
+    return new static($this->_left_paren, $value, $this->_right_paren);
   }
 
   public function hasTypes(): bool {
@@ -136,7 +137,7 @@ final class TupleTypeSpecifier extends EditableNode {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new self($this->_left_paren, $this->_types, $value);
+    return new static($this->_left_paren, $this->_types, $value);
   }
 
   public function hasRightParen(): bool {

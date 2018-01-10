@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<07115e743c407e86871261a75fdbc4e9>>
+ * @generated SignedSource<<db27d567e5c2166ee217badc0a7ddb29>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class WhileStatement extends EditableNode
   implements IControlFlowStatement, ILoopStatement {
 
@@ -73,7 +74,7 @@ final class WhileStatement extends EditableNode
       $source,
     );
     $offset += $body->getWidth();
-    return new self($keyword, $left_paren, $condition, $right_paren, $body);
+    return new static($keyword, $left_paren, $condition, $right_paren, $body);
   }
 
   <<__Override>>
@@ -108,7 +109,7 @@ final class WhileStatement extends EditableNode
     ) {
       return $this;
     }
-    return new self($keyword, $left_paren, $condition, $right_paren, $body);
+    return new static($keyword, $left_paren, $condition, $right_paren, $body);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -119,7 +120,7 @@ final class WhileStatement extends EditableNode
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_left_paren,
       $this->_condition,
@@ -147,7 +148,7 @@ final class WhileStatement extends EditableNode
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $value,
       $this->_condition,
@@ -175,7 +176,7 @@ final class WhileStatement extends EditableNode
     if ($value === $this->_condition) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $value,
@@ -205,7 +206,7 @@ final class WhileStatement extends EditableNode
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_condition,
@@ -233,7 +234,7 @@ final class WhileStatement extends EditableNode
     if ($value === $this->_body) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_condition,

@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8c60b6661636bfbdad337343d3e37b4a>>
+ * @generated SignedSource<<1d41b038ab5bd7522cd0643d994dce9e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class FunctionDeclaration extends EditableNode
   implements IFunctionishDeclaration {
 
@@ -53,7 +54,7 @@ final class FunctionDeclaration extends EditableNode
       $source,
     );
     $offset += $body->getWidth();
-    return new self($attribute_spec, $declaration_header, $body);
+    return new static($attribute_spec, $declaration_header, $body);
   }
 
   <<__Override>>
@@ -83,7 +84,7 @@ final class FunctionDeclaration extends EditableNode
     ) {
       return $this;
     }
-    return new self($attribute_spec, $declaration_header, $body);
+    return new static($attribute_spec, $declaration_header, $body);
   }
 
   public function getAttributeSpecUNTYPED(): EditableNode {
@@ -94,7 +95,7 @@ final class FunctionDeclaration extends EditableNode
     if ($value === $this->_attribute_spec) {
       return $this;
     }
-    return new self($value, $this->_declaration_header, $this->_body);
+    return new static($value, $this->_declaration_header, $this->_body);
   }
 
   public function hasAttributeSpec(): bool {
@@ -132,7 +133,7 @@ final class FunctionDeclaration extends EditableNode
     if ($value === $this->_declaration_header) {
       return $this;
     }
-    return new self($this->_attribute_spec, $value, $this->_body);
+    return new static($this->_attribute_spec, $value, $this->_body);
   }
 
   public function hasDeclarationHeader(): bool {
@@ -157,7 +158,8 @@ final class FunctionDeclaration extends EditableNode
     if ($value === $this->_body) {
       return $this;
     }
-    return new self($this->_attribute_spec, $this->_declaration_header, $value);
+    return
+      new static($this->_attribute_spec, $this->_declaration_header, $value);
   }
 
   public function hasBody(): bool {

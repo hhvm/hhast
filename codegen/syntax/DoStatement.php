@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<06ecc3ea3e6e52365a19c0f751577327>>
+ * @generated SignedSource<<69c04ad5a44d6df0582ad6168d841f2a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class DoStatement extends EditableNode
   implements IControlFlowStatement, ILoopStatement {
 
@@ -93,7 +94,7 @@ final class DoStatement extends EditableNode
       $source,
     );
     $offset += $semicolon->getWidth();
-    return new self(
+    return new static(
       $keyword,
       $body,
       $while_keyword,
@@ -142,7 +143,7 @@ final class DoStatement extends EditableNode
     ) {
       return $this;
     }
-    return new self(
+    return new static(
       $keyword,
       $body,
       $while_keyword,
@@ -161,7 +162,7 @@ final class DoStatement extends EditableNode
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_body,
       $this->_while_keyword,
@@ -191,7 +192,7 @@ final class DoStatement extends EditableNode
     if ($value === $this->_body) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $value,
       $this->_while_keyword,
@@ -221,7 +222,7 @@ final class DoStatement extends EditableNode
     if ($value === $this->_while_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_body,
       $value,
@@ -251,7 +252,7 @@ final class DoStatement extends EditableNode
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_body,
       $this->_while_keyword,
@@ -281,7 +282,7 @@ final class DoStatement extends EditableNode
     if ($value === $this->_condition) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_body,
       $this->_while_keyword,
@@ -312,7 +313,7 @@ final class DoStatement extends EditableNode
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_body,
       $this->_while_keyword,
@@ -342,7 +343,7 @@ final class DoStatement extends EditableNode
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_body,
       $this->_while_keyword,

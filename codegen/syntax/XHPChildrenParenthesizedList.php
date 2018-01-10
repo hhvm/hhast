@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dfe6c959e9ccae05d4132024d5faf8dc>>
+ * @generated SignedSource<<980f068fea51388f7cd1c2d2a6f67f0a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class XHPChildrenParenthesizedList extends EditableNode {
 
   private EditableNode $_left_paren;
@@ -52,7 +53,7 @@ final class XHPChildrenParenthesizedList extends EditableNode {
       $source,
     );
     $offset += $right_paren->getWidth();
-    return new self($left_paren, $xhp_children, $right_paren);
+    return new static($left_paren, $xhp_children, $right_paren);
   }
 
   <<__Override>>
@@ -81,7 +82,7 @@ final class XHPChildrenParenthesizedList extends EditableNode {
     ) {
       return $this;
     }
-    return new self($left_paren, $xhp_children, $right_paren);
+    return new static($left_paren, $xhp_children, $right_paren);
   }
 
   public function getLeftParenUNTYPED(): EditableNode {
@@ -92,7 +93,7 @@ final class XHPChildrenParenthesizedList extends EditableNode {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new self($value, $this->_xhp_children, $this->_right_paren);
+    return new static($value, $this->_xhp_children, $this->_right_paren);
   }
 
   public function hasLeftParen(): bool {
@@ -114,7 +115,7 @@ final class XHPChildrenParenthesizedList extends EditableNode {
     if ($value === $this->_xhp_children) {
       return $this;
     }
-    return new self($this->_left_paren, $value, $this->_right_paren);
+    return new static($this->_left_paren, $value, $this->_right_paren);
   }
 
   public function hasXhpChildren(): bool {
@@ -136,7 +137,7 @@ final class XHPChildrenParenthesizedList extends EditableNode {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new self($this->_left_paren, $this->_xhp_children, $value);
+    return new static($this->_left_paren, $this->_xhp_children, $value);
   }
 
   public function hasRightParen(): bool {

@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ab893f1c9a4ef523f24f8b919c211b8c>>
+ * @generated SignedSource<<d775ff0d4cd36b94e4658373703f4a02>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class XHPRequired extends EditableNode {
 
   private EditableNode $_at;
@@ -39,7 +40,7 @@ final class XHPRequired extends EditableNode {
       $source,
     );
     $offset += $keyword->getWidth();
-    return new self($at, $keyword);
+    return new static($at, $keyword);
   }
 
   <<__Override>>
@@ -62,7 +63,7 @@ final class XHPRequired extends EditableNode {
     if ($at === $this->_at && $keyword === $this->_keyword) {
       return $this;
     }
-    return new self($at, $keyword);
+    return new static($at, $keyword);
   }
 
   public function getAtUNTYPED(): EditableNode {
@@ -73,7 +74,7 @@ final class XHPRequired extends EditableNode {
     if ($value === $this->_at) {
       return $this;
     }
-    return new self($value, $this->_keyword);
+    return new static($value, $this->_keyword);
   }
 
   public function hasAt(): bool {
@@ -95,7 +96,7 @@ final class XHPRequired extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self($this->_at, $value);
+    return new static($this->_at, $value);
   }
 
   public function hasKeyword(): bool {

@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<39cf856d615ccd5ed39421c8089d5eff>>
+ * @generated SignedSource<<b62b7d1b6035eecbb3a9fa8695fc861b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class XHPClassAttributeDeclaration extends EditableNode {
 
   private EditableNode $_keyword;
@@ -52,7 +53,7 @@ final class XHPClassAttributeDeclaration extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
-    return new self($keyword, $attributes, $semicolon);
+    return new static($keyword, $attributes, $semicolon);
   }
 
   <<__Override>>
@@ -81,7 +82,7 @@ final class XHPClassAttributeDeclaration extends EditableNode {
     ) {
       return $this;
     }
-    return new self($keyword, $attributes, $semicolon);
+    return new static($keyword, $attributes, $semicolon);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -92,7 +93,7 @@ final class XHPClassAttributeDeclaration extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self($value, $this->_attributes, $this->_semicolon);
+    return new static($value, $this->_attributes, $this->_semicolon);
   }
 
   public function hasKeyword(): bool {
@@ -114,7 +115,7 @@ final class XHPClassAttributeDeclaration extends EditableNode {
     if ($value === $this->_attributes) {
       return $this;
     }
-    return new self($this->_keyword, $value, $this->_semicolon);
+    return new static($this->_keyword, $value, $this->_semicolon);
   }
 
   public function hasAttributes(): bool {
@@ -136,7 +137,7 @@ final class XHPClassAttributeDeclaration extends EditableNode {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new self($this->_keyword, $this->_attributes, $value);
+    return new static($this->_keyword, $this->_attributes, $value);
   }
 
   public function hasSemicolon(): bool {

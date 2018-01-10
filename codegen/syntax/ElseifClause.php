@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b3cd9b5b4e59650b663f0e04c713fa79>>
+ * @generated SignedSource<<a1475db02690386027ad139de52d26e3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class ElseifClause extends EditableNode implements IControlFlowStatement {
 
   private EditableNode $_keyword;
@@ -73,7 +74,7 @@ final class ElseifClause extends EditableNode implements IControlFlowStatement {
     );
     $offset += $statement->getWidth();
     return
-      new self($keyword, $left_paren, $condition, $right_paren, $statement);
+      new static($keyword, $left_paren, $condition, $right_paren, $statement);
   }
 
   <<__Override>>
@@ -109,7 +110,7 @@ final class ElseifClause extends EditableNode implements IControlFlowStatement {
       return $this;
     }
     return
-      new self($keyword, $left_paren, $condition, $right_paren, $statement);
+      new static($keyword, $left_paren, $condition, $right_paren, $statement);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -120,7 +121,7 @@ final class ElseifClause extends EditableNode implements IControlFlowStatement {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_left_paren,
       $this->_condition,
@@ -148,7 +149,7 @@ final class ElseifClause extends EditableNode implements IControlFlowStatement {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $value,
       $this->_condition,
@@ -176,7 +177,7 @@ final class ElseifClause extends EditableNode implements IControlFlowStatement {
     if ($value === $this->_condition) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $value,
@@ -205,7 +206,7 @@ final class ElseifClause extends EditableNode implements IControlFlowStatement {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_condition,
@@ -233,7 +234,7 @@ final class ElseifClause extends EditableNode implements IControlFlowStatement {
     if ($value === $this->_statement) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_condition,

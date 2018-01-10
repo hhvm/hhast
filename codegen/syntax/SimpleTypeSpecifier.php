@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c1e7519680074a90823f9ed79d5ffae0>>
+ * @generated SignedSource<<382e77a80033b9a23e65f8cc49b38e7f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class SimpleTypeSpecifier extends EditableNode {
 
   private EditableNode $_specifier;
@@ -30,7 +31,7 @@ final class SimpleTypeSpecifier extends EditableNode {
       $source,
     );
     $offset += $specifier->getWidth();
-    return new self($specifier);
+    return new static($specifier);
   }
 
   <<__Override>>
@@ -51,7 +52,7 @@ final class SimpleTypeSpecifier extends EditableNode {
     if ($specifier === $this->_specifier) {
       return $this;
     }
-    return new self($specifier);
+    return new static($specifier);
   }
 
   public function getSpecifierUNTYPED(): EditableNode {
@@ -62,7 +63,7 @@ final class SimpleTypeSpecifier extends EditableNode {
     if ($value === $this->_specifier) {
       return $this;
     }
-    return new self($value);
+    return new static($value);
   }
 
   public function hasSpecifier(): bool {

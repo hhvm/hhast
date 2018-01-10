@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<69ff6c5ac12912588d4cf541f13ab48a>>
+ * @generated SignedSource<<cf918b2714bb3aee4d9fc986d5bcc89a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class FunctionCallExpression extends EditableNode {
 
   private EditableNode $_receiver;
@@ -62,7 +63,7 @@ final class FunctionCallExpression extends EditableNode {
       $source,
     );
     $offset += $right_paren->getWidth();
-    return new self($receiver, $left_paren, $argument_list, $right_paren);
+    return new static($receiver, $left_paren, $argument_list, $right_paren);
   }
 
   <<__Override>>
@@ -94,7 +95,7 @@ final class FunctionCallExpression extends EditableNode {
     ) {
       return $this;
     }
-    return new self($receiver, $left_paren, $argument_list, $right_paren);
+    return new static($receiver, $left_paren, $argument_list, $right_paren);
   }
 
   public function getReceiverUNTYPED(): EditableNode {
@@ -105,7 +106,7 @@ final class FunctionCallExpression extends EditableNode {
     if ($value === $this->_receiver) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_left_paren,
       $this->_argument_list,
@@ -135,7 +136,7 @@ final class FunctionCallExpression extends EditableNode {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_receiver,
       $value,
       $this->_argument_list,
@@ -162,7 +163,7 @@ final class FunctionCallExpression extends EditableNode {
     if ($value === $this->_argument_list) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_receiver,
       $this->_left_paren,
       $value,
@@ -199,7 +200,7 @@ final class FunctionCallExpression extends EditableNode {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_receiver,
       $this->_left_paren,
       $this->_argument_list,

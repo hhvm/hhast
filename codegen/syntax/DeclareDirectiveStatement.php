@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ee1d261e1ac9225bd7392eab1fce9648>>
+ * @generated SignedSource<<a1cd19d65edf2084bfcd5fcc7b7eb424>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class DeclareDirectiveStatement extends EditableNode {
 
   private EditableNode $_keyword;
@@ -73,7 +74,7 @@ final class DeclareDirectiveStatement extends EditableNode {
     );
     $offset += $semicolon->getWidth();
     return
-      new self($keyword, $left_paren, $expression, $right_paren, $semicolon);
+      new static($keyword, $left_paren, $expression, $right_paren, $semicolon);
   }
 
   <<__Override>>
@@ -109,7 +110,7 @@ final class DeclareDirectiveStatement extends EditableNode {
       return $this;
     }
     return
-      new self($keyword, $left_paren, $expression, $right_paren, $semicolon);
+      new static($keyword, $left_paren, $expression, $right_paren, $semicolon);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -120,7 +121,7 @@ final class DeclareDirectiveStatement extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_left_paren,
       $this->_expression,
@@ -148,7 +149,7 @@ final class DeclareDirectiveStatement extends EditableNode {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $value,
       $this->_expression,
@@ -176,7 +177,7 @@ final class DeclareDirectiveStatement extends EditableNode {
     if ($value === $this->_expression) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $value,
@@ -204,7 +205,7 @@ final class DeclareDirectiveStatement extends EditableNode {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_expression,
@@ -232,7 +233,7 @@ final class DeclareDirectiveStatement extends EditableNode {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_expression,

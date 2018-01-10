@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<22ebf3c10cf63ea6b7298b06def212b9>>
+ * @generated SignedSource<<fe21389d465f46379a662d5d58f4fdf5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class ConstructorCall extends EditableNode {
 
   private EditableNode $_type;
@@ -62,7 +63,7 @@ final class ConstructorCall extends EditableNode {
       $source,
     );
     $offset += $right_paren->getWidth();
-    return new self($type, $left_paren, $argument_list, $right_paren);
+    return new static($type, $left_paren, $argument_list, $right_paren);
   }
 
   <<__Override>>
@@ -94,7 +95,7 @@ final class ConstructorCall extends EditableNode {
     ) {
       return $this;
     }
-    return new self($type, $left_paren, $argument_list, $right_paren);
+    return new static($type, $left_paren, $argument_list, $right_paren);
   }
 
   public function getTypeUNTYPED(): EditableNode {
@@ -105,7 +106,7 @@ final class ConstructorCall extends EditableNode {
     if ($value === $this->_type) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_left_paren,
       $this->_argument_list,
@@ -135,7 +136,7 @@ final class ConstructorCall extends EditableNode {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_type,
       $value,
       $this->_argument_list,
@@ -173,7 +174,7 @@ final class ConstructorCall extends EditableNode {
       return $this;
     }
     return
-      new self($this->_type, $this->_left_paren, $value, $this->_right_paren);
+      new static($this->_type, $this->_left_paren, $value, $this->_right_paren);
   }
 
   public function hasArgumentList(): bool {
@@ -205,8 +206,12 @@ final class ConstructorCall extends EditableNode {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return
-      new self($this->_type, $this->_left_paren, $this->_argument_list, $value);
+    return new static(
+      $this->_type,
+      $this->_left_paren,
+      $this->_argument_list,
+      $value,
+    );
   }
 
   public function hasRightParen(): bool {

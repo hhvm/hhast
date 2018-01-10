@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<02c52c7f2504b09dc947bb1494ad40e7>>
+ * @generated SignedSource<<a11ffce86c5637a9a67ccabfd44f9d04>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class TypeParameters extends EditableNode {
 
   private EditableNode $_left_angle;
@@ -52,7 +53,7 @@ final class TypeParameters extends EditableNode {
       $source,
     );
     $offset += $right_angle->getWidth();
-    return new self($left_angle, $parameters, $right_angle);
+    return new static($left_angle, $parameters, $right_angle);
   }
 
   <<__Override>>
@@ -81,7 +82,7 @@ final class TypeParameters extends EditableNode {
     ) {
       return $this;
     }
-    return new self($left_angle, $parameters, $right_angle);
+    return new static($left_angle, $parameters, $right_angle);
   }
 
   public function getLeftAngleUNTYPED(): EditableNode {
@@ -92,7 +93,7 @@ final class TypeParameters extends EditableNode {
     if ($value === $this->_left_angle) {
       return $this;
     }
-    return new self($value, $this->_parameters, $this->_right_angle);
+    return new static($value, $this->_parameters, $this->_right_angle);
   }
 
   public function hasLeftAngle(): bool {
@@ -114,7 +115,7 @@ final class TypeParameters extends EditableNode {
     if ($value === $this->_parameters) {
       return $this;
     }
-    return new self($this->_left_angle, $value, $this->_right_angle);
+    return new static($this->_left_angle, $value, $this->_right_angle);
   }
 
   public function hasParameters(): bool {
@@ -136,7 +137,7 @@ final class TypeParameters extends EditableNode {
     if ($value === $this->_right_angle) {
       return $this;
     }
-    return new self($this->_left_angle, $this->_parameters, $value);
+    return new static($this->_left_angle, $this->_parameters, $value);
   }
 
   public function hasRightAngle(): bool {

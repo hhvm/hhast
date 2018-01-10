@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<55d21f0a878c44f160c36ececa299128>>
+ * @generated SignedSource<<99d63bb4c55ba1a3d1211d373a930c07>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class FunctionCallWithTypeArgumentsExpression extends EditableNode {
 
   private EditableNode $_receiver;
@@ -74,7 +75,7 @@ final class FunctionCallWithTypeArgumentsExpression extends EditableNode {
       $source,
     );
     $offset += $right_paren->getWidth();
-    return new self(
+    return new static(
       $receiver,
       $type_args,
       $left_paren,
@@ -115,7 +116,7 @@ final class FunctionCallWithTypeArgumentsExpression extends EditableNode {
     ) {
       return $this;
     }
-    return new self(
+    return new static(
       $receiver,
       $type_args,
       $left_paren,
@@ -132,7 +133,7 @@ final class FunctionCallWithTypeArgumentsExpression extends EditableNode {
     if ($value === $this->_receiver) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_type_args,
       $this->_left_paren,
@@ -160,7 +161,7 @@ final class FunctionCallWithTypeArgumentsExpression extends EditableNode {
     if ($value === $this->_type_args) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_receiver,
       $value,
       $this->_left_paren,
@@ -188,7 +189,7 @@ final class FunctionCallWithTypeArgumentsExpression extends EditableNode {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_receiver,
       $this->_type_args,
       $value,
@@ -216,7 +217,7 @@ final class FunctionCallWithTypeArgumentsExpression extends EditableNode {
     if ($value === $this->_argument_list) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_receiver,
       $this->_type_args,
       $this->_left_paren,
@@ -254,7 +255,7 @@ final class FunctionCallWithTypeArgumentsExpression extends EditableNode {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_receiver,
       $this->_type_args,
       $this->_left_paren,

@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<703422a481657ddd3e1a7c3041d4dded>>
+ * @generated SignedSource<<405b26684bb3b8f8388be7af9186599e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class MarkupSection extends EditableNode {
 
   private EditableNode $_prefix;
@@ -62,7 +63,7 @@ final class MarkupSection extends EditableNode {
       $source,
     );
     $offset += $expression->getWidth();
-    return new self($prefix, $text, $suffix, $expression);
+    return new static($prefix, $text, $suffix, $expression);
   }
 
   <<__Override>>
@@ -94,7 +95,7 @@ final class MarkupSection extends EditableNode {
     ) {
       return $this;
     }
-    return new self($prefix, $text, $suffix, $expression);
+    return new static($prefix, $text, $suffix, $expression);
   }
 
   public function getPrefixUNTYPED(): EditableNode {
@@ -105,7 +106,7 @@ final class MarkupSection extends EditableNode {
     if ($value === $this->_prefix) {
       return $this;
     }
-    return new self($value, $this->_text, $this->_suffix, $this->_expression);
+    return new static($value, $this->_text, $this->_suffix, $this->_expression);
   }
 
   public function hasPrefix(): bool {
@@ -139,7 +140,8 @@ final class MarkupSection extends EditableNode {
     if ($value === $this->_text) {
       return $this;
     }
-    return new self($this->_prefix, $value, $this->_suffix, $this->_expression);
+    return
+      new static($this->_prefix, $value, $this->_suffix, $this->_expression);
   }
 
   public function hasText(): bool {
@@ -171,7 +173,7 @@ final class MarkupSection extends EditableNode {
     if ($value === $this->_suffix) {
       return $this;
     }
-    return new self($this->_prefix, $this->_text, $value, $this->_expression);
+    return new static($this->_prefix, $this->_text, $value, $this->_expression);
   }
 
   public function hasSuffix(): bool {
@@ -203,7 +205,7 @@ final class MarkupSection extends EditableNode {
     if ($value === $this->_expression) {
       return $this;
     }
-    return new self($this->_prefix, $this->_text, $this->_suffix, $value);
+    return new static($this->_prefix, $this->_text, $this->_suffix, $value);
   }
 
   public function hasExpression(): bool {

@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<00c0f13b20d0d3e885061a659f760f83>>
+ * @generated SignedSource<<fc5c9c42d0804c3a531cf5bf9e7c373f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class ElseClause extends EditableNode implements IControlFlowStatement {
 
   private EditableNode $_keyword;
@@ -39,7 +40,7 @@ final class ElseClause extends EditableNode implements IControlFlowStatement {
       $source,
     );
     $offset += $statement->getWidth();
-    return new self($keyword, $statement);
+    return new static($keyword, $statement);
   }
 
   <<__Override>>
@@ -62,7 +63,7 @@ final class ElseClause extends EditableNode implements IControlFlowStatement {
     if ($keyword === $this->_keyword && $statement === $this->_statement) {
       return $this;
     }
-    return new self($keyword, $statement);
+    return new static($keyword, $statement);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -73,7 +74,7 @@ final class ElseClause extends EditableNode implements IControlFlowStatement {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self($value, $this->_statement);
+    return new static($value, $this->_statement);
   }
 
   public function hasKeyword(): bool {
@@ -95,7 +96,7 @@ final class ElseClause extends EditableNode implements IControlFlowStatement {
     if ($value === $this->_statement) {
       return $this;
     }
-    return new self($this->_keyword, $value);
+    return new static($this->_keyword, $value);
   }
 
   public function hasStatement(): bool {

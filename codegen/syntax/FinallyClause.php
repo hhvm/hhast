@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3e6e373352a8ba8b519ee2d42b8d4a61>>
+ * @generated SignedSource<<6c7273f5e03a8104a83f02ada54bf787>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class FinallyClause extends EditableNode {
 
   private EditableNode $_keyword;
@@ -39,7 +40,7 @@ final class FinallyClause extends EditableNode {
       $source,
     );
     $offset += $body->getWidth();
-    return new self($keyword, $body);
+    return new static($keyword, $body);
   }
 
   <<__Override>>
@@ -62,7 +63,7 @@ final class FinallyClause extends EditableNode {
     if ($keyword === $this->_keyword && $body === $this->_body) {
       return $this;
     }
-    return new self($keyword, $body);
+    return new static($keyword, $body);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -73,7 +74,7 @@ final class FinallyClause extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self($value, $this->_body);
+    return new static($value, $this->_body);
   }
 
   public function hasKeyword(): bool {
@@ -95,7 +96,7 @@ final class FinallyClause extends EditableNode {
     if ($value === $this->_body) {
       return $this;
     }
-    return new self($this->_keyword, $value);
+    return new static($this->_keyword, $value);
   }
 
   public function hasBody(): bool {

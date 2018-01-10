@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a87bf56df8e7e6e5b127f2a298d54fdb>>
+ * @generated SignedSource<<901fb2433d2c313826590e5b42d05537>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class ClosureTypeSpecifier extends EditableNode {
 
   private EditableNode $_outer_left_paren;
@@ -112,7 +113,7 @@ final class ClosureTypeSpecifier extends EditableNode {
       $source,
     );
     $offset += $outer_right_paren->getWidth();
-    return new self(
+    return new static(
       $outer_left_paren,
       $coroutine,
       $function_keyword,
@@ -171,7 +172,7 @@ final class ClosureTypeSpecifier extends EditableNode {
     ) {
       return $this;
     }
-    return new self(
+    return new static(
       $outer_left_paren,
       $coroutine,
       $function_keyword,
@@ -192,7 +193,7 @@ final class ClosureTypeSpecifier extends EditableNode {
     if ($value === $this->_outer_left_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_coroutine,
       $this->_function_keyword,
@@ -225,7 +226,7 @@ final class ClosureTypeSpecifier extends EditableNode {
     if ($value === $this->_coroutine) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_outer_left_paren,
       $value,
       $this->_function_keyword,
@@ -267,7 +268,7 @@ final class ClosureTypeSpecifier extends EditableNode {
     if ($value === $this->_function_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_outer_left_paren,
       $this->_coroutine,
       $value,
@@ -300,7 +301,7 @@ final class ClosureTypeSpecifier extends EditableNode {
     if ($value === $this->_inner_left_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_outer_left_paren,
       $this->_coroutine,
       $this->_function_keyword,
@@ -333,7 +334,7 @@ final class ClosureTypeSpecifier extends EditableNode {
     if ($value === $this->_parameter_list) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_outer_left_paren,
       $this->_coroutine,
       $this->_function_keyword,
@@ -375,7 +376,7 @@ final class ClosureTypeSpecifier extends EditableNode {
     if ($value === $this->_inner_right_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_outer_left_paren,
       $this->_coroutine,
       $this->_function_keyword,
@@ -408,7 +409,7 @@ final class ClosureTypeSpecifier extends EditableNode {
     if ($value === $this->_colon) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_outer_left_paren,
       $this->_coroutine,
       $this->_function_keyword,
@@ -440,7 +441,7 @@ final class ClosureTypeSpecifier extends EditableNode {
     if ($value === $this->_return_type) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_outer_left_paren,
       $this->_coroutine,
       $this->_function_keyword,
@@ -473,7 +474,7 @@ final class ClosureTypeSpecifier extends EditableNode {
     if ($value === $this->_outer_right_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_outer_left_paren,
       $this->_coroutine,
       $this->_function_keyword,

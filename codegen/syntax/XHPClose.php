@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<81d38e8163682870f37159ef1f7d92e1>>
+ * @generated SignedSource<<3894a7cfce733267b019cc13e8502b09>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class XHPClose extends EditableNode {
 
   private EditableNode $_left_angle;
@@ -52,7 +53,7 @@ final class XHPClose extends EditableNode {
       $source,
     );
     $offset += $right_angle->getWidth();
-    return new self($left_angle, $name, $right_angle);
+    return new static($left_angle, $name, $right_angle);
   }
 
   <<__Override>>
@@ -81,7 +82,7 @@ final class XHPClose extends EditableNode {
     ) {
       return $this;
     }
-    return new self($left_angle, $name, $right_angle);
+    return new static($left_angle, $name, $right_angle);
   }
 
   public function getLeftAngleUNTYPED(): EditableNode {
@@ -92,7 +93,7 @@ final class XHPClose extends EditableNode {
     if ($value === $this->_left_angle) {
       return $this;
     }
-    return new self($value, $this->_name, $this->_right_angle);
+    return new static($value, $this->_name, $this->_right_angle);
   }
 
   public function hasLeftAngle(): bool {
@@ -114,7 +115,7 @@ final class XHPClose extends EditableNode {
     if ($value === $this->_name) {
       return $this;
     }
-    return new self($this->_left_angle, $value, $this->_right_angle);
+    return new static($this->_left_angle, $value, $this->_right_angle);
   }
 
   public function hasName(): bool {
@@ -146,7 +147,7 @@ final class XHPClose extends EditableNode {
     if ($value === $this->_right_angle) {
       return $this;
     }
-    return new self($this->_left_angle, $this->_name, $value);
+    return new static($this->_left_angle, $this->_name, $value);
   }
 
   public function hasRightAngle(): bool {

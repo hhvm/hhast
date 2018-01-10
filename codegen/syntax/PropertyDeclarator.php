@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<16de93294fadb1c557e88233f4ad8573>>
+ * @generated SignedSource<<4f2d57ea56b00e46f8dbeb1e1a64fedb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class PropertyDeclarator extends EditableNode {
 
   private EditableNode $_name;
@@ -39,7 +40,7 @@ final class PropertyDeclarator extends EditableNode {
       $source,
     );
     $offset += $initializer->getWidth();
-    return new self($name, $initializer);
+    return new static($name, $initializer);
   }
 
   <<__Override>>
@@ -62,7 +63,7 @@ final class PropertyDeclarator extends EditableNode {
     if ($name === $this->_name && $initializer === $this->_initializer) {
       return $this;
     }
-    return new self($name, $initializer);
+    return new static($name, $initializer);
   }
 
   public function getNameUNTYPED(): EditableNode {
@@ -73,7 +74,7 @@ final class PropertyDeclarator extends EditableNode {
     if ($value === $this->_name) {
       return $this;
     }
-    return new self($value, $this->_initializer);
+    return new static($value, $this->_initializer);
   }
 
   public function hasName(): bool {
@@ -95,7 +96,7 @@ final class PropertyDeclarator extends EditableNode {
     if ($value === $this->_initializer) {
       return $this;
     }
-    return new self($this->_name, $value);
+    return new static($this->_name, $value);
   }
 
   public function hasInitializer(): bool {

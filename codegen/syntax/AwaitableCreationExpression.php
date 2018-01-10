@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7b3ab230bd48602e37eddf5171720c20>>
+ * @generated SignedSource<<720ca3675df4f326d97be936c4854d9b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class AwaitableCreationExpression extends EditableNode {
 
   private EditableNode $_async;
@@ -52,7 +53,7 @@ final class AwaitableCreationExpression extends EditableNode {
       $source,
     );
     $offset += $compound_statement->getWidth();
-    return new self($async, $coroutine, $compound_statement);
+    return new static($async, $coroutine, $compound_statement);
   }
 
   <<__Override>>
@@ -82,7 +83,7 @@ final class AwaitableCreationExpression extends EditableNode {
     ) {
       return $this;
     }
-    return new self($async, $coroutine, $compound_statement);
+    return new static($async, $coroutine, $compound_statement);
   }
 
   public function getAsyncUNTYPED(): EditableNode {
@@ -93,7 +94,7 @@ final class AwaitableCreationExpression extends EditableNode {
     if ($value === $this->_async) {
       return $this;
     }
-    return new self($value, $this->_coroutine, $this->_compound_statement);
+    return new static($value, $this->_coroutine, $this->_compound_statement);
   }
 
   public function hasAsync(): bool {
@@ -115,7 +116,7 @@ final class AwaitableCreationExpression extends EditableNode {
     if ($value === $this->_coroutine) {
       return $this;
     }
-    return new self($this->_async, $value, $this->_compound_statement);
+    return new static($this->_async, $value, $this->_compound_statement);
   }
 
   public function hasCoroutine(): bool {
@@ -137,7 +138,7 @@ final class AwaitableCreationExpression extends EditableNode {
     if ($value === $this->_compound_statement) {
       return $this;
     }
-    return new self($this->_async, $this->_coroutine, $value);
+    return new static($this->_async, $this->_coroutine, $value);
   }
 
   public function hasCompoundStatement(): bool {

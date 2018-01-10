@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9312b318694b4790ed6ef21ec0bdc26a>>
+ * @generated SignedSource<<6e20c743da5dc3342c606ea16de0bf1c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class EmbeddedMemberSelectionExpression extends EditableNode {
 
   private EditableNode $_object;
@@ -52,7 +53,7 @@ final class EmbeddedMemberSelectionExpression extends EditableNode {
       $source,
     );
     $offset += $name->getWidth();
-    return new self($object, $operator, $name);
+    return new static($object, $operator, $name);
   }
 
   <<__Override>>
@@ -81,7 +82,7 @@ final class EmbeddedMemberSelectionExpression extends EditableNode {
     ) {
       return $this;
     }
-    return new self($object, $operator, $name);
+    return new static($object, $operator, $name);
   }
 
   public function getObjectUNTYPED(): EditableNode {
@@ -92,7 +93,7 @@ final class EmbeddedMemberSelectionExpression extends EditableNode {
     if ($value === $this->_object) {
       return $this;
     }
-    return new self($value, $this->_operator, $this->_name);
+    return new static($value, $this->_operator, $this->_name);
   }
 
   public function hasObject(): bool {
@@ -114,7 +115,7 @@ final class EmbeddedMemberSelectionExpression extends EditableNode {
     if ($value === $this->_operator) {
       return $this;
     }
-    return new self($this->_object, $value, $this->_name);
+    return new static($this->_object, $value, $this->_name);
   }
 
   public function hasOperator(): bool {
@@ -136,7 +137,7 @@ final class EmbeddedMemberSelectionExpression extends EditableNode {
     if ($value === $this->_name) {
       return $this;
     }
-    return new self($this->_object, $this->_operator, $value);
+    return new static($this->_object, $this->_operator, $value);
   }
 
   public function hasName(): bool {

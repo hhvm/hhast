@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<95a0b35030ad49f71d2c728d8085e241>>
+ * @generated SignedSource<<fc0a5c2942d349a69a914f404532f10b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class EchoStatement extends EditableNode {
 
   private EditableNode $_keyword;
@@ -52,7 +53,7 @@ final class EchoStatement extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
-    return new self($keyword, $expressions, $semicolon);
+    return new static($keyword, $expressions, $semicolon);
   }
 
   <<__Override>>
@@ -81,7 +82,7 @@ final class EchoStatement extends EditableNode {
     ) {
       return $this;
     }
-    return new self($keyword, $expressions, $semicolon);
+    return new static($keyword, $expressions, $semicolon);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -92,7 +93,7 @@ final class EchoStatement extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self($value, $this->_expressions, $this->_semicolon);
+    return new static($value, $this->_expressions, $this->_semicolon);
   }
 
   public function hasKeyword(): bool {
@@ -114,7 +115,7 @@ final class EchoStatement extends EditableNode {
     if ($value === $this->_expressions) {
       return $this;
     }
-    return new self($this->_keyword, $value, $this->_semicolon);
+    return new static($this->_keyword, $value, $this->_semicolon);
   }
 
   public function hasExpressions(): bool {
@@ -136,7 +137,7 @@ final class EchoStatement extends EditableNode {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new self($this->_keyword, $this->_expressions, $value);
+    return new static($this->_keyword, $this->_expressions, $value);
   }
 
   public function hasSemicolon(): bool {

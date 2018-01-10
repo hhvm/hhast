@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ab8bbcd6b5372f64682fc1341d154d2e>>
+ * @generated SignedSource<<5907935e52a7281584f5b379686d3cf6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class UsingStatementBlockScoped extends EditableNode {
 
   private EditableNode $_await_keyword;
@@ -82,7 +83,7 @@ final class UsingStatementBlockScoped extends EditableNode {
       $source,
     );
     $offset += $body->getWidth();
-    return new self(
+    return new static(
       $await_keyword,
       $using_keyword,
       $left_paren,
@@ -127,7 +128,7 @@ final class UsingStatementBlockScoped extends EditableNode {
     ) {
       return $this;
     }
-    return new self(
+    return new static(
       $await_keyword,
       $using_keyword,
       $left_paren,
@@ -145,7 +146,7 @@ final class UsingStatementBlockScoped extends EditableNode {
     if ($value === $this->_await_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_using_keyword,
       $this->_left_paren,
@@ -184,7 +185,7 @@ final class UsingStatementBlockScoped extends EditableNode {
     if ($value === $this->_using_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_await_keyword,
       $value,
       $this->_left_paren,
@@ -213,7 +214,7 @@ final class UsingStatementBlockScoped extends EditableNode {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_await_keyword,
       $this->_using_keyword,
       $value,
@@ -242,7 +243,7 @@ final class UsingStatementBlockScoped extends EditableNode {
     if ($value === $this->_expressions) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_await_keyword,
       $this->_using_keyword,
       $this->_left_paren,
@@ -271,7 +272,7 @@ final class UsingStatementBlockScoped extends EditableNode {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_await_keyword,
       $this->_using_keyword,
       $this->_left_paren,
@@ -300,7 +301,7 @@ final class UsingStatementBlockScoped extends EditableNode {
     if ($value === $this->_body) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_await_keyword,
       $this->_using_keyword,
       $this->_left_paren,

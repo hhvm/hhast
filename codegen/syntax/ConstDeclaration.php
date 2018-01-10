@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bf0fab8574986bf42fe1d79cb9808b9b>>
+ * @generated SignedSource<<86e32a3d0b8f88332a95da65b2f33919>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class ConstDeclaration extends EditableNode {
 
   private EditableNode $_abstract;
@@ -72,8 +73,13 @@ final class ConstDeclaration extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
-    return
-      new self($abstract, $keyword, $type_specifier, $declarators, $semicolon);
+    return new static(
+      $abstract,
+      $keyword,
+      $type_specifier,
+      $declarators,
+      $semicolon,
+    );
   }
 
   <<__Override>>
@@ -108,8 +114,13 @@ final class ConstDeclaration extends EditableNode {
     ) {
       return $this;
     }
-    return
-      new self($abstract, $keyword, $type_specifier, $declarators, $semicolon);
+    return new static(
+      $abstract,
+      $keyword,
+      $type_specifier,
+      $declarators,
+      $semicolon,
+    );
   }
 
   public function getAbstractUNTYPED(): EditableNode {
@@ -120,7 +131,7 @@ final class ConstDeclaration extends EditableNode {
     if ($value === $this->_abstract) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_keyword,
       $this->_type_specifier,
@@ -158,7 +169,7 @@ final class ConstDeclaration extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_abstract,
       $value,
       $this->_type_specifier,
@@ -186,7 +197,7 @@ final class ConstDeclaration extends EditableNode {
     if ($value === $this->_type_specifier) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_abstract,
       $this->_keyword,
       $value,
@@ -216,7 +227,7 @@ final class ConstDeclaration extends EditableNode {
     if ($value === $this->_declarators) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_abstract,
       $this->_keyword,
       $this->_type_specifier,
@@ -244,7 +255,7 @@ final class ConstDeclaration extends EditableNode {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_abstract,
       $this->_keyword,
       $this->_type_specifier,

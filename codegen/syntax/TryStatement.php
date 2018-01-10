@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d3d4cbfec500c59df31b6a83093983ad>>
+ * @generated SignedSource<<594505c931e91876bc342d7d2d6366c5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class TryStatement extends EditableNode {
 
   private EditableNode $_keyword;
@@ -62,8 +63,12 @@ final class TryStatement extends EditableNode {
       $source,
     );
     $offset += $finally_clause->getWidth();
-    return
-      new self($keyword, $compound_statement, $catch_clauses, $finally_clause);
+    return new static(
+      $keyword,
+      $compound_statement,
+      $catch_clauses,
+      $finally_clause,
+    );
   }
 
   <<__Override>>
@@ -96,8 +101,12 @@ final class TryStatement extends EditableNode {
     ) {
       return $this;
     }
-    return
-      new self($keyword, $compound_statement, $catch_clauses, $finally_clause);
+    return new static(
+      $keyword,
+      $compound_statement,
+      $catch_clauses,
+      $finally_clause,
+    );
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -108,7 +117,7 @@ final class TryStatement extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_compound_statement,
       $this->_catch_clauses,
@@ -135,7 +144,7 @@ final class TryStatement extends EditableNode {
     if ($value === $this->_compound_statement) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $value,
       $this->_catch_clauses,
@@ -165,7 +174,7 @@ final class TryStatement extends EditableNode {
     if ($value === $this->_catch_clauses) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_compound_statement,
       $value,
@@ -202,7 +211,7 @@ final class TryStatement extends EditableNode {
     if ($value === $this->_finally_clause) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_compound_statement,
       $this->_catch_clauses,

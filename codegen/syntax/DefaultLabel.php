@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<50cc89f2b5877a15ee6b4d26679adebb>>
+ * @generated SignedSource<<bf0010407186cbd4c16374b8aa7875f9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class DefaultLabel extends EditableNode {
 
   private EditableNode $_keyword;
@@ -39,7 +40,7 @@ final class DefaultLabel extends EditableNode {
       $source,
     );
     $offset += $colon->getWidth();
-    return new self($keyword, $colon);
+    return new static($keyword, $colon);
   }
 
   <<__Override>>
@@ -62,7 +63,7 @@ final class DefaultLabel extends EditableNode {
     if ($keyword === $this->_keyword && $colon === $this->_colon) {
       return $this;
     }
-    return new self($keyword, $colon);
+    return new static($keyword, $colon);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -73,7 +74,7 @@ final class DefaultLabel extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self($value, $this->_colon);
+    return new static($value, $this->_colon);
   }
 
   public function hasKeyword(): bool {
@@ -95,7 +96,7 @@ final class DefaultLabel extends EditableNode {
     if ($value === $this->_colon) {
       return $this;
     }
-    return new self($this->_keyword, $value);
+    return new static($this->_keyword, $value);
   }
 
   public function hasColon(): bool {

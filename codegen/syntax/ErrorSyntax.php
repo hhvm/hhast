@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<77531285dbc3d2d99cc9ea0c94da9e4c>>
+ * @generated SignedSource<<3cfe056228ddab2c379892ee477eb663>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class ErrorSyntax extends EditableNode {
 
   private EditableNode $_error;
@@ -30,7 +31,7 @@ final class ErrorSyntax extends EditableNode {
       $source,
     );
     $offset += $error->getWidth();
-    return new self($error);
+    return new static($error);
   }
 
   <<__Override>>
@@ -51,7 +52,7 @@ final class ErrorSyntax extends EditableNode {
     if ($error === $this->_error) {
       return $this;
     }
-    return new self($error);
+    return new static($error);
   }
 
   public function getErrorUNTYPED(): EditableNode {
@@ -62,7 +63,7 @@ final class ErrorSyntax extends EditableNode {
     if ($value === $this->_error) {
       return $this;
     }
-    return new self($value);
+    return new static($value);
   }
 
   public function hasError(): bool {

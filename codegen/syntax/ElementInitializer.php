@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<625a0371be137d9cb62a6b5f840931ba>>
+ * @generated SignedSource<<5841a3ab505a3765d2969429255d3bf6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class ElementInitializer extends EditableNode {
 
   private EditableNode $_key;
@@ -52,7 +53,7 @@ final class ElementInitializer extends EditableNode {
       $source,
     );
     $offset += $value->getWidth();
-    return new self($key, $arrow, $value);
+    return new static($key, $arrow, $value);
   }
 
   <<__Override>>
@@ -81,7 +82,7 @@ final class ElementInitializer extends EditableNode {
     ) {
       return $this;
     }
-    return new self($key, $arrow, $value);
+    return new static($key, $arrow, $value);
   }
 
   public function getKeyUNTYPED(): EditableNode {
@@ -92,7 +93,7 @@ final class ElementInitializer extends EditableNode {
     if ($value === $this->_key) {
       return $this;
     }
-    return new self($value, $this->_arrow, $this->_value);
+    return new static($value, $this->_arrow, $this->_value);
   }
 
   public function hasKey(): bool {
@@ -120,7 +121,7 @@ final class ElementInitializer extends EditableNode {
     if ($value === $this->_arrow) {
       return $this;
     }
-    return new self($this->_key, $value, $this->_value);
+    return new static($this->_key, $value, $this->_value);
   }
 
   public function hasArrow(): bool {
@@ -142,7 +143,7 @@ final class ElementInitializer extends EditableNode {
     if ($value === $this->_value) {
       return $this;
     }
-    return new self($this->_key, $this->_arrow, $value);
+    return new static($this->_key, $this->_arrow, $value);
   }
 
   public function hasValue(): bool {

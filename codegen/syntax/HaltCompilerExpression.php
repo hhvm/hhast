@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<be66c998500458a866d6f12efbf7a605>>
+ * @generated SignedSource<<115b259ab3659abb4ea4bd3c370b25de>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class HaltCompilerExpression extends EditableNode {
 
   private EditableNode $_keyword;
@@ -62,7 +63,7 @@ final class HaltCompilerExpression extends EditableNode {
       $source,
     );
     $offset += $right_paren->getWidth();
-    return new self($keyword, $left_paren, $argument_list, $right_paren);
+    return new static($keyword, $left_paren, $argument_list, $right_paren);
   }
 
   <<__Override>>
@@ -94,7 +95,7 @@ final class HaltCompilerExpression extends EditableNode {
     ) {
       return $this;
     }
-    return new self($keyword, $left_paren, $argument_list, $right_paren);
+    return new static($keyword, $left_paren, $argument_list, $right_paren);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -105,7 +106,7 @@ final class HaltCompilerExpression extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_left_paren,
       $this->_argument_list,
@@ -132,7 +133,7 @@ final class HaltCompilerExpression extends EditableNode {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $value,
       $this->_argument_list,
@@ -159,7 +160,7 @@ final class HaltCompilerExpression extends EditableNode {
     if ($value === $this->_argument_list) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $value,
@@ -186,7 +187,7 @@ final class HaltCompilerExpression extends EditableNode {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_argument_list,

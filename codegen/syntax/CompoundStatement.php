@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0e3807f18fdd3d3bb2ab7d11729728be>>
+ * @generated SignedSource<<98422a59468ede3a67921b54d9afdc7b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class CompoundStatement extends EditableNode {
 
   private EditableNode $_left_brace;
@@ -52,7 +53,7 @@ final class CompoundStatement extends EditableNode {
       $source,
     );
     $offset += $right_brace->getWidth();
-    return new self($left_brace, $statements, $right_brace);
+    return new static($left_brace, $statements, $right_brace);
   }
 
   <<__Override>>
@@ -81,7 +82,7 @@ final class CompoundStatement extends EditableNode {
     ) {
       return $this;
     }
-    return new self($left_brace, $statements, $right_brace);
+    return new static($left_brace, $statements, $right_brace);
   }
 
   public function getLeftBraceUNTYPED(): EditableNode {
@@ -92,7 +93,7 @@ final class CompoundStatement extends EditableNode {
     if ($value === $this->_left_brace) {
       return $this;
     }
-    return new self($value, $this->_statements, $this->_right_brace);
+    return new static($value, $this->_statements, $this->_right_brace);
   }
 
   public function hasLeftBrace(): bool {
@@ -124,7 +125,7 @@ final class CompoundStatement extends EditableNode {
     if ($value === $this->_statements) {
       return $this;
     }
-    return new self($this->_left_brace, $value, $this->_right_brace);
+    return new static($this->_left_brace, $value, $this->_right_brace);
   }
 
   public function hasStatements(): bool {
@@ -156,7 +157,7 @@ final class CompoundStatement extends EditableNode {
     if ($value === $this->_right_brace) {
       return $this;
     }
-    return new self($this->_left_brace, $this->_statements, $value);
+    return new static($this->_left_brace, $this->_statements, $value);
   }
 
   public function hasRightBrace(): bool {

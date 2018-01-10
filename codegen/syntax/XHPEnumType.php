@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f21111c76bba788d41d103d5d2c076ee>>
+ * @generated SignedSource<<42f1d8c6ee0b3694cc45ead1972f9bf1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class XHPEnumType extends EditableNode {
 
   private EditableNode $_optional;
@@ -72,7 +73,7 @@ final class XHPEnumType extends EditableNode {
       $source,
     );
     $offset += $right_brace->getWidth();
-    return new self($optional, $keyword, $left_brace, $values, $right_brace);
+    return new static($optional, $keyword, $left_brace, $values, $right_brace);
   }
 
   <<__Override>>
@@ -107,7 +108,7 @@ final class XHPEnumType extends EditableNode {
     ) {
       return $this;
     }
-    return new self($optional, $keyword, $left_brace, $values, $right_brace);
+    return new static($optional, $keyword, $left_brace, $values, $right_brace);
   }
 
   public function getOptionalUNTYPED(): EditableNode {
@@ -118,7 +119,7 @@ final class XHPEnumType extends EditableNode {
     if ($value === $this->_optional) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_keyword,
       $this->_left_brace,
@@ -146,7 +147,7 @@ final class XHPEnumType extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_optional,
       $value,
       $this->_left_brace,
@@ -174,7 +175,7 @@ final class XHPEnumType extends EditableNode {
     if ($value === $this->_left_brace) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_optional,
       $this->_keyword,
       $value,
@@ -202,7 +203,7 @@ final class XHPEnumType extends EditableNode {
     if ($value === $this->_values) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_optional,
       $this->_keyword,
       $this->_left_brace,
@@ -230,7 +231,7 @@ final class XHPEnumType extends EditableNode {
     if ($value === $this->_right_brace) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_optional,
       $this->_keyword,
       $this->_left_brace,

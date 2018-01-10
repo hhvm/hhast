@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b8407cd12817455a4929aa011d5fdc8b>>
+ * @generated SignedSource<<d16df461ab3e8d396f87442bd8bdbdfb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class TraitUsePrecedenceItem extends EditableNode {
 
   private EditableNode $_name;
@@ -52,7 +53,7 @@ final class TraitUsePrecedenceItem extends EditableNode {
       $source,
     );
     $offset += $removed_names->getWidth();
-    return new self($name, $keyword, $removed_names);
+    return new static($name, $keyword, $removed_names);
   }
 
   <<__Override>>
@@ -81,7 +82,7 @@ final class TraitUsePrecedenceItem extends EditableNode {
     ) {
       return $this;
     }
-    return new self($name, $keyword, $removed_names);
+    return new static($name, $keyword, $removed_names);
   }
 
   public function getNameUNTYPED(): EditableNode {
@@ -92,7 +93,7 @@ final class TraitUsePrecedenceItem extends EditableNode {
     if ($value === $this->_name) {
       return $this;
     }
-    return new self($value, $this->_keyword, $this->_removed_names);
+    return new static($value, $this->_keyword, $this->_removed_names);
   }
 
   public function hasName(): bool {
@@ -115,7 +116,7 @@ final class TraitUsePrecedenceItem extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self($this->_name, $value, $this->_removed_names);
+    return new static($this->_name, $value, $this->_removed_names);
   }
 
   public function hasKeyword(): bool {
@@ -137,7 +138,7 @@ final class TraitUsePrecedenceItem extends EditableNode {
     if ($value === $this->_removed_names) {
       return $this;
     }
-    return new self($this->_name, $this->_keyword, $value);
+    return new static($this->_name, $this->_keyword, $value);
   }
 
   public function hasRemovedNames(): bool {

@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<211402b37514c4a2c9c07d5d53dae2ad>>
+ * @generated SignedSource<<277a42494344b42d8d1c6a2c7505ef7b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class BinaryExpression extends EditableNode {
 
   private EditableNode $_left_operand;
@@ -52,7 +53,7 @@ final class BinaryExpression extends EditableNode {
       $source,
     );
     $offset += $right_operand->getWidth();
-    return new self($left_operand, $operator, $right_operand);
+    return new static($left_operand, $operator, $right_operand);
   }
 
   <<__Override>>
@@ -81,7 +82,7 @@ final class BinaryExpression extends EditableNode {
     ) {
       return $this;
     }
-    return new self($left_operand, $operator, $right_operand);
+    return new static($left_operand, $operator, $right_operand);
   }
 
   public function getLeftOperandUNTYPED(): EditableNode {
@@ -92,7 +93,7 @@ final class BinaryExpression extends EditableNode {
     if ($value === $this->_left_operand) {
       return $this;
     }
-    return new self($value, $this->_operator, $this->_right_operand);
+    return new static($value, $this->_operator, $this->_right_operand);
   }
 
   public function hasLeftOperand(): bool {
@@ -125,7 +126,7 @@ final class BinaryExpression extends EditableNode {
     if ($value === $this->_operator) {
       return $this;
     }
-    return new self($this->_left_operand, $value, $this->_right_operand);
+    return new static($this->_left_operand, $value, $this->_right_operand);
   }
 
   public function hasOperator(): bool {
@@ -159,7 +160,7 @@ final class BinaryExpression extends EditableNode {
     if ($value === $this->_right_operand) {
       return $this;
     }
-    return new self($this->_left_operand, $this->_operator, $value);
+    return new static($this->_left_operand, $this->_operator, $value);
   }
 
   public function hasRightOperand(): bool {

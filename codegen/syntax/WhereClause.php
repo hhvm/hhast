@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1e919dd031e7c44470cb79844bbb8aa8>>
+ * @generated SignedSource<<04389f7addfb0d19da4697987103b3c3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class WhereClause extends EditableNode {
 
   private EditableNode $_keyword;
@@ -42,7 +43,7 @@ final class WhereClause extends EditableNode {
       $source,
     );
     $offset += $constraints->getWidth();
-    return new self($keyword, $constraints);
+    return new static($keyword, $constraints);
   }
 
   <<__Override>>
@@ -65,7 +66,7 @@ final class WhereClause extends EditableNode {
     if ($keyword === $this->_keyword && $constraints === $this->_constraints) {
       return $this;
     }
-    return new self($keyword, $constraints);
+    return new static($keyword, $constraints);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -76,7 +77,7 @@ final class WhereClause extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self($value, $this->_constraints);
+    return new static($value, $this->_constraints);
   }
 
   public function hasKeyword(): bool {
@@ -98,7 +99,7 @@ final class WhereClause extends EditableNode {
     if ($value === $this->_constraints) {
       return $this;
     }
-    return new self($this->_keyword, $value);
+    return new static($this->_keyword, $value);
   }
 
   public function hasConstraints(): bool {

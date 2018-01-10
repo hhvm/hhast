@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<943f9854d58fe8ad2f90812b3efa805e>>
+ * @generated SignedSource<<10923c70f983ffcd61aa17763757fe27>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class DefineExpression extends EditableNode {
 
   private EditableNode $_keyword;
@@ -62,7 +63,7 @@ final class DefineExpression extends EditableNode {
       $source,
     );
     $offset += $right_paren->getWidth();
-    return new self($keyword, $left_paren, $argument_list, $right_paren);
+    return new static($keyword, $left_paren, $argument_list, $right_paren);
   }
 
   <<__Override>>
@@ -94,7 +95,7 @@ final class DefineExpression extends EditableNode {
     ) {
       return $this;
     }
-    return new self($keyword, $left_paren, $argument_list, $right_paren);
+    return new static($keyword, $left_paren, $argument_list, $right_paren);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -105,7 +106,7 @@ final class DefineExpression extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_left_paren,
       $this->_argument_list,
@@ -132,7 +133,7 @@ final class DefineExpression extends EditableNode {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $value,
       $this->_argument_list,
@@ -159,7 +160,7 @@ final class DefineExpression extends EditableNode {
     if ($value === $this->_argument_list) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $value,
@@ -196,7 +197,7 @@ final class DefineExpression extends EditableNode {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $this->_argument_list,

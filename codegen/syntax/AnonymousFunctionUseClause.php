@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<31d33e95d278e0e7f32a2f3d46a331e9>>
+ * @generated SignedSource<<643122b244fea931d21c6d2d2be93d17>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class AnonymousFunctionUseClause extends EditableNode {
 
   private EditableNode $_keyword;
@@ -62,7 +63,7 @@ final class AnonymousFunctionUseClause extends EditableNode {
       $source,
     );
     $offset += $right_paren->getWidth();
-    return new self($keyword, $left_paren, $variables, $right_paren);
+    return new static($keyword, $left_paren, $variables, $right_paren);
   }
 
   <<__Override>>
@@ -94,7 +95,7 @@ final class AnonymousFunctionUseClause extends EditableNode {
     ) {
       return $this;
     }
-    return new self($keyword, $left_paren, $variables, $right_paren);
+    return new static($keyword, $left_paren, $variables, $right_paren);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -105,7 +106,7 @@ final class AnonymousFunctionUseClause extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_left_paren,
       $this->_variables,
@@ -132,8 +133,12 @@ final class AnonymousFunctionUseClause extends EditableNode {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return
-      new self($this->_keyword, $value, $this->_variables, $this->_right_paren);
+    return new static(
+      $this->_keyword,
+      $value,
+      $this->_variables,
+      $this->_right_paren,
+    );
   }
 
   public function hasLeftParen(): bool {
@@ -155,7 +160,7 @@ final class AnonymousFunctionUseClause extends EditableNode {
     if ($value === $this->_variables) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $value,
@@ -182,8 +187,12 @@ final class AnonymousFunctionUseClause extends EditableNode {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return
-      new self($this->_keyword, $this->_left_paren, $this->_variables, $value);
+    return new static(
+      $this->_keyword,
+      $this->_left_paren,
+      $this->_variables,
+      $value,
+    );
   }
 
   public function hasRightParen(): bool {

@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3be72761ae2bb9cb8fcd71ba9726b336>>
+ * @generated SignedSource<<b2db390f40f3c1a003ba9c3d0c26a76f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class TupleExpression extends EditableNode {
 
   private EditableNode $_keyword;
@@ -62,7 +63,7 @@ final class TupleExpression extends EditableNode {
       $source,
     );
     $offset += $right_paren->getWidth();
-    return new self($keyword, $left_paren, $items, $right_paren);
+    return new static($keyword, $left_paren, $items, $right_paren);
   }
 
   <<__Override>>
@@ -94,7 +95,7 @@ final class TupleExpression extends EditableNode {
     ) {
       return $this;
     }
-    return new self($keyword, $left_paren, $items, $right_paren);
+    return new static($keyword, $left_paren, $items, $right_paren);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -105,8 +106,12 @@ final class TupleExpression extends EditableNode {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return
-      new self($value, $this->_left_paren, $this->_items, $this->_right_paren);
+    return new static(
+      $value,
+      $this->_left_paren,
+      $this->_items,
+      $this->_right_paren,
+    );
   }
 
   public function hasKeyword(): bool {
@@ -129,7 +134,7 @@ final class TupleExpression extends EditableNode {
       return $this;
     }
     return
-      new self($this->_keyword, $value, $this->_items, $this->_right_paren);
+      new static($this->_keyword, $value, $this->_items, $this->_right_paren);
   }
 
   public function hasLeftParen(): bool {
@@ -151,7 +156,7 @@ final class TupleExpression extends EditableNode {
     if ($value === $this->_items) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_keyword,
       $this->_left_paren,
       $value,
@@ -188,7 +193,8 @@ final class TupleExpression extends EditableNode {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new self($this->_keyword, $this->_left_paren, $this->_items, $value);
+    return
+      new static($this->_keyword, $this->_left_paren, $this->_items, $value);
   }
 
   public function hasRightParen(): bool {

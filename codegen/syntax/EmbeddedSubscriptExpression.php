@@ -2,11 +2,12 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dec957ae101d8d3b3259e68b8e9ecf61>>
+ * @generated SignedSource<<91a02bfc4ecc2086565c34931e9342c0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
+<<__ConsistentConstruct>>
 final class EmbeddedSubscriptExpression extends EditableNode {
 
   private EditableNode $_receiver;
@@ -62,7 +63,7 @@ final class EmbeddedSubscriptExpression extends EditableNode {
       $source,
     );
     $offset += $right_bracket->getWidth();
-    return new self($receiver, $left_bracket, $index, $right_bracket);
+    return new static($receiver, $left_bracket, $index, $right_bracket);
   }
 
   <<__Override>>
@@ -94,7 +95,7 @@ final class EmbeddedSubscriptExpression extends EditableNode {
     ) {
       return $this;
     }
-    return new self($receiver, $left_bracket, $index, $right_bracket);
+    return new static($receiver, $left_bracket, $index, $right_bracket);
   }
 
   public function getReceiverUNTYPED(): EditableNode {
@@ -105,7 +106,7 @@ final class EmbeddedSubscriptExpression extends EditableNode {
     if ($value === $this->_receiver) {
       return $this;
     }
-    return new self(
+    return new static(
       $value,
       $this->_left_bracket,
       $this->_index,
@@ -132,8 +133,12 @@ final class EmbeddedSubscriptExpression extends EditableNode {
     if ($value === $this->_left_bracket) {
       return $this;
     }
-    return
-      new self($this->_receiver, $value, $this->_index, $this->_right_bracket);
+    return new static(
+      $this->_receiver,
+      $value,
+      $this->_index,
+      $this->_right_bracket,
+    );
   }
 
   public function hasLeftBracket(): bool {
@@ -155,7 +160,7 @@ final class EmbeddedSubscriptExpression extends EditableNode {
     if ($value === $this->_index) {
       return $this;
     }
-    return new self(
+    return new static(
       $this->_receiver,
       $this->_left_bracket,
       $value,
@@ -183,7 +188,7 @@ final class EmbeddedSubscriptExpression extends EditableNode {
       return $this;
     }
     return
-      new self($this->_receiver, $this->_left_bracket, $this->_index, $value);
+      new static($this->_receiver, $this->_left_bracket, $this->_index, $value);
   }
 
   public function hasRightBracket(): bool {
