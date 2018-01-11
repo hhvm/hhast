@@ -131,24 +131,19 @@ final class MigrationsTest extends TestCase {
 
     $ast = $migration->migrateFile($file, $ast);
     \file_put_contents($file, $ast->getCode());
+    $new_ast = $migration->migrateFile($file, $ast);
 
-    expect(
-      $migration->migrateFile($file, $ast)->getCode()
-    )->toBeSame(
+    expect($new_ast->getCode())->toBeSame(
       $ast->getCode(),
       'Migrating the AST twice should produce identical text to once',
     );
 
-    expect(
-      $migration->migrateFile($file, $ast),
-    )->toEqual(
+    expect($new_ast)->toEqual(
       $ast,
       'Migrating the AST twice should get you an equal AST object',
     );
 
-    expect(
-      $migration->migrateFile($file, $ast),
-    )->toBeSame(
+    expect($new_ast)->toBeSame(
       $ast,
       'Migrating the AST twice should get you the same AST object',
     );
