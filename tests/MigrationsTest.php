@@ -34,6 +34,10 @@ final class MigrationsTest extends TestCase {
         Migrations\CallTimePassByReferenceMigration::class,
         'migrations/call_time_pass_by_reference.php',
       ),
+      tuple(
+        Migrations\AddFixMesMigration::class,
+        'migrations/add_fixmes.php',
+      ),
     ];
   }
 
