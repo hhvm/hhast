@@ -29,11 +29,7 @@ final class TemporaryProject implements \IDisposable {
 
     touch($path.'/.hhconfig');
     exec(
-      'hh_server -d '.escapeshellarg($path).
-      ' >/dev/null 2>/dev/null',
-    );
-    exec(
-      'hh_client --retries 4 --timeout 0.5 '.escapeshellarg($path).
+      'hh_client --retries 1 --timeout 0.5 '.escapeshellarg($path).
       ' >/dev/null 2>/dev/null',
     );
     file_put_contents($path.'/test.php', file_get_contents($source_path));

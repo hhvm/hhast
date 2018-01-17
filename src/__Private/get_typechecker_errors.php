@@ -44,15 +44,9 @@ function get_typechecker_errors(
   $file = realpath($file);
   $dir = dirname($file);
   $results = [];
-  $command = vec[
-    'hh_client',
-    '--retries', '3',
-    '--timeout', '1',
-    '--json',
-    '--from', 'hhast',
-    escapeshellarg($dir),
-  ];
+  $command = vec['hh_client', '--json', '--from', 'hhast'];
   \exec(
+    'cd '.\escapeshellarg($dir).';'.
     Str\join($command, ' ').' 2>&1',
     &$results,
   );
