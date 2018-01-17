@@ -30,7 +30,6 @@ type TAST = shape(
   'fields' => array<TASTField>,
 );
 
-/* HH_FIXME[3033] no optional shape fields in 3.21 */
 type TSchema = shape(
   'trivia' => array<TTrivia>,
   'tokens' => array<TToken>,

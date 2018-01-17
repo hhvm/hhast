@@ -17,7 +17,6 @@ use namespace HH\Lib\{C, Keyset, Str, Vec};
 use type Facebook\HHAST\Linters\BaseLinter;
 
 final class LinterCLIConfig {
-  /* HH_FIXME[3033] optional shape fields */
   const type TConfigFile = shape(
     // Where to lint, eg '[ "src/", "codegen/", "tests/" ]
     'roots' => vec<string>,
@@ -43,7 +42,6 @@ final class LinterCLIConfig {
     // Defaults to false.
     ?'disableAllAutoFixes' => bool,
     // Override any of the above for a subset of files in the project
-    /* HH_FIXME[3033] optional shape fields */
     ?'overrides' => vec<shape(
       // Which files this override applies to (uses `fnmatch()`)
       'patterns' => vec<string>,
@@ -99,7 +97,6 @@ final class LinterCLIConfig {
 
   <<__Memoize>>
   private static function getDefault(): this {
-    /* HH_FIXME[4057] optional shape fields */
     return new self(shape('roots' => vec[]));
   }
 
