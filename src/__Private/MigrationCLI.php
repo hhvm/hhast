@@ -14,6 +14,7 @@ namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str};
 use type Facebook\HHAST\Migrations\{
+  AddFixMesMigration,
   BaseMigration,
   CallTimePassByReferenceMigration,
   ImplicitShapeSubtypesMigration,
@@ -71,6 +72,11 @@ class MigrationCLI extends CLIWithRequiredArguments {
         },
         'Apply all migrations for moving from 3.23 to 3.24',
         '--hhvm-3.23-to-3.24',
+      ),
+      CLIOptions\flag(
+        () ==> { $this->migrations[] = AddFixMesMigration::class; },
+        'Add /* HH_FIXME[] */ comments where needed',
+        '--add-fixmes',
       ),
       CLIOptions\flag(
         () ==> { $this->includeVendor = true; },

@@ -23,6 +23,14 @@ function find_node_at_offset(
     "Offset is out of bounds",
   );
 
+  if ($offset === 0) {
+    return $root;
+  }
+
+  if ($offset === $root->getFirstToken()?->getLeading()?->getWidth()) {
+    return $root;
+  }
+
   foreach ($root->getChildren() as $child) {
     if ($child->getWidth() > $offset) {
       return find_node_at_offset($child, $offset);
