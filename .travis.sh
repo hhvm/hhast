@@ -2,7 +2,8 @@
 set -ex
 hhvm --version
 
-hhvm -d hhvm.php7.all=1 $(which composer) install --ignore-platform-reqs
+wget https://getcomposer.org/composer.phar
+hhvm -d hhvm.php7.all=1 ./composer.phar install --ignore-platform-reqs
 
 hh_client
 
