@@ -1,10 +1,8 @@
 #!/bin/sh
 set -ex
 hhvm --version
-curl https://getcomposer.org/installer | hhvm -d hhvm.jit=0 --php -- /dev/stdin --install-dir=/usr/local/bin --filename=composer
 
-cd /var/source
-hhvm -d hhvm.php7.all=1 /usr/local/bin/composer install --ignore-platform-reqs
+hhvm -d hhvm.php7.all=1 $(which composer) install --ignore-platform-reqs
 
 hh_client
 
