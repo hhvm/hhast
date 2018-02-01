@@ -18,7 +18,8 @@ use type Facebook\HHAST\Migrations\{
   BaseMigration,
   CallTimePassByReferenceMigration,
   ImplicitShapeSubtypesMigration,
-  OptionalShapeFieldsMigration
+  OptionalShapeFieldsMigration,
+  NamespaceFallbackMigration,
 };
 
 class MigrationCLI extends CLIWithRequiredArguments {
@@ -72,6 +73,14 @@ class MigrationCLI extends CLIWithRequiredArguments {
         },
         'Apply all migrations for moving from 3.23 to 3.24',
         '--hhvm-3.23-to-3.24',
+      ),
+      CLIOptions\flag(
+        () ==> {
+          $this->migrations[] = NamespaceFallbackMigration::class;
+        },
+        'Add leading \\ to calls to unqualified references to global '.
+        'functions or constants',
+        '--no-namespace-fallback',
       ),
       CLIOptions\flag(
         () ==> { $this->migrations[] = AddFixMesMigration::class; },
