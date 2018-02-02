@@ -22,7 +22,9 @@ use type Facebook\HHAST\{
   EditableList,
   EditableNode,
 };
-use namespace HH\Lib\{C, Vec};
+use function Facebook\HHAST\__Private\execute;
+use namespace Facebook\TypeAssert;
+use namespace HH\Lib\{C, Str, Vec};
 
 final class NamespaceFallbackMigration extends BaseMigration {
   const int ERROR_CODE = 2049;
@@ -54,7 +56,11 @@ final class NamespaceFallbackMigration extends BaseMigration {
     foreach ($nodes as $node) {
       $node = $node->getFirstTokenx();
       $name = $node->getText();
-      if (!(\function_exists($name) || \defined($name))) {
+      if (!(
+        \function_exists($name) ||
+        \defined($name) ||
+        self::isTypecheckerAware($name, $path)
+      )) {
         \fprintf(
           \STDERR,
           "Could not find definition for '%s'\n",
@@ -77,5 +83,40 @@ final class NamespaceFallbackMigration extends BaseMigration {
     }
 
     return $root;
+  }
+
+  const type TSearchResult = vec<shape(
+    'name' => string,
+    'desc' => string,
+    ...
+  )>;
+
+  private static function isTypecheckerAware(
+    string $name,
+    string $path,
+  ): bool {
+    $lines = execute(
+      'hh_client',
+      '--search', "\\".$name,
+      '--json',
+      $path,
+    );
+    $json = Str\join($lines, "\n");
+    $results = TypeAssert\matches_type_structure(
+      type_structure(self::class, 'TSearchResult'),
+      \json_decode(
+        $json,
+        /* assoc = */ true,
+        /* depth = */ 512,
+        JSON_FB_HACK_ARRAYS,
+      ),
+    );
+    return C\any(
+      $results,
+      $result ==>
+        $result['name'] === $name && (
+          $result['desc'] === 'function' || $result['desc'] === 'constant'
+        ),
+    );
   }
 }
