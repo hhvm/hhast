@@ -26,10 +26,6 @@ use namespace HH\Lib\{C, Vec};
 
 final class NamespaceFallbackMigration extends BaseMigration {
   const int ERROR_CODE = 2049;
-  const keyset<string> MAGIC_NAMES = keyset[
-    'exit',
-    'isset',
-  ];
 
   <<__Override>>
   public function migrateFile(
@@ -58,12 +54,12 @@ final class NamespaceFallbackMigration extends BaseMigration {
     foreach ($nodes as $node) {
       $node = $node->getFirstTokenx();
       $name = $node->getText();
-      if (!(
-        \function_exists($name) ||
-        \defined($name) ||
-        C\contains_key(self::MAGIC_NAMES, $name)
-      )) {
-        var_dump($name);
+      if (!(\function_exists($name) || \defined($name))) {
+        \fprintf(
+          \STDERR,
+          "Could not find definition for '%s'\n",
+          $name,
+        );
         continue;
       }
       $root = $root->replace(
