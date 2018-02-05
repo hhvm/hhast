@@ -27,7 +27,16 @@ final class TemporaryProject implements \IDisposable {
     $path = realpath($path);
     $this->path = $path;
 
-    touch($path.'/.hhconfig');
+    $config_source = Str\strip_suffix($source_path, '.in').'.hhconfig';
+    if (\file_exists($config_source)) {
+      \file_put_contents(
+        $path.'/.hhconfig',
+        \file_get_contents($config_source),
+      );
+    } else {
+      \touch($path.'/.hhconfig');
+    }
+
     exec(
       'hh_server -d '.escapeshellarg($path).
       ' >/dev/null 2>/dev/null',

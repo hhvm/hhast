@@ -21,7 +21,7 @@ use namespace Facebook\TypeAssert;
 final class MigrationsTest extends TestCase {
   public function getMigrations(
   ): array<(classname<Migrations\BaseMigration>, string)> {
-    return [
+    $migrations = [
       tuple(
         Migrations\OptionalShapeFieldsMigration::class,
         'migrations/optional_shape_fields.php',
@@ -39,6 +39,15 @@ final class MigrationsTest extends TestCase {
         'migrations/add_fixmes.php',
       ),
     ];
+
+    if (\version_compare(\HHVM_VERSION, '3.25.0-dev', '>=')) {
+      $migrations[] = tuple(
+        Migrations\NamespaceFallbackMigration::class,
+        'migrations/namespace_fallback.php',
+      );
+    }
+
+    return $migrations;
   }
 
   public function getMigrationSteps(

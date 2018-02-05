@@ -1,0 +1,47 @@
+<?hh // strict
+
+/**
+ * Copyright (c) 2016, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional
+ * grant of patent rights can be found in the PATENTS file in the same
+ * directory.
+ *
+ */
+
+namespace {
+  const string ROOT_CONST = 'foo';
+  function root_func(): void {}
+}
+
+namespace MyNS {
+  const string NS_CONST = 'foo';
+  function ns_func(): void {}
+
+  function valid_php_magic(): void {
+    die();
+    exit();
+    isset($foo);
+    unset($bar);
+  }
+
+  function valid_hh_autoimport(): void {
+    \var_dump(is_string('foo'));
+    \var_dump(is_vec([]));
+  }
+
+  function valid_normal(): void {
+    \root_func();
+    ns_func();
+    \var_dump(\ROOT_CONST);
+    \var_dump(NS_CONST);
+    \var_dump(\substr('foo', 1, 1));
+  }
+
+  function invalid_normal(): void {
+    no_such_func();
+    \var_dump(NO_SUCH_CONST);
+  }
+}
