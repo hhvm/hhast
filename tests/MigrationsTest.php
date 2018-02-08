@@ -140,11 +140,12 @@ final class MigrationsTest extends TestCase {
     $file = $temp->getFilePath();
     $ast = HHAST\from_file($file);
 
-    $migration = new $migration($temp->getRootPath());
+    $root = $temp->getRootPath();
+    $migration = () ==> new $migration($root);
 
-    $ast = $migration->migrateFile($file, $ast);
+    $ast = $migration()->migrateFile($file, $ast);
     \file_put_contents($file, $ast->getCode());
-    $new_ast = $migration->migrateFile($file, $ast);
+    $new_ast = $migration()->migrateFile($file, $ast);
 
     expect($new_ast->getCode())->toBeSame(
       $ast->getCode(),
