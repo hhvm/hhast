@@ -18,7 +18,7 @@ use namespace HH\Lib\{C, Keyset, Vec};
 
 trait TypeErrorMigrationTrait implements IMigrationWithFileList {
   private string $root;
-  
+
   public function __construct(
     string $root,
   ) {
