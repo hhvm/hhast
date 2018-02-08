@@ -28,12 +28,15 @@ use namespace HH\Lib\{C, Str, Vec};
 
 final class NamespaceFallbackMigration extends BaseMigration {
   use TypeErrorMigrationTrait;
-  const int ERROR_CODE = 2049;
+  const keyset<int> ERROR_CODES = keyset[2049, 4107];
 
   protected static function filterTypecheckerError(
     TTypecheckerError $error,
   ): bool {
-    return C\firstx($error['message'])['code'] === self::ERROR_CODE;
+    return C\contains(
+      self::ERROR_CODES,
+      C\firstx($error['message'])['code'],
+    );
   }
 
   <<__Override>>
