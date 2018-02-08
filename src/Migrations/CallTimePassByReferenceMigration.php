@@ -16,7 +16,7 @@ use function Facebook\HHAST\{
   find_node_at_position,
   Missing,
 };
-use function Facebook\HHAST\__Private\get_typechecker_errors;
+use type Facebook\HHAST\__Private\TTypecheckerError;
 use type Facebook\HHAST\{
   AmpersandToken,
   EditableList,
@@ -25,17 +25,22 @@ use type Facebook\HHAST\{
 use namespace HH\Lib\{C, Vec};
 
 final class CallTimePassByReferenceMigration extends BaseMigration {
+  use TypeErrorMigrationTrait;
   const int ERROR_CODE = 4168;
 
+  protected static function filterTypecheckerError(
+    TTypecheckerError $error,
+  ): bool {
+    return C\firstx($error['message'])['code'] === self::ERROR_CODE;
+  }
 
   <<__Override>>
   public function migrateFile(
     string $path,
     EditableNode $root,
   ): EditableNode {
-    $nodes = get_typechecker_errors($path)
-      |> Vec\map($$, $error ==> C\firstx($error['message']))
-      |> Vec\filter($$, $error ==> $error['code'] === self::ERROR_CODE)
+    $nodes = $this->getTypecheckerErrorsForFile($path)
+      |> Vec\map($$, $err ==> C\firstx($err['message']))
       |> Vec\map(
         $$,
         $error ==> find_node_at_position(

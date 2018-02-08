@@ -12,11 +12,12 @@
 namespace Facebook\HHAST\__Private;
 
 use namespace Facebook\HHAST;
-use namespace HH\Lib\{C, Str};
+use namespace HH\Lib\{C, Str, Vec};
 use type Facebook\HHAST\Migrations\{
   AddFixMesMigration,
   BaseMigration,
   CallTimePassByReferenceMigration,
+  IMigrationWithFileList,
   ImplicitShapeSubtypesMigration,
   OptionalShapeFieldsMigration,
   NamespaceFallbackMigration,
@@ -97,6 +98,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
   }
 
   final private function migrateFile(
+    vec<BaseMigration> $migrations,
     string $file,
   ): void {
     $this->verbosePrintf(
@@ -112,8 +114,8 @@ class MigrationCLI extends CLIWithRequiredArguments {
       );
     }
     $ast = HHAST\from_file($file);
-    foreach ($this->migrations as $migration) {
-      $new_ast = (new $migration())->migrateFile($file, $ast);
+    foreach ($migrations as $migration) {
+      $new_ast = $migration->migrateFile($file, $ast);
       if ($ast !== $new_ast) {
         $ast = $new_ast;
         // Some migrations need to run the typechecker, so it needs to be up to
@@ -123,7 +125,38 @@ class MigrationCLI extends CLIWithRequiredArguments {
     }
   }
 
-  final private function migrateDirectory(string $directory): void {
+  final private function migrateDirectory(
+    vec<BaseMigration> $migrations,
+    string $directory,
+  ): void {
+    $need_recursion = false;
+    $has_file_list = vec[];
+    foreach ($migrations as $migration) {
+      if ($migration instanceof IMigrationWithFileList) {
+        $has_file_list[] = $migration;
+      } else {
+        $need_recursion = true;
+        break;
+      }
+    }
+
+    if ($need_recursion) {
+      $this->migrateDirectoryByRecursing($migrations, $directory);
+      return;
+    }
+
+    foreach ($has_file_list as $migration) {
+      $files = $migration->getFilePathsToMigrate();
+      foreach ($files as $file) {
+        $this->migrateFile(vec[$migration], $file);
+      }
+    }
+  }
+
+  final private function migrateDirectoryByRecursing(
+    vec<BaseMigration> $migrations,
+    string $directory,
+  ): void {
     $it = new \RecursiveIteratorIterator(
       new \RecursiveDirectoryIterator($directory),
     );
@@ -158,7 +191,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
           continue;
         }
       }
-      $this->migrateFile($file);
+      $this->migrateFile($migrations, $file);
     }
   }
 
@@ -177,12 +210,16 @@ class MigrationCLI extends CLIWithRequiredArguments {
       return 1;
     }
     foreach ($args as $path) {
-      if (is_file($path)) {
-        $this->migrateFile($path);
+      $migrations = Vec\map(
+        $this->migrations,
+        $class ==> new $class($path),
+      );
+      if (\is_file($path)) {
+        $this->migrateFile($migrations, $path);
         continue;
       }
-      if (is_dir($path)) {
-        $this->migrateDirectory($path);
+      if (\is_dir($path)) {
+        $this->migrateDirectory($migrations, $path);
         continue;
       }
 

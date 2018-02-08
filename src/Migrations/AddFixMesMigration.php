@@ -16,7 +16,7 @@ use function Facebook\HHAST\{
   find_node_at_position,
   Missing,
 };
-use function Facebook\HHAST\__Private\get_typechecker_errors;
+use type Facebook\HHAST\__Private\TTypecheckerError;
 use type Facebook\HHAST\{
   EditableList,
   EditableNode,
@@ -27,12 +27,18 @@ use type Facebook\HHAST\{
 use namespace HH\Lib\{C, Dict, Keyset, Vec};
 
 final class AddFixMesMigration extends BaseMigration {
+  use TypeErrorMigrationTrait;
+
+  protected static function filterTypecheckerError(TTypecheckerError $_): bool {
+    return true;
+  }
+
   <<__Override>>
   public function migrateFile(
     string $path,
     EditableNode $root,
   ): EditableNode {
-    $errors_by_position = get_typechecker_errors($path)
+    $errors_by_position = $this->getTypecheckerErrorsForFile($path)
       |> Vec\map($$, $error ==> C\firstx($error['message']))
       |> Dict\group_by(
         $$,

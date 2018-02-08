@@ -16,7 +16,7 @@ use function Facebook\HHAST\{
   find_node_at_position,
   Missing,
 };
-use function Facebook\HHAST\__Private\get_typechecker_errors;
+use type Facebook\HHAST\__Private\TTypecheckerError;
 use type Facebook\HHAST\{
   BackslashToken,
   EditableList,
@@ -27,19 +27,22 @@ use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Str, Vec};
 
 final class NamespaceFallbackMigration extends BaseMigration {
+  use TypeErrorMigrationTrait;
   const int ERROR_CODE = 2049;
+
+  protected static function filterTypecheckerError(
+    TTypecheckerError $error,
+  ): bool {
+    return C\firstx($error['message'])['code'] === self::ERROR_CODE;
+  }
 
   <<__Override>>
   public function migrateFile(
     string $path,
     EditableNode $root,
   ): EditableNode {
-    $nodes = get_typechecker_errors($path)
+    $nodes = $this->getTypecheckerErrorsForFile($path)
       |> Vec\map($$, $error ==> C\firstx($error['message']))
-      |> Vec\filter(
-        $$,
-        $error ==> $error['code'] === self::ERROR_CODE,
-      )
       |> Vec\unique_by(
         $$,
         $error ==> $error['line'].':'.$error['start'],

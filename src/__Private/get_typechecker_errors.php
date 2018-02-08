@@ -39,10 +39,9 @@ type TTypecheckerOutput = shape(
 );
 
 function get_typechecker_errors(
-  string $file,
+  string $path,
 ): vec<TTypecheckerError> {
-  $file = realpath($file);
-  $dir = dirname($file);
+  $path = \realpath($path);
   $results = [];
   $command = vec[
     'hh_client',
@@ -50,7 +49,7 @@ function get_typechecker_errors(
     '--timeout', '1',
     '--json',
     '--from', 'hhast',
-    escapeshellarg($dir),
+    \escapeshellarg($path),
   ];
   \exec(
     Str\join($command, ' ').' 2>&1',
@@ -69,11 +68,5 @@ function get_typechecker_errors(
     ),
   );
 
-  return Vec\filter(
-    $data['errors'] ?? vec[],
-    $error ==> C\any(
-      $error['message'],
-      $message ==> $message['path'] === $file,
-    ),
-  );
+  return $data['errors'] ?? vec[];
 }

@@ -14,13 +14,7 @@ namespace Facebook\HHAST\Migrations;
 
 use type Facebook\HHAST\EditableNode;
 
-<<__ConsistentConstruct>>
-abstract class BaseMigration {
-  public function __construct(private string $root) {
-  }
-
-  abstract public function migrateFile(
-    string $path,
-    EditableNode $ast,
-  ): EditableNode;
+interface IMigrationWithFileList {
+  require extends BaseMigration;
+  public function getFilePathsToMigrate(): keyset<string>;
 }

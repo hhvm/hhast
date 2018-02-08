@@ -44,6 +44,10 @@ final class TemporaryProject implements \IDisposable {
     file_put_contents($path.'/test.php', file_get_contents($source_path));
   }
 
+  public function getRootPath(): string {
+    return $this->path;
+  }
+
   public function getFilePath(): string {
     return $this->path.'/test.php';
   }

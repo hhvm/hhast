@@ -59,7 +59,7 @@ final class MigrationsTest extends TestCase {
     $out = array();
     foreach ($this->getMigrations() as $row) {
       list($class, $fixture) = $row;
-      $instance = new $class();
+      $instance = new $class('/var/empty');
       if (!$instance instanceof Migrations\StepBasedMigration) {
         continue;
       }
@@ -120,7 +120,7 @@ final class MigrationsTest extends TestCase {
     $file = $temp->getFilePath();
     $ast = HHAST\from_file($file);
 
-    $migration = new $migration();
+    $migration = new $migration($temp->getRootPath());
 
     $ast = $migration->migrateFile($file, $ast);
 
@@ -140,7 +140,7 @@ final class MigrationsTest extends TestCase {
     $file = $temp->getFilePath();
     $ast = HHAST\from_file($file);
 
-    $migration = new $migration();
+    $migration = new $migration($temp->getRootPath());
 
     $ast = $migration->migrateFile($file, $ast);
     \file_put_contents($file, $ast->getCode());
