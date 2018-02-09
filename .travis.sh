@@ -6,17 +6,17 @@ composer install --ignore-platform-reqs
 
 hh_client
 
-vendor/bin/hh-codegen-verify-signatures codegen/
-
 hhvm vendor/bin/phpunit
+
+vendor/bin/hh-codegen-verify-signatures codegen/
 
 hhvm bin/hhast-lint --perf
 
 # Make sure we pass when a release is required
 EXPORT_DIR=$(mktemp -d)
-git archive --format=tar.gz -o "${EXPORT_DIR}/exported.tar.gz" HEAD
+git archive --format=tar -o "${EXPORT_DIR}/exported.tar" HEAD
 cd "$EXPORT_DIR"
-tar xfv exported.tar.gz
+tar -xf exported.tar
 composer install --no-dev
 echo > .hhconfig
 hh_server --check $(pwd)
