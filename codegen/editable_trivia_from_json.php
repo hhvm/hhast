@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<192fe7d6dc487b7ce19b623c72bcef30>>
+ * @generated SignedSource<<550edb2ef0b83c4331deeefceb826632>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -13,7 +13,7 @@ function editable_trivia_from_json(
   int $offset,
   string $source,
 ): HHAST\EditableTrivia {
-  $trivia_text = substr($source, $offset, $json['width']);
+  $trivia_text = \substr($source, $offset, $json['width']);
   switch ((string)$json['kind']) {
     case 'whitespace':
       return new HHAST\WhiteSpace($trivia_text);

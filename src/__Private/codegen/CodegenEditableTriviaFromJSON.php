@@ -37,7 +37,7 @@ final class CodegenEditableTriviaFromJSON extends CodegenBase {
               ->codegenHackBuilder()
               ->addAssignment(
                 '$trivia_text',
-                'substr($source, $offset, $json[\'width\'])',
+                '\\substr($source, $offset, $json[\'width\'])',
                 HackBuilderValues::literal(),
               )
               ->startSwitch('(string) $json[\'kind\']')
