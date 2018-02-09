@@ -51,7 +51,7 @@ final class AddFixMesMigration extends BaseMigration {
         |> Vec\map(
           $$,
           $code ==> vec[
-            new FixMe(sprintf('/* HH_FIXME[%d] */', $code)),
+            new FixMe(\sprintf('/* HH_FIXME[%d] */', $code)),
             new WhiteSpace(' '),
           ],
         )

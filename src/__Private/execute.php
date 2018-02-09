@@ -18,12 +18,12 @@ use namespace HH\Lib\Vec;
 // * returns a result rather than filling an out-parameter
 // * throws on error
 function execute(string ...$args): vec<string> {
-  $command = Vec\map($args, $arg ==> escapeshellarg($arg));
+  $command = Vec\map($args, $arg ==> \escapeshellarg($arg));
 
   $results = array();
   $exit_code = null;
   $perf = new PerfCounter(__FUNCTION__.'#subprocess');
-  exec(implode(' ', $command).' 2>/dev/null', &$results, &$exit_code);
+  \exec(\implode(' ', $command).' 2>/dev/null', &$results, &$exit_code);
   $perf->end();
   if ($exit_code !== 0) {
     throw new SubprocessException($command, (int)$exit_code);

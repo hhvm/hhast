@@ -114,7 +114,7 @@ final class NamespaceFallbackMigration extends BaseMigration {
         $json,
         /* assoc = */ true,
         /* depth = */ 512,
-        JSON_FB_HACK_ARRAYS,
+        \JSON_FB_HACK_ARRAYS,
       ),
     );
     return C\any(

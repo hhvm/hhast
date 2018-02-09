@@ -100,12 +100,12 @@ final class LinterCLI extends CLIWithArguments {
     LinterCLIConfig $config,
     string $path,
   ): Traversable<Linters\LintError> {
-    if (is_file($path)) {
+    if (\is_file($path)) {
       return $this->lintFile($config, $path);
-    } else if (is_dir($path)) {
+    } else if (\is_dir($path)) {
       return $this->lintDirectory($config, $path);
     } else {
-      printf(
+      \printf(
         "'%s' doesn't appear to be a file or directory, bailing\n",
         $path,
       );
@@ -119,11 +119,11 @@ final class LinterCLI extends CLIWithArguments {
 
     $roots = $this->getArguments();
     if (C\is_empty($roots)) {
-      $config = LinterCLIConfig::getForPath(getcwd());
+      $config = LinterCLIConfig::getForPath(\getcwd());
       $roots = $config->getRoots();
       if (C\is_empty($roots)) {
-        fwrite(
-          STDERR,
+        \fwrite(
+          \STDERR,
           "You must either specify PATH arguments, or provide a configuration".
           "file.\n",
         );
@@ -148,7 +148,7 @@ final class LinterCLI extends CLIWithArguments {
     if ($this->printPerfCounters) {
       $counters = Dict\sort_by_key(PerfCounter::getCounters());
       foreach ($counters as $name => $value) {
-        printf("PERF %5.2fs %s\n", $value, $name);
+        \printf("PERF %5.2fs %s\n", $value, $name);
       }
     }
     return $had_errors ? 2 : 0;
@@ -159,16 +159,16 @@ final class LinterCLI extends CLIWithArguments {
     LinterCLIConfig::TFileConfig $config,
     Traversable<Linters\LintError> $errors,
   ): Traversable<Linters\LintError> {
-    $class = get_class($linter);
+    $class = \get_class($linter);
     $to_fix = vec[];
     $yield_perf = new PerfCounter($class.'#yieldError');
-    $colors = posix_isatty(STDOUT);
+    $colors = \posix_isatty(\STDOUT);
 
     foreach ($errors as $error) {
       $yield_perf->end();
 
       $position = $error->getPosition();
-      printf(
+      \printf(
         "%s%s%s\n".
         "  %sLinter: %s%s\n".
         "  Location: %s\n",
@@ -176,11 +176,11 @@ final class LinterCLI extends CLIWithArguments {
         $error->getDescription(),
         $colors ? "\e[0m" : '',
         $colors ? "\e[90m" : '',
-        get_class($error->getLinter()),
+        \get_class($error->getLinter()),
         $colors ? "\e[0m" : '',
         $position === null
           ? $error->getFile()
-          : sprintf('%s:%s:%s', $error->getFile(), $position[0], $position[1]),
+          : \sprintf('%s:%s:%s', $error->getFile(), $position[0], $position[1]),
       );
 
       $c = new PerfCounter($class.'#isFixable');
@@ -217,7 +217,7 @@ final class LinterCLI extends CLIWithArguments {
     invariant(
       $linter instanceof Linters\AutoFixingLinter,
       '%s is not an auto-fixing-linter',
-      get_class($linter),
+      \get_class($linter),
     );
 
     $linter->fixLintErrors($errors);
@@ -233,15 +233,15 @@ final class LinterCLI extends CLIWithArguments {
     }
 
     $prefix_lines = ($code, $prefix) ==>
-      explode("\n", $code)
+      \explode("\n", $code)
       |> Vec\map(
         $$,
         $line ==> $prefix.$line,
       )
-      |> implode("\n", $$);
+      |> \implode("\n", $$);
 
 
-    $colors = posix_isatty(STDOUT);
+    $colors = \posix_isatty(\STDOUT);
 
     if ($error->shouldRenderBlameAndFixAsDiff()) {
       $blame_color = "\e[31m"; // red
@@ -255,7 +255,7 @@ final class LinterCLI extends CLIWithArguments {
       $fix_color = "\e[33m"; // yellow
     }
 
-    printf(
+    \printf(
       "  Code:\n".
       "%s%s%s\n".
       "  Suggested fix:\n".
@@ -268,15 +268,15 @@ final class LinterCLI extends CLIWithArguments {
       $colors ? "\e[0m" : '',
     );
 
-    if (!(posix_isatty(STDIN) && posix_isatty(STDOUT))) {
+    if (!(\posix_isatty(\STDIN) && \posix_isatty(\STDOUT))) {
       return false;
     }
 
     static $cache = dict[];
-    $cache_key = get_class($error->getLinter());
+    $cache_key = \get_class($error->getLinter());
     if (C\contains_key($cache, $cache_key)) {
       $should_fix = $cache[$cache_key];
-      printf(
+      \printf(
         "Would you like to apply this fix?\n  <%s to all>\n",
         $should_fix ? 'yes' : 'no',
       );
@@ -289,7 +289,7 @@ final class LinterCLI extends CLIWithArguments {
         "\e[94mWould you like to apply this fix?\e[0m\n".
         "  \e[37m[y]es/[N]o/yes to [a]ll/n[o] to all:\e[0m "
       );
-      $response = fgets(STDIN);
+      $response = \fgets(\STDIN);
       if ($response === false) {
         return false;
       }
@@ -307,8 +307,8 @@ final class LinterCLI extends CLIWithArguments {
         case '':
           return false;
         default:
-          fprintf(
-            STDERR,
+          \fprintf(
+            \STDERR,
             "'%s' is not a valid response.\n",
             $response,
           );
@@ -326,16 +326,16 @@ final class LinterCLI extends CLIWithArguments {
       return;
     }
 
-    $colors = posix_isatty(STDOUT);
-    printf(
+    $colors = \posix_isatty(\STDOUT);
+    \printf(
       "  Code:\n%s%s%s\n",
       $colors ? "\e[33m" : '',
-      explode("\n", $blame)
+      \explode("\n", $blame)
       |> Vec\map(
         $$,
         $line ==> '  >'.$line,
       )
-      |> implode("\n", $$),
+      |> \implode("\n", $$),
       $colors ? "\e[0m" : '',
     );
   }

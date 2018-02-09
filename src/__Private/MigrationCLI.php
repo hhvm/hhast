@@ -198,15 +198,15 @@ class MigrationCLI extends CLIWithRequiredArguments {
   <<__Override>>
   public async function mainAsync(): Awaitable<int> {
     if (C\is_empty($this->migrations)) {
-      fprintf(STDERR, "You must specify at least one migration!\n\n");
-      $this->displayHelp(STDERR);
+      \fprintf(\STDERR, "You must specify at least one migration!\n\n");
+      $this->displayHelp(\STDERR);
       return 1;
     }
 
     $args = $this->getArguments();
     if (C\is_empty($args)) {
-      fprintf(STDERR, "You must specify at least one path!\n\n");
-      $this->displayHelp(STDERR);
+      \fprintf(\STDERR, "You must specify at least one path!\n\n");
+      $this->displayHelp(\STDERR);
       return 1;
     }
     foreach ($args as $path) {
@@ -223,7 +223,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
         continue;
       }
 
-      fprintf(STDERR, "Don't know how to process path: %s\n", $path);
+      \fprintf(\STDERR, "Don't know how to process path: %s\n", $path);
       return 1;
     }
     return 0;
@@ -238,8 +238,8 @@ class MigrationCLI extends CLIWithRequiredArguments {
       }
     }
 
-    $f = fopen($file, 'r');
-    $prefix = fread($f, 4);
+    $f = \fopen($file, 'r');
+    $prefix = \fread($f, 4);
     if ($prefix === '<?hh') {
       $cache = tuple($file, true);
       return true;
@@ -249,9 +249,9 @@ class MigrationCLI extends CLIWithRequiredArguments {
       $cache = tuple($file, false);
       return false;
     }
-    rewind($f);
-    $_shebang = fgets($f);
-    $prefix = fread($f, 4);
+    \rewind($f);
+    $_shebang = \fgets($f);
+    $prefix = \fread($f, 4);
 
     $is_hh = $prefix === '<?hh';
 

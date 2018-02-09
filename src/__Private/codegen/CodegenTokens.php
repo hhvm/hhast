@@ -158,7 +158,7 @@ final class CodegenTokens extends CodegenBase {
       ->addParameters(
         Vec\map(
           $token['fields'],
-          $field ==> sprintf(
+          $field ==> \sprintf(
             '%s $%s',
             $field['type'],
             $field['name'],
@@ -175,7 +175,7 @@ final class CodegenTokens extends CodegenBase {
       if (Str\uppercase($text) !== Str\lowercase($text)) {
         $it->addParameterf(
           'string $token_text = %s',
-          var_export($text, true),
+          \var_export($text, true),
         );
         $parent_args[] = '$token_text';
       }
@@ -256,12 +256,12 @@ final class CodegenTokens extends CodegenBase {
             Vec\map(
               $token['fields'],
               $field ==> $field['type'] === 'string'
-                ? sprintf(
+                ? \sprintf(
                   '$%s = $this->get%s();',
                   $field['name'],
                   StrP\upper_camel($field['name']),
                 )
-                : sprintf(
+                : \sprintf(
                   '$%s = $this->get%s()->rewrite($rewriter, $parents);',
                   $field['name'],
                   StrP\upper_camel($field['name']),
@@ -273,7 +273,7 @@ final class CodegenTokens extends CodegenBase {
           ->addLines(
             Vec\map(
               $token['fields'],
-              $field ==> sprintf(
+              $field ==> \sprintf(
                 '$%s === $this->get%s() &&',
                 $field['name'],
                 StrP\upper_camel($field['name']),

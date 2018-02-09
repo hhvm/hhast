@@ -37,7 +37,7 @@ abstract class BaseASTLinter<T as HHAST\EditableNode, +Terror as ASTLintError<T>
     $perf2 = (new PerfCounter(self::class.'#getASTFromFile'))
       ->endAtScopeExit();
 
-    $hash = sha1(file_get_contents($file), /* raw = */ true);
+    $hash = \sha1(\file_get_contents($file), /* raw = */ true);
     if ($cache !== null && $cache['hash'] === $hash) {
       return $cache['ast'];
     }
@@ -54,7 +54,7 @@ abstract class BaseASTLinter<T as HHAST\EditableNode, +Terror as ASTLintError<T>
   private function getASTWithParents(): vec<(EditableNode, vec<EditableNode>)> {
     static $cache = null;
 
-    $hash = sha1(file_get_contents($this->getFile()), /* raw = */ true);
+    $hash = \sha1(\file_get_contents($this->getFile()), /* raw = */ true);
     if ($cache !== null && $cache['hash'] === $hash) {
       return $cache['astWithParents'];
     }

@@ -51,7 +51,7 @@ final class CodegenCLI extends CLIBase {
     if ($rebuild_relationships) {
       $hhvm = $this->hhvmPath;
       if ($hhvm === null) {
-        fprintf(STDERR, "--hhvm-path is required when rebuilding relationships.\n");
+        \fprintf(\STDERR, "--hhvm-path is required when rebuilding relationships.\n");
         return 1;
       }
       $relationships = dict[];
@@ -71,10 +71,10 @@ final class CodegenCLI extends CLIBase {
 
   <<__Memoize>>
   private function getSchema(): self::TSchema {
-    $json = file_get_contents(
+    $json = \file_get_contents(
       \Facebook\AutoloadMap\Generated\root().'/codegen/schema.json',
     );
-    $array = json_decode($json, /* associative array = */ true);
+    $array = \json_decode($json, /* associative array = */ true);
 
     return TypeAssert\matches_type_structure(
       type_structure(self::class, 'TSchema'),

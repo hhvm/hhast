@@ -66,7 +66,7 @@ final class NoStringInterpolationLinter
     invariant(
       $expr instanceof EditableList,
       "Expected list, got %s",
-      get_class($expr),
+      \get_class($expr),
     );
 
     $leading = null;

@@ -18,7 +18,7 @@ abstract class ParseError extends \Exception {
     ?int $offset,
     private string $rawMessage,
   ) {
-    parent::__construct(sprintf('In file "%s": %s', $targetFile, $rawMessage));
+    parent::__construct(\sprintf('In file "%s": %s', $targetFile, $rawMessage));
   }
 
   public function getTargetFile(): string {

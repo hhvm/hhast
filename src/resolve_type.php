@@ -36,13 +36,13 @@ function resolve_type(
 
   if (Str\contains($type, '\\')) {
     $maybe_aliased = $type
-      |> explode("\\", $$)
+      |> \explode("\\", $$)
       |> C\firstx($$);
     if (C\contains_key($uses['namespaces'], $maybe_aliased)) {
       return $type
-        |> explode('\\', $$)
+        |> \explode('\\', $$)
         |> Vec\drop($$, 1)
-        |> implode('\\', $$)
+        |> \implode('\\', $$)
         |> $uses['namespaces'][$maybe_aliased].'\\'.$$;
     }
 

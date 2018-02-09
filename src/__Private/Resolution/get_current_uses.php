@@ -36,7 +36,7 @@ function get_current_uses(
   invariant(
     $root instanceof Script,
     'Expected first parent to be a Script, got %s',
-    get_class($root),
+    \get_class($root),
   );
   $uses = get_uses_directly_in_scope($root->getDeclarations());
 

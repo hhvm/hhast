@@ -41,7 +41,7 @@ abstract class CLIBase {
     $argv = Vec\drop($argv, 1);
 
     if (C\contains($argv, '--help') || C\contains($argv, '-h')) {
-      $this->displayHelp(STDOUT);
+      $this->displayHelp(\STDOUT);
       exit(0);
     }
 
@@ -82,7 +82,7 @@ abstract class CLIBase {
         $opts = $short_options;
       } else {
         $arguments[] = $arg;
-        if ((bool) getenv('POSIXLY_CORRECT')) {
+        if ((bool) \getenv('POSIXLY_CORRECT')) {
           break;
         }
         continue;
@@ -90,22 +90,22 @@ abstract class CLIBase {
 
       $value = null;
       if (Str\contains($opt, '=')) {
-        $parts = explode('=', $opt);
+        $parts = \explode('=', $opt);
         $opt = $parts[0];
-        $value = implode('=', Vec\drop($parts, 1));
+        $value = \implode('=', Vec\drop($parts, 1));
       }
 
       if (!C\contains_key($opts, $opt)) {
-        fprintf(STDERR, "Unrecognized option: %s\n", $arg);
-        $this->displayHelp(STDERR);
+        \fprintf(\STDERR, "Unrecognized option: %s\n", $arg);
+        $this->displayHelp(\STDERR);
         exit(1);
       }
       $opt = $opts[$opt];
 
       if ($opt instanceof CLIOptions\CLIOptionFlag) {
         if ($value !== null) {
-          fprintf(
-            STDERR,
+          \fprintf(
+            \STDERR,
             "'%s' specifies a value, however values aren't supported for that ".
             "option.\n",
             $arg,
@@ -118,8 +118,8 @@ abstract class CLIBase {
 
       if ($opt instanceof CLIOptions\CLIOptionWithRequiredValue) {
         if ($value === null && C\is_empty($argv)) {
-          fprintf(
-            STDERR,
+          \fprintf(
+            \STDERR,
             "option '%s' requires a value\n",
             $arg,
           );
@@ -135,7 +135,7 @@ abstract class CLIBase {
 
       invariant_violation(
         "Unsupported flag type: %s",
-        get_class($opt),
+        \get_class($opt),
       );
     }
 
@@ -147,8 +147,8 @@ abstract class CLIBase {
       $this->arguments = $arguments;
       return;
     }
-    fprintf(
-      STDERR,
+    \fprintf(
+      \STDERR,
       "Non-option arguments are not supported; first argument is '%s'\n",
       C\firstx($arguments),
     );
@@ -169,18 +169,18 @@ abstract class CLIBase {
         CLIWithRequiredArguments::class,
         static::class,
       );
-      $usage .= ' '.implode(' ', $class::getHelpTextForRequiredArguments()).
+      $usage .= ' '.\implode(' ', $class::getHelpTextForRequiredArguments()).
         ' ['.$class::getHelpTextForOptionalArguments().' ...]';
     } else if ($this instanceof CLIWithArguments) {
       $class = TypeAssert\classname_of(CLIWithArguments::class, static::class);
       $usage .= ' ['.$class::getHelpTextForOptionalArguments().' ...]';
     }
-    fprintf($file, "%s\n", $usage);
+    \fprintf($file, "%s\n", $usage);
     if (C\is_empty($opts)) {
       return;
     }
 
-    fprintf($file, "\nOptions:\n");
+    \fprintf($file, "\nOptions:\n");
     foreach ($opts as $opt) {
       $short = $opt->getShort();
       $long = $opt->getLong();
@@ -192,22 +192,22 @@ abstract class CLIBase {
       }
 
       if ($short !== null) {
-        fprintf($file, "  -%s, --%s\n", $short, $long);
+        \fprintf($file, "  -%s, --%s\n", $short, $long);
       } else {
-        fprintf($file, "  --%s\n", $long);
+        \fprintf($file, "  --%s\n", $long);
       }
-      fwrite(
+      \fwrite(
         $file,
         $opt->getHelpText()
-        |> explode("\n", $$)
+        |> \explode("\n", $$)
         |> Vec\map(
           $$,
           $line ==> "\t".$line."\n",
         )
-        |> implode('', $$),
+        |> \implode('', $$),
       );
     }
-    fwrite($file, "  -h, --help\n");
-    fwrite($file, "\tdisplay this text and exit\n");
+    \fwrite($file, "  -h, --help\n");
+    \fwrite($file, "\tdisplay this text and exit\n");
   }
 }

@@ -74,7 +74,7 @@ function get_uses_directly_in_scope(
     list($kind, $name, $alias) = $use;
     $alias = $alias === null
       ? $name
-        |> explode('\\', $$)
+        |> \explode('\\', $$)
         |> C\lastx($$)
       : $alias->getCode()
         |> Str\trim($$)

@@ -193,7 +193,7 @@ final class RewriteBehaviorTest extends TestCase {
                 return $field->withName(
                   $name->withText(
                     Str\slice($name->getText(), 1, Str\length($name->getText()) - 2)
-                    |> sprintf("'%s_new'", $$),
+                    |> \sprintf("'%s_new'", $$),
                   ),
                 );
               }

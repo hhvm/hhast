@@ -101,11 +101,11 @@ final class LinterCLIConfig {
   }
 
   public static function getForPath(string $path): this {
-    $path = realpath($path);
-    if (is_dir($path)) {
+    $path = \realpath($path);
+    if (\is_dir($path)) {
       return self::getForPathImpl($path);
     }
-    return self::getForPathImpl(dirname($path));
+    return self::getForPathImpl(\dirname($path));
   }
 
   <<__Memoize>>
@@ -114,12 +114,12 @@ final class LinterCLIConfig {
       return self::getDefault();
     }
     $config_file = $path.'/hhast-lint.json';
-    if (file_exists($config_file)) {
+    if (\file_exists($config_file)) {
       return self::getFromConfigFile($config_file);
     }
-    return explode('/', $path)
+    return \explode('/', $path)
       |> Vec\take($$, C\count($$) - 1)
-      |> implode('/', $$)
+      |> \implode('/', $$)
       |> self::getForPathImpl($$);
   }
 
@@ -136,7 +136,7 @@ final class LinterCLIConfig {
     foreach ($this->configFile['overrides'] ?? vec[] as $override) {
       $matches = false;
       foreach ($override['patterns'] as $pattern) {
-        if (fnmatch($pattern, $file_path)) {
+        if (\fnmatch($pattern, $file_path)) {
           $matches = true;
           break;
         }
@@ -215,12 +215,12 @@ final class LinterCLIConfig {
   private static function getConfigFromFile(
     string $file,
   ): self::TConfigFile {
-    $json = file_get_contents($file);
-    $data = json_decode(
+    $json = \file_get_contents($file);
+    $data = \json_decode(
       $json,
       /* as array = */ true,
       /* depth = [default] */ 512,
-      JSON_FB_LOOSE | JSON_FB_HACK_ARRAYS,
+      \JSON_FB_LOOSE | \JSON_FB_HACK_ARRAYS,
     );
     if ($data === null) {
       throw new \Exception('Failed to parse JSON in configuration file '.$file);
@@ -232,7 +232,7 @@ final class LinterCLIConfig {
       );
     } catch (TypeAssert\IncorrectTypeException $e) {
       throw new \Exception(
-        sprintf(
+        \sprintf(
           "Invalid configuration file: %s\n  %s",
           $file,
           $e->getMessage(),

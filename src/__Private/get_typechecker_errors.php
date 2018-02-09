@@ -64,7 +64,7 @@ function get_typechecker_errors(
       $json,
       /* assoc = */ true,
       /* depth = */ 512,
-      JSON_FB_HACK_ARRAYS,
+      \JSON_FB_HACK_ARRAYS,
     ),
   );
 

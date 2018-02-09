@@ -33,11 +33,11 @@ function json_from_file(string $file): dict<string, mixed> {
       'hh_parse failed - exit code: '.$e->getExitCode(),
     );
   }
-  $json = json_decode(
+  $json = \json_decode(
     $results[0],
     /* as array = */ true,
     /* depth = */ 512 /* == default */,
-    JSON_FB_HACK_ARRAYS,
+    \JSON_FB_HACK_ARRAYS,
   );
   if (!is_dict($no_type_refinment_please = $json)) {
     throw new HHParseError($file, 'hh_parse did not output valid JSON');
@@ -51,12 +51,12 @@ function from_file(string $file): EditableNode {
 }
 
 function json_from_text(string $text): dict<string, mixed> {
-  $file = tempnam("/tmp", "");
-  $handle = fopen($file, "w");
-  fwrite($handle, $text);
-  fclose($handle);
+  $file = \tempnam("/tmp", "");
+  $handle = \fopen($file, "w");
+  \fwrite($handle, $text);
+  \fclose($handle);
   $json = json_from_file($file);
-  unlink($file);
+  \unlink($file);
   return $json;
 }
 

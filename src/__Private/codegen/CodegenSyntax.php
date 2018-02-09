@@ -138,7 +138,7 @@ final class CodegenSyntax extends CodegenBase {
     if (!$spec['nullable']) {
       yield $cg
         ->codegenMethodf('get%s', $upper_camel)
-        ->setDocBlock('@returns '.implode(' | ', $types))
+        ->setDocBlock('@returns '.\implode(' | ', $types))
         ->setReturnType($type)
         ->setBodyf(
           'return TypeAssert\instance_of(%s::class, $this->_%s);',
@@ -150,7 +150,7 @@ final class CodegenSyntax extends CodegenBase {
 
     yield $cg
       ->codegenMethodf('get%s', $upper_camel)
-      ->setDocBlock('@returns '.implode(' | ', $types))
+      ->setDocBlock('@returns '.\implode(' | ', $types))
       ->setReturnType($type)
       ->setBody(
         $cg
@@ -169,7 +169,7 @@ final class CodegenSyntax extends CodegenBase {
     yield $cg
       ->codegenMethodf('get%sx', $upper_camel)
       ->setDocBlock(Vec\filter($types, $type ==> $type !== 'Missing')
-        |> implode(' | ', $$)
+        |> \implode(' | ', $$)
         |> '@returns '.$$)
       ->setReturnType($spec['class'])
       ->setBodyf(
@@ -196,12 +196,12 @@ final class CodegenSyntax extends CodegenBase {
           ->codegenHackBuilder()
           ->addLinef(
             'parent::__construct(%s);',
-            var_export($syntax['type_name'], true),
+            \var_export($syntax['type_name'], true),
           )
           ->addLines(
             Vec\map(
               $syntax['fields'],
-              $field ==> sprintf(
+              $field ==> \sprintf(
                 '$this->_%s = $%s;',
                 $field['field_name'],
                 $field['field_name'],
@@ -222,7 +222,7 @@ final class CodegenSyntax extends CodegenBase {
         ->addMultilineCall(
           'EditableNode::fromJSON',
           vec[
-            sprintf(
+            \sprintf(
               '/* UNSAFE_EXPR */ $json[\'%s_%s\']',
               $syntax['prefix'],
               $field['field_name'],
@@ -304,7 +304,7 @@ final class CodegenSyntax extends CodegenBase {
           ->addLines(
             Vec\map(
               $fields,
-              $field ==> sprintf(
+              $field ==> \sprintf(
                 '$%s = $this->_%s->rewrite($rewriter, $parents);',
                 $field,
                 $field,
@@ -316,7 +316,7 @@ final class CodegenSyntax extends CodegenBase {
           ->addLines(
             Vec\map(
               $fields,
-              $field ==> sprintf('$%s === $this->_%s &&', $field, $field),
+              $field ==> \sprintf('$%s === $this->_%s &&', $field, $field),
             )
             |> (
               $lines ==> {
@@ -352,7 +352,7 @@ final class CodegenSyntax extends CodegenBase {
     string $field,
   ): self::TFieldSpec {
     $key =
-      sprintf('%s.%s_%s', $syntax['description'], $syntax['prefix'], $field);
+      \sprintf('%s.%s_%s', $syntax['description'], $syntax['prefix'], $field);
     $specs = $this->getRelationships();
     if (!C\contains_key($specs, $key)) {
       return shape(

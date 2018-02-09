@@ -68,7 +68,7 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
 
       return new FixableASTLintError(
         $this,
-        sprintf(
+        \sprintf(
           '%s::%s() overrides %s::%s() without <<__Override>>',
           $class->getName()->getCode()
             |> Str\trim($$)

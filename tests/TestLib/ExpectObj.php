@@ -40,30 +40,30 @@ final class ExpectObj<T> extends \Facebook\FBExpect\ExpectObj<T> {
     $in_file = __DIR__.'/../fixtures/'.$input_file;
     $code = C\onlyx($this->vars);
 
-    file_put_contents(
+    \file_put_contents(
       Str\strip_suffix($expect_file, '.expect').'.out',
       $code,
     );
-    if (!file_exists($expect_file)) {
-      fprintf(STDERR, "\n===== NEW TEST: %s =====\n", $expect_file);
-      fprintf(STDERR, "----- %s -----\n", $in_file);
-      fwrite(STDERR, file_get_contents($in_file));
-      fprintf(STDERR, "----- %s -----\n", $out_file);
-      fwrite(STDERR, $code);
-      fwrite(STDERR, "----- END -----\n");
+    if (!\file_exists($expect_file)) {
+      \fprintf(\STDERR, "\n===== NEW TEST: %s =====\n", $expect_file);
+      \fprintf(\STDERR, "----- %s -----\n", $in_file);
+      \fwrite(\STDERR, \file_get_contents($in_file));
+      \fprintf(\STDERR, "----- %s -----\n", $out_file);
+      \fwrite(\STDERR, $code);
+      \fwrite(\STDERR, "----- END -----\n");
 
       $recorded = false;
-      if (posix_isatty(STDIN) && posix_isatty(STDERR)) {
-        fprintf(STDERR, "Would you like to save this output? [y/N] ");
-        $response = Str\trim(fgets(STDIN));
+      if (\posix_isatty(\STDIN) && \posix_isatty(\STDERR)) {
+        \fprintf(\STDERR, "Would you like to save this output? [y/N] ");
+        $response = Str\trim(\fgets(\STDIN));
         if ($response === 'y') {
-          file_put_contents($expect_file, $code);
+          \file_put_contents($expect_file, $code);
           $recorded = true;
         }
       } else {
         $this->markTestIncomplete($expect_file.' does not exist');
       }
     }
-    $this->toBeSame(file_get_contents($expect_file));
+    $this->toBeSame(\file_get_contents($expect_file));
   }
 }

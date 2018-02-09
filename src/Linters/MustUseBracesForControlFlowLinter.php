@@ -63,7 +63,7 @@ class MustUseBracesForControlFlowLinter
 
     return new FixableASTLintError(
       $this,
-      sprintf(
+      \sprintf(
         '%s without braces',
         $node->getSyntaxKind() |> Str\replace($$, '_', ' '),
       ),
@@ -112,7 +112,7 @@ class MustUseBracesForControlFlowLinter
     }
     invariant_violation(
       'unhandled type: %s',
-      get_class($node),
+      \get_class($node),
     );
   }
 

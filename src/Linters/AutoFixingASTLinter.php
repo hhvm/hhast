@@ -38,7 +38,7 @@ implements AutoFixingLinter<FixableASTLintError<Tnode>> {
       $new = $this->getFixedNode($old);
       $ast = $ast->replace($old, $new);
     }
-    file_put_contents(
+    \file_put_contents(
       $this->getFile(),
       $ast->getCode(),
     );

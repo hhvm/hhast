@@ -31,7 +31,7 @@ abstract class EditableTrivia extends EditableNode {
 
   <<__Override>>
   public function getWidth(): int {
-    return strlen($this->_text);
+    return \strlen($this->_text);
   }
 
   <<__Override>>

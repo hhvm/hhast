@@ -56,7 +56,7 @@ extends ASTLintError<IFunctionishDeclaration> implements FixableLintError {
   final public function getReadableFix(): (string, string) {
     return tuple(
       $this->getPrettyBlame(),
-      sprintf(
+      \sprintf(
         "$ hh_client --refactor %s \\\n>    %s \\\n>    %s",
         $this->node instanceof MethodishDeclaration ? 'Method' : 'Function',
         $this->old,

@@ -29,7 +29,7 @@ extends FunctionNamingLinter {
   ): string {
     list($head, $suffix) = self::splitName($name);
     if (
-      preg_match(
+      \preg_match(
         '/^[a-z0-9_]+$/',
         $head,
       ) === 1
@@ -41,15 +41,15 @@ extends FunctionNamingLinter {
     //   function Missing(): Missing;
     $type = $func->getDeclarationHeader()->getType()->getCode()
       |> Str\trim($$)
-      |> explode('<', $$)
+      |> \explode('<', $$)
       |> C\firstx($$)
-      |> explode('\\', $$)
+      |> \explode('\\', $$)
       |> C\lastx($$);
     if ($type === $name) {
       return $name;
     }
 
-    return preg_replace_callback(
+    return \preg_replace_callback(
       '/[A-Z]+/',
       $matches ==> '_'.Str\lowercase($matches[0]),
       $head,
@@ -67,7 +67,7 @@ extends FunctionNamingLinter {
   ): string {
     list($head, $suffix) = self::splitName($name);
     if (
-      preg_match(
+      \preg_match(
         '/^[a-z][a-zA-Z0-9]+$/',
         $head,
       ) === 1
@@ -75,7 +75,7 @@ extends FunctionNamingLinter {
       return $name;
     }
 
-    return preg_replace_callback(
+    return \preg_replace_callback(
       '/_[a-z]/',
       $matches ==> Str\uppercase($matches[0][1]),
       $head,

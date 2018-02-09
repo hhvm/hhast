@@ -57,14 +57,14 @@ abstract class FunctionNamingLinter extends BaseASTLinter<
     string $suggestion,
   ): string {
     if ($class === null) {
-      return sprintf(
+      return \sprintf(
         '%s "%s()" does not match conventions; consider renaming to "%s"',
         $what,
         $name,
         $suggestion,
       );
     }
-    return sprintf(
+    return \sprintf(
       '%s "%s()" in class "%s" does not match conventions; consider renaming '.
       'to "%s"',
       $what,
@@ -132,7 +132,7 @@ abstract class FunctionNamingLinter extends BaseASTLinter<
     } else {
       invariant_violation(
         "Can't handle type %s",
-        get_class($node),
+        \get_class($node),
       );
     }
     if ($old === $new) {
@@ -177,7 +177,7 @@ abstract class FunctionNamingLinter extends BaseASTLinter<
     } else {
       invariant_violation(
         'unhandled type: %s',
-        get_class($node),
+        \get_class($node),
       );
     }
     $leading = $node->getFirstTokenx()->getLeading();

@@ -97,7 +97,7 @@ final class DontAwaitInALoopLinter
         ),
       );
 
-    $lines = file_get_contents($this->getFile()) |> explode("\n", $$);
+    $lines = \file_get_contents($this->getFile()) |> \explode("\n", $$);
 
     list(
       $blame_line,
@@ -124,6 +124,6 @@ final class DontAwaitInALoopLinter
     }
     $output[] = 'Line '.$blame_line.': '.$lines[$blame_line - 1];
 
-    return implode("\n", $output);
+    return \implode("\n", $output);
   }
 }

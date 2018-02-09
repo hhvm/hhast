@@ -103,14 +103,14 @@ final class CodegenRelations extends CodegenBase {
     return Keyset\filter(
       $this->getTestFilesInDirectory($root),
       $path ==> {
-        if (file_exists($path.'.expect')) {
+        if (\file_exists($path.'.expect')) {
           $expect = $path.'.expect';
-        } else if (file_exists($path.'.expectf')) {
+        } else if (\file_exists($path.'.expectf')) {
           $expect = $path.'.expectf';
         } else {
           return false;
         }
-        $out = file_get_contents($expect);
+        $out = \file_get_contents($expect);
         if (Str\contains($out, 'Fatal error: syntax error')) {
           return false;
         }
@@ -128,10 +128,10 @@ final class CodegenRelations extends CodegenBase {
     return Keyset\filter(
       $this->getTestFilesInDirectory($root),
       $path ==> {
-        if (!file_exists($path.'.exp')) {
+        if (!\file_exists($path.'.exp')) {
           return false;
         }
-        $out = file_get_contents($path.'.exp');
+        $out = \file_get_contents($path.'.exp');
         return $out === "No errors\n";
       }
     );
@@ -164,8 +164,8 @@ final class CodegenRelations extends CodegenBase {
       /* HH_IGNORE_ERROR[4110] making assumptions about JSON */
       $ast = $this->flatten(HHAST\json_from_file($file)['parse_tree']);
     } catch (\Exception $_) {
-      if (!Str\contains(file_get_contents($file), '<?php')) {
-        fprintf(STDERR, "Failed to parse %s\n", $file);
+      if (!Str\contains(\file_get_contents($file), '<?php')) {
+        \fprintf(\STDERR, "Failed to parse %s\n", $file);
       }
       return dict[];
     }

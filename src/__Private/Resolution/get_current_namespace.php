@@ -55,7 +55,7 @@ function get_current_namespace(
     }
     $body = $ns->getBody();
     if ($body instanceof NamespaceBody) {
-      var_dump($root->getCode());
+      \var_dump($root->getCode());
     }
     invariant(
       $body->isMissing() || $body instanceof NamespaceEmptyBody,

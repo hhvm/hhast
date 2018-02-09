@@ -33,7 +33,7 @@ final class CodegenTrivia extends CodegenBase {
               ->addParameter('string $text')
               ->setBodyf(
                 'parent::__construct(%s, $text);',
-                var_export($trivia['trivia_type_name'], true),
+                \var_export($trivia['trivia_type_name'], true),
               ),
           )
           ->addMethod(

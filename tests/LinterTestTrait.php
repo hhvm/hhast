@@ -25,17 +25,17 @@ trait LinterTestTrait {
   abstract public function getCleanExamples(): array<array<string>>;
   final public function getDirtyFixtures(): array<array<string>> {
     return static::class
-      |> explode('\\', $$)
+      |> \explode('\\', $$)
       |> C\lastx($$)
       |> Str\strip_suffix($$, 'Test')
-      |> glob(__DIR__.'/fixtures/'.$$.'/*.php.in')
-      |> Vec\map($$, $path ==> [basename($path, '.php.in')])
-      |> array_values($$);
+      |> \glob(__DIR__.'/fixtures/'.$$.'/*.php.in')
+      |> Vec\map($$, $path ==> [\basename($path, '.php.in')])
+      |> \array_values($$);
   }
 
   final protected function getFullFixtureName(string $name): string {
     return static::class
-      |> explode('\\', $$)
+      |> \explode('\\', $$)
       |> C\lastx($$)
       |> Str\strip_suffix($$, 'Test')
       |> $$.'/'.$name.'.php';
@@ -45,18 +45,18 @@ trait LinterTestTrait {
    * @dataProvider getCleanExamples
    */
   final public function testCleanExample(string $code): void {
-    $file = tempnam(
-      sys_get_temp_dir(),
+    $file = \tempnam(
+      \sys_get_temp_dir(),
       'hhast-test',
     );
-    file_put_contents($file, $code);
+    \file_put_contents($file, $code);
     try {
       $linter = $this->getLinter($file);
       expect(C\first($linter->getLintErrors()))->toBeNull(
         'Got lint errors on supposedly-clean example',
       );
     } finally {
-      unlink($file);
+      \unlink($file);
     }
   }
 
@@ -77,7 +77,7 @@ trait LinterTestTrait {
           'description' => $error->getDescription(),
         ),
       )
-      |> json_encode($$, JSON_PRETTY_PRINT)."\n";
+      |> \json_encode($$, \JSON_PRETTY_PRINT)."\n";
     expect($out)->toMatchExpectFile($fixture.'.expect');
   }
 }

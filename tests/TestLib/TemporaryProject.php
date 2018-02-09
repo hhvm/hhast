@@ -20,11 +20,11 @@ final class TemporaryProject implements \IDisposable {
   public function __construct(
     string $source_path,
   ) {
-    $path = sys_get_temp_dir().'/hhast-test-temp'.bin2hex(random_bytes(16));
-    $orig = umask(022);
-    mkdir($path);
-    umask($orig);
-    $path = realpath($path);
+    $path = \sys_get_temp_dir().'/hhast-test-temp'.\bin2hex(\random_bytes(16));
+    $orig = \umask(022);
+    \mkdir($path);
+    \umask($orig);
+    $path = \realpath($path);
     $this->path = $path;
 
     $config_source = Str\strip_suffix($source_path, '.in').'.hhconfig';
@@ -37,11 +37,11 @@ final class TemporaryProject implements \IDisposable {
       \touch($path.'/.hhconfig');
     }
 
-    exec(
-      'hh_server -d '.escapeshellarg($path).
+    \exec(
+      'hh_server -d '.\escapeshellarg($path).
       ' >/dev/null 2>/dev/null',
     );
-    file_put_contents($path.'/test.php', file_get_contents($source_path));
+    \file_put_contents($path.'/test.php', \file_get_contents($source_path));
   }
 
   public function getRootPath(): string {
@@ -53,9 +53,9 @@ final class TemporaryProject implements \IDisposable {
   }
 
   public function __dispose(): void {
-    exec('hh_client stop '.escapeshellarg($this->path).' >/dev/null 2>/dev/null');
-    unlink($this->getFilePath());
-    unlink($this->path.'/.hhconfig');
-    rmdir($this->path);
+    \exec('hh_client stop '.\escapeshellarg($this->path).' >/dev/null 2>/dev/null');
+    \unlink($this->getFilePath());
+    \unlink($this->path.'/.hhconfig');
+    \rmdir($this->path);
   }
 }

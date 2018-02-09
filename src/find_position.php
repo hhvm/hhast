@@ -21,7 +21,7 @@ function find_position(
   $offset = find_offset_after_leading($root, $node);
   $lines = $root->getCode()
     |> Str\slice($$, 0, $offset)
-    |> explode("\n", $$);
+    |> \explode("\n", $$);
 
   return tuple(
     C\count($lines),

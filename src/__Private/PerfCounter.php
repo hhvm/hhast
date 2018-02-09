@@ -22,11 +22,11 @@ final class PerfCounter {
   public function __construct(
     private string $name,
   ) {
-    $this->start = microtime(true);
+    $this->start = \microtime(true);
   }
 
   public function end(): void {
-    $end = microtime(true);
+    $end = \microtime(true);
     invariant(
       $this->end === null,
       "Can't end a counter twice",
