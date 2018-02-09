@@ -14,7 +14,7 @@ hhvm bin/hhast-lint --perf
 
 # Make sure we pass when a release is required
 EXPORT_DIR=$(mktemp -d)
-git archive --format=tar.gz "${EXPORT_DIR}/exported.tar.gz" HEAD
+git archive --format=tar.gz -o "${EXPORT_DIR}/exported.tar.gz" HEAD
 cd "$EXPORT_DIR"
 tar xfv exported.tar.gz
 composer install --no-dev
