@@ -8,9 +8,15 @@ hh_client
 
 vendor/bin/hh-codegen-verify-signatures codegen/
 
-hhvm vendor/bin/phpunit tests/
+hhvm vendor/bin/phpunit
 
 hhvm bin/hhast-lint --perf
 
+# Make sure we pass when a release is required
+EXPORT_DIR=$(mktemp -d)
+git archive --format=tar.gz "${EXPORT_DIR}/exported.tar.gz" HEAD
+cd "$EXPORT_DIR"
+tar xfv exported.tar.gz
+composer install --no-dev
 echo > .hhconfig
 hh_server --check $(pwd)
