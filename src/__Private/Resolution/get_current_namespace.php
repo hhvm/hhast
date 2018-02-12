@@ -54,9 +54,6 @@ function get_current_namespace(
       return null;
     }
     $body = $ns->getBody();
-    if ($body instanceof NamespaceBody) {
-      \var_dump($root->getCode());
-    }
     invariant(
       $body->isMissing() || $body instanceof NamespaceEmptyBody,
       "if using namespace blocks, all code must be in a NS block - got %s",
