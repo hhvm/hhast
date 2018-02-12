@@ -67,11 +67,6 @@ final class NamespaceFallbackMigration extends BaseMigration {
         \defined($name) ||
         self::isTypecheckerAware($name, $path)
       )) {
-        \fprintf(
-          \STDERR,
-          "Could not find definition for '%s'\n",
-          $name,
-        );
         continue;
       }
       $root = $root->replace(
