@@ -16,6 +16,7 @@ namespace Facebook\HHAST\TestLib;
 use namespace HH\Lib\{C, Str};
 
 final class TemporaryProject implements \IDisposable {
+  private resource $hhServer;
   private string $path;
   public function __construct(
     string $source_path,
@@ -37,9 +38,11 @@ final class TemporaryProject implements \IDisposable {
       \touch($path.'/.hhconfig');
     }
 
-    \exec(
-      'hh_server -d '.\escapeshellarg($path).
-      ' >/dev/null 2>/dev/null',
+    $pipes = [];
+    $this->hhServer = \proc_open(
+      'hh_server '.\escapeshellarg($path).' >/dev/null 2>/dev/null',
+      [],
+      &$pipes,
     );
     \file_put_contents($path.'/test.php', \file_get_contents($source_path));
   }
@@ -53,7 +56,7 @@ final class TemporaryProject implements \IDisposable {
   }
 
   public function __dispose(): void {
-    \exec('hh_client stop '.\escapeshellarg($this->path).' >/dev/null 2>/dev/null');
+    \proc_terminate($this->hhServer);
     \unlink($this->getFilePath());
     \unlink($this->path.'/.hhconfig');
     \rmdir($this->path);
