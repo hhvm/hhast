@@ -34,8 +34,7 @@ final class PerfCounter {
     $this->end = $end;
   }
 
-
-  <<__OptionalDestruct>>
+  /* HH_IGNORE_ERROR[3056] optional destructor used for safety logging */
   public function __destruct() {
     invariant(
       $this->end !== null,
