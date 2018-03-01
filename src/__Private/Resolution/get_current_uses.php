@@ -19,7 +19,8 @@ use type Facebook\HHAST\{
   NamespaceEmptyBody,
   NamespaceUseDeclaration,
   Script,
-  __Private\PerfCounter
+  __Private\PerfCounter,
+  __Private\ScopedPerfCounter,
 };
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Dict, Vec};
@@ -31,7 +32,7 @@ function get_current_uses(
   'namespaces' => dict<string, string>,
   'types' => dict<string, string>,
 ) {
-  $c = (new PerfCounter(__FUNCTION__))->endAtScopeExit();
+  using (new ScopedPerfCounter(__FUNCTION__));
   $root = $parents[0];
   invariant(
     $root instanceof Script,

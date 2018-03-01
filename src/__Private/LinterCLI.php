@@ -53,24 +53,24 @@ final class LinterCLI extends CLIWithArguments {
         continue;
       }
 
-      $c = new PerfCounter($class.'#construct');
-      $linter = new $class($path);
-      $c->end();
+      using (new ScopedPerfCounter($class.'#construct')) {
+        $linter = new $class($path);
+      }
 
       if ($linter->isLinterSuppressedForFile()) {
         continue;
       }
 
-      $c = new PerfCounter($class.'#getLintErrors');
-      $errors = $linter->getLintErrors();
-      $c->end();
+      using (new ScopedPerfCounter($class.'#getLintErrors')) {
+        $errors = $linter->getLintErrors();
+      }
 
-      $c = new PerfCounter($class.'#processErrors');
-      $all_errors = Vec\concat(
-        $all_errors,
-        $this->processErrors($linter, $config, $errors),
-      );
-      $c->end();
+      using (new ScopedPerfCounter($class.'#processErrors')) {
+        $all_errors = Vec\concat(
+          $all_errors,
+          $this->processErrors($linter, $config, $errors),
+        );
+      }
     }
     return $all_errors;
   }
@@ -115,7 +115,7 @@ final class LinterCLI extends CLIWithArguments {
 
   <<__Override>>
   public async function mainAsync(): Awaitable<int> {
-    $perf = new PerfCounter(__CLASS__);
+    using (new ScopedPerfCounter(__CLASS__));
 
     $roots = $this->getArguments();
     if (C\is_empty($roots)) {
@@ -144,11 +144,10 @@ final class LinterCLI extends CLIWithArguments {
       print("No errors.\n");
     }
 
-    $perf->end();
     if ($this->printPerfCounters) {
-      $counters = Dict\sort_by_key(PerfCounter::getCounters());
-      foreach ($counters as $name => $value) {
-        \printf("PERF %5.2fs %s\n", $value, $name);
+      $counters = PerfCounter::getCounters();
+      foreach ($counters as $name => $seconds) {
+        \printf("PERF %5.2fs %s\n", $seconds, $name);
       }
     }
     return $had_errors ? 2 : 0;

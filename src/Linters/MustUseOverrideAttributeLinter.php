@@ -28,7 +28,7 @@ use namespace Facebook\TypeAssert;
 use function Facebook\HHAST\resolve_type;
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
-use type Facebook\HHAST\__Private\PerfCounter;
+use type Facebook\HHAST\__Private\{PerfCounter, ScopedPerfCounter};
 
 class MustUseOverrideAttributeLinter
 extends AutoFixingASTLinter<MethodishDeclaration> {
@@ -51,20 +51,19 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
       return null;
     }
 
-    $c = new PerfCounter(self::class.'#findSuper');
-    $super = self::findSuper($class, $parents);
-    $c->end();
+    using (new ScopedPerfCounter(self::class.'#findSuper')) {
+      $super = self::findSuper($class, $parents);
+    }
     try {
-      $c = (new PerfCounter(self::class.'#reflectionMethod'))
-        ->endAtScopeExit();
+      using (new ScopedPerfCounter(self::class.'#reflectionMethod')) {
+        $method = $node->getFunctionDeclHeader()->getName()->getCode()
+          |> Str\trim($$);
 
-      $method = $node->getFunctionDeclHeader()->getName()->getCode()
-        |> Str\trim($$);
-
-      $reflection_method = new \ReflectionMethod(
-        $super,
-        $method,
-      );
+        $reflection_method = new \ReflectionMethod(
+          $super,
+          $method,
+        );
+      }
 
       return new FixableASTLintError(
         $this,
@@ -111,7 +110,7 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
     ClassishDeclaration $class,
     MethodishDeclaration $method,
   ): bool {
-    $c = (new PerfCounter(static::class.'#canIgnoreMethod'))->endAtScopeExit();
+    using (new ScopedPerfCounter(static::class.'#canIgnoreMethod'));
     if (!$class->hasExtendsKeyword()) {
       return true;
     }

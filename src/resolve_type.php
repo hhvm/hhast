@@ -22,7 +22,6 @@ function resolve_type(
   EditableNode $node,
   vec<EditableNode> $parents,
 ): ?string {
-  $c = (new __Private\PerfCounter(__FUNCTION__))->endAtScopeExit();
   if (Str\starts_with($type, '\\')) {
     return Str\strip_prefix($type, '\\');
   }

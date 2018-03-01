@@ -17,7 +17,6 @@ final class PerfCounter {
 
   private float $start;
   private ?float $end;
-  private bool $endAtScopeExit = false;
 
   public function __construct(
     private string $name,
@@ -35,15 +34,9 @@ final class PerfCounter {
     $this->end = $end;
   }
 
-  public function endAtScopeExit(): this {
-    $this->endAtScopeExit = true;
-    return $this;
-  }
 
+  <<__OptionalDestruct>>
   public function __destruct() {
-    if ($this->endAtScopeExit) {
-      $this->end();
-    }
     invariant(
       $this->end !== null,
       'counter %s destroyed without calling ::end()',
@@ -65,9 +58,8 @@ final class PerfCounter {
     (function(Tin):Tout) $impl,
     Tin $what,
   ): Tout {
-    $c = new self($name);
+    using (new ScopedPerfCounter($name));
     $result = $impl($what);
-    $c->end();
     return $result;
   }
 }

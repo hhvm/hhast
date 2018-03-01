@@ -18,7 +18,8 @@ use type Facebook\HHAST\{
   NamespaceDeclaration,
   NamespaceEmptyBody,
   Script,
-  __Private\PerfCounter
+  __Private\PerfCounter,
+  __Private\ScopedPerfCounter,
 };
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Str, Vec};
@@ -27,7 +28,7 @@ function get_current_namespace(
   EditableNode $node,
   vec<EditableNode> $parents,
 ): ?string {
-  $c = (new PerfCounter(__FUNCTION__))->endAtScopeExit();
+  using (new ScopedPerfCounter(__FUNCTION__));
   $parents = vec($parents);
 
   $namespaces = Vec\filter(
@@ -42,27 +43,28 @@ function get_current_namespace(
 
   // No blocks, just a declaration;
   if (C\is_empty($namespaces)) {
-    $c2 = (new PerfCounter(__FUNCTION__.'#declaration'))->endAtScopeExit();
-    $root = $parents
-      |> C\firstx($$)
-      |> TypeAssert\instance_of(Script::class, $$);
-    $ns = $root
-      ->getDeclarations()
-      ->getChildrenOfType(NamespaceDeclaration::class)
-      |> C\first($$);
-    if ($ns === null) {
-      return null;
+    using (new ScopedPerfCounter(__FUNCTION__.'#declaration')) {
+      $root = $parents
+        |> C\firstx($$)
+        |> TypeAssert\instance_of(Script::class, $$);
+      $ns = $root
+        ->getDeclarations()
+        ->getChildrenOfType(NamespaceDeclaration::class)
+        |> C\first($$);
+      if ($ns === null) {
+        return null;
+      }
+      $body = $ns->getBody();
+      invariant(
+        $body->isMissing() || $body instanceof NamespaceEmptyBody,
+        "if using namespace blocks, all code must be in a NS block - got %s",
+        \get_class($body),
+      );
+      return $ns->getQualifiedNameAsString();
     }
-    $body = $ns->getBody();
-    invariant(
-      $body->isMissing() || $body instanceof NamespaceEmptyBody,
-      "if using namespace blocks, all code must be in a NS block - got %s",
-      \get_class($body),
-    );
-    return $ns->getQualifiedNameAsString();
   }
 
-  $c2 = (new PerfCounter(__FUNCTION__.'#blocks'))->endAtScopeExit();
+  using (new ScopedPerfCounter(__FUNCTION__.'#blocks'));
 
   return $namespaces
     |> C\firstx($$)
