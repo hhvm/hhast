@@ -34,6 +34,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
 
   protected keyset<classname<BaseMigration>> $migrations = keyset[];
   private bool $includeVendor = false;
+  private bool $xhprof = false;
 
   <<__Override>>
   final public static function getHelpTextForRequiredArguments(): vec<string> {
@@ -92,6 +93,11 @@ class MigrationCLI extends CLIWithRequiredArguments {
         () ==> { $this->includeVendor = true; },
         'Also migrate files in vendor/ subdirectories',
         '--include-vendor',
+      ),
+      CLIOptions\flag(
+        () ==> { $this->xhprof = true; },
+        'Enable XHProf profiling',
+        '--xhprof',
       ),
       $this->getVerbosityOption(),
     ];
@@ -197,6 +203,17 @@ class MigrationCLI extends CLIWithRequiredArguments {
 
   <<__Override>>
   public async function mainAsync(): Awaitable<int> {
+    if ($this->xhprof) {
+      XHProf::enable();
+    }
+    $result = await $this->mainAsyncImpl();
+    if ($this->xhprof) {
+      XHProf::disableAndDump(\STDERR);
+    }
+    return $result;
+  }
+
+  private async function mainAsyncImpl(): Awaitable<int> {
     if (C\is_empty($this->migrations)) {
       \fprintf(\STDERR, "You must specify at least one migration!\n\n");
       $this->displayHelp(\STDERR);

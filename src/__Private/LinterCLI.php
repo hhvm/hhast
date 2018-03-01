@@ -17,6 +17,7 @@ use namespace HH\Lib\{C, Dict, Str, Vec};
 
 final class LinterCLI extends CLIWithArguments {
   private bool $printPerfCounters = false;
+  private bool $xhprof = false;
 
   use CLIWithVerbosityTrait;
 
@@ -32,6 +33,11 @@ final class LinterCLI extends CLIWithArguments {
         () ==> { $this->printPerfCounters = true; },
         'Output performance counters when finished',
         '--perf',
+      ),
+      CLIOptions\flag(
+        () ==> { $this->xhprof = true; },
+        'Enable XHProf profiling',
+        '--xhprof',
       ),
       $this->getVerbosityOption(),
     ];
@@ -115,8 +121,29 @@ final class LinterCLI extends CLIWithArguments {
 
   <<__Override>>
   public async function mainAsync(): Awaitable<int> {
-    using (new ScopedPerfCounter(__CLASS__));
+    if ($this->xhprof) {
+      XHProf::enable();
+    }
 
+    using (new ScopedPerfCounter(__CLASS__)) {
+      $result = await $this->mainAsyncImpl();
+    }
+
+    if ($this->xhprof) {
+      XHProf::disableAndDump(\STDERR);
+    }
+
+    if ($this->printPerfCounters) {
+      $counters = PerfCounter::getCounters();
+      foreach ($counters as $name => $seconds) {
+        \printf("PERF %5.2fs %s\n", $seconds, $name);
+      }
+    }
+
+    return $result;
+  }
+
+  private async function mainAsyncImpl(): Awaitable<int> {
     $roots = $this->getArguments();
     if (C\is_empty($roots)) {
       $config = LinterCLIConfig::getForPath(\getcwd());
@@ -144,12 +171,6 @@ final class LinterCLI extends CLIWithArguments {
       print("No errors.\n");
     }
 
-    if ($this->printPerfCounters) {
-      $counters = PerfCounter::getCounters();
-      foreach ($counters as $name => $seconds) {
-        \printf("PERF %5.2fs %s\n", $seconds, $name);
-      }
-    }
     return $had_errors ? 2 : 0;
   }
 

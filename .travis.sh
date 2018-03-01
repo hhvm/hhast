@@ -10,7 +10,7 @@ hhvm vendor/bin/phpunit
 
 vendor/bin/hh-codegen-verify-signatures codegen/
 
-hhvm bin/hhast-lint --perf
+hhvm bin/hhast-lint --perf --xhprof
 
 # Make sure we pass when a release is required
 EXPORT_DIR=$(mktemp -d)
