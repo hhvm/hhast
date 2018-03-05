@@ -182,7 +182,7 @@ final class LinterCLI extends CLIWithArguments {
     $class = \get_class($linter);
     $to_fix = vec[];
     $yield_perf = new PerfCounter($class.'#yieldError');
-    $colors = \posix_isatty(\STDOUT);
+    $colors = self::supportsColors();
 
     foreach ($errors as $error) {
       $yield_perf->end();
@@ -261,7 +261,7 @@ final class LinterCLI extends CLIWithArguments {
       |> \implode("\n", $$);
 
 
-    $colors = \posix_isatty(\STDOUT);
+    $colors = self::supportsColors();
 
     if ($error->shouldRenderBlameAndFixAsDiff()) {
       $blame_color = "\e[31m"; // red
@@ -288,7 +288,7 @@ final class LinterCLI extends CLIWithArguments {
       $colors ? "\e[0m" : '',
     );
 
-    if (!(\posix_isatty(\STDIN) && \posix_isatty(\STDOUT))) {
+    if (!self::isInteractive()) {
       return false;
     }
 
@@ -346,7 +346,7 @@ final class LinterCLI extends CLIWithArguments {
       return;
     }
 
-    $colors = \posix_isatty(\STDOUT);
+    $colors = self::supportsColors();
     \printf(
       "  Code:\n%s%s%s\n",
       $colors ? "\e[33m" : '',

@@ -34,6 +34,93 @@ abstract class CLIBase {
     return $this->arguments;
   }
 
+  protected static function supportsColors(): bool {
+    static $cache;
+
+    if ($cache !== null) {
+      return $cache;
+    }
+
+    $colors = \getenv('CLICOLORS');
+    if (
+      $colors === '1'
+      || $colors === 'yes'
+      || $colors === 'true'
+      || $colors === 'on'
+    ) {
+      $cache = true;
+      return true;
+    }
+    if (
+      $colors === '0'
+      || $colors === 'no'
+      || $colors === 'false'
+      || $colors === 'off'
+    ) {
+      $cache = false;
+      return false;
+    }
+
+    if (\getenv('TRAVIS') === 'true') {
+      $cache = true;
+      return true;
+    }
+
+    if (\getenv('CIRCLECI') === 'true') {
+      $cache = true;
+      return true;
+    }
+
+    if (static::isInteractive()) {
+      $cache = Str\contains((string) \getenv('TERM'), 'color');
+      return $cache;
+    }
+
+    $cache = false;
+    return false;
+  }
+
+  protected static function isInteractive(): bool {
+    static $cache = null;
+    if ($cache !== null) {
+      return $cache;
+    }
+
+    // Explicit override
+    $noninteractive = \getenv('NONINTERACTIVE');
+    if ($noninteractive !== false) {
+      if ($noninteractive === '1' || $noninteractive === 'true') {
+        $cache = false;
+        return false;
+      }
+      if ($noninteractive === '0' || $noninteractive === 'false') {
+        $cache = true;
+        return true;
+      }
+      \fwrite(
+        \STDERR,
+        "NONINTERACTIVE env var must be 0/1/yes/no/true/false, or unset.\n",
+      );
+    }
+
+    // Detects TravisCI and CircleCI; Travis gives you a TTY for STDIN
+    $ci = \getenv('CI');
+    if ($ci === '1' || $ci === 'true') {
+      $cache = false;
+      return false;
+    }
+
+    // Generic
+    if (\posix_isatty(\STDIN) && \posix_isatty(\STDOUT)) {
+      $cache = true;
+      return true;
+    }
+
+    // Fail-safe
+    $cache = false;
+    return false;
+  }
+
   public function __construct(
     private vec<string> $argv,
   ) {
