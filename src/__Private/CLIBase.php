@@ -101,42 +101,7 @@ abstract class CLIBase {
         exit(1);
       }
       $opt = $opts[$opt];
-
-      if ($opt instanceof CLIOptions\CLIOptionFlag) {
-        if ($value !== null) {
-          \fprintf(
-            \STDERR,
-            "'%s' specifies a value, however values aren't supported for that ".
-            "option.\n",
-            $arg,
-          );
-          exit(1);
-        }
-        $opt->set();
-        continue;
-      }
-
-      if ($opt instanceof CLIOptions\CLIOptionWithRequiredValue) {
-        if ($value === null && C\is_empty($argv)) {
-          \fprintf(
-            \STDERR,
-            "option '%s' requires a value\n",
-            $arg,
-          );
-          exit(1);
-        }
-        if ($value === null) {
-          $value = C\firstx($argv);
-          $argv = Vec\drop($argv, 1);
-        }
-        $opt->set($value);
-        continue;
-      }
-
-      invariant_violation(
-        "Unsupported flag type: %s",
-        \get_class($opt),
-      );
+      $argv = $opt->apply($arg, $value, $argv);
     }
 
     $arguments = Vec\concat($arguments, $argv);

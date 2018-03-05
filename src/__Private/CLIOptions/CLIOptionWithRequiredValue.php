@@ -11,6 +11,8 @@
 
 namespace Facebook\HHAST\__Private\CLIOptions;
 
+use namespace HH\Lib\{C, Vec};
+
 final class CLIOptionWithRequiredValue extends CLIOption {
   const type TSetter = (function(string):void);
   public function __construct(
@@ -25,5 +27,26 @@ final class CLIOptionWithRequiredValue extends CLIOption {
   public function set(string $value): void {
     $setter = $this->setter;
     $setter($value);
+  }
+
+  public function apply(
+    string $as_given,
+    ?string $value,
+    vec<string> $argv,
+  ): vec<string> {
+    if ($value === null) {
+      if (C\is_empty($argv)) {
+        \fprintf(
+          \STDERR,
+          "option '%s' requires a value\n",
+          $as_given,
+        );
+        exit(1);
+      }
+      $value = C\firstx($argv);
+      $argv = Vec\drop($argv, 1);
+    }
+    $this->set($value);
+    return $argv;
   }
 }

@@ -27,4 +27,22 @@ final class CLIOptionFlag extends CLIOption {
     $setter = $this->setter;
     $setter();
   }
+
+  public function apply(
+    string $as_given,
+    ?string $value,
+    vec<string> $argv,
+  ): vec<string> { 
+    if ($value !== null) {
+      \fprintf(
+        \STDERR,
+        "'%s' specifies a value, however values aren't supported for that ".
+        "option.\n",
+        $as_given,
+      );
+      exit(1);
+    }
+    $this->set();
+    return $argv;
+  }
 }
