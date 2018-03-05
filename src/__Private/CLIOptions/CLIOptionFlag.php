@@ -28,11 +28,12 @@ final class CLIOptionFlag extends CLIOption {
     $setter();
   }
 
+  <<__Override>>
   public function apply(
     string $as_given,
     ?string $value,
     vec<string> $argv,
-  ): vec<string> { 
+  ): vec<string> {
     if ($value !== null) {
       \fprintf(
         \STDERR,

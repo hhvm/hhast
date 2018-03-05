@@ -29,6 +29,7 @@ final class CLIOptionWithRequiredValue extends CLIOption {
     $setter($value);
   }
 
+  <<__Override>>
   public function apply(
     string $as_given,
     ?string $value,
