@@ -440,18 +440,18 @@ final class CodegenSyntax extends CodegenBase {
     return $token['token_kind'].'Token';
   }
 
-  private static function getMarkerInterfaces(): dict<string, vec<string>> {
+  private static function getMarkerInterfaces(): dict<string, keyset<string>> {
     return dict[
-      'DoStatement' => vec['IControlFlowStatement', 'ILoopStatement'],
-      'ElseClause' => vec['IControlFlowStatement'],
-      'ElseifClause' => vec['IControlFlowStatement'],
-      'ForStatement' => vec['IControlFlowStatement', 'ILoopStatement'],
-      'ForeachStatement' => vec['IControlFlowStatement', 'ILoopStatement'],
-      'FunctionDeclaration' => vec['IFunctionishDeclaration'],
-      'IfStatement' => vec['IControlFlowStatement'],
-      'MethodishDeclaration' => vec['IFunctionishDeclaration'],
-      'SwitchStatement' => vec['IControlFlowStatement'],
-      'WhileStatement' => vec['IControlFlowStatement', 'ILoopStatement'],
+      'DoStatement' => keyset['IControlFlowStatement', 'ILoopStatement'],
+      'ElseClause' => keyset['IControlFlowStatement'],
+      'ElseifClause' => keyset['IControlFlowStatement'],
+      'ForStatement' => keyset['IControlFlowStatement', 'ILoopStatement'],
+      'ForeachStatement' => keyset['IControlFlowStatement', 'ILoopStatement'],
+      'FunctionDeclaration' => keyset['IFunctionishDeclaration'],
+      'IfStatement' => keyset['IControlFlowStatement'],
+      'MethodishDeclaration' => keyset['IFunctionishDeclaration'],
+      'SwitchStatement' => keyset['IControlFlowStatement'],
+      'WhileStatement' => keyset['IControlFlowStatement', 'ILoopStatement'],
     ];
   }
 

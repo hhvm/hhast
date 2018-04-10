@@ -12,6 +12,8 @@
 
 namespace Facebook\HHAST\__Private;
 
+use namespace HH\Lib\Vec;
+
 final class CodegenTrivia extends CodegenBase {
   <<__Override>>
   public function generate(): void {
@@ -27,6 +29,10 @@ final class CodegenTrivia extends CodegenBase {
           ->codegenClass($trivia['trivia_kind_name'])
           ->setIsFinal()
           ->setExtends('EditableTrivia')
+          ->setInterfaces(
+            (self::getMarkerInterfaces()[$trivia['trivia_kind_name']] ?? vec[])
+            |> Vec\map($$, $if ==> $cg->codegenImplementsInterface($if)),
+          )
           ->setConstructor(
             $cg
               ->codegenConstructor()
@@ -55,5 +61,12 @@ final class CodegenTrivia extends CodegenBase {
     }
 
     $file->save();
+  }
+
+  private static function getMarkerInterfaces(): dict<string, keyset<string>> {
+    return dict[
+      'SingleLineComment' => keyset['IComment'],
+      'DelimitedComment' => keyset['IComment'],
+    ];
   }
 }

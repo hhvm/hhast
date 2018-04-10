@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5f911f9f8323e28a643a2fdfc45d29e5>>
+ * @generated SignedSource<<34f5e8caaee1349bf1fa2106b9b48fa3>>
  */
 namespace Facebook\HHAST;
 
@@ -34,7 +34,7 @@ final class EndOfLine extends EditableTrivia {
   }
 }
 
-final class DelimitedComment extends EditableTrivia {
+final class DelimitedComment extends EditableTrivia implements IComment {
 
   public function __construct(string $text) {
     parent::__construct('delimited_comment', $text);
@@ -48,7 +48,7 @@ final class DelimitedComment extends EditableTrivia {
   }
 }
 
-final class SingleLineComment extends EditableTrivia {
+final class SingleLineComment extends EditableTrivia implements IComment {
 
   public function __construct(string $text) {
     parent::__construct('single_line_comment', $text);
