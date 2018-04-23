@@ -26,7 +26,7 @@ function from_json(
 
 function json_from_file(string $file): dict<string, mixed> {
   try {
-    $results = __Private\execute('hh_parse', '--full-fidelity-json', $file);
+    $results = __Private\execute('hh_parse', '--php5-compat-mode', '--full-fidelity-json', $file);
   } catch (__Private\SubprocessException $e) {
     throw new HHParseError(
       $file,
