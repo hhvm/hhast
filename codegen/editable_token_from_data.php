@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<45004a2265b835ddbd1b836daeab55cb>>
+ * @generated SignedSource<<dc30aa4a1be9dee9cde4a5313617b994>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -63,7 +63,12 @@ class TokenClassMap {
       'else' => HHAST\ElseToken::class,
       'elseif' => HHAST\ElseifToken::class,
       'empty' => HHAST\EmptyToken::class,
+      'endfor' => HHAST\EndforToken::class,
+      'endforeach' => HHAST\EndforeachToken::class,
+      'enddeclare' => HHAST\EnddeclareToken::class,
       'endif' => HHAST\EndifToken::class,
+      'endswitch' => HHAST\EndswitchToken::class,
+      'endwhile' => HHAST\EndwhileToken::class,
       'enum' => HHAST\EnumToken::class,
       'eval' => HHAST\EvalToken::class,
       'extends' => HHAST\ExtendsToken::class,
@@ -132,6 +137,7 @@ class TokenClassMap {
       'while' => HHAST\WhileToken::class,
       'xor' => HHAST\XorToken::class,
       'yield' => HHAST\YieldToken::class,
+      '?as' => HHAST\QuestionAsToken::class,
       'null' => HHAST\NullLiteralToken::class,
       '__halt_compiler' => HHAST\HaltCompilerToken::class,
       'error_token' => HHAST\ErrorTokenToken::class,

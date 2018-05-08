@@ -2,13 +2,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3c82f10ddd62f3435440aeb724dd4f53>>
+ * @generated SignedSource<<cd9550f4cce1b61c8c7f3d7a4e89978e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class ElseifColonClause extends EditableNode {
+final class AlternateElseifClause
+  extends EditableNode
+  implements IControlFlowStatement {
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;
@@ -25,7 +27,7 @@ final class ElseifColonClause extends EditableNode {
     EditableNode $colon,
     EditableNode $statement,
   ) {
-    parent::__construct('elseif_colon_clause');
+    parent::__construct('alternate_elseif_clause');
     $this->_keyword = $keyword;
     $this->_left_paren = $left_paren;
     $this->_condition = $condition;
@@ -42,42 +44,42 @@ final class ElseifColonClause extends EditableNode {
     string $source,
   ): this {
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['elseif_colon_keyword'],
+      /* UNSAFE_EXPR */ $json['alternate_elseif_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $left_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['elseif_colon_left_paren'],
+      /* UNSAFE_EXPR */ $json['alternate_elseif_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
     $condition = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['elseif_colon_condition'],
+      /* UNSAFE_EXPR */ $json['alternate_elseif_condition'],
       $file,
       $offset,
       $source,
     );
     $offset += $condition->getWidth();
     $right_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['elseif_colon_right_paren'],
+      /* UNSAFE_EXPR */ $json['alternate_elseif_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_paren->getWidth();
     $colon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['elseif_colon_colon'],
+      /* UNSAFE_EXPR */ $json['alternate_elseif_colon'],
       $file,
       $offset,
       $source,
     );
     $offset += $colon->getWidth();
     $statement = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['elseif_colon_statement'],
+      /* UNSAFE_EXPR */ $json['alternate_elseif_statement'],
       $file,
       $offset,
       $source,

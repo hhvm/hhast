@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bd286ec7634a6af7d4b668932ce74be6>>
+ * @generated SignedSource<<8fa50b7460e4c41dd3aeb62efbb9099e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -347,22 +347,10 @@ final class TypeConstDeclaration extends EditableNode {
   }
 
   /**
-   * @returns Missing | TypeParameters
+   * @returns Missing
    */
-  public function getTypeParameters(): ?TypeParameters {
-    if ($this->_type_parameters->isMissing()) {
-      return null;
-    }
-    return
-      TypeAssert\instance_of(TypeParameters::class, $this->_type_parameters);
-  }
-
-  /**
-   * @returns TypeParameters
-   */
-  public function getTypeParametersx(): TypeParameters {
-    return
-      TypeAssert\instance_of(TypeParameters::class, $this->_type_parameters);
+  public function getTypeParameters(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_type_parameters);
   }
 
   public function getTypeConstraintUNTYPED(): EditableNode {
@@ -477,9 +465,9 @@ final class TypeConstDeclaration extends EditableNode {
   }
 
   /**
-   * @returns VectorTypeSpecifier | DictionaryTypeSpecifier |
-   * KeysetTypeSpecifier | NullableTypeSpecifier | GenericTypeSpecifier |
-   * TupleTypeSpecifier | ClosureTypeSpecifier | SimpleTypeSpecifier |
+   * @returns VectorTypeSpecifier | SimpleTypeSpecifier |
+   * DictionaryTypeSpecifier | KeysetTypeSpecifier | NullableTypeSpecifier |
+   * GenericTypeSpecifier | TupleTypeSpecifier | ClosureTypeSpecifier |
    * TypeConstant | Missing | ShapeTypeSpecifier
    */
   public function getTypeSpecifier(): EditableNode {

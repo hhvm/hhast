@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<92b2e603bcb032d226bc45c1cf6ac2a7>>
+ * @generated SignedSource<<54ce6b4aa4dd3632d40031cb1751e647>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -146,8 +146,8 @@ final class IsExpression extends EditableNode {
   }
 
   /**
-   * @returns SimpleTypeSpecifier | NullableTypeSpecifier | ShapeTypeSpecifier
-   * | TupleTypeSpecifier | ClassnameTypeSpecifier
+   * @returns TypeConstant | SimpleTypeSpecifier | ShapeTypeSpecifier |
+   * NullableTypeSpecifier | GenericTypeSpecifier | TupleTypeSpecifier
    */
   public function getRightOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_right_operand);

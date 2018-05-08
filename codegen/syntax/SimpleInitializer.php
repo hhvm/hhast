@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0ebdbdc81c662d4d79a411349fe402c6>>
+ * @generated SignedSource<<8c5cd01f0db3f14603e5e4c0f7e3bbf3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -109,8 +109,8 @@ final class SimpleInitializer extends EditableNode {
    * SubscriptExpression | ArrayCreationExpression | VectorIntrinsicExpression
    * | DictionaryIntrinsicExpression | KeysetIntrinsicExpression |
    * PrefixUnaryExpression | BinaryExpression | ConditionalExpression |
-   * VarrayIntrinsicExpression | DarrayIntrinsicExpression | QualifiedName |
-   * FunctionCallExpression | ParenthesizedExpression | TupleExpression |
+   * VarrayIntrinsicExpression | DarrayIntrinsicExpression | TupleExpression |
+   * QualifiedName | FunctionCallExpression | ParenthesizedExpression |
    * XHPExpression
    */
   public function getValue(): EditableNode {

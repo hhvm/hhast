@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9c7cc0748c969b238505077a2ad0bc62>>
+ * @generated SignedSource<<0323c47a379c571ba044b2ba2c314b32>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class LambdaExpression extends EditableNode {
 
+  private EditableNode $_attribute_spec;
   private EditableNode $_async;
   private EditableNode $_coroutine;
   private EditableNode $_signature;
@@ -17,6 +18,7 @@ final class LambdaExpression extends EditableNode {
   private EditableNode $_body;
 
   public function __construct(
+    EditableNode $attribute_spec,
     EditableNode $async,
     EditableNode $coroutine,
     EditableNode $signature,
@@ -24,6 +26,7 @@ final class LambdaExpression extends EditableNode {
     EditableNode $body,
   ) {
     parent::__construct('lambda_expression');
+    $this->_attribute_spec = $attribute_spec;
     $this->_async = $async;
     $this->_coroutine = $coroutine;
     $this->_signature = $signature;
@@ -38,6 +41,13 @@ final class LambdaExpression extends EditableNode {
     int $offset,
     string $source,
   ): this {
+    $attribute_spec = EditableNode::fromJSON(
+      /* UNSAFE_EXPR */ $json['lambda_attribute_spec'],
+      $file,
+      $offset,
+      $source,
+    );
+    $offset += $attribute_spec->getWidth();
     $async = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['lambda_async'],
       $file,
@@ -73,12 +83,20 @@ final class LambdaExpression extends EditableNode {
       $source,
     );
     $offset += $body->getWidth();
-    return new static($async, $coroutine, $signature, $arrow, $body);
+    return new static(
+      $attribute_spec,
+      $async,
+      $coroutine,
+      $signature,
+      $arrow,
+      $body,
+    );
   }
 
   <<__Override>>
   public function getChildren(): dict<string, EditableNode> {
     return dict[
+      'attribute_spec' => $this->_attribute_spec,
       'async' => $this->_async,
       'coroutine' => $this->_coroutine,
       'signature' => $this->_signature,
@@ -94,12 +112,14 @@ final class LambdaExpression extends EditableNode {
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
+    $attribute_spec = $this->_attribute_spec->rewrite($rewriter, $parents);
     $async = $this->_async->rewrite($rewriter, $parents);
     $coroutine = $this->_coroutine->rewrite($rewriter, $parents);
     $signature = $this->_signature->rewrite($rewriter, $parents);
     $arrow = $this->_arrow->rewrite($rewriter, $parents);
     $body = $this->_body->rewrite($rewriter, $parents);
     if (
+      $attribute_spec === $this->_attribute_spec &&
       $async === $this->_async &&
       $coroutine === $this->_coroutine &&
       $signature === $this->_signature &&
@@ -108,7 +128,43 @@ final class LambdaExpression extends EditableNode {
     ) {
       return $this;
     }
-    return new static($async, $coroutine, $signature, $arrow, $body);
+    return new static(
+      $attribute_spec,
+      $async,
+      $coroutine,
+      $signature,
+      $arrow,
+      $body,
+    );
+  }
+
+  public function getAttributeSpecUNTYPED(): EditableNode {
+    return $this->_attribute_spec;
+  }
+
+  public function withAttributeSpec(EditableNode $value): this {
+    if ($value === $this->_attribute_spec) {
+      return $this;
+    }
+    return new static(
+      $value,
+      $this->_async,
+      $this->_coroutine,
+      $this->_signature,
+      $this->_arrow,
+      $this->_body,
+    );
+  }
+
+  public function hasAttributeSpec(): bool {
+    return !$this->_attribute_spec->isMissing();
+  }
+
+  /**
+   * @returns Missing
+   */
+  public function getAttributeSpec(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_attribute_spec);
   }
 
   public function getAsyncUNTYPED(): EditableNode {
@@ -120,6 +176,7 @@ final class LambdaExpression extends EditableNode {
       return $this;
     }
     return new static(
+      $this->_attribute_spec,
       $value,
       $this->_coroutine,
       $this->_signature,
@@ -158,6 +215,7 @@ final class LambdaExpression extends EditableNode {
       return $this;
     }
     return new static(
+      $this->_attribute_spec,
       $this->_async,
       $value,
       $this->_signature,
@@ -196,6 +254,7 @@ final class LambdaExpression extends EditableNode {
       return $this;
     }
     return new static(
+      $this->_attribute_spec,
       $this->_async,
       $this->_coroutine,
       $value,
@@ -224,6 +283,7 @@ final class LambdaExpression extends EditableNode {
       return $this;
     }
     return new static(
+      $this->_attribute_spec,
       $this->_async,
       $this->_coroutine,
       $this->_signature,
@@ -253,6 +313,7 @@ final class LambdaExpression extends EditableNode {
       return $this;
     }
     return new static(
+      $this->_attribute_spec,
       $this->_async,
       $this->_coroutine,
       $this->_signature,

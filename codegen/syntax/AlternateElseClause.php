@@ -2,13 +2,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f912125c30a4e1616a4987ddbedf51a9>>
+ * @generated SignedSource<<cd0da0ac578824e44bbfafbdf4da606a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class ElseColonClause extends EditableNode {
+final class AlternateElseClause
+  extends EditableNode
+  implements IControlFlowStatement {
 
   private EditableNode $_keyword;
   private EditableNode $_colon;
@@ -19,7 +21,7 @@ final class ElseColonClause extends EditableNode {
     EditableNode $colon,
     EditableNode $statement,
   ) {
-    parent::__construct('else_colon_clause');
+    parent::__construct('alternate_else_clause');
     $this->_keyword = $keyword;
     $this->_colon = $colon;
     $this->_statement = $statement;
@@ -33,21 +35,21 @@ final class ElseColonClause extends EditableNode {
     string $source,
   ): this {
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['else_colon_keyword'],
+      /* UNSAFE_EXPR */ $json['alternate_else_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $colon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['else_colon_colon'],
+      /* UNSAFE_EXPR */ $json['alternate_else_colon'],
       $file,
       $offset,
       $source,
     );
     $offset += $colon->getWidth();
     $statement = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['else_colon_statement'],
+      /* UNSAFE_EXPR */ $json['alternate_else_statement'],
       $file,
       $offset,
       $source,
@@ -101,10 +103,10 @@ final class ElseColonClause extends EditableNode {
   }
 
   /**
-   * @returns unknown
+   * @returns ElseToken
    */
-  public function getKeyword(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_keyword);
+  public function getKeyword(): ElseToken {
+    return TypeAssert\instance_of(ElseToken::class, $this->_keyword);
   }
 
   public function getColonUNTYPED(): EditableNode {
@@ -123,10 +125,10 @@ final class ElseColonClause extends EditableNode {
   }
 
   /**
-   * @returns unknown
+   * @returns ColonToken
    */
-  public function getColon(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_colon);
+  public function getColon(): ColonToken {
+    return TypeAssert\instance_of(ColonToken::class, $this->_colon);
   }
 
   public function getStatementUNTYPED(): EditableNode {
@@ -145,9 +147,9 @@ final class ElseColonClause extends EditableNode {
   }
 
   /**
-   * @returns unknown
+   * @returns EditableList
    */
-  public function getStatement(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_statement);
+  public function getStatement(): EditableList {
+    return TypeAssert\instance_of(EditableList::class, $this->_statement);
   }
 }

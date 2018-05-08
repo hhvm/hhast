@@ -2,13 +2,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6bd4ced17d72c0e23da38cc9f683c904>>
+ * @generated SignedSource<<b3e167e945647b1d994d480d6604026b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class SwitchStatement
+final class AlternateSwitchStatement
   extends EditableNode
   implements IControlFlowStatement {
 
@@ -16,27 +16,30 @@ final class SwitchStatement
   private EditableNode $_left_paren;
   private EditableNode $_expression;
   private EditableNode $_right_paren;
-  private EditableNode $_left_brace;
+  private EditableNode $_opening_colon;
   private EditableNode $_sections;
-  private EditableNode $_right_brace;
+  private EditableNode $_closing_endswitch;
+  private EditableNode $_closing_semicolon;
 
   public function __construct(
     EditableNode $keyword,
     EditableNode $left_paren,
     EditableNode $expression,
     EditableNode $right_paren,
-    EditableNode $left_brace,
+    EditableNode $opening_colon,
     EditableNode $sections,
-    EditableNode $right_brace,
+    EditableNode $closing_endswitch,
+    EditableNode $closing_semicolon,
   ) {
-    parent::__construct('switch_statement');
+    parent::__construct('alternate_switch_statement');
     $this->_keyword = $keyword;
     $this->_left_paren = $left_paren;
     $this->_expression = $expression;
     $this->_right_paren = $right_paren;
-    $this->_left_brace = $left_brace;
+    $this->_opening_colon = $opening_colon;
     $this->_sections = $sections;
-    $this->_right_brace = $right_brace;
+    $this->_closing_endswitch = $closing_endswitch;
+    $this->_closing_semicolon = $closing_semicolon;
   }
 
   <<__Override>>
@@ -47,62 +50,70 @@ final class SwitchStatement
     string $source,
   ): this {
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['switch_keyword'],
+      /* UNSAFE_EXPR */ $json['alternate_switch_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $left_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['switch_left_paren'],
+      /* UNSAFE_EXPR */ $json['alternate_switch_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
     $expression = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['switch_expression'],
+      /* UNSAFE_EXPR */ $json['alternate_switch_expression'],
       $file,
       $offset,
       $source,
     );
     $offset += $expression->getWidth();
     $right_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['switch_right_paren'],
+      /* UNSAFE_EXPR */ $json['alternate_switch_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_paren->getWidth();
-    $left_brace = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['switch_left_brace'],
+    $opening_colon = EditableNode::fromJSON(
+      /* UNSAFE_EXPR */ $json['alternate_switch_opening_colon'],
       $file,
       $offset,
       $source,
     );
-    $offset += $left_brace->getWidth();
+    $offset += $opening_colon->getWidth();
     $sections = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['switch_sections'],
+      /* UNSAFE_EXPR */ $json['alternate_switch_sections'],
       $file,
       $offset,
       $source,
     );
     $offset += $sections->getWidth();
-    $right_brace = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['switch_right_brace'],
+    $closing_endswitch = EditableNode::fromJSON(
+      /* UNSAFE_EXPR */ $json['alternate_switch_closing_endswitch'],
       $file,
       $offset,
       $source,
     );
-    $offset += $right_brace->getWidth();
+    $offset += $closing_endswitch->getWidth();
+    $closing_semicolon = EditableNode::fromJSON(
+      /* UNSAFE_EXPR */ $json['alternate_switch_closing_semicolon'],
+      $file,
+      $offset,
+      $source,
+    );
+    $offset += $closing_semicolon->getWidth();
     return new static(
       $keyword,
       $left_paren,
       $expression,
       $right_paren,
-      $left_brace,
+      $opening_colon,
       $sections,
-      $right_brace,
+      $closing_endswitch,
+      $closing_semicolon,
     );
   }
 
@@ -113,9 +124,10 @@ final class SwitchStatement
       'left_paren' => $this->_left_paren,
       'expression' => $this->_expression,
       'right_paren' => $this->_right_paren,
-      'left_brace' => $this->_left_brace,
+      'opening_colon' => $this->_opening_colon,
       'sections' => $this->_sections,
-      'right_brace' => $this->_right_brace,
+      'closing_endswitch' => $this->_closing_endswitch,
+      'closing_semicolon' => $this->_closing_semicolon,
     ];
   }
 
@@ -130,17 +142,21 @@ final class SwitchStatement
     $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
     $expression = $this->_expression->rewrite($rewriter, $parents);
     $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
-    $left_brace = $this->_left_brace->rewrite($rewriter, $parents);
+    $opening_colon = $this->_opening_colon->rewrite($rewriter, $parents);
     $sections = $this->_sections->rewrite($rewriter, $parents);
-    $right_brace = $this->_right_brace->rewrite($rewriter, $parents);
+    $closing_endswitch =
+      $this->_closing_endswitch->rewrite($rewriter, $parents);
+    $closing_semicolon =
+      $this->_closing_semicolon->rewrite($rewriter, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_paren === $this->_left_paren &&
       $expression === $this->_expression &&
       $right_paren === $this->_right_paren &&
-      $left_brace === $this->_left_brace &&
+      $opening_colon === $this->_opening_colon &&
       $sections === $this->_sections &&
-      $right_brace === $this->_right_brace
+      $closing_endswitch === $this->_closing_endswitch &&
+      $closing_semicolon === $this->_closing_semicolon
     ) {
       return $this;
     }
@@ -149,9 +165,10 @@ final class SwitchStatement
       $left_paren,
       $expression,
       $right_paren,
-      $left_brace,
+      $opening_colon,
       $sections,
-      $right_brace,
+      $closing_endswitch,
+      $closing_semicolon,
     );
   }
 
@@ -168,9 +185,10 @@ final class SwitchStatement
       $this->_left_paren,
       $this->_expression,
       $this->_right_paren,
-      $this->_left_brace,
+      $this->_opening_colon,
       $this->_sections,
-      $this->_right_brace,
+      $this->_closing_endswitch,
+      $this->_closing_semicolon,
     );
   }
 
@@ -198,9 +216,10 @@ final class SwitchStatement
       $value,
       $this->_expression,
       $this->_right_paren,
-      $this->_left_brace,
+      $this->_opening_colon,
       $this->_sections,
-      $this->_right_brace,
+      $this->_closing_endswitch,
+      $this->_closing_semicolon,
     );
   }
 
@@ -228,9 +247,10 @@ final class SwitchStatement
       $this->_left_paren,
       $value,
       $this->_right_paren,
-      $this->_left_brace,
+      $this->_opening_colon,
       $this->_sections,
-      $this->_right_brace,
+      $this->_closing_endswitch,
+      $this->_closing_semicolon,
     );
   }
 
@@ -239,12 +259,11 @@ final class SwitchStatement
   }
 
   /**
-   * @returns VariableExpression | BinaryExpression | SubscriptExpression |
-   * FunctionCallExpression | ObjectCreationExpression | PrefixUnaryExpression
-   * | LiteralExpression | MemberSelectionExpression
+   * @returns VariableExpression
    */
-  public function getExpression(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_expression);
+  public function getExpression(): VariableExpression {
+    return
+      TypeAssert\instance_of(VariableExpression::class, $this->_expression);
   }
 
   public function getRightParenUNTYPED(): EditableNode {
@@ -260,9 +279,10 @@ final class SwitchStatement
       $this->_left_paren,
       $this->_expression,
       $value,
-      $this->_left_brace,
+      $this->_opening_colon,
       $this->_sections,
-      $this->_right_brace,
+      $this->_closing_endswitch,
+      $this->_closing_semicolon,
     );
   }
 
@@ -277,12 +297,12 @@ final class SwitchStatement
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
-  public function getLeftBraceUNTYPED(): EditableNode {
-    return $this->_left_brace;
+  public function getOpeningColonUNTYPED(): EditableNode {
+    return $this->_opening_colon;
   }
 
-  public function withLeftBrace(EditableNode $value): this {
-    if ($value === $this->_left_brace) {
+  public function withOpeningColon(EditableNode $value): this {
+    if ($value === $this->_opening_colon) {
       return $this;
     }
     return new static(
@@ -292,19 +312,20 @@ final class SwitchStatement
       $this->_right_paren,
       $value,
       $this->_sections,
-      $this->_right_brace,
+      $this->_closing_endswitch,
+      $this->_closing_semicolon,
     );
   }
 
-  public function hasLeftBrace(): bool {
-    return !$this->_left_brace->isMissing();
+  public function hasOpeningColon(): bool {
+    return !$this->_opening_colon->isMissing();
   }
 
   /**
-   * @returns LeftBraceToken
+   * @returns ColonToken
    */
-  public function getLeftBrace(): LeftBraceToken {
-    return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
+  public function getOpeningColon(): ColonToken {
+    return TypeAssert\instance_of(ColonToken::class, $this->_opening_colon);
   }
 
   public function getSectionsUNTYPED(): EditableNode {
@@ -320,9 +341,10 @@ final class SwitchStatement
       $this->_left_paren,
       $this->_expression,
       $this->_right_paren,
-      $this->_left_brace,
+      $this->_opening_colon,
       $value,
-      $this->_right_brace,
+      $this->_closing_endswitch,
+      $this->_closing_semicolon,
     );
   }
 
@@ -331,28 +353,18 @@ final class SwitchStatement
   }
 
   /**
-   * @returns EditableList | Missing
-   */
-  public function getSections(): ?EditableList {
-    if ($this->_sections->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(EditableList::class, $this->_sections);
-  }
-
-  /**
    * @returns EditableList
    */
-  public function getSectionsx(): EditableList {
+  public function getSections(): EditableList {
     return TypeAssert\instance_of(EditableList::class, $this->_sections);
   }
 
-  public function getRightBraceUNTYPED(): EditableNode {
-    return $this->_right_brace;
+  public function getClosingEndswitchUNTYPED(): EditableNode {
+    return $this->_closing_endswitch;
   }
 
-  public function withRightBrace(EditableNode $value): this {
-    if ($value === $this->_right_brace) {
+  public function withClosingEndswitch(EditableNode $value): this {
+    if ($value === $this->_closing_endswitch) {
       return $this;
     }
     return new static(
@@ -360,20 +372,54 @@ final class SwitchStatement
       $this->_left_paren,
       $this->_expression,
       $this->_right_paren,
-      $this->_left_brace,
+      $this->_opening_colon,
       $this->_sections,
+      $value,
+      $this->_closing_semicolon,
+    );
+  }
+
+  public function hasClosingEndswitch(): bool {
+    return !$this->_closing_endswitch->isMissing();
+  }
+
+  /**
+   * @returns EndswitchToken
+   */
+  public function getClosingEndswitch(): EndswitchToken {
+    return
+      TypeAssert\instance_of(EndswitchToken::class, $this->_closing_endswitch);
+  }
+
+  public function getClosingSemicolonUNTYPED(): EditableNode {
+    return $this->_closing_semicolon;
+  }
+
+  public function withClosingSemicolon(EditableNode $value): this {
+    if ($value === $this->_closing_semicolon) {
+      return $this;
+    }
+    return new static(
+      $this->_keyword,
+      $this->_left_paren,
+      $this->_expression,
+      $this->_right_paren,
+      $this->_opening_colon,
+      $this->_sections,
+      $this->_closing_endswitch,
       $value,
     );
   }
 
-  public function hasRightBrace(): bool {
-    return !$this->_right_brace->isMissing();
+  public function hasClosingSemicolon(): bool {
+    return !$this->_closing_semicolon->isMissing();
   }
 
   /**
-   * @returns RightBraceToken
+   * @returns SemicolonToken
    */
-  public function getRightBrace(): RightBraceToken {
-    return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
+  public function getClosingSemicolon(): SemicolonToken {
+    return
+      TypeAssert\instance_of(SemicolonToken::class, $this->_closing_semicolon);
   }
 }

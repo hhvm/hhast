@@ -440,6 +440,11 @@ final class CodegenSyntax extends CodegenBase {
 
   private static function getMarkerInterfaces(): dict<string, keyset<string>> {
     return dict[
+      'AlternateElseClause' => keyset['IControlFlowStatement'],
+      'AlternateElseifClause' => keyset['IControlFlowStatement'],
+      'AlternateElseifStatement' => keyset['IControlFlowStatement'],
+      'AlternateLoopStatement' => keyset['IControlFlowStatement', 'ILoopStatement'],
+      'AlternateSwitchStatement' => keyset['IControlFlowStatement'],
       'DoStatement' => keyset['IControlFlowStatement', 'ILoopStatement'],
       'ElseClause' => keyset['IControlFlowStatement'],
       'ElseifClause' => keyset['IControlFlowStatement'],

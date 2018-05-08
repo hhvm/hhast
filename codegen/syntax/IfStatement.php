@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<58c9fae6cb544dc0fdf8d07ece2e4203>>
+ * @generated SignedSource<<d293d68de25d1e411355ac37367d09de>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -241,8 +241,8 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
    * FunctionCallExpression | LiteralExpression | IssetExpression |
    * SubscriptExpression | ArrayIntrinsicExpression | MemberSelectionExpression
    * | CastExpression | InstanceofExpression | NameToken |
-   * ParenthesizedExpression | EmptyExpression | ScopeResolutionExpression |
-   * IsExpression
+   * ParenthesizedExpression | IsExpression | EmptyExpression |
+   * ScopeResolutionExpression | AsExpression | QualifiedName
    */
   public function getCondition(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_condition);

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6e52b35cac29278b479c6e622d047db5>>
+ * @generated SignedSource<<1ccb86892296488594b1fcace7a3372e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -90,8 +90,8 @@ final class ListItem extends EditableNode {
    * VariableToken | FieldSpecifier | FieldInitializer | TypeParameter |
    * Attribute | ShapeExpression | ConstantDeclarator |
    * ObjectCreationExpression | NameToken | LambdaExpression |
-   * VectorIntrinsicExpression | CollectionLiteralExpression |
-   * MemberSelectionExpression | StaticDeclarator | GenericTypeSpecifier |
+   * VectorIntrinsicExpression | MemberSelectionExpression | StaticDeclarator |
+   * GenericTypeSpecifier | CollectionLiteralExpression |
    * ClosureParameterTypeSpecifier | InstanceofExpression | WhereConstraint |
    * AnonymousFunction | XHPExpression | CastExpression | IssetExpression |
    * TraitUseAliasItem | EmptyExpression | NullableTypeSpecifier |
@@ -100,13 +100,13 @@ final class ListItem extends EditableNode {
    * DictionaryIntrinsicExpression | KeysetIntrinsicExpression |
    * InclusionExpression | Missing | ListExpression | PipeVariableExpression |
    * QualifiedName | VariadicParameter | DictionaryTypeSpecifier |
-   * EvalExpression | DecoratedExpression | VarrayIntrinsicExpression |
+   * EvalExpression | VarrayIntrinsicExpression | DecoratedExpression |
    * DarrayIntrinsicExpression | VectorArrayTypeSpecifier | TupleExpression |
    * TraitUsePrecedenceItem | VectorTypeSpecifier | TypeConstant |
-   * AwaitableCreationExpression | SafeMemberSelectionExpression |
-   * DefineExpression | ShapeTypeSpecifier | XHPCategoryNameToken |
+   * AwaitableCreationExpression | PercentToken | SafeMemberSelectionExpression
+   * | DefineExpression | ShapeTypeSpecifier | XHPCategoryNameToken |
    * NoreturnToken | MapArrayTypeSpecifier | XHPSimpleClassAttribute |
-   * ClassnameTypeSpecifier
+   * VarrayTypeSpecifier | ClassnameTypeSpecifier
    */
   public function getItem(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_item);

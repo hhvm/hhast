@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<256b5ee4cb76a7d1c433dfbf78255ff2>>
+ * @generated SignedSource<<f7d612a2b36e19edb718c18c670dd14c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -95,11 +95,12 @@ final class ExpressionStatement extends EditableNode {
    * EmptyExpression | LiteralExpression | AnonymousFunction |
    * ParenthesizedExpression | MemberSelectionExpression | VariableExpression |
    * CollectionLiteralExpression | FunctionCallWithTypeArgumentsExpression |
-   * LambdaExpression | TupleExpression | CommaToken | YieldFromExpression |
-   * ConditionalExpression | RightBraceToken | SafeMemberSelectionExpression |
-   * QualifiedName | HaltCompilerExpression | ColonToken | EqualEqualEqualToken
-   * | DarrayIntrinsicExpression | VarrayIntrinsicExpression |
-   * ArrayIntrinsicExpression | RightParenToken
+   * LambdaExpression | CastExpression | AsExpression | RightBraceToken |
+   * QualifiedName | HaltCompilerExpression | ColonToken | RightParenToken |
+   * CommaToken | EqualGreaterThanToken | RightBracketToken | TupleExpression |
+   * YieldFromExpression | ConditionalExpression |
+   * SafeMemberSelectionExpression | EqualEqualEqualToken |
+   * DarrayIntrinsicExpression | VarrayIntrinsicExpression
    */
   public function getExpression(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_expression);

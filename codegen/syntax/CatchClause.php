@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2862cbc4d0a79ea64ddc59f805a1340c>>
+ * @generated SignedSource<<e7f8d78d62d9671086fb1bc6007d9909>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -236,19 +236,9 @@ final class CatchClause extends EditableNode {
   }
 
   /**
-   * @returns VariableToken | Missing
-   */
-  public function getVariable(): ?VariableToken {
-    if ($this->_variable->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(VariableToken::class, $this->_variable);
-  }
-
-  /**
    * @returns VariableToken
    */
-  public function getVariablex(): VariableToken {
+  public function getVariable(): VariableToken {
     return TypeAssert\instance_of(VariableToken::class, $this->_variable);
   }
 
@@ -275,19 +265,9 @@ final class CatchClause extends EditableNode {
   }
 
   /**
-   * @returns RightParenToken | Missing
-   */
-  public function getRightParen(): ?RightParenToken {
-    if ($this->_right_paren->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
-  }
-
-  /**
    * @returns RightParenToken
    */
-  public function getRightParenx(): RightParenToken {
+  public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 

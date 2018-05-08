@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<99d63bb4c55ba1a3d1211d373a930c07>>
+ * @generated SignedSource<<73a0faf8dd743a191c01b3ec78791b01>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -60,9 +60,7 @@ final class FunctionCallWithTypeArgumentsExpression extends EditableNode {
     );
     $offset += $left_paren->getWidth();
     $argument_list = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json[
-        'function_call_with_type_arguments_argument_list'
-      ],
+      /* UNSAFE_EXPR */ $json['function_call_with_type_arguments_argument_list'],
       $file,
       $offset,
       $source,

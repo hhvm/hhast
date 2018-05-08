@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<37d35c713bcc86a84950766d4d80ccd2>>
+ * @generated SignedSource<<ada3fc3567412e4f82db421227a50cd1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,19 +101,9 @@ final class SwitchSection extends EditableNode {
   }
 
   /**
-   * @returns EditableList | Missing
-   */
-  public function getLabels(): ?EditableList {
-    if ($this->_labels->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(EditableList::class, $this->_labels);
-  }
-
-  /**
    * @returns EditableList
    */
-  public function getLabelsx(): EditableList {
+  public function getLabels(): EditableList {
     return TypeAssert\instance_of(EditableList::class, $this->_labels);
   }
 
@@ -165,9 +155,21 @@ final class SwitchSection extends EditableNode {
   }
 
   /**
-   * @returns Missing
+   * @returns Missing | SwitchFallthrough
    */
-  public function getFallthrough(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_fallthrough);
+  public function getFallthrough(): ?SwitchFallthrough {
+    if ($this->_fallthrough->isMissing()) {
+      return null;
+    }
+    return
+      TypeAssert\instance_of(SwitchFallthrough::class, $this->_fallthrough);
+  }
+
+  /**
+   * @returns SwitchFallthrough
+   */
+  public function getFallthroughx(): SwitchFallthrough {
+    return
+      TypeAssert\instance_of(SwitchFallthrough::class, $this->_fallthrough);
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cc97a4c9abf07683e9eba3177e73a5ac>>
+ * @generated SignedSource<<fff139f52cc8ff65f430d80627d15a9c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,8 +101,8 @@ final class SafeMemberSelectionExpression extends EditableNode {
   }
 
   /**
-   * @returns ScopeResolutionExpression | VariableExpression |
-   * MemberSelectionExpression | FunctionCallExpression |
+   * @returns FunctionCallExpression | VariableExpression |
+   * ScopeResolutionExpression | MemberSelectionExpression |
    * SafeMemberSelectionExpression | PrefixUnaryExpression
    */
   public function getObject(): EditableNode {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8f50a658b1eca7d0329bbcd22b80e091>>
+ * @generated SignedSource<<51ae587e7684a2ad66513a019dfe9edd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -209,10 +209,26 @@ final class EnumDeclaration extends EditableNode {
   }
 
   /**
-   * @returns Missing
+   * @returns Missing | AttributeSpecification
    */
-  public function getAttributeSpec(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_attribute_spec);
+  public function getAttributeSpec(): ?AttributeSpecification {
+    if ($this->_attribute_spec->isMissing()) {
+      return null;
+    }
+    return TypeAssert\instance_of(
+      AttributeSpecification::class,
+      $this->_attribute_spec,
+    );
+  }
+
+  /**
+   * @returns AttributeSpecification
+   */
+  public function getAttributeSpecx(): AttributeSpecification {
+    return TypeAssert\instance_of(
+      AttributeSpecification::class,
+      $this->_attribute_spec,
+    );
   }
 
   public function getKeywordUNTYPED(): EditableNode {

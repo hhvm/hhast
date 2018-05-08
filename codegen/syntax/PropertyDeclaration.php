@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<009cd1daac9c16589fc14d52aafaf091>>
+ * @generated SignedSource<<f57fd056cad4ec8a8fb1b50dcecb4d2c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,18 +10,21 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class PropertyDeclaration extends EditableNode {
 
+  private EditableNode $_attribute_spec;
   private EditableNode $_modifiers;
   private EditableNode $_type;
   private EditableNode $_declarators;
   private EditableNode $_semicolon;
 
   public function __construct(
+    EditableNode $attribute_spec,
     EditableNode $modifiers,
     EditableNode $type,
     EditableNode $declarators,
     EditableNode $semicolon,
   ) {
     parent::__construct('property_declaration');
+    $this->_attribute_spec = $attribute_spec;
     $this->_modifiers = $modifiers;
     $this->_type = $type;
     $this->_declarators = $declarators;
@@ -35,6 +38,13 @@ final class PropertyDeclaration extends EditableNode {
     int $offset,
     string $source,
   ): this {
+    $attribute_spec = EditableNode::fromJSON(
+      /* UNSAFE_EXPR */ $json['property_attribute_spec'],
+      $file,
+      $offset,
+      $source,
+    );
+    $offset += $attribute_spec->getWidth();
     $modifiers = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['property_modifiers'],
       $file,
@@ -63,12 +73,14 @@ final class PropertyDeclaration extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
-    return new static($modifiers, $type, $declarators, $semicolon);
+    return
+      new static($attribute_spec, $modifiers, $type, $declarators, $semicolon);
   }
 
   <<__Override>>
   public function getChildren(): dict<string, EditableNode> {
     return dict[
+      'attribute_spec' => $this->_attribute_spec,
       'modifiers' => $this->_modifiers,
       'type' => $this->_type,
       'declarators' => $this->_declarators,
@@ -83,11 +95,13 @@ final class PropertyDeclaration extends EditableNode {
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
+    $attribute_spec = $this->_attribute_spec->rewrite($rewriter, $parents);
     $modifiers = $this->_modifiers->rewrite($rewriter, $parents);
     $type = $this->_type->rewrite($rewriter, $parents);
     $declarators = $this->_declarators->rewrite($rewriter, $parents);
     $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
     if (
+      $attribute_spec === $this->_attribute_spec &&
       $modifiers === $this->_modifiers &&
       $type === $this->_type &&
       $declarators === $this->_declarators &&
@@ -95,7 +109,52 @@ final class PropertyDeclaration extends EditableNode {
     ) {
       return $this;
     }
-    return new static($modifiers, $type, $declarators, $semicolon);
+    return
+      new static($attribute_spec, $modifiers, $type, $declarators, $semicolon);
+  }
+
+  public function getAttributeSpecUNTYPED(): EditableNode {
+    return $this->_attribute_spec;
+  }
+
+  public function withAttributeSpec(EditableNode $value): this {
+    if ($value === $this->_attribute_spec) {
+      return $this;
+    }
+    return new static(
+      $value,
+      $this->_modifiers,
+      $this->_type,
+      $this->_declarators,
+      $this->_semicolon,
+    );
+  }
+
+  public function hasAttributeSpec(): bool {
+    return !$this->_attribute_spec->isMissing();
+  }
+
+  /**
+   * @returns Missing | AttributeSpecification
+   */
+  public function getAttributeSpec(): ?AttributeSpecification {
+    if ($this->_attribute_spec->isMissing()) {
+      return null;
+    }
+    return TypeAssert\instance_of(
+      AttributeSpecification::class,
+      $this->_attribute_spec,
+    );
+  }
+
+  /**
+   * @returns AttributeSpecification
+   */
+  public function getAttributeSpecx(): AttributeSpecification {
+    return TypeAssert\instance_of(
+      AttributeSpecification::class,
+      $this->_attribute_spec,
+    );
   }
 
   public function getModifiersUNTYPED(): EditableNode {
@@ -106,8 +165,13 @@ final class PropertyDeclaration extends EditableNode {
     if ($value === $this->_modifiers) {
       return $this;
     }
-    return
-      new static($value, $this->_type, $this->_declarators, $this->_semicolon);
+    return new static(
+      $this->_attribute_spec,
+      $value,
+      $this->_type,
+      $this->_declarators,
+      $this->_semicolon,
+    );
   }
 
   public function hasModifiers(): bool {
@@ -130,6 +194,7 @@ final class PropertyDeclaration extends EditableNode {
       return $this;
     }
     return new static(
+      $this->_attribute_spec,
       $this->_modifiers,
       $value,
       $this->_declarators,
@@ -143,10 +208,10 @@ final class PropertyDeclaration extends EditableNode {
 
   /**
    * @returns Missing | SimpleTypeSpecifier | NullableTypeSpecifier |
-   * GenericTypeSpecifier | VarrayTypeSpecifier | DarrayTypeSpecifier |
-   * VectorArrayTypeSpecifier | SoftTypeSpecifier | TupleTypeSpecifier |
-   * TypeConstant | MapArrayTypeSpecifier | DictionaryTypeSpecifier |
-   * ClosureTypeSpecifier
+   * GenericTypeSpecifier | VectorTypeSpecifier | VarrayTypeSpecifier |
+   * DarrayTypeSpecifier | VectorArrayTypeSpecifier | SoftTypeSpecifier |
+   * TupleTypeSpecifier | MapArrayTypeSpecifier | DictionaryTypeSpecifier |
+   * ClosureTypeSpecifier | TypeConstant
    */
   public function getType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);
@@ -160,8 +225,13 @@ final class PropertyDeclaration extends EditableNode {
     if ($value === $this->_declarators) {
       return $this;
     }
-    return
-      new static($this->_modifiers, $this->_type, $value, $this->_semicolon);
+    return new static(
+      $this->_attribute_spec,
+      $this->_modifiers,
+      $this->_type,
+      $value,
+      $this->_semicolon,
+    );
   }
 
   public function hasDeclarators(): bool {
@@ -183,8 +253,13 @@ final class PropertyDeclaration extends EditableNode {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return
-      new static($this->_modifiers, $this->_type, $this->_declarators, $value);
+    return new static(
+      $this->_attribute_spec,
+      $this->_modifiers,
+      $this->_type,
+      $this->_declarators,
+      $value,
+    );
   }
 
   public function hasSemicolon(): bool {
@@ -192,9 +267,19 @@ final class PropertyDeclaration extends EditableNode {
   }
 
   /**
+   * @returns SemicolonToken | Missing
+   */
+  public function getSemicolon(): ?SemicolonToken {
+    if ($this->_semicolon->isMissing()) {
+      return null;
+    }
+    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
+  }
+
+  /**
    * @returns SemicolonToken
    */
-  public function getSemicolon(): SemicolonToken {
+  public function getSemicolonx(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 }

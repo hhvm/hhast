@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<61b0df1745a211433fe52288be813d05>>
+ * @generated SignedSource<<a05e2d418d2c40b15c0698a5e0108134>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -106,8 +106,8 @@ final class NullableTypeSpecifier extends EditableNode {
   /**
    * @returns SimpleTypeSpecifier | GenericTypeSpecifier | TupleTypeSpecifier |
    * MapArrayTypeSpecifier | ClosureTypeSpecifier | ShapeTypeSpecifier |
-   * TypeConstant | DictionaryTypeSpecifier | VectorArrayTypeSpecifier |
-   * VectorTypeSpecifier | KeysetTypeSpecifier
+   * TypeConstant | DictionaryTypeSpecifier | VectorTypeSpecifier |
+   * VectorArrayTypeSpecifier | KeysetTypeSpecifier
    */
   public function getType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);

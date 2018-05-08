@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<174dc271ae04163c1e8fc9c90bf05bdf>>
+ * @generated SignedSource<<af6ef7975520c9bf867411b0681d18c2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -314,9 +314,19 @@ final class ClassishDeclaration extends EditableNode {
   }
 
   /**
+   * @returns ClassToken | InterfaceToken | TraitToken | Missing
+   */
+  public function getKeyword(): ?EditableToken {
+    if ($this->_keyword->isMissing()) {
+      return null;
+    }
+    return TypeAssert\instance_of(EditableToken::class, $this->_keyword);
+  }
+
+  /**
    * @returns ClassToken | InterfaceToken | TraitToken
    */
-  public function getKeyword(): EditableToken {
+  public function getKeywordx(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_keyword);
   }
 

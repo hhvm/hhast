@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c3b40d712a280e7315f9170dccdd6576>>
+ * @generated SignedSource<<cdf84fa57d0e231a3168bc2854462840>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -158,6 +158,9 @@ function editable_node_from_json(
       return HHAST\InclusionDirective::fromJSON($json, $file, $offset, $source);
     case 'compound_statement':
       return HHAST\CompoundStatement::fromJSON($json, $file, $offset, $source);
+    case 'alternate_loop_statement':
+      return
+        HHAST\AlternateLoopStatement::fromJSON($json, $file, $offset, $source);
     case 'expression_statement':
       return
         HHAST\ExpressionStatement::fromJSON($json, $file, $offset, $source);
@@ -199,12 +202,15 @@ function editable_node_from_json(
       return HHAST\ElseifClause::fromJSON($json, $file, $offset, $source);
     case 'else_clause':
       return HHAST\ElseClause::fromJSON($json, $file, $offset, $source);
-    case 'if_endif_statement':
-      return HHAST\IfEndIfStatement::fromJSON($json, $file, $offset, $source);
-    case 'elseif_colon_clause':
-      return HHAST\ElseifColonClause::fromJSON($json, $file, $offset, $source);
-    case 'else_colon_clause':
-      return HHAST\ElseColonClause::fromJSON($json, $file, $offset, $source);
+    case 'alternate_if_statement':
+      return
+        HHAST\AlternateIfStatement::fromJSON($json, $file, $offset, $source);
+    case 'alternate_elseif_clause':
+      return
+        HHAST\AlternateElseifClause::fromJSON($json, $file, $offset, $source);
+    case 'alternate_else_clause':
+      return
+        HHAST\AlternateElseClause::fromJSON($json, $file, $offset, $source);
     case 'try_statement':
       return HHAST\TryStatement::fromJSON($json, $file, $offset, $source);
     case 'catch_clause':
@@ -219,6 +225,13 @@ function editable_node_from_json(
       return HHAST\ForeachStatement::fromJSON($json, $file, $offset, $source);
     case 'switch_statement':
       return HHAST\SwitchStatement::fromJSON($json, $file, $offset, $source);
+    case 'alternate_switch_statement':
+      return HHAST\AlternateSwitchStatement::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'switch_section':
       return HHAST\SwitchSection::fromJSON($json, $file, $offset, $source);
     case 'switch_fallthrough':
@@ -316,6 +329,11 @@ function editable_node_from_json(
         HHAST\InstanceofExpression::fromJSON($json, $file, $offset, $source);
     case 'is_expression':
       return HHAST\IsExpression::fromJSON($json, $file, $offset, $source);
+    case 'as_expression':
+      return HHAST\AsExpression::fromJSON($json, $file, $offset, $source);
+    case 'nullable_as_expression':
+      return
+        HHAST\NullableAsExpression::fromJSON($json, $file, $offset, $source);
     case 'conditional_expression':
       return
         HHAST\ConditionalExpression::fromJSON($json, $file, $offset, $source);

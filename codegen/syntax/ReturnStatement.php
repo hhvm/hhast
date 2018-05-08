@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<be7e1d4b6ba42e027b264c7a4f2d9302>>
+ * @generated SignedSource<<5038216642f3fd8dc11ffc65e207bbea>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -126,13 +126,13 @@ final class ReturnStatement extends EditableNode {
    * @returns ArrayIntrinsicExpression | FunctionCallExpression |
    * LiteralExpression | BinaryExpression | ObjectCreationExpression |
    * CastExpression | ConditionalExpression | VariableExpression |
-   * PrefixUnaryExpression | MemberSelectionExpression | AnonymousFunction |
-   * LambdaExpression | IssetExpression | PostfixUnaryExpression |
+   * PrefixUnaryExpression | AnonymousFunction | LambdaExpression |
+   * MemberSelectionExpression | IssetExpression | PostfixUnaryExpression |
    * SubscriptExpression | Missing | ScopeResolutionExpression |
    * InstanceofExpression | ParenthesizedExpression | ArrayCreationExpression |
    * VectorIntrinsicExpression | NameToken | DictionaryIntrinsicExpression |
-   * ShapeExpression | KeysetIntrinsicExpression | CollectionLiteralExpression
-   * | DarrayIntrinsicExpression | VarrayIntrinsicExpression | TupleExpression
+   * ShapeExpression | KeysetIntrinsicExpression | DarrayIntrinsicExpression |
+   * CollectionLiteralExpression | VarrayIntrinsicExpression | TupleExpression
    * | SafeMemberSelectionExpression | QualifiedName | YieldFromExpression |
    * EvalExpression | FunctionCallWithTypeArgumentsExpression | XHPExpression |
    * AwaitableCreationExpression

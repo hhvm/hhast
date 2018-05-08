@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<86e32a3d0b8f88332a95da65b2f33919>>
+ * @generated SignedSource<<e21a4eade5a62f3bad3c3e8d61273404>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class ConstDeclaration extends EditableNode {
 
+  private EditableNode $_visibility;
   private EditableNode $_abstract;
   private EditableNode $_keyword;
   private EditableNode $_type_specifier;
@@ -17,6 +18,7 @@ final class ConstDeclaration extends EditableNode {
   private EditableNode $_semicolon;
 
   public function __construct(
+    EditableNode $visibility,
     EditableNode $abstract,
     EditableNode $keyword,
     EditableNode $type_specifier,
@@ -24,6 +26,7 @@ final class ConstDeclaration extends EditableNode {
     EditableNode $semicolon,
   ) {
     parent::__construct('const_declaration');
+    $this->_visibility = $visibility;
     $this->_abstract = $abstract;
     $this->_keyword = $keyword;
     $this->_type_specifier = $type_specifier;
@@ -38,6 +41,13 @@ final class ConstDeclaration extends EditableNode {
     int $offset,
     string $source,
   ): this {
+    $visibility = EditableNode::fromJSON(
+      /* UNSAFE_EXPR */ $json['const_visibility'],
+      $file,
+      $offset,
+      $source,
+    );
+    $offset += $visibility->getWidth();
     $abstract = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['const_abstract'],
       $file,
@@ -74,6 +84,7 @@ final class ConstDeclaration extends EditableNode {
     );
     $offset += $semicolon->getWidth();
     return new static(
+      $visibility,
       $abstract,
       $keyword,
       $type_specifier,
@@ -85,6 +96,7 @@ final class ConstDeclaration extends EditableNode {
   <<__Override>>
   public function getChildren(): dict<string, EditableNode> {
     return dict[
+      'visibility' => $this->_visibility,
       'abstract' => $this->_abstract,
       'keyword' => $this->_keyword,
       'type_specifier' => $this->_type_specifier,
@@ -100,12 +112,14 @@ final class ConstDeclaration extends EditableNode {
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
+    $visibility = $this->_visibility->rewrite($rewriter, $parents);
     $abstract = $this->_abstract->rewrite($rewriter, $parents);
     $keyword = $this->_keyword->rewrite($rewriter, $parents);
     $type_specifier = $this->_type_specifier->rewrite($rewriter, $parents);
     $declarators = $this->_declarators->rewrite($rewriter, $parents);
     $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
     if (
+      $visibility === $this->_visibility &&
       $abstract === $this->_abstract &&
       $keyword === $this->_keyword &&
       $type_specifier === $this->_type_specifier &&
@@ -115,12 +129,52 @@ final class ConstDeclaration extends EditableNode {
       return $this;
     }
     return new static(
+      $visibility,
       $abstract,
       $keyword,
       $type_specifier,
       $declarators,
       $semicolon,
     );
+  }
+
+  public function getVisibilityUNTYPED(): EditableNode {
+    return $this->_visibility;
+  }
+
+  public function withVisibility(EditableNode $value): this {
+    if ($value === $this->_visibility) {
+      return $this;
+    }
+    return new static(
+      $value,
+      $this->_abstract,
+      $this->_keyword,
+      $this->_type_specifier,
+      $this->_declarators,
+      $this->_semicolon,
+    );
+  }
+
+  public function hasVisibility(): bool {
+    return !$this->_visibility->isMissing();
+  }
+
+  /**
+   * @returns Missing | PublicToken | ProtectedToken
+   */
+  public function getVisibility(): ?EditableToken {
+    if ($this->_visibility->isMissing()) {
+      return null;
+    }
+    return TypeAssert\instance_of(EditableToken::class, $this->_visibility);
+  }
+
+  /**
+   * @returns PublicToken | ProtectedToken
+   */
+  public function getVisibilityx(): EditableToken {
+    return TypeAssert\instance_of(EditableToken::class, $this->_visibility);
   }
 
   public function getAbstractUNTYPED(): EditableNode {
@@ -132,6 +186,7 @@ final class ConstDeclaration extends EditableNode {
       return $this;
     }
     return new static(
+      $this->_visibility,
       $value,
       $this->_keyword,
       $this->_type_specifier,
@@ -170,6 +225,7 @@ final class ConstDeclaration extends EditableNode {
       return $this;
     }
     return new static(
+      $this->_visibility,
       $this->_abstract,
       $value,
       $this->_type_specifier,
@@ -198,6 +254,7 @@ final class ConstDeclaration extends EditableNode {
       return $this;
     }
     return new static(
+      $this->_visibility,
       $this->_abstract,
       $this->_keyword,
       $value,
@@ -228,6 +285,7 @@ final class ConstDeclaration extends EditableNode {
       return $this;
     }
     return new static(
+      $this->_visibility,
       $this->_abstract,
       $this->_keyword,
       $this->_type_specifier,
@@ -256,6 +314,7 @@ final class ConstDeclaration extends EditableNode {
       return $this;
     }
     return new static(
+      $this->_visibility,
       $this->_abstract,
       $this->_keyword,
       $this->_type_specifier,

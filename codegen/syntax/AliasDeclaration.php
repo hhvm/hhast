@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d0c515ff68a842a91fde0f8a7f49a9e8>>
+ * @generated SignedSource<<31e810482d8320fa5fc4c8faf71faf38>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -421,7 +421,7 @@ final class AliasDeclaration extends EditableNode {
    * @returns ShapeTypeSpecifier | SimpleTypeSpecifier |
    * DictionaryTypeSpecifier | ClosureTypeSpecifier | MapArrayTypeSpecifier |
    * TupleTypeSpecifier | GenericTypeSpecifier | NullableTypeSpecifier |
-   * VectorArrayTypeSpecifier | KeysetTypeSpecifier
+   * VectorTypeSpecifier | KeysetTypeSpecifier | VectorArrayTypeSpecifier
    */
   public function getType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);

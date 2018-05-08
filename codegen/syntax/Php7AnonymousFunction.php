@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ab29f238453ddfd643d5563e6efd1abf>>
+ * @generated SignedSource<<715f96e183cf45bda0188dcaecb8420e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,10 +10,12 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class Php7AnonymousFunction extends EditableNode {
 
+  private EditableNode $_attribute_spec;
   private EditableNode $_static_keyword;
   private EditableNode $_async_keyword;
   private EditableNode $_coroutine_keyword;
   private EditableNode $_function_keyword;
+  private EditableNode $_ampersand;
   private EditableNode $_left_paren;
   private EditableNode $_parameters;
   private EditableNode $_right_paren;
@@ -23,10 +25,12 @@ final class Php7AnonymousFunction extends EditableNode {
   private EditableNode $_body;
 
   public function __construct(
+    EditableNode $attribute_spec,
     EditableNode $static_keyword,
     EditableNode $async_keyword,
     EditableNode $coroutine_keyword,
     EditableNode $function_keyword,
+    EditableNode $ampersand,
     EditableNode $left_paren,
     EditableNode $parameters,
     EditableNode $right_paren,
@@ -36,10 +40,12 @@ final class Php7AnonymousFunction extends EditableNode {
     EditableNode $body,
   ) {
     parent::__construct('php7_anonymous_function');
+    $this->_attribute_spec = $attribute_spec;
     $this->_static_keyword = $static_keyword;
     $this->_async_keyword = $async_keyword;
     $this->_coroutine_keyword = $coroutine_keyword;
     $this->_function_keyword = $function_keyword;
+    $this->_ampersand = $ampersand;
     $this->_left_paren = $left_paren;
     $this->_parameters = $parameters;
     $this->_right_paren = $right_paren;
@@ -56,6 +62,13 @@ final class Php7AnonymousFunction extends EditableNode {
     int $offset,
     string $source,
   ): this {
+    $attribute_spec = EditableNode::fromJSON(
+      /* UNSAFE_EXPR */ $json['php7_anonymous_attribute_spec'],
+      $file,
+      $offset,
+      $source,
+    );
+    $offset += $attribute_spec->getWidth();
     $static_keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['php7_anonymous_static_keyword'],
       $file,
@@ -84,6 +97,13 @@ final class Php7AnonymousFunction extends EditableNode {
       $source,
     );
     $offset += $function_keyword->getWidth();
+    $ampersand = EditableNode::fromJSON(
+      /* UNSAFE_EXPR */ $json['php7_anonymous_ampersand'],
+      $file,
+      $offset,
+      $source,
+    );
+    $offset += $ampersand->getWidth();
     $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['php7_anonymous_left_paren'],
       $file,
@@ -134,10 +154,12 @@ final class Php7AnonymousFunction extends EditableNode {
     );
     $offset += $body->getWidth();
     return new static(
+      $attribute_spec,
       $static_keyword,
       $async_keyword,
       $coroutine_keyword,
       $function_keyword,
+      $ampersand,
       $left_paren,
       $parameters,
       $right_paren,
@@ -151,10 +173,12 @@ final class Php7AnonymousFunction extends EditableNode {
   <<__Override>>
   public function getChildren(): dict<string, EditableNode> {
     return dict[
+      'attribute_spec' => $this->_attribute_spec,
       'static_keyword' => $this->_static_keyword,
       'async_keyword' => $this->_async_keyword,
       'coroutine_keyword' => $this->_coroutine_keyword,
       'function_keyword' => $this->_function_keyword,
+      'ampersand' => $this->_ampersand,
       'left_paren' => $this->_left_paren,
       'parameters' => $this->_parameters,
       'right_paren' => $this->_right_paren,
@@ -172,11 +196,13 @@ final class Php7AnonymousFunction extends EditableNode {
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
+    $attribute_spec = $this->_attribute_spec->rewrite($rewriter, $parents);
     $static_keyword = $this->_static_keyword->rewrite($rewriter, $parents);
     $async_keyword = $this->_async_keyword->rewrite($rewriter, $parents);
     $coroutine_keyword =
       $this->_coroutine_keyword->rewrite($rewriter, $parents);
     $function_keyword = $this->_function_keyword->rewrite($rewriter, $parents);
+    $ampersand = $this->_ampersand->rewrite($rewriter, $parents);
     $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
     $parameters = $this->_parameters->rewrite($rewriter, $parents);
     $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
@@ -185,10 +211,12 @@ final class Php7AnonymousFunction extends EditableNode {
     $type = $this->_type->rewrite($rewriter, $parents);
     $body = $this->_body->rewrite($rewriter, $parents);
     if (
+      $attribute_spec === $this->_attribute_spec &&
       $static_keyword === $this->_static_keyword &&
       $async_keyword === $this->_async_keyword &&
       $coroutine_keyword === $this->_coroutine_keyword &&
       $function_keyword === $this->_function_keyword &&
+      $ampersand === $this->_ampersand &&
       $left_paren === $this->_left_paren &&
       $parameters === $this->_parameters &&
       $right_paren === $this->_right_paren &&
@@ -200,10 +228,12 @@ final class Php7AnonymousFunction extends EditableNode {
       return $this;
     }
     return new static(
+      $attribute_spec,
       $static_keyword,
       $async_keyword,
       $coroutine_keyword,
       $function_keyword,
+      $ampersand,
       $left_paren,
       $parameters,
       $right_paren,
@@ -212,6 +242,42 @@ final class Php7AnonymousFunction extends EditableNode {
       $type,
       $body,
     );
+  }
+
+  public function getAttributeSpecUNTYPED(): EditableNode {
+    return $this->_attribute_spec;
+  }
+
+  public function withAttributeSpec(EditableNode $value): this {
+    if ($value === $this->_attribute_spec) {
+      return $this;
+    }
+    return new static(
+      $value,
+      $this->_static_keyword,
+      $this->_async_keyword,
+      $this->_coroutine_keyword,
+      $this->_function_keyword,
+      $this->_ampersand,
+      $this->_left_paren,
+      $this->_parameters,
+      $this->_right_paren,
+      $this->_use,
+      $this->_colon,
+      $this->_type,
+      $this->_body,
+    );
+  }
+
+  public function hasAttributeSpec(): bool {
+    return !$this->_attribute_spec->isMissing();
+  }
+
+  /**
+   * @returns Missing
+   */
+  public function getAttributeSpec(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_attribute_spec);
   }
 
   public function getStaticKeywordUNTYPED(): EditableNode {
@@ -223,10 +289,12 @@ final class Php7AnonymousFunction extends EditableNode {
       return $this;
     }
     return new static(
+      $this->_attribute_spec,
       $value,
       $this->_async_keyword,
       $this->_coroutine_keyword,
       $this->_function_keyword,
+      $this->_ampersand,
       $this->_left_paren,
       $this->_parameters,
       $this->_right_paren,
@@ -257,10 +325,12 @@ final class Php7AnonymousFunction extends EditableNode {
       return $this;
     }
     return new static(
+      $this->_attribute_spec,
       $this->_static_keyword,
       $value,
       $this->_coroutine_keyword,
       $this->_function_keyword,
+      $this->_ampersand,
       $this->_left_paren,
       $this->_parameters,
       $this->_right_paren,
@@ -291,10 +361,12 @@ final class Php7AnonymousFunction extends EditableNode {
       return $this;
     }
     return new static(
+      $this->_attribute_spec,
       $this->_static_keyword,
       $this->_async_keyword,
       $value,
       $this->_function_keyword,
+      $this->_ampersand,
       $this->_left_paren,
       $this->_parameters,
       $this->_right_paren,
@@ -326,10 +398,12 @@ final class Php7AnonymousFunction extends EditableNode {
       return $this;
     }
     return new static(
+      $this->_attribute_spec,
       $this->_static_keyword,
       $this->_async_keyword,
       $this->_coroutine_keyword,
       $value,
+      $this->_ampersand,
       $this->_left_paren,
       $this->_parameters,
       $this->_right_paren,
@@ -352,6 +426,42 @@ final class Php7AnonymousFunction extends EditableNode {
       TypeAssert\instance_of(FunctionToken::class, $this->_function_keyword);
   }
 
+  public function getAmpersandUNTYPED(): EditableNode {
+    return $this->_ampersand;
+  }
+
+  public function withAmpersand(EditableNode $value): this {
+    if ($value === $this->_ampersand) {
+      return $this;
+    }
+    return new static(
+      $this->_attribute_spec,
+      $this->_static_keyword,
+      $this->_async_keyword,
+      $this->_coroutine_keyword,
+      $this->_function_keyword,
+      $value,
+      $this->_left_paren,
+      $this->_parameters,
+      $this->_right_paren,
+      $this->_use,
+      $this->_colon,
+      $this->_type,
+      $this->_body,
+    );
+  }
+
+  public function hasAmpersand(): bool {
+    return !$this->_ampersand->isMissing();
+  }
+
+  /**
+   * @returns Missing
+   */
+  public function getAmpersand(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_ampersand);
+  }
+
   public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
@@ -361,10 +471,12 @@ final class Php7AnonymousFunction extends EditableNode {
       return $this;
     }
     return new static(
+      $this->_attribute_spec,
       $this->_static_keyword,
       $this->_async_keyword,
       $this->_coroutine_keyword,
       $this->_function_keyword,
+      $this->_ampersand,
       $value,
       $this->_parameters,
       $this->_right_paren,
@@ -395,10 +507,12 @@ final class Php7AnonymousFunction extends EditableNode {
       return $this;
     }
     return new static(
+      $this->_attribute_spec,
       $this->_static_keyword,
       $this->_async_keyword,
       $this->_coroutine_keyword,
       $this->_function_keyword,
+      $this->_ampersand,
       $this->_left_paren,
       $value,
       $this->_right_paren,
@@ -429,10 +543,12 @@ final class Php7AnonymousFunction extends EditableNode {
       return $this;
     }
     return new static(
+      $this->_attribute_spec,
       $this->_static_keyword,
       $this->_async_keyword,
       $this->_coroutine_keyword,
       $this->_function_keyword,
+      $this->_ampersand,
       $this->_left_paren,
       $this->_parameters,
       $value,
@@ -463,10 +579,12 @@ final class Php7AnonymousFunction extends EditableNode {
       return $this;
     }
     return new static(
+      $this->_attribute_spec,
       $this->_static_keyword,
       $this->_async_keyword,
       $this->_coroutine_keyword,
       $this->_function_keyword,
+      $this->_ampersand,
       $this->_left_paren,
       $this->_parameters,
       $this->_right_paren,
@@ -498,10 +616,12 @@ final class Php7AnonymousFunction extends EditableNode {
       return $this;
     }
     return new static(
+      $this->_attribute_spec,
       $this->_static_keyword,
       $this->_async_keyword,
       $this->_coroutine_keyword,
       $this->_function_keyword,
+      $this->_ampersand,
       $this->_left_paren,
       $this->_parameters,
       $this->_right_paren,
@@ -532,10 +652,12 @@ final class Php7AnonymousFunction extends EditableNode {
       return $this;
     }
     return new static(
+      $this->_attribute_spec,
       $this->_static_keyword,
       $this->_async_keyword,
       $this->_coroutine_keyword,
       $this->_function_keyword,
+      $this->_ampersand,
       $this->_left_paren,
       $this->_parameters,
       $this->_right_paren,
@@ -566,10 +688,12 @@ final class Php7AnonymousFunction extends EditableNode {
       return $this;
     }
     return new static(
+      $this->_attribute_spec,
       $this->_static_keyword,
       $this->_async_keyword,
       $this->_coroutine_keyword,
       $this->_function_keyword,
+      $this->_ampersand,
       $this->_left_paren,
       $this->_parameters,
       $this->_right_paren,

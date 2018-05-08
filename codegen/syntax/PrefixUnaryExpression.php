@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<15737a0b9c3e25a5949dd5eeec93fa4f>>
+ * @generated SignedSource<<b08f719c792f0d78b0bd1cf06279ca91>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -115,7 +115,7 @@ final class PrefixUnaryExpression extends EditableNode {
    * CastExpression | EmptyExpression | ConditionalExpression |
    * DefineExpression | InstanceofExpression | ArrayIntrinsicExpression |
    * EndOfFileToken | EvalExpression | SafeMemberSelectionExpression |
-   * PipeVariableExpression
+   * PipeVariableExpression | AnonymousFunction
    */
   public function getOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_operand);

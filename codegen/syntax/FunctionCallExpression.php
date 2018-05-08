@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cf918b2714bb3aee4d9fc986d5bcc89a>>
+ * @generated SignedSource<<8b6992eac53a622424662bf8b6771d12>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -121,8 +121,8 @@ final class FunctionCallExpression extends EditableNode {
   /**
    * @returns ScopeResolutionExpression | NameToken | VariableExpression |
    * MemberSelectionExpression | ParenthesizedExpression | SubscriptExpression
-   * | QualifiedName | FunctionCallExpression | ArrayCreationExpression |
-   * LiteralExpression | SafeMemberSelectionExpression | PrefixUnaryExpression
+   * | QualifiedName | SafeMemberSelectionExpression | FunctionCallExpression |
+   * ArrayCreationExpression | LiteralExpression | PrefixUnaryExpression
    */
   public function getReceiver(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_receiver);

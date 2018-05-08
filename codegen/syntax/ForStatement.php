@@ -2,13 +2,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ddb8f836626fcb9f713858265f904b3f>>
+ * @generated SignedSource<<b10978c9a00b7e638a6a4eac07907c75>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class ForStatement extends EditableNode
+final class ForStatement
+  extends EditableNode
   implements IControlFlowStatement, ILoopStatement {
 
   private EditableNode $_keyword;
@@ -499,7 +500,7 @@ final class ForStatement extends EditableNode
 
   /**
    * @returns CompoundStatement | ExpressionStatement | EchoStatement |
-   * ForStatement | UnsetStatement
+   * ForStatement | UnsetStatement | AlternateLoopStatement
    */
   public function getBody(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_body);

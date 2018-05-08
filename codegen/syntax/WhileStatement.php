@@ -2,13 +2,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<db27d567e5c2166ee217badc0a7ddb29>>
+ * @generated SignedSource<<f5ecec292b721c215f821cf6b09036d2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class WhileStatement extends EditableNode
+final class WhileStatement
+  extends EditableNode
   implements IControlFlowStatement, ILoopStatement {
 
   private EditableNode $_keyword;
@@ -249,7 +250,7 @@ final class WhileStatement extends EditableNode
 
   /**
    * @returns CompoundStatement | EchoStatement | ExpressionStatement |
-   * ContinueStatement
+   * ContinueStatement | AlternateLoopStatement
    */
   public function getBody(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_body);

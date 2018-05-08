@@ -2,13 +2,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<307682d31eec7073ca4445e31fceb205>>
+ * @generated SignedSource<<bde63fcaab3d700bba407c433775b566>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class ForeachStatement extends EditableNode
+final class ForeachStatement
+  extends EditableNode
   implements IControlFlowStatement, ILoopStatement {
 
   private EditableNode $_keyword;
@@ -485,8 +486,8 @@ final class ForeachStatement extends EditableNode
 
   /**
    * @returns VariableExpression | PrefixUnaryExpression | ListExpression |
-   * FunctionCallExpression | SubscriptExpression | MemberSelectionExpression |
-   * ScopeResolutionExpression
+   * FunctionCallExpression | SubscriptExpression | ArrayCreationExpression |
+   * MemberSelectionExpression | ScopeResolutionExpression
    */
   public function getValue(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_value);
@@ -553,7 +554,7 @@ final class ForeachStatement extends EditableNode
 
   /**
    * @returns CompoundStatement | ExpressionStatement | ForeachStatement |
-   * EchoStatement
+   * AlternateLoopStatement | EchoStatement
    */
   public function getBody(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_body);

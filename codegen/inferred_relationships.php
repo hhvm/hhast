@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<aa8bcf850d0d6dbf7a26de1515263737>>
+ * @generated SignedSource<<0fb581f4ba4d7f31fdc175450d91172e>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -47,6 +47,7 @@ const dict<string, keyset<string>>
       'token:class',
       'token:interface',
       'token:trait',
+      'missing',
     ],
     'classish_declaration.classish_name' => keyset[
       'token:XHP_class_name',
@@ -190,9 +191,9 @@ const dict<string, keyset<string>>
       'conditional_expression',
       'variable',
       'prefix_unary_expression',
-      'member_selection_expression',
       'anonymous_function',
       'lambda_expression',
+      'member_selection_expression',
       'isset_expression',
       'postfix_unary_expression',
       'subscript_expression',
@@ -206,8 +207,8 @@ const dict<string, keyset<string>>
       'dictionary_intrinsic_expression',
       'shape_expression',
       'keyset_intrinsic_expression',
-      'collection_literal_expression',
       'darray_intrinsic_expression',
+      'collection_literal_expression',
       'varray_intrinsic_expression',
       'tuple_expression',
       'safe_member_selection_expression',
@@ -242,10 +243,10 @@ const dict<string, keyset<string>>
       'parenthesized_expression',
       'subscript_expression',
       'qualified_name',
+      'safe_member_selection_expression',
       'function_call_expression',
       'array_creation_expression',
       'literal',
-      'safe_member_selection_expression',
       'prefix_unary_expression',
     ],
     'function_call_expression.function_call_left_paren' => keyset[
@@ -313,10 +314,10 @@ const dict<string, keyset<string>>
       'token:name',
       'lambda_expression',
       'vector_intrinsic_expression',
-      'collection_literal_expression',
       'member_selection_expression',
       'static_declarator',
       'generic_type_specifier',
+      'collection_literal_expression',
       'closure_parameter_type_specifier',
       'instanceof_expression',
       'where_constraint',
@@ -342,8 +343,8 @@ const dict<string, keyset<string>>
       'variadic_parameter',
       'dictionary_type_specifier',
       'eval_expression',
-      'decorated_expression',
       'varray_intrinsic_expression',
+      'decorated_expression',
       'darray_intrinsic_expression',
       'vector_array_type_specifier',
       'tuple_expression',
@@ -351,6 +352,7 @@ const dict<string, keyset<string>>
       'vector_type_specifier',
       'type_constant',
       'awaitable_creation_expression',
+      'token:%',
       'safe_member_selection_expression',
       'define_expression',
       'shape_type_specifier',
@@ -358,6 +360,7 @@ const dict<string, keyset<string>>
       'token:noreturn',
       'map_array_type_specifier',
       'xhp_simple_class_attribute',
+      'varray_type_specifier',
       'classname_type_specifier',
     ],
     'list_item.list_separator' => keyset[
@@ -392,6 +395,7 @@ const dict<string, keyset<string>>
       'token:varray',
       'token:darray',
       'token:noreturn',
+      'token:__construct',
     ],
     'xhp_class_attribute_declaration.xhp_attribute_keyword' => keyset[
       'token:attribute',
@@ -441,10 +445,10 @@ const dict<string, keyset<string>>
       'conditional_expression',
       'varray_intrinsic_expression',
       'darray_intrinsic_expression',
+      'tuple_expression',
       'qualified_name',
       'function_call_expression',
       'parenthesized_expression',
-      'tuple_expression',
       'xhp_expression',
     ],
     'function_declaration.function_attribute_spec' => keyset[
@@ -524,7 +528,6 @@ const dict<string, keyset<string>>
       'list_expression',
       'postfix_unary_expression',
       'isset_expression',
-      'xhp_expression',
       'cast_expression',
       'array_intrinsic_expression',
       'vector_intrinsic_expression',
@@ -539,7 +542,6 @@ const dict<string, keyset<string>>
       'dictionary_intrinsic_expression',
       'keyset_intrinsic_expression',
       'qualified_name',
-      'token:<',
       'pipe_variable',
       'anonymous_function',
     ],
@@ -564,7 +566,6 @@ const dict<string, keyset<string>>
       'token:.=',
       'token:%',
       'token:||',
-      'token:<=>',
       'token:<<',
       'token:&&',
       'token:?:',
@@ -580,6 +581,7 @@ const dict<string, keyset<string>>
       'token:xor',
       'token:|>',
       'token:??',
+      'token:<=>',
       'token:and',
       'token:>>',
       'token:%=',
@@ -604,18 +606,18 @@ const dict<string, keyset<string>>
       'prefix_unary_expression',
       'postfix_unary_expression',
       'lambda_expression',
-      'collection_literal_expression',
-      'vector_intrinsic_expression',
-      'dictionary_intrinsic_expression',
-      'keyset_intrinsic_expression',
       'cast_expression',
       'conditional_expression',
       'array_creation_expression',
+      'collection_literal_expression',
       'isset_expression',
       'scope_resolution_expression',
       'empty_expression',
-      'missing',
       'xhp_expression',
+      'missing',
+      'vector_intrinsic_expression',
+      'dictionary_intrinsic_expression',
+      'keyset_intrinsic_expression',
       'yield_expression',
       'inclusion_expression',
       'eval_expression',
@@ -623,8 +625,11 @@ const dict<string, keyset<string>>
       'tuple_expression',
       'varray_intrinsic_expression',
       'darray_intrinsic_expression',
+      'nullable_as_expression',
       'awaitable_creation_expression',
       'qualified_name',
+      'token:{',
+      'as_expression',
       'yield_from_expression',
       'instanceof_expression',
       'safe_member_selection_expression',
@@ -676,6 +681,9 @@ const dict<string, keyset<string>>
       'token:}',
       'missing',
     ],
+    'end_of_file.end_of_file_token' => keyset[
+      'token:end_of_file',
+    ],
     'expression_statement.expression_statement_expression' => keyset[
       'function_call_expression',
       'binary_expression',
@@ -701,24 +709,31 @@ const dict<string, keyset<string>>
       'collection_literal_expression',
       'function_call_with_type_arguments_expression',
       'lambda_expression',
-      'tuple_expression',
-      'token:,',
-      'yield_from_expression',
-      'conditional_expression',
+      'cast_expression',
+      'as_expression',
       'token:}',
-      'safe_member_selection_expression',
       'qualified_name',
       'halt_compiler_expression',
       'token::',
+      'token:)',
+      'token:,',
+      'token:=>',
+      'token:]',
+      'tuple_expression',
+      'yield_from_expression',
+      'conditional_expression',
+      'safe_member_selection_expression',
       'token:===',
       'darray_intrinsic_expression',
       'varray_intrinsic_expression',
-      'array_intrinsic_expression',
-      'token:)',
     ],
     'expression_statement.expression_statement_semicolon' => keyset[
       'token:;',
       'missing',
+    ],
+    'property_declaration.property_attribute_spec' => keyset[
+      'missing',
+      'attribute_specification',
     ],
     'property_declaration.property_modifiers' => keyset[
       'list',
@@ -729,24 +744,27 @@ const dict<string, keyset<string>>
       'simple_type_specifier',
       'nullable_type_specifier',
       'generic_type_specifier',
+      'vector_type_specifier',
       'varray_type_specifier',
       'darray_type_specifier',
       'vector_array_type_specifier',
       'soft_type_specifier',
       'tuple_type_specifier',
-      'type_constant',
       'map_array_type_specifier',
       'dictionary_type_specifier',
       'closure_type_specifier',
+      'type_constant',
     ],
     'property_declaration.property_declarators' => keyset[
       'list',
     ],
     'property_declaration.property_semicolon' => keyset[
       'token:;',
+      'missing',
     ],
     'property_declarator.property_name' => keyset[
       'token:variable',
+      'missing',
     ],
     'property_declarator.property_initializer' => keyset[
       'missing',
@@ -759,15 +777,16 @@ const dict<string, keyset<string>>
     ],
     'decorated_expression.decorated_expression_expression' => keyset[
       'token:variable',
-      'variable',
       'decorated_expression',
+      'variable',
       'array_creation_expression',
       'function_call_expression',
       'subscript_expression',
+      'array_intrinsic_expression',
       'scope_resolution_expression',
     ],
-    'end_of_file.end_of_file_token' => keyset[
-      'token:end_of_file',
+    'anonymous_function.anonymous_attribute_spec' => keyset[
+      'missing',
     ],
     'anonymous_function.anonymous_static_keyword' => keyset[
       'missing',
@@ -783,6 +802,10 @@ const dict<string, keyset<string>>
     ],
     'anonymous_function.anonymous_function_keyword' => keyset[
       'token:function',
+    ],
+    'anonymous_function.anonymous_ampersand' => keyset[
+      'missing',
+      'token:&',
     ],
     'anonymous_function.anonymous_left_paren' => keyset[
       'token:(',
@@ -838,9 +861,11 @@ const dict<string, keyset<string>>
       'instanceof_expression',
       'token:name',
       'parenthesized_expression',
+      'is_expression',
       'empty_expression',
       'scope_resolution_expression',
-      'is_expression',
+      'as_expression',
+      'qualified_name',
     ],
     'if_statement.if_right_paren' => keyset[
       'token:)',
@@ -907,6 +932,7 @@ const dict<string, keyset<string>>
       'eval_expression',
       'safe_member_selection_expression',
       'pipe_variable',
+      'anonymous_function',
     ],
     'throw_statement.throw_keyword' => keyset[
       'token:throw',
@@ -985,12 +1011,10 @@ const dict<string, keyset<string>>
     ],
     'xhp_simple_attribute.xhp_simple_attribute_equal' => keyset[
       'token:=',
-      'missing',
     ],
     'xhp_simple_attribute.xhp_simple_attribute_expression' => keyset[
       'braced_expression',
       'token:XHP_string_literal',
-      'missing',
     ],
     'braced_expression.braced_expression_left_brace' => keyset[
       'token:{',
@@ -1064,15 +1088,12 @@ const dict<string, keyset<string>>
     ],
     'catch_clause.catch_type' => keyset[
       'simple_type_specifier',
-      'error',
     ],
     'catch_clause.catch_variable' => keyset[
       'token:variable',
-      'missing',
     ],
     'catch_clause.catch_right_paren' => keyset[
       'token:)',
-      'missing',
     ],
     'catch_clause.catch_body' => keyset[
       'compound_statement',
@@ -1110,6 +1131,7 @@ const dict<string, keyset<string>>
       'echo_statement',
       'for_statement',
       'unset_statement',
+      'alternate_loop_statement',
     ],
     'postfix_unary_expression.postfix_unary_operand' => keyset[
       'variable',
@@ -1149,15 +1171,15 @@ const dict<string, keyset<string>>
       'object_creation_expression',
       'token:name',
       'array_intrinsic_expression',
+      'dictionary_intrinsic_expression',
+      'keyset_intrinsic_expression',
       'cast_expression',
       'array_creation_expression',
       'scope_resolution_expression',
       'vector_intrinsic_expression',
       'postfix_unary_expression',
       'collection_literal_expression',
-      'dictionary_intrinsic_expression',
       'xhp_expression',
-      'instanceof_expression',
       'anonymous_function',
       'prefix_unary_expression',
     ],
@@ -1186,18 +1208,18 @@ const dict<string, keyset<string>>
     ],
     'element_initializer.element_value' => keyset[
       'literal',
-      'object_creation_expression',
-      'prefix_unary_expression',
-      'cast_expression',
-      'token:name',
       'variable',
       'array_intrinsic_expression',
+      'cast_expression',
+      'prefix_unary_expression',
       'dictionary_intrinsic_expression',
       'array_creation_expression',
       'vector_intrinsic_expression',
       'keyset_intrinsic_expression',
+      'token:name',
       'conditional_expression',
       'scope_resolution_expression',
+      'object_creation_expression',
       'function_call_expression',
       'binary_expression',
       'collection_literal_expression',
@@ -1226,12 +1248,12 @@ const dict<string, keyset<string>>
     'parenthesized_expression.parenthesized_expression_expression' => keyset[
       'binary_expression',
       'prefix_unary_expression',
-      'conditional_expression',
       'function_call_expression',
       'postfix_unary_expression',
       'collection_literal_expression',
       'object_creation_expression',
       'variable',
+      'conditional_expression',
       'literal',
       'instanceof_expression',
       'array_intrinsic_expression',
@@ -1244,8 +1266,8 @@ const dict<string, keyset<string>>
       'anonymous_function',
       'lambda_expression',
       'cast_expression',
-      'yield_expression',
       'token:name',
+      'yield_expression',
       'qualified_name',
       'empty_expression',
       'inclusion_expression',
@@ -1304,6 +1326,7 @@ const dict<string, keyset<string>>
       'list_expression',
       'function_call_expression',
       'subscript_expression',
+      'array_creation_expression',
       'member_selection_expression',
       'scope_resolution_expression',
     ],
@@ -1314,17 +1337,18 @@ const dict<string, keyset<string>>
       'compound_statement',
       'expression_statement',
       'foreach_statement',
+      'alternate_loop_statement',
       'echo_statement',
     ],
     'conditional_expression.conditional_test' => keyset[
       'isset_expression',
-      'parenthesized_expression',
       'binary_expression',
       'variable',
       'function_call_expression',
       'token:name',
       'literal',
       'empty_expression',
+      'parenthesized_expression',
       'subscript_expression',
       'prefix_unary_expression',
       'member_selection_expression',
@@ -1338,8 +1362,8 @@ const dict<string, keyset<string>>
     ],
     'conditional_expression.conditional_consequence' => keyset[
       'subscript_expression',
-      'literal',
       'object_creation_expression',
+      'literal',
       'array_intrinsic_expression',
       'token:name',
       'variable',
@@ -1432,8 +1456,9 @@ const dict<string, keyset<string>>
       'tuple_type_specifier',
       'generic_type_specifier',
       'nullable_type_specifier',
-      'vector_array_type_specifier',
+      'vector_type_specifier',
       'keyset_type_specifier',
+      'vector_array_type_specifier',
     ],
     'alias_declaration.alias_semicolon' => keyset[
       'token:;',
@@ -1472,6 +1497,7 @@ const dict<string, keyset<string>>
       'shape_type_specifier',
       'type_constant',
       'generic_type_specifier',
+      'closure_type_specifier',
     ],
     'nullable_type_specifier.nullable_question' => keyset[
       'token:?',
@@ -1485,8 +1511,8 @@ const dict<string, keyset<string>>
       'shape_type_specifier',
       'type_constant',
       'dictionary_type_specifier',
-      'vector_array_type_specifier',
       'vector_type_specifier',
+      'vector_array_type_specifier',
       'keyset_type_specifier',
     ],
     'shape_expression.shape_expression_keyword' => keyset[
@@ -1507,6 +1533,7 @@ const dict<string, keyset<string>>
       'token:?',
       'variable',
       'scope_resolution_expression',
+      'token:name',
     ],
     'field_initializer.field_initializer_arrow' => keyset[
       'token:=>',
@@ -1516,6 +1543,8 @@ const dict<string, keyset<string>>
       'binary_expression',
       'variable',
       'vector_intrinsic_expression',
+      'scope_resolution_expression',
+      'lambda_expression',
       'subscript_expression',
       'array_intrinsic_expression',
       'token:name',
@@ -1584,6 +1613,11 @@ const dict<string, keyset<string>>
       'token:)',
       'missing',
     ],
+    'const_declaration.const_visibility' => keyset[
+      'missing',
+      'token:public',
+      'token:protected',
+    ],
     'const_declaration.const_abstract' => keyset[
       'missing',
       'token:abstract',
@@ -1612,6 +1646,9 @@ const dict<string, keyset<string>>
     ],
     'constant_declarator.constant_declarator_initializer' => keyset[
       'simple_initializer',
+      'missing',
+    ],
+    'lambda_expression.lambda_attribute_spec' => keyset[
       'missing',
     ],
     'lambda_expression.lambda_async' => keyset[
@@ -1648,6 +1685,9 @@ const dict<string, keyset<string>>
     'vector_intrinsic_expression.vector_intrinsic_keyword' => keyset[
       'token:vec',
     ],
+    'vector_intrinsic_expression.vector_intrinsic_explicit_type' => keyset[
+      'missing',
+    ],
     'vector_intrinsic_expression.vector_intrinsic_left_bracket' => keyset[
       'token:[',
     ],
@@ -1656,49 +1696,6 @@ const dict<string, keyset<string>>
       'missing',
     ],
     'vector_intrinsic_expression.vector_intrinsic_right_bracket' => keyset[
-      'token:]',
-    ],
-    'collection_literal_expression.collection_literal_name' => keyset[
-      'simple_type_specifier',
-      'generic_type_specifier',
-    ],
-    'collection_literal_expression.collection_literal_left_brace' => keyset[
-      'token:{',
-    ],
-    'collection_literal_expression.collection_literal_initializers' => keyset[
-      'list',
-      'missing',
-    ],
-    'collection_literal_expression.collection_literal_right_brace' => keyset[
-      'token:}',
-      'missing',
-    ],
-    'dictionary_intrinsic_expression.dictionary_intrinsic_keyword' => keyset[
-      'token:dict',
-    ],
-    'dictionary_intrinsic_expression.dictionary_intrinsic_left_bracket' =>
-      keyset[
-        'token:[',
-      ],
-    'dictionary_intrinsic_expression.dictionary_intrinsic_members' => keyset[
-      'missing',
-      'list',
-    ],
-    'dictionary_intrinsic_expression.dictionary_intrinsic_right_bracket' =>
-      keyset[
-        'token:]',
-      ],
-    'keyset_intrinsic_expression.keyset_intrinsic_keyword' => keyset[
-      'token:keyset',
-    ],
-    'keyset_intrinsic_expression.keyset_intrinsic_left_bracket' => keyset[
-      'token:[',
-    ],
-    'keyset_intrinsic_expression.keyset_intrinsic_members' => keyset[
-      'missing',
-      'list',
-    ],
-    'keyset_intrinsic_expression.keyset_intrinsic_right_bracket' => keyset[
       'token:]',
     ],
     'inclusion_directive.inclusion_expression' => keyset[
@@ -1808,6 +1805,21 @@ const dict<string, keyset<string>>
       'token:>',
       'missing',
     ],
+    'collection_literal_expression.collection_literal_name' => keyset[
+      'simple_type_specifier',
+      'generic_type_specifier',
+    ],
+    'collection_literal_expression.collection_literal_left_brace' => keyset[
+      'token:{',
+    ],
+    'collection_literal_expression.collection_literal_initializers' => keyset[
+      'list',
+      'missing',
+    ],
+    'collection_literal_expression.collection_literal_right_brace' => keyset[
+      'token:}',
+      'missing',
+    ],
     'closure_type_specifier.closure_outer_left_paren' => keyset[
       'token:(',
     ],
@@ -1860,8 +1872,10 @@ const dict<string, keyset<string>>
       'object_creation_expression',
       'member_selection_expression',
       'subscript_expression',
-      'literal',
+      'cast_expression',
       'anonymous_function',
+      'prefix_unary_expression',
+      'literal',
       'scope_resolution_expression',
     ],
     'instanceof_expression.instanceof_operator' => keyset[
@@ -1919,7 +1933,6 @@ const dict<string, keyset<string>>
     ],
     'switch_statement.switch_left_brace' => keyset[
       'token:{',
-      'missing',
     ],
     'switch_statement.switch_sections' => keyset[
       'list',
@@ -1927,11 +1940,9 @@ const dict<string, keyset<string>>
     ],
     'switch_statement.switch_right_brace' => keyset[
       'token:}',
-      'missing',
     ],
     'switch_section.switch_section_labels' => keyset[
       'list',
-      'missing',
     ],
     'switch_section.switch_section_statements' => keyset[
       'list',
@@ -1939,6 +1950,7 @@ const dict<string, keyset<string>>
     ],
     'switch_section.switch_section_fallthrough' => keyset[
       'missing',
+      'switch_fallthrough',
     ],
     'case_label.case_keyword' => keyset[
       'token:case',
@@ -2081,6 +2093,7 @@ const dict<string, keyset<string>>
       'echo_statement',
       'expression_statement',
       'continue_statement',
+      'alternate_loop_statement',
     ],
     'finally_clause.finally_keyword' => keyset[
       'token:finally',
@@ -2165,14 +2178,25 @@ const dict<string, keyset<string>>
     ],
     'error.error_error' => keyset[
       'token:}',
-      'token:variable',
-      'token:=',
-      'token:decimal_literal',
-      'token:;',
-      'token:namespace',
-      'token:\\',
       'token:name',
+      'token:(',
+      'token:)',
       'token:{',
+      'token:echo',
+      'token:self',
+      'token:::',
+      'token:;',
+      'token:double_quoted_string_literal_head',
+      'token:\\',
+      'token:,',
+      'token:as',
+      'token:variable',
+      'token:->',
+      'token:=',
+      'token:single_quoted_string_literal',
+      'token:using',
+      'token:new',
+      'token:decimal_literal',
     ],
     'eval_expression.eval_keyword' => keyset[
       'token:eval',
@@ -2275,11 +2299,47 @@ const dict<string, keyset<string>>
       'missing',
       'token:name',
     ],
+    'dictionary_intrinsic_expression.dictionary_intrinsic_keyword' => keyset[
+      'token:dict',
+    ],
+    'dictionary_intrinsic_expression.dictionary_intrinsic_explicit_type' =>
+      keyset[
+        'missing',
+      ],
+    'dictionary_intrinsic_expression.dictionary_intrinsic_left_bracket' =>
+      keyset[
+        'token:[',
+      ],
+    'dictionary_intrinsic_expression.dictionary_intrinsic_members' => keyset[
+      'missing',
+      'list',
+    ],
+    'dictionary_intrinsic_expression.dictionary_intrinsic_right_bracket' =>
+      keyset[
+        'token:]',
+      ],
+    'keyset_intrinsic_expression.keyset_intrinsic_keyword' => keyset[
+      'token:keyset',
+    ],
+    'keyset_intrinsic_expression.keyset_intrinsic_explicit_type' => keyset[
+      'missing',
+    ],
+    'keyset_intrinsic_expression.keyset_intrinsic_left_bracket' => keyset[
+      'token:[',
+    ],
+    'keyset_intrinsic_expression.keyset_intrinsic_members' => keyset[
+      'missing',
+      'list',
+    ],
+    'keyset_intrinsic_expression.keyset_intrinsic_right_bracket' => keyset[
+      'token:]',
+    ],
     'namespace_empty_body.namespace_semicolon' => keyset[
       'token:;',
     ],
     'enum_declaration.enum_attribute_spec' => keyset[
       'missing',
+      'attribute_specification',
     ],
     'enum_declaration.enum_keyword' => keyset[
       'token:enum',
@@ -2337,6 +2397,22 @@ const dict<string, keyset<string>>
     'require_clause.require_semicolon' => keyset[
       'token:;',
     ],
+    'safe_member_selection_expression.safe_member_object' => keyset[
+      'function_call_expression',
+      'variable',
+      'scope_resolution_expression',
+      'member_selection_expression',
+      'safe_member_selection_expression',
+      'prefix_unary_expression',
+    ],
+    'safe_member_selection_expression.safe_member_operator' => keyset[
+      'token:?->',
+    ],
+    'safe_member_selection_expression.safe_member_name' => keyset[
+      'token:name',
+      'token:XHP_class_name',
+      'prefix_unary_expression',
+    ],
     'vector_type_specifier.vector_type_keyword' => keyset[
       'token:vec',
     ],
@@ -2347,6 +2423,8 @@ const dict<string, keyset<string>>
       'vector_type_specifier',
       'simple_type_specifier',
       'classname_type_specifier',
+      'closure_type_specifier',
+      'nullable_type_specifier',
     ],
     'vector_type_specifier.vector_type_trailing_comma' => keyset[
       'missing',
@@ -2369,7 +2447,6 @@ const dict<string, keyset<string>>
     ],
     'type_const_declaration.type_const_type_parameters' => keyset[
       'missing',
-      'type_parameters',
     ],
     'type_const_declaration.type_const_type_constraint' => keyset[
       'missing',
@@ -2381,13 +2458,13 @@ const dict<string, keyset<string>>
     ],
     'type_const_declaration.type_const_type_specifier' => keyset[
       'vector_type_specifier',
+      'simple_type_specifier',
       'dictionary_type_specifier',
       'keyset_type_specifier',
       'nullable_type_specifier',
       'generic_type_specifier',
       'tuple_type_specifier',
       'closure_type_specifier',
-      'simple_type_specifier',
       'type_constant',
       'missing',
       'shape_type_specifier',
@@ -2456,6 +2533,8 @@ const dict<string, keyset<string>>
     'variadic_parameter.variadic_parameter_type' => keyset[
       'missing',
       'simple_type_specifier',
+      'tuple_type_specifier',
+      'closure_type_specifier',
     ],
     'variadic_parameter.variadic_parameter_ellipsis' => keyset[
       'token:...',
@@ -2486,6 +2565,22 @@ const dict<string, keyset<string>>
     ],
     'keyset_type_specifier.keyset_type_right_angle' => keyset[
       'token:>',
+    ],
+    'varray_intrinsic_expression.varray_intrinsic_keyword' => keyset[
+      'token:varray',
+    ],
+    'varray_intrinsic_expression.varray_intrinsic_explicit_type' => keyset[
+      'missing',
+    ],
+    'varray_intrinsic_expression.varray_intrinsic_left_bracket' => keyset[
+      'token:[',
+    ],
+    'varray_intrinsic_expression.varray_intrinsic_members' => keyset[
+      'list',
+      'missing',
+    ],
+    'varray_intrinsic_expression.varray_intrinsic_right_bracket' => keyset[
+      'token:]',
     ],
     'function_call_with_type_arguments_expression.function_call_with_type_arguments_receiver' =>
       keyset[
@@ -2529,6 +2624,9 @@ const dict<string, keyset<string>>
     'vector_array_type_specifier.vector_array_right_angle' => keyset[
       'token:>',
     ],
+    'php7_anonymous_function.php7_anonymous_attribute_spec' => keyset[
+      'missing',
+    ],
     'php7_anonymous_function.php7_anonymous_static_keyword' => keyset[
       'missing',
     ],
@@ -2540,6 +2638,9 @@ const dict<string, keyset<string>>
     ],
     'php7_anonymous_function.php7_anonymous_function_keyword' => keyset[
       'token:function',
+    ],
+    'php7_anonymous_function.php7_anonymous_ampersand' => keyset[
+      'missing',
     ],
     'php7_anonymous_function.php7_anonymous_left_paren' => keyset[
       'token:(',
@@ -2562,19 +2663,6 @@ const dict<string, keyset<string>>
     'php7_anonymous_function.php7_anonymous_body' => keyset[
       'compound_statement',
     ],
-    'varray_intrinsic_expression.varray_intrinsic_keyword' => keyset[
-      'token:varray',
-    ],
-    'varray_intrinsic_expression.varray_intrinsic_left_bracket' => keyset[
-      'token:[',
-    ],
-    'varray_intrinsic_expression.varray_intrinsic_members' => keyset[
-      'list',
-      'missing',
-    ],
-    'varray_intrinsic_expression.varray_intrinsic_right_bracket' => keyset[
-      'token:]',
-    ],
     'tuple_expression.tuple_expression_keyword' => keyset[
       'token:tuple',
     ],
@@ -2587,6 +2675,22 @@ const dict<string, keyset<string>>
     ],
     'tuple_expression.tuple_expression_right_paren' => keyset[
       'token:)',
+    ],
+    'darray_intrinsic_expression.darray_intrinsic_keyword' => keyset[
+      'token:darray',
+    ],
+    'darray_intrinsic_expression.darray_intrinsic_explicit_type' => keyset[
+      'missing',
+    ],
+    'darray_intrinsic_expression.darray_intrinsic_left_bracket' => keyset[
+      'token:[',
+    ],
+    'darray_intrinsic_expression.darray_intrinsic_members' => keyset[
+      'missing',
+      'list',
+    ],
+    'darray_intrinsic_expression.darray_intrinsic_right_bracket' => keyset[
+      'token:]',
     ],
     'varray_type_specifier.varray_keyword' => keyset[
       'token:varray',
@@ -2630,19 +2734,6 @@ const dict<string, keyset<string>>
     'darray_type_specifier.darray_right_angle' => keyset[
       'token:>',
     ],
-    'darray_intrinsic_expression.darray_intrinsic_keyword' => keyset[
-      'token:darray',
-    ],
-    'darray_intrinsic_expression.darray_intrinsic_left_bracket' => keyset[
-      'token:[',
-    ],
-    'darray_intrinsic_expression.darray_intrinsic_members' => keyset[
-      'missing',
-      'list',
-    ],
-    'darray_intrinsic_expression.darray_intrinsic_right_bracket' => keyset[
-      'token:]',
-    ],
     'goto_statement.goto_statement_keyword' => keyset[
       'token:goto',
     ],
@@ -2668,6 +2759,9 @@ const dict<string, keyset<string>>
       keyset[
         'list',
       ],
+    'awaitable_creation_expression.awaitable_attribute_spec' => keyset[
+      'missing',
+    ],
     'awaitable_creation_expression.awaitable_async' => keyset[
       'token:async',
     ],
@@ -2695,6 +2789,28 @@ const dict<string, keyset<string>>
     'elseif_clause.elseif_statement' => keyset[
       'compound_statement',
       'expression_statement',
+    ],
+    'as_expression.as_left_operand' => keyset[
+      'variable',
+      'token:name',
+    ],
+    'as_expression.as_operator' => keyset[
+      'token:as',
+    ],
+    'as_expression.as_right_operand' => keyset[
+      'simple_type_specifier',
+      'shape_type_specifier',
+      'tuple_type_specifier',
+      'nullable_type_specifier',
+    ],
+    'nullable_as_expression.nullable_as_left_operand' => keyset[
+      'variable',
+    ],
+    'nullable_as_expression.nullable_as_operator' => keyset[
+      'token:?as',
+    ],
+    'nullable_as_expression.nullable_as_right_operand' => keyset[
+      'simple_type_specifier',
     ],
     'using_statement_function_scoped.using_function_await_keyword' => keyset[
       'missing',
@@ -2739,6 +2855,40 @@ const dict<string, keyset<string>>
     'xhp_required.xhp_required_keyword' => keyset[
       'token:required',
     ],
+    'anonymous_class.anonymous_class_class_keyword' => keyset[
+      'token:class',
+    ],
+    'anonymous_class.anonymous_class_left_paren' => keyset[
+      'missing',
+      'token:(',
+    ],
+    'anonymous_class.anonymous_class_argument_list' => keyset[
+      'missing',
+      'list',
+    ],
+    'anonymous_class.anonymous_class_right_paren' => keyset[
+      'missing',
+      'token:)',
+    ],
+    'anonymous_class.anonymous_class_extends_keyword' => keyset[
+      'missing',
+      'token:extends',
+    ],
+    'anonymous_class.anonymous_class_extends_list' => keyset[
+      'missing',
+      'list',
+    ],
+    'anonymous_class.anonymous_class_implements_keyword' => keyset[
+      'missing',
+      'token:implements',
+    ],
+    'anonymous_class.anonymous_class_implements_list' => keyset[
+      'missing',
+      'list',
+    ],
+    'anonymous_class.anonymous_class_body' => keyset[
+      'classish_body',
+    ],
     'namespace_group_use_declaration.namespace_group_use_keyword' => keyset[
       'token:use',
     ],
@@ -2781,21 +2931,32 @@ const dict<string, keyset<string>>
     'xhp_enum_type.xhp_enum_right_brace' => keyset[
       'token:}',
     ],
-    'safe_member_selection_expression.safe_member_object' => keyset[
-      'scope_resolution_expression',
-      'variable',
-      'member_selection_expression',
-      'function_call_expression',
-      'safe_member_selection_expression',
-      'prefix_unary_expression',
+    'halt_compiler_expression.halt_compiler_keyword' => keyset[
+      'token:__halt_compiler',
     ],
-    'safe_member_selection_expression.safe_member_operator' => keyset[
-      'token:?->',
+    'halt_compiler_expression.halt_compiler_left_paren' => keyset[
+      'token:(',
     ],
-    'safe_member_selection_expression.safe_member_name' => keyset[
-      'token:name',
-      'token:XHP_class_name',
-      'prefix_unary_expression',
+    'halt_compiler_expression.halt_compiler_argument_list' => keyset[
+      'missing',
+    ],
+    'halt_compiler_expression.halt_compiler_right_paren' => keyset[
+      'token:)',
+    ],
+    'alternate_loop_statement.alternate_loop_opening_colon' => keyset[
+      'token::',
+    ],
+    'alternate_loop_statement.alternate_loop_statements' => keyset[
+      'list',
+    ],
+    'alternate_loop_statement.alternate_loop_closing_keyword' => keyset[
+      'missing',
+      'token:endfor',
+      'token:endwhile',
+    ],
+    'alternate_loop_statement.alternate_loop_closing_semicolon' => keyset[
+      'missing',
+      'token:;',
     ],
     'yield_from_expression.yield_from_yield_keyword' => keyset[
       'token:yield',
@@ -2840,6 +3001,20 @@ const dict<string, keyset<string>>
     'declare_block_statement.declare_block_body' => keyset[
       'compound_statement',
     ],
+    'is_expression.is_left_operand' => keyset[
+      'variable',
+    ],
+    'is_expression.is_operator' => keyset[
+      'token:is',
+    ],
+    'is_expression.is_right_operand' => keyset[
+      'type_constant',
+      'simple_type_specifier',
+      'shape_type_specifier',
+      'nullable_type_specifier',
+      'generic_type_specifier',
+      'tuple_type_specifier',
+    ],
     'xhp_category_declaration.xhp_category_keyword' => keyset[
       'token:category',
     ],
@@ -2848,52 +3023,6 @@ const dict<string, keyset<string>>
     ],
     'xhp_category_declaration.xhp_category_semicolon' => keyset[
       'token:;',
-    ],
-    'halt_compiler_expression.halt_compiler_keyword' => keyset[
-      'token:__halt_compiler',
-    ],
-    'halt_compiler_expression.halt_compiler_left_paren' => keyset[
-      'token:(',
-    ],
-    'halt_compiler_expression.halt_compiler_argument_list' => keyset[
-      'missing',
-    ],
-    'halt_compiler_expression.halt_compiler_right_paren' => keyset[
-      'token:)',
-    ],
-    'anonymous_class.anonymous_class_class_keyword' => keyset[
-      'token:class',
-    ],
-    'anonymous_class.anonymous_class_left_paren' => keyset[
-      'missing',
-      'token:(',
-    ],
-    'anonymous_class.anonymous_class_argument_list' => keyset[
-      'missing',
-      'list',
-    ],
-    'anonymous_class.anonymous_class_right_paren' => keyset[
-      'missing',
-      'token:)',
-    ],
-    'anonymous_class.anonymous_class_extends_keyword' => keyset[
-      'missing',
-      'token:extends',
-    ],
-    'anonymous_class.anonymous_class_extends_list' => keyset[
-      'missing',
-      'list',
-    ],
-    'anonymous_class.anonymous_class_implements_keyword' => keyset[
-      'missing',
-      'token:implements',
-    ],
-    'anonymous_class.anonymous_class_implements_list' => keyset[
-      'missing',
-      'list',
-    ],
-    'anonymous_class.anonymous_class_body' => keyset[
-      'classish_body',
     ],
     'xhp_spread_attribute.xhp_spread_attribute_left_brace' => keyset[
       'token:{',
@@ -2908,20 +3037,79 @@ const dict<string, keyset<string>>
     'xhp_spread_attribute.xhp_spread_attribute_right_brace' => keyset[
       'token:}',
     ],
+    'alternate_if_statement.alternate_if_keyword' => keyset[
+      'token:if',
+    ],
+    'alternate_if_statement.alternate_if_left_paren' => keyset[
+      'token:(',
+    ],
+    'alternate_if_statement.alternate_if_condition' => keyset[
+      'literal',
+      'binary_expression',
+      'variable',
+    ],
+    'alternate_if_statement.alternate_if_right_paren' => keyset[
+      'token:)',
+    ],
+    'alternate_if_statement.alternate_if_colon' => keyset[
+      'token::',
+    ],
+    'alternate_if_statement.alternate_if_statement' => keyset[
+      'list',
+    ],
+    'alternate_if_statement.alternate_if_elseif_clauses' => keyset[
+      'missing',
+    ],
+    'alternate_if_statement.alternate_if_else_clause' => keyset[
+      'alternate_else_clause',
+      'missing',
+    ],
+    'alternate_if_statement.alternate_if_endif_keyword' => keyset[
+      'token:endif',
+    ],
+    'alternate_if_statement.alternate_if_semicolon' => keyset[
+      'token:;',
+    ],
+    'alternate_else_clause.alternate_else_keyword' => keyset[
+      'token:else',
+    ],
+    'alternate_else_clause.alternate_else_colon' => keyset[
+      'token::',
+    ],
+    'alternate_else_clause.alternate_else_statement' => keyset[
+      'list',
+    ],
+    'alternate_switch_statement.alternate_switch_keyword' => keyset[
+      'token:switch',
+    ],
+    'alternate_switch_statement.alternate_switch_left_paren' => keyset[
+      'token:(',
+    ],
+    'alternate_switch_statement.alternate_switch_expression' => keyset[
+      'variable',
+    ],
+    'alternate_switch_statement.alternate_switch_right_paren' => keyset[
+      'token:)',
+    ],
+    'alternate_switch_statement.alternate_switch_opening_colon' => keyset[
+      'token::',
+    ],
+    'alternate_switch_statement.alternate_switch_sections' => keyset[
+      'list',
+    ],
+    'alternate_switch_statement.alternate_switch_closing_endswitch' => keyset[
+      'token:endswitch',
+    ],
+    'alternate_switch_statement.alternate_switch_closing_semicolon' => keyset[
+      'token:;',
+    ],
     'xhp_simple_class_attribute.xhp_simple_class_attribute_type' => keyset[
       'simple_type_specifier',
     ],
-    'is_expression.is_left_operand' => keyset[
-      'variable',
+    'switch_fallthrough.fallthrough_keyword' => keyset[
+      'missing',
     ],
-    'is_expression.is_operator' => keyset[
-      'token:is',
-    ],
-    'is_expression.is_right_operand' => keyset[
-      'simple_type_specifier',
-      'nullable_type_specifier',
-      'shape_type_specifier',
-      'tuple_type_specifier',
-      'classname_type_specifier',
+    'switch_fallthrough.fallthrough_semicolon' => keyset[
+      'missing',
     ],
   ];

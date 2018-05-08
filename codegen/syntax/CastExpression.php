@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<af669ac3d5501b80ae27844dc8f6298d>>
+ * @generated SignedSource<<ceca2f0cc1b2b66d8a359013b1e8143b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -192,10 +192,10 @@ final class CastExpression extends EditableNode {
    * @returns VariableExpression | ParenthesizedExpression | LiteralExpression
    * | FunctionCallExpression | MemberSelectionExpression | SubscriptExpression
    * | ObjectCreationExpression | NameToken | ArrayIntrinsicExpression |
-   * CastExpression | ArrayCreationExpression | ScopeResolutionExpression |
+   * DictionaryIntrinsicExpression | KeysetIntrinsicExpression | CastExpression
+   * | ArrayCreationExpression | ScopeResolutionExpression |
    * VectorIntrinsicExpression | PostfixUnaryExpression |
-   * CollectionLiteralExpression | DictionaryIntrinsicExpression |
-   * XHPExpression | InstanceofExpression | AnonymousFunction |
+   * CollectionLiteralExpression | XHPExpression | AnonymousFunction |
    * PrefixUnaryExpression
    */
   public function getOperand(): EditableNode {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ab605cf403f8c2e40e83af5d4c8dcee3>>
+ * @generated SignedSource<<5c9ad4588404e341affd8911d57cbb14>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -133,12 +133,11 @@ final class ConditionalExpression extends EditableNode {
   }
 
   /**
-   * @returns IssetExpression | ParenthesizedExpression | BinaryExpression |
-   * VariableExpression | FunctionCallExpression | NameToken |
-   * LiteralExpression | EmptyExpression | SubscriptExpression |
-   * PrefixUnaryExpression | MemberSelectionExpression |
-   * ScopeResolutionExpression | ConditionalExpression | InstanceofExpression |
-   * LessThanToken
+   * @returns IssetExpression | BinaryExpression | VariableExpression |
+   * FunctionCallExpression | NameToken | LiteralExpression | EmptyExpression |
+   * ParenthesizedExpression | SubscriptExpression | PrefixUnaryExpression |
+   * MemberSelectionExpression | ScopeResolutionExpression |
+   * ConditionalExpression | InstanceofExpression | LessThanToken
    */
   public function getTest(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_test);
@@ -194,8 +193,8 @@ final class ConditionalExpression extends EditableNode {
   }
 
   /**
-   * @returns SubscriptExpression | LiteralExpression |
-   * ObjectCreationExpression | ArrayIntrinsicExpression | NameToken |
+   * @returns SubscriptExpression | ObjectCreationExpression |
+   * LiteralExpression | ArrayIntrinsicExpression | NameToken |
    * VariableExpression | ScopeResolutionExpression | FunctionCallExpression |
    * PrefixUnaryExpression | ArrayCreationExpression |
    * CollectionLiteralExpression | CastExpression | Missing |

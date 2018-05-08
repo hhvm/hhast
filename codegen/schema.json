@@ -1,6 +1,6 @@
 { "description" :
   "@generated JSON schema of the Hack Full Fidelity Parser AST",
-  "version" : "2017-12-27-0001",
+  "version" : "2018-03-15-0001",
   "trivia" : [
     { "trivia_kind_name" : "WhiteSpace",
       "trivia_type_name" : "whitespace" },
@@ -93,8 +93,18 @@
       "token_text" : "elseif" },
     { "token_kind" : "Empty",
       "token_text" : "empty" },
+    { "token_kind" : "Endfor",
+      "token_text" : "endfor" },
+    { "token_kind" : "Endforeach",
+      "token_text" : "endforeach" },
+    { "token_kind" : "Enddeclare",
+      "token_text" : "enddeclare" },
     { "token_kind" : "Endif",
       "token_text" : "endif" },
+    { "token_kind" : "Endswitch",
+      "token_text" : "endswitch" },
+    { "token_kind" : "Endwhile",
+      "token_text" : "endwhile" },
     { "token_kind" : "Enum",
       "token_text" : "enum" },
     { "token_kind" : "Eval",
@@ -305,6 +315,8 @@
       "token_text" : "||" },
     { "token_kind" : "Question",
       "token_text" : "?" },
+    { "token_kind" : "QuestionAs",
+      "token_text" : "?as" },
     { "token_kind" : "QuestionColon",
       "token_text" : "?:" },
     { "token_kind" : "QuestionQuestion",
@@ -523,6 +535,7 @@
       "description" : "property_declaration",
       "prefix" : "property",
       "fields" : [
+        { "field_name" : "attribute_spec" },
         { "field_name" : "modifiers" },
         { "field_name" : "type" },
         { "field_name" : "declarators" },
@@ -726,6 +739,7 @@
       "description" : "const_declaration",
       "prefix" : "const",
       "fields" : [
+        { "field_name" : "visibility" },
         { "field_name" : "abstract" },
         { "field_name" : "keyword" },
         { "field_name" : "type_specifier" },
@@ -827,6 +841,16 @@
         { "field_name" : "left_brace" },
         { "field_name" : "statements" },
         { "field_name" : "right_brace" }
+      ] },
+    { "kind_name" : "AlternateLoopStatement",
+      "type_name" : "alternate_loop_statement",
+      "description" : "alternate_loop_statement",
+      "prefix" : "alternate_loop",
+      "fields" : [
+        { "field_name" : "opening_colon" },
+        { "field_name" : "statements" },
+        { "field_name" : "closing_keyword" },
+        { "field_name" : "closing_semicolon" }
       ] },
     { "kind_name" : "ExpressionStatement",
       "type_name" : "expression_statement",
@@ -952,10 +976,10 @@
         { "field_name" : "keyword" },
         { "field_name" : "statement" }
       ] },
-    { "kind_name" : "IfEndIfStatement",
-      "type_name" : "if_endif_statement",
-      "description" : "if_endif_statement",
-      "prefix" : "if_endif",
+    { "kind_name" : "AlternateIfStatement",
+      "type_name" : "alternate_if_statement",
+      "description" : "alternate_if_statement",
+      "prefix" : "alternate_if",
       "fields" : [
         { "field_name" : "keyword" },
         { "field_name" : "left_paren" },
@@ -963,15 +987,15 @@
         { "field_name" : "right_paren" },
         { "field_name" : "colon" },
         { "field_name" : "statement" },
-        { "field_name" : "elseif_colon_clauses" },
-        { "field_name" : "else_colon_clause" },
+        { "field_name" : "elseif_clauses" },
+        { "field_name" : "else_clause" },
         { "field_name" : "endif_keyword" },
         { "field_name" : "semicolon" }
       ] },
-    { "kind_name" : "ElseifColonClause",
-      "type_name" : "elseif_colon_clause",
-      "description" : "elseif_colon_clause",
-      "prefix" : "elseif_colon",
+    { "kind_name" : "AlternateElseifClause",
+      "type_name" : "alternate_elseif_clause",
+      "description" : "alternate_elseif_clause",
+      "prefix" : "alternate_elseif",
       "fields" : [
         { "field_name" : "keyword" },
         { "field_name" : "left_paren" },
@@ -980,10 +1004,10 @@
         { "field_name" : "colon" },
         { "field_name" : "statement" }
       ] },
-    { "kind_name" : "ElseColonClause",
-      "type_name" : "else_colon_clause",
-      "description" : "else_colon_clause",
-      "prefix" : "else_colon",
+    { "kind_name" : "AlternateElseClause",
+      "type_name" : "alternate_else_clause",
+      "description" : "alternate_else_clause",
+      "prefix" : "alternate_else",
       "fields" : [
         { "field_name" : "keyword" },
         { "field_name" : "colon" },
@@ -1075,6 +1099,20 @@
         { "field_name" : "left_brace" },
         { "field_name" : "sections" },
         { "field_name" : "right_brace" }
+      ] },
+    { "kind_name" : "AlternateSwitchStatement",
+      "type_name" : "alternate_switch_statement",
+      "description" : "alternate_switch_statement",
+      "prefix" : "alternate_switch",
+      "fields" : [
+        { "field_name" : "keyword" },
+        { "field_name" : "left_paren" },
+        { "field_name" : "expression" },
+        { "field_name" : "right_paren" },
+        { "field_name" : "opening_colon" },
+        { "field_name" : "sections" },
+        { "field_name" : "closing_endswitch" },
+        { "field_name" : "closing_semicolon" }
       ] },
     { "kind_name" : "SwitchSection",
       "type_name" : "switch_section",
@@ -1226,10 +1264,12 @@
       "description" : "anonymous_function",
       "prefix" : "anonymous",
       "fields" : [
+        { "field_name" : "attribute_spec" },
         { "field_name" : "static_keyword" },
         { "field_name" : "async_keyword" },
         { "field_name" : "coroutine_keyword" },
         { "field_name" : "function_keyword" },
+        { "field_name" : "ampersand" },
         { "field_name" : "left_paren" },
         { "field_name" : "parameters" },
         { "field_name" : "right_paren" },
@@ -1243,10 +1283,12 @@
       "description" : "php7_anonymous_function",
       "prefix" : "php7_anonymous",
       "fields" : [
+        { "field_name" : "attribute_spec" },
         { "field_name" : "static_keyword" },
         { "field_name" : "async_keyword" },
         { "field_name" : "coroutine_keyword" },
         { "field_name" : "function_keyword" },
+        { "field_name" : "ampersand" },
         { "field_name" : "left_paren" },
         { "field_name" : "parameters" },
         { "field_name" : "right_paren" },
@@ -1270,6 +1312,7 @@
       "description" : "lambda_expression",
       "prefix" : "lambda",
       "fields" : [
+        { "field_name" : "attribute_spec" },
         { "field_name" : "async" },
         { "field_name" : "coroutine" },
         { "field_name" : "signature" },
@@ -1388,6 +1431,24 @@
       "type_name" : "is_expression",
       "description" : "is_expression",
       "prefix" : "is",
+      "fields" : [
+        { "field_name" : "left_operand" },
+        { "field_name" : "operator" },
+        { "field_name" : "right_operand" }
+      ] },
+    { "kind_name" : "AsExpression",
+      "type_name" : "as_expression",
+      "description" : "as_expression",
+      "prefix" : "as",
+      "fields" : [
+        { "field_name" : "left_operand" },
+        { "field_name" : "operator" },
+        { "field_name" : "right_operand" }
+      ] },
+    { "kind_name" : "NullableAsExpression",
+      "type_name" : "nullable_as_expression",
+      "description" : "nullable_as_expression",
+      "prefix" : "nullable_as",
       "fields" : [
         { "field_name" : "left_operand" },
         { "field_name" : "operator" },
@@ -1565,6 +1626,7 @@
       "prefix" : "darray_intrinsic",
       "fields" : [
         { "field_name" : "keyword" },
+        { "field_name" : "explicit_type" },
         { "field_name" : "left_bracket" },
         { "field_name" : "members" },
         { "field_name" : "right_bracket" }
@@ -1575,6 +1637,7 @@
       "prefix" : "dictionary_intrinsic",
       "fields" : [
         { "field_name" : "keyword" },
+        { "field_name" : "explicit_type" },
         { "field_name" : "left_bracket" },
         { "field_name" : "members" },
         { "field_name" : "right_bracket" }
@@ -1585,6 +1648,7 @@
       "prefix" : "keyset_intrinsic",
       "fields" : [
         { "field_name" : "keyword" },
+        { "field_name" : "explicit_type" },
         { "field_name" : "left_bracket" },
         { "field_name" : "members" },
         { "field_name" : "right_bracket" }
@@ -1595,6 +1659,7 @@
       "prefix" : "varray_intrinsic",
       "fields" : [
         { "field_name" : "keyword" },
+        { "field_name" : "explicit_type" },
         { "field_name" : "left_bracket" },
         { "field_name" : "members" },
         { "field_name" : "right_bracket" }
@@ -1605,6 +1670,7 @@
       "prefix" : "vector_intrinsic",
       "fields" : [
         { "field_name" : "keyword" },
+        { "field_name" : "explicit_type" },
         { "field_name" : "left_bracket" },
         { "field_name" : "members" },
         { "field_name" : "right_bracket" }
@@ -1643,6 +1709,7 @@
       "description" : "awaitable_creation_expression",
       "prefix" : "awaitable",
       "fields" : [
+        { "field_name" : "attribute_spec" },
         { "field_name" : "async" },
         { "field_name" : "coroutine" },
         { "field_name" : "compound_statement" }

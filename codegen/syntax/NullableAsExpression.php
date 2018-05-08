@@ -2,13 +2,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9904a1985dff50e5e0ae3e9222a6b5d6>>
+ * @generated SignedSource<<9210ebb606f6fdacd5cc3618e8f30145>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class InstanceofExpression extends EditableNode {
+final class NullableAsExpression extends EditableNode {
 
   private EditableNode $_left_operand;
   private EditableNode $_operator;
@@ -19,7 +19,7 @@ final class InstanceofExpression extends EditableNode {
     EditableNode $operator,
     EditableNode $right_operand,
   ) {
-    parent::__construct('instanceof_expression');
+    parent::__construct('nullable_as_expression');
     $this->_left_operand = $left_operand;
     $this->_operator = $operator;
     $this->_right_operand = $right_operand;
@@ -33,21 +33,21 @@ final class InstanceofExpression extends EditableNode {
     string $source,
   ): this {
     $left_operand = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['instanceof_left_operand'],
+      /* UNSAFE_EXPR */ $json['nullable_as_left_operand'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_operand->getWidth();
     $operator = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['instanceof_operator'],
+      /* UNSAFE_EXPR */ $json['nullable_as_operator'],
       $file,
       $offset,
       $source,
     );
     $offset += $operator->getWidth();
     $right_operand = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['instanceof_right_operand'],
+      /* UNSAFE_EXPR */ $json['nullable_as_right_operand'],
       $file,
       $offset,
       $source,
@@ -101,14 +101,11 @@ final class InstanceofExpression extends EditableNode {
   }
 
   /**
-   * @returns VariableExpression | ParenthesizedExpression |
-   * FunctionCallExpression | ObjectCreationExpression |
-   * MemberSelectionExpression | SubscriptExpression | CastExpression |
-   * AnonymousFunction | PrefixUnaryExpression | LiteralExpression |
-   * ScopeResolutionExpression
+   * @returns VariableExpression
    */
-  public function getLeftOperand(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_left_operand);
+  public function getLeftOperand(): VariableExpression {
+    return
+      TypeAssert\instance_of(VariableExpression::class, $this->_left_operand);
   }
 
   public function getOperatorUNTYPED(): EditableNode {
@@ -127,10 +124,10 @@ final class InstanceofExpression extends EditableNode {
   }
 
   /**
-   * @returns InstanceofToken
+   * @returns QuestionAsToken
    */
-  public function getOperator(): InstanceofToken {
-    return TypeAssert\instance_of(InstanceofToken::class, $this->_operator);
+  public function getOperator(): QuestionAsToken {
+    return TypeAssert\instance_of(QuestionAsToken::class, $this->_operator);
   }
 
   public function getRightOperandUNTYPED(): EditableNode {
@@ -149,11 +146,10 @@ final class InstanceofExpression extends EditableNode {
   }
 
   /**
-   * @returns NameToken | VariableExpression | QualifiedName |
-   * ScopeResolutionExpression | SubscriptExpression |
-   * MemberSelectionExpression | ParenthesizedExpression
+   * @returns SimpleTypeSpecifier
    */
-  public function getRightOperand(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_right_operand);
+  public function getRightOperand(): SimpleTypeSpecifier {
+    return
+      TypeAssert\instance_of(SimpleTypeSpecifier::class, $this->_right_operand);
   }
 }

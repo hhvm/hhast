@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<550c5e775e3801d663f52ac427ab4059>>
+ * @generated SignedSource<<194611dc9ed2a3eee541e7cbeb15b185>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,20 +123,11 @@ final class VariadicParameter extends EditableNode {
   }
 
   /**
-   * @returns Missing | SimpleTypeSpecifier
+   * @returns Missing | SimpleTypeSpecifier | TupleTypeSpecifier |
+   * ClosureTypeSpecifier
    */
-  public function getType(): ?SimpleTypeSpecifier {
-    if ($this->_type->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(SimpleTypeSpecifier::class, $this->_type);
-  }
-
-  /**
-   * @returns SimpleTypeSpecifier
-   */
-  public function getTypex(): SimpleTypeSpecifier {
-    return TypeAssert\instance_of(SimpleTypeSpecifier::class, $this->_type);
+  public function getType(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_type);
   }
 
   public function getEllipsisUNTYPED(): EditableNode {

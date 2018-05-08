@@ -2,13 +2,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e42b14caa6e5db98bc01b52d6a77469d>>
+ * @generated SignedSource<<c1bc5182eb116dbdd36cc553dfcf3b09>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class MethodishDeclaration extends EditableNode
+final class MethodishDeclaration
+  extends EditableNode
   implements IFunctionishDeclaration {
 
   private EditableNode $_attribute;
