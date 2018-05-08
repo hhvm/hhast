@@ -193,10 +193,10 @@ final class CodegenRelations extends CodegenBase {
 
           $child = $node[$field];
           /* HH_IGNORE_ERROR[4005] making assumptions about JSON struct */
-          $child_kind = (string) $child['kind'];
+          $child_kind = (string) ($child['kind'] ?? null);
           if ($child_kind === 'token') {
             /* HH_IGNORE_ERROR[4005] making assumptions about JSON struct */
-            $child_kind = 'token:' . (string) $child['token']['kind'];
+            $child_kind = 'token:' . (string) ($child['token']['kind'] ?? null);
           }
           $out[$key][] = $child_kind;
         }
