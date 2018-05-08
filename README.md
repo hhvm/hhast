@@ -49,4 +49,5 @@ Migrations are for sweeping changes you want to apply across your entire codebas
 See [the documentation](docs/ast-lib.md).
 
 ## License
-HHAST is BSD-licensed. We also provide an additional patent grant.
+
+HHAST is MIT-licensed.
