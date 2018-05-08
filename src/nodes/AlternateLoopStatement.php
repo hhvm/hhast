@@ -13,10 +13,12 @@ namespace Facebook\HHAST;
 use namespace HH\Lib\{Str, Vec};
 
 final class AlternateLoopStatement extends AlternateLoopStatementGeneratedBase {
+  <<__Override>>
   public function getBody(): EditableNode {
     return $this->getStatements();
   }
 
+  <<__Override>>
   public function withBody(EditableNode $body): this {
     return $this->withStatements($body);
   }
