@@ -460,6 +460,7 @@ final class CodegenSyntax extends CodegenBase {
 
   private static function getKindsWithManualSubclasses(): keyset<string> {
     return keyset[
+      'AlternateLoopStatement',
       'NamespaceDeclaration',
     ];
   }

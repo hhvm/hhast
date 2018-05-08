@@ -2,13 +2,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c9a97faa7f7b723d95ef74448e3cd221>>
+ * @generated SignedSource<<3a2ea4a88dd08d2791c0c67c86566787>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class AlternateLoopStatement
+abstract class AlternateLoopStatementGeneratedBase
   extends EditableNode
   implements IControlFlowStatement, ILoopStatement {
 
