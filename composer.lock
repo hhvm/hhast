@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f0e2f8c7f60073fd8640eb2b53c28505",
+    "content-hash": "c24b6d1a6c1df16ad2e4e8a501fc618e",
     "packages": [
         {
             "name": "fredemmott/hack-error-suppressor",
@@ -122,36 +122,39 @@
         },
         {
             "name": "hhvm/type-assert",
-            "version": "v3.2.1",
+            "version": "v3.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/type-assert.git",
-                "reference": "8f70814c8268f50e2fa728893d3ad9cad73df398"
+                "reference": "9bbe7cac2ff831142d74203479e72046cbc932f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/type-assert/zipball/8f70814c8268f50e2fa728893d3ad9cad73df398",
-                "reference": "8f70814c8268f50e2fa728893d3ad9cad73df398",
+                "url": "https://api.github.com/repos/hhvm/type-assert/zipball/9bbe7cac2ff831142d74203479e72046cbc932f8",
+                "reference": "9bbe7cac2ff831142d74203479e72046cbc932f8",
                 "shasum": ""
             },
             "require": {
                 "hhvm": "^3.23.0",
                 "hhvm/hhvm-autoload": "^1.4",
-                "hhvm/hsl": "^1.0"
+                "hhvm/hsl": "^1.0|^3.26.0"
             },
             "require-dev": {
                 "91carriage/phpunit-hhi": "~5.1",
-                "facebook/fbexpect": "^0.2.0 | ^0.3.0 | ^0.4.0",
+                "facebook/fbexpect": "^0.4.0|^1.0.0",
                 "phpunit/phpunit": "~5.1"
             },
             "type": "library",
             "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
             "description": "Convert untyped data to typed data",
             "keywords": [
                 "TypeAssert",
                 "hack"
             ],
-            "time": "2018-02-09T17:05:23+00:00"
+            "time": "2018-05-09T18:23:07+00:00"
         }
     ],
     "packages-dev": [
@@ -260,16 +263,16 @@
         },
         {
             "name": "facebook/fbexpect",
-            "version": "v0.4.1",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/fbexpect.git",
-                "reference": "5af28d762b2bf8c6e7c242ce94eacf5136f61459"
+                "reference": "1b86ba9bcab71242cf8d1a69aaca5ca3774c5ecf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/fbexpect/zipball/5af28d762b2bf8c6e7c242ce94eacf5136f61459",
-                "reference": "5af28d762b2bf8c6e7c242ce94eacf5136f61459",
+                "url": "https://api.github.com/repos/hhvm/fbexpect/zipball/1b86ba9bcab71242cf8d1a69aaca5ca3774c5ecf",
+                "reference": "1b86ba9bcab71242cf8d1a69aaca5ca3774c5ecf",
                 "shasum": ""
             },
             "require": {
@@ -288,8 +291,11 @@
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
             "description": "Unit test helpers for Facebook projects",
-            "time": "2018-02-09T00:09:55+00:00"
+            "time": "2018-05-09T17:30:06+00:00"
         },
         {
             "name": "facebook/hack-codegen",
