@@ -5,7 +5,7 @@
  *
  *  This source code is licensed under the MIT license found in the
  *  LICENSE file in the root directory of this source tree.
- *
+  *
  */
 
 namespace Facebook\HHAST\Migrations;
@@ -22,7 +22,7 @@ use type Facebook\HHAST\{
   Missing,
   WhiteSpace,
 };
-use namespace HH\Lib\{C, Dict, Keyset, Vec};
+use namespace HH\Lib\{C, Dict, Keyset, Str, Vec};
 
 final class AddFixMesMigration extends BaseMigration {
   use TypeErrorMigrationTrait;
@@ -49,7 +49,7 @@ final class AddFixMesMigration extends BaseMigration {
         |> Vec\map(
           $$,
           $code ==> vec[
-            new FixMe(\sprintf('/* HH_FIXME[%d] */', $code)),
+            new FixMe(Str\format('/* HH_FIXME[%d] */', $code)),
             new WhiteSpace(' '),
           ],
         )

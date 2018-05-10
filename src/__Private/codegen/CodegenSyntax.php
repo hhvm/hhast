@@ -199,7 +199,7 @@ final class CodegenSyntax extends CodegenBase {
           ->addLines(
             Vec\map(
               $syntax['fields'],
-              $field ==> \sprintf(
+              $field ==> Str\format(
                 '$this->_%s = $%s;',
                 $field['field_name'],
                 $field['field_name'],
@@ -220,7 +220,7 @@ final class CodegenSyntax extends CodegenBase {
         ->addMultilineCall(
           'EditableNode::fromJSON',
           vec[
-            \sprintf(
+            Str\format(
               '/* UNSAFE_EXPR */ $json[\'%s_%s\']',
               $syntax['prefix'],
               $field['field_name'],
@@ -302,7 +302,7 @@ final class CodegenSyntax extends CodegenBase {
           ->addLines(
             Vec\map(
               $fields,
-              $field ==> \sprintf(
+              $field ==> Str\format(
                 '$%s = $this->_%s->rewrite($rewriter, $parents);',
                 $field,
                 $field,
@@ -314,7 +314,7 @@ final class CodegenSyntax extends CodegenBase {
           ->addLines(
             Vec\map(
               $fields,
-              $field ==> \sprintf('$%s === $this->_%s &&', $field, $field),
+              $field ==> Str\format('$%s === $this->_%s &&', $field, $field),
             )
             |> (
               $lines ==> {
@@ -350,7 +350,7 @@ final class CodegenSyntax extends CodegenBase {
     string $field,
   ): self::TFieldSpec {
     $key =
-      \sprintf('%s.%s_%s', $syntax['description'], $syntax['prefix'], $field);
+      Str\format('%s.%s_%s', $syntax['description'], $syntax['prefix'], $field);
     $specs = $this->getRelationships();
     if (!C\contains_key($specs, $key)) {
       return shape(

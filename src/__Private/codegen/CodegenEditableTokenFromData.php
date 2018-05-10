@@ -29,22 +29,22 @@ final class CodegenEditableTokenFromData extends CodegenBase {
 
     foreach ($tokens['noText'] as $token) {
       $kind = StrP\underscored($token['token_kind']);
-      $class_map[$kind] = \sprintf('HHAST\\%sToken::class', $token['token_kind']);
+      $class_map[$kind] = Str\format('HHAST\\%sToken::class', $token['token_kind']);
     }
 
     foreach ($tokens['fixedText'] as $token) {
       $text = TypeAssert\not_null($token['token_text']);
       $kind = $token['token_kind'];
       if (Str\lowercase($text) === Str\uppercase($text)) {
-        $class_map[$text] = \sprintf('HHAST\\%sToken::class', $kind);
+        $class_map[$text] = Str\format('HHAST\\%sToken::class', $kind);
       } else {
-        $class_map_with_text[$text] = \sprintf('HHAST\\%sToken::class', $kind);
+        $class_map_with_text[$text] = Str\format('HHAST\\%sToken::class', $kind);
       }
     }
 
     foreach ($tokens['variableText'] as $token) {
       $kind = StrP\underscored($token['token_kind']);
-      $class_map_with_text[$kind] = \sprintf('HHAST\\%sToken::class', $token['token_kind']);
+      $class_map_with_text[$kind] = Str\format('HHAST\\%sToken::class', $token['token_kind']);
     }
 
     $cg

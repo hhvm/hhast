@@ -65,11 +65,12 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
 
       return new FixableASTLintError(
         $this,
-        \sprintf(
+        Str\format(
           '%s::%s() overrides %s::%s() without <<__Override>>',
           $class->getName()->getCode()
             |> Str\trim($$)
-            |> resolve_type($$, $node, $parents),
+            |> resolve_type($$, $node, $parents)
+            |> TypeAssert\not_null($$),
           $method,
           $reflection_method->getDeclaringClass()->getName(),
           $method,

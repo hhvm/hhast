@@ -56,14 +56,14 @@ abstract class FunctionNamingLinter extends BaseASTLinter<
     string $suggestion,
   ): string {
     if ($class === null) {
-      return \sprintf(
+      return Str\format(
         '%s "%s()" does not match conventions; consider renaming to "%s"',
         $what,
         $name,
         $suggestion,
       );
     }
-    return \sprintf(
+    return Str\format(
       '%s "%s()" in class "%s" does not match conventions; consider renaming '.
       'to "%s"',
       $what,

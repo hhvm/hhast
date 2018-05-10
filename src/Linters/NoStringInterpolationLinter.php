@@ -51,7 +51,7 @@ final class NoStringInterpolationLinter
 
     return new FixableASTLintError(
       $this,
-      'Do not use string interpolation - consider concatenation or sprintf '.
+      'Do not use string interpolation - consider concatenation or Strormat() instead '.
       'instead',
       $root_expr,
     );

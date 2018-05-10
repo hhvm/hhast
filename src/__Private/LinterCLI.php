@@ -199,7 +199,7 @@ final class LinterCLI extends CLIWithArguments {
         $colors ? "\e[0m" : '',
         $position === null
           ? $error->getFile()
-          : \sprintf('%s:%s:%s', $error->getFile(), $position[0], $position[1]),
+          : Str\format('%s:%d:%d', $error->getFile(), $position[0], $position[1]),
       );
 
       $c = new PerfCounter($class.'#isFixable');

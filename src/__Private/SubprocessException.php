@@ -10,10 +10,12 @@
 
 namespace Facebook\HHAST\__Private;
 
+use namespace HH\Lib\Str;
+
 final class SubprocessException extends \Exception {
   public function __construct(vec<string> $command, private int $exitCode) {
     parent::__construct(
-      \sprintf(
+      Str\format(
         'Command "%s" failed with exit code %d',
         \implode(' ', $command),
         $exitCode,

@@ -231,7 +231,7 @@ final class LinterCLIConfig {
       );
     } catch (TypeAssert\IncorrectTypeException $e) {
       throw new \Exception(
-        \sprintf(
+        Str\format(
           "Invalid configuration file: %s\n  %s",
           $file,
           $e->getMessage(),

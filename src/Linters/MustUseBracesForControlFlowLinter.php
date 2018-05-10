@@ -61,7 +61,7 @@ class MustUseBracesForControlFlowLinter
 
     return new FixableASTLintError(
       $this,
-      \sprintf(
+      Str\format(
         '%s without braces',
         $node->getSyntaxKind() |> Str\replace($$, '_', ' '),
       ),

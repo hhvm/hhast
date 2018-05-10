@@ -17,6 +17,7 @@ use type Facebook\HHAST\{
 };
 use function Facebook\HHAST\find_position;
 use function Facebook\HHAST\__Private\execute;
+use namespace HH\Lib\Str;
 
 final class FunctionNamingLintError
 extends ASTLintError<IFunctionishDeclaration> implements FixableLintError {
@@ -54,7 +55,7 @@ extends ASTLintError<IFunctionishDeclaration> implements FixableLintError {
   final public function getReadableFix(): (string, string) {
     return tuple(
       $this->getPrettyBlame(),
-      \sprintf(
+      Str\format(
         "$ hh_client --refactor %s \\\n>    %s \\\n>    %s",
         $this->node instanceof MethodishDeclaration ? 'Method' : 'Function',
         $this->old,
