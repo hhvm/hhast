@@ -2,36 +2,36 @@
     {
         "blame": "\"foo$bar\"",
         "blame_pretty": "\"foo$bar\"",
-        "description": "Do not use string interpolation - consider concatenation or Strormat() instead instead"
+        "description": "Do not use string interpolation - consider concatenation or Str\format() instead instead"
     },
     {
         "blame": "\"foo$bar-baz\"",
         "blame_pretty": "\"foo$bar-baz\"",
-        "description": "Do not use string interpolation - consider concatenation or Strormat() instead instead"
+        "description": "Do not use string interpolation - consider concatenation or Str\format() instead instead"
     },
     {
         "blame": "\"$foo\"",
         "blame_pretty": "\"$foo\"",
-        "description": "Do not use string interpolation - consider concatenation or Strormat() instead instead"
+        "description": "Do not use string interpolation - consider concatenation or Str\format() instead instead"
     },
     {
         "blame": "\"${foo}bar\"",
         "blame_pretty": "\"${foo}bar\"",
-        "description": "Do not use string interpolation - consider concatenation or Strormat() instead instead"
+        "description": "Do not use string interpolation - consider concatenation or Str\format() instead instead"
     },
     {
         "blame": "\"foo${bar}\"",
         "blame_pretty": "\"foo${bar}\"",
-        "description": "Do not use string interpolation - consider concatenation or Strormat() instead instead"
+        "description": "Do not use string interpolation - consider concatenation or Str\format() instead instead"
     },
     {
         "blame": "\"foo${bar}baz${herp}derp\"",
         "blame_pretty": "\"foo${bar}baz${herp}derp\"",
-        "description": "Do not use string interpolation - consider concatenation or Strormat() instead instead"
+        "description": "Do not use string interpolation - consider concatenation or Str\format() instead instead"
     },
     {
         "blame": "\"foo{$bar}\"",
         "blame_pretty": "\"foo{$bar}\"",
-        "description": "Do not use string interpolation - consider concatenation or Strormat() instead instead"
+        "description": "Do not use string interpolation - consider concatenation or Str\format() instead instead"
     }
 ]
