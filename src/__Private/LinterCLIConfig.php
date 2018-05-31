@@ -26,7 +26,7 @@ final class LinterCLIConfig {
     ?'builtinLinters' => NamedLinterGroup,
     // Equivalent to 'use namespace' for the config options that take
     // linter classnames - e.g:
-    //   "namespaceAliases": { "HHAST": "Facebook\\HAST\\Linters" },
+    //   "namespaceAliases": { "HHAST": "Facebook\\HHAST\\Linters" },
     //   "extraLinters": [ "HHAST\\SomeContentiousLinter" ],
     ?'namespaceAliases' => dict<string, string>,
     // Class names for additional linters that should be used for this project
