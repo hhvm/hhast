@@ -63,6 +63,7 @@ final class LinterCLIConfig {
       Linters\MustUseBracesForControlFlowLinter::class,
       Linters\MustUseOverrideAttributeLinter::class,
       Linters\NoWhitespaceAtEndOfLineLinter::class,
+      Linters\AsyncFunctionAndMethodLinter::class,
     ];
 
   const vec<classname<BaseLinter>>
