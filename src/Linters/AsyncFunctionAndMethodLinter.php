@@ -25,14 +25,14 @@ class AsyncFunctionAndMethodLinter extends FunctionNamingLinter {
     FunctionDeclaration $func,
   ): string {
     list($head, $suffix) = self::splitName($name);
-    $declaration_header = $func->getDeclarationHeader()->getCode();
+    $type = $func->getDeclarationHeader()->getType()->getCode();
     if (
-        \preg_match('/^test/', $head) !== 1 &&
-        \preg_match('/:\s*Awaitable.*$/', $declaration_header) === 1 &&
-        \preg_match('/(_async|_asyncx)$/', $head) !== 1
+        !Str\starts_with($head, 'test') &&
+        Str\starts_with($type, 'Awaitable') &&
+        !Str\ends_with($head, '_async') &&
+        !Str\ends_with($head, '_asyncx')
     ) {
-      return $head
-        |> ($suffix === null ? $$.'_async' : $$.'_async_'.$suffix);
+      return ($suffix === null ? $head.'_async' : $head.'_async_'.$suffix);
     }
     return $name;
   }
@@ -43,14 +43,14 @@ class AsyncFunctionAndMethodLinter extends FunctionNamingLinter {
     MethodishDeclaration $meth,
   ): string {
     list($head, $suffix) = self::splitName($name);
-    $declaration_header = $meth->getFunctionDeclHeader()->getCode();
+    $type = $meth->getFunctionDeclHeader()->getType()->getCode();
     if (
-      \preg_match('/^test/', $head) !== 1 &&
-      \preg_match('/:\s*Awaitable.*$/', $declaration_header) === 1 &&
-      \preg_match('/(Async|Asyncx)$/', $head) !== 1
+      !Str\starts_with($head, 'test') &&
+      Str\starts_with($type, 'Awaitable') &&
+      !Str\ends_with($head, 'Async') &&
+      !Str\ends_with($head, 'Asyncx')
     ) {
-      return $head
-        |> ($suffix === null ? $$.'Async' : $$.'Async'.$suffix);
+      return ($suffix === null ? $head.'Async' : $head.'Async'.$suffix);
     }
     return $name;
   }
