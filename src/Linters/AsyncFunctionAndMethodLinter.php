@@ -27,16 +27,17 @@ class AsyncFunctionAndMethodLinter extends FunctionNamingLinter {
   ): string {
     list($head, $suffix) = self::splitName($name);
     $type = $func->getDeclarationHeader()->getType();
-    if ($type instanceof GenericTypeSpecifier) {
-      $type = $type->getClassType()->getCode();
-      if (
-        !Str\starts_with($head, 'test') &&
-        Str\compare($type, 'Awaitable') === 0 &&
-        !Str\ends_with($head, '_async') &&
-        !Str\ends_with($head, '_asyncx')
-      ) {
-        return ($suffix === null ? $head.'_async' : $head.'_async_'.$suffix);
-      }
+    if (!$type instanceof GenericTypeSpecifier) {
+      return $name;
+    }
+    $type = $type->getClassType()->getCode();
+    if (
+      !Str\starts_with($head, 'test') &&
+      $type === 'Awaitable' &&
+      !Str\ends_with($head, '_async') &&
+      !Str\ends_with($head, '_asyncx')
+    ) {
+      return ($suffix === null ? $head.'_async' : $head.'_async_'.$suffix);
     }
     return $name;
   }
@@ -48,16 +49,17 @@ class AsyncFunctionAndMethodLinter extends FunctionNamingLinter {
   ): string {
     list($head, $suffix) = self::splitName($name);
     $type = $meth->getFunctionDeclHeader()->getType();
-    if ($type instanceof GenericTypeSpecifier) {
-      $type = $type->getClassType()->getCode();
-      if (
-        !Str\starts_with($head, 'test') &&
-        Str\compare($type, 'Awaitable') === 0 &&
-        !Str\ends_with($head, 'Async') &&
-        !Str\ends_with($head, 'Asyncx')
-      ) {
-        return ($suffix === null ? $head.'Async' : $head.'Async'.$suffix);
-      }
+    if (!$type instanceof GenericTypeSpecifier) {
+      return $name;
+    }
+    $type = $type->getClassType()->getCode();
+    if (
+      !Str\starts_with($head, 'test') &&
+      $type === 'Awaitable' &&
+      !Str\ends_with($head, 'Async') &&
+      !Str\ends_with($head, 'Asyncx')
+    ) {
+      return ($suffix === null ? $head.'Async' : $head.'Async'.$suffix);
     }
     return $name;
   }
