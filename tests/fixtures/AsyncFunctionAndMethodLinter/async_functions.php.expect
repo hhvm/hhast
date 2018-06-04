@@ -1,0 +1,12 @@
+[
+    {
+        "blame": "\/**\n * Copyright (c) 2016, Facebook, Inc.\n * All rights reserved.\n *\n * This source code is licensed under the BSD-style license found in the\n * LICENSE file in the root directory of this source tree. An additional\n * grant of patent rights can be found in the PATENTS file in the same\n * directory.\n *\n *\/\n\nfunction foo_bar(): Awaitable<string> {\n}\n",
+        "blame_pretty": "\nfunction foo_bar(): Awaitable<string> ",
+        "description": "Function \"foo_bar()\" does not match conventions; consider renaming to \"foo_bar_async\""
+    },
+    {
+        "blame": "\nfunction herp_derp(): Awaitable<void> {\n}\n",
+        "blame_pretty": "\nfunction herp_derp(): Awaitable<void> ",
+        "description": "Function \"herp_derp()\" does not match conventions; consider renaming to \"herp_derp_async\""
+    }
+]

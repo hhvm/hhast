@@ -1,0 +1,12 @@
+[
+    {
+        "blame": "  public function fooBar(): Awaitable<int> {}\n",
+        "blame_pretty": "  public function fooBar(): Awaitable<int> ",
+        "description": "Method \"fooBar()\" in class \"Foo\" does not match conventions; consider renaming to \"fooBarAsync\""
+    },
+    {
+        "blame": "  public static function herpDerp(): Awaitable<float> {}\n",
+        "blame_pretty": "  public static function herpDerp(): Awaitable<float> ",
+        "description": "Static method \"herpDerp()\" in class \"Foo\" does not match conventions; consider renaming to \"herpDerpAsync\""
+    }
+]
