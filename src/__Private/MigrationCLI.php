@@ -205,14 +205,14 @@ class MigrationCLI extends CLIWithRequiredArguments {
     if ($this->xhprof) {
       XHProf::enable();
     }
-    $result = await $this->mainAsyncImpl();
+    $result = await $this->mainImplAsync();
     if ($this->xhprof) {
       XHProf::disableAndDump(\STDERR);
     }
     return $result;
   }
 
-  private async function mainAsyncImpl(): Awaitable<int> {
+  private async function mainImplAsync(): Awaitable<int> {
     if (C\is_empty($this->migrations)) {
       \fprintf(\STDERR, "You must specify at least one migration!\n\n");
       $this->displayHelp(\STDERR);

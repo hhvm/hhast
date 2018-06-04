@@ -125,7 +125,7 @@ final class LinterCLI extends CLIWithArguments {
     }
 
     using (new ScopedPerfCounter(__CLASS__)) {
-      $result = await $this->mainAsyncImpl();
+      $result = await $this->mainImplAsync();
     }
 
     if ($this->xhprof) {
@@ -142,7 +142,7 @@ final class LinterCLI extends CLIWithArguments {
     return $result;
   }
 
-  private async function mainAsyncImpl(): Awaitable<int> {
+  private async function mainImplAsync(): Awaitable<int> {
     $roots = $this->getArguments();
     if (C\is_empty($roots)) {
       $config = LinterCLIConfig::getForPath(\getcwd());
