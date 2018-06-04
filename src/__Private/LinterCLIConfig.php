@@ -58,12 +58,12 @@ final class LinterCLIConfig {
 
   const vec<classname<BaseLinter>>
     DEFAULT_LINTERS = vec[
+      Linters\AsyncFunctionAndMethodLinter::class,
       Linters\CamelCasedMethodsUnderscoredFunctionsLinter::class,
       Linters\DontAwaitInALoopLinter::class,
       Linters\MustUseBracesForControlFlowLinter::class,
       Linters\MustUseOverrideAttributeLinter::class,
       Linters\NoWhitespaceAtEndOfLineLinter::class,
-      Linters\AsyncFunctionAndMethodLinter::class,
     ];
 
   const vec<classname<BaseLinter>>
