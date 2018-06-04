@@ -11,9 +11,9 @@
  */
 
 class Foo {
-  public function testFooBarUNTYPED(): Awaitable {}
-  public static function testHerpDerpBLAH(): Awaitable<T> {}
+  public function testFooBarUNTYPED(): Awaitable<float> {}
+  public static function testHerpDerpBLAH(): Awaitable<mixed> {}
 }
 
-function test_foo_bar_DEPRECATED(): Awaitable {
+function test_foo_bar_DEPRECATED(): Awaitable<int> {
 }

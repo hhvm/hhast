@@ -1,17 +1,17 @@
 [
     {
-        "blame": "  public function fooBarUNTYPED(): Awaitable {}\n",
-        "blame_pretty": "  public function fooBarUNTYPED(): Awaitable ",
+        "blame": "  public function fooBarUNTYPED(): Awaitable<void> {}\n",
+        "blame_pretty": "  public function fooBarUNTYPED(): Awaitable<void> ",
         "description": "Method \"fooBarUNTYPED()\" in class \"Foo\" does not match conventions; consider renaming to \"fooBarAsyncUNTYPED\""
     },
     {
-        "blame": "  public static function herpDerpBLAH(): Awaitable<T> {}\n",
-        "blame_pretty": "  public static function herpDerpBLAH(): Awaitable<T> ",
+        "blame": "  public static function herpDerpBLAH(): Awaitable<int> {}\n",
+        "blame_pretty": "  public static function herpDerpBLAH(): Awaitable<int> ",
         "description": "Static method \"herpDerpBLAH()\" in class \"Foo\" does not match conventions; consider renaming to \"herpDerpBLAHAsync\""
     },
     {
-        "blame": "\nfunction foo_bar_DEPRECATED(): Awaitable {\n}\n",
-        "blame_pretty": "\nfunction foo_bar_DEPRECATED(): Awaitable ",
+        "blame": "\nfunction foo_bar_DEPRECATED(): Awaitable<string> {\n}\n",
+        "blame_pretty": "\nfunction foo_bar_DEPRECATED(): Awaitable<string> ",
         "description": "Function \"foo_bar_DEPRECATED()\" does not match conventions; consider renaming to \"foo_bar_async_DEPRECATED\""
     }
 ]

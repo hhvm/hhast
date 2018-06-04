@@ -10,8 +10,8 @@
  *
  */
 
-function foo_bar(): Awaitable {
+function foo_bar(): Awaitable<string> {
 }
 
-function herp_derp(): Awaitable<T> {
+function herp_derp(): Awaitable<void> {
 }

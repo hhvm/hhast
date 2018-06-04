@@ -11,9 +11,9 @@
  */
 
 class Foo {
-  public function fooBarUNTYPED(): Awaitable {}
-  public static function herpDerpBLAH(): Awaitable<T> {}
+  public function fooBarUNTYPED(): Awaitable<void> {}
+  public static function herpDerpBLAH(): Awaitable<int> {}
 }
 
-function foo_bar_DEPRECATED(): Awaitable {
+function foo_bar_DEPRECATED(): Awaitable<string> {
 }

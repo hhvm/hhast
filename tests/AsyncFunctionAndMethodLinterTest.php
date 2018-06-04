@@ -29,18 +29,18 @@ final class AsyncFunctionAndMethodLinterTest extends TestCase {
       ['<?hh class Foo { public function __construct() {} }'],
       ['<?hh class Foo { public function __destruct() {} }'],
       ['<?hh class Foo { public function fooBar() {} }'],
-      ['<?hh class Foo { public function getFooBarAsync(): Awaitable {} }'],
+      ['<?hh class Foo { public function getFooBarAsync(): Awaitable<void> {} }'],
       ['<?hh class Foo { public function getFooBarUNSAFE() {} }'],
-      ['<?hh class Foo { public function getFooBarAsyncxUNTYPED(): Awaitable {} }'],
+      ['<?hh class Foo { public function getFooBarAsyncxUNTYPED(): Awaitable<string> {} }'],
       ['<?hh class Foo { public function getFooBarDEPRECATED(): int {} }'],
       ['<?hh function foo_bar() {}'],
-      ['<?hh function get_foo_bar_asyncx(): Awaitable {}'],
+      ['<?hh function get_foo_bar_asyncx(): Awaitable<float> {}'],
       ['<?hh function foo_bar_UNSAFE() {}'],
-      ['<?hh function foo_bar_async_UNTYPED(): Awaitable {}'],
+      ['<?hh function foo_bar_async_UNTYPED(): Awaitable<int> {}'],
       ['<?hh function foo_bar_DEPRECATED(): void {}'],
       // functions that start with 'test':
-      ['<?hh class Foo { public function testFoo() : Awaitable {}'],
-      ['<?hh function test_foo_async(): Awaitable<T> {}'],
+      ['<?hh class Foo { public function testFoo() : Awaitable<string> {}'],
+      ['<?hh function test_foo_async(): Awaitable<void> {}'],
     ];
   }
 }

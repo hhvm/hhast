@@ -28,16 +28,15 @@ class AsyncFunctionAndMethodLinter extends FunctionNamingLinter {
     list($head, $suffix) = self::splitName($name);
     $type = $func->getDeclarationHeader()->getType();
     if ($type instanceof GenericTypeSpecifier) {
-      $type = $type->getClassType();
-    }
-    $type = $type->getCode();
-    if (
+      $type = $type->getClassType()->getCode();
+      if (
         !Str\starts_with($head, 'test') &&
-        Str\starts_with($type, 'Awaitable') &&
+        Str\compare($type, 'Awaitable') === 0 &&
         !Str\ends_with($head, '_async') &&
         !Str\ends_with($head, '_asyncx')
-    ) {
-      return ($suffix === null ? $head.'_async' : $head.'_async_'.$suffix);
+      ) {
+        return ($suffix === null ? $head.'_async' : $head.'_async_'.$suffix);
+      }
     }
     return $name;
   }
@@ -50,16 +49,15 @@ class AsyncFunctionAndMethodLinter extends FunctionNamingLinter {
     list($head, $suffix) = self::splitName($name);
     $type = $meth->getFunctionDeclHeader()->getType();
     if ($type instanceof GenericTypeSpecifier) {
-      $type = $type->getClassType();
-    }
-    $type = $type->getCode();
-    if (
-      !Str\starts_with($head, 'test') &&
-      Str\starts_with($type, 'Awaitable') &&
-      !Str\ends_with($head, 'Async') &&
-      !Str\ends_with($head, 'Asyncx')
-    ) {
-      return ($suffix === null ? $head.'Async' : $head.'Async'.$suffix);
+      $type = $type->getClassType()->getCode();
+      if (
+        !Str\starts_with($head, 'test') &&
+        Str\compare($type, 'Awaitable') === 0 &&
+        !Str\ends_with($head, 'Async') &&
+        !Str\ends_with($head, 'Asyncx')
+      ) {
+        return ($suffix === null ? $head.'Async' : $head.'Async'.$suffix);
+      }
     }
     return $name;
   }
@@ -78,7 +76,7 @@ class AsyncFunctionAndMethodLinter extends FunctionNamingLinter {
       if (Str\ends_with_ci($name, $suffix)) {
         return tuple(
           Str\slice($name, 0, Str\length($name) - Str\length($suffix))
-          |> Str\strip_suffix($$, '_'),
+            |> Str\strip_suffix($$, '_'),
           $suffix,
         );
       }

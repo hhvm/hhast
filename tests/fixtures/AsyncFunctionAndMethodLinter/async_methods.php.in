@@ -11,6 +11,6 @@
  */
 
 class Foo {
-  public function fooBar(): Awaitable {}
-  public static function herpDerp(): Awaitable<T> {}
+  public function fooBar(): Awaitable<int> {}
+  public static function herpDerp(): Awaitable<float> {}
 }
