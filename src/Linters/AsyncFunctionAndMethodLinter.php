@@ -13,6 +13,7 @@ namespace Facebook\HHAST\Linters;
 use type Facebook\HHAST\{
   EditableNode,
   FunctionDeclaration,
+  GenericTypeSpecifier,
   IFunctionishDeclaration,
   MethodishDeclaration,
 };
@@ -25,7 +26,11 @@ class AsyncFunctionAndMethodLinter extends FunctionNamingLinter {
     FunctionDeclaration $func,
   ): string {
     list($head, $suffix) = self::splitName($name);
-    $type = $func->getDeclarationHeader()->getType()->getCode();
+    $type = $func->getDeclarationHeader()->getType();
+    if ($type instanceof GenericTypeSpecifier) {
+      $type = $type->getClassType();
+    }
+    $type = $type->getCode();
     if (
         !Str\starts_with($head, 'test') &&
         Str\starts_with($type, 'Awaitable') &&
@@ -43,7 +48,11 @@ class AsyncFunctionAndMethodLinter extends FunctionNamingLinter {
     MethodishDeclaration $meth,
   ): string {
     list($head, $suffix) = self::splitName($name);
-    $type = $meth->getFunctionDeclHeader()->getType()->getCode();
+    $type = $meth->getFunctionDeclHeader()->getType();
+    if ($type instanceof GenericTypeSpecifier) {
+      $type = $type->getClassType();
+    }
+    $type = $type->getCode();
     if (
       !Str\starts_with($head, 'test') &&
       Str\starts_with($type, 'Awaitable') &&
