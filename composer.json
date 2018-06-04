@@ -1,6 +1,6 @@
 {
     "name": "hhvm/hhast",
-    "bin": [ "bin/hhast-lint" ],
+    "bin": [ "bin/hhast-lint", "bin/hhast-inspect" ],
     "license": "MIT",
     "require-dev": {
         "phpunit/phpunit": "^5.7",
