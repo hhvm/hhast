@@ -41,7 +41,8 @@ function json_from_file(string $file): dict<string, mixed> {
     /* depth = */ 512 /* == default */,
     \JSON_FB_HACK_ARRAYS,
   );
-  if (!is_dict(/* $no_type_refinment_please = */ $json)) {
+  $no_type_refinement_please = $json;
+  if (!is_dict($no_type_refinement_please)) {
     throw new HHParseError($file, 'hh_parse did not output valid JSON');
   }
   return $json;

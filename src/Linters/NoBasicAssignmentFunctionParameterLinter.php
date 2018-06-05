@@ -22,7 +22,6 @@ use type Facebook\HHAST\{
   WhiteSpace
 };
 
-use function Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Str, Vec};
 
@@ -56,11 +55,11 @@ class NoBasicAssignmentFunctionParameterLinter
       if (C\is_empty($assignment_exps)) {
         return null;
       }
-      $original = $node->getCode();
-      $fixed = $this->getFixedNode($node)->getCode();
       return new FixableASTLintError(
         $this,
-        "Basic assignment is not allowed in ".$original."; consider changing to ".$fixed,
+        "Basic assignment is not allowed in function parameters because it is often".
+        "\n\t1) unexpected that it sets a local variable in the containing scope".
+        "\n\t2) wrongly assumed that the variables are named parameters",
         $node,
         new EditableList($assignment_exps),
       );
