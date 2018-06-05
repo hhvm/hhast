@@ -22,7 +22,7 @@ use type Facebook\HHAST\{
   WhiteSpace
 };
 
-use function Facebook\HHAST\;
+use function Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Str, Vec};
 
