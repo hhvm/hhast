@@ -61,6 +61,7 @@ final class LinterCLIConfig {
       Linters\AsyncFunctionAndMethodLinter::class,
       Linters\CamelCasedMethodsUnderscoredFunctionsLinter::class,
       Linters\DontAwaitInALoopLinter::class,
+      Linters\NoBasicAssignmentFunctionParameterLinter::class,
       Linters\MustUseBracesForControlFlowLinter::class,
       Linters\MustUseOverrideAttributeLinter::class,
       Linters\NoWhitespaceAtEndOfLineLinter::class,

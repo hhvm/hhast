@@ -1,0 +1,7 @@
+[
+    {
+        "blame": "foo(1, 2, $c = 3)",
+        "blame_pretty": "foo(1, 2, $c = 3)",
+        "description": "Basic assignment is not allowed in foo(1, 2, $c = 3); consider changing to foo(1, 2, \/* $c = *\/ 3)"
+    }
+]

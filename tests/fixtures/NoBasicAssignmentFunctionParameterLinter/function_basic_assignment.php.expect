@@ -1,0 +1,7 @@
+[
+    {
+        "blame": "\nfoo($a = 1, $b = 2)",
+        "blame_pretty": "\nfoo($a = 1, $b = 2)",
+        "description": "Basic assignment is not allowed in \nfoo($a = 1, $b = 2); consider changing to \nfoo(\/* $a = *\/ 1, \/* $b = *\/ 2)"
+    }
+]
