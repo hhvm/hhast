@@ -24,7 +24,7 @@ while (true) {
     break;
   }
   $parts = explode('/', $root);
-  array_pop($parts);
+  array_pop(&$parts);
   $root = implode('/', $parts);
 }
 
