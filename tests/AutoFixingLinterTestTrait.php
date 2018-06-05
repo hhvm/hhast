@@ -34,7 +34,11 @@ trait AutoFixingLinterTestTrait<Terror as Linters\FixableLintError> {
     \copy($in, $out);
     $linter = $this->getLinter($out);
 
-    $linter->fixLintErrors($linter->getLintErrors());
+    $all_errors = vec($linter->getLintErrors());
+    $fixable = Vec\filter($all_errors, $err ==> $err->isFixable());
+    $unfixable = Vec\filter($all_errors, $err ==> !$err->isFixable());
+    $linter->fixLintErrors($fixable);
+
     $code = \file_get_contents($out);
     expect($code)->toMatchExpectFileWithInputFile(
       $fixture.'.autofix.expect',
@@ -44,6 +48,8 @@ trait AutoFixingLinterTestTrait<Terror as Linters\FixableLintError> {
     $linter = $this->getLinter(
       __DIR__.'/fixtures/'.$fixture.'.autofix.expect'
     );
-    expect(vec($linter->getLintErrors()))->toBeSame(vec[]);
+
+    expect(Vec\map($linter->getLintErrors(), $e ==> self::getErrorAsShape($e)))
+      ->toBeSame(Vec\map($unfixable, $e ==> self::getErrorAsShape($e)));
   }
 }

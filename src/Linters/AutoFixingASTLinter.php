@@ -17,7 +17,7 @@ abstract class AutoFixingASTLinter<Tnode as EditableNode>
 extends BaseASTLinter<Tnode, FixableASTLintError<Tnode>>
 implements AutoFixingLinter<FixableASTLintError<Tnode>> {
 
-  abstract public function getFixedNode(Tnode $node): EditableNode;
+  abstract public function getFixedNode(Tnode $node): ?EditableNode;
 
   final public function fixLintErrors(
     Traversable<FixableASTLintError<Tnode>> $errors,
@@ -34,6 +34,10 @@ implements AutoFixingLinter<FixableASTLintError<Tnode>> {
       );
       $old = $error->getBlameNode();
       $new = $this->getFixedNode($old);
+      invariant(
+        $new !== null,
+        "Shouldn't be attempting to fix a non-fixable error",
+      );
       $ast = $ast->replace($old, $new);
     }
     \file_put_contents(

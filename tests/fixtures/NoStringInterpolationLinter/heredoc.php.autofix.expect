@@ -1,0 +1,4 @@
+<?hh
+$foo = <<<EOF
+foo$bar
+EOF;
