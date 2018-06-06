@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0b0bc8dd5612e8a26f51d41baa4df584>>
+ * @generated SignedSource<<d2208f88e93ed2c16037910d65a7c137>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -119,7 +119,7 @@ final class CollectionLiteralExpression extends EditableNode {
   }
 
   /**
-   * @returns SimpleTypeSpecifier | GenericTypeSpecifier
+   * @returns GenericTypeSpecifier | SimpleTypeSpecifier
    */
   public function getName(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_name);
@@ -206,7 +206,7 @@ final class CollectionLiteralExpression extends EditableNode {
   }
 
   /**
-   * @returns RightBraceToken | Missing
+   * @returns Missing | RightBraceToken
    */
   public function getRightBrace(): ?RightBraceToken {
     if ($this->_right_brace->isMissing()) {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a8d50c9ba1628ed04f29206417fc8c79>>
+ * @generated SignedSource<<730877383d50d6282cb07609c27e0597>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -145,7 +145,7 @@ final class TypeArguments extends EditableNode {
   }
 
   /**
-   * @returns GreaterThanToken | Missing
+   * @returns Missing | GreaterThanToken
    */
   public function getRightAngle(): ?GreaterThanToken {
     if ($this->_right_angle->isMissing()) {

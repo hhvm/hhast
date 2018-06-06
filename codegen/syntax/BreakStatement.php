@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<92111f9829ea698e21bbf25d81dba52c>>
+ * @generated SignedSource<<daf912da6c02896b8127d5a01e18b748>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,7 +123,7 @@ final class BreakStatement extends EditableNode {
   }
 
   /**
-   * @returns Missing | LiteralExpression | VariableExpression
+   * @returns LiteralExpression | Missing | VariableExpression
    */
   public function getLevel(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_level);

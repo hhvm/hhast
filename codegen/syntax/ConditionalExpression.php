@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5c9ad4588404e341affd8911d57cbb14>>
+ * @generated SignedSource<<c575c5bc984b1984d24ba5326657f279>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -133,11 +133,11 @@ final class ConditionalExpression extends EditableNode {
   }
 
   /**
-   * @returns IssetExpression | BinaryExpression | VariableExpression |
-   * FunctionCallExpression | NameToken | LiteralExpression | EmptyExpression |
-   * ParenthesizedExpression | SubscriptExpression | PrefixUnaryExpression |
-   * MemberSelectionExpression | ScopeResolutionExpression |
-   * ConditionalExpression | InstanceofExpression | LessThanToken
+   * @returns BinaryExpression | ConditionalExpression | EmptyExpression |
+   * FunctionCallExpression | InstanceofExpression | IssetExpression |
+   * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
+   * PrefixUnaryExpression | ScopeResolutionExpression | SubscriptExpression |
+   * LessThanToken | NameToken | VariableExpression
    */
   public function getTest(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_test);
@@ -193,13 +193,13 @@ final class ConditionalExpression extends EditableNode {
   }
 
   /**
-   * @returns SubscriptExpression | ObjectCreationExpression |
-   * LiteralExpression | ArrayIntrinsicExpression | NameToken |
-   * VariableExpression | ScopeResolutionExpression | FunctionCallExpression |
-   * PrefixUnaryExpression | ArrayCreationExpression |
-   * CollectionLiteralExpression | CastExpression | Missing |
-   * MemberSelectionExpression | ParenthesizedExpression | BinaryExpression |
-   * LambdaExpression
+   * @returns ArrayCreationExpression | ArrayIntrinsicExpression |
+   * BinaryExpression | CastExpression | CollectionLiteralExpression |
+   * FunctionCallExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | Missing | ObjectCreationExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression |
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * VariableExpression
    */
   public function getConsequence(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_consequence);
@@ -227,7 +227,7 @@ final class ConditionalExpression extends EditableNode {
   }
 
   /**
-   * @returns ColonToken | Missing
+   * @returns Missing | ColonToken
    */
   public function getColon(): ?ColonToken {
     if ($this->_colon->isMissing()) {
@@ -265,13 +265,13 @@ final class ConditionalExpression extends EditableNode {
   }
 
   /**
-   * @returns LiteralExpression | ObjectCreationExpression |
-   * PrefixUnaryExpression | NameToken | VariableExpression |
-   * ScopeResolutionExpression | BinaryExpression | ParenthesizedExpression |
-   * FunctionCallExpression | SubscriptExpression | ArrayCreationExpression |
-   * CollectionLiteralExpression | ArrayIntrinsicExpression | IssetExpression |
-   * TupleExpression | CastExpression | AnonymousFunction | Missing |
-   * LambdaExpression
+   * @returns AnonymousFunction | ArrayCreationExpression |
+   * ArrayIntrinsicExpression | BinaryExpression | CastExpression |
+   * CollectionLiteralExpression | FunctionCallExpression | IssetExpression |
+   * LambdaExpression | LiteralExpression | Missing | ObjectCreationExpression
+   * | ParenthesizedExpression | PrefixUnaryExpression |
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * TupleExpression | VariableExpression
    */
   public function getAlternative(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_alternative);

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f461e816a2f8bf9859d7823a52d516e0>>
+ * @generated SignedSource<<f7476d23d9d286c4a89e1f5a9f2cf703>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,7 +101,7 @@ final class TypeConstant extends EditableNode {
   }
 
   /**
-   * @returns NameToken | TypeConstant | SelfToken | ThisToken | ParentToken
+   * @returns NameToken | ParentToken | SelfToken | ThisToken | TypeConstant
    */
   public function getLeftType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_left_type);

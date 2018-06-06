@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f7d612a2b36e19edb718c18c670dd14c>>
+ * @generated SignedSource<<7ed9dbfc844219135ef0959a6e89264c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -87,20 +87,21 @@ final class ExpressionStatement extends EditableNode {
   }
 
   /**
-   * @returns FunctionCallExpression | BinaryExpression | XHPExpression |
-   * PrefixUnaryExpression | PostfixUnaryExpression | Missing |
-   * ObjectCreationExpression | YieldExpression | DefineExpression |
-   * InclusionExpression | EvalExpression | NameToken |
-   * ScopeResolutionExpression | SubscriptExpression | IssetExpression |
-   * EmptyExpression | LiteralExpression | AnonymousFunction |
-   * ParenthesizedExpression | MemberSelectionExpression | VariableExpression |
-   * CollectionLiteralExpression | FunctionCallWithTypeArgumentsExpression |
-   * LambdaExpression | CastExpression | AsExpression | RightBraceToken |
-   * QualifiedName | HaltCompilerExpression | ColonToken | RightParenToken |
-   * CommaToken | EqualGreaterThanToken | RightBracketToken | TupleExpression |
-   * YieldFromExpression | ConditionalExpression |
-   * SafeMemberSelectionExpression | EqualEqualEqualToken |
-   * DarrayIntrinsicExpression | VarrayIntrinsicExpression
+   * @returns AnonymousFunction | AsExpression | BinaryExpression |
+   * CastExpression | CollectionLiteralExpression | ConditionalExpression |
+   * DarrayIntrinsicExpression | DefineExpression | EmptyExpression |
+   * EvalExpression | FunctionCallExpression |
+   * FunctionCallWithTypeArgumentsExpression | HaltCompilerExpression |
+   * InclusionExpression | IssetExpression | LambdaExpression |
+   * LiteralExpression | MemberSelectionExpression | Missing |
+   * ObjectCreationExpression | ParenthesizedExpression |
+   * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
+   * SafeMemberSelectionExpression | ScopeResolutionExpression |
+   * SubscriptExpression | RightParenToken | CommaToken | ColonToken |
+   * EqualEqualEqualToken | EqualGreaterThanToken | RightBracketToken |
+   * NameToken | RightBraceToken | TupleExpression | VariableExpression |
+   * VarrayIntrinsicExpression | XHPExpression | YieldExpression |
+   * YieldFromExpression
    */
   public function getExpression(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_expression);
@@ -122,7 +123,7 @@ final class ExpressionStatement extends EditableNode {
   }
 
   /**
-   * @returns SemicolonToken | Missing
+   * @returns Missing | SemicolonToken
    */
   public function getSemicolon(): ?SemicolonToken {
     if ($this->_semicolon->isMissing()) {

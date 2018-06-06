@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b08f719c792f0d78b0bd1cf06279ca91>>
+ * @generated SignedSource<<67be1f22e11eee8a524a188a04803055>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -82,9 +82,9 @@ final class PrefixUnaryExpression extends EditableNode {
   }
 
   /**
-   * @returns ExclamationToken | MinusToken | TildeToken | PrintToken |
-   * PlusPlusToken | MinusMinusToken | DollarToken | AmpersandToken |
-   * CloneToken | AtToken | AwaitToken | PlusToken | SuspendToken
+   * @returns ExclamationToken | DollarToken | AmpersandToken | PlusToken |
+   * PlusPlusToken | MinusToken | MinusMinusToken | AtToken | AwaitToken |
+   * CloneToken | PrintToken | SuspendToken | TildeToken
    */
   public function getOperator(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_operator);
@@ -106,16 +106,16 @@ final class PrefixUnaryExpression extends EditableNode {
   }
 
   /**
-   * @returns VariableExpression | LiteralExpression |
-   * MemberSelectionExpression | NameToken | FunctionCallExpression |
-   * IssetExpression | ParenthesizedExpression | SubscriptExpression |
-   * BinaryExpression | VariableToken | BracedExpression |
-   * ScopeResolutionExpression | ObjectCreationExpression |
-   * PostfixUnaryExpression | InclusionExpression | PrefixUnaryExpression |
-   * CastExpression | EmptyExpression | ConditionalExpression |
-   * DefineExpression | InstanceofExpression | ArrayIntrinsicExpression |
-   * EndOfFileToken | EvalExpression | SafeMemberSelectionExpression |
-   * PipeVariableExpression | AnonymousFunction
+   * @returns AnonymousFunction | ArrayIntrinsicExpression | BinaryExpression |
+   * BracedExpression | CastExpression | ConditionalExpression |
+   * DefineExpression | EmptyExpression | EvalExpression |
+   * FunctionCallExpression | InclusionExpression | InstanceofExpression |
+   * IssetExpression | LiteralExpression | MemberSelectionExpression |
+   * ObjectCreationExpression | ParenthesizedExpression |
+   * PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression |
+   * SafeMemberSelectionExpression | ScopeResolutionExpression |
+   * SubscriptExpression | EndOfFileToken | NameToken | VariableToken |
+   * VariableExpression
    */
   public function getOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_operand);

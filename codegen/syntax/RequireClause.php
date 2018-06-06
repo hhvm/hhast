@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f4911bcaea59e489770793135da9ff83>>
+ * @generated SignedSource<<2f9e3de2b166299cefbc827c57432fae>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -158,7 +158,7 @@ final class RequireClause extends EditableNode {
   }
 
   /**
-   * @returns SimpleTypeSpecifier | GenericTypeSpecifier
+   * @returns GenericTypeSpecifier | SimpleTypeSpecifier
    */
   public function getName(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_name);

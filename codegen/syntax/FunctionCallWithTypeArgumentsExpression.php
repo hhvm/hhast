@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<73a0faf8dd743a191c01b3ec78791b01>>
+ * @generated SignedSource<<9f00c01449f484be6705d5d4c2cf7741>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -145,7 +145,7 @@ final class FunctionCallWithTypeArgumentsExpression extends EditableNode {
   }
 
   /**
-   * @returns NameToken | MemberSelectionExpression | ScopeResolutionExpression
+   * @returns MemberSelectionExpression | ScopeResolutionExpression | NameToken
    */
   public function getReceiver(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_receiver);
@@ -229,7 +229,7 @@ final class FunctionCallWithTypeArgumentsExpression extends EditableNode {
   }
 
   /**
-   * @returns Missing | EditableList
+   * @returns EditableList | Missing
    */
   public function getArgumentList(): ?EditableList {
     if ($this->_argument_list->isMissing()) {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<27d28a090dd234e65ae799d91a696dba>>
+ * @generated SignedSource<<15c0b7610bd73908c28b1756846921b0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -109,9 +109,9 @@ final class DecoratedExpression extends EditableNode {
   }
 
   /**
-   * @returns VariableToken | DecoratedExpression | VariableExpression |
-   * ArrayCreationExpression | FunctionCallExpression | SubscriptExpression |
-   * ArrayIntrinsicExpression | ScopeResolutionExpression
+   * @returns ArrayCreationExpression | ArrayIntrinsicExpression |
+   * DecoratedExpression | FunctionCallExpression | ScopeResolutionExpression |
+   * SubscriptExpression | VariableToken | VariableExpression
    */
   public function getExpression(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_expression);

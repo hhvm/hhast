@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bde9394bc1a3ce2679c8ac87a1f4d61e>>
+ * @generated SignedSource<<78c204740eecdb395b0b8877e760dd34>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,10 +123,10 @@ final class BracedExpression extends EditableNode {
   }
 
   /**
-   * @returns NameToken | LiteralExpression | BinaryExpression |
-   * FunctionCallExpression | VariableExpression | ObjectCreationExpression |
-   * SubscriptExpression | PrefixUnaryExpression | CollectionLiteralExpression
-   * | ArrayIntrinsicExpression
+   * @returns ArrayIntrinsicExpression | BinaryExpression |
+   * CollectionLiteralExpression | FunctionCallExpression | LiteralExpression |
+   * ObjectCreationExpression | PrefixUnaryExpression | SubscriptExpression |
+   * NameToken | VariableExpression
    */
   public function getExpression(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_expression);

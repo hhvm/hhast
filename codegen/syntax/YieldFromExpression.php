@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ee03c1e5b523e6651beb35fa389a6319>>
+ * @generated SignedSource<<52d5faa5842c14958576df3d2a936a3d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -145,8 +145,8 @@ final class YieldFromExpression extends EditableNode {
   }
 
   /**
-   * @returns FunctionCallExpression | ArrayCreationExpression |
-   * VariableExpression | LiteralExpression | ParenthesizedExpression
+   * @returns ArrayCreationExpression | FunctionCallExpression |
+   * LiteralExpression | ParenthesizedExpression | VariableExpression
    */
   public function getOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_operand);

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d293d68de25d1e411355ac37367d09de>>
+ * @generated SignedSource<<f7f01179ec66cd829b14adb4fc584bd3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -237,12 +237,12 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
   }
 
   /**
-   * @returns PrefixUnaryExpression | BinaryExpression | VariableExpression |
-   * FunctionCallExpression | LiteralExpression | IssetExpression |
-   * SubscriptExpression | ArrayIntrinsicExpression | MemberSelectionExpression
-   * | CastExpression | InstanceofExpression | NameToken |
-   * ParenthesizedExpression | IsExpression | EmptyExpression |
-   * ScopeResolutionExpression | AsExpression | QualifiedName
+   * @returns ArrayIntrinsicExpression | AsExpression | BinaryExpression |
+   * CastExpression | EmptyExpression | FunctionCallExpression |
+   * InstanceofExpression | IsExpression | IssetExpression | LiteralExpression
+   * | MemberSelectionExpression | ParenthesizedExpression |
+   * PrefixUnaryExpression | QualifiedName | ScopeResolutionExpression |
+   * SubscriptExpression | NameToken | VariableExpression
    */
   public function getCondition(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_condition);
@@ -302,9 +302,9 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
   }
 
   /**
-   * @returns CompoundStatement | ThrowStatement | ReturnStatement |
-   * BreakStatement | ExpressionStatement | UnsetStatement | EchoStatement |
-   * GlobalStatement | ContinueStatement | GotoStatement
+   * @returns BreakStatement | CompoundStatement | ContinueStatement |
+   * EchoStatement | ExpressionStatement | GlobalStatement | GotoStatement |
+   * ReturnStatement | ThrowStatement | UnsetStatement
    */
   public function getStatement(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_statement);
@@ -334,7 +334,7 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
   }
 
   /**
-   * @returns Missing | EditableList
+   * @returns EditableList | Missing
    */
   public function getElseifClauses(): ?EditableList {
     if ($this->_elseif_clauses->isMissing()) {
@@ -374,7 +374,7 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
   }
 
   /**
-   * @returns Missing | ElseClause
+   * @returns ElseClause | Missing
    */
   public function getElseClause(): ?ElseClause {
     if ($this->_else_clause->isMissing()) {

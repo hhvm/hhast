@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5038216642f3fd8dc11ffc65e207bbea>>
+ * @generated SignedSource<<300ab70f478d1d1b83ec2833869529fb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,19 +123,19 @@ final class ReturnStatement extends EditableNode {
   }
 
   /**
-   * @returns ArrayIntrinsicExpression | FunctionCallExpression |
-   * LiteralExpression | BinaryExpression | ObjectCreationExpression |
-   * CastExpression | ConditionalExpression | VariableExpression |
-   * PrefixUnaryExpression | AnonymousFunction | LambdaExpression |
-   * MemberSelectionExpression | IssetExpression | PostfixUnaryExpression |
-   * SubscriptExpression | Missing | ScopeResolutionExpression |
-   * InstanceofExpression | ParenthesizedExpression | ArrayCreationExpression |
-   * VectorIntrinsicExpression | NameToken | DictionaryIntrinsicExpression |
-   * ShapeExpression | KeysetIntrinsicExpression | DarrayIntrinsicExpression |
-   * CollectionLiteralExpression | VarrayIntrinsicExpression | TupleExpression
-   * | SafeMemberSelectionExpression | QualifiedName | YieldFromExpression |
-   * EvalExpression | FunctionCallWithTypeArgumentsExpression | XHPExpression |
-   * AwaitableCreationExpression
+   * @returns AnonymousFunction | ArrayCreationExpression |
+   * ArrayIntrinsicExpression | AwaitableCreationExpression | BinaryExpression
+   * | CastExpression | CollectionLiteralExpression | ConditionalExpression |
+   * DarrayIntrinsicExpression | DictionaryIntrinsicExpression | EvalExpression
+   * | FunctionCallExpression | FunctionCallWithTypeArgumentsExpression |
+   * InstanceofExpression | IssetExpression | KeysetIntrinsicExpression |
+   * LambdaExpression | LiteralExpression | MemberSelectionExpression | Missing
+   * | ObjectCreationExpression | ParenthesizedExpression |
+   * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
+   * SafeMemberSelectionExpression | ScopeResolutionExpression |
+   * ShapeExpression | SubscriptExpression | NameToken | TupleExpression |
+   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
+   * | XHPExpression | YieldFromExpression
    */
   public function getExpression(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_expression);

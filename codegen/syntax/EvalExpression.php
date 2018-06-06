@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fea423f30e247662007aaaf87e46453e>>
+ * @generated SignedSource<<63906a1a8df833b0e77e65f4c9c97415>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -173,8 +173,8 @@ final class EvalExpression extends EditableNode {
   }
 
   /**
-   * @returns LiteralExpression | FunctionCallExpression | VariableExpression |
-   * BinaryExpression
+   * @returns BinaryExpression | FunctionCallExpression | LiteralExpression |
+   * VariableExpression
    */
   public function getArgument(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_argument);

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ee3a4f6ded14cb7e5894f7ff813fa36c>>
+ * @generated SignedSource<<706f2197d99c4d013e61fb0603e09ad5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -230,7 +230,7 @@ final class DictionaryIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns Missing | EditableList
+   * @returns EditableList | Missing
    */
   public function getMembers(): ?EditableList {
     if ($this->_members->isMissing()) {

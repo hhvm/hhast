@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<99f4e09652a649352f1698b5c301fcee>>
+ * @generated SignedSource<<2365942ea97fca8f65f1a0e7bbd8515b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -104,10 +104,10 @@ final class TypeConstraint extends EditableNode {
   }
 
   /**
-   * @returns ShapeTypeSpecifier | SimpleTypeSpecifier | GenericTypeSpecifier |
-   * ClosureTypeSpecifier | NullableTypeSpecifier | TypeConstant |
-   * ClassnameTypeSpecifier | DictionaryTypeSpecifier |
-   * VectorArrayTypeSpecifier | KeysetTypeSpecifier
+   * @returns ClassnameTypeSpecifier | ClosureTypeSpecifier |
+   * DictionaryTypeSpecifier | GenericTypeSpecifier | KeysetTypeSpecifier |
+   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
+   * TypeConstant | VectorArrayTypeSpecifier
    */
   public function getType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);

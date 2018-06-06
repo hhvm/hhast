@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b2535c15729b48150bbb0842401c163d>>
+ * @generated SignedSource<<9c94bb6e8816923cbf58e6a8aea431f2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,13 +101,13 @@ final class ElementInitializer extends EditableNode {
   }
 
   /**
-   * @returns LiteralExpression | VariableExpression |
-   * ScopeResolutionExpression | NameToken | ArrayIntrinsicExpression |
-   * FunctionCallExpression | PrefixUnaryExpression | ObjectCreationExpression
-   * | VectorIntrinsicExpression | DictionaryIntrinsicExpression |
-   * KeysetIntrinsicExpression | CollectionLiteralExpression | BinaryExpression
-   * | ParenthesizedExpression | QualifiedName | AnonymousFunction |
-   * ArrayCreationExpression | CastExpression
+   * @returns AnonymousFunction | ArrayCreationExpression |
+   * ArrayIntrinsicExpression | BinaryExpression | CastExpression |
+   * CollectionLiteralExpression | DictionaryIntrinsicExpression |
+   * FunctionCallExpression | KeysetIntrinsicExpression | LiteralExpression |
+   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
+   * | QualifiedName | ScopeResolutionExpression | NameToken |
+   * VariableExpression | VectorIntrinsicExpression
    */
   public function getKey(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_key);
@@ -151,15 +151,16 @@ final class ElementInitializer extends EditableNode {
   }
 
   /**
-   * @returns LiteralExpression | VariableExpression | ArrayIntrinsicExpression
-   * | CastExpression | PrefixUnaryExpression | DictionaryIntrinsicExpression |
-   * ArrayCreationExpression | VectorIntrinsicExpression |
-   * KeysetIntrinsicExpression | NameToken | ConditionalExpression |
-   * ScopeResolutionExpression | ObjectCreationExpression |
-   * FunctionCallExpression | BinaryExpression | CollectionLiteralExpression |
-   * AnonymousFunction | DarrayIntrinsicExpression | VarrayIntrinsicExpression
-   * | TupleExpression | MemberSelectionExpression | SubscriptExpression |
-   * ParenthesizedExpression | IssetExpression | QualifiedName
+   * @returns AnonymousFunction | ArrayCreationExpression |
+   * ArrayIntrinsicExpression | BinaryExpression | CastExpression |
+   * CollectionLiteralExpression | ConditionalExpression |
+   * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
+   * FunctionCallExpression | IssetExpression | KeysetIntrinsicExpression |
+   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression | QualifiedName |
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * TupleExpression | VariableExpression | VarrayIntrinsicExpression |
+   * VectorIntrinsicExpression
    */
   public function getValue(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_value);

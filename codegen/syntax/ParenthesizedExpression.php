@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<48654614d3dd04c26f0c58d332fbbf95>>
+ * @generated SignedSource<<fa360d267b22e714d5363d5fa0e562cb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,15 +123,15 @@ final class ParenthesizedExpression extends EditableNode {
   }
 
   /**
-   * @returns BinaryExpression | PrefixUnaryExpression | FunctionCallExpression
-   * | PostfixUnaryExpression | CollectionLiteralExpression |
-   * ObjectCreationExpression | VariableExpression | ConditionalExpression |
-   * LiteralExpression | InstanceofExpression | ArrayIntrinsicExpression |
-   * IssetExpression | XHPExpression | ParenthesizedExpression |
-   * ScopeResolutionExpression | SubscriptExpression |
-   * MemberSelectionExpression | AnonymousFunction | LambdaExpression |
-   * CastExpression | NameToken | YieldExpression | QualifiedName |
-   * EmptyExpression | InclusionExpression | QuestionToken
+   * @returns AnonymousFunction | ArrayIntrinsicExpression | BinaryExpression |
+   * CastExpression | CollectionLiteralExpression | ConditionalExpression |
+   * EmptyExpression | FunctionCallExpression | InclusionExpression |
+   * InstanceofExpression | IssetExpression | LambdaExpression |
+   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
+   * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
+   * QuestionToken | NameToken | VariableExpression | XHPExpression |
+   * YieldExpression
    */
   public function getExpression(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_expression);
@@ -153,7 +153,7 @@ final class ParenthesizedExpression extends EditableNode {
   }
 
   /**
-   * @returns RightParenToken | Missing
+   * @returns Missing | RightParenToken
    */
   public function getRightParen(): ?RightParenToken {
     if ($this->_right_paren->isMissing()) {

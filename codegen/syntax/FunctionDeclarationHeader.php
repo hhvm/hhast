@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4dcca7ca8b691fac5053086828830198>>
+ * @generated SignedSource<<ee0ea422e0dfff909e7de1b59b1c53b0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -286,7 +286,7 @@ final class FunctionDeclarationHeader extends EditableNode {
   }
 
   /**
-   * @returns FunctionToken | Missing
+   * @returns Missing | FunctionToken
    */
   public function getKeyword(): ?FunctionToken {
     if ($this->_keyword->isMissing()) {
@@ -374,7 +374,7 @@ final class FunctionDeclarationHeader extends EditableNode {
   }
 
   /**
-   * @returns NameToken | ConstructToken | DestructToken
+   * @returns ConstructToken | DestructToken | NameToken
    */
   public function getName(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_name);
@@ -458,7 +458,7 @@ final class FunctionDeclarationHeader extends EditableNode {
   }
 
   /**
-   * @returns LeftParenToken | Missing
+   * @returns Missing | LeftParenToken
    */
   public function getLeftParen(): ?LeftParenToken {
     if ($this->_left_paren->isMissing()) {
@@ -502,7 +502,7 @@ final class FunctionDeclarationHeader extends EditableNode {
   }
 
   /**
-   * @returns Missing | EditableList
+   * @returns EditableList | Missing
    */
   public function getParameterList(): ?EditableList {
     if ($this->_parameter_list->isMissing()) {
@@ -546,7 +546,7 @@ final class FunctionDeclarationHeader extends EditableNode {
   }
 
   /**
-   * @returns RightParenToken | Missing
+   * @returns Missing | RightParenToken
    */
   public function getRightParen(): ?RightParenToken {
     if ($this->_right_paren->isMissing()) {
@@ -634,12 +634,12 @@ final class FunctionDeclarationHeader extends EditableNode {
   }
 
   /**
-   * @returns Missing | SimpleTypeSpecifier | ShapeTypeSpecifier |
-   * ClosureTypeSpecifier | GenericTypeSpecifier | SoftTypeSpecifier |
-   * TupleTypeSpecifier | VectorTypeSpecifier | NullableTypeSpecifier |
-   * MapArrayTypeSpecifier | DictionaryTypeSpecifier | KeysetTypeSpecifier |
-   * VarrayTypeSpecifier | DarrayTypeSpecifier | VectorArrayTypeSpecifier |
-   * NoreturnToken | TypeConstant | ClassnameTypeSpecifier
+   * @returns ClassnameTypeSpecifier | ClosureTypeSpecifier |
+   * DarrayTypeSpecifier | DictionaryTypeSpecifier | GenericTypeSpecifier |
+   * KeysetTypeSpecifier | MapArrayTypeSpecifier | Missing |
+   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
+   * SoftTypeSpecifier | NoreturnToken | TupleTypeSpecifier | TypeConstant |
+   * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);

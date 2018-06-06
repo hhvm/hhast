@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e21a4eade5a62f3bad3c3e8d61273404>>
+ * @generated SignedSource<<17e7d4f27ac10e240824a6ba268a5a44>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -161,7 +161,7 @@ final class ConstDeclaration extends EditableNode {
   }
 
   /**
-   * @returns Missing | PublicToken | ProtectedToken
+   * @returns Missing | ProtectedToken | PublicToken
    */
   public function getVisibility(): ?EditableToken {
     if ($this->_visibility->isMissing()) {
@@ -171,7 +171,7 @@ final class ConstDeclaration extends EditableNode {
   }
 
   /**
-   * @returns PublicToken | ProtectedToken
+   * @returns ProtectedToken | PublicToken
    */
   public function getVisibilityx(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_visibility);
@@ -268,9 +268,9 @@ final class ConstDeclaration extends EditableNode {
   }
 
   /**
-   * @returns SimpleTypeSpecifier | Missing | GenericTypeSpecifier |
-   * TypeConstant | VectorTypeSpecifier | NullableTypeSpecifier |
-   * ClassnameTypeSpecifier | KeysetTypeSpecifier
+   * @returns ClassnameTypeSpecifier | GenericTypeSpecifier |
+   * KeysetTypeSpecifier | Missing | NullableTypeSpecifier |
+   * SimpleTypeSpecifier | TypeConstant | VectorTypeSpecifier
    */
   public function getTypeSpecifier(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type_specifier);

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<23b7d91f7054bd932c3a420b2b23dc2a>>
+ * @generated SignedSource<<662ec02e5df231257742268e05be7eca>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -533,7 +533,7 @@ final class AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns LeftParenToken | Missing
+   * @returns Missing | LeftParenToken
    */
   public function getLeftParen(): ?LeftParenToken {
     if ($this->_left_paren->isMissing()) {
@@ -625,7 +625,7 @@ final class AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns RightParenToken | Missing
+   * @returns Missing | RightParenToken
    */
   public function getRightParen(): ?RightParenToken {
     if ($this->_right_paren->isMissing()) {
@@ -717,9 +717,10 @@ final class AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns Missing | SimpleTypeSpecifier | SoftTypeSpecifier |
-   * GenericTypeSpecifier | NullableTypeSpecifier | TupleTypeSpecifier |
-   * ClosureTypeSpecifier | VectorArrayTypeSpecifier | MapArrayTypeSpecifier
+   * @returns ClosureTypeSpecifier | GenericTypeSpecifier |
+   * MapArrayTypeSpecifier | Missing | NullableTypeSpecifier |
+   * SimpleTypeSpecifier | SoftTypeSpecifier | TupleTypeSpecifier |
+   * VectorArrayTypeSpecifier
    */
   public function getType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);
@@ -755,7 +756,7 @@ final class AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns Missing | AnonymousFunctionUseClause
+   * @returns AnonymousFunctionUseClause | Missing
    */
   public function getUse(): ?AnonymousFunctionUseClause {
     if ($this->_use->isMissing()) {

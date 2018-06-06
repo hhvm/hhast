@@ -43,7 +43,7 @@ final class CodegenRelations extends CodegenBase {
             $result[$key] ?? keyset[],
             $child_keys,
           ]
-        );
+        ) |> Keyset\sort($$);
       }
     }
 

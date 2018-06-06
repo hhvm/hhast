@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4b1722c14a873dc5da6a77dc0910e916>>
+ * @generated SignedSource<<b82943b6ef603c23d1d0d2e19527d4cb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -265,8 +265,8 @@ final class MapArrayTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns SimpleTypeSpecifier | ShapeTypeSpecifier | SoftTypeSpecifier |
-   * NullableTypeSpecifier | GenericTypeSpecifier | Missing
+   * @returns GenericTypeSpecifier | Missing | NullableTypeSpecifier |
+   * ShapeTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier
    */
   public function getValue(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_value);

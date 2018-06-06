@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<be44cbf888921287917a34da03264389>>
+ * @generated SignedSource<<dae5e59b9dcabd874a554518b97e5773>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -191,7 +191,7 @@ final class VarrayTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns SimpleTypeSpecifier | VarrayTypeSpecifier | DarrayTypeSpecifier |
+   * @returns DarrayTypeSpecifier | SimpleTypeSpecifier | VarrayTypeSpecifier |
    * VectorArrayTypeSpecifier
    */
   public function getType(): EditableNode {

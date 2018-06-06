@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d48b4c994a6c371680ffa1e9f92718fc>>
+ * @generated SignedSource<<81c1097edf8bc01336684a6ba8dcba70>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,8 +123,8 @@ final class ThrowStatement extends EditableNode {
   }
 
   /**
-   * @returns ObjectCreationExpression | VariableExpression |
-   * FunctionCallExpression | ParenthesizedExpression | LiteralExpression
+   * @returns FunctionCallExpression | LiteralExpression |
+   * ObjectCreationExpression | ParenthesizedExpression | VariableExpression
    */
   public function getExpression(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_expression);

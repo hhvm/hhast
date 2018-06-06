@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bde63fcaab3d700bba407c433775b566>>
+ * @generated SignedSource<<c72d71445930f0f4041f93e893c7cc52>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -293,12 +293,12 @@ final class ForeachStatement
   }
 
   /**
-   * @returns VariableExpression | VectorIntrinsicExpression |
-   * ArrayIntrinsicExpression | FunctionCallExpression |
-   * MemberSelectionExpression | ArrayCreationExpression | SubscriptExpression
-   * | ObjectCreationExpression | PrefixUnaryExpression |
-   * ParenthesizedExpression | ScopeResolutionExpression | CastExpression |
-   * CollectionLiteralExpression | AnonymousFunction
+   * @returns AnonymousFunction | ArrayCreationExpression |
+   * ArrayIntrinsicExpression | CastExpression | CollectionLiteralExpression |
+   * FunctionCallExpression | MemberSelectionExpression |
+   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
+   * | ScopeResolutionExpression | SubscriptExpression | VariableExpression |
+   * VectorIntrinsicExpression
    */
   public function getCollection(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_collection);
@@ -407,9 +407,9 @@ final class ForeachStatement
   }
 
   /**
-   * @returns Missing | VariableExpression | ListExpression |
-   * PrefixUnaryExpression | SubscriptExpression | FunctionCallExpression |
-   * MemberSelectionExpression | ScopeResolutionExpression
+   * @returns FunctionCallExpression | ListExpression |
+   * MemberSelectionExpression | Missing | PrefixUnaryExpression |
+   * ScopeResolutionExpression | SubscriptExpression | VariableExpression
    */
   public function getKey(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_key);
@@ -485,9 +485,9 @@ final class ForeachStatement
   }
 
   /**
-   * @returns VariableExpression | PrefixUnaryExpression | ListExpression |
-   * FunctionCallExpression | SubscriptExpression | ArrayCreationExpression |
-   * MemberSelectionExpression | ScopeResolutionExpression
+   * @returns ArrayCreationExpression | FunctionCallExpression | ListExpression
+   * | MemberSelectionExpression | PrefixUnaryExpression |
+   * ScopeResolutionExpression | SubscriptExpression | VariableExpression
    */
   public function getValue(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_value);
@@ -553,8 +553,8 @@ final class ForeachStatement
   }
 
   /**
-   * @returns CompoundStatement | ExpressionStatement | ForeachStatement |
-   * AlternateLoopStatement | EchoStatement
+   * @returns AlternateLoopStatement | CompoundStatement | EchoStatement |
+   * ExpressionStatement | ForeachStatement
    */
   public function getBody(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_body);

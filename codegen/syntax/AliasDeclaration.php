@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<31e810482d8320fa5fc4c8faf71faf38>>
+ * @generated SignedSource<<f69830ecdd12f1e786983ae6f5d3f353>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -194,7 +194,7 @@ final class AliasDeclaration extends EditableNode {
   }
 
   /**
-   * @returns Missing | AttributeSpecification
+   * @returns AttributeSpecification | Missing
    */
   public function getAttributeSpec(): ?AttributeSpecification {
     if ($this->_attribute_spec->isMissing()) {
@@ -241,7 +241,7 @@ final class AliasDeclaration extends EditableNode {
   }
 
   /**
-   * @returns TypeToken | NewtypeToken
+   * @returns NewtypeToken | TypeToken
    */
   public function getKeyword(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_keyword);
@@ -418,10 +418,10 @@ final class AliasDeclaration extends EditableNode {
   }
 
   /**
-   * @returns ShapeTypeSpecifier | SimpleTypeSpecifier |
-   * DictionaryTypeSpecifier | ClosureTypeSpecifier | MapArrayTypeSpecifier |
-   * TupleTypeSpecifier | GenericTypeSpecifier | NullableTypeSpecifier |
-   * VectorTypeSpecifier | KeysetTypeSpecifier | VectorArrayTypeSpecifier
+   * @returns ClosureTypeSpecifier | DictionaryTypeSpecifier |
+   * GenericTypeSpecifier | KeysetTypeSpecifier | MapArrayTypeSpecifier |
+   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
+   * TupleTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);

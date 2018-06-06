@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fc0a5c2942d349a69a914f404532f10b>>
+ * @generated SignedSource<<479f97fb3b87fdf8d3a1d9d23ec79444>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -145,7 +145,7 @@ final class EchoStatement extends EditableNode {
   }
 
   /**
-   * @returns SemicolonToken | Missing
+   * @returns Missing | SemicolonToken
    */
   public function getSemicolon(): ?SemicolonToken {
     if ($this->_semicolon->isMissing()) {

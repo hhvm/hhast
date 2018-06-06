@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6a406fa205ab05528d869f4a30a3a1bb>>
+ * @generated SignedSource<<a29408c5def76b704b8484c0c4b36d54>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -183,9 +183,8 @@ final class UsingStatementFunctionScoped extends EditableNode {
   }
 
   /**
-   * @returns ObjectCreationExpression | ParenthesizedExpression |
-   * PrefixUnaryExpression | VariableExpression | LambdaExpression |
-   * BinaryExpression
+   * @returns BinaryExpression | LambdaExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression | VariableExpression
    */
   public function getExpression(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_expression);
