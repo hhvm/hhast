@@ -17,6 +17,7 @@ final class InspectorCLI extends CLIWithRequiredArguments {
   private ?string $outputPath = null;
   private bool $open = false;
 
+  <<__Override>>
   public static function getHelpTextForRequiredArguments(): vec<string> {
     return vec['FILE'];
   }
