@@ -16,6 +16,7 @@ use function Facebook\HHAST\find_position;
 class FixableASTLintError<
   Tnode as EditableNode,
 > extends ASTLintError<Tnode> implements FixableLintError {
+  private ?EditableNode $fixed;
 
   <<__Override>>
   public function __construct(
@@ -25,10 +26,11 @@ class FixableASTLintError<
     ?EditableNode $context = null,
   ) {
     parent::__construct($linter, $description, $node, $context);
+    $this->fixed = $linter->getFixedNode($node);
   }
 
   final public function isFixable(): bool {
-    return true;
+    return $this->fixed !== null;
   }
 
   final public function getReadableFix(): (string, string) {
@@ -37,7 +39,11 @@ class FixableASTLintError<
       $linter instanceof AutoFixingASTLinter,
       "Can't render fix for unfixable lint error",
     );
-    $node = $linter->getFixedNode($this->node);
+    $node = $this->fixed;
+    invariant(
+      $node !== null,
+      'shouldnt attempt to fix without a fixed version',
+    );
     return tuple(
       $this->getPrettyBlame(),
       $linter->getPrettyTextForNode($node, $this->context),

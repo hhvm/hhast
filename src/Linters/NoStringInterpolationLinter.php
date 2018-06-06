@@ -20,6 +20,7 @@ use type Facebook\HHAST\{
   EditableNode,
   EditableSyntax,
   EmbeddedBracedExpression,
+  HeredocStringLiteralHeadToken,
   LiteralExpression,
   NameToken,
   QualifiedNameExpression,
@@ -51,15 +52,15 @@ final class NoStringInterpolationLinter
 
     return new FixableASTLintError(
       $this,
-      'Do not use string interpolation - consider concatenation or Strormat() instead '.
-      'instead',
+      'Do not use string interpolation - consider concatenation or '.
+      'Str\format() instead ',
       $root_expr,
     );
     return null;
   }
 
   <<__Override>>
-  public function getFixedNode(LiteralExpression $root_expr): EditableNode {
+  public function getFixedNode(LiteralExpression $root_expr): ?EditableNode {
     $expr = $root_expr->getExpression();
     invariant(
       $expr instanceof EditableList,
@@ -75,6 +76,9 @@ final class NoStringInterpolationLinter
 
     for ($i = 0; $i < $child_count; ++$i) {
       $child = $children[$i];
+      if ($child instanceof HeredocStringLiteralHeadToken) {
+        return null;
+      }
       if ($child instanceof DoubleQuotedStringLiteralHeadToken) {
         if ($child->getText() === '"') {
           $leading = $child->getLeading();

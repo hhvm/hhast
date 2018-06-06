@@ -69,13 +69,19 @@ trait LinterTestTrait {
     $out = $linter->getLintErrors()
       |> Vec\map(
         $$,
-        $error ==> shape(
-          'blame' => $error->getBlameCode(),
-          'blame_pretty' => $error->getPrettyBlame(),
-          'description' => $error->getDescription(),
-        ),
+        $error ==> self::getErrorAsShape($error),
       )
       |> \json_encode($$, \JSON_PRETTY_PRINT)."\n";
     expect($out)->toMatchExpectFile($fixture.'.expect');
+  }
+
+  final protected static function getErrorAsShape(
+    Linters\LintError $e,
+   ): shape(...) {
+    return shape(
+      'blame' => $e->getBlameCode(),
+      'blame_pretty' => $e->getPrettyBlame(),
+      'description' => $e->getDescription(),
+    );
   }
 }
