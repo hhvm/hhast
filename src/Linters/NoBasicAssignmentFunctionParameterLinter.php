@@ -38,20 +38,14 @@ class NoBasicAssignmentFunctionParameterLinter
       FunctionCallExpression $node,
       vec<EditableNode> $parents,
     ): ?FixableASTLintError<FunctionCallExpression> {
-      $args = $node->getArgumentList();
-      if ($args === null) {
-        return null;
-      }
-      $exps = $args->getItemsOfType(BinaryExpression::class);
+      $exps = $node
+        ->getArgumentList()
+        ?->getItemsOfType(BinaryExpression::class);
       if ($exps === null) {
         return null;
       }
-      $assignment_exps = vec[];
-      foreach ($exps as $exp) {
-        if ($exp instanceof BinaryExpression && $exp->getOperator() instanceof EqualToken) {
-          $assignment_exps[] = $exp;
-        }
-      }
+      $assignment_exps = Vec\filter($exps,
+        $exp ==> $exp instanceof BinaryExpression && $exp->getOperator() instanceof EqualToken);
       if (C\is_empty($assignment_exps)) {
         return null;
       }
@@ -74,11 +68,8 @@ class NoBasicAssignmentFunctionParameterLinter
         $assignment_exps instanceof EditableList,
         'Expected a list of assignment expressions',
       );
-      $assignment_exps = $assignment_exps->toVec()
-        |> Vec\map(
-          $$,
-          $item ==> TypeAssert\instance_of(BinaryExpression::class, $item),
-        );
+      $assignment_exps = Vec\map($assignment_exps->toVec(),
+        $item ==> TypeAssert\instance_of(BinaryExpression::class, $item));
       return $blame->getCode();
     }
 
@@ -101,7 +92,7 @@ class NoBasicAssignmentFunctionParameterLinter
             '*/ ',
           );
           $fixed_exps[] = $item->getRightOperand();
-          if ($exp !== Vec\reverse($args)[0]) {
+          if ($exp !== C\lastx($args)) {
             $fixed_exps[] = new CommaToken(new WhiteSpace(''), new WhiteSpace(' '));
           }
         } else {
