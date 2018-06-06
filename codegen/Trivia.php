@@ -2,14 +2,28 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<34f5e8caaee1349bf1fa2106b9b48fa3>>
+ * @generated SignedSource<<9488bcb9d1e88f74517bcd8442aa4d83>>
  */
 namespace Facebook\HHAST;
 
-final class WhiteSpace extends EditableTrivia {
+final class AfterHaltCompiler extends EditableTrivia {
 
   public function __construct(string $text) {
-    parent::__construct('whitespace', $text);
+    parent::__construct('after_halt_compiler', $text);
+  }
+
+  public function withText(string $text): this {
+    if ($text === $this->getText()) {
+      return $this;
+    }
+    return new self($text);
+  }
+}
+
+final class DelimitedComment extends EditableTrivia implements IComment {
+
+  public function __construct(string $text) {
+    parent::__construct('delimited_comment', $text);
   }
 
   public function withText(string $text): this {
@@ -34,10 +48,52 @@ final class EndOfLine extends EditableTrivia {
   }
 }
 
-final class DelimitedComment extends EditableTrivia implements IComment {
+final class ExtraTokenError extends EditableTrivia {
 
   public function __construct(string $text) {
-    parent::__construct('delimited_comment', $text);
+    parent::__construct('extra_token_error', $text);
+  }
+
+  public function withText(string $text): this {
+    if ($text === $this->getText()) {
+      return $this;
+    }
+    return new self($text);
+  }
+}
+
+final class FallThrough extends EditableTrivia {
+
+  public function __construct(string $text) {
+    parent::__construct('fall_through', $text);
+  }
+
+  public function withText(string $text): this {
+    if ($text === $this->getText()) {
+      return $this;
+    }
+    return new self($text);
+  }
+}
+
+final class FixMe extends EditableTrivia {
+
+  public function __construct(string $text) {
+    parent::__construct('fix_me', $text);
+  }
+
+  public function withText(string $text): this {
+    if ($text === $this->getText()) {
+      return $this;
+    }
+    return new self($text);
+  }
+}
+
+final class IgnoreError extends EditableTrivia {
+
+  public function __construct(string $text) {
+    parent::__construct('ignore_error', $text);
   }
 
   public function withText(string $text): this {
@@ -90,66 +146,10 @@ final class UnsafeExpression extends EditableTrivia {
   }
 }
 
-final class FixMe extends EditableTrivia {
+final class WhiteSpace extends EditableTrivia {
 
   public function __construct(string $text) {
-    parent::__construct('fix_me', $text);
-  }
-
-  public function withText(string $text): this {
-    if ($text === $this->getText()) {
-      return $this;
-    }
-    return new self($text);
-  }
-}
-
-final class IgnoreError extends EditableTrivia {
-
-  public function __construct(string $text) {
-    parent::__construct('ignore_error', $text);
-  }
-
-  public function withText(string $text): this {
-    if ($text === $this->getText()) {
-      return $this;
-    }
-    return new self($text);
-  }
-}
-
-final class FallThrough extends EditableTrivia {
-
-  public function __construct(string $text) {
-    parent::__construct('fall_through', $text);
-  }
-
-  public function withText(string $text): this {
-    if ($text === $this->getText()) {
-      return $this;
-    }
-    return new self($text);
-  }
-}
-
-final class ExtraTokenError extends EditableTrivia {
-
-  public function __construct(string $text) {
-    parent::__construct('extra_token_error', $text);
-  }
-
-  public function withText(string $text): this {
-    if ($text === $this->getText()) {
-      return $this;
-    }
-    return new self($text);
-  }
-}
-
-final class AfterHaltCompiler extends EditableTrivia {
-
-  public function __construct(string $text) {
-    parent::__construct('after_halt_compiler', $text);
+    parent::__construct('whitespace', $text);
   }
 
   public function withText(string $text): this {

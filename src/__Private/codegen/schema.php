@@ -25,13 +25,13 @@ type TAST = shape(
   'type_name' => string,
   'description' => string,
   'prefix' => string,
-  'fields' => array<TASTField>,
+  'fields' => Traversable<TASTField>,
 );
 
 type TSchema = shape(
-  'trivia' => array<TTrivia>,
-  'tokens' => array<TToken>,
-  'AST' => array<TAST>,
+  'trivia' => Traversable<TTrivia>,
+  'tokens' => Traversable<TToken>,
+  'AST' => Traversable<TAST>,
   ?'description' => string,
   ?'version' => string,
 );

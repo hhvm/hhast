@@ -13,15 +13,23 @@ namespace Facebook\HHAST\__Private;
 use type Facebook\HackCodegen\{
   HackCodegenConfig,
   HackCodegenFactory,
-  HackfmtFormatter
+  HackfmtFormatter,
 };
 
-use namespace HH\Lib\{C, Dict, Str};
+use namespace HH\Lib\{C, Dict, Str, Vec};
 
 abstract class CodegenBase {
+  private Schema\TSchema $schema;
+
   public function __construct(
-      private Schema\TSchema $schema,
-      private dict<string, keyset<string>> $relationships) {
+    Schema\TSchema $schema,
+    private dict<string, keyset<string>> $relationships,
+  ) {
+    $this->schema = shape(
+      'trivia' => Vec\sort_by($schema['trivia'], $t ==> $t['trivia_kind_name']),
+      'tokens' => Vec\sort_by($schema['tokens'], $t ==> $t['token_kind']),
+      'AST' => Vec\sort_by($schema['AST'], $t ==> $t['kind_name']),
+    );
   }
 
   abstract public function generate(): void;
