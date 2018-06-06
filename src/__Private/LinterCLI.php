@@ -156,6 +156,19 @@ final class LinterCLI extends CLIWithArguments {
         return 1;
       }
     } else {
+      foreach ($roots as $root) {
+        $path = \realpath($root);
+        if (\is_dir($path)) {
+          $config_file = $path.'/hhast-lint.json';
+          if (\file_exists($config_file)) {
+            \fwrite(
+              \STDERR,
+              "Warning: PATH arguments contain a hhast-lint.json\n",
+            );
+            return 1;
+          }
+        }
+      }
       $config = null;
     }
 
