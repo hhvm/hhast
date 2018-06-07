@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ea20040579472eea4f38df5f579b3c17>>
+ * @generated SignedSource<<d386ff95224718ca85acb15732d8b5cd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -214,6 +214,13 @@ final class AnonymousClass extends EditableNode {
    */
   public function getClassKeyword(): ClassToken {
     return TypeAssert\instance_of(ClassToken::class, $this->_class_keyword);
+  }
+
+  /**
+   * @returns ClassToken
+   */
+  public function getClassKeywordx(): ClassToken {
+    return $this->getClassKeyword();
   }
 
   public function getLeftParenUNTYPED(): EditableNode {
@@ -546,5 +553,12 @@ final class AnonymousClass extends EditableNode {
    */
   public function getBody(): ClassishBody {
     return TypeAssert\instance_of(ClassishBody::class, $this->_body);
+  }
+
+  /**
+   * @returns ClassishBody
+   */
+  public function getBodyx(): ClassishBody {
+    return $this->getBody();
   }
 }

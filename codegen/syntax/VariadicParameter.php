@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<63ca3eb889597fd2f6c629df43488f0c>>
+ * @generated SignedSource<<a1ac50e2e6ec7768c841e17a541c2dde>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,6 +107,13 @@ final class VariadicParameter extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_call_convention);
   }
 
+  /**
+   * @returns Missing
+   */
+  public function getCallConventionx(): EditableNode {
+    return $this->getCallConvention();
+  }
+
   public function getTypeUNTYPED(): EditableNode {
     return $this->_type;
   }
@@ -130,6 +137,14 @@ final class VariadicParameter extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);
   }
 
+  /**
+   * @returns ClosureTypeSpecifier | Missing | SimpleTypeSpecifier |
+   * TupleTypeSpecifier
+   */
+  public function getTypex(): EditableNode {
+    return $this->getType();
+  }
+
   public function getEllipsisUNTYPED(): EditableNode {
     return $this->_ellipsis;
   }
@@ -150,5 +165,12 @@ final class VariadicParameter extends EditableNode {
    */
   public function getEllipsis(): DotDotDotToken {
     return TypeAssert\instance_of(DotDotDotToken::class, $this->_ellipsis);
+  }
+
+  /**
+   * @returns DotDotDotToken
+   */
+  public function getEllipsisx(): DotDotDotToken {
+    return $this->getEllipsis();
   }
 }

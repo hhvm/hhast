@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<84bb45615452159b6561107033f9bef3>>
+ * @generated SignedSource<<5196b52bffd06ea799ab56d3e8da9dda>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -75,5 +75,12 @@ final class LiteralExpression extends EditableNode {
    */
   public function getExpression(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_expression);
+  }
+
+  /**
+   * @returns unknown
+   */
+  public function getExpressionx(): EditableNode {
+    return $this->getExpression();
   }
 }

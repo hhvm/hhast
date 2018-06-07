@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<78c204740eecdb395b0b8877e760dd34>>
+ * @generated SignedSource<<f1f81fb6264ff288d313ed18704fee23>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,6 +107,13 @@ final class BracedExpression extends EditableNode {
     return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
   }
 
+  /**
+   * @returns LeftBraceToken
+   */
+  public function getLeftBracex(): LeftBraceToken {
+    return $this->getLeftBrace();
+  }
+
   public function getExpressionUNTYPED(): EditableNode {
     return $this->_expression;
   }
@@ -132,6 +139,16 @@ final class BracedExpression extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_expression);
   }
 
+  /**
+   * @returns ArrayIntrinsicExpression | BinaryExpression |
+   * CollectionLiteralExpression | FunctionCallExpression | LiteralExpression |
+   * ObjectCreationExpression | PrefixUnaryExpression | SubscriptExpression |
+   * NameToken | VariableExpression
+   */
+  public function getExpressionx(): EditableNode {
+    return $this->getExpression();
+  }
+
   public function getRightBraceUNTYPED(): EditableNode {
     return $this->_right_brace;
   }
@@ -152,5 +169,12 @@ final class BracedExpression extends EditableNode {
    */
   public function getRightBrace(): RightBraceToken {
     return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
+  }
+
+  /**
+   * @returns RightBraceToken
+   */
+  public function getRightBracex(): RightBraceToken {
+    return $this->getRightBrace();
   }
 }

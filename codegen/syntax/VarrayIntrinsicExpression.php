@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c2bdc07b5813ca7112f5df549c7ea1e4>>
+ * @generated SignedSource<<e2ac7ae8ec5337ada30d15eb8dd9ebbb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -151,6 +151,13 @@ final class VarrayIntrinsicExpression extends EditableNode {
     return TypeAssert\instance_of(VarrayToken::class, $this->_keyword);
   }
 
+  /**
+   * @returns VarrayToken
+   */
+  public function getKeywordx(): VarrayToken {
+    return $this->getKeyword();
+  }
+
   public function getExplicitTypeUNTYPED(): EditableNode {
     return $this->_explicit_type;
   }
@@ -177,6 +184,13 @@ final class VarrayIntrinsicExpression extends EditableNode {
    */
   public function getExplicitType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_explicit_type);
+  }
+
+  /**
+   * @returns Missing
+   */
+  public function getExplicitTypex(): EditableNode {
+    return $this->getExplicitType();
   }
 
   public function getLeftBracketUNTYPED(): EditableNode {
@@ -206,6 +220,13 @@ final class VarrayIntrinsicExpression extends EditableNode {
   public function getLeftBracket(): LeftBracketToken {
     return
       TypeAssert\instance_of(LeftBracketToken::class, $this->_left_bracket);
+  }
+
+  /**
+   * @returns LeftBracketToken
+   */
+  public function getLeftBracketx(): LeftBracketToken {
+    return $this->getLeftBracket();
   }
 
   public function getMembersUNTYPED(): EditableNode {
@@ -273,5 +294,12 @@ final class VarrayIntrinsicExpression extends EditableNode {
   public function getRightBracket(): RightBracketToken {
     return
       TypeAssert\instance_of(RightBracketToken::class, $this->_right_bracket);
+  }
+
+  /**
+   * @returns RightBracketToken
+   */
+  public function getRightBracketx(): RightBracketToken {
+    return $this->getRightBracket();
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<13413fa5e68a851b5e255dfd764746e8>>
+ * @generated SignedSource<<3349405ffb9eb9d60befa607625b5239>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -139,6 +139,13 @@ final class DeclareBlockStatement extends EditableNode {
     return TypeAssert\instance_of(DeclareToken::class, $this->_keyword);
   }
 
+  /**
+   * @returns DeclareToken
+   */
+  public function getKeywordx(): DeclareToken {
+    return $this->getKeyword();
+  }
+
   public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
@@ -165,6 +172,13 @@ final class DeclareBlockStatement extends EditableNode {
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
+  }
+
+  /**
+   * @returns LeftParenToken
+   */
+  public function getLeftParenx(): LeftParenToken {
+    return $this->getLeftParen();
   }
 
   public function getExpressionUNTYPED(): EditableNode {
@@ -195,6 +209,13 @@ final class DeclareBlockStatement extends EditableNode {
     return TypeAssert\instance_of(BinaryExpression::class, $this->_expression);
   }
 
+  /**
+   * @returns BinaryExpression
+   */
+  public function getExpressionx(): BinaryExpression {
+    return $this->getExpression();
+  }
+
   public function getRightParenUNTYPED(): EditableNode {
     return $this->_right_paren;
   }
@@ -223,6 +244,13 @@ final class DeclareBlockStatement extends EditableNode {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
+  /**
+   * @returns RightParenToken
+   */
+  public function getRightParenx(): RightParenToken {
+    return $this->getRightParen();
+  }
+
   public function getBodyUNTYPED(): EditableNode {
     return $this->_body;
   }
@@ -249,5 +277,12 @@ final class DeclareBlockStatement extends EditableNode {
    */
   public function getBody(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_body);
+  }
+
+  /**
+   * @returns AlternateLoopStatement | CompoundStatement
+   */
+  public function getBodyx(): EditableNode {
+    return $this->getBody();
   }
 }

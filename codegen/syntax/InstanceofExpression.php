@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<224f9a8ea8b5f8ec483f25f3835be60e>>
+ * @generated SignedSource<<14519d6ab45e6ffcbeb2955184bb0c62>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -110,6 +110,16 @@ final class InstanceofExpression extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_left_operand);
   }
 
+  /**
+   * @returns AnonymousFunction | CastExpression | FunctionCallExpression |
+   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression |
+   * ScopeResolutionExpression | SubscriptExpression | VariableExpression
+   */
+  public function getLeftOperandx(): EditableNode {
+    return $this->getLeftOperand();
+  }
+
   public function getOperatorUNTYPED(): EditableNode {
     return $this->_operator;
   }
@@ -130,6 +140,13 @@ final class InstanceofExpression extends EditableNode {
    */
   public function getOperator(): InstanceofToken {
     return TypeAssert\instance_of(InstanceofToken::class, $this->_operator);
+  }
+
+  /**
+   * @returns InstanceofToken
+   */
+  public function getOperatorx(): InstanceofToken {
+    return $this->getOperator();
   }
 
   public function getRightOperandUNTYPED(): EditableNode {
@@ -154,5 +171,14 @@ final class InstanceofExpression extends EditableNode {
    */
   public function getRightOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_right_operand);
+  }
+
+  /**
+   * @returns MemberSelectionExpression | ParenthesizedExpression |
+   * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
+   * NameToken | VariableExpression
+   */
+  public function getRightOperandx(): EditableNode {
+    return $this->getRightOperand();
   }
 }

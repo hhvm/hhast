@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7dffcbac6f7cfdb147850e00f3b8a0dc>>
+ * @generated SignedSource<<68e9e915083ccb44c808427ff5bedc40>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -105,6 +105,13 @@ final class XHPExpression extends EditableNode {
    */
   public function getOpen(): XHPOpen {
     return TypeAssert\instance_of(XHPOpen::class, $this->_open);
+  }
+
+  /**
+   * @returns XHPOpen
+   */
+  public function getOpenx(): XHPOpen {
+    return $this->getOpen();
   }
 
   public function getBodyUNTYPED(): EditableNode {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4382ad41c66d3bdf7c5942c21161ba26>>
+ * @generated SignedSource<<2671fc02b823a6b6d4e4b3a79d3c1952>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -120,6 +120,13 @@ final class Enumerator extends EditableNode {
     return TypeAssert\instance_of(NameToken::class, $this->_name);
   }
 
+  /**
+   * @returns NameToken
+   */
+  public function getNamex(): NameToken {
+    return $this->getName();
+  }
+
   public function getEqualUNTYPED(): EditableNode {
     return $this->_equal;
   }
@@ -140,6 +147,13 @@ final class Enumerator extends EditableNode {
    */
   public function getEqual(): EqualToken {
     return TypeAssert\instance_of(EqualToken::class, $this->_equal);
+  }
+
+  /**
+   * @returns EqualToken
+   */
+  public function getEqualx(): EqualToken {
+    return $this->getEqual();
   }
 
   public function getValueUNTYPED(): EditableNode {
@@ -166,6 +180,15 @@ final class Enumerator extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_value);
   }
 
+  /**
+   * @returns BinaryExpression | FunctionCallExpression | LiteralExpression |
+   * ObjectCreationExpression | ScopeResolutionExpression | NameToken |
+   * VariableExpression
+   */
+  public function getValuex(): EditableNode {
+    return $this->getValue();
+  }
+
   public function getSemicolonUNTYPED(): EditableNode {
     return $this->_semicolon;
   }
@@ -186,5 +209,12 @@ final class Enumerator extends EditableNode {
    */
   public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
+  }
+
+  /**
+   * @returns SemicolonToken
+   */
+  public function getSemicolonx(): SemicolonToken {
+    return $this->getSemicolon();
   }
 }

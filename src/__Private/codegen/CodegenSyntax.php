@@ -143,7 +143,14 @@ final class CodegenSyntax extends CodegenBase {
           $type,
           $underscored,
         );
-      return;
+      // For backwards compatibility: always offer getFoox, in case it was
+      // nullable in a previous version
+      yield $cg
+        ->codegenMethodf('get%sx', $upper_camel)
+        ->setDocBlock('@returns '.\implode(' | ', $types))
+        ->setReturnType($type)
+        ->setBodyf('return $this->get%s();', $upper_camel);
+     return;
     }
 
     yield $cg

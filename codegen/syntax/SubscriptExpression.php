@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<705d9bc158d4dc309a247f2ba9830f7c>>
+ * @generated SignedSource<<d9ea0084224cc3554a5a40678b8e495b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -129,6 +129,17 @@ final class SubscriptExpression extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_receiver);
   }
 
+  /**
+   * @returns ArrayCreationExpression | ArrayIntrinsicExpression |
+   * FunctionCallExpression | LiteralExpression | MemberSelectionExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression |
+   * SafeMemberSelectionExpression | ScopeResolutionExpression |
+   * SubscriptExpression | RightParenToken | NameToken | VariableExpression
+   */
+  public function getReceiverx(): EditableNode {
+    return $this->getReceiver();
+  }
+
   public function getLeftBracketUNTYPED(): EditableNode {
     return $this->_left_bracket;
   }
@@ -154,6 +165,13 @@ final class SubscriptExpression extends EditableNode {
    */
   public function getLeftBracket(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_left_bracket);
+  }
+
+  /**
+   * @returns LeftBracketToken | LeftBraceToken
+   */
+  public function getLeftBracketx(): EditableToken {
+    return $this->getLeftBracket();
   }
 
   public function getIndexUNTYPED(): EditableNode {
@@ -186,6 +204,18 @@ final class SubscriptExpression extends EditableNode {
    */
   public function getIndex(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_index);
+  }
+
+  /**
+   * @returns AnonymousFunction | ArrayIntrinsicExpression | BinaryExpression |
+   * CastExpression | FunctionCallExpression | LiteralExpression |
+   * MemberSelectionExpression | Missing | ObjectCreationExpression |
+   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
+   * SafeMemberSelectionExpression | ScopeResolutionExpression |
+   * SubscriptExpression | NameToken | VariableExpression
+   */
+  public function getIndexx(): EditableNode {
+    return $this->getIndex();
   }
 
   public function getRightBracketUNTYPED(): EditableNode {

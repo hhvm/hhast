@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6c7273f5e03a8104a83f02ada54bf787>>
+ * @generated SignedSource<<1cdab1a5365210762fadedd2153ced8a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -88,6 +88,13 @@ final class FinallyClause extends EditableNode {
     return TypeAssert\instance_of(FinallyToken::class, $this->_keyword);
   }
 
+  /**
+   * @returns FinallyToken
+   */
+  public function getKeywordx(): FinallyToken {
+    return $this->getKeyword();
+  }
+
   public function getBodyUNTYPED(): EditableNode {
     return $this->_body;
   }
@@ -108,5 +115,12 @@ final class FinallyClause extends EditableNode {
    */
   public function getBody(): CompoundStatement {
     return TypeAssert\instance_of(CompoundStatement::class, $this->_body);
+  }
+
+  /**
+   * @returns CompoundStatement
+   */
+  public function getBodyx(): CompoundStatement {
+    return $this->getBody();
   }
 }

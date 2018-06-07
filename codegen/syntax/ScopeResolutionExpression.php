@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bb2231c3ea96a8a14fee45d28f77c69e>>
+ * @generated SignedSource<<a4d26ce02300bc32a1759e2797559c86>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -111,6 +111,17 @@ final class ScopeResolutionExpression extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_qualifier);
   }
 
+  /**
+   * @returns FunctionCallExpression | GenericTypeSpecifier | LiteralExpression
+   * | ParenthesizedExpression | PipeVariableExpression | PrefixUnaryExpression
+   * | QualifiedName | ScopeResolutionExpression | SimpleTypeSpecifier |
+   * XHPClassNameToken | NameToken | ParentToken | SelfToken | StaticToken |
+   * VariableExpression
+   */
+  public function getQualifierx(): EditableNode {
+    return $this->getQualifier();
+  }
+
   public function getOperatorUNTYPED(): EditableNode {
     return $this->_operator;
   }
@@ -131,6 +142,13 @@ final class ScopeResolutionExpression extends EditableNode {
    */
   public function getOperator(): ColonColonToken {
     return TypeAssert\instance_of(ColonColonToken::class, $this->_operator);
+  }
+
+  /**
+   * @returns ColonColonToken
+   */
+  public function getOperatorx(): ColonColonToken {
+    return $this->getOperator();
   }
 
   public function getNameUNTYPED(): EditableNode {
@@ -154,5 +172,13 @@ final class ScopeResolutionExpression extends EditableNode {
    */
   public function getName(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_name);
+  }
+
+  /**
+   * @returns BracedExpression | PrefixUnaryExpression | ClassToken | NameToken
+   * | VariableToken
+   */
+  public function getNamex(): EditableNode {
+    return $this->getName();
   }
 }

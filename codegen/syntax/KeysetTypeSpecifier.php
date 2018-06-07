@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<397aa5d66bb2bef50c3d87ac79f5eb89>>
+ * @generated SignedSource<<3455e609922ceee72ca44c6dbfc4cc46>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -141,6 +141,13 @@ final class KeysetTypeSpecifier extends EditableNode {
     return TypeAssert\instance_of(KeysetToken::class, $this->_keyword);
   }
 
+  /**
+   * @returns KeysetToken
+   */
+  public function getKeywordx(): KeysetToken {
+    return $this->getKeyword();
+  }
+
   public function getLeftAngleUNTYPED(): EditableNode {
     return $this->_left_angle;
   }
@@ -167,6 +174,13 @@ final class KeysetTypeSpecifier extends EditableNode {
    */
   public function getLeftAngle(): LessThanToken {
     return TypeAssert\instance_of(LessThanToken::class, $this->_left_angle);
+  }
+
+  /**
+   * @returns LessThanToken
+   */
+  public function getLeftAnglex(): LessThanToken {
+    return $this->getLeftAngle();
   }
 
   public function getTypeUNTYPED(): EditableNode {
@@ -197,6 +211,13 @@ final class KeysetTypeSpecifier extends EditableNode {
     return TypeAssert\instance_of(SimpleTypeSpecifier::class, $this->_type);
   }
 
+  /**
+   * @returns SimpleTypeSpecifier
+   */
+  public function getTypex(): SimpleTypeSpecifier {
+    return $this->getType();
+  }
+
   public function getTrailingCommaUNTYPED(): EditableNode {
     return $this->_trailing_comma;
   }
@@ -225,6 +246,13 @@ final class KeysetTypeSpecifier extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_trailing_comma);
   }
 
+  /**
+   * @returns Missing
+   */
+  public function getTrailingCommax(): EditableNode {
+    return $this->getTrailingComma();
+  }
+
   public function getRightAngleUNTYPED(): EditableNode {
     return $this->_right_angle;
   }
@@ -251,5 +279,12 @@ final class KeysetTypeSpecifier extends EditableNode {
    */
   public function getRightAngle(): GreaterThanToken {
     return TypeAssert\instance_of(GreaterThanToken::class, $this->_right_angle);
+  }
+
+  /**
+   * @returns GreaterThanToken
+   */
+  public function getRightAnglex(): GreaterThanToken {
+    return $this->getRightAngle();
   }
 }

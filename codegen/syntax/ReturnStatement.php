@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<300ab70f478d1d1b83ec2833869529fb>>
+ * @generated SignedSource<<72caba01628f62e7a2e769d369c3cc9c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,6 +107,13 @@ final class ReturnStatement extends EditableNode {
     return TypeAssert\instance_of(ReturnToken::class, $this->_keyword);
   }
 
+  /**
+   * @returns ReturnToken
+   */
+  public function getKeywordx(): ReturnToken {
+    return $this->getKeyword();
+  }
+
   public function getExpressionUNTYPED(): EditableNode {
     return $this->_expression;
   }
@@ -141,6 +148,25 @@ final class ReturnStatement extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_expression);
   }
 
+  /**
+   * @returns AnonymousFunction | ArrayCreationExpression |
+   * ArrayIntrinsicExpression | AwaitableCreationExpression | BinaryExpression
+   * | CastExpression | CollectionLiteralExpression | ConditionalExpression |
+   * DarrayIntrinsicExpression | DictionaryIntrinsicExpression | EvalExpression
+   * | FunctionCallExpression | FunctionCallWithTypeArgumentsExpression |
+   * InstanceofExpression | IssetExpression | KeysetIntrinsicExpression |
+   * LambdaExpression | LiteralExpression | MemberSelectionExpression | Missing
+   * | ObjectCreationExpression | ParenthesizedExpression |
+   * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
+   * SafeMemberSelectionExpression | ScopeResolutionExpression |
+   * ShapeExpression | SubscriptExpression | NameToken | TupleExpression |
+   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
+   * | XHPExpression | YieldFromExpression
+   */
+  public function getExpressionx(): EditableNode {
+    return $this->getExpression();
+  }
+
   public function getSemicolonUNTYPED(): EditableNode {
     return $this->_semicolon;
   }
@@ -161,5 +187,12 @@ final class ReturnStatement extends EditableNode {
    */
   public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
+  }
+
+  /**
+   * @returns SemicolonToken
+   */
+  public function getSemicolonx(): SemicolonToken {
+    return $this->getSemicolon();
   }
 }

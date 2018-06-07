@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6e4a7c2b28ab74c8a1d62b632fd00d1e>>
+ * @generated SignedSource<<b15d886e5423bf1a1619038335ff142b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -105,6 +105,13 @@ final class NamespaceBody extends EditableNode {
    */
   public function getLeftBrace(): LeftBraceToken {
     return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
+  }
+
+  /**
+   * @returns LeftBraceToken
+   */
+  public function getLeftBracex(): LeftBraceToken {
+    return $this->getLeftBrace();
   }
 
   public function getDeclarationsUNTYPED(): EditableNode {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<63906a1a8df833b0e77e65f4c9c97415>>
+ * @generated SignedSource<<7ab111bb07cd23882503065a30b70382>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -125,6 +125,13 @@ final class EvalExpression extends EditableNode {
     return TypeAssert\instance_of(EvalToken::class, $this->_keyword);
   }
 
+  /**
+   * @returns EvalToken
+   */
+  public function getKeywordx(): EvalToken {
+    return $this->getKeyword();
+  }
+
   public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
@@ -150,6 +157,13 @@ final class EvalExpression extends EditableNode {
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
+  }
+
+  /**
+   * @returns LeftParenToken
+   */
+  public function getLeftParenx(): LeftParenToken {
+    return $this->getLeftParen();
   }
 
   public function getArgumentUNTYPED(): EditableNode {
@@ -180,6 +194,14 @@ final class EvalExpression extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_argument);
   }
 
+  /**
+   * @returns BinaryExpression | FunctionCallExpression | LiteralExpression |
+   * VariableExpression
+   */
+  public function getArgumentx(): EditableNode {
+    return $this->getArgument();
+  }
+
   public function getRightParenUNTYPED(): EditableNode {
     return $this->_right_paren;
   }
@@ -201,5 +223,12 @@ final class EvalExpression extends EditableNode {
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
+  }
+
+  /**
+   * @returns RightParenToken
+   */
+  public function getRightParenx(): RightParenToken {
+    return $this->getRightParen();
   }
 }

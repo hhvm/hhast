@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<af9ec02bd2fa412b0939868b408ecbaf>>
+ * @generated SignedSource<<7788e6c50b20ea0113ac56796802778f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -110,6 +110,37 @@ final class ListItem extends EditableNode {
    */
   public function getItem(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_item);
+  }
+
+  /**
+   * @returns AnonymousFunction | ArrayCreationExpression |
+   * ArrayIntrinsicExpression | Attribute | AwaitableCreationExpression |
+   * BinaryExpression | CastExpression | ClassnameTypeSpecifier |
+   * ClosureParameterTypeSpecifier | ClosureTypeSpecifier |
+   * CollectionLiteralExpression | ConditionalExpression | ConstantDeclarator |
+   * DarrayIntrinsicExpression | DecoratedExpression | DefineExpression |
+   * DictionaryIntrinsicExpression | DictionaryTypeSpecifier |
+   * ElementInitializer | EmptyExpression | EvalExpression | FieldInitializer |
+   * FieldSpecifier | FunctionCallExpression | GenericTypeSpecifier |
+   * InclusionExpression | InstanceofExpression | IssetExpression |
+   * KeysetIntrinsicExpression | LambdaExpression | ListExpression |
+   * LiteralExpression | MapArrayTypeSpecifier | MemberSelectionExpression |
+   * Missing | NamespaceUseClause | NullableTypeSpecifier |
+   * ObjectCreationExpression | ParameterDeclaration | ParenthesizedExpression
+   * | PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression
+   * | PropertyDeclarator | QualifiedName | SafeMemberSelectionExpression |
+   * ScopeResolutionExpression | ShapeExpression | ShapeTypeSpecifier |
+   * SimpleTypeSpecifier | StaticDeclarator | SubscriptExpression | EqualToken
+   * | XHPCategoryNameToken | NameToken | NoreturnToken | VariableToken |
+   * TraitUseAliasItem | TraitUsePrecedenceItem | TupleExpression |
+   * TupleTypeSpecifier | TypeConstant | TypeParameter | VariableExpression |
+   * VariadicParameter | VarrayIntrinsicExpression | VarrayTypeSpecifier |
+   * VectorArrayTypeSpecifier | VectorIntrinsicExpression | VectorTypeSpecifier
+   * | WhereConstraint | XHPClassAttribute | XHPExpression |
+   * XHPSimpleClassAttribute
+   */
+  public function getItemx(): EditableNode {
+    return $this->getItem();
   }
 
   public function getSeparatorUNTYPED(): EditableNode {

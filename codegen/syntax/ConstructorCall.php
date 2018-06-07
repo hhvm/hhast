@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2678ae69d62cce7bbef60386306eac27>>
+ * @generated SignedSource<<d05451641bf279755644819c1e0b6ea1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -126,6 +126,16 @@ final class ConstructorCall extends EditableNode {
    */
   public function getType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);
+  }
+
+  /**
+   * @returns GenericTypeSpecifier | MemberSelectionExpression |
+   * ParenthesizedExpression | QualifiedName | ScopeResolutionExpression |
+   * SimpleTypeSpecifier | SubscriptExpression | NameToken | ParentToken |
+   * SelfToken | StaticToken | VariableExpression
+   */
+  public function getTypex(): EditableNode {
+    return $this->getType();
   }
 
   public function getLeftParenUNTYPED(): EditableNode {

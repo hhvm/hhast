@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ba2c73488cd0ffdcbeb531d42e434cac>>
+ * @generated SignedSource<<e71beb716e6e854c61f4a7280c81a3f3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -86,6 +86,13 @@ final class StaticDeclarator extends EditableNode {
    */
   public function getName(): VariableToken {
     return TypeAssert\instance_of(VariableToken::class, $this->_name);
+  }
+
+  /**
+   * @returns VariableToken
+   */
+  public function getNamex(): VariableToken {
+    return $this->getName();
   }
 
   public function getInitializerUNTYPED(): EditableNode {

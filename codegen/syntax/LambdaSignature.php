@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bea62a5da6241e38fae5c1c9551290df>>
+ * @generated SignedSource<<6c2ecceaf4ed51f31e2917d6eeee9891>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -139,6 +139,13 @@ final class LambdaSignature extends EditableNode {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
+  /**
+   * @returns LeftParenToken
+   */
+  public function getLeftParenx(): LeftParenToken {
+    return $this->getLeftParen();
+  }
+
   public function getParametersUNTYPED(): EditableNode {
     return $this->_parameters;
   }
@@ -203,6 +210,13 @@ final class LambdaSignature extends EditableNode {
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
+  }
+
+  /**
+   * @returns RightParenToken
+   */
+  public function getRightParenx(): RightParenToken {
+    return $this->getRightParen();
   }
 
   public function getColonUNTYPED(): EditableNode {
@@ -270,5 +284,13 @@ final class LambdaSignature extends EditableNode {
    */
   public function getType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);
+  }
+
+  /**
+   * @returns ClosureTypeSpecifier | GenericTypeSpecifier | Missing |
+   * SimpleTypeSpecifier
+   */
+  public function getTypex(): EditableNode {
+    return $this->getType();
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<91a02bfc4ecc2086565c34931e9342c0>>
+ * @generated SignedSource<<eb64c2d5fe88012704c27434f0a4dead>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -125,6 +125,13 @@ final class EmbeddedSubscriptExpression extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_receiver);
   }
 
+  /**
+   * @returns unknown
+   */
+  public function getReceiverx(): EditableNode {
+    return $this->getReceiver();
+  }
+
   public function getLeftBracketUNTYPED(): EditableNode {
     return $this->_left_bracket;
   }
@@ -150,6 +157,13 @@ final class EmbeddedSubscriptExpression extends EditableNode {
    */
   public function getLeftBracket(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_left_bracket);
+  }
+
+  /**
+   * @returns unknown
+   */
+  public function getLeftBracketx(): EditableNode {
+    return $this->getLeftBracket();
   }
 
   public function getIndexUNTYPED(): EditableNode {
@@ -179,6 +193,13 @@ final class EmbeddedSubscriptExpression extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_index);
   }
 
+  /**
+   * @returns unknown
+   */
+  public function getIndexx(): EditableNode {
+    return $this->getIndex();
+  }
+
   public function getRightBracketUNTYPED(): EditableNode {
     return $this->_right_bracket;
   }
@@ -200,5 +221,12 @@ final class EmbeddedSubscriptExpression extends EditableNode {
    */
   public function getRightBracket(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_right_bracket);
+  }
+
+  /**
+   * @returns unknown
+   */
+  public function getRightBracketx(): EditableNode {
+    return $this->getRightBracket();
   }
 }
