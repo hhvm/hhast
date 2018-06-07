@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<18091493a288d2c05af265fae11b1e31>>
+ * @generated SignedSource<<77773aef426dfda373fbcc4f9f55b759>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -151,6 +151,13 @@ final class FunctionCallWithTypeArgumentsExpression extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_receiver);
   }
 
+  /**
+   * @returns MemberSelectionExpression | ScopeResolutionExpression | NameToken
+   */
+  public function getReceiverx(): EditableNode {
+    return $this->getReceiver();
+  }
+
   public function getTypeArgsUNTYPED(): EditableNode {
     return $this->_type_args;
   }
@@ -177,6 +184,13 @@ final class FunctionCallWithTypeArgumentsExpression extends EditableNode {
    */
   public function getTypeArgs(): TypeArguments {
     return TypeAssert\instance_of(TypeArguments::class, $this->_type_args);
+  }
+
+  /**
+   * @returns TypeArguments
+   */
+  public function getTypeArgsx(): TypeArguments {
+    return $this->getTypeArgs();
   }
 
   public function getLeftParenUNTYPED(): EditableNode {

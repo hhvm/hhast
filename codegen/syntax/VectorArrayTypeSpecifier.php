@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<257dca78d26d19a67cc9eb542abb0ba7>>
+ * @generated SignedSource<<a1cc74550b618468b76dcf5942aae1e0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -121,6 +121,13 @@ final class VectorArrayTypeSpecifier extends EditableNode {
     return TypeAssert\instance_of(ArrayToken::class, $this->_keyword);
   }
 
+  /**
+   * @returns ArrayToken
+   */
+  public function getKeywordx(): ArrayToken {
+    return $this->getKeyword();
+  }
+
   public function getLeftAngleUNTYPED(): EditableNode {
     return $this->_left_angle;
   }
@@ -142,6 +149,13 @@ final class VectorArrayTypeSpecifier extends EditableNode {
    */
   public function getLeftAngle(): LessThanToken {
     return TypeAssert\instance_of(LessThanToken::class, $this->_left_angle);
+  }
+
+  /**
+   * @returns LessThanToken
+   */
+  public function getLeftAnglex(): LessThanToken {
+    return $this->getLeftAngle();
   }
 
   public function getTypeUNTYPED(): EditableNode {
@@ -173,6 +187,15 @@ final class VectorArrayTypeSpecifier extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);
   }
 
+  /**
+   * @returns DarrayTypeSpecifier | GenericTypeSpecifier |
+   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
+   * TupleTypeSpecifier | VarrayTypeSpecifier | VectorArrayTypeSpecifier
+   */
+  public function getTypex(): EditableNode {
+    return $this->getType();
+  }
+
   public function getRightAngleUNTYPED(): EditableNode {
     return $this->_right_angle;
   }
@@ -194,5 +217,12 @@ final class VectorArrayTypeSpecifier extends EditableNode {
    */
   public function getRightAngle(): GreaterThanToken {
     return TypeAssert\instance_of(GreaterThanToken::class, $this->_right_angle);
+  }
+
+  /**
+   * @returns GreaterThanToken
+   */
+  public function getRightAnglex(): GreaterThanToken {
+    return $this->getRightAngle();
   }
 }

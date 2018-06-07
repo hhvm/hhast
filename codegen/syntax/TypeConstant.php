@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f7476d23d9d286c4a89e1f5a9f2cf703>>
+ * @generated SignedSource<<4d6e2db00b0b43187a1e2d66fd84ef7e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,6 +107,13 @@ final class TypeConstant extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_left_type);
   }
 
+  /**
+   * @returns NameToken | ParentToken | SelfToken | ThisToken | TypeConstant
+   */
+  public function getLeftTypex(): EditableNode {
+    return $this->getLeftType();
+  }
+
   public function getSeparatorUNTYPED(): EditableNode {
     return $this->_separator;
   }
@@ -129,6 +136,13 @@ final class TypeConstant extends EditableNode {
     return TypeAssert\instance_of(ColonColonToken::class, $this->_separator);
   }
 
+  /**
+   * @returns ColonColonToken
+   */
+  public function getSeparatorx(): ColonColonToken {
+    return $this->getSeparator();
+  }
+
   public function getRightTypeUNTYPED(): EditableNode {
     return $this->_right_type;
   }
@@ -149,5 +163,12 @@ final class TypeConstant extends EditableNode {
    */
   public function getRightType(): NameToken {
     return TypeAssert\instance_of(NameToken::class, $this->_right_type);
+  }
+
+  /**
+   * @returns NameToken
+   */
+  public function getRightTypex(): NameToken {
+    return $this->getRightType();
   }
 }

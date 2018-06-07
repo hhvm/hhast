@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<17e7d4f27ac10e240824a6ba268a5a44>>
+ * @generated SignedSource<<435d290990552f26b47e556c8a120531>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -245,6 +245,13 @@ final class ConstDeclaration extends EditableNode {
     return TypeAssert\instance_of(ConstToken::class, $this->_keyword);
   }
 
+  /**
+   * @returns ConstToken
+   */
+  public function getKeywordx(): ConstToken {
+    return $this->getKeyword();
+  }
+
   public function getTypeSpecifierUNTYPED(): EditableNode {
     return $this->_type_specifier;
   }
@@ -276,6 +283,15 @@ final class ConstDeclaration extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type_specifier);
   }
 
+  /**
+   * @returns ClassnameTypeSpecifier | GenericTypeSpecifier |
+   * KeysetTypeSpecifier | Missing | NullableTypeSpecifier |
+   * SimpleTypeSpecifier | TypeConstant | VectorTypeSpecifier
+   */
+  public function getTypeSpecifierx(): EditableNode {
+    return $this->getTypeSpecifier();
+  }
+
   public function getDeclaratorsUNTYPED(): EditableNode {
     return $this->_declarators;
   }
@@ -305,6 +321,13 @@ final class ConstDeclaration extends EditableNode {
     return TypeAssert\instance_of(EditableList::class, $this->_declarators);
   }
 
+  /**
+   * @returns EditableList
+   */
+  public function getDeclaratorsx(): EditableList {
+    return $this->getDeclarators();
+  }
+
   public function getSemicolonUNTYPED(): EditableNode {
     return $this->_semicolon;
   }
@@ -332,5 +355,12 @@ final class ConstDeclaration extends EditableNode {
    */
   public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
+  }
+
+  /**
+   * @returns SemicolonToken
+   */
+  public function getSemicolonx(): SemicolonToken {
+    return $this->getSemicolon();
   }
 }

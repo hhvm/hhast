@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<40d4f3ff5e4a920c00d40f747c9f6563>>
+ * @generated SignedSource<<95010db8cc47a782bd3056ce98445329>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,6 +107,13 @@ final class TupleTypeSpecifier extends EditableNode {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
+  /**
+   * @returns LeftParenToken
+   */
+  public function getLeftParenx(): LeftParenToken {
+    return $this->getLeftParen();
+  }
+
   public function getTypesUNTYPED(): EditableNode {
     return $this->_types;
   }
@@ -129,6 +136,13 @@ final class TupleTypeSpecifier extends EditableNode {
     return TypeAssert\instance_of(EditableList::class, $this->_types);
   }
 
+  /**
+   * @returns EditableList
+   */
+  public function getTypesx(): EditableList {
+    return $this->getTypes();
+  }
+
   public function getRightParenUNTYPED(): EditableNode {
     return $this->_right_paren;
   }
@@ -149,5 +163,12 @@ final class TupleTypeSpecifier extends EditableNode {
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
+  }
+
+  /**
+   * @returns RightParenToken
+   */
+  public function getRightParenx(): RightParenToken {
+    return $this->getRightParen();
   }
 }

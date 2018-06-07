@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0ef2e559ed47cd2d7163d9770aa57fff>>
+ * @generated SignedSource<<d68d72d3e0d450d23e9157cea44e094c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -112,6 +112,13 @@ final class AttributeSpecification extends EditableNode {
     );
   }
 
+  /**
+   * @returns LessThanLessThanToken
+   */
+  public function getLeftDoubleAnglex(): LessThanLessThanToken {
+    return $this->getLeftDoubleAngle();
+  }
+
   public function getAttributesUNTYPED(): EditableNode {
     return $this->_attributes;
   }
@@ -133,6 +140,13 @@ final class AttributeSpecification extends EditableNode {
    */
   public function getAttributes(): EditableList {
     return TypeAssert\instance_of(EditableList::class, $this->_attributes);
+  }
+
+  /**
+   * @returns EditableList
+   */
+  public function getAttributesx(): EditableList {
+    return $this->getAttributes();
   }
 
   public function getRightDoubleAngleUNTYPED(): EditableNode {
@@ -158,5 +172,12 @@ final class AttributeSpecification extends EditableNode {
       GreaterThanGreaterThanToken::class,
       $this->_right_double_angle,
     );
+  }
+
+  /**
+   * @returns GreaterThanGreaterThanToken
+   */
+  public function getRightDoubleAnglex(): GreaterThanGreaterThanToken {
+    return $this->getRightDoubleAngle();
   }
 }

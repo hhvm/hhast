@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<44781dcf553c4cdff5e3cce2b8c3f35d>>
+ * @generated SignedSource<<32a406ddb605e6d4e369f6ff14f90774>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -125,6 +125,13 @@ final class XHPSpreadAttribute extends EditableNode {
     return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
   }
 
+  /**
+   * @returns LeftBraceToken
+   */
+  public function getLeftBracex(): LeftBraceToken {
+    return $this->getLeftBrace();
+  }
+
   public function getSpreadOperatorUNTYPED(): EditableNode {
     return $this->_spread_operator;
   }
@@ -151,6 +158,13 @@ final class XHPSpreadAttribute extends EditableNode {
   public function getSpreadOperator(): DotDotDotToken {
     return
       TypeAssert\instance_of(DotDotDotToken::class, $this->_spread_operator);
+  }
+
+  /**
+   * @returns DotDotDotToken
+   */
+  public function getSpreadOperatorx(): DotDotDotToken {
+    return $this->getSpreadOperator();
   }
 
   public function getExpressionUNTYPED(): EditableNode {
@@ -180,6 +194,13 @@ final class XHPSpreadAttribute extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_expression);
   }
 
+  /**
+   * @returns VariableExpression | XHPExpression
+   */
+  public function getExpressionx(): EditableNode {
+    return $this->getExpression();
+  }
+
   public function getRightBraceUNTYPED(): EditableNode {
     return $this->_right_brace;
   }
@@ -205,5 +226,12 @@ final class XHPSpreadAttribute extends EditableNode {
    */
   public function getRightBrace(): RightBraceToken {
     return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
+  }
+
+  /**
+   * @returns RightBraceToken
+   */
+  public function getRightBracex(): RightBraceToken {
+    return $this->getRightBrace();
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<706f2197d99c4d013e61fb0603e09ad5>>
+ * @generated SignedSource<<e0f50a896c775a630fe50b1dd6c48d71>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -151,6 +151,13 @@ final class DictionaryIntrinsicExpression extends EditableNode {
     return TypeAssert\instance_of(DictToken::class, $this->_keyword);
   }
 
+  /**
+   * @returns DictToken
+   */
+  public function getKeywordx(): DictToken {
+    return $this->getKeyword();
+  }
+
   public function getExplicitTypeUNTYPED(): EditableNode {
     return $this->_explicit_type;
   }
@@ -177,6 +184,13 @@ final class DictionaryIntrinsicExpression extends EditableNode {
    */
   public function getExplicitType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_explicit_type);
+  }
+
+  /**
+   * @returns Missing
+   */
+  public function getExplicitTypex(): EditableNode {
+    return $this->getExplicitType();
   }
 
   public function getLeftBracketUNTYPED(): EditableNode {
@@ -206,6 +220,13 @@ final class DictionaryIntrinsicExpression extends EditableNode {
   public function getLeftBracket(): LeftBracketToken {
     return
       TypeAssert\instance_of(LeftBracketToken::class, $this->_left_bracket);
+  }
+
+  /**
+   * @returns LeftBracketToken
+   */
+  public function getLeftBracketx(): LeftBracketToken {
+    return $this->getLeftBracket();
   }
 
   public function getMembersUNTYPED(): EditableNode {
@@ -273,5 +294,12 @@ final class DictionaryIntrinsicExpression extends EditableNode {
   public function getRightBracket(): RightBracketToken {
     return
       TypeAssert\instance_of(RightBracketToken::class, $this->_right_bracket);
+  }
+
+  /**
+   * @returns RightBracketToken
+   */
+  public function getRightBracketx(): RightBracketToken {
+    return $this->getRightBracket();
   }
 }

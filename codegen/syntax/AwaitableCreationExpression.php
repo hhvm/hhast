@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d715b339b50dc5b1d3fede9b5226285c>>
+ * @generated SignedSource<<4c05d516d4402601bc43605b8afaebba>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -169,6 +169,13 @@ final class AwaitableCreationExpression extends EditableNode {
     return TypeAssert\instance_of(AsyncToken::class, $this->_async);
   }
 
+  /**
+   * @returns AsyncToken
+   */
+  public function getAsyncx(): AsyncToken {
+    return $this->getAsync();
+  }
+
   public function getCoroutineUNTYPED(): EditableNode {
     return $this->_coroutine;
   }
@@ -194,6 +201,13 @@ final class AwaitableCreationExpression extends EditableNode {
    */
   public function getCoroutine(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_coroutine);
+  }
+
+  /**
+   * @returns Missing
+   */
+  public function getCoroutinex(): EditableNode {
+    return $this->getCoroutine();
   }
 
   public function getCompoundStatementUNTYPED(): EditableNode {
@@ -224,5 +238,12 @@ final class AwaitableCreationExpression extends EditableNode {
       CompoundStatement::class,
       $this->_compound_statement,
     );
+  }
+
+  /**
+   * @returns CompoundStatement
+   */
+  public function getCompoundStatementx(): CompoundStatement {
+    return $this->getCompoundStatement();
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5a6c476747e53aa6029517e67f867095>>
+ * @generated SignedSource<<1363b16fa13611f1c95ad8dc42ffad2d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -110,6 +110,16 @@ final class MemberSelectionExpression extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_object);
   }
 
+  /**
+   * @returns FunctionCallExpression | MemberSelectionExpression |
+   * ParenthesizedExpression | PipeVariableExpression | PrefixUnaryExpression |
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * VariableExpression
+   */
+  public function getObjectx(): EditableNode {
+    return $this->getObject();
+  }
+
   public function getOperatorUNTYPED(): EditableNode {
     return $this->_operator;
   }
@@ -133,6 +143,13 @@ final class MemberSelectionExpression extends EditableNode {
       TypeAssert\instance_of(MinusGreaterThanToken::class, $this->_operator);
   }
 
+  /**
+   * @returns MinusGreaterThanToken
+   */
+  public function getOperatorx(): MinusGreaterThanToken {
+    return $this->getOperator();
+  }
+
   public function getNameUNTYPED(): EditableNode {
     return $this->_name;
   }
@@ -154,5 +171,13 @@ final class MemberSelectionExpression extends EditableNode {
    */
   public function getName(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_name);
+  }
+
+  /**
+   * @returns BracedExpression | PrefixUnaryExpression | XHPClassNameToken |
+   * NameToken | VariableToken
+   */
+  public function getNamex(): EditableNode {
+    return $this->getName();
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7695925d181eaed7c1fba5ad9187db4e>>
+ * @generated SignedSource<<d2dcebcb458a017ce8453f87bd1766dd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -104,6 +104,26 @@ final class ExpressionStatement extends EditableNode {
    */
   public function getExpression(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_expression);
+  }
+
+  /**
+   * @returns AnonymousFunction | AsExpression | BinaryExpression |
+   * CastExpression | CollectionLiteralExpression | ConditionalExpression |
+   * DarrayIntrinsicExpression | DefineExpression | EmptyExpression |
+   * EvalExpression | FunctionCallExpression |
+   * FunctionCallWithTypeArgumentsExpression | HaltCompilerExpression |
+   * InclusionExpression | IssetExpression | LambdaExpression |
+   * LiteralExpression | MemberSelectionExpression | Missing |
+   * ObjectCreationExpression | ParenthesizedExpression |
+   * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
+   * SafeMemberSelectionExpression | ScopeResolutionExpression |
+   * SubscriptExpression | RightParenToken | CommaToken | ColonToken |
+   * EqualEqualEqualToken | QuestionToken | NameToken | RightBraceToken |
+   * TupleExpression | VariableExpression | VarrayIntrinsicExpression |
+   * XHPExpression | YieldExpression | YieldFromExpression
+   */
+  public function getExpressionx(): EditableNode {
+    return $this->getExpression();
   }
 
   public function getSemicolonUNTYPED(): EditableNode {
