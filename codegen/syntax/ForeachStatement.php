@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c72d71445930f0f4041f93e893c7cc52>>
+ * @generated SignedSource<<c1892b4ad61e37a27458c37af5080231>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -297,8 +297,8 @@ final class ForeachStatement
    * ArrayIntrinsicExpression | CastExpression | CollectionLiteralExpression |
    * FunctionCallExpression | MemberSelectionExpression |
    * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
-   * | ScopeResolutionExpression | SubscriptExpression | VariableExpression |
-   * VectorIntrinsicExpression
+   * | ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * VariableExpression | VectorIntrinsicExpression
    */
   public function getCollection(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_collection);
@@ -409,7 +409,8 @@ final class ForeachStatement
   /**
    * @returns FunctionCallExpression | ListExpression |
    * MemberSelectionExpression | Missing | PrefixUnaryExpression |
-   * ScopeResolutionExpression | SubscriptExpression | VariableExpression
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * VariableExpression
    */
   public function getKey(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_key);
@@ -487,7 +488,8 @@ final class ForeachStatement
   /**
    * @returns ArrayCreationExpression | FunctionCallExpression | ListExpression
    * | MemberSelectionExpression | PrefixUnaryExpression |
-   * ScopeResolutionExpression | SubscriptExpression | VariableExpression
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * VariableExpression
    */
   public function getValue(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_value);

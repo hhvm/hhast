@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<de7f2a8a77604f802e1465be8ebb0555>>
+ * @generated SignedSource<<af9ec02bd2fa412b0939868b408ecbaf>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -99,14 +99,14 @@ final class ListItem extends EditableNode {
    * | PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression
    * | PropertyDeclarator | QualifiedName | SafeMemberSelectionExpression |
    * ScopeResolutionExpression | ShapeExpression | ShapeTypeSpecifier |
-   * SimpleTypeSpecifier | StaticDeclarator | SubscriptExpression |
-   * PercentToken | XHPCategoryNameToken | NameToken | NoreturnToken |
-   * VariableToken | TraitUseAliasItem | TraitUsePrecedenceItem |
-   * TupleExpression | TupleTypeSpecifier | TypeConstant | TypeParameter |
-   * VariableExpression | VariadicParameter | VarrayIntrinsicExpression |
-   * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorIntrinsicExpression
-   * | VectorTypeSpecifier | WhereConstraint | XHPClassAttribute |
-   * XHPExpression | XHPSimpleClassAttribute
+   * SimpleTypeSpecifier | StaticDeclarator | SubscriptExpression | EqualToken
+   * | XHPCategoryNameToken | NameToken | NoreturnToken | VariableToken |
+   * TraitUseAliasItem | TraitUsePrecedenceItem | TupleExpression |
+   * TupleTypeSpecifier | TypeConstant | TypeParameter | VariableExpression |
+   * VariadicParameter | VarrayIntrinsicExpression | VarrayTypeSpecifier |
+   * VectorArrayTypeSpecifier | VectorIntrinsicExpression | VectorTypeSpecifier
+   * | WhereConstraint | XHPClassAttribute | XHPExpression |
+   * XHPSimpleClassAttribute
    */
   public function getItem(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_item);

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<11c3b1f3a374cb27985ded4433f573fd>>
+ * @generated SignedSource<<984d503ca9b95b765b443dd8ea9351f3>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -309,6 +309,8 @@ function editable_node_from_json(
       return HHAST\LambdaExpression::fromJSON($json, $file, $offset, $source);
     case 'lambda_signature':
       return HHAST\LambdaSignature::fromJSON($json, $file, $offset, $source);
+    case 'let_statement':
+      return HHAST\LetStatement::fromJSON($json, $file, $offset, $source);
     case 'list_expression':
       return HHAST\ListExpression::fromJSON($json, $file, $offset, $source);
     case 'list_item':

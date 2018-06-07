@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7ed9dbfc844219135ef0959a6e89264c>>
+ * @generated SignedSource<<7695925d181eaed7c1fba5ad9187db4e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -98,10 +98,9 @@ final class ExpressionStatement extends EditableNode {
    * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
    * SafeMemberSelectionExpression | ScopeResolutionExpression |
    * SubscriptExpression | RightParenToken | CommaToken | ColonToken |
-   * EqualEqualEqualToken | EqualGreaterThanToken | RightBracketToken |
-   * NameToken | RightBraceToken | TupleExpression | VariableExpression |
-   * VarrayIntrinsicExpression | XHPExpression | YieldExpression |
-   * YieldFromExpression
+   * EqualEqualEqualToken | QuestionToken | NameToken | RightBraceToken |
+   * TupleExpression | VariableExpression | VarrayIntrinsicExpression |
+   * XHPExpression | YieldExpression | YieldFromExpression
    */
   public function getExpression(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_expression);

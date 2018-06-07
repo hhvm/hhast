@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f37edf40d9da7485a22bf09e53526ed3>>
+ * @generated SignedSource<<4382ad41c66d3bdf7c5942c21161ba26>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -158,7 +158,9 @@ final class Enumerator extends EditableNode {
   }
 
   /**
-   * @returns BinaryExpression | LiteralExpression | ScopeResolutionExpression
+   * @returns BinaryExpression | FunctionCallExpression | LiteralExpression |
+   * ObjectCreationExpression | ScopeResolutionExpression | NameToken |
+   * VariableExpression
    */
   public function getValue(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_value);
