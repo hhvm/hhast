@@ -134,16 +134,6 @@ final class LinterCLIConfig {
     $blacklist = $this->configFile['disabledLinters'] ?? vec[];
     $autofix_blacklist = $this->configFile['disabledAutoFixes'] ?? vec[];
     $no_autofixes = $this->configFile['disableAllAutoFixes'] ?? false;
-
-    $normalize = $list ==> Keyset\map(
-      $list,
-      $linter ==> $this->getFullyQualifiedLinterName($linter),
-    );
-    $assert_types = $list ==> Keyset\map(
-      $list,
-      $str ==> TypeAssert\classname_of(BaseLinter::class, $str),
-    );
-
     foreach ($this->configFile['overrides'] ?? vec[] as $override) {
       $matches = false;
       foreach ($override['patterns'] as $pattern) {
@@ -155,34 +145,32 @@ final class LinterCLIConfig {
       if (!$matches) {
         continue;
       }
-
       if ($override['disableAllLinters'] ?? false) {
-        $linters = $normalize(vec[]);
-        $autofix_blacklist = $normalize(vec[]);
-        $linters = $assert_types($linters);
-        $autofix_blacklist = $assert_types($autofix_blacklist);
         return shape(
-          'linters' => $linters,
-          'autoFixBlacklist' => $autofix_blacklist,
+          'linters' => keyset[],
+          'autoFixBlacklist' => keyset[],
         );
-      } else {
-        $linters = Vec\concat(
-          $linters,
-          $override['extraLinters'] ?? vec[],
-        );
-        $blacklist = Vec\concat(
-          $blacklist,
-          $override['disabledLinters'] ?? vec[],
-        );
-        $autofix_blacklist = Vec\concat(
-          $autofix_blacklist,
-          $override['disabledAutoFixes'] ?? vec[],
-        );
-        $no_autofixes = $no_autofixes ||
-          ($override['disableAllAutoFixes'] ?? false);
       }
-    }
+      $linters = Vec\concat(
+        $linters,
+        $override['extraLinters'] ?? vec[],
+      );
+      $blacklist = Vec\concat(
+        $blacklist,
+        $override['disabledLinters'] ?? vec[],
+      );
+      $autofix_blacklist = Vec\concat(
+        $autofix_blacklist,
+        $override['disabledAutoFixes'] ?? vec[],
+      );
+      $no_autofixes = $no_autofixes ||
+        ($override['disableAllAutoFixes'] ?? false);
+      }
 
+    $normalize = $list ==> Keyset\map(
+      $list,
+      $linter ==> $this->getFullyQualifiedLinterName($linter),
+    );
     $linters = $normalize($linters);
     $blacklist = $normalize($blacklist);
     $autofix_blacklist = $normalize($autofix_blacklist);
@@ -200,6 +188,10 @@ final class LinterCLIConfig {
       $autofix_blacklist = $linters;
     }
 
+    $assert_types = $list ==> Keyset\map(
+      $list,
+      $str ==> TypeAssert\classname_of(BaseLinter::class, $str),
+    );
     $linters = $assert_types($linters);
     $autofix_blacklist = $assert_types($autofix_blacklist);
 
