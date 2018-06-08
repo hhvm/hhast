@@ -118,7 +118,7 @@ final class CodegenSyntax extends CodegenBase {
             'static',
             Vec\map(
               $syntax['fields'],
-              $inner ==> $inner['field_name'] == $underscored
+              $inner ==> $inner['field_name'] === $underscored
                 ? '$value'
                 : '$this->_'.$inner['field_name'],
             ),

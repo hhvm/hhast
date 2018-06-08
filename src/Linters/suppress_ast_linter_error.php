@@ -70,12 +70,12 @@ function is_linter_suppressed_in_sibling_node(
   string $ignore,
 ): bool {
   $parent = C\last($parents);
-  if ($parent == null) {
+  if ($parent === null) {
     return false;
   }
 
   $sibling = C\first($parent->getChildren());
-  if ($sibling == null) {
+  if ($sibling === null) {
     return false;
   }
 

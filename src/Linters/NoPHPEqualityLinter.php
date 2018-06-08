@@ -17,6 +17,7 @@ use type Facebook\HHAST\{
   EqualEqualEqualToken,
   ExclamationEqualToken,
   ExclamationEqualEqualToken,
+  LessThanGreaterThanToken,
 };
 use function Facebook\HHAST\Missing;
 use namespace Facebook\TypeAssert;
@@ -38,7 +39,9 @@ final class NoPHPEqualityLinter
     $replacement = null;
     if ($token instanceof EqualEqualToken) {
       $replacement = '===';
-    } else if ($token instanceof ExclamationEqualToken) {
+    } else if (
+      $token instanceof ExclamationEqualToken
+      || $token instanceof LessThanGreaterThanToken) {
       $replacement = '!==';
     } else {
       return null;
@@ -57,7 +60,10 @@ final class NoPHPEqualityLinter
     $op = $expr->getOperator();
     if ($op instanceof EqualEqualToken) {
       $op = new EqualEqualEqualToken($op->getLeading(), $op->getTrailing());
-    } else if ($op instanceof ExclamationEqualToken) {
+    } else if (
+      $op instanceof ExclamationEqualToken
+      || $op instanceof LessThanGreaterThanToken
+    ) {
       $op =
         new ExclamationEqualEqualToken($op->getLeading(), $op->getTrailing());
     } else {
