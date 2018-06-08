@@ -22,6 +22,7 @@ use namespace Facebook\CLILib\CLIOptions;
 
 final class LinterCLI extends CLIWithArguments {
   private bool $xhprof = false;
+  private bool $json = false;
 
   use CLIWithVerbosityTrait;
 
@@ -47,6 +48,11 @@ final class LinterCLI extends CLIWithArguments {
         'Enable XHProf profiling',
         '--xhprof',
       ),
+      CLIOptions\flag(
+        () ==> { $this->json = true; },
+        'Output JSON for machine consumption',
+        '--json',
+      ),
       $this->getVerbosityOption(),
     ];
   }
@@ -54,7 +60,8 @@ final class LinterCLI extends CLIWithArguments {
   private function lintFile(
     LinterCLIConfig $config,
     string $path,
-  ): Traversable<Linters\LintError> {
+    LinterCLIErrorHandler $error_handler,
+  ): void {
     $this->verbosePrintf(1, "Linting %s...\n", $path);
 
     $all_errors = vec[];
@@ -74,21 +81,18 @@ final class LinterCLI extends CLIWithArguments {
       }
 
       $errors = $linter->getLintErrors();
-
-      $all_errors = Vec\concat(
-        $all_errors,
-        $this->processErrors($linter, $config, $errors),
-      );
+      $error_handler->processErrors($linter, $config, $errors);
     }
-    return $all_errors;
   }
 
   private function lintDirectory(
     LinterCLIConfig $config,
     string $path,
-  ): Traversable<Linters\LintError> {
-    $it =
-      new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($path));
+    LinterCLIErrorHandler $error_handler,
+  ): void {
+    $it = new \RecursiveIteratorIterator(
+      new \RecursiveDirectoryIterator($path),
+    );
     foreach ($it as $info) {
       if (!$info->isFile()) {
         continue;
@@ -96,9 +100,7 @@ final class LinterCLI extends CLIWithArguments {
       $ext = Str\lowercase($info->getExtension());
       if ($ext === 'hh' || $ext === 'php') {
         $file = $info->getPathname();
-        foreach ($this->lintFile($config, $file) as $error) {
-          yield $error;
-        }
+        $this->lintFile($config, $file, $error_handler);
       }
     }
   }
@@ -106,11 +108,12 @@ final class LinterCLI extends CLIWithArguments {
   private function lintPath(
     LinterCLIConfig $config,
     string $path,
-  ): Traversable<Linters\LintError> {
+    LinterCLIErrorHandler $error_handler,
+  ): void {
     if (\is_file($path)) {
-      return $this->lintFile($config, $path);
+      $this->lintFile($config, $path, $error_handler);
     } else if (\is_dir($path)) {
-      return $this->lintDirectory($config, $path);
+      $this->lintDirectory($config, $path, $error_handler);
     } else {
       throw new ExitException(
         1,
@@ -166,195 +169,19 @@ final class LinterCLI extends CLIWithArguments {
       $config = null;
     }
 
-    $had_errors = false;
+    $error_handler = $this->json
+      ? new LinterCLIErrorHandlerJSON()
+      : new LinterCLIErrorHandlerPlain(shape(
+        'supports_colors' => $this->supportsColors(),
+        'is_interactive' => $this->isInteractive(),
+      ));
+
     foreach ($roots as $root) {
       $root_config = $config ?? LinterCLIConfig::getForPath($root);
-      foreach ($this->lintPath($root_config, $root) as $_error) {
-        $had_errors = true;
-      }
-    }
-    if (!$had_errors) {
-      print("No errors.\n");
+      $this->lintPath($root_config, $root, $error_handler);
     }
 
-    return $had_errors ? 2 : 0;
-  }
-
-  private function processErrors(
-    Linters\BaseLinter $linter,
-    LinterCLIConfig::TFileConfig $config,
-    Traversable<Linters\LintError> $errors,
-  ): Traversable<Linters\LintError> {
-    $class = \get_class($linter);
-    $to_fix = vec[];
-    $colors = $this->supportsColors();
-
-    foreach ($errors as $error) {
-      $position = $error->getPosition();
-      \printf(
-        "%s%s%s\n"."  %sLinter: %s%s\n"."  Location: %s\n",
-        $colors ? "\e[1;31m" : '',
-        $error->getDescription(),
-        $colors ? "\e[0m" : '',
-        $colors ? "\e[90m" : '',
-        \get_class($error->getLinter()),
-        $colors ? "\e[0m" : '',
-        $position === null
-          ? $error->getFile()
-          : Str\format(
-              '%s:%d:%d',
-              $error->getFile(),
-              $position[0],
-              $position[1],
-            ),
-      );
-
-      $fixable = $error instanceof Linters\FixableLintError &&
-        (!C\contains_key($config['autoFixBlacklist'], $class)) &&
-        $error->isFixable();
-
-      if ($error instanceof Linters\FixableLintError && $fixable) {
-        if ($this->shouldFixLint($error)) {
-          $to_fix[] = $error;
-        } else {
-          yield $error;
-        }
-      } else {
-        $this->renderLintBlame($error);
-        yield $error;
-      }
-    }
-
-    if (!C\is_empty($to_fix)) {
-      self::fixErrors($linter, $to_fix);
-    }
-  }
-
-  private static function fixErrors(
-    Linters\BaseLinter $linter,
-    vec<Linters\FixableLintError> $errors,
-  ): void {
-    invariant(
-      $linter instanceof Linters\AutoFixingLinter,
-      '%s is not an auto-fixing-linter',
-      \get_class($linter),
-    );
-
-    $linter->fixLintErrors($errors);
-  }
-
-  private function shouldFixLint(
-    Linters\FixableLintError $error,
-  ): bool {
-    list($old, $new) = $error->getReadableFix();
-    if ($old === $new) {
-      $this->renderLintBlame($error);
-      return false;
-    }
-
-    $prefix_lines = ($code, $prefix) ==>
-      Str\split($code, "\n")
-      |> Vec\map(
-        $$,
-        $line ==> $prefix.$line,
-      )
-      |> Str\join($$, "\n");
-
-
-    $colors = $this->supportsColors();
-
-    if ($error->shouldRenderBlameAndFixAsDiff()) {
-      $blame_color = "\e[31m"; // red
-      $blame_marker = '-';
-      $fix_marker = '+';
-      $fix_color = "\e[32m"; // green
-    } else {
-      $blame_color = "\e[33m"; // yellow
-      $blame_marker = '  >';
-      $fix_marker = '  ';
-      $fix_color = "\e[33m"; // yellow
-    }
-
-    \printf(
-      "  Code:\n"."%s%s%s\n"."  Suggested fix:\n"."%s%s%s\n",
-      $colors ? $blame_color : '',
-      $prefix_lines($old, '  '.$blame_marker),
-      $colors ? "\e[0m" : '',
-      $colors ? $fix_color : '',
-      $prefix_lines($new, '  '.$fix_marker),
-      $colors ? "\e[0m" : '',
-    );
-
-    if (!$this->isInteractive()) {
-      return false;
-    }
-
-    static $cache = dict[];
-    $cache_key = \get_class($error->getLinter());
-    if (C\contains_key($cache, $cache_key)) {
-      $should_fix = $cache[$cache_key];
-      \printf(
-        "Would you like to apply this fix?\n  <%s to all>\n",
-        $should_fix ? 'yes' : 'no',
-      );
-      return $should_fix;
-    }
-
-    $response = null;
-    do {
-      print(
-        "\e[94mWould you like to apply this fix?\e[0m\n".
-        "  \e[37m[y]es/[N]o/yes to [a]ll/n[o] to all:\e[0m "
-      );
-      $response = \fgets(\STDIN);
-      if ($response === false) {
-        return false;
-      }
-      $response = Str\trim($response);
-      switch ($response) {
-        case 'a':
-          $cache[$cache_key] = true;
-          // FALLTHROUGH
-        case 'y':
-          return true;
-        case 'o':
-          $cache[$cache_key] = false;
-          // FALLTHROUGH
-        case 'n':
-        case '':
-          return false;
-        default:
-          $this->getStderr()->write(
-            Str\format(
-              "'%s' is not a valid response.\n",
-              $response,
-            ),
-          );
-          $response = null;
-      }
-    } while ($response === null);
-    return false;
-  }
-
-  private function renderLintBlame(
-    Linters\LintError $error,
-  ): void {
-    $blame = $error->getPrettyBlame();
-    if ($blame === null) {
-      return;
-    }
-
-    $colors = $this->supportsColors();
-    \printf(
-      "  Code:\n%s%s%s\n",
-      $colors ? "\e[33m" : '',
-      Str\split($blame, "\n")
-      |> Vec\map(
-        $$,
-        $line ==> '  >'.$line,
-      )
-      |> Str\join($$, "\n"),
-      $colors ? "\e[0m" : '',
-    );
+    $error_handler->print();
+    return $error_handler->hadErrors() ? 2 : 0;
   }
 }
