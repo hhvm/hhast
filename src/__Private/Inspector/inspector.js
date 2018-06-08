@@ -7,6 +7,8 @@
  *
  */
 
+window.addEventListener('load', function() {
+
 var selected = null;
 var infoSelectedLeft = null;
 var infoSelectedRight= null;
@@ -23,7 +25,7 @@ function selectElement(event) {
     infoSelectedRight = null;
   }
 
-  selected = event.currentTarget;
+  selected = event.target;
   selected.classList.add('selected');
   event.stopPropagation();
 
@@ -80,7 +82,6 @@ function selectElement(event) {
   info.appendChild(stack);
 }
 
-let spans = document.querySelectorAll('code.language-hack span');
-spans.forEach(element => {
-  element.addEventListener('click', selectElement);
+document.querySelector('code.language-hack').addEventListener('click', selectElement);
+
 });

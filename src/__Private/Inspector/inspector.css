@@ -8,13 +8,13 @@ code.language-hack span.infoSelected, .info .infoSelected {
 
 .info {
   position: fixed;
-  top: 0px 0px;
+  top: 0;
   border-right: 1px solid black;
   height: 100%;
   width: 20%;
   padding-left: 1em;
   padding-right: 1em;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Menlo", "Consolas", 'Courier New', Courier, monospace;
   overflow: scroll;
 }
 
