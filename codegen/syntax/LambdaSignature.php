@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<87fd9c67e1c5239eec51145fa8439811>>
+ * @generated SignedSource<<bea62a5da6241e38fae5c1c9551290df>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -161,7 +161,7 @@ final class LambdaSignature extends EditableNode {
   }
 
   /**
-   * @returns Missing | EditableList
+   * @returns EditableList | Missing
    */
   public function getParameters(): ?EditableList {
     if ($this->_parameters->isMissing()) {
@@ -265,8 +265,8 @@ final class LambdaSignature extends EditableNode {
   }
 
   /**
-   * @returns Missing | SimpleTypeSpecifier | GenericTypeSpecifier |
-   * ClosureTypeSpecifier
+   * @returns ClosureTypeSpecifier | GenericTypeSpecifier | Missing |
+   * SimpleTypeSpecifier
    */
   public function getType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);

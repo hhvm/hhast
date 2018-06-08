@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9904a1985dff50e5e0ae3e9222a6b5d6>>
+ * @generated SignedSource<<224f9a8ea8b5f8ec483f25f3835be60e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,11 +101,10 @@ final class InstanceofExpression extends EditableNode {
   }
 
   /**
-   * @returns VariableExpression | ParenthesizedExpression |
-   * FunctionCallExpression | ObjectCreationExpression |
-   * MemberSelectionExpression | SubscriptExpression | CastExpression |
-   * AnonymousFunction | PrefixUnaryExpression | LiteralExpression |
-   * ScopeResolutionExpression
+   * @returns AnonymousFunction | CastExpression | FunctionCallExpression |
+   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression |
+   * ScopeResolutionExpression | SubscriptExpression | VariableExpression
    */
   public function getLeftOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_left_operand);
@@ -149,9 +148,9 @@ final class InstanceofExpression extends EditableNode {
   }
 
   /**
-   * @returns NameToken | VariableExpression | QualifiedName |
-   * ScopeResolutionExpression | SubscriptExpression |
-   * MemberSelectionExpression | ParenthesizedExpression
+   * @returns MemberSelectionExpression | ParenthesizedExpression |
+   * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
+   * NameToken | VariableExpression
    */
   public function getRightOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_right_operand);

@@ -43,9 +43,10 @@ final class CodegenRelations extends CodegenBase {
             $result[$key] ?? keyset[],
             $child_keys,
           ]
-        );
+        ) |> Keyset\sort($$);
       }
     }
+    $result = Dict\sort_by_key($result);
 
     $cg = $this->getCodegenFactory();
 

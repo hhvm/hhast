@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f57fd056cad4ec8a8fb1b50dcecb4d2c>>
+ * @generated SignedSource<<7cdcb8f0da7e32c7504bb8831f455154>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -135,7 +135,7 @@ final class PropertyDeclaration extends EditableNode {
   }
 
   /**
-   * @returns Missing | AttributeSpecification
+   * @returns AttributeSpecification | Missing
    */
   public function getAttributeSpec(): ?AttributeSpecification {
     if ($this->_attribute_spec->isMissing()) {
@@ -207,11 +207,11 @@ final class PropertyDeclaration extends EditableNode {
   }
 
   /**
-   * @returns Missing | SimpleTypeSpecifier | NullableTypeSpecifier |
-   * GenericTypeSpecifier | VectorTypeSpecifier | VarrayTypeSpecifier |
-   * DarrayTypeSpecifier | VectorArrayTypeSpecifier | SoftTypeSpecifier |
-   * TupleTypeSpecifier | MapArrayTypeSpecifier | DictionaryTypeSpecifier |
-   * ClosureTypeSpecifier | TypeConstant
+   * @returns ClosureTypeSpecifier | DarrayTypeSpecifier |
+   * DictionaryTypeSpecifier | GenericTypeSpecifier | MapArrayTypeSpecifier |
+   * Missing | NullableTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier
+   * | TupleTypeSpecifier | TypeConstant | VarrayTypeSpecifier |
+   * VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);
@@ -267,19 +267,9 @@ final class PropertyDeclaration extends EditableNode {
   }
 
   /**
-   * @returns SemicolonToken | Missing
-   */
-  public function getSemicolon(): ?SemicolonToken {
-    if ($this->_semicolon->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
-  }
-
-  /**
    * @returns SemicolonToken
    */
-  public function getSemicolonx(): SemicolonToken {
+  public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 }

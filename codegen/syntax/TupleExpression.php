@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b2db390f40f3c1a003ba9c3d0c26a76f>>
+ * @generated SignedSource<<d425e4554cdb1a34873a708491a5fd5f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -169,7 +169,7 @@ final class TupleExpression extends EditableNode {
   }
 
   /**
-   * @returns Missing | EditableList
+   * @returns EditableList | Missing
    */
   public function getItems(): ?EditableList {
     if ($this->_items->isMissing()) {

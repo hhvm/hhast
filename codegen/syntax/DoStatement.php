@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c904ac8afa79591f53fd673bbbb4c89d>>
+ * @generated SignedSource<<f8353810afeb482038ea6a842235405e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -299,8 +299,8 @@ final class DoStatement
   }
 
   /**
-   * @returns LiteralExpression | BinaryExpression | VariableExpression |
-   * FunctionCallExpression | SubscriptExpression | PrefixUnaryExpression
+   * @returns BinaryExpression | FunctionCallExpression | LiteralExpression |
+   * PrefixUnaryExpression | SubscriptExpression | VariableExpression
    */
   public function getCondition(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_condition);

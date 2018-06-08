@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<939f7789c7bf816a21e4726fcf4746e6>>
+ * @generated SignedSource<<2513f697889fd384638d8a800507218e>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -38,7 +38,9 @@ class TokenClassMap {
       'async' => HHAST\AsyncToken::class,
       'attribute' => HHAST\AttributeToken::class,
       'await' => HHAST\AwaitToken::class,
+      'binary' => HHAST\BinaryToken::class,
       'bool' => HHAST\BoolToken::class,
+      'boolean' => HHAST\BooleanToken::class,
       'break' => HHAST\BreakToken::class,
       'case' => HHAST\CaseToken::class,
       'catch' => HHAST\CatchToken::class,
@@ -91,6 +93,7 @@ class TokenClassMap {
       'instanceof' => HHAST\InstanceofToken::class,
       'insteadof' => HHAST\InsteadofToken::class,
       'int' => HHAST\IntToken::class,
+      'integer' => HHAST\IntegerToken::class,
       'interface' => HHAST\InterfaceToken::class,
       'is' => HHAST\IsToken::class,
       'isset' => HHAST\IssetToken::class,
@@ -111,6 +114,7 @@ class TokenClassMap {
       'protected' => HHAST\ProtectedToken::class,
       'public' => HHAST\PublicToken::class,
       '?as' => HHAST\QuestionAsToken::class,
+      'real' => HHAST\RealToken::class,
       'require' => HHAST\RequireToken::class,
       'require_once' => HHAST\Require_onceToken::class,
       'required' => HHAST\RequiredToken::class,

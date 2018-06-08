@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ceca2f0cc1b2b66d8a359013b1e8143b>>
+ * @generated SignedSource<<4973b214e45d7c229355920270501df9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -142,8 +142,9 @@ final class CastExpression extends EditableNode {
   }
 
   /**
-   * @returns IntToken | DoubleToken | StringToken | BoolToken | ObjectToken |
-   * ArrayToken | FloatToken | UnsetToken | NameToken
+   * @returns ArrayToken | BinaryToken | BoolToken | BooleanToken | DoubleToken
+   * | FloatToken | IntToken | IntegerToken | ObjectToken | RealToken |
+   * StringToken | UnsetToken
    */
   public function getType(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_type);
@@ -189,14 +190,14 @@ final class CastExpression extends EditableNode {
   }
 
   /**
-   * @returns VariableExpression | ParenthesizedExpression | LiteralExpression
-   * | FunctionCallExpression | MemberSelectionExpression | SubscriptExpression
-   * | ObjectCreationExpression | NameToken | ArrayIntrinsicExpression |
-   * DictionaryIntrinsicExpression | KeysetIntrinsicExpression | CastExpression
-   * | ArrayCreationExpression | ScopeResolutionExpression |
-   * VectorIntrinsicExpression | PostfixUnaryExpression |
-   * CollectionLiteralExpression | XHPExpression | AnonymousFunction |
-   * PrefixUnaryExpression
+   * @returns AnonymousFunction | ArrayCreationExpression |
+   * ArrayIntrinsicExpression | CastExpression | CollectionLiteralExpression |
+   * DictionaryIntrinsicExpression | FunctionCallExpression |
+   * KeysetIntrinsicExpression | LiteralExpression | MemberSelectionExpression
+   * | ObjectCreationExpression | ParenthesizedExpression |
+   * PostfixUnaryExpression | PrefixUnaryExpression | ScopeResolutionExpression
+   * | SubscriptExpression | NameToken | VariableExpression |
+   * VectorIntrinsicExpression | XHPExpression
    */
   public function getOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_operand);

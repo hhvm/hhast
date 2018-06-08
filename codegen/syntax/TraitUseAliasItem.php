@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<22a7605d4ed46cdb3de067bee9534387>>
+ * @generated SignedSource<<78544545602a0c9e365802c9f12e9d0d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -119,7 +119,7 @@ final class TraitUseAliasItem extends EditableNode {
   }
 
   /**
-   * @returns SimpleTypeSpecifier | ScopeResolutionExpression
+   * @returns ScopeResolutionExpression | SimpleTypeSpecifier
    */
   public function getAliasingName(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_aliasing_name);

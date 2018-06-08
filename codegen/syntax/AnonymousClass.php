@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f6c550002874dc1a103eb889cdb46eec>>
+ * @generated SignedSource<<ea20040579472eea4f38df5f579b3c17>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -284,7 +284,7 @@ final class AnonymousClass extends EditableNode {
   }
 
   /**
-   * @returns Missing | EditableList
+   * @returns EditableList | Missing
    */
   public function getArgumentList(): ?EditableList {
     if ($this->_argument_list->isMissing()) {
@@ -410,7 +410,7 @@ final class AnonymousClass extends EditableNode {
   }
 
   /**
-   * @returns Missing | EditableList
+   * @returns EditableList | Missing
    */
   public function getExtendsList(): ?EditableList {
     if ($this->_extends_list->isMissing()) {
@@ -500,7 +500,7 @@ final class AnonymousClass extends EditableNode {
   }
 
   /**
-   * @returns Missing | EditableList
+   * @returns EditableList | Missing
    */
   public function getImplementsList(): ?EditableList {
     if ($this->_implements_list->isMissing()) {

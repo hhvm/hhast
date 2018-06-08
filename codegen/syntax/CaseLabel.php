@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<47c8c1bee7b93c2bfe5c7f608eeffbda>>
+ * @generated SignedSource<<6b7de9c81c79ac433c32d53d501ba864>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,9 +123,9 @@ final class CaseLabel extends EditableNode {
   }
 
   /**
-   * @returns LiteralExpression | PrefixUnaryExpression | VariableExpression |
-   * ScopeResolutionExpression | FunctionCallExpression | InstanceofExpression
-   * | ArrayIntrinsicExpression | NameToken
+   * @returns ArrayIntrinsicExpression | FunctionCallExpression |
+   * InstanceofExpression | LiteralExpression | PrefixUnaryExpression |
+   * ScopeResolutionExpression | NameToken | VariableExpression
    */
   public function getExpression(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_expression);

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<af6ef7975520c9bf867411b0681d18c2>>
+ * @generated SignedSource<<9810cd1b4a962d468be25c7408a5ae41>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -226,7 +226,7 @@ final class ClassishDeclaration extends EditableNode {
   }
 
   /**
-   * @returns Missing | AttributeSpecification
+   * @returns AttributeSpecification | Missing
    */
   public function getAttribute(): ?AttributeSpecification {
     if ($this->_attribute->isMissing()) {
@@ -314,19 +314,9 @@ final class ClassishDeclaration extends EditableNode {
   }
 
   /**
-   * @returns ClassToken | InterfaceToken | TraitToken | Missing
-   */
-  public function getKeyword(): ?EditableToken {
-    if ($this->_keyword->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(EditableToken::class, $this->_keyword);
-  }
-
-  /**
    * @returns ClassToken | InterfaceToken | TraitToken
    */
-  public function getKeywordx(): EditableToken {
+  public function getKeyword(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_keyword);
   }
 
@@ -478,7 +468,7 @@ final class ClassishDeclaration extends EditableNode {
   }
 
   /**
-   * @returns Missing | EditableList
+   * @returns EditableList | Missing
    */
   public function getExtendsList(): ?EditableList {
     if ($this->_extends_list->isMissing()) {
@@ -570,7 +560,7 @@ final class ClassishDeclaration extends EditableNode {
   }
 
   /**
-   * @returns Missing | EditableList
+   * @returns EditableList | Missing
    */
   public function getImplementsList(): ?EditableList {
     if ($this->_implements_list->isMissing()) {

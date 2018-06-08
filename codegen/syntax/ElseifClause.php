@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a1475db02690386027ad139de52d26e3>>
+ * @generated SignedSource<<d47c15a3900b0984a9925d816bdd7709>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -191,7 +191,7 @@ final class ElseifClause extends EditableNode implements IControlFlowStatement {
   }
 
   /**
-   * @returns LiteralExpression | BinaryExpression | FunctionCallExpression |
+   * @returns BinaryExpression | FunctionCallExpression | LiteralExpression |
    * VariableExpression
    */
   public function getCondition(): EditableNode {

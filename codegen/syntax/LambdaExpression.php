@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0323c47a379c571ba044b2ba2c314b32>>
+ * @generated SignedSource<<bcdb28e7353f5051957e9a9d362dc7f8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -268,7 +268,7 @@ final class LambdaExpression extends EditableNode {
   }
 
   /**
-   * @returns VariableToken | LambdaSignature
+   * @returns LambdaSignature | VariableToken
    */
   public function getSignature(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_signature);
@@ -327,11 +327,11 @@ final class LambdaExpression extends EditableNode {
   }
 
   /**
-   * @returns CompoundStatement | SubscriptExpression | FunctionCallExpression
-   * | LambdaExpression | BinaryExpression | VariableExpression |
-   * LiteralExpression | MemberSelectionExpression | PrefixUnaryExpression |
-   * ArrayIntrinsicExpression | ConditionalExpression | CastExpression |
-   * ParenthesizedExpression | ObjectCreationExpression
+   * @returns ArrayIntrinsicExpression | BinaryExpression | CastExpression |
+   * CompoundStatement | ConditionalExpression | FunctionCallExpression |
+   * LambdaExpression | LiteralExpression | MemberSelectionExpression |
+   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
+   * | SubscriptExpression | VariableExpression
    */
   public function getBody(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_body);

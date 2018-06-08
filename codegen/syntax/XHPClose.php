@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3894a7cfce733267b019cc13e8502b09>>
+ * @generated SignedSource<<69a9fb619a415d33904b309dcb46ce41>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,7 +123,7 @@ final class XHPClose extends EditableNode {
   }
 
   /**
-   * @returns XHPElementNameToken | Missing
+   * @returns Missing | XHPElementNameToken
    */
   public function getName(): ?XHPElementNameToken {
     if ($this->_name->isMissing()) {
@@ -155,7 +155,7 @@ final class XHPClose extends EditableNode {
   }
 
   /**
-   * @returns GreaterThanToken | Missing
+   * @returns Missing | GreaterThanToken
    */
   public function getRightAngle(): ?GreaterThanToken {
     if ($this->_right_angle->isMissing()) {

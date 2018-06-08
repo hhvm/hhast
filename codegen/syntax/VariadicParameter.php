@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<194611dc9ed2a3eee541e7cbeb15b185>>
+ * @generated SignedSource<<63ca3eb889597fd2f6c629df43488f0c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,8 +123,8 @@ final class VariadicParameter extends EditableNode {
   }
 
   /**
-   * @returns Missing | SimpleTypeSpecifier | TupleTypeSpecifier |
-   * ClosureTypeSpecifier
+   * @returns ClosureTypeSpecifier | Missing | SimpleTypeSpecifier |
+   * TupleTypeSpecifier
    */
   public function getType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);

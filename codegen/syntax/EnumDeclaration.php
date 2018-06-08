@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<51ae587e7684a2ad66513a019dfe9edd>>
+ * @generated SignedSource<<2fcb592543cddef5cea9aeda13fc6327>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -209,7 +209,7 @@ final class EnumDeclaration extends EditableNode {
   }
 
   /**
-   * @returns Missing | AttributeSpecification
+   * @returns AttributeSpecification | Missing
    */
   public function getAttributeSpec(): ?AttributeSpecification {
     if ($this->_attribute_spec->isMissing()) {
@@ -353,8 +353,8 @@ final class EnumDeclaration extends EditableNode {
   }
 
   /**
-   * @returns SimpleTypeSpecifier | ClassnameTypeSpecifier |
-   * GenericTypeSpecifier
+   * @returns ClassnameTypeSpecifier | GenericTypeSpecifier |
+   * SimpleTypeSpecifier
    */
   public function getBase(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_base);
@@ -386,7 +386,7 @@ final class EnumDeclaration extends EditableNode {
   }
 
   /**
-   * @returns TypeConstraint | Missing
+   * @returns Missing | TypeConstraint
    */
   public function getType(): ?TypeConstraint {
     if ($this->_type->isMissing()) {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a11ffce86c5637a9a67ccabfd44f9d04>>
+ * @generated SignedSource<<b1826e68d71a7d2957178b941611a8e6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -145,9 +145,19 @@ final class TypeParameters extends EditableNode {
   }
 
   /**
+   * @returns Missing | GreaterThanToken
+   */
+  public function getRightAngle(): ?GreaterThanToken {
+    if ($this->_right_angle->isMissing()) {
+      return null;
+    }
+    return TypeAssert\instance_of(GreaterThanToken::class, $this->_right_angle);
+  }
+
+  /**
    * @returns GreaterThanToken
    */
-  public function getRightAngle(): GreaterThanToken {
+  public function getRightAnglex(): GreaterThanToken {
     return TypeAssert\instance_of(GreaterThanToken::class, $this->_right_angle);
   }
 }

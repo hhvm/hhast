@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c1bc5182eb116dbdd36cc553dfcf3b09>>
+ * @generated SignedSource<<7ea235e8fa20e7ec06fa2f5dff219062>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -124,7 +124,7 @@ final class MethodishDeclaration
   }
 
   /**
-   * @returns Missing | AttributeSpecification
+   * @returns AttributeSpecification | Missing
    */
   public function getAttribute(): ?AttributeSpecification {
     if ($this->_attribute->isMissing()) {

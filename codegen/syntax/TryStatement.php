@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<594505c931e91876bc342d7d2d6366c5>>
+ * @generated SignedSource<<7b20dda4450d4719eede4fe9dc2754c1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -224,7 +224,7 @@ final class TryStatement extends EditableNode {
   }
 
   /**
-   * @returns Missing | FinallyClause
+   * @returns FinallyClause | Missing
    */
   public function getFinallyClause(): ?FinallyClause {
     if ($this->_finally_clause->isMissing()) {

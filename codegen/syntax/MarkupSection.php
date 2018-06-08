@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<405b26684bb3b8f8388be7af9186599e>>
+ * @generated SignedSource<<bf6a4e3092776a7feb0cb3c285708c16>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -149,7 +149,7 @@ final class MarkupSection extends EditableNode {
   }
 
   /**
-   * @returns MarkupToken | Missing
+   * @returns Missing | MarkupToken
    */
   public function getText(): ?MarkupToken {
     if ($this->_text->isMissing()) {
@@ -213,7 +213,7 @@ final class MarkupSection extends EditableNode {
   }
 
   /**
-   * @returns Missing | ExpressionStatement
+   * @returns ExpressionStatement | Missing
    */
   public function getExpression(): ?ExpressionStatement {
     if ($this->_expression->isMissing()) {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b9c8f4debe7e63c7e0a90b255659f6ed>>
+ * @generated SignedSource<<7b55a2f8cfc90f99473b4b220b005e3f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -291,7 +291,7 @@ final class AlternateIfStatement extends EditableNode {
   }
 
   /**
-   * @returns LiteralExpression | BinaryExpression | VariableExpression
+   * @returns BinaryExpression | LiteralExpression | VariableExpression
    */
   public function getCondition(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_condition);

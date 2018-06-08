@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<34ab35679919ab7796035fb1a183dd0f>>
+ * @generated SignedSource<<f40a09b997106e1975710a4b9298617e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -82,7 +82,7 @@ final class InclusionExpression extends EditableNode {
   }
 
   /**
-   * @returns IncludeToken | RequireToken | Include_onceToken |
+   * @returns IncludeToken | Include_onceToken | RequireToken |
    * Require_onceToken
    */
   public function getRequire(): EditableToken {
@@ -105,8 +105,8 @@ final class InclusionExpression extends EditableNode {
   }
 
   /**
-   * @returns BinaryExpression | LiteralExpression | VariableExpression |
-   * NameToken | ParenthesizedExpression | SubscriptExpression
+   * @returns BinaryExpression | LiteralExpression | ParenthesizedExpression |
+   * SubscriptExpression | NameToken | VariableExpression
    */
   public function getFilename(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_filename);
