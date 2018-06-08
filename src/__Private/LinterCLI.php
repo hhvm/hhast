@@ -162,10 +162,11 @@ final class LinterCLI extends CLIWithArguments {
           $config_file = $path.'/hhast-lint.json';
           if (\file_exists($config_file)) {
             \fwrite(
-              \STDERR,
-              "Warning: PATH arguments contain a hhast-lint.json\n",
+              \STDOUT,
+              "Warning: PATH arguments contain a hhast-lint.json, ".
+              "which modifies the linters used and customizes behavior. ".
+              "Consider 'cd ".$root."; vendor/bin/hhast-lint'\n\n",
             );
-            return 1;
           }
         }
       }
