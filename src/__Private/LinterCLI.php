@@ -17,6 +17,7 @@ use namespace HH\Lib\{C, Dict, Str, Vec};
 final class LinterCLI extends CLIWithArguments {
   private bool $printPerfCounters = false;
   private bool $xhprof = false;
+  private bool $json = false;
 
   use CLIWithVerbosityTrait;
 
@@ -38,6 +39,11 @@ final class LinterCLI extends CLIWithArguments {
         'Enable XHProf profiling',
         '--xhprof',
       ),
+      CLIOptions\flag(
+        () ==> { $this->json = true; },
+        'Output JSON for machine consumption',
+        '--json',
+      ),
       $this->getVerbosityOption(),
     ];
   }
@@ -45,7 +51,7 @@ final class LinterCLI extends CLIWithArguments {
   private function lintFile(
     LinterCLIConfig $config,
     string $path,
-  ): Traversable<Linters\LintError> {
+  ): vec<Linters\LintError> {
     $this->verbosePrintf(1, "Linting %s...\n", $path);
 
     $all_errors = vec[];
@@ -83,7 +89,8 @@ final class LinterCLI extends CLIWithArguments {
   private function lintDirectory(
     LinterCLIConfig $config,
     string $path,
-  ): Traversable<Linters\LintError> {
+  ): vec<Linters\LintError> {
+    $all_errors = vec[];
     $it = new \RecursiveIteratorIterator(
       new \RecursiveDirectoryIterator($path),
     );
@@ -94,17 +101,19 @@ final class LinterCLI extends CLIWithArguments {
       $ext = Str\lowercase($info->getExtension());
       if ($ext === 'hh' || $ext === 'php') {
         $file = $info->getPathname();
-        foreach($this->lintFile($config, $file) as $error) {
-          yield $error;
-        }
+        $all_errors = Vec\concat(
+          $all_errors,
+          $this->lintFile($config, $file),
+        );
       }
     }
+    return $all_errors;
   }
 
   private function lintPath(
     LinterCLIConfig $config,
     string $path,
-  ): Traversable<Linters\LintError> {
+  ): vec<Linters\LintError> {
     if (\is_file($path)) {
       return $this->lintFile($config, $path);
     } else if (\is_dir($path)) {
@@ -159,14 +168,42 @@ final class LinterCLI extends CLIWithArguments {
       $config = null;
     }
 
-    $had_errors = false;
+    $all_errors = vec[];
     foreach ($roots as $root) {
       $root_config = $config ?? LinterCLIConfig::getForPath($root);
-      foreach ($this->lintPath($root_config, $root) as $_error) {
-        $had_errors = true;
-      }
+      $all_errors = Vec\concat(
+          $all_errors,
+          $this->lintPath($root_config, $root),
+        );
     }
-    if (!$had_errors) {
+
+    $had_errors = \count($all_errors) > 0;
+    if ($this->json) {
+      print(\json_encode(shape(
+        'passed' => !$had_errors,
+        'errors' => Vec\map(
+          $all_errors,
+          $error ==> {
+            $position = $error->getPosition();
+            return shape(
+              "range" => shape(
+                "start" => shape(
+                  "line" => $position !== null ? $position[0] : null,
+                  "character" => $position !== null ? $position[1] : null,
+                ),
+                "end" => shape(
+                  "line" => null,
+                  "character" => null,
+                ),
+              ),
+              "message" => $error->getDescription(),
+              "linter" => \get_class($error->getLinter()),
+              "file" => $error->getFile(),
+            );
+          },
+        ),
+      )));
+    } else if (!$had_errors) {
       print("No errors.\n");
     }
 
@@ -186,37 +223,41 @@ final class LinterCLI extends CLIWithArguments {
     foreach ($errors as $error) {
       $yield_perf->end();
 
-      $position = $error->getPosition();
-      \printf(
-        "%s%s%s\n".
-        "  %sLinter: %s%s\n".
-        "  Location: %s\n",
-        $colors ? "\e[1;31m" : '',
-        $error->getDescription(),
-        $colors ? "\e[0m" : '',
-        $colors ? "\e[90m" : '',
-        \get_class($error->getLinter()),
-        $colors ? "\e[0m" : '',
-        $position === null
-          ? $error->getFile()
-          : Str\format('%s:%d:%d', $error->getFile(), $position[0], $position[1]),
-      );
+      if ($this->json) {
+        yield $error;
+      } else {
+        $position = $error->getPosition();
+        \printf(
+          "%s%s%s\n".
+          "  %sLinter: %s%s\n".
+          "  Location: %s\n",
+          $colors ? "\e[1;31m" : '',
+          $error->getDescription(),
+          $colors ? "\e[0m" : '',
+          $colors ? "\e[90m" : '',
+          \get_class($error->getLinter()),
+          $colors ? "\e[0m" : '',
+          $position === null
+            ? $error->getFile()
+            : Str\format('%s:%d:%d', $error->getFile(), $position[0], $position[1]),
+        );
 
-      $c = new PerfCounter($class.'#isFixable');
-      $fixable = $error instanceof Linters\FixableLintError
-        && (!C\contains_key($config['autoFixBlacklist'], $class))
-        && $error->isFixable();
-      $c->end();
+        $c = new PerfCounter($class.'#isFixable');
+        $fixable = $error instanceof Linters\FixableLintError
+          && (!C\contains_key($config['autoFixBlacklist'], $class))
+          && $error->isFixable();
+        $c->end();
 
-      if ($error instanceof Linters\FixableLintError && $fixable) {
-        if (self::shouldFixLint($error)) {
-          $to_fix[] = $error;
+        if ($error instanceof Linters\FixableLintError && $fixable) {
+          if (self::shouldFixLint($error)) {
+            $to_fix[] = $error;
+          } else {
+            yield $error;
+          }
         } else {
+          self::renderLintBlame($error);
           yield $error;
         }
-      } else {
-        self::renderLintBlame($error);
-        yield $error;
       }
       $yield_perf = new PerfCounter($class.'#yieldError');
     }
