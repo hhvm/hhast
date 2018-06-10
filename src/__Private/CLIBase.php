@@ -217,10 +217,7 @@ abstract class CLIBase {
         break;
 
       case CLIOptions\CLIOptionType::SHORT:
-        $arg_length = Str\length($arg);
-        for ($index = 0; $index < $arg_length; $index++) {
-          $options[] = $arg[$index];
-        }
+        $options = Vec\concat($options, Str\chunk($arg));
         break;
 
       default:
@@ -230,21 +227,17 @@ abstract class CLIBase {
     $is_single_option = C\count($options) === 1;
     if ($is_single_option) {
       $value = null;
-      $option = C\firstx($options);
+      $option = C\onlyx($options);
       if (Str\contains($option, '=')) {
-        $parts = \explode('=', $option);
+        $parts = Str\split($option, '=');
         $opt = $parts[0];
-        $value = \implode('=', Vec\drop($parts, 1));
+        $value = Str\join(Vec\drop($parts, 1), '=');
       }
       $result = dict[
         $option => $value,
       ];
     } else {
-      $result = Dict\pull(
-        $options,
-        $_ ==> null,
-        $option ==> $option
-      );
+      $result = Dict\fill_keys($options, null);
     }
 
     return $result;
