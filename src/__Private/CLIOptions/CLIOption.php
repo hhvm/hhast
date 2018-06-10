@@ -27,6 +27,11 @@ abstract class CLIOption {
       $long,
     );
     $this->long = Str\strip_prefix($long, '--');
+    invariant(
+      Str\length($long) > 0,
+      'long argument length should be greater than zero'
+    );
+
     if ($short === null) {
       return;
     }
@@ -42,6 +47,11 @@ abstract class CLIOption {
       $short,
     );
     $this->short = Str\strip_prefix($short, '-');
+    invariant(
+      Str\length($short) === 1,
+      "short argument '%s' length should be equal to 1",
+      $short
+    );
   }
 
   final public function getHelpText(): string {
