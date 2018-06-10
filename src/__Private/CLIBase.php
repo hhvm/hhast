@@ -208,7 +208,7 @@ abstract class CLIBase {
     exit(1);
   }
 
-  final private static function extractOptions(string $arg, CLIOptions\CLIOptionType $type): dict<string, ?string> {
+  private static function extractOptions(string $arg, CLIOptions\CLIOptionType $type): dict<string, ?string> {
     $options = vec[];
 
     switch ($type) {
