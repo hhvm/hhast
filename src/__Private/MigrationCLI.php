@@ -97,6 +97,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
         () ==> { $this->xhprof = true; },
         'Enable XHProf profiling',
         '--xhprof',
+        '-x',
       ),
       $this->getVerbosityOption(),
     ];
