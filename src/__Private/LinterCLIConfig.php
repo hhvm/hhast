@@ -165,12 +165,13 @@ final class LinterCLIConfig {
       );
       $no_autofixes = $no_autofixes ||
         ($override['disableAllAutoFixes'] ?? false);
-      }
+    }
 
     $normalize = $list ==> Keyset\map(
       $list,
       $linter ==> $this->getFullyQualifiedLinterName($linter),
     );
+
     $linters = $normalize($linters);
     $blacklist = $normalize($blacklist);
     $autofix_blacklist = $normalize($autofix_blacklist);
