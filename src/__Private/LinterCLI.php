@@ -18,7 +18,7 @@ final class LinterCLI extends CLIWithArguments {
   private bool $printPerfCounters = false;
   private bool $xhprof = false;
   private bool $json = false;
-  
+
   use CLIWithVerbosityTrait;
 
   <<__Override>>
