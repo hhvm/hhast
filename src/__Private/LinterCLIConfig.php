@@ -65,6 +65,7 @@ final class LinterCLIConfig {
       Linters\NoBasicAssignmentFunctionParameterLinter::class,
       Linters\MustUseBracesForControlFlowLinter::class,
       Linters\MustUseOverrideAttributeLinter::class,
+      Linters\NoPHPEqualityLinter::class,
       Linters\NoWhitespaceAtEndOfLineLinter::class,
     ];
 

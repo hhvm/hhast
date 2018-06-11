@@ -139,7 +139,7 @@ final class CodegenTokens extends CodegenBase {
       $cls = 'EditableTokenWithVariableText';
     } else {
       foreach ($token['fields'] as $field) {
-        if ($field['name'] == 'text'){
+        if ($field['name'] === 'text'){
           $cls = 'EditableTokenWithVariableText';
         }
       }
