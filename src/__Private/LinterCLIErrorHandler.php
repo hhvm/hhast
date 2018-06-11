@@ -23,10 +23,6 @@ interface LinterCLIErrorHandler {
   /**
    * Process a set of errors returned by running an individual linter on a
    * single file
-   *
-   * @param $linter The linter instance
-   * @param $config Linter configuration for this file's scope
-   * @param $errors Traversable list of errors
    */
   public function processErrors(
     Linters\BaseLinter $linter,

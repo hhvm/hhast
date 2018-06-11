@@ -15,11 +15,15 @@ use namespace HH\Lib\{C, Str, Vec};
 
 final class LinterCLIErrorHandlerPlain implements LinterCLIErrorHandler {
 
+  const type TLinterCLIErrorHandlerPlainArgs = shape(
+    'supports_colors' => bool,
+    'is_interactive' => bool,
+  );
+
   private bool $had_errors = false;
 
   public function __construct(
-    private bool $supportsColors,
-    private bool $isInteractive,
+    private self::TLinterCLIErrorHandlerPlainArgs $args
   ) {}
 
   public function processErrors(
@@ -29,10 +33,9 @@ final class LinterCLIErrorHandlerPlain implements LinterCLIErrorHandler {
   ): void {
     $class = \get_class($linter);
     $to_fix = vec[];
-    $colors = $this->supportsColors;
+    $colors = $this->args['supports_colors'];
 
     foreach ($errors as $error) {
-
       $position = $error->getPosition();
       \printf(
         "%s%s%s\n".
@@ -107,15 +110,15 @@ final class LinterCLIErrorHandlerPlain implements LinterCLIErrorHandler {
     }
 
     $prefix_lines = ($code, $prefix) ==>
-      \explode("\n", $code)
+      Str\split($code, "\n")
       |> Vec\map(
         $$,
         $line ==> $prefix.$line,
       )
-      |> \implode("\n", $$);
+      |> Str\join($$, "\n");
 
 
-    $colors = $this->supportsColors;
+    $colors = $this->args['supports_colors'];
 
     if ($error->shouldRenderBlameAndFixAsDiff()) {
       $blame_color = "\e[31m"; // red
@@ -142,7 +145,7 @@ final class LinterCLIErrorHandlerPlain implements LinterCLIErrorHandler {
       $colors ? "\e[0m" : '',
     );
 
-    if (!$this->isInteractive) {
+    if (!$this->args['is_interactive']) {
       return false;
     }
 
@@ -200,16 +203,16 @@ final class LinterCLIErrorHandlerPlain implements LinterCLIErrorHandler {
       return;
     }
 
-    $colors = $this->supportsColors;
+    $colors = $this->args['supports_colors'];
     \printf(
       "  Code:\n%s%s%s\n",
       $colors ? "\e[33m" : '',
-      \explode("\n", $blame)
+      Str\split($blame, "\n")
       |> Vec\map(
         $$,
         $line ==> '  >'.$line,
       )
-      |> \implode("\n", $$),
+      |> Str\join($$, "\n"),
       $colors ? "\e[0m" : '',
     );
   }

@@ -51,7 +51,7 @@ final class LinterCLI extends CLIWithArguments {
   private function lintFile(
     LinterCLIConfig $config,
     string $path,
-    LinterCLIErrorHandler $errorHandler,
+    LinterCLIErrorHandler $error_handler,
   ): void {
     $this->verbosePrintf(1, "Linting %s...\n", $path);
 
@@ -78,7 +78,7 @@ final class LinterCLI extends CLIWithArguments {
       }
 
       using (new ScopedPerfCounter($class.'#processErrors')) {
-        $errorHandler->processErrors($linter, $config, $errors);
+        $error_handler->processErrors($linter, $config, $errors);
       }
     }
   }
@@ -164,7 +164,10 @@ final class LinterCLI extends CLIWithArguments {
 
     $errorHandler = $this->json
       ? new LinterCLIErrorHandlerJSON()
-      : new LinterCLIErrorHandlerPlain(self::supportsColors(), self::isInteractive());
+      : new LinterCLIErrorHandlerPlain(shape(
+        'supports_colors' => self::supportsColors(),
+        'is_interactive' => self::isInteractive(),
+      ));
 
     foreach ($roots as $root) {
       $root_config = $config ?? LinterCLIConfig::getForPath($root);
