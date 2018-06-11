@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<253f742bdd0ff87a4ef6a98ea419c79e>>
+ * @generated SignedSource<<5fc5fd90e1eac1079e9423423b547b94>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -71,18 +71,11 @@ final class ErrorSyntax extends EditableNode {
   }
 
   /**
-   * @returns SemicolonToken | EqualToken | DecimalLiteralToken | VariableToken
-   * | RightBraceToken
+   * @returns SemicolonToken | EqualToken | DecimalLiteralToken | NameToken |
+   * SingleQuotedStringLiteralToken | VariableToken | LeftBraceToken |
+   * RightBraceToken
    */
   public function getError(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_error);
-  }
-
-  /**
-   * @returns SemicolonToken | EqualToken | DecimalLiteralToken | VariableToken
-   * | RightBraceToken
-   */
-  public function getErrorx(): EditableToken {
-    return $this->getError();
   }
 }

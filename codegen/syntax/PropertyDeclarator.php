@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e480de5445c3981abda3e4c19a1f53c9>>
+ * @generated SignedSource<<4f2d57ea56b00e46f8dbeb1e1a64fedb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -86,13 +86,6 @@ final class PropertyDeclarator extends EditableNode {
    */
   public function getName(): VariableToken {
     return TypeAssert\instance_of(VariableToken::class, $this->_name);
-  }
-
-  /**
-   * @returns VariableToken
-   */
-  public function getNamex(): VariableToken {
-    return $this->getName();
   }
 
   public function getInitializerUNTYPED(): EditableNode {

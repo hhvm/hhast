@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4b954ac328fe4102935e42506bf35f7d>>
+ * @generated SignedSource<<3834b14291e9014424d31764b6795b8d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -141,13 +141,6 @@ final class WhileStatement
     return TypeAssert\instance_of(WhileToken::class, $this->_keyword);
   }
 
-  /**
-   * @returns WhileToken
-   */
-  public function getKeywordx(): WhileToken {
-    return $this->getKeyword();
-  }
-
   public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
@@ -174,13 +167,6 @@ final class WhileStatement
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
-  }
-
-  /**
-   * @returns LeftParenToken
-   */
-  public function getLeftParenx(): LeftParenToken {
-    return $this->getLeftParen();
   }
 
   public function getConditionUNTYPED(): EditableNode {
@@ -213,15 +199,6 @@ final class WhileStatement
     return TypeAssert\instance_of(EditableNode::class, $this->_condition);
   }
 
-  /**
-   * @returns BinaryExpression | FunctionCallExpression | InstanceofExpression
-   * | IssetExpression | LiteralExpression | ParenthesizedExpression |
-   * PostfixUnaryExpression | PrefixUnaryExpression | VariableExpression
-   */
-  public function getConditionx(): EditableNode {
-    return $this->getCondition();
-  }
-
   public function getRightParenUNTYPED(): EditableNode {
     return $this->_right_paren;
   }
@@ -248,13 +225,6 @@ final class WhileStatement
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
-  }
-
-  /**
-   * @returns RightParenToken
-   */
-  public function getRightParenx(): RightParenToken {
-    return $this->getRightParen();
   }
 
   public function getBodyUNTYPED(): EditableNode {
@@ -284,13 +254,5 @@ final class WhileStatement
    */
   public function getBody(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_body);
-  }
-
-  /**
-   * @returns AlternateLoopStatement | CompoundStatement | ContinueStatement |
-   * EchoStatement | ExpressionStatement
-   */
-  public function getBodyx(): EditableNode {
-    return $this->getBody();
   }
 }

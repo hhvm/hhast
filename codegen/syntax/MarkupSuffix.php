@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<70a95be935fffb99a17ecac91202623f>>
+ * @generated SignedSource<<877f4e9dc28711aab216c13563ccf30d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -96,13 +96,6 @@ final class MarkupSuffix extends EditableNode {
       LessThanQuestionToken::class,
       $this->_less_than_question,
     );
-  }
-
-  /**
-   * @returns LessThanQuestionToken
-   */
-  public function getLessThanQuestionx(): LessThanQuestionToken {
-    return $this->getLessThanQuestion();
   }
 
   public function getNameUNTYPED(): EditableNode {

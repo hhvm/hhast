@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0308590539e1b0fad7723b55d59a6626>>
+ * @generated SignedSource<<730877383d50d6282cb07609c27e0597>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,13 +107,6 @@ final class TypeArguments extends EditableNode {
     return TypeAssert\instance_of(LessThanToken::class, $this->_left_angle);
   }
 
-  /**
-   * @returns LessThanToken
-   */
-  public function getLeftAnglex(): LessThanToken {
-    return $this->getLeftAngle();
-  }
-
   public function getTypesUNTYPED(): EditableNode {
     return $this->_types;
   }
@@ -134,13 +127,6 @@ final class TypeArguments extends EditableNode {
    */
   public function getTypes(): EditableList {
     return TypeAssert\instance_of(EditableList::class, $this->_types);
-  }
-
-  /**
-   * @returns EditableList
-   */
-  public function getTypesx(): EditableList {
-    return $this->getTypes();
   }
 
   public function getRightAngleUNTYPED(): EditableNode {

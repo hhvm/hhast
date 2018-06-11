@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<948770ddde2618e0d8218a85cd0d3823>>
+ * @generated SignedSource<<bcdb28e7353f5051957e9a9d362dc7f8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -161,26 +161,10 @@ final class LambdaExpression extends EditableNode {
   }
 
   /**
-   * @returns AttributeSpecification | Missing
+   * @returns Missing
    */
-  public function getAttributeSpec(): ?AttributeSpecification {
-    if ($this->_attribute_spec->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(
-      AttributeSpecification::class,
-      $this->_attribute_spec,
-    );
-  }
-
-  /**
-   * @returns AttributeSpecification
-   */
-  public function getAttributeSpecx(): AttributeSpecification {
-    return TypeAssert\instance_of(
-      AttributeSpecification::class,
-      $this->_attribute_spec,
-    );
+  public function getAttributeSpec(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_attribute_spec);
   }
 
   public function getAsyncUNTYPED(): EditableNode {
@@ -290,13 +274,6 @@ final class LambdaExpression extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_signature);
   }
 
-  /**
-   * @returns LambdaSignature | VariableToken
-   */
-  public function getSignaturex(): EditableNode {
-    return $this->getSignature();
-  }
-
   public function getArrowUNTYPED(): EditableNode {
     return $this->_arrow;
   }
@@ -325,13 +302,6 @@ final class LambdaExpression extends EditableNode {
   public function getArrow(): EqualEqualGreaterThanToken {
     return
       TypeAssert\instance_of(EqualEqualGreaterThanToken::class, $this->_arrow);
-  }
-
-  /**
-   * @returns EqualEqualGreaterThanToken
-   */
-  public function getArrowx(): EqualEqualGreaterThanToken {
-    return $this->getArrow();
   }
 
   public function getBodyUNTYPED(): EditableNode {
@@ -365,16 +335,5 @@ final class LambdaExpression extends EditableNode {
    */
   public function getBody(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_body);
-  }
-
-  /**
-   * @returns ArrayIntrinsicExpression | BinaryExpression | CastExpression |
-   * CompoundStatement | ConditionalExpression | FunctionCallExpression |
-   * LambdaExpression | LiteralExpression | MemberSelectionExpression |
-   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
-   * | SubscriptExpression | VariableExpression
-   */
-  public function getBodyx(): EditableNode {
-    return $this->getBody();
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<18dbdd6bbfae4a1b8715c642ec82dfe3>>
+ * @generated SignedSource<<ee0ea422e0dfff909e7de1b59b1c53b0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -380,13 +380,6 @@ final class FunctionDeclarationHeader extends EditableNode {
     return TypeAssert\instance_of(EditableToken::class, $this->_name);
   }
 
-  /**
-   * @returns ConstructToken | DestructToken | NameToken
-   */
-  public function getNamex(): EditableToken {
-    return $this->getName();
-  }
-
   public function getTypeParameterListUNTYPED(): EditableNode {
     return $this->_type_parameter_list;
   }
@@ -650,18 +643,6 @@ final class FunctionDeclarationHeader extends EditableNode {
    */
   public function getType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);
-  }
-
-  /**
-   * @returns ClassnameTypeSpecifier | ClosureTypeSpecifier |
-   * DarrayTypeSpecifier | DictionaryTypeSpecifier | GenericTypeSpecifier |
-   * KeysetTypeSpecifier | MapArrayTypeSpecifier | Missing |
-   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
-   * SoftTypeSpecifier | NoreturnToken | TupleTypeSpecifier | TypeConstant |
-   * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
-   */
-  public function getTypex(): EditableNode {
-    return $this->getType();
   }
 
   public function getWhereClauseUNTYPED(): EditableNode {

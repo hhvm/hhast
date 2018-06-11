@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<983211e08d6ae99f64c5b683629cc36d>>
+ * @generated SignedSource<<e6bf487c174a4f24c0aba9e394c6b6f7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -217,13 +217,6 @@ final class ForStatement
     return TypeAssert\instance_of(ForToken::class, $this->_keyword);
   }
 
-  /**
-   * @returns ForToken
-   */
-  public function getKeywordx(): ForToken {
-    return $this->getKeyword();
-  }
-
   public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
@@ -254,13 +247,6 @@ final class ForStatement
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
-  }
-
-  /**
-   * @returns LeftParenToken
-   */
-  public function getLeftParenx(): LeftParenToken {
-    return $this->getLeftParen();
   }
 
   public function getInitializerUNTYPED(): EditableNode {
@@ -338,13 +324,6 @@ final class ForStatement
       TypeAssert\instance_of(SemicolonToken::class, $this->_first_semicolon);
   }
 
-  /**
-   * @returns SemicolonToken
-   */
-  public function getFirstSemicolonx(): SemicolonToken {
-    return $this->getFirstSemicolon();
-  }
-
   public function getControlUNTYPED(): EditableNode {
     return $this->_control;
   }
@@ -418,13 +397,6 @@ final class ForStatement
   public function getSecondSemicolon(): SemicolonToken {
     return
       TypeAssert\instance_of(SemicolonToken::class, $this->_second_semicolon);
-  }
-
-  /**
-   * @returns SemicolonToken
-   */
-  public function getSecondSemicolonx(): SemicolonToken {
-    return $this->getSecondSemicolon();
   }
 
   public function getEndOfLoopUNTYPED(): EditableNode {
@@ -501,13 +473,6 @@ final class ForStatement
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
-  /**
-   * @returns RightParenToken
-   */
-  public function getRightParenx(): RightParenToken {
-    return $this->getRightParen();
-  }
-
   public function getBodyUNTYPED(): EditableNode {
     return $this->_body;
   }
@@ -539,13 +504,5 @@ final class ForStatement
    */
   public function getBody(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_body);
-  }
-
-  /**
-   * @returns AlternateLoopStatement | CompoundStatement | EchoStatement |
-   * ExpressionStatement | ForStatement | UnsetStatement
-   */
-  public function getBodyx(): EditableNode {
-    return $this->getBody();
   }
 }

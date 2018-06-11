@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f2f62e9e7c267ffd9e5d9e523a838174>>
+ * @generated SignedSource<<aee097ab3282be95e677ea8f518869e1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -151,13 +151,6 @@ final class KeysetIntrinsicExpression extends EditableNode {
     return TypeAssert\instance_of(KeysetToken::class, $this->_keyword);
   }
 
-  /**
-   * @returns KeysetToken
-   */
-  public function getKeywordx(): KeysetToken {
-    return $this->getKeyword();
-  }
-
   public function getExplicitTypeUNTYPED(): EditableNode {
     return $this->_explicit_type;
   }
@@ -184,13 +177,6 @@ final class KeysetIntrinsicExpression extends EditableNode {
    */
   public function getExplicitType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_explicit_type);
-  }
-
-  /**
-   * @returns Missing
-   */
-  public function getExplicitTypex(): EditableNode {
-    return $this->getExplicitType();
   }
 
   public function getLeftBracketUNTYPED(): EditableNode {
@@ -220,13 +206,6 @@ final class KeysetIntrinsicExpression extends EditableNode {
   public function getLeftBracket(): LeftBracketToken {
     return
       TypeAssert\instance_of(LeftBracketToken::class, $this->_left_bracket);
-  }
-
-  /**
-   * @returns LeftBracketToken
-   */
-  public function getLeftBracketx(): LeftBracketToken {
-    return $this->getLeftBracket();
   }
 
   public function getMembersUNTYPED(): EditableNode {
@@ -294,12 +273,5 @@ final class KeysetIntrinsicExpression extends EditableNode {
   public function getRightBracket(): RightBracketToken {
     return
       TypeAssert\instance_of(RightBracketToken::class, $this->_right_bracket);
-  }
-
-  /**
-   * @returns RightBracketToken
-   */
-  public function getRightBracketx(): RightBracketToken {
-    return $this->getRightBracket();
   }
 }

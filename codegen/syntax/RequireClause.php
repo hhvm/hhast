@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8f85b4ea79f10c3d9924c9ce5d9cfcfb>>
+ * @generated SignedSource<<2f9e3de2b166299cefbc827c57432fae>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -120,13 +120,6 @@ final class RequireClause extends EditableNode {
     return TypeAssert\instance_of(RequireToken::class, $this->_keyword);
   }
 
-  /**
-   * @returns RequireToken
-   */
-  public function getKeywordx(): RequireToken {
-    return $this->getKeyword();
-  }
-
   public function getKindUNTYPED(): EditableNode {
     return $this->_kind;
   }
@@ -147,13 +140,6 @@ final class RequireClause extends EditableNode {
    */
   public function getKind(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_kind);
-  }
-
-  /**
-   * @returns ExtendsToken | ImplementsToken
-   */
-  public function getKindx(): EditableToken {
-    return $this->getKind();
   }
 
   public function getNameUNTYPED(): EditableNode {
@@ -178,13 +164,6 @@ final class RequireClause extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_name);
   }
 
-  /**
-   * @returns GenericTypeSpecifier | SimpleTypeSpecifier
-   */
-  public function getNamex(): EditableNode {
-    return $this->getName();
-  }
-
   public function getSemicolonUNTYPED(): EditableNode {
     return $this->_semicolon;
   }
@@ -205,12 +184,5 @@ final class RequireClause extends EditableNode {
    */
   public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
-  }
-
-  /**
-   * @returns SemicolonToken
-   */
-  public function getSemicolonx(): SemicolonToken {
-    return $this->getSemicolon();
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0f94ecb2af3774af0e6be15d5e0ddcc2>>
+ * @generated SignedSource<<1238d2bd59e348552eba7afbff27373a>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -171,7 +171,6 @@ const dict<string, keyset<string>>
       'token:async',
     ],
     'anonymous_function.anonymous_attribute_spec' => keyset[
-      'attribute_specification',
       'missing',
     ],
     'anonymous_function.anonymous_body' => keyset[
@@ -296,7 +295,6 @@ const dict<string, keyset<string>>
       'token:async',
     ],
     'awaitable_creation_expression.awaitable_attribute_spec' => keyset[
-      'attribute_specification',
       'missing',
     ],
     'awaitable_creation_expression.awaitable_compound_statement' => keyset[
@@ -328,9 +326,9 @@ const dict<string, keyset<string>>
       'postfix_unary_expression',
       'prefix_unary_expression',
       'qualified_name',
+      'safe_member_selection_expression',
       'scope_resolution_expression',
       'subscript_expression',
-      'token:)',
       'token:name',
       'variable',
       'varray_intrinsic_expression',
@@ -531,7 +529,6 @@ const dict<string, keyset<string>>
       'simple_type_specifier',
     ],
     'catch_clause.catch_variable' => keyset[
-      'missing',
       'token:variable',
     ],
     'classish_body.classish_body_elements' => keyset[
@@ -1137,18 +1134,17 @@ const dict<string, keyset<string>>
     ],
     'enumerator.enumerator_value' => keyset[
       'binary_expression',
-      'function_call_expression',
       'literal',
-      'object_creation_expression',
       'scope_resolution_expression',
-      'token:name',
-      'variable',
     ],
     'error.error_error' => keyset[
       'token:;',
       'token:=',
       'token:decimal_literal',
+      'token:name',
+      'token:single_quoted_string_literal',
       'token:variable',
+      'token:{',
       'token:}',
     ],
     'eval_expression.eval_argument' => keyset[
@@ -1198,7 +1194,8 @@ const dict<string, keyset<string>>
       'token:,',
       'token::',
       'token:===',
-      'token:?',
+      'token:=>',
+      'token:]',
       'token:name',
       'token:}',
       'tuple_expression',
@@ -1325,7 +1322,6 @@ const dict<string, keyset<string>>
       'prefix_unary_expression',
       'scope_resolution_expression',
       'subscript_expression',
-      'token:name',
       'variable',
       'vector_intrinsic_expression',
     ],
@@ -1337,7 +1333,6 @@ const dict<string, keyset<string>>
       'prefix_unary_expression',
       'scope_resolution_expression',
       'subscript_expression',
-      'token:name',
       'variable',
     ],
     'foreach_statement.foreach_keyword' => keyset[
@@ -1357,7 +1352,6 @@ const dict<string, keyset<string>>
       'prefix_unary_expression',
       'scope_resolution_expression',
       'subscript_expression',
-      'token:name',
       'variable',
     ],
     'function_call_expression.function_call_argument_list' => keyset[
@@ -1392,7 +1386,6 @@ const dict<string, keyset<string>>
       ],
     'function_call_with_type_arguments_expression.function_call_with_type_arguments_left_paren' =>
       keyset[
-        'missing',
         'token:(',
       ],
     'function_call_with_type_arguments_expression.function_call_with_type_arguments_receiver' =>
@@ -1403,7 +1396,6 @@ const dict<string, keyset<string>>
       ],
     'function_call_with_type_arguments_expression.function_call_with_type_arguments_right_paren' =>
       keyset[
-        'missing',
         'token:)',
       ],
     'function_call_with_type_arguments_expression.function_call_with_type_arguments_type_args' =>
@@ -1637,17 +1629,12 @@ const dict<string, keyset<string>>
       'token:is',
     ],
     'is_expression.is_right_operand' => keyset[
-      'closure_type_specifier',
-      'dictionary_type_specifier',
       'generic_type_specifier',
-      'keyset_type_specifier',
       'nullable_type_specifier',
       'shape_type_specifier',
       'simple_type_specifier',
-      'soft_type_specifier',
       'tuple_type_specifier',
       'type_constant',
-      'vector_type_specifier',
     ],
     'isset_expression.isset_argument_list' => keyset[
       'list',
@@ -1700,7 +1687,6 @@ const dict<string, keyset<string>>
       'token:async',
     ],
     'lambda_expression.lambda_attribute_spec' => keyset[
-      'attribute_specification',
       'missing',
     ],
     'lambda_expression.lambda_body' => keyset[
@@ -1813,7 +1799,7 @@ const dict<string, keyset<string>>
       'simple_type_specifier',
       'static_declarator',
       'subscript_expression',
-      'token:=',
+      'token:%',
       'token:XHP_category_name',
       'token:name',
       'token:noreturn',
@@ -1904,7 +1890,6 @@ const dict<string, keyset<string>>
       'prefix_unary_expression',
       'scope_resolution_expression',
       'subscript_expression',
-      'token:name',
       'variable',
     ],
     'member_selection_expression.member_operator' => keyset[
@@ -2412,7 +2397,6 @@ const dict<string, keyset<string>>
       'subscript_expression',
       'token:name',
       'tuple_expression',
-      'variable',
       'varray_intrinsic_expression',
       'vector_intrinsic_expression',
       'xhp_expression',
@@ -2757,6 +2741,7 @@ const dict<string, keyset<string>>
       'list',
     ],
     'type_parameters.type_parameters_right_angle' => keyset[
+      'missing',
       'token:>',
     ],
     'unset_statement.unset_keyword' => keyset[

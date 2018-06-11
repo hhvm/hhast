@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7469ccdcf64e78ed5486571e486f3f63>>
+ * @generated SignedSource<<4edf0875c0f6e962d03f29861b5ea2c4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,13 +107,6 @@ final class WhereConstraint extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_left_type);
   }
 
-  /**
-   * @returns GenericTypeSpecifier | SimpleTypeSpecifier | TypeConstant
-   */
-  public function getLeftTypex(): EditableNode {
-    return $this->getLeftType();
-  }
-
   public function getOperatorUNTYPED(): EditableNode {
     return $this->_operator;
   }
@@ -134,13 +127,6 @@ final class WhereConstraint extends EditableNode {
    */
   public function getOperator(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_operator);
-  }
-
-  /**
-   * @returns EqualToken | AsToken | SuperToken
-   */
-  public function getOperatorx(): EditableToken {
-    return $this->getOperator();
   }
 
   public function getRightTypeUNTYPED(): EditableNode {
@@ -164,13 +150,5 @@ final class WhereConstraint extends EditableNode {
    */
   public function getRightType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_right_type);
-  }
-
-  /**
-   * @returns GenericTypeSpecifier | NullableTypeSpecifier |
-   * SimpleTypeSpecifier | TypeConstant
-   */
-  public function getRightTypex(): EditableNode {
-    return $this->getRightType();
   }
 }

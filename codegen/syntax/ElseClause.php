@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9699fd92dfc4cc119a4ba5aa0ce70091>>
+ * @generated SignedSource<<1f0b8669d3d137f44ee59a19816652fb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -88,13 +88,6 @@ final class ElseClause extends EditableNode implements IControlFlowStatement {
     return TypeAssert\instance_of(ElseToken::class, $this->_keyword);
   }
 
-  /**
-   * @returns ElseToken
-   */
-  public function getKeywordx(): ElseToken {
-    return $this->getKeyword();
-  }
-
   public function getStatementUNTYPED(): EditableNode {
     return $this->_statement;
   }
@@ -116,13 +109,5 @@ final class ElseClause extends EditableNode implements IControlFlowStatement {
    */
   public function getStatement(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_statement);
-  }
-
-  /**
-   * @returns CompoundStatement | EchoStatement | ExpressionStatement |
-   * IfStatement | ReturnStatement
-   */
-  public function getStatementx(): EditableNode {
-    return $this->getStatement();
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2cca892ebc190d1224e39121f5e37a78>>
+ * @generated SignedSource<<e6792b122724b35c54a9be93c55072d1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -138,13 +138,6 @@ abstract class AlternateLoopStatementGeneratedBase
     return TypeAssert\instance_of(ColonToken::class, $this->_opening_colon);
   }
 
-  /**
-   * @returns ColonToken
-   */
-  public function getOpeningColonx(): ColonToken {
-    return $this->getOpeningColon();
-  }
-
   public function getStatementsUNTYPED(): EditableNode {
     return $this->_statements;
   }
@@ -170,13 +163,6 @@ abstract class AlternateLoopStatementGeneratedBase
    */
   public function getStatements(): EditableList {
     return TypeAssert\instance_of(EditableList::class, $this->_statements);
-  }
-
-  /**
-   * @returns EditableList
-   */
-  public function getStatementsx(): EditableList {
-    return $this->getStatements();
   }
 
   public function getClosingKeywordUNTYPED(): EditableNode {
@@ -207,13 +193,6 @@ abstract class AlternateLoopStatementGeneratedBase
       TypeAssert\instance_of(EditableToken::class, $this->_closing_keyword);
   }
 
-  /**
-   * @returns EnddeclareToken | EndforToken | EndforeachToken | EndwhileToken
-   */
-  public function getClosingKeywordx(): EditableToken {
-    return $this->getClosingKeyword();
-  }
-
   public function getClosingSemicolonUNTYPED(): EditableNode {
     return $this->_closing_semicolon;
   }
@@ -240,12 +219,5 @@ abstract class AlternateLoopStatementGeneratedBase
   public function getClosingSemicolon(): SemicolonToken {
     return
       TypeAssert\instance_of(SemicolonToken::class, $this->_closing_semicolon);
-  }
-
-  /**
-   * @returns SemicolonToken
-   */
-  public function getClosingSemicolonx(): SemicolonToken {
-    return $this->getClosingSemicolon();
   }
 }

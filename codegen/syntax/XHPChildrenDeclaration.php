@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5e277fd59db12925c65364b45d2f5ea2>>
+ * @generated SignedSource<<aa917778fd33a86aa7511b688f5cc199>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,13 +107,6 @@ final class XHPChildrenDeclaration extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_keyword);
   }
 
-  /**
-   * @returns unknown
-   */
-  public function getKeywordx(): EditableNode {
-    return $this->getKeyword();
-  }
-
   public function getExpressionUNTYPED(): EditableNode {
     return $this->_expression;
   }
@@ -136,13 +129,6 @@ final class XHPChildrenDeclaration extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_expression);
   }
 
-  /**
-   * @returns unknown
-   */
-  public function getExpressionx(): EditableNode {
-    return $this->getExpression();
-  }
-
   public function getSemicolonUNTYPED(): EditableNode {
     return $this->_semicolon;
   }
@@ -163,12 +149,5 @@ final class XHPChildrenDeclaration extends EditableNode {
    */
   public function getSemicolon(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_semicolon);
-  }
-
-  /**
-   * @returns unknown
-   */
-  public function getSemicolonx(): EditableNode {
-    return $this->getSemicolon();
   }
 }

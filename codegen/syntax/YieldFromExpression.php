@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<00647d20bf77b9010554b131680a31a1>>
+ * @generated SignedSource<<52d5faa5842c14958576df3d2a936a3d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,13 +107,6 @@ final class YieldFromExpression extends EditableNode {
     return TypeAssert\instance_of(YieldToken::class, $this->_yield_keyword);
   }
 
-  /**
-   * @returns YieldToken
-   */
-  public function getYieldKeywordx(): YieldToken {
-    return $this->getYieldKeyword();
-  }
-
   public function getFromKeywordUNTYPED(): EditableNode {
     return $this->_from_keyword;
   }
@@ -134,13 +127,6 @@ final class YieldFromExpression extends EditableNode {
    */
   public function getFromKeyword(): FromToken {
     return TypeAssert\instance_of(FromToken::class, $this->_from_keyword);
-  }
-
-  /**
-   * @returns FromToken
-   */
-  public function getFromKeywordx(): FromToken {
-    return $this->getFromKeyword();
   }
 
   public function getOperandUNTYPED(): EditableNode {
@@ -164,13 +150,5 @@ final class YieldFromExpression extends EditableNode {
    */
   public function getOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_operand);
-  }
-
-  /**
-   * @returns ArrayCreationExpression | FunctionCallExpression |
-   * LiteralExpression | ParenthesizedExpression | VariableExpression
-   */
-  public function getOperandx(): EditableNode {
-    return $this->getOperand();
   }
 }

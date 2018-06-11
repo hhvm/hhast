@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3d7f6ef37ae4ecf67358844afe22c6ae>>
+ * @generated SignedSource<<42f1d8c6ee0b3694cc45ead1972f9bf1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -139,13 +139,6 @@ final class XHPEnumType extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_optional);
   }
 
-  /**
-   * @returns Missing
-   */
-  public function getOptionalx(): EditableNode {
-    return $this->getOptional();
-  }
-
   public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
@@ -172,13 +165,6 @@ final class XHPEnumType extends EditableNode {
    */
   public function getKeyword(): EnumToken {
     return TypeAssert\instance_of(EnumToken::class, $this->_keyword);
-  }
-
-  /**
-   * @returns EnumToken
-   */
-  public function getKeywordx(): EnumToken {
-    return $this->getKeyword();
   }
 
   public function getLeftBraceUNTYPED(): EditableNode {
@@ -209,13 +195,6 @@ final class XHPEnumType extends EditableNode {
     return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
   }
 
-  /**
-   * @returns LeftBraceToken
-   */
-  public function getLeftBracex(): LeftBraceToken {
-    return $this->getLeftBrace();
-  }
-
   public function getValuesUNTYPED(): EditableNode {
     return $this->_values;
   }
@@ -244,13 +223,6 @@ final class XHPEnumType extends EditableNode {
     return TypeAssert\instance_of(EditableList::class, $this->_values);
   }
 
-  /**
-   * @returns EditableList
-   */
-  public function getValuesx(): EditableList {
-    return $this->getValues();
-  }
-
   public function getRightBraceUNTYPED(): EditableNode {
     return $this->_right_brace;
   }
@@ -277,12 +249,5 @@ final class XHPEnumType extends EditableNode {
    */
   public function getRightBrace(): RightBraceToken {
     return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
-  }
-
-  /**
-   * @returns RightBraceToken
-   */
-  public function getRightBracex(): RightBraceToken {
-    return $this->getRightBrace();
   }
 }

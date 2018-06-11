@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a2d8557afab5c3c4e79c8bc9c4196c1f>>
+ * @generated SignedSource<<479f97fb3b87fdf8d3a1d9d23ec79444>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,13 +107,6 @@ final class EchoStatement extends EditableNode {
     return TypeAssert\instance_of(EchoToken::class, $this->_keyword);
   }
 
-  /**
-   * @returns EchoToken
-   */
-  public function getKeywordx(): EchoToken {
-    return $this->getKeyword();
-  }
-
   public function getExpressionsUNTYPED(): EditableNode {
     return $this->_expressions;
   }
@@ -134,13 +127,6 @@ final class EchoStatement extends EditableNode {
    */
   public function getExpressions(): EditableList {
     return TypeAssert\instance_of(EditableList::class, $this->_expressions);
-  }
-
-  /**
-   * @returns EditableList
-   */
-  public function getExpressionsx(): EditableList {
-    return $this->getExpressions();
   }
 
   public function getSemicolonUNTYPED(): EditableNode {

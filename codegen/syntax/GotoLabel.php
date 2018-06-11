@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8a0298be636102197b9fb4147f982ad6>>
+ * @generated SignedSource<<82b080dfcbda62af9e09655d0cdec139>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -88,13 +88,6 @@ final class GotoLabel extends EditableNode {
     return TypeAssert\instance_of(NameToken::class, $this->_name);
   }
 
-  /**
-   * @returns NameToken
-   */
-  public function getNamex(): NameToken {
-    return $this->getName();
-  }
-
   public function getColonUNTYPED(): EditableNode {
     return $this->_colon;
   }
@@ -115,12 +108,5 @@ final class GotoLabel extends EditableNode {
    */
   public function getColon(): ColonToken {
     return TypeAssert\instance_of(ColonToken::class, $this->_colon);
-  }
-
-  /**
-   * @returns ColonToken
-   */
-  public function getColonx(): ColonToken {
-    return $this->getColon();
   }
 }

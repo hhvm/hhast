@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<def84d6265d2f9632e4280630ccc92c1>>
+ * @generated SignedSource<<7b55a2f8cfc90f99473b4b220b005e3f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -231,13 +231,6 @@ final class AlternateIfStatement extends EditableNode {
     return TypeAssert\instance_of(IfToken::class, $this->_keyword);
   }
 
-  /**
-   * @returns IfToken
-   */
-  public function getKeywordx(): IfToken {
-    return $this->getKeyword();
-  }
-
   public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
@@ -269,13 +262,6 @@ final class AlternateIfStatement extends EditableNode {
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
-  }
-
-  /**
-   * @returns LeftParenToken
-   */
-  public function getLeftParenx(): LeftParenToken {
-    return $this->getLeftParen();
   }
 
   public function getConditionUNTYPED(): EditableNode {
@@ -311,13 +297,6 @@ final class AlternateIfStatement extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_condition);
   }
 
-  /**
-   * @returns BinaryExpression | LiteralExpression | VariableExpression
-   */
-  public function getConditionx(): EditableNode {
-    return $this->getCondition();
-  }
-
   public function getRightParenUNTYPED(): EditableNode {
     return $this->_right_paren;
   }
@@ -349,13 +328,6 @@ final class AlternateIfStatement extends EditableNode {
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
-  }
-
-  /**
-   * @returns RightParenToken
-   */
-  public function getRightParenx(): RightParenToken {
-    return $this->getRightParen();
   }
 
   public function getColonUNTYPED(): EditableNode {
@@ -391,13 +363,6 @@ final class AlternateIfStatement extends EditableNode {
     return TypeAssert\instance_of(ColonToken::class, $this->_colon);
   }
 
-  /**
-   * @returns ColonToken
-   */
-  public function getColonx(): ColonToken {
-    return $this->getColon();
-  }
-
   public function getStatementUNTYPED(): EditableNode {
     return $this->_statement;
   }
@@ -431,13 +396,6 @@ final class AlternateIfStatement extends EditableNode {
     return TypeAssert\instance_of(EditableList::class, $this->_statement);
   }
 
-  /**
-   * @returns EditableList
-   */
-  public function getStatementx(): EditableList {
-    return $this->getStatement();
-  }
-
   public function getElseifClausesUNTYPED(): EditableNode {
     return $this->_elseif_clauses;
   }
@@ -469,13 +427,6 @@ final class AlternateIfStatement extends EditableNode {
    */
   public function getElseifClauses(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_elseif_clauses);
-  }
-
-  /**
-   * @returns Missing
-   */
-  public function getElseifClausesx(): EditableNode {
-    return $this->getElseifClauses();
   }
 
   public function getElseClauseUNTYPED(): EditableNode {
@@ -556,13 +507,6 @@ final class AlternateIfStatement extends EditableNode {
     return TypeAssert\instance_of(EndifToken::class, $this->_endif_keyword);
   }
 
-  /**
-   * @returns EndifToken
-   */
-  public function getEndifKeywordx(): EndifToken {
-    return $this->getEndifKeyword();
-  }
-
   public function getSemicolonUNTYPED(): EditableNode {
     return $this->_semicolon;
   }
@@ -594,12 +538,5 @@ final class AlternateIfStatement extends EditableNode {
    */
   public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
-  }
-
-  /**
-   * @returns SemicolonToken
-   */
-  public function getSemicolonx(): SemicolonToken {
-    return $this->getSemicolon();
   }
 }
