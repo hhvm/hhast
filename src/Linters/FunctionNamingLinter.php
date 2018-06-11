@@ -23,8 +23,6 @@ use type Facebook\HHAST\{
   MethodishDeclaration,
   NameToken,
   StaticToken,
-  __Private\PerfCounter,
-  __Private\ScopedPerfCounter,
 };
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
@@ -98,7 +96,6 @@ abstract class FunctionNamingLinter extends BaseASTLinter<
     IFunctionishDeclaration $node,
     vec<EditableNode> $parents,
   ): ?FunctionNamingLintError {
-    using (new ScopedPerfCounter(static::class.'#relevanceCheck'));
     $token = $this->getCurrentNameNodeForFunctionOrMethod($node);
     if ($token === null) {
       return null;
@@ -110,7 +107,6 @@ abstract class FunctionNamingLinter extends BaseASTLinter<
     if (Str\starts_with($old, '__')) {
       return null;
     }
-    using (new ScopedPerfCounter(static::class.'#getSuggestion'));
     if ($node instanceof FunctionDeclaration) {
       $what = 'Function';
       $new = $this->getSuggestedNameForFunction($old, $node);

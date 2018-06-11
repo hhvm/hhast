@@ -20,16 +20,15 @@ use type Facebook\HHAST\{
   ListItem,
   MethodishDeclaration,
   PrivateToken,
-  SimpleTypeSpecifier
+  SimpleTypeSpecifier,
 };
 use namespace Facebook\TypeAssert;
 use function Facebook\HHAST\resolve_type;
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
-use type Facebook\HHAST\__Private\{PerfCounter, ScopedPerfCounter};
 
 class MustUseOverrideAttributeLinter
-extends AutoFixingASTLinter<MethodishDeclaration> {
+  extends AutoFixingASTLinter<MethodishDeclaration> {
   <<__Override>>
   protected static function getTargetType(): classname<MethodishDeclaration> {
     return MethodishDeclaration::class;
@@ -49,33 +48,26 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
       return null;
     }
 
-    using (new ScopedPerfCounter(self::class.'#findSuper')) {
-      $super = self::findSuper($class, $parents);
-    }
+    $super = self::findSuper($class, $parents);
     try {
-      using (new ScopedPerfCounter(self::class.'#reflectionMethod')) {
-        $method = $node->getFunctionDeclHeader()->getName()->getCode()
-          |> Str\trim($$);
+      $method = $node->getFunctionDeclHeader()->getName()->getCode()
+        |> Str\trim($$);
 
-        $reflection_method = new \ReflectionMethod(
-          $super,
-          $method,
-        );
-      }
+      $reflection_method = new \ReflectionMethod($super, $method);
 
       return new FixableASTLintError(
         $this,
         Str\format(
           '%s::%s() overrides %s::%s() without <<__Override>>',
           $class->getName()->getCode()
-            |> Str\trim($$)
-            |> resolve_type($$, $node, $parents)
-            |> TypeAssert\not_null($$),
+          |> Str\trim($$)
+          |> resolve_type($$, $node, $parents)
+          |> TypeAssert\not_null($$),
           $method,
           $reflection_method->getDeclaringClass()->getName(),
           $method,
         ),
-        $node
+        $node,
       );
     } catch (\ReflectionException $e) {
       $method = $node->getFunctionDeclHeader()->getName()->getCode()
@@ -97,11 +89,7 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
     }
     return $super->getCode()
       |> Str\trim($$)
-      |> PerfCounter::tap(
-        static::class.'#resolveSuper',
-        ($x) ==> resolve_type($x, $class, $parents),
-        $$
-      )
+      |> resolve_type($$, $class, $parents)
       |> TypeAssert\not_null($$);
   }
 
@@ -109,7 +97,6 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
     ClassishDeclaration $class,
     MethodishDeclaration $method,
   ): bool {
-    using (new ScopedPerfCounter(static::class.'#canIgnoreMethod'));
     if (!$class->hasExtendsKeyword()) {
       return true;
     }
@@ -123,9 +110,10 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
       return true;
     }
 
-    $private = $method->getFunctionDeclHeader()->getModifiersx()->getDescendantsOfType(
-      PrivateToken::class,
-    ) |> C\first($$);
+    $private = $method->getFunctionDeclHeader()
+      ->getModifiersx()
+      ->getDescendantsOfType(PrivateToken::class)
+      |> C\first($$);
     if ($private !== null) {
       return true;
     }
@@ -138,12 +126,8 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
     if ($attrs === null) {
       return false;
     }
-    $attrs = $attrs->getAttributes()->getDescendantsOfType(
-      Attribute::class,
-    ) |> Vec\map(
-      $$,
-      $attr ==> $attr->getName()->getText(),
-    );
+    $attrs = $attrs->getAttributes()->getDescendantsOfType(Attribute::class)
+      |> Vec\map($$, $attr ==> $attr->getName()->getText());
     return C\contains($attrs, '__Override');
   }
 
@@ -161,8 +145,8 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
       $body
         ->withStatements(HHAST\Missing())
         ->withRightBrace(HHAST\Missing())
-        ->withLeftBrace($body->getLeftBracex()->withTrailing(HHAST\Missing()))
-      )
+        ->withLeftBrace($body->getLeftBracex()->withTrailing(HHAST\Missing())),
+    )
       ->getCode();
   }
 
@@ -190,47 +174,43 @@ extends AutoFixingASTLinter<MethodishDeclaration> {
             Str\contains(
               C\lastx($first_token->getLeading()->getChildren())->getCode(),
               "\n",
-            ) ?  HHAST\Missing() : new HHAST\WhiteSpace("\n"),
+            )
+              ? HHAST\Missing()
+              : new HHAST\WhiteSpace("\n"),
           ),
         ),
-      )->rewriteDescendants(
-        ($n, $_) ==> $n === $first_token
-          ? $first_token->withLeading(
-            C\lastx($first_token->getLeading()->getChildren())
-          )
-          : $n
-      );
+      )
+        ->rewriteDescendants(
+          ($n, $_) ==> $n === $first_token
+            ? $first_token->withLeading(
+              C\lastx($first_token->getLeading()->getChildren()),
+            )
+            : $n,
+        );
     }
 
     $list = $attrs->getAttributes()->toVec();
-    $list[] = new HHAST\NameToken(
-      HHAST\Missing(),
-      HHAST\Missing(),
-      '__Override',
-    );
+    $list[] =
+      new HHAST\NameToken(HHAST\Missing(), HHAST\Missing(), '__Override');
 
     return $node->withAttribute(
-      $attrs->withAttributes(
-        new HHAST\EditableList($list),
-      )->rewrite(
-        ($child, $parents) ==> {
-          if (!$child instanceof HHAST\ListItem) {
-            return $child;
-          }
-          if (!$child->getItem() instanceof HHAST\Attribute) {
-            return $child;
-          }
-          if ($child->hasSeparator()) {
-            return $child;
-          }
-          return $child->withSeparator(
-            new HHAST\CommaToken(
-              HHAST\Missing(),
-              new HHAST\WhiteSpace(' '),
-            ),
-          );
-        }
-      )
+      $attrs->withAttributes(new HHAST\EditableList($list))
+        ->rewrite(
+          ($child, $parents) ==> {
+            if (!$child instanceof HHAST\ListItem) {
+              return $child;
+            }
+            if (!$child->getItem() instanceof HHAST\Attribute) {
+              return $child;
+            }
+            if ($child->hasSeparator()) {
+              return $child;
+            }
+            return $child->withSeparator(
+              new HHAST\CommaToken(HHAST\Missing(), new HHAST\WhiteSpace(' ')),
+            );
+          },
+        ),
     );
   }
 }

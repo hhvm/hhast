@@ -21,7 +21,6 @@ use type Facebook\CLILib\{
 use namespace Facebook\CLILib\CLIOptions;
 
 final class LinterCLI extends CLIWithArguments {
-  private bool $printPerfCounters = false;
   private bool $xhprof = false;
 
   use CLIWithVerbosityTrait;
@@ -35,12 +34,16 @@ final class LinterCLI extends CLIWithArguments {
   protected function getSupportedOptions(): vec<CLIOptions\CLIOption> {
     return vec[
       CLIOptions\flag(
-        () ==> { $this->printPerfCounters = true; },
-        'Output performance counters when finished',
+        () ==> {
+          throw new ExitException(1, "--perf is no longer supported; consider --xhprof");
+        },
+        '[unsupported]',
         '--perf',
       ),
       CLIOptions\flag(
-        () ==> { $this->xhprof = true; },
+        () ==> {
+          $this->xhprof = true;
+        },
         'Enable XHProf profiling',
         '--xhprof',
       ),
@@ -64,24 +67,18 @@ final class LinterCLI extends CLIWithArguments {
         continue;
       }
 
-      using (new ScopedPerfCounter($class.'#construct')) {
-        $linter = new $class($path);
-      }
+      $linter = new $class($path);
 
       if ($linter->isLinterSuppressedForFile()) {
         continue;
       }
 
-      using (new ScopedPerfCounter($class.'#getLintErrors')) {
-        $errors = $linter->getLintErrors();
-      }
+      $errors = $linter->getLintErrors();
 
-      using (new ScopedPerfCounter($class.'#processErrors')) {
-        $all_errors = Vec\concat(
-          $all_errors,
-          $this->processErrors($linter, $config, $errors),
-        );
-      }
+      $all_errors = Vec\concat(
+        $all_errors,
+        $this->processErrors($linter, $config, $errors),
+      );
     }
     return $all_errors;
   }
@@ -90,9 +87,8 @@ final class LinterCLI extends CLIWithArguments {
     LinterCLIConfig $config,
     string $path,
   ): Traversable<Linters\LintError> {
-    $it = new \RecursiveIteratorIterator(
-      new \RecursiveDirectoryIterator($path),
-    );
+    $it =
+      new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($path));
     foreach ($it as $info) {
       if (!$info->isFile()) {
         continue;
@@ -100,7 +96,7 @@ final class LinterCLI extends CLIWithArguments {
       $ext = Str\lowercase($info->getExtension());
       if ($ext === 'hh' || $ext === 'php') {
         $file = $info->getPathname();
-        foreach($this->lintFile($config, $file) as $error) {
+        foreach ($this->lintFile($config, $file) as $error) {
           yield $error;
         }
       }
@@ -129,19 +125,10 @@ final class LinterCLI extends CLIWithArguments {
       XHProf::enable();
     }
 
-    using (new ScopedPerfCounter(__CLASS__)) {
-      $result = await $this->mainImplAsync();
-    }
+    $result = await $this->mainImplAsync();
 
     if ($this->xhprof) {
       XHProf::disableAndDump(\STDERR);
-    }
-
-    if ($this->printPerfCounters) {
-      $counters = PerfCounter::getCounters();
-      foreach ($counters as $name => $seconds) {
-        \printf("PERF %5.2fs %s\n", $seconds, $name);
-      }
     }
 
     return $result;
@@ -169,7 +156,9 @@ final class LinterCLI extends CLIWithArguments {
             $this->getStdout()->write(
               "Warning: PATH arguments contain a hhast-lint.json, ".
               "which modifies the linters used and customizes behavior. ".
-              "Consider 'cd ".$root."; vendor/bin/hhast-lint'\n\n",
+              "Consider 'cd ".
+              $root.
+              "; vendor/bin/hhast-lint'\n\n",
             );
           }
         }
@@ -198,17 +187,12 @@ final class LinterCLI extends CLIWithArguments {
   ): Traversable<Linters\LintError> {
     $class = \get_class($linter);
     $to_fix = vec[];
-    $yield_perf = new PerfCounter($class.'#yieldError');
     $colors = $this->supportsColors();
 
     foreach ($errors as $error) {
-      $yield_perf->end();
-
       $position = $error->getPosition();
       \printf(
-        "%s%s%s\n".
-        "  %sLinter: %s%s\n".
-        "  Location: %s\n",
+        "%s%s%s\n"."  %sLinter: %s%s\n"."  Location: %s\n",
         $colors ? "\e[1;31m" : '',
         $error->getDescription(),
         $colors ? "\e[0m" : '',
@@ -217,14 +201,17 @@ final class LinterCLI extends CLIWithArguments {
         $colors ? "\e[0m" : '',
         $position === null
           ? $error->getFile()
-          : Str\format('%s:%d:%d', $error->getFile(), $position[0], $position[1]),
+          : Str\format(
+              '%s:%d:%d',
+              $error->getFile(),
+              $position[0],
+              $position[1],
+            ),
       );
 
-      $c = new PerfCounter($class.'#isFixable');
-      $fixable = $error instanceof Linters\FixableLintError
-        && (!C\contains_key($config['autoFixBlacklist'], $class))
-        && $error->isFixable();
-      $c->end();
+      $fixable = $error instanceof Linters\FixableLintError &&
+        (!C\contains_key($config['autoFixBlacklist'], $class)) &&
+        $error->isFixable();
 
       if ($error instanceof Linters\FixableLintError && $fixable) {
         if ($this->shouldFixLint($error)) {
@@ -236,14 +223,10 @@ final class LinterCLI extends CLIWithArguments {
         $this->renderLintBlame($error);
         yield $error;
       }
-      $yield_perf = new PerfCounter($class.'#yieldError');
     }
-    $yield_perf->end();
 
     if (!C\is_empty($to_fix)) {
-      $c = new PerfCounter($class.'#fix');
       self::fixErrors($linter, $to_fix);
-      $c->end();
     }
   }
 
@@ -293,10 +276,7 @@ final class LinterCLI extends CLIWithArguments {
     }
 
     \printf(
-      "  Code:\n".
-      "%s%s%s\n".
-      "  Suggested fix:\n".
-      "%s%s%s\n",
+      "  Code:\n"."%s%s%s\n"."  Suggested fix:\n"."%s%s%s\n",
       $colors ? $blame_color : '',
       $prefix_lines($old, '  '.$blame_marker),
       $colors ? "\e[0m" : '',
