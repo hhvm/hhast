@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f8353810afeb482038ea6a842235405e>>
+ * @generated SignedSource<<210cc98a634bbd2f1b95432e25adab1b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -185,6 +185,13 @@ final class DoStatement
     return TypeAssert\instance_of(DoToken::class, $this->_keyword);
   }
 
+  /**
+   * @returns DoToken
+   */
+  public function getKeywordx(): DoToken {
+    return $this->getKeyword();
+  }
+
   public function getBodyUNTYPED(): EditableNode {
     return $this->_body;
   }
@@ -213,6 +220,13 @@ final class DoStatement
    */
   public function getBody(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_body);
+  }
+
+  /**
+   * @returns CompoundStatement | ExpressionStatement
+   */
+  public function getBodyx(): EditableNode {
+    return $this->getBody();
   }
 
   public function getWhileKeywordUNTYPED(): EditableNode {
@@ -245,6 +259,13 @@ final class DoStatement
     return TypeAssert\instance_of(WhileToken::class, $this->_while_keyword);
   }
 
+  /**
+   * @returns WhileToken
+   */
+  public function getWhileKeywordx(): WhileToken {
+    return $this->getWhileKeyword();
+  }
+
   public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
@@ -273,6 +294,13 @@ final class DoStatement
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
+  }
+
+  /**
+   * @returns LeftParenToken
+   */
+  public function getLeftParenx(): LeftParenToken {
+    return $this->getLeftParen();
   }
 
   public function getConditionUNTYPED(): EditableNode {
@@ -306,6 +334,14 @@ final class DoStatement
     return TypeAssert\instance_of(EditableNode::class, $this->_condition);
   }
 
+  /**
+   * @returns BinaryExpression | FunctionCallExpression | LiteralExpression |
+   * PrefixUnaryExpression | SubscriptExpression | VariableExpression
+   */
+  public function getConditionx(): EditableNode {
+    return $this->getCondition();
+  }
+
   public function getRightParenUNTYPED(): EditableNode {
     return $this->_right_paren;
   }
@@ -336,6 +372,13 @@ final class DoStatement
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
+  /**
+   * @returns RightParenToken
+   */
+  public function getRightParenx(): RightParenToken {
+    return $this->getRightParen();
+  }
+
   public function getSemicolonUNTYPED(): EditableNode {
     return $this->_semicolon;
   }
@@ -364,5 +407,12 @@ final class DoStatement
    */
   public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
+  }
+
+  /**
+   * @returns SemicolonToken
+   */
+  public function getSemicolonx(): SemicolonToken {
+    return $this->getSemicolon();
   }
 }

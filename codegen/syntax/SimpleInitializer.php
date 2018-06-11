@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1ee20a34304754c62392dff075d12f45>>
+ * @generated SignedSource<<a8fc62f4fc9b12e2070c3e52835d77ff>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -88,6 +88,13 @@ final class SimpleInitializer extends EditableNode {
     return TypeAssert\instance_of(EqualToken::class, $this->_equal);
   }
 
+  /**
+   * @returns EqualToken
+   */
+  public function getEqualx(): EqualToken {
+    return $this->getEqual();
+  }
+
   public function getValueUNTYPED(): EditableNode {
     return $this->_value;
   }
@@ -110,10 +117,24 @@ final class SimpleInitializer extends EditableNode {
    * FunctionCallExpression | KeysetIntrinsicExpression | LiteralExpression |
    * ParenthesizedExpression | PrefixUnaryExpression | QualifiedName |
    * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
-   * NameToken | TupleExpression | VarrayIntrinsicExpression |
-   * VectorIntrinsicExpression | XHPExpression
+   * NameToken | TupleExpression | VariableExpression |
+   * VarrayIntrinsicExpression | VectorIntrinsicExpression | XHPExpression
    */
   public function getValue(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_value);
+  }
+
+  /**
+   * @returns ArrayCreationExpression | ArrayIntrinsicExpression |
+   * BinaryExpression | CollectionLiteralExpression | ConditionalExpression |
+   * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
+   * FunctionCallExpression | KeysetIntrinsicExpression | LiteralExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression | QualifiedName |
+   * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
+   * NameToken | TupleExpression | VariableExpression |
+   * VarrayIntrinsicExpression | VectorIntrinsicExpression | XHPExpression
+   */
+  public function getValuex(): EditableNode {
+    return $this->getValue();
   }
 }

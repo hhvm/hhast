@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a29408c5def76b704b8484c0c4b36d54>>
+ * @generated SignedSource<<162b4a5d19b01f9e8fe2459720bab0d3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -162,6 +162,13 @@ final class UsingStatementFunctionScoped extends EditableNode {
     return TypeAssert\instance_of(UsingToken::class, $this->_using_keyword);
   }
 
+  /**
+   * @returns UsingToken
+   */
+  public function getUsingKeywordx(): UsingToken {
+    return $this->getUsingKeyword();
+  }
+
   public function getExpressionUNTYPED(): EditableNode {
     return $this->_expression;
   }
@@ -190,6 +197,14 @@ final class UsingStatementFunctionScoped extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_expression);
   }
 
+  /**
+   * @returns BinaryExpression | LambdaExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression | VariableExpression
+   */
+  public function getExpressionx(): EditableNode {
+    return $this->getExpression();
+  }
+
   public function getSemicolonUNTYPED(): EditableNode {
     return $this->_semicolon;
   }
@@ -215,5 +230,12 @@ final class UsingStatementFunctionScoped extends EditableNode {
    */
   public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
+  }
+
+  /**
+   * @returns SemicolonToken
+   */
+  public function getSemicolonx(): SemicolonToken {
+    return $this->getSemicolon();
   }
 }

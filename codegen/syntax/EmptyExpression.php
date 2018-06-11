@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4320de36889bf43a8b7487b59d4e7fda>>
+ * @generated SignedSource<<30c83cc9eb68ecdf52c6425ea4e80397>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -125,6 +125,13 @@ final class EmptyExpression extends EditableNode {
     return TypeAssert\instance_of(EmptyToken::class, $this->_keyword);
   }
 
+  /**
+   * @returns EmptyToken
+   */
+  public function getKeywordx(): EmptyToken {
+    return $this->getKeyword();
+  }
+
   public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
@@ -150,6 +157,13 @@ final class EmptyExpression extends EditableNode {
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
+  }
+
+  /**
+   * @returns LeftParenToken
+   */
+  public function getLeftParenx(): LeftParenToken {
+    return $this->getLeftParen();
   }
 
   public function getArgumentUNTYPED(): EditableNode {
@@ -184,6 +198,18 @@ final class EmptyExpression extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_argument);
   }
 
+  /**
+   * @returns ArrayCreationExpression | ArrayIntrinsicExpression |
+   * BinaryExpression | CollectionLiteralExpression | FunctionCallExpression |
+   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression |
+   * SafeMemberSelectionExpression | ScopeResolutionExpression |
+   * SubscriptExpression | VariableExpression | XHPExpression
+   */
+  public function getArgumentx(): EditableNode {
+    return $this->getArgument();
+  }
+
   public function getRightParenUNTYPED(): EditableNode {
     return $this->_right_paren;
   }
@@ -205,5 +231,12 @@ final class EmptyExpression extends EditableNode {
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
+  }
+
+  /**
+   * @returns RightParenToken
+   */
+  public function getRightParenx(): RightParenToken {
+    return $this->getRightParen();
   }
 }

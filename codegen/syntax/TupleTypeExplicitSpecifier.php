@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6a64cdae0cf8c3fe64daa94ec6bc417c>>
+ * @generated SignedSource<<31ac9fb78f456234d592a59cf0694755>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -125,6 +125,13 @@ final class TupleTypeExplicitSpecifier extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_keyword);
   }
 
+  /**
+   * @returns unknown
+   */
+  public function getKeywordx(): EditableNode {
+    return $this->getKeyword();
+  }
+
   public function getLeftAngleUNTYPED(): EditableNode {
     return $this->_left_angle;
   }
@@ -146,6 +153,13 @@ final class TupleTypeExplicitSpecifier extends EditableNode {
    */
   public function getLeftAngle(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_left_angle);
+  }
+
+  /**
+   * @returns unknown
+   */
+  public function getLeftAnglex(): EditableNode {
+    return $this->getLeftAngle();
   }
 
   public function getTypesUNTYPED(): EditableNode {
@@ -175,6 +189,13 @@ final class TupleTypeExplicitSpecifier extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_types);
   }
 
+  /**
+   * @returns unknown
+   */
+  public function getTypesx(): EditableNode {
+    return $this->getTypes();
+  }
+
   public function getRightAngleUNTYPED(): EditableNode {
     return $this->_right_angle;
   }
@@ -196,5 +217,12 @@ final class TupleTypeExplicitSpecifier extends EditableNode {
    */
   public function getRightAngle(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_right_angle);
+  }
+
+  /**
+   * @returns unknown
+   */
+  public function getRightAnglex(): EditableNode {
+    return $this->getRightAngle();
   }
 }

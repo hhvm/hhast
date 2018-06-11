@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cd9550f4cce1b61c8c7f3d7a4e89978e>>
+ * @generated SignedSource<<08f603ed0afa963da9ea3e5dbcd7f9dd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -169,6 +169,13 @@ final class AlternateElseifClause
     return TypeAssert\instance_of(EditableNode::class, $this->_keyword);
   }
 
+  /**
+   * @returns unknown
+   */
+  public function getKeywordx(): EditableNode {
+    return $this->getKeyword();
+  }
+
   public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
@@ -196,6 +203,13 @@ final class AlternateElseifClause
    */
   public function getLeftParen(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_left_paren);
+  }
+
+  /**
+   * @returns unknown
+   */
+  public function getLeftParenx(): EditableNode {
+    return $this->getLeftParen();
   }
 
   public function getConditionUNTYPED(): EditableNode {
@@ -227,6 +241,13 @@ final class AlternateElseifClause
     return TypeAssert\instance_of(EditableNode::class, $this->_condition);
   }
 
+  /**
+   * @returns unknown
+   */
+  public function getConditionx(): EditableNode {
+    return $this->getCondition();
+  }
+
   public function getRightParenUNTYPED(): EditableNode {
     return $this->_right_paren;
   }
@@ -254,6 +275,13 @@ final class AlternateElseifClause
    */
   public function getRightParen(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_right_paren);
+  }
+
+  /**
+   * @returns unknown
+   */
+  public function getRightParenx(): EditableNode {
+    return $this->getRightParen();
   }
 
   public function getColonUNTYPED(): EditableNode {
@@ -285,6 +313,13 @@ final class AlternateElseifClause
     return TypeAssert\instance_of(EditableNode::class, $this->_colon);
   }
 
+  /**
+   * @returns unknown
+   */
+  public function getColonx(): EditableNode {
+    return $this->getColon();
+  }
+
   public function getStatementUNTYPED(): EditableNode {
     return $this->_statement;
   }
@@ -312,5 +347,12 @@ final class AlternateElseifClause
    */
   public function getStatement(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_statement);
+  }
+
+  /**
+   * @returns unknown
+   */
+  public function getStatementx(): EditableNode {
+    return $this->getStatement();
   }
 }

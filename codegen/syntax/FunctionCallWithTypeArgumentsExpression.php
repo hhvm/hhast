@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9f00c01449f484be6705d5d4c2cf7741>>
+ * @generated SignedSource<<77773aef426dfda373fbcc4f9f55b759>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -151,6 +151,13 @@ final class FunctionCallWithTypeArgumentsExpression extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_receiver);
   }
 
+  /**
+   * @returns MemberSelectionExpression | ScopeResolutionExpression | NameToken
+   */
+  public function getReceiverx(): EditableNode {
+    return $this->getReceiver();
+  }
+
   public function getTypeArgsUNTYPED(): EditableNode {
     return $this->_type_args;
   }
@@ -179,6 +186,13 @@ final class FunctionCallWithTypeArgumentsExpression extends EditableNode {
     return TypeAssert\instance_of(TypeArguments::class, $this->_type_args);
   }
 
+  /**
+   * @returns TypeArguments
+   */
+  public function getTypeArgsx(): TypeArguments {
+    return $this->getTypeArgs();
+  }
+
   public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
@@ -201,9 +215,19 @@ final class FunctionCallWithTypeArgumentsExpression extends EditableNode {
   }
 
   /**
+   * @returns Missing | LeftParenToken
+   */
+  public function getLeftParen(): ?LeftParenToken {
+    if ($this->_left_paren->isMissing()) {
+      return null;
+    }
+    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
+  }
+
+  /**
    * @returns LeftParenToken
    */
-  public function getLeftParen(): LeftParenToken {
+  public function getLeftParenx(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
@@ -267,9 +291,19 @@ final class FunctionCallWithTypeArgumentsExpression extends EditableNode {
   }
 
   /**
+   * @returns Missing | RightParenToken
+   */
+  public function getRightParen(): ?RightParenToken {
+    if ($this->_right_paren->isMissing()) {
+      return null;
+    }
+    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
+  }
+
+  /**
    * @returns RightParenToken
    */
-  public function getRightParen(): RightParenToken {
+  public function getRightParenx(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 }

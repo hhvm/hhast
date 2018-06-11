@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a1cd19d65edf2084bfcd5fcc7b7eb424>>
+ * @generated SignedSource<<7d8c2c9395b8ed9305920fb0503663f7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -141,6 +141,13 @@ final class DeclareDirectiveStatement extends EditableNode {
     return TypeAssert\instance_of(DeclareToken::class, $this->_keyword);
   }
 
+  /**
+   * @returns DeclareToken
+   */
+  public function getKeywordx(): DeclareToken {
+    return $this->getKeyword();
+  }
+
   public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
@@ -167,6 +174,13 @@ final class DeclareDirectiveStatement extends EditableNode {
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
+  }
+
+  /**
+   * @returns LeftParenToken
+   */
+  public function getLeftParenx(): LeftParenToken {
+    return $this->getLeftParen();
   }
 
   public function getExpressionUNTYPED(): EditableNode {
@@ -197,6 +211,13 @@ final class DeclareDirectiveStatement extends EditableNode {
     return TypeAssert\instance_of(BinaryExpression::class, $this->_expression);
   }
 
+  /**
+   * @returns BinaryExpression
+   */
+  public function getExpressionx(): BinaryExpression {
+    return $this->getExpression();
+  }
+
   public function getRightParenUNTYPED(): EditableNode {
     return $this->_right_paren;
   }
@@ -225,6 +246,13 @@ final class DeclareDirectiveStatement extends EditableNode {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
+  /**
+   * @returns RightParenToken
+   */
+  public function getRightParenx(): RightParenToken {
+    return $this->getRightParen();
+  }
+
   public function getSemicolonUNTYPED(): EditableNode {
     return $this->_semicolon;
   }
@@ -251,5 +279,12 @@ final class DeclareDirectiveStatement extends EditableNode {
    */
   public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
+  }
+
+  /**
+   * @returns SemicolonToken
+   */
+  public function getSemicolonx(): SemicolonToken {
+    return $this->getSemicolon();
   }
 }

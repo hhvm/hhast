@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9210ebb606f6fdacd5cc3618e8f30145>>
+ * @generated SignedSource<<48ec0d24670e04a1057a0ba96f14f4ab>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -108,6 +108,13 @@ final class NullableAsExpression extends EditableNode {
       TypeAssert\instance_of(VariableExpression::class, $this->_left_operand);
   }
 
+  /**
+   * @returns VariableExpression
+   */
+  public function getLeftOperandx(): VariableExpression {
+    return $this->getLeftOperand();
+  }
+
   public function getOperatorUNTYPED(): EditableNode {
     return $this->_operator;
   }
@@ -128,6 +135,13 @@ final class NullableAsExpression extends EditableNode {
    */
   public function getOperator(): QuestionAsToken {
     return TypeAssert\instance_of(QuestionAsToken::class, $this->_operator);
+  }
+
+  /**
+   * @returns QuestionAsToken
+   */
+  public function getOperatorx(): QuestionAsToken {
+    return $this->getOperator();
   }
 
   public function getRightOperandUNTYPED(): EditableNode {
@@ -151,5 +165,12 @@ final class NullableAsExpression extends EditableNode {
   public function getRightOperand(): SimpleTypeSpecifier {
     return
       TypeAssert\instance_of(SimpleTypeSpecifier::class, $this->_right_operand);
+  }
+
+  /**
+   * @returns SimpleTypeSpecifier
+   */
+  public function getRightOperandx(): SimpleTypeSpecifier {
+    return $this->getRightOperand();
   }
 }

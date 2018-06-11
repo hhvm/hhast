@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f179ee3f868cf2ea95be7e559e8c5e7f>>
+ * @generated SignedSource<<705c4da21dcdeeb53485987a504225fc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -125,6 +125,13 @@ final class IssetExpression extends EditableNode {
     return TypeAssert\instance_of(IssetToken::class, $this->_keyword);
   }
 
+  /**
+   * @returns IssetToken
+   */
+  public function getKeywordx(): IssetToken {
+    return $this->getKeyword();
+  }
+
   public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
@@ -150,6 +157,13 @@ final class IssetExpression extends EditableNode {
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
+  }
+
+  /**
+   * @returns LeftParenToken
+   */
+  public function getLeftParenx(): LeftParenToken {
+    return $this->getLeftParen();
   }
 
   public function getArgumentListUNTYPED(): EditableNode {
@@ -179,6 +193,13 @@ final class IssetExpression extends EditableNode {
     return TypeAssert\instance_of(EditableList::class, $this->_argument_list);
   }
 
+  /**
+   * @returns EditableList
+   */
+  public function getArgumentListx(): EditableList {
+    return $this->getArgumentList();
+  }
+
   public function getRightParenUNTYPED(): EditableNode {
     return $this->_right_paren;
   }
@@ -204,5 +225,12 @@ final class IssetExpression extends EditableNode {
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
+  }
+
+  /**
+   * @returns RightParenToken
+   */
+  public function getRightParenx(): RightParenToken {
+    return $this->getRightParen();
   }
 }

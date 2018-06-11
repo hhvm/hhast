@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<884081fd63ecdd64f9b9d2be169205fe>>
+ * @generated SignedSource<<b00b1c3afa100ea8dff2075562a5776b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -185,6 +185,13 @@ final class SwitchStatement
     return TypeAssert\instance_of(SwitchToken::class, $this->_keyword);
   }
 
+  /**
+   * @returns SwitchToken
+   */
+  public function getKeywordx(): SwitchToken {
+    return $this->getKeyword();
+  }
+
   public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
@@ -213,6 +220,13 @@ final class SwitchStatement
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
+  }
+
+  /**
+   * @returns LeftParenToken
+   */
+  public function getLeftParenx(): LeftParenToken {
+    return $this->getLeftParen();
   }
 
   public function getExpressionUNTYPED(): EditableNode {
@@ -247,6 +261,15 @@ final class SwitchStatement
     return TypeAssert\instance_of(EditableNode::class, $this->_expression);
   }
 
+  /**
+   * @returns BinaryExpression | FunctionCallExpression | LiteralExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
+   * PrefixUnaryExpression | SubscriptExpression | VariableExpression
+   */
+  public function getExpressionx(): EditableNode {
+    return $this->getExpression();
+  }
+
   public function getRightParenUNTYPED(): EditableNode {
     return $this->_right_paren;
   }
@@ -277,6 +300,13 @@ final class SwitchStatement
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
+  /**
+   * @returns RightParenToken
+   */
+  public function getRightParenx(): RightParenToken {
+    return $this->getRightParen();
+  }
+
   public function getLeftBraceUNTYPED(): EditableNode {
     return $this->_left_brace;
   }
@@ -305,6 +335,13 @@ final class SwitchStatement
    */
   public function getLeftBrace(): LeftBraceToken {
     return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
+  }
+
+  /**
+   * @returns LeftBraceToken
+   */
+  public function getLeftBracex(): LeftBraceToken {
+    return $this->getLeftBrace();
   }
 
   public function getSectionsUNTYPED(): EditableNode {
@@ -375,5 +412,12 @@ final class SwitchStatement
    */
   public function getRightBrace(): RightBraceToken {
     return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
+  }
+
+  /**
+   * @returns RightBraceToken
+   */
+  public function getRightBracex(): RightBraceToken {
+    return $this->getRightBrace();
   }
 }

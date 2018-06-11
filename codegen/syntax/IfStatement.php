@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f7f01179ec66cd829b14adb4fc584bd3>>
+ * @generated SignedSource<<0004a01938edd15b1d5da416524f3e60>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -183,6 +183,13 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
     return TypeAssert\instance_of(IfToken::class, $this->_keyword);
   }
 
+  /**
+   * @returns IfToken
+   */
+  public function getKeywordx(): IfToken {
+    return $this->getKeyword();
+  }
+
   public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
@@ -211,6 +218,13 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
+  }
+
+  /**
+   * @returns LeftParenToken
+   */
+  public function getLeftParenx(): LeftParenToken {
+    return $this->getLeftParen();
   }
 
   public function getConditionUNTYPED(): EditableNode {
@@ -248,6 +262,18 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
     return TypeAssert\instance_of(EditableNode::class, $this->_condition);
   }
 
+  /**
+   * @returns ArrayIntrinsicExpression | AsExpression | BinaryExpression |
+   * CastExpression | EmptyExpression | FunctionCallExpression |
+   * InstanceofExpression | IsExpression | IssetExpression | LiteralExpression
+   * | MemberSelectionExpression | ParenthesizedExpression |
+   * PrefixUnaryExpression | QualifiedName | ScopeResolutionExpression |
+   * SubscriptExpression | NameToken | VariableExpression
+   */
+  public function getConditionx(): EditableNode {
+    return $this->getCondition();
+  }
+
   public function getRightParenUNTYPED(): EditableNode {
     return $this->_right_paren;
   }
@@ -276,6 +302,13 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
+  }
+
+  /**
+   * @returns RightParenToken
+   */
+  public function getRightParenx(): RightParenToken {
+    return $this->getRightParen();
   }
 
   public function getStatementUNTYPED(): EditableNode {
@@ -308,6 +341,15 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
    */
   public function getStatement(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_statement);
+  }
+
+  /**
+   * @returns BreakStatement | CompoundStatement | ContinueStatement |
+   * EchoStatement | ExpressionStatement | GlobalStatement | GotoStatement |
+   * ReturnStatement | ThrowStatement | UnsetStatement
+   */
+  public function getStatementx(): EditableNode {
+    return $this->getStatement();
   }
 
   public function getElseifClausesUNTYPED(): EditableNode {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<06130d4c0346af3755ad5aaaa5ef54f6>>
+ * @generated SignedSource<<a31437ad27d05fd2c1d62a53c76c9ea0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -88,6 +88,13 @@ final class SwitchFallthrough extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_keyword);
   }
 
+  /**
+   * @returns Missing
+   */
+  public function getKeywordx(): EditableNode {
+    return $this->getKeyword();
+  }
+
   public function getSemicolonUNTYPED(): EditableNode {
     return $this->_semicolon;
   }
@@ -108,5 +115,12 @@ final class SwitchFallthrough extends EditableNode {
    */
   public function getSemicolon(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_semicolon);
+  }
+
+  /**
+   * @returns Missing
+   */
+  public function getSemicolonx(): EditableNode {
+    return $this->getSemicolon();
   }
 }

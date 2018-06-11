@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<15fcc7617b837cf719c299ecf0e17a23>>
+ * @generated SignedSource<<19d8d1170a4f48fc8f027e66b33c9572>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -137,6 +137,13 @@ final class TypeParameter extends EditableNode {
    */
   public function getName(): NameToken {
     return TypeAssert\instance_of(NameToken::class, $this->_name);
+  }
+
+  /**
+   * @returns NameToken
+   */
+  public function getNamex(): NameToken {
+    return $this->getName();
   }
 
   public function getConstraintsUNTYPED(): EditableNode {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c3ba45dee2aa861ea5cd1036c90abb0d>>
+ * @generated SignedSource<<728484dd63fe3215858e79caeb8882d3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,6 +107,13 @@ final class GlobalStatement extends EditableNode {
     return TypeAssert\instance_of(GlobalToken::class, $this->_keyword);
   }
 
+  /**
+   * @returns GlobalToken
+   */
+  public function getKeywordx(): GlobalToken {
+    return $this->getKeyword();
+  }
+
   public function getVariablesUNTYPED(): EditableNode {
     return $this->_variables;
   }
@@ -129,6 +136,13 @@ final class GlobalStatement extends EditableNode {
     return TypeAssert\instance_of(EditableList::class, $this->_variables);
   }
 
+  /**
+   * @returns EditableList
+   */
+  public function getVariablesx(): EditableList {
+    return $this->getVariables();
+  }
+
   public function getSemicolonUNTYPED(): EditableNode {
     return $this->_semicolon;
   }
@@ -149,5 +163,12 @@ final class GlobalStatement extends EditableNode {
    */
   public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
+  }
+
+  /**
+   * @returns SemicolonToken
+   */
+  public function getSemicolonx(): SemicolonToken {
+    return $this->getSemicolon();
   }
 }

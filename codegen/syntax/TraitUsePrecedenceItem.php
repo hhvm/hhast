@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d16df461ab3e8d396f87442bd8bdbdfb>>
+ * @generated SignedSource<<429c175d47437d3207893365b8a06465>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -108,6 +108,13 @@ final class TraitUsePrecedenceItem extends EditableNode {
       TypeAssert\instance_of(ScopeResolutionExpression::class, $this->_name);
   }
 
+  /**
+   * @returns ScopeResolutionExpression
+   */
+  public function getNamex(): ScopeResolutionExpression {
+    return $this->getName();
+  }
+
   public function getKeywordUNTYPED(): EditableNode {
     return $this->_keyword;
   }
@@ -130,6 +137,13 @@ final class TraitUsePrecedenceItem extends EditableNode {
     return TypeAssert\instance_of(InsteadofToken::class, $this->_keyword);
   }
 
+  /**
+   * @returns InsteadofToken
+   */
+  public function getKeywordx(): InsteadofToken {
+    return $this->getKeyword();
+  }
+
   public function getRemovedNamesUNTYPED(): EditableNode {
     return $this->_removed_names;
   }
@@ -150,5 +164,12 @@ final class TraitUsePrecedenceItem extends EditableNode {
    */
   public function getRemovedNames(): EditableList {
     return TypeAssert\instance_of(EditableList::class, $this->_removed_names);
+  }
+
+  /**
+   * @returns EditableList
+   */
+  public function getRemovedNamesx(): EditableList {
+    return $this->getRemovedNames();
   }
 }
