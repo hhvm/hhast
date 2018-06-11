@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<57018da364d7d8bc3d4992355a769141>>
+ * @generated SignedSource<<4e147f2dc13be1f4a2a15e4c04147b00>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -109,8 +109,8 @@ final class BinaryExpression extends EditableNode {
    * ListExpression | LiteralExpression | MemberSelectionExpression |
    * ObjectCreationExpression | ParenthesizedExpression |
    * PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression |
-   * QualifiedName | SafeMemberSelectionExpression | ScopeResolutionExpression
-   * | SubscriptExpression | NameToken | VariableExpression |
+   * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
+   * RightParenToken | NameToken | VariableExpression |
    * VarrayIntrinsicExpression | VectorIntrinsicExpression
    */
   public function getLeftOperand(): EditableNode {
