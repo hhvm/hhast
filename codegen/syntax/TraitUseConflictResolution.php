@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2b40ab78643381ab492a4bb0ed179bc9>>
+ * @generated SignedSource<<f5eb829034b0c17e7f896fdce83e7399>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -139,13 +139,6 @@ final class TraitUseConflictResolution extends EditableNode {
     return TypeAssert\instance_of(UseToken::class, $this->_keyword);
   }
 
-  /**
-   * @returns UseToken
-   */
-  public function getKeywordx(): UseToken {
-    return $this->getKeyword();
-  }
-
   public function getNamesUNTYPED(): EditableNode {
     return $this->_names;
   }
@@ -174,13 +167,6 @@ final class TraitUseConflictResolution extends EditableNode {
     return TypeAssert\instance_of(EditableList::class, $this->_names);
   }
 
-  /**
-   * @returns EditableList
-   */
-  public function getNamesx(): EditableList {
-    return $this->getNames();
-  }
-
   public function getLeftBraceUNTYPED(): EditableNode {
     return $this->_left_brace;
   }
@@ -207,13 +193,6 @@ final class TraitUseConflictResolution extends EditableNode {
    */
   public function getLeftBrace(): LeftBraceToken {
     return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
-  }
-
-  /**
-   * @returns LeftBraceToken
-   */
-  public function getLeftBracex(): LeftBraceToken {
-    return $this->getLeftBrace();
   }
 
   public function getClausesUNTYPED(): EditableNode {
@@ -280,12 +259,5 @@ final class TraitUseConflictResolution extends EditableNode {
    */
   public function getRightBrace(): RightBraceToken {
     return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
-  }
-
-  /**
-   * @returns RightBraceToken
-   */
-  public function getRightBracex(): RightBraceToken {
-    return $this->getRightBrace();
   }
 }

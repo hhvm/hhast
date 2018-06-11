@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4f8e9dd2cfd49b584d10e29c42d591cf>>
+ * @generated SignedSource<<b44ab76d838f0600d6d4b5f833a1539a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -141,13 +141,6 @@ final class ClassnameTypeSpecifier extends EditableNode {
     return TypeAssert\instance_of(ClassnameToken::class, $this->_keyword);
   }
 
-  /**
-   * @returns ClassnameToken
-   */
-  public function getKeywordx(): ClassnameToken {
-    return $this->getKeyword();
-  }
-
   public function getLeftAngleUNTYPED(): EditableNode {
     return $this->_left_angle;
   }
@@ -214,13 +207,6 @@ final class ClassnameTypeSpecifier extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);
   }
 
-  /**
-   * @returns Missing | SimpleTypeSpecifier | TypeConstant
-   */
-  public function getTypex(): EditableNode {
-    return $this->getType();
-  }
-
   public function getTrailingCommaUNTYPED(): EditableNode {
     return $this->_trailing_comma;
   }
@@ -247,13 +233,6 @@ final class ClassnameTypeSpecifier extends EditableNode {
    */
   public function getTrailingComma(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_trailing_comma);
-  }
-
-  /**
-   * @returns Missing
-   */
-  public function getTrailingCommax(): EditableNode {
-    return $this->getTrailingComma();
   }
 
   public function getRightAngleUNTYPED(): EditableNode {

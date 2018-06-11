@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4c05d516d4402601bc43605b8afaebba>>
+ * @generated SignedSource<<3de282b31b9af19a9d3d2c65146a5556>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -120,26 +120,10 @@ final class AwaitableCreationExpression extends EditableNode {
   }
 
   /**
-   * @returns AttributeSpecification | Missing
+   * @returns Missing
    */
-  public function getAttributeSpec(): ?AttributeSpecification {
-    if ($this->_attribute_spec->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(
-      AttributeSpecification::class,
-      $this->_attribute_spec,
-    );
-  }
-
-  /**
-   * @returns AttributeSpecification
-   */
-  public function getAttributeSpecx(): AttributeSpecification {
-    return TypeAssert\instance_of(
-      AttributeSpecification::class,
-      $this->_attribute_spec,
-    );
+  public function getAttributeSpec(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_attribute_spec);
   }
 
   public function getAsyncUNTYPED(): EditableNode {
@@ -169,13 +153,6 @@ final class AwaitableCreationExpression extends EditableNode {
     return TypeAssert\instance_of(AsyncToken::class, $this->_async);
   }
 
-  /**
-   * @returns AsyncToken
-   */
-  public function getAsyncx(): AsyncToken {
-    return $this->getAsync();
-  }
-
   public function getCoroutineUNTYPED(): EditableNode {
     return $this->_coroutine;
   }
@@ -201,13 +178,6 @@ final class AwaitableCreationExpression extends EditableNode {
    */
   public function getCoroutine(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_coroutine);
-  }
-
-  /**
-   * @returns Missing
-   */
-  public function getCoroutinex(): EditableNode {
-    return $this->getCoroutine();
   }
 
   public function getCompoundStatementUNTYPED(): EditableNode {
@@ -238,12 +208,5 @@ final class AwaitableCreationExpression extends EditableNode {
       CompoundStatement::class,
       $this->_compound_statement,
     );
-  }
-
-  /**
-   * @returns CompoundStatement
-   */
-  public function getCompoundStatementx(): CompoundStatement {
-    return $this->getCompoundStatement();
   }
 }

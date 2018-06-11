@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<79a66821bfee55c48d1e1a0e0f5d81a0>>
+ * @generated SignedSource<<c575c5bc984b1984d24ba5326657f279>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -143,17 +143,6 @@ final class ConditionalExpression extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_test);
   }
 
-  /**
-   * @returns BinaryExpression | ConditionalExpression | EmptyExpression |
-   * FunctionCallExpression | InstanceofExpression | IssetExpression |
-   * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
-   * PrefixUnaryExpression | ScopeResolutionExpression | SubscriptExpression |
-   * LessThanToken | NameToken | VariableExpression
-   */
-  public function getTestx(): EditableNode {
-    return $this->getTest();
-  }
-
   public function getQuestionUNTYPED(): EditableNode {
     return $this->_question;
   }
@@ -180,13 +169,6 @@ final class ConditionalExpression extends EditableNode {
    */
   public function getQuestion(): QuestionToken {
     return TypeAssert\instance_of(QuestionToken::class, $this->_question);
-  }
-
-  /**
-   * @returns QuestionToken
-   */
-  public function getQuestionx(): QuestionToken {
-    return $this->getQuestion();
   }
 
   public function getConsequenceUNTYPED(): EditableNode {
@@ -221,19 +203,6 @@ final class ConditionalExpression extends EditableNode {
    */
   public function getConsequence(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_consequence);
-  }
-
-  /**
-   * @returns ArrayCreationExpression | ArrayIntrinsicExpression |
-   * BinaryExpression | CastExpression | CollectionLiteralExpression |
-   * FunctionCallExpression | LambdaExpression | LiteralExpression |
-   * MemberSelectionExpression | Missing | ObjectCreationExpression |
-   * ParenthesizedExpression | PrefixUnaryExpression |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression
-   */
-  public function getConsequencex(): EditableNode {
-    return $this->getConsequence();
   }
 
   public function getColonUNTYPED(): EditableNode {
@@ -306,18 +275,5 @@ final class ConditionalExpression extends EditableNode {
    */
   public function getAlternative(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_alternative);
-  }
-
-  /**
-   * @returns AnonymousFunction | ArrayCreationExpression |
-   * ArrayIntrinsicExpression | BinaryExpression | CastExpression |
-   * CollectionLiteralExpression | FunctionCallExpression | IssetExpression |
-   * LambdaExpression | LiteralExpression | Missing | ObjectCreationExpression
-   * | ParenthesizedExpression | PrefixUnaryExpression |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * TupleExpression | VariableExpression
-   */
-  public function getAlternativex(): EditableNode {
-    return $this->getAlternative();
   }
 }

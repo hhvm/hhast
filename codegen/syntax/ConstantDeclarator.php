@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5f75ffe89b07fe5e63803feda803e31f>>
+ * @generated SignedSource<<7296058cd62f920b6b206b8ac020141b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -86,13 +86,6 @@ final class ConstantDeclarator extends EditableNode {
    */
   public function getName(): NameToken {
     return TypeAssert\instance_of(NameToken::class, $this->_name);
-  }
-
-  /**
-   * @returns NameToken
-   */
-  public function getNamex(): NameToken {
-    return $this->getName();
   }
 
   public function getInitializerUNTYPED(): EditableNode {

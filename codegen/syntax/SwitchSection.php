@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4b9154f77f31df3472da6b377572d431>>
+ * @generated SignedSource<<ada3fc3567412e4f82db421227a50cd1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -105,13 +105,6 @@ final class SwitchSection extends EditableNode {
    */
   public function getLabels(): EditableList {
     return TypeAssert\instance_of(EditableList::class, $this->_labels);
-  }
-
-  /**
-   * @returns EditableList
-   */
-  public function getLabelsx(): EditableList {
-    return $this->getLabels();
   }
 
   public function getStatementsUNTYPED(): EditableNode {

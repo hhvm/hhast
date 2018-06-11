@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cc980af08d452c38c939da0e4ef0e398>>
+ * @generated SignedSource<<7b20dda4450d4719eede4fe9dc2754c1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -136,13 +136,6 @@ final class TryStatement extends EditableNode {
     return TypeAssert\instance_of(TryToken::class, $this->_keyword);
   }
 
-  /**
-   * @returns TryToken
-   */
-  public function getKeywordx(): TryToken {
-    return $this->getKeyword();
-  }
-
   public function getCompoundStatementUNTYPED(): EditableNode {
     return $this->_compound_statement;
   }
@@ -171,13 +164,6 @@ final class TryStatement extends EditableNode {
       CompoundStatement::class,
       $this->_compound_statement,
     );
-  }
-
-  /**
-   * @returns CompoundStatement
-   */
-  public function getCompoundStatementx(): CompoundStatement {
-    return $this->getCompoundStatement();
   }
 
   public function getCatchClausesUNTYPED(): EditableNode {

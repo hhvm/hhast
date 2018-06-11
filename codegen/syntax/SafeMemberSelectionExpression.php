@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f5c5be209252300ac03c604491d6cd3d>>
+ * @generated SignedSource<<9b6fc3ab96c9f7ef800c11461c42e22c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -109,15 +109,6 @@ final class SafeMemberSelectionExpression extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_object);
   }
 
-  /**
-   * @returns FunctionCallExpression | MemberSelectionExpression |
-   * PrefixUnaryExpression | SafeMemberSelectionExpression |
-   * ScopeResolutionExpression | VariableExpression
-   */
-  public function getObjectx(): EditableNode {
-    return $this->getObject();
-  }
-
   public function getOperatorUNTYPED(): EditableNode {
     return $this->_operator;
   }
@@ -143,13 +134,6 @@ final class SafeMemberSelectionExpression extends EditableNode {
     );
   }
 
-  /**
-   * @returns QuestionMinusGreaterThanToken
-   */
-  public function getOperatorx(): QuestionMinusGreaterThanToken {
-    return $this->getOperator();
-  }
-
   public function getNameUNTYPED(): EditableNode {
     return $this->_name;
   }
@@ -170,12 +154,5 @@ final class SafeMemberSelectionExpression extends EditableNode {
    */
   public function getName(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_name);
-  }
-
-  /**
-   * @returns PrefixUnaryExpression | XHPClassNameToken | NameToken
-   */
-  public function getNamex(): EditableNode {
-    return $this->getName();
   }
 }

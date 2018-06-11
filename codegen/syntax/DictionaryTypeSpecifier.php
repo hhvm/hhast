@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e72b20aa22ea0ac65e888726ae273622>>
+ * @generated SignedSource<<91d758ed6e69cd48a5b0098a361b814e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -125,13 +125,6 @@ final class DictionaryTypeSpecifier extends EditableNode {
     return TypeAssert\instance_of(DictToken::class, $this->_keyword);
   }
 
-  /**
-   * @returns DictToken
-   */
-  public function getKeywordx(): DictToken {
-    return $this->getKeyword();
-  }
-
   public function getLeftAngleUNTYPED(): EditableNode {
     return $this->_left_angle;
   }
@@ -153,13 +146,6 @@ final class DictionaryTypeSpecifier extends EditableNode {
    */
   public function getLeftAngle(): LessThanToken {
     return TypeAssert\instance_of(LessThanToken::class, $this->_left_angle);
-  }
-
-  /**
-   * @returns LessThanToken
-   */
-  public function getLeftAnglex(): LessThanToken {
-    return $this->getLeftAngle();
   }
 
   public function getMembersUNTYPED(): EditableNode {
@@ -189,13 +175,6 @@ final class DictionaryTypeSpecifier extends EditableNode {
     return TypeAssert\instance_of(EditableList::class, $this->_members);
   }
 
-  /**
-   * @returns EditableList
-   */
-  public function getMembersx(): EditableList {
-    return $this->getMembers();
-  }
-
   public function getRightAngleUNTYPED(): EditableNode {
     return $this->_right_angle;
   }
@@ -217,12 +196,5 @@ final class DictionaryTypeSpecifier extends EditableNode {
    */
   public function getRightAngle(): GreaterThanToken {
     return TypeAssert\instance_of(GreaterThanToken::class, $this->_right_angle);
-  }
-
-  /**
-   * @returns GreaterThanToken
-   */
-  public function getRightAnglex(): GreaterThanToken {
-    return $this->getRightAngle();
   }
 }

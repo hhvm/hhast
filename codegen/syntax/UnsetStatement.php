@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4e7aebdd577355ea3d680788e1652b71>>
+ * @generated SignedSource<<a043654819d113f7c87c5cc5c67ce464>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -141,13 +141,6 @@ final class UnsetStatement extends EditableNode {
     return TypeAssert\instance_of(UnsetToken::class, $this->_keyword);
   }
 
-  /**
-   * @returns UnsetToken
-   */
-  public function getKeywordx(): UnsetToken {
-    return $this->getKeyword();
-  }
-
   public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
@@ -174,13 +167,6 @@ final class UnsetStatement extends EditableNode {
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
-  }
-
-  /**
-   * @returns LeftParenToken
-   */
-  public function getLeftParenx(): LeftParenToken {
-    return $this->getLeftParen();
   }
 
   public function getVariablesUNTYPED(): EditableNode {
@@ -211,13 +197,6 @@ final class UnsetStatement extends EditableNode {
     return TypeAssert\instance_of(EditableList::class, $this->_variables);
   }
 
-  /**
-   * @returns EditableList
-   */
-  public function getVariablesx(): EditableList {
-    return $this->getVariables();
-  }
-
   public function getRightParenUNTYPED(): EditableNode {
     return $this->_right_paren;
   }
@@ -246,13 +225,6 @@ final class UnsetStatement extends EditableNode {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
-  /**
-   * @returns RightParenToken
-   */
-  public function getRightParenx(): RightParenToken {
-    return $this->getRightParen();
-  }
-
   public function getSemicolonUNTYPED(): EditableNode {
     return $this->_semicolon;
   }
@@ -279,12 +251,5 @@ final class UnsetStatement extends EditableNode {
    */
   public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
-  }
-
-  /**
-   * @returns SemicolonToken
-   */
-  public function getSemicolonx(): SemicolonToken {
-    return $this->getSemicolon();
   }
 }

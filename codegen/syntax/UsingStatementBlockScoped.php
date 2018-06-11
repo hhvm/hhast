@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3791d7cead6921e7356f4a3bd5763a2d>>
+ * @generated SignedSource<<5907935e52a7281584f5b379686d3cf6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -206,13 +206,6 @@ final class UsingStatementBlockScoped extends EditableNode {
     return TypeAssert\instance_of(UsingToken::class, $this->_using_keyword);
   }
 
-  /**
-   * @returns UsingToken
-   */
-  public function getUsingKeywordx(): UsingToken {
-    return $this->getUsingKeyword();
-  }
-
   public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
@@ -240,13 +233,6 @@ final class UsingStatementBlockScoped extends EditableNode {
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
-  }
-
-  /**
-   * @returns LeftParenToken
-   */
-  public function getLeftParenx(): LeftParenToken {
-    return $this->getLeftParen();
   }
 
   public function getExpressionsUNTYPED(): EditableNode {
@@ -278,13 +264,6 @@ final class UsingStatementBlockScoped extends EditableNode {
     return TypeAssert\instance_of(EditableList::class, $this->_expressions);
   }
 
-  /**
-   * @returns EditableList
-   */
-  public function getExpressionsx(): EditableList {
-    return $this->getExpressions();
-  }
-
   public function getRightParenUNTYPED(): EditableNode {
     return $this->_right_paren;
   }
@@ -314,13 +293,6 @@ final class UsingStatementBlockScoped extends EditableNode {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
-  /**
-   * @returns RightParenToken
-   */
-  public function getRightParenx(): RightParenToken {
-    return $this->getRightParen();
-  }
-
   public function getBodyUNTYPED(): EditableNode {
     return $this->_body;
   }
@@ -348,12 +320,5 @@ final class UsingStatementBlockScoped extends EditableNode {
    */
   public function getBody(): CompoundStatement {
     return TypeAssert\instance_of(CompoundStatement::class, $this->_body);
-  }
-
-  /**
-   * @returns CompoundStatement
-   */
-  public function getBodyx(): CompoundStatement {
-    return $this->getBody();
   }
 }

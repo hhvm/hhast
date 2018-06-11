@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<86aed5631ecd41c48b6514aee44a2cc1>>
+ * @generated SignedSource<<cf8cf998cc7743b7820088302d156b33>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,13 +107,6 @@ final class GotoStatement extends EditableNode {
     return TypeAssert\instance_of(GotoToken::class, $this->_keyword);
   }
 
-  /**
-   * @returns GotoToken
-   */
-  public function getKeywordx(): GotoToken {
-    return $this->getKeyword();
-  }
-
   public function getLabelNameUNTYPED(): EditableNode {
     return $this->_label_name;
   }
@@ -136,13 +129,6 @@ final class GotoStatement extends EditableNode {
     return TypeAssert\instance_of(NameToken::class, $this->_label_name);
   }
 
-  /**
-   * @returns NameToken
-   */
-  public function getLabelNamex(): NameToken {
-    return $this->getLabelName();
-  }
-
   public function getSemicolonUNTYPED(): EditableNode {
     return $this->_semicolon;
   }
@@ -163,12 +149,5 @@ final class GotoStatement extends EditableNode {
    */
   public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
-  }
-
-  /**
-   * @returns SemicolonToken
-   */
-  public function getSemicolonx(): SemicolonToken {
-    return $this->getSemicolon();
   }
 }

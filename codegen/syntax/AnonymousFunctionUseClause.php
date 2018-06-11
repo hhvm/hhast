@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<64c51f92c79100e4d107b421c2baea21>>
+ * @generated SignedSource<<643122b244fea931d21c6d2d2be93d17>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -125,13 +125,6 @@ final class AnonymousFunctionUseClause extends EditableNode {
     return TypeAssert\instance_of(UseToken::class, $this->_keyword);
   }
 
-  /**
-   * @returns UseToken
-   */
-  public function getKeywordx(): UseToken {
-    return $this->getKeyword();
-  }
-
   public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
@@ -157,13 +150,6 @@ final class AnonymousFunctionUseClause extends EditableNode {
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
-  }
-
-  /**
-   * @returns LeftParenToken
-   */
-  public function getLeftParenx(): LeftParenToken {
-    return $this->getLeftParen();
   }
 
   public function getVariablesUNTYPED(): EditableNode {
@@ -193,13 +179,6 @@ final class AnonymousFunctionUseClause extends EditableNode {
     return TypeAssert\instance_of(EditableList::class, $this->_variables);
   }
 
-  /**
-   * @returns EditableList
-   */
-  public function getVariablesx(): EditableList {
-    return $this->getVariables();
-  }
-
   public function getRightParenUNTYPED(): EditableNode {
     return $this->_right_paren;
   }
@@ -225,12 +204,5 @@ final class AnonymousFunctionUseClause extends EditableNode {
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
-  }
-
-  /**
-   * @returns RightParenToken
-   */
-  public function getRightParenx(): RightParenToken {
-    return $this->getRightParen();
   }
 }

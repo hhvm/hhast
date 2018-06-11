@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c52ecff9344562f59c31e1423a7b06d8>>
+ * @generated SignedSource<<c19149534fff452c26ad0d9c046f1d11>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -88,13 +88,6 @@ final class YieldExpression extends EditableNode {
     return TypeAssert\instance_of(YieldToken::class, $this->_keyword);
   }
 
-  /**
-   * @returns YieldToken
-   */
-  public function getKeywordx(): YieldToken {
-    return $this->getKeyword();
-  }
-
   public function getOperandUNTYPED(): EditableNode {
     return $this->_operand;
   }
@@ -120,17 +113,5 @@ final class YieldExpression extends EditableNode {
    */
   public function getOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_operand);
-  }
-
-  /**
-   * @returns AnonymousFunction | BinaryExpression | ElementInitializer |
-   * FunctionCallExpression | LambdaExpression | LiteralExpression |
-   * MemberSelectionExpression | Missing | ObjectCreationExpression |
-   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
-   * SubscriptExpression | BreakToken | NameToken | TupleExpression |
-   * VariableExpression
-   */
-  public function getOperandx(): EditableNode {
-    return $this->getOperand();
   }
 }

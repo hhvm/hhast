@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<45e1295365b85ac1b193326ac86af9fb>>
+ * @generated SignedSource<<6e130fa7ad23084b91281b17039b999e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -125,13 +125,6 @@ final class ListExpression extends EditableNode {
     return TypeAssert\instance_of(ListToken::class, $this->_keyword);
   }
 
-  /**
-   * @returns ListToken
-   */
-  public function getKeywordx(): ListToken {
-    return $this->getKeyword();
-  }
-
   public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
@@ -153,13 +146,6 @@ final class ListExpression extends EditableNode {
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
-  }
-
-  /**
-   * @returns LeftParenToken
-   */
-  public function getLeftParenx(): LeftParenToken {
-    return $this->getLeftParen();
   }
 
   public function getMembersUNTYPED(): EditableNode {
@@ -220,12 +206,5 @@ final class ListExpression extends EditableNode {
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
-  }
-
-  /**
-   * @returns RightParenToken
-   */
-  public function getRightParenx(): RightParenToken {
-    return $this->getRightParen();
   }
 }

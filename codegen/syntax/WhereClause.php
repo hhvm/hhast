@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4cf7a8af61700941b0b140bd61a4ce5f>>
+ * @generated SignedSource<<04389f7addfb0d19da4697987103b3c3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -91,13 +91,6 @@ final class WhereClause extends EditableNode {
     return TypeAssert\instance_of(WhereToken::class, $this->_keyword);
   }
 
-  /**
-   * @returns WhereToken
-   */
-  public function getKeywordx(): WhereToken {
-    return $this->getKeyword();
-  }
-
   public function getConstraintsUNTYPED(): EditableNode {
     return $this->_constraints;
   }
@@ -118,12 +111,5 @@ final class WhereClause extends EditableNode {
    */
   public function getConstraints(): EditableList {
     return TypeAssert\instance_of(EditableList::class, $this->_constraints);
-  }
-
-  /**
-   * @returns EditableList
-   */
-  public function getConstraintsx(): EditableList {
-    return $this->getConstraints();
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5892b70cbe60b77e5419604b0a5650b4>>
+ * @generated SignedSource<<e7edd72012c4b86c09628506dde5d80b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -150,13 +150,6 @@ final class NamespaceUseClause extends EditableNode {
    */
   public function getName(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_name);
-  }
-
-  /**
-   * @returns QualifiedName | NameToken
-   */
-  public function getNamex(): EditableNode {
-    return $this->getName();
   }
 
   public function getAsUNTYPED(): EditableNode {

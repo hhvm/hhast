@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<17c9cd27ccd934dfba04bd7db1c09d1d>>
+ * @generated SignedSource<<1ab7c1d8eeea0961707058c98911b441>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -80,17 +80,5 @@ final class SimpleTypeSpecifier extends EditableNode {
    */
   public function getSpecifier(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_specifier);
-  }
-
-  /**
-   * @returns QualifiedName | XHPClassNameToken | ConstructToken | ArrayToken |
-   * ArraykeyToken | BoolToken | BooleanToken | DarrayToken | DictToken |
-   * DoubleToken | FloatToken | IntToken | IntegerToken | KeysetToken |
-   * MixedToken | NameToken | NoreturnToken | NumToken | ObjectToken |
-   * ParentToken | RealToken | ResourceToken | SelfToken | StringToken |
-   * ThisToken | VarToken | VarrayToken | VecToken | VoidToken
-   */
-  public function getSpecifierx(): EditableNode {
-    return $this->getSpecifier();
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1886935a32663590649883b9b977d8d0>>
+ * @generated SignedSource<<7cdcb8f0da7e32c7504bb8831f455154>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -185,13 +185,6 @@ final class PropertyDeclaration extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_modifiers);
   }
 
-  /**
-   * @returns EditableList | VarToken
-   */
-  public function getModifiersx(): EditableNode {
-    return $this->getModifiers();
-  }
-
   public function getTypeUNTYPED(): EditableNode {
     return $this->_type;
   }
@@ -224,17 +217,6 @@ final class PropertyDeclaration extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);
   }
 
-  /**
-   * @returns ClosureTypeSpecifier | DarrayTypeSpecifier |
-   * DictionaryTypeSpecifier | GenericTypeSpecifier | MapArrayTypeSpecifier |
-   * Missing | NullableTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier
-   * | TupleTypeSpecifier | TypeConstant | VarrayTypeSpecifier |
-   * VectorArrayTypeSpecifier | VectorTypeSpecifier
-   */
-  public function getTypex(): EditableNode {
-    return $this->getType();
-  }
-
   public function getDeclaratorsUNTYPED(): EditableNode {
     return $this->_declarators;
   }
@@ -263,13 +245,6 @@ final class PropertyDeclaration extends EditableNode {
     return TypeAssert\instance_of(EditableList::class, $this->_declarators);
   }
 
-  /**
-   * @returns EditableList
-   */
-  public function getDeclaratorsx(): EditableList {
-    return $this->getDeclarators();
-  }
-
   public function getSemicolonUNTYPED(): EditableNode {
     return $this->_semicolon;
   }
@@ -296,12 +271,5 @@ final class PropertyDeclaration extends EditableNode {
    */
   public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
-  }
-
-  /**
-   * @returns SemicolonToken
-   */
-  public function getSemicolonx(): SemicolonToken {
-    return $this->getSemicolon();
   }
 }

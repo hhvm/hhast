@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1363b16fa13611f1c95ad8dc42ffad2d>>
+ * @generated SignedSource<<e8e5c8f66ce9359b9ce659aeb038dec3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -103,21 +103,10 @@ final class MemberSelectionExpression extends EditableNode {
   /**
    * @returns FunctionCallExpression | MemberSelectionExpression |
    * ParenthesizedExpression | PipeVariableExpression | PrefixUnaryExpression |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression
+   * ScopeResolutionExpression | SubscriptExpression | VariableExpression
    */
   public function getObject(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_object);
-  }
-
-  /**
-   * @returns FunctionCallExpression | MemberSelectionExpression |
-   * ParenthesizedExpression | PipeVariableExpression | PrefixUnaryExpression |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression
-   */
-  public function getObjectx(): EditableNode {
-    return $this->getObject();
   }
 
   public function getOperatorUNTYPED(): EditableNode {
@@ -143,13 +132,6 @@ final class MemberSelectionExpression extends EditableNode {
       TypeAssert\instance_of(MinusGreaterThanToken::class, $this->_operator);
   }
 
-  /**
-   * @returns MinusGreaterThanToken
-   */
-  public function getOperatorx(): MinusGreaterThanToken {
-    return $this->getOperator();
-  }
-
   public function getNameUNTYPED(): EditableNode {
     return $this->_name;
   }
@@ -171,13 +153,5 @@ final class MemberSelectionExpression extends EditableNode {
    */
   public function getName(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_name);
-  }
-
-  /**
-   * @returns BracedExpression | PrefixUnaryExpression | XHPClassNameToken |
-   * NameToken | VariableToken
-   */
-  public function getNamex(): EditableNode {
-    return $this->getName();
   }
 }

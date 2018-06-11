@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<44bf35f6a4e060c8e778f6029be67c1a>>
+ * @generated SignedSource<<8db78d6d62585d56dfbefa32b2efd35d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,13 +107,6 @@ final class XHPSimpleAttribute extends EditableNode {
     return TypeAssert\instance_of(XHPElementNameToken::class, $this->_name);
   }
 
-  /**
-   * @returns XHPElementNameToken
-   */
-  public function getNamex(): XHPElementNameToken {
-    return $this->getName();
-  }
-
   public function getEqualUNTYPED(): EditableNode {
     return $this->_equal;
   }
@@ -136,13 +129,6 @@ final class XHPSimpleAttribute extends EditableNode {
     return TypeAssert\instance_of(EqualToken::class, $this->_equal);
   }
 
-  /**
-   * @returns EqualToken
-   */
-  public function getEqualx(): EqualToken {
-    return $this->getEqual();
-  }
-
   public function getExpressionUNTYPED(): EditableNode {
     return $this->_expression;
   }
@@ -163,12 +149,5 @@ final class XHPSimpleAttribute extends EditableNode {
    */
   public function getExpression(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_expression);
-  }
-
-  /**
-   * @returns BracedExpression | XHPStringLiteralToken
-   */
-  public function getExpressionx(): EditableNode {
-    return $this->getExpression();
   }
 }

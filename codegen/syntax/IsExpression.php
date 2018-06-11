@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<49e3e8f62c77d7f32d6309e656bf8dc7>>
+ * @generated SignedSource<<31d074f0c3cc765af95d5460e00588c7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -108,13 +108,6 @@ final class IsExpression extends EditableNode {
       TypeAssert\instance_of(VariableExpression::class, $this->_left_operand);
   }
 
-  /**
-   * @returns VariableExpression
-   */
-  public function getLeftOperandx(): VariableExpression {
-    return $this->getLeftOperand();
-  }
-
   public function getOperatorUNTYPED(): EditableNode {
     return $this->_operator;
   }
@@ -137,13 +130,6 @@ final class IsExpression extends EditableNode {
     return TypeAssert\instance_of(IsToken::class, $this->_operator);
   }
 
-  /**
-   * @returns IsToken
-   */
-  public function getOperatorx(): IsToken {
-    return $this->getOperator();
-  }
-
   public function getRightOperandUNTYPED(): EditableNode {
     return $this->_right_operand;
   }
@@ -160,22 +146,10 @@ final class IsExpression extends EditableNode {
   }
 
   /**
-   * @returns ClosureTypeSpecifier | DictionaryTypeSpecifier |
-   * GenericTypeSpecifier | KeysetTypeSpecifier | NullableTypeSpecifier |
-   * ShapeTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier |
-   * TupleTypeSpecifier | TypeConstant | VectorTypeSpecifier
+   * @returns GenericTypeSpecifier | NullableTypeSpecifier | ShapeTypeSpecifier
+   * | SimpleTypeSpecifier | TupleTypeSpecifier | TypeConstant
    */
   public function getRightOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_right_operand);
-  }
-
-  /**
-   * @returns ClosureTypeSpecifier | DictionaryTypeSpecifier |
-   * GenericTypeSpecifier | KeysetTypeSpecifier | NullableTypeSpecifier |
-   * ShapeTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier |
-   * TupleTypeSpecifier | TypeConstant | VectorTypeSpecifier
-   */
-  public function getRightOperandx(): EditableNode {
-    return $this->getRightOperand();
   }
 }

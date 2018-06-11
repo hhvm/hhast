@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ba2dd6fbfab49d4d13070ed28b887840>>
+ * @generated SignedSource<<c72d71445930f0f4041f93e893c7cc52>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -233,13 +233,6 @@ final class ForeachStatement
     return TypeAssert\instance_of(ForeachToken::class, $this->_keyword);
   }
 
-  /**
-   * @returns ForeachToken
-   */
-  public function getKeywordx(): ForeachToken {
-    return $this->getKeyword();
-  }
-
   public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
@@ -273,13 +266,6 @@ final class ForeachStatement
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
-  /**
-   * @returns LeftParenToken
-   */
-  public function getLeftParenx(): LeftParenToken {
-    return $this->getLeftParen();
-  }
-
   public function getCollectionUNTYPED(): EditableNode {
     return $this->_collection;
   }
@@ -311,23 +297,11 @@ final class ForeachStatement
    * ArrayIntrinsicExpression | CastExpression | CollectionLiteralExpression |
    * FunctionCallExpression | MemberSelectionExpression |
    * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
-   * | ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression | VectorIntrinsicExpression
+   * | ScopeResolutionExpression | SubscriptExpression | VariableExpression |
+   * VectorIntrinsicExpression
    */
   public function getCollection(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_collection);
-  }
-
-  /**
-   * @returns AnonymousFunction | ArrayCreationExpression |
-   * ArrayIntrinsicExpression | CastExpression | CollectionLiteralExpression |
-   * FunctionCallExpression | MemberSelectionExpression |
-   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
-   * | ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression | VectorIntrinsicExpression
-   */
-  public function getCollectionx(): EditableNode {
-    return $this->getCollection();
   }
 
   public function getAwaitKeywordUNTYPED(): EditableNode {
@@ -406,13 +380,6 @@ final class ForeachStatement
     return TypeAssert\instance_of(AsToken::class, $this->_as);
   }
 
-  /**
-   * @returns AsToken
-   */
-  public function getAsx(): AsToken {
-    return $this->getAs();
-  }
-
   public function getKeyUNTYPED(): EditableNode {
     return $this->_key;
   }
@@ -442,21 +409,10 @@ final class ForeachStatement
   /**
    * @returns FunctionCallExpression | ListExpression |
    * MemberSelectionExpression | Missing | PrefixUnaryExpression |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression
+   * ScopeResolutionExpression | SubscriptExpression | VariableExpression
    */
   public function getKey(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_key);
-  }
-
-  /**
-   * @returns FunctionCallExpression | ListExpression |
-   * MemberSelectionExpression | Missing | PrefixUnaryExpression |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression
-   */
-  public function getKeyx(): EditableNode {
-    return $this->getKey();
   }
 
   public function getArrowUNTYPED(): EditableNode {
@@ -531,21 +487,10 @@ final class ForeachStatement
   /**
    * @returns ArrayCreationExpression | FunctionCallExpression | ListExpression
    * | MemberSelectionExpression | PrefixUnaryExpression |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression
+   * ScopeResolutionExpression | SubscriptExpression | VariableExpression
    */
   public function getValue(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_value);
-  }
-
-  /**
-   * @returns ArrayCreationExpression | FunctionCallExpression | ListExpression
-   * | MemberSelectionExpression | PrefixUnaryExpression |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression
-   */
-  public function getValuex(): EditableNode {
-    return $this->getValue();
   }
 
   public function getRightParenUNTYPED(): EditableNode {
@@ -581,13 +526,6 @@ final class ForeachStatement
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
-  /**
-   * @returns RightParenToken
-   */
-  public function getRightParenx(): RightParenToken {
-    return $this->getRightParen();
-  }
-
   public function getBodyUNTYPED(): EditableNode {
     return $this->_body;
   }
@@ -620,13 +558,5 @@ final class ForeachStatement
    */
   public function getBody(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_body);
-  }
-
-  /**
-   * @returns AlternateLoopStatement | CompoundStatement | EchoStatement |
-   * ExpressionStatement | ForeachStatement
-   */
-  public function getBodyx(): EditableNode {
-    return $this->getBody();
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4946b33f2818976e469050bc361bcca9>>
+ * @generated SignedSource<<bdbf1bae2779e4d7f79fa74ad81efc43>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -291,18 +291,6 @@ final class ParameterDeclaration extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);
   }
 
-  /**
-   * @returns ClassnameTypeSpecifier | ClosureTypeSpecifier |
-   * DarrayTypeSpecifier | DictionaryTypeSpecifier | GenericTypeSpecifier |
-   * KeysetTypeSpecifier | MapArrayTypeSpecifier | Missing |
-   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
-   * SoftTypeSpecifier | TupleTypeSpecifier | TypeConstant |
-   * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
-   */
-  public function getTypex(): EditableNode {
-    return $this->getType();
-  }
-
   public function getNameUNTYPED(): EditableNode {
     return $this->_name;
   }
@@ -330,13 +318,6 @@ final class ParameterDeclaration extends EditableNode {
    */
   public function getName(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_name);
-  }
-
-  /**
-   * @returns DecoratedExpression | Missing | VariableToken
-   */
-  public function getNamex(): EditableNode {
-    return $this->getName();
   }
 
   public function getDefaultValueUNTYPED(): EditableNode {
