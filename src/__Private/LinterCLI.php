@@ -32,11 +32,13 @@ final class LinterCLI extends CLIWithArguments {
         () ==> { $this->printPerfCounters = true; },
         'Output performance counters when finished',
         '--perf',
+        '-p',
       ),
       CLIOptions\flag(
         () ==> { $this->xhprof = true; },
         'Enable XHProf profiling',
         '--xhprof',
+        '-x',
       ),
       $this->getVerbosityOption(),
     ];

@@ -12,6 +12,12 @@ namespace Facebook\HHAST\__Private\CLIOptions;
 
 use namespace HH\Lib\Str;
 
+enum CLIOptionType: int {
+  LONG = 1;
+  SHORT = 2;
+  ARGUMENT = 3;
+}
+
 abstract class CLIOption {
   private string $long;
   private ?string $short = null;
@@ -27,6 +33,11 @@ abstract class CLIOption {
       $long,
     );
     $this->long = Str\strip_prefix($long, '--');
+    invariant(
+      Str\length($this->long) > 0,
+      'long argument length should be greater than zero',
+    );
+
     if ($short === null) {
       return;
     }
@@ -42,6 +53,11 @@ abstract class CLIOption {
       $short,
     );
     $this->short = Str\strip_prefix($short, '-');
+    invariant(
+      Str\length((string) $this->short) === 1,
+      "short argument '%s' length should be equal to 1",
+      $short,
+    );
   }
 
   final public function getHelpText(): string {
@@ -54,6 +70,15 @@ abstract class CLIOption {
 
   final public function getShort(): ?string {
     return $this->short;
+  }
+
+  final public static function getTypeAndValue($option): (CLIOptionType, string) {
+    if (Str\starts_with($option, '--')) {
+      return tuple(CLIOptionType::LONG, Str\strip_prefix($option, '--'));
+    } else if (Str\starts_with($option, '-')) {
+      return tuple(CLIOptionType::SHORT, Str\strip_prefix($option, '-'));
+    }
+    return tuple(CLIOptionType::ARGUMENT, $option);
   }
 
   /**
