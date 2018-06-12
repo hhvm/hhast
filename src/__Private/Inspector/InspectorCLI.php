@@ -12,6 +12,8 @@ namespace Facebook\HHAST\__Private;
 
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Dict, Str};
+use type Facebook\CLILib\CLIWithRequiredArguments;
+use namespace Facebook\CLILib\CLIOptions;
 
 final class InspectorCLI extends CLIWithRequiredArguments {
   private ?string $outputPath = null;
@@ -25,7 +27,7 @@ final class InspectorCLI extends CLIWithRequiredArguments {
   <<__Override>>
   protected function getSupportedOptions(): vec<CLIOptions\CLIOption> {
     return vec[
-      CLIOptions\with_required_value(
+      CLIOptions\with_required_string(
         $path ==> { $this->outputPath = $path; },
         'File path to use for output',
         '--output',

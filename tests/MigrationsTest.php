@@ -150,11 +150,6 @@ final class MigrationsTest extends TestCase {
       'Migrating the AST twice should produce identical text to once',
     );
 
-    expect($new_ast)->toEqual(
-      $ast,
-      'Migrating the AST twice should get you an equal AST object',
-    );
-
     expect($new_ast)->toBeSame(
       $ast,
       'Migrating the AST twice should get you the same AST object',

@@ -13,6 +13,8 @@ namespace Facebook\HHAST\__Private;
 use type Facebook\TypeAssert\TypeAssert;
 use namespace Facebook\HHAST\Linters;
 use namespace HH\Lib\{C, Dict, Str, Vec};
+use type Facebook\CLILib\CLIWithArguments;
+use namespace Facebook\CLILib\CLIOptions;
 
 final class LinterCLI extends CLIWithArguments {
   private bool $printPerfCounters = false;
@@ -195,7 +197,7 @@ final class LinterCLI extends CLIWithArguments {
     $class = \get_class($linter);
     $to_fix = vec[];
     $yield_perf = new PerfCounter($class.'#yieldError');
-    $colors = self::supportsColors();
+    $colors = $this->supportsColors();
 
     foreach ($errors as $error) {
       $yield_perf->end();
@@ -223,13 +225,13 @@ final class LinterCLI extends CLIWithArguments {
       $c->end();
 
       if ($error instanceof Linters\FixableLintError && $fixable) {
-        if (self::shouldFixLint($error)) {
+        if ($this->shouldFixLint($error)) {
           $to_fix[] = $error;
         } else {
           yield $error;
         }
       } else {
-        self::renderLintBlame($error);
+        $this->renderLintBlame($error);
         yield $error;
       }
       $yield_perf = new PerfCounter($class.'#yieldError');
@@ -256,12 +258,12 @@ final class LinterCLI extends CLIWithArguments {
     $linter->fixLintErrors($errors);
   }
 
-  private static function shouldFixLint(
+  private function shouldFixLint(
     Linters\FixableLintError $error,
   ): bool {
     list($old, $new) = $error->getReadableFix();
     if ($old === $new) {
-      self::renderLintBlame($error);
+      $this->renderLintBlame($error);
       return false;
     }
 
@@ -274,7 +276,7 @@ final class LinterCLI extends CLIWithArguments {
       |> \implode("\n", $$);
 
 
-    $colors = self::supportsColors();
+    $colors = $this->supportsColors();
 
     if ($error->shouldRenderBlameAndFixAsDiff()) {
       $blame_color = "\e[31m"; // red
@@ -301,7 +303,7 @@ final class LinterCLI extends CLIWithArguments {
       $colors ? "\e[0m" : '',
     );
 
-    if (!self::isInteractive()) {
+    if (!$this->isInteractive()) {
       return false;
     }
 
@@ -351,7 +353,7 @@ final class LinterCLI extends CLIWithArguments {
     return false;
   }
 
-  private static function renderLintBlame(
+  private function renderLintBlame(
     Linters\LintError $error,
   ): void {
     $blame = $error->getPrettyBlame();
@@ -359,7 +361,7 @@ final class LinterCLI extends CLIWithArguments {
       return;
     }
 
-    $colors = self::supportsColors();
+    $colors = $this->supportsColors();
     \printf(
       "  Code:\n%s%s%s\n",
       $colors ? "\e[33m" : '',

@@ -12,6 +12,8 @@ namespace Facebook\HHAST\__Private;
 
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Dict, Str, Vec};
+use type Facebook\CLILib\CLIBase;
+use namespace Facebook\CLILib\CLIOptions;
 
 final class CodegenCLI extends CLIBase {
   const type TSchema = Schema\TSchema;
@@ -22,7 +24,7 @@ final class CodegenCLI extends CLIBase {
   <<__Override>>
   protected function getSupportedOptions(): vec<CLIOptions\CLIOption> {
     return vec[
-      CLIOptions\with_required_value(
+      CLIOptions\with_required_string(
         $path ==> { $this->hhvmPath = $path; },
         'Path to HHVM source tree',
         '--hhvm-path',

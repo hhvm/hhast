@@ -14,10 +14,8 @@ namespace Facebook\HHAST\TestLib;
 use namespace HH\Lib\{C, Str};
 
 final class ExpectObj<T> extends \Facebook\FBExpect\ExpectObj<T> {
-  public function __construct(
-    protected ImmVector<T> $vars,
-  ) {
-    parent::__construct($vars);
+  public function __construct(private T $var) {
+    parent::__construct($var);
   }
 
   public function toMatchExpectFile(
@@ -36,7 +34,7 @@ final class ExpectObj<T> extends \Facebook\FBExpect\ExpectObj<T> {
     $expect_file = __DIR__.'/../fixtures/'.$expect_file;
     $out_file = Str\strip_suffix($expect_file, '.expect').'.out';
     $in_file = __DIR__.'/../fixtures/'.$input_file;
-    $code = C\onlyx($this->vars);
+    $code = $this->var;
 
     \file_put_contents(
       Str\strip_suffix($expect_file, '.expect').'.out',

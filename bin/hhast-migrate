@@ -13,4 +13,4 @@ namespace Facebook\HHAST\__Private;
 
 require_once(__DIR__.'/../vendor/hh_autoload.php');
 
-exit(\HH\Asio\join((new MigrationCLI(vec($argv)))->mainAsync()));
+MigrationCLI::main();

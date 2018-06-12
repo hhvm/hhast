@@ -12,5 +12,5 @@
 namespace Facebook\HHAST\TestLib;
 
 function expect<T>(T $var): ExpectObj<T> {
-  return new ExpectObj(ImmVector { $var });
+  return new ExpectObj($var);
 }
