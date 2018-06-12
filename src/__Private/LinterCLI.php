@@ -92,7 +92,7 @@ final class LinterCLI extends CLIWithArguments {
   private function lintDirectory(
     LinterCLIConfig $config,
     string $path,
-    LinterCLIErrorHandler $errorHandler,
+    LinterCLIErrorHandler $error_handler,
   ): void {
     $it = new \RecursiveIteratorIterator(
       new \RecursiveDirectoryIterator($path),
@@ -104,7 +104,7 @@ final class LinterCLI extends CLIWithArguments {
       $ext = Str\lowercase($info->getExtension());
       if ($ext === 'hh' || $ext === 'php') {
         $file = $info->getPathname();
-        $this->lintFile($config, $file, $errorHandler);
+        $this->lintFile($config, $file, $error_handler);
       }
     }
   }
@@ -112,12 +112,12 @@ final class LinterCLI extends CLIWithArguments {
   private function lintPath(
     LinterCLIConfig $config,
     string $path,
-    LinterCLIErrorHandler $errorHandler,
+    LinterCLIErrorHandler $error_handler,
   ): void {
     if (\is_file($path)) {
-      $this->lintFile($config, $path, $errorHandler);
+      $this->lintFile($config, $path, $error_handler);
     } else if (\is_dir($path)) {
-      $this->lintDirectory($config, $path, $errorHandler);
+      $this->lintDirectory($config, $path, $error_handler);
     } else {
       throw new ExitException(
         1,
@@ -180,7 +180,7 @@ final class LinterCLI extends CLIWithArguments {
       $config = null;
     }
 
-    $errorHandler = $this->json
+    $error_handler = $this->json
       ? new LinterCLIErrorHandlerJSON()
       : new LinterCLIErrorHandlerPlain(shape(
         'supports_colors' => $this->supportsColors(),
@@ -189,10 +189,10 @@ final class LinterCLI extends CLIWithArguments {
 
     foreach ($roots as $root) {
       $root_config = $config ?? LinterCLIConfig::getForPath($root);
-      $this->lintPath($root_config, $root, $errorHandler);
+      $this->lintPath($root_config, $root, $error_handler);
     }
 
-    $errorHandler->print();
-    return $errorHandler->hadErrors() ? 2 : 0;
+    $error_handler->print();
+    return $error_handler->hadErrors() ? 2 : 0;
   }
 }
