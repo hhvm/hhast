@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4b1722c14a873dc5da6a77dc0910e916>>
+ * @generated SignedSource<<2aa77f5b4efdcf3ed70fb2acc4dc8ad5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -155,6 +155,13 @@ final class MapArrayTypeSpecifier extends EditableNode {
     return TypeAssert\instance_of(ArrayToken::class, $this->_keyword);
   }
 
+  /**
+   * @returns ArrayToken
+   */
+  public function getKeywordx(): ArrayToken {
+    return $this->getKeyword();
+  }
+
   public function getLeftAngleUNTYPED(): EditableNode {
     return $this->_left_angle;
   }
@@ -182,6 +189,13 @@ final class MapArrayTypeSpecifier extends EditableNode {
    */
   public function getLeftAngle(): LessThanToken {
     return TypeAssert\instance_of(LessThanToken::class, $this->_left_angle);
+  }
+
+  /**
+   * @returns LessThanToken
+   */
+  public function getLeftAnglex(): LessThanToken {
+    return $this->getLeftAngle();
   }
 
   public function getKeyUNTYPED(): EditableNode {
@@ -213,6 +227,13 @@ final class MapArrayTypeSpecifier extends EditableNode {
     return TypeAssert\instance_of(SimpleTypeSpecifier::class, $this->_key);
   }
 
+  /**
+   * @returns SimpleTypeSpecifier
+   */
+  public function getKeyx(): SimpleTypeSpecifier {
+    return $this->getKey();
+  }
+
   public function getCommaUNTYPED(): EditableNode {
     return $this->_comma;
   }
@@ -242,6 +263,13 @@ final class MapArrayTypeSpecifier extends EditableNode {
     return TypeAssert\instance_of(CommaToken::class, $this->_comma);
   }
 
+  /**
+   * @returns CommaToken
+   */
+  public function getCommax(): CommaToken {
+    return $this->getComma();
+  }
+
   public function getValueUNTYPED(): EditableNode {
     return $this->_value;
   }
@@ -265,11 +293,19 @@ final class MapArrayTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns SimpleTypeSpecifier | ShapeTypeSpecifier | SoftTypeSpecifier |
-   * NullableTypeSpecifier | GenericTypeSpecifier | Missing
+   * @returns GenericTypeSpecifier | Missing | NullableTypeSpecifier |
+   * ShapeTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier
    */
   public function getValue(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_value);
+  }
+
+  /**
+   * @returns GenericTypeSpecifier | Missing | NullableTypeSpecifier |
+   * ShapeTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier
+   */
+  public function getValuex(): EditableNode {
+    return $this->getValue();
   }
 
   public function getRightAngleUNTYPED(): EditableNode {
@@ -299,5 +335,12 @@ final class MapArrayTypeSpecifier extends EditableNode {
    */
   public function getRightAngle(): GreaterThanToken {
     return TypeAssert\instance_of(GreaterThanToken::class, $this->_right_angle);
+  }
+
+  /**
+   * @returns GreaterThanToken
+   */
+  public function getRightAnglex(): GreaterThanToken {
+    return $this->getRightAngle();
   }
 }

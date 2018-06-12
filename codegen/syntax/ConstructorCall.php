@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fe21389d465f46379a662d5d58f4fdf5>>
+ * @generated SignedSource<<d05451641bf279755644819c1e0b6ea1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -119,13 +119,23 @@ final class ConstructorCall extends EditableNode {
   }
 
   /**
-   * @returns SimpleTypeSpecifier | NameToken | VariableExpression |
-   * SubscriptExpression | SelfToken | QualifiedName | GenericTypeSpecifier |
-   * ParentToken | StaticToken | ScopeResolutionExpression |
-   * MemberSelectionExpression | ParenthesizedExpression
+   * @returns GenericTypeSpecifier | MemberSelectionExpression |
+   * ParenthesizedExpression | QualifiedName | ScopeResolutionExpression |
+   * SimpleTypeSpecifier | SubscriptExpression | NameToken | ParentToken |
+   * SelfToken | StaticToken | VariableExpression
    */
   public function getType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);
+  }
+
+  /**
+   * @returns GenericTypeSpecifier | MemberSelectionExpression |
+   * ParenthesizedExpression | QualifiedName | ScopeResolutionExpression |
+   * SimpleTypeSpecifier | SubscriptExpression | NameToken | ParentToken |
+   * SelfToken | StaticToken | VariableExpression
+   */
+  public function getTypex(): EditableNode {
+    return $this->getType();
   }
 
   public function getLeftParenUNTYPED(): EditableNode {
@@ -149,7 +159,7 @@ final class ConstructorCall extends EditableNode {
   }
 
   /**
-   * @returns LeftParenToken | Missing
+   * @returns Missing | LeftParenToken
    */
   public function getLeftParen(): ?LeftParenToken {
     if ($this->_left_paren->isMissing()) {
@@ -219,7 +229,7 @@ final class ConstructorCall extends EditableNode {
   }
 
   /**
-   * @returns RightParenToken | Missing
+   * @returns Missing | RightParenToken
    */
   public function getRightParen(): ?RightParenToken {
     if ($this->_right_paren->isMissing()) {

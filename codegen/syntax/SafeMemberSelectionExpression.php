@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fff139f52cc8ff65f430d80627d15a9c>>
+ * @generated SignedSource<<f5c5be209252300ac03c604491d6cd3d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,12 +101,21 @@ final class SafeMemberSelectionExpression extends EditableNode {
   }
 
   /**
-   * @returns FunctionCallExpression | VariableExpression |
-   * ScopeResolutionExpression | MemberSelectionExpression |
-   * SafeMemberSelectionExpression | PrefixUnaryExpression
+   * @returns FunctionCallExpression | MemberSelectionExpression |
+   * PrefixUnaryExpression | SafeMemberSelectionExpression |
+   * ScopeResolutionExpression | VariableExpression
    */
   public function getObject(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_object);
+  }
+
+  /**
+   * @returns FunctionCallExpression | MemberSelectionExpression |
+   * PrefixUnaryExpression | SafeMemberSelectionExpression |
+   * ScopeResolutionExpression | VariableExpression
+   */
+  public function getObjectx(): EditableNode {
+    return $this->getObject();
   }
 
   public function getOperatorUNTYPED(): EditableNode {
@@ -134,6 +143,13 @@ final class SafeMemberSelectionExpression extends EditableNode {
     );
   }
 
+  /**
+   * @returns QuestionMinusGreaterThanToken
+   */
+  public function getOperatorx(): QuestionMinusGreaterThanToken {
+    return $this->getOperator();
+  }
+
   public function getNameUNTYPED(): EditableNode {
     return $this->_name;
   }
@@ -150,9 +166,16 @@ final class SafeMemberSelectionExpression extends EditableNode {
   }
 
   /**
-   * @returns NameToken | XHPClassNameToken | PrefixUnaryExpression
+   * @returns PrefixUnaryExpression | XHPClassNameToken | NameToken
    */
   public function getName(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_name);
+  }
+
+  /**
+   * @returns PrefixUnaryExpression | XHPClassNameToken | NameToken
+   */
+  public function getNamex(): EditableNode {
+    return $this->getName();
   }
 }

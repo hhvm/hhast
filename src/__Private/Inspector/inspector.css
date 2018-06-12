@@ -1,0 +1,28 @@
+code.language-hack span.selected, .info .selected {
+  background-color: rgba(0, 255, 0, 0.7);
+}
+
+code.language-hack span.infoSelected, .info .infoSelected {
+  background-color: rgba(0, 255, 0, 0.3);
+}
+
+.info {
+  position: fixed;
+  top: 0;
+  border-right: 1px solid black;
+  height: 100%;
+  width: 20%;
+  padding-left: 1em;
+  padding-right: 1em;
+  font-family: "Menlo", "Consolas", 'Courier New', Courier, monospace;
+  overflow: scroll;
+}
+
+pre {
+  margin-left: 20%;
+  padding-left: 4em;
+}
+
+a, a:visited {
+  color: blue;
+}

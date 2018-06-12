@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b587877583ea3862cf9484cf44fea00e>>
+ * @generated SignedSource<<d7053483cff0f0fe3c31c747bd66aea4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -139,6 +139,13 @@ final class ShapeTypeSpecifier extends EditableNode {
     return TypeAssert\instance_of(ShapeToken::class, $this->_keyword);
   }
 
+  /**
+   * @returns ShapeToken
+   */
+  public function getKeywordx(): ShapeToken {
+    return $this->getKeyword();
+  }
+
   public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
@@ -165,6 +172,13 @@ final class ShapeTypeSpecifier extends EditableNode {
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
+  }
+
+  /**
+   * @returns LeftParenToken
+   */
+  public function getLeftParenx(): LeftParenToken {
+    return $this->getLeftParen();
   }
 
   public function getFieldsUNTYPED(): EditableNode {
@@ -269,5 +283,12 @@ final class ShapeTypeSpecifier extends EditableNode {
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
+  }
+
+  /**
+   * @returns RightParenToken
+   */
+  public function getRightParenx(): RightParenToken {
+    return $this->getRightParen();
   }
 }

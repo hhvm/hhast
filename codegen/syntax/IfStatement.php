@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d293d68de25d1e411355ac37367d09de>>
+ * @generated SignedSource<<0004a01938edd15b1d5da416524f3e60>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -183,6 +183,13 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
     return TypeAssert\instance_of(IfToken::class, $this->_keyword);
   }
 
+  /**
+   * @returns IfToken
+   */
+  public function getKeywordx(): IfToken {
+    return $this->getKeyword();
+  }
+
   public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
@@ -213,6 +220,13 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
+  /**
+   * @returns LeftParenToken
+   */
+  public function getLeftParenx(): LeftParenToken {
+    return $this->getLeftParen();
+  }
+
   public function getConditionUNTYPED(): EditableNode {
     return $this->_condition;
   }
@@ -237,15 +251,27 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
   }
 
   /**
-   * @returns PrefixUnaryExpression | BinaryExpression | VariableExpression |
-   * FunctionCallExpression | LiteralExpression | IssetExpression |
-   * SubscriptExpression | ArrayIntrinsicExpression | MemberSelectionExpression
-   * | CastExpression | InstanceofExpression | NameToken |
-   * ParenthesizedExpression | IsExpression | EmptyExpression |
-   * ScopeResolutionExpression | AsExpression | QualifiedName
+   * @returns ArrayIntrinsicExpression | AsExpression | BinaryExpression |
+   * CastExpression | EmptyExpression | FunctionCallExpression |
+   * InstanceofExpression | IsExpression | IssetExpression | LiteralExpression
+   * | MemberSelectionExpression | ParenthesizedExpression |
+   * PrefixUnaryExpression | QualifiedName | ScopeResolutionExpression |
+   * SubscriptExpression | NameToken | VariableExpression
    */
   public function getCondition(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_condition);
+  }
+
+  /**
+   * @returns ArrayIntrinsicExpression | AsExpression | BinaryExpression |
+   * CastExpression | EmptyExpression | FunctionCallExpression |
+   * InstanceofExpression | IsExpression | IssetExpression | LiteralExpression
+   * | MemberSelectionExpression | ParenthesizedExpression |
+   * PrefixUnaryExpression | QualifiedName | ScopeResolutionExpression |
+   * SubscriptExpression | NameToken | VariableExpression
+   */
+  public function getConditionx(): EditableNode {
+    return $this->getCondition();
   }
 
   public function getRightParenUNTYPED(): EditableNode {
@@ -278,6 +304,13 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
+  /**
+   * @returns RightParenToken
+   */
+  public function getRightParenx(): RightParenToken {
+    return $this->getRightParen();
+  }
+
   public function getStatementUNTYPED(): EditableNode {
     return $this->_statement;
   }
@@ -302,12 +335,21 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
   }
 
   /**
-   * @returns CompoundStatement | ThrowStatement | ReturnStatement |
-   * BreakStatement | ExpressionStatement | UnsetStatement | EchoStatement |
-   * GlobalStatement | ContinueStatement | GotoStatement
+   * @returns BreakStatement | CompoundStatement | ContinueStatement |
+   * EchoStatement | ExpressionStatement | GlobalStatement | GotoStatement |
+   * ReturnStatement | ThrowStatement | UnsetStatement
    */
   public function getStatement(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_statement);
+  }
+
+  /**
+   * @returns BreakStatement | CompoundStatement | ContinueStatement |
+   * EchoStatement | ExpressionStatement | GlobalStatement | GotoStatement |
+   * ReturnStatement | ThrowStatement | UnsetStatement
+   */
+  public function getStatementx(): EditableNode {
+    return $this->getStatement();
   }
 
   public function getElseifClausesUNTYPED(): EditableNode {
@@ -334,7 +376,7 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
   }
 
   /**
-   * @returns Missing | EditableList
+   * @returns EditableList | Missing
    */
   public function getElseifClauses(): ?EditableList {
     if ($this->_elseif_clauses->isMissing()) {
@@ -374,7 +416,7 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
   }
 
   /**
-   * @returns Missing | ElseClause
+   * @returns ElseClause | Missing
    */
   public function getElseClause(): ?ElseClause {
     if ($this->_else_clause->isMissing()) {

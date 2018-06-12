@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b3e167e945647b1d994d480d6604026b>>
+ * @generated SignedSource<<338e973848ea9c7507eb8e002795a66c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -203,6 +203,13 @@ final class AlternateSwitchStatement
     return TypeAssert\instance_of(SwitchToken::class, $this->_keyword);
   }
 
+  /**
+   * @returns SwitchToken
+   */
+  public function getKeywordx(): SwitchToken {
+    return $this->getKeyword();
+  }
+
   public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
@@ -234,6 +241,13 @@ final class AlternateSwitchStatement
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
+  /**
+   * @returns LeftParenToken
+   */
+  public function getLeftParenx(): LeftParenToken {
+    return $this->getLeftParen();
+  }
+
   public function getExpressionUNTYPED(): EditableNode {
     return $this->_expression;
   }
@@ -259,11 +273,17 @@ final class AlternateSwitchStatement
   }
 
   /**
-   * @returns VariableExpression
+   * @returns LiteralExpression | VariableExpression
    */
-  public function getExpression(): VariableExpression {
-    return
-      TypeAssert\instance_of(VariableExpression::class, $this->_expression);
+  public function getExpression(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_expression);
+  }
+
+  /**
+   * @returns LiteralExpression | VariableExpression
+   */
+  public function getExpressionx(): EditableNode {
+    return $this->getExpression();
   }
 
   public function getRightParenUNTYPED(): EditableNode {
@@ -297,6 +317,13 @@ final class AlternateSwitchStatement
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
+  /**
+   * @returns RightParenToken
+   */
+  public function getRightParenx(): RightParenToken {
+    return $this->getRightParen();
+  }
+
   public function getOpeningColonUNTYPED(): EditableNode {
     return $this->_opening_colon;
   }
@@ -328,6 +355,13 @@ final class AlternateSwitchStatement
     return TypeAssert\instance_of(ColonToken::class, $this->_opening_colon);
   }
 
+  /**
+   * @returns ColonToken
+   */
+  public function getOpeningColonx(): ColonToken {
+    return $this->getOpeningColon();
+  }
+
   public function getSectionsUNTYPED(): EditableNode {
     return $this->_sections;
   }
@@ -357,6 +391,13 @@ final class AlternateSwitchStatement
    */
   public function getSections(): EditableList {
     return TypeAssert\instance_of(EditableList::class, $this->_sections);
+  }
+
+  /**
+   * @returns EditableList
+   */
+  public function getSectionsx(): EditableList {
+    return $this->getSections();
   }
 
   public function getClosingEndswitchUNTYPED(): EditableNode {
@@ -391,6 +432,13 @@ final class AlternateSwitchStatement
       TypeAssert\instance_of(EndswitchToken::class, $this->_closing_endswitch);
   }
 
+  /**
+   * @returns EndswitchToken
+   */
+  public function getClosingEndswitchx(): EndswitchToken {
+    return $this->getClosingEndswitch();
+  }
+
   public function getClosingSemicolonUNTYPED(): EditableNode {
     return $this->_closing_semicolon;
   }
@@ -421,5 +469,12 @@ final class AlternateSwitchStatement
   public function getClosingSemicolon(): SemicolonToken {
     return
       TypeAssert\instance_of(SemicolonToken::class, $this->_closing_semicolon);
+  }
+
+  /**
+   * @returns SemicolonToken
+   */
+  public function getClosingSemicolonx(): SemicolonToken {
+    return $this->getClosingSemicolon();
   }
 }

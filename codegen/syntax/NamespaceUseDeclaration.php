@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<035c8449f4ad80469d3122dd898f8c4d>>
+ * @generated SignedSource<<1647a6893adba75981f857be8875695a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -120,6 +120,13 @@ final class NamespaceUseDeclaration extends EditableNode {
     return TypeAssert\instance_of(UseToken::class, $this->_keyword);
   }
 
+  /**
+   * @returns UseToken
+   */
+  public function getKeywordx(): UseToken {
+    return $this->getKeyword();
+  }
+
   public function getKindUNTYPED(): EditableNode {
     return $this->_kind;
   }
@@ -137,7 +144,7 @@ final class NamespaceUseDeclaration extends EditableNode {
   }
 
   /**
-   * @returns Missing | NamespaceToken | TypeToken | FunctionToken | ConstToken
+   * @returns Missing | ConstToken | FunctionToken | NamespaceToken | TypeToken
    */
   public function getKind(): ?EditableToken {
     if ($this->_kind->isMissing()) {
@@ -147,7 +154,7 @@ final class NamespaceUseDeclaration extends EditableNode {
   }
 
   /**
-   * @returns NamespaceToken | TypeToken | FunctionToken | ConstToken
+   * @returns ConstToken | FunctionToken | NamespaceToken | TypeToken
    */
   public function getKindx(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_kind);
@@ -175,6 +182,13 @@ final class NamespaceUseDeclaration extends EditableNode {
     return TypeAssert\instance_of(EditableList::class, $this->_clauses);
   }
 
+  /**
+   * @returns EditableList
+   */
+  public function getClausesx(): EditableList {
+    return $this->getClauses();
+  }
+
   public function getSemicolonUNTYPED(): EditableNode {
     return $this->_semicolon;
   }
@@ -195,5 +209,12 @@ final class NamespaceUseDeclaration extends EditableNode {
    */
   public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
+  }
+
+  /**
+   * @returns SemicolonToken
+   */
+  public function getSemicolonx(): SemicolonToken {
+    return $this->getSemicolon();
   }
 }

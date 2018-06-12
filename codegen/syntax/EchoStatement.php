@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fc0a5c2942d349a69a914f404532f10b>>
+ * @generated SignedSource<<a2d8557afab5c3c4e79c8bc9c4196c1f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,6 +107,13 @@ final class EchoStatement extends EditableNode {
     return TypeAssert\instance_of(EchoToken::class, $this->_keyword);
   }
 
+  /**
+   * @returns EchoToken
+   */
+  public function getKeywordx(): EchoToken {
+    return $this->getKeyword();
+  }
+
   public function getExpressionsUNTYPED(): EditableNode {
     return $this->_expressions;
   }
@@ -129,6 +136,13 @@ final class EchoStatement extends EditableNode {
     return TypeAssert\instance_of(EditableList::class, $this->_expressions);
   }
 
+  /**
+   * @returns EditableList
+   */
+  public function getExpressionsx(): EditableList {
+    return $this->getExpressions();
+  }
+
   public function getSemicolonUNTYPED(): EditableNode {
     return $this->_semicolon;
   }
@@ -145,7 +159,7 @@ final class EchoStatement extends EditableNode {
   }
 
   /**
-   * @returns SemicolonToken | Missing
+   * @returns Missing | SemicolonToken
    */
   public function getSemicolon(): ?SemicolonToken {
     if ($this->_semicolon->isMissing()) {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6310b91ba8622821e690328bb0b84984>>
+ * @generated SignedSource<<74c3df32b3d1f5815a6882bd5651697f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -108,6 +108,13 @@ final class ArrayCreationExpression extends EditableNode {
       TypeAssert\instance_of(LeftBracketToken::class, $this->_left_bracket);
   }
 
+  /**
+   * @returns LeftBracketToken
+   */
+  public function getLeftBracketx(): LeftBracketToken {
+    return $this->getLeftBracket();
+  }
+
   public function getMembersUNTYPED(): EditableNode {
     return $this->_members;
   }
@@ -161,5 +168,12 @@ final class ArrayCreationExpression extends EditableNode {
   public function getRightBracket(): RightBracketToken {
     return
       TypeAssert\instance_of(RightBracketToken::class, $this->_right_bracket);
+  }
+
+  /**
+   * @returns RightBracketToken
+   */
+  public function getRightBracketx(): RightBracketToken {
+    return $this->getRightBracket();
   }
 }

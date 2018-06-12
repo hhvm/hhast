@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3a2ea4a88dd08d2791c0c67c86566787>>
+ * @generated SignedSource<<2cca892ebc190d1224e39121f5e37a78>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -138,6 +138,13 @@ abstract class AlternateLoopStatementGeneratedBase
     return TypeAssert\instance_of(ColonToken::class, $this->_opening_colon);
   }
 
+  /**
+   * @returns ColonToken
+   */
+  public function getOpeningColonx(): ColonToken {
+    return $this->getOpeningColon();
+  }
+
   public function getStatementsUNTYPED(): EditableNode {
     return $this->_statements;
   }
@@ -165,6 +172,13 @@ abstract class AlternateLoopStatementGeneratedBase
     return TypeAssert\instance_of(EditableList::class, $this->_statements);
   }
 
+  /**
+   * @returns EditableList
+   */
+  public function getStatementsx(): EditableList {
+    return $this->getStatements();
+  }
+
   public function getClosingKeywordUNTYPED(): EditableNode {
     return $this->_closing_keyword;
   }
@@ -186,22 +200,18 @@ abstract class AlternateLoopStatementGeneratedBase
   }
 
   /**
-   * @returns Missing | EndforToken | EndwhileToken
+   * @returns EnddeclareToken | EndforToken | EndforeachToken | EndwhileToken
    */
-  public function getClosingKeyword(): ?EditableToken {
-    if ($this->_closing_keyword->isMissing()) {
-      return null;
-    }
+  public function getClosingKeyword(): EditableToken {
     return
       TypeAssert\instance_of(EditableToken::class, $this->_closing_keyword);
   }
 
   /**
-   * @returns EndforToken | EndwhileToken
+   * @returns EnddeclareToken | EndforToken | EndforeachToken | EndwhileToken
    */
   public function getClosingKeywordx(): EditableToken {
-    return
-      TypeAssert\instance_of(EditableToken::class, $this->_closing_keyword);
+    return $this->getClosingKeyword();
   }
 
   public function getClosingSemicolonUNTYPED(): EditableNode {
@@ -225,12 +235,9 @@ abstract class AlternateLoopStatementGeneratedBase
   }
 
   /**
-   * @returns Missing | SemicolonToken
+   * @returns SemicolonToken
    */
-  public function getClosingSemicolon(): ?SemicolonToken {
-    if ($this->_closing_semicolon->isMissing()) {
-      return null;
-    }
+  public function getClosingSemicolon(): SemicolonToken {
     return
       TypeAssert\instance_of(SemicolonToken::class, $this->_closing_semicolon);
   }
@@ -239,7 +246,6 @@ abstract class AlternateLoopStatementGeneratedBase
    * @returns SemicolonToken
    */
   public function getClosingSemicolonx(): SemicolonToken {
-    return
-      TypeAssert\instance_of(SemicolonToken::class, $this->_closing_semicolon);
+    return $this->getClosingSemicolon();
   }
 }

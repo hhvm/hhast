@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9904a1985dff50e5e0ae3e9222a6b5d6>>
+ * @generated SignedSource<<14519d6ab45e6ffcbeb2955184bb0c62>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,14 +101,23 @@ final class InstanceofExpression extends EditableNode {
   }
 
   /**
-   * @returns VariableExpression | ParenthesizedExpression |
-   * FunctionCallExpression | ObjectCreationExpression |
-   * MemberSelectionExpression | SubscriptExpression | CastExpression |
-   * AnonymousFunction | PrefixUnaryExpression | LiteralExpression |
-   * ScopeResolutionExpression
+   * @returns AnonymousFunction | CastExpression | FunctionCallExpression |
+   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression |
+   * ScopeResolutionExpression | SubscriptExpression | VariableExpression
    */
   public function getLeftOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_left_operand);
+  }
+
+  /**
+   * @returns AnonymousFunction | CastExpression | FunctionCallExpression |
+   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression |
+   * ScopeResolutionExpression | SubscriptExpression | VariableExpression
+   */
+  public function getLeftOperandx(): EditableNode {
+    return $this->getLeftOperand();
   }
 
   public function getOperatorUNTYPED(): EditableNode {
@@ -133,6 +142,13 @@ final class InstanceofExpression extends EditableNode {
     return TypeAssert\instance_of(InstanceofToken::class, $this->_operator);
   }
 
+  /**
+   * @returns InstanceofToken
+   */
+  public function getOperatorx(): InstanceofToken {
+    return $this->getOperator();
+  }
+
   public function getRightOperandUNTYPED(): EditableNode {
     return $this->_right_operand;
   }
@@ -149,11 +165,20 @@ final class InstanceofExpression extends EditableNode {
   }
 
   /**
-   * @returns NameToken | VariableExpression | QualifiedName |
-   * ScopeResolutionExpression | SubscriptExpression |
-   * MemberSelectionExpression | ParenthesizedExpression
+   * @returns MemberSelectionExpression | ParenthesizedExpression |
+   * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
+   * NameToken | VariableExpression
    */
   public function getRightOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_right_operand);
+  }
+
+  /**
+   * @returns MemberSelectionExpression | ParenthesizedExpression |
+   * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
+   * NameToken | VariableExpression
+   */
+  public function getRightOperandx(): EditableNode {
+    return $this->getRightOperand();
   }
 }

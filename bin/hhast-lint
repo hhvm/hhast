@@ -33,4 +33,4 @@ if (!$found_autoloader) {
   exit(1);
 }
 
-exit(\HH\Asio\join((new LinterCLI(vec($argv)))->mainAsync()));
+LinterCLI::main();

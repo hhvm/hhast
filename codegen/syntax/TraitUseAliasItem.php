@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<22a7605d4ed46cdb3de067bee9534387>>
+ * @generated SignedSource<<2bfd8195f2a90798bdf5fa7b34dc73a6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -119,10 +119,17 @@ final class TraitUseAliasItem extends EditableNode {
   }
 
   /**
-   * @returns SimpleTypeSpecifier | ScopeResolutionExpression
+   * @returns ScopeResolutionExpression | SimpleTypeSpecifier
    */
   public function getAliasingName(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_aliasing_name);
+  }
+
+  /**
+   * @returns ScopeResolutionExpression | SimpleTypeSpecifier
+   */
+  public function getAliasingNamex(): EditableNode {
+    return $this->getAliasingName();
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -150,6 +157,13 @@ final class TraitUseAliasItem extends EditableNode {
    */
   public function getKeyword(): AsToken {
     return TypeAssert\instance_of(AsToken::class, $this->_keyword);
+  }
+
+  /**
+   * @returns AsToken
+   */
+  public function getKeywordx(): AsToken {
+    return $this->getKeyword();
   }
 
   public function getModifiersUNTYPED(): EditableNode {

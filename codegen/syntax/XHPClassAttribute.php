@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4645ab1e0166e8bfbe65b51cb78afdca>>
+ * @generated SignedSource<<b98e2989c1ed07e53f3e08e0cbace69a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -115,11 +115,21 @@ final class XHPClassAttribute extends EditableNode {
   }
 
   /**
-   * @returns SimpleTypeSpecifier | GenericTypeSpecifier | XHPEnumType |
-   * NullableTypeSpecifier | VectorArrayTypeSpecifier | MapArrayTypeSpecifier
+   * @returns GenericTypeSpecifier | MapArrayTypeSpecifier |
+   * NullableTypeSpecifier | SimpleTypeSpecifier | VectorArrayTypeSpecifier |
+   * XHPEnumType
    */
   public function getType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);
+  }
+
+  /**
+   * @returns GenericTypeSpecifier | MapArrayTypeSpecifier |
+   * NullableTypeSpecifier | SimpleTypeSpecifier | VectorArrayTypeSpecifier |
+   * XHPEnumType
+   */
+  public function getTypex(): EditableNode {
+    return $this->getType();
   }
 
   public function getNameUNTYPED(): EditableNode {
@@ -143,6 +153,13 @@ final class XHPClassAttribute extends EditableNode {
    */
   public function getName(): XHPElementNameToken {
     return TypeAssert\instance_of(XHPElementNameToken::class, $this->_name);
+  }
+
+  /**
+   * @returns XHPElementNameToken
+   */
+  public function getNamex(): XHPElementNameToken {
+    return $this->getName();
   }
 
   public function getInitializerUNTYPED(): EditableNode {

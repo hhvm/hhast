@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c694ebc2c8170ff2c5805bb2618b290a>>
+ * @generated SignedSource<<4731e47103175d985586adcaa21f89c0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -151,6 +151,13 @@ final class DarrayIntrinsicExpression extends EditableNode {
     return TypeAssert\instance_of(DarrayToken::class, $this->_keyword);
   }
 
+  /**
+   * @returns DarrayToken
+   */
+  public function getKeywordx(): DarrayToken {
+    return $this->getKeyword();
+  }
+
   public function getExplicitTypeUNTYPED(): EditableNode {
     return $this->_explicit_type;
   }
@@ -177,6 +184,13 @@ final class DarrayIntrinsicExpression extends EditableNode {
    */
   public function getExplicitType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_explicit_type);
+  }
+
+  /**
+   * @returns Missing
+   */
+  public function getExplicitTypex(): EditableNode {
+    return $this->getExplicitType();
   }
 
   public function getLeftBracketUNTYPED(): EditableNode {
@@ -208,6 +222,13 @@ final class DarrayIntrinsicExpression extends EditableNode {
       TypeAssert\instance_of(LeftBracketToken::class, $this->_left_bracket);
   }
 
+  /**
+   * @returns LeftBracketToken
+   */
+  public function getLeftBracketx(): LeftBracketToken {
+    return $this->getLeftBracket();
+  }
+
   public function getMembersUNTYPED(): EditableNode {
     return $this->_members;
   }
@@ -230,7 +251,7 @@ final class DarrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns Missing | EditableList
+   * @returns EditableList | Missing
    */
   public function getMembers(): ?EditableList {
     if ($this->_members->isMissing()) {
@@ -273,5 +294,12 @@ final class DarrayIntrinsicExpression extends EditableNode {
   public function getRightBracket(): RightBracketToken {
     return
       TypeAssert\instance_of(RightBracketToken::class, $this->_right_bracket);
+  }
+
+  /**
+   * @returns RightBracketToken
+   */
+  public function getRightBracketx(): RightBracketToken {
+    return $this->getRightBracket();
   }
 }

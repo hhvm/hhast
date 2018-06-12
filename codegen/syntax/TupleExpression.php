@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b2db390f40f3c1a003ba9c3d0c26a76f>>
+ * @generated SignedSource<<5a0ff74be979f5032b1ae511c819f153>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -125,6 +125,13 @@ final class TupleExpression extends EditableNode {
     return TypeAssert\instance_of(TupleToken::class, $this->_keyword);
   }
 
+  /**
+   * @returns TupleToken
+   */
+  public function getKeywordx(): TupleToken {
+    return $this->getKeyword();
+  }
+
   public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
@@ -148,6 +155,13 @@ final class TupleExpression extends EditableNode {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
+  /**
+   * @returns LeftParenToken
+   */
+  public function getLeftParenx(): LeftParenToken {
+    return $this->getLeftParen();
+  }
+
   public function getItemsUNTYPED(): EditableNode {
     return $this->_items;
   }
@@ -169,7 +183,7 @@ final class TupleExpression extends EditableNode {
   }
 
   /**
-   * @returns Missing | EditableList
+   * @returns EditableList | Missing
    */
   public function getItems(): ?EditableList {
     if ($this->_items->isMissing()) {
@@ -206,5 +220,12 @@ final class TupleExpression extends EditableNode {
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
+  }
+
+  /**
+   * @returns RightParenToken
+   */
+  public function getRightParenx(): RightParenToken {
+    return $this->getRightParen();
   }
 }

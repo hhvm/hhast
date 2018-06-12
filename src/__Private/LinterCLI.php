@@ -14,6 +14,12 @@ use type Facebook\TypeAssert\TypeAssert;
 use namespace Facebook\HHAST\Linters;
 use namespace HH\Lib\{C, Dict, Str, Vec};
 
+use type Facebook\CLILib\{
+  CLIWithArguments,
+  ExitException,
+};
+use namespace Facebook\CLILib\CLIOptions;
+
 final class LinterCLI extends CLIWithArguments {
   private bool $printPerfCounters = false;
   private bool $xhprof = false;
@@ -113,11 +119,10 @@ final class LinterCLI extends CLIWithArguments {
     } else if (\is_dir($path)) {
       $this->lintDirectory($config, $path, $errorHandler);
     } else {
-      \printf(
-        "'%s' doesn't appear to be a file or directory, bailing\n",
-        $path,
+      throw new ExitException(
+        1,
+        Str\format("'%s' doesn't appear to be a file or directory, bailing", $path),
       );
-      exit(1);
     }
   }
 
@@ -146,27 +151,40 @@ final class LinterCLI extends CLIWithArguments {
   }
 
   private async function mainImplAsync(): Awaitable<int> {
+    $err = $this->getStderr();
     $roots = $this->getArguments();
     if (C\is_empty($roots)) {
       $config = LinterCLIConfig::getForPath(\getcwd());
       $roots = $config->getRoots();
       if (C\is_empty($roots)) {
-        \fwrite(
-          \STDERR,
+        $err->write(
           "You must either specify PATH arguments, or provide a configuration".
           "file.\n",
         );
         return 1;
       }
     } else {
+      foreach ($roots as $root) {
+        $path = \realpath($root);
+        if (\is_dir($path)) {
+          $config_file = $path.'/hhast-lint.json';
+          if (\file_exists($config_file)) {
+            $this->getStdout()->write(
+              "Warning: PATH arguments contain a hhast-lint.json, ".
+              "which modifies the linters used and customizes behavior. ".
+              "Consider 'cd ".$root."; vendor/bin/hhast-lint'\n\n",
+            );
+          }
+        }
+      }
       $config = null;
     }
 
     $errorHandler = $this->json
       ? new LinterCLIErrorHandlerJSON()
       : new LinterCLIErrorHandlerPlain(shape(
-        'supports_colors' => self::supportsColors(),
-        'is_interactive' => self::isInteractive(),
+        'supports_colors' => $this->supportsColors(),
+        'is_interactive' => $this->isInteractive(),
       ));
 
     foreach ($roots as $root) {

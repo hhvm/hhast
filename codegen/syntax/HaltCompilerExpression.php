@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<115b259ab3659abb4ea4bd3c370b25de>>
+ * @generated SignedSource<<1525892495571d1bca5958880a7ea1c6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -125,6 +125,13 @@ final class HaltCompilerExpression extends EditableNode {
     return TypeAssert\instance_of(HaltCompilerToken::class, $this->_keyword);
   }
 
+  /**
+   * @returns HaltCompilerToken
+   */
+  public function getKeywordx(): HaltCompilerToken {
+    return $this->getKeyword();
+  }
+
   public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
@@ -150,6 +157,13 @@ final class HaltCompilerExpression extends EditableNode {
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
+  }
+
+  /**
+   * @returns LeftParenToken
+   */
+  public function getLeftParenx(): LeftParenToken {
+    return $this->getLeftParen();
   }
 
   public function getArgumentListUNTYPED(): EditableNode {
@@ -179,6 +193,13 @@ final class HaltCompilerExpression extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_argument_list);
   }
 
+  /**
+   * @returns Missing
+   */
+  public function getArgumentListx(): EditableNode {
+    return $this->getArgumentList();
+  }
+
   public function getRightParenUNTYPED(): EditableNode {
     return $this->_right_paren;
   }
@@ -204,5 +225,12 @@ final class HaltCompilerExpression extends EditableNode {
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
+  }
+
+  /**
+   * @returns RightParenToken
+   */
+  public function getRightParenx(): RightParenToken {
+    return $this->getRightParen();
   }
 }

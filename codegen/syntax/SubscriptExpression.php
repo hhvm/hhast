@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e46adc38da3d8e052d81f67bab4e9ebc>>
+ * @generated SignedSource<<d9ea0084224cc3554a5a40678b8e495b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -119,14 +119,25 @@ final class SubscriptExpression extends EditableNode {
   }
 
   /**
-   * @returns SubscriptExpression | FunctionCallExpression |
-   * ScopeResolutionExpression | VariableExpression | MemberSelectionExpression
-   * | ArrayIntrinsicExpression | ParenthesizedExpression | RightParenToken |
-   * NameToken | LiteralExpression | PrefixUnaryExpression |
-   * SafeMemberSelectionExpression | ArrayCreationExpression
+   * @returns ArrayCreationExpression | ArrayIntrinsicExpression |
+   * FunctionCallExpression | LiteralExpression | MemberSelectionExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression |
+   * SafeMemberSelectionExpression | ScopeResolutionExpression |
+   * SubscriptExpression | RightParenToken | NameToken | VariableExpression
    */
   public function getReceiver(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_receiver);
+  }
+
+  /**
+   * @returns ArrayCreationExpression | ArrayIntrinsicExpression |
+   * FunctionCallExpression | LiteralExpression | MemberSelectionExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression |
+   * SafeMemberSelectionExpression | ScopeResolutionExpression |
+   * SubscriptExpression | RightParenToken | NameToken | VariableExpression
+   */
+  public function getReceiverx(): EditableNode {
+    return $this->getReceiver();
   }
 
   public function getLeftBracketUNTYPED(): EditableNode {
@@ -156,6 +167,13 @@ final class SubscriptExpression extends EditableNode {
     return TypeAssert\instance_of(EditableToken::class, $this->_left_bracket);
   }
 
+  /**
+   * @returns LeftBracketToken | LeftBraceToken
+   */
+  public function getLeftBracketx(): EditableToken {
+    return $this->getLeftBracket();
+  }
+
   public function getIndexUNTYPED(): EditableNode {
     return $this->_index;
   }
@@ -177,16 +195,27 @@ final class SubscriptExpression extends EditableNode {
   }
 
   /**
-   * @returns LiteralExpression | Missing | VariableExpression |
-   * FunctionCallExpression | NameToken | ScopeResolutionExpression |
-   * BinaryExpression | CastExpression | PrefixUnaryExpression |
-   * PostfixUnaryExpression | ArrayIntrinsicExpression |
-   * ObjectCreationExpression | MemberSelectionExpression | SubscriptExpression
-   * | SafeMemberSelectionExpression | AnonymousFunction |
-   * ParenthesizedExpression
+   * @returns AnonymousFunction | ArrayIntrinsicExpression | BinaryExpression |
+   * CastExpression | FunctionCallExpression | LiteralExpression |
+   * MemberSelectionExpression | Missing | ObjectCreationExpression |
+   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
+   * SafeMemberSelectionExpression | ScopeResolutionExpression |
+   * SubscriptExpression | NameToken | VariableExpression
    */
   public function getIndex(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_index);
+  }
+
+  /**
+   * @returns AnonymousFunction | ArrayIntrinsicExpression | BinaryExpression |
+   * CastExpression | FunctionCallExpression | LiteralExpression |
+   * MemberSelectionExpression | Missing | ObjectCreationExpression |
+   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
+   * SafeMemberSelectionExpression | ScopeResolutionExpression |
+   * SubscriptExpression | NameToken | VariableExpression
+   */
+  public function getIndexx(): EditableNode {
+    return $this->getIndex();
   }
 
   public function getRightBracketUNTYPED(): EditableNode {
@@ -206,7 +235,7 @@ final class SubscriptExpression extends EditableNode {
   }
 
   /**
-   * @returns RightBracketToken | RightBraceToken | Missing
+   * @returns Missing | RightBracketToken | RightBraceToken
    */
   public function getRightBracket(): ?EditableToken {
     if ($this->_right_bracket->isMissing()) {

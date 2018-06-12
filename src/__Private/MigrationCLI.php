@@ -22,6 +22,9 @@ use type Facebook\HHAST\Migrations\{
   NamespaceFallbackMigration,
 };
 
+use type Facebook\CLILib\CLIWithRequiredArguments;
+use namespace Facebook\CLILib\CLIOptions;
+
 class MigrationCLI extends CLIWithRequiredArguments {
   use CLIWithVerbosityTrait;
 
@@ -213,16 +216,17 @@ class MigrationCLI extends CLIWithRequiredArguments {
   }
 
   private async function mainImplAsync(): Awaitable<int> {
+    $err = $this->getStderr();
     if (C\is_empty($this->migrations)) {
-      \fprintf(\STDERR, "You must specify at least one migration!\n\n");
-      $this->displayHelp(\STDERR);
+      $err->write("You must specify at least one migration!\n\n");
+      $this->displayHelp($err);
       return 1;
     }
 
     $args = $this->getArguments();
     if (C\is_empty($args)) {
-      \fprintf(\STDERR, "You must specify at least one path!\n\n");
-      $this->displayHelp(\STDERR);
+      $err->write("You must specify at least one path!\n\n");
+      $this->displayHelp($err);
       return 1;
     }
     foreach ($args as $path) {
@@ -239,7 +243,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
         continue;
       }
 
-      \fprintf(\STDERR, "Don't know how to process path: %s\n", $path);
+      $err->write(Str\format("Don't know how to process path: %s\n", $path));
       return 1;
     }
     return 0;

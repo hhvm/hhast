@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<830cd2d2e5b826abde9e003223097916>>
+ * @generated SignedSource<<d39e2c9b65ea478bc7b449b793c931e5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -183,6 +183,13 @@ final class NamespaceGroupUseDeclaration extends EditableNode {
     return TypeAssert\instance_of(UseToken::class, $this->_keyword);
   }
 
+  /**
+   * @returns UseToken
+   */
+  public function getKeywordx(): UseToken {
+    return $this->getKeyword();
+  }
+
   public function getKindUNTYPED(): EditableNode {
     return $this->_kind;
   }
@@ -207,7 +214,7 @@ final class NamespaceGroupUseDeclaration extends EditableNode {
   }
 
   /**
-   * @returns TypeToken | NamespaceToken | Missing | ConstToken | FunctionToken
+   * @returns Missing | ConstToken | FunctionToken | NamespaceToken | TypeToken
    */
   public function getKind(): ?EditableToken {
     if ($this->_kind->isMissing()) {
@@ -217,7 +224,7 @@ final class NamespaceGroupUseDeclaration extends EditableNode {
   }
 
   /**
-   * @returns TypeToken | NamespaceToken | ConstToken | FunctionToken
+   * @returns ConstToken | FunctionToken | NamespaceToken | TypeToken
    */
   public function getKindx(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_kind);
@@ -253,6 +260,13 @@ final class NamespaceGroupUseDeclaration extends EditableNode {
     return TypeAssert\instance_of(QualifiedName::class, $this->_prefix);
   }
 
+  /**
+   * @returns QualifiedName
+   */
+  public function getPrefixx(): QualifiedName {
+    return $this->getPrefix();
+  }
+
   public function getLeftBraceUNTYPED(): EditableNode {
     return $this->_left_brace;
   }
@@ -281,6 +295,13 @@ final class NamespaceGroupUseDeclaration extends EditableNode {
    */
   public function getLeftBrace(): LeftBraceToken {
     return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
+  }
+
+  /**
+   * @returns LeftBraceToken
+   */
+  public function getLeftBracex(): LeftBraceToken {
+    return $this->getLeftBrace();
   }
 
   public function getClausesUNTYPED(): EditableNode {
@@ -313,6 +334,13 @@ final class NamespaceGroupUseDeclaration extends EditableNode {
     return TypeAssert\instance_of(EditableList::class, $this->_clauses);
   }
 
+  /**
+   * @returns EditableList
+   */
+  public function getClausesx(): EditableList {
+    return $this->getClauses();
+  }
+
   public function getRightBraceUNTYPED(): EditableNode {
     return $this->_right_brace;
   }
@@ -337,7 +365,7 @@ final class NamespaceGroupUseDeclaration extends EditableNode {
   }
 
   /**
-   * @returns RightBraceToken | Missing
+   * @returns Missing | RightBraceToken
    */
   public function getRightBrace(): ?RightBraceToken {
     if ($this->_right_brace->isMissing()) {
@@ -377,7 +405,7 @@ final class NamespaceGroupUseDeclaration extends EditableNode {
   }
 
   /**
-   * @returns SemicolonToken | Missing
+   * @returns Missing | SemicolonToken
    */
   public function getSemicolon(): ?SemicolonToken {
     if ($this->_semicolon->isMissing()) {

@@ -8,10 +8,8 @@
  *
  */
 
-namespace Facebook\HHAST\__Private;
-
-abstract class CLIWithArguments extends CLIBase {
-  public static function getHelpTextForOptionalArguments(): string {
-    return 'ARGUMENT';
-  }
+function foo(): void {
+  var_dump('0e123' === '0e456');
+  var_dump('0e123' !== '0e456');
+  var_dump('0e123' !== '0e456');
 }

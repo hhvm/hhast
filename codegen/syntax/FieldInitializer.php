@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<47f857484ce9369d48682d9dd29f7412>>
+ * @generated SignedSource<<8d3d6bf7a6380854daa1f53da66d52ac>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,11 +101,19 @@ final class FieldInitializer extends EditableNode {
   }
 
   /**
-   * @returns LiteralExpression | QuestionToken | VariableExpression |
-   * ScopeResolutionExpression | NameToken
+   * @returns LiteralExpression | ScopeResolutionExpression | QuestionToken |
+   * NameToken | VariableExpression
    */
   public function getName(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_name);
+  }
+
+  /**
+   * @returns LiteralExpression | ScopeResolutionExpression | QuestionToken |
+   * NameToken | VariableExpression
+   */
+  public function getNamex(): EditableNode {
+    return $this->getName();
   }
 
   public function getArrowUNTYPED(): EditableNode {
@@ -130,6 +138,13 @@ final class FieldInitializer extends EditableNode {
     return TypeAssert\instance_of(EqualGreaterThanToken::class, $this->_arrow);
   }
 
+  /**
+   * @returns EqualGreaterThanToken
+   */
+  public function getArrowx(): EqualGreaterThanToken {
+    return $this->getArrow();
+  }
+
   public function getValueUNTYPED(): EditableNode {
     return $this->_value;
   }
@@ -146,12 +161,22 @@ final class FieldInitializer extends EditableNode {
   }
 
   /**
-   * @returns LiteralExpression | BinaryExpression | VariableExpression |
-   * VectorIntrinsicExpression | ScopeResolutionExpression | LambdaExpression |
-   * SubscriptExpression | ArrayIntrinsicExpression | NameToken |
-   * ObjectCreationExpression
+   * @returns ArrayIntrinsicExpression | BinaryExpression | LambdaExpression |
+   * LiteralExpression | ObjectCreationExpression | ScopeResolutionExpression |
+   * SubscriptExpression | NameToken | VariableExpression |
+   * VectorIntrinsicExpression
    */
   public function getValue(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_value);
+  }
+
+  /**
+   * @returns ArrayIntrinsicExpression | BinaryExpression | LambdaExpression |
+   * LiteralExpression | ObjectCreationExpression | ScopeResolutionExpression |
+   * SubscriptExpression | NameToken | VariableExpression |
+   * VectorIntrinsicExpression
+   */
+  public function getValuex(): EditableNode {
+    return $this->getValue();
   }
 }

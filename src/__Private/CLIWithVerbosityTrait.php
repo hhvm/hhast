@@ -10,6 +10,9 @@
 
 namespace Facebook\HHAST\__Private;
 
+use type Facebook\CLILib\CLIBase;
+use namespace Facebook\CLILib\CLIOptions;
+
 trait CLIWithVerbosityTrait {
   require extends CLIBase;
 

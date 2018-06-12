@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2c444d3358a008a98161b6fd8d412ad4>>
+ * @generated SignedSource<<456e3a3bb64052a1ce51ef93fe599e74>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -125,6 +125,13 @@ final class Attribute extends EditableNode {
     return TypeAssert\instance_of(NameToken::class, $this->_name);
   }
 
+  /**
+   * @returns NameToken
+   */
+  public function getNamex(): NameToken {
+    return $this->getName();
+  }
+
   public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
@@ -142,7 +149,7 @@ final class Attribute extends EditableNode {
   }
 
   /**
-   * @returns LeftParenToken | Missing
+   * @returns Missing | LeftParenToken
    */
   public function getLeftParen(): ?LeftParenToken {
     if ($this->_left_paren->isMissing()) {
@@ -207,7 +214,7 @@ final class Attribute extends EditableNode {
   }
 
   /**
-   * @returns RightParenToken | Missing
+   * @returns Missing | RightParenToken
    */
   public function getRightParen(): ?RightParenToken {
     if ($this->_right_paren->isMissing()) {

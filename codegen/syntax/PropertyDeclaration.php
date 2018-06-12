@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f57fd056cad4ec8a8fb1b50dcecb4d2c>>
+ * @generated SignedSource<<1886935a32663590649883b9b977d8d0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -135,7 +135,7 @@ final class PropertyDeclaration extends EditableNode {
   }
 
   /**
-   * @returns Missing | AttributeSpecification
+   * @returns AttributeSpecification | Missing
    */
   public function getAttributeSpec(): ?AttributeSpecification {
     if ($this->_attribute_spec->isMissing()) {
@@ -185,6 +185,13 @@ final class PropertyDeclaration extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_modifiers);
   }
 
+  /**
+   * @returns EditableList | VarToken
+   */
+  public function getModifiersx(): EditableNode {
+    return $this->getModifiers();
+  }
+
   public function getTypeUNTYPED(): EditableNode {
     return $this->_type;
   }
@@ -207,14 +214,25 @@ final class PropertyDeclaration extends EditableNode {
   }
 
   /**
-   * @returns Missing | SimpleTypeSpecifier | NullableTypeSpecifier |
-   * GenericTypeSpecifier | VectorTypeSpecifier | VarrayTypeSpecifier |
-   * DarrayTypeSpecifier | VectorArrayTypeSpecifier | SoftTypeSpecifier |
-   * TupleTypeSpecifier | MapArrayTypeSpecifier | DictionaryTypeSpecifier |
-   * ClosureTypeSpecifier | TypeConstant
+   * @returns ClosureTypeSpecifier | DarrayTypeSpecifier |
+   * DictionaryTypeSpecifier | GenericTypeSpecifier | MapArrayTypeSpecifier |
+   * Missing | NullableTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier
+   * | TupleTypeSpecifier | TypeConstant | VarrayTypeSpecifier |
+   * VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);
+  }
+
+  /**
+   * @returns ClosureTypeSpecifier | DarrayTypeSpecifier |
+   * DictionaryTypeSpecifier | GenericTypeSpecifier | MapArrayTypeSpecifier |
+   * Missing | NullableTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier
+   * | TupleTypeSpecifier | TypeConstant | VarrayTypeSpecifier |
+   * VectorArrayTypeSpecifier | VectorTypeSpecifier
+   */
+  public function getTypex(): EditableNode {
+    return $this->getType();
   }
 
   public function getDeclaratorsUNTYPED(): EditableNode {
@@ -245,6 +263,13 @@ final class PropertyDeclaration extends EditableNode {
     return TypeAssert\instance_of(EditableList::class, $this->_declarators);
   }
 
+  /**
+   * @returns EditableList
+   */
+  public function getDeclaratorsx(): EditableList {
+    return $this->getDeclarators();
+  }
+
   public function getSemicolonUNTYPED(): EditableNode {
     return $this->_semicolon;
   }
@@ -267,12 +292,9 @@ final class PropertyDeclaration extends EditableNode {
   }
 
   /**
-   * @returns SemicolonToken | Missing
+   * @returns SemicolonToken
    */
-  public function getSemicolon(): ?SemicolonToken {
-    if ($this->_semicolon->isMissing()) {
-      return null;
-    }
+  public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 
@@ -280,6 +302,6 @@ final class PropertyDeclaration extends EditableNode {
    * @returns SemicolonToken
    */
   public function getSemicolonx(): SemicolonToken {
-    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
+    return $this->getSemicolon();
   }
 }

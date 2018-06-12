@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<08db8a7488faa73a6462c30ec78991dd>>
+ * @generated SignedSource<<20e9c12c032964dc6085ec1e21a9b40c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -152,6 +152,13 @@ final class FieldSpecifier extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_name);
   }
 
+  /**
+   * @returns LiteralExpression | ScopeResolutionExpression
+   */
+  public function getNamex(): EditableNode {
+    return $this->getName();
+  }
+
   public function getArrowUNTYPED(): EditableNode {
     return $this->_arrow;
   }
@@ -174,6 +181,13 @@ final class FieldSpecifier extends EditableNode {
     return TypeAssert\instance_of(EqualGreaterThanToken::class, $this->_arrow);
   }
 
+  /**
+   * @returns EqualGreaterThanToken
+   */
+  public function getArrowx(): EqualGreaterThanToken {
+    return $this->getArrow();
+  }
+
   public function getTypeUNTYPED(): EditableNode {
     return $this->_type;
   }
@@ -190,10 +204,20 @@ final class FieldSpecifier extends EditableNode {
   }
 
   /**
-   * @returns SimpleTypeSpecifier | NullableTypeSpecifier | ShapeTypeSpecifier
-   * | TypeConstant | GenericTypeSpecifier | ClosureTypeSpecifier
+   * @returns ClosureTypeSpecifier | GenericTypeSpecifier |
+   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
+   * TypeConstant
    */
   public function getType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);
+  }
+
+  /**
+   * @returns ClosureTypeSpecifier | GenericTypeSpecifier |
+   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
+   * TypeConstant
+   */
+  public function getTypex(): EditableNode {
+    return $this->getType();
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8b6992eac53a622424662bf8b6771d12>>
+ * @generated SignedSource<<24b569dfde14de90fa6d0d80c3164b57>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -119,13 +119,25 @@ final class FunctionCallExpression extends EditableNode {
   }
 
   /**
-   * @returns ScopeResolutionExpression | NameToken | VariableExpression |
-   * MemberSelectionExpression | ParenthesizedExpression | SubscriptExpression
-   * | QualifiedName | SafeMemberSelectionExpression | FunctionCallExpression |
-   * ArrayCreationExpression | LiteralExpression | PrefixUnaryExpression
+   * @returns ArrayCreationExpression | FunctionCallExpression |
+   * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
+   * PrefixUnaryExpression | QualifiedName | SafeMemberSelectionExpression |
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * VariableExpression
    */
   public function getReceiver(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_receiver);
+  }
+
+  /**
+   * @returns ArrayCreationExpression | FunctionCallExpression |
+   * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
+   * PrefixUnaryExpression | QualifiedName | SafeMemberSelectionExpression |
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * VariableExpression
+   */
+  public function getReceiverx(): EditableNode {
+    return $this->getReceiver();
   }
 
   public function getLeftParenUNTYPED(): EditableNode {
@@ -155,6 +167,13 @@ final class FunctionCallExpression extends EditableNode {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
+  /**
+   * @returns LeftParenToken
+   */
+  public function getLeftParenx(): LeftParenToken {
+    return $this->getLeftParen();
+  }
+
   public function getArgumentListUNTYPED(): EditableNode {
     return $this->_argument_list;
   }
@@ -176,7 +195,7 @@ final class FunctionCallExpression extends EditableNode {
   }
 
   /**
-   * @returns Missing | EditableList
+   * @returns EditableList | Missing
    */
   public function getArgumentList(): ?EditableList {
     if ($this->_argument_list->isMissing()) {
@@ -213,7 +232,7 @@ final class FunctionCallExpression extends EditableNode {
   }
 
   /**
-   * @returns RightParenToken | Missing
+   * @returns Missing | RightParenToken
    */
   public function getRightParen(): ?RightParenToken {
     if ($this->_right_paren->isMissing()) {

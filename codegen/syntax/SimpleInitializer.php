@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8c5cd01f0db3f14603e5e4c0f7e3bbf3>>
+ * @generated SignedSource<<a8fc62f4fc9b12e2070c3e52835d77ff>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -88,6 +88,13 @@ final class SimpleInitializer extends EditableNode {
     return TypeAssert\instance_of(EqualToken::class, $this->_equal);
   }
 
+  /**
+   * @returns EqualToken
+   */
+  public function getEqualx(): EqualToken {
+    return $this->getEqual();
+  }
+
   public function getValueUNTYPED(): EditableNode {
     return $this->_value;
   }
@@ -104,16 +111,30 @@ final class SimpleInitializer extends EditableNode {
   }
 
   /**
-   * @returns LiteralExpression | ArrayIntrinsicExpression | ShapeExpression |
-   * CollectionLiteralExpression | NameToken | ScopeResolutionExpression |
-   * SubscriptExpression | ArrayCreationExpression | VectorIntrinsicExpression
-   * | DictionaryIntrinsicExpression | KeysetIntrinsicExpression |
-   * PrefixUnaryExpression | BinaryExpression | ConditionalExpression |
-   * VarrayIntrinsicExpression | DarrayIntrinsicExpression | TupleExpression |
-   * QualifiedName | FunctionCallExpression | ParenthesizedExpression |
-   * XHPExpression
+   * @returns ArrayCreationExpression | ArrayIntrinsicExpression |
+   * BinaryExpression | CollectionLiteralExpression | ConditionalExpression |
+   * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
+   * FunctionCallExpression | KeysetIntrinsicExpression | LiteralExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression | QualifiedName |
+   * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
+   * NameToken | TupleExpression | VariableExpression |
+   * VarrayIntrinsicExpression | VectorIntrinsicExpression | XHPExpression
    */
   public function getValue(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_value);
+  }
+
+  /**
+   * @returns ArrayCreationExpression | ArrayIntrinsicExpression |
+   * BinaryExpression | CollectionLiteralExpression | ConditionalExpression |
+   * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
+   * FunctionCallExpression | KeysetIntrinsicExpression | LiteralExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression | QualifiedName |
+   * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
+   * NameToken | TupleExpression | VariableExpression |
+   * VarrayIntrinsicExpression | VectorIntrinsicExpression | XHPExpression
+   */
+  public function getValuex(): EditableNode {
+    return $this->getValue();
   }
 }

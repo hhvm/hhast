@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a05e2d418d2c40b15c0698a5e0108134>>
+ * @generated SignedSource<<41f6f6540745c65e0937bfcac34f93a9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -88,6 +88,13 @@ final class NullableTypeSpecifier extends EditableNode {
     return TypeAssert\instance_of(QuestionToken::class, $this->_question);
   }
 
+  /**
+   * @returns QuestionToken
+   */
+  public function getQuestionx(): QuestionToken {
+    return $this->getQuestion();
+  }
+
   public function getTypeUNTYPED(): EditableNode {
     return $this->_type;
   }
@@ -104,12 +111,22 @@ final class NullableTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns SimpleTypeSpecifier | GenericTypeSpecifier | TupleTypeSpecifier |
-   * MapArrayTypeSpecifier | ClosureTypeSpecifier | ShapeTypeSpecifier |
-   * TypeConstant | DictionaryTypeSpecifier | VectorTypeSpecifier |
-   * VectorArrayTypeSpecifier | KeysetTypeSpecifier
+   * @returns ClosureTypeSpecifier | DictionaryTypeSpecifier |
+   * GenericTypeSpecifier | KeysetTypeSpecifier | MapArrayTypeSpecifier |
+   * ShapeTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
+   * TypeConstant | VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);
+  }
+
+  /**
+   * @returns ClosureTypeSpecifier | DictionaryTypeSpecifier |
+   * GenericTypeSpecifier | KeysetTypeSpecifier | MapArrayTypeSpecifier |
+   * ShapeTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
+   * TypeConstant | VectorArrayTypeSpecifier | VectorTypeSpecifier
+   */
+  public function getTypex(): EditableNode {
+    return $this->getType();
   }
 }

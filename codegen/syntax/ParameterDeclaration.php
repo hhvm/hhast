@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bc059da39a1ab5e8eb7dec3cc7bafee6>>
+ * @generated SignedSource<<4946b33f2818976e469050bc361bcca9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -161,7 +161,7 @@ final class ParameterDeclaration extends EditableNode {
   }
 
   /**
-   * @returns Missing | AttributeSpecification
+   * @returns AttributeSpecification | Missing
    */
   public function getAttribute(): ?AttributeSpecification {
     if ($this->_attribute->isMissing()) {
@@ -202,7 +202,7 @@ final class ParameterDeclaration extends EditableNode {
   }
 
   /**
-   * @returns Missing | PublicToken | ProtectedToken | PrivateToken
+   * @returns Missing | PrivateToken | ProtectedToken | PublicToken
    */
   public function getVisibility(): ?EditableToken {
     if ($this->_visibility->isMissing()) {
@@ -212,7 +212,7 @@ final class ParameterDeclaration extends EditableNode {
   }
 
   /**
-   * @returns PublicToken | ProtectedToken | PrivateToken
+   * @returns PrivateToken | ProtectedToken | PublicToken
    */
   public function getVisibilityx(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_visibility);
@@ -280,15 +280,27 @@ final class ParameterDeclaration extends EditableNode {
   }
 
   /**
-   * @returns SimpleTypeSpecifier | Missing | ShapeTypeSpecifier |
-   * GenericTypeSpecifier | ClosureTypeSpecifier | NullableTypeSpecifier |
-   * TupleTypeSpecifier | SoftTypeSpecifier | VectorTypeSpecifier |
-   * TypeConstant | ClassnameTypeSpecifier | DictionaryTypeSpecifier |
-   * KeysetTypeSpecifier | MapArrayTypeSpecifier | VectorArrayTypeSpecifier |
-   * VarrayTypeSpecifier | DarrayTypeSpecifier
+   * @returns ClassnameTypeSpecifier | ClosureTypeSpecifier |
+   * DarrayTypeSpecifier | DictionaryTypeSpecifier | GenericTypeSpecifier |
+   * KeysetTypeSpecifier | MapArrayTypeSpecifier | Missing |
+   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
+   * SoftTypeSpecifier | TupleTypeSpecifier | TypeConstant |
+   * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);
+  }
+
+  /**
+   * @returns ClassnameTypeSpecifier | ClosureTypeSpecifier |
+   * DarrayTypeSpecifier | DictionaryTypeSpecifier | GenericTypeSpecifier |
+   * KeysetTypeSpecifier | MapArrayTypeSpecifier | Missing |
+   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
+   * SoftTypeSpecifier | TupleTypeSpecifier | TypeConstant |
+   * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
+   */
+  public function getTypex(): EditableNode {
+    return $this->getType();
   }
 
   public function getNameUNTYPED(): EditableNode {
@@ -314,10 +326,17 @@ final class ParameterDeclaration extends EditableNode {
   }
 
   /**
-   * @returns VariableToken | DecoratedExpression | Missing
+   * @returns DecoratedExpression | Missing | VariableToken
    */
   public function getName(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_name);
+  }
+
+  /**
+   * @returns DecoratedExpression | Missing | VariableToken
+   */
+  public function getNamex(): EditableNode {
+    return $this->getName();
   }
 
   public function getDefaultValueUNTYPED(): EditableNode {

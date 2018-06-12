@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c1bc5182eb116dbdd36cc553dfcf3b09>>
+ * @generated SignedSource<<418c7267e38ea8be641ee84ddadbe40e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -124,7 +124,7 @@ final class MethodishDeclaration
   }
 
   /**
-   * @returns Missing | AttributeSpecification
+   * @returns AttributeSpecification | Missing
    */
   public function getAttribute(): ?AttributeSpecification {
     if ($this->_attribute->isMissing()) {
@@ -170,6 +170,13 @@ final class MethodishDeclaration
       FunctionDeclarationHeader::class,
       $this->_function_decl_header,
     );
+  }
+
+  /**
+   * @returns FunctionDeclarationHeader
+   */
+  public function getFunctionDeclHeaderx(): FunctionDeclarationHeader {
+    return $this->getFunctionDeclHeader();
   }
 
   public function getFunctionBodyUNTYPED(): EditableNode {

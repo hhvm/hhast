@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c507806198fb27973b3a12231e315fd9>>
+ * @generated SignedSource<<c52ecff9344562f59c31e1423a7b06d8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -88,6 +88,13 @@ final class YieldExpression extends EditableNode {
     return TypeAssert\instance_of(YieldToken::class, $this->_keyword);
   }
 
+  /**
+   * @returns YieldToken
+   */
+  public function getKeywordx(): YieldToken {
+    return $this->getKeyword();
+  }
+
   public function getOperandUNTYPED(): EditableNode {
     return $this->_operand;
   }
@@ -104,14 +111,26 @@ final class YieldExpression extends EditableNode {
   }
 
   /**
-   * @returns LiteralExpression | MemberSelectionExpression |
-   * PostfixUnaryExpression | VariableExpression | FunctionCallExpression |
-   * ElementInitializer | BinaryExpression | PrefixUnaryExpression | BreakToken
-   * | ParenthesizedExpression | NameToken | TupleExpression | LambdaExpression
-   * | SubscriptExpression | Missing | ObjectCreationExpression |
-   * AnonymousFunction
+   * @returns AnonymousFunction | BinaryExpression | ElementInitializer |
+   * FunctionCallExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | Missing | ObjectCreationExpression |
+   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
+   * SubscriptExpression | BreakToken | NameToken | TupleExpression |
+   * VariableExpression
    */
   public function getOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_operand);
+  }
+
+  /**
+   * @returns AnonymousFunction | BinaryExpression | ElementInitializer |
+   * FunctionCallExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | Missing | ObjectCreationExpression |
+   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
+   * SubscriptExpression | BreakToken | NameToken | TupleExpression |
+   * VariableExpression
+   */
+  public function getOperandx(): EditableNode {
+    return $this->getOperand();
   }
 }

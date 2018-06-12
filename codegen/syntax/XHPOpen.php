@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d880f788c6ecb2afc6c1e2b6a113c6df>>
+ * @generated SignedSource<<7e89480b541c0ca5ad7eef3c72b5c5d9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -121,6 +121,13 @@ final class XHPOpen extends EditableNode {
     return TypeAssert\instance_of(LessThanToken::class, $this->_left_angle);
   }
 
+  /**
+   * @returns LessThanToken
+   */
+  public function getLeftAnglex(): LessThanToken {
+    return $this->getLeftAngle();
+  }
+
   public function getNameUNTYPED(): EditableNode {
     return $this->_name;
   }
@@ -146,6 +153,13 @@ final class XHPOpen extends EditableNode {
    */
   public function getName(): XHPElementNameToken {
     return TypeAssert\instance_of(XHPElementNameToken::class, $this->_name);
+  }
+
+  /**
+   * @returns XHPElementNameToken
+   */
+  public function getNamex(): XHPElementNameToken {
+    return $this->getName();
   }
 
   public function getAttributesUNTYPED(): EditableNode {
@@ -198,7 +212,7 @@ final class XHPOpen extends EditableNode {
   }
 
   /**
-   * @returns SlashGreaterThanToken | GreaterThanToken | Missing
+   * @returns Missing | SlashGreaterThanToken | GreaterThanToken
    */
   public function getRightAngle(): ?EditableToken {
     if ($this->_right_angle->isMissing()) {

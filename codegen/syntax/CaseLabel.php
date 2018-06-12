@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<47c8c1bee7b93c2bfe5c7f608eeffbda>>
+ * @generated SignedSource<<95ba351dd1e2416868685f615e77dcfc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,6 +107,13 @@ final class CaseLabel extends EditableNode {
     return TypeAssert\instance_of(CaseToken::class, $this->_keyword);
   }
 
+  /**
+   * @returns CaseToken
+   */
+  public function getKeywordx(): CaseToken {
+    return $this->getKeyword();
+  }
+
   public function getExpressionUNTYPED(): EditableNode {
     return $this->_expression;
   }
@@ -123,12 +130,21 @@ final class CaseLabel extends EditableNode {
   }
 
   /**
-   * @returns LiteralExpression | PrefixUnaryExpression | VariableExpression |
-   * ScopeResolutionExpression | FunctionCallExpression | InstanceofExpression
-   * | ArrayIntrinsicExpression | NameToken
+   * @returns ArrayIntrinsicExpression | FunctionCallExpression |
+   * InstanceofExpression | LiteralExpression | PrefixUnaryExpression |
+   * ScopeResolutionExpression | NameToken | VariableExpression
    */
   public function getExpression(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_expression);
+  }
+
+  /**
+   * @returns ArrayIntrinsicExpression | FunctionCallExpression |
+   * InstanceofExpression | LiteralExpression | PrefixUnaryExpression |
+   * ScopeResolutionExpression | NameToken | VariableExpression
+   */
+  public function getExpressionx(): EditableNode {
+    return $this->getExpression();
   }
 
   public function getColonUNTYPED(): EditableNode {
@@ -151,5 +167,12 @@ final class CaseLabel extends EditableNode {
    */
   public function getColon(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_colon);
+  }
+
+  /**
+   * @returns ColonToken | SemicolonToken
+   */
+  public function getColonx(): EditableToken {
+    return $this->getColon();
   }
 }

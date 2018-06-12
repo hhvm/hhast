@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bde9394bc1a3ce2679c8ac87a1f4d61e>>
+ * @generated SignedSource<<f1f81fb6264ff288d313ed18704fee23>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,6 +107,13 @@ final class BracedExpression extends EditableNode {
     return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
   }
 
+  /**
+   * @returns LeftBraceToken
+   */
+  public function getLeftBracex(): LeftBraceToken {
+    return $this->getLeftBrace();
+  }
+
   public function getExpressionUNTYPED(): EditableNode {
     return $this->_expression;
   }
@@ -123,13 +130,23 @@ final class BracedExpression extends EditableNode {
   }
 
   /**
-   * @returns NameToken | LiteralExpression | BinaryExpression |
-   * FunctionCallExpression | VariableExpression | ObjectCreationExpression |
-   * SubscriptExpression | PrefixUnaryExpression | CollectionLiteralExpression
-   * | ArrayIntrinsicExpression
+   * @returns ArrayIntrinsicExpression | BinaryExpression |
+   * CollectionLiteralExpression | FunctionCallExpression | LiteralExpression |
+   * ObjectCreationExpression | PrefixUnaryExpression | SubscriptExpression |
+   * NameToken | VariableExpression
    */
   public function getExpression(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_expression);
+  }
+
+  /**
+   * @returns ArrayIntrinsicExpression | BinaryExpression |
+   * CollectionLiteralExpression | FunctionCallExpression | LiteralExpression |
+   * ObjectCreationExpression | PrefixUnaryExpression | SubscriptExpression |
+   * NameToken | VariableExpression
+   */
+  public function getExpressionx(): EditableNode {
+    return $this->getExpression();
   }
 
   public function getRightBraceUNTYPED(): EditableNode {
@@ -152,5 +169,12 @@ final class BracedExpression extends EditableNode {
    */
   public function getRightBrace(): RightBraceToken {
     return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
+  }
+
+  /**
+   * @returns RightBraceToken
+   */
+  public function getRightBracex(): RightBraceToken {
+    return $this->getRightBrace();
   }
 }

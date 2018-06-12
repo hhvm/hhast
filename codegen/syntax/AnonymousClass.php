@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f6c550002874dc1a103eb889cdb46eec>>
+ * @generated SignedSource<<d386ff95224718ca85acb15732d8b5cd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -216,6 +216,13 @@ final class AnonymousClass extends EditableNode {
     return TypeAssert\instance_of(ClassToken::class, $this->_class_keyword);
   }
 
+  /**
+   * @returns ClassToken
+   */
+  public function getClassKeywordx(): ClassToken {
+    return $this->getClassKeyword();
+  }
+
   public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
@@ -284,7 +291,7 @@ final class AnonymousClass extends EditableNode {
   }
 
   /**
-   * @returns Missing | EditableList
+   * @returns EditableList | Missing
    */
   public function getArgumentList(): ?EditableList {
     if ($this->_argument_list->isMissing()) {
@@ -410,7 +417,7 @@ final class AnonymousClass extends EditableNode {
   }
 
   /**
-   * @returns Missing | EditableList
+   * @returns EditableList | Missing
    */
   public function getExtendsList(): ?EditableList {
     if ($this->_extends_list->isMissing()) {
@@ -500,7 +507,7 @@ final class AnonymousClass extends EditableNode {
   }
 
   /**
-   * @returns Missing | EditableList
+   * @returns EditableList | Missing
    */
   public function getImplementsList(): ?EditableList {
     if ($this->_implements_list->isMissing()) {
@@ -546,5 +553,12 @@ final class AnonymousClass extends EditableNode {
    */
   public function getBody(): ClassishBody {
     return TypeAssert\instance_of(ClassishBody::class, $this->_body);
+  }
+
+  /**
+   * @returns ClassishBody
+   */
+  public function getBodyx(): ClassishBody {
+    return $this->getBody();
   }
 }

@@ -1,0 +1,28 @@
+/* Keywords */
+
+.hs-FunctionToken,
+.hs-NamespaceToken {
+  color: #c678dd;
+}
+
+/* Types */
+
+.hs-SimpleTypeSpecifier .hs-StringToken {
+  color: #e5c07b;
+}
+
+.hs-ClassDeclaration .hs-NameToken {
+  color: #e5c07b;
+}
+
+/* Functions */
+
+.hs-FunctionDeclaration .hs-NameToken {
+  color: #61afef;
+}
+
+/* Variables */
+
+.hs-VariableToken {
+  color: #e06c75;
+}

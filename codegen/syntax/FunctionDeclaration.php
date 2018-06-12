@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<de703d02c46b027ecf379fea68e5a461>>
+ * @generated SignedSource<<8ee59ad4dddb860c7026d2fcb8459ec0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -104,7 +104,7 @@ final class FunctionDeclaration
   }
 
   /**
-   * @returns Missing | AttributeSpecification
+   * @returns AttributeSpecification | Missing
    */
   public function getAttributeSpec(): ?AttributeSpecification {
     if ($this->_attribute_spec->isMissing()) {
@@ -151,6 +151,13 @@ final class FunctionDeclaration
     );
   }
 
+  /**
+   * @returns FunctionDeclarationHeader
+   */
+  public function getDeclarationHeaderx(): FunctionDeclarationHeader {
+    return $this->getDeclarationHeader();
+  }
+
   public function getBodyUNTYPED(): EditableNode {
     return $this->_body;
   }
@@ -172,5 +179,12 @@ final class FunctionDeclaration
    */
   public function getBody(): CompoundStatement {
     return TypeAssert\instance_of(CompoundStatement::class, $this->_body);
+  }
+
+  /**
+   * @returns CompoundStatement
+   */
+  public function getBodyx(): CompoundStatement {
+    return $this->getBody();
   }
 }

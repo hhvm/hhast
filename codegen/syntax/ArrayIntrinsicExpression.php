@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<94d04ae939c12067d8851151de163e7b>>
+ * @generated SignedSource<<0be8d859a6472024fde27230b4d6b61b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -125,6 +125,13 @@ final class ArrayIntrinsicExpression extends EditableNode {
     return TypeAssert\instance_of(ArrayToken::class, $this->_keyword);
   }
 
+  /**
+   * @returns ArrayToken
+   */
+  public function getKeywordx(): ArrayToken {
+    return $this->getKeyword();
+  }
+
   public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
@@ -148,6 +155,13 @@ final class ArrayIntrinsicExpression extends EditableNode {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
+  /**
+   * @returns LeftParenToken
+   */
+  public function getLeftParenx(): LeftParenToken {
+    return $this->getLeftParen();
+  }
+
   public function getMembersUNTYPED(): EditableNode {
     return $this->_members;
   }
@@ -169,7 +183,7 @@ final class ArrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns Missing | EditableList
+   * @returns EditableList | Missing
    */
   public function getMembers(): ?EditableList {
     if ($this->_members->isMissing()) {
@@ -206,5 +220,12 @@ final class ArrayIntrinsicExpression extends EditableNode {
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
+  }
+
+  /**
+   * @returns RightParenToken
+   */
+  public function getRightParenx(): RightParenToken {
+    return $this->getRightParen();
   }
 }

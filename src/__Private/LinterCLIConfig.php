@@ -48,6 +48,7 @@ final class LinterCLIConfig {
       ?'disabledLinters' => vec<string>,
       ?'disabledAutoFixes' => vec<string>,
       ?'disableAllAutoFixes' => bool,
+      ?'disableAllLinters' => bool,
     )>,
   );
 
@@ -64,6 +65,7 @@ final class LinterCLIConfig {
       Linters\NoBasicAssignmentFunctionParameterLinter::class,
       Linters\MustUseBracesForControlFlowLinter::class,
       Linters\MustUseOverrideAttributeLinter::class,
+      Linters\NoPHPEqualityLinter::class,
       Linters\NoWhitespaceAtEndOfLineLinter::class,
     ];
 
@@ -133,7 +135,6 @@ final class LinterCLIConfig {
     $blacklist = $this->configFile['disabledLinters'] ?? vec[];
     $autofix_blacklist = $this->configFile['disabledAutoFixes'] ?? vec[];
     $no_autofixes = $this->configFile['disableAllAutoFixes'] ?? false;
-
     foreach ($this->configFile['overrides'] ?? vec[] as $override) {
       $matches = false;
       foreach ($override['patterns'] as $pattern) {
@@ -145,7 +146,12 @@ final class LinterCLIConfig {
       if (!$matches) {
         continue;
       }
-
+      if ($override['disableAllLinters'] ?? false) {
+        return shape(
+          'linters' => keyset[],
+          'autoFixBlacklist' => keyset[],
+        );
+      }
       $linters = Vec\concat(
         $linters,
         $override['extraLinters'] ?? vec[],

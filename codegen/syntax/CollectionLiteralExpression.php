@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0b0bc8dd5612e8a26f51d41baa4df584>>
+ * @generated SignedSource<<3cfdd153df3dea802ca68c6cb24d9106>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -119,10 +119,17 @@ final class CollectionLiteralExpression extends EditableNode {
   }
 
   /**
-   * @returns SimpleTypeSpecifier | GenericTypeSpecifier
+   * @returns GenericTypeSpecifier | SimpleTypeSpecifier
    */
   public function getName(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_name);
+  }
+
+  /**
+   * @returns GenericTypeSpecifier | SimpleTypeSpecifier
+   */
+  public function getNamex(): EditableNode {
+    return $this->getName();
   }
 
   public function getLeftBraceUNTYPED(): EditableNode {
@@ -150,6 +157,13 @@ final class CollectionLiteralExpression extends EditableNode {
    */
   public function getLeftBrace(): LeftBraceToken {
     return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
+  }
+
+  /**
+   * @returns LeftBraceToken
+   */
+  public function getLeftBracex(): LeftBraceToken {
+    return $this->getLeftBrace();
   }
 
   public function getInitializersUNTYPED(): EditableNode {
@@ -206,7 +220,7 @@ final class CollectionLiteralExpression extends EditableNode {
   }
 
   /**
-   * @returns RightBraceToken | Missing
+   * @returns Missing | RightBraceToken
    */
   public function getRightBrace(): ?RightBraceToken {
     if ($this->_right_brace->isMissing()) {

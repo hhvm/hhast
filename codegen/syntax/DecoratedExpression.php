@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<27d28a090dd234e65ae799d91a696dba>>
+ * @generated SignedSource<<4631f5bb8f95d42c329389474931b0f3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -93,6 +93,13 @@ final class DecoratedExpression extends EditableNode {
     return TypeAssert\instance_of(EditableToken::class, $this->_decorator);
   }
 
+  /**
+   * @returns AmpersandToken | DotDotDotToken | InoutToken
+   */
+  public function getDecoratorx(): EditableToken {
+    return $this->getDecorator();
+  }
+
   public function getExpressionUNTYPED(): EditableNode {
     return $this->_expression;
   }
@@ -109,11 +116,20 @@ final class DecoratedExpression extends EditableNode {
   }
 
   /**
-   * @returns VariableToken | DecoratedExpression | VariableExpression |
-   * ArrayCreationExpression | FunctionCallExpression | SubscriptExpression |
-   * ArrayIntrinsicExpression | ScopeResolutionExpression
+   * @returns ArrayCreationExpression | ArrayIntrinsicExpression |
+   * DecoratedExpression | FunctionCallExpression | ScopeResolutionExpression |
+   * SubscriptExpression | VariableToken | VariableExpression
    */
   public function getExpression(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_expression);
+  }
+
+  /**
+   * @returns ArrayCreationExpression | ArrayIntrinsicExpression |
+   * DecoratedExpression | FunctionCallExpression | ScopeResolutionExpression |
+   * SubscriptExpression | VariableToken | VariableExpression
+   */
+  public function getExpressionx(): EditableNode {
+    return $this->getExpression();
   }
 }

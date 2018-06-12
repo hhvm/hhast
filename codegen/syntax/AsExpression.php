@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<46fb405aeb9b8c920ac1977ab6132531>>
+ * @generated SignedSource<<4d550283a3d95f85223e35005e5315d7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,10 +101,18 @@ final class AsExpression extends EditableNode {
   }
 
   /**
-   * @returns VariableExpression | NameToken
+   * @returns VariableExpression
    */
-  public function getLeftOperand(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_left_operand);
+  public function getLeftOperand(): VariableExpression {
+    return
+      TypeAssert\instance_of(VariableExpression::class, $this->_left_operand);
+  }
+
+  /**
+   * @returns VariableExpression
+   */
+  public function getLeftOperandx(): VariableExpression {
+    return $this->getLeftOperand();
   }
 
   public function getOperatorUNTYPED(): EditableNode {
@@ -129,6 +137,13 @@ final class AsExpression extends EditableNode {
     return TypeAssert\instance_of(AsToken::class, $this->_operator);
   }
 
+  /**
+   * @returns AsToken
+   */
+  public function getOperatorx(): AsToken {
+    return $this->getOperator();
+  }
+
   public function getRightOperandUNTYPED(): EditableNode {
     return $this->_right_operand;
   }
@@ -145,10 +160,18 @@ final class AsExpression extends EditableNode {
   }
 
   /**
-   * @returns SimpleTypeSpecifier | ShapeTypeSpecifier | TupleTypeSpecifier |
-   * NullableTypeSpecifier
+   * @returns NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier
+   * | TupleTypeSpecifier
    */
   public function getRightOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_right_operand);
+  }
+
+  /**
+   * @returns NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier
+   * | TupleTypeSpecifier
+   */
+  public function getRightOperandx(): EditableNode {
+    return $this->getRightOperand();
   }
 }

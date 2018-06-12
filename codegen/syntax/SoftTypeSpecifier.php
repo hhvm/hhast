@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3020c8403e0039979f077031e6d51661>>
+ * @generated SignedSource<<46946695a433feb860a6573dba18cea1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -88,6 +88,13 @@ final class SoftTypeSpecifier extends EditableNode {
     return TypeAssert\instance_of(AtToken::class, $this->_at);
   }
 
+  /**
+   * @returns AtToken
+   */
+  public function getAtx(): AtToken {
+    return $this->getAt();
+  }
+
   public function getTypeUNTYPED(): EditableNode {
     return $this->_type;
   }
@@ -104,11 +111,20 @@ final class SoftTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns SimpleTypeSpecifier | GenericTypeSpecifier |
-   * NullableTypeSpecifier | TupleTypeSpecifier | ClosureTypeSpecifier |
-   * MapArrayTypeSpecifier
+   * @returns ClosureTypeSpecifier | GenericTypeSpecifier |
+   * MapArrayTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier |
+   * TupleTypeSpecifier
    */
   public function getType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);
+  }
+
+  /**
+   * @returns ClosureTypeSpecifier | GenericTypeSpecifier |
+   * MapArrayTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier |
+   * TupleTypeSpecifier
+   */
+  public function getTypex(): EditableNode {
+    return $this->getType();
   }
 }

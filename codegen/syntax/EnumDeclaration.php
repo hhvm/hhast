@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<51ae587e7684a2ad66513a019dfe9edd>>
+ * @generated SignedSource<<8a8c8be80b3dff997f8176b6f02ec7ae>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -209,7 +209,7 @@ final class EnumDeclaration extends EditableNode {
   }
 
   /**
-   * @returns Missing | AttributeSpecification
+   * @returns AttributeSpecification | Missing
    */
   public function getAttributeSpec(): ?AttributeSpecification {
     if ($this->_attribute_spec->isMissing()) {
@@ -263,6 +263,13 @@ final class EnumDeclaration extends EditableNode {
     return TypeAssert\instance_of(EnumToken::class, $this->_keyword);
   }
 
+  /**
+   * @returns EnumToken
+   */
+  public function getKeywordx(): EnumToken {
+    return $this->getKeyword();
+  }
+
   public function getNameUNTYPED(): EditableNode {
     return $this->_name;
   }
@@ -293,6 +300,13 @@ final class EnumDeclaration extends EditableNode {
    */
   public function getName(): NameToken {
     return TypeAssert\instance_of(NameToken::class, $this->_name);
+  }
+
+  /**
+   * @returns NameToken
+   */
+  public function getNamex(): NameToken {
+    return $this->getName();
   }
 
   public function getColonUNTYPED(): EditableNode {
@@ -327,6 +341,13 @@ final class EnumDeclaration extends EditableNode {
     return TypeAssert\instance_of(ColonToken::class, $this->_colon);
   }
 
+  /**
+   * @returns ColonToken
+   */
+  public function getColonx(): ColonToken {
+    return $this->getColon();
+  }
+
   public function getBaseUNTYPED(): EditableNode {
     return $this->_base;
   }
@@ -353,11 +374,19 @@ final class EnumDeclaration extends EditableNode {
   }
 
   /**
-   * @returns SimpleTypeSpecifier | ClassnameTypeSpecifier |
-   * GenericTypeSpecifier
+   * @returns ClassnameTypeSpecifier | GenericTypeSpecifier |
+   * SimpleTypeSpecifier
    */
   public function getBase(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_base);
+  }
+
+  /**
+   * @returns ClassnameTypeSpecifier | GenericTypeSpecifier |
+   * SimpleTypeSpecifier
+   */
+  public function getBasex(): EditableNode {
+    return $this->getBase();
   }
 
   public function getTypeUNTYPED(): EditableNode {
@@ -386,7 +415,7 @@ final class EnumDeclaration extends EditableNode {
   }
 
   /**
-   * @returns TypeConstraint | Missing
+   * @returns Missing | TypeConstraint
    */
   public function getType(): ?TypeConstraint {
     if ($this->_type->isMissing()) {
@@ -432,6 +461,13 @@ final class EnumDeclaration extends EditableNode {
    */
   public function getLeftBrace(): LeftBraceToken {
     return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
+  }
+
+  /**
+   * @returns LeftBraceToken
+   */
+  public function getLeftBracex(): LeftBraceToken {
+    return $this->getLeftBrace();
   }
 
   public function getEnumeratorsUNTYPED(): EditableNode {
@@ -506,5 +542,12 @@ final class EnumDeclaration extends EditableNode {
    */
   public function getRightBrace(): RightBraceToken {
     return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
+  }
+
+  /**
+   * @returns RightBraceToken
+   */
+  public function getRightBracex(): RightBraceToken {
+    return $this->getRightBrace();
   }
 }

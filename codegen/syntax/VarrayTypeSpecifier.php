@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<be44cbf888921287917a34da03264389>>
+ * @generated SignedSource<<ff6d213893fb8aded1a7615f8861e5b5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -141,6 +141,13 @@ final class VarrayTypeSpecifier extends EditableNode {
     return TypeAssert\instance_of(VarrayToken::class, $this->_keyword);
   }
 
+  /**
+   * @returns VarrayToken
+   */
+  public function getKeywordx(): VarrayToken {
+    return $this->getKeyword();
+  }
+
   public function getLeftAngleUNTYPED(): EditableNode {
     return $this->_left_angle;
   }
@@ -169,6 +176,13 @@ final class VarrayTypeSpecifier extends EditableNode {
     return TypeAssert\instance_of(LessThanToken::class, $this->_left_angle);
   }
 
+  /**
+   * @returns LessThanToken
+   */
+  public function getLeftAnglex(): LessThanToken {
+    return $this->getLeftAngle();
+  }
+
   public function getTypeUNTYPED(): EditableNode {
     return $this->_type;
   }
@@ -191,11 +205,19 @@ final class VarrayTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns SimpleTypeSpecifier | VarrayTypeSpecifier | DarrayTypeSpecifier |
+   * @returns DarrayTypeSpecifier | SimpleTypeSpecifier | VarrayTypeSpecifier |
    * VectorArrayTypeSpecifier
    */
   public function getType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);
+  }
+
+  /**
+   * @returns DarrayTypeSpecifier | SimpleTypeSpecifier | VarrayTypeSpecifier |
+   * VectorArrayTypeSpecifier
+   */
+  public function getTypex(): EditableNode {
+    return $this->getType();
   }
 
   public function getTrailingCommaUNTYPED(): EditableNode {
@@ -226,6 +248,13 @@ final class VarrayTypeSpecifier extends EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_trailing_comma);
   }
 
+  /**
+   * @returns Missing
+   */
+  public function getTrailingCommax(): EditableNode {
+    return $this->getTrailingComma();
+  }
+
   public function getRightAngleUNTYPED(): EditableNode {
     return $this->_right_angle;
   }
@@ -252,5 +281,12 @@ final class VarrayTypeSpecifier extends EditableNode {
    */
   public function getRightAngle(): GreaterThanToken {
     return TypeAssert\instance_of(GreaterThanToken::class, $this->_right_angle);
+  }
+
+  /**
+   * @returns GreaterThanToken
+   */
+  public function getRightAnglex(): GreaterThanToken {
+    return $this->getRightAngle();
   }
 }
