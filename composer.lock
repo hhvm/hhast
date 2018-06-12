@@ -125,25 +125,25 @@
         },
         {
             "name": "hhvm/hsl",
-            "version": "v3.27.0",
+            "version": "v3.26.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/hsl.git",
-                "reference": "f43f027681402f0a6807325400a761106fa10274"
+                "reference": "e046cdba90c8204d9b329ad25ce134e9845761eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/hsl/zipball/f43f027681402f0a6807325400a761106fa10274",
-                "reference": "f43f027681402f0a6807325400a761106fa10274",
+                "url": "https://api.github.com/repos/hhvm/hsl/zipball/e046cdba90c8204d9b329ad25ce134e9845761eb",
+                "reference": "e046cdba90c8204d9b329ad25ce134e9845761eb",
                 "shasum": ""
             },
             "require": {
-                "hhvm": "^3.27.0",
+                "hhvm": "^3.26.0",
                 "hhvm/hhvm-autoload": "^1.4"
             },
             "require-dev": {
                 "91carriage/phpunit-hhi": "^5.7",
-                "facebook/fbexpect": "^1.0.0",
+                "facebook/fbexpect": "^0.4",
                 "phpunit/phpunit": "^5.7"
             },
             "type": "library",
@@ -152,7 +152,7 @@
                 "MIT"
             ],
             "description": "The Hack Standard Library",
-            "time": "2018-06-07T01:25:22+00:00"
+            "time": "2018-05-08T22:54:05+00:00"
         },
         {
             "name": "hhvm/type-assert",
