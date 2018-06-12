@@ -52,7 +52,9 @@ final class CodegenCLI extends CLIBase {
     if ($rebuild_relationships) {
       $hhvm = $this->hhvmPath;
       if ($hhvm === null) {
-        \fprintf(\STDERR, "--hhvm-path is required when rebuilding relationships.\n");
+        $this->getStderr()->write(
+          "--hhvm-path is required when rebuilding relationships.\n",
+         );
         return 1;
       }
       $relationships = dict[];

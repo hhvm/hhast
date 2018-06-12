@@ -13,7 +13,11 @@ namespace Facebook\HHAST\__Private;
 use type Facebook\TypeAssert\TypeAssert;
 use namespace Facebook\HHAST\Linters;
 use namespace HH\Lib\{C, Dict, Str, Vec};
-use type Facebook\CLILib\CLIWithArguments;
+
+use type Facebook\CLILib\{
+  CLIWithArguments,
+  ExitException,
+};
 use namespace Facebook\CLILib\CLIOptions;
 
 final class LinterCLI extends CLIWithArguments {
@@ -112,11 +116,10 @@ final class LinterCLI extends CLIWithArguments {
     } else if (\is_dir($path)) {
       return $this->lintDirectory($config, $path);
     } else {
-      \printf(
-        "'%s' doesn't appear to be a file or directory, bailing\n",
-        $path,
+      throw new ExitException(
+        1,
+        Str\format("'%s' doesn't appear to be a file or directory, bailing", $path),
       );
-      exit(1);
     }
   }
 
@@ -145,13 +148,13 @@ final class LinterCLI extends CLIWithArguments {
   }
 
   private async function mainImplAsync(): Awaitable<int> {
+    $err = $this->getStderr();
     $roots = $this->getArguments();
     if (C\is_empty($roots)) {
       $config = LinterCLIConfig::getForPath(\getcwd());
       $roots = $config->getRoots();
       if (C\is_empty($roots)) {
-        \fwrite(
-          \STDERR,
+        $err->write(
           "You must either specify PATH arguments, or provide a configuration".
           "file.\n",
         );
@@ -163,8 +166,7 @@ final class LinterCLI extends CLIWithArguments {
         if (\is_dir($path)) {
           $config_file = $path.'/hhast-lint.json';
           if (\file_exists($config_file)) {
-            \fwrite(
-              \STDOUT,
+            $this->getStdout()->write(
               "Warning: PATH arguments contain a hhast-lint.json, ".
               "which modifies the linters used and customizes behavior. ".
               "Consider 'cd ".$root."; vendor/bin/hhast-lint'\n\n",
@@ -268,12 +270,12 @@ final class LinterCLI extends CLIWithArguments {
     }
 
     $prefix_lines = ($code, $prefix) ==>
-      \explode("\n", $code)
+      Str\split($code, "\n")
       |> Vec\map(
         $$,
         $line ==> $prefix.$line,
       )
-      |> \implode("\n", $$);
+      |> Str\join($$, "\n");
 
 
     $colors = $this->supportsColors();
@@ -342,10 +344,11 @@ final class LinterCLI extends CLIWithArguments {
         case '':
           return false;
         default:
-          \fprintf(
-            \STDERR,
-            "'%s' is not a valid response.\n",
-            $response,
+          $this->getStderr()->write(
+            Str\format(
+              "'%s' is not a valid response.\n",
+              $response,
+            ),
           );
           $response = null;
       }
@@ -365,12 +368,12 @@ final class LinterCLI extends CLIWithArguments {
     \printf(
       "  Code:\n%s%s%s\n",
       $colors ? "\e[33m" : '',
-      \explode("\n", $blame)
+      Str\split($blame, "\n")
       |> Vec\map(
         $$,
         $line ==> '  >'.$line,
       )
-      |> \implode("\n", $$),
+      |> Str\join($$, "\n"),
       $colors ? "\e[0m" : '',
     );
   }

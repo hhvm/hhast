@@ -43,14 +43,15 @@ final class InspectorCLI extends CLIWithRequiredArguments {
 
   <<__Override>>
   public async function mainAsync(): Awaitable<int> {
+    $err = $this->getStderr();
     if (C\count($this->getArguments()) !== 1) {
-      \fwrite(\STDERR, "Provide exactly one file name\n");
+      $err->write("Provide exactly one file name\n");
       return 1;
     }
 
     $input = C\onlyx($this->getArguments());
     if (!\is_file($input)) {
-      \fwrite(\STDERR, "Provided path is not a file.\n");
+      $err->write("Provided path is not a file.\n");
       return 1;
     }
 
