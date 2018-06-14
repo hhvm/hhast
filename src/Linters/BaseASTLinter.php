@@ -11,7 +11,6 @@
 namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\EditableNode;
-use type Facebook\HHAST\__Private\ScopedPerfCounter;
 use namespace Facebook\HHAST;
 use namespace Facebook\HHAST\Linters\SuppressASTLinter;
 
@@ -29,9 +28,6 @@ abstract class BaseASTLinter<T as HHAST\EditableNode, +Terror as ASTLintError<T>
 
   private static function getASTFromFile(string $file): HHAST\EditableNode {
     static $cache = null;
-
-    using (new ScopedPerfCounter(static::class.'#getASTFromFile'));
-    using (new ScopedPerfCounter(self::class.'#getASTFromFile'));
 
     $hash = \sha1(\file_get_contents($file), /* raw = */ true);
     if ($cache !== null && $cache['hash'] === $hash) {
