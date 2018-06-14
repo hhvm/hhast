@@ -10,11 +10,11 @@
 
 namespace Facebook\HHAST\__Private;
 
+use type Facebook\CLILib\OutputInterface;
 use namespace Facebook\HHAST\Linters;
 use namespace HH\Lib\{C, Vec};
 
 final class LinterCLIErrorHandlerJSON implements LinterCLIErrorHandler {
-
   const type TOutput = shape(
     'passed' => bool,
     'errors' => vec<self::TOutputError>,
@@ -39,6 +39,13 @@ final class LinterCLIErrorHandlerJSON implements LinterCLIErrorHandler {
 
   private vec<self::TOutputError> $errors = vec[];
 
+  public function __construct(
+    private OutputInterface $stdout,
+    OutputInterface $_stderr,
+  ) {
+  }
+
+
   public function processErrors(
     Linters\BaseLinter $linter,
     LinterCLIConfig::TFileConfig $config,
@@ -53,7 +60,7 @@ final class LinterCLIErrorHandlerJSON implements LinterCLIErrorHandler {
   }
 
   public function print(): void {
-    print \json_encode($this->getOutput());
+    $this->stdout->write(\json_encode($this->getOutput()));
   }
 
   private function getOutput(): self::TOutput {

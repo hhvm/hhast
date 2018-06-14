@@ -170,11 +170,11 @@ final class LinterCLI extends CLIWithArguments {
     }
 
     $error_handler = $this->json
-      ? new LinterCLIErrorHandlerJSON()
+      ? new LinterCLIErrorHandlerJSON($this->getStdout(), $this->getStderr())
       : new LinterCLIErrorHandlerPlain(shape(
         'supports_colors' => $this->supportsColors(),
         'is_interactive' => $this->isInteractive(),
-      ));
+      ), $this->getStdout(), $this->getStderr());
 
     foreach ($roots as $root) {
       $root_config = $config ?? LinterCLIConfig::getForPath($root);
