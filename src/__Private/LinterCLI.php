@@ -79,6 +79,7 @@ final class LinterCLI extends CLIWithArguments {
   private async function mainImplAsync(): Awaitable<int> {
     $err = $this->getStderr();
     $roots = $this->getArguments();
+
     if (C\is_empty($roots)) {
       $config = LintRunConfig::getForPath(\getcwd());
       $roots = $config->getRoots();
@@ -95,7 +96,7 @@ final class LinterCLI extends CLIWithArguments {
         if (\is_dir($path)) {
           $config_file = $path.'/hhast-lint.json';
           if (\file_exists($config_file)) {
-            $this->getStdout()->write(
+            $err->write(
               "Warning: PATH arguments contain a hhast-lint.json, ".
               "which modifies the linters used and customizes behavior. ".
               "Consider 'cd ".
@@ -115,6 +116,8 @@ final class LinterCLI extends CLIWithArguments {
       case LinterCLIMode::JSON:
         $error_handler = new LinterCLIErrorHandlerJSON($this->getTerminal());
         break;
+      case LinterCLIMode::LSP:
+        return await (new LSPServer($this->getTerminal()))->mainAsync();
     }
 
     (new LintRun($config, $error_handler, $roots))->run();

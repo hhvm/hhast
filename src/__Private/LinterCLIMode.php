@@ -13,4 +13,5 @@ namespace Facebook\HHAST\__Private;
 enum LinterCLIMode: string {
   PLAIN = 'plain';
   JSON = 'json';
+  LSP = 'lsp';
 }

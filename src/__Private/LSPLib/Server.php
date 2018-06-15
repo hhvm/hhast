@@ -19,6 +19,7 @@ abstract class Server {
   abstract const keyset<classname<Command>> COMMANDS;
 
   private dict<string, Command> $commands;
+  private bool $inited = false;
 
   public function __construct() {
     $this->commands = Dict\pull(
@@ -26,6 +27,14 @@ abstract class Server {
       $class ==> new $class(),
       $class ==> $class::COMMAND,
     );
+  }
+
+  <<__Memoize>>
+  final public async function waitForInitAsync(): Awaitable<void> {
+    while (!$this->inited) {
+      /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
+      await \HH\Asio\later();
+    }
   }
 
   final public async function handleMessageAsync(
@@ -54,6 +63,10 @@ abstract class Server {
       )->coerceType($$);
     $result = await $command->executeAsync($params);
     if ($result instanceof Success) {
+      if ($request['method'] === InitializeCommand::COMMAND) {
+        $this->inited = true;
+      }
+
       return self::encodeResponse(shape(
         'jsonrpc' => '2.0',
         'id' => $request['id'],
