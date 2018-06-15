@@ -10,6 +10,7 @@
 
 namespace Facebook\HHAST\__Private;
 
+use type Facebook\CLILib\OutputInterface;
 use namespace Facebook\HHAST\Linters;
 
 /**
@@ -19,7 +20,6 @@ use namespace Facebook\HHAST\Linters;
  * IDEs etc.
  */
 interface LinterCLIErrorHandler {
-
   /**
    * Process a set of errors returned by running an individual linter on a
    * single file
