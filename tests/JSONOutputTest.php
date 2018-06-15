@@ -31,7 +31,7 @@ final class JSONOutputTest extends TestCase {
   }
 
   public function testWithNoErrors(): void {
-    list($cli, $stdout, $stderr) = $this->getCLI('--json', __FILE__);
+    list($cli, $stdout, $stderr) = $this->getCLI('--mode', 'json', __FILE__);
     $exit_code = \HH\Asio\join($cli->mainAsync());
     expect($exit_code)->toBeSame(0);
     expect($stderr->getBuffer())->toBeSame('');
@@ -52,7 +52,8 @@ final class JSONOutputTest extends TestCase {
 
   public function testWithErrors(): void {
     list($cli, $stdout, $stderr) = $this->getCLI(
-      '--json',
+      '--mode',
+      'json',
       __DIR__.'/fixtures/NoPHPEqualityLinter/double_equals.php.in',
     );
     $exit_code = \HH\Asio\join($cli->mainAsync());
