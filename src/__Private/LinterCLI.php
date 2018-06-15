@@ -22,7 +22,8 @@ use namespace Facebook\CLILib\CLIOptions;
 
 final class LinterCLI extends CLIWithArguments {
   private bool $xhprof = false;
-  private bool $json = false;
+  private LinterCLIMode $mode = LinterCLIMode::PLAIN;
+
 
   use CLIWithVerbosityTrait;
 
@@ -48,10 +49,13 @@ final class LinterCLI extends CLIWithArguments {
         'Enable XHProf profiling',
         '--xhprof',
       ),
-      CLIOptions\flag(
-        () ==> { $this->json = true; },
-        'Output JSON for machine consumption',
-        '--json',
+      CLIOptions\with_required_enum(
+        LinterCLIMode::class,
+        $m ==> { $this->mode = $m; },
+        'Set the output mode; supported values are '.
+        Str\join(LinterCLIMode::getValues(), ' | '),
+        '--mode',
+        '-m',
       ),
       $this->getVerbosityOption(),
     ];
@@ -169,12 +173,14 @@ final class LinterCLI extends CLIWithArguments {
       $config = null;
     }
 
-    $error_handler = $this->json
-      ? new LinterCLIErrorHandlerJSON($this->getStdout(), $this->getStderr())
-      : new LinterCLIErrorHandlerPlain(shape(
-        'supports_colors' => $this->supportsColors(),
-        'is_interactive' => $this->isInteractive(),
-      ), $this->getStdout(), $this->getStderr());
+    switch ($this->mode) {
+      case LinterCLIMode::PLAIN:
+        $error_handler = new LinterCLIErrorHandlerPlain($this->getTerminal());
+        break;
+      case LinterCLIMode::JSON:
+        $error_handler = new LinterCLIErrorHandlerJSON($this->getTerminal());
+        break;
+    }
 
     foreach ($roots as $root) {
       $root_config = $config ?? LinterCLIConfig::getForPath($root);
