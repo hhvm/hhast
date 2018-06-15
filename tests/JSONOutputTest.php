@@ -11,7 +11,8 @@
 
 namespace Facebook\HHAST;
 
-use type Facebook\CLILib\TestLib\StringOutput;
+use type Facebook\CLILib\TestLib\{StringInput, StringOutput};
+use type Facebook\CLILib\Terminal;
 use function Facebook\FBExpect\expect;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Keyset, Vec};
@@ -21,10 +22,12 @@ final class JSONOutputTest extends TestCase {
     string ...$argv
   ): (__Private\LinterCLI, StringOutput, StringOutput) {
     $argv = Vec\concat(vec[__FILE__], $argv);
+    $stdin = new StringInput();
     $stdout = new StringOutput();
     $stderr = new StringOutput();
+    $term = new Terminal($stdin, $stdout, $stderr);
     return
-      tuple(new __Private\LinterCLI($argv, $stdout, $stderr), $stdout, $stderr);
+      tuple(new __Private\LinterCLI($argv, $term), $stdout, $stderr);
   }
 
   public function testWithNoErrors(): void {

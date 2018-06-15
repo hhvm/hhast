@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "facebook/hh-clilib",
-            "version": "v1.0.0",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/hh-clilib.git",
-                "reference": "3a68ccd7c908f5e0e3a95c8b44481d0798bfe16f"
+                "reference": "73e4a705509baa033a6371c76a62e5a0deaa48a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/hh-clilib/zipball/3a68ccd7c908f5e0e3a95c8b44481d0798bfe16f",
-                "reference": "3a68ccd7c908f5e0e3a95c8b44481d0798bfe16f",
+                "url": "https://api.github.com/repos/hhvm/hh-clilib/zipball/73e4a705509baa033a6371c76a62e5a0deaa48a5",
+                "reference": "73e4a705509baa033a6371c76a62e5a0deaa48a5",
                 "shasum": ""
             },
             "require": {
@@ -35,7 +35,7 @@
             "license": [
                 "MIT"
             ],
-            "time": "2018-06-12T16:22:43+00:00"
+            "time": "2018-06-15T18:17:47+00:00"
         },
         {
             "name": "fredemmott/hack-error-suppressor",
@@ -76,16 +76,16 @@
         },
         {
             "name": "hhvm/hhvm-autoload",
-            "version": "v1.6.5",
+            "version": "v1.6.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/hhvm-autoload.git",
-                "reference": "df9098e03e5bf9a05ebdc46ec9588e0da25834d6"
+                "reference": "2808fe06fa850532270c54155c0bdab1bf0f67da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/hhvm-autoload/zipball/df9098e03e5bf9a05ebdc46ec9588e0da25834d6",
-                "reference": "df9098e03e5bf9a05ebdc46ec9588e0da25834d6",
+                "url": "https://api.github.com/repos/hhvm/hhvm-autoload/zipball/2808fe06fa850532270c54155c0bdab1bf0f67da",
+                "reference": "2808fe06fa850532270c54155c0bdab1bf0f67da",
                 "shasum": ""
             },
             "require": {
@@ -98,6 +98,7 @@
             },
             "require-dev": {
                 "91carriage/phpunit-hhi": "^5.5",
+                "facebook/fbexpect": "^1.1",
                 "phpunit/phpunit": "^5.5"
             },
             "bin": [
@@ -121,29 +122,29 @@
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2018-06-06T22:45:48+00:00"
+            "time": "2018-06-12T20:21:07+00:00"
         },
         {
             "name": "hhvm/hsl",
-            "version": "v3.26.0",
+            "version": "v3.27.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/hsl.git",
-                "reference": "e046cdba90c8204d9b329ad25ce134e9845761eb"
+                "reference": "f43f027681402f0a6807325400a761106fa10274"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/hsl/zipball/e046cdba90c8204d9b329ad25ce134e9845761eb",
-                "reference": "e046cdba90c8204d9b329ad25ce134e9845761eb",
+                "url": "https://api.github.com/repos/hhvm/hsl/zipball/f43f027681402f0a6807325400a761106fa10274",
+                "reference": "f43f027681402f0a6807325400a761106fa10274",
                 "shasum": ""
             },
             "require": {
-                "hhvm": "^3.26.0",
+                "hhvm": "^3.27.0",
                 "hhvm/hhvm-autoload": "^1.4"
             },
             "require-dev": {
                 "91carriage/phpunit-hhi": "^5.7",
-                "facebook/fbexpect": "^0.4",
+                "facebook/fbexpect": "^1.0.0",
                 "phpunit/phpunit": "^5.7"
             },
             "type": "library",
@@ -152,7 +153,7 @@
                 "MIT"
             ],
             "description": "The Hack Standard Library",
-            "time": "2018-05-08T22:54:05+00:00"
+            "time": "2018-06-07T01:25:22+00:00"
         },
         {
             "name": "hhvm/type-assert",
