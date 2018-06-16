@@ -15,7 +15,7 @@ use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Keyset, Str, Vec};
 use type Facebook\HHAST\Linters\BaseLinter;
 
-final class LinterCLIConfig {
+final class LintRunConfig {
   const type TConfigFile = shape(
     // Where to lint, eg '[ "src/", "codegen/", "tests/" ]
     'roots' => vec<string>,
