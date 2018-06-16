@@ -14,11 +14,16 @@ use type Facebook\CLILib\ITerminal;
 use namespace HH\Lib\{Tuple, Str};
 
 final class LSPServer extends LSPLib\Server {
-  const keyset<classname<LSPLib\Command>> COMMANDS = keyset[
-    LSPImpl\InitializeCommand::class,
-  ];
+  const keyset<classname<LSPLib\Command>>
+    COMMANDS = keyset[
+      LSPImpl\InitializeCommand::class,
+    ];
 
-  public function __construct(private ITerminal $terminal) {
+  public function __construct(
+    private ITerminal $terminal,
+    private ?LintRunConfig $config,
+    private vec<string> $roots,
+  ) {
     parent::__construct();
   }
 
@@ -42,10 +47,14 @@ final class LSPServer extends LSPLib\Server {
   }
 
   private async function initAsync(): Awaitable<void> {
-    $this->terminal->getStderr()->write("Waiting for init\n");
     await $this->waitForInitAsync();
-    $this->terminal->getStderr()->write("Got Init\n");
-    // TODO: lint!
+    (
+      new LintRun(
+        $this->config,
+        new LintRunLSPErrorHandler($this->terminal),
+        $this->roots,
+      )
+    )->run();
   }
 
   private async function handleOneAsync(): Awaitable<void> {
@@ -79,6 +88,6 @@ final class LSPServer extends LSPLib\Server {
     }
 
     $response = await $this->handleMessageAsync($body);
-    $this->terminal->getStdout()->write($response);
+    $this->terminal->getStdout()->write(Str\format("Content-Length: %d\r\n\r\n%s\n", Str\length($response), $response));
   }
 }
