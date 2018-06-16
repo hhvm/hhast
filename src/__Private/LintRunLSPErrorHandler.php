@@ -53,6 +53,7 @@ final class LintRunLSPErrorHandler implements LintRunErrorHandler {
               |> C\lastx($$)
               |> Str\strip_suffix($$, 'Linter'),
             'message' => $error->getDescription(),
+            'source' => 'HHAST',
           );
         },
       ),
