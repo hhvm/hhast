@@ -47,7 +47,7 @@ final class LinterCLIErrorHandlerJSON implements LinterCLIErrorHandler {
 
   public function processErrors(
     Linters\BaseLinter $linter,
-    LinterCLIConfig::TFileConfig $config,
+    LintRunConfig::TFileConfig $config,
     Traversable<Linters\LintError> $errors,
   ): void {
     $transformed_errors = self::transformErrors($errors);
@@ -58,7 +58,7 @@ final class LinterCLIErrorHandlerJSON implements LinterCLIErrorHandler {
     return !C\is_empty($this->errors);
   }
 
-  public function print(): void {
+  public function printFinalOutput(): void {
     $this->terminal->getStdout()->write(\json_encode($this->getOutput()));
   }
 

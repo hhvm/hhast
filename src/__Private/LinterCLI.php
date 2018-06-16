@@ -61,71 +61,6 @@ final class LinterCLI extends CLIWithArguments {
     ];
   }
 
-  private function lintFile(
-    LinterCLIConfig $config,
-    string $path,
-    LinterCLIErrorHandler $error_handler,
-  ): void {
-    $this->verbosePrintf(1, "Linting %s...\n", $path);
-
-    $all_errors = vec[];
-    $config = $config->getConfigForFile($path);
-
-    foreach ($config['linters'] as $class) {
-      $this->verbosePrintf(2, " - %s\n", $class);
-
-      if (!$class::shouldLintFile($path)) {
-        continue;
-      }
-
-      $linter = new $class($path);
-
-      if ($linter->isLinterSuppressedForFile()) {
-        continue;
-      }
-
-      $errors = $linter->getLintErrors();
-      $error_handler->processErrors($linter, $config, $errors);
-    }
-  }
-
-  private function lintDirectory(
-    LinterCLIConfig $config,
-    string $path,
-    LinterCLIErrorHandler $error_handler,
-  ): void {
-    $it = new \RecursiveIteratorIterator(
-      new \RecursiveDirectoryIterator($path),
-    );
-    foreach ($it as $info) {
-      if (!$info->isFile()) {
-        continue;
-      }
-      $ext = Str\lowercase($info->getExtension());
-      if ($ext === 'hh' || $ext === 'php') {
-        $file = $info->getPathname();
-        $this->lintFile($config, $file, $error_handler);
-      }
-    }
-  }
-
-  private function lintPath(
-    LinterCLIConfig $config,
-    string $path,
-    LinterCLIErrorHandler $error_handler,
-  ): void {
-    if (\is_file($path)) {
-      $this->lintFile($config, $path, $error_handler);
-    } else if (\is_dir($path)) {
-      $this->lintDirectory($config, $path, $error_handler);
-    } else {
-      throw new ExitException(
-        1,
-        Str\format("'%s' doesn't appear to be a file or directory, bailing", $path),
-      );
-    }
-  }
-
   <<__Override>>
   public async function mainAsync(): Awaitable<int> {
     if ($this->xhprof) {
@@ -145,7 +80,7 @@ final class LinterCLI extends CLIWithArguments {
     $err = $this->getStderr();
     $roots = $this->getArguments();
     if (C\is_empty($roots)) {
-      $config = LinterCLIConfig::getForPath(\getcwd());
+      $config = LintRunConfig::getForPath(\getcwd());
       $roots = $config->getRoots();
       if (C\is_empty($roots)) {
         $err->write(
@@ -182,12 +117,9 @@ final class LinterCLI extends CLIWithArguments {
         break;
     }
 
-    foreach ($roots as $root) {
-      $root_config = $config ?? LinterCLIConfig::getForPath($root);
-      $this->lintPath($root_config, $root, $error_handler);
-    }
+    (new LintRun($config, $error_handler, $roots))->run();
 
-    $error_handler->print();
+    $error_handler->printFinalOutput();
     return $error_handler->hadErrors() ? 2 : 0;
   }
 }

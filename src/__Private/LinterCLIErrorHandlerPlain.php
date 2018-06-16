@@ -24,7 +24,7 @@ final class LinterCLIErrorHandlerPlain implements LinterCLIErrorHandler {
 
   public function processErrors(
     Linters\BaseLinter $linter,
-    LinterCLIConfig::TFileConfig $config,
+    LintRunConfig::TFileConfig $config,
     Traversable<Linters\LintError> $errors,
   ): void {
     $class = \get_class($linter);
@@ -73,7 +73,7 @@ final class LinterCLIErrorHandlerPlain implements LinterCLIErrorHandler {
     return $this->had_errors;
   }
 
-  public function print(): void {
+  public function printFinalOutput(): void {
     if (!$this->hadErrors()) {
       $this->terminal->getStdout()->write("No errors.\n");
     }
@@ -156,10 +156,7 @@ final class LinterCLIErrorHandlerPlain implements LinterCLIErrorHandler {
         "\e[94mWould you like to apply this fix?\e[0m\n".
         "  \e[37m[y]es/[N]o/yes to [a]ll/n[o] to all:\e[0m "
       );
-      $response = \fgets(\STDIN);
-      if ($response === false) {
-        return false;
-      }
+      $response = \HH\Asio\join($this->terminal->getStdin()->readLineAsync());
       $response = Str\trim($response);
       switch ($response) {
         case 'a':
