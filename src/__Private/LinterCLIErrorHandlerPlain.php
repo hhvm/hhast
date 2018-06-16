@@ -10,23 +10,16 @@
 
 namespace Facebook\HHAST\__Private;
 
-use type Facebook\CLILib\OutputInterface;
+use type Facebook\CLILib\ITerminal;
 use namespace Facebook\HHAST\Linters;
 use namespace HH\Lib\{C, Str, Vec};
 
 final class LinterCLIErrorHandlerPlain implements LinterCLIErrorHandler {
 
-  const type TLinterCLIErrorHandlerPlainArgs = shape(
-    'supports_colors' => bool,
-    'is_interactive' => bool,
-  );
-
   private bool $had_errors = false;
 
   public function __construct(
-    private self::TLinterCLIErrorHandlerPlainArgs $args,
-    private OutputInterface $stdout,
-    private OutputInterface $stderr,
+    private ITerminal $terminal,
   ) {}
 
   public function processErrors(
@@ -36,11 +29,11 @@ final class LinterCLIErrorHandlerPlain implements LinterCLIErrorHandler {
   ): void {
     $class = \get_class($linter);
     $to_fix = vec[];
-    $colors = $this->args['supports_colors'];
+    $colors = $this->terminal->supportsColors();
 
     foreach ($errors as $error) {
       $position = $error->getPosition();
-      $this->stdout->write(Str\format(
+      $this->terminal->getStdout()->write(Str\format(
         "%s%s%s\n".
         "  %sLinter: %s%s\n".
         "  Location: %s\n",
@@ -82,7 +75,7 @@ final class LinterCLIErrorHandlerPlain implements LinterCLIErrorHandler {
 
   public function print(): void {
     if (!$this->hadErrors()) {
-      $this->stdout->write("No errors.\n");
+      $this->terminal->getStdout()->write("No errors.\n");
     }
   }
 
@@ -116,9 +109,6 @@ final class LinterCLIErrorHandlerPlain implements LinterCLIErrorHandler {
       )
       |> Str\join($$, "\n");
 
-
-    $colors = $this->args['supports_colors'];
-
     if ($error->shouldRenderBlameAndFixAsDiff()) {
       $blame_color = "\e[31m"; // red
       $blame_marker = '-';
@@ -131,7 +121,8 @@ final class LinterCLIErrorHandlerPlain implements LinterCLIErrorHandler {
       $fix_color = "\e[33m"; // yellow
     }
 
-    $this->stdout->write(Str\format(
+    $colors = $this->terminal->supportsColors();
+    $this->terminal->getStdout()->write(Str\format(
       "  Code:\n".
       "%s%s%s\n".
       "  Suggested fix:\n".
@@ -144,7 +135,7 @@ final class LinterCLIErrorHandlerPlain implements LinterCLIErrorHandler {
       $colors ? "\e[0m" : '',
     ));
 
-    if (!$this->args['is_interactive']) {
+    if (!$this->terminal->isInteractive()) {
       return false;
     }
 
@@ -152,7 +143,7 @@ final class LinterCLIErrorHandlerPlain implements LinterCLIErrorHandler {
     $cache_key = \get_class($error->getLinter());
     if (C\contains_key($cache, $cache_key)) {
       $should_fix = $cache[$cache_key];
-      $this->stdout->write(Str\format(
+      $this->terminal->getStdout()->write(Str\format(
         "Would you like to apply this fix?\n  <%s to all>\n",
         $should_fix ? 'yes' : 'no',
       ));
@@ -161,7 +152,7 @@ final class LinterCLIErrorHandlerPlain implements LinterCLIErrorHandler {
 
     $response = null;
     do {
-      $this->stdout->write(
+      $this->terminal->getStdout()->write(
         "\e[94mWould you like to apply this fix?\e[0m\n".
         "  \e[37m[y]es/[N]o/yes to [a]ll/n[o] to all:\e[0m "
       );
@@ -183,7 +174,7 @@ final class LinterCLIErrorHandlerPlain implements LinterCLIErrorHandler {
         case '':
           return false;
         default:
-          $this->stderr->write(Str\format(
+          $this->terminal->getStderr()->write(Str\format(
             "'%s' is not a valid response.\n",
             $response,
           ));
@@ -201,8 +192,8 @@ final class LinterCLIErrorHandlerPlain implements LinterCLIErrorHandler {
       return;
     }
 
-    $colors = $this->args['supports_colors'];
-    $this->stdout->write(Str\format(
+    $colors = $this->terminal->supportsColors();
+    $this->terminal->getStdout()->write(Str\format(
       "  Code:\n%s%s%s\n",
       $colors ? "\e[33m" : '',
       Str\split($blame, "\n")

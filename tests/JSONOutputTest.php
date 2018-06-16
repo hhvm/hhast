@@ -11,7 +11,8 @@
 
 namespace Facebook\HHAST;
 
-use type Facebook\CLILib\TestLib\StringOutput;
+use type Facebook\CLILib\TestLib\{StringInput, StringOutput};
+use type Facebook\CLILib\Terminal;
 use function Facebook\FBExpect\expect;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Keyset, Vec};
@@ -21,14 +22,16 @@ final class JSONOutputTest extends TestCase {
     string ...$argv
   ): (__Private\LinterCLI, StringOutput, StringOutput) {
     $argv = Vec\concat(vec[__FILE__], $argv);
+    $stdin = new StringInput();
     $stdout = new StringOutput();
     $stderr = new StringOutput();
+    $term = new Terminal($stdin, $stdout, $stderr);
     return
-      tuple(new __Private\LinterCLI($argv, $stdout, $stderr), $stdout, $stderr);
+      tuple(new __Private\LinterCLI($argv, $term), $stdout, $stderr);
   }
 
   public function testWithNoErrors(): void {
-    list($cli, $stdout, $stderr) = $this->getCLI('--json', __FILE__);
+    list($cli, $stdout, $stderr) = $this->getCLI('--mode', 'json', __FILE__);
     $exit_code = \HH\Asio\join($cli->mainAsync());
     expect($exit_code)->toBeSame(0);
     expect($stderr->getBuffer())->toBeSame('');
@@ -49,7 +52,8 @@ final class JSONOutputTest extends TestCase {
 
   public function testWithErrors(): void {
     list($cli, $stdout, $stderr) = $this->getCLI(
-      '--json',
+      '--mode',
+      'json',
       __DIR__.'/fixtures/NoPHPEqualityLinter/double_equals.php.in',
     );
     $exit_code = \HH\Asio\join($cli->mainAsync());
