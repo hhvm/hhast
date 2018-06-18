@@ -17,18 +17,21 @@ use type Facebook\TypeAssert\TypeCoercionException;
 use namespace HH\Lib\{Dict, Str};
 
 abstract class Server<TState as ServerState> {
-  abstract protected function getSupportedCommands(): vec<Command>;
+  abstract protected function getSupportedServerCommands(): vec<ServerCommand>;
 
   abstract protected function getSupportedClientNotifications(
   ): vec<ClientNotification>;
 
-  private dict<string, Command> $commands = dict[];
+  private dict<string, ServerCommand> $commands = dict[];
   private dict<string, ClientNotification> $notifications = dict[];
   private bool $inited = false;
 
-  public function __construct(protected TState $state) {
+  public function __construct(
+    protected Client $client,
+    protected TState $state,
+  ) {
     $this->commands = Dict\pull(
-      $this->getSupportedCommands(),
+      $this->getSupportedServerCommands(),
       $class ==> $class,
       $class ==> $class::METHOD,
     );
@@ -37,20 +40,6 @@ abstract class Server<TState as ServerState> {
       $class ==> $class,
       $class ==> $class::METHOD,
     );
-  }
-
-  abstract protected function sendMessage(LSP\Message $message): void;
-
-  final protected function sendResponseMessage(
-    LSP\ResponseMessage $message,
-  ): void {
-    $this->sendMessage($message);
-  }
-
-  final protected function sendNotificationMessage(
-    LSP\NotificationMessage $message,
-  ): void {
-    $this->sendMessage($message);
   }
 
   final public async function handleMessageAsync(
@@ -71,6 +60,15 @@ abstract class Server<TState as ServerState> {
       $json,
     );
     if ($was_notification) {
+      return;
+    }
+
+    $was_response = await $this->tryHandleMessageTypeAsync(
+      type_alias_structure(LSP\ResponseMessage::class),
+      async $x ==> {},
+      $json,
+    );
+    if ($was_response) {
       return;
     }
 
@@ -117,7 +115,7 @@ abstract class Server<TState as ServerState> {
   ): Awaitable<void> {
     $command = $this->commands[$request['method']] ?? null;
     if ($command === null) {
-      $this->sendResponseMessage(
+      $this->client->sendResponseMessage(
         shape(
           'jsonrpc' => '2.0',
           'id' => $request['id'],
@@ -137,7 +135,7 @@ abstract class Server<TState as ServerState> {
       )->coerceType($$);
     $result = await $command->executeAsync($params);
     if ($result instanceof Success) {
-      $this->sendResponseMessage(shape(
+      $this->client->sendResponseMessage(shape(
         'jsonrpc' => '2.0',
         'id' => $request['id'],
         'result' => $result->getResult(),
@@ -146,7 +144,7 @@ abstract class Server<TState as ServerState> {
     }
 
     $error = $result->getError();
-    $this->sendResponseMessage(shape(
+    $this->client->sendResponseMessage(shape(
       'jsonrpc' => '2.0',
       'id' => $request['id'],
       'error' => $result->getError()->asResponseError(),

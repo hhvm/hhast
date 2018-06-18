@@ -10,7 +10,7 @@
 
 namespace Facebook\HHAST\__Private\LSPLib;
 
-abstract class Command {
+abstract class ServerCommand {
   abstract const string METHOD;
   abstract const type TParams;
   abstract const type TResponse;

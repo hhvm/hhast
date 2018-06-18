@@ -10,8 +10,8 @@
 
 namespace Facebook\HHAST\__Private\LSP;
 
-type ResponseError<T> = shape(
+type ResponseError = shape(
   'code' => int,
   'message' => string,
-  ?'data' => T,
+  ?'data' => mixed,
 );

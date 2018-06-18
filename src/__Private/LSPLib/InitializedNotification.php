@@ -10,7 +10,6 @@
 
 namespace Facebook\HHAST\__Private\LSPLib;
 
-<<__ConsistentConstruct>>
 class InitializedNotification<TState as ServerState> extends ClientNotification {
   const string METHOD = 'initialized';
   const type TParams = mixed;

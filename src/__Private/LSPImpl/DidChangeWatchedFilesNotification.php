@@ -17,10 +17,10 @@ use type Facebook\HHAST\__Private\{
 };
 use type Facebook\CLILib\ITerminal;
 use namespace Facebook\HHAST\__Private\{LSP, LSPLib};
-use namespace HH\Lib\Str;
+use namespace HH\Lib\{Str, Vec};
 
-final class DidSaveTextDocumentNotification
-  extends LSPLib\DidSaveTextDocumentNotification {
+final class DidChangeWatchedFilesNotification
+  extends LSPLib\DidChangeWatchedFilesNotification {
 
   public function __construct(
     private LSPLib\Client $client,
@@ -30,11 +30,13 @@ final class DidSaveTextDocumentNotification
 
   <<__Override>>
   public async function executeAsync(self::TParams $p): Awaitable<void> {
-    $uri = $p['textDocument']['uri'];
-    if (!Str\starts_with($uri, 'file://')) {
-      return;
-    }
-
-    relint_uris($this->client, $this->config, vec[$uri]);
+    $uris = $p['changes']
+      |> Vec\filter(
+        $$,
+        $change ==> $change['type'] !== LSP\FileChangeType::DELETED,
+      )
+      |> Vec\map($$, $change ==> $change['uri'])
+      |> Vec\filter($$, $uri ==> Str\starts_with($uri, 'file://'));
+    relint_uris($this->client, $this->config, $uris);
   }
 }
