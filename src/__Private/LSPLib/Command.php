@@ -12,7 +12,7 @@ namespace Facebook\HHAST\__Private\LSPLib;
 
 <<__ConsistentConstruct>>
 abstract class Command {
-  abstract const string COMMAND;
+  abstract const string METHOD;
   abstract const type TParams;
   abstract const type TResponse;
   abstract const type TErrorCode as int;

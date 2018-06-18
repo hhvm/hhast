@@ -13,7 +13,7 @@ namespace Facebook\HHAST\__Private\LSPLib;
 use namespace Facebook\HHAST\__Private\LSP;
 
 abstract class InitializeCommand extends Command {
-  const string COMMAND = 'initialize';
+  const string METHOD = 'initialize';
   const type TParams = LSP\InitializeParams;
   const type TResponse = LSP\InitializeResult;
   const type TErrorCode = LSP\InitializeErrorCode;

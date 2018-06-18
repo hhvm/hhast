@@ -10,7 +10,7 @@
 
 namespace Facebook\HHAST\__Private;
 
-use type Facebook\CLILib\ITerminal;
+use type Facebook\CLILib\{ITerminal, Terminal};
 use namespace HH\Lib\{Tuple, Str};
 
 final class LSPServer extends LSPLib\Server {
@@ -18,12 +18,27 @@ final class LSPServer extends LSPLib\Server {
     COMMANDS = keyset[
       LSPImpl\InitializeCommand::class,
     ];
+  private ITerminal $terminal;
 
   public function __construct(
-    private ITerminal $terminal,
+    ITerminal $terminal,
     private ?LintRunConfig $config,
     private vec<string> $roots,
   ) {
+    $this->terminal = new Terminal(
+      new LoggingInputTap(
+        $terminal->getStdin(),
+        \fopen('/tmp/lsp_in', 'r+'),
+      ),
+      new LoggingOutputTap(
+        $terminal->getStdout(),
+        \fopen('/tmp/lsp_out', 'r+'),
+      ),
+      new LoggingOutputTap(
+        $terminal->getStderr(),
+        \fopen('/tmp/lsp_err', 'r+'),
+      )
+    );
     parent::__construct();
   }
 
@@ -101,7 +116,18 @@ final class LSPServer extends LSPLib\Server {
       invariant($length >= 0, 'negative bytes remaining');
     }
 
-    $response = await $this->handleMessageAsync($body);
-    $this->terminal->getStdout()->write(Str\format("Content-Length: %d\r\n\r\n%s\n", Str\length($response), $response));
+    await $this->handleMessageAsync($body);
+  }
+
+  protected function sendMessage(LSP\Message $message): void {
+    $json = \json_encode($message);
+    $this->terminal->getStderr()->write("Sending JSON: ".$json."\n");
+    $this->terminal
+      ->getStdout()
+      ->write(Str\format(
+        "Content-Length: %d\r\n\r\n%s",
+        Str\length($json),
+        $json,
+      ));
   }
 }

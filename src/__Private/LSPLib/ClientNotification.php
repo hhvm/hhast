@@ -10,9 +10,10 @@
 
 namespace Facebook\HHAST\__Private\LSPLib;
 
-use namespace Facebook\HHAST\__Private\LSP;
+<<__ConsistentConstruct>>
+abstract class ClientNotification {
+  abstract const string METHOD;
+  abstract const type TParams;
 
-final class PublishDiagnosticsNotification extends ServerNotification {
-  const string METHOD = 'textDocument/publishDiagnostics';
-  const type TParams = LSP\PublishDiagnosticsParams;
+  abstract public function executeAsync(this::TParams $in): Awaitable<void>;
 }

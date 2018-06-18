@@ -63,7 +63,7 @@ final class LintRunLSPErrorHandler implements LintRunErrorHandler {
       ->getStdout()
       ->write(
         Str\format(
-          "Content-Length: %d\r\n\r\n%s\r\n",
+          "Content-Length: %d\r\n\r\n%s",
           Str\length($encoded),
           $encoded,
         ),

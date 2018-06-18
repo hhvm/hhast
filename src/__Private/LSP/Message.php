@@ -12,4 +12,5 @@ namespace Facebook\HHAST\__Private\LSP;
 
 type Message = shape(
   'jsonrpc' => string,
+  ...
 );
