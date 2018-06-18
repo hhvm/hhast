@@ -77,13 +77,15 @@ final class LSPServer extends LSPLib\Server {
 
   private async function initAsync(): Awaitable<void> {
     await $this->waitForInitAsync();
+    $handler = new LintRunLSPErrorHandler($this->terminal);
     (
       new LintRun(
         $this->config,
-        new LintRunLSPErrorHandler($this->terminal),
+        $handler,
         $this->roots,
       )
     )->run();
+    $handler->printFinalOutput();
   }
 
   private async function handleOneAsync(): Awaitable<void> {
@@ -121,7 +123,6 @@ final class LSPServer extends LSPLib\Server {
 
   protected function sendMessage(LSP\Message $message): void {
     $json = \json_encode($message);
-    $this->terminal->getStderr()->write("Sending JSON: ".$json."\n");
     $this->terminal
       ->getStdout()
       ->write(Str\format(
