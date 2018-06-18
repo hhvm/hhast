@@ -16,20 +16,17 @@ use namespace Facebook\TypeSpec;
 use type Facebook\TypeAssert\TypeCoercionException;
 use namespace HH\Lib\{Dict, Str};
 
-abstract class Server {
-  protected function getSupportedCommands(): vec<Command> {
-    return vec[];
-  }
+abstract class Server<TState as ServerState> {
+  abstract protected function getSupportedCommands(): vec<Command>;
 
-  protected function getSupportedClientNotifications(): vec<ClientNotification> {
-    return vec[new InitializedNotification()];
-  }
+  abstract protected function getSupportedClientNotifications(
+  ): vec<ClientNotification>;
 
   private dict<string, Command> $commands = dict[];
   private dict<string, ClientNotification> $notifications = dict[];
   private bool $inited = false;
 
-  public function __construct() {
+  public function __construct(protected TState $state) {
     $this->commands = Dict\pull(
       $this->getSupportedCommands(),
       $class ==> $class,
@@ -54,14 +51,6 @@ abstract class Server {
     LSP\NotificationMessage $message,
   ): void {
     $this->sendMessage($message);
-  }
-
-  <<__Memoize>>
-  final public async function waitForInitAsync(): Awaitable<void> {
-    while (!$this->inited) {
-      /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
-      await \HH\Asio\later();
-    }
   }
 
   final public async function handleMessageAsync(
@@ -97,10 +86,7 @@ abstract class Server {
     string $json,
   ): Awaitable<bool> {
     try {
-      $message = self::jsonDecode(
-        $type_structure,
-        $json,
-      );
+      $message = self::jsonDecode($type_structure, $json);
     } catch (TypeCoercionException $_) {
       return false;
     }

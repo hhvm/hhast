@@ -18,20 +18,11 @@ use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Keyset, Vec};
 
 final class JSONOutputTest extends TestCase {
-  private function getCLI(
-    string ...$argv
-  ): (__Private\LinterCLI, StringOutput, StringOutput) {
-    $argv = Vec\concat(vec[__FILE__], $argv);
-    $stdin = new StringInput();
-    $stdout = new StringOutput();
-    $stderr = new StringOutput();
-    $term = new Terminal($stdin, $stdout, $stderr);
-    return
-      tuple(new __Private\LinterCLI($argv, $term), $stdout, $stderr);
-  }
+  use LinterCLITestTrait;
 
   public function testWithNoErrors(): void {
-    list($cli, $stdout, $stderr) = $this->getCLI('--mode', 'json', __FILE__);
+    list($cli, $_, $stdout, $stderr) =
+      $this->getCLI('--mode', 'json', __FILE__);
     $exit_code = \HH\Asio\join($cli->mainAsync());
     expect($exit_code)->toBeSame(0);
     expect($stderr->getBuffer())->toBeSame('');
@@ -51,7 +42,7 @@ final class JSONOutputTest extends TestCase {
   }
 
   public function testWithErrors(): void {
-    list($cli, $stdout, $stderr) = $this->getCLI(
+    list($cli, $_, $stdout, $stderr) = $this->getCLI(
       '--mode',
       'json',
       __DIR__.'/fixtures/NoPHPEqualityLinter/double_equals.php.in',

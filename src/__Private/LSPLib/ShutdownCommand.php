@@ -12,12 +12,12 @@ namespace Facebook\HHAST\__Private\LSPLib;
 
 use namespace Facebook\HHAST\__Private\LSP;
 
-class InitializeCommand<TState as ServerState> extends Command {
-  const string METHOD = 'initialize';
-  const type TParams = LSP\InitializeParams;
-  const type TResponse = LSP\InitializeResult;
-  const type TErrorCode = LSP\InitializeErrorCode;
-  const type TErrorData = LSP\InitializeError;
+class ShutdownCommand<TState as ServerState> extends Command {
+  const string METHOD = 'shutdown';
+  const type TParams = mixed;
+  const type TResponse = mixed;
+  const type TErrorCode = int;
+  const type TErrorData = mixed;
 
   const LSP\ServerCapabilities SERVER_CAPABILITIES = shape();
 
@@ -28,8 +28,7 @@ class InitializeCommand<TState as ServerState> extends Command {
   public async function executeAsync(
     self::TParams $_,
   ): Awaitable<this::TExecuteResult> {
-    $this->state->setStatus(ServerStatus::INITIALIZING);
-    return
-      static::success(shape('capabilities' => static::SERVER_CAPABILITIES));
+    $this->state->setStatus(ServerStatus::SHUTTING_DOWN);
+    return static::success(null);
   }
 }

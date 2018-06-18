@@ -12,19 +12,14 @@ namespace Facebook\HHAST\__Private\LSPImpl;
 
 use namespace Facebook\HHAST\__Private\{LSP, LSPLib};
 
-final class InitializeCommand extends LSPLib\InitializeCommand {
-  <<__Override>>
-  public async function executeAsync(
-    self::TParams $_,
-  ): Awaitable<self::TExecuteResult> {
-    return self::success(shape(
-      'capabilities' => shape(
-        'textDocumentSync' => shape(
-          'save' => shape(
-            'includeText' => false,
-          ),
-        ),
+final class InitializeCommand
+extends LSPLib\InitializeCommand<LSPLib\ServerState> {
+
+  const LSP\ServerCapabilities SERVER_CAPABILITIES = shape(
+    'textDocumentSync' => shape(
+      'save' => shape(
+        'includeText' => false,
       ),
-    ));
-  }
+    )
+  );
 }

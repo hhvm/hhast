@@ -10,35 +10,36 @@
 
 namespace Facebook\HHAST\__Private;
 
-use type Facebook\CLILib\{ITerminal, Terminal};
+use type Facebook\CLILib\{ExitException, ITerminal, Terminal};
 use namespace HH\Lib\{Str, Tuple, Vec};
 
-final class LSPServer extends LSPLib\Server {
+final class LSPServer extends LSPLib\Server<LSPLib\ServerState> {
   public function __construct(
     private ITerminal $terminal,
     private ?LintRunConfig $config,
     private vec<string> $roots,
   ) {
-    parent::__construct();
+    parent::__construct(new LSPLib\ServerState());
   }
 
   <<__Override>>
   protected function getSupportedCommands(): vec<LSPLib\Command> {
     return vec[
-      new LSPImpl\InitializeCommand(),
+      new LSPImpl\InitializeCommand($this->state),
+      new LSPLib\ShutdownCommand($this->state),
     ];
   }
 
   <<__Override>>
   protected function getSupportedClientNotifications(
   ): vec<LSPLib\ClientNotification> {
-    $new = vec[
+    return vec[
       new LSPImpl\DidSaveTextDocumentNotification(
         $this->terminal,
         $this->config,
       ),
+      new LSPImpl\ExitNotification($this->state),
     ];
-    return Vec\concat(parent::getSupportedClientNotifications(), $new);
   }
 
   public async function mainAsync(): Awaitable<int> {
@@ -51,6 +52,8 @@ final class LSPServer extends LSPLib\Server {
           await $this->initAsync();
         },
       );
+    } catch (ExitException $e) {
+      return $e->getCode();
     } catch (\Throwable $e) {
       $this->terminal
         ->getStderr()
@@ -76,7 +79,11 @@ final class LSPServer extends LSPLib\Server {
   }
 
   private async function initAsync(): Awaitable<void> {
-    await $this->waitForInitAsync();
+    await $this->state->waitForInitAsync();
+    if ($this->state->getStatus() !== LSPLib\ServerStatus::INITIALIZED) {
+      return;
+    }
+
     $handler = new LintRunLSPErrorHandler($this->terminal);
     (new LintRun($this->config, $handler, $this->roots))->run();
     $handler->printFinalOutput();
