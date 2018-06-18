@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d3e383c9972aec1b863058e99b459e3f",
+    "content-hash": "b8981db4f6f199cc6229bc4daef10b13",
     "packages": [
         {
             "name": "facebook/hh-clilib",
-            "version": "v1.1.0",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/hh-clilib.git",
-                "reference": "73e4a705509baa033a6371c76a62e5a0deaa48a5"
+                "reference": "b8ac1045c4333bca3444a454d7f0297f82c2af9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/hh-clilib/zipball/73e4a705509baa033a6371c76a62e5a0deaa48a5",
-                "reference": "73e4a705509baa033a6371c76a62e5a0deaa48a5",
+                "url": "https://api.github.com/repos/hhvm/hh-clilib/zipball/b8ac1045c4333bca3444a454d7f0297f82c2af9f",
+                "reference": "b8ac1045c4333bca3444a454d7f0297f82c2af9f",
                 "shasum": ""
             },
             "require": {
@@ -35,7 +35,7 @@
             "license": [
                 "MIT"
             ],
-            "time": "2018-06-15T18:17:47+00:00"
+            "time": "2018-06-15T23:05:53+00:00"
         },
         {
             "name": "fredemmott/hack-error-suppressor",
