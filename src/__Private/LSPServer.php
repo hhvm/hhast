@@ -28,14 +28,28 @@ final class LSPServer extends LSPLib\Server {
   }
 
   public async function mainAsync(): Awaitable<int> {
-    await Tuple\from_async(
-      async {
-        await $this->mainLoopAsync();
-      },
-      async {
-        await $this->initAsync();
-      },
-    );
+    try {
+      await Tuple\from_async(
+        async {
+          await $this->mainLoopAsync();
+        },
+        async {
+          await $this->initAsync();
+        },
+      );
+    } catch (\Throwable $e) {
+      $this->terminal
+        ->getStderr()
+        ->write(
+          Str\format(
+            "Uncaught exception: %s:\n%s\n%s\n",
+            \get_class($e),
+            $e->getMessage(),
+            $e->getTraceAsString(),
+          ),
+        );
+      throw $e;
+    }
     return 0;
   }
 
