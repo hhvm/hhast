@@ -28,6 +28,7 @@ final class DidSaveTextDocumentNotification
   ) {
   }
 
+  <<__Override>>
   public async function executeAsync(self::TParams $p): Awaitable<void> {
     $uri = $p['textDocument']['uri'];
     if (!Str\starts_with($uri, 'file://')) {

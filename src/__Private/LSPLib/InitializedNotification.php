@@ -15,6 +15,7 @@ class InitializedNotification extends ClientNotification {
   const string METHOD = 'initialized';
   const type TParams = mixed;
 
+  <<__Override>>
   public async function executeAsync(this::TParams $_in): Awaitable<void> {
   }
 }

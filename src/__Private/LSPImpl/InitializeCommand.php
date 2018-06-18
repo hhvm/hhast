@@ -13,6 +13,7 @@ namespace Facebook\HHAST\__Private\LSPImpl;
 use namespace Facebook\HHAST\__Private\{LSP, LSPLib};
 
 final class InitializeCommand extends LSPLib\InitializeCommand {
+  <<__Override>>
   public async function executeAsync(
     self::TParams $_,
   ): Awaitable<self::TExecuteResult> {

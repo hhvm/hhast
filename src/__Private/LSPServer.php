@@ -42,6 +42,7 @@ final class LSPServer extends LSPLib\Server {
     ];
   }
 
+  <<__Override>>
   protected function getSupportedClientNotifications(
   ): vec<LSPLib\ClientNotification> {
     $new = vec[
@@ -82,6 +83,7 @@ final class LSPServer extends LSPLib\Server {
   private async function mainLoopAsync(): Awaitable<void> {
     $stdin = $this->terminal->getStdin();
     while (!$stdin->isEof()) {
+      /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
       await $this->handleOneAsync();
     }
   }
@@ -99,6 +101,7 @@ final class LSPServer extends LSPLib\Server {
 
     // read headers
     while (true) {
+      /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
       $line = await $stdin->readLineAsync();
       $line = Str\trim($line);
       if ($line === '') {
@@ -117,6 +120,7 @@ final class LSPServer extends LSPLib\Server {
     // read body
     $body = '';
     while ($length > 0 && !$stdin->isEof()) {
+      /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
       $part = await $stdin->readAsync($length);
       $body .= $part;
       $length -= Str\length($part);
@@ -126,6 +130,7 @@ final class LSPServer extends LSPLib\Server {
     await $this->handleMessageAsync($body);
   }
 
+  <<__Override>>
   protected function sendMessage(LSP\Message $message): void {
     $json = \json_encode($message);
     $this->terminal

@@ -21,14 +21,17 @@ final class Error<TResult, TErrorCode as int, TErrorData>
   ) {
   }
 
+  <<__Override>>
   public function isSuccess(): bool {
     return false;
   }
 
+  <<__Override>>
   public function getResult(): TResult {
     invariant_violation('%s should not be called on %s', __METHOD__, __CLASS__);
   }
 
+  <<__Override>>
   public function getError(): this {
     return $this;
   }
