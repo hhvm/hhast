@@ -33,7 +33,7 @@ final class LSPServerTest extends TestCase {
 
     $exit_code = \HH\Asio\join($cli->mainAsync());
     expect($exit_code)->toBeSame(1);
-    expect($err->getBuffer())->toBeEmpty();
+    expect($err->getBuffer())->toBeSame('');
   }
 
   public function testExitAfterShutdown(): void {
@@ -60,7 +60,7 @@ final class LSPServerTest extends TestCase {
 
     $exit_code = \HH\Asio\join($cli->mainAsync());
     expect($exit_code)->toBeSame(0);
-    expect($err->getBuffer())->toBeEmpty();
+    expect($err->getBuffer())->toBeSame('');
   }
 
   private function messageToRPC(LSP\Message $data): string {

@@ -11,10 +11,7 @@
 namespace Facebook\HHAST\__Private\LSPImpl;
 
 use type Facebook\HHAST\__Private\{
-  LintRunConfig,
-  LintRunLSPErrorHandler,
-  LintRun,
-};
+  LintRunConfig, LintRunLSPErrorHandler, LintRun};
 use namespace Facebook\HHAST\__Private\{LSP, LSPImpl, LSPLib};
 use type Facebook\CLILib\{ExitException, ITerminal, Terminal};
 use namespace HH\Lib\{Str, Tuple, Vec};
@@ -88,9 +85,6 @@ final class Server extends LSPLib\Server<LSPLib\ServerState> {
   private async function initAsync(): Awaitable<void> {
     await $this->state->waitForInitAsync();
     if ($this->state->getStatus() !== LSPLib\ServerStatus::INITIALIZED) {
-      $this->terminal
-        ->getStderr()
-        ->write("bad status: ".$this->state->getStatus()."\n");
       return;
     }
 
