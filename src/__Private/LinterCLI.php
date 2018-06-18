@@ -14,16 +14,13 @@ use type Facebook\TypeAssert\TypeAssert;
 use namespace Facebook\HHAST\Linters;
 use namespace HH\Lib\{C, Dict, Str, Vec};
 
-use type Facebook\CLILib\{
-  CLIWithArguments,
-  ExitException,
-};
+use type Facebook\CLILib\{CLIWithArguments, ExitException, Terminal};
 use namespace Facebook\CLILib\CLIOptions;
 
 final class LinterCLI extends CLIWithArguments {
   private bool $xhprof = false;
   private LinterCLIMode $mode = LinterCLIMode::PLAIN;
-
+  private ?string $ioLogPrefix = null;
 
   use CLIWithVerbosityTrait;
 
@@ -37,7 +34,10 @@ final class LinterCLI extends CLIWithArguments {
     return vec[
       CLIOptions\flag(
         () ==> {
-          throw new ExitException(1, "--perf is no longer supported; consider --xhprof");
+          throw new ExitException(
+            1,
+            "--perf is no longer supported; consider --xhprof",
+          );
         },
         '[unsupported]',
         '--perf',
@@ -51,11 +51,20 @@ final class LinterCLI extends CLIWithArguments {
       ),
       CLIOptions\with_required_enum(
         LinterCLIMode::class,
-        $m ==> { $this->mode = $m; },
+        $m ==> {
+          $this->mode = $m;
+        },
         'Set the output mode; supported values are '.
         Str\join(LinterCLIMode::getValues(), ' | '),
         '--mode',
         '-m',
+      ),
+      CLIOptions\with_required_string(
+        $s ==> {
+          $this->ioLogPrefix = $s;
+        },
+        'Log STDIN, STDERR, and STDOUT to files with the specified prefixes',
+        '--io-log-prefix',
       ),
       $this->getVerbosityOption(),
     ];
@@ -109,15 +118,35 @@ final class LinterCLI extends CLIWithArguments {
       $config = null;
     }
 
+    $terminal = $this->getTerminal();
+    $log_prefix = $this->ioLogPrefix;
+    if ($log_prefix !== null) {
+      $terminal = new Terminal(
+        new LoggingInputTap(
+          $terminal->getStdin(),
+          \fopen($log_prefix.'in', 'w+'),
+        ),
+        new LoggingOutputTap(
+          $terminal->getStdout(),
+          \fopen($log_prefix.'out', 'w+'),
+        ),
+        new LoggingOutputTap(
+          $terminal->getStderr(),
+          \fopen($log_prefix.'err', 'w+'),
+        ),
+      );
+    }
+
     switch ($this->mode) {
       case LinterCLIMode::PLAIN:
-        $error_handler = new LintRunCLIErrorHandler($this->getTerminal());
+        $error_handler = new LintRunCLIErrorHandler($terminal);
         break;
       case LinterCLIMode::JSON:
-        $error_handler = new LintRunJSONErrorHandler($this->getTerminal());
+        $error_handler = new LintRunJSONErrorHandler($terminal);
         break;
       case LinterCLIMode::LSP:
-        return await (new LSPServer($this->getTerminal(), $config, $roots))->mainAsync();
+        return await (new LSPServer($terminal, $config, $roots))
+          ->mainAsync();
     }
 
     (new LintRun($config, $error_handler, $roots))->run();

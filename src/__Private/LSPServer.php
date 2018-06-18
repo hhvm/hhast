@@ -14,24 +14,11 @@ use type Facebook\CLILib\{ITerminal, Terminal};
 use namespace HH\Lib\{Str, Tuple, Vec};
 
 final class LSPServer extends LSPLib\Server {
-  private ITerminal $terminal;
-
   public function __construct(
-    ITerminal $terminal,
+    private ITerminal $terminal,
     private ?LintRunConfig $config,
     private vec<string> $roots,
   ) {
-    $this->terminal = new Terminal(
-      new LoggingInputTap($terminal->getStdin(), \fopen('/tmp/lsp_in', 'w+')),
-      new LoggingOutputTap(
-        $terminal->getStdout(),
-        \fopen('/tmp/lsp_out', 'w+'),
-      ),
-      new LoggingOutputTap(
-        $terminal->getStderr(),
-        \fopen('/tmp/lsp_err', 'w+'),
-      ),
-    );
     parent::__construct();
   }
 
