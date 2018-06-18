@@ -40,15 +40,16 @@ final class LintRunLSPErrorHandler implements LintRunErrorHandler {
   ): LSP\Diagnostic {
     $position = $error->getPosition() ?? tuple(0, 0);
     $start = shape('line' => $position[0] - 1, 'character' => $position[1]);
+    $source = \get_class($linter)
+      |> Str\split($$, "\\")
+      |> C\lastx($$)
+      |> Str\strip_suffix($$, 'Linter');
     return shape(
       'range' => shape('start' => $start, 'end' => $start),
       'severity' => LSP\DiagnosticSeverity::WARNING,
-      'code' => \get_class($linter)
-        |> Str\split($$, "\\")
-        |> C\lastx($$)
-        |> Str\strip_suffix($$, 'Linter'),
       'message' => $error->getDescription(),
-      'source' => 'HHAST',
+      'code' => $source,
+      'source' => 'HHAST:'.$source,
     );
   }
 
