@@ -36,7 +36,7 @@ final class Error<TResult, TErrorCode as int, TErrorData>
     return $this;
   }
 
-  public function asResponseError(): LSP\ResponseError<TErrorData> {
+  public function asResponseError(): LSP\ResponseError {
     $s = shape(
       'code' => $this->code,
       'message' => $this->message

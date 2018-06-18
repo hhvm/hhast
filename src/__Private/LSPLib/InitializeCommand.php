@@ -12,7 +12,7 @@ namespace Facebook\HHAST\__Private\LSPLib;
 
 use namespace Facebook\HHAST\__Private\LSP;
 
-class InitializeCommand<TState as ServerState> extends Command {
+class InitializeCommand<TState as ServerState> extends ServerCommand {
   const string METHOD = 'initialize';
   const type TParams = LSP\InitializeParams;
   const type TResponse = LSP\InitializeResult;

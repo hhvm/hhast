@@ -13,7 +13,7 @@ namespace Facebook\HHAST\__Private\LSP;
 type ResponseMessage /* extends Message */ = shape(
   'id' => arraykey,
   ?'result' => mixed,
-  ?'error' => ResponseError<mixed>,
+  ?'error' => ResponseError,
   /* Message */
   'jsonrpc' => string,
 );

@@ -10,12 +10,12 @@
 
 namespace Facebook\HHAST\__Private;
 
-use type Facebook\CLILib\ITerminal;
 use namespace Facebook\HHAST\Linters;
+use namespace Facebook\HHAST\__Private\LSPLib;
 use namespace HH\Lib\{C, Dict, Str, Vec};
 
 final class LintRunLSPErrorHandler implements LintRunErrorHandler {
-  public function __construct(private ITerminal $terminal) {
+  public function __construct(private LSPLib\Client $client) {
   }
 
   private dict<string, vec<LSP\Diagnostic>> $log = dict[];
@@ -65,12 +65,7 @@ final class LintRunLSPErrorHandler implements LintRunErrorHandler {
       'uri' => 'file://'.$file,
       'diagnostics' => $diagnostics,
     )))->asMessage();
-    $json = \json_encode($message);
-    $this->terminal->getStdout()->write(Str\format(
-      "Content-Length: %d\r\n\r\n%s",
-      Str\length($json),
-      $json,
-    ));
+    $this->client->sendNotificationMessage($message);
   }
 
   public function printFinalOutput(): void {

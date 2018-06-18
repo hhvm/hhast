@@ -11,7 +11,10 @@
 namespace Facebook\HHAST\__Private\LSPImpl;
 
 use type Facebook\HHAST\__Private\{
-  LintRunConfig, LintRunLSPErrorHandler, LintRun};
+  LintRunConfig,
+  LintRunLSPErrorHandler,
+  LintRun,
+};
 use namespace Facebook\HHAST\__Private\{LSP, LSPImpl, LSPLib};
 use type Facebook\CLILib\{ExitException, ITerminal, Terminal};
 use namespace HH\Lib\{Str, Tuple, Vec};
@@ -22,11 +25,14 @@ final class Server extends LSPLib\Server<LSPLib\ServerState> {
     private ?LintRunConfig $config,
     private vec<string> $roots,
   ) {
-    parent::__construct(new LSPLib\ServerState());
+    parent::__construct(
+      new LSPImpl\Client($terminal),
+      new LSPLib\ServerState(),
+    );
   }
 
   <<__Override>>
-  protected function getSupportedCommands(): vec<LSPLib\Command> {
+  protected function getSupportedServerCommands(): vec<LSPLib\ServerCommand> {
     return vec[
       new LSPImpl\InitializeCommand($this->state),
       new LSPLib\ShutdownCommand($this->state),
@@ -38,11 +44,11 @@ final class Server extends LSPLib\Server<LSPLib\ServerState> {
   ): vec<LSPLib\ClientNotification> {
     return vec[
       new LSPImpl\DidSaveTextDocumentNotification(
-        $this->terminal,
+        $this->client,
         $this->config,
       ),
       new LSPImpl\ExitNotification($this->state),
-      new LSPLib\InitializedNotification($this->state),
+      new LSPImpl\InitializedNotification($this->client, $this->state),
     ];
   }
 
@@ -88,7 +94,7 @@ final class Server extends LSPLib\Server<LSPLib\ServerState> {
       return;
     }
 
-    $handler = new LintRunLSPErrorHandler($this->terminal);
+    $handler = new LintRunLSPErrorHandler($this->client);
     (new LintRun($this->config, $handler, $this->roots))->run();
     $handler->printFinalOutput();
   }
@@ -126,15 +132,5 @@ final class Server extends LSPLib\Server<LSPLib\ServerState> {
     }
 
     await $this->handleMessageAsync($body);
-  }
-
-  <<__Override>>
-  protected function sendMessage(LSP\Message $message): void {
-    $json = \json_encode($message);
-    $this->terminal
-      ->getStdout()
-      ->write(
-        Str\format("Content-Length: %d\r\n\r\n%s", Str\length($json), $json),
-      );
   }
 }
