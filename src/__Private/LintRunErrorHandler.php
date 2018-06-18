@@ -15,7 +15,7 @@ use namespace Facebook\HHAST\Linters;
 
 /**
  * Interface for creating custom handlers for lint errors that are found during
- * a hhast-lint CLI run. Some examples of hander actions are generating human
+ * a hhast-lint run. Some examples of hander actions are generating human
  * readable output and diffs, interactive autofixing, JSON-formatted output for
  * IDEs etc.
  */
@@ -29,4 +29,14 @@ interface LintRunErrorHandler {
     LintRunConfig::TFileConfig $config,
     Traversable<Linters\LintError> $errors
   ): void;
+
+  /**
+   * Check whether this handler has seen any (unfixed) lint errors
+   */
+  public function hadErrors(): bool;
+
+  /**
+   * Print the final output of the linter after all errors have been processed
+   */
+  public function printFinalOutput(): void;
 }

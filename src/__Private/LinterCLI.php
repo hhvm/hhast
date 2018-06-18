@@ -111,10 +111,10 @@ final class LinterCLI extends CLIWithArguments {
 
     switch ($this->mode) {
       case LinterCLIMode::PLAIN:
-        $error_handler = new LinterCLIErrorHandlerPlain($this->getTerminal());
+        $error_handler = new LintRunCLIErrorHandler($this->getTerminal());
         break;
       case LinterCLIMode::JSON:
-        $error_handler = new LinterCLIErrorHandlerJSON($this->getTerminal());
+        $error_handler = new LintRunJSONErrorHandler($this->getTerminal());
         break;
       case LinterCLIMode::LSP:
         return await (new LSPServer($this->getTerminal(), $config, $roots))->mainAsync();

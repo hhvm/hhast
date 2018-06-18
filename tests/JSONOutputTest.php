@@ -43,7 +43,7 @@ final class JSONOutputTest extends TestCase {
       \JSON_FB_HACK_ARRAYS,
     );
     $data = TypeAssert\matches_type_structure(
-      type_structure(__Private\LinterCLIErrorHandlerJSON::class, 'TOutput'),
+      type_structure(__Private\LintRunJSONErrorHandler::class, 'TOutput'),
       $data,
     );
     expect($data['passed'])->toBeTrue();
@@ -67,7 +67,7 @@ final class JSONOutputTest extends TestCase {
       \JSON_FB_HACK_ARRAYS,
     );
     $data = TypeAssert\matches_type_structure(
-      type_structure(__Private\LinterCLIErrorHandlerJSON::class, 'TOutput'),
+      type_structure(__Private\LintRunJSONErrorHandler::class, 'TOutput'),
       $data,
     );
     expect($data['passed'])->toBeFalse();

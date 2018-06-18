@@ -14,7 +14,7 @@ use type Facebook\CLILib\ITerminal;
 use namespace Facebook\HHAST\Linters;
 use namespace HH\Lib\{C, Str, Vec};
 
-final class LinterCLIErrorHandlerPlain implements LinterCLIErrorHandler {
+final class LintRunCLIErrorHandler implements LintRunErrorHandler {
 
   private bool $had_errors = false;
 

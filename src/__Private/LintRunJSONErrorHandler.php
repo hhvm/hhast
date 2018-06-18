@@ -14,7 +14,7 @@ use type Facebook\CLILib\ITerminal;
 use namespace Facebook\HHAST\Linters;
 use namespace HH\Lib\{C, Vec};
 
-final class LinterCLIErrorHandlerJSON implements LinterCLIErrorHandler {
+final class LintRunJSONErrorHandler implements LintRunErrorHandler {
   const type TOutput = shape(
     'passed' => bool,
     'errors' => vec<self::TOutputError>,
