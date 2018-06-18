@@ -8,12 +8,18 @@
  *
  */
 
-namespace Facebook\HHAST\__Private;
+namespace Facebook\HHAST\__Private\LSPImpl;
 
+use type Facebook\HHAST\__Private\{
+  LintRunConfig,
+  LintRunLSPErrorHandler,
+  LintRun,
+};
+use namespace Facebook\HHAST\__Private\{LSP, LSPImpl, LSPLib};
 use type Facebook\CLILib\{ExitException, ITerminal, Terminal};
 use namespace HH\Lib\{Str, Tuple, Vec};
 
-final class LSPServer extends LSPLib\Server<LSPLib\ServerState> {
+final class Server extends LSPLib\Server<LSPLib\ServerState> {
   public function __construct(
     private ITerminal $terminal,
     private ?LintRunConfig $config,
