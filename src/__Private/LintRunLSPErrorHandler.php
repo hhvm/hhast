@@ -47,7 +47,7 @@ final class LintRunLSPErrorHandler implements LintRunErrorHandler {
           $start = shape('line' => $position[0] - 1, 'character' => $position[1]);
           return shape(
             'range' => shape('start' => $start, 'end' => $start),
-            'severity' => LSP\DiagnosticSeverity::ERROR,
+            'severity' => LSP\DiagnosticSeverity::WARNING,
             'code' => \get_class($linter)
               |> Str\split($$, "\\")
               |> C\lastx($$)
@@ -68,5 +68,8 @@ final class LintRunLSPErrorHandler implements LintRunErrorHandler {
           $encoded,
         ),
       );
+  }
+
+  final public function printFinalOutput(): void {
   }
 }
