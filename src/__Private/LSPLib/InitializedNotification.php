@@ -11,11 +11,15 @@
 namespace Facebook\HHAST\__Private\LSPLib;
 
 <<__ConsistentConstruct>>
-class InitializedNotification extends ClientNotification {
+class InitializedNotification<TState as ServerState> extends ClientNotification {
   const string METHOD = 'initialized';
   const type TParams = mixed;
 
+  public function __construct(protected TState $state) {
+  }
+
   <<__Override>>
   public async function executeAsync(this::TParams $_in): Awaitable<void> {
+    $this->state->setStatus(ServerStatus::INITIALIZED);
   }
 }

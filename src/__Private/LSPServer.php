@@ -39,6 +39,7 @@ final class LSPServer extends LSPLib\Server<LSPLib\ServerState> {
         $this->config,
       ),
       new LSPImpl\ExitNotification($this->state),
+      new LSPLib\InitializedNotification($this->state),
     ];
   }
 
@@ -81,6 +82,9 @@ final class LSPServer extends LSPLib\Server<LSPLib\ServerState> {
   private async function initAsync(): Awaitable<void> {
     await $this->state->waitForInitAsync();
     if ($this->state->getStatus() !== LSPLib\ServerStatus::INITIALIZED) {
+      $this->terminal
+        ->getStderr()
+        ->write("bad status: ".$this->state->getStatus()."\n");
       return;
     }
 
