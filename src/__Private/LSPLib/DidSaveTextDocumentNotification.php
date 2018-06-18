@@ -10,9 +10,9 @@
 
 namespace Facebook\HHAST\__Private\LSPLib;
 
-abstract class ClientNotification {
-  abstract const string METHOD;
-  abstract const type TParams;
+use namespace Facebook\HHAST\__Private\LSP;
 
-  abstract public function executeAsync(this::TParams $in): Awaitable<void>;
+abstract class DidSaveTextDocumentNotification extends ClientNotification {
+  const string METHOD = 'textDocument/didSave';
+  const type TParams = LSP\DidSaveTextDocumentParams;
 }

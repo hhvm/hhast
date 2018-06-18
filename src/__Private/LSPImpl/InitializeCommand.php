@@ -18,7 +18,11 @@ final class InitializeCommand extends LSPLib\InitializeCommand {
   ): Awaitable<self::TExecuteResult> {
     return self::success(shape(
       'capabilities' => shape(
-        // Yeah, we don't do much :/
+        'textDocumentSync' => shape(
+          'save' => shape(
+            'includeText' => false,
+          ),
+        ),
       ),
     ));
   }

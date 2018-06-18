@@ -12,8 +12,8 @@ namespace Facebook\HHAST\__Private\LSP;
 
 type TextDocumentSyncOptions = shape(
   ?'openClose' => bool,
-  ?'change' => int,
+  ?'change' => TextDocumentSyncKind,
   ?'willSave' => bool,
   ?'willSaveWaitUntil' => bool,
-  ?'save' => bool,
+  ?'save' => SaveOptions,
 );

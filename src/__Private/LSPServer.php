@@ -11,13 +11,9 @@
 namespace Facebook\HHAST\__Private;
 
 use type Facebook\CLILib\{ITerminal, Terminal};
-use namespace HH\Lib\{Tuple, Str};
+use namespace HH\Lib\{Str, Tuple, Vec};
 
 final class LSPServer extends LSPLib\Server {
-  const keyset<classname<LSPLib\Command>>
-    COMMANDS = keyset[
-      LSPImpl\InitializeCommand::class,
-    ];
   private ITerminal $terminal;
 
   public function __construct(
@@ -26,20 +22,35 @@ final class LSPServer extends LSPLib\Server {
     private vec<string> $roots,
   ) {
     $this->terminal = new Terminal(
-      new LoggingInputTap(
-        $terminal->getStdin(),
-        \fopen('/tmp/lsp_in', 'r+'),
-      ),
+      new LoggingInputTap($terminal->getStdin(), \fopen('/tmp/lsp_in', 'w+')),
       new LoggingOutputTap(
         $terminal->getStdout(),
-        \fopen('/tmp/lsp_out', 'r+'),
+        \fopen('/tmp/lsp_out', 'w+'),
       ),
       new LoggingOutputTap(
         $terminal->getStderr(),
-        \fopen('/tmp/lsp_err', 'r+'),
-      )
+        \fopen('/tmp/lsp_err', 'w+'),
+      ),
     );
     parent::__construct();
+  }
+
+  <<__Override>>
+  protected function getSupportedCommands(): vec<LSPLib\Command> {
+    return vec[
+      new LSPImpl\InitializeCommand(),
+    ];
+  }
+
+  protected function getSupportedClientNotifications(
+  ): vec<LSPLib\ClientNotification> {
+    $new = vec[
+      new LSPImpl\DidSaveTextDocumentNotification(
+        $this->terminal,
+        $this->config,
+      ),
+    ];
+    return Vec\concat(parent::getSupportedClientNotifications(), $new);
   }
 
   public async function mainAsync(): Awaitable<int> {
@@ -78,13 +89,7 @@ final class LSPServer extends LSPLib\Server {
   private async function initAsync(): Awaitable<void> {
     await $this->waitForInitAsync();
     $handler = new LintRunLSPErrorHandler($this->terminal);
-    (
-      new LintRun(
-        $this->config,
-        $handler,
-        $this->roots,
-      )
-    )->run();
+    (new LintRun($this->config, $handler, $this->roots))->run();
     $handler->printFinalOutput();
   }
 
@@ -125,10 +130,8 @@ final class LSPServer extends LSPLib\Server {
     $json = \json_encode($message);
     $this->terminal
       ->getStdout()
-      ->write(Str\format(
-        "Content-Length: %d\r\n\r\n%s",
-        Str\length($json),
-        $json,
-      ));
+      ->write(
+        Str\format("Content-Length: %d\r\n\r\n%s", Str\length($json), $json),
+      );
   }
 }

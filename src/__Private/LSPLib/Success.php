@@ -14,14 +14,17 @@ final class Success<TResult, TErrorCode as int, TErrorData> extends SuccessOrErr
   public function __construct(private TResult $result) {
   }
 
+  <<__Override>>
   public function isSuccess(): bool {
     return true;
   }
 
+  <<__Override>>
   public function getResult(): TResult {
     return $this->result;
   }
 
+  <<__Override>>
   public function getError(): Error<TResult, TErrorCode, TErrorData> {
     invariant_violation('%s should not be called on %s', __METHOD__, __CLASS__);
   }

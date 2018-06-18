@@ -14,11 +14,15 @@ use type Facebook\CLILib\ITerminal;
 use namespace Facebook\HHAST\Linters;
 use namespace HH\Lib\{C, Dict, Str, Vec};
 
-final class LintRunLSPErrorHandler implements LintRunErrorHandler {
+final class LintRunLSPErrorHandler implements LinterCLIErrorHandler {
   public function __construct(private ITerminal $terminal) {
   }
 
   private dict<string, vec<LSP\Diagnostic>> $log = dict[];
+
+  public function hadErrors(): bool {
+    return !C\is_empty($this->log);
+  }
 
   public function processErrors(
     Linters\BaseLinter $linter,

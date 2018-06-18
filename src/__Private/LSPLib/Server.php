@@ -17,24 +17,27 @@ use type Facebook\TypeAssert\TypeCoercionException;
 use namespace HH\Lib\{Dict, Str};
 
 abstract class Server {
-  abstract const keyset<classname<Command>> COMMANDS;
-  const keyset<classname<ClientNotification>> NOTIFICATIONS = keyset[
-    InitializedNotification::class,
-  ];
+  protected function getSupportedCommands(): vec<Command> {
+    return vec[];
+  }
 
-  private dict<string, Command> $commands;
-  private dict<string, ClientNotification> $notifications;
+  protected function getSupportedClientNotifications(): vec<ClientNotification> {
+    return vec[new InitializedNotification()];
+  }
+
+  private dict<string, Command> $commands = dict[];
+  private dict<string, ClientNotification> $notifications = dict[];
   private bool $inited = false;
 
   public function __construct() {
     $this->commands = Dict\pull(
-      static::COMMANDS,
-      $class ==> new $class(),
+      $this->getSupportedCommands(),
+      $class ==> $class,
       $class ==> $class::METHOD,
     );
     $this->notifications = Dict\pull(
-      static::NOTIFICATIONS,
-      $class ==> new $class(),
+      $this->getSupportedClientNotifications(),
+      $class ==> $class,
       $class ==> $class::METHOD,
     );
   }
