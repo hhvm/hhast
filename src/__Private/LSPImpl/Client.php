@@ -19,7 +19,7 @@ final class Client extends LSPLib\Client {
 
   <<__Override>>
   protected function sendMessage(LSP\Message $message): void {
-    $json = \json_encode($message);
+    $json = \json_encode($message, \JSON_UNESCAPED_SLASHES);
     $this->terminal
       ->getStdout()
       ->write(

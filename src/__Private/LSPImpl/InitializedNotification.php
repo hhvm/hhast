@@ -26,16 +26,16 @@ final class InitializedNotification
   public async function executeAsync(self::TParams $p): Awaitable<void> {
     $message = (
       new LSPLib\RegisterCapabilityCommand(
-        __FILE__,
+        __CLASS__,
         shape(
           'registrations' => vec[
             shape(
-              'id' => __FILE__,
+              'id' => "relint on watched file change",
               'method' => LSPLib\DidChangeWatchedFilesNotification::METHOD,
               'registerOptions' => shape(
                 'watchers' => vec[
-                  shape('globPattern' => '*.php'),
-                  shape('globPattern' => '*.hh'),
+                  shape('globPattern' => '**/*.php'),
+                  shape('globPattern' => '**/*.hh'),
                 ],
               ),
             ),

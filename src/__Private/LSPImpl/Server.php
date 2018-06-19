@@ -43,10 +43,11 @@ final class Server extends LSPLib\Server<LSPLib\ServerState> {
   protected function getSupportedClientNotifications(
   ): vec<LSPLib\ClientNotification> {
     return vec[
-      new LSPImpl\DidSaveTextDocumentNotification(
+      new LSPImpl\DidChangeWatchedFilesNotification(
         $this->client,
         $this->config,
       ),
+      new LSPImpl\DidSaveTextDocumentNotification($this->client, $this->config),
       new LSPImpl\ExitNotification($this->state),
       new LSPImpl\InitializedNotification($this->client, $this->state),
     ];
