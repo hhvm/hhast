@@ -12,25 +12,43 @@ namespace Facebook\HHAST\Linters;
 
 use namespace HH\Lib\{C, Math, Str, Vec};
 
-final class NewlineAtEndOfFileLinter extends BaseLinter {
+final class NewlineAtEndOfFileLinter
+  extends BaseLinter
+  implements AutoFixingLinter<FixableLintError> {
   <<__Override>>
-  public function getLintErrors(): Traversable<LintError> {
+  public function getLintErrors(): Traversable<FixableLintError> {
     $contents = \file_get_contents($this->getFile());
-    $expected = Str\trim_right($contents)."\n";
+    $trimmed = Str\trim_right($contents);
+    $expected = $trimmed."\n";
     if ($contents === $expected) {
       return vec[];
     }
-    $lines = Str\split($contents, "\n");
+
+    $trailing = Str\slice($contents, Str\length($trimmed));
+    $blame = $trimmed
+      |> Str\split($$, "\n")
+      |> Vec\slice($$, Math\maxva(0, C\count($$) - 3))
+      |> Str\join($$, "\n")
+      |> $$.$trailing;
+
+    $lines = Str\split($contents, "\n") |> C\count($$);
 
     return new BuiltLintError(
       $this,
       "Files should end with a single trailing newline",
     )
-      ->withPosition(tuple(C\count($lines), 0))
-      ->withBlameCode(
-        Vec\slice($lines, Math\maxva(0, C\count($lines) - 3))
-        |> Str\join($$, "\n")
-      )
+      ->withPosition($lines, 0)
+      ->withBlameCode($blame)
+      ->withFix($blame, Str\trim_right($blame)."\n")
       |> vec[$$];
+  }
+
+  public function fixLintErrors(Traversable<FixableLintError> $_): void {
+    \file_put_contents(
+      $this->getFile(),
+      \file_get_contents($this->getFile())
+        |> Str\trim_right($$)
+        |> $$."\n",
+    );
   }
 }

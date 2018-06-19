@@ -1,7 +1,7 @@
 [
     {
-        "blame": "\n\n",
-        "blame_pretty": "\n\n",
+        "blame": "foo();\n\n\/** foo *\/\n\n\n\n",
+        "blame_pretty": "foo();\n\n\/** foo *\/\n\n\n\n",
         "description": "Files should end with a single trailing newline"
     }
 ]
