@@ -66,6 +66,11 @@ final class LinterCLI extends CLIWithArguments {
         'Log STDIN, STDERR, and STDOUT to files with the specified prefixes',
         '--io-log-prefix',
       ),
+      CLIOptions\with_required_string(
+        $_ ==> {},
+        'Name of the caller; intended for use with `--mode json` or `--mode lsp`',
+        '--from',
+      ),
       $this->getVerbosityOption(),
     ];
   }
