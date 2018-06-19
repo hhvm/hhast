@@ -72,6 +72,7 @@ final class LintRunConfig {
   const vec<classname<BaseLinter>>
     NON_DEFAULT_LINTERS = vec[
       Linters\NoStringInterpolationLinter::class,
+      Linters\StrictModeOnlyLinter::class,
       Linters\UseStatementWithAsLinter::class,
     ];
 
