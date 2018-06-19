@@ -10,7 +10,7 @@
 
 namespace Facebook\HHAST\Linters;
 
-class BuiltLintError extends LintError {
+class BuiltLintError extends LintError implements FixableLintError {
   private ?(int, int) $position = null;
 
   <<__Override>>
@@ -18,8 +18,8 @@ class BuiltLintError extends LintError {
     return $this->position;
   }
 
-  final public function withPosition((int, int) $position): this {
-    $this->position = $position;
+  final public function withPosition(int $line, int $character): this {
+    $this->position = tuple($line, $character);
     return $this;
   }
 
@@ -42,6 +42,26 @@ class BuiltLintError extends LintError {
 
   final public function withPrettyBlame(string $b): this {
     $this->prettyBlame = $b;
+    return $this;
+  }
+
+  private ?(string, string) $fix;
+  final public function isFixable(): bool {
+    return $this->fix !== null;
+  }
+
+  final public function getReadableFix(): (string, string) {
+    $fix = $this->fix;
+    invariant($fix !== null, 'Trying to fix unfixable error');
+    return $fix;
+  }
+
+  final public function shouldRenderBlameAndFixAsDiff(): bool {
+    return true;
+  }
+
+  final public function withFix(string $original, string $fixed): this {
+    $this->fix = tuple($original, $fixed);
     return $this;
   }
 }

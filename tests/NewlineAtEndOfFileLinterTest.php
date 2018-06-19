@@ -11,17 +11,15 @@
 namespace Facebook\HHAST;
 
 final class NewlineAtEndOfFileLinterTest extends TestCase {
-  use LinterTestTrait;
+  use AutoFixingLinterTestTrait<Linters\FixableLintError>;
 
-  protected function getLinter(string $file): Linters\BaseLinter {
+  protected function getLinter(
+    string $file,
+  ): Linters\AutoFixingLinter<Linters\FixableLintError> {
     return new Linters\NewlineAtEndOfFileLinter($file);
   }
 
   public function getCleanExamples(): array<array<string>> {
-    return [
-      [ "<?hh\n" ],
-      [ "<?hh\nfoo();\n" ],
-      [ "<?hh\nfoo();\n/* hello */\n" ],
-    ];
+    return [["<?hh\n"], ["<?hh\nfoo();\n"], ["<?hh\nfoo();\n/* hello */\n"]];
   }
 }
