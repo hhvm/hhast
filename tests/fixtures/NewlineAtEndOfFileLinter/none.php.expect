@@ -1,0 +1,7 @@
+[
+    {
+        "blame": "<?hh\n\/\/foo();",
+        "blame_pretty": "<?hh\n\/\/foo();",
+        "description": "Files should end with a single trailing newline"
+    }
+]
