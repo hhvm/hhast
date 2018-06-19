@@ -62,6 +62,7 @@ final class LintRunConfig {
       Linters\AsyncFunctionAndMethodLinter::class,
       Linters\CamelCasedMethodsUnderscoredFunctionsLinter::class,
       Linters\DontAwaitInALoopLinter::class,
+      Linters\NewlineAtEndOfFileLinter::class,
       Linters\NoBasicAssignmentFunctionParameterLinter::class,
       Linters\MustUseBracesForControlFlowLinter::class,
       Linters\MustUseOverrideAttributeLinter::class,

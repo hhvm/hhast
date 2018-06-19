@@ -17,7 +17,7 @@ class LintError {
   ) {
   }
 
-  public function getFile(): string {
+  final public function getFile(): string {
     return $this->linter->getFile();
   }
 
@@ -37,7 +37,7 @@ class LintError {
     return $this->getBlameCode();
   }
 
-  public function getLinter(): BaseLinter {
+  final public function getLinter(): BaseLinter {
     return $this->linter;
   }
 }
