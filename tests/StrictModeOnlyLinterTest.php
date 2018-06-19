@@ -11,7 +11,7 @@
 namespace Facebook\HHAST;
 
 final class StrictModeOnlyLinterTest extends TestCase {
-  use LinterTestTrait;
+  use AutoFixingLinterTestTrait<Linters\FixableASTLintError<MarkupSuffix>>;
 
   protected function getLinter(string $file): Linters\StrictModeOnlyLinter {
     return new Linters\StrictModeOnlyLinter($file);
