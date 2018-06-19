@@ -97,7 +97,16 @@ abstract class Server<TState as ServerState> {
   ): Awaitable<void> {
     $handler = $this->notifications[$notification['method']] ?? null;
     if ($handler === null) {
-      throw new \Exception("Don't know how to handle ".$notification['method']);
+      (
+        new LogMessageNotification(shape(
+          'type' => LSP\MessageType::WARNING,
+          'message' => Str\format(
+            "Don't know how to handle notification method '%s'",
+            $notification['method'],
+          ),
+        ))
+      )->asMessage()
+        |> $this->client->sendNotificationMessage($$);
       return;
     }
     $params = ($notification['params'] ?? null)
@@ -115,17 +124,20 @@ abstract class Server<TState as ServerState> {
   ): Awaitable<void> {
     $command = $this->commands[$request['method']] ?? null;
     if ($command === null) {
-      $this->client->sendResponseMessage(
-        shape(
-          'jsonrpc' => '2.0',
-          'id' => $request['id'],
-          'error' => shape(
-            'code' => LSP\ErrorCode::METHOD_NOT_FOUND,
-            'message' =>
-              Str\format("Command '%s' is not implemented", $request['method']),
+      $this->client
+        ->sendResponseMessage(
+          shape(
+            'jsonrpc' => '2.0',
+            'id' => $request['id'],
+            'error' => shape(
+              'code' => LSP\ErrorCode::METHOD_NOT_FOUND,
+              'message' => Str\format(
+                "Command '%s' is not implemented",
+                $request['method'],
+              ),
+            ),
           ),
-        ),
-      );
+        );
       return;
     }
 
@@ -135,20 +147,22 @@ abstract class Server<TState as ServerState> {
       )->coerceType($$);
     $result = await $command->executeAsync($params);
     if ($result instanceof Success) {
-      $this->client->sendResponseMessage(shape(
-        'jsonrpc' => '2.0',
-        'id' => $request['id'],
-        'result' => $result->getResult(),
-      ));
+      $this->client
+        ->sendResponseMessage(shape(
+          'jsonrpc' => '2.0',
+          'id' => $request['id'],
+          'result' => $result->getResult(),
+        ));
       return;
     }
 
     $error = $result->getError();
-    $this->client->sendResponseMessage(shape(
-      'jsonrpc' => '2.0',
-      'id' => $request['id'],
-      'error' => $result->getError()->asResponseError(),
-    ));
+    $this->client
+      ->sendResponseMessage(shape(
+        'jsonrpc' => '2.0',
+        'id' => $request['id'],
+        'error' => $result->getError()->asResponseError(),
+      ));
     return;
   }
 
