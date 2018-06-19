@@ -2,13 +2,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d39e2c9b65ea478bc7b449b793c931e5>>
+ * @generated SignedSource<<f0cd9a87aca9dfed2595978242f6a45c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class NamespaceGroupUseDeclaration extends EditableNode {
+final class NamespaceGroupUseDeclaration
+  extends EditableNode
+  implements INamespaceUseDeclaration {
 
   private EditableNode $_keyword;
   private EditableNode $_kind;

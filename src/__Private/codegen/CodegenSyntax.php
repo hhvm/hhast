@@ -460,6 +460,8 @@ final class CodegenSyntax extends CodegenBase {
       'FunctionDeclaration' => keyset['IFunctionishDeclaration'],
       'IfStatement' => keyset['IControlFlowStatement'],
       'MethodishDeclaration' => keyset['IFunctionishDeclaration'],
+      'NamespaceUseDeclaration' => keyset['INamespaceUseDeclaration'],
+      'NamespaceGroupUseDeclaration' => keyset['INamespaceUseDeclaration'],
       'SwitchStatement' => keyset['IControlFlowStatement'],
       'WhileStatement' => keyset['IControlFlowStatement', 'ILoopStatement'],
     ];
