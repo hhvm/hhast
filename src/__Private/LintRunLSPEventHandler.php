@@ -14,28 +14,29 @@ use namespace Facebook\HHAST\Linters;
 use namespace Facebook\HHAST\__Private\LSPLib;
 use namespace HH\Lib\{C, Dict, Str, Vec};
 
-final class LintRunLSPErrorHandler implements LintRunErrorHandler {
+final class LintRunLSPEventHandler implements LintRunEventHandler {
   public function __construct(private LSPLib\Client $client) {
   }
 
-  private dict<string, vec<LSP\Diagnostic>> $log = dict[];
+  private ?string $file = null;
+  private vec<LSP\Diagnostic> $errors = vec[];
 
-  public function hadErrors(): bool {
-    return !C\is_empty($this->log);
-  }
-
-  public function processErrors(
+  public function linterRaisedErrors(
     Linters\BaseLinter $linter,
     LintRunConfig::TFileConfig $config,
     Traversable<Linters\LintError> $errors,
-  ): void {
-    $by_files = Dict\group_by($errors, $error ==> $error->getFile());
-    foreach ($by_files as $file => $errors) {
-      $file = \realpath($file);
-      $this->log[$file] =
-        Vec\map($errors, $e ==> $this->asDiagnostic($linter, $e))
-        |> Vec\concat($this->log[$file] ?? vec[], $$);
-    }
+  ): LintAutoFixResult {
+    $file = \realpath($linter->getFile());
+    invariant(
+      $this->file === null || $this->file === $file,
+      "Unexpected file change in lint process",
+    );
+    $this->file = $file;
+    $this->errors = Vec\concat(
+      $this->errors ?? vec[],
+      Vec\map($errors, $e ==> $this->asDiagnostic($linter, $e)),
+    );
+    return LintAutoFixResult::SOME_UNFIXED;
   }
 
   private function asDiagnostic(
@@ -68,13 +69,23 @@ final class LintRunLSPErrorHandler implements LintRunErrorHandler {
     $this->client->sendNotificationMessage($message);
   }
 
-  public function printFinalOutput(): void {
-    foreach ($this->log as $file => $diagnostics) {
-      $diagnostics = Vec\sort_by(
-        $diagnostics,
-        $d ==> $d['range']['start']['line'],
-      );
-      $this->publishDiagnostics($file, $diagnostics);
+  public function finishedFile(string $path, LintRunResult $result): void {
+    $path = \realpath($path);
+    invariant($this->file === null || $this->file === $path, "Unexpected file change");
+
+    $errors = $this->errors;
+
+    if ($result === LintRunResult::NO_ERRORS) {
+      invariant(C\is_empty($errors), "Linter reports no errors, but we have errors");
+    } else {
+      invariant(!C\is_empty($errors), "Linter reports errors, but we have none");
     }
+
+    $this->publishDiagnostics($path, $errors);
+    $this->file = null;
+    $this->errors = vec[];
+  }
+
+  public function finishedRun(LintRunResult $_): void {
   }
 }

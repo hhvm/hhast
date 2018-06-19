@@ -19,24 +19,18 @@ use namespace Facebook\HHAST\Linters;
  * readable output and diffs, interactive autofixing, JSON-formatted output for
  * IDEs etc.
  */
-interface LintRunErrorHandler {
+interface LintRunEventHandler {
   /**
    * Process a set of errors returned by running an individual linter on a
    * single file
    */
-  public function processErrors(
+  public function linterRaisedErrors(
     Linters\BaseLinter $linter,
     LintRunConfig::TFileConfig $config,
-    Traversable<Linters\LintError> $errors
-  ): void;
+    Traversable<Linters\LintError> $errors,
+  ): LintAutoFixResult;
 
-  /**
-   * Check whether this handler has seen any (unfixed) lint errors
-   */
-  public function hadErrors(): bool;
+  public function finishedFile(string $path, LintRunResult $result): void;
 
-  /**
-   * Print the final output of the linter after all errors have been processed
-   */
-  public function printFinalOutput(): void;
+  public function finishedRun(LintRunResult $result): void;
 }

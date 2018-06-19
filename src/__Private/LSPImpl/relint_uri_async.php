@@ -13,7 +13,7 @@ namespace Facebook\HHAST\__Private\LSPImpl;
 use type Facebook\HHAST\__Private\{
   LintRun,
   LintRunConfig,
-  LintRunLSPErrorHandler,
+  LintRunLSPEventHandler,
 };
 use namespace Facebook\HHAST\__Private\{LSP, LSPLib};
 use namespace HH\Lib\Str;
@@ -26,17 +26,6 @@ async function relint_uri_async(
   $path = Str\strip_prefix($uri, 'file://');
   $config = $config ?? LintRunConfig::getForPath($path);
 
-  $handler = (new LintRunLSPErrorHandler($client));
+  $handler = (new LintRunLSPEventHandler($client));
   await (new LintRun($config, $handler, vec[$path]))->runAsync();
-  $handler->printFinalOutput();
-  if ($handler->hadErrors()) {
-    return;
-  }
-  $message = (
-    new LSPLib\PublishDiagnosticsNotification(shape(
-      'uri' => $uri,
-      'diagnostics' => vec[],
-    ))
-  )->asMessage();
-  $client->sendNotificationMessage($message);
 }

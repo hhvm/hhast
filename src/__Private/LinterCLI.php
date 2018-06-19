@@ -144,19 +144,24 @@ final class LinterCLI extends CLIWithArguments {
 
     switch ($this->mode) {
       case LinterCLIMode::PLAIN:
-        $error_handler = new LintRunCLIErrorHandler($terminal);
+        $error_handler = new LintRunCLIEventHandler($terminal);
         break;
       case LinterCLIMode::JSON:
-        $error_handler = new LintRunJSONErrorHandler($terminal);
+        $error_handler = new LintRunJSONEventHandler($terminal);
         break;
       case LinterCLIMode::LSP:
         return await (new LSPImpl\Server($terminal, $config, $roots))
           ->mainAsync();
     }
 
-    await (new LintRun($config, $error_handler, $roots))->runAsync();
+    $result = await (new LintRun($config, $error_handler, $roots))->runAsync();
 
-    $error_handler->printFinalOutput();
-    return $error_handler->hadErrors() ? 2 : 0;
+    switch ($result) {
+      case LintRunResult::NO_ERRORS:
+      case LintRunResult::HAD_AUTOFIXED_ERRORS:
+        return 0;
+      case LintRunResult::HAVE_UNFIXED_ERRORS:
+        return 1;
+    }
   }
 }
