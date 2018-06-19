@@ -39,16 +39,20 @@ final class EditableList extends EditableNode {
     );
   }
 
+  final public function getItems(): vec<EditableNode> {
+    return Vec\map(
+      $this->_children,
+      $child ==> $child instanceof ListItem ? $child->getItem() : $child,
+    );
+  }
+
   final public function getItemsOfType<T as EditableNode>(
     classname<T> $what,
-  ): vec<EditableNode> {
+  ): vec<T> {
     $out = vec[];
-    foreach ($this->_children as $child) {
-      if ($child instanceof ListItem) {
-        $child = $child->getItem();
-      }
-      if ($child instanceof $what) {
-        $out[] = $child;
+    foreach ($this->getItems() as $item) {
+      if ($item instanceof $what) {
+        $out[] = $item;
       }
     }
     return $out;

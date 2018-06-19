@@ -1,8 +1,8 @@
 <?hh // strict
 
-use Herp\Derp;
-use Foo\{Bar, Baz}
-use Foo\Bat;
+use type Herp\Derp;
+use type Foo\{Bar, Baz}
+use type Foo\Bat;
 
 new Derp();
 new Bar();
