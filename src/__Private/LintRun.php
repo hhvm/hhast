@@ -11,7 +11,7 @@
 namespace Facebook\HHAST\__Private;
 
 use type Facebook\CLILib\ExitException;
-use namespace HH\Lib\Str;
+use namespace HH\Lib\{Str, Vec};
 
 final class LintRun {
   public function __construct(
@@ -21,23 +21,25 @@ final class LintRun {
   ) {
   }
 
-  public function run(): void {
-    foreach ($this->paths as $path) {
-      $config = $this->config ?? LintRunConfig::getForPath($path);
-      $this->lintPath($config, $path);
-    }
+  public async function runAsync(): Awaitable<void> {
+    await Vec\map_async(
+      $this->paths,
+      async $path ==> {
+        $config = $this->config ?? LintRunConfig::getForPath($path);
+        await $this->lintPathAsync($config, $path);
+      },
+    );
   }
 
-  private function lintFile(
+  private async function lintFileAsync(
     LintRunConfig $config,
     string $path,
-  ): void {
+  ): Awaitable<void> {
     $all_errors = vec[];
     $config = $config->getConfigForFile($path);
 
     foreach ($config['linters'] as $class) {
       if (!$class::shouldLintFile($path)) {
-
         continue;
       }
 
@@ -47,42 +49,49 @@ final class LintRun {
         continue;
       }
 
-      $errors = $linter->getLintErrors();
+      /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
+      $errors = await $linter->getLintErrorsAsync();
       $this->handler->processErrors($linter, $config, $errors);
     }
   }
 
-  private function lintDirectory(
+  private async function lintDirectoryAsync(
     LintRunConfig $config,
     string $path,
-  ): void {
-    $it = new \RecursiveIteratorIterator(
-      new \RecursiveDirectoryIterator($path),
-    );
+  ): Awaitable<void> {
+    $it =
+      new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($path));
+    $files = vec[];
     foreach ($it as $info) {
       if (!$info->isFile()) {
         continue;
       }
       $ext = Str\lowercase($info->getExtension());
       if ($ext === 'hh' || $ext === 'php') {
-        $file = $info->getPathname();
-        $this->lintFile($config, $file);
+        $files[] = $info->getPathname();
       }
     }
+    await Vec\map_async(
+      $files,
+      async $file ==> await $this->lintFileAsync($config, $file),
+    );
   }
 
-  private function lintPath(
+  private async function lintPathAsync(
     LintRunConfig $config,
     string $path,
-  ): void {
+  ): Awaitable<void> {
     if (\is_file($path)) {
-      $this->lintFile($config, $path);
+      await $this->lintFileAsync($config, $path);
     } else if (\is_dir($path)) {
-      $this->lintDirectory($config, $path);
+      await $this->lintDirectoryAsync($config, $path);
     } else {
       throw new ExitException(
         1,
-        Str\format("'%s' doesn't appear to be a file or directory, bailing", $path),
+        Str\format(
+          "'%s' doesn't appear to be a file or directory, bailing",
+          $path,
+        ),
       );
     }
   }

@@ -154,7 +154,7 @@ final class LinterCLI extends CLIWithArguments {
           ->mainAsync();
     }
 
-    (new LintRun($config, $error_handler, $roots))->run();
+    await (new LintRun($config, $error_handler, $roots))->runAsync();
 
     $error_handler->printFinalOutput();
     return $error_handler->hadErrors() ? 2 : 0;

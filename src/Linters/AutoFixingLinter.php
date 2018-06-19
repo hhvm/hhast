@@ -16,7 +16,7 @@ use namespace Facebook\HHAST;
 interface AutoFixingLinter<Terror as FixableLintError> {
   require extends BaseLinter;
 
-  public function getLintErrors(): Traversable<Terror>;
+  public function getLintErrorsAsync(): Awaitable<Traversable<Terror>>;
 
   public function fixLintErrors(
     Traversable<Terror> $errors,

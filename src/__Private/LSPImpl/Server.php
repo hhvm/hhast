@@ -96,7 +96,7 @@ final class Server extends LSPLib\Server<LSPLib\ServerState> {
     }
 
     $handler = new LintRunLSPErrorHandler($this->client);
-    (new LintRun($this->config, $handler, $this->roots))->run();
+    await (new LintRun($this->config, $handler, $this->roots))->runAsync();
     $handler->printFinalOutput();
   }
 

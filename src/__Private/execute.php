@@ -16,13 +16,5 @@ use namespace HH\Lib\Vec;
 // * returns a result rather than filling an out-parameter
 // * throws on error
 function execute(string ...$args): vec<string> {
-  $command = Vec\map($args, $arg ==> \escapeshellarg($arg));
-
-  $results = array();
-  $exit_code = null;
-  \exec(\implode(' ', $command).' 2>/dev/null', &$results, &$exit_code);
-  if ($exit_code !== 0) {
-    throw new SubprocessException($command, (int)$exit_code);
-  }
-  return vec($results);
+  return \HH\Asio\join(execute_async(...$args));
 }

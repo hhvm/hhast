@@ -35,6 +35,6 @@ final class DidSaveTextDocumentNotification
       return;
     }
 
-    relint_uris($this->client, $this->config, vec[$uri]);
+    await relint_uri_async($this->client, $this->config, $uri);
   }
 }

@@ -50,7 +50,7 @@ trait LinterTestTrait {
     \file_put_contents($file, $code);
     try {
       $linter = $this->getLinter($file);
-      expect(C\first($linter->getLintErrors()))->toBeNull(
+      expect(C\first(\HH\Asio\join($linter->getLintErrorsAsync())))->toBeNull(
         'Got lint errors on supposedly-clean example',
       );
     } finally {
@@ -66,7 +66,7 @@ trait LinterTestTrait {
 
     $linter = $this->getLinter(__DIR__.'/fixtures/'.$fixture.'.in');
 
-    $out = $linter->getLintErrors()
+    $out = \HH\Asio\join($linter->getLintErrorsAsync())
       |> Vec\map(
         $$,
         $error ==> self::getErrorAsShape($error),

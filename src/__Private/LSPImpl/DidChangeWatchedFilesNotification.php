@@ -37,6 +37,6 @@ final class DidChangeWatchedFilesNotification
       )
       |> Vec\map($$, $change ==> $change['uri'])
       |> Vec\filter($$, $uri ==> Str\starts_with($uri, 'file://'));
-    relint_uris($this->client, $this->config, $uris);
+    await relint_uris_async($this->client, $this->config, $uris);
   }
 }

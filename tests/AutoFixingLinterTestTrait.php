@@ -34,7 +34,7 @@ trait AutoFixingLinterTestTrait<Terror as Linters\FixableLintError> {
     \copy($in, $out);
     $linter = $this->getLinter($out);
 
-    $all_errors = vec($linter->getLintErrors());
+    $all_errors = vec(\HH\Asio\join($linter->getLintErrorsAsync()));
     $fixable = Vec\filter($all_errors, $err ==> $err->isFixable());
     $unfixable = Vec\filter($all_errors, $err ==> !$err->isFixable());
     $linter->fixLintErrors($fixable);
@@ -45,11 +45,12 @@ trait AutoFixingLinterTestTrait<Terror as Linters\FixableLintError> {
       $fixture.'.in',
     );
 
-    $linter = $this->getLinter(
-      __DIR__.'/fixtures/'.$fixture.'.autofix.expect'
-    );
+    $linter = $this->getLinter(__DIR__.'/fixtures/'.$fixture.'.autofix.expect');
 
-    expect(Vec\map($linter->getLintErrors(), $e ==> self::getErrorAsShape($e)))
+    expect(Vec\map(
+      \HH\Asio\join($linter->getLintErrorsAsync()),
+      $e ==> self::getErrorAsShape($e),
+    ))
       ->toBeSame(Vec\map($unfixable, $e ==> self::getErrorAsShape($e)));
   }
 }
