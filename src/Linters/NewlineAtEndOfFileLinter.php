@@ -33,10 +33,10 @@ final class NewlineAtEndOfFileLinter
 
     $lines = Str\split($contents, "\n") |> C\count($$);
 
-    return new BuiltLintError(
+    return (new BuiltLintError(
       $this,
       "Files should end with a single trailing newline",
-    )
+    ))
       ->withPosition($lines, 0)
       ->withBlameCode($blame)
       ->withFix($blame, Str\trim_right($blame)."\n")
