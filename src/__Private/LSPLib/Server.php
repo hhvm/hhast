@@ -12,7 +12,7 @@ namespace Facebook\HHAST\__Private\LSPLib;
 
 use namespace Facebook\HHAST\__Private\LSP;
 use function Facebook\HHAST\__Private\type_alias_structure;
-use namespace Facebook\TypeSpec;
+use namespace Facebook\TypeCoerce;
 use type Facebook\TypeAssert\TypeCoercionException;
 use namespace HH\Lib\{Dict, Str};
 
@@ -109,10 +109,10 @@ abstract class Server<TState as ServerState> {
         |> $this->client->sendNotificationMessage($$);
       return;
     }
-    $params = ($notification['params'] ?? null)
-      |> TypeSpec\__Private\from_type_structure(
-        type_structure($handler, 'TParams'),
-      )->coerceType($$);
+    $params = TypeCoerce\match_type_structure(
+      type_structure($handler, 'TParams'),
+      $notification['params'] ?? null,
+    );
     await $handler->executeAsync($params);
     if ($handler instanceof InitializedNotification) {
       $this->inited = true;
@@ -141,10 +141,10 @@ abstract class Server<TState as ServerState> {
       return;
     }
 
-    $params = ($request['params'] ?? null)
-      |> TypeSpec\__Private\from_type_structure(
-        type_structure($command, 'TParams'),
-      )->coerceType($$);
+    $params = TypeCoerce\match_type_structure(
+      type_structure($command, 'TParams'),
+      $request['params'] ?? null,
+    );
     $result = await $command->executeAsync($params);
     if ($result instanceof Success) {
       $this->client
@@ -173,6 +173,6 @@ abstract class Server<TState as ServerState> {
       512,
       \JSON_FB_HACK_ARRAYS,
     );
-    return TypeSpec\__Private\from_type_structure($ts)->coerceType($request);
+    return TypeCoerce\match_type_structure($ts, $request);
   }
 }
