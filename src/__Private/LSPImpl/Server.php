@@ -11,6 +11,7 @@
 namespace Facebook\HHAST\__Private\LSPImpl;
 
 use type Facebook\HHAST\__Private\{
+  Asio\AsyncPoll,
   LintRunConfig,
   LintRunLSPEventHandler,
   LintRun,
@@ -55,10 +56,7 @@ final class Server extends LSPLib\Server<LSPLib\ServerState> {
 
   public async function mainAsync(): Awaitable<int> {
     try {
-      await Tuple\from_async(
-        $this->mainLoopAsync(),
-        $this->initAsync(),
-      );
+      await $this->mainLoopAsync();
     } catch (ExitException $e) {
       return $e->getCode();
     } catch (\Throwable $e) {
@@ -79,23 +77,21 @@ final class Server extends LSPLib\Server<LSPLib\ServerState> {
 
   private async function mainLoopAsync(): Awaitable<void> {
     $stdin = $this->terminal->getStdin();
-    $id = 0;
-    // using Map instead of dict as we need ref-like behavior
-    // to remove items inside the async block
-    $in_progress = Map {};
-
-    while (!$stdin->isEof()) {
-      /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
-      $message = await $this->readMessageAsync();
-
-      $this_id = $id++;
-      $in_progress[$this_id] = async {
-        await $this->handleMessageAsync($message);
-        $in_progress->removeKey($this_id);
-      };
+    $poll = AsyncPoll::create();
+    $poll->add($this->initAsync());
+    $poll->add(
+      async {
+        while (!$stdin->isEof()) {
+          $body = await $this->readMessageAsync();
+          $poll->add(async {
+            await $this->handleMessageAsync($body);
+          });
+        }
+      },
+    );
+    foreach ($poll await as $_) {
+      // do nothing
     }
-
-    await Vec\from_async(vec($in_progress));
   }
 
   private async function initAsync(): Awaitable<void> {
