@@ -56,12 +56,8 @@ final class Server extends LSPLib\Server<LSPLib\ServerState> {
   public async function mainAsync(): Awaitable<int> {
     try {
       await Tuple\from_async(
-        async {
-          await $this->mainLoopAsync();
-        },
-        async {
-          await $this->initAsync();
-        },
+        $this->mainLoopAsync(),
+        $this->initAsync(),
       );
     } catch (ExitException $e) {
       return $e->getCode();
@@ -83,10 +79,21 @@ final class Server extends LSPLib\Server<LSPLib\ServerState> {
 
   private async function mainLoopAsync(): Awaitable<void> {
     $stdin = $this->terminal->getStdin();
+    $id = 0;
+    $in_progress = Map {};
+
     while (!$stdin->isEof()) {
       /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
-      await $this->handleOneAsync();
+      $message = await $this->readMessageAsync();
+
+      $this_id = $id++;
+      $in_progress[$this_id] = async {
+        await $this->handleMessageAsync($message);
+        $in_progress->removeKey($this_id);
+      };
     }
+
+    await Vec\from_async(vec($in_progress));
   }
 
   private async function initAsync(): Awaitable<void> {
@@ -99,7 +106,7 @@ final class Server extends LSPLib\Server<LSPLib\ServerState> {
     await (new LintRun($this->config, $handler, $this->roots))->runAsync();
   }
 
-  private async function handleOneAsync(): Awaitable<void> {
+  private async function readMessageAsync(): Awaitable<string> {
     $stdin = $this->terminal->getStdin();
     $length = null;
 
@@ -131,6 +138,6 @@ final class Server extends LSPLib\Server<LSPLib\ServerState> {
       invariant($length >= 0, 'negative bytes remaining');
     }
 
-    await $this->handleMessageAsync($body);
+    return $body;
   }
 }
