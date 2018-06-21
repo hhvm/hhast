@@ -12,11 +12,12 @@ namespace Facebook\HHAST\Linters;
 
 use namespace HH\Lib\{C, Str, Vec};
 
-class LinterException extends \Exception {
+final class LinterException extends \Exception {
   public function __construct(
     private classname<BaseLinter> $linter,
     private string $fileBeingLinted,
     private string $rawMessage,
+    private ?(int, int) $position = null,
     ?\Throwable $previous = null,
   ) {
     parent::__construct(
@@ -42,5 +43,9 @@ class LinterException extends \Exception {
 
   public function getRawMessage(): string {
     return $this->rawMessage;
+  }
+
+  public function getPosition(): ?(int, int) {
+    return $this->position;
   }
 }

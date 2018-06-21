@@ -68,7 +68,7 @@ final class LintRun {
       } catch (LinterException $e) {
         throw $e;
       } catch (\Throwable $t) {
-        throw new LinterException($class, $path, $t->getMessage(), $t);
+        throw new LinterException($class, $path, $t->getMessage(), null, $t);
       }
     }
     $this->handler->finishedFile($path, $result);

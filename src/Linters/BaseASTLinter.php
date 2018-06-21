@@ -12,7 +12,7 @@ namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\EditableNode;
 use namespace Facebook\HHAST;
-use namespace Facebook\HHAST\Linters\SuppressASTLinter;
+use namespace Facebook\HHAST\Linters\{LinterException, SuppressASTLinter};
 
 abstract class BaseASTLinter<
   T as HHAST\EditableNode,
@@ -88,7 +88,38 @@ abstract class BaseASTLinter<
     $errors = vec[];
     foreach ($this->getASTWithParents() as list($node, $parents)) {
       if ($node instanceof $target) {
-        $error = $this->getLintErrorForNode($node, $parents);
+        try {
+          $error = $this->getLintErrorForNode($node, $parents);
+        } catch (LinterException $e) {
+          if ($e->getPosition() !== null) {
+            throw $e;
+          }
+          try {
+            $position = HHAST\find_position($this->getAST(), $node);
+          } catch (\Throwable $_) {
+            throw $e;
+          }
+          throw new LinterException(
+            $e->getLinterClass(),
+            $e->getFileBeingLinted(),
+            $e->getRawMessage(),
+            $position,
+            $e->getPrevious(),
+          );
+        } catch (\Throwable $t) {
+          try {
+            $position = HHAST\find_position($this->getAST(), $node);
+          } catch (\Throwable $_) {
+            throw $t;
+          }
+          throw new LinterException(
+            static::class,
+            $this->getFile(),
+            $t->getMessage(),
+            $position,
+            $t,
+          );
+        }
 
         if (
           $error !== null &&
