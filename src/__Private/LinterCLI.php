@@ -154,7 +154,32 @@ final class LinterCLI extends CLIWithArguments {
           ->mainAsync();
     }
 
-    $result = await (new LintRun($config, $error_handler, $roots))->runAsync();
+    try {
+      $result =
+        await (new LintRun($config, $error_handler, $roots))->runAsync();
+    } catch (Linters\LinterException $e) {
+      $orig = $e->getPrevious() ?? $e;
+      $err = $terminal->getStderr();
+      $err->write(Str\format(
+        "A linter threw an exception:\n".
+        "  Linter: %s\n".
+        "  File: %s\n".
+        "  Exception: %s\n".
+        "  Message: %s\n",
+        $e->getLinterClass(),
+        $e->getFileBeingLinted(),
+        \get_class($orig),
+        $orig->getMessage(),
+      ));
+      $err->write(
+        $orig->getTraceAsString()
+          |> Str\split($$, "\n")
+          |> Vec\map($$, $line ==> '    '.$line)
+          |> Str\join($$, "\n")
+          |> "  Trace:\n".$$."\n\n",
+      );
+      return 2;
+    }
 
     switch ($result) {
       case LintRunResult::NO_ERRORS:
