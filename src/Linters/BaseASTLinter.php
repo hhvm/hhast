@@ -14,19 +14,20 @@ use type Facebook\HHAST\EditableNode;
 use namespace Facebook\HHAST;
 use namespace Facebook\HHAST\Linters\SuppressASTLinter;
 
-abstract class BaseASTLinter<T as HHAST\EditableNode, +Terror as ASTLintError<T>> extends BaseLinter {
-  private HHAST\EditableNode $ast;
+abstract class BaseASTLinter<
+  T as HHAST\EditableNode,
+  +Terror as ASTLintError<T>,
+> extends BaseLinter {
+  private ?HHAST\EditableNode $ast;
 
   <<__Override>>
-  public function __construct(
-    string $file,
-  ) {
+  public function __construct(string $file) {
     parent::__construct($file);
-
-    $this->ast = self::getASTFromFile($file);
   }
 
-  private static function getASTFromFile(string $file): HHAST\EditableNode {
+  private static async function getASTFromFileAsync(
+    string $file,
+  ): Awaitable<HHAST\EditableNode> {
     static $cache = null;
 
     $hash = \sha1(\file_get_contents($file), /* raw = */ true);
@@ -34,7 +35,7 @@ abstract class BaseASTLinter<T as HHAST\EditableNode, +Terror as ASTLintError<T>
       return $cache['ast'];
     }
 
-    $ast = HHAST\from_file($file);
+    $ast = await HHAST\from_file_async($file);
 
     $cache = shape(
       'hash' => $hash,
@@ -51,7 +52,7 @@ abstract class BaseASTLinter<T as HHAST\EditableNode, +Terror as ASTLintError<T>
       return $cache['astWithParents'];
     }
 
-    $ast = $this->ast->traverseWithParents();
+    $ast = $this->getAST()->traverseWithParents();
 
     $cache = shape(
       'hash' => $hash,
@@ -79,25 +80,35 @@ abstract class BaseASTLinter<T as HHAST\EditableNode, +Terror as ASTLintError<T>
   }
 
   <<__Override>>
-  final public function getLintErrors(
-  ): Traversable<Terror> {
+  final public async function getLintErrorsAsync(
+  ): Awaitable<Traversable<Terror>> {
+    $this->ast = await self::getASTFromFileAsync($this->getFile());
     $target = static::getTargetType();
 
+    $errors = vec[];
     foreach ($this->getASTWithParents() as list($node, $parents)) {
       if ($node instanceof $target) {
         $error = $this->getLintErrorForNode($node, $parents);
 
         if (
           $error !== null &&
-          !SuppressASTLinter\is_linter_error_suppressed($this, $node, $parents, $error)
+          !SuppressASTLinter\is_linter_error_suppressed(
+            $this,
+            $node,
+            $parents,
+            $error,
+          )
         ) {
-          yield $error;
+          $errors[] = $error;
         }
       }
     }
+    return $errors;
   }
 
   final public function getAST(): HHAST\EditableNode {
-    return $this->ast;
+    $ast = $this->ast;
+    invariant($ast !== null, "Calling getAST before it was initialized");
+    return $ast;
   }
 }

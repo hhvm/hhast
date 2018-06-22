@@ -11,33 +11,55 @@
 namespace Facebook\HHAST\__Private;
 
 use type Facebook\CLILib\ExitException;
-use namespace HH\Lib\Str;
+use namespace HH\Lib\{C, Str, Vec};
 
 final class LintRun {
   public function __construct(
     private ?LintRunConfig $config,
-    private LintRunErrorHandler $handler,
+    private LintRunEventHandler $handler,
     private vec<string> $paths,
   ) {
   }
 
-  public function run(): void {
-    foreach ($this->paths as $path) {
-      $config = $this->config ?? LintRunConfig::getForPath($path);
-      $this->lintPath($config, $path);
+  private static function worstResult(
+    LintRunResult ...$results
+  ): LintRunResult {
+    $results = keyset($results);
+    if (C\contains($results, LintRunResult::HAVE_UNFIXED_ERRORS)) {
+      return LintRunResult::HAVE_UNFIXED_ERRORS;
     }
+    if (C\contains($results, LintRunResult::HAD_AUTOFIXED_ERRORS)) {
+      return LintRunResult::HAD_AUTOFIXED_ERRORS;
+    }
+    invariant(
+      $results === keyset[LintRunResult::NO_ERRORS],
+      'Got unexpected results',
+    );
+    return LintRunResult::NO_ERRORS;
   }
 
-  private function lintFile(
+  public async function runAsync(): Awaitable<LintRunResult> {
+    $results = await Vec\map_async(
+      $this->paths,
+      async $path ==> {
+        $config = $this->config ?? LintRunConfig::getForPath($path);
+        return await $this->lintPathAsync($config, $path);
+      },
+    );
+    $result = self::worstResult(...$results);
+    $this->handler->finishedRun($result);
+    return $result;
+  }
+
+  private async function lintFileAsync(
     LintRunConfig $config,
     string $path,
-  ): void {
-    $all_errors = vec[];
+  ): Awaitable<LintRunResult> {
     $config = $config->getConfigForFile($path);
+    $result = LintRunResult::NO_ERRORS;
 
     foreach ($config['linters'] as $class) {
       if (!$class::shouldLintFile($path)) {
-
         continue;
       }
 
@@ -47,42 +69,61 @@ final class LintRun {
         continue;
       }
 
-      $errors = $linter->getLintErrors();
-      $this->handler->processErrors($linter, $config, $errors);
+      /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
+      $errors = await $linter->getLintErrorsAsync();
+      if ($errors) {
+        $result = (
+          $this->handler->linterRaisedErrors($linter, $config, $errors) ===
+            LintAutoFixResult::ALL_FIXED
+            ? LintRunResult::HAD_AUTOFIXED_ERRORS
+            : LintRunResult::HAVE_UNFIXED_ERRORS
+        )
+          |> self::worstResult($result, $$);
+      }
     }
+    $this->handler->finishedFile($path, $result);
+    return $result;
   }
 
-  private function lintDirectory(
+  private async function lintDirectoryAsync(
     LintRunConfig $config,
     string $path,
-  ): void {
-    $it = new \RecursiveIteratorIterator(
-      new \RecursiveDirectoryIterator($path),
-    );
+  ): Awaitable<LintRunResult> {
+    $it =
+      new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($path));
+    $files = vec[];
     foreach ($it as $info) {
       if (!$info->isFile()) {
         continue;
       }
       $ext = Str\lowercase($info->getExtension());
       if ($ext === 'hh' || $ext === 'php') {
-        $file = $info->getPathname();
-        $this->lintFile($config, $file);
+        $files[] = $info->getPathname();
       }
     }
+    $results = await Vec\map_async(
+      $files,
+      async $file ==> await $this->lintFileAsync($config, $file),
+    );
+
+    return self::worstResult(...$results);
   }
 
-  private function lintPath(
+  private async function lintPathAsync(
     LintRunConfig $config,
     string $path,
-  ): void {
+  ): Awaitable<LintRunResult> {
     if (\is_file($path)) {
-      $this->lintFile($config, $path);
+      return await $this->lintFileAsync($config, $path);
     } else if (\is_dir($path)) {
-      $this->lintDirectory($config, $path);
+      return await $this->lintDirectoryAsync($config, $path);
     } else {
       throw new ExitException(
         1,
-        Str\format("'%s' doesn't appear to be a file or directory, bailing", $path),
+        Str\format(
+          "'%s' doesn't appear to be a file or directory, bailing",
+          $path,
+        ),
       );
     }
   }

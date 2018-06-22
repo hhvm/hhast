@@ -14,7 +14,7 @@ use type Facebook\CLILib\ITerminal;
 use namespace Facebook\HHAST\Linters;
 use namespace HH\Lib\{C, Vec};
 
-final class LintRunJSONErrorHandler implements LintRunErrorHandler {
+final class LintRunJSONEventHandler implements LintRunEventHandler {
   const type TOutput = shape(
     'passed' => bool,
     'errors' => vec<self::TOutputError>,
@@ -45,26 +45,26 @@ final class LintRunJSONErrorHandler implements LintRunErrorHandler {
   }
 
 
-  public function processErrors(
+  public function linterRaisedErrors(
     Linters\BaseLinter $linter,
     LintRunConfig::TFileConfig $config,
     Traversable<Linters\LintError> $errors,
-  ): void {
+  ): LintAutoFixResult {
     $transformed_errors = self::transformErrors($errors);
     $this->errors = Vec\concat($this->errors, $transformed_errors);
+    return LintAutoFixResult::SOME_UNFIXED;
   }
 
-  public function hadErrors(): bool {
-    return !C\is_empty($this->errors);
+  public function finishedFile(string $_, LintRunResult $_): void {
   }
 
-  public function printFinalOutput(): void {
+  public function finishedRun(LintRunResult $_): void {
     $this->terminal->getStdout()->write(\json_encode($this->getOutput()));
   }
 
   private function getOutput(): self::TOutput {
     return shape(
-      'passed' => !$this->hadErrors(),
+      'passed' => !$this->errors,
       'errors' => $this->errors,
     );
   }

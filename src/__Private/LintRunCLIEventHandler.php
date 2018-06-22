@@ -14,21 +14,19 @@ use type Facebook\CLILib\ITerminal;
 use namespace Facebook\HHAST\Linters;
 use namespace HH\Lib\{C, Str, Vec};
 
-final class LintRunCLIErrorHandler implements LintRunErrorHandler {
-
-  private bool $had_errors = false;
-
+final class LintRunCLIEventHandler implements LintRunEventHandler {
   public function __construct(
     private ITerminal $terminal,
   ) {}
 
-  public function processErrors(
+  public function linterRaisedErrors(
     Linters\BaseLinter $linter,
     LintRunConfig::TFileConfig $config,
     Traversable<Linters\LintError> $errors,
-  ): void {
+  ): LintAutoFixResult {
     $class = \get_class($linter);
     $to_fix = vec[];
+    $result = LintAutoFixResult::ALL_FIXED;
     $colors = $this->terminal->supportsColors();
 
     foreach ($errors as $error) {
@@ -56,25 +54,26 @@ final class LintRunCLIErrorHandler implements LintRunErrorHandler {
         if ($this->shouldFixLint($error)) {
           $to_fix[] = $error;
         } else {
-          $this->had_errors = true;
+          $result = LintAutoFixResult::SOME_UNFIXED;
         }
       } else {
         $this->renderLintBlame($error);
-        $this->had_errors = true;
+        $result = LintAutoFixResult::SOME_UNFIXED;
       }
     }
 
     if (!C\is_empty($to_fix)) {
       self::fixErrors($linter, $to_fix);
     }
+
+    return $result;
   }
 
-  public function hadErrors(): bool {
-    return $this->had_errors;
+  public function finishedFile(string $_, LintRunResult $_): void {
   }
 
-  public function printFinalOutput(): void {
-    if (!$this->hadErrors()) {
+  public function finishedRun(LintRunResult $result): void {
+    if ($result === LintRunResult::NO_ERRORS) {
       $this->terminal->getStdout()->write("No errors.\n");
     }
   }

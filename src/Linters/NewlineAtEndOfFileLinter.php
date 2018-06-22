@@ -16,7 +16,8 @@ final class NewlineAtEndOfFileLinter
   extends BaseLinter
   implements AutoFixingLinter<FixableLintError> {
   <<__Override>>
-  public function getLintErrors(): Traversable<FixableLintError> {
+  public async function getLintErrorsAsync(
+  ): Awaitable<Traversable<FixableLintError>> {
     $contents = \file_get_contents($this->getFile());
     $trimmed = Str\trim_right($contents);
     $expected = $trimmed."\n";
@@ -33,10 +34,12 @@ final class NewlineAtEndOfFileLinter
 
     $lines = Str\split($contents, "\n") |> C\count($$);
 
-    return (new BuiltLintError(
-      $this,
-      "Files should end with a single trailing newline",
-    ))
+    return (
+      new BuiltLintError(
+        $this,
+        "Files should end with a single trailing newline",
+      )
+    )
       ->withPosition($lines, 0)
       ->withBlameCode($blame)
       ->withFix($blame, Str\trim_right($blame)."\n")

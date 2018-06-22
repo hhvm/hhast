@@ -10,11 +10,7 @@
 
 namespace Facebook\HHAST\__Private;
 
-use namespace HH\Lib\Vec;
-
-// A wrapper around the built-in exec with a nicer signature.
-// * returns a result rather than filling an out-parameter
-// * throws on error
-function execute(string ...$args): vec<string> {
-  return \HH\Asio\join(execute_async(...$args));
+enum LintAutoFixResult: int {
+  ALL_FIXED = 0;
+  SOME_UNFIXED = 1;
 }

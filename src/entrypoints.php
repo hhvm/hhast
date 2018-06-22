@@ -22,12 +22,15 @@ function from_json(
   );
 }
 
-function json_from_file(string $file): dict<string, mixed> {
+async function json_from_file_async(string $file): Awaitable<dict<string, mixed>> {
   try {
-    if (\HHVM_VERSION_ID < 32500) {
-      $results = __Private\execute('hh_parse', '--full-fidelity-json', $file);
-    } else {
-      $results = __Private\execute('hh_parse', '--php5-compat-mode', '--full-fidelity-json', $file);
+    using (await __Private\ParserConcurrencyLease::getAsync()) {
+      $results = await __Private\execute_async(
+        'hh_parse',
+        '--php5-compat-mode',
+        '--full-fidelity-json',
+        $file,
+      );
     }
   } catch (__Private\SubprocessException $e) {
     throw new HHParseError(
@@ -48,22 +51,38 @@ function json_from_file(string $file): dict<string, mixed> {
   return $json;
 }
 
-function from_file(string $file): EditableNode {
-  $json = json_from_file($file);
+function json_from_file(string $file): dict<string, mixed> {
+  return \HH\Asio\join(json_from_file_async($file));
+}
+
+async function from_file_async(string $file): Awaitable<EditableNode> {
+  $json = await json_from_file_async($file);
   return from_json($json, $file);
 }
 
-function json_from_text(string $text): dict<string, mixed> {
+function from_file(string $file): EditableNode {
+  return \HH\Asio\join(from_file_async($file));
+}
+
+async function json_from_text_async(string $text): Awaitable<dict<string, mixed>> {
   $file = \tempnam("/tmp", "");
   $handle = \fopen($file, "w");
   \fwrite($handle, $text);
   \fclose($handle);
-  $json = json_from_file($file);
+  $json = await json_from_file_async($file);
   \unlink($file);
   return $json;
 }
 
-function from_code(string $text): EditableNode {
-  $json = json_from_text($text);
+function json_from_text(string $text): dict<string, mixed> {
+  return \HH\Asio\join(json_from_text_async($text));
+}
+
+async function from_code_async(string $text): Awaitable<EditableNode> {
+  $json = await json_from_text_async($text);
   return from_json($json);
+}
+
+function from_code(string $text): EditableNode {
+  return \HH\Asio\join(from_code_async($text));
 }

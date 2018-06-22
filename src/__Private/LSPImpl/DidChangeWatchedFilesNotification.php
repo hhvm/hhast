@@ -30,13 +30,31 @@ final class DidChangeWatchedFilesNotification
 
   <<__Override>>
   public async function executeAsync(self::TParams $p): Awaitable<void> {
-    $uris = $p['changes']
+    $changes_to_file_uris = (vec<LSP\FileEvent> $events) ==> $events
+      |> Vec\map($$, $e ==> $e['uri'])
+      |> Vec\filter($$, $uri ==> Str\starts_with($uri, 'file://'));
+
+    $to_relint = $p['changes']
       |> Vec\filter(
         $$,
         $change ==> $change['type'] !== LSP\FileChangeType::DELETED,
       )
-      |> Vec\map($$, $change ==> $change['uri'])
-      |> Vec\filter($$, $uri ==> Str\starts_with($uri, 'file://'));
-    relint_uris($this->client, $this->config, $uris);
+      |> $changes_to_file_uris($$);
+
+    await relint_uris_async($this->client, $this->config, $to_relint);
+
+    $to_purge = $p['changes']
+      |> Vec\filter(
+        $$,
+        $change ==> $change['type'] === LSP\FileChangeType::DELETED,
+      )
+      |> $changes_to_file_uris($$);
+
+    foreach ($to_purge as $uri) {
+      (new LSPLib\PublishDiagnosticsNotification(shape(
+        'uri' => $uri,
+        'diagnostics' => vec[],
+      )))->asMessage() |> $this->client->sendNotificationMessage($$);
+    }
   }
 }
