@@ -12,7 +12,7 @@ namespace Facebook\HHAST\__Private;
 
 use type Facebook\TypeAssert\TypeAssert;
 use namespace Facebook\HHAST\Linters;
-use namespace HH\Lib\{C, Dict, Str, Vec};
+use namespace HH\Lib\{C, Dict, Math, Str, Vec};
 
 use type Facebook\CLILib\{CLIWithArguments, ExitException, Terminal};
 use namespace Facebook\CLILib\CLIOptions;
@@ -154,7 +154,45 @@ final class LinterCLI extends CLIWithArguments {
           ->mainAsync();
     }
 
-    $result = await (new LintRun($config, $error_handler, $roots))->runAsync();
+    try {
+      $result =
+        await (new LintRun($config, $error_handler, $roots))->runAsync();
+    } catch (Linters\LinterException $e) {
+      $orig = $e->getPrevious() ?? $e;
+      $err = $terminal->getStderr();
+      $pos = $e->getPosition();
+      $err->write(Str\format(
+        "A linter threw an exception:\n  Linter: %s\n  File: %s%s\n",
+        $e->getLinterClass(),
+        \realpath($e->getFileBeingLinted()),
+        $pos === null ? '' : Str\format(':%d:%d', $pos[0], $pos[1] + 1),
+      ));
+      if ($pos !== null && \is_readable($e->getFileBeingLinted())) {
+        list($line, $column) = $pos;
+        $content = \file_get_contents($e->getFileBeingLinted());
+        \file_get_contents($e->getFileBeingLinted())
+          |> Str\split($$, "\n")
+          |> Vec\take($$, $line)
+          |> Vec\slice($$, Math\maxva($line - 3, 0))
+          |> Vec\map($$, $line ==> '    > '.$line)
+          |> Str\join($$, "\n")
+          |> Str\format("%s\n      %s^ HERE\n", $$, Str\repeat(' ', $column))
+          |> $err->write($$);
+      }
+      $err->write(Str\format(
+        "  Exception: %s\n"."  Message: %s\n",
+        \get_class($orig),
+        $orig->getMessage(),
+      ));
+      $err->write(
+        $orig->getTraceAsString()
+          |> Str\split($$, "\n")
+          |> Vec\map($$, $line ==> '    '.$line)
+          |> Str\join($$, "\n")
+          |> "  Trace:\n".$$."\n\n",
+      );
+      return 2;
+    }
 
     switch ($result) {
       case LintRunResult::NO_ERRORS:

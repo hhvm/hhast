@@ -10,6 +10,7 @@
 
 namespace Facebook\HHAST\__Private;
 
+use type Facebook\HHAST\Linters\{BaseLinter, LinterException};
 use type Facebook\CLILib\ExitException;
 use namespace HH\Lib\{C, Str, Vec};
 
@@ -59,30 +60,52 @@ final class LintRun {
     $result = LintRunResult::NO_ERRORS;
 
     foreach ($config['linters'] as $class) {
-      if (!$class::shouldLintFile($path)) {
-        continue;
-      }
-
-      $linter = new $class($path);
-
-      if ($linter->isLinterSuppressedForFile()) {
-        continue;
-      }
-
-      /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
-      $errors = await $linter->getLintErrorsAsync();
-      if ($errors) {
-        $result = (
-          $this->handler->linterRaisedErrors($linter, $config, $errors) ===
-            LintAutoFixResult::ALL_FIXED
-            ? LintRunResult::HAD_AUTOFIXED_ERRORS
-            : LintRunResult::HAVE_UNFIXED_ERRORS
-        )
-          |> self::worstResult($result, $$);
+      try {
+        /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
+        $this_result =
+          await $this->runLinterOnFileImplAsync($config, $class, $path);
+        $result = self::worstResult($result, $this_result);
+      } catch (LinterException $e) {
+        throw $e;
+      } catch (\Throwable $t) {
+        throw new LinterException($class, $path, $t->getMessage(), null, $t);
       }
     }
     $this->handler->finishedFile($path, $result);
     return $result;
+  }
+
+  private async function runLinterOnFileImplAsync(
+    LintRunConfig::TFileConfig $config,
+    classname<BaseLinter> $linter,
+    string $path,
+  ): Awaitable<LintRunResult> {
+    if (!$linter::shouldLintFile($path)) {
+      return LintRunResult::NO_ERRORS;
+    }
+
+    $linter = new $linter($path);
+
+    if ($linter->isLinterSuppressedForFile()) {
+      return LintRunResult::NO_ERRORS;
+    }
+
+    try {
+      $errors = await $linter->getLintErrorsAsync();
+    } catch (\Throwable $t) {
+      throw $t;
+    } catch (\Exception $e) {
+      throw $e;
+    }
+    if (!$errors) {
+      return LintRunResult::NO_ERRORS;
+    }
+    return (
+      $this->handler->linterRaisedErrors($linter, $config, $errors) ===
+        LintAutoFixResult::ALL_FIXED
+    )
+      ? LintRunResult::HAD_AUTOFIXED_ERRORS
+      : LintRunResult::HAVE_UNFIXED_ERRORS;
   }
 
   private async function lintDirectoryAsync(
