@@ -38,6 +38,7 @@ final class AsyncFunctionAndMethodLinterTest extends TestCase {
       ['<?hh function foo_bar_UNSAFE() {}'],
       ['<?hh function foo_bar_async_UNTYPED(): Awaitable<int> {}'],
       ['<?hh function foo_bar_DEPRECATED(): void {}'],
+      ['<?php class Foo { function defaultVisibilityIsPublic(): string {}' ],
       // functions that start with 'test':
       ['<?hh class Foo { public function testFoo() : Awaitable<string> {}'],
       ['<?hh function test_foo_async(): Awaitable<void> {}'],

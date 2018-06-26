@@ -112,9 +112,9 @@ abstract class FunctionNamingLinter extends BaseASTLinter<
       $new = $this->getSuggestedNameForFunction($old, $node);
     } else if ($node instanceof MethodishDeclaration) {
       if (
-        $node->getFunctionDeclHeader()->getModifiersx()->getDescendantsOfType(
+        $node->getFunctionDeclHeader()->getModifiers()?->getDescendantsOfType(
           StaticToken::class,
-        ) |> C\is_empty(vec($$))
+        ) |> ($$ ?? vec[]) |> C\is_empty(vec($$))
       ) {
         $what = 'Method';
         $new = $this->getSuggestedNameForInstanceMethod($old, $node);
