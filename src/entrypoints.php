@@ -42,7 +42,7 @@ async function json_from_file_async(string $file): Awaitable<dict<string, mixed>
     $results[0],
     /* as array = */ true,
     /* depth = */ 512 /* == default */,
-    \JSON_FB_HACK_ARRAYS | \JSON_FB_LOOSE,
+    \JSON_FB_HACK_ARRAYS,
   );
   $no_type_refinement_please = $json;
   if (!is_dict($no_type_refinement_please)) {
