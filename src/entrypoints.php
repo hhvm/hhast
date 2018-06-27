@@ -10,6 +10,8 @@
 
 namespace Facebook\HHAST;
 
+use namespace HH\Lib\Keyset;
+
 function from_json(
   dict<string, mixed> $json,
   ?string $file = null,
@@ -38,8 +40,19 @@ async function json_from_file_async(string $file): Awaitable<dict<string, mixed>
       'hh_parse failed - exit code: '.$e->getExitCode(),
     );
   }
+  $json = $results[0];
+
+  $encodings = keyset(\mb_list_encodings());
+  unset($encodings['pass']);
+  unset($encodings['auto']);
+  $encodings = Keyset\union(keyset['UTF-8'], $encodings);
+  $encoding = \mb_detect_encoding(\file_get_contents($file), $encodings, /* strict = */ true);
+  if ($encoding !== false && $encoding !== 'UTF-8') {
+    $json = @\iconv($encoding, 'UTF-8', $json);
+  }
+
   $json = \json_decode(
-    $results[0],
+    $json,
     /* as array = */ true,
     /* depth = */ 512 /* == default */,
     \JSON_FB_HACK_ARRAYS,
