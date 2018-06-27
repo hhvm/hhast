@@ -24,7 +24,9 @@ function from_json(
   );
 }
 
-async function json_from_file_async(string $file): Awaitable<dict<string, mixed>> {
+async function json_from_file_async(
+  string $file,
+): Awaitable<dict<string, mixed>> {
   try {
     using (await __Private\ParserConcurrencyLease::getAsync()) {
       $results = await __Private\execute_async(
@@ -42,11 +44,21 @@ async function json_from_file_async(string $file): Awaitable<dict<string, mixed>
   }
   $json = $results[0];
 
-  $encodings = keyset(\mb_list_encodings());
-  unset($encodings['pass']);
-  unset($encodings['auto']);
-  $encodings = Keyset\union(keyset['UTF-8'], $encodings);
-  $encoding = \mb_detect_encoding(\file_get_contents($file), $encodings, /* strict = */ true);
+  // The AST gives us byte offsets, so:
+  // - we should run `hh_parse` on the unconverted source
+  // - we should return the unconverted soruce
+  //
+  // However, `hh_parse` gives us JSON that includes non-UTF-8 sequences - so,
+  // we need to convert the JSON first.
+  //
+  // https://github.com/facebook/hhvm/issues/8245
+
+  $source = \file_get_contents($file);
+  $encoding = \mb_detect_encoding(
+    $source,
+    __Private\encoding_detection_order(), /* strict = */
+    true,
+  );
   if ($encoding !== false && $encoding !== 'UTF-8') {
     $json = @\iconv($encoding, 'UTF-8', $json);
   }
@@ -61,6 +73,10 @@ async function json_from_file_async(string $file): Awaitable<dict<string, mixed>
   if (!is_dict($no_type_refinement_please)) {
     throw new HHParseError($file, 'hh_parse did not output valid JSON');
   }
+
+  // Use the raw source rather than the re-encoded, as byte offsets may have
+  // changed while re-encoding
+  $json['program_text'] = $source;
   return $json;
 }
 
@@ -77,7 +93,9 @@ function from_file(string $file): EditableNode {
   return \HH\Asio\join(from_file_async($file));
 }
 
-async function json_from_text_async(string $text): Awaitable<dict<string, mixed>> {
+async function json_from_text_async(
+  string $text,
+): Awaitable<dict<string, mixed>> {
   $file = \tempnam("/tmp", "");
   $handle = \fopen($file, "w");
   \fwrite($handle, $text);
