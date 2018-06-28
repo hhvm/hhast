@@ -10,7 +10,14 @@
 
 namespace Facebook\HHAST\Linters;
 
-use type Facebook\HHAST\{DelimitedComment, EditableList, EditableNode, Script};
+use type Facebook\HHAST\{
+  DelimitedComment,
+  EditableList,
+  EditableNode,
+  EndOfFile,
+  EndOfLine,
+  Script,
+};
 use function Facebook\HHAST\Missing;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Str, Vec};
@@ -30,6 +37,9 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter<Script> {
     if ($first === null) {
       return null;
     }
+    if ($first instanceof EndOfFile) {
+      return null;
+    }
     $leading = $first->getFirstToken()?->getLeading();
     if ($leading instanceof EditableList) {
       $leading = $leading->getItems()[0];
@@ -37,12 +47,17 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter<Script> {
 
     if ($leading instanceof DelimitedComment) {
       if (
-        $leading->getText() === self::getLicenseHeaderForPath($this->getFile())
+        $leading->getText() ===
+          self::getLicenseHeaderForPath(\dirname($this->getFile()))
       ) {
         return null;
       }
     }
-    return new FixableASTLintError($this, 'Incorrect license header', $script);
+    return new FixableASTLintError(
+      $this,
+      'Incorrect or missing license header',
+      $script,
+    );
   }
 
   <<__Override>>
@@ -67,23 +82,46 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter<Script> {
     } else {
       $leading = vec[$leading];
     }
-    $new_leading = Vec\concat(
+
+    $key = C\find_key(
+      $leading,
+      $item ==> ($item instanceof DelimitedComment) &&
+        Str\contains_ci($item->getText(), 'copyright'),
+    );
+
+    if ($key !== null) {
+      $existing = $leading[$key];
+      $next = $leading[$key + 1] ?? null;
+      $next_next = $leading[$key + 2] ?? null;
+
+      $new = vec[new DelimitedComment(
+        TypeAssert\not_null(
+          self::getLicenseHeaderForPath(\dirname($this->getFile())),
+        ),
+      )];
+      if (!($next instanceof EndOfLine && $next_next instanceof EndOfLine)) {
+        $new[] = new EndOfLine("\n");
+      }
+
+      return $node->replace($existing, EditableList::fromItems($new));
+    }
+
+
+    $leading = Vec\concat(
       vec[
         new DelimitedComment(
-          TypeAssert\not_null(self::getLicenseHeaderForPath($this->getFile())),
+          TypeAssert\not_null(
+            self::getLicenseHeaderForPath(\dirname($this->getFile())),
+          ),
         ),
+        new EndOfLine("\n"),
+        new EndOfLine("\n"),
       ],
-      Vec\filter(
-        $leading,
-        $item ==> $item instanceof DelimitedComment
-          ? (!Str\contains_ci($item->getText(), 'copyright'))
-          : true,
-      ),
-
+      $leading,
     );
     return $node->replace(
       $first,
-      $first->withLeading(EditableList::fromItems($new_leading)),
+      $first->withLeading(EditableList::fromItems($leading)),
     );
   }
 
