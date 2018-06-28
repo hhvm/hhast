@@ -10,7 +10,7 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\Keyset;
+use namespace HH\Lib\{Keyset, Str};
 
 function from_json(
   dict<string, mixed> $json,
@@ -46,22 +46,28 @@ async function json_from_file_async(
 
   // The AST gives us byte offsets, so:
   // - we should run `hh_parse` on the unconverted source
-  // - we should return the unconverted soruce
-  //
-  // However, `hh_parse` gives us JSON that includes non-UTF-8 sequences - so,
-  // we need to convert the JSON first.
+  // - we should return the unconverted source
   //
   // https://github.com/facebook/hhvm/issues/8245
+  //
+  // However, `hh_parse` gives us JSON that includes non-UTF-8 sequences - so,
+  // we need to convert the JSON first. While some can be converted to UTF-8,
+  // this isn't guaranteed - JSON literally can't represent all the legal values
+  // so the source it returns is useless.
+  //
+  // Given that, we don't even need to attempt to do the right conversion - we
+  // can just do something cheap and throw away the result - so, we can just go
+  // over the bytes, and throw them away if they're not 7-bit clean.
 
-  $source = \file_get_contents($file);
-  $encoding = \mb_detect_encoding(
-    $source,
-    __Private\encoding_detection_order(), /* strict = */
-    true,
-  );
-  if ($encoding !== false && $encoding !== 'UTF-8') {
-    $json = @\iconv($encoding, 'UTF-8', $json);
+  $ascii = '';
+  $len = Str\length($json);
+  for ($i = 0; $i < $len; ++$i) {
+    $byte = $json[$i];
+    if ((\ord($byte) & (1 << 7)) === 0) {
+      $ascii .= $byte;
+    }
   }
+  $json = $ascii;
 
   $json = \json_decode(
     $json,
@@ -76,7 +82,7 @@ async function json_from_file_async(
 
   // Use the raw source rather than the re-encoded, as byte offsets may have
   // changed while re-encoding
-  $json['program_text'] = $source;
+  $json['program_text'] = \file_get_contents($file);
   return $json;
 }
 
