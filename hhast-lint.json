@@ -3,7 +3,10 @@
   "builtinLinters": "all",
   "overrides": [
     {
-      "patterns": [ "codegen/*" ],
+      "patterns": [ "codegen/*", "tests/fixtures/*" ],
+      "disabledLinters": [
+        "Facebook\\HHAST\\Linters\\LicenseHeaderLinter"
+      ],
       "disableAllAutoFixes": true
     }
   ]
