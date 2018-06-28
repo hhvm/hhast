@@ -1,0 +1,5 @@
+<?hh
+/* This is an incorrect copyright statement */
+
+/** Do foo */
+foo();
