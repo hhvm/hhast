@@ -38,7 +38,11 @@ implements AutoFixingLinter<FixableASTLintError<Tnode>> {
         $new !== null,
         "Shouldn't be attempting to fix a non-fixable error",
       );
-      $ast = $ast->replace($old, $new);
+      if ($ast === $old) {
+        $ast = $new;
+      } else {
+        $ast = $ast->replace($old, $new);
+      }
     }
     \file_put_contents(
       $this->getFile(),
