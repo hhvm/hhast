@@ -1,0 +1,7 @@
+[
+    {
+        "blame": "<?hh\n\/* This is an incorrect copyright statement *\/\nfoo();\n",
+        "blame_pretty": "<?hh\n\/* This is an incorrect copyright statement *\/\nfoo();\n",
+        "description": "Incorrect or missing license header"
+    }
+]

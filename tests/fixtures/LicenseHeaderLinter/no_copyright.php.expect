@@ -1,0 +1,7 @@
+[
+    {
+        "blame": "<?hh\nfoo();\n",
+        "blame_pretty": "<?hh\nfoo();\n",
+        "description": "Incorrect or missing license header"
+    }
+]
