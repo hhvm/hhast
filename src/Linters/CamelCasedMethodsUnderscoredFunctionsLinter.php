@@ -39,9 +39,9 @@ extends FunctionNamingLinter {
     //   function Missing(): Missing;
     $type = $func->getDeclarationHeader()->getType()->getCode()
       |> Str\trim($$)
-      |> \explode('<', $$)
+      |> Str\split($$, '<')
       |> C\firstx($$)
-      |> \explode('\\', $$)
+      |> Str\split($$, '\\')
       |> C\lastx($$);
     if ($type === $name) {
       return $name;
@@ -73,11 +73,13 @@ extends FunctionNamingLinter {
       return $name;
     }
 
-    return \preg_replace_callback(
+    $name = \preg_replace_callback(
       '/_[a-z]/',
       $matches ==> Str\uppercase($matches[0][1]),
       $head,
     ) |> ($suffix === null ? $$ : $$.'_'.$suffix);
+    $name[0] = Str\lowercase($name[0]);
+    return $name;
   }
 
   <<__Override>>
