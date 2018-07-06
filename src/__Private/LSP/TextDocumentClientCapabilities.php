@@ -74,7 +74,9 @@ type TextDocumentClientCapabilities = shape(
     ?'dynamicRegistration' => bool,
     ?'codeActionLiteralSupport' => shape(
       'codeActionKind' => shape(
-        'valueSet' => keyset<CodeActionKind>,
+        /** Not CodeActionKind as undefined values are permitted, including
+         * the empty string */
+        'valueSet' => keyset<string>,
       ),
     ),
   ),
