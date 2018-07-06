@@ -54,7 +54,7 @@ final class LintRunLSPEventHandler implements LintRunEventHandler {
       'severity' => LSP\DiagnosticSeverity::WARNING,
       'message' => $error->getDescription(),
       'code' => $source,
-      'source' => 'HHAST:'.$source,
+      'source' => 'HHAST',
     );
   }
 
