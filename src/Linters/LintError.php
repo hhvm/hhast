@@ -25,6 +25,14 @@ class LintError {
     return null;
   }
 
+  public function getRange(): ?((int, int), ?(int, int)) {
+    $pos = $this->getPosition();
+    if ($pos === null) {
+      return null;
+    }
+    return tuple($pos, null);
+  }
+
   public function getDescription(): string {
     return $this->description;
   }

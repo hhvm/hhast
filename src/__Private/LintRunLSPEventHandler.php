@@ -43,14 +43,19 @@ final class LintRunLSPEventHandler implements LintRunEventHandler {
     Linters\BaseLinter $linter,
     Linters\LintError $error,
   ): LSP\Diagnostic {
-    $position = $error->getPosition() ?? tuple(0, 0);
-    $start = shape('line' => $position[0] - 1, 'character' => $position[1]);
+    $range = $error->getRange();
+    $start = $range[0] ?? tuple(0, 0);
+    $end = $range[1] ?? $start;
+
+    $start = shape('line' => $start[0] - 1, 'character' => $start[1]);
+    $end = shape('line' => $end[0] - 1, 'character' => $end[1]);
+
     $source = \get_class($linter)
       |> Str\split($$, "\\")
       |> C\lastx($$)
       |> Str\strip_suffix($$, 'Linter');
     return shape(
-      'range' => shape('start' => $start, 'end' => $start),
+      'range' => shape('start' => $start, 'end' => $end),
       'severity' => LSP\DiagnosticSeverity::WARNING,
       'message' => $error->getDescription(),
       'code' => $source,

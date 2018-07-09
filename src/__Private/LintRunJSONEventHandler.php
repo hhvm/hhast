@@ -75,15 +75,20 @@ final class LintRunJSONEventHandler implements LintRunEventHandler {
     return Vec\map(
       $errors,
       $error ==> {
-        $start_position = $error->getPosition();
-        $start = $start_position !== null
-          ? shape('line' => $start_position[0], 'character' => $start_position[1])
+        $range = $error->getRange();
+        $start = $range[0] ?? null;
+        $start = $start !== null
+          ? shape('line' => $start[0], 'character' => $start[1])
+          : null;
+        $end = $range[1] ?? null;
+        $end = $end !== null
+          ? shape('line' => $end[0], 'character' => $end[1])
           : null;
         return shape(
           'path' => $error->getFile(),
           'range' => shape(
             'start' => $start,
-            'end' => null,
+            'end' => $end,
           ),
           'message' => $error->getDescription(),
           'linter' => $error->getLinter()->getLinterName(),

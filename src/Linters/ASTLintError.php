@@ -12,6 +12,7 @@ namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\EditableNode;
 use function Facebook\HHAST\find_position;
+use namespace HH\Lib\Str;
 
 class ASTLintError<
   Tnode as EditableNode,
@@ -34,6 +35,19 @@ class ASTLintError<
   <<__Override>>
   final public function getPosition(): (int, int) {
     return find_position($this->linter->getAST(), $this->getBlameNode());
+  }
+
+  <<__Override>>
+  final public function getRange(): ((int, int), (int, int)) {
+    $token = $this->getBlameNode()->getLastTokenx();
+    list($line, $col) = find_position(
+      $this->linter->getAST(),
+      $token,
+    );
+    return tuple(
+      $this->getPosition(),
+      tuple($line, $col + Str\length($token->getText())),
+    );
   }
 
   <<__Override>>
