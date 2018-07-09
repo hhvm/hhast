@@ -54,6 +54,7 @@ implements LSPAutoFixingLinter<FixableASTLintError<Tnode>> {
     }
     return shape(
       'title' => $this->getFixTitle($error),
+      'kind' => LSP\CodeActionKind::QUICK_FIX,
       'edit' => shape(
         'changes' => dict[
           'file://'.\realpath($this->getFile()) => vec[shape(
