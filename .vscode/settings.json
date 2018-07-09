@@ -1,3 +1,4 @@
 {
   "hack.hhastPath": "bin/hhast-lint",
+  "hack.useHhast": true,
 }
