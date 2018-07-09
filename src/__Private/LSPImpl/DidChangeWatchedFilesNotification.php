@@ -17,7 +17,7 @@ use type Facebook\HHAST\__Private\{
 };
 use type Facebook\CLILib\ITerminal;
 use namespace Facebook\HHAST\__Private\{LSP, LSPLib};
-use namespace HH\Lib\{Str, Vec};
+use namespace HH\Lib\{C, Str, Vec};
 
 final class DidChangeWatchedFilesNotification
   extends LSPLib\DidChangeWatchedFilesNotification {
@@ -25,6 +25,7 @@ final class DidChangeWatchedFilesNotification
   public function __construct(
     private LSPLib\Client $client,
     private ?LintRunConfig $config,
+    private ServerState $state,
   ) {
   }
 
@@ -33,15 +34,6 @@ final class DidChangeWatchedFilesNotification
     $changes_to_file_uris = (vec<LSP\FileEvent> $events) ==> $events
       |> Vec\map($$, $e ==> $e['uri'])
       |> Vec\filter($$, $uri ==> Str\starts_with($uri, 'file://'));
-
-    $to_relint = $p['changes']
-      |> Vec\filter(
-        $$,
-        $change ==> $change['type'] !== LSP\FileChangeType::DELETED,
-      )
-      |> $changes_to_file_uris($$);
-
-    await relint_uris_async($this->client, $this->config, $to_relint);
 
     $to_purge = $p['changes']
       |> Vec\filter(
@@ -56,5 +48,21 @@ final class DidChangeWatchedFilesNotification
         'diagnostics' => vec[],
       )))->asMessage() |> $this->client->sendNotificationMessage($$);
     }
+
+    $to_relint = $p['changes']
+      |> Vec\filter(
+        $$,
+        $change ==> $change['type'] !== LSP\FileChangeType::DELETED,
+      )
+      |> $changes_to_file_uris($$);
+
+    if ($this->state->lintMode === LintMode::OPEN_FILES) {
+      $to_relint = Vec\filter(
+        $to_relint,
+        $uri ==> C\contains($this->state->openFiles, $uri),
+      );
+    }
+
+    await relint_uris_async($this->client, $this->config, $to_relint);
   }
 }

@@ -20,16 +20,13 @@ use namespace Facebook\HHAST\__Private\{LSP, LSPImpl, LSPLib};
 use type Facebook\CLILib\{ExitException, ITerminal, Terminal};
 use namespace HH\Lib\{Str, Tuple, Vec};
 
-final class Server extends LSPLib\Server<LSPLib\ServerState> {
+final class Server extends LSPLib\Server<ServerState> {
   public function __construct(
     private ITerminal $terminal,
     private ?LintRunConfig $config,
     private vec<string> $roots,
   ) {
-    parent::__construct(
-      new LSPImpl\Client($terminal),
-      new LSPLib\ServerState(),
-    );
+    parent::__construct(new LSPImpl\Client($terminal), new ServerState());
   }
 
   <<__Override>>
@@ -47,8 +44,15 @@ final class Server extends LSPLib\Server<LSPLib\ServerState> {
       new LSPImpl\DidChangeWatchedFilesNotification(
         $this->client,
         $this->config,
+        $this->state,
       ),
       new LSPImpl\DidSaveTextDocumentNotification($this->client, $this->config),
+      new LSPImpl\DidOpenTextDocumentNotification(
+        $this->client,
+        $this->config,
+        $this->state,
+      ),
+      new LSPImpl\DidCloseTextDocumentNotification($this->client, $this->state),
       new LSPImpl\ExitNotification($this->state),
       new LSPImpl\InitializedNotification($this->client, $this->state),
     ];
@@ -78,7 +82,7 @@ final class Server extends LSPLib\Server<LSPLib\ServerState> {
   private async function mainLoopAsync(): Awaitable<void> {
     $stdin = $this->terminal->getStdin();
     $poll = AsyncPoll::create();
-    $poll->add($this->initAsync());
+    $poll->add($this->lintProjectAsync());
     $poll->add(
       async {
         while (!$stdin->isEof()) {
@@ -94,9 +98,13 @@ final class Server extends LSPLib\Server<LSPLib\ServerState> {
     }
   }
 
-  private async function initAsync(): Awaitable<void> {
+  private async function lintProjectAsync(): Awaitable<void> {
     await $this->state->waitForInitAsync();
     if ($this->state->getStatus() !== LSPLib\ServerStatus::INITIALIZED) {
+      return;
+    }
+
+    if ($this->state->lintMode !== LintMode::WHOLE_PROJECT) {
       return;
     }
 
