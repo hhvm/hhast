@@ -16,7 +16,7 @@ use namespace Facebook\TypeAssert;
 use function Facebook\HHAST\resolve_type;
 use namespace HH\Lib\{C, Str, Vec};
 
-class UseStatementWithAsLinter extends AutoFixingASTLinter<NamespaceUseClause> {
+class UseStatementWithAsLinter extends ASTLinter<NamespaceUseClause> {
   <<__Override>>
   protected static function getTargetType(): classname<NamespaceUseClause> {
     return NamespaceUseClause::class;
@@ -26,27 +26,15 @@ class UseStatementWithAsLinter extends AutoFixingASTLinter<NamespaceUseClause> {
   public function getLintErrorForNode(
     NamespaceUseClause $node,
     vec<EditableNode> $parents,
-  ): ?FixableASTLintError<NamespaceUseClause> {
+  ): ?ASTLintError<NamespaceUseClause> {
     if (!$node->hasAlias()) {
       return null;
     }
-    return new FixableASTLintError(
+    return new ASTLintError(
       $this,
       "Don't use `as` in `use` statements: it makes code less readable and ".
       "less greppable.",
       $node,
     );
-  }
-
-  <<__Override>>
-  public function getFixedNode(NamespaceUseClause $node): EditableNode {
-    return $node
-      ->withAs(HHAST\Missing())
-      ->withAlias(HHAST\Missing())
-      ->replace(
-        $node->getName()->getLastTokenx(),
-        $node->getName()->getLastTokenx()
-          ->withTrailing($node->getAliasx()->getLastTokenx()->getTrailing()),
-      );
   }
 }

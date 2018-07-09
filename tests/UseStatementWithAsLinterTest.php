@@ -11,8 +11,7 @@
 namespace Facebook\HHAST;
 
 final class UseStatementWithAsLinterTest extends TestCase {
-  use
-    AutoFixingLinterTestTrait<Linters\FixableASTLintError<NamespaceUseClause>>;
+  use LinterTestTrait;
 
   protected function getLinter(string $file): Linters\UseStatementWithAsLinter {
     return new Linters\UseStatementWithAsLinter($file);

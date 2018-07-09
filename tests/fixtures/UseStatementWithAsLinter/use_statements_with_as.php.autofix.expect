@@ -1,9 +1,0 @@
-<?hh
-
-use Foo;
-use type Foo;
-use namespace Foo /* trailing comment */;
-use Foo\{
-  Bar,
-  Baz,
-};
