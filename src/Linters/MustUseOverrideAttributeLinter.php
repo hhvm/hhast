@@ -27,11 +27,16 @@ use function Facebook\HHAST\resolve_type;
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
 
-class MustUseOverrideAttributeLinter
+final class MustUseOverrideAttributeLinter
   extends AutoFixingASTLinter<MethodishDeclaration> {
   <<__Override>>
   protected static function getTargetType(): classname<MethodishDeclaration> {
     return MethodishDeclaration::class;
+  }
+
+  <<__Override>>
+  public function getFixTitle(LintError $_): string {
+    return 'Add __Override attribute';
   }
 
   <<__Override>>
