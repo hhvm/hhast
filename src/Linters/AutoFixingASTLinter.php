@@ -21,6 +21,14 @@ implements LSPAutoFixingLinter<FixableASTLintError<Tnode>> {
 
   abstract public function getFixedNode(Tnode $node): ?EditableNode;
 
+  public function getFixTitle(FixableASTLintError<Tnode> $_error): string {
+    return \get_class($this)
+      |> Str\split($$, "\\")
+      |> C\lastx($$)
+      |> Str\strip_suffix($$, "Linter")
+      |> 'Fix '.$$.' Error';
+  }
+
   final public function getCodeActionForError(
     FixableASTLintError<Tnode> $error,
   ): ?LSP\CodeAction {
@@ -45,11 +53,7 @@ implements LSPAutoFixingLinter<FixableASTLintError<Tnode>> {
       $end = tuple($start[0] + $count - 1, Str\length(C\lastx($lines)));
     }
     return shape(
-      'title' => \get_class($this)
-        |> Str\split($$, "\\")
-        |> C\lastx($$)
-        |> Str\strip_suffix($$, "Linter")
-        |> 'Fix '.$$,
+      'title' => $this->getFixTitle($error),
       'edit' => shape(
         'changes' => dict[
           'file://'.\realpath($this->getFile()) => vec[shape(
