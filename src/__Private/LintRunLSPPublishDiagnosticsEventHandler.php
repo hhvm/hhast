@@ -14,7 +14,8 @@ use namespace Facebook\HHAST\Linters;
 use namespace Facebook\HHAST\__Private\LSPLib;
 use namespace HH\Lib\{C, Dict, Str, Vec};
 
-final class LintRunLSPEventHandler implements LintRunEventHandler {
+final class LintRunLSPPublishDiagnosticsEventHandler
+  implements LintRunEventHandler {
   public function __construct(private LSPLib\Client $client) {
   }
 
@@ -67,23 +68,34 @@ final class LintRunLSPEventHandler implements LintRunEventHandler {
     string $file,
     vec<LSP\Diagnostic> $diagnostics,
   ): void {
-    $message = (new LSPLib\PublishDiagnosticsNotification(shape(
-      'uri' => 'file://'.$file,
-      'diagnostics' => $diagnostics,
-    )))->asMessage();
+    $message = (
+      new LSPLib\PublishDiagnosticsNotification(shape(
+        'uri' => 'file://'.$file,
+        'diagnostics' => $diagnostics,
+      ))
+    )->asMessage();
     $this->client->sendNotificationMessage($message);
   }
 
   public function finishedFile(string $path, LintRunResult $result): void {
     $path = \realpath($path);
-    invariant($this->file === null || $this->file === $path, "Unexpected file change");
+    invariant(
+      $this->file === null || $this->file === $path,
+      "Unexpected file change",
+    );
 
     $errors = $this->errors;
 
     if ($result === LintRunResult::NO_ERRORS) {
-      invariant(C\is_empty($errors), "Linter reports no errors, but we have errors");
+      invariant(
+        C\is_empty($errors),
+        "Linter reports no errors, but we have errors",
+      );
     } else {
-      invariant(!C\is_empty($errors), "Linter reports errors, but we have none");
+      invariant(
+        !C\is_empty($errors),
+        "Linter reports errors, but we have none",
+      );
     }
 
     $this->publishDiagnostics($path, $errors);

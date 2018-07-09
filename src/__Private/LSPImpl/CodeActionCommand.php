@@ -11,16 +11,14 @@
 namespace Facebook\HHAST\__Private\LSPImpl;
 
 use type Facebook\HHAST\__Private\{
-  LintRun,
   LintRunConfig,
-  LintRunLSPPublishDiagnosticsEventHandler,
+  LintRunLSPCodeActionEventHandler,
 };
-use type Facebook\CLILib\ITerminal;
 use namespace Facebook\HHAST\__Private\{LSP, LSPLib};
 use namespace HH\Lib\Str;
 
-final class DidSaveTextDocumentNotification
-  extends LSPLib\DidSaveTextDocumentNotification {
+final class CodeActionCommand extends LSPLib\CodeActionCommand {
+  const type TResponse = vec<LSP\CodeAction>;
 
   public function __construct(
     private LSPLib\Client $client,
@@ -29,16 +27,18 @@ final class DidSaveTextDocumentNotification
   }
 
   <<__Override>>
-  public async function executeAsync(self::TParams $p): Awaitable<void> {
+  public async function executeAsync(
+    self::TParams $p,
+  ): Awaitable<this::TExecuteResult> {
     $uri = $p['textDocument']['uri'];
-    if (!Str\starts_with($uri, 'file://')) {
-      return;
-    }
 
-    await relint_uri_async(
-      new LintRunLSPPublishDiagnosticsEventHandler($this->client),
-      $this->config,
-      $uri,
+    $handler = new LintRunLSPCodeActionEventHandler(
+      $this->client,
+      $p['context']['diagnostics'],
     );
+
+    await relint_uri_async($handler, $this->config, $uri);
+
+    return self::success($handler->getCodeActions());
   }
 }

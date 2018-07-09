@@ -12,19 +12,16 @@ namespace Facebook\HHAST\__Private\LSPImpl;
 
 use type Facebook\HHAST\__Private\{
   LintRun,
-  LintRunConfig,
-  LintRunLSPErrorHandler,
-};
-use namespace Facebook\HHAST\__Private\{LSP, LSPLib};
+  LintRunConfig, LintRunEventHandler};
 use namespace HH\Lib\{Str, Vec};
 
 async function relint_uris_async(
-  LSPLib\Client $client,
+  LintRunEventHandler $handler,
   ?LintRunConfig $config,
   vec<string> $uris,
 ): Awaitable<void> {
   await Vec\map_async(
     $uris,
-    async $uri ==> await relint_uri_async($client, $config, $uri),
+    async $uri ==> await relint_uri_async($handler, $config, $uri),
   );
 }

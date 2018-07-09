@@ -13,7 +13,7 @@ namespace Facebook\HHAST\__Private\LSPImpl;
 use type Facebook\HHAST\__Private\{
   LintRun,
   LintRunConfig,
-  LintRunLSPErrorHandler,
+  LintRunLSPPublishDiagnosticsEventHandler,
 };
 use type Facebook\CLILib\ITerminal;
 use namespace Facebook\HHAST\__Private\{LSP, LSPLib};
@@ -38,6 +38,10 @@ final class DidOpenTextDocumentNotification
 
     $this->state->openFiles[] = $uri;
 
-    await relint_uri_async($this->client, $this->config, $uri);
+    await relint_uri_async(
+      new LintRunLSPPublishDiagnosticsEventHandler($this->client),
+      $this->config,
+      $uri,
+    );
   }
 }

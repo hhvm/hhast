@@ -13,19 +13,18 @@ namespace Facebook\HHAST\__Private\LSPImpl;
 use type Facebook\HHAST\__Private\{
   LintRun,
   LintRunConfig,
+  LintRunEventHandler,
   LintRunLSPEventHandler,
 };
-use namespace Facebook\HHAST\__Private\{LSP, LSPLib};
 use namespace HH\Lib\Str;
 
 async function relint_uri_async(
-  LSPLib\Client $client,
+  LintRunEventHandler $handler,
   ?LintRunConfig $config,
   string $uri,
 ): Awaitable<void> {
   $path = Str\strip_prefix($uri, 'file://');
   $config = $config ?? LintRunConfig::getForPath($path);
 
-  $handler = (new LintRunLSPEventHandler($client));
   await (new LintRun($config, $handler, vec[$path]))->runAsync();
 }

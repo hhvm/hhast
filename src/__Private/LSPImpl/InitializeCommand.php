@@ -26,8 +26,9 @@ extends LSPLib\InitializeCommand<ServerState> {
         'includeText' => false,
       ),
       'openClose' => true,
-    )
-  );
+      ),
+      'codeActionProvider' => true,
+    );
 
   <<__Override>>
   public async function executeAsync(

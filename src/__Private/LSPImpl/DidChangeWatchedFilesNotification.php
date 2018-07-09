@@ -13,7 +13,7 @@ namespace Facebook\HHAST\__Private\LSPImpl;
 use type Facebook\HHAST\__Private\{
   LintRun,
   LintRunConfig,
-  LintRunLSPErrorHandler,
+  LintRunLSPPublishDiagnosticsEventHandler,
 };
 use type Facebook\CLILib\ITerminal;
 use namespace Facebook\HHAST\__Private\{LSP, LSPLib};
@@ -63,6 +63,10 @@ final class DidChangeWatchedFilesNotification
       );
     }
 
-    await relint_uris_async($this->client, $this->config, $to_relint);
+    await relint_uris_async(
+      new LintRunLSPPublishDiagnosticsEventHandler($this->client),
+      $this->config,
+      $to_relint,
+    );
   }
 }
