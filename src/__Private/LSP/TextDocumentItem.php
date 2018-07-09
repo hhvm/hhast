@@ -12,7 +12,7 @@ namespace Facebook\HHAST\__Private\LSP;
 
 type TextDocumentItem = shape(
   'uri' => DocumentUri,
-  'langaugeId' => string,
+  'languageId' => string,
   'version' => int,
   'text' => string,
 );
