@@ -41,15 +41,17 @@ final class LintRunConfig {
     // Defaults to false.
     ?'disableAllAutoFixes' => bool,
     // Override any of the above for a subset of files in the project
-    ?'overrides' => vec<shape(
-      // Which files this override applies to (uses `fnmatch()`)
-      'patterns' => vec<string>,
-      ?'extraLinters' => vec<string>,
-      ?'disabledLinters' => vec<string>,
-      ?'disabledAutoFixes' => vec<string>,
-      ?'disableAllAutoFixes' => bool,
-      ?'disableAllLinters' => bool,
-    )>,
+    ?'overrides' => vec<
+      shape(
+        // Which files this override applies to (uses `fnmatch()`)
+        'patterns' => vec<string>,
+        ?'extraLinters' => vec<string>,
+        ?'disabledLinters' => vec<string>,
+        ?'disabledAutoFixes' => vec<string>,
+        ?'disableAllAutoFixes' => bool,
+        ?'disableAllLinters' => bool,
+      )
+    >,
   );
 
   const type TFileConfig = shape(
@@ -92,9 +94,7 @@ final class LintRunConfig {
     }
   }
 
-  private function __construct(
-    private self::TConfigFile $configFile,
-  ) {
+  private function __construct(private self::TConfigFile $configFile) {
   }
 
   <<__Memoize>>
@@ -124,9 +124,9 @@ final class LintRunConfig {
     if (\file_exists($config_file)) {
       return self::getFromConfigFile($config_file);
     }
-    return \explode('/', $path)
+    return Str\split($path, '/')
       |> Vec\take($$, C\count($$) - 1)
-      |> \implode('/', $$)
+      |> Str\join($$, '/')
       |> self::getForPathImpl($$);
   }
 
@@ -135,6 +135,18 @@ final class LintRunConfig {
   }
 
   public function getConfigForFile(string $file_path): self::TFileConfig {
+    $roots = Vec\map($this->getRoots(), $s ==> Str\strip_suffix($s, '/').'/');
+    $file_path =
+      Str\strip_prefix($file_path, Str\strip_suffix(\getcwd(), '/').'/');
+    if (
+      $roots !== vec[] &&
+      !C\any($roots, $root ==> Str\starts_with($file_path, $root))
+    ) {
+      return shape(
+        'linters' => keyset[],
+        'autoFixBlacklist' => keyset[],
+      );
+    }
     $linters = $this->configFile['extraLinters'] ?? vec[];
     $blacklist = $this->configFile['disabledLinters'] ?? vec[];
     $autofix_blacklist = $this->configFile['disabledAutoFixes'] ?? vec[];
@@ -156,20 +168,13 @@ final class LintRunConfig {
           'autoFixBlacklist' => keyset[],
         );
       }
-      $linters = Vec\concat(
-        $linters,
-        $override['extraLinters'] ?? vec[],
-      );
-      $blacklist = Vec\concat(
-        $blacklist,
-        $override['disabledLinters'] ?? vec[],
-      );
-      $autofix_blacklist = Vec\concat(
-        $autofix_blacklist,
-        $override['disabledAutoFixes'] ?? vec[],
-      );
-      $no_autofixes = $no_autofixes ||
-        ($override['disableAllAutoFixes'] ?? false);
+      $linters = Vec\concat($linters, $override['extraLinters'] ?? vec[]);
+      $blacklist =
+        Vec\concat($blacklist, $override['disabledLinters'] ?? vec[]);
+      $autofix_blacklist =
+        Vec\concat($autofix_blacklist, $override['disabledAutoFixes'] ?? vec[]);
+      $no_autofixes =
+        $no_autofixes || ($override['disableAllAutoFixes'] ?? false);
     }
 
     $normalize = $list ==> Keyset\map(
@@ -184,8 +189,8 @@ final class LintRunConfig {
     $linters = Keyset\union(
       $linters,
       self::getNamedLinterGroup(
-        $this->configFile['builtinLinters']
-          ?? NamedLinterGroup::DEFAULT_BUILTINS,
+        $this->configFile['builtinLinters'] ??
+          NamedLinterGroup::DEFAULT_BUILTINS,
       ),
     );
 
@@ -223,9 +228,7 @@ final class LintRunConfig {
     return $name;
   }
 
-  private static function getConfigFromFile(
-    string $file,
-  ): self::TConfigFile {
+  private static function getConfigFromFile(string $file): self::TConfigFile {
     $json = \file_get_contents($file);
     $data = \json_decode(
       $json,
