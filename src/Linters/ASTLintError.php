@@ -50,6 +50,7 @@ class ASTLintError<
     );
   }
 
+  <<__Override>>
   final public function getBlameCode(): string {
     return $this->node->getCode();
   }
