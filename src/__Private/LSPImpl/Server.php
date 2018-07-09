@@ -13,7 +13,7 @@ namespace Facebook\HHAST\__Private\LSPImpl;
 use type Facebook\HHAST\__Private\{
   Asio\AsyncPoll,
   LintRunConfig,
-  LintRunLSPEventHandler,
+  LintRunLSPPublishDiagnosticsEventHandler,
   LintRun,
 };
 use namespace Facebook\HHAST\__Private\{LSP, LSPImpl, LSPLib};
@@ -109,7 +109,7 @@ final class Server extends LSPLib\Server<ServerState> {
       return;
     }
 
-    $handler = new LintRunLSPEventHandler($this->client);
+    $handler = new LintRunLSPPublishDiagnosticsEventHandler($this->client);
     await (new LintRun($this->config, $handler, $this->roots))->runAsync();
   }
 
