@@ -34,7 +34,7 @@ final class Server extends LSPLib\Server<ServerState> {
     return vec[
       new LSPImpl\InitializeCommand($this->state),
       new LSPLib\ShutdownCommand($this->state),
-      new LSPImpl\CodeActionCommand($this->client, $this->config),
+      new LSPImpl\CodeActionCommand($this->client, $this->config, $this->state),
     ];
   }
 
@@ -47,7 +47,11 @@ final class Server extends LSPLib\Server<ServerState> {
         $this->config,
         $this->state,
       ),
-      new LSPImpl\DidSaveTextDocumentNotification($this->client, $this->config),
+      new LSPImpl\DidSaveTextDocumentNotification(
+        $this->client,
+        $this->config,
+        $this->state,
+      ),
       new LSPImpl\DidOpenTextDocumentNotification(
         $this->client,
         $this->config,
@@ -109,7 +113,8 @@ final class Server extends LSPLib\Server<ServerState> {
       return;
     }
 
-    $handler = new LintRunLSPPublishDiagnosticsEventHandler($this->client);
+    $handler =
+      new LintRunLSPPublishDiagnosticsEventHandler($this->client, $this->state);
     await (new LintRun($this->config, $handler, $this->roots))->runAsync();
   }
 

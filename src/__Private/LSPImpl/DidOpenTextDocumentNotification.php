@@ -39,7 +39,7 @@ final class DidOpenTextDocumentNotification
     $this->state->openFiles[] = $uri;
 
     await relint_uri_async(
-      new LintRunLSPPublishDiagnosticsEventHandler($this->client),
+      new LintRunLSPPublishDiagnosticsEventHandler($this->client, $this->state),
       $this->config,
       $uri,
     );

@@ -25,6 +25,7 @@ final class DidSaveTextDocumentNotification
   public function __construct(
     private LSPLib\Client $client,
     private ?LintRunConfig $config,
+    private ServerState $state,
   ) {
   }
 
@@ -36,7 +37,7 @@ final class DidSaveTextDocumentNotification
     }
 
     await relint_uri_async(
-      new LintRunLSPPublishDiagnosticsEventHandler($this->client),
+      new LintRunLSPPublishDiagnosticsEventHandler($this->client, $this->state),
       $this->config,
       $uri,
     );

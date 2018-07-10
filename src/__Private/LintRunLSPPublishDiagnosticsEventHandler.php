@@ -11,16 +11,15 @@
 namespace Facebook\HHAST\__Private;
 
 use namespace Facebook\HHAST\Linters;
-use namespace Facebook\HHAST\__Private\LSPLib;
 use namespace HH\Lib\{C, Dict, Str, Vec};
 
 final class LintRunLSPPublishDiagnosticsEventHandler
   implements LintRunEventHandler {
-  public function __construct(private LSPLib\Client $client) {
+  public function __construct(private LSPLib\Client $client, private LSPImpl\ServerState $state) {
   }
 
   private ?string $file = null;
-  private vec<LSP\Diagnostic> $errors = vec[];
+  private vec<Linters\LintError> $errors = vec[];
 
   public function linterRaisedErrors(
     Linters\BaseLinter $linter,
@@ -35,23 +34,22 @@ final class LintRunLSPPublishDiagnosticsEventHandler
     $this->file = $file;
     $this->errors = Vec\concat(
       $this->errors ?? vec[],
-      Vec\map($errors, $e ==> $this->asDiagnostic($linter, $e)),
+      $errors,
     );
     return LintAutoFixResult::SOME_UNFIXED;
   }
 
   private function asDiagnostic(
-    Linters\BaseLinter $linter,
     Linters\LintError $error,
   ): LSP\Diagnostic {
     $range = $error->getRange();
     $start = $range[0] ?? tuple(0, 0);
     $end = $range[1] ?? $start;
 
-    $start = shape('line' => $start[0] - 1, 'character' => $start[1]);
-    $end = shape('line' => $end[0] - 1, 'character' => $end[1]);
+    $start = LSPImpl\position_to_lsp($start);
+    $end = LSPImpl\position_to_lsp($end);
 
-    $source = \get_class($linter)
+    $source = \get_class($error->getLinter())
       |> Str\split($$, "\\")
       |> C\lastx($$)
       |> Str\strip_suffix($$, 'Linter');
@@ -66,12 +64,14 @@ final class LintRunLSPPublishDiagnosticsEventHandler
 
   private function publishDiagnostics(
     string $file,
-    vec<LSP\Diagnostic> $diagnostics,
+    vec<Linters\LintError> $errors,
   ): void {
+    $uri = 'file://'.$file;
+    $this->state->lintErrors[$uri] = $errors;
     $message = (
       new LSPLib\PublishDiagnosticsNotification(shape(
-        'uri' => 'file://'.$file,
-        'diagnostics' => $diagnostics,
+        'uri' => $uri,
+        'diagnostics' => Vec\map($errors, $e ==> $this->asDiagnostic($e)),
       ))
     )->asMessage();
     $this->client->sendNotificationMessage($message);

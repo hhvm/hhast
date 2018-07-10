@@ -64,7 +64,7 @@ final class DidChangeWatchedFilesNotification
     }
 
     await relint_uris_async(
-      new LintRunLSPPublishDiagnosticsEventHandler($this->client),
+      new LintRunLSPPublishDiagnosticsEventHandler($this->client, $this->state),
       $this->config,
       $to_relint,
     );

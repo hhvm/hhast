@@ -10,9 +10,11 @@
 
 namespace Facebook\HHAST\__Private\LSPImpl;
 
+use namespace Facebook\HHAST\Linters;
 use namespace Facebook\HHAST\__Private\LSPLib;
 
 final class ServerState extends LSPLib\ServerState {
   public LintMode $lintMode = LintMode::WHOLE_PROJECT;
   public keyset<string> $openFiles = keyset[];
+  public dict<string, vec<Linters\LintError>> $lintErrors = dict[];
 }
