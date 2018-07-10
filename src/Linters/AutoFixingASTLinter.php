@@ -11,7 +11,7 @@
 namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\EditableNode;
-use namespace Facebook\HHAST\__Private\LSP;
+use namespace Facebook\HHAST\__Private\{LSP, LSPImpl};
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str};
 
@@ -61,9 +61,8 @@ implements LSPAutoFixingLinter<FixableASTLintError<Tnode>> {
         'changes' => dict[
           'file://'.\realpath($this->getFile()) => vec[shape(
             'range' => shape(
-              'start' =>
-                shape('line' => $start[0] - 1, 'character' => $start[1]),
-              'end' => shape('line' => $end[0] - 1, 'character' => $end[1]),
+              'start' => LSPImpl\position_to_lsp($start),
+              'end' => LSPImpl\position_to_lsp($end),
             ),
             'newText' => $fixed->getCode(),
           )],
