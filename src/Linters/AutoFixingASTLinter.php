@@ -21,7 +21,7 @@ implements LSPAutoFixingLinter<FixableASTLintError<Tnode>> {
 
   abstract public function getFixedNode(Tnode $node): ?EditableNode;
 
-  protected function getFixTitle(FixableASTLintError<Tnode> $_error): string {
+  protected function getTitleForFix(FixableASTLintError<Tnode> $_error): string {
     return \get_class($this)
       |> Str\split($$, "\\")
       |> C\lastx($$)
@@ -53,7 +53,7 @@ implements LSPAutoFixingLinter<FixableASTLintError<Tnode>> {
       $end = tuple($start[0] + $count - 1, Str\length(C\lastx($lines)));
     }
     return shape(
-      'title' => $this->getFixTitle($error),
+      'title' => $this->getTitleForFix($error),
       'kind' => LSP\CodeActionKind::QUICK_FIX,
       'edit' => shape(
         'changes' => dict[

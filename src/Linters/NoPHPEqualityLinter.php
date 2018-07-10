@@ -31,7 +31,7 @@ final class NoPHPEqualityLinter
   }
 
   <<__Override>>
-  protected function getFixTitle(
+  protected function getTitleForFix(
     FixableASTLintError<BinaryExpression> $err,
   ): string {
     $blame = $err->getBlameNode();

@@ -35,7 +35,7 @@ final class MustUseOverrideAttributeLinter
   }
 
   <<__Override>>
-  public function getFixTitle(LintError $_): string {
+  public function getTitleForFix(LintError $_): string {
     return 'Add __Override attribute';
   }
 
