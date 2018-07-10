@@ -21,7 +21,7 @@ implements LSPAutoFixingLinter<FixableASTLintError<Tnode>> {
 
   abstract public function getFixedNode(Tnode $node): ?EditableNode;
 
-  public function getFixTitle(FixableASTLintError<Tnode> $_error): string {
+  protected function getFixTitle(FixableASTLintError<Tnode> $_error): string {
     return \get_class($this)
       |> Str\split($$, "\\")
       |> C\lastx($$)
