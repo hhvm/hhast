@@ -11,9 +11,11 @@
 namespace Facebook\HHAST;
 
 final class UseStatementWithLeadingBackslashLinterTest extends TestCase {
-  use LinterTestTrait;
+  use AutoFixingLinterTestTrait<Linters\FixableASTLintError<INamespaceUseDeclaration>>;
 
-  protected function getLinter(string $file): Linters\BaseLinter {
+  protected function getLinter(
+    string $file,
+  ): Linters\AutoFixingASTLinter<INamespaceUseDeclaration> {
     return new Linters\UseStatementWithLeadingBackslashLinter($file);
   }
 

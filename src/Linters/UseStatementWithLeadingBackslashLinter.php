@@ -15,20 +15,17 @@ use type Facebook\HHAST\{
   EditableNode,
   INamespaceUseDeclaration,
   NamespaceGroupUseDeclaration,
+  NamespaceUseDeclaration,
   NamespaceUseClause,
   NamespaceToken,
   NameToken,
-  ScopeResolutionExpression,
-  SimpleTypeSpecifier,
-  TypeToken,
-  QualifiedName,
 };
 use namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Keyset, Str};
 
 final class UseStatementWithLeadingBackslashLinter
-  extends ASTLinter<INamespaceUseDeclaration> {
+  extends AutoFixingASTLinter<INamespaceUseDeclaration> {
   <<__Override>>
   protected static function getTargetType(
   ): classname<INamespaceUseDeclaration> {
@@ -39,7 +36,7 @@ final class UseStatementWithLeadingBackslashLinter
   public function getLintErrorForNode(
     INamespaceUseDeclaration $node,
     vec<EditableNode> $_context,
-  ): ?ASTLintError<INamespaceUseDeclaration> {
+  ): ?FixableASTLintError<INamespaceUseDeclaration> {
     $matched = false;
     if ($node instanceof NamespaceGroupUseDeclaration) {
       $prefix = $node->getPrefix()->getFirstToken();
@@ -62,10 +59,50 @@ final class UseStatementWithLeadingBackslashLinter
     if (!$matched) {
       return null;
     }
-    return new ASTLintError(
+    return new FixableASTLintError(
       $this,
       "Leading backslashes on `use` statements do nothing",
       $node,
     );
+  }
+
+  <<__Override>>
+  protected function getTitleForFix(LintError $_): string {
+    return 'Remove leading backslash';
+  }
+
+  <<__Override>>
+  public function getFixedNode(
+    INamespaceUseDeclaration $node,
+  ): INamespaceUseDeclaration {
+    if ($node instanceof NamespaceUseDeclaration) {
+      return $node->rewriteDescendants(($n, $_p) ==> {
+        if (!$n instanceof NamespaceUseClause) {
+          return $n;
+        }
+        $first = $n->getName()->getFirstToken();
+        if (!$first instanceof BackslashToken) {
+          return $n;
+        }
+        return $n->without($first);
+      });
+    }
+
+    invariant(
+      $node instanceof NamespaceGroupUseDeclaration,
+      "Got an unexpected INamespaceUseDeclaration subclass",
+    );
+
+    $first = $node->getPrefix()->getFirstToken();
+    if ($first === null || !$first instanceof BackslashToken) {
+      return $node;
+    }
+
+    $new = $node->without($first);
+    invariant(
+      $new instanceof NamespaceGroupUseDeclaration,
+      'unexpected type change',
+    );
+    return $new;
   }
 }
