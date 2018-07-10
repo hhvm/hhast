@@ -1,0 +1,19 @@
+<?hh //strict
+
+use namespace hi;
+use function hello;
+use type that;
+
+public class Test {
+
+  public function testMethod(): void {
+    $this->assertSame($a, $a);
+    $this->assertEquals('foo', 'bar');
+    $this->assertEquals(1, 2, 'msg', .1);
+    $this->assertNull($obj);
+    $this->assertTrue('foo');
+    $this->assertFalse(vec[1, 2, 3]);
+    $this->assertInstanceOf(HackTestCase::class, $obj, 'Not an instance of HackTestCase!');
+    $this->assertGreaterThanOrEqualTo(1, 2, '2 > 1');
+  }
+}

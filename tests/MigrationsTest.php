@@ -20,22 +20,26 @@ final class MigrationsTest extends TestCase {
   public function getMigrations(
   ): array<(classname<Migrations\BaseMigration>, string)> {
     $migrations = [
+      // tuple(
+      //   Migrations\OptionalShapeFieldsMigration::class,
+      //   'migrations/optional_shape_fields.php',
+      // ),
+      // tuple(
+      //   Migrations\ImplicitShapeSubtypesMigration::class,
+      //   'migrations/implicit_shape_subtypes.php',
+      // ),
+      // tuple(
+      //   Migrations\CallTimePassByReferenceMigration::class,
+      //   'migrations/call_time_pass_by_reference.php',
+      // ),
+      // tuple(
+      //   Migrations\AddFixMesMigration::class,
+      //   'migrations/add_fixmes.php',
+      // ),
       tuple(
-        Migrations\OptionalShapeFieldsMigration::class,
-        'migrations/optional_shape_fields.php',
-      ),
-      tuple(
-        Migrations\ImplicitShapeSubtypesMigration::class,
-        'migrations/implicit_shape_subtypes.php',
-      ),
-      tuple(
-        Migrations\CallTimePassByReferenceMigration::class,
-        'migrations/call_time_pass_by_reference.php',
-      ),
-      tuple(
-        Migrations\AddFixMesMigration::class,
-        'migrations/add_fixmes.php',
-      ),
+        Migrations\AssertToExpectMigration::class,
+        'migrations/change_assert_to_expect.php',
+      )
     ];
 
     if (\version_compare(\HHVM_VERSION, '3.25.0-dev', '>=')) {
