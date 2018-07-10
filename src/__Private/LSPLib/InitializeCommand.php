@@ -26,9 +26,11 @@ class InitializeCommand<TState as ServerState> extends ServerCommand {
 
   <<__Override>>
   public async function executeAsync(
-    self::TParams $_,
+    self::TParams $p,
   ): Awaitable<this::TExecuteResult> {
-    $this->state->setStatus(ServerStatus::INITIALIZING);
+    $this->state
+      ->setStatus(ServerStatus::INITIALIZING)
+      ->setClientCapabilities($p['capabilities']);
     return
       static::success(shape('capabilities' => static::SERVER_CAPABILITIES));
   }

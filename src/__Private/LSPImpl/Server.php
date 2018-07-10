@@ -35,6 +35,7 @@ final class Server extends LSPLib\Server<ServerState> {
       new LSPImpl\InitializeCommand($this->state),
       new LSPLib\ShutdownCommand($this->state),
       new LSPImpl\CodeActionCommand($this->client, $this->config, $this->state),
+      new LSPImpl\ExecuteCommandCommand($this->client),
     ];
   }
 

@@ -10,17 +10,35 @@
 
 namespace Facebook\HHAST\__Private\LSPLib;
 
+use namespace Facebook\HHAST\__Private\LSP;
 use namespace HH\Lib\C;
 
 class ServerState {
   private ServerStatus $status = ServerStatus::PRE_INIT;
+  private ?LSP\ClientCapabilities $clientCapabilities = null;
 
   final public function getStatus(): ServerStatus {
     return $this->status;
   }
 
-  final public function setStatus(ServerStatus $new): void {
+  final public function setStatus(ServerStatus $new): this {
     $this->status = $new;
+    return $this;
+  }
+
+  final public function setClientCapabilities(
+    LSP\ClientCapabilities $caps,
+  ): this {
+    invariant(
+      $this->clientCapabilities === null,
+      "Shouldn't set client capabilities more than once",
+    );
+    $this->clientCapabilities = $caps;
+    return $this;
+  }
+
+  final public function getClientCapabilities(): ?LSP\ClientCapabilities {
+    return $this->clientCapabilities;
   }
 
   final public async function waitForInitAsync(): Awaitable<void> {

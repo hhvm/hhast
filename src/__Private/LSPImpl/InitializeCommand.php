@@ -28,6 +28,9 @@ extends LSPLib\InitializeCommand<ServerState> {
       'openClose' => true,
       ),
       'codeActionProvider' => true,
+      'executeCommandProvider' => shape(
+        'commands' => ExecuteCommandCommand::COMMANDS,
+      ),
     );
 
   <<__Override>>
