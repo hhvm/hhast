@@ -1,0 +1,22 @@
+[
+    {
+        "blame": "use \\Foo\\Bar;\n",
+        "blame_pretty": "use \\Foo\\Bar;\n",
+        "description": "Leading backslashes on `use` statements do nothing"
+    },
+    {
+        "blame": "use Foo\\Bar, \\Herp\\Derp;\n",
+        "blame_pretty": "use Foo\\Bar, \\Herp\\Derp;\n",
+        "description": "Leading backslashes on `use` statements do nothing"
+    },
+    {
+        "blame": "use type \\Foo\\Bar;\n",
+        "blame_pretty": "use type \\Foo\\Bar;\n",
+        "description": "Leading backslashes on `use` statements do nothing"
+    },
+    {
+        "blame": "use \\Foo\\{Bar, Baz};\n",
+        "blame_pretty": "use \\Foo\\{Bar, Baz};\n",
+        "description": "Leading backslashes on `use` statements do nothing"
+    }
+]
