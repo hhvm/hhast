@@ -47,22 +47,12 @@ abstract class BaseASTLinter<
   private function getASTWithParents(): vec<(EditableNode, vec<EditableNode>)> {
     static $cache = null;
 
-    $hash = \sha1(\file_get_contents($this->getFile()), /* raw = */ true);
-    if (
-      $cache !== null &&
-      $cache['hash'] === $hash &&
-      $cache['astWithParents'][0][0] === $this->getAST()
-    ) {
-      return $cache['astWithParents'];
+    $ast = $this->getAST();
+    if ($cache !== null && $cache[0][0] === $ast) {
+      return $cache;
     }
-
-    $ast = $this->getAST()->traverseWithParents();
-
-    $cache = shape(
-      'hash' => $hash,
-      'astWithParents' => $ast,
-    );
-    return $ast;
+    $cache = $ast->traverseWithParents();
+    return $cache;
   }
 
   abstract protected static function getTargetType(): classname<T>;
