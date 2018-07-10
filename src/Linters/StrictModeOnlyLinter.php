@@ -49,6 +49,11 @@ class StrictModeOnlyLinter extends AutoFixingASTLinter<MarkupSuffix> {
   }
 
   <<__Override>>
+  protected function getTitleForFix(LintError $_): string {
+    return 'Use `<?hh // strict`';
+  }
+
+  <<__Override>>
   public function getFixedNode(MarkupSuffix $node): MarkupSuffix {
     $name = $node->getName();
     invariant($name !== null, "Shouldn't be asked to fix a `<?hh`'");

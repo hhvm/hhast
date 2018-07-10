@@ -60,6 +60,11 @@ final class NoStringInterpolationLinter
   }
 
   <<__Override>>
+  protected function getTitleForFix(LintError $_): string {
+    return 'Replace interpolation with concatenation';
+  }
+
+  <<__Override>>
   public function getFixedNode(LiteralExpression $root_expr): ?EditableNode {
     $expr = $root_expr->getExpression();
     invariant(

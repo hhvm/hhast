@@ -72,6 +72,14 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter<Script> {
   }
 
   <<__Override>>
+  protected function getTitleForFix(FixableASTLintError<Script> $e): string {
+    if (Str\contains_ci($e->getBlameCode(), 'copyright')) {
+      return 'Replace license header';
+    }
+    return 'Add license header';
+  }
+
+  <<__Override>>
   public function getFixedNode(Script $node): Script {
     $first = $node->getDeclarations()->getItems()[1]->getFirstTokenx();
     $leading = $first->getLeading();

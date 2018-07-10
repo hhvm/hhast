@@ -21,6 +21,8 @@ implements LSPAutoFixingLinter<FixableASTLintError<Tnode>> {
 
   abstract public function getFixedNode(Tnode $node): ?EditableNode;
 
+  // Not abstract because of a variance issue in 3.27:
+  // https://github.com/facebook/hhvm/issues/8255
   protected function getTitleForFix(FixableASTLintError<Tnode> $_error): string {
     return \get_class($this)
       |> Str\split($$, "\\")

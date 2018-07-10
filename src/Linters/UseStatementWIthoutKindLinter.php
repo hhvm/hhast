@@ -25,7 +25,7 @@ use namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Keyset, Str};
 
-class UseStatementWithoutKindLinter
+final class UseStatementWithoutKindLinter
   extends AutoFixingASTLinter<INamespaceUseDeclaration> {
   <<__Override>>
   protected static function getTargetType(
@@ -50,7 +50,21 @@ class UseStatementWithoutKindLinter
   }
 
   <<__Override>>
-  public function getFixedNode(INamespaceUseDeclaration $node): ?EditableNode {
+  protected function getTitleForFix(
+    FixableASTLintError<INamespaceUseDeclaration> $e,
+  ): string {
+    $fixed = $this->getFixedNode($e->getBlameNode());
+    invariant(
+      $fixed !== null,
+      "Shouldn't be asked to provide a fix title when there is no fix",
+    );
+    return 'Switch to `use '.$fixed->getKindx()->getText().'`';
+  }
+
+  <<__Override>>
+  public function getFixedNode(
+    INamespaceUseDeclaration $node,
+  ): ?INamespaceUseDeclaration {
     // Figure out what names are imported
     $names = Keyset\map(
       $node->getClauses()->getItemsOfType(NamespaceUseClause::class),
@@ -118,8 +132,7 @@ class UseStatementWithoutKindLinter
       return $node->withKind(new TypeToken($leading, $trailing));
     }
     if ($used_as_ns && !$used_as_type) {
-      return
-        $node->withKind(new NamespaceToken($leading, $trailing));
+      return $node->withKind(new NamespaceToken($leading, $trailing));
     }
 
     // Unused, or ambiguous

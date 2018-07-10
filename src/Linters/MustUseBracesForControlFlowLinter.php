@@ -170,6 +170,11 @@ class MustUseBracesForControlFlowLinter
   }
 
   <<__Override>>
+  protected function getTitleForFix(LintError $_): string {
+    return 'Add braces';
+  }
+
+  <<__Override>>
   public function getPrettyTextForNode(
     IControlFlowStatement $node,
     ?EditableNode $_context,
