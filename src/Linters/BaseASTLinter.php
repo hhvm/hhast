@@ -48,7 +48,11 @@ abstract class BaseASTLinter<
     static $cache = null;
 
     $hash = \sha1(\file_get_contents($this->getFile()), /* raw = */ true);
-    if ($cache !== null && $cache['hash'] === $hash) {
+    if (
+      $cache !== null &&
+      $cache['hash'] === $hash &&
+      $cache['astWithParents'][0][0] === $this->getAST()
+    ) {
       return $cache['astWithParents'];
     }
 
