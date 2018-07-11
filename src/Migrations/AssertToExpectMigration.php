@@ -169,7 +169,7 @@ final class AssertToExpectMigration extends StepBasedMigration {
     $params = vec($node->getArgumentListx()->getChildren());
     $actual = C\firstx($params);
     $msg = Missing();
-    if (C\count($params) == 2) {
+    if (C\count($params) === 2) {
       $msg = C\lastx($params);
       $actual = $actual->replace($actual->getLastTokenx(), Missing());
     }
