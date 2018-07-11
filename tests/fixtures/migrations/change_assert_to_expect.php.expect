@@ -9,10 +9,11 @@ public class Test {
 
   public function testMethod(): void {
     expect($a)->toBeSame($a);
-    expect('bar')->toBePHPEqual('foo');
-    expect(2)->toEqualWithDelta(1, .1, 'msg');
+    expect($b)->toBePHPEqual($a);
+    expect($b)->toBePHPEqual($a, 'msg');
+    expect($b)->toEqualWithDelta($a, $delta, 'msg');
     expect($obj)->toBeNull();
-    expect('foo')->toBeTrue();
+    expect('foo')->toBeTrue('msg');
     expect(vec[1, 2, 3])->toBeFalse();
     expect($obj)->toBeInstanceOf(HackTestCase::class, 'Not an instance of HackTestCase!');
     expect(2)->toBeGreaterThanOrEqualTo(1, '2 > 1');
