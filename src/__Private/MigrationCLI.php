@@ -14,6 +14,7 @@ use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
 use type Facebook\HHAST\Migrations\{
   AddFixMesMigration,
+  AssertToExpectMigration,
   BaseMigration,
   CallTimePassByReferenceMigration,
   IMigrationWithFileList,
@@ -46,6 +47,11 @@ class MigrationCLI extends CLIWithRequiredArguments {
   <<__Override>>
   protected function getSupportedOptions(): vec<CLIOptions\CLIOption> {
     return vec[
+      CLIOptions\flag(
+        () ==> { $this->migrations[] = AssertToExpectMigration::class; },
+        'Change assert calls to expect',
+        '--expect',
+      ),
       CLIOptions\flag(
         () ==> { $this->migrations[] = ImplicitShapeSubtypesMigration::class; },
         'Allow implicit structural subtyping of all shapes',

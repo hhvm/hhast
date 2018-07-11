@@ -36,6 +36,10 @@ final class MigrationsTest extends TestCase {
         Migrations\AddFixMesMigration::class,
         'migrations/add_fixmes.php',
       ),
+      tuple(
+        Migrations\AssertToExpectMigration::class,
+        'migrations/change_assert_to_expect.php',
+      )
     ];
 
     if (\version_compare(\HHVM_VERSION, '3.25.0-dev', '>=')) {
