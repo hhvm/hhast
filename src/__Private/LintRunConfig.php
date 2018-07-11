@@ -72,6 +72,7 @@ final class LintRunConfig {
       Linters\MustUseOverrideAttributeLinter::class,
       Linters\NoPHPEqualityLinter::class,
       Linters\UnusedParameterLinter::class,
+      Linters\UnusedUseClauseLinter::class,
       Linters\UseStatementWithLeadingBackslashLinter::class,
       Linters\UseStatementWithoutKindLinter::class,
       Linters\NoWhitespaceAtEndOfLineLinter::class,

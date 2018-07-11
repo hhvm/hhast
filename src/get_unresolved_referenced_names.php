@@ -35,19 +35,25 @@ function get_unresolved_referenced_names(
   foreach ($root->traverse() as $node) {
     if ($node instanceof QualifiedName) {
       $name = C\firstx($node->getParts()->getItems());
-      if (!$name instanceof NameToken) {
-        continue;
+      if ($name instanceof NameToken) {
+        $ret['namespaces'][] = $name->getText();
       }
-      $ret['namespaces'][] = $name->getText();
       continue;
     }
 
     if ($node instanceof SimpleTypeSpecifier) {
       $name = $node->getSpecifierx();
-      if (!$name instanceof NameToken) {
-        continue;
+      if ($name instanceof NameToken) {
+        $ret['types'][] = $name->getText();
       }
-      $ret['types'][] = $name->getText();
+      continue;
+    }
+
+    if ($node instanceof FunctionCallExpression) {
+      $name = $node->getReceiver();
+      if ($name instanceof NameToken) {
+        $ret['functions'][] = $name->getText();
+      }
       continue;
     }
   }
