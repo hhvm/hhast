@@ -1,9 +1,5 @@
 {
    "repository": "https://github.com/hhvm/hhast/",
-   "scripts": {
-      "compile": "tsc -p ./",
-      "watch": "tsc -watch -p ./"
-   },
    "enhancedScopes": [
       "text.html.hack"
    ],
@@ -65,8 +61,7 @@
    },
    "name": "atom-ide-hhast",
    "dependencies": {
-      "atom-languageclient": "^0.9.5",
-      "typescript": "^2.9.2"
+      "atom-languageclient": "^0.9.5"
    },
-   "main": "out/index.js"
+   "main": "index.js"
 }

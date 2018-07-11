@@ -6,21 +6,22 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
+'use babel';
 
-import { AutoLanguageClient } from 'atom-languageclient';
-import * as fs from 'fs';
-import * as cp from 'child_process';
+const { AutoLanguageClient } = require('atom-languageclient');
+const fs = require('fs');
+const cp = require('child_process');
 
 class HHASTLanguageClient extends AutoLanguageClient {
-  public getGrammarScopes(): string[] { return ['source.hack', 'text.html.hack']; }
-  public getLanguageName(): string { return 'Hack'; }
-  public getServerName(): string { return 'HHAST' }
+  getGrammarScopes() { return ['source.hack', 'text.html.hack']; }
+  getLanguageName() { return 'Hack'; }
+  getServerName() { return 'HHAST' }
 
-  public async startServerProcess(workspace: string): Promise<cp.ChildProcess> {
+  async startServerProcess(workspace) {
     fs.accessSync(workspace + '/hhast-lint.json');
 
     // Most common path
-    let hhast: string = workspace + '/vendor/bin/hhast-lint';
+    let hhast = workspace + '/vendor/bin/hhast-lint';
     try {
       fs.accessSync(hhast);
     } catch (_) {
@@ -29,8 +30,7 @@ class HHASTLanguageClient extends AutoLanguageClient {
       fs.accessSync(hhast);
     }
 
-    let remembered: { [key: string]: 'trusted' | 'untrusted' }
-      = atom.config.get('atom-ide-hhast.rememberedWorkspaces') || {};
+    let remembered = atom.config.get('atom-ide-hhast.rememberedWorkspaces') || {};
     if (remembered[workspace] === 'untrusted') {
       throw 'Untrusted';
     }
