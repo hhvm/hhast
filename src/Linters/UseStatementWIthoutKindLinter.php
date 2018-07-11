@@ -88,43 +88,10 @@ final class UseStatementWithoutKindLinter
 
     // We need to look at the full file to figure out if this should be a
     // `use type`, or `use namespace`
-    $ast = $this->getAST();
-    $used_as_ns = false;
-    $used_as_type = false;
-    foreach ($ast->traverse() as $child) {
-      if ($child instanceof QualifiedName) {
-        $name = C\firstx($child->getParts()->getItems());
-        if (!$name instanceof NameToken) {
-          continue;
-        }
-        if (C\contains_key($names, $name->getText())) {
-          $used_as_ns = true;
-        }
-        continue;
-      }
-
-      if ($child instanceof SimpleTypeSpecifier) {
-        $name = $child->getSpecifierx();
-        if (!$name instanceof NameToken) {
-          continue;
-        }
-        if (C\contains_key($names, $name->getText())) {
-          $used_as_type = true;
-        }
-        continue;
-      }
-
-      if ($child instanceof ScopeResolutionExpression) {
-        $name = $child->getQualifier();
-        if (!$name instanceof NameToken) {
-          continue;
-        }
-        if (C\contains_key($names, $name->getText())) {
-          $used_as_type = true;
-        }
-        continue;
-      }
-    }
+    $used = $this->getUnresolvedReferencedNames();
+    $used_as_ns =
+      C\any($names, $name ==> C\contains($used['namespaces'], $name));
+    $used_as_type = C\any($names, $name ==> C\contains($used['types'], $name));
 
     $leading = $node->getClauses()->getFirstTokenx()->getLeadingWhitespace();
     $trailing = $node->getKeywordx()->getTrailingWhitespace();
@@ -137,5 +104,15 @@ final class UseStatementWithoutKindLinter
 
     // Unused, or ambiguous
     return null;
+  }
+
+  <<__Memoize>>
+  private function getUnresolvedReferencedNames(): shape(
+    'namespaces' => keyset<string>,
+    'types' => keyset<string>,
+    'functions' => keyset<string>,
+    'constants' => keyset<string>,
+  ) {
+    return HHAST\get_unresolved_referenced_names($this->getAST());
   }
 }
