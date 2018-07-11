@@ -151,7 +151,7 @@ final class AssertToExpectMigration extends StepBasedMigration {
   }
 
   private function assertSingleArgToExpect(
-     FunctionCallExpression $node,
+    FunctionCallExpression $node,
   ): FunctionCallExpression {
     $method = self::isAssert($node);
     $single_arg_names = dict[
@@ -174,7 +174,8 @@ final class AssertToExpectMigration extends StepBasedMigration {
       $actual = $actual->replace($actual->getLastTokenx(), Missing());
     }
     $func_name = $single_arg_names[$method];
-    return self::getNewNode($node, $actual, new EditableList(vec[$msg]), $func_name);
+    return
+      self::getNewNode($node, $actual, new EditableList(vec[$msg]), $func_name);
   }
 
   private function assertMultiArgToExpect(
@@ -288,7 +289,12 @@ final class AssertToExpectMigration extends StepBasedMigration {
     ];
   }
 
-  private static function getNewNode(FunctionCallExpression $node, EditableNode $actual, EditableList $args, string $funcName): FunctionCallExpression {
+  private static function getNewNode(
+    FunctionCallExpression $node,
+    EditableNode $actual,
+    EditableList $args,
+    string $funcName,
+  ): FunctionCallExpression {
     $rec = $node->getReceiver();
     invariant(
       $rec instanceof MemberSelectionExpression,
