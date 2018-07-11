@@ -10,7 +10,10 @@
    "author": "Facebook Inc.",
    "description": "atom-ide integration for HHAST",
    "license": "MIT",
-   "version": "0.0.1",
+   "version": "0.0.0",
+   "engines": {
+     "atom": ">=1.0.0 <2.0.0"
+   },
    "consumedServices": {
       "linter-indie": {
          "versions": {
