@@ -1,0 +1,29 @@
+<?hh //strict
+
+use namespace hi;
+use function hello;
+use type that;
+
+public class Test {
+
+  public function testMethod(): void {
+    self::assertSame($a, $a);
+    self::assertEquals($a, $b);
+    self::assertEquals($a, $b, 'msg');
+    self::assertEquals($a, $b, 'msg', $delta);
+    self::assertNull($obj);
+    self::assertTrue('foo', 'msg');
+    self::assertFalse(vec[1, 2, 3]);
+    self::assertInstanceOf(HackTestCase::class, $obj, 'Not an instance of HackTestCase!');
+    self::assertGreaterThanOrEqualTo(1, 2, '2 > 1');
+    assertSame($a, $a);
+    assertEquals($a, $b);
+    assertEquals($a, $b, 'msg');
+    assertEquals($a, $b, 'msg', $delta);
+    assertNull($obj);
+    assertTrue('foo', 'msg');
+    assertFalse(vec[1, 2, 3]);
+    assertInstanceOf(HackTestCase::class, $obj, 'Not an instance of HackTestCase!');
+    assertGreaterThanOrEqualTo(1, 2, '2 > 1');
+  }
+}
