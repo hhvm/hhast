@@ -25,5 +25,14 @@ public class Test {
     assertFalse(vec[1, 2, 3]);
     assertInstanceOf(HackTestCase::class, $obj, 'Not an instance of HackTestCase!');
     assertGreaterThanOrEqualTo(1, 2, '2 > 1');
+    $this->assertSame($a, $a);
+    $this->assertEquals($a, $b);
+    $this->assertEquals($a, $b, 'msg');
+    $this->assertEquals($a, $b, 'msg', $delta);
+    $this->assertNull($obj);
+    $this->assertTrue('foo', 'msg');
+    $this->assertFalse(vec[1, 2, 3]);
+    $this->assertInstanceOf(HackTestCase::class, $obj, 'Not an instance of HackTestCase!');
+    $this->assertGreaterThanOrEqualTo(1, 2, '2 > 1');
   }
 }

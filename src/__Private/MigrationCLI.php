@@ -14,12 +14,11 @@ use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
 use type Facebook\HHAST\Migrations\{
   AddFixMesMigration,
+  AssertToExpectMigration,
   BaseMigration,
-  ExternalAssertToExpectMigration,
   CallTimePassByReferenceMigration,
   IMigrationWithFileList,
   ImplicitShapeSubtypesMigration,
-  InternalAssertToExpectMigration,
   OptionalShapeFieldsMigration,
   NamespaceFallbackMigration,
 };
@@ -49,14 +48,9 @@ class MigrationCLI extends CLIWithRequiredArguments {
   protected function getSupportedOptions(): vec<CLIOptions\CLIOption> {
     return vec[
       CLIOptions\flag(
-        () ==> { $this->migrations[] = ExternalAssertToExpectMigration::class; },
-        'Change assert calls to expect (external)',
-        '--oss-expect',
-      ),
-      CLIOptions\flag(
-        () ==> { $this->migrations[] = InternalAssertToExpectMigration::class; },
-        'Change assert calls to expect (internal)',
-        '--www-expect',
+        () ==> { $this->migrations[] = AssertToExpectMigration::class; },
+        'Change assert calls to expect ',
+        '--assert-to-expect',
       ),
       CLIOptions\flag(
         () ==> { $this->migrations[] = ImplicitShapeSubtypesMigration::class; },

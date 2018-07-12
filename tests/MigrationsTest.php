@@ -37,12 +37,8 @@ final class MigrationsTest extends TestCase {
         'migrations/add_fixmes.php',
       ),
       tuple(
-        Migrations\ExternalAssertToExpectMigration::class,
-        'migrations/change_assert_to_expect_oss.php',
-      ),
-      tuple(
-        Migrations\InternalAssertToExpectMigration::class,
-        'migrations/change_assert_to_expect_www.php',
+        Migrations\AssertToExpectMigration::class,
+        'migrations/change_assert_to_expect.php',
       ),
     ];
 
