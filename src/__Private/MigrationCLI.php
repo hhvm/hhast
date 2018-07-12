@@ -49,8 +49,8 @@ class MigrationCLI extends CLIWithRequiredArguments {
     return vec[
       CLIOptions\flag(
         () ==> { $this->migrations[] = AssertToExpectMigration::class; },
-        'Change assert calls to expect',
-        '--expect',
+        'Change assert calls to expect ',
+        '--assert-to-expect',
       ),
       CLIOptions\flag(
         () ==> { $this->migrations[] = ImplicitShapeSubtypesMigration::class; },

@@ -23,6 +23,7 @@ use type Facebook\HHAST\{
   LeftParenToken,
   ListItem,
   MemberSelectionExpression,
+  MinusGreaterThanToken,
   NamespaceBody,
   NamespaceDeclaration,
   NamespaceEmptyBody,
@@ -30,6 +31,7 @@ use type Facebook\HHAST\{
   NameToken,
   QualifiedName,
   RightParenToken,
+  ScopeResolutionExpression,
   SemicolonToken,
   UseToken,
   WhiteSpace,
@@ -150,7 +152,7 @@ final class AssertToExpectMigration extends StepBasedMigration {
     return $node;
   }
 
-  private function assertSingleArgToExpect(
+  private static function assertSingleArgToExpect(
     FunctionCallExpression $node,
   ): FunctionCallExpression {
     $method = self::isAssert($node);
@@ -174,11 +176,15 @@ final class AssertToExpectMigration extends StepBasedMigration {
       $actual = $actual->replace($actual->getLastTokenx(), Missing());
     }
     $func_name = $single_arg_names[$method];
-    return
-      self::getNewNode($node, $actual, new EditableList(vec[$msg]), $func_name);
+    return self::getNewNode(
+      $node,
+      $actual,
+      new EditableList(vec[$msg]),
+      $func_name,
+    );
   }
 
-  private function assertMultiArgToExpect(
+  private static function assertMultiArgToExpect(
     FunctionCallExpression $node,
   ): FunctionCallExpression {
     $method = self::isAssert($node);
@@ -231,7 +237,7 @@ final class AssertToExpectMigration extends StepBasedMigration {
   }
 
   <<__Override>>
-  final public function getSteps(): Traversable<IMigrationStep> {
+  public function getSteps(): Traversable<IMigrationStep> {
     $this->expectPresent = false;
     $make_step_add = ($name, $impl) ==> new TypedMigrationStep(
       $name,
@@ -280,11 +286,11 @@ final class AssertToExpectMigration extends StepBasedMigration {
       ),
       $make_step_expect(
         'change single arg assert calls to expect',
-        $node ==> $this->assertSingleArgToExpect($node),
+        $node ==> self::assertSingleArgToExpect($node),
       ),
       $make_step_expect(
         'change multi arg assert calls to expect',
-        $node ==> $this->assertMultiArgToExpect($node),
+        $node ==> self::assertMultiArgToExpect($node),
       ),
     ];
   }
@@ -296,19 +302,27 @@ final class AssertToExpectMigration extends StepBasedMigration {
     string $funcName,
   ): FunctionCallExpression {
     $rec = $node->getReceiver();
-    invariant(
-      $rec instanceof MemberSelectionExpression,
-      'receiver should be a member selection expression',
+    $leading = Missing();
+    if ($rec instanceof ScopeResolutionExpression) {
+      $leading = $rec->getQualifier()->getFirstTokenx()->getLeading();
+    } else if ($rec instanceof NameToken) {
+      $leading = $rec->getLeading();
+    }
+    $exp = new MemberSelectionExpression(
+      Missing(),
+      new MinusGreaterThanToken(Missing(), Missing()),
+      Missing(),
     );
+    if (!$rec instanceof MemberSelectionExpression) {
+      $rec = $exp;
+    } else {
+      $leading = $rec->getObject()->getFirstTokenx()->getLeading();
+    }
     $new_node = $node
       ->withReceiver(
         $rec->withObject(
           new FunctionCallExpression(
-            new NameToken(
-              $rec->getObject()->getFirstTokenx()->getLeading(),
-              Missing(),
-              'expect',
-            ),
+            new NameToken($leading, Missing(), 'expect'),
             new LeftParenToken(Missing(), Missing()),
             new EditableList(vec[$actual]),
             new RightParenToken(Missing(), Missing()),
@@ -323,10 +337,14 @@ final class AssertToExpectMigration extends StepBasedMigration {
 
   private static function isAssert(FunctionCallExpression $node): string {
     $rec = $node->getReceiver();
-    if (!$rec instanceof MemberSelectionExpression) {
-      return '';
+    $method = '';
+    if ($rec instanceof MemberSelectionExpression) {
+      $method = $rec->getName()->getCode();
+    } else if ($rec instanceof ScopeResolutionExpression) {
+      $method = $rec->getName()->getCode();
+    } else if ($rec instanceof NameToken) {
+      $method = $rec->getText();
     }
-    $method = $rec->getName()->getCode();
     if (!Str\starts_with($method, 'assert')) {
       return '';
     }
