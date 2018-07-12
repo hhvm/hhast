@@ -12,7 +12,9 @@ namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
   ConstToken,
+  EditableList,
   EditableNode,
+  EditableToken,
   FunctionToken,
   INamespaceUseDeclaration,
   NamespaceGroupUseDeclaration,
@@ -27,10 +29,10 @@ use type Facebook\HHAST\{
 };
 use namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
-use namespace HH\Lib\{C, Str};
+use namespace HH\Lib\{C, Str, Vec};
 
 final class UnusedUseClauseLinter
-  extends ASTLinter<INamespaceUseDeclaration> {
+  extends AutoFixingASTLinter<INamespaceUseDeclaration> {
   <<__Override>>
   protected static function getTargetType(
   ): classname<INamespaceUseDeclaration> {
@@ -41,16 +43,38 @@ final class UnusedUseClauseLinter
   public function getLintErrorForNode(
     INamespaceUseDeclaration $node,
     vec<EditableNode> $_context,
-  ): ?ASTLintError<INamespaceUseDeclaration> {
+  ): ?FixableASTLintError<INamespaceUseDeclaration> {
     if (!$node instanceof NamespaceUseDeclaration) {
       // TODO: group use
       return null;
     }
     $clauses = $node->getClauses()->getItemsOfType(NamespaceUseClause::class);
-    $prefix = '';
+    $unused = $this->getUnusedClauses($node->getKind(), $clauses);
 
+    if (C\is_empty($unused)) {
+      return null;
+    }
+
+    return new FixableASTLintError(
+      $this,
+      C\count($unused) === 1
+        ? ('`'.C\firstx($unused)[0].'` is not used')
+        : (
+            $unused
+            |> Vec\map($$, $p ==> '`'.$p[0].'`')
+            |> Str\join($$, ', ')
+            |> $$.' are not used'
+          ),
+      $node,
+    );
+  }
+
+  private function getUnusedClauses(
+    ?EditableToken $kind,
+    vec<NamespaceUseClause> $clauses,
+  ): vec<(string, NamespaceUseClause)> {
     $used = $this->getUnresolvedReferencedNames();
-    $unused = keyset[];
+    $unused = vec[];
     foreach ($clauses as $clause) {
       $as = $clause->getAlias();
       if ($as !== null) {
@@ -65,30 +89,29 @@ final class UnusedUseClauseLinter
             |> C\lastx($$)->getText();
         }
       }
-      $kind = $node->getKind();
       if ($kind instanceof NamespaceToken) {
         if (!C\contains($used['namespaces'], $as)) {
-          $unused[] = $as;
+          $unused[] = tuple($as, $clause);
         }
         continue;
       }
       if ($kind instanceof TypeToken) {
         if (!C\contains($used['types'], $as)) {
-          $unused[] = $as;
+          $unused[] = tuple($as, $clause);
         }
         continue;
       }
 
       if ($kind instanceof FunctionToken) {
         if (!C\contains($used['functions'], $as)) {
-          $unused[] = $as;
+          $unused[] = tuple($as, $clause);
         }
         continue;
       }
 
       if ($kind instanceof ConstToken) {
         if (!C\contains($used['constants'], $as)) {
-          $unused[] = $as;
+          $unused[] = tuple($as, $clause);
         }
         continue;
       }
@@ -100,24 +123,32 @@ final class UnusedUseClauseLinter
       if (C\contains($used['types'], $as)) {
         continue;
       }
-      $unused[] = $as;
+      $unused[] = tuple($as, $clause);
     }
+    return $unused;
+  }
 
-    if (C\is_empty($unused)) {
-      return null;
+  <<__Override>>
+  public function getFixedNode(INamespaceUseDeclaration $node): EditableNode {
+    $clauses = $node->getClauses()->getItemsOfType(NamespaceUseClause::class);
+    if (C\count($clauses) === 1) {
+      return HHAST\Missing();
     }
+    $unused = $this->getUnusedClauses(
+      $node->getKind(),
+      $clauses,
+    ) |> Vec\map($$, $p ==> $p[1]);
 
-    return new ASTLintError(
-      $this,
-      C\count($unused) === 1
-        ? (C\first($unused).' is not used')
-        : (Str\join($unused, ', ').'are not used'),
-      $node,
+
+    return $node->removeWhere(
+      ($c, $_) ==>
+        $c instanceof HHAST\ListItem && C\contains($unused, $c->getItem()),
     );
   }
 
   <<__Memoize>>
-  private function getUnresolvedReferencedNames(): shape(
+  private function getUnresolvedReferencedNames(
+  ): shape(
     'namespaces' => keyset<string>,
     'types' => keyset<string>,
     'functions' => keyset<string>,
