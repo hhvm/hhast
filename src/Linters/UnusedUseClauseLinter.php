@@ -149,7 +149,7 @@ final class UnusedUseClauseLinter
       |> Vec\map($$, $p ==> $p[1]);
     $unused_count = C\count($unused);
     if ($clause_count === $unused_count) {
-      return HHAST\Missing();
+      return $node->getFirstTokenx()->getLeading();
     }
 
     // Don't create a single-element group use statement
@@ -190,18 +190,31 @@ final class UnusedUseClauseLinter
         );
       }
 
-      return new NamespaceUseDeclaration(
+      $fixed = new NamespaceUseDeclaration(
         $node->getKeyword(),
         $node->getKind() ?? HHAST\Missing(),
         $clause,
         $node->getSemicolon() ?? HHAST\Missing(),
       );
+    } else {
+      $fixed = $node->rewriteDescendants(
+        ($c, $_) ==> {
+          if (
+            $c instanceof HHAST\ListItem && C\contains($unused, $c->getItem())
+          ) {
+            return HHAST\Missing();
+          }
+          return $c;
+        },
+      );
     }
+    $last = C\lastx($fixed->getClauses()->getChildrenOfType(HHAST\ListItem::class));
+    $sep = $last->getSeparator();
 
-    return $node->removeWhere(
-      ($c, $_) ==>
-        $c instanceof HHAST\ListItem && C\contains($unused, $c->getItem()),
-    );
+    if ($sep && !Str\contains($sep->getTrailing()->getCode(), "\n")) {
+      return $fixed->without($sep);
+    }
+    return $fixed;
   }
 
   <<__Memoize>>
