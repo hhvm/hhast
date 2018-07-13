@@ -23,13 +23,11 @@ function get_unresolved_referenced_names(
   'namespaces' => keyset<string>,
   'types' => keyset<string>,
   'functions' => keyset<string>,
-  'constants' => keyset<string>,
 ) {
   $ret = shape(
     'namespaces' => keyset[],
     'types' => keyset[],
     'functions' => keyset[],
-    'constants' => keyset[],
   );
 
   foreach ($root->traverse() as $node) {

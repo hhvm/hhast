@@ -111,7 +111,6 @@ final class UseStatementWithoutKindLinter
     'namespaces' => keyset<string>,
     'types' => keyset<string>,
     'functions' => keyset<string>,
-    'constants' => keyset<string>,
   ) {
     return HHAST\get_unresolved_referenced_names($this->getAST());
   }

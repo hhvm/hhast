@@ -106,9 +106,8 @@ final class UnusedUseClauseLinter
       }
 
       if ($kind instanceof ConstToken) {
-        if (!C\contains($used['constants'], $as)) {
-          $unused[] = tuple($as, $clause);
-        }
+        // unsupported
+        continue;
         continue;
       }
 
@@ -183,7 +182,9 @@ final class UnusedUseClauseLinter
           ),
         );
       }
-      $clause = $clause->withName($name);
+      $clause = $clause
+        ->withName($name)
+        ->without($clause->getFirstTokenx()->getLeading());
 
       $fixed = new NamespaceUseDeclaration(
         $node->getKeyword(),
@@ -221,7 +222,6 @@ final class UnusedUseClauseLinter
     'namespaces' => keyset<string>,
     'types' => keyset<string>,
     'functions' => keyset<string>,
-    'constants' => keyset<string>,
   ) {
     return HHAST\get_unresolved_referenced_names($this->getAST());
   }
