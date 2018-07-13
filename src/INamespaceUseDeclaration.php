@@ -27,4 +27,6 @@ interface INamespaceUseDeclaration {
   public function hasClauses(): bool;
   public function getClauses(): EditableList;
   public function getClausesx(): EditableList;
+
+  public function getSemicolon(): ?SemicolonToken;
  }

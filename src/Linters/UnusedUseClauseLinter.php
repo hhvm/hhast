@@ -11,6 +11,7 @@
 namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
+  BackslashToken,
   ConstToken,
   EditableList,
   EditableNode,
@@ -43,10 +44,6 @@ final class UnusedUseClauseLinter
     INamespaceUseDeclaration $node,
     vec<EditableNode> $_context,
   ): ?FixableASTLintError<INamespaceUseDeclaration> {
-    if (!$node instanceof NamespaceUseDeclaration) {
-      // TODO: group use
-      return null;
-    }
     $clauses = $node->getClauses()->getItemsOfType(NamespaceUseClause::class);
     $unused = $this->getUnusedClauses($node->getKind(), $clauses);
 
@@ -133,7 +130,8 @@ final class UnusedUseClauseLinter
   ): string {
     $node = $error->getBlameNode();
     $clauses = $node->getClauses()->getItemsOfType(NamespaceUseClause::class);
-    if (C\count($clauses) === 1) {
+    $unused = $this->getUnusedClauses($node->getKind(), $clauses);
+    if (C\count($clauses) === C\count($unused)) {
       return 'Remove `use` statement';
     }
 
@@ -146,13 +144,59 @@ final class UnusedUseClauseLinter
   <<__Override>>
   public function getFixedNode(INamespaceUseDeclaration $node): EditableNode {
     $clauses = $node->getClauses()->getItemsOfType(NamespaceUseClause::class);
-    if (C\count($clauses) === 1) {
+    $clause_count = C\count($clauses);
+    $unused = $this->getUnusedClauses($node->getKind(), $clauses)
+      |> Vec\map($$, $p ==> $p[1]);
+    $unused_count = C\count($unused);
+    if ($clause_count === $unused_count) {
       return HHAST\Missing();
     }
-    $unused = $this->getUnusedClauses(
-      $node->getKind(),
-      $clauses,
-    ) |> Vec\map($$, $p ==> $p[1]);
+
+    // Don't create a single-element group use statement
+    if (
+      $node instanceof NamespaceGroupUseDeclaration &&
+      $clause_count === ($unused_count + 1)
+    ) {
+      $clause = Vec\filter($clauses, $item ==> !C\contains($unused, $item))
+        |> C\onlyx($$);
+      $name = $clause->getName();
+      if ($name instanceof NameToken) {
+        $name = new QualifiedName(
+          EditableList::fromItems(
+            Vec\concat(
+              $node->getPrefix()->getParts()->getItems(),
+              vec[
+                (new BackslashToken(HHAST\Missing(), HHAST\Missing())),
+                $name,
+              ],
+            ),
+          ),
+        );
+      } else {
+        invariant(
+          $name instanceof QualifiedName,
+          'name is not a name or qualified name',
+        );
+        $name = new QualifiedName(
+          EditableList::fromItems(
+            Vec\concat(
+              $node->getPrefix()->getParts()->getItems(),
+              vec[
+                (new BackslashToken(HHAST\Missing(), HHAST\Missing())),
+              ],
+              $name->getParts()->getItems(),
+            ),
+          ),
+        );
+      }
+
+      return new NamespaceUseDeclaration(
+        $node->getKeyword(),
+        $node->getKind() ?? HHAST\Missing(),
+        $clause,
+        $node->getSemicolon() ?? HHAST\Missing(),
+      );
+    }
 
     return $node->removeWhere(
       ($c, $_) ==>
