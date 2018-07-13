@@ -1,0 +1,17 @@
+<?hh
+
+use type Foo\{
+  ParameterType,
+  ReturnType,
+  GenericType,
+  UsedTrait,
+  InstanceOfType,
+};
+
+function foo(ParameterType $in): ReturnType {
+  return $in instanceof InstanceOfType;
+}
+
+class MyClass<T as GenericType> {
+  use UsedTrait;
+}
