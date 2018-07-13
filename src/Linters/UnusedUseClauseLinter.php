@@ -28,7 +28,6 @@ use type Facebook\HHAST\{
   QualifiedName,
 };
 use namespace Facebook\HHAST;
-use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Str, Vec};
 
 final class UnusedUseClauseLinter
@@ -129,6 +128,22 @@ final class UnusedUseClauseLinter
   }
 
   <<__Override>>
+  protected function getTitleForFix(
+    FixableASTLintError<INamespaceUseDeclaration> $error,
+  ): string {
+    $node = $error->getBlameNode();
+    $clauses = $node->getClauses()->getItemsOfType(NamespaceUseClause::class);
+    if (C\count($clauses) === 1) {
+      return 'Remove `use` statement';
+    }
+
+    return $this->getUnusedClauses($node->getKind(), $clauses)
+      |> Vec\map($$, $p ==> '`'.$p[1]->getCode().'`')
+      |> Str\join($$, ', ')
+      |> 'Remove '.$$;
+  }
+
+  <<__Override>>
   public function getFixedNode(INamespaceUseDeclaration $node): EditableNode {
     $clauses = $node->getClauses()->getItemsOfType(NamespaceUseClause::class);
     if (C\count($clauses) === 1) {
@@ -138,7 +153,6 @@ final class UnusedUseClauseLinter
       $node->getKind(),
       $clauses,
     ) |> Vec\map($$, $p ==> $p[1]);
-
 
     return $node->removeWhere(
       ($c, $_) ==>
