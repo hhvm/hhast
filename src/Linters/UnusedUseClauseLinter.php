@@ -164,11 +164,8 @@ final class UnusedUseClauseLinter
         $name = new QualifiedName(
           EditableList::fromItems(
             Vec\concat(
-              $node->getPrefix()->getParts()->getItems(),
-              vec[
-                (new BackslashToken(HHAST\Missing(), HHAST\Missing())),
-                $name,
-              ],
+              $node->getPrefix()->getParts()->getChildren(),
+              vec[$name],
             ),
           ),
         );
@@ -180,20 +177,20 @@ final class UnusedUseClauseLinter
         $name = new QualifiedName(
           EditableList::fromItems(
             Vec\concat(
-              $node->getPrefix()->getParts()->getItems(),
-              vec[
-                (new BackslashToken(HHAST\Missing(), HHAST\Missing())),
-              ],
-              $name->getParts()->getItems(),
+              $node->getPrefix()->getParts()->getChildren(),
+              $name->getParts()->getChildren(),
             ),
           ),
         );
       }
+      $clause = $clause->withName($name);
 
       $fixed = new NamespaceUseDeclaration(
         $node->getKeyword(),
         $node->getKind() ?? HHAST\Missing(),
-        $clause,
+        EditableList::fromItems(
+          vec[new HHAST\ListItem($clause, HHAST\Missing())],
+        ),
         $node->getSemicolon() ?? HHAST\Missing(),
       );
     } else {
@@ -208,7 +205,8 @@ final class UnusedUseClauseLinter
         },
       );
     }
-    $last = C\lastx($fixed->getClauses()->getChildrenOfType(HHAST\ListItem::class));
+    $last =
+      C\lastx($fixed->getClauses()->getChildrenOfType(HHAST\ListItem::class));
     $sep = $last->getSeparator();
 
     if ($sep && !Str\contains($sep->getTrailing()->getCode(), "\n")) {
