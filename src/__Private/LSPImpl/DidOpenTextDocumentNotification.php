@@ -35,6 +35,9 @@ final class DidOpenTextDocumentNotification
     if (!Str\starts_with($uri, 'file://')) {
       return;
     }
+    if (!(Str\ends_with($uri, '.php') || Str\ends_with($uri, '.hh'))) {
+      return;
+    }
 
     $this->state->openFiles[] = $uri;
 
