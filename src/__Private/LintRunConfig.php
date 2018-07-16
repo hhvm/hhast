@@ -67,6 +67,7 @@ final class LintRunConfig {
       Linters\LicenseHeaderLinter::class,
       Linters\NewlineAtEndOfFileLinter::class,
       Linters\NoBasicAssignmentFunctionParameterLinter::class,
+      Linters\MethodCallOnConstructorLinter::class,
       Linters\MustUseBracesForControlFlowLinter::class,
       Linters\MustUseOverrideAttributeLinter::class,
       Linters\NoPHPEqualityLinter::class,
