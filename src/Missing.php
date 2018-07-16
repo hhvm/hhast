@@ -43,8 +43,8 @@ final class Missing extends EditableNode {
 
   <<__Override>>
   public function rewriteDescendants(
-    self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    self::TRewriter $_rewriter,
+    ?vec<EditableNode> $_parents = null,
   ): this {
     return $this;
   }

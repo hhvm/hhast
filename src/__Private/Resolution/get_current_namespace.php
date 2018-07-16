@@ -21,7 +21,7 @@ use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Str, Vec};
 
 function get_current_namespace(
-  EditableNode $node,
+  EditableNode $_node,
   vec<EditableNode> $parents,
 ): ?string {
   $parents = vec($parents);

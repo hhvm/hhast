@@ -46,8 +46,8 @@ final class LintRunJSONEventHandler implements LintRunEventHandler {
 
 
   public function linterRaisedErrors(
-    Linters\BaseLinter $linter,
-    LintRunConfig::TFileConfig $config,
+    Linters\BaseLinter $_linter,
+    LintRunConfig::TFileConfig $_config,
     Traversable<Linters\LintError> $errors,
   ): LintAutoFixResult {
     $transformed_errors = self::transformErrors($errors);

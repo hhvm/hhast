@@ -41,7 +41,7 @@ class MustUseBracesForControlFlowLinter
   <<__Override>>
   public function getLintErrorForNode(
     IControlFlowStatement $node,
-    vec<EditableNode> $parents,
+    vec<EditableNode> $_parents,
   ): ?FixableASTLintError<IControlFlowStatement> {
     $body = $this->getBody($node);
     if ($body === null) {

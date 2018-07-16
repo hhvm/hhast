@@ -25,7 +25,7 @@ class UseStatementWithAsLinter extends ASTLinter<NamespaceUseClause> {
   <<__Override>>
   public function getLintErrorForNode(
     NamespaceUseClause $node,
-    vec<EditableNode> $parents,
+    vec<EditableNode> $_parents,
   ): ?ASTLintError<NamespaceUseClause> {
     if (!$node->hasAlias()) {
       return null;

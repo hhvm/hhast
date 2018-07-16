@@ -36,7 +36,7 @@ class NoBasicAssignmentFunctionParameterLinter
   <<__Override>>
   public function getLintErrorForNode(
     FunctionCallExpression $node,
-    vec<EditableNode> $parents,
+    vec<EditableNode> $_parents,
   ): ?FixableASTLintError<FunctionCallExpression> {
     $exps = $node
       ->getArgumentList()

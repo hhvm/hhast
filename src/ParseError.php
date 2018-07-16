@@ -15,7 +15,7 @@ use namespace HH\Lib\Str;
 abstract class ParseError extends \Exception {
   public function __construct(
     private string $targetFile,
-    ?int $offset,
+    ?int $_offset,
     private string $rawMessage,
   ) {
     parent::__construct(Str\format('In file "%s": %s', $targetFile, $rawMessage));

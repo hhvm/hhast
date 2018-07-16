@@ -22,7 +22,7 @@ use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Dict, Vec};
 
 function get_current_uses(
-  EditableNode $node,
+  EditableNode $_node,
   vec<EditableNode> $parents,
 ): shape(
   'namespaces' => dict<string, string>,

@@ -63,7 +63,7 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter<Script> {
   <<__Override>>
   public function getPrettyTextForNode(
     Script $node,
-    ?EditableNode $context,
+    ?EditableNode $_context,
   ): string {
     return $node->getDeclarations()->getItems()
       |> Vec\take($$, 2)

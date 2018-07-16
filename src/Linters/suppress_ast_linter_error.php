@@ -38,7 +38,7 @@ function is_linter_error_suppressed(
   BaseLinter $linter,
   EditableNode $node,
   vec<EditableNode> $parents,
-  LintError $error,
+  LintError $_error,
 ): bool {
   $token = $node->getFirstToken();
   $fixme = $linter->getFixmeMarker();

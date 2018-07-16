@@ -23,7 +23,7 @@ final class LintRunLSPPublishDiagnosticsEventHandler
 
   public function linterRaisedErrors(
     Linters\BaseLinter $linter,
-    LintRunConfig::TFileConfig $config,
+    LintRunConfig::TFileConfig $_config,
     Traversable<Linters\LintError> $errors,
   ): LintAutoFixResult {
     $file = \realpath($linter->getFile());
