@@ -10,11 +10,7 @@
 
 namespace Facebook\HHAST\Linters;
 
-use type Facebook\HHAST\{AsToken, EditableNode, NamespaceUseClause};
-use namespace Facebook\HHAST;
-use namespace Facebook\TypeAssert;
-use function Facebook\HHAST\resolve_type;
-use namespace HH\Lib\{C, Str, Vec};
+use type Facebook\HHAST\{EditableNode, NamespaceUseClause};
 
 class UseStatementWithAsLinter extends ASTLinter<NamespaceUseClause> {
   <<__Override>>

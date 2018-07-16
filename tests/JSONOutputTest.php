@@ -11,8 +11,6 @@
 
 namespace Facebook\HHAST;
 
-use type Facebook\CLILib\TestLib\{StringInput, StringOutput};
-use type Facebook\CLILib\Terminal;
 use function Facebook\FBExpect\expect;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Keyset, Vec};

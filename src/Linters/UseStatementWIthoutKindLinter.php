@@ -16,14 +16,11 @@ use type Facebook\HHAST\{
   NamespaceUseClause,
   NamespaceToken,
   NameToken,
-  ScopeResolutionExpression,
-  SimpleTypeSpecifier,
   TypeToken,
   QualifiedName,
 };
 use namespace Facebook\HHAST;
-use namespace Facebook\TypeAssert;
-use namespace HH\Lib\{C, Keyset, Str};
+use namespace HH\Lib\{C, Keyset};
 
 final class UseStatementWithoutKindLinter
   extends AutoFixingASTLinter<INamespaceUseDeclaration> {

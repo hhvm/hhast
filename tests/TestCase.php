@@ -11,9 +11,7 @@
 
 namespace Facebook\HHAST;
 
-use function Facebook\FBExpect\expect;
-use namespace Facebook\HHAST;
-use namespace HH\Lib\{C, Str};
+use namespace HH\Lib\C;
 
 abstract class TestCase extends \PHPUnit\Framework\TestCase {
   protected static function getNodeAndParents(

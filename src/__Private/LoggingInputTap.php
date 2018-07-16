@@ -11,7 +11,6 @@
 namespace Facebook\HHAST\__Private;
 
 use type Facebook\CLILib\InputInterface;
-use namespace HH\Lib\Str;
 
 final class LoggingInputTap implements InputInterface {
   public function __construct(

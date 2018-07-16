@@ -13,7 +13,6 @@ namespace Facebook\HHAST;
 
 use function Facebook\FBExpect\expect;
 use namespace Facebook\HHAST\__Private\Resolution;
-use namespace HH\Lib\{C, Vec};
 
 final class ResolutionTest extends TestCase {
   public function testWithoutNamespaces(): void {

@@ -23,7 +23,7 @@ use type Facebook\HHAST\{
 };
 
 use namespace Facebook\TypeAssert;
-use namespace HH\Lib\{C, Str, Vec};
+use namespace HH\Lib\{C, Vec};
 
 class NoBasicAssignmentFunctionParameterLinter
   extends AutoFixingASTLinter<FunctionCallExpression> {

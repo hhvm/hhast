@@ -11,7 +11,6 @@
 namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
-  BackslashToken,
   ConstToken,
   EditableList,
   EditableNode,
@@ -23,8 +22,6 @@ use type Facebook\HHAST\{
   NamespaceUseClause,
   NamespaceToken,
   NameToken,
-  ScopeResolutionExpression,
-  SimpleTypeSpecifier,
   TypeToken,
   QualifiedName,
 };

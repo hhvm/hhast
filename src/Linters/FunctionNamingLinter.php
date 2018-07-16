@@ -21,7 +21,6 @@ use type Facebook\HHAST\{
   FunctionDeclaration,
   IFunctionishDeclaration,
   MethodishDeclaration,
-  NameToken,
   StaticToken,
 };
 use namespace Facebook\HHAST;

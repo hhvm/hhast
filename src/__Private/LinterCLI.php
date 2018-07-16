@@ -10,9 +10,8 @@
 
 namespace Facebook\HHAST\__Private;
 
-use type Facebook\TypeAssert\TypeAssert;
 use namespace Facebook\HHAST\Linters;
-use namespace HH\Lib\{C, Dict, Math, Str, Vec};
+use namespace HH\Lib\{C, Math, Str, Vec};
 
 use type Facebook\CLILib\{CLIWithArguments, ExitException, Terminal};
 use namespace Facebook\CLILib\CLIOptions;

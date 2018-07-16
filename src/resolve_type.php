@@ -11,7 +11,6 @@
 namespace Facebook\HHAST;
 
 use type Facebook\HHAST\EditableNode;
-use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Str, Vec};
 use namespace Facebook\HHAST\__Private\Resolution;
 

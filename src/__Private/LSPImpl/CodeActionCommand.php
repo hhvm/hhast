@@ -10,10 +10,7 @@
 
 namespace Facebook\HHAST\__Private\LSPImpl;
 
-use type Facebook\HHAST\__Private\{
-  LintRunConfig,
-  LintRunLSPCodeActionEventHandler,
-};
+use type Facebook\HHAST\__Private\LintRunConfig;
 use namespace Facebook\HHAST\__Private\{LSP, LSPLib};
 use namespace Facebook\HHAST\Linters;
 use namespace HH\Lib\{C, Str, Vec};

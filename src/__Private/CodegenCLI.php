@@ -11,7 +11,6 @@
 namespace Facebook\HHAST\__Private;
 
 use namespace Facebook\TypeAssert;
-use namespace HH\Lib\{C, Dict, Str, Vec};
 use type Facebook\CLILib\CLIBase;
 use namespace Facebook\CLILib\CLIOptions;
 

@@ -10,8 +10,6 @@
 
 namespace Facebook\HHAST\Linters;
 
-use type Facebook\HHAST\EditableNode;
-use namespace Facebook\HHAST;
 
 interface AutoFixingLinter<Terror as FixableLintError> {
   require extends BaseLinter;

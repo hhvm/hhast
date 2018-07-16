@@ -10,7 +10,7 @@
 
 namespace Facebook\HHAST\Linters;
 
-use namespace HH\Lib\{C, Str, Vec};
+use namespace HH\Lib\Str;
 
 final class LinterException extends \Exception {
   public function __construct(

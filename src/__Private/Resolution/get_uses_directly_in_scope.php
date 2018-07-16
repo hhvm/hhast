@@ -12,16 +12,13 @@ namespace Facebook\HHAST\__Private\Resolution;
 
 use type Facebook\HHAST\{
   EditableNode,
-  NamespaceBody,
-  NamespaceDeclaration,
-  NamespaceEmptyBody,
   NamespaceGroupUseDeclaration,
   NamespaceToken,
   NamespaceUseClause,
   NamespaceUseDeclaration,
   TypeToken
 };
-use namespace HH\Lib\{C, Str, Vec};
+use namespace HH\Lib\{C, Str};
 
 function get_uses_directly_in_scope(
   EditableNode $scope,

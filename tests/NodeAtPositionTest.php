@@ -12,7 +12,6 @@
 namespace Facebook\HHAST;
 
 use function Facebook\FBExpect\expect;
-use namespace HH\Lib\{C, Vec};
 
 final class NodeAtPositionTest extends TestCase {
   public function getExamples(): array<(string, (int, int), classname<EditableNode>, string)> {

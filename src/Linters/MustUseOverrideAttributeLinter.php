@@ -20,7 +20,6 @@ use type Facebook\HHAST\{
   ListItem,
   MethodishDeclaration,
   PrivateToken,
-  SimpleTypeSpecifier,
 };
 use namespace Facebook\TypeAssert;
 use function Facebook\HHAST\resolve_type;

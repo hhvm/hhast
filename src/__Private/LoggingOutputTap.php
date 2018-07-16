@@ -11,7 +11,6 @@
 namespace Facebook\HHAST\__Private;
 
 use type Facebook\CLILib\OutputInterface;
-use namespace HH\Lib\Str;
 
 final class LoggingOutputTap implements OutputInterface {
   public function __construct(

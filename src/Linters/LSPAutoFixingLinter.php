@@ -10,8 +10,6 @@
 
 namespace Facebook\HHAST\Linters;
 
-use type Facebook\HHAST\EditableNode;
-use namespace Facebook\HHAST;
 
 interface LSPAutoFixingLinter<Terror as FixableLintError> extends AutoFixingLinter<Terror> {
   public function getCodeActionForError(

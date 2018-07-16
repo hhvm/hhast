@@ -10,8 +10,6 @@
 
 namespace Facebook\HHAST\__Private;
 
-use type Facebook\CLILib\ExitException;
-use namespace HH\Lib\{Str, Vec};
 
 final class ParserConcurrencyLease implements \IDisposable {
   const int LIMIT = 8; // Random number

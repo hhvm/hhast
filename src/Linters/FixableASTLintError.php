@@ -11,7 +11,6 @@
 namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\EditableNode;
-use function Facebook\HHAST\find_position;
 
 class FixableASTLintError<
   Tnode as EditableNode,

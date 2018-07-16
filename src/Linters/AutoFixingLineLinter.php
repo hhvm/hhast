@@ -10,8 +10,6 @@
 
 namespace Facebook\HHAST\Linters;
 
-use type Facebook\HHAST\EditableNode;
-use namespace Facebook\HHAST;
 use namespace HH\Lib\Str;
 
 abstract class AutoFixingLineLinter<Terr as FixableLineLintError>

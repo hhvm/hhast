@@ -11,8 +11,6 @@
 namespace Facebook\HHAST\Migrations;
 
 use namespace Facebook\HHAST;
-use namespace HH\Lib\{C, Str, Vec};
-use namespace Facebook\TypeAssert;
 
 final class OptionalShapeFieldsMigration extends StepBasedMigration {
   private static function makeNullableFieldsOptional(

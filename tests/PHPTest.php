@@ -12,7 +12,7 @@
 namespace Facebook\HHAST;
 
 use function Facebook\FBExpect\expect;
-use namespace HH\Lib\{C, Str, Vec};
+use namespace HH\Lib\C;
 
 final class PHPTest extends TestCase {
   public function testPHPOnlyFeature(): void {

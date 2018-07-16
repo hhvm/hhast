@@ -10,7 +10,6 @@
 
 namespace Facebook\HHAST\__Private;
 
-use namespace HH\Lib\Vec;
 
 // A wrapper around the built-in exec with a nicer signature.
 // * returns a result rather than filling an out-parameter

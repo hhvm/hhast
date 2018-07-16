@@ -17,12 +17,7 @@ use type Facebook\HHAST\{
   NamespaceGroupUseDeclaration,
   NamespaceUseDeclaration,
   NamespaceUseClause,
-  NamespaceToken,
-  NameToken,
 };
-use namespace Facebook\HHAST;
-use namespace Facebook\TypeAssert;
-use namespace HH\Lib\{C, Keyset, Str};
 
 final class UseStatementWithLeadingBackslashLinter
   extends AutoFixingASTLinter<INamespaceUseDeclaration> {

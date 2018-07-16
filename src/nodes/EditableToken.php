@@ -11,7 +11,7 @@
 namespace Facebook\HHAST;
 
 use namespace Facebook\TypeAssert;
-use namespace HH\Lib\{C, Str};
+use namespace HH\Lib\Str;
 
 abstract class EditableToken extends EditableNode {
   private string $_token_kind;

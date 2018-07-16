@@ -10,7 +10,6 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\{C, Str, Vec};
 
 function find_node_at_position(
   EditableNode $root,

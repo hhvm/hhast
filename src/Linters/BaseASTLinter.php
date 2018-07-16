@@ -12,7 +12,7 @@ namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\EditableNode;
 use namespace Facebook\HHAST;
-use namespace Facebook\HHAST\Linters\{LinterException, SuppressASTLinter};
+use namespace Facebook\HHAST\Linters\SuppressASTLinter;
 
 abstract class BaseASTLinter<
   T as HHAST\EditableNode,

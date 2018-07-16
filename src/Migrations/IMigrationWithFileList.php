@@ -10,7 +10,6 @@
 
 namespace Facebook\HHAST\Migrations;
 
-use type Facebook\HHAST\EditableNode;
 
 interface IMigrationWithFileList {
   require extends BaseMigration;

@@ -11,7 +11,7 @@
 
 namespace Facebook\HHAST\TestLib;
 
-use namespace HH\Lib\{C, Str};
+use namespace HH\Lib\Str;
 
 final class TemporaryProject implements \IDisposable {
   private resource $hhServer;

@@ -10,7 +10,6 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\{Str, Vec};
 
 final class AlternateLoopStatement extends AlternateLoopStatementGeneratedBase {
   <<__Override>>

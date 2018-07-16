@@ -14,22 +14,13 @@ use type Facebook\HHAST\{
   AnonymousFunction,
   AwaitableCreationExpression,
   AwaitToken,
-  CompoundStatement,
-  DotDotDotToken,
   EditableList,
   EditableNode,
-  EndOfLine,
-  IControlFlowStatement,
   ILoopStatement,
   LambdaExpression,
-  LeftBraceToken,
-  SingleLineComment,
   PrefixUnaryExpression,
-  RightBraceToken,
-  WhiteSpace,
-  __Private\PerfCounter
 };
-use function Facebook\HHAST\{Missing, find_position, find_offset};
+use function Facebook\HHAST\find_position;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Vec};
 

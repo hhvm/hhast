@@ -16,7 +16,7 @@ use type Facebook\HackCodegen\{
   HackfmtFormatter,
 };
 
-use namespace HH\Lib\{C, Dict, Str, Vec};
+use namespace HH\Lib\{C, Dict, Vec};
 
 abstract class CodegenBase {
   private Schema\TSchema $schema;

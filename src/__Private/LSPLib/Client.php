@@ -12,7 +12,6 @@ namespace Facebook\HHAST\__Private\LSPLib;
 
 use namespace Facebook\HHAST\__Private\LSP;
 
-use namespace HH\Lib\C;
 
 abstract class Client {
 

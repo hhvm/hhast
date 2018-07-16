@@ -15,7 +15,6 @@ use type Facebook\HHAST\{
   IFunctionishDeclaration,
   MethodishDeclaration
 };
-use function Facebook\HHAST\find_position;
 use function Facebook\HHAST\__Private\execute;
 use namespace HH\Lib\Str;
 

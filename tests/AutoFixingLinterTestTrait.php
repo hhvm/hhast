@@ -12,8 +12,7 @@
 namespace Facebook\HHAST;
 
 use function Facebook\HHAST\TestLib\expect;
-use namespace HH\Lib\{C, Str, Vec};
-use namespace Facebook\HHAST;
+use namespace HH\Lib\{Str, Vec};
 
 trait AutoFixingLinterTestTrait<Terror as Linters\FixableLintError> {
   require extends TestCase;

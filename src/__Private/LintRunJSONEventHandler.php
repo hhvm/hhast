@@ -12,7 +12,7 @@ namespace Facebook\HHAST\__Private;
 
 use type Facebook\CLILib\ITerminal;
 use namespace Facebook\HHAST\Linters;
-use namespace HH\Lib\{C, Vec};
+use namespace HH\Lib\Vec;
 
 final class LintRunJSONEventHandler implements LintRunEventHandler {
   const type TOutput = shape(

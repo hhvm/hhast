@@ -18,7 +18,6 @@ use type Facebook\HHAST\{
   EndOfLine,
   Script,
 };
-use function Facebook\HHAST\Missing;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Str, Vec};
 

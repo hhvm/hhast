@@ -10,7 +10,7 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\{Keyset, Str};
+use namespace HH\Lib\Str;
 
 function from_json(
   dict<string, mixed> $json,

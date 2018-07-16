@@ -11,13 +11,11 @@
 namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
-  EditableNode,
   FunctionDeclaration,
   GenericTypeSpecifier,
-  IFunctionishDeclaration,
   MethodishDeclaration,
 };
-use namespace HH\Lib\{C, Str};
+use namespace HH\Lib\Str;
 
 class AsyncFunctionAndMethodLinter extends FunctionNamingLinter {
   <<__Override>>

@@ -18,7 +18,6 @@ use type Facebook\HackCodegen\{
   HackBuilderValues
 };
 
-use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Dict, Keyset, Str, Vec};
 
 final class CodegenSyntax extends CodegenBase {

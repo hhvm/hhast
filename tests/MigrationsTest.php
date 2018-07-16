@@ -13,7 +13,6 @@ namespace Facebook\HHAST;
 
 use function Facebook\HHAST\TestLib\expect;
 use namespace Facebook\HHAST;
-use namespace HH\Lib\{C, Str};
 use namespace Facebook\TypeAssert;
 
 final class MigrationsTest extends TestCase {

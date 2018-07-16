@@ -28,7 +28,6 @@ use type Facebook\HHAST\Linters\{
   LintError,
 };
 
-use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
 
 /**

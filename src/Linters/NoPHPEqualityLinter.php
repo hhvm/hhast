@@ -19,9 +19,7 @@ use type Facebook\HHAST\{
   ExclamationEqualEqualToken,
   LessThanGreaterThanToken,
 };
-use function Facebook\HHAST\Missing;
-use namespace Facebook\TypeAssert;
-use namespace HH\Lib\{C, Str, Vec};
+use namespace HH\Lib\Str;
 
 final class NoPHPEqualityLinter
   extends AutoFixingASTLinter<BinaryExpression> {

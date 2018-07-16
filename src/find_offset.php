@@ -10,7 +10,6 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\{C, Vec};
 
 function find_offset_after_leading(
   EditableNode $root,

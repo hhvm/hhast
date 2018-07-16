@@ -11,9 +11,6 @@
 
 namespace Facebook\HHAST;
 
-use function Facebook\FBExpect\expect;
-use namespace HH\Lib\{C, Str, Vec};
-use namespace Facebook\HHAST;
 
 final class MustUseOverrideAttributeLinterTest extends TestCase {
   use AutoFixingLinterTestTrait<

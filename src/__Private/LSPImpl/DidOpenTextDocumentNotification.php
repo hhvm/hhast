@@ -11,12 +11,10 @@
 namespace Facebook\HHAST\__Private\LSPImpl;
 
 use type Facebook\HHAST\__Private\{
-  LintRun,
   LintRunConfig,
   LintRunLSPPublishDiagnosticsEventHandler,
 };
-use type Facebook\CLILib\ITerminal;
-use namespace Facebook\HHAST\__Private\{LSP, LSPLib};
+use namespace Facebook\HHAST\__Private\LSPLib;
 use namespace HH\Lib\Str;
 
 final class DidOpenTextDocumentNotification

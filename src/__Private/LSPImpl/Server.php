@@ -16,9 +16,9 @@ use type Facebook\HHAST\__Private\{
   LintRunLSPPublishDiagnosticsEventHandler,
   LintRun,
 };
-use namespace Facebook\HHAST\__Private\{LSP, LSPImpl, LSPLib};
-use type Facebook\CLILib\{ExitException, ITerminal, Terminal};
-use namespace HH\Lib\{Str, Tuple, Vec};
+use namespace Facebook\HHAST\__Private\{LSPImpl, LSPLib};
+use type Facebook\CLILib\{ExitException, ITerminal};
+use namespace HH\Lib\Str;
 
 final class Server extends LSPLib\Server<ServerState> {
   public function __construct(

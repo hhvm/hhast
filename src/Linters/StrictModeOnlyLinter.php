@@ -18,7 +18,6 @@ use type Facebook\HHAST\{
   SingleLineComment,
   WhiteSpace,
 };
-use namespace HH\Lib\C;
 
 class StrictModeOnlyLinter extends AutoFixingASTLinter<MarkupSuffix> {
   <<__Override>>

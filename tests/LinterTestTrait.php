@@ -13,7 +13,6 @@ namespace Facebook\HHAST;
 
 use function Facebook\HHAST\TestLib\expect;
 use namespace HH\Lib\{C, Str, Vec};
-use namespace Facebook\HHAST;
 
 trait LinterTestTrait {
   require extends TestCase;

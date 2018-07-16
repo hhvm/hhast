@@ -10,7 +10,7 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\{C, Str, Vec};
+use namespace HH\Lib\C;
 
 /** Given a tree, provide a list of names that are referenced by the code.
  *

@@ -14,7 +14,6 @@ use type Facebook\HHAST\__Private\{
   LintRun,
   LintRunConfig,
   LintRunEventHandler,
-  LintRunLSPEventHandler,
 };
 use namespace HH\Lib\Str;
 

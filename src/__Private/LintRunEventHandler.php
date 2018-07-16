@@ -10,7 +10,6 @@
 
 namespace Facebook\HHAST\__Private;
 
-use type Facebook\CLILib\OutputInterface;
 use namespace Facebook\HHAST\Linters;
 
 /**

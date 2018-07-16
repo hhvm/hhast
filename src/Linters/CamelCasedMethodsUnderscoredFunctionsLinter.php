@@ -11,9 +11,7 @@
 namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
-  EditableNode,
   FunctionDeclaration,
-  IFunctionishDeclaration,
   MethodishDeclaration
 };
 use namespace HH\Lib\{C, Str};

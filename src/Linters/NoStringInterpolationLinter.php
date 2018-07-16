@@ -18,19 +18,14 @@ use type Facebook\HHAST\{
   DoubleQuotedStringLiteralTailToken,
   EditableList,
   EditableNode,
-  EditableSyntax,
   EmbeddedBracedExpression,
   HeredocStringLiteralHeadToken,
   LiteralExpression,
   NameToken,
-  QualifiedNameExpression,
-  QualifiedNameToken,
   StringLiteralBodyToken,
   VariableToken,
-  __Private\PerfCounter,
 };
 use function Facebook\HHAST\Missing;
-use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Vec};
 
 final class NoStringInterpolationLinter

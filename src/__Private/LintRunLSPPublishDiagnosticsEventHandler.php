@@ -11,7 +11,7 @@
 namespace Facebook\HHAST\__Private;
 
 use namespace Facebook\HHAST\Linters;
-use namespace HH\Lib\{C, Dict, Str, Vec};
+use namespace HH\Lib\{C, Str, Vec};
 
 final class LintRunLSPPublishDiagnosticsEventHandler
   implements LintRunEventHandler {

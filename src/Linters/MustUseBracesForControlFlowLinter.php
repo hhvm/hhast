@@ -26,8 +26,6 @@ use type Facebook\HHAST\{
   WhileStatement,
   WhiteSpace
 };
-use function Facebook\HHAST\resolve_type;
-use namespace Facebook\TypeAssert;
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
 

@@ -12,7 +12,6 @@ namespace Facebook\HHAST\__Private\Resolution;
 
 use type Facebook\HHAST\{
   EditableNode,
-  NamespaceBody,
   NamespaceDeclaration,
   NamespaceEmptyBody,
   Script,

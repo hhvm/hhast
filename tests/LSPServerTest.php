@@ -13,7 +13,7 @@ namespace Facebook\HHAST;
 
 use function Facebook\FBExpect\expect;
 use namespace Facebook\HHAST\__Private\LSP;
-use namespace HH\Lib\{Str, Tuple};
+use namespace HH\Lib\Str;
 
 final class LSPServerTest extends TestCase {
   use LinterCLITestTrait;

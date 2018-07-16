@@ -10,8 +10,6 @@
 
 namespace Facebook\HHAST;
 
-use namespace Facebook\TypeAssert;
-use namespace HH\Lib\{C, Str};
 
 <<__ConsistentConstruct>>
 abstract class EditableTokenWithFixedText extends EditableToken {

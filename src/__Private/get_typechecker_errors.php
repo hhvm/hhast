@@ -10,9 +10,8 @@
 
 namespace Facebook\HHAST\__Private;;
 
-use type Facebook\HHAST\EditableNode;
 
-use namespace HH\Lib\{C, Str, Vec};
+use namespace HH\Lib\Str;
 use namespace Facebook\TypeAssert;
 
 type TTypecheckerError = shape(
