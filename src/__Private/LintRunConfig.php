@@ -71,6 +71,7 @@ final class LintRunConfig {
       Linters\MustUseBracesForControlFlowLinter::class,
       Linters\MustUseOverrideAttributeLinter::class,
       Linters\NoPHPEqualityLinter::class,
+      Linters\UnusedParameterLinter::class,
       Linters\UseStatementWithLeadingBackslashLinter::class,
       Linters\UseStatementWithoutKindLinter::class,
       Linters\NoWhitespaceAtEndOfLineLinter::class,

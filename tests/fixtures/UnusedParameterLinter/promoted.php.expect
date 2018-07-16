@@ -1,0 +1,7 @@
+[
+    {
+        "blame": "int $baz",
+        "blame_pretty": "int $baz",
+        "description": "Parameter is unused"
+    }
+]

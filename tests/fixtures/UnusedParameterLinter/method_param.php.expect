@@ -1,0 +1,7 @@
+[
+    {
+        "blame": "int $derp",
+        "blame_pretty": "int $derp",
+        "description": "Parameter is unused"
+    }
+]
