@@ -1,0 +1,12 @@
+[
+    {
+        "blame": "  \/\/ hello\n  new Foo()->bar",
+        "blame_pretty": "  \/\/ hello\n  new Foo()->bar",
+        "description": "Parenthesize method and member access on object creation expressions"
+    },
+    {
+        "blame": "  \/\/ bye\n  new Herp()->derp",
+        "blame_pretty": "  \/\/ bye\n  new Herp()->derp",
+        "description": "Parenthesize method and member access on object creation expressions"
+    }
+]

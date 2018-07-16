@@ -1,0 +1,8 @@
+<?hh // strict
+
+function foo(): void {
+  // hello
+  (new Foo())->bar;
+  // bye
+  (new Herp())->derp; // stuff
+}

@@ -11,7 +11,9 @@
 namespace Facebook\HHAST;
 
 final class MethodCallOnConstructorLinterTest extends TestCase {
-  use LinterTestTrait;
+  use AutoFixingLinterTestTrait<
+    Linters\FixableASTLintError<MemberSelectionExpression>,
+  >;
 
   protected function getLinter(
     string $file,
