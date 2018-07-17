@@ -19,7 +19,6 @@ use type Facebook\HHAST\{
   ParenthesizedExpression,
 };
 use function Facebook\HHAST\Missing;
-use namespace HH\Lib\Str;
 
 final class MethodCallOnConstructorLinter
   extends AutoFixingASTLinter<MemberSelectionExpression> {

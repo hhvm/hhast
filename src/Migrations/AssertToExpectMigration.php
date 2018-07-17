@@ -10,7 +10,6 @@
 
 namespace Facebook\HHAST\Migrations;
 
-use namespace Facebook\HHAST;
 use function Facebook\HHAST\Missing;
 use type Facebook\HHAST\{
   BackslashToken,
@@ -24,7 +23,6 @@ use type Facebook\HHAST\{
   ListItem,
   MemberSelectionExpression,
   MinusGreaterThanToken,
-  NamespaceBody,
   NamespaceDeclaration,
   NamespaceEmptyBody,
   NamespaceUseDeclaration,

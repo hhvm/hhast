@@ -13,13 +13,11 @@ namespace Facebook\HHAST\Linters;
 use type Facebook\HHAST\{
   EditableNode,
   FunctionDeclaration,
-  FunctionDeclarationHeader,
   IFunctionishDeclaration,
   MethodishDeclaration,
   ParameterDeclaration,
   VariableToken,
 };
-use function Facebook\HHAST\Missing;
 use namespace HH\Lib\{C, Str};
 
 final class UnusedParameterLinter
