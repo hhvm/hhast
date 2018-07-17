@@ -50,14 +50,10 @@ final class UnusedUseClauseLinter
 
     return new FixableASTLintError(
       $this,
-      C\count($unused) === 1
-        ? ('`'.C\firstx($unused)[0].'` is not used')
-        : (
-            $unused
-            |> Vec\map($$, $p ==> '`'.$p[0].'`')
-            |> Str\join($$, ', ')
-            |> $$.' are not used'
-          ),
+      $unused
+        |> Vec\map($$, $p ==> '`'.$p[0].'`')
+        |> Str\join($$, ', ')
+        |> $$.((C\count($unused) === 1) ? ' is' : ' are').' not used',
       $node,
     );
   }
@@ -104,7 +100,6 @@ final class UnusedUseClauseLinter
 
       if ($kind instanceof ConstToken) {
         // unsupported
-        continue;
         continue;
       }
 
