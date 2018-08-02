@@ -12,6 +12,8 @@ namespace Facebook\HHAST\__Private\LSPImpl;
 
 use namespace Facebook\TypeAssert;
 use namespace Facebook\HHAST\__Private\{LSP, LSPLib};
+use namespace HH\Lib\Str;
+use type Facebook\HHAST\__Private\LintRunConfig;
 
 final class InitializeCommand extends LSPLib\InitializeCommand<ServerState> {
 
@@ -43,8 +45,19 @@ final class InitializeCommand extends LSPLib\InitializeCommand<ServerState> {
     );
 
     $lint_mode = $options['lintMode'] ?? null;
+
     if ($lint_mode !== null) {
       $this->state->lintMode = $lint_mode;
+    }
+
+    invariant($this->state->config === null, 'Tried to set config twice');
+    $uri = $p['rootUri'];
+    if ($uri === null) {
+      $uri = 'file://'.\getcwd();
+    }
+    if (Str\starts_with($uri, 'file://')) {
+      $path = Str\strip_prefix($uri, 'file://');
+      $this->state->config = LintRunConfig::getForPath($path);
     }
 
     return await parent::executeAsync($p);

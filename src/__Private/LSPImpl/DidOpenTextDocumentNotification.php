@@ -10,10 +10,7 @@
 
 namespace Facebook\HHAST\__Private\LSPImpl;
 
-use type Facebook\HHAST\__Private\{
-  LintRunConfig,
-  LintRunLSPPublishDiagnosticsEventHandler,
-};
+use type Facebook\HHAST\__Private\LintRunLSPPublishDiagnosticsEventHandler;
 use namespace Facebook\HHAST\__Private\LSPLib;
 use namespace HH\Lib\Str;
 
@@ -22,7 +19,6 @@ final class DidOpenTextDocumentNotification
 
   public function __construct(
     private LSPLib\Client $client,
-    private ?LintRunConfig $config,
     private ServerState $state,
   ) {
   }
@@ -41,7 +37,7 @@ final class DidOpenTextDocumentNotification
 
     await relint_uri_async(
       new LintRunLSPPublishDiagnosticsEventHandler($this->client, $this->state),
-      $this->config,
+      $this->state->config,
       $uri,
     );
   }

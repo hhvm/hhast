@@ -10,10 +10,7 @@
 
 namespace Facebook\HHAST\__Private\LSPImpl;
 
-use type Facebook\HHAST\__Private\{
-  LintRunConfig,
-  LintRunLSPPublishDiagnosticsEventHandler,
-};
+use type Facebook\HHAST\__Private\LintRunLSPPublishDiagnosticsEventHandler;
 use namespace Facebook\HHAST\__Private\{LSP, LSPLib};
 use namespace HH\Lib\{C, Str, Vec};
 
@@ -22,7 +19,6 @@ final class DidChangeWatchedFilesNotification
 
   public function __construct(
     private LSPLib\Client $client,
-    private ?LintRunConfig $config,
     private ServerState $state,
   ) {
   }
@@ -63,7 +59,7 @@ final class DidChangeWatchedFilesNotification
 
     await relint_uris_async(
       new LintRunLSPPublishDiagnosticsEventHandler($this->client, $this->state),
-      $this->config,
+      $this->state->config,
       $to_relint,
     );
   }

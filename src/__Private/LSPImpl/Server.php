@@ -12,7 +12,6 @@ namespace Facebook\HHAST\__Private\LSPImpl;
 
 use type Facebook\HHAST\__Private\{
   Asio\AsyncPoll,
-  LintRunConfig,
   LintRunLSPPublishDiagnosticsEventHandler,
   LintRun,
 };
@@ -21,11 +20,7 @@ use type Facebook\CLILib\{ExitException, ITerminal};
 use namespace HH\Lib\Str;
 
 final class Server extends LSPLib\Server<ServerState> {
-  public function __construct(
-    private ITerminal $terminal,
-    private ?LintRunConfig $config,
-    private vec<string> $roots,
-  ) {
+  public function __construct(private ITerminal $terminal) {
     parent::__construct(new LSPImpl\Client($terminal), new ServerState());
   }
 
@@ -34,7 +29,7 @@ final class Server extends LSPLib\Server<ServerState> {
     return vec[
       new LSPImpl\InitializeCommand($this->state),
       new LSPLib\ShutdownCommand($this->state),
-      new LSPImpl\CodeActionCommand($this->client, $this->config, $this->state),
+      new LSPImpl\CodeActionCommand($this->client, $this->state),
       new LSPImpl\ExecuteCommandCommand($this->client),
     ];
   }
@@ -45,19 +40,10 @@ final class Server extends LSPLib\Server<ServerState> {
     return vec[
       new LSPImpl\DidChangeWatchedFilesNotification(
         $this->client,
-        $this->config,
         $this->state,
       ),
-      new LSPImpl\DidSaveTextDocumentNotification(
-        $this->client,
-        $this->config,
-        $this->state,
-      ),
-      new LSPImpl\DidOpenTextDocumentNotification(
-        $this->client,
-        $this->config,
-        $this->state,
-      ),
+      new LSPImpl\DidSaveTextDocumentNotification($this->client, $this->state),
+      new LSPImpl\DidOpenTextDocumentNotification($this->client, $this->state),
       new LSPImpl\DidCloseTextDocumentNotification($this->client, $this->state),
       new LSPImpl\ExitNotification($this->state),
       new LSPImpl\InitializedNotification($this->client, $this->state),
@@ -116,7 +102,14 @@ final class Server extends LSPLib\Server<ServerState> {
 
     $handler =
       new LintRunLSPPublishDiagnosticsEventHandler($this->client, $this->state);
-    await (new LintRun($this->config, $handler, $this->roots))->runAsync();
+    await (
+      new LintRun(
+        $this->state->config,
+        $handler,
+        $this->state->config?->getRoots() ?? vec[],
+      )
+    )
+      ->runAsync();
   }
 
   private async function readMessageAsync(): Awaitable<string> {

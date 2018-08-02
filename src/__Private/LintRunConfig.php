@@ -98,17 +98,20 @@ final class LintRunConfig {
     }
   }
 
-  private function __construct(private self::TConfigFile $configFile) {
+  private function __construct(
+    private string $projectRoot,
+    private self::TConfigFile $configFile,
+  ) {
   }
 
   <<__Memoize>>
   private static function getFromConfigFile(string $path): this {
-    return new self(self::getConfigFromFile($path));
+    return new self(\dirname($path), self::getConfigFromFile($path));
   }
 
   <<__Memoize>>
   private static function getDefault(): this {
-    return new self(shape('roots' => vec[]));
+    return new self(\getcwd(), shape('roots' => vec[]));
   }
 
   public static function getForPath(string $path): this {
@@ -135,13 +138,13 @@ final class LintRunConfig {
   }
 
   public function getRoots(): vec<string> {
-    return $this->configFile['roots'];
+    return
+      Vec\map($this->configFile['roots'], $dir ==> $this->projectRoot.'/'.$dir);
   }
 
   public function getConfigForFile(string $file_path): self::TFileConfig {
-    $roots = Vec\map($this->getRoots(), $s ==> Str\strip_suffix($s, '/').'/');
-    $file_path =
-      Str\strip_prefix($file_path, Str\strip_suffix(\getcwd(), '/').'/');
+    $roots = Vec\map($this->configFile['roots'], $s ==> Str\strip_suffix($s, '/').'/');
+    $file_path = Str\strip_prefix($file_path, $this->projectRoot.'/');
     if (
       $roots !== vec[] &&
       !C\any($roots, $root ==> Str\starts_with($file_path, $root))

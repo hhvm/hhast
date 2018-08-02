@@ -90,6 +90,28 @@ final class LinterCLI extends CLIWithArguments {
   }
 
   private async function mainImplAsync(): Awaitable<int> {
+    $terminal = $this->getTerminal();
+    $log_prefix = $this->ioLogPrefix;
+    if ($log_prefix !== null) {
+      $terminal = new Terminal(
+        new LoggingInputTap(
+          $terminal->getStdin(),
+          \fopen($log_prefix.'in', 'w+'),
+        ),
+        new LoggingOutputTap(
+          $terminal->getStdout(),
+          \fopen($log_prefix.'out', 'w+'),
+        ),
+        new LoggingOutputTap(
+          $terminal->getStderr(),
+          \fopen($log_prefix.'err', 'w+'),
+        ),
+      );
+    }
+    if ($this->mode === LinterCLIMode::LSP) {
+      return await (new LSPImpl\Server($terminal))->mainAsync();
+    }
+
     $err = $this->getStderr();
     $roots = $this->getArguments();
 
@@ -122,25 +144,6 @@ final class LinterCLI extends CLIWithArguments {
       $config = null;
     }
 
-    $terminal = $this->getTerminal();
-    $log_prefix = $this->ioLogPrefix;
-    if ($log_prefix !== null) {
-      $terminal = new Terminal(
-        new LoggingInputTap(
-          $terminal->getStdin(),
-          \fopen($log_prefix.'in', 'w+'),
-        ),
-        new LoggingOutputTap(
-          $terminal->getStdout(),
-          \fopen($log_prefix.'out', 'w+'),
-        ),
-        new LoggingOutputTap(
-          $terminal->getStderr(),
-          \fopen($log_prefix.'err', 'w+'),
-        ),
-      );
-    }
-
     switch ($this->mode) {
       case LinterCLIMode::PLAIN:
         $error_handler = new LintRunCLIEventHandler($terminal);
@@ -149,8 +152,7 @@ final class LinterCLI extends CLIWithArguments {
         $error_handler = new LintRunJSONEventHandler($terminal);
         break;
       case LinterCLIMode::LSP:
-        return await (new LSPImpl\Server($terminal, $config, $roots))
-          ->mainAsync();
+        invariant_violation('should have returned earlier');
     }
 
     try {

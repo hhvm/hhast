@@ -10,7 +10,6 @@
 
 namespace Facebook\HHAST\__Private\LSPImpl;
 
-use type Facebook\HHAST\__Private\LintRunConfig;
 use namespace Facebook\HHAST\__Private\{LSP, LSPLib};
 use namespace Facebook\HHAST\Linters;
 use namespace HH\Lib\{C, Str, Vec};
@@ -20,7 +19,6 @@ final class CodeActionCommand extends LSPLib\CodeActionCommand {
 
   public function __construct(
     private LSPLib\Client $client,
-    private ?LintRunConfig $config,
     private ServerState $state,
   ) {
   }
