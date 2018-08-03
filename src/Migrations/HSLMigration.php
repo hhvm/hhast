@@ -1,4 +1,12 @@
 <?hh // strict
+/*
+ *  Copyright (c) 2017-present, Facebook, Inc.
+ *  All rights reserved.
+ *
+ *  This source code is licensed under the MIT license found in the
+ *  LICENSE file in the root directory of this source tree.
+ *
+ */
 
 namespace Facebook\HHAST\Migrations;
 use namespace Facebook\HHAST;
@@ -124,7 +132,7 @@ final class HSLMigration extends BaseMigration {
 
 
   <<__Override>>
-  public function migrateFile(string $path, EditableNode $root): EditableNode {
+  public function migrateFile(string $_, EditableNode $root): EditableNode {
     // find all the function calls
     $nodes = $root->getDescendantsOfType(FunctionCallExpression::class);
 
@@ -139,8 +147,9 @@ final class HSLMigration extends BaseMigration {
       if (
         $fn_name === null ||
         !C\contains_key(self::PHP_HSL_REPLACEMENTS, $fn_name)
-      )
+      ){
         continue;
+      }
 
       // found a function to replace!
       $replace_config = self::PHP_HSL_REPLACEMENTS[$fn_name];
@@ -154,29 +163,33 @@ final class HSLMigration extends BaseMigration {
       $new_receiver = new NameToken(
         $receiver->getLeading(),
         $receiver->getTrailing(),
-        "{$namespace}\\{$replacement}",
+        $namespace . '\\' . $replacement,
       );
       $new_node = $node->replace($receiver, $new_receiver);
 
       // possibly change argument order
       $argument_order = $replace_config['argument_order'] ?? null;
-      if ($argument_order !== null)
+      if ($argument_order !== null){
         $new_node = $this->maybeReorderArguments($new_node, $argument_order);
+      }
 
       // if we got null back here, it means the function call has unsupported arguments. forget it for now
-      if ($new_node === null)
+      if ($new_node === null) {
         continue;
+      }
 
       // replace it in the ast
       $root = $root->replace($node, $new_node);
 
       // potentially change adjacent expressions to check for null instead of false
-      if ($replace_config['replace_false_with_null'] ?? false)
+      if ($replace_config['replace_false_with_null'] ?? false) {
         $root = $this->maybeChangeFalseToNull($root, $new_node);
+      }
     }
 
-    if (\count($found_namespaces) === 0)
+    if (\count($found_namespaces) === 0) {
       return $root;
+    }
 
     // add "use namespace" declarations at the top if they aren't already present
     $declarations = $root->getChildren()['declarations'];
@@ -207,8 +220,9 @@ final class HSLMigration extends BaseMigration {
 
     // can't handle these ones with wrong number of args yet
     // return null, signaling to caller to skip rewriting this invocation
-    if (\count($items) !== \count($argument_order))
+    if (\count($items) !== \count($argument_order)) {
       return null;
+    }
 
     $new_items = vec[];
     foreach ($argument_order as $index) {
@@ -288,11 +302,13 @@ final class HSLMigration extends BaseMigration {
             break;
           }
         }
-        if ($found)
+        if ($found) {
           break;
+        }
       }
-      if ($found)
+      if ($found) {
         break;
+      }
     }
 
     $namespace_group_use_declarations =
@@ -308,8 +324,9 @@ final class HSLMigration extends BaseMigration {
           break;
         }
       }
-      if ($found)
+      if ($found) {
         break;
+      }
     }
 
     return $found;
