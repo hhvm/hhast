@@ -1,8 +1,23 @@
 <?hh // strict
 
 namespace Facebook\HHAST\Migrations;
-use namespace \Facebook\HHAST;
-use namespace \HH\Lib\{C, Str, Vec};
+use namespace Facebook\HHAST;
+use namespace HH\Lib\{C, Str, Vec};
+
+use type Facebook\HHAST\{
+  EditableNode,
+  FunctionCallExpression,
+  NameToken,
+  EditableList,
+  BinaryExpression,
+  LiteralExpression,
+  BooleanLiteralToken,
+  NullLiteralToken,
+  NamespaceGroupUseDeclaration,
+  NamespaceUseDeclaration,
+  QualifiedName,
+  Script,
+};
 
 enum HSL_NAMESPACE: string as string {
   C = 'C';
@@ -27,7 +42,7 @@ type hsl_replacement_config = shape(
 
 final class HSLMigration extends BaseMigration {
 
-  // key is PHPstdlib function, value is a shape configuring how the migration should work
+  // key is PHPstdlib function name, value is a shape configuring how the migration should work
   const dict<string, hsl_replacement_config>
     PHP_HSL_REPLACEMENTS = dict[
       // String functions
@@ -109,12 +124,9 @@ final class HSLMigration extends BaseMigration {
 
 
   <<__Override>>
-  public function migrateFile(
-    string $path,
-    HHAST\EditableNode $root,
-  ): HHAST\EditableNode {
+  public function migrateFile(string $path, EditableNode $root): EditableNode {
     // find all the function calls
-    $nodes = $root->getDescendantsOfType(HHAST\FunctionCallExpression::class);
+    $nodes = $root->getDescendantsOfType(FunctionCallExpression::class);
 
     // keep track of any HSL namespaces we may have to add to the top of the file
     $found_namespaces = dict[];
@@ -138,8 +150,8 @@ final class HSLMigration extends BaseMigration {
 
       // build the replacement AST node
       $receiver = $node->getReceiver();
-      invariant($receiver instanceof HHAST\NameToken, 'must be name token');
-      $new_receiver = new HHAST\NameToken(
+      invariant($receiver instanceof NameToken, 'must be name token');
+      $new_receiver = new NameToken(
         $receiver->getLeading(),
         $receiver->getTrailing(),
         "{$namespace}\\{$replacement}",
@@ -174,7 +186,7 @@ final class HSLMigration extends BaseMigration {
         $first = $children[0];
         $rest = Vec\drop($children, 1);
         $items = Vec\concat(vec[$first, $this->getUseDeclaration($ns)], $rest);
-        $new_declarations = HHAST\EditableList::fromItems($items);
+        $new_declarations = EditableList::fromItems($items);
         $root = $root->replace($declarations, $new_declarations);
       }
     }
@@ -184,9 +196,9 @@ final class HSLMigration extends BaseMigration {
 
   // change argument order between PHP function and HSL function if necessary
   protected function maybeReorderArguments(
-    HHAST\FunctionCallExpression $node,
+    FunctionCallExpression $node,
     vec<int> $argument_order,
-  ): ?HHAST\FunctionCallExpression {
+  ): ?FunctionCallExpression {
     $argument_list = $node->getArgumentList();
     invariant($argument_list !== null, 'Function must have arguments');
     $arguments = $argument_list->getChildren();
@@ -206,23 +218,22 @@ final class HSLMigration extends BaseMigration {
     $new_argument_list = vec[];
 
     foreach ($arguments as $i => $argument) {
-      /* HH_FIXME[4053] why is this not defined */
-      $new_argument_list[] =
-        $argument->replace($argument->getItem(), $new_items[(int)$i]);
+      $new_argument_list[] = /* HH_FIXME[4053] why is this not defined */
+      $argument->replace($argument->getItem(), $new_items[(int)$i]);
     }
 
     return $node->replace(
       $argument_list,
-      HHAST\EditableList::fromItems($new_argument_list),
+      EditableList::fromItems($new_argument_list),
     );
   }
 
   // many PHP functions can return false, and their HSL counterparts return null instead
   // this will replace false with null in binary expressions like === false and !=== false
   protected function maybeChangeFalseToNull(
-    HHAST\EditableNode $root,
-    HHAST\FunctionCallExpression $node,
-  ): HHAST\EditableNode {
+    EditableNode $root,
+    FunctionCallExpression $node,
+  ): EditableNode {
     $parents = null;
     $found = false;
     $stack = $root->findWithParents($it ==> $it === $node);
@@ -231,7 +242,7 @@ final class HSLMigration extends BaseMigration {
     $stack_count = C\count($stack);
     $parent = $stack[$stack_count - 2];
 
-    if ($parent instanceof HHAST\BinaryExpression) {
+    if ($parent instanceof BinaryExpression) {
       if ($parent->getLeftOperand() === $node) {
         $check = $parent->getRightOperand();
       } else {
@@ -239,11 +250,11 @@ final class HSLMigration extends BaseMigration {
       }
 
 
-      if ($check instanceof HHAST\LiteralExpression) {
+      if ($check instanceof LiteralExpression) {
         $expression = $check->getExpression();
-        if ($expression instanceof HHAST\BooleanLiteralToken) {
+        if ($expression instanceof BooleanLiteralToken) {
           if (Str\lowercase($expression->getText()) === 'false') {
-            $new = new HHAST\NullLiteralToken(
+            $new = new NullLiteralToken(
               $expression->getLeading(),
               $expression->getTrailing(),
             );
@@ -258,11 +269,11 @@ final class HSLMigration extends BaseMigration {
 
   // does this file already use the namespace we need to add
   protected function hasUseDeclaration(
-    HHAST\EditableNode $declarations,
+    EditableNode $declarations,
     string $check,
   ): bool {
     $namespace_use_declarations =
-      $declarations->getDescendantsOfType(HHAST\NamespaceUseDeclaration::class);
+      $declarations->getDescendantsOfType(NamespaceUseDeclaration::class);
     $found = false;
     foreach ($namespace_use_declarations as $decl) {
       $clauses = $decl->getClauses();
@@ -272,7 +283,7 @@ final class HSLMigration extends BaseMigration {
         $parts = $clause->getItem()->getName()->getParts()->getChildren();
         foreach ($parts as $part) {
           $item = $part->getItem();
-          if ($item instanceof HHAST\NameToken && $item->getText() === $check) {
+          if ($item instanceof NameToken && $item->getText() === $check) {
             $found = true;
             break;
           }
@@ -284,16 +295,15 @@ final class HSLMigration extends BaseMigration {
         break;
     }
 
-    $namespace_group_use_declarations = $declarations->getDescendantsOfType(
-      HHAST\NamespaceGroupUseDeclaration::class,
-    );
+    $namespace_group_use_declarations =
+      $declarations->getDescendantsOfType(NamespaceGroupUseDeclaration::class);
     foreach ($namespace_group_use_declarations as $decl) {
       $clauses = $decl->getClauses();
       $children = $clauses->getChildren();
       foreach ($children as $clause) {
         /* HH_FIXME[4053] I know */
         $item = $clause->getItem()->getName();
-        if ($item instanceof HHAST\NameToken && $item->getText() === $check) {
+        if ($item instanceof NameToken && $item->getText() === $check) {
           $found = true;
           break;
         }
@@ -306,95 +316,26 @@ final class HSLMigration extends BaseMigration {
   }
 
   // get a node for a use namespace declaration
-  protected function getUseDeclaration(
-    string $ns,
-  ): HHAST\NamespaceUseDeclaration {
-    return new HHAST\NamespaceUseDeclaration(
-      new HHAST\UseToken(
-        new HHAST\EditableList(vec[
-          new HHAST\EndOfLine("\n"),
-          new HHAST\WhiteSpace("\t"),
-        ]),
-        new HHAST\EditableList(vec[new HHAST\WhiteSpace(' ')]),
-        'use',
-      ),
-      new HHAST\NamespaceToken(
-        new HHAST\Missing(),
-        new HHAST\EditableList(vec[new HHAST\WhiteSpace(' ')]),
-        'namespace',
-      ),
-      new HHAST\EditableList(vec[
-        new HHAST\ListItem(
-          new HHAST\NamespaceUseClause(
-            new HHAST\Missing(),
-            new HHAST\QualifiedName(
-              new HHAST\EditableList(vec[
-                new HHAST\ListItem(
-                  new HHAST\Missing(),
-                  new HHAST\BackslashToken(
-                    new HHAST\Missing(),
-                    new HHAST\Missing(),
-                  ),
-                ),
-                new HHAST\ListItem(
-                  new HHAST\NameToken(
-                    new HHAST\Missing(),
-                    new HHAST\Missing(),
-                    'HH',
-                  ),
-                  new HHAST\BackslashToken(
-                    new HHAST\Missing(),
-                    new HHAST\Missing(),
-                  ),
-                ),
-                new HHAST\ListItem(
-                  new HHAST\NameToken(
-                    new HHAST\Missing(),
-                    new HHAST\Missing(),
-                    'Lib',
-                  ),
-                  new HHAST\BackslashToken(
-                    new HHAST\Missing(),
-                    new HHAST\Missing(),
-                  ),
-                ),
-                new HHAST\ListItem(
-                  new HHAST\NameToken(
-                    new HHAST\Missing(),
-                    new HHAST\Missing(),
-                    $ns,
-                  ),
-                  new HHAST\Missing(),
-                ),
-              ]),
-            ),
-            new HHAST\Missing(),
-            new HHAST\Missing(),
-          ),
-          new HHAST\Missing(),
-        ),
-      ]),
-      new HHAST\SemicolonToken(
-        new HHAST\Missing(),
-        new HHAST\EditableList(vec[
-          new HHAST\EndOfLine("\n"),
-          new HHAST\EndOfLine("\n"),
-        ]),
-      ),
+  protected function getUseDeclaration(string $ns): NamespaceUseDeclaration {
+    $node = HHAST\from_code('use namespace HH\\Lib\\'.$ns.';');
+    invariant($node instanceof Script, 'always gets back a script tag');
+    $children = vec(
+      $node->getDeclarations()
+        ->getChildrenOfType(NamespaceUseDeclaration::class),
     );
+    $node = C\onlyx($children);
+    return $node;
   }
 
   // extract the function name from an expression
-  protected function getFunctionName(
-    HHAST\FunctionCallExpression $node,
-  ): ?string {
+  protected function getFunctionName(FunctionCallExpression $node): ?string {
     $receiver = $node->getReceiver();
 
-    if ($receiver instanceof HHAST\NameToken) {
+    if ($receiver instanceof NameToken) {
       return $receiver->getText();
     }
 
-    if ($receiver instanceof HHAST\QualifiedName) {
+    if ($receiver instanceof QualifiedName) {
       return $receiver->getFirstTokenx()->getText();
     }
 
