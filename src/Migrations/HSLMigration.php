@@ -147,7 +147,7 @@ final class HSLMigration extends BaseMigration {
       if (
         $fn_name === null ||
         !C\contains_key(self::PHP_HSL_REPLACEMENTS, $fn_name)
-      ){
+      ) {
         continue;
       }
 
@@ -163,13 +163,13 @@ final class HSLMigration extends BaseMigration {
       $new_receiver = new NameToken(
         $receiver->getLeading(),
         $receiver->getTrailing(),
-        $namespace . '\\' . $replacement,
+        $namespace.'\\'.$replacement,
       );
       $new_node = $node->replace($receiver, $new_receiver);
 
       // possibly change argument order
       $argument_order = $replace_config['argument_order'] ?? null;
-      if ($argument_order !== null){
+      if ($argument_order !== null) {
         $new_node = $this->maybeReorderArguments($new_node, $argument_order);
       }
 
