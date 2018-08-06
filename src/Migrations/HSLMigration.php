@@ -162,10 +162,16 @@ final class HSLMigration extends BaseMigration {
       'tan' => shape('ns' => HSL_NAMESPACE::Math, 'name' => 'tan'),
       'sqrt' => shape('ns' => HSL_NAMESPACE::Math, 'name' => 'sqrt'),
       'log' => shape('ns' => HSL_NAMESPACE::Math, 'name' => 'log'),
-      'min' =>
-        shape('ns' => HSL_NAMESPACE::Math, 'name' => 'min'), // TODO add minva
-      'max' => shape('ns' => HSL_NAMESPACE::Math, 'name' => 'max'),
-      // TODO add maxva
+      'min' => shape(
+        'ns' => HSL_NAMESPACE::Math,
+        'name' => 'min',
+        'has_overrides' => true,
+      ),
+      'max' => shape(
+        'ns' => HSL_NAMESPACE::Math,
+        'name' => 'max',
+        'has_overrides' => true,
+      ),
     ];
 
 
@@ -446,6 +452,22 @@ final class HSLMigration extends BaseMigration {
       if ($length !== null && $length < 0) {
         return null;
       }
+    } elseif (
+      ($fn_name === 'Math\\max' || $fn_name === 'Math\\min') &&
+      \count($items) !== 1
+    ) {
+      // PHP max() and min() either take a list of variadic args, or an array of args
+      // in HSL, max and min want a single Traversable arg, while maxva and minva are variadic
+      $new_name = $fn_name.'va';
+      // build the replacement AST node
+      $receiver = $node->getReceiver();
+      invariant($receiver instanceof NameToken, 'must be name token');
+      $new_receiver = new NameToken(
+        $receiver->getLeading(),
+        $receiver->getTrailing(),
+        $new_name,
+      );
+      return $node->replace($receiver, $new_receiver);
     }
 
     if ($argument_order !== null) {
