@@ -9,8 +9,6 @@
  */
 
 namespace Facebook\HHAST\__Private;
-;
-
 
 use namespace HH\Lib\Str;
 use namespace Facebook\TypeAssert;
@@ -31,7 +29,6 @@ function find_type_for_node(
   EditableNode $node,
   string $path,
 ): ?string {
-
   list($line, $offset) = HHAST\find_position($root, $node);
   $path = \realpath($path);
   $command = vec[
@@ -59,7 +56,6 @@ function find_type_for_node(
       \JSON_FB_HACK_ARRAYS,
     );
   }
-  ;
 
   $data = TypeAssert\matches_type_structure(
     type_alias_structure(TTypeAtPosOutput::class),
@@ -72,7 +68,6 @@ function find_type_for_node(
     }
     return $data['full_type']['kind'];
   }
-  ;
 
   return null;
 }

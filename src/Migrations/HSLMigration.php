@@ -9,6 +9,7 @@
  */
 
 namespace Facebook\HHAST\Migrations;
+
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec, Math};
 
@@ -41,18 +42,18 @@ use type Facebook\HHAST\{
 
 use function Facebook\HHAST\__Private\find_type_for_node;
 
-enum HSL_NAMESPACE: string as string {
+enum HslNamespace: string as string {
   C = 'C';
-  Dict = 'Dict';
-  Keyset = 'Keyset';
-  Math = 'Math';
-  Str = 'Str';
-  Vec = 'Vec';
+  DICT = 'Dict';
+  KEYSET = 'Keyset';
+  MATH = 'Math';
+  STR = 'Str';
+  VEC = 'Vec';
 }
 
-type hsl_replacement_config = shape(
+type HslReplacementConfig = shape(
   // \HH\Lib\* namespace the replacement function lives in
-  'ns' => HSL_NAMESPACE,
+  'ns' => HslNamespace,
   // the name of the replacement function
   'name' => string,
   // a vector indicating the order of the arguments in the new function from the old one.
@@ -69,105 +70,105 @@ type hsl_replacement_config = shape(
 final class HSLMigration extends BaseMigration {
 
   // key is PHPstdlib function name, value is a shape configuring how the migration should work
-  const dict<string, hsl_replacement_config>
+  const dict<string, HslReplacementConfig>
     PHP_HSL_REPLACEMENTS = dict[
       // String functions
       'ucwords' =>
-        shape('ns' => HSL_NAMESPACE::Str, 'name' => 'capitalize_words'),
-      'ucfirst' => shape('ns' => HSL_NAMESPACE::Str, 'name' => 'capitalize'),
-      'strtolower' => shape('ns' => HSL_NAMESPACE::Str, 'name' => 'lowercase'),
-      'strtoupper' => shape('ns' => HSL_NAMESPACE::Str, 'name' => 'uppercase'),
+        shape('ns' => HslNamespace::STR, 'name' => 'capitalize_words'),
+      'ucfirst' => shape('ns' => HslNamespace::STR, 'name' => 'capitalize'),
+      'strtolower' => shape('ns' => HslNamespace::STR, 'name' => 'lowercase'),
+      'strtoupper' => shape('ns' => HslNamespace::STR, 'name' => 'uppercase'),
       'str_replace' => shape(
-        'ns' => HSL_NAMESPACE::Str,
+        'ns' => HslNamespace::STR,
         'name' => 'replace',
         'argument_order' => vec[2, 0, 1],
       ),
       'str_ireplace' => shape(
-        'ns' => HSL_NAMESPACE::Str,
+        'ns' => HslNamespace::STR,
         'name' => 'replace_ci',
         'argument_order' => vec[2, 0, 1],
       ),
       'strpos' => shape(
-        'ns' => HSL_NAMESPACE::Str,
+        'ns' => HslNamespace::STR,
         'name' => 'search',
         'replace_false_with_null' => true,
       ),
       'stripos' => shape(
-        'ns' => HSL_NAMESPACE::Str,
+        'ns' => HslNamespace::STR,
         'name' => 'search_ci',
         'replace_false_with_null' => true,
       ),
       'strrpos' => shape(
-        'ns' => HSL_NAMESPACE::Str,
+        'ns' => HslNamespace::STR,
         'name' => 'search_last',
         'replace_false_with_null' => true,
       ),
       'implode' => shape(
-        'ns' => HSL_NAMESPACE::Str,
+        'ns' => HslNamespace::STR,
         'name' => 'join',
         'argument_order' => vec[1, 0],
       ),
       'join' => shape(
-        'ns' => HSL_NAMESPACE::Str,
+        'ns' => HslNamespace::STR,
         'name' => 'join',
         'argument_order' => vec[1, 0],
       ),
       'substr_replace' => shape(
-        'ns' => HSL_NAMESPACE::Str,
+        'ns' => HslNamespace::STR,
         'name' => 'splice',
         'has_overrides' => true,
       ),
       'substr' => shape(
-        'ns' => HSL_NAMESPACE::Str,
+        'ns' => HslNamespace::STR,
         'name' => 'slice',
         'has_overrides' => true,
       ),
-      'str_repeat' => shape('ns' => HSL_NAMESPACE::Str, 'name' => 'repeat'),
-      'trim' => shape('ns' => HSL_NAMESPACE::Str, 'name' => 'trim'),
-      'ltrim' => shape('ns' => HSL_NAMESPACE::Str, 'name' => 'trim_left'),
-      'rtrim' => shape('ns' => HSL_NAMESPACE::Str, 'name' => 'trim_right'),
-      'strlen' => shape('ns' => HSL_NAMESPACE::Str, 'name' => 'length'),
-      'sprintf' => shape('ns' => HSL_NAMESPACE::Str, 'name' => 'format'),
-      'str_split' => shape('ns' => HSL_NAMESPACE::Str, 'name' => 'chunk'),
-      'strcmp' => shape('ns' => HSL_NAMESPACE::Str, 'name' => 'compare'),
-      'strcasecmp' => shape('ns' => HSL_NAMESPACE::Str, 'name' => 'compare_ci'),
+      'str_repeat' => shape('ns' => HslNamespace::STR, 'name' => 'repeat'),
+      'trim' => shape('ns' => HslNamespace::STR, 'name' => 'trim'),
+      'ltrim' => shape('ns' => HslNamespace::STR, 'name' => 'trim_left'),
+      'rtrim' => shape('ns' => HslNamespace::STR, 'name' => 'trim_right'),
+      'strlen' => shape('ns' => HslNamespace::STR, 'name' => 'length'),
+      'sprintf' => shape('ns' => HslNamespace::STR, 'name' => 'format'),
+      'str_split' => shape('ns' => HslNamespace::STR, 'name' => 'chunk'),
+      'strcmp' => shape('ns' => HslNamespace::STR, 'name' => 'compare'),
+      'strcasecmp' => shape('ns' => HslNamespace::STR, 'name' => 'compare_ci'),
       'number_format' =>
-        shape('ns' => HSL_NAMESPACE::Str, 'name' => 'format_number'),
+        shape('ns' => HslNamespace::STR, 'name' => 'format_number'),
 
       // Math functions
       'round' => shape(
-        'ns' => HSL_NAMESPACE::Math,
+        'ns' => HslNamespace::MATH,
         'name' => 'round',
         'has_overrides' => true,
       ),
-      'ceil' => shape('ns' => HSL_NAMESPACE::Math, 'name' => 'ceil'),
-      'floor' => shape('ns' => HSL_NAMESPACE::Math, 'name' => 'floor'),
-      'array_sum' => shape('ns' => HSL_NAMESPACE::Math, 'name' => 'sum'),
-      'intdiv' => shape('ns' => HSL_NAMESPACE::Math, 'name' => 'int_div'),
-      'exp' => shape('ns' => HSL_NAMESPACE::Math, 'name' => 'exp'),
-      'abs' => shape('ns' => HSL_NAMESPACE::Math, 'name' => 'abs'),
+      'ceil' => shape('ns' => HslNamespace::MATH, 'name' => 'ceil'),
+      'floor' => shape('ns' => HslNamespace::MATH, 'name' => 'floor'),
+      'array_sum' => shape('ns' => HslNamespace::MATH, 'name' => 'sum'),
+      'intdiv' => shape('ns' => HslNamespace::MATH, 'name' => 'int_div'),
+      'exp' => shape('ns' => HslNamespace::MATH, 'name' => 'exp'),
+      'abs' => shape('ns' => HslNamespace::MATH, 'name' => 'abs'),
       'base_convert' =>
-        shape('ns' => HSL_NAMESPACE::Math, 'name' => 'base_convert'),
-      'pow' => shape('ns' => HSL_NAMESPACE::Math, 'name' => 'pow'),
-      'cos' => shape('ns' => HSL_NAMESPACE::Math, 'name' => 'cos'),
-      'sin' => shape('ns' => HSL_NAMESPACE::Math, 'name' => 'sin'),
-      'tan' => shape('ns' => HSL_NAMESPACE::Math, 'name' => 'tan'),
-      'sqrt' => shape('ns' => HSL_NAMESPACE::Math, 'name' => 'sqrt'),
-      'log' => shape('ns' => HSL_NAMESPACE::Math, 'name' => 'log'),
+        shape('ns' => HslNamespace::MATH, 'name' => 'base_convert'),
+      'pow' => shape('ns' => HslNamespace::MATH, 'name' => 'pow'),
+      'cos' => shape('ns' => HslNamespace::MATH, 'name' => 'cos'),
+      'sin' => shape('ns' => HslNamespace::MATH, 'name' => 'sin'),
+      'tan' => shape('ns' => HslNamespace::MATH, 'name' => 'tan'),
+      'sqrt' => shape('ns' => HslNamespace::MATH, 'name' => 'sqrt'),
+      'log' => shape('ns' => HslNamespace::MATH, 'name' => 'log'),
       'min' => shape(
-        'ns' => HSL_NAMESPACE::Math,
+        'ns' => HslNamespace::MATH,
         'name' => 'min',
         'has_overrides' => true,
       ),
       'max' => shape(
-        'ns' => HSL_NAMESPACE::Math,
+        'ns' => HslNamespace::MATH,
         'name' => 'max',
         'has_overrides' => true,
       ),
 
       // Container functions
       'count' => shape(
-        'ns' => HSL_NAMESPACE::C,
+        'ns' => HslNamespace::C,
         'name' => 'count',
         'argument_order' => vec[0],
       ),
@@ -184,7 +185,6 @@ final class HSLMigration extends BaseMigration {
 
     // check if any functions are in the replacement list
     foreach ($nodes as $node) {
-
       // bail if not in the config
       $fn_name = $this->getFunctionName($node);
       if (
@@ -252,7 +252,6 @@ final class HSLMigration extends BaseMigration {
 
     // added any new suffixes?
     if (C\count($suffixes) !== $count_before) {
-
       // get all declarations in hte script
       $root_declarations = $root->getChildren()['declarations'];
 
@@ -309,7 +308,7 @@ final class HSLMigration extends BaseMigration {
     FunctionCallExpression $node,
     ?vec<int> $argument_order,
     string $path,
-    inout dict<HSL_NAMESPACE, bool> $found_namespaces,
+    inout dict<HslNamespace, bool> $found_namespaces,
   ): ?FunctionCallExpression {
     $argument_list = $node->getArgumentList();
     invariant($argument_list !== null, 'Function must have arguments');
@@ -348,7 +347,6 @@ final class HSLMigration extends BaseMigration {
       // arrays mean replacing a set of patterns, which we should rewrite as Str\replace_every
       $type = find_type_for_node($root, $items[0], $path);
       if ($type !== 'string') {
-
         if ($fn_name === 'Str\\replace_ci') {
           // (note there is no Str\replace_every_ci at the moment, so this case is unhandled)
           // bail to skip rewriting this call
@@ -356,7 +354,7 @@ final class HSLMigration extends BaseMigration {
         }
 
         // add Dict to set of required namespaces so we can call Dict\associate()
-        $found_namespaces[HSL_NAMESPACE::Dict] = true;
+        $found_namespaces[HslNamespace::DICT] = true;
 
         $node = $this->replaceFunctionName($node, 'Str\\replace_every');
 
@@ -438,7 +436,6 @@ final class HSLMigration extends BaseMigration {
     }
 
     if ($argument_order !== null) {
-
       $new_items = vec[];
       foreach ($argument_order as $index) {
         $new_items[] = $items[$index];
@@ -479,7 +476,6 @@ final class HSLMigration extends BaseMigration {
         $check = $parent->getLeftOperand();
       }
 
-
       if ($check instanceof LiteralExpression) {
         $expression = $check->getExpression();
         if ($expression instanceof BooleanLiteralToken) {
@@ -506,14 +502,12 @@ final class HSLMigration extends BaseMigration {
     $nodes = vec[];
     $suffixes = vec[];
     foreach ($declarations as $decl) {
-
       // we only care about "use namespace" directives
       if (!($decl->getKind() instanceof NamespaceToken)) {
         continue;
       }
 
       if ($decl instanceof NamespaceGroupUseDeclaration) {
-
         // group declarations: does prefix match?
         $parts =
           $decl->getPrefix()->getParts()->getItemsOfType(NameToken::class);
@@ -525,7 +519,6 @@ final class HSLMigration extends BaseMigration {
           if ($token->getText() === $search[$i]) {
             continue;
           }
-
           $found_prefix = false;
           break;
         }
@@ -548,7 +541,6 @@ final class HSLMigration extends BaseMigration {
           }
         }
       } else {
-
         invariant(
           $decl instanceof NamespaceUseDeclaration,
           'Unhandled declaration type',
