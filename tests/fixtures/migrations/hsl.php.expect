@@ -125,6 +125,8 @@ function hsl_migration_main(): void {
 
   echo "\nlog: ".Math\log(5);
   echo "\nlog: ".Math\log(5, 2);
+
+  echo "\ncount: " .C\count([1, 2, 3]);
 }
 
 hsl_migration_main();

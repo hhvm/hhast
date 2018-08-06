@@ -123,6 +123,8 @@ function hsl_migration_main(): void {
 
   echo "\nlog: ".log(5);
   echo "\nlog: ".log(5, 2);
+
+  echo "\ncount: " .count([1, 2, 3]);
 }
 
 hsl_migration_main();

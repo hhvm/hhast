@@ -8,12 +8,6 @@
  *
  */
 
-// TODO:
-// make sure all the tests work
-// handle negative length arguments to substr_replace
-// look for type checker errors that can be auto-fixed
-// handle maxva vs. max, minva vs. min
-
 namespace Facebook\HHAST\Migrations;
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec, Math};
@@ -172,6 +166,11 @@ final class HSLMigration extends BaseMigration {
         'name' => 'max',
         'has_overrides' => true,
       ),
+      'count' => shape(
+        'ns' => HSL_NAMESPACE::C,
+        'name' => 'count',
+        'argument_order' => vec[0],
+      ),
     ];
 
 
@@ -241,7 +240,7 @@ final class HSLMigration extends BaseMigration {
       }
     }
 
-    if (\count($found_namespaces) === 0) {
+    if (C\count($found_namespaces) === 0) {
       return $root;
     }
 
@@ -251,14 +250,14 @@ final class HSLMigration extends BaseMigration {
     list($hsl_declarations, $suffixes) =
       $this->findUseDeclarations($declarations);
 
-    $count_before = \count(Vec\unique($suffixes));
+    $count_before = C\count(Vec\unique($suffixes));
 
     // add new suffixes to the current list of suffixes
     $suffixes = Vec\concat($suffixes, Vec\keys($found_namespaces))
       |> Vec\unique($$);
 
     // added any new suffixes?
-    if (\count($suffixes) !== $count_before) {
+    if (C\count($suffixes) !== $count_before) {
 
       // get all declarations in hte script
       $root_declarations = $root->getChildren()['declarations'];
@@ -334,7 +333,7 @@ final class HSLMigration extends BaseMigration {
     // can't handle these ones with wrong number of args yet
     // return null, signaling to caller to skip rewriting this invocation
     if (
-      $argument_order !== null && \count($items) !== \count($argument_order)
+      $argument_order !== null && C\count($items) !== C\count($argument_order)
     ) {
       return null;
     }
@@ -400,7 +399,7 @@ final class HSLMigration extends BaseMigration {
         ]);
         return $node->replace($argument_list, $new_argument_list);
       }
-    } elseif ($fn_name === 'Str\\slice' && \count($items) === 3) {
+    } elseif ($fn_name === 'Str\\slice' && C\count($items) === 3) {
       // check for negative length arguments to Str\slice, which will throw a runtime exception
       $length = $this->resolveIntegerArgument($items[2]);
       if ($length !== null && $length < 0) {
@@ -430,22 +429,16 @@ final class HSLMigration extends BaseMigration {
           // we need to replace this arg with a more complex expression
           // based on the length of the string
           $haystack = $items[0]->getCode();
-          $ast = HHAST\from_code(
+          $new_length = $this->nodeFromCode(
             'Str\\length('.$haystack.') - '.($offset + Math\abs($length)),
+            ExpressionStatement::class,
           );
-
-          invariant($ast instanceof Script, 'always gets back a script tag');
-          $children = vec(
-            $ast->getDeclarations()
-              ->getChildrenOfType(ExpressionStatement::class),
-          );
-          $new_length = C\onlyx($children);
         }
 
         // rewrite args list
         $new_argument_list = $argument_list->replace($items[2], $new_length);
       }
-    } elseif ($fn_name === 'Str\\splice' && \count($items) === 4) {
+    } elseif ($fn_name === 'Str\\splice' && C\count($items) === 4) {
       // check for negative length arguments to Str\splice, which will throw a runtime exception
       // this is currently unhandled, so we just bail by returning null if we find it
       $length = $this->resolveIntegerArgument($items[3]);
@@ -454,7 +447,7 @@ final class HSLMigration extends BaseMigration {
       }
     } elseif (
       ($fn_name === 'Math\\max' || $fn_name === 'Math\\min') &&
-      \count($items) !== 1
+      C\count($items) !== 1
     ) {
       // PHP max() and min() either take a list of variadic args, or an array of args
       // in HSL, max and min want a single Traversable arg, while maxva and minva are variadic
@@ -550,7 +543,7 @@ final class HSLMigration extends BaseMigration {
         // group declarations: does prefix match?
         $parts =
           $decl->getPrefix()->getParts()->getItemsOfType(NameToken::class);
-        if (\count($parts) !== 2) {
+        if (C\count($parts) !== 2) {
           continue;
         }
         $found_prefix = true;
@@ -594,7 +587,7 @@ final class HSLMigration extends BaseMigration {
           $name = $clause->getName();
           if ($name instanceof QualifiedName) {
             $parts = $name->getParts()->getItemsOfType(NameToken::class);
-            if (\count($parts) !== 3) {
+            if (C\count($parts) !== 3) {
               continue;
             }
 
@@ -620,7 +613,7 @@ final class HSLMigration extends BaseMigration {
   protected function buildUseDeclaration(
     vec<string> $suffixes,
   ): INamespaceUseDeclaration {
-    if (\count($suffixes) > 1) {
+    if (C\count($suffixes) > 1) {
       // make a grouped use declaration
       $ns = "{".Str\join($suffixes, ', ')."}";
     } else {
