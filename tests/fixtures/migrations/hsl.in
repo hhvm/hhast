@@ -1,0 +1,122 @@
+<?hh // strict
+
+
+function hsl_migration_main(): void {
+
+	echo "\nucwords: " . ucwords('hello world');
+	echo "\nucfirst: " . ucfirst("hello");
+	echo "\nstrtolower: " . strtolower("HELLO");
+	echo "\nstrtoupper: " . strtoupper("hello");
+	echo "\nstr_replace: " . str_replace('foo', 'bar', 'foobarbaz');
+	echo "\nstr_replace: " . str_replace(['a','b'], ['x', 'y'], 'a test example with arrays');
+	$count = 0;
+	// this case is not handled in HSL
+	echo "\nstr_replace: " . str_replace('foo', 'bar', 'foobarbaz', &$count);
+	echo "\nstr_ireplace: " . str_ireplace('foo', 'bar', 'foobarbaz');
+	echo "\nstr_ireplace: " . str_ireplace(['a','b'], ['x', 'y'], 'a test example with arrays');
+	echo "\nstrpos: " . strpos('haystack', 'stack');
+	echo "\nstrpos: " . strpos('haystack', 'stack', 3);
+
+	if (strpos('haystack', 'stack') === false){
+		echo "\nneedle is not in haystack";
+	}
+	$pos = strpos('haystack', 'stack');
+	if ($pos === false){
+		echo "\nneedle is not in haystack";
+	}
+
+	echo "\nstrrpos: " . strrpos('haystack', 'stack');
+	echo "\nstripos: " . stripos('haystack', 'stack');
+
+	// implode accepts args in either order
+	var_dump(implode(',', ['a', 'b', 'c']));
+	var_dump(implode(['a', 'b', 'c'], ','));
+
+	$glue = ',';
+	$pieces = ['a', 'b', 'c'];
+	var_dump(implode($glue, $pieces));
+	var_dump(implode($pieces, $glue));
+
+	var_dump(join($glue, $pieces));
+
+	echo "\nsubstr_replace: " . substr_replace('foo', 'b', 0);
+	echo "\nsubstr_replace: " . substr_replace('foo', 'b', 0, 1);
+	echo "\nsubstr_replace: " . substr_replace('foo', 'b', -1, 1);
+	echo "\nsubstr_replace: " . substr_replace('foo', 'b', -1, -1);
+
+	echo "\nsubstr: " . substr('foo', 2);
+	echo "\nsubstr: " . substr('foo', 2, 1);
+	echo "\nsubstr: " . substr('foo', -2, 1);
+	echo "\nsubstr: " . substr('foo', -2, -2);
+
+	echo "\nstr_repeat: " . str_repeat('x', 5);
+
+	echo "\ntrim: " . trim('test ');
+	echo "\ntrim: " . trim('test ', ' ');
+
+	echo "\nltrim: " . ltrim('test ');
+	echo "\nltrim: " . ltrim('test ', 't');
+
+	echo "\nrtrim: " . rtrim('test ');
+	echo "\nrtrim: " . rtrim('test ', ' ');
+
+	echo "\nstrlen: " . strlen('foo');
+
+	echo "\nsprintf: " . sprintf('%s', 'foo');
+	echo "\nsprintf: " . sprintf('%s %s', 'foo', 'bar');
+
+	var_dump(str_split('foobarbaz', 3));
+
+	echo "\nstrcmp: " . strcmp('test', 'test');
+
+	echo "\nstrcasecmp: " . strcasecmp('test', 'TEST');
+
+	echo "\nstrncmp: " . strncmp('tested', 'testing', 4);
+
+	echo "\nstrncasecmp: " . strncasecmp('TESTED', 'testing', 4);
+
+	echo "\nnumber_format: " . number_format(123456.789);
+	echo "\nnumber_format: " . number_format(123456.789, 2);
+	echo "\nnumber_format: " . number_format(123456.789, 2, ',', '.');
+
+	echo "\nnumber_format: " . number_format(123456.789, 2, ',', '.');
+
+	echo "\nround: " . round(3.14159);
+	echo "\nround: " . round(3.14159, 2);
+	echo "\nround: " . round(3.14159, 2, PHP_ROUND_HALF_DOWN);
+
+	echo "\nceil: " . ceil(3.14);
+
+	echo "\nfloor: " . floor(3.14);
+
+	echo "\narray_sum: " . array_sum([1, 2, 3]);
+
+	echo "\nintdiv: " . intdiv(2, 5);
+
+	echo "\nexp: " . exp(5.7);
+
+	echo "\npow: " . pow(2, 8);
+
+	echo "\nabs: " . abs(-1);
+
+	echo "\nbase_convert: " . base_convert('a37334', 16, 2);
+
+	echo "\nmax: " . max(1, 2, 3);
+	echo "\nmax: " . max([1, 2, 3]);
+
+	echo "\nmin: " . min(1, 2, 3);
+	echo "\nmin: " . min([1, 2, 3]);
+
+	echo "\ncos: " . cos(1);
+
+	echo "\nsin: " . sin(1);
+
+	echo "\ntan: " . tan(1);
+
+	echo "\nsqrt: " . sqrt(4);
+
+	echo "\nlog: " . log(5);
+	echo "\nlog: " . log(5, 2);
+}
+
+hsl_migration_main();
