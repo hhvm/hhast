@@ -1,5 +1,4 @@
 <?hh // strict
-require_once(__DIR__.'/../../../vendor/hh_autoload.php');
 
 function hsl_migration_main(): void {
 
@@ -45,6 +44,7 @@ function hsl_migration_main(): void {
   echo "\nsubstr_replace: ".substr_replace('foo', 'b', 0);
   echo "\nsubstr_replace: ".substr_replace('foo', 'b', 0, 1);
   echo "\nsubstr_replace: ".substr_replace('foo', 'b', -1, 1);
+  // this case is not handled in HSL
   echo "\nsubstr_replace: ".substr_replace('foo', 'b', -1, -1);
 
   echo "\nsubstr: ".substr('foo', 2);
@@ -77,10 +77,6 @@ function hsl_migration_main(): void {
 
   echo "\nstrcasecmp: ".strcasecmp('test', 'TEST');
 
-  echo "\nstrncmp: ".strncmp('tested', 'testing', 4);
-
-  echo "\nstrncasecmp: ".strncasecmp('TESTED', 'testing', 4);
-
   echo "\nnumber_format: ".number_format(123456.789);
   echo "\nnumber_format: ".number_format(123456.789, 2);
   echo "\nnumber_format: ".number_format(123456.789, 2, ',', '.');
@@ -89,6 +85,7 @@ function hsl_migration_main(): void {
 
   echo "\nround: ".round(3.14159);
   echo "\nround: ".round(3.14159, 2);
+  // this case is not handled in HSL
   echo "\nround: ".round(3.14159, 2, PHP_ROUND_HALF_DOWN);
 
   echo "\nceil: ".ceil(3.14);
@@ -126,5 +123,3 @@ function hsl_migration_main(): void {
 
   echo "\ncount: " .count([1, 2, 3]);
 }
-
-hsl_migration_main();

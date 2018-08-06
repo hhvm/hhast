@@ -57,7 +57,10 @@ type hsl_replacement_config = shape(
   'name' => string,
   // a vector indicating the order of the arguments in the new function from the old one.
   // vec[2, 0, 1] means take the 3rd, then 1st, then 2nd argument from the PHP function in the HSL replacement
+  // if this is specified, only callsites with exactly this number of arguments will be migrated
+  // use has_overrides if additional logic applies
   ?'argument_order' => vec<int>,
+  // true this function has special argument parsing in maybeMutateArguments
   ?'has_overrides' => bool,
   // look for nearby boolean operations comparing the result of the HSL function with (bool)false, and change false to null
   ?'replace_false_with_null' => bool,
@@ -128,21 +131,15 @@ final class HSLMigration extends BaseMigration {
       'str_split' => shape('ns' => HSL_NAMESPACE::Str, 'name' => 'chunk'),
       'strcmp' => shape('ns' => HSL_NAMESPACE::Str, 'name' => 'compare'),
       'strcasecmp' => shape('ns' => HSL_NAMESPACE::Str, 'name' => 'compare_ci'),
-      'strncmp' => shape(
-        'ns' => HSL_NAMESPACE::Str,
-        'name' => 'starts_with',
-        'argument_order' => vec[0, 1],
-      ),
-      'strncasecmp' => shape(
-        'ns' => HSL_NAMESPACE::Str,
-        'name' => 'starts_with_ci',
-        'argument_order' => vec[0, 1],
-      ),
       'number_format' =>
         shape('ns' => HSL_NAMESPACE::Str, 'name' => 'format_number'),
 
       // Math functions
-      'round' => shape('ns' => HSL_NAMESPACE::Math, 'name' => 'round'),
+      'round' => shape(
+        'ns' => HSL_NAMESPACE::Math,
+        'name' => 'round',
+        'has_overrides' => true,
+      ),
       'ceil' => shape('ns' => HSL_NAMESPACE::Math, 'name' => 'ceil'),
       'floor' => shape('ns' => HSL_NAMESPACE::Math, 'name' => 'floor'),
       'array_sum' => shape('ns' => HSL_NAMESPACE::Math, 'name' => 'sum'),
@@ -151,6 +148,7 @@ final class HSLMigration extends BaseMigration {
       'abs' => shape('ns' => HSL_NAMESPACE::Math, 'name' => 'abs'),
       'base_convert' =>
         shape('ns' => HSL_NAMESPACE::Math, 'name' => 'base_convert'),
+      'pow' => shape('ns' => HSL_NAMESPACE::Math, 'name' => 'pow'),
       'cos' => shape('ns' => HSL_NAMESPACE::Math, 'name' => 'cos'),
       'sin' => shape('ns' => HSL_NAMESPACE::Math, 'name' => 'sin'),
       'tan' => shape('ns' => HSL_NAMESPACE::Math, 'name' => 'tan'),
@@ -166,6 +164,8 @@ final class HSLMigration extends BaseMigration {
         'name' => 'max',
         'has_overrides' => true,
       ),
+
+      // Container functions
       'count' => shape(
         'ns' => HSL_NAMESPACE::C,
         'name' => 'count',
@@ -432,6 +432,9 @@ final class HSLMigration extends BaseMigration {
       // PHP max() and min() either take a list of variadic args, or an array of args
       // in HSL, max and min want a single Traversable arg, while maxva and minva are variadic
       return $this->replaceFunctionName($node, $fn_name.'va');
+    } elseif ($fn_name === 'Math\\round' && C\count($items) > 2) {
+      // can't handle the optional third argument of round()
+      return null;
     }
 
     if ($argument_order !== null) {
