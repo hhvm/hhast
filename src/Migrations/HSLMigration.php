@@ -10,8 +10,8 @@
 
 // TODO:
 // make sure all the tests work
-// handle Str\replace_every (use Dict\associate on the array-like args, make sure to add Dict to the list of namespaces required too)
 // handle negative length arguments to substr_replace
+// look for type checker errors that can be auto-fixed
 
 namespace Facebook\HHAST\Migrations;
 use namespace Facebook\HHAST;
@@ -40,6 +40,8 @@ use type Facebook\HHAST\{
   LiteralExpression,
   ExpressionStatement,
   OctalLiteralToken,
+  CommaToken,
+  WhiteSpace,
 };
 
 use function Facebook\HHAST\__Private\find_type_for_node;
@@ -203,8 +205,13 @@ final class HSLMigration extends BaseMigration {
       if (
         $argument_order !== null || ($replace_config['has_overrides'] ?? false)
       ) {
-        $new_node =
-          $this->maybeMutateArguments($root, $new_node, $argument_order, $path);
+        $new_node = $this->maybeMutateArguments(
+          $root,
+          $new_node,
+          $argument_order,
+          $path,
+          inout $found_namespaces,
+        );
       }
 
       // if we got null back here, it means the function call has unsupported arguments. forget it for now
@@ -296,6 +303,7 @@ final class HSLMigration extends BaseMigration {
     FunctionCallExpression $node,
     ?vec<int> $argument_order,
     string $path,
+    inout dict<HSL_NAMESPACE, bool> $found_namespaces,
   ): ?FunctionCallExpression {
     $argument_list = $node->getArgumentList();
     invariant($argument_list !== null, 'Function must have arguments');
@@ -330,6 +338,57 @@ final class HSLMigration extends BaseMigration {
         if ($type === 'string') {
           $argument_order = Vec\reverse($argument_order ?? vec[]);
         }
+      }
+    } elseif ($fn_name === 'Str\\replace' || $fn_name === 'Str\\replace_ci') {
+      // str_replace and str_ireplace have two modes:
+      // string for search/replace args means replacing a single pattern
+      // arrays mean replacing a set of patterns, which we should rewrite as Str\replace_every
+      $type = find_type_for_node($root, $items[0], $path);
+      if ($type !== 'string') {
+
+        if ($fn_name === 'Str\\replace_ci') {
+          // (note there is no Str\replace_every_ci at the moment, so this case is unhandled)
+          // bail to skip rewriting this call
+          return null;
+        }
+
+        // add Dict to set of required namespaces so we can call Dict\associate()
+        $found_namespaces[HSL_NAMESPACE::Dict] = true;
+
+        // build the replacement AST node
+        $receiver = $node->getReceiver();
+        invariant($receiver instanceof NameToken, 'must be name token');
+        $new_receiver = new NameToken(
+          $receiver->getLeading(),
+          $receiver->getTrailing(),
+          'Str\\replace_every',
+        );
+        $node = $node->replace($receiver, $new_receiver);
+
+        $search_arg = $items[0]->getCode();
+        $replace_arg = $items[1]->getCode();
+        $expr = 'Dict\\associate('.$search_arg.', '.$replace_arg.')';
+        $ast =
+          HHAST\from_code('Dict\\associate('.$search_arg.', '.$replace_arg.')');
+
+        invariant($ast instanceof Script, 'always gets back a script tag');
+        $children = vec(
+          $ast->getDeclarations()
+            ->getChildrenOfType(ExpressionStatement::class),
+        );
+        $replacement_patterns = C\onlyx($children);
+
+        $new_argument_list = EditableList::fromItems(vec[
+          new ListItem(
+            $replacement_patterns,
+            new CommaToken(
+              HHAST\Missing(),
+              EditableList::fromItems(vec[new WhiteSpace(' ')]),
+            ),
+          ),
+          new ListItem($items[2], HHAST\Missing()),
+        ]);
+        return $node->replace($argument_list, $new_argument_list);
       }
     } elseif ($fn_name === 'Str\\slice' && \count($items) === 3) {
       // check for negative length arguments to Str\slice, which will throw a runtime exception

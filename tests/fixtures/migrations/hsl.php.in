@@ -15,6 +15,7 @@ function hsl_migration_main(): void {
   // this case is not handled in HSL
   echo "\nstr_replace: ".str_replace('foo', 'bar', 'foobarbaz', &$count);
   echo "\nstr_ireplace: ".str_ireplace('foo', 'bar', 'foobarbaz');
+  // this case is also not handled
   echo "\nstr_ireplace: ".
     str_ireplace(['a', 'b'], ['x', 'y'], 'a test example with arrays');
   echo "\nstrpos: ".strpos('haystack', 'stack');
@@ -52,8 +53,8 @@ function hsl_migration_main(): void {
   echo "\nsubstr: ".substr('foo', 1, -1);
   echo "\nsubstr: ".substr('foo', -2, -1);
   echo "\nsubstr: ".substr("abcdef", 0, -1);
-echo "\nsubstr: ".substr("abcdef", 2, -1);
-echo "\nsubstr: ".substr("abcdef", -3, -1);
+  echo "\nsubstr: ".substr("abcdef", 2, -1);
+  echo "\nsubstr: ".substr("abcdef", -3, -1);
 
   echo "\nstr_repeat: ".str_repeat('x', 5);
 
@@ -122,7 +123,7 @@ echo "\nsubstr: ".substr("abcdef", -3, -1);
   echo "\nsqrt: ".sqrt(4);
 
   echo "\nlog: ".log(5);
-  echo "\nlog: ".log(5, 2);*/
+  echo "\nlog: ".log(5, 2);
 }
 
 hsl_migration_main();
