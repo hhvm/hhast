@@ -125,3 +125,11 @@ function hsl_migration_main(): void {
 
   echo "\ncount: " .C\count([1, 2, 3]);
 }
+
+namespace HslMigrationTest;
+
+function main(): void {
+  // test namespaced migration
+  Str\join(['a', 'b', 'c'], ','));
+  Str\join(['a', 'b', 'c'], ','));
+}

@@ -38,6 +38,8 @@ use type Facebook\HHAST\{
   OctalLiteralToken,
   CommaToken,
   WhiteSpace,
+  BackslashToken,
+  Missing,
 };
 
 use function Facebook\HHAST\__Private\find_type_for_node;
@@ -598,10 +600,21 @@ final class HSLMigration extends BaseMigration {
 
     if ($receiver instanceof NameToken) {
       return $receiver->getText();
-    }
-
-    if ($receiver instanceof QualifiedName) {
-      return $receiver->getFirstTokenx()->getText();
+    } elseif ($receiver instanceof QualifiedName) {
+      foreach ($receiver->getParts()->getChildren() as $child) {
+        invariant($child instanceof ListItem, 'expected ListItem');
+        $item = $child->getItem();
+        if (
+          $item instanceof Missing &&
+          $child->getSeparator() instanceof BackslashToken
+        ) {
+          // leading backslash such as \implode(), skip over this to get the name token
+          continue;
+        } elseif ($item instanceof NameToken) {
+          return $item->getText();
+        }
+        return null;
+      }
     }
 
     return null;
@@ -613,12 +626,24 @@ final class HSLMigration extends BaseMigration {
   ): FunctionCallExpression {
     // build the replacement AST node
     $receiver = $node->getReceiver();
-    invariant($receiver instanceof NameToken, 'must be name token');
-    $new_receiver = new NameToken(
-      $receiver->getLeading(),
-      $receiver->getTrailing(),
-      $new_name,
-    );
+    if ($receiver instanceof NameToken) {
+      $new_receiver = new NameToken(
+        $receiver->getLeading(),
+        $receiver->getTrailing(),
+        $new_name,
+      );
+    } else {
+      invariant($receiver instanceof QualifiedName, 'expected QualifiedName');
+      $first_item = $receiver->getParts()->getChildren() |> C\firstx($$);
+      invariant($first_item instanceof ListItem, 'expected ListItem');
+
+      $new_receiver = new NameToken(
+        $first_item->getSeparatorx()->getLeading(),
+        HHAST\Missing(),
+        $new_name,
+      );
+    }
+
     return $node->replace($receiver, $new_receiver);
   }
 

@@ -123,3 +123,11 @@ function hsl_migration_main(): void {
 
   echo "\ncount: " .count([1, 2, 3]);
 }
+
+namespace HslMigrationTest;
+
+function main(): void {
+  // test namespaced migration
+  \implode(',', ['a', 'b', 'c']));
+  \implode(['a', 'b', 'c'], ','));
+}
