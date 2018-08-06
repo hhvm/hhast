@@ -1,17 +1,25 @@
 /* Keywords */
 
+.hs-ClassToken,
+.hs-ExtendsToken,
 .hs-FunctionToken,
-.hs-NamespaceToken {
+.hs-ImplementsToken,
+.hs-InterfaceToken,
+.hs-NamespaceToken,
+.hs-TraitToken,
+.hs-TypeToken,
+.hs-UseToken {
   color: #c678dd;
 }
 
 /* Types */
 
-.hs-SimpleTypeSpecifier .hs-StringToken {
-  color: #e5c07b;
-}
-
-.hs-ClassDeclaration .hs-NameToken {
+.hs-SimpleTypeSpecifier .hs-StringToken,
+.hs-SimpleTypeSpecifier .hs-NameToken,
+.hs-GenericTypeSpecifer .hs-NameToken,
+.hs-NamespaceUseClause .hs-NameToken,
+.hs-QualifiedName .hs-NameToken,
+.hs-ClassishDeclaration [data-field=name] .hs-NameToken {
   color: #e5c07b;
 }
 
@@ -25,4 +33,11 @@
 
 .hs-VariableToken {
   color: #e06c75;
+}
+
+/* Meta */
+
+.hs-MarkupSection {
+  color: #999999;
+  font-style: italic;
 }
