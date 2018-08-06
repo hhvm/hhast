@@ -1,7 +1,7 @@
 [
     {
-        "blame": "\nuse type Foo\\{\n  Unused,\n  ParameterType,\n  ReturnType,\n  GenericType,\n  UsedTrait,\n  InstanceOfType,\n};\n",
-        "blame_pretty": "\nuse type Foo\\{\n  Unused,\n  ParameterType,\n  ReturnType,\n  GenericType,\n  UsedTrait,\n  InstanceOfType,\n};\n",
+        "blame": "\nuse type Foo\\{\n  GenericConstraint,\n  GenericParentClass,\n  GenericType,\n  InstanceOfType,\n  ParameterType,\n  ParentClass,\n  ParentClassGeneric,\n  ReturnType,\n  Unused,\n  UsedTrait,\n};\n",
+        "blame_pretty": "\nuse type Foo\\{\n  GenericConstraint,\n  GenericParentClass,\n  GenericType,\n  InstanceOfType,\n  ParameterType,\n  ParentClass,\n  ParentClassGeneric,\n  ReturnType,\n  Unused,\n  UsedTrait,\n};\n",
         "description": "`Unused` is not used"
     }
 ]

@@ -1,17 +1,30 @@
 <?hh
 
 use type Foo\{
-  ParameterType,
-  ReturnType,
+  GenericConstraint,
+  GenericParentClass,
   GenericType,
-  UsedTrait,
   InstanceOfType,
+  ParameterType,
+  ParentClass,
+  ParentClassGeneric,
+  ReturnType,
+  UsedTrait,
 };
 
 function foo(ParameterType $in): ReturnType {
   return $in instanceof InstanceOfType;
 }
 
-class MyClass<T as GenericType> {
+class Class1<T as GenericType> {
   use UsedTrait;
+}
+
+class Class2 extends ParentClass {
+}
+
+class Class3 extends GenericParentClass<ParentClassGeneric> {
+}
+
+class Class4<T as GenericConstraint> {
 }

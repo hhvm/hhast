@@ -47,6 +47,13 @@ function get_unresolved_referenced_names(
       continue;
     }
 
+    if ($node instanceof GenericTypeSpecifier) {
+      $name = $node->getClassType();
+      if ($name instanceof NameToken) {
+        $ret['types'][] = $name->getText();
+      }
+    }
+
     if ($node instanceof ScopeResolutionExpression) {
       $name = $node->getQualifier();
       if ($name instanceof NameToken) {
