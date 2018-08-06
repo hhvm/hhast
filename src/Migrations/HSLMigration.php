@@ -200,14 +200,8 @@ final class HSLMigration extends BaseMigration {
       $replacement = $replace_config['name'];
 
       // build the replacement AST node
-      $receiver = $node->getReceiver();
-      invariant($receiver instanceof NameToken, 'must be name token');
-      $new_receiver = new NameToken(
-        $receiver->getLeading(),
-        $receiver->getTrailing(),
-        $namespace.'\\'.$replacement,
-      );
-      $new_node = $node->replace($receiver, $new_receiver);
+      $new_node =
+        $this->replaceFunctionName($node, $namespace.'\\'.$replacement);
 
       // possibly change argument order
       $argument_order = $replace_config['argument_order'] ?? null;
@@ -364,28 +358,14 @@ final class HSLMigration extends BaseMigration {
         // add Dict to set of required namespaces so we can call Dict\associate()
         $found_namespaces[HSL_NAMESPACE::Dict] = true;
 
-        // build the replacement AST node
-        $receiver = $node->getReceiver();
-        invariant($receiver instanceof NameToken, 'must be name token');
-        $new_receiver = new NameToken(
-          $receiver->getLeading(),
-          $receiver->getTrailing(),
-          'Str\\replace_every',
-        );
-        $node = $node->replace($receiver, $new_receiver);
+        $node = $this->replaceFunctionName($node, 'Str\\replace_every');
 
         $search_arg = $items[0]->getCode();
         $replace_arg = $items[1]->getCode();
+        // replacement dictionary uses keys from first arg, values from second arg
         $expr = 'Dict\\associate('.$search_arg.', '.$replace_arg.')';
-        $ast =
-          HHAST\from_code('Dict\\associate('.$search_arg.', '.$replace_arg.')');
-
-        invariant($ast instanceof Script, 'always gets back a script tag');
-        $children = vec(
-          $ast->getDeclarations()
-            ->getChildrenOfType(ExpressionStatement::class),
-        );
-        $replacement_patterns = C\onlyx($children);
+        $replacement_patterns =
+          $this->nodeFromCode($expr, ExpressionStatement::class);
 
         $new_argument_list = EditableList::fromItems(vec[
           new ListItem(
@@ -451,16 +431,7 @@ final class HSLMigration extends BaseMigration {
     ) {
       // PHP max() and min() either take a list of variadic args, or an array of args
       // in HSL, max and min want a single Traversable arg, while maxva and minva are variadic
-      $new_name = $fn_name.'va';
-      // build the replacement AST node
-      $receiver = $node->getReceiver();
-      invariant($receiver instanceof NameToken, 'must be name token');
-      $new_receiver = new NameToken(
-        $receiver->getLeading(),
-        $receiver->getTrailing(),
-        $new_name,
-      );
-      return $node->replace($receiver, $new_receiver);
+      return $this->replaceFunctionName($node, $fn_name.'va');
     }
 
     if ($argument_order !== null) {
@@ -620,14 +591,10 @@ final class HSLMigration extends BaseMigration {
       // single namespace use declaration
       $ns = C\firstx($suffixes);
     }
-    $node = HHAST\from_code("\nuse namespace HH\\Lib\\".$ns.";\n");
-    invariant($node instanceof Script, 'always gets back a script tag');
-    $children = vec(
-      $node->getDeclarations()
-        ->getChildrenOfType(INamespaceUseDeclaration::class),
+    return $this->nodeFromCode(
+      "\nuse namespace HH\\Lib\\".$ns.";\n",
+      INamespaceUseDeclaration::class,
     );
-    $node = C\onlyx($children);
-    return $node;
   }
 
   // extract the function name from an expression
@@ -643,5 +610,34 @@ final class HSLMigration extends BaseMigration {
     }
 
     return null;
+  }
+
+  protected function replaceFunctionName(
+    FunctionCallExpression $node,
+    string $new_name,
+  ): FunctionCallExpression {
+    // build the replacement AST node
+    $receiver = $node->getReceiver();
+    invariant($receiver instanceof NameToken, 'must be name token');
+    $new_receiver = new NameToken(
+      $receiver->getLeading(),
+      $receiver->getTrailing(),
+      $new_name,
+    );
+    return $node->replace($receiver, $new_receiver);
+  }
+
+  protected function nodeFromCode<T as EditableNode>(
+    string $code,
+    classname<T> $expected,
+  ): T {
+    $node = HHAST\from_code($code);
+    invariant($node instanceof Script, 'always gets back a script tag');
+    $children = vec(
+      $node->getDeclarations()
+        ->getChildrenOfType($expected),
+    );
+    $node = C\onlyx($children);
+    return $node;
   }
 }
