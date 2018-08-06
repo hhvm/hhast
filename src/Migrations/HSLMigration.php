@@ -32,7 +32,10 @@ use type Facebook\HHAST\{
   INamespaceUseDeclaration,
   NamespaceUseClause,
   NamespaceToken,
+  ListItem,
 };
+
+use function Facebook\HHAST\__Private\find_type_for_node;
 
 enum HSL_NAMESPACE: string as string {
   C = 'C';
@@ -148,7 +151,7 @@ final class HSLMigration extends BaseMigration {
 
 
   <<__Override>>
-  public function migrateFile(string $_, EditableNode $root): EditableNode {
+  public function migrateFile(string $path, EditableNode $root): EditableNode {
     // find all the function calls
     $nodes = $root->getDescendantsOfType(FunctionCallExpression::class);
 
@@ -186,7 +189,12 @@ final class HSLMigration extends BaseMigration {
       // possibly change argument order
       $argument_order = $replace_config['argument_order'] ?? null;
       if ($argument_order !== null) {
-        $new_node = $this->maybeReorderArguments($new_node, $argument_order);
+        $new_node = $this->maybeReorderArguments(
+          $root,
+          $new_node,
+          $argument_order,
+          $path,
+        );
       }
 
       // if we got null back here, it means the function call has unsupported arguments. forget it for now
@@ -251,19 +259,41 @@ final class HSLMigration extends BaseMigration {
 
   // change argument order between PHP function and HSL function if necessary
   protected function maybeReorderArguments(
+    EditableNode $root,
     FunctionCallExpression $node,
     vec<int> $argument_order,
+    string $path,
   ): ?FunctionCallExpression {
     $argument_list = $node->getArgumentList();
     invariant($argument_list !== null, 'Function must have arguments');
     $arguments = $argument_list->getChildren();
-    /* HH_FIXME[4053] why is this not defined */
-    $items = Vec\map($arguments, ($argument) ==> $argument->getItem());
+
+    $items = Vec\map(
+      $arguments,
+      ($argument) ==> {
+        invariant($argument instanceof ListItem, 'expected ListItem');
+        return $argument->getItem();
+      },
+    );
 
     // can't handle these ones with wrong number of args yet
     // return null, signaling to caller to skip rewriting this invocation
     if (\count($items) !== \count($argument_order)) {
       return null;
+    }
+
+    // implode argument order is ambiguous
+    // when converting to join, check to make sure the second element is a string
+    // if the arguments are in the wrong order, reverse them
+    // if neither arg is a string, hh_client should complain so we just leave it as is
+    if ($this->getFunctionName($node) === 'Str\\join') {
+      $type = find_type_for_node($root, $items[1], $path);
+      if ($type !== 'string') {
+        $type = find_type_for_node($root, $items[0], $path);
+        if ($type === 'string') {
+          $argument_order = Vec\reverse($argument_order);
+        }
+      }
     }
 
     $new_items = vec[];
@@ -274,8 +304,9 @@ final class HSLMigration extends BaseMigration {
     $new_argument_list = vec[];
 
     foreach ($arguments as $i => $argument) {
-      $new_argument_list[] = /* HH_FIXME[4053] why is this not defined */
-      $argument->replace($argument->getItem(), $new_items[(int)$i]);
+      invariant($argument instanceof ListItem, 'expected ListItem');
+      $new_argument_list[] =
+        $argument->replace($argument->getItem(), $new_items[(int)$i]);
     }
 
     return $node->replace(
