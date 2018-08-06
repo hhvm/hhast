@@ -10,7 +10,7 @@
 
 namespace Facebook\HHAST;
 
-final class UnusedUseClauseLinter extends TestCase {
+final class UnusedUseClauseLinterTest extends TestCase {
   use AutoFixingLinterTestTrait<Linters\FixableASTLintError<INamespaceUseDeclaration>>;
 
   protected function getLinter(
