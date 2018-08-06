@@ -10,11 +10,12 @@
 
 // TODO:
 // make sure all the tests work
-// add support for hh_client type at pos to handle things like implode and Str\replace_every
+// handle Str\replace_every (use Dict\associate on the array-like args, make sure to add Dict to the list of namespaces required too)
+// handle negative length arguments to substr_replace
 
 namespace Facebook\HHAST\Migrations;
 use namespace Facebook\HHAST;
-use namespace HH\Lib\{C, Str, Vec};
+use namespace HH\Lib\{C, Str, Vec, Math};
 
 use type Facebook\HHAST\{
   EditableNode,
@@ -33,6 +34,12 @@ use type Facebook\HHAST\{
   NamespaceUseClause,
   NamespaceToken,
   ListItem,
+  PrefixUnaryExpression,
+  MinusToken,
+  DecimalLiteralToken,
+  LiteralExpression,
+  ExpressionStatement,
+  OctalLiteralToken,
 };
 
 use function Facebook\HHAST\__Private\find_type_for_node;
@@ -54,6 +61,7 @@ type hsl_replacement_config = shape(
   // a vector indicating the order of the arguments in the new function from the old one.
   // vec[2, 0, 1] means take the 3rd, then 1st, then 2nd argument from the PHP function in the HSL replacement
   ?'argument_order' => vec<int>,
+  ?'has_overrides' => bool,
   // look for nearby boolean operations comparing the result of the HSL function with (bool)false, and change false to null
   ?'replace_false_with_null' => bool,
 );
@@ -105,7 +113,11 @@ final class HSLMigration extends BaseMigration {
         'argument_order' => vec[1, 0],
       ),
       'substr_replace' => shape('ns' => HSL_NAMESPACE::Str, 'name' => 'splice'),
-      'substr' => shape('ns' => HSL_NAMESPACE::Str, 'name' => 'slice'),
+      'substr' => shape(
+        'ns' => HSL_NAMESPACE::Str,
+        'name' => 'slice',
+        'has_overrides' => true,
+      ),
       'str_repeat' => shape('ns' => HSL_NAMESPACE::Str, 'name' => 'repeat'),
       'trim' => shape('ns' => HSL_NAMESPACE::Str, 'name' => 'trim'),
       'ltrim' => shape('ns' => HSL_NAMESPACE::Str, 'name' => 'trim_left'),
@@ -188,13 +200,11 @@ final class HSLMigration extends BaseMigration {
 
       // possibly change argument order
       $argument_order = $replace_config['argument_order'] ?? null;
-      if ($argument_order !== null) {
-        $new_node = $this->maybeReorderArguments(
-          $root,
-          $new_node,
-          $argument_order,
-          $path,
-        );
+      if (
+        $argument_order !== null || ($replace_config['has_overrides'] ?? false)
+      ) {
+        $new_node =
+          $this->maybeMutateArguments($root, $new_node, $argument_order, $path);
       }
 
       // if we got null back here, it means the function call has unsupported arguments. forget it for now
@@ -257,16 +267,40 @@ final class HSLMigration extends BaseMigration {
     return $root;
   }
 
-  // change argument order between PHP function and HSL function if necessary
-  protected function maybeReorderArguments(
+  protected function resolveIntegerArgument(EditableNode $node): ?int {
+    if ($node instanceof LiteralExpression) {
+      $expr = $node->getExpression();
+      if ($expr instanceof DecimalLiteralToken) {
+        return (int)$expr->getText();
+      }
+
+      // a literal 0 shows as octal
+      if ($expr instanceof OctalLiteralToken) {
+        return (int)$expr->getText();
+      }
+
+      return null;
+    } elseif (
+      $node instanceof PrefixUnaryExpression &&
+      $node->getOperator() instanceof MinusToken
+    ) {
+      $val = $this->resolveIntegerArgument($node->getOperand());
+      return $val !== null ? -1 * $val : null;
+    }
+    return null;
+  }
+
+  // change argument order or structure between PHP function and HSL function if necessary
+  protected function maybeMutateArguments(
     EditableNode $root,
     FunctionCallExpression $node,
-    vec<int> $argument_order,
+    ?vec<int> $argument_order,
     string $path,
   ): ?FunctionCallExpression {
     $argument_list = $node->getArgumentList();
     invariant($argument_list !== null, 'Function must have arguments');
     $arguments = $argument_list->getChildren();
+    $new_argument_list = $argument_list;
 
     $items = Vec\map(
       $arguments,
@@ -278,7 +312,9 @@ final class HSLMigration extends BaseMigration {
 
     // can't handle these ones with wrong number of args yet
     // return null, signaling to caller to skip rewriting this invocation
-    if (\count($items) !== \count($argument_order)) {
+    if (
+      $argument_order !== null && \count($items) !== \count($argument_order)
+    ) {
       return null;
     }
 
@@ -286,33 +322,81 @@ final class HSLMigration extends BaseMigration {
     // when converting to join, check to make sure the second element is a string
     // if the arguments are in the wrong order, reverse them
     // if neither arg is a string, hh_client should complain so we just leave it as is
-    if ($this->getFunctionName($node) === 'Str\\join') {
+    $fn_name = $this->getFunctionName($node);
+    if ($fn_name === 'Str\\join') {
       $type = find_type_for_node($root, $items[1], $path);
       if ($type !== 'string') {
         $type = find_type_for_node($root, $items[0], $path);
         if ($type === 'string') {
-          $argument_order = Vec\reverse($argument_order);
+          $argument_order = Vec\reverse($argument_order ?? vec[]);
         }
+      }
+    } elseif ($fn_name === 'Str\\slice' && \count($items) === 3) {
+      // check for negative length arguments to Str\slice, which will throw a runtime exception
+      $length = $this->resolveIntegerArgument($items[2]);
+      if ($length !== null && $length < 0) {
+        $offset = $this->resolveIntegerArgument($items[1]);
+        if ($offset === null) {
+          // skip this one if we don't have a sensible offset
+          return null;
+        }
+
+        // if the offset is negative too, it's pretty simple
+        // we can compute the correct length as abs(offset) + length and rewrite teh node
+        if ($offset < 0) {
+          $rewrite_length_value = Math\abs($offset) + $length;
+          $unary = C\onlyx(
+            $items[2]->getDescendantsOfType(PrefixUnaryExpression::class),
+          );
+          $new_length = new ListItem(
+            new LiteralExpression(new DecimalLiteralToken(
+              HHAST\Missing(),
+              HHAST\Missing(),
+              (string)$rewrite_length_value,
+            )),
+            HHAST\Missing(),
+          );
+        } else {
+          // with a positive offset this is harder
+          // we need to replace this arg with a more complex expression
+          // based on the length of the string
+          $haystack = $items[0]->getCode();
+          $ast = HHAST\from_code(
+            'Str\\length('.$haystack.') - '.($offset + Math\abs($length)),
+          );
+
+          invariant($ast instanceof Script, 'always gets back a script tag');
+          $children = vec(
+            $ast->getDeclarations()
+              ->getChildrenOfType(ExpressionStatement::class),
+          );
+          $new_length = C\onlyx($children);
+        }
+
+        // rewrite args list
+        $new_argument_list = $argument_list->replace($items[2], $new_length);
       }
     }
 
-    $new_items = vec[];
-    foreach ($argument_order as $index) {
-      $new_items[] = $items[$index];
+    if ($argument_order !== null) {
+
+      $new_items = vec[];
+      foreach ($argument_order as $index) {
+        $new_items[] = $items[$index];
+      }
+
+      $new_argument_list = vec[];
+
+      foreach ($arguments as $i => $argument) {
+        invariant($argument instanceof ListItem, 'expected ListItem');
+        $new_argument_list[] =
+          $argument->replace($argument->getItem(), $new_items[(int)$i]);
+      }
+
+      $new_argument_list = EditableList::fromItems($new_argument_list);
     }
 
-    $new_argument_list = vec[];
-
-    foreach ($arguments as $i => $argument) {
-      invariant($argument instanceof ListItem, 'expected ListItem');
-      $new_argument_list[] =
-        $argument->replace($argument->getItem(), $new_items[(int)$i]);
-    }
-
-    return $node->replace(
-      $argument_list,
-      EditableList::fromItems($new_argument_list),
-    );
+    return $node->replace($argument_list, $new_argument_list);
   }
 
   // many PHP functions can return false, and their HSL counterparts return null instead
