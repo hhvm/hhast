@@ -8,6 +8,10 @@
  *
  */
 
+// TODO:
+// make sure all the tests work
+// add support for hh_client type at pos to handle things like implode and Str\replace_every
+
 namespace Facebook\HHAST\Migrations;
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
@@ -25,6 +29,9 @@ use type Facebook\HHAST\{
   NamespaceUseDeclaration,
   QualifiedName,
   Script,
+  INamespaceUseDeclaration,
+  NamespaceUseClause,
+  NamespaceToken,
 };
 
 enum HSL_NAMESPACE: string as string {
@@ -128,6 +135,15 @@ final class HSLMigration extends BaseMigration {
       'abs' => shape('ns' => HSL_NAMESPACE::Math, 'name' => 'abs'),
       'base_convert' =>
         shape('ns' => HSL_NAMESPACE::Math, 'name' => 'base_convert'),
+      'cos' => shape('ns' => HSL_NAMESPACE::Math, 'name' => 'cos'),
+      'sin' => shape('ns' => HSL_NAMESPACE::Math, 'name' => 'sin'),
+      'tan' => shape('ns' => HSL_NAMESPACE::Math, 'name' => 'tan'),
+      'sqrt' => shape('ns' => HSL_NAMESPACE::Math, 'name' => 'sqrt'),
+      'log' => shape('ns' => HSL_NAMESPACE::Math, 'name' => 'log'),
+      'min' =>
+        shape('ns' => HSL_NAMESPACE::Math, 'name' => 'min'), // TODO add minva
+      'max' => shape('ns' => HSL_NAMESPACE::Math, 'name' => 'max'),
+      // TODO add maxva
     ];
 
 
@@ -192,18 +208,44 @@ final class HSLMigration extends BaseMigration {
     }
 
     // add "use namespace" declarations at the top if they aren't already present
-    $declarations = $root->getChildren()['declarations'];
-    foreach ($found_namespaces as $ns => $_) {
-      if (!$this->hasUseDeclaration($declarations, $ns)) {
-        $children = vec($declarations->getChildren());
-        $first = $children[0];
-        $rest = Vec\drop($children, 1);
-        $items = Vec\concat(vec[$first, $this->getUseDeclaration($ns)], $rest);
-        $new_declarations = EditableList::fromItems($items);
-        $root = $root->replace($declarations, $new_declarations);
-      }
-    }
+    $declarations =
+      vec($root->getDescendantsOfType(INamespaceUseDeclaration::class));
+    list($hsl_declarations, $suffixes) =
+      $this->findUseDeclarations($declarations);
 
+    $count_before = \count(Vec\unique($suffixes));
+
+    // add new suffixes to the current list of suffixes
+    $suffixes = Vec\concat($suffixes, Vec\keys($found_namespaces))
+      |> Vec\unique($$);
+
+    // added any new suffixes?
+    if (\count($suffixes) !== $count_before) {
+
+      // get all declarations in hte script
+      $root_declarations = $root->getChildren()['declarations'];
+
+      // remove any current use statements for HH\Lib\* namespaces, we'll group them together
+      $new_root_declarations = $root_declarations->removeWhere(
+        ($node, $parents) ==> C\contains($hsl_declarations, $node),
+      );
+      $children = vec($new_root_declarations->getChildren());
+      // first child is the <?hh sigil, keep that first
+      $first = C\firstx($children);
+
+      // all later declarations will go after our new use statement
+      $rest = Vec\drop($children, 1);
+
+      // build a possibly grouped namespace use declaration
+      $new_namespace_use_declaration = $this->buildUseDeclaration($suffixes);
+
+      // insert the <?hh sigil, then the new use statement, then everything else
+      $items = Vec\concat(vec[$first, $new_namespace_use_declaration], $rest);
+      $new_declarations = EditableList::fromItems($items);
+
+      // rewrite root
+      $root = $root->replace($root_declarations, $new_declarations);
+    }
     return $root;
   }
 
@@ -277,68 +319,112 @@ final class HSLMigration extends BaseMigration {
         }
       }
     }
-
     return $root;
   }
 
-  // does this file already use the namespace we need to add
-  protected function hasUseDeclaration(
-    EditableNode $declarations,
-    string $check,
-  ): bool {
-    $namespace_use_declarations =
-      $declarations->getDescendantsOfType(NamespaceUseDeclaration::class);
-    $found = false;
-    foreach ($namespace_use_declarations as $decl) {
-      $clauses = $decl->getClauses();
-      $children = $clauses->getChildren();
-      foreach ($children as $clause) {
-        /* HH_FIXME[4053] I know */
-        $parts = $clause->getItem()->getName()->getParts()->getChildren();
-        foreach ($parts as $part) {
-          $item = $part->getItem();
-          if ($item instanceof NameToken && $item->getText() === $check) {
-            $found = true;
-            break;
+  // find all HH\Lib\* namespace use declarations
+  // returns a tuple containing the declaration nodes, the HSL namespace suffixes used
+  protected function findUseDeclarations(
+    vec<INamespaceUseDeclaration> $declarations,
+  ): (vec<INamespaceUseDeclaration>, vec<string>) {
+
+    $search = vec["HH", "Lib"];
+    $nodes = vec[];
+    $suffixes = vec[];
+    foreach ($declarations as $decl) {
+
+      // we only care about "use namespace" directives
+      if (!($decl->getKind() instanceof NamespaceToken)) {
+        continue;
+      }
+
+      if ($decl instanceof NamespaceGroupUseDeclaration) {
+
+        // group declarations: does prefix match?
+        $parts =
+          $decl->getPrefix()->getParts()->getItemsOfType(NameToken::class);
+        if (\count($parts) !== 2) {
+          continue;
+        }
+        $found_prefix = true;
+        foreach ($parts as $i => $token) {
+          if ($token->getText() === $search[$i]) {
+            continue;
+          }
+
+          $found_prefix = false;
+          break;
+        }
+
+        // prefix didn't match? skip this declaration
+        if (!$found_prefix) {
+          continue;
+        }
+
+        // prefix matches: add node to list of nodes
+        $nodes[] = $decl;
+
+        $clauses = vec(
+          $decl->getClauses()->getDescendantsOfType(NamespaceUseClause::class),
+        );
+        foreach ($clauses as $clause) {
+          $name = $clause->getName();
+          if ($name instanceof NameToken) {
+            $suffixes[] = $name->getText();
           }
         }
-        if ($found) {
-          break;
+      } else {
+
+        invariant(
+          $decl instanceof NamespaceUseDeclaration,
+          'Unhandled declaration type',
+        );
+
+        $clauses =
+          $decl->getClauses()->getItemsOfType(NamespaceUseClause::class);
+        foreach ($clauses as $clause) {
+
+          $name = $clause->getName();
+          if ($name instanceof QualifiedName) {
+            $parts = $name->getParts()->getItemsOfType(NameToken::class);
+            if (\count($parts) !== 3) {
+              continue;
+            }
+
+            foreach ($parts as $i => $token) {
+              if ($i < 2 && $token->getText() !== $search[$i]) {
+                break;
+              }
+
+              if ($i === 2) {
+                // we found an HH\Lib\* use statement, add the node and suffix
+                $nodes[] = $decl;
+                $suffixes[] = $token->getText();
+              }
+            }
+          }
         }
       }
-      if ($found) {
-        break;
-      }
     }
-
-    $namespace_group_use_declarations =
-      $declarations->getDescendantsOfType(NamespaceGroupUseDeclaration::class);
-    foreach ($namespace_group_use_declarations as $decl) {
-      $clauses = $decl->getClauses();
-      $children = $clauses->getChildren();
-      foreach ($children as $clause) {
-        /* HH_FIXME[4053] I know */
-        $item = $clause->getItem()->getName();
-        if ($item instanceof NameToken && $item->getText() === $check) {
-          $found = true;
-          break;
-        }
-      }
-      if ($found) {
-        break;
-      }
-    }
-
-    return $found;
+    return tuple($nodes, $suffixes);
   }
 
   // get a node for a use namespace declaration
-  protected function getUseDeclaration(string $ns): NamespaceUseDeclaration {
-    $node = HHAST\from_code('use namespace HH\\Lib\\'.$ns.';');
+  protected function buildUseDeclaration(
+    vec<string> $suffixes,
+  ): INamespaceUseDeclaration {
+    if (\count($suffixes) > 1) {
+      // make a grouped use declaration
+      $ns = "{".Str\join($suffixes, ', ')."}";
+    } else {
+      // single namespace use declaration
+      $ns = C\firstx($suffixes);
+    }
+    $node = HHAST\from_code("\nuse namespace HH\\Lib\\".$ns.";\n");
     invariant($node instanceof Script, 'always gets back a script tag');
     $children = vec(
       $node->getDeclarations()
-        ->getChildrenOfType(NamespaceUseDeclaration::class),
+        ->getChildrenOfType(INamespaceUseDeclaration::class),
     );
     $node = C\onlyx($children);
     return $node;
