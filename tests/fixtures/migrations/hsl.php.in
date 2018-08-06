@@ -3,7 +3,6 @@ require_once(__DIR__.'/../../../vendor/hh_autoload.php');
 
 function hsl_migration_main(): void {
 
-
   echo "\nucwords: ".ucwords('hello world');
   echo "\nucfirst: ".ucfirst("hello");
   echo "\nstrtolower: ".strtolower("HELLO");

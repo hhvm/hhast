@@ -1,0 +1,130 @@
+<?hh // strict
+
+use namespace HH\Lib\{Str, Dict, Math};
+require_once(__DIR__.'/../../../vendor/hh_autoload.php');
+
+function hsl_migration_main(): void {
+
+  echo "\nucwords: ".Str\capitalize_words('hello world');
+  echo "\nucfirst: ".Str\capitalize("hello");
+  echo "\nstrtolower: ".Str\lowercase("HELLO");
+  echo "\nstrtoupper: ".Str\uppercase("hello");
+  echo "\nstr_replace: ".Str\replace('foobarbaz', 'foo', 'bar');
+  echo "\nstr_replace: ".
+    Str\replace_every('a test example with arrays', Dict\associate(['a', 'b'], ['x', 'y']));
+  $count = 0;
+  // this case is not handled in HSL
+  echo "\nstr_replace: ".str_replace('foo', 'bar', 'foobarbaz', &$count);
+  echo "\nstr_ireplace: ".Str\replace_ci('foobarbaz', 'foo', 'bar');
+  // this case is also not handled
+  echo "\nstr_ireplace: ".
+    str_ireplace(['a', 'b'], ['x', 'y'], 'a test example with arrays');
+  echo "\nstrpos: ".Str\search('haystack', 'stack');
+  echo "\nstrpos: ".Str\search('haystack', 'stack', 3);
+
+  if (Str\search('haystack', 'stack') === null) {
+    echo "\nneedle is not in haystack";
+  }
+  $pos = Str\search('haystack', 'stack');
+  if ($pos === false) {
+    echo "\nneedle is not in haystack";
+  }
+
+  echo "\nstrrpos: ".Str\search_last('haystack', 'stack');
+  echo "\nstripos: ".Str\search_ci('haystack', 'stack');
+
+  // implode accepts args in either order
+  var_dump(Str\join(['a', 'b', 'c'], ','));
+  var_dump(Str\join(['a', 'b', 'c'], ','));
+
+  $glue = ',';
+  $pieces = ['a', 'b', 'c'];
+  var_dump(Str\join($pieces, $glue));
+  var_dump(Str\join($pieces, $glue));
+
+  var_dump(Str\join($pieces, $glue));
+
+  echo "\nsubstr_replace: ".Str\splice('foo', 'b', 0);
+  echo "\nsubstr_replace: ".Str\splice('foo', 'b', 0, 1);
+  echo "\nsubstr_replace: ".Str\splice('foo', 'b', -1, 1);
+  echo "\nsubstr_replace: ".substr_replace('foo', 'b', -1, -1);
+
+  echo "\nsubstr: ".Str\slice('foo', 2);
+  echo "\nsubstr: ".Str\slice('foo', 1, 2);
+  echo "\nsubstr: ".Str\slice('foo', 1, Str\length('foo') - 2);
+  echo "\nsubstr: ".Str\slice('foo', -2, 1);
+  echo "\nsubstr: ".Str\slice("abcdef", 0, Str\length("abcdef") - 1);
+  echo "\nsubstr: ".Str\slice("abcdef", 2, Str\length("abcdef") - 3);
+  echo "\nsubstr: ".Str\slice("abcdef", -3, 2);
+
+  echo "\nstr_repeat: ".Str\repeat('x', 5);
+
+  echo "\ntrim: ".Str\trim('test ');
+  echo "\ntrim: ".Str\trim('test ', ' ');
+
+  echo "\nltrim: ".Str\trim_left('test ');
+  echo "\nltrim: ".Str\trim_left('test ', 't');
+
+  echo "\nrtrim: ".Str\trim_right('test ');
+  echo "\nrtrim: ".Str\trim_right('test ', ' ');
+
+  echo "\nstrlen: ".Str\length('foo');
+
+  echo "\nsprintf: ".Str\format('%s', 'foo');
+  echo "\nsprintf: ".Str\format('%s %s', 'foo', 'bar');
+
+  var_dump(Str\chunk('foobarbaz', 3));
+
+  echo "\nstrcmp: ".Str\compare('test', 'test');
+
+  echo "\nstrcasecmp: ".Str\compare_ci('test', 'TEST');
+
+  echo "\nstrncmp: ".strncmp('tested', 'testing', 4);
+
+  echo "\nstrncasecmp: ".strncasecmp('TESTED', 'testing', 4);
+
+  echo "\nnumber_format: ".Str\format_number(123456.789);
+  echo "\nnumber_format: ".Str\format_number(123456.789, 2);
+  echo "\nnumber_format: ".Str\format_number(123456.789, 2, ',', '.');
+
+  echo "\nnumber_format: ".Str\format_number(123456.789, 2, ',', '.');
+
+  echo "\nround: ".Math\round(3.14159);
+  echo "\nround: ".Math\round(3.14159, 2);
+  echo "\nround: ".Math\round(3.14159, 2, PHP_ROUND_HALF_DOWN);
+
+  echo "\nceil: ".Math\ceil(3.14);
+
+  echo "\nfloor: ".Math\floor(3.14);
+
+  echo "\narray_sum: ".Math\sum([1, 2, 3]);
+
+  echo "\nintdiv: ".Math\int_div(2, 5);
+
+  echo "\nexp: ".Math\exp(5.7);
+
+  echo "\npow: ".pow(2, 8);
+
+  echo "\nabs: ".Math\abs(-1);
+
+  echo "\nbase_convert: ".Math\base_convert('a37334', 16, 2);
+
+  echo "\nmax: ".Math\maxva(1, 2, 3);
+  echo "\nmax: ".Math\max([1, 2, 3]);
+
+  echo "\nmin: ".Math\minva(1, 2, 3);
+  echo "\nmin: ".Math\min([1, 2, 3]);
+
+  echo "\ncos: ".Math\cos(1);
+
+  echo "\nsin: ".Math\sin(1);
+
+  echo "\ntan: ".Math\tan(1);
+
+  echo "\nsqrt: ".Math\sqrt(4);
+
+  echo "\nlog: ".Math\log(5);
+  echo "\nlog: ".Math\log(5, 2);
+}
+
+hsl_migration_main();
