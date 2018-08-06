@@ -12,6 +12,7 @@
 // make sure all the tests work
 // handle negative length arguments to substr_replace
 // look for type checker errors that can be auto-fixed
+// handle maxva vs. max, minva vs. min
 
 namespace Facebook\HHAST\Migrations;
 use namespace Facebook\HHAST;
@@ -114,7 +115,11 @@ final class HSLMigration extends BaseMigration {
         'name' => 'join',
         'argument_order' => vec[1, 0],
       ),
-      'substr_replace' => shape('ns' => HSL_NAMESPACE::Str, 'name' => 'splice'),
+      'substr_replace' => shape(
+        'ns' => HSL_NAMESPACE::Str,
+        'name' => 'splice',
+        'has_overrides' => true,
+      ),
       'substr' => shape(
         'ns' => HSL_NAMESPACE::Str,
         'name' => 'slice',
@@ -188,7 +193,6 @@ final class HSLMigration extends BaseMigration {
       $replace_config = self::PHP_HSL_REPLACEMENTS[$fn_name];
       $namespace = $replace_config['ns'];
       $replacement = $replace_config['name'];
-      $found_namespaces[$namespace] = true;
 
       // build the replacement AST node
       $receiver = $node->getReceiver();
@@ -218,6 +222,9 @@ final class HSLMigration extends BaseMigration {
       if ($new_node === null) {
         continue;
       }
+
+      // we know we're rewriting the node, so now we know we need the namespace
+      $found_namespaces[$namespace] = true;
 
       // replace it in the ast
       $root = $root->replace($node, $new_node);
@@ -333,11 +340,8 @@ final class HSLMigration extends BaseMigration {
     $fn_name = $this->getFunctionName($node);
     if ($fn_name === 'Str\\join') {
       $type = find_type_for_node($root, $items[1], $path);
-      if ($type !== 'string') {
-        $type = find_type_for_node($root, $items[0], $path);
-        if ($type === 'string') {
-          $argument_order = Vec\reverse($argument_order ?? vec[]);
-        }
+      if ($type === 'string') {
+        $argument_order = Vec\reverse($argument_order ?? vec[]);
       }
     } elseif ($fn_name === 'Str\\replace' || $fn_name === 'Str\\replace_ci') {
       // str_replace and str_ireplace have two modes:
@@ -380,13 +384,13 @@ final class HSLMigration extends BaseMigration {
 
         $new_argument_list = EditableList::fromItems(vec[
           new ListItem(
-            $replacement_patterns,
+            $items[2],
             new CommaToken(
               HHAST\Missing(),
               EditableList::fromItems(vec[new WhiteSpace(' ')]),
             ),
           ),
-          new ListItem($items[2], HHAST\Missing()),
+          new ListItem($replacement_patterns, HHAST\Missing()),
         ]);
         return $node->replace($argument_list, $new_argument_list);
       }
@@ -434,6 +438,13 @@ final class HSLMigration extends BaseMigration {
 
         // rewrite args list
         $new_argument_list = $argument_list->replace($items[2], $new_length);
+      }
+    } elseif ($fn_name === 'Str\\splice' && \count($items) === 4) {
+      // check for negative length arguments to Str\splice, which will throw a runtime exception
+      // this is currently unhandled, so we just bail by returning null if we find it
+      $length = $this->resolveIntegerArgument($items[3]);
+      if ($length !== null && $length < 0) {
+        return null;
       }
     }
 
