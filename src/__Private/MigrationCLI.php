@@ -21,7 +21,7 @@ use type Facebook\HHAST\Migrations\{
   ImplicitShapeSubtypesMigration,
   OptionalShapeFieldsMigration,
   NamespaceFallbackMigration,
-  HSLMigration
+  HSLMigration,
 };
 
 use type Facebook\CLILib\CLIWithRequiredArguments;

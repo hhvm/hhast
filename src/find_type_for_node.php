@@ -10,7 +10,6 @@
 
 namespace Facebook\HHAST\__Private;
 
-use namespace HH\Lib\Str;
 use namespace Facebook\TypeAssert;
 use namespace Facebook\HHAST;
 use type Facebook\HHAST\EditableNode;
@@ -24,37 +23,33 @@ type TTypeAtPosOutput = shape(
   ...
 );
 
-function find_type_for_node(
+async function find_type_for_node_async(
   EditableNode $root,
   EditableNode $node,
   string $path,
-): ?string {
+): Awaitable<?string> {
   list($line, $offset) = HHAST\find_position($root, $node);
   $path = \realpath($path);
-  $command = vec[
+  $lines = await execute_async(
     'hh_client',
     '--json',
     '--from',
     'hhast',
     '--type-at-pos',
-    $line.':'.($offset + 1),
-    '<',
-    \escapeshellarg($path),
-  ];
-  $output = \tempnam(\sys_get_temp_dir(), 'hhast-temp');
-  \exec(Str\join($command, ' ').' >'.\escapeshellarg($output));
-  // Exit code is unstable, so not checking it
-
-  $lines = Str\trim(\file_get_contents($output));
-  \unlink($output);
+    $path.':'.$line.':'.($offset + 1),
+    \dirname($path),
+  );
   $untyped_data = null;
-  foreach (Str\split($lines, "\n") as $maybe_json) {
+  foreach ($lines as $maybe_json) {
     $untyped_data = \json_decode(
       $maybe_json,
       /* assoc = */ true,
       /* depth = */ 512,
       \JSON_FB_HACK_ARRAYS,
     );
+    if ($untyped_data !== null) {
+      break;
+    }
   }
 
   $data = TypeAssert\matches_type_structure(
@@ -62,12 +57,8 @@ function find_type_for_node(
     $untyped_data,
   );
 
-  if (Shapes::keyExists($data, 'full_type')) {
-    if ($data['full_type']['kind'] === 'primitive') {
-      return $data['full_type']['name'] ?? null;
-    }
-    return $data['full_type']['kind'];
+  if (($data['full_type']['kind'] ?? null) === 'primitive') {
+    return $data['full_type']['name'] ?? null;
   }
-
-  return null;
+  return $data['full_type']['kind'] ?? null;
 }

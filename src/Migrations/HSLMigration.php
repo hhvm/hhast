@@ -11,7 +11,7 @@
 namespace Facebook\HHAST\Migrations;
 
 use namespace Facebook\HHAST;
-use namespace HH\Lib\{C, Str, Vec, Math};
+use namespace HH\Lib\{C, Str, Vec, Math, Keyset};
 
 use type Facebook\HHAST\{
   EditableNode,
@@ -42,9 +42,9 @@ use type Facebook\HHAST\{
   Missing,
 };
 
-use function Facebook\HHAST\__Private\find_type_for_node;
+use function Facebook\HHAST\__Private\find_type_for_node_async;
 
-enum HslNamespace: string as string {
+enum HslNamespace: string {
   C = 'C';
   DICT = 'Dict';
   KEYSET = 'Keyset';
@@ -151,7 +151,6 @@ final class HSLMigration extends BaseMigration {
       'abs' => shape('ns' => HslNamespace::MATH, 'name' => 'abs'),
       'base_convert' =>
         shape('ns' => HslNamespace::MATH, 'name' => 'base_convert'),
-      'pow' => shape('ns' => HslNamespace::MATH, 'name' => 'pow'),
       'cos' => shape('ns' => HslNamespace::MATH, 'name' => 'cos'),
       'sin' => shape('ns' => HslNamespace::MATH, 'name' => 'sin'),
       'tan' => shape('ns' => HslNamespace::MATH, 'name' => 'tan'),
@@ -183,7 +182,7 @@ final class HSLMigration extends BaseMigration {
     $nodes = $root->getDescendantsOfType(FunctionCallExpression::class);
 
     // keep track of any HSL namespaces we may have to add to the top of the file
-    $found_namespaces = dict[];
+    $found_namespaces = keyset[];
 
     // check if any functions are in the replacement list
     foreach ($nodes as $node) {
@@ -225,7 +224,7 @@ final class HSLMigration extends BaseMigration {
       }
 
       // we know we're rewriting the node, so now we know we need the namespace
-      $found_namespaces[$namespace] = true;
+      $found_namespaces[] = $namespace;
 
       // replace it in the ast
       $root = $root->replace($node, $new_node);
@@ -246,38 +245,40 @@ final class HSLMigration extends BaseMigration {
     list($hsl_declarations, $suffixes) =
       $this->findUseDeclarations($declarations);
 
-    $count_before = C\count(Vec\unique($suffixes));
+    $count_before = C\count($suffixes);
 
     // add new suffixes to the current list of suffixes
-    $suffixes = Vec\concat($suffixes, Vec\keys($found_namespaces))
-      |> Vec\unique($$);
+    $suffixes = Keyset\union($suffixes, $found_namespaces);
 
     // added any new suffixes?
-    if (C\count($suffixes) !== $count_before) {
-      // get all declarations in hte script
-      $root_declarations = $root->getChildren()['declarations'];
-
-      // remove any current use statements for HH\Lib\* namespaces, we'll group them together
-      $new_root_declarations = $root_declarations->removeWhere(
-        ($node, $parents) ==> C\contains($hsl_declarations, $node),
-      );
-      $children = vec($new_root_declarations->getChildren());
-      // first child is the <?hh sigil, keep that first
-      $first = C\firstx($children);
-
-      // all later declarations will go after our new use statement
-      $rest = Vec\drop($children, 1);
-
-      // build a possibly grouped namespace use declaration
-      $new_namespace_use_declaration = $this->buildUseDeclaration($suffixes);
-
-      // insert the <?hh sigil, then the new use statement, then everything else
-      $items = Vec\concat(vec[$first, $new_namespace_use_declaration], $rest);
-      $new_declarations = EditableList::fromItems($items);
-
-      // rewrite root
-      $root = $root->replace($root_declarations, $new_declarations);
+    if (C\count($suffixes) === $count_before) {
+      return $root;
     }
+
+    // get all declarations in the script
+    $root_declarations = $root->getChildren()['declarations'];
+
+    // remove any current use statements for HH\Lib\* namespaces, we'll group them together
+    $new_root_declarations = $root_declarations->removeWhere(
+      ($node, $parents) ==> C\contains($hsl_declarations, $node),
+    );
+    $children = vec($new_root_declarations->getChildren());
+    // first child is the <?hh sigil, keep that first
+    $first = C\firstx($children);
+
+    // all later declarations will go after our new use statement
+    $rest = Vec\drop($children, 1);
+
+    // build a possibly grouped namespace use declaration
+    $new_namespace_use_declaration = $this->buildUseDeclaration($suffixes);
+
+    // insert the <?hh sigil, then the new use statement, then everything else
+    $items = Vec\concat(vec[$first, $new_namespace_use_declaration], $rest);
+    $new_declarations = EditableList::fromItems($items);
+
+    // rewrite root
+    $root = $root->replace($root_declarations, $new_declarations);
+
     return $root;
   }
 
@@ -299,7 +300,7 @@ final class HSLMigration extends BaseMigration {
       $node->getOperator() instanceof MinusToken
     ) {
       $val = $this->resolveIntegerArgument($node->getOperand());
-      return $val !== null ? -1 * $val : null;
+      return ($val !== null) ? -1 * $val : null;
     }
     return null;
   }
@@ -310,7 +311,7 @@ final class HSLMigration extends BaseMigration {
     FunctionCallExpression $node,
     ?vec<int> $argument_order,
     string $path,
-    inout dict<HslNamespace, bool> $found_namespaces,
+    inout keyset<HslNamespace> $found_namespaces,
   ): ?FunctionCallExpression {
     $argument_list = $node->getArgumentList();
     invariant($argument_list !== null, 'Function must have arguments');
@@ -339,7 +340,7 @@ final class HSLMigration extends BaseMigration {
     // if neither arg is a string, hh_client should complain so we just leave it as is
     $fn_name = $this->getFunctionName($node);
     if ($fn_name === 'Str\\join') {
-      $type = find_type_for_node($root, $items[1], $path);
+      $type = \HH\Asio\join(find_type_for_node_async($root, $items[1], $path));
       if ($type === 'string') {
         $argument_order = Vec\reverse($argument_order ?? vec[]);
       }
@@ -347,7 +348,7 @@ final class HSLMigration extends BaseMigration {
       // str_replace and str_ireplace have two modes:
       // string for search/replace args means replacing a single pattern
       // arrays mean replacing a set of patterns, which we should rewrite as Str\replace_every
-      $type = find_type_for_node($root, $items[0], $path);
+      $type = \HH\Asio\join(find_type_for_node_async($root, $items[0], $path));
       if ($type !== 'string') {
         if ($fn_name === 'Str\\replace_ci') {
           // (note there is no Str\replace_every_ci at the moment, so this case is unhandled)
@@ -356,7 +357,7 @@ final class HSLMigration extends BaseMigration {
         }
 
         // add Dict to set of required namespaces so we can call Dict\associate()
-        $found_namespaces[HslNamespace::DICT] = true;
+        $found_namespaces[] = HslNamespace::DICT;
 
         $node = $this->replaceFunctionName($node, 'Str\\replace_every');
 
@@ -498,7 +499,7 @@ final class HSLMigration extends BaseMigration {
   // returns a tuple containing the declaration nodes, the HSL namespace suffixes used
   protected function findUseDeclarations(
     vec<INamespaceUseDeclaration> $declarations,
-  ): (vec<INamespaceUseDeclaration>, vec<string>) {
+  ): (vec<INamespaceUseDeclaration>, vec<HslNamespace>) {
 
     $search = vec["HH", "Lib"];
     $nodes = vec[];
@@ -536,12 +537,18 @@ final class HSLMigration extends BaseMigration {
         $clauses = vec(
           $decl->getClauses()->getDescendantsOfType(NamespaceUseClause::class),
         );
-        foreach ($clauses as $clause) {
-          $name = $clause->getName();
-          if ($name instanceof NameToken) {
-            $suffixes[] = $name->getText();
-          }
-        }
+        $suffixes = $clauses
+          |> Vec\map(
+            $$,
+            $c ==> {
+              $n = $c->getName();
+              return $n instanceof NameToken
+                ? HslNamespace::coerce($n->getText())
+                : null;
+            },
+          )
+          |> Vec\filter_nulls($$)
+          |> Vec\concat($suffixes, $$);
       } else {
         invariant(
           $decl instanceof NamespaceUseDeclaration,
@@ -567,7 +574,10 @@ final class HSLMigration extends BaseMigration {
               if ($i === 2) {
                 // we found an HH\Lib\* use statement, add the node and suffix
                 $nodes[] = $decl;
-                $suffixes[] = $token->getText();
+                $ns = HslNamespace::coerce($token->getText());
+                if ($ns !== null) {
+                  $suffixes[] = $ns;
+                }
               }
             }
           }
@@ -579,7 +589,7 @@ final class HSLMigration extends BaseMigration {
 
   // get a node for a use namespace declaration
   protected function buildUseDeclaration(
-    vec<string> $suffixes,
+    keyset<HslNamespace> $suffixes,
   ): INamespaceUseDeclaration {
     if (C\count($suffixes) > 1) {
       // make a grouped use declaration
