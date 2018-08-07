@@ -1,5 +1,7 @@
 <?hh // strict
 
+require(__DIR__.'/../../../vendor/hh_autoload.php');
+
 function hsl_migration_main(): void {
 
   echo "\nucwords: ".ucwords('hello world');
@@ -10,10 +12,10 @@ function hsl_migration_main(): void {
   echo "\nstr_replace: ".
     str_replace(['a', 'b'], ['x', 'y'], 'a test example with arrays');
   $count = 0;
-  // this case is not handled in HSL
+  // this case is not handled in HSL because of the &$count
   echo "\nstr_replace: ".str_replace('foo', 'bar', 'foobarbaz', &$count);
   echo "\nstr_ireplace: ".str_ireplace('foo', 'bar', 'foobarbaz');
-  // this case is also not handled
+  // this case is also not handled because there is no case insensitive version of Str\replace_every
   echo "\nstr_ireplace: ".
     str_ireplace(['a', 'b'], ['x', 'y'], 'a test example with arrays');
   echo "\nstrpos: ".strpos('haystack', 'stack');
@@ -31,20 +33,23 @@ function hsl_migration_main(): void {
   echo "\nstripos: ".stripos('haystack', 'stack');
 
   // implode accepts args in either order
-  var_dump(implode(',', ['a', 'b', 'c']));
-  var_dump(implode(['a', 'b', 'c'], ','));
+  echo "\nimplode: ".json_encode(implode(',', ['a', 'b', 'c']));
+  echo "\nimplode: ".json_encode(implode(['a', 'b', 'c'], ','));
+
+  // test with explicit namespace fallback
+  echo "\nimplode: ".json_encode(\implode(',', ['a', 'b', 'c']));
 
   $glue = ',';
   $pieces = ['a', 'b', 'c'];
-  var_dump(implode($glue, $pieces));
-  var_dump(implode($pieces, $glue));
+  echo "\nimplode: ".json_encode(implode($glue, $pieces));
+  echo "\nimplode: ".json_encode(implode($pieces, $glue));
 
-  var_dump(join($glue, $pieces));
+  echo "\join: ".json_encode(join($glue, $pieces));
 
   echo "\nsubstr_replace: ".substr_replace('foo', 'b', 0);
   echo "\nsubstr_replace: ".substr_replace('foo', 'b', 0, 1);
   echo "\nsubstr_replace: ".substr_replace('foo', 'b', -1, 1);
-  // this case is not handled in HSL
+  // this case is not handled in HSL (negative length on Str\splice throws exception)
   echo "\nsubstr_replace: ".substr_replace('foo', 'b', -1, -1);
 
   echo "\nsubstr: ".substr('foo', 2);
@@ -71,7 +76,7 @@ function hsl_migration_main(): void {
   echo "\nsprintf: ".sprintf('%s', 'foo');
   echo "\nsprintf: ".sprintf('%s %s', 'foo', 'bar');
 
-  var_dump(str_split('foobarbaz', 3));
+  echo "\nstr_split: ".json_encode(str_split('foobarbaz', 3));
 
   echo "\nstrcmp: ".strcmp('test', 'test');
 
@@ -85,7 +90,7 @@ function hsl_migration_main(): void {
 
   echo "\nround: ".round(3.14159);
   echo "\nround: ".round(3.14159, 2);
-  // this case is not handled in HSL
+  // this case is not handled in HSL (third argument can not be specified)
   echo "\nround: ".round(3.14159, 2, PHP_ROUND_HALF_DOWN);
 
   echo "\nceil: ".ceil(3.14);
@@ -97,8 +102,6 @@ function hsl_migration_main(): void {
   echo "\nintdiv: ".intdiv(2, 5);
 
   echo "\nexp: ".exp(5.7);
-
-  echo "\npow: ".pow(2, 8);
 
   echo "\nabs: ".abs(-1);
 
@@ -124,10 +127,4 @@ function hsl_migration_main(): void {
   echo "\ncount: " .count([1, 2, 3]);
 }
 
-namespace HslMigrationTest;
-
-function main(): void {
-  // test namespaced migration
-  \implode(',', ['a', 'b', 'c']));
-  \implode(['a', 'b', 'c'], ','));
-}
+hsl_migration_main();

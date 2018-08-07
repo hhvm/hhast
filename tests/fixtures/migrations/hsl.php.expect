@@ -2,6 +2,8 @@
 
 use namespace HH\Lib\{Str, Dict, Math, C};
 
+require(__DIR__.'/../../../vendor/hh_autoload.php');
+
 function hsl_migration_main(): void {
 
   echo "\nucwords: ".Str\capitalize_words('hello world');
@@ -12,10 +14,10 @@ function hsl_migration_main(): void {
   echo "\nstr_replace: ".
     Str\replace_every('a test example with arrays', Dict\associate(['a', 'b'], ['x', 'y']));
   $count = 0;
-  // this case is not handled in HSL
+  // this case is not handled in HSL because of the &$count
   echo "\nstr_replace: ".str_replace('foo', 'bar', 'foobarbaz', &$count);
   echo "\nstr_ireplace: ".Str\replace_ci('foobarbaz', 'foo', 'bar');
-  // this case is also not handled
+  // this case is also not handled because there is no case insensitive version of Str\replace_every
   echo "\nstr_ireplace: ".
     str_ireplace(['a', 'b'], ['x', 'y'], 'a test example with arrays');
   echo "\nstrpos: ".Str\search('haystack', 'stack');
@@ -33,20 +35,23 @@ function hsl_migration_main(): void {
   echo "\nstripos: ".Str\search_ci('haystack', 'stack');
 
   // implode accepts args in either order
-  var_dump(Str\join(['a', 'b', 'c'], ','));
-  var_dump(Str\join(['a', 'b', 'c'], ','));
+  echo "\nimplode: ".json_encode(Str\join(['a', 'b', 'c'], ','));
+  echo "\nimplode: ".json_encode(Str\join(['a', 'b', 'c'], ','));
+
+  // test with explicit namespace fallback
+  echo "\nimplode: ".json_encode(Str\join(['a', 'b', 'c'], ','));
 
   $glue = ',';
   $pieces = ['a', 'b', 'c'];
-  var_dump(Str\join($pieces, $glue));
-  var_dump(Str\join($pieces, $glue));
+  echo "\nimplode: ".json_encode(Str\join($pieces, $glue));
+  echo "\nimplode: ".json_encode(Str\join($pieces, $glue));
 
-  var_dump(Str\join($pieces, $glue));
+  echo "\join: ".json_encode(Str\join($pieces, $glue));
 
   echo "\nsubstr_replace: ".Str\splice('foo', 'b', 0);
   echo "\nsubstr_replace: ".Str\splice('foo', 'b', 0, 1);
   echo "\nsubstr_replace: ".Str\splice('foo', 'b', -1, 1);
-  // this case is not handled in HSL
+  // this case is not handled in HSL (negative length on Str\splice throws exception)
   echo "\nsubstr_replace: ".substr_replace('foo', 'b', -1, -1);
 
   echo "\nsubstr: ".Str\slice('foo', 2);
@@ -73,7 +78,7 @@ function hsl_migration_main(): void {
   echo "\nsprintf: ".Str\format('%s', 'foo');
   echo "\nsprintf: ".Str\format('%s %s', 'foo', 'bar');
 
-  var_dump(Str\chunk('foobarbaz', 3));
+  echo "\nstr_split: ".json_encode(Str\chunk('foobarbaz', 3));
 
   echo "\nstrcmp: ".Str\compare('test', 'test');
 
@@ -87,7 +92,7 @@ function hsl_migration_main(): void {
 
   echo "\nround: ".Math\round(3.14159);
   echo "\nround: ".Math\round(3.14159, 2);
-  // this case is not handled in HSL
+  // this case is not handled in HSL (third argument can not be specified)
   echo "\nround: ".round(3.14159, 2, PHP_ROUND_HALF_DOWN);
 
   echo "\nceil: ".Math\ceil(3.14);
@@ -99,8 +104,6 @@ function hsl_migration_main(): void {
   echo "\nintdiv: ".Math\int_div(2, 5);
 
   echo "\nexp: ".Math\exp(5.7);
-
-  echo "\npow: ".Math\pow(2, 8);
 
   echo "\nabs: ".Math\abs(-1);
 
@@ -126,10 +129,4 @@ function hsl_migration_main(): void {
   echo "\ncount: " .C\count([1, 2, 3]);
 }
 
-namespace HslMigrationTest;
-
-function main(): void {
-  // test namespaced migration
-  Str\join(['a', 'b', 'c'], ','));
-  Str\join(['a', 'b', 'c'], ','));
-}
+hsl_migration_main();
