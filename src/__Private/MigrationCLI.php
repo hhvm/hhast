@@ -21,6 +21,7 @@ use type Facebook\HHAST\Migrations\{
   ImplicitShapeSubtypesMigration,
   OptionalShapeFieldsMigration,
   NamespaceFallbackMigration,
+  HSLMigration,
 };
 
 use type Facebook\CLILib\CLIWithRequiredArguments;
@@ -47,6 +48,11 @@ class MigrationCLI extends CLIWithRequiredArguments {
   <<__Override>>
   protected function getSupportedOptions(): vec<CLIOptions\CLIOption> {
     return vec[
+      CLIOptions\flag(
+        () ==> { $this->migrations[] = HSLMigration::class; },
+        'Convert PHP standard library calls to HSL',
+        '--hsl',
+      ),
       CLIOptions\flag(
         () ==> { $this->migrations[] = AssertToExpectMigration::class; },
         'Change assert calls to expect ',

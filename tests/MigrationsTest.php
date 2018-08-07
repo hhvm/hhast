@@ -31,14 +31,12 @@ final class MigrationsTest extends TestCase {
         Migrations\CallTimePassByReferenceMigration::class,
         'migrations/call_time_pass_by_reference.php',
       ),
-      tuple(
-        Migrations\AddFixMesMigration::class,
-        'migrations/add_fixmes.php',
-      ),
+      tuple(Migrations\AddFixMesMigration::class, 'migrations/add_fixmes.php'),
       tuple(
         Migrations\AssertToExpectMigration::class,
         'migrations/change_assert_to_expect.php',
       ),
+      tuple(Migrations\HSLMigration::class, 'migrations/hsl.php'),
     ];
 
     if (\version_compare(\HHVM_VERSION, '3.25.0-dev', '>=')) {
@@ -52,11 +50,13 @@ final class MigrationsTest extends TestCase {
   }
 
   public function getMigrationSteps(
-  ): array<(
-    classname<Migrations\StepBasedMigration>,
-    Migrations\IMigrationStep,
-    string
-  )> {
+  ): array<
+    (
+      classname<Migrations\StepBasedMigration>,
+      Migrations\IMigrationStep,
+      string,
+    )
+  > {
     $out = array();
     foreach ($this->getMigrations() as $row) {
       list($class, $fixture) = $row;
@@ -64,16 +64,10 @@ final class MigrationsTest extends TestCase {
       if (!$instance instanceof Migrations\StepBasedMigration) {
         continue;
       }
-      $refined = TypeAssert\classname_of(
-        Migrations\StepBasedMigration::class,
-        $class,
-      );
+      $refined =
+        TypeAssert\classname_of(Migrations\StepBasedMigration::class, $class);
       foreach ($instance->getSteps() as $step) {
-        $out[] = tuple(
-          $refined,
-          $step,
-          $fixture,
-        );
+        $out[] = tuple($refined, $step, $fixture);
       }
     }
     return $out;
@@ -115,9 +109,8 @@ final class MigrationsTest extends TestCase {
     classname<Migrations\BaseMigration> $migration,
     string $fixture,
   ): void {
-    using $temp = new TestLib\TemporaryProject(
-      __DIR__.'/fixtures/'.$fixture.'.in',
-    );
+    using $temp =
+      new TestLib\TemporaryProject(__DIR__.'/fixtures/'.$fixture.'.in');
     $file = $temp->getFilePath();
     $ast = HHAST\from_file($file);
 
@@ -135,9 +128,8 @@ final class MigrationsTest extends TestCase {
     classname<Migrations\BaseMigration> $migration,
     string $fixture,
   ): void {
-    using $temp = new TestLib\TemporaryProject(
-      __DIR__.'/fixtures/'.$fixture.'.in',
-    );
+    using $temp =
+      new TestLib\TemporaryProject(__DIR__.'/fixtures/'.$fixture.'.in');
     $file = $temp->getFilePath();
     $ast = HHAST\from_file($file);
 
@@ -156,6 +148,23 @@ final class MigrationsTest extends TestCase {
     expect($new_ast)->toBeSame(
       $ast,
       'Migrating the AST twice should get you the same AST object',
+    );
+  }
+
+  public function testHslMigrationReturnsSameResults(): void {
+    $base_path = __DIR__.'/fixtures/migrations/hsl.php';
+    $handle = \HH\Lib\Tuple\from_async(
+      HHAST\__Private\execute_async('hhvm', '--no-config', $base_path.'.in'),
+      HHAST\__Private\execute_async(
+        'hhvm',
+        '--no-config',
+        $base_path.'.expect',
+      ),
+    );
+    list($phpstdlib_results, $hsl_results) = \HH\Asio\join($handle);
+    expect($hsl_results)->toBeSame(
+      $phpstdlib_results,
+      'HSL and PHP functions return same results',
     );
   }
 }
