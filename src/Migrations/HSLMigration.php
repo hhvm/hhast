@@ -259,11 +259,8 @@ final class HSLMigration extends BaseMigration {
       return $root;
     }
 
-    // get all declarations in the script
-    $root_declarations = $root->getChildren()['declarations'];
-
     // remove any current use statements for HH\Lib\* namespaces, we'll group them together
-    $new_root_declarations = $root_declarations->removeWhere(
+    $root = $root->removeWhere(
       ($node, $parents) ==> C\contains($hsl_declarations, $node),
     );
 
@@ -272,8 +269,7 @@ final class HSLMigration extends BaseMigration {
 
     // insert the nmew node: skip the <?hh sigil and namespace declaration if present,
     // then insert before the first declaration that remains
-    $children = vec($new_root_declarations->getChildren());
-    foreach ($children as $child) {
+    foreach ($root->getChildren()['declarations']->getChildren() as $child) {
       if ($child instanceof MarkupSection) {
         continue;
       }
@@ -284,7 +280,6 @@ final class HSLMigration extends BaseMigration {
         if ($body instanceof NamespaceEmptyBody) {
           continue;
         }
-
         // namespace Foo { style declaration
         // insert the use statement inside the braces, before the first child
         invariant($body instanceof NamespaceBody, 'expected NamespaceBody');
