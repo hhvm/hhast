@@ -10,7 +10,10 @@ function hsl_migration_main(): void {
   echo "\nucfirst: ".Str\capitalize("hello");
   echo "\nstrtolower: ".Str\lowercase("HELLO");
   echo "\nstrtoupper: ".Str\uppercase("hello");
+  // argument reordering with no trailing comma
   echo "\nstr_replace: ".Str\replace('foobarbaz', 'foo', 'bar');
+  // argument reordering with no trailing comma
+  echo "\nstr_replace: ".Str\replace('foobarbaz', 'foo', 'bar',);
   echo "\nstr_replace: ".
     Str\replace_every('a test example with arrays', Dict\associate(['a', 'b'], ['x', 'y']));
   $count = 0;
@@ -130,3 +133,4 @@ function hsl_migration_main(): void {
 }
 
 hsl_migration_main();
+

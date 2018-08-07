@@ -8,7 +8,10 @@ function hsl_migration_main(): void {
   echo "\nucfirst: ".ucfirst("hello");
   echo "\nstrtolower: ".strtolower("HELLO");
   echo "\nstrtoupper: ".strtoupper("hello");
+  // argument reordering with no trailing comma
   echo "\nstr_replace: ".str_replace('foo', 'bar', 'foobarbaz');
+  // argument reordering with no trailing comma
+  echo "\nstr_replace: ".str_replace('foo', 'bar', 'foobarbaz',);
   echo "\nstr_replace: ".
     str_replace(['a', 'b'], ['x', 'y'], 'a test example with arrays');
   $count = 0;
@@ -128,3 +131,4 @@ function hsl_migration_main(): void {
 }
 
 hsl_migration_main();
+
