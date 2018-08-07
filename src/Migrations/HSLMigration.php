@@ -40,6 +40,8 @@ use type Facebook\HHAST\{
   WhiteSpace,
   BackslashToken,
   Missing,
+  MarkupSection,
+  NamespaceDeclaration,
 };
 
 use function Facebook\HHAST\__Private\find_type_for_node_async;
@@ -262,24 +264,24 @@ final class HSLMigration extends BaseMigration {
     $new_root_declarations = $root_declarations->removeWhere(
       ($node, $parents) ==> C\contains($hsl_declarations, $node),
     );
-    $children = vec($new_root_declarations->getChildren());
-    // first child is the <?hh sigil, keep that first
-    $first = C\firstx($children);
-
-    // all later declarations will go after our new use statement
-    $rest = Vec\drop($children, 1);
 
     // build a possibly grouped namespace use declaration
     $new_namespace_use_declaration = $this->buildUseDeclaration($suffixes);
 
-    // insert the <?hh sigil, then the new use statement, then everything else
-    $items = Vec\concat(vec[$first, $new_namespace_use_declaration], $rest);
-    $new_declarations = EditableList::fromItems($items);
+    // insert the nmew node: skip the <?hh sigil and namespace declaration if present,
+    // then insert before the first declaration that remains
+    $children = vec($new_root_declarations->getChildren());
+    foreach ($children as $child) {
+      if (
+        $child instanceof MarkupSection ||
+        $child instanceof NamespaceDeclaration
+      ) {
+        continue;
+      }
+      return $root->insertBefore($child, $new_namespace_use_declaration);
+    }
 
-    // rewrite root
-    $root = $root->replace($root_declarations, $new_declarations);
-
-    return $root;
+    invariant(false, 'should not fail to insert new node');
   }
 
   protected function resolveIntegerArgument(EditableNode $node): ?int {
