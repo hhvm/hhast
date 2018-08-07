@@ -32,6 +32,16 @@ We've included several linters as a starting point, including:
 
 Linters can be used both interactively, or unattended. Autofixing is not supported unattended, however it will exit with non-zero if there are any lint issues, to ease integration with CI systems.
 
+### Editor and IDE Support
+
+![screenshot of lint errors in VSCode](docs/linters-vscode.png)
+
+HHAST is supported by:
+
+- [ALE] for Vim 8 and neovim
+- [atom-ide-hhast] for Atom IDE and Nuclide
+- [vscode-hack] for Visual Studio Code
+
 ## Migrations
 
 [user documentation](docs/migrations-usage.md)
@@ -51,3 +61,7 @@ See [the documentation](docs/ast-lib.md).
 ## License
 
 HHAST is MIT-licensed.
+
+[atom-ide-hhast]: https://github.com/hhvm/atom-ide-hhast/
+[ALE]: https://github.com/w0rp/ale/
+[vscode-hack]: https://marketplace.visualstudio.com/items?itemName=pranayagarwal.vscode-hack
