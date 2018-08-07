@@ -58,18 +58,29 @@ enum HslNamespace: string {
 }
 
 type HslReplacementConfig = shape(
-  // \HH\Lib\* namespace the replacement function lives in
+  /**
+   * \HH\Lib\* namespace the replacement function lives in
+   */
   'ns' => HslNamespace,
-  // the name of the replacement function
+  /**
+   * the name of the replacement function
+   */
   'name' => string,
-  // a vector indicating the order of the arguments in the new function from the old one.
-  // vec[2, 0, 1] means take the 3rd, then 1st, then 2nd argument from the PHP function in the HSL replacement
-  // if this is specified, only callsites with exactly this number of arguments will be migrated
-  // use has_overrides if additional logic applies
+  /**
+   * a vector indicating the order of the arguments in the new function from the old one.
+   * vec[2, 0, 1] means take the 3rd, then 1st, then 2nd argument from the PHP function in the HSL replacement
+   * if specified, only callsites with exactly this number of arguments will be migrated
+   * use has_overrides if additional logic applies
+   */
   ?'argument_order' => vec<int>,
-  // true this function has special argument parsing in maybeMutateArguments
+  /**
+   * does this function have special argument parsing in maybeMutateArguments
+   */
   ?'has_overrides' => bool,
-  // look for nearby boolean operations comparing the result of the HSL function with (bool)false, and change false to null
+  /**
+   * look for nearby boolean operations comparing the result of the HSL function
+   * with (bool)false, and change false to null
+   */
   ?'replace_false_with_null' => bool,
 );
 
@@ -213,12 +224,14 @@ final class HSLMigration extends BaseMigration {
       if (
         $argument_order !== null || ($replace_config['has_overrides'] ?? false)
       ) {
-        $new_node = $this->maybeMutateArguments(
-          $root,
-          $new_node,
-          $argument_order,
-          $path,
-          inout $found_namespaces,
+        list($new_node, $found_namespaces) = \HH\Asio\join(
+          $this->maybeMutateArgumentsAsync(
+            $root,
+            $new_node,
+            $argument_order,
+            $path,
+            $found_namespaces,
+          ),
         );
       }
 
@@ -267,7 +280,7 @@ final class HSLMigration extends BaseMigration {
     // build a possibly grouped namespace use declaration
     $new_namespace_use_declaration = $this->buildUseDeclaration($suffixes);
 
-    // insert the nmew node: skip the <?hh sigil and namespace declaration if present,
+    // insert the new node: skip the <?hh sigil and namespace declaration if present,
     // then insert before the first declaration that remains
     foreach ($root->getChildren()['declarations']->getChildren() as $child) {
       if ($child instanceof MarkupSection) {
@@ -290,7 +303,7 @@ final class HSLMigration extends BaseMigration {
       return $root->insertBefore($child, $new_namespace_use_declaration);
     }
 
-    invariant(false, 'should not fail to insert new node');
+    invariant_violation('should not fail to insert new node');
   }
 
   protected function resolveIntegerArgument(EditableNode $node): ?int {
@@ -306,7 +319,9 @@ final class HSLMigration extends BaseMigration {
       }
 
       return null;
-    } elseif (
+    }
+
+    if (
       $node instanceof PrefixUnaryExpression &&
       $node->getOperator() instanceof MinusToken
     ) {
@@ -317,13 +332,13 @@ final class HSLMigration extends BaseMigration {
   }
 
   // change argument order or structure between PHP function and HSL function if necessary
-  protected function maybeMutateArguments(
+  protected async function maybeMutateArgumentsAsync(
     EditableNode $root,
     FunctionCallExpression $node,
     ?vec<int> $argument_order,
     string $path,
-    inout keyset<HslNamespace> $found_namespaces,
-  ): ?FunctionCallExpression {
+    keyset<HslNamespace> $found_namespaces,
+  ): Awaitable<(?FunctionCallExpression, keyset<HslNamespace>)> {
     $argument_list = $node->getArgumentList();
     invariant($argument_list !== null, 'Function must have arguments');
     $arguments = $argument_list->getChildren();
@@ -331,7 +346,7 @@ final class HSLMigration extends BaseMigration {
 
     $items = Vec\map(
       $arguments,
-      ($argument) ==> {
+      $argument ==> {
         invariant($argument instanceof ListItem, 'expected ListItem');
         return $argument->getItem();
       },
@@ -342,7 +357,7 @@ final class HSLMigration extends BaseMigration {
     if (
       $argument_order !== null && C\count($items) !== C\count($argument_order)
     ) {
-      return null;
+      return tuple(null, $found_namespaces);
     }
 
     // implode argument order is ambiguous
@@ -351,20 +366,20 @@ final class HSLMigration extends BaseMigration {
     // if neither arg is a string, hh_client should complain so we just leave it as is
     $fn_name = $this->getFunctionName($node);
     if ($fn_name === 'Str\\join') {
-      $type = \HH\Asio\join(find_type_for_node_async($root, $items[1], $path));
+      $type = await find_type_for_node_async($root, $items[1], $path);
       if ($type === 'string') {
         $argument_order = Vec\reverse($argument_order ?? vec[]);
       }
-    } elseif ($fn_name === 'Str\\replace' || $fn_name === 'Str\\replace_ci') {
+    } else if ($fn_name === 'Str\\replace' || $fn_name === 'Str\\replace_ci') {
       // str_replace and str_ireplace have two modes:
       // string for search/replace args means replacing a single pattern
       // arrays mean replacing a set of patterns, which we should rewrite as Str\replace_every
-      $type = \HH\Asio\join(find_type_for_node_async($root, $items[0], $path));
+      $type = await find_type_for_node_async($root, $items[0], $path);
       if ($type !== 'string') {
         if ($fn_name === 'Str\\replace_ci') {
           // (note there is no Str\replace_every_ci at the moment, so this case is unhandled)
           // bail to skip rewriting this call
-          return null;
+          return tuple(null, $found_namespaces);
         }
 
         // add Dict to set of required namespaces so we can call Dict\associate()
@@ -389,16 +404,19 @@ final class HSLMigration extends BaseMigration {
           ),
           new ListItem($replacement_patterns, HHAST\Missing()),
         ]);
-        return $node->replace($argument_list, $new_argument_list);
+        return tuple(
+          $node->replace($argument_list, $new_argument_list),
+          $found_namespaces,
+        );
       }
-    } elseif ($fn_name === 'Str\\slice' && C\count($items) === 3) {
+    } else if ($fn_name === 'Str\\slice' && C\count($items) === 3) {
       // check for negative length arguments to Str\slice, which will throw a runtime exception
       $length = $this->resolveIntegerArgument($items[2]);
       if ($length !== null && $length < 0) {
         $offset = $this->resolveIntegerArgument($items[1]);
         if ($offset === null) {
           // skip this one if we don't have a sensible offset
-          return null;
+          return tuple(null, $found_namespaces);
         }
 
         // if the offset is negative too, it's pretty simple
@@ -430,23 +448,26 @@ final class HSLMigration extends BaseMigration {
         // rewrite args list
         $new_argument_list = $argument_list->replace($items[2], $new_length);
       }
-    } elseif ($fn_name === 'Str\\splice' && C\count($items) === 4) {
+    } else if ($fn_name === 'Str\\splice' && C\count($items) === 4) {
       // check for negative length arguments to Str\splice, which will throw a runtime exception
       // this is currently unhandled, so we just bail by returning null if we find it
       $length = $this->resolveIntegerArgument($items[3]);
       if ($length !== null && $length < 0) {
-        return null;
+        return tuple(null, $found_namespaces);
       }
-    } elseif (
+    } else if (
       ($fn_name === 'Math\\max' || $fn_name === 'Math\\min') &&
       C\count($items) !== 1
     ) {
       // PHP max() and min() either take a list of variadic args, or an array of args
       // in HSL, max and min want a single Traversable arg, while maxva and minva are variadic
-      return $this->replaceFunctionName($node, $fn_name.'va');
-    } elseif ($fn_name === 'Math\\round' && C\count($items) > 2) {
+      return tuple(
+        $this->replaceFunctionName($node, $fn_name.'va'),
+        $found_namespaces,
+      );
+    } else if ($fn_name === 'Math\\round' && C\count($items) > 2) {
       // can't handle the optional third argument of round()
-      return null;
+      return tuple(null, $found_namespaces);
     }
 
     if ($argument_order !== null) {
@@ -466,7 +487,10 @@ final class HSLMigration extends BaseMigration {
       $new_argument_list = EditableList::fromItems($new_argument_list);
     }
 
-    return $node->replace($argument_list, $new_argument_list);
+    return tuple(
+      $node->replace($argument_list, $new_argument_list),
+      $found_namespaces,
+    );
   }
 
   // many PHP functions can return false, and their HSL counterparts return null instead
@@ -483,26 +507,29 @@ final class HSLMigration extends BaseMigration {
     $stack_count = C\count($stack);
     $parent = $stack[$stack_count - 2];
 
-    if ($parent instanceof BinaryExpression) {
-      if ($parent->getLeftOperand() === $node) {
-        $check = $parent->getRightOperand();
-      } else {
-        $check = $parent->getLeftOperand();
-      }
+    if (!($parent instanceof BinaryExpression)) {
+      return $root;
+    }
 
-      if ($check instanceof LiteralExpression) {
-        $expression = $check->getExpression();
-        if ($expression instanceof BooleanLiteralToken) {
-          if (Str\lowercase($expression->getText()) === 'false') {
-            $new = new NullLiteralToken(
-              $expression->getLeading(),
-              $expression->getTrailing(),
-            );
-            $root = $root->replace($expression, $new);
-          }
+    if ($parent->getLeftOperand() === $node) {
+      $check = $parent->getRightOperand();
+    } else {
+      $check = $parent->getLeftOperand();
+    }
+
+    if ($check instanceof LiteralExpression) {
+      $expression = $check->getExpression();
+      if ($expression instanceof BooleanLiteralToken) {
+        if (Str\lowercase($expression->getText()) === 'false') {
+          $new = new NullLiteralToken(
+            $expression->getLeading(),
+            $expression->getTrailing(),
+          );
+          $root = $root->replace($expression, $new);
         }
       }
     }
+
     return $root;
   }
 
@@ -621,7 +648,7 @@ final class HSLMigration extends BaseMigration {
 
     if ($receiver instanceof NameToken) {
       return $receiver->getText();
-    } elseif ($receiver instanceof QualifiedName) {
+    } else if ($receiver instanceof QualifiedName) {
       foreach ($receiver->getParts()->getChildren() as $child) {
         invariant($child instanceof ListItem, 'expected ListItem');
         $item = $child->getItem();
@@ -631,7 +658,7 @@ final class HSLMigration extends BaseMigration {
         ) {
           // leading backslash such as \implode(), skip over this to get the name token
           continue;
-        } elseif ($item instanceof NameToken) {
+        } else if ($item instanceof NameToken) {
           return $item->getText();
         }
         return null;
