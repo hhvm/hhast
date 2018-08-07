@@ -42,6 +42,8 @@ use type Facebook\HHAST\{
   Missing,
   MarkupSection,
   NamespaceDeclaration,
+  NamespaceEmptyBody,
+  NamespaceBody,
 };
 
 use function Facebook\HHAST\__Private\find_type_for_node_async;
@@ -272,11 +274,23 @@ final class HSLMigration extends BaseMigration {
     // then insert before the first declaration that remains
     $children = vec($new_root_declarations->getChildren());
     foreach ($children as $child) {
-      if (
-        $child instanceof MarkupSection ||
-        $child instanceof NamespaceDeclaration
-      ) {
+      if ($child instanceof MarkupSection) {
         continue;
+      }
+
+      if ($child instanceof NamespaceDeclaration) {
+        $body = $child->getBody();
+        // namespace Foo; style declaration, skip over it
+        if ($body instanceof NamespaceEmptyBody) {
+          continue;
+        }
+
+        // namespace Foo { style declaration
+        // insert the use statement inside the braces, before the first child
+        invariant($body instanceof NamespaceBody, 'expected NamespaceBody');
+        $first_child = $body->getDeclarationsx()->getChildren() |> C\firstx($$);
+        return
+          $root->insertBefore($first_child, $new_namespace_use_declaration);
       }
       return $root->insertBefore($child, $new_namespace_use_declaration);
     }
