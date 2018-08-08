@@ -38,7 +38,7 @@ function resolve_type(
       return $type
         |> \explode('\\', $$)
         |> Vec\drop($$, 1)
-        |> \implode('\\', $$)
+        |> Str\join($$, '\\')
         |> $uses['namespaces'][$maybe_aliased].'\\'.$$;
     }
 

@@ -10,6 +10,7 @@
 
 namespace Facebook\HHAST\Linters;
 
+use namespace HH\Lib\{C, Vec, Str};
 use type Facebook\HHAST\{
   AnonymousFunction,
   AwaitableCreationExpression,
@@ -22,7 +23,6 @@ use type Facebook\HHAST\{
 };
 use function Facebook\HHAST\find_position;
 use namespace Facebook\TypeAssert;
-use namespace HH\Lib\{C, Vec};
 
 final class DontAwaitInALoopLinter
   extends ASTLinter<PrefixUnaryExpression> {
@@ -113,6 +113,6 @@ final class DontAwaitInALoopLinter
     }
     $output[] = 'Line '.$blame_line.': '.$lines[$blame_line - 1];
 
-    return \implode("\n", $output);
+    return Str\join($output, "\n");
   }
 }

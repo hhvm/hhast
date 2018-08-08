@@ -10,6 +10,8 @@
 
 namespace Facebook\HHAST;
 
+use namespace HH\Lib\Str;
+
 abstract class EditableTrivia extends EditableNode {
   private string $_text;
   <<__Override>>
@@ -29,7 +31,7 @@ abstract class EditableTrivia extends EditableNode {
 
   <<__Override>>
   public function getWidth(): int {
-    return \strlen($this->_text);
+    return Str\length($this->_text);
   }
 
   <<__Override>>

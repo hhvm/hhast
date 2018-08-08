@@ -30,7 +30,7 @@ abstract class EditableToken extends EditableNode {
     $this->_leading = $leading;
     $this->_trailing = $trailing;
     $this->_text = $text;
-    $this->_width = \strlen($text) + $leading->getWidth() + $trailing->getWidth();
+    $this->_width = Str\length($text) + $leading->getWidth() + $trailing->getWidth();
   }
 
   public function getTokenKind(): string {
