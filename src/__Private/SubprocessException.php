@@ -17,7 +17,7 @@ final class SubprocessException extends \Exception {
     parent::__construct(
       Str\format(
         'Command "%s" failed with exit code %d',
-        \implode(' ', $command),
+        Str\join($command, ' '),
         $exitCode,
       ),
     );

@@ -135,7 +135,7 @@ final class CodegenSyntax extends CodegenBase {
     if (!$spec['nullable']) {
       yield $cg
         ->codegenMethodf('get%s', $upper_camel)
-        ->setDocBlock('@returns '.\implode(' | ', $types))
+        ->setDocBlock('@returns '.Str\join($types, ' | '))
         ->setReturnType($type)
         ->setBodyf(
           'return TypeAssert\instance_of(%s::class, $this->_%s);',
@@ -146,7 +146,7 @@ final class CodegenSyntax extends CodegenBase {
       // nullable in a previous version
       yield $cg
         ->codegenMethodf('get%sx', $upper_camel)
-        ->setDocBlock('@returns '.\implode(' | ', $types))
+        ->setDocBlock('@returns '.Str\join($types, ' | '))
         ->setReturnType($type)
         ->setBodyf('return $this->get%s();', $upper_camel);
      return;
@@ -154,7 +154,7 @@ final class CodegenSyntax extends CodegenBase {
 
     yield $cg
       ->codegenMethodf('get%s', $upper_camel)
-      ->setDocBlock('@returns '.\implode(' | ', $types))
+      ->setDocBlock('@returns '.Str\join($types, ' | '))
       ->setReturnType($type)
       ->setBody(
         $cg
@@ -173,7 +173,7 @@ final class CodegenSyntax extends CodegenBase {
     yield $cg
       ->codegenMethodf('get%sx', $upper_camel)
       ->setDocBlock(Vec\filter($types, $type ==> $type !== 'Missing')
-        |> \implode(' | ', $$)
+        |> Str\join($$, ' | ')
         |> '@returns '.$$)
       ->setReturnType($spec['class'])
       ->setBodyf(

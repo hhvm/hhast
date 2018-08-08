@@ -10,8 +10,8 @@
 
 namespace Facebook\HHAST;
 
+use namespace HH\Lib\{Dict, Vec, C};
 use namespace Facebook\TypeAssert;
-use namespace HH\Lib\{Dict, Vec};
 
 abstract class EditableNode {
   const type TRewriter =
@@ -146,7 +146,7 @@ abstract class EditableNode {
     }
     foreach ($this->getChildren() as $child) {
       $result = $child->findWithParents($predicate, $new_parents);
-      if (\count($result) !== 0) {
+      if (C\count($result) !== 0) {
         return $result;
       }
     }
