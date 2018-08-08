@@ -296,9 +296,14 @@ final class HSLMigration extends BaseMigration {
         // namespace Foo { style declaration
         // insert the use statement inside the braces, before the first child
         invariant($body instanceof NamespaceBody, 'expected NamespaceBody');
-        $first_child = $body->getDeclarationsx()->getChildren() |> C\firstx($$);
-        return
-          $root->insertBefore($first_child, $new_namespace_use_declaration);
+        $child = $body->getDeclarationsx()->getChildren() |> C\firstx($$);
+      }
+
+      if ($child instanceof INamespaceUseDeclaration) {
+        // next statement is another use declaration, remove the trailing newline
+        $last_token = $new_namespace_use_declaration->getLastTokenx();
+        $new_namespace_use_declaration = $new_namespace_use_declaration
+          ->replace($last_token, $last_token->withTrailing(HHAST\Missing()));
       }
       return $root->insertBefore($child, $new_namespace_use_declaration);
     }
