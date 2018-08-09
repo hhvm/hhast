@@ -40,6 +40,7 @@ use namespace HH\Lib\{Str, Vec, C};
 
 final class AssertToExpectMigration extends StepBasedMigration {
 
+  private bool $useExpectFunctionPresent = false;
   private bool $expectPresent = false;
   private static ?NamespaceUseDeclaration $expectFunction = null;
 
@@ -71,13 +72,14 @@ final class AssertToExpectMigration extends StepBasedMigration {
   private function checkExpectFunctionPresent(
     NamespaceUseDeclaration $node,
   ): NamespaceUseDeclaration {
-    if ($this->expectPresent) {
+    if (!$this->expectPresent) {
+      $this->useExpectFunctionPresent = true;
+    }
+    if ($this->useExpectFunctionPresent) {
       return $node;
     }
-    $curr = Str\trim($node->getCode());
-    $useExpectFunctionCode = Str\trim(self::getExpectFunction()->getCode());
-    if (Str\contains($curr, $useExpectFunctionCode)) {
-      $this->expectPresent = true;
+    if (\preg_match('/^use function .*\\\\expect;$/', Str\trim($node->getCode()))) {
+      $this->useExpectFunctionPresent = true;
     }
 
     return $node;
@@ -86,14 +88,14 @@ final class AssertToExpectMigration extends StepBasedMigration {
   private function addExpectAfterUseFunction(
     NamespaceUseDeclaration $node,
   ): NamespaceUseDeclaration {
-    if ($this->expectPresent) {
+    if ($this->useExpectFunctionPresent) {
       return $node;
     }
     $useKind = $node->getKind();
     if ($useKind !== null && $useKind instanceof FunctionToken) {
       $node =
         $node->insertAfter($node->getLastTokenx(), self::getExpectFunction());
-      $this->expectPresent = true;
+      $this->useExpectFunctionPresent = true;
     }
     return $node;
   }
@@ -101,10 +103,10 @@ final class AssertToExpectMigration extends StepBasedMigration {
   private function addExpectAfterUseDecl(
     NamespaceUseDeclaration $node,
   ): NamespaceUseDeclaration {
-    if ($this->expectPresent) {
+    if ($this->useExpectFunctionPresent) {
       return $node;
     }
-    $this->expectPresent = true;
+    $this->useExpectFunctionPresent = true;
     return
       $node->insertAfter($node->getLastTokenx(), self::getExpectFunction());
   }
@@ -112,10 +114,10 @@ final class AssertToExpectMigration extends StepBasedMigration {
   private function addExpectAfterNamespaceDecl(
     NamespaceDeclaration $node,
   ): NamespaceDeclaration {
-    if ($this->expectPresent) {
+    if ($this->useExpectFunctionPresent) {
       return $node;
     }
-    $this->expectPresent = true;
+    $this->useExpectFunctionPresent = true;
     $body = $node->getBodyx();
     $expectFunction = self::getExpectFunction();
     if ($body instanceof NamespaceEmptyBody) {
@@ -131,11 +133,11 @@ final class AssertToExpectMigration extends StepBasedMigration {
   }
 
   private function addExpectAfterComment(DelimitedComment $node): EditableNode {
-    if ($this->expectPresent) {
+    if ($this->useExpectFunctionPresent) {
       return $node;
     }
     $expectFunction = self::getExpectFunction();
-    $this->expectPresent = true;
+    $this->useExpectFunctionPresent = true;
     if (!Str\contains($node->getText(), "/**")) {
       return EditableList::concat(
         $node,
@@ -152,7 +154,7 @@ final class AssertToExpectMigration extends StepBasedMigration {
     return $node;
   }
 
-  private static function assertSingleArgToExpect(
+  private function assertSingleArgToExpect(
     FunctionCallExpression $node,
   ): FunctionCallExpression {
     $method = self::isAssert($node);
@@ -167,7 +169,7 @@ final class AssertToExpectMigration extends StepBasedMigration {
     if (Str\is_empty($method) || !C\contains_key($single_arg_names, $method)) {
       return $node;
     }
-
+    $this->expectPresent = true;
     $params = vec($node->getArgumentListx()->getChildren());
     $actual = C\firstx($params);
     $msg = Missing();
@@ -184,7 +186,7 @@ final class AssertToExpectMigration extends StepBasedMigration {
     );
   }
 
-  private static function assertMultiArgToExpect(
+  private function assertMultiArgToExpect(
     FunctionCallExpression $node,
   ): FunctionCallExpression {
     $method = self::isAssert($node);
@@ -211,6 +213,7 @@ final class AssertToExpectMigration extends StepBasedMigration {
     if (Str\is_empty($method) || !C\contains_key($two_arg_names, $method)) {
       return $node;
     }
+    $this->expectPresent = true;
     $params = vec($node->getArgumentListx()->getChildren());
     $args = Missing();
     $expected = $params[0];
@@ -238,7 +241,7 @@ final class AssertToExpectMigration extends StepBasedMigration {
 
   <<__Override>>
   public function getSteps(): Traversable<IMigrationStep> {
-    $this->expectPresent = false;
+    $this->useExpectFunctionPresent = false;
     $make_step_add = ($name, $impl) ==> new TypedMigrationStep(
       $name,
       NamespaceUseDeclaration::class,
@@ -264,6 +267,14 @@ final class AssertToExpectMigration extends StepBasedMigration {
       $impl,
     );
     return vec[
+      $make_step_expect(
+        'change single arg assert calls to expect',
+        $node ==> $this->assertSingleArgToExpect($node),
+      ),
+      $make_step_expect(
+        'change multi arg assert calls to expect',
+        $node ==> $this->assertMultiArgToExpect($node),
+      ),
       $make_step_add(
         'check if expect function is present',
         $node ==> $this->checkExpectFunctionPresent($node),
@@ -283,14 +294,6 @@ final class AssertToExpectMigration extends StepBasedMigration {
       $make_step_add_comment(
         'add expect at top of file after first non-docblock comment',
         $node ==> $this->addExpectAfterComment($node),
-      ),
-      $make_step_expect(
-        'change single arg assert calls to expect',
-        $node ==> self::assertSingleArgToExpect($node),
-      ),
-      $make_step_expect(
-        'change multi arg assert calls to expect',
-        $node ==> self::assertMultiArgToExpect($node),
       ),
     ];
   }
