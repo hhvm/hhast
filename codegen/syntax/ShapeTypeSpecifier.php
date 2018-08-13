@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d7053483cff0f0fe3c31c747bd66aea4>>
+ * @generated SignedSource<<ec962cec6acb178332b930a41df4d5a5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -203,9 +203,9 @@ final class ShapeTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns EditableList | Missing
+   * @returns EditableList<FieldSpecifier> | Missing
    */
-  public function getFields(): ?EditableList {
+  public function getFields(): ?EditableList<FieldSpecifier> {
     if ($this->_fields->isMissing()) {
       return null;
     }
@@ -213,9 +213,9 @@ final class ShapeTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<FieldSpecifier>
    */
-  public function getFieldsx(): EditableList {
+  public function getFieldsx(): EditableList<FieldSpecifier> {
     return TypeAssert\instance_of(EditableList::class, $this->_fields);
   }
 

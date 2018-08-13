@@ -40,10 +40,7 @@ final class UseStatementWithLeadingBackslashLinter
       }
       $matched = true;
     } else {
-      foreach (
-        $node->getClausesx()->getItemsOfType(NamespaceUseClause::class) as
-          $clause
-      ) {
+      foreach ($node->getClausesx()->getItems() as $clause) {
         $name = $clause->getName()->getFirstToken();
         if ($name instanceof BackslashToken) {
           $matched = true;

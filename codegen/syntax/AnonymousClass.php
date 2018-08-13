@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d386ff95224718ca85acb15732d8b5cd>>
+ * @generated SignedSource<<e23cd1006b2aa3976bc1adb4e6171895>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -291,9 +291,11 @@ final class AnonymousClass extends EditableNode {
   }
 
   /**
-   * @returns EditableList | Missing
+   * @returns EditableList<AnonymousFunction> | EditableList<LiteralExpression>
+   * | EditableList<MemberSelectionExpression> |
+   * EditableList<VariableExpression> | Missing
    */
-  public function getArgumentList(): ?EditableList {
+  public function getArgumentList(): ?EditableList<EditableNode> {
     if ($this->_argument_list->isMissing()) {
       return null;
     }
@@ -301,9 +303,11 @@ final class AnonymousClass extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<AnonymousFunction> | EditableList<LiteralExpression>
+   * | EditableList<MemberSelectionExpression> |
+   * EditableList<VariableExpression>
    */
-  public function getArgumentListx(): EditableList {
+  public function getArgumentListx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_argument_list);
   }
 
@@ -417,9 +421,9 @@ final class AnonymousClass extends EditableNode {
   }
 
   /**
-   * @returns EditableList | Missing
+   * @returns EditableList<SimpleTypeSpecifier> | Missing
    */
-  public function getExtendsList(): ?EditableList {
+  public function getExtendsList(): ?EditableList<SimpleTypeSpecifier> {
     if ($this->_extends_list->isMissing()) {
       return null;
     }
@@ -427,9 +431,9 @@ final class AnonymousClass extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<SimpleTypeSpecifier>
    */
-  public function getExtendsListx(): EditableList {
+  public function getExtendsListx(): EditableList<SimpleTypeSpecifier> {
     return TypeAssert\instance_of(EditableList::class, $this->_extends_list);
   }
 
@@ -507,9 +511,9 @@ final class AnonymousClass extends EditableNode {
   }
 
   /**
-   * @returns EditableList | Missing
+   * @returns EditableList<SimpleTypeSpecifier> | Missing
    */
-  public function getImplementsList(): ?EditableList {
+  public function getImplementsList(): ?EditableList<SimpleTypeSpecifier> {
     if ($this->_implements_list->isMissing()) {
       return null;
     }
@@ -517,9 +521,9 @@ final class AnonymousClass extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<SimpleTypeSpecifier>
    */
-  public function getImplementsListx(): EditableList {
+  public function getImplementsListx(): EditableList<SimpleTypeSpecifier> {
     return TypeAssert\instance_of(EditableList::class, $this->_implements_list);
   }
 

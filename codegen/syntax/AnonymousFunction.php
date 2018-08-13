@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7b06f65faa480132f953d32952f9e9cd>>
+ * @generated SignedSource<<2800dc44999b65a32f8413732a8ec1b3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -602,9 +602,10 @@ final class AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns EditableList | Missing
+   * @returns EditableList<ParameterDeclaration> |
+   * EditableList<VariadicParameter> | Missing
    */
-  public function getParameters(): ?EditableList {
+  public function getParameters(): ?EditableList<EditableNode> {
     if ($this->_parameters->isMissing()) {
       return null;
     }
@@ -612,9 +613,10 @@ final class AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<ParameterDeclaration> |
+   * EditableList<VariadicParameter>
    */
-  public function getParametersx(): EditableList {
+  public function getParametersx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_parameters);
   }
 

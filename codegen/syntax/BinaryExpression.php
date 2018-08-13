@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2edd9df3f0491b7ab90aba59f942d42f>>
+ * @generated SignedSource<<7713c6691a42eba098f5de2cea6625a5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -102,8 +102,8 @@ final class BinaryExpression extends EditableNode {
 
   /**
    * @returns AnonymousFunction | ArrayCreationExpression |
-   * ArrayIntrinsicExpression | BinaryExpression | CastExpression |
-   * CollectionLiteralExpression | DarrayIntrinsicExpression |
+   * ArrayIntrinsicExpression | AsExpression | BinaryExpression |
+   * CastExpression | CollectionLiteralExpression | DarrayIntrinsicExpression |
    * DictionaryIntrinsicExpression | EmptyExpression | FunctionCallExpression |
    * InstanceofExpression | IssetExpression | KeysetIntrinsicExpression |
    * ListExpression | LiteralExpression | MemberSelectionExpression |
@@ -119,8 +119,8 @@ final class BinaryExpression extends EditableNode {
 
   /**
    * @returns AnonymousFunction | ArrayCreationExpression |
-   * ArrayIntrinsicExpression | BinaryExpression | CastExpression |
-   * CollectionLiteralExpression | DarrayIntrinsicExpression |
+   * ArrayIntrinsicExpression | AsExpression | BinaryExpression |
+   * CastExpression | CollectionLiteralExpression | DarrayIntrinsicExpression |
    * DictionaryIntrinsicExpression | EmptyExpression | FunctionCallExpression |
    * InstanceofExpression | IssetExpression | KeysetIntrinsicExpression |
    * ListExpression | LiteralExpression | MemberSelectionExpression |

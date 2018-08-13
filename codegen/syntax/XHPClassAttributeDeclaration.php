@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f51b86f90ece56079c33d415d2893eed>>
+ * @generated SignedSource<<d88a12c1fa96faa2031dc1e5cd890e80>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -130,16 +130,18 @@ final class XHPClassAttributeDeclaration extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<XHPClassAttribute> | EditableList<EditableNode> |
+   * EditableList<XHPSimpleClassAttribute>
    */
-  public function getAttributes(): EditableList {
+  public function getAttributes(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_attributes);
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<XHPClassAttribute> | EditableList<EditableNode> |
+   * EditableList<XHPSimpleClassAttribute>
    */
-  public function getAttributesx(): EditableList {
+  public function getAttributesx(): EditableList<EditableNode> {
     return $this->getAttributes();
   }
 

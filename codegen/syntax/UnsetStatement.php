@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4e7aebdd577355ea3d680788e1652b71>>
+ * @generated SignedSource<<40980bfa4a4584dee2e8135ef9e49a98>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -205,16 +205,24 @@ final class UnsetStatement extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<MemberSelectionExpression> |
+   * EditableList<EditableNode> | EditableList<PrefixUnaryExpression> |
+   * EditableList<SafeMemberSelectionExpression> |
+   * EditableList<ScopeResolutionExpression> |
+   * EditableList<SubscriptExpression> | EditableList<VariableExpression>
    */
-  public function getVariables(): EditableList {
+  public function getVariables(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_variables);
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<MemberSelectionExpression> |
+   * EditableList<EditableNode> | EditableList<PrefixUnaryExpression> |
+   * EditableList<SafeMemberSelectionExpression> |
+   * EditableList<ScopeResolutionExpression> |
+   * EditableList<SubscriptExpression> | EditableList<VariableExpression>
    */
-  public function getVariablesx(): EditableList {
+  public function getVariablesx(): EditableList<EditableNode> {
     return $this->getVariables();
   }
 

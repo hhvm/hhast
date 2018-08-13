@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4cf7a8af61700941b0b140bd61a4ce5f>>
+ * @generated SignedSource<<43aff8c12ee3eaf77324c4f77b29fddd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -114,16 +114,16 @@ final class WhereClause extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<WhereConstraint>
    */
-  public function getConstraints(): EditableList {
+  public function getConstraints(): EditableList<WhereConstraint> {
     return TypeAssert\instance_of(EditableList::class, $this->_constraints);
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<WhereConstraint>
    */
-  public function getConstraintsx(): EditableList {
+  public function getConstraintsx(): EditableList<WhereConstraint> {
     return $this->getConstraints();
   }
 }

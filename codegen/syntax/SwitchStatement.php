@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b00b1c3afa100ea8dff2075562a5776b>>
+ * @generated SignedSource<<fe76961e126174d88fac5c2173c1f912>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -368,9 +368,9 @@ final class SwitchStatement
   }
 
   /**
-   * @returns EditableList | Missing
+   * @returns EditableList<EditableNode> | Missing
    */
-  public function getSections(): ?EditableList {
+  public function getSections(): ?EditableList<EditableNode> {
     if ($this->_sections->isMissing()) {
       return null;
     }
@@ -378,9 +378,9 @@ final class SwitchStatement
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<EditableNode>
    */
-  public function getSectionsx(): EditableList {
+  public function getSectionsx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_sections);
   }
 

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c30efe0a924ea6a5bd8bf979955d818d>>
+ * @generated SignedSource<<7bde52d53fff2915b1db807a2ffefd99>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -130,16 +130,18 @@ final class TraitUse extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<GenericTypeSpecifier> | EditableList<EditableNode> |
+   * EditableList<SimpleTypeSpecifier> | EditableList<NameToken>
    */
-  public function getNames(): EditableList {
+  public function getNames(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_names);
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<GenericTypeSpecifier> | EditableList<EditableNode> |
+   * EditableList<SimpleTypeSpecifier> | EditableList<NameToken>
    */
-  public function getNamesx(): EditableList {
+  public function getNamesx(): EditableList<EditableNode> {
     return $this->getNames();
   }
 

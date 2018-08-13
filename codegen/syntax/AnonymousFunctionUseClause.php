@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<64c51f92c79100e4d107b421c2baea21>>
+ * @generated SignedSource<<b9233d4c77be7faf60229e0434172361>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -187,16 +187,18 @@ final class AnonymousFunctionUseClause extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<EditableNode> | EditableList<PrefixUnaryExpression>
+   * | EditableList<VariableToken>
    */
-  public function getVariables(): EditableList {
+  public function getVariables(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_variables);
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<EditableNode> | EditableList<PrefixUnaryExpression>
+   * | EditableList<VariableToken>
    */
-  public function getVariablesx(): EditableList {
+  public function getVariablesx(): EditableList<EditableNode> {
     return $this->getVariables();
   }
 

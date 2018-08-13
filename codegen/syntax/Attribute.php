@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<456e3a3bb64052a1ce51ef93fe599e74>>
+ * @generated SignedSource<<08946bea5740e5232fab573cfa3a34d3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -182,9 +182,14 @@ final class Attribute extends EditableNode {
   }
 
   /**
-   * @returns EditableList | Missing
+   * @returns EditableList<ArrayCreationExpression> |
+   * EditableList<EditableNode> | EditableList<BinaryExpression> |
+   * EditableList<DictionaryIntrinsicExpression> |
+   * EditableList<KeysetIntrinsicExpression> | EditableList<LiteralExpression>
+   * | EditableList<ScopeResolutionExpression> | EditableList<ShapeExpression>
+   * | EditableList<VectorIntrinsicExpression> | Missing
    */
-  public function getValues(): ?EditableList {
+  public function getValues(): ?EditableList<EditableNode> {
     if ($this->_values->isMissing()) {
       return null;
     }
@@ -192,9 +197,14 @@ final class Attribute extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<ArrayCreationExpression> |
+   * EditableList<EditableNode> | EditableList<BinaryExpression> |
+   * EditableList<DictionaryIntrinsicExpression> |
+   * EditableList<KeysetIntrinsicExpression> | EditableList<LiteralExpression>
+   * | EditableList<ScopeResolutionExpression> | EditableList<ShapeExpression>
+   * | EditableList<VectorIntrinsicExpression>
    */
-  public function getValuesx(): EditableList {
+  public function getValuesx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_values);
   }
 

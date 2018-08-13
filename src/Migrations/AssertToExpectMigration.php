@@ -299,7 +299,7 @@ final class AssertToExpectMigration extends StepBasedMigration {
   private static function getNewNode(
     FunctionCallExpression $node,
     EditableNode $actual,
-    EditableList $args,
+    EditableList<EditableNode> $args,
     string $funcName,
   ): FunctionCallExpression {
     $rec = $node->getReceiver();

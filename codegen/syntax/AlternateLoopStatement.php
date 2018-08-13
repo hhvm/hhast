@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2cca892ebc190d1224e39121f5e37a78>>
+ * @generated SignedSource<<1821d54b9310e323be7d5b5ed47f6a28>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -166,16 +166,16 @@ abstract class AlternateLoopStatementGeneratedBase
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<EditableNode>
    */
-  public function getStatements(): EditableList {
+  public function getStatements(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_statements);
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<EditableNode>
    */
-  public function getStatementsx(): EditableList {
+  public function getStatementsx(): EditableList<EditableNode> {
     return $this->getStatements();
   }
 

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6c2ecceaf4ed51f31e2917d6eeee9891>>
+ * @generated SignedSource<<7b50a9e97083d65cf9a03342d25b9cae>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -168,9 +168,10 @@ final class LambdaSignature extends EditableNode {
   }
 
   /**
-   * @returns EditableList | Missing
+   * @returns EditableList<ParameterDeclaration> | EditableList<EditableNode> |
+   * EditableList<VariadicParameter> | Missing
    */
-  public function getParameters(): ?EditableList {
+  public function getParameters(): ?EditableList<EditableNode> {
     if ($this->_parameters->isMissing()) {
       return null;
     }
@@ -178,9 +179,10 @@ final class LambdaSignature extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<ParameterDeclaration> | EditableList<EditableNode> |
+   * EditableList<VariadicParameter>
    */
-  public function getParametersx(): EditableList {
+  public function getParametersx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_parameters);
   }
 

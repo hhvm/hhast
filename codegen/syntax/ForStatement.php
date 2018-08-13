@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<983211e08d6ae99f64c5b683629cc36d>>
+ * @generated SignedSource<<c8775c91fb67f1f67434920ca4171177>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -289,9 +289,11 @@ final class ForStatement
   }
 
   /**
-   * @returns EditableList | Missing
+   * @returns EditableList<BinaryExpression> |
+   * EditableList<FunctionCallExpression> | EditableList<LiteralExpression> |
+   * Missing
    */
-  public function getInitializer(): ?EditableList {
+  public function getInitializer(): ?EditableList<EditableNode> {
     if ($this->_initializer->isMissing()) {
       return null;
     }
@@ -299,9 +301,10 @@ final class ForStatement
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<BinaryExpression> |
+   * EditableList<FunctionCallExpression> | EditableList<LiteralExpression>
    */
-  public function getInitializerx(): EditableList {
+  public function getInitializerx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_initializer);
   }
 
@@ -371,9 +374,12 @@ final class ForStatement
   }
 
   /**
-   * @returns EditableList | Missing
+   * @returns EditableList<BinaryExpression> | EditableList<EditableNode> |
+   * EditableList<ConditionalExpression> | EditableList<FunctionCallExpression>
+   * | EditableList<PrefixUnaryExpression> | EditableList<VariableExpression> |
+   * Missing
    */
-  public function getControl(): ?EditableList {
+  public function getControl(): ?EditableList<EditableNode> {
     if ($this->_control->isMissing()) {
       return null;
     }
@@ -381,9 +387,11 @@ final class ForStatement
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<BinaryExpression> | EditableList<EditableNode> |
+   * EditableList<ConditionalExpression> | EditableList<FunctionCallExpression>
+   * | EditableList<PrefixUnaryExpression> | EditableList<VariableExpression>
    */
-  public function getControlx(): EditableList {
+  public function getControlx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_control);
   }
 
@@ -453,9 +461,12 @@ final class ForStatement
   }
 
   /**
-   * @returns EditableList | Missing
+   * @returns EditableList<BinaryExpression> |
+   * EditableList<FunctionCallExpression> |
+   * EditableList<PostfixUnaryExpression> | EditableList<PrefixUnaryExpression>
+   * | Missing
    */
-  public function getEndOfLoop(): ?EditableList {
+  public function getEndOfLoop(): ?EditableList<EditableNode> {
     if ($this->_end_of_loop->isMissing()) {
       return null;
     }
@@ -463,9 +474,11 @@ final class ForStatement
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<BinaryExpression> |
+   * EditableList<FunctionCallExpression> |
+   * EditableList<PostfixUnaryExpression> | EditableList<PrefixUnaryExpression>
    */
-  public function getEndOfLoopx(): EditableList {
+  public function getEndOfLoopx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_end_of_loop);
   }
 

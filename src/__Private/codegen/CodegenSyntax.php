@@ -139,7 +139,7 @@ final class CodegenSyntax extends CodegenBase {
         ->setReturnType($type)
         ->setBodyf(
           'return TypeAssert\instance_of(%s::class, $this->_%s);',
-          $type,
+          $type |> Str\split($$, '<') |> C\firstx($$),
           $underscored,
         );
       // For backwards compatibility: always offer getFoox, in case it was
@@ -164,7 +164,7 @@ final class CodegenSyntax extends CodegenBase {
           ->endIfBlock()
           ->addReturnf(
             'TypeAssert\instance_of(%s::class, $this->_%s)',
-            $spec['class'],
+            $spec['class'] |> Str\split($$, '<') |> C\firstx($$),
             $underscored,
           )
           ->getCode(),
@@ -178,7 +178,7 @@ final class CodegenSyntax extends CodegenBase {
       ->setReturnType($spec['class'])
       ->setBodyf(
         'return TypeAssert\instance_of(%s::class, $this->_%s);',
-        $spec['class'],
+        $spec['class'] |> Str\split($$, '<') |> C\firstx($$),
         $underscored,
       );
   }
@@ -389,6 +389,13 @@ final class CodegenSyntax extends CodegenBase {
           'possibleTypes' => $possible_types,
         );
       }
+      if ($count > 1 && C\every($children, $child ==> Str\starts_with($child, 'list<'))) {
+        return shape(
+          'class' => 'EditableList<EditableNode>',
+          'nullable' => $nullable,
+          'possibleTypes' => $possible_types,
+        );
+      }
       return shape(
         'class' => 'EditableNode',
         'nullable' => false,
@@ -409,8 +416,15 @@ final class CodegenSyntax extends CodegenBase {
     if ($child === 'token') {
       return 'EditableToken';
     }
-    if ($child === 'list') {
-      return 'EditableList';
+    if (Str\starts_with_ci($child, 'list<')) {
+      $inner = $child
+        |> Str\strip_prefix($$, 'list<')
+        |> Str\strip_suffix($$, '>')
+        |> Str\split($$, '|');
+      if (C\count($inner) === 0 || C\count($inner) > 1 || C\onlyx($inner) === '') {
+        return 'EditableList<EditableNode>';
+      }
+      return 'EditableList<'.$this->getSyntaxClassForChild(C\onlyx($inner)).'>';
     }
 
     if (Str\starts_with($child, 'token')) {

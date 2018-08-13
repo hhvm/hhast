@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a2d8557afab5c3c4e79c8bc9c4196c1f>>
+ * @generated SignedSource<<f0c227b31ce4e716904836ffebba8a1f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -130,16 +130,38 @@ final class EchoStatement extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<EditableNode> | EditableList<BinaryExpression> |
+   * EditableList<CastExpression> | EditableList<ConditionalExpression> |
+   * EditableList<EmptyExpression> | EditableList<FunctionCallExpression> |
+   * EditableList<IssetExpression> | EditableList<LiteralExpression> |
+   * EditableList<MemberSelectionExpression> | EditableList<Missing> |
+   * EditableList<ObjectCreationExpression> |
+   * EditableList<ParenthesizedExpression> |
+   * EditableList<PipeVariableExpression> |
+   * EditableList<PostfixUnaryExpression> | EditableList<PrefixUnaryExpression>
+   * | EditableList<QualifiedName> | EditableList<ScopeResolutionExpression> |
+   * EditableList<SubscriptExpression> | EditableList<NameToken> |
+   * EditableList<VariableExpression> | EditableList<XHPExpression>
    */
-  public function getExpressions(): EditableList {
+  public function getExpressions(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_expressions);
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<EditableNode> | EditableList<BinaryExpression> |
+   * EditableList<CastExpression> | EditableList<ConditionalExpression> |
+   * EditableList<EmptyExpression> | EditableList<FunctionCallExpression> |
+   * EditableList<IssetExpression> | EditableList<LiteralExpression> |
+   * EditableList<MemberSelectionExpression> | EditableList<Missing> |
+   * EditableList<ObjectCreationExpression> |
+   * EditableList<ParenthesizedExpression> |
+   * EditableList<PipeVariableExpression> |
+   * EditableList<PostfixUnaryExpression> | EditableList<PrefixUnaryExpression>
+   * | EditableList<QualifiedName> | EditableList<ScopeResolutionExpression> |
+   * EditableList<SubscriptExpression> | EditableList<NameToken> |
+   * EditableList<VariableExpression> | EditableList<XHPExpression>
    */
-  public function getExpressionsx(): EditableList {
+  public function getExpressionsx(): EditableList<EditableNode> {
     return $this->getExpressions();
   }
 

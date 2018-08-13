@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ef7fc7ab2f1a7eb5a7e1ec0f675bdcbc>>
+ * @generated SignedSource<<f9561df0b4fa9c9ee18ef07d08e55a58>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -71,16 +71,16 @@ final class Script extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<EditableNode>
    */
-  public function getDeclarations(): EditableList {
+  public function getDeclarations(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_declarations);
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<EditableNode>
    */
-  public function getDeclarationsx(): EditableList {
+  public function getDeclarationsx(): EditableList<EditableNode> {
     return $this->getDeclarations();
   }
 }

@@ -16,6 +16,7 @@ use type Facebook\HackCodegen\{
   HackBuilderKeys,
   HackBuilderValues
 };
+use namespace Facebook\TypeAssert;
 
 final class CodegenRelations extends CodegenBase {
   <<__Override>>
@@ -32,7 +33,17 @@ final class CodegenRelations extends CodegenBase {
     print("Infering relationships, this can take a long time...\n");
     $all_inferences = Vec\map(
       $this->getFileList(),
-      $file ==> $this->getRelationsInFile($file),
+      $file ==> {
+        try {
+          return $this->getRelationsInFile($file);
+        } catch (\Throwable $t) {
+          \fprintf(
+            \STDERR, "Error parsing file: %s\n",
+            $file,
+          );
+          throw $t;
+        }
+      },
     );
 
     $result = dict[];
@@ -156,6 +167,19 @@ final class CodegenRelations extends CodegenBase {
     }
   }
 
+  const type TNode = shape(
+    'kind' => string,
+    ?'token' => shape(
+      'kind' => string,
+      ...
+    ),
+    ?'elements' => vec<shape(
+      ?'list_item' => shape(...),
+      ...
+    )>,
+    ...
+  );
+
   private function getRelationsInFile(
     string $file,
   ): dict<string, keyset<string>> {
@@ -192,18 +216,43 @@ final class CodegenRelations extends CodegenBase {
             $out[$key] = keyset[];
           }
 
-          $child = $node[$field];
-          /* HH_IGNORE_ERROR[4005] making assumptions about JSON struct */
-          $child_kind = (string) ($child['kind'] ?? null);
-          if ($child_kind === 'token') {
-            /* HH_IGNORE_ERROR[4005] making assumptions about JSON struct */
-            $child_kind = 'token:' . (string) ($child['token']['kind'] ?? null);
-          }
-          $out[$key][] = $child_kind;
+          $child = TypeAssert\matches_type_structure(
+            type_structure(self::class, 'TNode'),
+            $node[$field],
+          );
+          $out[$key][] = self::getTypeString($child);
         }
       }
     }
     return $out;
+  }
+
+  public static function getTypeString(self::TNode $node): string {
+    $kind = $node['kind'];
+    if ($kind === 'token') {
+      return 'token:'.TypeAssert\not_null($node['token']['kind'] ?? null);
+    }
+    if ($kind !== 'list') {
+      return $kind;
+    }
+
+    $ts = type_structure(self::class, 'TNode');
+
+    $types = ($node['elements'] ?? vec[])
+      |> Vec\filter(
+        $$,
+        $e ==> Shapes::keyExists($e, 'list_item'),
+      )
+      |> Vec\map(
+        $$,
+        $e ==> TypeAssert\matches_type_structure($ts, $e['list_item'] ?? null),
+      )
+      |> Vec\map(
+        $$,
+        $i ==> self::getTypeString($i),
+      )
+      |> Keyset\sort($$);
+    return 'list<'.Str\join($types, '|').'>';
   }
 
   public function flatten(

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<95010db8cc47a782bd3056ce98445329>>
+ * @generated SignedSource<<b3f7e6f720869406e1462903e7f50b09>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -130,16 +130,18 @@ final class TupleTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<EditableNode> | EditableList<SimpleTypeSpecifier> |
+   * EditableList<VectorArrayTypeSpecifier> | EditableList<VectorTypeSpecifier>
    */
-  public function getTypes(): EditableList {
+  public function getTypes(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_types);
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<EditableNode> | EditableList<SimpleTypeSpecifier> |
+   * EditableList<VectorArrayTypeSpecifier> | EditableList<VectorTypeSpecifier>
    */
-  public function getTypesx(): EditableList {
+  public function getTypesx(): EditableList<EditableNode> {
     return $this->getTypes();
   }
 

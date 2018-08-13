@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3d7f6ef37ae4ecf67358844afe22c6ae>>
+ * @generated SignedSource<<6d22e6983cff09cecdc4b34190b250d0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -238,16 +238,16 @@ final class XHPEnumType extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<LiteralExpression>
    */
-  public function getValues(): EditableList {
+  public function getValues(): EditableList<LiteralExpression> {
     return TypeAssert\instance_of(EditableList::class, $this->_values);
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<LiteralExpression>
    */
-  public function getValuesx(): EditableList {
+  public function getValuesx(): EditableList<LiteralExpression> {
     return $this->getValues();
   }
 

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cc980af08d452c38c939da0e4ef0e398>>
+ * @generated SignedSource<<68e176bb40c360cf188a6e3e84cc62dd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -201,9 +201,9 @@ final class TryStatement extends EditableNode {
   }
 
   /**
-   * @returns EditableList | Missing
+   * @returns EditableList<EditableNode> | Missing
    */
-  public function getCatchClauses(): ?EditableList {
+  public function getCatchClauses(): ?EditableList<EditableNode> {
     if ($this->_catch_clauses->isMissing()) {
       return null;
     }
@@ -211,9 +211,9 @@ final class TryStatement extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<EditableNode>
    */
-  public function getCatchClausesx(): EditableList {
+  public function getCatchClausesx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_catch_clauses);
   }
 

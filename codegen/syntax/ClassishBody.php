@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5232838f8ff60af319dd79d5ebec4efe>>
+ * @generated SignedSource<<68219344482a251921750b67ce37dc97>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -130,9 +130,9 @@ final class ClassishBody extends EditableNode {
   }
 
   /**
-   * @returns EditableList | Missing
+   * @returns EditableList<EditableNode> | Missing
    */
-  public function getElements(): ?EditableList {
+  public function getElements(): ?EditableList<EditableNode> {
     if ($this->_elements->isMissing()) {
       return null;
     }
@@ -140,9 +140,9 @@ final class ClassishBody extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<EditableNode>
    */
-  public function getElementsx(): EditableList {
+  public function getElementsx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_elements);
   }
 

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<429c175d47437d3207893365b8a06465>>
+ * @generated SignedSource<<55cf773eff1a2640f2467e1573f96111>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -160,16 +160,16 @@ final class TraitUsePrecedenceItem extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<SimpleTypeSpecifier>
    */
-  public function getRemovedNames(): EditableList {
+  public function getRemovedNames(): EditableList<SimpleTypeSpecifier> {
     return TypeAssert\instance_of(EditableList::class, $this->_removed_names);
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<SimpleTypeSpecifier>
    */
-  public function getRemovedNamesx(): EditableList {
+  public function getRemovedNamesx(): EditableList<SimpleTypeSpecifier> {
     return $this->getRemovedNames();
   }
 }

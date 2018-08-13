@@ -598,8 +598,7 @@ final class HSLMigration extends BaseMigration {
           'Unhandled declaration type',
         );
 
-        $clauses =
-          $decl->getClauses()->getItemsOfType(NamespaceUseClause::class);
+        $clauses = $decl->getClauses()->getItems();
         foreach ($clauses as $clause) {
 
           $name = $clause->getName();

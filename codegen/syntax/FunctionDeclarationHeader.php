@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<18dbdd6bbfae4a1b8715c642ec82dfe3>>
+ * @generated SignedSource<<3e2183e61c41cb898be1b08cccc98144>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -242,9 +242,9 @@ final class FunctionDeclarationHeader extends EditableNode {
   }
 
   /**
-   * @returns EditableList | Missing
+   * @returns EditableList<EditableNode> | Missing
    */
-  public function getModifiers(): ?EditableList {
+  public function getModifiers(): ?EditableList<EditableNode> {
     if ($this->_modifiers->isMissing()) {
       return null;
     }
@@ -252,9 +252,9 @@ final class FunctionDeclarationHeader extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<EditableNode>
    */
-  public function getModifiersx(): EditableList {
+  public function getModifiersx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_modifiers);
   }
 
@@ -509,9 +509,10 @@ final class FunctionDeclarationHeader extends EditableNode {
   }
 
   /**
-   * @returns EditableList | Missing
+   * @returns EditableList<EditableNode> | EditableList<ParameterDeclaration> |
+   * EditableList<VariadicParameter> | Missing
    */
-  public function getParameterList(): ?EditableList {
+  public function getParameterList(): ?EditableList<EditableNode> {
     if ($this->_parameter_list->isMissing()) {
       return null;
     }
@@ -519,9 +520,10 @@ final class FunctionDeclarationHeader extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<EditableNode> | EditableList<ParameterDeclaration> |
+   * EditableList<VariadicParameter>
    */
-  public function getParameterListx(): EditableList {
+  public function getParameterListx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_parameter_list);
   }
 

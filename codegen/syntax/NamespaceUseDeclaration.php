@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<93e7ed567b713beb17d33d5baaa72698>>
+ * @generated SignedSource<<fc9ce1fb37896c4298f2a586f0cfb3f5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -178,16 +178,16 @@ final class NamespaceUseDeclaration
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<NamespaceUseClause>
    */
-  public function getClauses(): EditableList {
+  public function getClauses(): EditableList<NamespaceUseClause> {
     return TypeAssert\instance_of(EditableList::class, $this->_clauses);
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<NamespaceUseClause>
    */
-  public function getClausesx(): EditableList {
+  public function getClausesx(): EditableList<NamespaceUseClause> {
     return $this->getClauses();
   }
 

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3791d7cead6921e7356f4a3bd5763a2d>>
+ * @generated SignedSource<<eb6b6e673a313df22fe6711c08c9ed7b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -272,16 +272,22 @@ final class UsingStatementBlockScoped extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<AnonymousFunction> | EditableList<BinaryExpression>
+   * | EditableList<LambdaExpression> | EditableList<LiteralExpression> |
+   * EditableList<ObjectCreationExpression> | EditableList<EditableNode> |
+   * EditableList<PrefixUnaryExpression> | EditableList<VariableExpression>
    */
-  public function getExpressions(): EditableList {
+  public function getExpressions(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_expressions);
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<AnonymousFunction> | EditableList<BinaryExpression>
+   * | EditableList<LambdaExpression> | EditableList<LiteralExpression> |
+   * EditableList<ObjectCreationExpression> | EditableList<EditableNode> |
+   * EditableList<PrefixUnaryExpression> | EditableList<VariableExpression>
    */
-  public function getExpressionsx(): EditableList {
+  public function getExpressionsx(): EditableList<EditableNode> {
     return $this->getExpressions();
   }
 

@@ -12,7 +12,7 @@ namespace Facebook\HHAST;
 
 use namespace HH\Lib\{C, Dict, Vec};
 
-final class EditableList extends EditableNode {
+final class EditableList<Titem as EditableNode> extends EditableNode {
   private vec<EditableNode> $_children;
   <<__Override>>
   public function __construct(vec<EditableNode> $children) {
@@ -39,7 +39,9 @@ final class EditableList extends EditableNode {
     );
   }
 
-  final public function getItems(): vec<EditableNode> {
+  final public function getItems(): vec<Titem> {
+    /* HH_FIXME[4110] we have to trust the typechecker here; in future, use
+     * reified generics */
     return Vec\map(
       $this->_children,
       $child ==> $child instanceof ListItem ? $child->getItem() : $child,

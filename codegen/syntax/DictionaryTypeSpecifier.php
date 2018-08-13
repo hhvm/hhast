@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e72b20aa22ea0ac65e888726ae273622>>
+ * @generated SignedSource<<15257798cec262aae7022dae37566f98>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -183,16 +183,16 @@ final class DictionaryTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<EditableNode> | EditableList<SimpleTypeSpecifier>
    */
-  public function getMembers(): EditableList {
+  public function getMembers(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_members);
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<EditableNode> | EditableList<SimpleTypeSpecifier>
    */
-  public function getMembersx(): EditableList {
+  public function getMembersx(): EditableList<EditableNode> {
     return $this->getMembers();
   }
 

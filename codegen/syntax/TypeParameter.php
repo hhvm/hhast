@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<19d8d1170a4f48fc8f027e66b33c9572>>
+ * @generated SignedSource<<fa2bbcb5ac50628cfea52e62e73f3acd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -162,9 +162,9 @@ final class TypeParameter extends EditableNode {
   }
 
   /**
-   * @returns EditableList | Missing
+   * @returns EditableList<EditableNode> | Missing
    */
-  public function getConstraints(): ?EditableList {
+  public function getConstraints(): ?EditableList<EditableNode> {
     if ($this->_constraints->isMissing()) {
       return null;
     }
@@ -172,9 +172,9 @@ final class TypeParameter extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<EditableNode>
    */
-  public function getConstraintsx(): EditableList {
+  public function getConstraintsx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_constraints);
   }
 }

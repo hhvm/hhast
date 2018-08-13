@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7ba1ed264d141e187a4290dfe66f503f>>
+ * @generated SignedSource<<86645b02403c1c68e9c662d5b5c1637e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -130,16 +130,16 @@ final class XHPCategoryDeclaration extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<XHPCategoryNameToken>
    */
-  public function getCategories(): EditableList {
+  public function getCategories(): EditableList<XHPCategoryNameToken> {
     return TypeAssert\instance_of(EditableList::class, $this->_categories);
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<XHPCategoryNameToken>
    */
-  public function getCategoriesx(): EditableList {
+  public function getCategoriesx(): EditableList<XHPCategoryNameToken> {
     return $this->getCategories();
   }
 

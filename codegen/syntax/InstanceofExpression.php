@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<14519d6ab45e6ffcbeb2955184bb0c62>>
+ * @generated SignedSource<<813ffc5d3eebcefd3c6617d5d5f1ba87>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,20 +101,20 @@ final class InstanceofExpression extends EditableNode {
   }
 
   /**
-   * @returns AnonymousFunction | CastExpression | FunctionCallExpression |
-   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | PrefixUnaryExpression |
-   * ScopeResolutionExpression | SubscriptExpression | VariableExpression
+   * @returns AnonymousFunction | CastExpression | CollectionLiteralExpression
+   * | FunctionCallExpression | LiteralExpression | MemberSelectionExpression |
+   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
+   * | ScopeResolutionExpression | SubscriptExpression | VariableExpression
    */
   public function getLeftOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_left_operand);
   }
 
   /**
-   * @returns AnonymousFunction | CastExpression | FunctionCallExpression |
-   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | PrefixUnaryExpression |
-   * ScopeResolutionExpression | SubscriptExpression | VariableExpression
+   * @returns AnonymousFunction | CastExpression | CollectionLiteralExpression
+   * | FunctionCallExpression | LiteralExpression | MemberSelectionExpression |
+   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
+   * | ScopeResolutionExpression | SubscriptExpression | VariableExpression
    */
   public function getLeftOperandx(): EditableNode {
     return $this->getLeftOperand();
@@ -165,7 +165,7 @@ final class InstanceofExpression extends EditableNode {
   }
 
   /**
-   * @returns MemberSelectionExpression | ParenthesizedExpression |
+   * @returns MemberSelectionExpression | Missing | ParenthesizedExpression |
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
    * NameToken | VariableExpression
    */
@@ -174,7 +174,7 @@ final class InstanceofExpression extends EditableNode {
   }
 
   /**
-   * @returns MemberSelectionExpression | ParenthesizedExpression |
+   * @returns MemberSelectionExpression | Missing | ParenthesizedExpression |
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
    * NameToken | VariableExpression
    */

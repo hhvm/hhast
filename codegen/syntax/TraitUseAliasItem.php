@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2bfd8195f2a90798bdf5fa7b34dc73a6>>
+ * @generated SignedSource<<2a13db192b3d143ed1641971bab0d13b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -187,9 +187,9 @@ final class TraitUseAliasItem extends EditableNode {
   }
 
   /**
-   * @returns EditableList | Missing
+   * @returns EditableList<EditableNode> | Missing
    */
-  public function getModifiers(): ?EditableList {
+  public function getModifiers(): ?EditableList<EditableNode> {
     if ($this->_modifiers->isMissing()) {
       return null;
     }
@@ -197,9 +197,9 @@ final class TraitUseAliasItem extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<EditableNode>
    */
-  public function getModifiersx(): EditableList {
+  public function getModifiersx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_modifiers);
   }
 

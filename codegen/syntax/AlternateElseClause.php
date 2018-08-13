@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<53a765894511fc0f26c2792f28749f0b>>
+ * @generated SignedSource<<846f33fdb6dcb443eb58237a067ff5b9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -161,16 +161,16 @@ final class AlternateElseClause
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<EditableNode>
    */
-  public function getStatement(): EditableList {
+  public function getStatement(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_statement);
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<EditableNode>
    */
-  public function getStatementx(): EditableList {
+  public function getStatementx(): EditableList<EditableNode> {
     return $this->getStatement();
   }
 }

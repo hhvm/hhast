@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7e89480b541c0ca5ad7eef3c72b5c5d9>>
+ * @generated SignedSource<<9e8b13a41d02b94eae0eab6a59a4996f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -179,9 +179,9 @@ final class XHPOpen extends EditableNode {
   }
 
   /**
-   * @returns EditableList | Missing
+   * @returns EditableList<EditableNode> | Missing
    */
-  public function getAttributes(): ?EditableList {
+  public function getAttributes(): ?EditableList<EditableNode> {
     if ($this->_attributes->isMissing()) {
       return null;
     }
@@ -189,9 +189,9 @@ final class XHPOpen extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<EditableNode>
    */
-  public function getAttributesx(): EditableList {
+  public function getAttributesx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_attributes);
   }
 

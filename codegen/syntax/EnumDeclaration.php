@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8a8c8be80b3dff997f8176b6f02ec7ae>>
+ * @generated SignedSource<<cf9a32d0fefc3b47e139b1e21b3afc5a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -496,9 +496,9 @@ final class EnumDeclaration extends EditableNode {
   }
 
   /**
-   * @returns EditableList | Missing
+   * @returns EditableList<EditableNode> | Missing
    */
-  public function getEnumerators(): ?EditableList {
+  public function getEnumerators(): ?EditableList<EditableNode> {
     if ($this->_enumerators->isMissing()) {
       return null;
     }
@@ -506,9 +506,9 @@ final class EnumDeclaration extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<EditableNode>
    */
-  public function getEnumeratorsx(): EditableList {
+  public function getEnumeratorsx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_enumerators);
   }
 

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ee6842306caf0301d345f5bd831deab8>>
+ * @generated SignedSource<<da7ced607a32ed2292d73594362d2d70>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -373,9 +373,10 @@ final class ClosureTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns EditableList | Missing
+   * @returns EditableList<ClosureParameterTypeSpecifier> |
+   * EditableList<EditableNode> | EditableList<VariadicParameter> | Missing
    */
-  public function getParameterList(): ?EditableList {
+  public function getParameterList(): ?EditableList<EditableNode> {
     if ($this->_parameter_list->isMissing()) {
       return null;
     }
@@ -383,9 +384,10 @@ final class ClosureTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<ClosureParameterTypeSpecifier> |
+   * EditableList<EditableNode> | EditableList<VariadicParameter>
    */
-  public function getParameterListx(): EditableList {
+  public function getParameterListx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_parameter_list);
   }
 

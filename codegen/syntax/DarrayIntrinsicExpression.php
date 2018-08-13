@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4731e47103175d985586adcaa21f89c0>>
+ * @generated SignedSource<<c428c4e9b5f06b51b9f2e9feb4e22594>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -251,9 +251,9 @@ final class DarrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList | Missing
+   * @returns EditableList<ElementInitializer> | Missing
    */
-  public function getMembers(): ?EditableList {
+  public function getMembers(): ?EditableList<ElementInitializer> {
     if ($this->_members->isMissing()) {
       return null;
     }
@@ -261,9 +261,9 @@ final class DarrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<ElementInitializer>
    */
-  public function getMembersx(): EditableList {
+  public function getMembersx(): EditableList<ElementInitializer> {
     return TypeAssert\instance_of(EditableList::class, $this->_members);
   }
 

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e2ac7ae8ec5337ada30d15eb8dd9ebbb>>
+ * @generated SignedSource<<00a243a7edcc33e66ebf4c54132fa477>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -251,9 +251,13 @@ final class VarrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList | Missing
+   * @returns EditableList<EditableNode> |
+   * EditableList<DarrayIntrinsicExpression> |
+   * EditableList<FunctionCallExpression> | EditableList<LiteralExpression> |
+   * EditableList<NameToken> | EditableList<VariableExpression> |
+   * EditableList<VarrayIntrinsicExpression> | Missing
    */
-  public function getMembers(): ?EditableList {
+  public function getMembers(): ?EditableList<EditableNode> {
     if ($this->_members->isMissing()) {
       return null;
     }
@@ -261,9 +265,13 @@ final class VarrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<EditableNode> |
+   * EditableList<DarrayIntrinsicExpression> |
+   * EditableList<FunctionCallExpression> | EditableList<LiteralExpression> |
+   * EditableList<NameToken> | EditableList<VariableExpression> |
+   * EditableList<VarrayIntrinsicExpression>
    */
-  public function getMembersx(): EditableList {
+  public function getMembersx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_members);
   }
 

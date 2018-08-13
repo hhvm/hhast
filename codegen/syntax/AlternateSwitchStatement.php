@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<338e973848ea9c7507eb8e002795a66c>>
+ * @generated SignedSource<<a073e58fc9be4ce9ad1d168407923894>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -387,16 +387,16 @@ final class AlternateSwitchStatement
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<EditableNode>
    */
-  public function getSections(): EditableList {
+  public function getSections(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_sections);
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<EditableNode>
    */
-  public function getSectionsx(): EditableList {
+  public function getSectionsx(): EditableList<EditableNode> {
     return $this->getSections();
   }
 

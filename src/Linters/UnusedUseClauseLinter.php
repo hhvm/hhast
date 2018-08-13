@@ -41,7 +41,7 @@ final class UnusedUseClauseLinter
     INamespaceUseDeclaration $node,
     vec<EditableNode> $_context,
   ): ?FixableASTLintError<INamespaceUseDeclaration> {
-    $clauses = $node->getClauses()->getItemsOfType(NamespaceUseClause::class);
+    $clauses = $node->getClauses()->getItems();
     $unused = $this->getUnusedClauses($node->getKind(), $clauses);
 
     if (C\is_empty($unused)) {
@@ -120,7 +120,7 @@ final class UnusedUseClauseLinter
     FixableASTLintError<INamespaceUseDeclaration> $error,
   ): string {
     $node = $error->getBlameNode();
-    $clauses = $node->getClauses()->getItemsOfType(NamespaceUseClause::class);
+    $clauses = $node->getClauses()->getItems();
     $unused = $this->getUnusedClauses($node->getKind(), $clauses);
     if (C\count($clauses) === C\count($unused)) {
       return 'Remove `use` statement';
@@ -134,7 +134,7 @@ final class UnusedUseClauseLinter
 
   <<__Override>>
   public function getFixedNode(INamespaceUseDeclaration $node): EditableNode {
-    $clauses = $node->getClauses()->getItemsOfType(NamespaceUseClause::class);
+    $clauses = $node->getClauses()->getItems();
     $clause_count = C\count($clauses);
     $unused = $this->getUnusedClauses($node->getKind(), $clauses)
       |> Vec\map($$, $p ==> $p[1]);

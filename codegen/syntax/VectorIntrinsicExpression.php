@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<77f3f16cb5c24cfdeefbe9a4194c86f2>>
+ * @generated SignedSource<<91fd742464f6c31fc1b5176aed3367ee>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -251,9 +251,19 @@ final class VectorIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList | Missing
+   * @returns EditableList<EditableNode> |
+   * EditableList<CollectionLiteralExpression> |
+   * EditableList<ConditionalExpression> |
+   * EditableList<DictionaryIntrinsicExpression> |
+   * EditableList<FunctionCallExpression> |
+   * EditableList<KeysetIntrinsicExpression> | EditableList<LiteralExpression>
+   * | EditableList<ObjectCreationExpression> |
+   * EditableList<ScopeResolutionExpression> | EditableList<ShapeExpression> |
+   * EditableList<NameToken> | EditableList<TupleExpression> |
+   * EditableList<VariableExpression> | EditableList<VectorIntrinsicExpression>
+   * | EditableList<XHPExpression> | Missing
    */
-  public function getMembers(): ?EditableList {
+  public function getMembers(): ?EditableList<EditableNode> {
     if ($this->_members->isMissing()) {
       return null;
     }
@@ -261,9 +271,19 @@ final class VectorIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<EditableNode> |
+   * EditableList<CollectionLiteralExpression> |
+   * EditableList<ConditionalExpression> |
+   * EditableList<DictionaryIntrinsicExpression> |
+   * EditableList<FunctionCallExpression> |
+   * EditableList<KeysetIntrinsicExpression> | EditableList<LiteralExpression>
+   * | EditableList<ObjectCreationExpression> |
+   * EditableList<ScopeResolutionExpression> | EditableList<ShapeExpression> |
+   * EditableList<NameToken> | EditableList<TupleExpression> |
+   * EditableList<VariableExpression> | EditableList<VectorIntrinsicExpression>
+   * | EditableList<XHPExpression>
    */
-  public function getMembersx(): EditableList {
+  public function getMembersx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_members);
   }
 

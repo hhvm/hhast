@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<441264d9609d52dd73a23fd38258ecb5>>
+ * @generated SignedSource<<0d48297f6224a80d50a461959e0ecbe5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -130,16 +130,16 @@ final class TypeParameters extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<TypeParameter>
    */
-  public function getParameters(): EditableList {
+  public function getParameters(): EditableList<TypeParameter> {
     return TypeAssert\instance_of(EditableList::class, $this->_parameters);
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<TypeParameter>
    */
-  public function getParametersx(): EditableList {
+  public function getParametersx(): EditableList<TypeParameter> {
     return $this->getParameters();
   }
 

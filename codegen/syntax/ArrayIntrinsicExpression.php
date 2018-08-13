@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0be8d859a6472024fde27230b4d6b61b>>
+ * @generated SignedSource<<88837a7a4fe65ff619ac7df60ef13a6c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -183,9 +183,22 @@ final class ArrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList | Missing
+   * @returns EditableList<AnonymousFunction> | EditableList<EditableNode> |
+   * EditableList<ArrayCreationExpression> |
+   * EditableList<ArrayIntrinsicExpression> |
+   * EditableList<AwaitableCreationExpression> | EditableList<BinaryExpression>
+   * | EditableList<CastExpression> | EditableList<CollectionLiteralExpression>
+   * | EditableList<ElementInitializer> | EditableList<FunctionCallExpression>
+   * | EditableList<LiteralExpression> |
+   * EditableList<MemberSelectionExpression> |
+   * EditableList<ObjectCreationExpression> |
+   * EditableList<PrefixUnaryExpression> | EditableList<QualifiedName> |
+   * EditableList<ScopeResolutionExpression> |
+   * EditableList<SubscriptExpression> | EditableList<NameToken> |
+   * EditableList<TupleExpression> | EditableList<VariableExpression> |
+   * EditableList<VectorIntrinsicExpression> | Missing
    */
-  public function getMembers(): ?EditableList {
+  public function getMembers(): ?EditableList<EditableNode> {
     if ($this->_members->isMissing()) {
       return null;
     }
@@ -193,9 +206,22 @@ final class ArrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<AnonymousFunction> | EditableList<EditableNode> |
+   * EditableList<ArrayCreationExpression> |
+   * EditableList<ArrayIntrinsicExpression> |
+   * EditableList<AwaitableCreationExpression> | EditableList<BinaryExpression>
+   * | EditableList<CastExpression> | EditableList<CollectionLiteralExpression>
+   * | EditableList<ElementInitializer> | EditableList<FunctionCallExpression>
+   * | EditableList<LiteralExpression> |
+   * EditableList<MemberSelectionExpression> |
+   * EditableList<ObjectCreationExpression> |
+   * EditableList<PrefixUnaryExpression> | EditableList<QualifiedName> |
+   * EditableList<ScopeResolutionExpression> |
+   * EditableList<SubscriptExpression> | EditableList<NameToken> |
+   * EditableList<TupleExpression> | EditableList<VariableExpression> |
+   * EditableList<VectorIntrinsicExpression>
    */
-  public function getMembersx(): EditableList {
+  public function getMembersx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_members);
   }
 

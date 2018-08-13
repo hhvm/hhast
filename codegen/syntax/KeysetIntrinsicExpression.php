@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f2f62e9e7c267ffd9e5d9e523a838174>>
+ * @generated SignedSource<<7216b43b911f28ca940541419b37b669>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -251,9 +251,17 @@ final class KeysetIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList | Missing
+   * @returns EditableList<ArrayIntrinsicExpression> |
+   * EditableList<EditableNode> | EditableList<CollectionLiteralExpression> |
+   * EditableList<ConditionalExpression> |
+   * EditableList<DictionaryIntrinsicExpression> |
+   * EditableList<FunctionCallExpression> |
+   * EditableList<KeysetIntrinsicExpression> | EditableList<LiteralExpression>
+   * | EditableList<ObjectCreationExpression> |
+   * EditableList<ScopeResolutionExpression> | EditableList<VariableExpression>
+   * | EditableList<VectorIntrinsicExpression> | Missing
    */
-  public function getMembers(): ?EditableList {
+  public function getMembers(): ?EditableList<EditableNode> {
     if ($this->_members->isMissing()) {
       return null;
     }
@@ -261,9 +269,17 @@ final class KeysetIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<ArrayIntrinsicExpression> |
+   * EditableList<EditableNode> | EditableList<CollectionLiteralExpression> |
+   * EditableList<ConditionalExpression> |
+   * EditableList<DictionaryIntrinsicExpression> |
+   * EditableList<FunctionCallExpression> |
+   * EditableList<KeysetIntrinsicExpression> | EditableList<LiteralExpression>
+   * | EditableList<ObjectCreationExpression> |
+   * EditableList<ScopeResolutionExpression> | EditableList<VariableExpression>
+   * | EditableList<VectorIntrinsicExpression>
    */
-  public function getMembersx(): EditableList {
+  public function getMembersx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_members);
   }
 

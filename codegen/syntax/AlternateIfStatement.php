@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<def84d6265d2f9632e4280630ccc92c1>>
+ * @generated SignedSource<<30e9fdedd7f68917b7af456d8dee2e5a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -425,16 +425,16 @@ final class AlternateIfStatement extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<EditableNode>
    */
-  public function getStatement(): EditableList {
+  public function getStatement(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_statement);
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<EditableNode>
    */
-  public function getStatementx(): EditableList {
+  public function getStatementx(): EditableList<EditableNode> {
     return $this->getStatement();
   }
 

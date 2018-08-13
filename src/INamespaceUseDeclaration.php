@@ -25,8 +25,8 @@ interface INamespaceUseDeclaration {
 
   public function withClauses(EditableNode $value): this;
   public function hasClauses(): bool;
-  public function getClauses(): EditableList;
-  public function getClausesx(): EditableList;
+  public function getClauses(): EditableList<NamespaceUseClause>;
+  public function getClausesx(): EditableList<NamespaceUseClause>;
 
   public function getSemicolon(): ?SemicolonToken;
  }

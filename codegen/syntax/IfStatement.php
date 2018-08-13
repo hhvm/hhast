@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0004a01938edd15b1d5da416524f3e60>>
+ * @generated SignedSource<<9d48ab305ddb66e80ec83afd2fdfe80c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -376,9 +376,9 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
   }
 
   /**
-   * @returns EditableList | Missing
+   * @returns EditableList<EditableNode> | Missing
    */
-  public function getElseifClauses(): ?EditableList {
+  public function getElseifClauses(): ?EditableList<EditableNode> {
     if ($this->_elseif_clauses->isMissing()) {
       return null;
     }
@@ -386,9 +386,9 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<EditableNode>
    */
-  public function getElseifClausesx(): EditableList {
+  public function getElseifClausesx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_elseif_clauses);
   }
 

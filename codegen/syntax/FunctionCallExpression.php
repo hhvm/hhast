@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<24b569dfde14de90fa6d0d80c3164b57>>
+ * @generated SignedSource<<c85a9b58149732cbc5ff2f05a56c63a1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -195,9 +195,34 @@ final class FunctionCallExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList | Missing
+   * @returns EditableList<AnonymousFunction> | EditableList<EditableNode> |
+   * EditableList<ArrayCreationExpression> |
+   * EditableList<ArrayIntrinsicExpression> |
+   * EditableList<AwaitableCreationExpression> | EditableList<BinaryExpression>
+   * | EditableList<CastExpression> | EditableList<CollectionLiteralExpression>
+   * | EditableList<ConditionalExpression> |
+   * EditableList<DarrayIntrinsicExpression> |
+   * EditableList<DecoratedExpression> | EditableList<DefineExpression> |
+   * EditableList<DictionaryIntrinsicExpression> |
+   * EditableList<EmptyExpression> | EditableList<EvalExpression> |
+   * EditableList<FunctionCallExpression> | EditableList<InclusionExpression> |
+   * EditableList<InstanceofExpression> | EditableList<IssetExpression> |
+   * EditableList<KeysetIntrinsicExpression> | EditableList<LambdaExpression> |
+   * EditableList<LiteralExpression> | EditableList<MemberSelectionExpression>
+   * | EditableList<ObjectCreationExpression> |
+   * EditableList<ParenthesizedExpression> |
+   * EditableList<PipeVariableExpression> |
+   * EditableList<PostfixUnaryExpression> | EditableList<PrefixUnaryExpression>
+   * | EditableList<QualifiedName> |
+   * EditableList<SafeMemberSelectionExpression> |
+   * EditableList<ScopeResolutionExpression> | EditableList<ShapeExpression> |
+   * EditableList<SubscriptExpression> | EditableList<NameToken> |
+   * EditableList<TupleExpression> | EditableList<VariableExpression> |
+   * EditableList<VarrayIntrinsicExpression> |
+   * EditableList<VectorIntrinsicExpression> | EditableList<XHPExpression> |
+   * Missing
    */
-  public function getArgumentList(): ?EditableList {
+  public function getArgumentList(): ?EditableList<EditableNode> {
     if ($this->_argument_list->isMissing()) {
       return null;
     }
@@ -205,9 +230,33 @@ final class FunctionCallExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<AnonymousFunction> | EditableList<EditableNode> |
+   * EditableList<ArrayCreationExpression> |
+   * EditableList<ArrayIntrinsicExpression> |
+   * EditableList<AwaitableCreationExpression> | EditableList<BinaryExpression>
+   * | EditableList<CastExpression> | EditableList<CollectionLiteralExpression>
+   * | EditableList<ConditionalExpression> |
+   * EditableList<DarrayIntrinsicExpression> |
+   * EditableList<DecoratedExpression> | EditableList<DefineExpression> |
+   * EditableList<DictionaryIntrinsicExpression> |
+   * EditableList<EmptyExpression> | EditableList<EvalExpression> |
+   * EditableList<FunctionCallExpression> | EditableList<InclusionExpression> |
+   * EditableList<InstanceofExpression> | EditableList<IssetExpression> |
+   * EditableList<KeysetIntrinsicExpression> | EditableList<LambdaExpression> |
+   * EditableList<LiteralExpression> | EditableList<MemberSelectionExpression>
+   * | EditableList<ObjectCreationExpression> |
+   * EditableList<ParenthesizedExpression> |
+   * EditableList<PipeVariableExpression> |
+   * EditableList<PostfixUnaryExpression> | EditableList<PrefixUnaryExpression>
+   * | EditableList<QualifiedName> |
+   * EditableList<SafeMemberSelectionExpression> |
+   * EditableList<ScopeResolutionExpression> | EditableList<ShapeExpression> |
+   * EditableList<SubscriptExpression> | EditableList<NameToken> |
+   * EditableList<TupleExpression> | EditableList<VariableExpression> |
+   * EditableList<VarrayIntrinsicExpression> |
+   * EditableList<VectorIntrinsicExpression> | EditableList<XHPExpression>
    */
-  public function getArgumentListx(): EditableList {
+  public function getArgumentListx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_argument_list);
   }
 

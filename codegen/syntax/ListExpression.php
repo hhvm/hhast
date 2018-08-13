@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<45e1295365b85ac1b193326ac86af9fb>>
+ * @generated SignedSource<<f0c8b13048aa83ec4d0b7beac20b735a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -183,9 +183,12 @@ final class ListExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList | Missing
+   * @returns EditableList<EditableNode> | EditableList<ListExpression> |
+   * EditableList<MemberSelectionExpression> | EditableList<Missing> |
+   * EditableList<SubscriptExpression> | EditableList<VariableExpression> |
+   * Missing
    */
-  public function getMembers(): ?EditableList {
+  public function getMembers(): ?EditableList<EditableNode> {
     if ($this->_members->isMissing()) {
       return null;
     }
@@ -193,9 +196,11 @@ final class ListExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<EditableNode> | EditableList<ListExpression> |
+   * EditableList<MemberSelectionExpression> | EditableList<Missing> |
+   * EditableList<SubscriptExpression> | EditableList<VariableExpression>
    */
-  public function getMembersx(): EditableList {
+  public function getMembersx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_members);
   }
 

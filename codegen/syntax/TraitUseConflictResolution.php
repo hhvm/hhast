@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2b40ab78643381ab492a4bb0ed179bc9>>
+ * @generated SignedSource<<f995a5961ac2ae282bd0b3c80c0164ef>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -168,16 +168,16 @@ final class TraitUseConflictResolution extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<SimpleTypeSpecifier>
    */
-  public function getNames(): EditableList {
+  public function getNames(): EditableList<SimpleTypeSpecifier> {
     return TypeAssert\instance_of(EditableList::class, $this->_names);
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<SimpleTypeSpecifier>
    */
-  public function getNamesx(): EditableList {
+  public function getNamesx(): EditableList<SimpleTypeSpecifier> {
     return $this->getNames();
   }
 
@@ -238,9 +238,10 @@ final class TraitUseConflictResolution extends EditableNode {
   }
 
   /**
-   * @returns EditableList | Missing
+   * @returns EditableList<TraitUseAliasItem> | EditableList<EditableNode> |
+   * EditableList<TraitUsePrecedenceItem> | Missing
    */
-  public function getClauses(): ?EditableList {
+  public function getClauses(): ?EditableList<EditableNode> {
     if ($this->_clauses->isMissing()) {
       return null;
     }
@@ -248,9 +249,10 @@ final class TraitUseConflictResolution extends EditableNode {
   }
 
   /**
-   * @returns EditableList
+   * @returns EditableList<TraitUseAliasItem> | EditableList<EditableNode> |
+   * EditableList<TraitUsePrecedenceItem>
    */
-  public function getClausesx(): EditableList {
+  public function getClausesx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_clauses);
   }
 

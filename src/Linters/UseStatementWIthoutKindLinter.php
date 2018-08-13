@@ -13,7 +13,6 @@ namespace Facebook\HHAST\Linters;
 use type Facebook\HHAST\{
   EditableNode,
   INamespaceUseDeclaration,
-  NamespaceUseClause,
   NamespaceToken,
   NameToken,
   TypeToken,
@@ -64,7 +63,7 @@ final class UseStatementWithoutKindLinter
   ): ?INamespaceUseDeclaration {
     // Figure out what names are imported
     $names = Keyset\map(
-      $node->getClauses()->getItemsOfType(NamespaceUseClause::class),
+      $node->getClauses()->getItems(),
       $clause ==> {
         if ($clause->hasAs()) {
           return $clause->getAsx()->getText();
