@@ -38,8 +38,7 @@ use namespace HH\Lib\{Str, Vec, C};
 
 final class AssertToExpectMigration extends StepBasedMigration {
 
-  private bool $useExpectFunctionPresent = false;
-  private bool $expectPresent = false;
+  private bool $useExpectFunctionNeeded = false;
   private static ?NamespaceUseDeclaration $expectFunction = null;
 
   private static function getExpectFunction(): NamespaceUseDeclaration {
@@ -70,14 +69,11 @@ final class AssertToExpectMigration extends StepBasedMigration {
   private function checkExpectFunctionPresent(
     NamespaceUseDeclaration $node,
   ): NamespaceUseDeclaration {
-    if (!$this->expectPresent) {
-      $this->useExpectFunctionPresent = true;
-    }
-    if ($this->useExpectFunctionPresent) {
+    if (!$this->useExpectFunctionNeeded) {
       return $node;
     }
     if (\preg_match('/^use function .*\\\\expect;$/', Str\trim($node->getCode()))) {
-      $this->useExpectFunctionPresent = true;
+      $this->useExpectFunctionNeeded = false;
     }
 
     return $node;
@@ -86,14 +82,14 @@ final class AssertToExpectMigration extends StepBasedMigration {
   private function addExpectAfterUseFunction(
     NamespaceUseDeclaration $node,
   ): NamespaceUseDeclaration {
-    if ($this->useExpectFunctionPresent) {
+    if (!$this->useExpectFunctionNeeded) {
       return $node;
     }
     $useKind = $node->getKind();
     if ($useKind !== null && $useKind instanceof FunctionToken) {
       $node =
         $node->insertAfter($node->getLastTokenx(), self::getExpectFunction());
-      $this->useExpectFunctionPresent = true;
+      $this->useExpectFunctionNeeded = false;
     }
     return $node;
   }
@@ -101,10 +97,10 @@ final class AssertToExpectMigration extends StepBasedMigration {
   private function addExpectAfterUseDecl(
     NamespaceUseDeclaration $node,
   ): NamespaceUseDeclaration {
-    if ($this->useExpectFunctionPresent) {
+    if (!$this->useExpectFunctionNeeded) {
       return $node;
     }
-    $this->useExpectFunctionPresent = true;
+    $this->useExpectFunctionNeeded = false;
     return
       $node->insertAfter($node->getLastTokenx(), self::getExpectFunction());
   }
@@ -112,10 +108,10 @@ final class AssertToExpectMigration extends StepBasedMigration {
   private function addExpectAfterNamespaceDecl(
     NamespaceDeclaration $node,
   ): NamespaceDeclaration {
-    if ($this->useExpectFunctionPresent) {
+    if (!$this->useExpectFunctionNeeded) {
       return $node;
     }
-    $this->useExpectFunctionPresent = true;
+    $this->useExpectFunctionNeeded = false;
     $body = $node->getBodyx();
     $expectFunction = self::getExpectFunction();
     if ($body instanceof NamespaceEmptyBody) {
@@ -131,11 +127,11 @@ final class AssertToExpectMigration extends StepBasedMigration {
   }
 
   private function addExpectAfterComment(DelimitedComment $node): EditableNode {
-    if ($this->useExpectFunctionPresent) {
+    if (!$this->useExpectFunctionNeeded) {
       return $node;
     }
     $expectFunction = self::getExpectFunction();
-    $this->useExpectFunctionPresent = true;
+    $this->useExpectFunctionNeeded = false;
     if (!Str\contains($node->getText(), "/**")) {
       return EditableList::concat(
         $node,
@@ -167,7 +163,7 @@ final class AssertToExpectMigration extends StepBasedMigration {
     if (Str\is_empty($method) || !C\contains_key($single_arg_names, $method)) {
       return $node;
     }
-    $this->expectPresent = true;
+    $this->useExpectFunctionNeeded = true;
     $params = vec($node->getArgumentListx()->getChildren());
     $actual = C\firstx($params);
     $msg = Missing();
@@ -211,7 +207,7 @@ final class AssertToExpectMigration extends StepBasedMigration {
     if (Str\is_empty($method) || !C\contains_key($two_arg_names, $method)) {
       return $node;
     }
-    $this->expectPresent = true;
+    $this->useExpectFunctionNeeded = true;
     $params = vec($node->getArgumentListx()->getChildren());
     $args = Missing();
     $expected = $params[0];
@@ -239,7 +235,7 @@ final class AssertToExpectMigration extends StepBasedMigration {
 
   <<__Override>>
   public function getSteps(): Traversable<IMigrationStep> {
-    $this->useExpectFunctionPresent = false;
+    $this->useExpectFunctionNeeded = false;
     $make_step_add = ($name, $impl) ==> new TypedMigrationStep(
       $name,
       NamespaceUseDeclaration::class,
