@@ -43,7 +43,7 @@ final class ImplicitShapeSubtypesMigration extends StepBasedMigration {
           ),
         )
           ->withItem(
-            $last_field->getItem()->rewriteDescendants(
+            $last_field->getItemx()->rewriteDescendants(
               ($inner, $_) ==> {
                 if ($inner !== $last_field->getLastTokenx()) {
                   return $inner;

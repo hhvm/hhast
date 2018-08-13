@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a1ac50e2e6ec7768c841e17a541c2dde>>
+ * @generated SignedSource<<2856f5d46ecf2c1b97b2b4789df4ba6c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -103,15 +103,18 @@ final class VariadicParameter extends EditableNode {
   /**
    * @returns Missing
    */
-  public function getCallConvention(): EditableNode {
+  public function getCallConvention(): ?EditableNode {
+    if ($this->_call_convention->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EditableNode::class, $this->_call_convention);
   }
 
   /**
-   * @returns Missing
+   * @returns
    */
   public function getCallConventionx(): EditableNode {
-    return $this->getCallConvention();
+    return TypeAssert\instance_of(EditableNode::class, $this->_call_convention);
   }
 
   public function getTypeUNTYPED(): EditableNode {
@@ -133,16 +136,18 @@ final class VariadicParameter extends EditableNode {
    * @returns ClosureTypeSpecifier | Missing | SimpleTypeSpecifier |
    * TupleTypeSpecifier
    */
-  public function getType(): EditableNode {
+  public function getType(): ?EditableNode {
+    if ($this->_type->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EditableNode::class, $this->_type);
   }
 
   /**
-   * @returns ClosureTypeSpecifier | Missing | SimpleTypeSpecifier |
-   * TupleTypeSpecifier
+   * @returns ClosureTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier
    */
   public function getTypex(): EditableNode {
-    return $this->getType();
+    return TypeAssert\instance_of(EditableNode::class, $this->_type);
   }
 
   public function getEllipsisUNTYPED(): EditableNode {

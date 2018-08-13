@@ -175,7 +175,7 @@ final class RewriteBehaviorTest extends TestCase {
               $shape->getFieldsx()->getChildren(),
               $field ==> {
                 if ($field instanceof HHAST\ListItem) {
-                  $field = $field->getItem();
+                  $field = $field->getItemx();
                 }
                 if (!$field instanceof HHAST\FieldSpecifier) {
                   return $field;

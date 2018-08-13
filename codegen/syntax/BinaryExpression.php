@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7713c6691a42eba098f5de2cea6625a5>>
+ * @generated SignedSource<<12e98d59eda3670492ca15db3124b75f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -218,7 +218,10 @@ final class BinaryExpression extends EditableNode {
    * VarrayIntrinsicExpression | VectorIntrinsicExpression | XHPExpression |
    * YieldExpression | YieldFromExpression
    */
-  public function getRightOperand(): EditableNode {
+  public function getRightOperand(): ?EditableNode {
+    if ($this->_right_operand->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EditableNode::class, $this->_right_operand);
   }
 
@@ -230,17 +233,16 @@ final class BinaryExpression extends EditableNode {
    * EmptyExpression | EvalExpression | FunctionCallExpression |
    * FunctionCallWithTypeArgumentsExpression | InclusionExpression |
    * InstanceofExpression | IssetExpression | KeysetIntrinsicExpression |
-   * LambdaExpression | LiteralExpression | MemberSelectionExpression | Missing
-   * | NullableAsExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | Php7AnonymousFunction | PipeVariableExpression |
-   * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
-   * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * ShapeExpression | SubscriptExpression | QuestionToken | EndOfFileToken |
-   * NameToken | TupleExpression | VariableExpression |
-   * VarrayIntrinsicExpression | VectorIntrinsicExpression | XHPExpression |
-   * YieldExpression | YieldFromExpression
+   * LambdaExpression | LiteralExpression | MemberSelectionExpression |
+   * NullableAsExpression | ObjectCreationExpression | ParenthesizedExpression
+   * | Php7AnonymousFunction | PipeVariableExpression | PostfixUnaryExpression
+   * | PrefixUnaryExpression | QualifiedName | SafeMemberSelectionExpression |
+   * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
+   * QuestionToken | EndOfFileToken | NameToken | TupleExpression |
+   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
+   * | XHPExpression | YieldExpression | YieldFromExpression
    */
   public function getRightOperandx(): EditableNode {
-    return $this->getRightOperand();
+    return TypeAssert\instance_of(EditableNode::class, $this->_right_operand);
   }
 }

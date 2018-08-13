@@ -35,14 +35,17 @@ extends FunctionNamingLinter {
 
     // Allow camel-case if it's a factory function, e.g.
     //   function Missing(): Missing;
-    $type = $func->getDeclarationHeader()->getType()->getCode()
-      |> Str\trim($$)
-      |> Str\split($$, '<')
-      |> C\firstx($$)
-      |> Str\split($$, '\\')
-      |> C\lastx($$);
-    if ($type === $name) {
-      return $name;
+    $type = $func->getDeclarationHeader()->getType()?->getCode();
+    if ($type !== null) {
+      $type = $type
+        |> Str\trim($$)
+        |> Str\split($$, '<')
+        |> C\firstx($$)
+        |> Str\split($$, '\\')
+        |> C\lastx($$);
+      if ($type === $name) {
+        return $name;
+      }
     }
 
     return \preg_replace_callback(

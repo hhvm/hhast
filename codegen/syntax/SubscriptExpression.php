@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d9ea0084224cc3554a5a40678b8e495b>>
+ * @generated SignedSource<<be66e2fee7165aae8ee79008618e4128>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -202,20 +202,23 @@ final class SubscriptExpression extends EditableNode {
    * SafeMemberSelectionExpression | ScopeResolutionExpression |
    * SubscriptExpression | NameToken | VariableExpression
    */
-  public function getIndex(): EditableNode {
+  public function getIndex(): ?EditableNode {
+    if ($this->_index->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EditableNode::class, $this->_index);
   }
 
   /**
    * @returns AnonymousFunction | ArrayIntrinsicExpression | BinaryExpression |
    * CastExpression | FunctionCallExpression | LiteralExpression |
-   * MemberSelectionExpression | Missing | ObjectCreationExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * SafeMemberSelectionExpression | ScopeResolutionExpression |
    * SubscriptExpression | NameToken | VariableExpression
    */
   public function getIndexx(): EditableNode {
-    return $this->getIndex();
+    return TypeAssert\instance_of(EditableNode::class, $this->_index);
   }
 
   public function getRightBracketUNTYPED(): EditableNode {

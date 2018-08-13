@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ff6d213893fb8aded1a7615f8861e5b5>>
+ * @generated SignedSource<<d83204632ef0f4f231825eab36fc7282>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -244,15 +244,18 @@ final class VarrayTypeSpecifier extends EditableNode {
   /**
    * @returns Missing
    */
-  public function getTrailingComma(): EditableNode {
+  public function getTrailingComma(): ?EditableNode {
+    if ($this->_trailing_comma->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EditableNode::class, $this->_trailing_comma);
   }
 
   /**
-   * @returns Missing
+   * @returns
    */
   public function getTrailingCommax(): EditableNode {
-    return $this->getTrailingComma();
+    return TypeAssert\instance_of(EditableNode::class, $this->_trailing_comma);
   }
 
   public function getRightAngleUNTYPED(): EditableNode {

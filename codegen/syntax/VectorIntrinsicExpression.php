@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<91fd742464f6c31fc1b5176aed3367ee>>
+ * @generated SignedSource<<e79fd07bc3914a7043f3fc3b687a2204>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -182,15 +182,18 @@ final class VectorIntrinsicExpression extends EditableNode {
   /**
    * @returns Missing
    */
-  public function getExplicitType(): EditableNode {
+  public function getExplicitType(): ?EditableNode {
+    if ($this->_explicit_type->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EditableNode::class, $this->_explicit_type);
   }
 
   /**
-   * @returns Missing
+   * @returns
    */
   public function getExplicitTypex(): EditableNode {
-    return $this->getExplicitType();
+    return TypeAssert\instance_of(EditableNode::class, $this->_explicit_type);
   }
 
   public function getLeftBracketUNTYPED(): EditableNode {

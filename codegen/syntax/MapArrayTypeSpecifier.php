@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2aa77f5b4efdcf3ed70fb2acc4dc8ad5>>
+ * @generated SignedSource<<cbeb50d65f62a93716630dab83d45437>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -296,16 +296,19 @@ final class MapArrayTypeSpecifier extends EditableNode {
    * @returns GenericTypeSpecifier | Missing | NullableTypeSpecifier |
    * ShapeTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier
    */
-  public function getValue(): EditableNode {
+  public function getValue(): ?EditableNode {
+    if ($this->_value->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EditableNode::class, $this->_value);
   }
 
   /**
-   * @returns GenericTypeSpecifier | Missing | NullableTypeSpecifier |
-   * ShapeTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier
+   * @returns GenericTypeSpecifier | NullableTypeSpecifier | ShapeTypeSpecifier
+   * | SimpleTypeSpecifier | SoftTypeSpecifier
    */
   public function getValuex(): EditableNode {
-    return $this->getValue();
+    return TypeAssert\instance_of(EditableNode::class, $this->_value);
   }
 
   public function getRightAngleUNTYPED(): EditableNode {

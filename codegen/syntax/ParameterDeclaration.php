@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4946b33f2818976e469050bc361bcca9>>
+ * @generated SignedSource<<3098dc5df2a146e1613910226564a4f0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -287,20 +287,23 @@ final class ParameterDeclaration extends EditableNode {
    * SoftTypeSpecifier | TupleTypeSpecifier | TypeConstant |
    * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
-  public function getType(): EditableNode {
+  public function getType(): ?EditableNode {
+    if ($this->_type->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EditableNode::class, $this->_type);
   }
 
   /**
    * @returns ClassnameTypeSpecifier | ClosureTypeSpecifier |
    * DarrayTypeSpecifier | DictionaryTypeSpecifier | GenericTypeSpecifier |
-   * KeysetTypeSpecifier | MapArrayTypeSpecifier | Missing |
-   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
-   * SoftTypeSpecifier | TupleTypeSpecifier | TypeConstant |
-   * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
+   * KeysetTypeSpecifier | MapArrayTypeSpecifier | NullableTypeSpecifier |
+   * ShapeTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier |
+   * TupleTypeSpecifier | TypeConstant | VarrayTypeSpecifier |
+   * VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getTypex(): EditableNode {
-    return $this->getType();
+    return TypeAssert\instance_of(EditableNode::class, $this->_type);
   }
 
   public function getNameUNTYPED(): EditableNode {
@@ -328,15 +331,18 @@ final class ParameterDeclaration extends EditableNode {
   /**
    * @returns DecoratedExpression | Missing | VariableToken
    */
-  public function getName(): EditableNode {
+  public function getName(): ?EditableNode {
+    if ($this->_name->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EditableNode::class, $this->_name);
   }
 
   /**
-   * @returns DecoratedExpression | Missing | VariableToken
+   * @returns DecoratedExpression | VariableToken
    */
   public function getNamex(): EditableNode {
-    return $this->getName();
+    return TypeAssert\instance_of(EditableNode::class, $this->_name);
   }
 
   public function getDefaultValueUNTYPED(): EditableNode {

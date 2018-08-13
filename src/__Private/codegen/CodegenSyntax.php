@@ -88,6 +88,45 @@ final class CodegenSyntax extends CodegenBase {
       );
   }
 
+  private function getUnifiedSyntaxClass(keyset<string> $types): string {
+    unset($types['']);
+    if (C\is_empty($types)) {
+      return 'EditableNode';
+    }
+    if (C\count($types) === 1) {
+      $type = C\onlyx($types);
+      if ($type === 'list<>') {
+        return 'EditableList<EditableNode>';
+      }
+      return $this->getSyntaxClass($type);
+    }
+
+    if (C\every($types, $t ==> Str\starts_with($t, 'token:'))) {
+      return 'EditableToken';
+    }
+
+    if (C\every($types, $t ==> Str\starts_with($t, 'list<'))) {
+      $have_empty = C\contains_key($types, 'list<>');
+      if ($have_empty) {
+        if (C\count($types) === 1) {
+          return 'EditableList<EditableNode>';
+        }
+        unset($types['list<>']);
+      }
+      return Vec\map(
+        $types,
+        $t ==> $t
+          |> Str\strip_prefix($$, 'list<')
+          |> Str\strip_suffix($$, '>')
+          |> Str\split($$, '|'),
+      )
+        |> Keyset\flatten($$)
+        |> $this->getUnifiedSyntaxClass($$)
+        |> 'EditableList<'.$$.'>';
+    }
+    return 'EditableNode';
+  }
+
   private function generateFieldMethods(
     Schema\TAST $syntax,
     string $underscored,
@@ -369,62 +408,39 @@ final class CodegenSyntax extends CodegenBase {
     $children = $specs[$key] |> Keyset\filter($$, $c ==> $c !== 'error');
     $possible_types = Keyset\map(
       $children,
-      $child ==> $this->getSyntaxClassForChild($child),
+      $child ==> $this->getSyntaxClass($child),
     );
 
     $nullable = C\contains_key($children, 'missing');
+
     if ($nullable) {
       $children = Keyset\filter(
         $children,
         $child ==> $child !== 'missing',
       );
     }
-
-    $count = C\count($children);
-    if ($count !== 1) {
-      if ($count > 1 && C\every($children, $child ==> Str\starts_with($child, 'token:'))) {
-        return shape(
-          'class' => 'EditableToken',
-          'nullable' => $nullable,
-          'possibleTypes' => $possible_types,
-        );
-      }
-      if ($count > 1 && C\every($children, $child ==> Str\starts_with($child, 'list<'))) {
-        return shape(
-          'class' => 'EditableList<EditableNode>',
-          'nullable' => $nullable,
-          'possibleTypes' => $possible_types,
-        );
-      }
-      return shape(
-        'class' => 'EditableNode',
-        'nullable' => false,
-        'possibleTypes' => $possible_types,
-      );
-    }
-
     return shape(
-      'class' => C\firstx($children)
-        |> $this->getSyntaxClassForChild($$),
+      'class' => $this->getUnifiedSyntaxClass($children),
       'nullable' => $nullable,
       'possibleTypes' => $possible_types,
     );
   }
 
   <<__Memoize>>
-  private function getSyntaxClassForChild(string $child): string {
+    private function getSyntaxClass(string $child): string {
     if ($child === 'token') {
       return 'EditableToken';
     }
+    if ($child === 'list<>') {
+      return 'EditableList<EditableNode>';
+    }
     if (Str\starts_with_ci($child, 'list<')) {
-      $inner = $child
+      return $child
         |> Str\strip_prefix($$, 'list<')
         |> Str\strip_suffix($$, '>')
-        |> Str\split($$, '|');
-      if (C\count($inner) === 0 || C\count($inner) > 1 || C\onlyx($inner) === '') {
-        return 'EditableList<EditableNode>';
-      }
-      return 'EditableList<'.$this->getSyntaxClassForChild(C\onlyx($inner)).'>';
+        |> Str\split($$, '|')
+        |> keyset($$)
+        |> 'EditableList<'.$this->getUnifiedSyntaxClass($$).'>';
     }
 
     if (Str\starts_with($child, 'token')) {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<79a66821bfee55c48d1e1a0e0f5d81a0>>
+ * @generated SignedSource<<8fc037695afd4eb83627807b27ec98fa>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -219,7 +219,10 @@ final class ConditionalExpression extends EditableNode {
    * ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression
    */
-  public function getConsequence(): EditableNode {
+  public function getConsequence(): ?EditableNode {
+    if ($this->_consequence->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EditableNode::class, $this->_consequence);
   }
 
@@ -227,13 +230,13 @@ final class ConditionalExpression extends EditableNode {
    * @returns ArrayCreationExpression | ArrayIntrinsicExpression |
    * BinaryExpression | CastExpression | CollectionLiteralExpression |
    * FunctionCallExpression | LambdaExpression | LiteralExpression |
-   * MemberSelectionExpression | Missing | ObjectCreationExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PrefixUnaryExpression |
    * ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression
    */
   public function getConsequencex(): EditableNode {
-    return $this->getConsequence();
+    return TypeAssert\instance_of(EditableNode::class, $this->_consequence);
   }
 
   public function getColonUNTYPED(): EditableNode {
@@ -304,7 +307,10 @@ final class ConditionalExpression extends EditableNode {
    * ScopeResolutionExpression | SubscriptExpression | NameToken |
    * TupleExpression | VariableExpression
    */
-  public function getAlternative(): EditableNode {
+  public function getAlternative(): ?EditableNode {
+    if ($this->_alternative->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EditableNode::class, $this->_alternative);
   }
 
@@ -312,12 +318,12 @@ final class ConditionalExpression extends EditableNode {
    * @returns AnonymousFunction | ArrayCreationExpression |
    * ArrayIntrinsicExpression | BinaryExpression | CastExpression |
    * CollectionLiteralExpression | FunctionCallExpression | IssetExpression |
-   * LambdaExpression | LiteralExpression | Missing | ObjectCreationExpression
-   * | ParenthesizedExpression | PrefixUnaryExpression |
+   * LambdaExpression | LiteralExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression |
    * ScopeResolutionExpression | SubscriptExpression | NameToken |
    * TupleExpression | VariableExpression
    */
   public function getAlternativex(): EditableNode {
-    return $this->getAlternative();
+    return TypeAssert\instance_of(EditableNode::class, $this->_alternative);
   }
 }

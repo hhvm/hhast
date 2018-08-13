@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e884976aeb8ea52d56e36358ce6cc9c2>>
+ * @generated SignedSource<<56af522e32cecdf55c6d21493d9d272e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -102,7 +102,10 @@ final class ExpressionStatement extends EditableNode {
    * VariableExpression | VarrayIntrinsicExpression | XHPExpression |
    * YieldExpression | YieldFromExpression
    */
-  public function getExpression(): EditableNode {
+  public function getExpression(): ?EditableNode {
+    if ($this->_expression->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EditableNode::class, $this->_expression);
   }
 
@@ -113,8 +116,8 @@ final class ExpressionStatement extends EditableNode {
    * EvalExpression | FunctionCallExpression |
    * FunctionCallWithTypeArgumentsExpression | HaltCompilerExpression |
    * InclusionExpression | InstanceofExpression | IssetExpression |
-   * LambdaExpression | LiteralExpression | MemberSelectionExpression | Missing
-   * | ObjectCreationExpression | ParenthesizedExpression |
+   * LambdaExpression | LiteralExpression | MemberSelectionExpression |
+   * ObjectCreationExpression | ParenthesizedExpression |
    * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
    * SafeMemberSelectionExpression | ScopeResolutionExpression |
    * SubscriptExpression | RightParenToken | CommaToken | ColonToken |
@@ -123,7 +126,7 @@ final class ExpressionStatement extends EditableNode {
    * YieldExpression | YieldFromExpression
    */
   public function getExpressionx(): EditableNode {
-    return $this->getExpression();
+    return TypeAssert\instance_of(EditableNode::class, $this->_expression);
   }
 
   public function getSemicolonUNTYPED(): EditableNode {

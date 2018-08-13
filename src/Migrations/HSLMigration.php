@@ -39,7 +39,6 @@ use type Facebook\HHAST\{
   CommaToken,
   WhiteSpace,
   BackslashToken,
-  Missing,
   MarkupSection,
   NamespaceDeclaration,
   NamespaceEmptyBody,
@@ -353,7 +352,7 @@ final class HSLMigration extends BaseMigration {
       $arguments,
       $argument ==> {
         invariant($argument instanceof ListItem, 'expected ListItem');
-        return $argument->getItem();
+        return $argument->getItemx();
       },
     );
 
@@ -486,7 +485,7 @@ final class HSLMigration extends BaseMigration {
       foreach ($arguments as $i => $argument) {
         invariant($argument instanceof ListItem, 'expected ListItem');
         $new_argument_list[] =
-          $argument->replace($argument->getItem(), $new_items[(int)$i]);
+          $argument->replace($argument->getItemx(), $new_items[(int)$i]);
       }
 
       $new_argument_list = EditableList::fromItems($new_argument_list);
@@ -657,7 +656,7 @@ final class HSLMigration extends BaseMigration {
         invariant($child instanceof ListItem, 'expected ListItem');
         $item = $child->getItem();
         if (
-          $item instanceof Missing &&
+          $item === null &&
           $child->getSeparator() instanceof BackslashToken
         ) {
           // leading backslash such as \implode(), skip over this to get the name token

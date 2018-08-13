@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4f8e9dd2cfd49b584d10e29c42d591cf>>
+ * @generated SignedSource<<08bafd7156dbde9c1d1dba0412da4800>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -210,15 +210,18 @@ final class ClassnameTypeSpecifier extends EditableNode {
   /**
    * @returns Missing | SimpleTypeSpecifier | TypeConstant
    */
-  public function getType(): EditableNode {
+  public function getType(): ?EditableNode {
+    if ($this->_type->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EditableNode::class, $this->_type);
   }
 
   /**
-   * @returns Missing | SimpleTypeSpecifier | TypeConstant
+   * @returns SimpleTypeSpecifier | TypeConstant
    */
   public function getTypex(): EditableNode {
-    return $this->getType();
+    return TypeAssert\instance_of(EditableNode::class, $this->_type);
   }
 
   public function getTrailingCommaUNTYPED(): EditableNode {
@@ -245,15 +248,18 @@ final class ClassnameTypeSpecifier extends EditableNode {
   /**
    * @returns Missing
    */
-  public function getTrailingComma(): EditableNode {
+  public function getTrailingComma(): ?EditableNode {
+    if ($this->_trailing_comma->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EditableNode::class, $this->_trailing_comma);
   }
 
   /**
-   * @returns Missing
+   * @returns
    */
   public function getTrailingCommax(): EditableNode {
-    return $this->getTrailingComma();
+    return TypeAssert\instance_of(EditableNode::class, $this->_trailing_comma);
   }
 
   public function getRightAngleUNTYPED(): EditableNode {

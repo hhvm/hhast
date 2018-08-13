@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d869a5c624ab4a278fa8a017c06adecc>>
+ * @generated SignedSource<<117575a6e9acfce27a772e4ae2b2a68a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -220,19 +220,22 @@ final class PropertyDeclaration extends EditableNode {
    * | TupleTypeSpecifier | TypeConstant | VarrayTypeSpecifier |
    * VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
-  public function getType(): EditableNode {
+  public function getType(): ?EditableNode {
+    if ($this->_type->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EditableNode::class, $this->_type);
   }
 
   /**
    * @returns ClosureTypeSpecifier | DarrayTypeSpecifier |
    * DictionaryTypeSpecifier | GenericTypeSpecifier | MapArrayTypeSpecifier |
-   * Missing | NullableTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier
-   * | TupleTypeSpecifier | TypeConstant | VarrayTypeSpecifier |
+   * NullableTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier |
+   * TupleTypeSpecifier | TypeConstant | VarrayTypeSpecifier |
    * VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getTypex(): EditableNode {
-    return $this->getType();
+    return TypeAssert\instance_of(EditableNode::class, $this->_type);
   }
 
   public function getDeclaratorsUNTYPED(): EditableNode {

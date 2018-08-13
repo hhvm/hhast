@@ -93,7 +93,7 @@ class NoBasicAssignmentFunctionParameterLinter
     $fixed_exps = vec[];
     foreach ($args as $exp) {
       if ($exp instanceof ListItem) {
-        $item = $exp->getItem();
+        $item = $exp->getItemx();
         if (
           $item instanceof BinaryExpression &&
           $item->getOperator() instanceof EqualToken
@@ -104,7 +104,7 @@ class NoBasicAssignmentFunctionParameterLinter
             $item->getOperator()->getCode().
             '*/ ',
           );
-          $fixed_exps[] = $item->getRightOperand();
+          $fixed_exps[] = $item->getRightOperandx();
           if ($exp !== C\lastx($args)) {
             $fixed_exps[] =
               new CommaToken(new WhiteSpace(''), new WhiteSpace(' '));

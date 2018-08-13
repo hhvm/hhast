@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<813ffc5d3eebcefd3c6617d5d5f1ba87>>
+ * @generated SignedSource<<57eec61e4591684a12d7d1ccce9e9dd4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -169,16 +169,19 @@ final class InstanceofExpression extends EditableNode {
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
    * NameToken | VariableExpression
    */
-  public function getRightOperand(): EditableNode {
+  public function getRightOperand(): ?EditableNode {
+    if ($this->_right_operand->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EditableNode::class, $this->_right_operand);
   }
 
   /**
-   * @returns MemberSelectionExpression | Missing | ParenthesizedExpression |
+   * @returns MemberSelectionExpression | ParenthesizedExpression |
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
    * NameToken | VariableExpression
    */
   public function getRightOperandx(): EditableNode {
-    return $this->getRightOperand();
+    return TypeAssert\instance_of(EditableNode::class, $this->_right_operand);
   }
 }

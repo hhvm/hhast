@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7216b43b911f28ca940541419b37b669>>
+ * @generated SignedSource<<7baaefe0d051cbf903a32bf7f9a0c4b7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -182,15 +182,18 @@ final class KeysetIntrinsicExpression extends EditableNode {
   /**
    * @returns Missing
    */
-  public function getExplicitType(): EditableNode {
+  public function getExplicitType(): ?EditableNode {
+    if ($this->_explicit_type->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EditableNode::class, $this->_explicit_type);
   }
 
   /**
-   * @returns Missing
+   * @returns
    */
   public function getExplicitTypex(): EditableNode {
-    return $this->getExplicitType();
+    return TypeAssert\instance_of(EditableNode::class, $this->_explicit_type);
   }
 
   public function getLeftBracketUNTYPED(): EditableNode {

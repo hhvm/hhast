@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c428c4e9b5f06b51b9f2e9feb4e22594>>
+ * @generated SignedSource<<a94b5a6994b8d7360fcd5d2b9f6edd6c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -182,15 +182,18 @@ final class DarrayIntrinsicExpression extends EditableNode {
   /**
    * @returns Missing
    */
-  public function getExplicitType(): EditableNode {
+  public function getExplicitType(): ?EditableNode {
+    if ($this->_explicit_type->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EditableNode::class, $this->_explicit_type);
   }
 
   /**
-   * @returns Missing
+   * @returns
    */
   public function getExplicitTypex(): EditableNode {
-    return $this->getExplicitType();
+    return TypeAssert\instance_of(EditableNode::class, $this->_explicit_type);
   }
 
   public function getLeftBracketUNTYPED(): EditableNode {

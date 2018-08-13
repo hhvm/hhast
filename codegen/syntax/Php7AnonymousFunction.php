@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ac06e021b5e036e5c50b0c68f9842c51>>
+ * @generated SignedSource<<4c6a37864effc40565d4b6f978a5d07f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -276,15 +276,18 @@ final class Php7AnonymousFunction extends EditableNode {
   /**
    * @returns Missing
    */
-  public function getAttributeSpec(): EditableNode {
+  public function getAttributeSpec(): ?EditableNode {
+    if ($this->_attribute_spec->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EditableNode::class, $this->_attribute_spec);
   }
 
   /**
-   * @returns Missing
+   * @returns
    */
   public function getAttributeSpecx(): EditableNode {
-    return $this->getAttributeSpec();
+    return TypeAssert\instance_of(EditableNode::class, $this->_attribute_spec);
   }
 
   public function getStaticKeywordUNTYPED(): EditableNode {
@@ -319,15 +322,18 @@ final class Php7AnonymousFunction extends EditableNode {
   /**
    * @returns Missing
    */
-  public function getStaticKeyword(): EditableNode {
+  public function getStaticKeyword(): ?EditableNode {
+    if ($this->_static_keyword->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EditableNode::class, $this->_static_keyword);
   }
 
   /**
-   * @returns Missing
+   * @returns
    */
   public function getStaticKeywordx(): EditableNode {
-    return $this->getStaticKeyword();
+    return TypeAssert\instance_of(EditableNode::class, $this->_static_keyword);
   }
 
   public function getAsyncKeywordUNTYPED(): EditableNode {
@@ -362,15 +368,18 @@ final class Php7AnonymousFunction extends EditableNode {
   /**
    * @returns Missing
    */
-  public function getAsyncKeyword(): EditableNode {
+  public function getAsyncKeyword(): ?EditableNode {
+    if ($this->_async_keyword->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EditableNode::class, $this->_async_keyword);
   }
 
   /**
-   * @returns Missing
+   * @returns
    */
   public function getAsyncKeywordx(): EditableNode {
-    return $this->getAsyncKeyword();
+    return TypeAssert\instance_of(EditableNode::class, $this->_async_keyword);
   }
 
   public function getCoroutineKeywordUNTYPED(): EditableNode {
@@ -405,16 +414,20 @@ final class Php7AnonymousFunction extends EditableNode {
   /**
    * @returns Missing
    */
-  public function getCoroutineKeyword(): EditableNode {
+  public function getCoroutineKeyword(): ?EditableNode {
+    if ($this->_coroutine_keyword->isMissing()) {
+      return null;
+    }
     return
       TypeAssert\instance_of(EditableNode::class, $this->_coroutine_keyword);
   }
 
   /**
-   * @returns Missing
+   * @returns
    */
   public function getCoroutineKeywordx(): EditableNode {
-    return $this->getCoroutineKeyword();
+    return
+      TypeAssert\instance_of(EditableNode::class, $this->_coroutine_keyword);
   }
 
   public function getFunctionKeywordUNTYPED(): EditableNode {
@@ -493,15 +506,18 @@ final class Php7AnonymousFunction extends EditableNode {
   /**
    * @returns Missing
    */
-  public function getAmpersand(): EditableNode {
+  public function getAmpersand(): ?EditableNode {
+    if ($this->_ampersand->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EditableNode::class, $this->_ampersand);
   }
 
   /**
-   * @returns Missing
+   * @returns
    */
   public function getAmpersandx(): EditableNode {
-    return $this->getAmpersand();
+    return TypeAssert\instance_of(EditableNode::class, $this->_ampersand);
   }
 
   public function getLeftParenUNTYPED(): EditableNode {
@@ -579,15 +595,18 @@ final class Php7AnonymousFunction extends EditableNode {
   /**
    * @returns Missing
    */
-  public function getParameters(): EditableNode {
+  public function getParameters(): ?EditableNode {
+    if ($this->_parameters->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EditableNode::class, $this->_parameters);
   }
 
   /**
-   * @returns Missing
+   * @returns
    */
   public function getParametersx(): EditableNode {
-    return $this->getParameters();
+    return TypeAssert\instance_of(EditableNode::class, $this->_parameters);
   }
 
   public function getRightParenUNTYPED(): EditableNode {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ba2dd6fbfab49d4d13070ed28b887840>>
+ * @generated SignedSource<<393d2b5a4c1e282c0c6bebd6a7767870>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -445,18 +445,21 @@ final class ForeachStatement
    * ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression
    */
-  public function getKey(): EditableNode {
+  public function getKey(): ?EditableNode {
+    if ($this->_key->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EditableNode::class, $this->_key);
   }
 
   /**
    * @returns FunctionCallExpression | ListExpression |
-   * MemberSelectionExpression | Missing | PrefixUnaryExpression |
+   * MemberSelectionExpression | PrefixUnaryExpression |
    * ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression
    */
   public function getKeyx(): EditableNode {
-    return $this->getKey();
+    return TypeAssert\instance_of(EditableNode::class, $this->_key);
   }
 
   public function getArrowUNTYPED(): EditableNode {

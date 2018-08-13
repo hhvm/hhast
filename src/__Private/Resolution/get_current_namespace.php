@@ -54,7 +54,7 @@ function get_current_namespace(
   return $namespaces
     |> C\firstx($$)
     |> TypeAssert\instance_of(NamespaceDeclaration::class, $$)
-    |> $$->getName()->getCode()
+    |> $$->getName()?->getCode() ?? ''
     |> Str\trim($$)
     |> Str\strip_prefix($$, '\\')
     |> $$ === '' ? null : $$;

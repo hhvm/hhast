@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<72caba01628f62e7a2e769d369c3cc9c>>
+ * @generated SignedSource<<15cbb97e316a3580ff860d42175111d7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -144,7 +144,10 @@ final class ReturnStatement extends EditableNode {
    * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
    * | XHPExpression | YieldFromExpression
    */
-  public function getExpression(): EditableNode {
+  public function getExpression(): ?EditableNode {
+    if ($this->_expression->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EditableNode::class, $this->_expression);
   }
 
@@ -155,8 +158,8 @@ final class ReturnStatement extends EditableNode {
    * DarrayIntrinsicExpression | DictionaryIntrinsicExpression | EvalExpression
    * | FunctionCallExpression | FunctionCallWithTypeArgumentsExpression |
    * InstanceofExpression | IssetExpression | KeysetIntrinsicExpression |
-   * LambdaExpression | LiteralExpression | MemberSelectionExpression | Missing
-   * | ObjectCreationExpression | ParenthesizedExpression |
+   * LambdaExpression | LiteralExpression | MemberSelectionExpression |
+   * ObjectCreationExpression | ParenthesizedExpression |
    * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
    * SafeMemberSelectionExpression | ScopeResolutionExpression |
    * ShapeExpression | SubscriptExpression | NameToken | TupleExpression |
@@ -164,7 +167,7 @@ final class ReturnStatement extends EditableNode {
    * | XHPExpression | YieldFromExpression
    */
   public function getExpressionx(): EditableNode {
-    return $this->getExpression();
+    return TypeAssert\instance_of(EditableNode::class, $this->_expression);
   }
 
   public function getSemicolonUNTYPED(): EditableNode {

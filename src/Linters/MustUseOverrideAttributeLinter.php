@@ -86,7 +86,7 @@ final class MustUseOverrideAttributeLinter
   ): string {
     $super = C\onlyx($class->getExtendsListx()->getChildren());
     if ($super instanceof ListItem) {
-      $super = $super->getItem();
+      $super = $super->getItemx();
     }
     if ($super instanceof GenericTypeSpecifier) {
       $super = $super->getClassType();

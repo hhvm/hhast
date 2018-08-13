@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<30e9fdedd7f68917b7af456d8dee2e5a>>
+ * @generated SignedSource<<5e3a2a17d865e8210130a9a5525fd2fd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -467,15 +467,18 @@ final class AlternateIfStatement extends EditableNode {
   /**
    * @returns Missing
    */
-  public function getElseifClauses(): EditableNode {
+  public function getElseifClauses(): ?EditableNode {
+    if ($this->_elseif_clauses->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EditableNode::class, $this->_elseif_clauses);
   }
 
   /**
-   * @returns Missing
+   * @returns
    */
   public function getElseifClausesx(): EditableNode {
-    return $this->getElseifClauses();
+    return TypeAssert\instance_of(EditableNode::class, $this->_elseif_clauses);
   }
 
   public function getElseClauseUNTYPED(): EditableNode {

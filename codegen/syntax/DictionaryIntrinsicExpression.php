@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<235794b8b4517a4ce33d820bb19119a5>>
+ * @generated SignedSource<<57d0293a56e6bb183a148a4c4a8b5468>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -182,15 +182,18 @@ final class DictionaryIntrinsicExpression extends EditableNode {
   /**
    * @returns Missing
    */
-  public function getExplicitType(): EditableNode {
+  public function getExplicitType(): ?EditableNode {
+    if ($this->_explicit_type->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EditableNode::class, $this->_explicit_type);
   }
 
   /**
-   * @returns Missing
+   * @returns
    */
   public function getExplicitTypex(): EditableNode {
-    return $this->getExplicitType();
+    return TypeAssert\instance_of(EditableNode::class, $this->_explicit_type);
   }
 
   public function getLeftBracketUNTYPED(): EditableNode {

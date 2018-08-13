@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ea2a0b865996c78c3db97d3f646dfeea>>
+ * @generated SignedSource<<3c879b204c1c4bd03a5b565af6461a41>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -370,15 +370,18 @@ final class TypeConstDeclaration extends EditableNode {
   /**
    * @returns Missing
    */
-  public function getTypeParameters(): EditableNode {
+  public function getTypeParameters(): ?EditableNode {
+    if ($this->_type_parameters->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EditableNode::class, $this->_type_parameters);
   }
 
   /**
-   * @returns Missing
+   * @returns
    */
   public function getTypeParametersx(): EditableNode {
-    return $this->getTypeParameters();
+    return TypeAssert\instance_of(EditableNode::class, $this->_type_parameters);
   }
 
   public function getTypeConstraintUNTYPED(): EditableNode {
@@ -498,18 +501,21 @@ final class TypeConstDeclaration extends EditableNode {
    * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
    * TupleTypeSpecifier | TypeConstant | VectorTypeSpecifier
    */
-  public function getTypeSpecifier(): EditableNode {
+  public function getTypeSpecifier(): ?EditableNode {
+    if ($this->_type_specifier->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EditableNode::class, $this->_type_specifier);
   }
 
   /**
    * @returns ClosureTypeSpecifier | DictionaryTypeSpecifier |
-   * GenericTypeSpecifier | KeysetTypeSpecifier | Missing |
-   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
-   * TupleTypeSpecifier | TypeConstant | VectorTypeSpecifier
+   * GenericTypeSpecifier | KeysetTypeSpecifier | NullableTypeSpecifier |
+   * ShapeTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
+   * TypeConstant | VectorTypeSpecifier
    */
   public function getTypeSpecifierx(): EditableNode {
-    return $this->getTypeSpecifier();
+    return TypeAssert\instance_of(EditableNode::class, $this->_type_specifier);
   }
 
   public function getSemicolonUNTYPED(): EditableNode {
