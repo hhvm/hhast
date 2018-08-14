@@ -18,7 +18,7 @@ final class UseStatementWithoutKindLinterTest extends TestCase {
   protected function getLinter(
     string $file,
   ): Linters\UseStatementWithoutKindLinter {
-    return new Linters\UseStatementWithoutKindLinter($file);
+    return Linters\UseStatementWithoutKindLinter::fromPath($file);
   }
 
   public function getCleanExamples(): array<array<string>> {

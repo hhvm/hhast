@@ -17,15 +17,18 @@ abstract class BaseLinter {
   abstract public function getLintErrorsAsync(
   ): Awaitable<Traversable<LintError>>;
 
-  public static function shouldLintFile(string $_): bool {
+  public static function shouldLintFile(File $_): bool {
     return true;
   }
-  public function __construct(
-    private string $file,
-  ) {
+
+  public function __construct(private File $file) {
   }
 
-  final public function getFile(): string {
+  final public static function fromPath(string $path): this {
+    return new static(new File($path, \file_get_contents($path)));
+  }
+
+  final public function getFile(): File {
     return $this->file;
   }
 
@@ -71,8 +74,10 @@ abstract class BaseLinter {
    */
   <<__Memoize>>
   public function isLinterSuppressedForFile(): bool {
-    $code = \file_get_contents($this->getFile());
-    return Str\contains($code, $this->getIgnoreAllMarker());
+    return Str\contains(
+      $this->getFile()->getContents(),
+      $this->getIgnoreAllMarker(),
+    );
   }
 
 }

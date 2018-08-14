@@ -16,7 +16,7 @@ final class NoPHPEqualityLinterTest extends TestCase {
   protected function getLinter(
     string $file,
   ): Linters\NoPHPEqualityLinter{
-    return new Linters\NoPHPEqualityLinter($file);
+    return Linters\NoPHPEqualityLinter::fromPath($file);
   }
 
   public function getCleanExamples(): array<array<string>> {

@@ -16,7 +16,7 @@ final class DontAwaitInALoopLinterTest extends TestCase {
   protected function getLinter(
     string $file,
   ): Linters\BaseLinter {
-    return new Linters\DontAwaitInALoopLinter($file);
+    return Linters\DontAwaitInALoopLinter::fromPath($file);
   }
 
   public function getCleanExamples(): array<array<string>> {

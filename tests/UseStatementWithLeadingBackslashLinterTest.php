@@ -16,7 +16,7 @@ final class UseStatementWithLeadingBackslashLinterTest extends TestCase {
   protected function getLinter(
     string $file,
   ): Linters\AutoFixingASTLinter<INamespaceUseDeclaration> {
-    return new Linters\UseStatementWithLeadingBackslashLinter($file);
+    return Linters\UseStatementWithLeadingBackslashLinter::fromPath($file);
   }
 
   public function getCleanExamples(): array<array<string>> {

@@ -16,7 +16,7 @@ final class NewlineAtEndOfFileLinterTest extends TestCase {
   protected function getLinter(
     string $file,
   ): Linters\AutoFixingLinter<Linters\FixableLintError> {
-    return new Linters\NewlineAtEndOfFileLinter($file);
+    return Linters\NewlineAtEndOfFileLinter::fromPath($file);
   }
 
   public function getCleanExamples(): array<array<string>> {

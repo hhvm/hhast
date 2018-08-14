@@ -18,7 +18,7 @@ final class AsyncFunctionAndMethodLinterTest extends TestCase {
   protected function getLinter(
     string $file,
   ): Linters\BaseLinter {
-    return new Linters\AsyncFunctionAndMethodLinter($file);
+    return Linters\AsyncFunctionAndMethodLinter::fromPath($file);
   }
 
   public function getCleanExamples(): array<array<string>> {

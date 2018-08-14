@@ -18,7 +18,7 @@ final class NewlineAtEndOfFileLinter
   <<__Override>>
   public async function getLintErrorsAsync(
   ): Awaitable<Traversable<FixableLintError>> {
-    $contents = \file_get_contents($this->getFile());
+    $contents = $this->getFile()->getContents();
     $trimmed = Str\trim_right($contents);
     $expected = $trimmed."\n";
     if ($contents === $expected) {
@@ -46,10 +46,9 @@ final class NewlineAtEndOfFileLinter
       |> vec[$$];
   }
 
-  public function fixLintErrors(Traversable<FixableLintError> $_): void {
-    \file_put_contents(
-      $this->getFile(),
-      \file_get_contents($this->getFile())
+  public function fixLintErrors(Traversable<FixableLintError> $_): File {
+    return $this->getFile()->withContents(
+      $this->getFile()->getContents()
         |> Str\trim_right($$)
         |> $$."\n",
     );

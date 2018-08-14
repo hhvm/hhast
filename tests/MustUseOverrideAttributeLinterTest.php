@@ -20,7 +20,7 @@ final class MustUseOverrideAttributeLinterTest extends TestCase {
   protected function getLinter(
     string $file,
   ): Linters\MustUseOverrideAttributeLinter {
-    return new Linters\MustUseOverrideAttributeLinter($file);
+    return Linters\MustUseOverrideAttributeLinter::fromPath($file);
   }
 
   public function getCleanExamples(): array<array<string>> {

@@ -59,7 +59,7 @@ implements LSPAutoFixingLinter<FixableASTLintError<Tnode>> {
       'kind' => LSP\CodeActionKind::QUICK_FIX,
       'edit' => shape(
         'changes' => dict[
-          'file://'.\realpath($this->getFile()) => vec[shape(
+          'file://'.\realpath($this->getFile()->getPath()) => vec[shape(
             'range' => shape(
               'start' => LSPImpl\position_to_lsp($start),
               'end' => LSPImpl\position_to_lsp($end),
@@ -73,7 +73,7 @@ implements LSPAutoFixingLinter<FixableASTLintError<Tnode>> {
 
   final public function fixLintErrors(
     Traversable<FixableASTLintError<Tnode>> $errors,
-  ): void {
+  ): File {
     $ast = $this->getAST();
     foreach ($errors as $error) {
       invariant(
@@ -96,9 +96,6 @@ implements LSPAutoFixingLinter<FixableASTLintError<Tnode>> {
         $ast = $ast->replace($old, $new);
       }
     }
-    \file_put_contents(
-      $this->getFile(),
-      $ast->getCode(),
-    );
+    return $this->getFile()->withContents($ast->getCode());
   }
 }

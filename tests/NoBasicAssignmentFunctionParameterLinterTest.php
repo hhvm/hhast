@@ -18,7 +18,7 @@ final class NoBasicAssignmentFunctionParameterLinterTest extends TestCase {
   protected function getLinter(
     string $file,
   ): Linters\BaseLinter {
-    return new Linters\NoBasicAssignmentFunctionParameterLinter($file);
+    return Linters\NoBasicAssignmentFunctionParameterLinter::fromPath($file);
   }
 
   public function getCleanExamples(): array<array<string>> {

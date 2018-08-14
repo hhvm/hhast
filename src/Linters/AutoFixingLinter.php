@@ -18,5 +18,5 @@ interface AutoFixingLinter<Terror as FixableLintError> {
 
   public function fixLintErrors(
     Traversable<Terror> $errors,
-  ): void;
+  ): File;
 }

@@ -21,7 +21,7 @@ final class MustUseBracesForControlFlowLinterTest extends TestCase {
   protected function getLinter(
     string $file,
   ): Linters\MustUseBracesForControlFlowLinter {
-    return new Linters\MustUseBracesForControlFlowLinter($file);
+    return Linters\MustUseBracesForControlFlowLinter::fromPath($file);
   }
 
   public function getCleanExamples(): array<array<string>> {

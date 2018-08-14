@@ -192,9 +192,10 @@ abstract class FunctionNamingLinter extends BaseASTLinter<
 
   final public function fixLintErrors(
     Traversable<FunctionNamingLintError> $errors,
-  ): void {
+  ): File {
     foreach ($errors as $error) {
       $error->refactorWithHHClient();
     }
+    return $this->getFile();
   }
 }

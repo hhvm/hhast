@@ -16,7 +16,7 @@ use namespace HH\Lib\{C, Str, Vec};
 abstract class LineLinter<+Terror as LineLintError> extends BaseLinter {
 
   public function getLinesFromFile(): vec<string> {
-    $code = \file_get_contents($this->getFile());
+    $code = $this->getFile()->getContents();
     $lines = Str\split($code, "\n");
     return vec($lines);
   }

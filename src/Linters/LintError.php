@@ -17,7 +17,7 @@ class LintError {
   ) {
   }
 
-  final public function getFile(): string {
+  final public function getFile(): File {
     return $this->linter->getFile();
   }
 

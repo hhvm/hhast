@@ -15,7 +15,10 @@ use namespace HH\Lib\{C, Str, Vec};
 
 final class LintRunLSPPublishDiagnosticsEventHandler
   implements LintRunEventHandler {
-  public function __construct(private LSPLib\Client $client, private LSPImpl\ServerState $state) {
+  public function __construct(
+    private LSPLib\Client $client,
+    private LSPImpl\ServerState $state,
+  ) {
   }
 
   private ?string $file = null;
@@ -26,22 +29,17 @@ final class LintRunLSPPublishDiagnosticsEventHandler
     LintRunConfig::TFileConfig $_config,
     Traversable<Linters\LintError> $errors,
   ): LintAutoFixResult {
-    $file = \realpath($linter->getFile());
+    $file = \realpath($linter->getFile()->getPath());
     invariant(
       $this->file === null || $this->file === $file,
       "Unexpected file change in lint process",
     );
     $this->file = $file;
-    $this->errors = Vec\concat(
-      $this->errors ?? vec[],
-      $errors,
-    );
+    $this->errors = Vec\concat($this->errors ?? vec[], $errors);
     return LintAutoFixResult::SOME_UNFIXED;
   }
 
-  private function asDiagnostic(
-    Linters\LintError $error,
-  ): LSP\Diagnostic {
+  private function asDiagnostic(Linters\LintError $error): LSP\Diagnostic {
     $range = $error->getRange();
     $start = $range[0] ?? tuple(0, 0);
     $end = $range[1] ?? $start;

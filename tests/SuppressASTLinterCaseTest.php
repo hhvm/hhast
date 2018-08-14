@@ -18,7 +18,7 @@ final class SuppressASTLinterCaseTest extends TestCase {
   use LinterTestTrait;
 
   protected function getLinter(string $file): Linters\BaseLinter {
-    return new Linters\CamelCasedMethodsUnderscoredFunctionsLinter($file);
+    return Linters\CamelCasedMethodsUnderscoredFunctionsLinter::fromPath($file);
   }
 
   public function getCleanExamples(): array<array<string>> {

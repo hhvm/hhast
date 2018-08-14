@@ -18,7 +18,7 @@ final class SuppressLineLinterTest extends TestCase {
   use LinterTestTrait;
 
   protected function getLinter(string $file): Linters\BaseLinter {
-    return new Linters\NoWhitespaceAtEndOfLineLinter($file);
+    return Linters\NoWhitespaceAtEndOfLineLinter::fromPath($file);
   }
 
   public function getCleanExamples(): array<array<string>> {
