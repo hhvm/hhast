@@ -14,7 +14,7 @@ final class UseStatementWithAsLinterTest extends TestCase {
   use LinterTestTrait;
 
   protected function getLinter(string $file): Linters\UseStatementWithAsLinter {
-    return new Linters\UseStatementWithAsLinter($file);
+    return Linters\UseStatementWithAsLinter::fromPath($file);
   }
 
   public function getCleanExamples(): array<array<string>> {

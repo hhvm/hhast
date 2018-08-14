@@ -16,7 +16,7 @@ final class UnusedUseClauseLinterTest extends TestCase {
   protected function getLinter(
     string $file,
   ): Linters\AutoFixingASTLinter<INamespaceUseDeclaration> {
-    return new Linters\UnusedUseClauseLinter($file);
+    return Linters\UnusedUseClauseLinter::fromPath($file);
   }
 
   public function getCleanExamples(): array<array<string>> {

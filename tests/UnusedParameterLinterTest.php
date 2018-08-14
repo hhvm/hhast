@@ -16,7 +16,7 @@ final class UnusedParameterLinterTest extends TestCase {
   >;
 
   protected function getLinter(string $file): Linters\UnusedParameterLinter {
-    return new Linters\UnusedParameterLinter($file);
+    return Linters\UnusedParameterLinter::fromPath($file);
   }
 
   public function getCleanExamples(): array<array<string>> {

@@ -17,6 +17,7 @@ use type Facebook\HHAST\__Private\LintRunConfig;
 final class ServerState extends LSPLib\ServerState {
   public ?LintRunConfig $config = null;
   public LintMode $lintMode = LintMode::WHOLE_PROJECT;
+  public bool $lintAsYouType = true;
   public keyset<string> $openFiles = keyset[];
   public dict<string, vec<Linters\LintError>> $lintErrors = dict[];
 }

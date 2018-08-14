@@ -47,7 +47,7 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter<Script> {
     if ($leading instanceof DelimitedComment) {
       if (
         $leading->getText() ===
-          self::getLicenseHeaderForPath(\dirname($this->getFile()))
+          self::getLicenseHeaderForPath(\dirname($this->getFile()->getPath()))
       ) {
         return null;
       }
@@ -103,7 +103,7 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter<Script> {
 
       $new = vec[new DelimitedComment(
         TypeAssert\not_null(
-          self::getLicenseHeaderForPath(\dirname($this->getFile())),
+          self::getLicenseHeaderForPath(\dirname($this->getFile()->getPath())),
         ),
       )];
       if (!($next instanceof EndOfLine && $next_next instanceof EndOfLine)) {
@@ -118,7 +118,7 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter<Script> {
       vec[
         new DelimitedComment(
           TypeAssert\not_null(
-            self::getLicenseHeaderForPath(\dirname($this->getFile())),
+            self::getLicenseHeaderForPath(\dirname($this->getFile()->getPath())),
           ),
         ),
         new EndOfLine("\n"),
@@ -133,8 +133,8 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter<Script> {
   }
 
   <<__Override>>
-  public static function shouldLintFile(string $path): bool {
-    return self::getLicenseHeaderForPath($path) !== null;
+  public static function shouldLintFile(File $file): bool {
+    return self::getLicenseHeaderForPath($file->getPath()) !== null;
   }
 
   <<__Memoize>>

@@ -17,7 +17,7 @@ final class NoWhitespaceAtEndOfLineLinterTest extends TestCase {
   protected function getLinter(
     string $file,
   ): Linters\NoWhitespaceAtEndOfLineLinter {
-    return new Linters\NoWhitespaceAtEndOfLineLinter($file);
+    return Linters\NoWhitespaceAtEndOfLineLinter::fromPath($file);
   }
 
   public function getCleanExamples(): array<array<string>> {

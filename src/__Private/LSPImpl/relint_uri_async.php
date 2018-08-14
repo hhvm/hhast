@@ -15,15 +15,21 @@ use type Facebook\HHAST\__Private\{
   LintRunConfig,
   LintRunEventHandler,
 };
+use type Facebook\HHAST\Linters\File;
 use namespace HH\Lib\Str;
 
 async function relint_uri_async(
   LintRunEventHandler $handler,
   ?LintRunConfig $config,
   string $uri,
+  ?string $content = null,
 ): Awaitable<void> {
   $path = Str\strip_prefix($uri, 'file://');
   $config = $config ?? LintRunConfig::getForPath($path);
 
-  await (new LintRun($config, $handler, vec[$path]))->runAsync();
+  $lint_run = new LintRun($config, $handler, vec[$path]);
+  if ($content !== null) {
+    $lint_run = $lint_run->withFile(new File($path, $content));
+  }
+  await $lint_run->runAsync();
 }

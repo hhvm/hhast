@@ -20,22 +20,17 @@ abstract class BaseASTLinter<
 > extends BaseLinter {
   private ?HHAST\EditableNode $ast;
 
-  <<__Override>>
-  public function __construct(string $file) {
-    parent::__construct($file);
-  }
-
   private static async function getASTFromFileAsync(
-    string $file,
+    File $file,
   ): Awaitable<HHAST\EditableNode> {
     static $cache = null;
 
-    $hash = \sha1(\file_get_contents($file), /* raw = */ true);
+    $hash = \sha1($file->getContents(), /* raw = */ true);
     if ($cache !== null && $cache['hash'] === $hash) {
       return $cache['ast'];
     }
 
-    $ast = await HHAST\from_file_async($file);
+    $ast = await HHAST\from_code_async($file->getContents());
 
     $cache = shape(
       'hash' => $hash,
@@ -108,7 +103,7 @@ abstract class BaseASTLinter<
           }
           throw new LinterException(
             static::class,
-            $this->getFile(),
+            $this->getFile()->getPath(),
             $t->getMessage(),
             $position,
             $t,

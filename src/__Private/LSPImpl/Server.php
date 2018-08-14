@@ -42,6 +42,7 @@ final class Server extends LSPLib\Server<ServerState> {
         $this->client,
         $this->state,
       ),
+      new LSPImpl\DidChangeTextDocumentNotification($this->client, $this->state),
       new LSPImpl\DidSaveTextDocumentNotification($this->client, $this->state),
       new LSPImpl\DidOpenTextDocumentNotification($this->client, $this->state),
       new LSPImpl\DidCloseTextDocumentNotification($this->client, $this->state),
@@ -115,6 +116,7 @@ final class Server extends LSPLib\Server<ServerState> {
   private async function readMessageAsync(): Awaitable<string> {
     $stdin = $this->terminal->getStdin();
     $length = null;
+    $line = '';
 
     // read headers
     while (true) {

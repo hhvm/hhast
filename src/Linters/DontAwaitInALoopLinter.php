@@ -86,7 +86,7 @@ final class DontAwaitInALoopLinter
         ),
       );
 
-    $lines = \file_get_contents($this->getFile()) |> \explode("\n", $$);
+    $lines = $this->getFile()->getContents() |> Str\split($$, "\n");
 
     list(
       $blame_line,

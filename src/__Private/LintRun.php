@@ -10,17 +10,27 @@
 
 namespace Facebook\HHAST\__Private;
 
-use type Facebook\HHAST\Linters\{BaseLinter, LinterException};
+use type Facebook\HHAST\Linters\{BaseLinter, File, LinterException};
 use type Facebook\CLILib\ExitException;
 use namespace HH\Lib\{C, Str, Vec};
 
 final class LintRun {
+  private dict<string, File> $files = dict[];
   public function __construct(
     private ?LintRunConfig $config,
     private LintRunEventHandler $handler,
     private vec<string> $paths,
   ) {
   }
+
+  public function withFile(File $file): this {
+    $this->files[$file->getPath()] = $file;
+    return $this;
+  }
+
+	private function getFileForPath(string $path): File {
+    return $this->files[$path] ?? new File($path, \file_get_contents($path));
+	}
 
   private static function worstResult(
     LintRunResult ...$results
@@ -54,37 +64,37 @@ final class LintRun {
 
   private async function lintFileAsync(
     LintRunConfig $config,
-    string $path,
+    File $file,
   ): Awaitable<LintRunResult> {
-    $config = $config->getConfigForFile($path);
+    $config = $config->getConfigForFile($file->getPath());
     $result = LintRunResult::NO_ERRORS;
 
     foreach ($config['linters'] as $class) {
       try {
         /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
         $this_result =
-          await $this->runLinterOnFileImplAsync($config, $class, $path);
+          await $this->runLinterOnFileImplAsync($config, $class, $file);
         $result = self::worstResult($result, $this_result);
       } catch (LinterException $e) {
         throw $e;
       } catch (\Throwable $t) {
-        throw new LinterException($class, $path, $t->getMessage(), null, $t);
+        throw new LinterException($class, $file->getPath(), $t->getMessage(), null, $t);
       }
     }
-    $this->handler->finishedFile($path, $result);
+    $this->handler->finishedFile($file->getPath(), $result);
     return $result;
   }
 
   private async function runLinterOnFileImplAsync(
     LintRunConfig::TFileConfig $config,
     classname<BaseLinter> $linter,
-    string $path,
+    File $file,
   ): Awaitable<LintRunResult> {
-    if (!$linter::shouldLintFile($path)) {
+    if (!$linter::shouldLintFile($file)) {
       return LintRunResult::NO_ERRORS;
     }
 
-    $linter = new $linter($path);
+    $linter = new $linter($file);
 
     if ($linter->isLinterSuppressedForFile()) {
       return LintRunResult::NO_ERRORS;
@@ -121,7 +131,7 @@ final class LintRun {
       }
       $ext = Str\lowercase($info->getExtension());
       if ($ext === 'hh' || $ext === 'php') {
-        $files[] = $info->getPathname();
+        $files[] = $this->getFileForPath($info->getPathname());
       }
     }
     $results = await Vec\map_async(
@@ -137,7 +147,8 @@ final class LintRun {
     string $path,
   ): Awaitable<LintRunResult> {
     if (\is_file($path)) {
-      return await $this->lintFileAsync($config, $path);
+      $file = $this->getFileForPath($path);
+      return await $this->lintFileAsync($config, $file);
     } else if (\is_dir($path)) {
       return await $this->lintDirectoryAsync($config, $path);
     } else {

@@ -17,7 +17,7 @@ final class LicenseHeaderLinterTest extends TestCase {
   protected function getLinter(
     string $file,
   ): Linters\LicenseHeaderLinter {
-    return new Linters\LicenseHeaderLinter($file);
+    return Linters\LicenseHeaderLinter::fromPath($file);
   }
 
   public function getCleanExamples(): array<array<string>> {

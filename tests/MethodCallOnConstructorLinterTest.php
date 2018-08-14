@@ -18,7 +18,7 @@ final class MethodCallOnConstructorLinterTest extends TestCase {
   protected function getLinter(
     string $file,
   ): Linters\MethodCallOnConstructorLinter {
-    return new Linters\MethodCallOnConstructorLinter($file);
+    return Linters\MethodCallOnConstructorLinter::fromPath($file);
   }
 
   public function getCleanExamples(): array<array<string>> {

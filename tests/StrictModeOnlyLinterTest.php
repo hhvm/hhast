@@ -14,7 +14,7 @@ final class StrictModeOnlyLinterTest extends TestCase {
   use AutoFixingLinterTestTrait<Linters\FixableASTLintError<MarkupSuffix>>;
 
   protected function getLinter(string $file): Linters\StrictModeOnlyLinter {
-    return new Linters\StrictModeOnlyLinter($file);
+    return Linters\StrictModeOnlyLinter::fromPath($file);
   }
 
   public function getCleanExamples(): array<array<string>> {

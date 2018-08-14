@@ -19,6 +19,7 @@ final class InitializeCommand extends LSPLib\InitializeCommand<ServerState> {
 
   const type TInitializationOptions = shape(
     ?'lintMode' => LintMode,
+    ?'lintAsYouType' => bool,
   );
 
   const LSP\ServerCapabilities
@@ -28,6 +29,7 @@ final class InitializeCommand extends LSPLib\InitializeCommand<ServerState> {
           'includeText' => false,
         ),
         'openClose' => true,
+        'change' => LSP\TextDocumentSyncKind::FULL,
       ),
       'codeActionProvider' => true,
       'executeCommandProvider' => shape(
@@ -45,10 +47,15 @@ final class InitializeCommand extends LSPLib\InitializeCommand<ServerState> {
     );
 
     $lint_mode = $options['lintMode'] ?? null;
-
     if ($lint_mode !== null) {
       $this->state->lintMode = $lint_mode;
     }
+
+    $lint_as_you_type = $options['lintAsYouType'] ?? null;
+    if ($lint_as_you_type !== null) {
+      $this->state->lintAsYouType = $lint_as_you_type;
+    }
+
 
     invariant($this->state->config === null, 'Tried to set config twice');
     $uri = $p['rootUri'];

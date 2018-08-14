@@ -16,7 +16,7 @@ final class NoStringInterpolationLinterTest extends TestCase {
   protected function getLinter(
     string $file,
   ): Linters\NoStringInterpolationLinter {
-    return new Linters\NoStringInterpolationLinter($file);
+    return Linters\NoStringInterpolationLinter::fromPath($file);
   }
 
   public function getCleanExamples(): array<array<string>> {

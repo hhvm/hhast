@@ -85,7 +85,7 @@ final class LintRunJSONEventHandler implements LintRunEventHandler {
           ? shape('line' => $end[0], 'character' => $end[1])
           : null;
         return shape(
-          'path' => $error->getFile(),
+          'path' => $error->getFile()->getPath(),
           'range' => shape(
             'start' => $start,
             'end' => $end,
