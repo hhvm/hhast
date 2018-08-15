@@ -71,7 +71,7 @@ implements LSPAutoFixingLinter<FixableASTLintError<Tnode>> {
     );
   }
 
-  final public function fixLintErrors(
+  final public function getFixedFile(
     Traversable<FixableASTLintError<Tnode>> $errors,
   ): File {
     $ast = $this->getAST();

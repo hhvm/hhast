@@ -190,7 +190,7 @@ abstract class FunctionNamingLinter extends BaseASTLinter<
       ->getCode();
   }
 
-  final public function fixLintErrors(
+  final public function getFixedFile(
     Traversable<FunctionNamingLintError> $errors,
   ): File {
     foreach ($errors as $error) {

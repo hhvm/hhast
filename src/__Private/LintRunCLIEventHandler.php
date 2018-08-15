@@ -91,7 +91,7 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
       \get_class($linter),
     );
 
-    $file = $linter->fixLintErrors($errors);
+    $file = $linter->getFixedFile($errors);
     \file_put_contents($file->getPath(), $file->getContents());
   }
 
