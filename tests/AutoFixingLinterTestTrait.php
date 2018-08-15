@@ -36,9 +36,10 @@ trait AutoFixingLinterTestTrait<Terror as Linters\FixableLintError> {
     $all_errors = vec(\HH\Asio\join($linter->getLintErrorsAsync()));
     $fixable = Vec\filter($all_errors, $err ==> $err->isFixable());
     $unfixable = Vec\filter($all_errors, $err ==> !$err->isFixable());
-    $linter->fixLintErrors($fixable);
+    $code = $linter->fixLintErrors($fixable)->getContents();
+    // Provide raw output for easier debugging
+    \file_put_contents($out, $code);
 
-    $code = \file_get_contents($out);
     expect($code)->toMatchExpectFileWithInputFile(
       $fixture.'.autofix.expect',
       $fixture.'.in',
