@@ -19,7 +19,6 @@ use namespace Facebook\CLILib\CLIOptions;
 final class LinterCLI extends CLIWithArguments {
   private bool $xhprof = false;
   private LinterCLIMode $mode = LinterCLIMode::PLAIN;
-  private ?string $ioLogPrefix = null;
 
   use CLIWithVerbosityTrait;
 
@@ -59,13 +58,6 @@ final class LinterCLI extends CLIWithArguments {
         '-m',
       ),
       CLIOptions\with_required_string(
-        $s ==> {
-          $this->ioLogPrefix = $s;
-        },
-        'Log STDIN, STDERR, and STDOUT to files with the specified prefixes',
-        '--io-log-prefix',
-      ),
-      CLIOptions\with_required_string(
         $_ ==> {},
         'Name of the caller; intended for use with `--mode json` or `--mode lsp`',
         '--from',
@@ -91,23 +83,6 @@ final class LinterCLI extends CLIWithArguments {
 
   private async function mainImplAsync(): Awaitable<int> {
     $terminal = $this->getTerminal();
-    $log_prefix = $this->ioLogPrefix;
-    if ($log_prefix !== null) {
-      $terminal = new Terminal(
-        new LoggingInputTap(
-          $terminal->getStdin(),
-          \fopen($log_prefix.'in', 'w+'),
-        ),
-        new LoggingOutputTap(
-          $terminal->getStdout(),
-          \fopen($log_prefix.'out', 'w+'),
-        ),
-        new LoggingOutputTap(
-          $terminal->getStderr(),
-          \fopen($log_prefix.'err', 'w+'),
-        ),
-      );
-    }
     if ($this->mode === LinterCLIMode::LSP) {
       return await (new LSPImpl\Server($terminal))->mainAsync();
     }
