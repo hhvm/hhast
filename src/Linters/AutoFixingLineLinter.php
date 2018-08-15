@@ -17,7 +17,7 @@ abstract class AutoFixingLineLinter<Terr as FixableLineLintError>
 
   abstract public function getFixedLine(string $line): string;
 
-  final public function fixLintErrors(Traversable<Terr> $errors): File {
+  final public function getFixedFile(Traversable<Terr> $errors): File {
     $lines = $this->getLinesFromFile();
     foreach ($errors as $err) {
       $i = $err->getPosition()[0] - 1;

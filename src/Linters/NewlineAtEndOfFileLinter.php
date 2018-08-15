@@ -46,7 +46,7 @@ final class NewlineAtEndOfFileLinter
       |> vec[$$];
   }
 
-  public function fixLintErrors(Traversable<FixableLintError> $_): File {
+  public function getFixedFile(Traversable<FixableLintError> $_): File {
     return $this->getFile()->withContents(
       $this->getFile()->getContents()
         |> Str\trim_right($$)

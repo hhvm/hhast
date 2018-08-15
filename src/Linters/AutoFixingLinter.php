@@ -16,7 +16,7 @@ interface AutoFixingLinter<Terror as FixableLintError> {
 
   public function getLintErrorsAsync(): Awaitable<Traversable<Terror>>;
 
-  public function fixLintErrors(
+  public function getFixedFile(
     Traversable<Terror> $errors,
   ): File;
 }
