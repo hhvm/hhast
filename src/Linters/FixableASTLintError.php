@@ -38,15 +38,9 @@ class FixableASTLintError<
       $linter instanceof AutoFixingASTLinter,
       "Can't render fix for unfixable lint error",
     );
-    $node = $this->fixed;
-    invariant(
-      $node !== null,
-      'shouldnt attempt to fix without a fixed version',
-    );
-    return tuple(
-      $this->getPrettyBlame(),
-      $linter->getPrettyTextForNode($node, $this->context),
-    );
+    $fixed = $linter->getFixedFile(vec[$this]);
+    invariant($fixed !== null, 'could not get fixed file');
+    return tuple($this->getFile()->getContents(), $fixed->getContents());
   }
 
   final public function shouldRenderBlameAndFixAsDiff(): bool {
