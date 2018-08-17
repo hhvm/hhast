@@ -144,9 +144,9 @@ abstract class Diff {
      * $diagonal: an identifier representing the line where $y = $x - $diagonal
      *
      * From the paper:
-     * 1. For any path of cost $cost: -$cost <= $diagonal <= +$cost
+     * 1. For any path of cost $cost: -$cost <= $diagonal <= $cost
      * 2. The furthest-reaching 0-cost path ends at (x,x), where x =
-     *    min(x) where $a[x] !== $b[x] or $x >= $max_x or $x >= $max_x
+     *    min(x) where $a[x] !== $b[x] or $x >= $max_x or $x >= $max_y
      * 3. The furthest-reaching ($cost)-cost path is composed of either:
      *    1. 1. a furthest-reaching ($cost-1)-path on diagonal ($diagonal - 1)
      *       2. a horizontal edge (deletion)
