@@ -103,8 +103,8 @@ abstract class Diff {
    * - increasing X is deleting an item (cost 1)
    * - increasing Y is inserting an item from the target sequence (cost 1)
    * - if the items are the same, increase both X and Y simultanously (cost 0)
-   * - diffing is now graph traversal problem: find the path with the lowest
-   * - cost path from (0, 0) to (len(a), len(b))
+   * - diffing is now graph traversal problem: find the path with the
+   *   lowest-cost cost path from (0, 0) to (len(a), len(b))
    *
    * The paper first defines an edit distance function, then explains how to
    * convert this function into a diff algorithm; in summary:
@@ -171,8 +171,6 @@ abstract class Diff {
     $best_points = dict[1 => 0];
     $best_points_at_cost = vec[];
 
-    // $best_points: map from $k, to best possible $x
-    // $temp: trace of $best_points at each depth
     for ($cost = 0; $cost <= $max_cost; $cost++) {
       $best_points_at_cost[] = $best_points;
       for ($diagonal = -$cost; $diagonal <= $cost; $diagonal += 2) { // Use 1.
