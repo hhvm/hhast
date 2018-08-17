@@ -160,8 +160,14 @@ abstract class Diff {
      */
 
     // A map from $diagonal to $x. This is effectively a map from $diagonal to
-    // points, as $y = $x - $diagonal. Initial value is invalid (0, -1) to set
-    // handle the base case.
+    // points, as $y = $x - $diagonal.
+    //
+    // To handle $cost = 0, we take advantage of the fact that:
+    // - we will only be looking at $diagonal === 0
+    // - the implementation takes the ($diagonal + 1) path if $cost ===
+    //   $diagonal
+    // So, we set the best-$x for ($diagonal + 1) to 0, as that gets us
+    // $y = $x + $diagonal = 0 + 0 = 0, so ($x = 0, $y = 0)
     $best_points = dict[1 => 0];
     $best_points_at_cost = vec[];
 
