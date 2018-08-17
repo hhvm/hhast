@@ -29,7 +29,7 @@ final class StringDiff extends Diff {
 
     $remaining = $this->getDiff();
     while (!C\is_empty($remaining)) {
-      $not_keep = C\find_key($remaining, $row ==> $row[0] !== DiffOp::KEEP);
+      $not_keep = C\find_key($remaining, $row ==> !$row instanceof DiffKeepOp);
       if ($not_keep === null) {
         break;
       }
@@ -41,7 +41,7 @@ final class StringDiff extends Diff {
       $end = $count;
       $run_start = null;
       for ($i = $context; $i < $count; ++$i) {
-        if ($remaining[$i][0] === DiffOp::KEEP) {
+        if ($remaining[$i] instanceof DiffKeepOp) {
           $run_start = $run_start ?? $i;
           continue;
         }
@@ -68,7 +68,7 @@ final class StringDiff extends Diff {
   }
 
   private function getUnifiedDiffHunk(
-    vec<(DiffOp, ?this::TElem, ?this::TElem)> $hunk,
+    vec<DiffOp<string>> $hunk,
   ): ?string {
     if (C\is_empty($hunk)) {
       return null;
@@ -80,32 +80,36 @@ final class StringDiff extends Diff {
 
     $lines = vec[];
 
-    foreach ($hunk as list($op, $old, $new)) {
-      switch ($op) {
-        case DiffOp::KEEP:
-          invariant($old !== null, 'must have old for keep');
-          invariant($new !== null, 'must have new for keep');
-          $lines[] = ' '.$old['content'];
-          $old_start = $old_start ?? $old['pos'];
-          $new_start = $new_start ?? $new['pos'];
-          ++$old_lines;
-          ++$new_lines;
-          break;
-        case DiffOp::DELETE:
-          invariant($old !== null, 'must have old for delete');
-          $lines[] = '-'.$old['content'];
-          $old_start = $old_start ?? $old['pos'];
-          $new_start = $new_start ?? $old['pos'];
-          ++$old_lines;
-          break;
-        case DiffOp::INSERT:
-          invariant($new !== null, 'must have new for insert');
-          $lines[] = '+'.$new['content'];
-          $old_start = $old_start ?? $new['pos'];
-          $new_start = $new_start ?? $new['pos'];
-          ++$new_lines;
-          break;
+    foreach ($hunk as $op) {
+      if ($op instanceof DiffKeepOp) {
+        $lines[] = ' '.$op->getContent();
+        $old_start = $old_start ?? $op->getOldPos();
+        $new_start = $new_start ?? $op->getNewPos();
+        ++$old_lines;
+        ++$new_lines;
+        continue;
       }
+
+      if ($op instanceof DiffDeleteOp) {
+        $lines[] = '-'.$op->getContent();
+        $old_start = $old_start ?? $op->getOldPos();
+        $new_start = $new_start ?? $op->getOldPos();
+        ++$old_lines;
+        continue;
+      }
+
+      if ($op instanceof DiffInsertOp) {
+        $lines[] = '+'.$op->getContent();
+        $old_start = $old_start ?? $op->getNewPos();
+        $new_start = $new_start ?? $op->getNewPos();
+        ++$new_lines;
+        continue;
+      }
+
+      invariant_violation(
+        'Unsupported diff op: %s',
+        \get_class($op),
+      );
     }
     invariant($old_start !== null, 'failed to find an old pos');
     invariant($new_start !== null, 'failed to find a new pos');

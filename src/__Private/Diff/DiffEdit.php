@@ -9,7 +9,3 @@
  */
 
 namespace Facebook\HHAST\__Private\Diff;
-
-<<__Sealed(DiffDeleteOp::class, DiffInsertOp::class, DiffKeepOp::class)>>
-abstract class DiffOp<TContent> {
-}

@@ -54,7 +54,7 @@ abstract class Diff {
    * `StringDiff::getUnifiedDiff()`
    */
   <<__Memoize>>
-  final public function getDiff(): vec<(DiffOp, ?this::TElem, ?this::TElem)> {
+  final public function getDiff(): vec<DiffOp<this::TContent>> {
     $a = $this->a;
     $b = $this->b;
 
@@ -67,17 +67,27 @@ abstract class Diff {
       list($x, $y) = $from;
       $prev = $to;
       if ($to === tuple($x + 1, $y + 1)) {
-        $diff[] = tuple(DiffOp::KEEP, $a[$x], $b[$y]);
+        $diff[] = new DiffKeepOp(
+          $a[$x]['pos'],
+          $b[$y]['pos'],
+          $a[$x]['content'],
+        );
         continue;
       }
 
       if ($to === tuple($x + 1, $y)) {
-        $diff[] = tuple(DiffOp::DELETE, $a[$x], null);
+        $diff[] = new DiffDeleteOp(
+          $a[$x]['pos'],
+          $a[$x]['content'],
+        );
         continue;
       }
 
       if ($to === tuple($x, $y + 1)) {
-        $diff[] = tuple(DiffOp::INSERT, null, $b[$y]);
+        $diff[] = new DiffInsertOp(
+          $b[$y]['pos'],
+          $b[$y]['content'],
+        );
         continue;
       }
 
