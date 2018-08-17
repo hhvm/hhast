@@ -15,6 +15,9 @@ use namespace HH\Lib\{C, Dict, Vec};
 
 /** An implementation of Myer's diff algorithm.
  *
+ * This base class operates on two sequences of any `TContent` where identity
+ * is defined; you most likely want the `StringDiff` subclass.
+ *
  * @See Myers (1986) An O(ND) difference algorithm and its variations.
  * Algorithmica, 1(1-4), p251-266. doi: 10.1007/BF01840446
  *
@@ -25,11 +28,18 @@ use namespace HH\Lib\{C, Dict, Vec};
  * - increasing Y is inserting an item from the target sequence (cost 1)
  * - where the items are the same, increase both X and Y simultanously (cost 0)
  * - diffing is now graph traversal problem: find the path with the lowest cost
- *   path from (0, 0) to (max(x), max(y))
+ *   path from (0, 0) to (len(a), len(b))
  */
 abstract class Diff {
+  /** The classes diffs two sequences of `TContent` */
   abstract const type TContent;
   const type TElem = shape('content' => this::TContent, 'pos' => int);
+  /** Internal: ((from_x, from_y), (to_x, to_y)
+   *
+   * - `(x+1, y)` is 'delete from a'
+   * - `(x, y+1)` is 'insert to a from b'
+   * - `(x+1, y+1)` is 'keep'
+   */
   const type TMove = ((int, int), (int, int));
 
   private vec<this::TElem> $a;
@@ -42,20 +52,29 @@ abstract class Diff {
       Vec\map_with_key($b, ($k, $v) ==> shape('content' => $v, 'pos' => $k));
   }
 
+  /** The definition of identity for this differ.
+   *
+   * This defaults to `$a === $b`; subclasses may override this.
+   */
   protected function areSame(this::TContent $a, this::TContent $b): bool {
     return $a === $b;
   }
 
+  /** Get the diff as a sequence of operations to transform from A to B.
+   *
+   * If you're dealing with strings, you might want
+   * `StringDiff::getUnifiedDiff()`
+   */
   <<__Memoize>>
   final public function getDiff(): vec<(DiffOp, ?this::TElem, ?this::TElem)> {
     $a = $this->a;
     $b = $this->b;
 
-    $path = Vec\reverse($this->getPath());
+    $moves = Vec\reverse($this->getMoves());
     $diff = vec[];
 
     $prev = tuple(0, 0);
-    foreach ($path as list($from, $to)) {
+    foreach ($moves as list($from, $to)) {
       invariant($from === $prev, "Missed a step");
       list($x, $y) = $from;
       $prev = $to;
@@ -85,8 +104,19 @@ abstract class Diff {
     return $diff;
   }
 
-  /** Implementation as in the paper */
-  protected function getPath(): vec<this::TMove> {
+  /** Implementation as in the paper.
+   *
+   * The paper first defines an edit distance function, then explains how to
+   * convert this function into a diff algorithm; in summary:
+   *
+   * 1) create an edit distance function
+   * 2) change it to log all what edits it makes
+   * 3) when it's found the minimum edit distance, stop
+   * 4) post-process the trace into a set of moves
+   *
+   * The final step is handled by `backtrackPath`
+   */
+  final private function getMoves(): vec<this::TMove> {
     // Variable names match the paper
     $n = C\count($this->a);
     $m = C\count($this->b);
