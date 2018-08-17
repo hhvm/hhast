@@ -17,18 +17,6 @@ use namespace HH\Lib\{C, Dict, Vec};
  *
  * This base class operates on two sequences of any `TContent` where identity
  * is defined; you most likely want the `StringDiff` subclass.
- *
- * @See Myers (1986) An O(ND) difference algorithm and its variations.
- * Algorithmica, 1(1-4), p251-266. doi: 10.1007/BF01840446
- *
- * In short:
- * - think of the problem as an edit graph: the X axis is the original sequence
- *   and the Y axis is the desired sequence
- * - increasing X is deleting an item (cost 1)
- * - increasing Y is inserting an item from the target sequence (cost 1)
- * - where the items are the same, increase both X and Y simultanously (cost 0)
- * - diffing is now graph traversal problem: find the path with the lowest cost
- *   path from (0, 0) to (len(a), len(b))
  */
 abstract class Diff {
   /** The classes diffs two sequences of `TContent` */
@@ -104,7 +92,19 @@ abstract class Diff {
     return $diff;
   }
 
-  /** Implementation as in the paper.
+  /** Implementation of Myers' diff algorith, as in the paper
+   *
+   * @See Myers (1986) An O(ND) difference algorithm and its variations.
+   * Algorithmica, 1(1-4), p251-266. doi: 10.1007/BF01840446
+   *
+   * In short:
+   * - think of the problem as an edit graph: the X axis is the original
+   *   sequence and the Y axis is the desired sequence
+   * - increasing X is deleting an item (cost 1)
+   * - increasing Y is inserting an item from the target sequence (cost 1)
+   * - if the items are the same, increase both X and Y simultanously (cost 0)
+   * - diffing is now graph traversal problem: find the path with the lowest
+   * - cost path from (0, 0) to (len(a), len(b))
    *
    * The paper first defines an edit distance function, then explains how to
    * convert this function into a diff algorithm; in summary:
@@ -112,46 +112,112 @@ abstract class Diff {
    * 1) create an edit distance function
    * 2) change it to log all what edits it makes
    * 3) when it's found the minimum edit distance, stop
-   * 4) post-process the trace into a set of moves
+   * 4) post-process the log into a set of moves
    *
-   * The final step is handled by `backtrackPath`
+   * The final step is handled by `backtrackPath()`
    */
   final private function getMoves(): vec<this::TMove> {
-    // Variable names match the paper
-    $n = C\count($this->a);
-    $m = C\count($this->b);
-    $max = $m + $n;
-    $v = dict[1 => 0];
-    $vd = vec[];
+    /* If you're comparing this to the paper:
+     * `$max_x` is N
+     * `$max_y` is M
+     * `$max_cost` is MAX
+     * `$cost` is D
+     * `$diagonal` is k
+     * `$best_points` is V
+     * `$best_points_at_cost` is Vd
+     *
+     * 'cost' isn't quite the same as 'depth': taking a diagonal path through
+     * the space is an increase in depth, but not cost.
+     */
 
-    // $d: depth a.k.a cost
-    // $x: index into $a
-    // $y: index into $b
-    // $k = $x - $y
-    // $v: map from $k, to best possible $x
-    // $vd: trace of $v at each depth
-    for ($d = 0; $d <= $max; $d++) {
-      $vd[] = $v;
-      for ($k = -$d; $k <= $d; $k += 2) {
-        if ($k === -$d || ($k !== $d && $v[$k - 1] < $v[$k + 1])) {
-          $x = $v[$k + 1];
+    $a = $this->a;
+    $b = $this->b;
+    $max_x = C\count($a);
+    $max_y = C\count($b);
+    // Absolute worst case: delete everything from a + insert everything from b
+    $max_cost = $max_x + $max_y;
+
+    /* Find the shortest path.
+     *
+     * $x: offset into a: deletions
+     * $y: offset into b: insertions
+     * $diagonal: an identifier representing the line where $y = $x - $diagonal
+     *
+     * From the paper:
+     * 1. For any path of cost $cost: -$cost <= $diagonal <= +$cost
+     * 2. The furthest-reaching 0-cost path ends at (x,x), where x =
+     *    min(x) where $a[x] !== $b[x] or $x >= $max_x or $x >= $max_x
+     * 3. The furthest-reaching ($cost)-cost path is composed of either:
+     *    1. 1. a furthest-reaching ($cost-1)-path on diagonal ($diagonal - 1)
+     *       2. a horizontal edge (deletion)
+     *       3. any number (including 0) of diagonal edges (keeps)
+     *    2. 1. a furthest-reaching ($cost-1)-path on diagonal ($diagonal + 1)
+     *       2. a vertical edge (insertion)
+     *       3. any number (including 0) of diagonal edges (keeps)
+     *
+     * So, for each cost, find the furthest-reaching point on each diagonal.
+     * Stop when we leave the search space, or reach the endpoint.
+     */
+
+    // A map from $diagonal to $x. This is effectively a map from $diagonal to
+    // points, as $y = $x - $diagonal. Initial value is invalid (0, -1) to set
+    // handle the base case.
+    $best_points = dict[1 => 0];
+    $best_points_at_cost = vec[];
+
+    // $best_points: map from $k, to best possible $x
+    // $temp: trace of $best_points at each depth
+    for ($cost = 0; $cost <= $max_cost; $cost++) {
+      $best_points_at_cost[] = $best_points;
+      for ($diagonal = -$cost; $diagonal <= $cost; $diagonal += 2) { // Use 1.
+        // Use 3: The furthest-reaching path on this diagonal is a continuation
+        // of a ($cost-1) path on either ($diagonal-1) or ($diagonal+1).
+        //
+        // Decide which option we're taking for this diagonal
+        if (
+          // if ===, can't be -1 as $diagonal >= -$cost
+          $diagonal === -$cost
+          || (
+            // if ===, must be -1 as $diagonal <= $cost
+            $diagonal !== $cost
+            // Okay, we can choose.
+            // prefer to keep the ($cost-1) path with higher $x - i.e. prefer to
+            // delete. Not needed for correctness or efficiency, but:
+            //     -foo
+            //     +foof
+            // is generally expected, and considered more readable than:
+            //     +foof
+            //     -foo
+            && $best_points[$diagonal - 1] < $best_points[$diagonal + 1]
+          )
+        ) {
+          // keep x, increase $y (add a insertion)
+          $x = $best_points[$diagonal + 1];
         } else {
-          $x = $v[$k - 1] + 1;
+          // increase x, keep y (add a deletion)
+          $x = $best_points[$diagonal - 1] + 1;
         }
-        $y = $x - $k;
+        $y = $x - $diagonal;
 
-        // diagonal moves
+        // Use 2: Can we move along the diagonal (keep/unchanged elem)?
         while (
-          $x < $n &&
-          $y < $m &&
-          $this->areSame($this->a[$x]['content'], $this->b[$y]['content'])
+          $x < $max_x &&
+          $y < $max_y &&
+          $this->areSame($a[$x]['content'], $b[$y]['content'])
         ) {
           $x++;
           $y++;
         }
-        $v[$k] = $x;
-        if ($x >= $n && $y >= $m) {
-          return $this->backtrackPath($vd);
+
+        invariant(
+          $x <= $max_x && $y <= $max_y,
+          'exceeded sequence length',
+        );
+
+        $best_points[$diagonal] = $x;
+
+        if ($x === $max_x && $y === $max_y) {
+          return $this->backtrackPath($best_points_at_cost);
         }
       }
     }
@@ -164,32 +230,52 @@ abstract class Diff {
    *
    * Returns a reversed list of moves.
    */
-  private function backtrackPath(vec<dict<int, int>> $vd): vec<this::TMove> {
+  private function backtrackPath(
+    vec<dict<int, int>> $best_points_at_cost,
+  ): vec<this::TMove> {
+    /* Start at the final position, and backtrack to (0, 0).
+     *
+     * We know the final (x, y), and that the final cost is
+     * C\count($best_points_at_cost).
+     *
+     */
     $moves = vec[];
-    // Start at the final position, and backtrack to (0, 0)
     $to_x = C\count($this->a);
     $to_y = C\count($this->b);
 
-    foreach (Dict\reverse($vd) as $d => $v) {
-      $k = $to_x - $to_y;
+    /* Work backwards, finding the (x, y) at ($cost - 1), that gets us to
+     * our target at ($cost) */
+    foreach (Dict\reverse($best_points_at_cost) as $cost => $best_points) {
+      $diagonal = $to_x - $to_y;
 
-      if ($k === -$d || ($k !== $d && $v[$k - 1] < $v[$k + 1])) {
-        $k = $k + 1;
+      /* Use point 3. again - it's either on ($diagonal -1) with ($x-1, $y)
+       * or on ($diagonal + 1) with ($x, $y - 1), plus any number of
+       * diagonal moves. Which?
+       */
+      if (
+        $diagonal === -$cost
+        || (
+          $diagonal !== $cost
+          && $best_points[$diagonal - 1] < $best_points[$diagonal + 1]
+        )
+      ) {
+        $diagonal = $diagonal + 1;
       } else {
-        $k = $k - 1;
+        $diagonal = $diagonal - 1;
       }
-      $from_x = $v[$k];
-      $from_y = $from_x - $k;
+      $from_x = $best_points[$diagonal];
+      $from_y = $from_x - $diagonal;
 
-      // diagonal moves
+      // We found the move that cost us - now try to fill in free diagonal
+      // moves
       while ($to_x > $from_x && $to_y > $from_y) {
         $moves[] = tuple(tuple($to_x - 1, $to_y - 1), tuple($to_x, $to_y));
         $to_x--;
         $to_y--;
       }
 
-      if ($d === 0) {
-        // if cost is 0, any remaining moves had to be diagonal
+      if ($cost === 0) {
+        // If cost is 0, there were only diagonals, which we just dealt with
         return $moves;
       }
 
