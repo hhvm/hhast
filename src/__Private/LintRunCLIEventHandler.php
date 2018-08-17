@@ -11,6 +11,7 @@
 namespace Facebook\HHAST\__Private;
 
 use type Facebook\CLILib\ITerminal;
+use type Facebook\HHAST\__Private\Diff\StringDiff;
 use namespace Facebook\HHAST\Linters;
 use namespace HH\Lib\{C, Str, Vec};
 
@@ -106,30 +107,53 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
       |> Vec\map($$, $line ==> $prefix.$line)
       |> Str\join($$, "\n");
 
-    if ($error->shouldRenderBlameAndFixAsDiff()) {
-      $blame_color = "\e[31m"; // red
-      $blame_marker = '-';
-      $fix_marker = '+';
-      $fix_color = "\e[32m"; // green
-    } else {
-      $blame_color = "\e[33m"; // yellow
-      $blame_marker = '  >';
-      $fix_marker = '  ';
-      $fix_color = "\e[33m"; // yellow
-    }
 
     $colors = $this->terminal->supportsColors();
-    $this->terminal
-      ->getStdout()
-      ->write(Str\format(
-        "  Code:\n"."%s%s%s\n"."  Suggested fix:\n"."%s%s%s\n",
-        $colors ? $blame_color : '',
-        $prefix_lines($old, '  '.$blame_marker),
-        $colors ? "\e[0m" : '',
-        $colors ? $fix_color : '',
-        $prefix_lines($new, '  '.$fix_marker),
-        $colors ? "\e[0m" : '',
-      ));
+    $reset = $colors ? "\e[0m" : '';
+
+    if ($error->shouldRenderBlameAndFixAsDiff()) {
+      $diff = StringDiff::lines($old, $new)->getUnifiedDiff();
+      if (!$colors) {
+        $this->terminal->getStdout()->write($diff);
+      } else {
+        $diff
+          |> Str\split($$, "\n")
+          |> Vec\map(
+            $$,
+            $line ==> {
+              if (Str\starts_with($line, '@@')) {
+                return "\e[36m".$line.$reset; // blue
+              }
+              if (Str\starts_with($line, '-')) {
+                return "\e[31m".$line.$reset; // red;
+              }
+              if (Str\starts_with($line, '+')) {
+                return "\e[32m".$line.$reset; // green;
+              }
+              return $line;
+            },
+          )
+          |> Str\join($$, "\n")
+          |> $this->terminal->getStdout()->write($$);
+      }
+    } else {
+      $blame_color = $colors ? "\e[33m" : ''; // yellow
+      $blame_marker = ' >';
+      $fix_color = $colors ? "\e[33m" : ''; // yellow
+      $fix_marker = '  ';
+      $this->terminal
+        ->getStdout()
+        ->write(Str\format(
+          "  Code:\n"."%s%s%s\n".
+          "  Suggested fix:\n"."%s%s%s\n",
+          $blame_color,
+          $prefix_lines($old, '  '.$blame_marker),
+          $reset,
+          $fix_color,
+          $prefix_lines($new, '  '.$fix_marker),
+          $reset,
+        ));
+    }
 
     if (!$this->terminal->isInteractive()) {
       return false;
