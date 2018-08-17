@@ -19,7 +19,7 @@ use namespace HH\Lib\{C, Dict, Vec};
  * is defined; you most likely want the `StringDiff` subclass.
  */
 abstract class Diff {
-  /** The classes diffs two sequences of `TContent` */
+  /** This class diffs two sequences of `TContent` */
   abstract const type TContent;
   const type TElem = shape('content' => this::TContent, 'pos' => int);
   /** Internal: ((from_x, from_y), (to_x, to_y)
