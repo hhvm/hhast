@@ -183,6 +183,13 @@ abstract class Diff {
 
     for ($cost = 0; $cost <= $max_cost; $cost++) {
       $best_points_at_cost[] = $best_points;
+      // Add 2 each time: any point with cost 0 is on diagonal 0; any point
+      // with cost 1 is either on diagonal 1 or -1, any point with cost 2
+      // is on diagonal -2, 0, or 2. This can be generalized to 3.x.1 above:
+      // - Any even cost point is on an even diagonal
+      // - Any odd cost point is on an odd diagonal
+      // ... so if we have an even cost, skip the odd diagonals, and if we have
+      // an odd cost, skip the even diagonals
       for ($diagonal = -$cost; $diagonal <= $cost; $diagonal += 2) { // Use 1.
         // Use 3: The furthest-reaching path on this diagonal is a continuation
         // of a ($cost-1) path on either ($diagonal-1) or ($diagonal+1).
