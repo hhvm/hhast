@@ -20,4 +20,7 @@ final class ServerState extends LSPLib\ServerState {
   public bool $lintAsYouType = true;
   public keyset<string> $openFiles = keyset[];
   public dict<string, vec<Linters\LintError>> $lintErrors = dict[];
+
+  // For Unit Tests
+  public bool $ignoreFilenameExtensions = false;
 }

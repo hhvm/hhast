@@ -1,0 +1,43 @@
+[
+   {
+      "jsonrpc" : "2.0",
+      "params": {
+          "processId" : null,
+          "rootUri" : "HHAST_ROOT_URI",
+          "initializationOptions" : {
+              "lintMode" : "open-files",
+              "__PRIVATE__" : {
+                  "unitTestOptions" : {
+                      "ignoreFilenameExtensions": true
+                  }
+              }
+          },
+          "capabilities" : {
+          }
+      },
+      "method" : "initialize",
+      "id" : 0
+   },
+   {
+      "params" : {},
+      "method" : "initialized",
+      "jsonrpc" : "2.0"
+   },
+   {
+      "id" : "Facebook\\HHAST\\__Private\\LSPImpl\\InitializedNotification",
+      "result" : null,
+      "jsonrpc" : "2.0"
+   },
+   {
+      "jsonrpc" : "2.0",
+      "params" : {
+         "textDocument" : {
+            "uri" : "HHAST_FIXTURES_URI/NoPHPEqualityLinter/double_equals.php.in",
+            "languageId" : "hack",
+            "version" : 0,
+            "text" : ">>>PLACEHOLDER<<<"
+         }
+      },
+      "method" : "textDocument/didOpen"
+   }
+]

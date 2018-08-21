@@ -31,9 +31,11 @@ final class ExpectObj<T> extends \Facebook\FBExpect\ExpectObj<T> {
     string $expect_file,
     string $input_file,
   ): void where T = string {
-    $expect_file = __DIR__.'/../fixtures/'.$expect_file;
+    if (!Str\starts_with($expect_file, '/')) {
+      $expect_file = __DIR__.'/../fixtures/'.$expect_file;
+      $input_file = __DIR__.'/../fixtures/'.$input_file;
+    }
     $out_file = Str\strip_suffix($expect_file, '.expect').'.out';
-    $in_file = __DIR__.'/../fixtures/'.$input_file;
     $code = $this->var;
 
     \file_put_contents(
@@ -42,8 +44,8 @@ final class ExpectObj<T> extends \Facebook\FBExpect\ExpectObj<T> {
     );
     if (!\file_exists($expect_file)) {
       \fprintf(\STDERR, "\n===== NEW TEST: %s =====\n", $expect_file);
-      \fprintf(\STDERR, "----- %s -----\n", $in_file);
-      \fwrite(\STDERR, \file_get_contents($in_file));
+      \fprintf(\STDERR, "----- %s -----\n", $input_file);
+      \fwrite(\STDERR, \file_get_contents($input_file));
       \fprintf(\STDERR, "----- %s -----\n", $out_file);
       \fwrite(\STDERR, $code);
       \fwrite(\STDERR, "----- END -----\n");

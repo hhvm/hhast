@@ -20,6 +20,11 @@ final class InitializeCommand extends LSPLib\InitializeCommand<ServerState> {
   const type TInitializationOptions = shape(
     ?'lintMode' => LintMode,
     ?'lintAsYouType' => bool,
+    ?'__PRIVATE__' => shape(
+      ?'unitTestOptions' => shape(
+        ?'ignoreFilenameExtensions' => bool,
+      ),
+    ),
   );
 
   const LSP\ServerCapabilities
@@ -56,6 +61,13 @@ final class InitializeCommand extends LSPLib\InitializeCommand<ServerState> {
       $this->state->lintAsYouType = $lint_as_you_type;
     }
 
+    $test_options = $options['__PRIVATE__']['unitTestOptions'] ?? null;
+    if ($test_options !== null) {
+      $v = $test_options['ignoreFilenameExtensions'] ?? null;
+      if ($v !== null) {
+        $this->state->ignoreFilenameExtensions = $v;
+      }
+    }
 
     invariant($this->state->config === null, 'Tried to set config twice');
     $uri = $p['rootUri'];

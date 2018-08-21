@@ -11,9 +11,10 @@
 
 namespace Facebook\HHAST;
 
-use function Facebook\FBExpect\expect;
+use function Facebook\HHAST\TestLib\expect;
 use namespace Facebook\HHAST\__Private\LSP;
-use namespace HH\Lib\Str;
+use namespace Facebook\TypeAssert;
+use namespace HH\Lib\{Dict, Str, Tuple};
 
 final class LSPServerTest extends TestCase {
   use LinterCLITestTrait;
@@ -66,5 +67,58 @@ final class LSPServerTest extends TestCase {
   private function messageToRPC(LSP\Message $data): string {
     $json = \json_encode($data);
     return Str\format("Content-Length: %d\r\n\r\n%s", Str\length($json), $json);
+  }
+
+  public function provideExampleExchanges(): array<array<string>> {
+    return [['basic-diagnostic']];
+  }
+
+  const type TExchange = vec<LSP\Message>;
+
+  /**
+   * @dataProvider provideExampleExchanges
+   */
+  public function testExampleExchange(string $name): void {
+    $mappings = dict[
+      'HHAST_ROOT_URI' =>  'file://'.\realpath(\dirname(__DIR__)),
+      'HHAST_FIXTURES_URI' => 'file://'.\realpath(__DIR__.'/fixtures'),
+    ];
+
+    $messages = \file_get_contents(__DIR__.'/lsp/'.$name.'.json')
+      |> Str\replace_every($$, $mappings)
+      |> \json_decode(
+        $$,
+        /* assoc = */ true,
+        /* depth = */ 512,
+        \JSON_FB_HACK_ARRAYS,
+      )
+      |> TypeAssert\matches_type_structure(
+        type_structure(self::class, 'TExchange'),
+        $$,
+      );
+
+    list($cli, $input, $output, $error) = $this->getCLI('--mode', 'lsp');
+    list($code, $_) = \HH\Asio\join(Tuple\from_async(
+      $cli->mainAsync(),
+      async {
+        foreach ($messages as $message) {
+          $message = \json_encode($message);
+          $input->appendToBuffer(
+            'Content-Length: '.Str\length($message)."\r\n\r\n".$message,
+          );
+          // Wait for the implementation to deal with the message
+          await \HH\Asio\later();
+        }
+        $input->close();
+      },
+    ));
+
+    $output = $output->getBuffer()
+      |> Str\replace_every($$, Dict\flip($mappings))
+      |> $$."\n";
+    expect($output)->toMatchExpectFileWithInputFile(
+      __DIR__.'/lsp/'.$name.'.expect',
+      __DIR__.'/lsp/'.$name.'.json',
+    );
   }
 }
