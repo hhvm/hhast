@@ -11,46 +11,20 @@
 namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\EditableNode;
-use namespace Facebook\HHAST\__Private\{LSP, LSPLib};
 use namespace HH\Lib\{C, Str};
 
 abstract class AutoFixingASTLinter<Tnode as EditableNode>
-extends BaseASTLinter<Tnode, FixableASTLintError<Tnode>>
-implements LSPAutoFixingLinter<FixableASTLintError<Tnode>> {
-
+extends BaseASTLinter<Tnode, FixableASTLintError<Tnode>> {
   abstract public function getFixedNode(Tnode $node): ?EditableNode;
 
-  // Not abstract because of a variance issue in 3.27:
-  // https://github.com/facebook/hhvm/issues/8255
+  use AutoFixingLinterTrait<FixableASTLintError<Tnode>>;
+
   protected function getTitleForFix(FixableASTLintError<Tnode> $_error): string {
     return \get_class($this)
       |> Str\split($$, "\\")
       |> C\lastx($$)
       |> Str\strip_suffix($$, "Linter")
       |> 'Fix '.$$.' Error';
-  }
-
-  final public function getCodeActionForError(
-    FixableASTLintError<Tnode> $error,
-  ): ?LSP\CodeAction {
-    $fixed = $this->getFixedFile(vec[$error]);
-    if ($fixed === null) {
-      return null;
-    }
-
-    return shape(
-      'title' => $this->getTitleForFix($error),
-      'kind' => LSP\CodeActionKind::QUICK_FIX,
-      'edit' => shape(
-        'changes' => dict[
-          'file://'.\realpath($this->getFile()->getPath()) =>
-            LSPLib\create_textedits(
-              $this->getFile()->getContents(),
-              $fixed->getContents()
-            ),
-        ],
-      ),
-    );
   }
 
   final public function getFixedFile(

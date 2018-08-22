@@ -16,6 +16,11 @@ final class NoWhitespaceAtEndOfLineLinter
   extends AutoFixingLineLinter<FixableLineLintError> {
 
   <<__Override>>
+  public function getTitleForFix(FixableLineLintError $_): string {
+    return 'Remove trailing whitespace';
+  }
+
+  <<__Override>>
   public function getLintErrorsForLine(
     string $line,
     int $line_number,

@@ -29,8 +29,7 @@ use namespace HH\Lib\{C, Str, Vec};
 abstract class FunctionNamingLinter extends BaseASTLinter<
   IFunctionishDeclaration,
   FunctionNamingLintError
-> implements AutoFixingLinter<FunctionNamingLintError> {
-
+> {
   abstract public function getSuggestedNameForFunction(
     string $name,
     FunctionDeclaration $fun,
@@ -188,14 +187,5 @@ abstract class FunctionNamingLinter extends BaseASTLinter<
       $node->getFirstTokenx()->withLeading($leading),
       )
       ->getCode();
-  }
-
-  final public function getFixedFile(
-    Traversable<FunctionNamingLintError> $errors,
-  ): File {
-    foreach ($errors as $error) {
-      $error->refactorWithHHClient();
-    }
-    return $this->getFile();
   }
 }

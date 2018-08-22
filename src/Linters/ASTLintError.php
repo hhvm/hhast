@@ -14,10 +14,7 @@ use type Facebook\HHAST\EditableNode;
 use function Facebook\HHAST\find_position;
 use namespace HH\Lib\Str;
 
-class ASTLintError<
-  Tnode as EditableNode,
-> extends LintError {
-
+class ASTLintError<Tnode as EditableNode> extends LintError {
   <<__Override>>
   public function __construct(
     protected BaseASTLinter<Tnode, ASTLintError<Tnode>> $linter,

@@ -41,7 +41,7 @@ final class CodeActionCommand extends LSPLib\CodeActionCommand {
           }
 
           $linter = $e->getLinter();
-          if (!$linter instanceof Linters\LSPAutoFixingLinter) {
+          if (!$linter instanceof Linters\AutoFixingLinter) {
             return null;
           }
 

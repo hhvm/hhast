@@ -10,13 +10,20 @@
 
 namespace Facebook\HHAST\Linters;
 
+use namespace Facebook\HHAST\__Private\LSP;
 
 interface AutoFixingLinter<Terror as FixableLintError> {
-  require extends BaseLinter;
+	require extends BaseLinter;
 
   public function getLintErrorsAsync(): Awaitable<Traversable<Terror>>;
 
   public function getFixedFile(
     Traversable<Terror> $errors,
   ): File;
+
+	protected function getTitleForFix(Terror $error): string;
+
+	public function getCodeActionForError(
+		Terror $error,
+	): ?LSP\CodeAction;
 }

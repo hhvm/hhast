@@ -15,6 +15,8 @@ use namespace HH\Lib\Str;
 abstract class AutoFixingLineLinter<Terr as FixableLineLintError>
   extends LineLinter<Terr> implements AutoFixingLinter<Terr> {
 
+  use AutoFixingLinterTrait<Terr>;
+
   abstract public function getFixedLine(string $line): string;
 
   final public function getFixedFile(Traversable<Terr> $errors): File {
