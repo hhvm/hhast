@@ -11,21 +11,12 @@
 namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\EditableNode;
-use namespace HH\Lib\{C, Str};
 
 abstract class AutoFixingASTLinter<Tnode as EditableNode>
 extends BaseASTLinter<Tnode, FixableASTLintError<Tnode>> {
   abstract public function getFixedNode(Tnode $node): ?EditableNode;
 
   use AutoFixingLinterTrait<FixableASTLintError<Tnode>>;
-
-  protected function getTitleForFix(FixableASTLintError<Tnode> $_error): string {
-    return \get_class($this)
-      |> Str\split($$, "\\")
-      |> C\lastx($$)
-      |> Str\strip_suffix($$, "Linter")
-      |> 'Fix '.$$.' Error';
-  }
 
   final public function getFixedFile(
     Traversable<FixableASTLintError<Tnode>> $errors,
