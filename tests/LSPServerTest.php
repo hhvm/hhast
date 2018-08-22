@@ -114,13 +114,15 @@ final class LSPServerTest extends TestCase {
 
     list($inr, $inw) = cli_pipe();
     list($outr, $outw) = cli_pipe();
-    list($errr, $errw) = cli_pipe();
+    $err = new \Facebook\CLILib\FileHandleOutput(\STDERR);
     $cli = new __Private\LinterCLI(
       vec[__FILE__, '--mode', 'lsp'],
-      new Terminal($inr, $outw, $errw),
+      new Terminal($inr, $outw, $err),
     );
 
     $responses = Ref(vec[]);
+
+    $debug = (bool) \getenv('HHAST_LSP_DEBUG') ?? false;
 
     list($code, $_) = \HH\Asio\join(Tuple\from_async(
       $cli->mainAsync(),
@@ -128,12 +130,21 @@ final class LSPServerTest extends TestCase {
         foreach ($messages as $message) {
           $behavior = $this->getMessageResponseBehavior($message);
           $message = \json_encode($message, \JSON_UNESCAPED_SLASHES);
+          if ($debug) {
+            \fprintf(\STDERR, "< %s\n", $message);
+          }
           $inw->write(
             'Content-Length: '.Str\length($message)."\r\n\r\n".$message,
           );
           switch ($behavior) {
             case TestLSPMessageResponseBehavior::WAIT:
+              if ($debug) {
+                \fwrite(\STDERR, "> [waiting]\n");
+              }
               $raw = await read_message_async($outr);
+              if ($debug) {
+                \fprintf(\STDERR, "> %s\n", $raw);
+              }
               $responses->v[] = \json_decode(
                 $raw,
                 /* assoc = */ true,

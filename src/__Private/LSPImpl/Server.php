@@ -76,12 +76,18 @@ final class Server extends LSPLib\Server<ServerState> {
     $stdin = $this->terminal->getStdin();
     $poll = AsyncPoll::create();
     $poll->add($this->lintProjectAsync());
+    $debug = (bool)\getenv('HHAST_LSP_DEBUG') ?? false;
+    $verbose = $debug ? $this->terminal->getStderr() : null;
     $poll->add(
       async {
         while (!$stdin->isEof()) {
+          $verbose?->write("< [waiting]\n");
           $body = await $this->readMessageAsync();
+          $verbose?->write("> [dispatch]\n");
           $poll->add(async {
+            $verbose?->write("> [start]\n");
             await $this->handleMessageAsync($body);
+            $verbose?->write("> [done]\n");
           });
         }
       },
