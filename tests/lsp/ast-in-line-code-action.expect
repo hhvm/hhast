@@ -115,14 +115,14 @@
                                     "range": {
                                         "start": {
                                             "line": 11,
-                                            "character": 11
+                                            "character": 21
                                         },
                                         "end": {
                                             "line": 11,
-                                            "character": 29
+                                            "character": 21
                                         }
                                     },
-                                    "newText": "'0e123' === '0e456'"
+                                    "newText": "="
                                 }
                             ]
                         }
@@ -140,14 +140,14 @@
                                     "range": {
                                         "start": {
                                             "line": 12,
-                                            "character": 11
+                                            "character": 21
                                         },
                                         "end": {
                                             "line": 12,
-                                            "character": 29
+                                            "character": 21
                                         }
                                     },
-                                    "newText": "'0e123' !== '0e456'"
+                                    "newText": "="
                                 }
                             ]
                         }
@@ -165,14 +165,14 @@
                                     "range": {
                                         "start": {
                                             "line": 13,
-                                            "character": 11
+                                            "character": 19
                                         },
                                         "end": {
                                             "line": 13,
-                                            "character": 29
+                                            "character": 21
                                         }
                                     },
-                                    "newText": "'0e123' !== '0e456'"
+                                    "newText": "!=="
                                 }
                             ]
                         }

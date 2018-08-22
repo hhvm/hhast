@@ -12,4 +12,19 @@ namespace Facebook\HHAST\__Private\Diff;
 
 <<__Sealed(DiffDeleteOp::class, DiffInsertOp::class, DiffKeepOp::class)>>
 abstract class DiffOp<TContent> {
+  public function asDeleteOp(): DiffDeleteOp<TContent> {
+    invariant_violation('not a deletion');
+  }
+
+  public function asInsertOp(): DiffInsertOp<TContent> {
+    invariant_violation('not an insertion');
+  }
+
+  public function asKeepOp(): DiffKeepOp<TContent> {
+    invariant_violation('not a keep');
+  }
+
+  final public function getDiffOpClass(): classname<DiffOp<TContent>> {
+    return static::class;
+  }
 }

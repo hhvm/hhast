@@ -11,8 +11,7 @@
 namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\EditableNode;
-use namespace Facebook\HHAST\__Private\{LSP, LSPImpl};
-use namespace Facebook\HHAST;
+use namespace Facebook\HHAST\__Private\{LSP, LSPLib};
 use namespace HH\Lib\{C, Str};
 
 abstract class AutoFixingASTLinter<Tnode as EditableNode>
@@ -34,38 +33,21 @@ implements LSPAutoFixingLinter<FixableASTLintError<Tnode>> {
   final public function getCodeActionForError(
     FixableASTLintError<Tnode> $error,
   ): ?LSP\CodeAction {
-    $node = $error->getBlameNode();
-    $fixed = $this->getFixedNode($node);
+    $fixed = $this->getFixedFile(vec[$error]);
     if ($fixed === null) {
       return null;
     }
 
-    $offset = HHAST\find_offset_of_leading($this->getAST(), $node);
-    $start = $this->getAST()->getCode()
-      |> Str\slice($$, 0, $offset)
-      |> Str\split($$, "\n")
-      |> tuple(C\count($$), Str\length(C\lastx($$)));
-
-    $code = $node->getCode();
-    $lines = Str\split($code, "\n");
-    $count = C\count($lines);
-    if ($count === 1) {
-      $end = tuple($start[0], $start[1] + Str\length($code));
-    } else {
-      $end = tuple($start[0] + $count - 1, Str\length(C\lastx($lines)));
-    }
     return shape(
       'title' => $this->getTitleForFix($error),
       'kind' => LSP\CodeActionKind::QUICK_FIX,
       'edit' => shape(
         'changes' => dict[
-          'file://'.\realpath($this->getFile()->getPath()) => vec[shape(
-            'range' => shape(
-              'start' => LSPImpl\position_to_lsp($start),
-              'end' => LSPImpl\position_to_lsp($end),
+          'file://'.\realpath($this->getFile()->getPath()) =>
+            LSPLib\create_textedits(
+              $this->getFile()->getContents(),
+              $fixed->getContents()
             ),
-            'newText' => $fixed->getCode(),
-          )],
         ],
       ),
     );

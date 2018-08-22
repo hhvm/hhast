@@ -24,4 +24,9 @@ final class DiffInsertOp<TContent> extends DiffOp<TContent> {
   public function getContent(): TContent {
     return $this->content;
   }
+
+  <<__Override>>
+  public function asInsertOp(): DiffInsertOp<TContent> {
+    return $this;
+  }
 }

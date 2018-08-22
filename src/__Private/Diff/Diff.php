@@ -230,14 +230,9 @@ abstract class Diff {
           $y++;
         }
 
-        invariant(
-          $x <= $max_x && $y <= $max_y,
-          'exceeded sequence length',
-        );
-
         $best_points[$diagonal] = $x;
 
-        if ($x === $max_x && $y === $max_y) {
+        if ($x >= $max_x && $y >= $max_y) {
           return $this->backtrackPath($best_points_at_cost);
         }
       }
