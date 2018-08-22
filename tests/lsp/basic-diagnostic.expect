@@ -14,7 +14,7 @@
                 "codeActionProvider": true,
                 "executeCommandProvider": {
                     "commands": [
-                        "hhast\/applyWorkspaceEdit"
+                        "hhast/applyWorkspaceEdit"
                     ]
                 }
             }
@@ -23,19 +23,19 @@
     {
         "jsonrpc": "2.0",
         "id": "Facebook\\HHAST\\__Private\\LSPImpl\\InitializedNotification",
-        "method": "client\/registerCapability",
+        "method": "client/registerCapability",
         "params": {
             "registrations": [
                 {
                     "id": "relint on watched file change",
-                    "method": "workspace\/didChangeWatchedFiles",
+                    "method": "workspace/didChangeWatchedFiles",
                     "registerOptions": {
                         "watchers": [
                             {
-                                "globPattern": "**\/*.php"
+                                "globPattern": "**/*.php"
                             },
                             {
-                                "globPattern": "**\/*.hh"
+                                "globPattern": "**/*.hh"
                             }
                         ]
                     }
@@ -45,9 +45,9 @@
     },
     {
         "jsonrpc": "2.0",
-        "method": "textDocument\/publishDiagnostics",
+        "method": "textDocument/publishDiagnostics",
         "params": {
-            "uri": "file:\/\/\/Users\/fredemmott\/code\/hhast\/tests\/fixtures\/NoPHPEqualityLinter\/double_equals.php.in",
+            "uri": "HHAST_ROOT_URI/tests/fixtures/NoPHPEqualityLinter/double_equals.php.in",
             "diagnostics": [
                 {
                     "range": {

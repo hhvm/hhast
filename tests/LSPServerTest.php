@@ -127,7 +127,7 @@ final class LSPServerTest extends TestCase {
       async {
         foreach ($messages as $message) {
           $behavior = $this->getMessageResponseBehavior($message);
-          $message = \json_encode($message);
+          $message = \json_encode($message, \JSON_UNESCAPED_SLASHES);
           $inw->write(
             'Content-Length: '.Str\length($message)."\r\n\r\n".$message,
           );
@@ -148,7 +148,9 @@ final class LSPServerTest extends TestCase {
       },
     ));
 
-    $output = \json_encode($responses->v, \JSON_PRETTY_PRINT)."\n"
+    $output =
+      \json_encode($responses->v, \JSON_PRETTY_PRINT | \JSON_UNESCAPED_SLASHES).
+        "\n"
       |> Str\replace_every($$, Dict\flip($mappings));
 
     expect($output)->toMatchExpectFileWithInputFile(
