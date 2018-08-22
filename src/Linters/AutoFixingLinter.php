@@ -12,7 +12,7 @@ namespace Facebook\HHAST\Linters;
 
 use namespace Facebook\HHAST\__Private\LSP;
 
-interface AutoFixingLinter<Terror as FixableLintError> {
+interface AutoFixingLinter<Terror as LintError> {
 	require extends BaseLinter;
 
   public function getLintErrorsAsync(): Awaitable<Traversable<Terror>>;

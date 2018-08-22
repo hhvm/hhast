@@ -30,7 +30,7 @@ final class NoPHPEqualityLinter
 
   <<__Override>>
   protected function getTitleForFix(
-    FixableASTLintError<BinaryExpression> $err,
+    ASTLintError<BinaryExpression> $err,
   ): string {
     $blame = $err->getBlameNode();
     $fixed = $this->getFixedNode($blame);
@@ -45,7 +45,7 @@ final class NoPHPEqualityLinter
   public function getLintErrorForNode(
     BinaryExpression $expr,
     vec<EditableNode> $_parents,
-  ): ?FixableASTLintError<BinaryExpression> {
+  ): ?ASTLintError<BinaryExpression> {
     $token = $expr->getOperator();
     $replacement = null;
     if ($token instanceof EqualEqualToken) {
@@ -58,7 +58,7 @@ final class NoPHPEqualityLinter
       return null;
     }
 
-    return new FixableASTLintError(
+    return new ASTLintError(
       $this,
       'Do not use PHP equality - use "'.$replacement.'" instead.',
       $expr,

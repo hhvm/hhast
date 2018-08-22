@@ -32,7 +32,7 @@ final class UnusedParameterLinter
   public function getLintErrorForNode(
     ParameterDeclaration $node,
     vec<EditableNode> $parents,
-  ): ?FixableASTLintError<ParameterDeclaration> {
+  ): ?ASTLintError<ParameterDeclaration> {
     if ($node->getVisibility() !== null) {
       // Constructor parameter promotion
       return null;
@@ -71,7 +71,7 @@ final class UnusedParameterLinter
       }
     }
 
-    return new FixableASTLintError(
+    return new ASTLintError(
       $this,
       "Parameter is unused",
       $node,
@@ -93,7 +93,7 @@ final class UnusedParameterLinter
 
   <<__Override>>
   public function getTitleForFix(
-    FixableASTLintError<ParameterDeclaration> $err,
+    ASTLintError<ParameterDeclaration> $err,
   ): string {
     $name = $err->getBlameNode()->getName();
     invariant($name instanceof VariableToken, 'unhandled type');

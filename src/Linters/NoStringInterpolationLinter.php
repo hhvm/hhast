@@ -39,13 +39,13 @@ final class NoStringInterpolationLinter
   public function getLintErrorForNode(
     LiteralExpression $root_expr,
     vec<EditableNode> $_parents,
-  ): ?FixableASTLintError<LiteralExpression> {
+  ): ?ASTLintError<LiteralExpression> {
     $expr = $root_expr->getExpression();
     if (!$expr instanceof EditableList) {
       return null;
     }
 
-    return new FixableASTLintError(
+    return new ASTLintError(
       $this,
       'Do not use string interpolation - consider concatenation or '.
       'Str\format() instead ',

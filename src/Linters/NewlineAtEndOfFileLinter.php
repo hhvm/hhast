@@ -14,19 +14,19 @@ use namespace HH\Lib\{C, Math, Str, Vec};
 
 final class NewlineAtEndOfFileLinter
   extends BaseLinter
-  implements AutoFixingLinter<FixableLintError> {
-  use AutoFixingLinterTrait<FixableLintError>;
+  implements AutoFixingLinter<LintError> {
+  use AutoFixingLinterTrait<LintError>;
 
   <<__Override>>
   public async function getLintErrorsAsync(
-  ): Awaitable<Traversable<FixableLintError>> {
+  ): Awaitable<Traversable<LintError>> {
     $contents = $this->getFile()->getContents();
-    $trimmed = Str\trim_right($contents);
-    $expected = $trimmed."\n";
-    if ($contents === $expected) {
+    $fixed = $this->getFixedFile(vec[])->getContents();
+    if ($contents === $fixed) {
       return vec[];
     }
 
+    $trimmed = Str\trim_right($contents);
     $trailing = Str\slice($contents, Str\length($trimmed));
     $blame = $trimmed
       |> Str\split($$, "\n")
@@ -44,11 +44,10 @@ final class NewlineAtEndOfFileLinter
     )
       ->withPosition($lines, 0)
       ->withBlameCode($blame)
-      ->withFix($blame, Str\trim_right($blame)."\n")
       |> vec[$$];
   }
 
-  protected function getTitleForFix(FixableLintError $_): string {
+  protected function getTitleForFix(LintError $_): string {
     $contents = $this->getFile()->getContents();
     if (Str\ends_with($contents, "\n")) {
       return "Remove extra trailing whitespace";
@@ -59,7 +58,7 @@ final class NewlineAtEndOfFileLinter
     return "Replace trailng whitespace with newline";
   }
 
-  public function getFixedFile(Traversable<FixableLintError> $_): File {
+  public function getFixedFile(Traversable<LintError> $_): File {
     return $this->getFile()->withContents(
       $this->getFile()->getContents()
         |> Str\trim_right($$)

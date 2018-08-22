@@ -40,7 +40,7 @@ final class UnusedUseClauseLinter
   public function getLintErrorForNode(
     INamespaceUseDeclaration $node,
     vec<EditableNode> $_context,
-  ): ?FixableASTLintError<INamespaceUseDeclaration> {
+  ): ?ASTLintError<INamespaceUseDeclaration> {
     $clauses = $node->getClauses()->getItems();
     $unused = $this->getUnusedClauses($node->getKind(), $clauses);
 
@@ -48,7 +48,7 @@ final class UnusedUseClauseLinter
       return null;
     }
 
-    return new FixableASTLintError(
+    return new ASTLintError(
       $this,
       $unused
         |> Vec\map($$, $p ==> '`'.$p[0].'`')
@@ -117,7 +117,7 @@ final class UnusedUseClauseLinter
 
   <<__Override>>
   protected function getTitleForFix(
-    FixableASTLintError<INamespaceUseDeclaration> $error,
+    ASTLintError<INamespaceUseDeclaration> $error,
   ): string {
     $node = $error->getBlameNode();
     $clauses = $node->getClauses()->getItems();

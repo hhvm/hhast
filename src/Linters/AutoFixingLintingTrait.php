@@ -13,7 +13,7 @@ namespace Facebook\HHAST\Linters;
 use namespace Facebook\HHAST\__Private\{LSP, LSPLib};
 use namespace HH\Lib\{C, Str};
 
-trait AutoFixingLinterTrait<Terror as FixableLintError> implements AutoFixingLinter<Terror> {
+trait AutoFixingLinterTrait<Terror as LintError> implements AutoFixingLinter<Terror> {
 	protected function getTitleForFix(Terror $_error): string {
 		return \get_class($this)
 			|> Str\split($$, "\\")

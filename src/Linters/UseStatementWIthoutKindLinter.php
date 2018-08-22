@@ -33,12 +33,12 @@ final class UseStatementWithoutKindLinter
   public function getLintErrorForNode(
     INamespaceUseDeclaration $node,
     vec<EditableNode> $_context,
-  ): ?FixableASTLintError<INamespaceUseDeclaration> {
+  ): ?ASTLintError<INamespaceUseDeclaration> {
     if ($node->hasKind()) {
       return null;
     }
 
-    return new FixableASTLintError(
+    return new ASTLintError(
       $this,
       "Use `use type` or `use namespace`",
       $node,
@@ -47,7 +47,7 @@ final class UseStatementWithoutKindLinter
 
   <<__Override>>
   protected function getTitleForFix(
-    FixableASTLintError<INamespaceUseDeclaration> $e,
+    ASTLintError<INamespaceUseDeclaration> $e,
   ): string {
     $fixed = $this->getFixedNode($e->getBlameNode());
     invariant(

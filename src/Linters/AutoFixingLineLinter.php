@@ -12,7 +12,7 @@ namespace Facebook\HHAST\Linters;
 
 use namespace HH\Lib\Str;
 
-abstract class AutoFixingLineLinter<Terr as FixableLineLintError>
+abstract class AutoFixingLineLinter<Terr as LineLintError>
   extends LineLinter<Terr> implements AutoFixingLinter<Terr> {
 
   use AutoFixingLinterTrait<Terr>;

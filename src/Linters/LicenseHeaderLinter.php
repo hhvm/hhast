@@ -31,7 +31,7 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter<Script> {
   public function getLintErrorForNode(
     Script $script,
     vec<EditableNode> $_parents,
-  ): ?FixableASTLintError<Script> {
+  ): ?ASTLintError<Script> {
     $first = $script->getDeclarations()->getItems()[1] ?? null;
     if ($first === null) {
       return null;
@@ -52,7 +52,7 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter<Script> {
         return null;
       }
     }
-    return new FixableASTLintError(
+    return new ASTLintError(
       $this,
       'Incorrect or missing license header',
       $script,
@@ -62,7 +62,6 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter<Script> {
   <<__Override>>
   public function getPrettyTextForNode(
     Script $node,
-    ?EditableNode $_context,
   ): string {
     return $node->getDeclarations()->getItems()
       |> Vec\take($$, 2)
@@ -71,7 +70,7 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter<Script> {
   }
 
   <<__Override>>
-  protected function getTitleForFix(FixableASTLintError<Script> $e): string {
+  protected function getTitleForFix(ASTLintError<Script> $e): string {
     if (Str\contains_ci($e->getBlameCode(), 'copyright')) {
       return 'Replace license header';
     }

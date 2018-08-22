@@ -12,14 +12,13 @@ namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\EditableNode;
 
-abstract class AutoFixingASTLinter<Tnode as EditableNode>
-extends BaseASTLinter<Tnode, FixableASTLintError<Tnode>> {
+abstract class AutoFixingASTLinter<Tnode as EditableNode> extends BaseASTLinter<Tnode> {
   abstract public function getFixedNode(Tnode $node): ?EditableNode;
 
-  use AutoFixingLinterTrait<FixableASTLintError<Tnode>>;
+  use AutoFixingLinterTrait<ASTLintError<Tnode>>;
 
   final public function getFixedFile(
-    Traversable<FixableASTLintError<Tnode>> $errors,
+    Traversable<ASTLintError<Tnode>> $errors,
   ): File {
     $ast = $this->getAST();
     foreach ($errors as $error) {
@@ -33,10 +32,9 @@ extends BaseASTLinter<Tnode, FixableASTLintError<Tnode>> {
       );
       $old = $error->getBlameNode();
       $new = $this->getFixedNode($old);
-      invariant(
-        $new !== null,
-        "Shouldn't be attempting to fix a non-fixable error",
-      );
+      if ($new === null) {
+        continue;
+      }
       if ($ast === $old) {
         $ast = $new;
       } else {

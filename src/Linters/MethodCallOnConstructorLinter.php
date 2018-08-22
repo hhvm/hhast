@@ -32,13 +32,13 @@ final class MethodCallOnConstructorLinter
   public function getLintErrorForNode(
     MemberSelectionExpression $node,
     vec<EditableNode> $_,
-  ): ?FixableASTLintError<MemberSelectionExpression> {
+  ): ?ASTLintError<MemberSelectionExpression> {
     $obj = $node->getObject();
     if (!$obj instanceof ObjectCreationExpression) {
       return null;
     }
 
-    return new FixableASTLintError(
+    return new ASTLintError(
       $this,
       'Parenthesize method and member access on object creation expressions',
       $node,

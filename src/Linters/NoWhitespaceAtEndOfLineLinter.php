@@ -13,10 +13,10 @@ namespace Facebook\HHAST\Linters;
 use namespace HH\Lib\Str;
 
 final class NoWhitespaceAtEndOfLineLinter
-  extends AutoFixingLineLinter<FixableLineLintError> {
+  extends AutoFixingLineLinter<LineLintError> {
 
   <<__Override>>
-  public function getTitleForFix(FixableLineLintError $_): string {
+  public function getTitleForFix(LineLintError $_): string {
     return 'Remove trailing whitespace';
   }
 
@@ -24,7 +24,7 @@ final class NoWhitespaceAtEndOfLineLinter
   public function getLintErrorsForLine(
     string $line,
     int $line_number,
-  ): Traversable<FixableLineLintError> {
+  ): Traversable<LineLintError> {
     $errs = vec[];
 
     for ($i = Str\length($line) - 1; $i >= 0; $i--) {
@@ -33,7 +33,7 @@ final class NoWhitespaceAtEndOfLineLinter
         break;
       }
 
-      $errs[] = new FixableLineLintError(
+      $errs[] = new LineLintError(
         $this,
         'trailing whitespace at end of line',
         tuple($line_number + 1, $i + 1),

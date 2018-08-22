@@ -26,10 +26,8 @@ use type Facebook\HHAST\{
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
 
-abstract class FunctionNamingLinter extends BaseASTLinter<
-  IFunctionishDeclaration,
-  FunctionNamingLintError
-> {
+abstract class FunctionNamingLinter
+  extends BaseASTLinter<IFunctionishDeclaration> {
   abstract public function getSuggestedNameForFunction(
     string $name,
     FunctionDeclaration $fun,
@@ -110,9 +108,11 @@ abstract class FunctionNamingLinter extends BaseASTLinter<
       $new = $this->getSuggestedNameForFunction($old, $node);
     } else if ($node instanceof MethodishDeclaration) {
       if (
-        $node->getFunctionDeclHeader()->getModifiers()?->getDescendantsOfType(
-          StaticToken::class,
-        ) |> ($$ ?? vec[]) |> C\is_empty(vec($$))
+        $node->getFunctionDeclHeader()
+          ->getModifiers()
+          ?->getDescendantsOfType(StaticToken::class)
+        |> ($$ ?? vec[])
+        |> C\is_empty(vec($$))
       ) {
         $what = 'Method';
         $new = $this->getSuggestedNameForInstanceMethod($old, $node);
@@ -121,10 +121,7 @@ abstract class FunctionNamingLinter extends BaseASTLinter<
         $new = $this->getSuggestedNameForStaticMethod($old, $node);
       }
     } else {
-      invariant_violation(
-        "Can't handle type %s",
-        \get_class($node),
-      );
+      invariant_violation("Can't handle type %s", \get_class($node));
     }
     if ($old === $new) {
       return null;
@@ -134,10 +131,8 @@ abstract class FunctionNamingLinter extends BaseASTLinter<
     if ($node instanceof FunctionDeclaration) {
       $class = null;
     } else {
-      $class = C\find(
-        Vec\reverse($parents),
-        $c ==> $c instanceof ClassishDeclaration,
-      );
+      $class =
+        C\find(Vec\reverse($parents), $c ==> $c instanceof ClassishDeclaration);
       invariant(
         $class instanceof ClassishDeclaration,
         'failed to find a class for a method',
@@ -159,17 +154,13 @@ abstract class FunctionNamingLinter extends BaseASTLinter<
   <<__Override>>
   public function getPrettyTextForNode(
     IFunctionishDeclaration $node,
-    ?EditableNode $_context,
   ): string {
     if ($node instanceof FunctionDeclaration) {
       $node = $node->withBody(HHAST\Missing());
     } else if ($node instanceof MethodishDeclaration) {
       $node = $node->withFunctionBody(HHAST\Missing());
     } else {
-      invariant_violation(
-        'unhandled type: %s',
-        \get_class($node),
-      );
+      invariant_violation('unhandled type: %s', \get_class($node));
     }
     $leading = $node->getFirstTokenx()->getLeading();
     if ($leading instanceof EditableList) {
@@ -185,7 +176,7 @@ abstract class FunctionNamingLinter extends BaseASTLinter<
     return $node->replace(
       $node->getFirstTokenx(),
       $node->getFirstTokenx()->withLeading($leading),
-      )
+    )
       ->getCode();
   }
 }
