@@ -11,8 +11,11 @@
 
 namespace Facebook\HHAST;
 
-use function Facebook\HHAST\TestLib\expect;
-use namespace Facebook\HHAST\__Private\LSP;
+use function Facebook\HHAST\TestLib\{cli_pipe, expect, Ref};
+use type Facebook\HHAST\TestLib\TestLSPMessageResponseBehavior;
+use function Facebook\HHAST\__Private\LSPImpl\read_message_async;
+use namespace Facebook\HHAST\__Private\{LSP, LSPImpl};
+use type Facebook\CLILib\Terminal;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{Dict, Str, Tuple};
 
@@ -27,8 +30,8 @@ final class LSPServerTest extends TestCase {
       'method' => 'exit',
       'params' => shape(),
     )
-    |> $this->messageToRPC($$)
-    |> $in->appendToBuffer($$);
+      |> $this->messageToRPC($$)
+      |> $in->appendToBuffer($$);
 
     $in->close();
 
@@ -46,16 +49,16 @@ final class LSPServerTest extends TestCase {
       'method' => 'shutdown',
       'params' => shape(),
     )
-    |> $this->messageToRPC($$)
-    |> $in->appendToBuffer($$);
+      |> $this->messageToRPC($$)
+      |> $in->appendToBuffer($$);
 
     shape(
       'jsonrpc' => '2.0',
       'method' => 'exit',
       'params' => shape(),
     )
-    |> $this->messageToRPC($$)
-    |> $in->appendToBuffer($$);
+      |> $this->messageToRPC($$)
+      |> $in->appendToBuffer($$);
 
     $in->close();
 
@@ -73,14 +76,21 @@ final class LSPServerTest extends TestCase {
     return [['basic-diagnostic']];
   }
 
-  const type TExchange = vec<LSP\Message>;
+  const type TMessage = shape(
+    'jsonrpc' => string,
+    ?'id' => arraykey,
+    ?'method' => string,
+    ?'TEST_RESPONSE' => TestLSPMessageResponseBehavior,
+    ...
+  );
+  const type TExchange = vec<this::TMessage>;
 
   /**
    * @dataProvider provideExampleExchanges
    */
   public function testExampleExchange(string $name): void {
     $mappings = dict[
-      'HHAST_ROOT_URI' =>  'file://'.\realpath(\dirname(__DIR__)),
+      'HHAST_ROOT_URI' => 'file://'.\realpath(\dirname(__DIR__)),
       'HHAST_FIXTURES_URI' => 'file://'.\realpath(__DIR__.'/fixtures'),
     ];
 
@@ -97,28 +107,67 @@ final class LSPServerTest extends TestCase {
         $$,
       );
 
-    list($cli, $input, $output, $error) = $this->getCLI('--mode', 'lsp');
+    list($inr, $inw) = cli_pipe();
+    list($outr, $outw) = cli_pipe();
+    list($errr, $errw) = cli_pipe();
+    $cli = new __Private\LinterCLI(
+      vec[__FILE__, '--mode', 'lsp'],
+      new Terminal($inr, $outw, $errw),
+    );
+
+    $responses = Ref(vec[]);
+
     list($code, $_) = \HH\Asio\join(Tuple\from_async(
       $cli->mainAsync(),
       async {
         foreach ($messages as $message) {
+          $behavior = $this->getMessageResponseBehavior($message);
           $message = \json_encode($message);
-          $input->appendToBuffer(
+          $inw->write(
             'Content-Length: '.Str\length($message)."\r\n\r\n".$message,
           );
-          // Wait for the implementation to deal with the message
-          await \HH\Asio\later();
+          switch ($behavior) {
+            case TestLSPMessageResponseBehavior::WAIT:
+              $raw = await read_message_async($outr);
+              $responses->v[] = \json_decode(
+                $raw,
+                /* assoc = */ true,
+                /* depth = */ 512,
+                \JSON_FB_HACK_ARRAYS,
+              );
+              break;
+            case TestLSPMessageResponseBehavior::NONE:
+              break;
+          }
         }
-        $input->close();
       },
     ));
 
-    $output = $output->getBuffer()
-      |> Str\replace_every($$, Dict\flip($mappings))
-      |> $$."\n";
+    $output = \json_encode($responses->v, \JSON_PRETTY_PRINT)."\n"
+      |> Str\replace_every($$, Dict\flip($mappings));
+
     expect($output)->toMatchExpectFileWithInputFile(
       __DIR__.'/lsp/'.$name.'.expect',
       __DIR__.'/lsp/'.$name.'.json',
     );
+  }
+
+  private function getMessageResponseBehavior(
+    this::TMessage $msg,
+  ): TestLSPMessageResponseBehavior {
+    $behavior = $msg['TEST_RESPONSE'] ?? null;
+    if ($behavior) {
+      return $behavior;
+    }
+
+    if (($msg['id'] ?? null) === LSPImpl\InitializedNotification::class) {
+      return TestLSPMessageResponseBehavior::NONE;
+    }
+
+    if (($msg['method'] ?? null) === 'exit') {
+      return TestLSPMessageResponseBehavior::NONE;
+    }
+
+    return TestLSPMessageResponseBehavior::WAIT;
   }
 }

@@ -1,43 +1,53 @@
 [
    {
       "jsonrpc" : "2.0",
-      "params": {
-          "processId" : null,
-          "rootUri" : "HHAST_ROOT_URI",
-          "initializationOptions" : {
-              "lintMode" : "open-files",
-              "__PRIVATE__" : {
-                  "unitTestOptions" : {
-                      "ignoreFilenameExtensions": true
-                  }
-              }
-          },
-          "capabilities" : {
-          }
-      },
       "method" : "initialize",
-      "id" : 0
-   },
-   {
-      "params" : {},
-      "method" : "initialized",
-      "jsonrpc" : "2.0"
-   },
-   {
-      "id" : "Facebook\\HHAST\\__Private\\LSPImpl\\InitializedNotification",
-      "result" : null,
-      "jsonrpc" : "2.0"
+      "id" : 0,
+      "params" : {
+         "capabilities" : {},
+         "rootUri" : "HHAST_ROOT_URI",
+         "processId" : null,
+         "initializationOptions" : {
+            "__PRIVATE__" : {
+               "unitTestOptions" : {
+                  "ignoreFilenameExtensions" : true
+               }
+            },
+            "lintMode" : "open-files"
+         }
+      }
    },
    {
       "jsonrpc" : "2.0",
+      "method" : "initialized",
+      "params" : {}
+   },
+   {
+      "result" : null,
+      "jsonrpc" : "2.0",
+      "id" : "Facebook\\HHAST\\__Private\\LSPImpl\\InitializedNotification"
+   },
+   {
+      "jsonrpc" : "2.0",
+      "method" : "textDocument/didOpen",
       "params" : {
          "textDocument" : {
-            "uri" : "HHAST_FIXTURES_URI/NoPHPEqualityLinter/double_equals.php.in",
-            "languageId" : "hack",
             "version" : 0,
-            "text" : ">>>PLACEHOLDER<<<"
+            "uri" : "HHAST_FIXTURES_URI/NoPHPEqualityLinter/double_equals.php.in",
+            "text" : ">>>PLACEHOLDER<<<",
+            "languageId" : "hack"
          }
-      },
-      "method" : "textDocument/didOpen"
+      }
+   },
+   {
+      "method" : "shutdown",
+      "jsonrpc" : "2.0",
+      "id" : 18,
+      "params" : null
+   },
+   {
+      "params" : null,
+      "jsonrpc" : "2.0",
+      "method" : "exit"
    }
 ]

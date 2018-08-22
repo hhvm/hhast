@@ -2,5 +2,6 @@ vendor/
 *.swp
 tests/fixtures/*.out
 tests/fixtures/**/*.out
+tests/lsp/*.out
 *.swo
 .DS_Store

@@ -114,38 +114,6 @@ final class Server extends LSPLib\Server<ServerState> {
   }
 
   private async function readMessageAsync(): Awaitable<string> {
-    $stdin = $this->terminal->getStdin();
-    $length = null;
-    $line = '';
-
-    // read headers
-    while (true) {
-      /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
-      $line = await $stdin->readLineAsync();
-      $line = Str\trim($line);
-      if ($line === '') {
-        break;
-      }
-      if (!Str\starts_with($line, 'Content-Length')) {
-        continue;
-      }
-      $length = $line
-        |> Str\strip_prefix($$, 'Content-Length:')
-        |> Str\trim($$)
-        |> Str\to_int($$);
-    }
-    invariant($length !== null, "Expected a content-length header");
-
-    // read body
-    $body = '';
-    while ($length > 0 && !$stdin->isEof()) {
-      /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
-      $part = await $stdin->readAsync($length);
-      $body .= $part;
-      $length -= Str\length($part);
-      invariant($length >= 0, 'negative bytes remaining');
-    }
-
-    return $body;
+    return await read_message_async($this->terminal->getStdin());
   }
 }
