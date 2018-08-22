@@ -73,7 +73,12 @@ final class LSPServerTest extends TestCase {
   }
 
   public function provideExampleExchanges(): array<array<string>> {
-    return [['basic-diagnostic']];
+    return \array_map(
+      function($file) {
+        return [\basename($file, '.json')];
+      },
+      \glob(__DIR__.'/lsp/*.json'),
+    );
   }
 
   const type TMessage = shape(
