@@ -14,5 +14,5 @@ use type Facebook\HHAST\EditableNode;
 
 /** Convenience slass to simplify generics in the common case. */
 abstract class ASTLinter<Tnode as EditableNode>
-extends BaseASTLinter<Tnode, ASTLintError<Tnode>> {
+extends BaseASTLinter<Tnode> {
 }

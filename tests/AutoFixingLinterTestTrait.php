@@ -14,43 +14,38 @@ namespace Facebook\HHAST;
 use function Facebook\HHAST\TestLib\expect;
 use namespace HH\Lib\{Str, Vec};
 
-trait AutoFixingLinterTestTrait<Terror as Linters\FixableLintError> {
-  require extends TestCase;
-  use LinterTestTrait;
+trait AutoFixingLinterTestTrait<Terror as Linters\LintError> {
+	require extends TestCase;
+	use LinterTestTrait;
 
-  abstract protected function getLinter(
-    string $file,
-  ): Linters\AutoFixingLinter<Terror>;
+	abstract protected function getLinter(
+		string $file,
+	): Linters\AutoFixingLinter<Terror>;
 
-  /**
-   * @dataProvider getDirtyFixtures
-   */
-  final public function testAutofix(string $fixture): void {
-    $fixture = $this->getFullFixtureName($fixture);
+	/**
+	 * @dataProvider getDirtyFixtures
+	 */
+	final public function testAutofix(string $fixture): void {
+		$fixture = $this->getFullFixtureName($fixture);
 
-    $in = __DIR__.'/fixtures/'.$fixture.'.in';
-    $out = Str\strip_suffix($in, '.in').'.autofix.out';
-    \copy($in, $out);
-    $linter = $this->getLinter($out);
+		$in = __DIR__.'/fixtures/'.$fixture.'.in';
+		$out = Str\strip_suffix($in, '.in').'.autofix.out';
+		\copy($in, $out);
+		$linter = $this->getLinter($out);
 
-    $all_errors = vec(\HH\Asio\join($linter->getLintErrorsAsync()));
-    $fixable = Vec\filter($all_errors, $err ==> $err->isFixable());
-    $unfixable = Vec\filter($all_errors, $err ==> !$err->isFixable());
-    $code = $linter->getFixedFile($fixable)->getContents();
-    // Provide raw output for easier debugging
-    \file_put_contents($out, $code);
+		$all_errors = vec(\HH\Asio\join($linter->getLintErrorsAsync()));
+		$code = $linter->getFixedFile($all_errors)->getContents();
+		// Provide raw output for easier debugging
+		\file_put_contents($out, $code);
 
-    expect($code)->toMatchExpectFileWithInputFile(
-      $fixture.'.autofix.expect',
-      $fixture.'.in',
-    );
+		expect($code)->toMatchExpectFileWithInputFile(
+			$fixture.'.autofix.expect',
+			$fixture.'.in',
+		);
 
-    $linter = $this->getLinter(__DIR__.'/fixtures/'.$fixture.'.autofix.expect');
-
-    expect(Vec\map(
-      \HH\Asio\join($linter->getLintErrorsAsync()),
-      $e ==> self::getErrorAsShape($e),
-    ))
-      ->toBeSame(Vec\map($unfixable, $e ==> self::getErrorAsShape($e)));
-  }
+		$linter = $this->getLinter(__DIR__.'/fixtures/'.$fixture.'.autofix.expect');
+		$errors = \HH\Asio\join($linter->getLintErrorsAsync());
+		$re_fixed = $linter->getFixedFile($errors)->getContents();
+		expect($re_fixed)->toBeSame($code, "Not all fixable errors were fixed");
+	}
 }

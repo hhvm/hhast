@@ -14,7 +14,7 @@ namespace Facebook\HHAST;
 
 final class MustUseOverrideAttributeLinterTest extends TestCase {
   use AutoFixingLinterTestTrait<
-    Linters\FixableASTLintError<MethodishDeclaration>
+    Linters\ASTLintError<MethodishDeclaration>
   >;
 
   protected function getLinter(

@@ -22,8 +22,7 @@ use type Facebook\HHAST\{
   WhiteSpace,
 };
 
-use namespace Facebook\TypeAssert;
-use namespace HH\Lib\{C, Vec};
+use namespace HH\Lib\C;
 
 class NoBasicAssignmentFunctionParameterLinter
   extends AutoFixingASTLinter<FunctionCallExpression> {
@@ -37,45 +36,31 @@ class NoBasicAssignmentFunctionParameterLinter
   public function getLintErrorForNode(
     FunctionCallExpression $node,
     vec<EditableNode> $_parents,
-  ): ?FixableASTLintError<FunctionCallExpression> {
+  ): ?ASTLintError<FunctionCallExpression> {
     $exps = $node
       ->getArgumentList()
       ?->getItemsOfType(BinaryExpression::class);
     if ($exps === null) {
       return null;
     }
-    $assignment_exps = Vec\filter(
-      $exps,
-      $exp ==> $exp instanceof BinaryExpression &&
-        $exp->getOperator() instanceof EqualToken,
-    );
-    if (C\is_empty($assignment_exps)) {
+
+    if (
+      !C\any(
+        $exps,
+        $exp ==> $exp instanceof BinaryExpression &&
+          $exp->getOperator() instanceof EqualToken,
+      )
+    ) {
       return null;
     }
-    return new FixableASTLintError(
+
+    return new ASTLintError(
       $this,
       "Basic assignment is not allowed in function parameters because it is often".
       "\n\t1) unexpected that it sets a local variable in the containing scope".
       "\n\t2) wrongly assumed that the variables are named parameters",
       $node,
-      new EditableList($assignment_exps),
     );
-  }
-
-  <<__Override>>
-  public function getPrettyTextForNode(
-    FunctionCallExpression $blame,
-    ?EditableNode $assignment_exps,
-  ): string {
-    invariant(
-      $assignment_exps instanceof EditableList,
-      'Expected a list of assignment expressions',
-    );
-    $assignment_exps = Vec\map(
-      $assignment_exps->toVec(),
-      $item ==> TypeAssert\instance_of(BinaryExpression::class, $item),
-    );
-    return $blame->getCode();
   }
 
   <<__Override>>

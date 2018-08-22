@@ -14,10 +14,7 @@ use type Facebook\HHAST\EditableNode;
 use namespace Facebook\HHAST;
 use namespace Facebook\HHAST\Linters\SuppressASTLinter;
 
-abstract class BaseASTLinter<
-  T as HHAST\EditableNode,
-  +Terror as ASTLintError<T>,
-> extends BaseLinter {
+abstract class BaseASTLinter<Tnode as HHAST\EditableNode> extends BaseLinter {
   private ?HHAST\EditableNode $ast;
 
   private static async function getASTFromFileAsync(
@@ -50,27 +47,26 @@ abstract class BaseASTLinter<
     return $cache;
   }
 
-  abstract protected static function getTargetType(): classname<T>;
+  abstract protected static function getTargetType(): classname<Tnode>;
 
   abstract protected function getLintErrorForNode(
-    T $node,
+    Tnode $node,
     vec<EditableNode> $parents,
-  ): ?Terror;
+  ): ?ASTLintError<Tnode>;
 
   /**
    * Some parts of the node may be irrelevant to the actual error; strip them
    * out here to display more concise messages to humans.
    */
   public function getPrettyTextForNode(
-    T $node,
-    ?EditableNode $_context,
+    Tnode $node,
   ): string {
     return $node->getCode();
   }
 
   <<__Override>>
   final public async function getLintErrorsAsync(
-  ): Awaitable<Traversable<Terror>> {
+  ): Awaitable<Traversable<ASTLintError<Tnode>>> {
     $this->ast = await self::getASTFromFileAsync($this->getFile());
     $target = static::getTargetType();
 

@@ -28,6 +28,11 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
     $result = LintAutoFixResult::ALL_FIXED;
     $colors = $this->terminal->supportsColors();
 
+    $fixing_linter = (
+      $linter instanceof Linters\AutoFixingLinter
+      && !C\contains_key($config['autoFixBlacklist'], $class)
+     ) ? $linter : null;
+
     foreach ($errors as $error) {
       $position = $error->getPosition();
       $this->terminal
@@ -50,24 +55,22 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
               ),
         ));
 
-      $fixable = $error instanceof Linters\FixableLintError &&
-        (!C\contains_key($config['autoFixBlacklist'], $class)) &&
-        $error->isFixable();
-
-      if ($error instanceof Linters\FixableLintError && $fixable) {
-        if ($this->shouldFixLint($error)) {
+      if ($fixing_linter) {
+        if ($this->shouldFixLint($fixing_linter, $error)) {
           $to_fix[] = $error;
         } else {
           $result = LintAutoFixResult::SOME_UNFIXED;
         }
-      } else {
-        $this->renderLintBlame($error);
-        $result = LintAutoFixResult::SOME_UNFIXED;
+        continue;
       }
+
+       $this->renderLintBlame($error);
+       $result = LintAutoFixResult::SOME_UNFIXED;
     }
 
     if (!C\is_empty($to_fix)) {
-      self::fixErrors($linter, $to_fix);
+      invariant($fixing_linter, "Can't fix without a fixing linter");
+      self::fixErrors($fixing_linter, $to_fix);
     }
 
     return $result;
@@ -82,9 +85,9 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
     }
   }
 
-  private static function fixErrors(
-    Linters\BaseLinter $linter,
-    vec<Linters\FixableLintError> $errors,
+  private static function fixErrors<Terror as Linters\LintError>(
+    Linters\AutoFixingLinter<Terror> $linter,
+    vec<Terror> $errors,
   ): void {
     invariant(
       $linter instanceof Linters\AutoFixingLinter,
@@ -96,22 +99,20 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
     \file_put_contents($file->getPath(), $file->getContents());
   }
 
-  private function shouldFixLint(Linters\FixableLintError $error): bool {
-    list($old, $new) = $error->getReadableFix();
+  private function shouldFixLint<Terror as Linters\LintError>(
+    Linters\AutoFixingLinter<Terror> $linter,
+    Terror $error,
+  ): bool {
+    $old = $linter->getFile()->getContents();
+    $new = $linter->getFixedFile(vec[$error])->getContents();
     if ($old === $new) {
       $this->renderLintBlame($error);
       return false;
     }
 
-    $prefix_lines = ($code, $prefix) ==> Str\split($code, "\n")
-      |> Vec\map($$, $line ==> $prefix.$line)
-      |> Str\join($$, "\n");
-
-
     $colors = $this->terminal->supportsColors();
     $reset = $colors ? "\e[0m" : '';
 
-    if ($error->shouldRenderBlameAndFixAsDiff()) {
       $diff = StringDiff::lines($old, $new)->getUnifiedDiff();
       if (!$colors) {
         $this->terminal->getStdout()->write($diff);
@@ -136,24 +137,6 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
           |> Str\join($$, "\n")
           |> $this->terminal->getStdout()->write($$);
       }
-    } else {
-      $blame_color = $colors ? "\e[33m" : ''; // yellow
-      $blame_marker = ' >';
-      $fix_color = $colors ? "\e[33m" : ''; // yellow
-      $fix_marker = '  ';
-      $this->terminal
-        ->getStdout()
-        ->write(Str\format(
-          "  Code:\n"."%s%s%s\n".
-          "  Suggested fix:\n"."%s%s%s\n",
-          $blame_color,
-          $prefix_lines($old, '  '.$blame_marker),
-          $reset,
-          $fix_color,
-          $prefix_lines($new, '  '.$fix_marker),
-          $reset,
-        ));
-    }
 
     if (!$this->terminal->isInteractive()) {
       return false;

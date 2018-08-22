@@ -10,10 +10,7 @@
 
 namespace Facebook\HHAST\Linters;
 
-use type Facebook\HHAST\{
-  EditableNode,
-  IFunctionishDeclaration,
-};
+use type Facebook\HHAST\IFunctionishDeclaration;
 
 final class FunctionNamingLintError
 extends ASTLintError<IFunctionishDeclaration> {
@@ -29,9 +26,8 @@ extends ASTLintError<IFunctionishDeclaration> {
     string $old,
     string $new,
     IFunctionishDeclaration $node,
-    ?EditableNode $context = null,
   ) {
-    parent::__construct($linter, $description, $node, $context);
+    parent::__construct($linter, $description, $node);
     $ns = $ns === null ? '' : $ns.'\\';
     if ($class === null) {
       $this->old = $ns.$old;

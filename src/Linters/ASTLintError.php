@@ -17,10 +17,9 @@ use namespace HH\Lib\Str;
 class ASTLintError<Tnode as EditableNode> extends LintError {
   <<__Override>>
   public function __construct(
-    protected BaseASTLinter<Tnode, ASTLintError<Tnode>> $linter,
+    protected BaseASTLinter<Tnode> $linter,
     string $description,
     protected Tnode $node,
-    protected ?EditableNode $context = null,
   ) {
     parent::__construct($linter, $description);
   }
@@ -54,6 +53,6 @@ class ASTLintError<Tnode as EditableNode> extends LintError {
 
   <<__Memoize, __Override>>
   final public function getPrettyBlame(): string {
-    return $this->linter->getPrettyTextForNode($this->node, $this->context);
+    return $this->linter->getPrettyTextForNode($this->node);
   }
 }

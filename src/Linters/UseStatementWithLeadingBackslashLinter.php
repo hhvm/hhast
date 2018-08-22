@@ -31,7 +31,7 @@ final class UseStatementWithLeadingBackslashLinter
   public function getLintErrorForNode(
     INamespaceUseDeclaration $node,
     vec<EditableNode> $_context,
-  ): ?FixableASTLintError<INamespaceUseDeclaration> {
+  ): ?ASTLintError<INamespaceUseDeclaration> {
     $matched = false;
     if ($node instanceof NamespaceGroupUseDeclaration) {
       $prefix = $node->getPrefix()->getFirstToken();
@@ -51,7 +51,7 @@ final class UseStatementWithLeadingBackslashLinter
     if (!$matched) {
       return null;
     }
-    return new FixableASTLintError(
+    return new ASTLintError(
       $this,
       "Leading backslashes on `use` statements do nothing",
       $node,

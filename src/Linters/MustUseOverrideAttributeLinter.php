@@ -42,7 +42,7 @@ final class MustUseOverrideAttributeLinter
   public function getLintErrorForNode(
     MethodishDeclaration $node,
     vec<EditableNode> $parents,
-  ): ?FixableASTLintError<MethodishDeclaration> {
+  ): ?ASTLintError<MethodishDeclaration> {
     $class = $parents
       |> Vec\filter($$, $x ==> $x instanceof ClassishDeclaration)
       |> C\lastx($$)
@@ -59,7 +59,7 @@ final class MustUseOverrideAttributeLinter
 
       $reflection_method = new \ReflectionMethod($super, $method);
 
-      return new FixableASTLintError(
+      return new ASTLintError(
         $this,
         Str\format(
           '%s::%s() overrides %s::%s() without <<__Override>>',
@@ -138,7 +138,6 @@ final class MustUseOverrideAttributeLinter
   <<__Override>>
   public function getPrettyTextForNode(
     MethodishDeclaration $node,
-    ?EditableNode $_context,
   ): string {
     $body = $node->getFunctionBody();
     if ($body === null) {

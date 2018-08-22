@@ -12,7 +12,7 @@ namespace Facebook\HHAST;
 
 
 final class LicenseHeaderLinterTest extends TestCase {
-  use AutoFixingLinterTestTrait<Linters\FixableASTLintError<Script>>;
+  use AutoFixingLinterTestTrait<Linters\ASTLintError<Script>>;
 
   protected function getLinter(
     string $file,

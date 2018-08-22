@@ -12,7 +12,7 @@ namespace Facebook\HHAST;
 
 
 final class NoWhitespaceAtEndOfLineLinterTest extends TestCase {
-  use AutoFixingLinterTestTrait<Linters\FixableLineLintError>;
+  use AutoFixingLinterTestTrait<Linters\LineLintError>;
 
   protected function getLinter(
     string $file,

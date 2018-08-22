@@ -29,7 +29,7 @@ class StrictModeOnlyLinter extends AutoFixingASTLinter<MarkupSuffix> {
   public function getLintErrorForNode(
     MarkupSuffix $node,
     vec<EditableNode> $_,
-  ): ?FixableASTLintError<MarkupSuffix> {
+  ): ?ASTLintError<MarkupSuffix> {
     $name = $node->getName();
     if ($name === null) {
       // '<?'
@@ -44,7 +44,7 @@ class StrictModeOnlyLinter extends AutoFixingASTLinter<MarkupSuffix> {
       return null;
     }
 
-    return new FixableASTLintError($this, 'Use `<?hh // strict`', $node);
+    return new ASTLintError($this, 'Use `<?hh // strict`', $node);
   }
 
   <<__Override>>

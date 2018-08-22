@@ -15,14 +15,12 @@ use type Facebook\HHAST\{
   AnonymousFunction,
   AwaitableCreationExpression,
   AwaitToken,
-  EditableList,
   EditableNode,
   ILoopStatement,
   LambdaExpression,
   PrefixUnaryExpression,
 };
 use function Facebook\HHAST\find_position;
-use namespace Facebook\TypeAssert;
 
 final class DontAwaitInALoopLinter
   extends ASTLinter<PrefixUnaryExpression> {
@@ -57,7 +55,6 @@ final class DontAwaitInALoopLinter
       $this,
       "Don't use await in a loop",
       $node,
-      new EditableList($loops),
     );
   }
 
@@ -71,20 +68,10 @@ final class DontAwaitInALoopLinter
   <<__Override>>
   public function getPrettyTextForNode(
     PrefixUnaryExpression $blame,
-    ?EditableNode $loops,
   ): string {
-    invariant(
-      $loops instanceof EditableList,
-      'Expected a loop context',
-    );
-    $loops = $loops->toVec()
-      |> Vec\map(
-        $$,
-        $item ==> TypeAssert\instance_of(
-          ILoopStatement::class,
-          $item,
-        ),
-      );
+    $loops = $this->getAST()->findWithParents($node ==> $node === $blame)
+      |> Vec\map($$, $x ==> $x instanceof ILoopStatement ? $x : null)
+      |> Vec\filter_nulls($$);
 
     $lines = $this->getFile()->getContents() |> Str\split($$, "\n");
 
@@ -104,7 +91,7 @@ final class DontAwaitInALoopLinter
     }
 
     $output = vec[];
-    foreach (Vec\reverse($loops) as $loop) {
+    foreach ($loops as $loop) {
       list(
         $line,
         $_col,
