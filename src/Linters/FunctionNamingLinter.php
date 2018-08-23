@@ -27,7 +27,7 @@ use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
 
 abstract class FunctionNamingLinter
-  extends BaseASTLinter<IFunctionishDeclaration> {
+  extends ASTLinter<IFunctionishDeclaration> {
   abstract public function getSuggestedNameForFunction(
     string $name,
     FunctionDeclaration $fun,

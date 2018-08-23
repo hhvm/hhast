@@ -12,7 +12,7 @@ namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\EditableNode;
 
-abstract class AutoFixingASTLinter<Tnode as EditableNode> extends BaseASTLinter<Tnode> {
+abstract class AutoFixingASTLinter<Tnode as EditableNode> extends ASTLinter<Tnode> {
   abstract public function getFixedNode(Tnode $node): ?EditableNode;
 
   use AutoFixingLinterTrait<ASTLintError<Tnode>>;
