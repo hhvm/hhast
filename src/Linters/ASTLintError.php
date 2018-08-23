@@ -17,7 +17,7 @@ use namespace HH\Lib\Str;
 class ASTLintError<Tnode as EditableNode> extends LintError {
   <<__Override>>
   public function __construct(
-    protected BaseASTLinter<Tnode> $linter,
+    protected ASTLinter<Tnode> $linter,
     string $description,
     protected Tnode $node,
   ) {
