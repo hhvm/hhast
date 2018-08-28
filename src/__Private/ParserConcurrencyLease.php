@@ -10,9 +10,10 @@
 
 namespace Facebook\HHAST\__Private;
 
+use namespace HH\Lib\Tuple;
 
 final class ParserConcurrencyLease implements \IDisposable {
-  const int LIMIT = 8; // Random number
+  const int LIMIT = 16; // Random number
 
   private static int $active = 0;
 
@@ -24,7 +25,10 @@ final class ParserConcurrencyLease implements \IDisposable {
   public static async function getAsync(): Awaitable<ParserConcurrencyLease> {
     while (self::$active >= self::LIMIT) {
       /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
-      await \HH\Asio\usleep(100 * 1000);
+      await Tuple\from_async(
+        \HH\Asio\usleep(100000), // 10ms - avoid busy loop
+        \HH\Asio\later(), // make sure we actually execute pending stuff
+      );
     }
     return new self();
   }
