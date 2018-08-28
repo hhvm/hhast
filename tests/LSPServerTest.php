@@ -174,7 +174,7 @@ final class LSPServerTest extends TestCase {
     this::TMessage $msg,
   ): TestLSPMessageResponseBehavior {
     $behavior = $msg['TEST_RESPONSE'] ?? null;
-    if ($behavior) {
+    if ($behavior !== null) {
       return $behavior;
     }
 

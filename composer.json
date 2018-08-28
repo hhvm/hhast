@@ -6,11 +6,11 @@
         "phpunit/phpunit": "^5.7",
         "91carriage/phpunit-hhi": "^5.7",
         "facebook/fbexpect": "^1.1.0",
-        "facebook/hack-codegen": "~3.0.3",
+        "facebook/hack-codegen": "~3.2.1",
         "hhvm/hhvm-autoload": "^1.5"
     },
     "require": {
-        "hhvm": "^3.26.0",
+        "hhvm": "^3.28.0",
         "hhvm/hsl": "^1.0.0|^3.26.0",
         "hhvm/type-assert": "^3.1",
         "facebook/hh-clilib": "^1.1.1"
