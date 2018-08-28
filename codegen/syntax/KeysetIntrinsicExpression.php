@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7baaefe0d051cbf903a32bf7f9a0c4b7>>
+ * @generated SignedSource<<8af418dd148dfdb36b8ba95c979b4819>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -261,8 +261,9 @@ final class KeysetIntrinsicExpression extends EditableNode {
    * EditableList<FunctionCallExpression> |
    * EditableList<KeysetIntrinsicExpression> | EditableList<LiteralExpression>
    * | EditableList<ObjectCreationExpression> |
-   * EditableList<ScopeResolutionExpression> | EditableList<VariableExpression>
-   * | EditableList<VectorIntrinsicExpression> | Missing
+   * EditableList<ScopeResolutionExpression> | EditableList<NameToken> |
+   * EditableList<VariableExpression> | EditableList<VectorIntrinsicExpression>
+   * | Missing
    */
   public function getMembers(): ?EditableList<EditableNode> {
     if ($this->_members->isMissing()) {
@@ -279,8 +280,8 @@ final class KeysetIntrinsicExpression extends EditableNode {
    * EditableList<FunctionCallExpression> |
    * EditableList<KeysetIntrinsicExpression> | EditableList<LiteralExpression>
    * | EditableList<ObjectCreationExpression> |
-   * EditableList<ScopeResolutionExpression> | EditableList<VariableExpression>
-   * | EditableList<VectorIntrinsicExpression>
+   * EditableList<ScopeResolutionExpression> | EditableList<NameToken> |
+   * EditableList<VariableExpression> | EditableList<VectorIntrinsicExpression>
    */
   public function getMembersx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_members);

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<01c82cc7311f4a11b17b7ef7cb00ebf9>>
+ * @generated SignedSource<<ae1d40e2b7663fe4182e53b402438c36>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -257,20 +257,17 @@ final class CatchClause extends EditableNode {
   }
 
   /**
-   * @returns Missing | VariableToken
+   * @returns NameToken | VariableToken
    */
-  public function getVariable(): ?VariableToken {
-    if ($this->_variable->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(VariableToken::class, $this->_variable);
+  public function getVariable(): EditableToken {
+    return TypeAssert\instance_of(EditableToken::class, $this->_variable);
   }
 
   /**
-   * @returns VariableToken
+   * @returns NameToken | VariableToken
    */
-  public function getVariablex(): VariableToken {
-    return TypeAssert\instance_of(VariableToken::class, $this->_variable);
+  public function getVariablex(): EditableToken {
+    return $this->getVariable();
   }
 
   public function getRightParenUNTYPED(): EditableNode {

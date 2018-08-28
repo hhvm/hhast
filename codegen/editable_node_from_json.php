@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<984d503ca9b95b765b443dd8ea9351f3>>
+ * @generated SignedSource<<f87e53dc6bc5595c06e9cb9b39b4c6b0>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -384,6 +384,13 @@ function editable_node_from_json(
     case 'prefix_unary_expression':
       return
         HHAST\PrefixUnaryExpression::fromJSON($json, $file, $offset, $source);
+    case 'prefixed_string':
+      return HHAST\PrefixedStringExpression::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'property_declaration':
       return
         HHAST\PropertyDeclaration::fromJSON($json, $file, $offset, $source);
@@ -391,6 +398,9 @@ function editable_node_from_json(
       return HHAST\PropertyDeclarator::fromJSON($json, $file, $offset, $source);
     case 'qualified_name':
       return HHAST\QualifiedName::fromJSON($json, $file, $offset, $source);
+    case 'reified_type_argument':
+      return
+        HHAST\ReifiedTypeArgument::fromJSON($json, $file, $offset, $source);
     case 'require_clause':
       return HHAST\RequireClause::fromJSON($json, $file, $offset, $source);
     case 'return_statement':

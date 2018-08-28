@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<15cbb97e316a3580ff860d42175111d7>>
+ * @generated SignedSource<<317db6e839f4d052748f733adfe2ce8b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -131,16 +131,17 @@ final class ReturnStatement extends EditableNode {
 
   /**
    * @returns AnonymousFunction | ArrayCreationExpression |
-   * ArrayIntrinsicExpression | AwaitableCreationExpression | BinaryExpression
-   * | CastExpression | CollectionLiteralExpression | ConditionalExpression |
-   * DarrayIntrinsicExpression | DictionaryIntrinsicExpression | EvalExpression
-   * | FunctionCallExpression | FunctionCallWithTypeArgumentsExpression |
-   * InstanceofExpression | IssetExpression | KeysetIntrinsicExpression |
-   * LambdaExpression | LiteralExpression | MemberSelectionExpression | Missing
-   * | ObjectCreationExpression | ParenthesizedExpression |
-   * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
-   * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * ShapeExpression | SubscriptExpression | NameToken | TupleExpression |
+   * ArrayIntrinsicExpression | AsExpression | AwaitableCreationExpression |
+   * BinaryExpression | CastExpression | CollectionLiteralExpression |
+   * ConditionalExpression | DarrayIntrinsicExpression |
+   * DictionaryIntrinsicExpression | EmptyExpression | EvalExpression |
+   * FunctionCallExpression | FunctionCallWithTypeArgumentsExpression |
+   * InstanceofExpression | IsExpression | IssetExpression |
+   * KeysetIntrinsicExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | Missing | ObjectCreationExpression |
+   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
+   * QualifiedName | SafeMemberSelectionExpression | ScopeResolutionExpression
+   * | ShapeExpression | SubscriptExpression | NameToken | TupleExpression |
    * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
    * | XHPExpression | YieldFromExpression
    */
@@ -153,16 +154,17 @@ final class ReturnStatement extends EditableNode {
 
   /**
    * @returns AnonymousFunction | ArrayCreationExpression |
-   * ArrayIntrinsicExpression | AwaitableCreationExpression | BinaryExpression
-   * | CastExpression | CollectionLiteralExpression | ConditionalExpression |
-   * DarrayIntrinsicExpression | DictionaryIntrinsicExpression | EvalExpression
-   * | FunctionCallExpression | FunctionCallWithTypeArgumentsExpression |
-   * InstanceofExpression | IssetExpression | KeysetIntrinsicExpression |
-   * LambdaExpression | LiteralExpression | MemberSelectionExpression |
-   * ObjectCreationExpression | ParenthesizedExpression |
-   * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
-   * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * ShapeExpression | SubscriptExpression | NameToken | TupleExpression |
+   * ArrayIntrinsicExpression | AsExpression | AwaitableCreationExpression |
+   * BinaryExpression | CastExpression | CollectionLiteralExpression |
+   * ConditionalExpression | DarrayIntrinsicExpression |
+   * DictionaryIntrinsicExpression | EmptyExpression | EvalExpression |
+   * FunctionCallExpression | FunctionCallWithTypeArgumentsExpression |
+   * InstanceofExpression | IsExpression | IssetExpression |
+   * KeysetIntrinsicExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
+   * QualifiedName | SafeMemberSelectionExpression | ScopeResolutionExpression
+   * | ShapeExpression | SubscriptExpression | NameToken | TupleExpression |
    * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
    * | XHPExpression | YieldFromExpression
    */

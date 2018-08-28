@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<12e98d59eda3670492ca15db3124b75f>>
+ * @generated SignedSource<<1b0a2b8eaf72e7f9ef0bf511b3811034>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -110,8 +110,8 @@ final class BinaryExpression extends EditableNode {
    * ObjectCreationExpression | ParenthesizedExpression |
    * PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
-   * RightParenToken | NameToken | VariableExpression |
-   * VarrayIntrinsicExpression | VectorIntrinsicExpression
+   * NameToken | VariableExpression | VarrayIntrinsicExpression |
+   * VectorIntrinsicExpression
    */
   public function getLeftOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_left_operand);
@@ -127,8 +127,8 @@ final class BinaryExpression extends EditableNode {
    * ObjectCreationExpression | ParenthesizedExpression |
    * PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
-   * RightParenToken | NameToken | VariableExpression |
-   * VarrayIntrinsicExpression | VectorIntrinsicExpression
+   * NameToken | VariableExpression | VarrayIntrinsicExpression |
+   * VectorIntrinsicExpression
    */
   public function getLeftOperandx(): EditableNode {
     return $this->getLeftOperand();
@@ -160,8 +160,9 @@ final class BinaryExpression extends EditableNode {
    * EqualEqualToken | EqualEqualEqualToken | GreaterThanToken |
    * GreaterThanEqualToken | GreaterThanGreaterThanToken |
    * GreaterThanGreaterThanEqualToken | QuestionColonToken |
-   * QuestionQuestionToken | CaratToken | CaratEqualToken | AndToken | OrToken
-   * | XorToken | BarToken | BarEqualToken | BarGreaterThanToken | BarBarToken
+   * QuestionQuestionToken | QuestionQuestionEqualToken | CaratToken |
+   * CaratEqualToken | AndToken | OrToken | XorToken | BarToken | BarEqualToken
+   * | BarGreaterThanToken | BarBarToken
    */
   public function getOperator(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_operator);
@@ -178,8 +179,9 @@ final class BinaryExpression extends EditableNode {
    * EqualEqualToken | EqualEqualEqualToken | GreaterThanToken |
    * GreaterThanEqualToken | GreaterThanGreaterThanToken |
    * GreaterThanGreaterThanEqualToken | QuestionColonToken |
-   * QuestionQuestionToken | CaratToken | CaratEqualToken | AndToken | OrToken
-   * | XorToken | BarToken | BarEqualToken | BarGreaterThanToken | BarBarToken
+   * QuestionQuestionToken | QuestionQuestionEqualToken | CaratToken |
+   * CaratEqualToken | AndToken | OrToken | XorToken | BarToken | BarEqualToken
+   * | BarGreaterThanToken | BarBarToken
    */
   public function getOperatorx(): EditableToken {
     return $this->getOperator();
@@ -211,12 +213,12 @@ final class BinaryExpression extends EditableNode {
    * LambdaExpression | LiteralExpression | MemberSelectionExpression | Missing
    * | NullableAsExpression | ObjectCreationExpression |
    * ParenthesizedExpression | Php7AnonymousFunction | PipeVariableExpression |
-   * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
-   * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * ShapeExpression | SubscriptExpression | QuestionToken | EndOfFileToken |
-   * NameToken | TupleExpression | VariableExpression |
-   * VarrayIntrinsicExpression | VectorIntrinsicExpression | XHPExpression |
-   * YieldExpression | YieldFromExpression
+   * PostfixUnaryExpression | PrefixUnaryExpression | PrefixedStringExpression
+   * | QualifiedName | SafeMemberSelectionExpression |
+   * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
+   * QuestionToken | EndOfFileToken | NameToken | TupleExpression |
+   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
+   * | XHPExpression | YieldExpression | YieldFromExpression
    */
   public function getRightOperand(): ?EditableNode {
     if ($this->_right_operand->isMissing()) {
@@ -236,11 +238,12 @@ final class BinaryExpression extends EditableNode {
    * LambdaExpression | LiteralExpression | MemberSelectionExpression |
    * NullableAsExpression | ObjectCreationExpression | ParenthesizedExpression
    * | Php7AnonymousFunction | PipeVariableExpression | PostfixUnaryExpression
-   * | PrefixUnaryExpression | QualifiedName | SafeMemberSelectionExpression |
-   * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
-   * QuestionToken | EndOfFileToken | NameToken | TupleExpression |
-   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
-   * | XHPExpression | YieldExpression | YieldFromExpression
+   * | PrefixUnaryExpression | PrefixedStringExpression | QualifiedName |
+   * SafeMemberSelectionExpression | ScopeResolutionExpression |
+   * ShapeExpression | SubscriptExpression | QuestionToken | EndOfFileToken |
+   * NameToken | TupleExpression | VariableExpression |
+   * VarrayIntrinsicExpression | VectorIntrinsicExpression | XHPExpression |
+   * YieldExpression | YieldFromExpression
    */
   public function getRightOperandx(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_right_operand);

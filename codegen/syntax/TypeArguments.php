@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d6e7368981319facf29e6540713d1c70>>
+ * @generated SignedSource<<7a044dabd0e63558effe698355e028e7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -135,8 +135,8 @@ final class TypeArguments extends EditableNode {
    * | EditableList<GenericTypeSpecifier> | EditableList<EditableNode> |
    * EditableList<MapArrayTypeSpecifier> | EditableList<NullableTypeSpecifier>
    * | EditableList<ShapeTypeSpecifier> | EditableList<SimpleTypeSpecifier> |
-   * EditableList<NoreturnToken> | EditableList<TupleTypeSpecifier> |
-   * EditableList<TypeConstant> | EditableList<VectorArrayTypeSpecifier>
+   * EditableList<TupleTypeSpecifier> | EditableList<TypeConstant> |
+   * EditableList<VectorArrayTypeSpecifier>
    */
   public function getTypes(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_types);
@@ -148,8 +148,8 @@ final class TypeArguments extends EditableNode {
    * | EditableList<GenericTypeSpecifier> | EditableList<EditableNode> |
    * EditableList<MapArrayTypeSpecifier> | EditableList<NullableTypeSpecifier>
    * | EditableList<ShapeTypeSpecifier> | EditableList<SimpleTypeSpecifier> |
-   * EditableList<NoreturnToken> | EditableList<TupleTypeSpecifier> |
-   * EditableList<TypeConstant> | EditableList<VectorArrayTypeSpecifier>
+   * EditableList<TupleTypeSpecifier> | EditableList<TypeConstant> |
+   * EditableList<VectorArrayTypeSpecifier>
    */
   public function getTypesx(): EditableList<EditableNode> {
     return $this->getTypes();

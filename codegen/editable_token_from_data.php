@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bfdc48a6e1ab9b3266d4d7c15c80711c>>
+ * @generated SignedSource<<0aa28e13c35a88adefa90964c47a5b48>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -116,6 +116,7 @@ class TokenClassMap {
       'public' => HHAST\PublicToken::class,
       '?as' => HHAST\QuestionAsToken::class,
       'real' => HHAST\RealToken::class,
+      'reified' => HHAST\ReifiedToken::class,
       'require' => HHAST\RequireToken::class,
       'require_once' => HHAST\Require_onceToken::class,
       'required' => HHAST\RequiredToken::class,
@@ -241,6 +242,7 @@ class TokenClassMap {
       '?>' => HHAST\QuestionGreaterThanToken::class,
       '?->' => HHAST\QuestionMinusGreaterThanToken::class,
       '??' => HHAST\QuestionQuestionToken::class,
+      '??=' => HHAST\QuestionQuestionEqualToken::class,
       '}' => HHAST\RightBraceToken::class,
       ']' => HHAST\RightBracketToken::class,
       ')' => HHAST\RightParenToken::class,

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c85a9b58149732cbc5ff2f05a56c63a1>>
+ * @generated SignedSource<<fb1408ce2622bff1391e43c9af8f9f98>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -197,7 +197,7 @@ final class FunctionCallExpression extends EditableNode {
   /**
    * @returns EditableList<AnonymousFunction> | EditableList<EditableNode> |
    * EditableList<ArrayCreationExpression> |
-   * EditableList<ArrayIntrinsicExpression> |
+   * EditableList<ArrayIntrinsicExpression> | EditableList<AsExpression> |
    * EditableList<AwaitableCreationExpression> | EditableList<BinaryExpression>
    * | EditableList<CastExpression> | EditableList<CollectionLiteralExpression>
    * | EditableList<ConditionalExpression> |
@@ -206,10 +206,11 @@ final class FunctionCallExpression extends EditableNode {
    * EditableList<DictionaryIntrinsicExpression> |
    * EditableList<EmptyExpression> | EditableList<EvalExpression> |
    * EditableList<FunctionCallExpression> | EditableList<InclusionExpression> |
-   * EditableList<InstanceofExpression> | EditableList<IssetExpression> |
-   * EditableList<KeysetIntrinsicExpression> | EditableList<LambdaExpression> |
-   * EditableList<LiteralExpression> | EditableList<MemberSelectionExpression>
-   * | EditableList<ObjectCreationExpression> |
+   * EditableList<InstanceofExpression> | EditableList<IsExpression> |
+   * EditableList<IssetExpression> | EditableList<KeysetIntrinsicExpression> |
+   * EditableList<LambdaExpression> | EditableList<LiteralExpression> |
+   * EditableList<MemberSelectionExpression> |
+   * EditableList<ObjectCreationExpression> |
    * EditableList<ParenthesizedExpression> |
    * EditableList<PipeVariableExpression> |
    * EditableList<PostfixUnaryExpression> | EditableList<PrefixUnaryExpression>
@@ -232,7 +233,7 @@ final class FunctionCallExpression extends EditableNode {
   /**
    * @returns EditableList<AnonymousFunction> | EditableList<EditableNode> |
    * EditableList<ArrayCreationExpression> |
-   * EditableList<ArrayIntrinsicExpression> |
+   * EditableList<ArrayIntrinsicExpression> | EditableList<AsExpression> |
    * EditableList<AwaitableCreationExpression> | EditableList<BinaryExpression>
    * | EditableList<CastExpression> | EditableList<CollectionLiteralExpression>
    * | EditableList<ConditionalExpression> |
@@ -241,10 +242,11 @@ final class FunctionCallExpression extends EditableNode {
    * EditableList<DictionaryIntrinsicExpression> |
    * EditableList<EmptyExpression> | EditableList<EvalExpression> |
    * EditableList<FunctionCallExpression> | EditableList<InclusionExpression> |
-   * EditableList<InstanceofExpression> | EditableList<IssetExpression> |
-   * EditableList<KeysetIntrinsicExpression> | EditableList<LambdaExpression> |
-   * EditableList<LiteralExpression> | EditableList<MemberSelectionExpression>
-   * | EditableList<ObjectCreationExpression> |
+   * EditableList<InstanceofExpression> | EditableList<IsExpression> |
+   * EditableList<IssetExpression> | EditableList<KeysetIntrinsicExpression> |
+   * EditableList<LambdaExpression> | EditableList<LiteralExpression> |
+   * EditableList<MemberSelectionExpression> |
+   * EditableList<ObjectCreationExpression> |
    * EditableList<ParenthesizedExpression> |
    * EditableList<PipeVariableExpression> |
    * EditableList<PostfixUnaryExpression> | EditableList<PrefixUnaryExpression>

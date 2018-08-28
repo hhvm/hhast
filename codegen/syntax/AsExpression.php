@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<20ca9e6518db6ff6ae5070f37f2b5e05>>
+ * @generated SignedSource<<77a7ee002e9d9a20e3093c873e00c177>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,14 +101,16 @@ final class AsExpression extends EditableNode {
   }
 
   /**
-   * @returns CollectionLiteralExpression | VariableExpression
+   * @returns CollectionLiteralExpression | LiteralExpression |
+   * MemberSelectionExpression | TupleExpression | VariableExpression
    */
   public function getLeftOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_left_operand);
   }
 
   /**
-   * @returns CollectionLiteralExpression | VariableExpression
+   * @returns CollectionLiteralExpression | LiteralExpression |
+   * MemberSelectionExpression | TupleExpression | VariableExpression
    */
   public function getLeftOperandx(): EditableNode {
     return $this->getLeftOperand();
@@ -159,16 +161,16 @@ final class AsExpression extends EditableNode {
   }
 
   /**
-   * @returns NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier
-   * | TupleTypeSpecifier
+   * @returns ClosureTypeSpecifier | NullableTypeSpecifier | ShapeTypeSpecifier
+   * | SimpleTypeSpecifier | SoftTypeSpecifier | TupleTypeSpecifier
    */
   public function getRightOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_right_operand);
   }
 
   /**
-   * @returns NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier
-   * | TupleTypeSpecifier
+   * @returns ClosureTypeSpecifier | NullableTypeSpecifier | ShapeTypeSpecifier
+   * | SimpleTypeSpecifier | SoftTypeSpecifier | TupleTypeSpecifier
    */
   public function getRightOperandx(): EditableNode {
     return $this->getRightOperand();

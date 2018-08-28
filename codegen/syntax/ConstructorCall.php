@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b998649d45a7f808df1d029b6a66b365>>
+ * @generated SignedSource<<1231d1fee8c00a7a751357cf028e9fb2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -196,7 +196,9 @@ final class ConstructorCall extends EditableNode {
    * EditableList<ArrayCreationExpression> |
    * EditableList<ArrayIntrinsicExpression> | EditableList<BinaryExpression> |
    * EditableList<CastExpression> | EditableList<CollectionLiteralExpression> |
-   * EditableList<ConditionalExpression> | EditableList<DecoratedExpression> |
+   * EditableList<ConditionalExpression> |
+   * EditableList<DarrayIntrinsicExpression> |
+   * EditableList<DecoratedExpression> |
    * EditableList<DictionaryIntrinsicExpression> |
    * EditableList<FunctionCallExpression> | EditableList<LambdaExpression> |
    * EditableList<LiteralExpression> | EditableList<MemberSelectionExpression>
@@ -220,7 +222,9 @@ final class ConstructorCall extends EditableNode {
    * EditableList<ArrayCreationExpression> |
    * EditableList<ArrayIntrinsicExpression> | EditableList<BinaryExpression> |
    * EditableList<CastExpression> | EditableList<CollectionLiteralExpression> |
-   * EditableList<ConditionalExpression> | EditableList<DecoratedExpression> |
+   * EditableList<ConditionalExpression> |
+   * EditableList<DarrayIntrinsicExpression> |
+   * EditableList<DecoratedExpression> |
    * EditableList<DictionaryIntrinsicExpression> |
    * EditableList<FunctionCallExpression> | EditableList<LambdaExpression> |
    * EditableList<LiteralExpression> | EditableList<MemberSelectionExpression>

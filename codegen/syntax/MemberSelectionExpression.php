@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1363b16fa13611f1c95ad8dc42ffad2d>>
+ * @generated SignedSource<<6b1f42032eb97c4959addc22cc8f2a25>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -102,9 +102,9 @@ final class MemberSelectionExpression extends EditableNode {
 
   /**
    * @returns FunctionCallExpression | MemberSelectionExpression |
-   * ParenthesizedExpression | PipeVariableExpression | PrefixUnaryExpression |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression
+   * ObjectCreationExpression | ParenthesizedExpression |
+   * PipeVariableExpression | PrefixUnaryExpression | ScopeResolutionExpression
+   * | SubscriptExpression | NameToken | VariableExpression
    */
   public function getObject(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_object);
@@ -112,9 +112,9 @@ final class MemberSelectionExpression extends EditableNode {
 
   /**
    * @returns FunctionCallExpression | MemberSelectionExpression |
-   * ParenthesizedExpression | PipeVariableExpression | PrefixUnaryExpression |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression
+   * ObjectCreationExpression | ParenthesizedExpression |
+   * PipeVariableExpression | PrefixUnaryExpression | ScopeResolutionExpression
+   * | SubscriptExpression | NameToken | VariableExpression
    */
   public function getObjectx(): EditableNode {
     return $this->getObject();

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<41f6f6540745c65e0937bfcac34f93a9>>
+ * @generated SignedSource<<6724d3be551d026a6315bb62eba9ceab>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -113,8 +113,9 @@ final class NullableTypeSpecifier extends EditableNode {
   /**
    * @returns ClosureTypeSpecifier | DictionaryTypeSpecifier |
    * GenericTypeSpecifier | KeysetTypeSpecifier | MapArrayTypeSpecifier |
-   * ShapeTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
-   * TypeConstant | VectorArrayTypeSpecifier | VectorTypeSpecifier
+   * ShapeTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier |
+   * TupleTypeSpecifier | TypeConstant | VectorArrayTypeSpecifier |
+   * VectorTypeSpecifier
    */
   public function getType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);
@@ -123,8 +124,9 @@ final class NullableTypeSpecifier extends EditableNode {
   /**
    * @returns ClosureTypeSpecifier | DictionaryTypeSpecifier |
    * GenericTypeSpecifier | KeysetTypeSpecifier | MapArrayTypeSpecifier |
-   * ShapeTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
-   * TypeConstant | VectorArrayTypeSpecifier | VectorTypeSpecifier
+   * ShapeTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier |
+   * TupleTypeSpecifier | TypeConstant | VectorArrayTypeSpecifier |
+   * VectorTypeSpecifier
    */
   public function getTypex(): EditableNode {
     return $this->getType();

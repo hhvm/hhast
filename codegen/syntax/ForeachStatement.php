@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<393d2b5a4c1e282c0c6bebd6a7767870>>
+ * @generated SignedSource<<543cc69b87f4df641d8ac42b36ca6233>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -532,8 +532,8 @@ final class ForeachStatement
   }
 
   /**
-   * @returns ArrayCreationExpression | FunctionCallExpression | ListExpression
-   * | MemberSelectionExpression | PrefixUnaryExpression |
+   * @returns FunctionCallExpression | ListExpression |
+   * MemberSelectionExpression | PrefixUnaryExpression |
    * ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression
    */
@@ -542,8 +542,8 @@ final class ForeachStatement
   }
 
   /**
-   * @returns ArrayCreationExpression | FunctionCallExpression | ListExpression
-   * | MemberSelectionExpression | PrefixUnaryExpression |
+   * @returns FunctionCallExpression | ListExpression |
+   * MemberSelectionExpression | PrefixUnaryExpression |
    * ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression
    */

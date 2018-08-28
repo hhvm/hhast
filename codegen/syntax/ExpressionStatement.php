@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<56af522e32cecdf55c6d21493d9d272e>>
+ * @generated SignedSource<<f5a4c67b5f6314b9c35d0e8fbe7f8bee>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -98,9 +98,9 @@ final class ExpressionStatement extends EditableNode {
    * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
    * SafeMemberSelectionExpression | ScopeResolutionExpression |
    * SubscriptExpression | RightParenToken | CommaToken | ColonToken |
-   * EqualEqualEqualToken | QuestionToken | NameToken | RightBraceToken |
-   * VariableExpression | VarrayIntrinsicExpression | XHPExpression |
-   * YieldExpression | YieldFromExpression
+   * EqualEqualEqualToken | NameToken | RightBraceToken | VariableExpression |
+   * VarrayIntrinsicExpression | XHPExpression | YieldExpression |
+   * YieldFromExpression
    */
   public function getExpression(): ?EditableNode {
     if ($this->_expression->isMissing()) {
@@ -121,9 +121,9 @@ final class ExpressionStatement extends EditableNode {
    * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
    * SafeMemberSelectionExpression | ScopeResolutionExpression |
    * SubscriptExpression | RightParenToken | CommaToken | ColonToken |
-   * EqualEqualEqualToken | QuestionToken | NameToken | RightBraceToken |
-   * VariableExpression | VarrayIntrinsicExpression | XHPExpression |
-   * YieldExpression | YieldFromExpression
+   * EqualEqualEqualToken | NameToken | RightBraceToken | VariableExpression |
+   * VarrayIntrinsicExpression | XHPExpression | YieldExpression |
+   * YieldFromExpression
    */
   public function getExpressionx(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_expression);

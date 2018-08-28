@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<49e3e8f62c77d7f32d6309e656bf8dc7>>
+ * @generated SignedSource<<619cd3938bf0cabc3373a9b14a7ff440>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,17 +101,16 @@ final class IsExpression extends EditableNode {
   }
 
   /**
-   * @returns VariableExpression
+   * @returns PrefixUnaryExpression | VariableExpression
    */
-  public function getLeftOperand(): VariableExpression {
-    return
-      TypeAssert\instance_of(VariableExpression::class, $this->_left_operand);
+  public function getLeftOperand(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_left_operand);
   }
 
   /**
-   * @returns VariableExpression
+   * @returns PrefixUnaryExpression | VariableExpression
    */
-  public function getLeftOperandx(): VariableExpression {
+  public function getLeftOperandx(): EditableNode {
     return $this->getLeftOperand();
   }
 

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4c5ee5d255dadc9a5dddfbf145c890dd>>
+ * @generated SignedSource<<bb9bb2ed717dbb50b9e4ef81b6391d32>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -115,32 +115,32 @@ final class PrefixUnaryExpression extends EditableNode {
   }
 
   /**
-   * @returns AnonymousFunction | ArrayIntrinsicExpression | BinaryExpression |
-   * BracedExpression | CastExpression | ConditionalExpression |
-   * DefineExpression | EmptyExpression | EvalExpression |
-   * FunctionCallExpression | InclusionExpression | InstanceofExpression |
-   * IssetExpression | LiteralExpression | MemberSelectionExpression |
-   * ObjectCreationExpression | ParenthesizedExpression |
-   * PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression |
-   * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * SubscriptExpression | EndOfFileToken | NameToken | VariableToken |
-   * VariableExpression
+   * @returns AnonymousFunction | ArrayIntrinsicExpression |
+   * AwaitableCreationExpression | BinaryExpression | BracedExpression |
+   * CastExpression | ConditionalExpression | DefineExpression |
+   * EmptyExpression | EvalExpression | FunctionCallExpression |
+   * InclusionExpression | InstanceofExpression | IssetExpression |
+   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PipeVariableExpression | PostfixUnaryExpression
+   * | PrefixUnaryExpression | SafeMemberSelectionExpression |
+   * ScopeResolutionExpression | SubscriptExpression | EndOfFileToken |
+   * NameToken | VariableToken | VariableExpression
    */
   public function getOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_operand);
   }
 
   /**
-   * @returns AnonymousFunction | ArrayIntrinsicExpression | BinaryExpression |
-   * BracedExpression | CastExpression | ConditionalExpression |
-   * DefineExpression | EmptyExpression | EvalExpression |
-   * FunctionCallExpression | InclusionExpression | InstanceofExpression |
-   * IssetExpression | LiteralExpression | MemberSelectionExpression |
-   * ObjectCreationExpression | ParenthesizedExpression |
-   * PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression |
-   * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * SubscriptExpression | EndOfFileToken | NameToken | VariableToken |
-   * VariableExpression
+   * @returns AnonymousFunction | ArrayIntrinsicExpression |
+   * AwaitableCreationExpression | BinaryExpression | BracedExpression |
+   * CastExpression | ConditionalExpression | DefineExpression |
+   * EmptyExpression | EvalExpression | FunctionCallExpression |
+   * InclusionExpression | InstanceofExpression | IssetExpression |
+   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PipeVariableExpression | PostfixUnaryExpression
+   * | PrefixUnaryExpression | SafeMemberSelectionExpression |
+   * ScopeResolutionExpression | SubscriptExpression | EndOfFileToken |
+   * NameToken | VariableToken | VariableExpression
    */
   public function getOperandx(): EditableNode {
     return $this->getOperand();

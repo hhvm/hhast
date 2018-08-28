@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<79e76d9bc22aa77b87e2e1dad4472123>>
+ * @generated SignedSource<<e6bae27989fc692c92fea69759970a1f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -132,7 +132,8 @@ final class ArrayCreationExpression extends EditableNode {
 
   /**
    * @returns EditableList<EditableNode> |
-   * EditableList<ArrayCreationExpression> | EditableList<BinaryExpression> |
+   * EditableList<ArrayCreationExpression> |
+   * EditableList<ArrayIntrinsicExpression> | EditableList<BinaryExpression> |
    * EditableList<ConditionalExpression> |
    * EditableList<DictionaryIntrinsicExpression> |
    * EditableList<ElementInitializer> | EditableList<FunctionCallExpression> |
@@ -153,7 +154,8 @@ final class ArrayCreationExpression extends EditableNode {
 
   /**
    * @returns EditableList<EditableNode> |
-   * EditableList<ArrayCreationExpression> | EditableList<BinaryExpression> |
+   * EditableList<ArrayCreationExpression> |
+   * EditableList<ArrayIntrinsicExpression> | EditableList<BinaryExpression> |
    * EditableList<ConditionalExpression> |
    * EditableList<DictionaryIntrinsicExpression> |
    * EditableList<ElementInitializer> | EditableList<FunctionCallExpression> |

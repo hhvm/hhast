@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e79fd07bc3914a7043f3fc3b687a2204>>
+ * @generated SignedSource<<36a911fe5ab7a8d71d2002ddb9804c17>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -254,7 +254,7 @@ final class VectorIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList<EditableNode> |
+   * @returns EditableList<EditableNode> | EditableList<BinaryExpression> |
    * EditableList<CollectionLiteralExpression> |
    * EditableList<ConditionalExpression> |
    * EditableList<DictionaryIntrinsicExpression> |
@@ -274,7 +274,7 @@ final class VectorIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList<EditableNode> |
+   * @returns EditableList<EditableNode> | EditableList<BinaryExpression> |
    * EditableList<CollectionLiteralExpression> |
    * EditableList<ConditionalExpression> |
    * EditableList<DictionaryIntrinsicExpression> |

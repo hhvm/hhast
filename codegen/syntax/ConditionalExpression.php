@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8fc037695afd4eb83627807b27ec98fa>>
+ * @generated SignedSource<<bcb57a0b9a43dd910ba06e7ecb29ef7d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -137,7 +137,7 @@ final class ConditionalExpression extends EditableNode {
    * FunctionCallExpression | InstanceofExpression | IssetExpression |
    * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
    * PrefixUnaryExpression | ScopeResolutionExpression | SubscriptExpression |
-   * LessThanToken | NameToken | VariableExpression
+   * ColonToken | LessThanToken | NameToken | VariableExpression
    */
   public function getTest(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_test);
@@ -148,7 +148,7 @@ final class ConditionalExpression extends EditableNode {
    * FunctionCallExpression | InstanceofExpression | IssetExpression |
    * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
    * PrefixUnaryExpression | ScopeResolutionExpression | SubscriptExpression |
-   * LessThanToken | NameToken | VariableExpression
+   * ColonToken | LessThanToken | NameToken | VariableExpression
    */
   public function getTestx(): EditableNode {
     return $this->getTest();
