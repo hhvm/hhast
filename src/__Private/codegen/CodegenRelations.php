@@ -11,11 +11,8 @@
 namespace Facebook\HHAST\__Private;
 
 use namespace Facebook\HHAST;
-use namespace HH\Lib\{C, Dict, Keyset, Str, Vec};
-use type Facebook\HackCodegen\{
-  HackBuilderKeys,
-  HackBuilderValues
-};
+use namespace HH\Lib\{C, Dict, Keyset, Str, Tuple, Vec};
+use type Facebook\HackCodegen\{HackBuilderKeys, HackBuilderValues};
 use namespace Facebook\TypeAssert;
 
 final class CodegenRelations extends CodegenBase {
@@ -31,20 +28,43 @@ final class CodegenRelations extends CodegenBase {
   <<__Override>>
   public function generate(): void {
     print("Infering relationships, this can take a long time...\n");
-    $all_inferences = Vec\map(
-      $this->getFileList(),
-      $file ==> {
-        try {
-          return $this->getRelationsInFile($file);
-        } catch (\Throwable $t) {
+    $files = $this->getFileList();
+    $done = Set {};
+    $start = \microtime(true);
+    list($all_inferences, $_) = \HH\Asio\join(Tuple\from_async(
+      Vec\map_async(
+        $files,
+        async $file ==> {
+          try {
+            return await $this->getRelationsInFileAsync($file);
+          } catch (\Throwable $t) {
+            throw $t;
+          } finally {
+            $done[] = $file;
+          }
+        },
+      ),
+      async {
+        $total = C\count($files);
+        while ($done->count() < $total) {
+          await \HH\Asio\usleep(1000 * 1000);
+          $ratio = ((float)$done->count()) / $total;
+          $now = \microtime(true);
+          $elapsed = $now - $start;
+          $rate = $done->count() / $elapsed;
+          $end = $start + ($total / $rate);
           \fprintf(
-            \STDERR, "Error parsing file: %s\n",
-            $file,
+            \STDERR,
+            "%d%%\t(%d / %d)\tExpected finish in %ds at %s\n",
+            (int)($ratio * 100),
+            $done->count(),
+            $total,
+            (int)($end - $now),
+            \strftime('%H:%M:%S', (int)$end),
           );
-          throw $t;
         }
       },
-    );
+    ));
 
     $result = dict[];
     foreach ($all_inferences as $inferences) {
@@ -53,8 +73,9 @@ final class CodegenRelations extends CodegenBase {
           vec[
             $result[$key] ?? keyset[],
             $child_keys,
-          ]
-        ) |> Keyset\sort($$);
+          ],
+        )
+          |> Keyset\sort($$);
       }
     }
     $result = Dict\sort_by_key($result);
@@ -70,9 +91,7 @@ final class CodegenRelations extends CodegenBase {
             $result,
             HackBuilderValues::dict(
               HackBuilderKeys::export(),
-              HackBuilderValues::keyset(
-                HackBuilderValues::export(),
-              ),
+              HackBuilderValues::keyset(HackBuilderValues::export()),
             ),
           ),
         /* comment = */ null,
@@ -90,14 +109,8 @@ final class CodegenRelations extends CodegenBase {
     ];
 
     $hhvm_tests =
-      Vec\map(
-        $hhvm_dirs,
-        $dir ==> $this->hhvmRoot.'/hphp/test/'.$dir,
-      )
-      |> Vec\map(
-        $$,
-        $dir ==> $this->getFileListFromHHVMTestDirectory($dir)
-      )
+      Vec\map($hhvm_dirs, $dir ==> $this->hhvmRoot.'/hphp/test/'.$dir)
+      |> Vec\map($$, $dir ==> $this->getFileListFromHHVMTestDirectory($dir))
       |> Keyset\flatten($$);
 
     $hack_tests = $this->getFileListFromHackTestDirectory(
@@ -128,7 +141,7 @@ final class CodegenRelations extends CodegenBase {
           return false;
         }
         return true;
-      }
+      },
     );
   }
 
@@ -143,18 +156,13 @@ final class CodegenRelations extends CodegenBase {
         }
         $out = \file_get_contents($path.'.exp');
         return $out === "No errors\n";
-      }
+      },
     );
   }
 
-  private function getTestFilesInDirectory(
-    string $root,
-  ): Traversable<string> {
-    $it = new \RecursiveIteratorIterator(
-      new \RecursiveDirectoryIterator(
-        $root,
-      )
-    );
+  private function getTestFilesInDirectory(string $root): Traversable<string> {
+    $it =
+      new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($root));
     foreach ($it as $info) {
       if (!$info->isFile()) {
         continue;
@@ -173,19 +181,22 @@ final class CodegenRelations extends CodegenBase {
       'kind' => string,
       ...
     ),
-    ?'elements' => vec<shape(
-      ?'list_item' => shape(...),
-      ...
-    )>,
+    ?'elements' => vec<
+      shape(
+        ?'list_item' => shape(...),
+        ...
+      )
+    >,
     ...
   );
 
-  private function getRelationsInFile(
+  private async function getRelationsInFileAsync(
     string $file,
-  ): dict<string, keyset<string>> {
+  ): Awaitable<dict<string, keyset<string>>> {
     try {
+      $json = await HHAST\json_from_file_async($file);
       /* HH_IGNORE_ERROR[4110] making assumptions about JSON */
-      $ast = $this->flatten(HHAST\json_from_file($file)['parse_tree']);
+      $ast = $this->flatten($json['parse_tree']);
     } catch (\Exception $_) {
       if (!Str\contains(\file_get_contents($file), '<?php')) {
         \fprintf(\STDERR, "Failed to parse %s\n", $file);
@@ -202,7 +213,7 @@ final class CodegenRelations extends CodegenBase {
     );
 
     foreach ($ast as $node) {
-      $kind = (string) $node['kind'];
+      $kind = (string)$node['kind'];
       if (!C\contains_key($schemas, $kind)) {
         continue;
       }
@@ -239,18 +250,12 @@ final class CodegenRelations extends CodegenBase {
     $ts = type_structure(self::class, 'TNode');
 
     $types = ($node['elements'] ?? vec[])
-      |> Vec\filter(
-        $$,
-        $e ==> Shapes::keyExists($e, 'list_item'),
-      )
+      |> Vec\filter($$, $e ==> Shapes::keyExists($e, 'list_item'))
       |> Vec\map(
         $$,
         $e ==> TypeAssert\matches_type_structure($ts, $e['list_item'] ?? null),
       )
-      |> Vec\map(
-        $$,
-        $i ==> self::getTypeString($i),
-      )
+      |> Vec\map($$, $i ==> self::getTypeString($i))
       |> Keyset\sort($$);
     return 'list<'.Str\join($types, '|').'>';
   }
@@ -261,7 +266,7 @@ final class CodegenRelations extends CodegenBase {
     // UNSAFE_BLOCK making assumptions about JSON struct
     yield $json;
 
-    $kind = (string) $json['kind'];
+    $kind = (string)$json['kind'];
     $schemas = Dict\pull(
       $this->getSchema()['AST'],
       $schema ==> $schema,
