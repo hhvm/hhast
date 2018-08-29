@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fb1408ce2622bff1391e43c9af8f9f98>>
+ * @generated SignedSource<<8940685b43624ab69083ede9317e478f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -209,8 +209,8 @@ final class FunctionCallExpression extends EditableNode {
    * EditableList<InstanceofExpression> | EditableList<IsExpression> |
    * EditableList<IssetExpression> | EditableList<KeysetIntrinsicExpression> |
    * EditableList<LambdaExpression> | EditableList<LiteralExpression> |
-   * EditableList<MemberSelectionExpression> |
-   * EditableList<ObjectCreationExpression> |
+   * EditableList<?LiteralExpression> | EditableList<MemberSelectionExpression>
+   * | EditableList<ObjectCreationExpression> |
    * EditableList<ParenthesizedExpression> |
    * EditableList<PipeVariableExpression> |
    * EditableList<PostfixUnaryExpression> | EditableList<PrefixUnaryExpression>
@@ -223,7 +223,7 @@ final class FunctionCallExpression extends EditableNode {
    * EditableList<VectorIntrinsicExpression> | EditableList<XHPExpression> |
    * Missing
    */
-  public function getArgumentList(): ?EditableList<EditableNode> {
+  public function getArgumentList(): ?EditableList<?EditableNode> {
     if ($this->_argument_list->isMissing()) {
       return null;
     }
@@ -245,8 +245,8 @@ final class FunctionCallExpression extends EditableNode {
    * EditableList<InstanceofExpression> | EditableList<IsExpression> |
    * EditableList<IssetExpression> | EditableList<KeysetIntrinsicExpression> |
    * EditableList<LambdaExpression> | EditableList<LiteralExpression> |
-   * EditableList<MemberSelectionExpression> |
-   * EditableList<ObjectCreationExpression> |
+   * EditableList<?LiteralExpression> | EditableList<MemberSelectionExpression>
+   * | EditableList<ObjectCreationExpression> |
    * EditableList<ParenthesizedExpression> |
    * EditableList<PipeVariableExpression> |
    * EditableList<PostfixUnaryExpression> | EditableList<PrefixUnaryExpression>
@@ -258,7 +258,7 @@ final class FunctionCallExpression extends EditableNode {
    * EditableList<VarrayIntrinsicExpression> |
    * EditableList<VectorIntrinsicExpression> | EditableList<XHPExpression>
    */
-  public function getArgumentListx(): EditableList<EditableNode> {
+  public function getArgumentListx(): EditableList<?EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_argument_list);
   }
 

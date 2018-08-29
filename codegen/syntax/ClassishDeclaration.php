@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b56445b6d716354ff9df3e100b08a423>>
+ * @generated SignedSource<<1d0a68ac9b486e5ea4466b5d650a04e2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -483,9 +483,9 @@ final class ClassishDeclaration extends EditableNode {
 
   /**
    * @returns EditableList<GenericTypeSpecifier> | EditableList<EditableNode> |
-   * EditableList<Missing> | EditableList<SimpleTypeSpecifier> | Missing
+   * EditableList<?EditableNode> | EditableList<SimpleTypeSpecifier> | Missing
    */
-  public function getExtendsList(): ?EditableList<EditableNode> {
+  public function getExtendsList(): ?EditableList<?EditableNode> {
     if ($this->_extends_list->isMissing()) {
       return null;
     }
@@ -494,9 +494,9 @@ final class ClassishDeclaration extends EditableNode {
 
   /**
    * @returns EditableList<GenericTypeSpecifier> | EditableList<EditableNode> |
-   * EditableList<Missing> | EditableList<SimpleTypeSpecifier>
+   * EditableList<?EditableNode> | EditableList<SimpleTypeSpecifier>
    */
-  public function getExtendsListx(): EditableList<EditableNode> {
+  public function getExtendsListx(): EditableList<?EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_extends_list);
   }
 
@@ -577,9 +577,9 @@ final class ClassishDeclaration extends EditableNode {
 
   /**
    * @returns EditableList<GenericTypeSpecifier> | EditableList<EditableNode> |
-   * EditableList<Missing> | EditableList<SimpleTypeSpecifier> | Missing
+   * EditableList<?EditableNode> | EditableList<SimpleTypeSpecifier> | Missing
    */
-  public function getImplementsList(): ?EditableList<EditableNode> {
+  public function getImplementsList(): ?EditableList<?EditableNode> {
     if ($this->_implements_list->isMissing()) {
       return null;
     }
@@ -588,9 +588,9 @@ final class ClassishDeclaration extends EditableNode {
 
   /**
    * @returns EditableList<GenericTypeSpecifier> | EditableList<EditableNode> |
-   * EditableList<Missing> | EditableList<SimpleTypeSpecifier>
+   * EditableList<?EditableNode> | EditableList<SimpleTypeSpecifier>
    */
-  public function getImplementsListx(): EditableList<EditableNode> {
+  public function getImplementsListx(): EditableList<?EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_implements_list);
   }
 

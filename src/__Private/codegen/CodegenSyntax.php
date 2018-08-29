@@ -93,6 +93,12 @@ final class CodegenSyntax extends CodegenBase {
     if (C\is_empty($types)) {
       return 'EditableNode';
     }
+
+    if (C\contains_key($types, 'missing')) {
+      unset($types['missing']);
+      return '?'.$this->getUnifiedSyntaxClass($types);
+    }
+
     if (C\count($types) === 1) {
       $type = C\onlyx($types);
       if ($type === 'list<>') {

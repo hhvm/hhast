@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f0c227b31ce4e716904836ffebba8a1f>>
+ * @generated SignedSource<<5db90c37c54b28f972cc134d02229d5f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -134,7 +134,7 @@ final class EchoStatement extends EditableNode {
    * EditableList<CastExpression> | EditableList<ConditionalExpression> |
    * EditableList<EmptyExpression> | EditableList<FunctionCallExpression> |
    * EditableList<IssetExpression> | EditableList<LiteralExpression> |
-   * EditableList<MemberSelectionExpression> | EditableList<Missing> |
+   * EditableList<MemberSelectionExpression> | EditableList<?EditableNode> |
    * EditableList<ObjectCreationExpression> |
    * EditableList<ParenthesizedExpression> |
    * EditableList<PipeVariableExpression> |
@@ -143,7 +143,7 @@ final class EchoStatement extends EditableNode {
    * EditableList<SubscriptExpression> | EditableList<NameToken> |
    * EditableList<VariableExpression> | EditableList<XHPExpression>
    */
-  public function getExpressions(): EditableList<EditableNode> {
+  public function getExpressions(): EditableList<?EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_expressions);
   }
 
@@ -152,7 +152,7 @@ final class EchoStatement extends EditableNode {
    * EditableList<CastExpression> | EditableList<ConditionalExpression> |
    * EditableList<EmptyExpression> | EditableList<FunctionCallExpression> |
    * EditableList<IssetExpression> | EditableList<LiteralExpression> |
-   * EditableList<MemberSelectionExpression> | EditableList<Missing> |
+   * EditableList<MemberSelectionExpression> | EditableList<?EditableNode> |
    * EditableList<ObjectCreationExpression> |
    * EditableList<ParenthesizedExpression> |
    * EditableList<PipeVariableExpression> |
@@ -161,7 +161,7 @@ final class EchoStatement extends EditableNode {
    * EditableList<SubscriptExpression> | EditableList<NameToken> |
    * EditableList<VariableExpression> | EditableList<XHPExpression>
    */
-  public function getExpressionsx(): EditableList<EditableNode> {
+  public function getExpressionsx(): EditableList<?EditableNode> {
     return $this->getExpressions();
   }
 

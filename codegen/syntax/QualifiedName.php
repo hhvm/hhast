@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ce4efac348f23a1cbd79664111408e6d>>
+ * @generated SignedSource<<9bd5049fbd3cc5de04cf5151949bde9c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -71,16 +71,16 @@ final class QualifiedName extends EditableNode {
   }
 
   /**
-   * @returns EditableList<EditableNode> | EditableList<NameToken>
+   * @returns EditableList<?NameToken> | EditableList<NameToken>
    */
-  public function getParts(): EditableList<EditableNode> {
+  public function getParts(): EditableList<?NameToken> {
     return TypeAssert\instance_of(EditableList::class, $this->_parts);
   }
 
   /**
-   * @returns EditableList<EditableNode> | EditableList<NameToken>
+   * @returns EditableList<?NameToken> | EditableList<NameToken>
    */
-  public function getPartsx(): EditableList<EditableNode> {
+  public function getPartsx(): EditableList<?NameToken> {
     return $this->getParts();
   }
 }

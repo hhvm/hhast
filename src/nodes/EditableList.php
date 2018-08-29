@@ -12,7 +12,7 @@ namespace Facebook\HHAST;
 
 use namespace HH\Lib\{C, Dict, Vec};
 
-final class EditableList<Titem as EditableNode> extends EditableNode {
+final class EditableList<Titem as ?EditableNode> extends EditableNode {
   private vec<EditableNode> $_children;
   <<__Override>>
   public function __construct(vec<EditableNode> $children) {
@@ -40,12 +40,17 @@ final class EditableList<Titem as EditableNode> extends EditableNode {
   }
 
   final public function getItems(): vec<Titem> {
+    // The `filter_nulls()` is needed for for expressions like
+    // `list($a,,$c) = $foo` and types like `\Foo\Bar`, now that the first
+    // is parsed as name token items with  backslash separators - i.e. the first
+    // item is empty.
+
     /* HH_FIXME[4110] we have to trust the typechecker here; in future, use
      * reified generics */
     return Vec\map(
       $this->_children,
       $child ==> $child instanceof ListItem ? $child->getItem() : $child,
-    );
+    );// |> Vec\filter_nulls($$);
   }
 
   final public function getItemsOfType<T as EditableNode>(

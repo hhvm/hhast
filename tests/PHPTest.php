@@ -12,7 +12,7 @@
 namespace Facebook\HHAST;
 
 use function Facebook\FBExpect\expect;
-use namespace HH\Lib\C;
+use namespace HH\Lib\{C, Vec};
 
 final class PHPTest extends TestCase {
   public function testPHPOnlyFeature(): void {
@@ -45,5 +45,15 @@ EOF;
       $x ==> $x instanceof LambdaExpression,
     );
     expect($lambda)->toNotBeNull();
+  }
+
+  public function testEmptyListItems(): void {
+    $ast = from_code('<?php list($a,,$c) = [1,2,3]');
+    $assignment =
+      C\find($ast->traverse(), $x ==> $x is ListExpression) as ListExpression;
+    $members = $assignment->getMembersx();
+    expect($members->getCode())->toBeSame('$a,,$c');
+    $item_code = Vec\map($members->getItems(), $item ==> $item?->getCode());
+    expect($item_code)->toBeSame(vec['$a', null, '$c']);
   }
 }
