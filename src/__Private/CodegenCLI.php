@@ -45,6 +45,7 @@ final class CodegenCLI extends CLIBase {
       CodegenTokens::class,
       CodegenTrivia::class,
       CodegenSyntax::class,
+      CodegenVersion::class,
     ];
     $schema = $this->getSchema();
     $rebuild_relationships = $this->rebuildRelationships;

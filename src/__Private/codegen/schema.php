@@ -33,5 +33,5 @@ type TSchema = shape(
   'tokens' => Traversable<TToken>,
   'AST' => Traversable<TAST>,
   ?'description' => string,
-  ?'version' => string,
+  'version' => string,
 );

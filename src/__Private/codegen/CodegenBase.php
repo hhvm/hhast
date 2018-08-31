@@ -29,6 +29,7 @@ abstract class CodegenBase {
       'trivia' => Vec\sort_by($schema['trivia'], $t ==> $t['trivia_kind_name']),
       'tokens' => Vec\sort_by($schema['tokens'], $t ==> $t['token_kind']),
       'AST' => Vec\sort_by($schema['AST'], $t ==> $t['kind_name']),
+      'version' => $schema['version'],
     );
   }
 

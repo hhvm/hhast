@@ -16,6 +16,10 @@ function from_json(
   dict<string, mixed> $json,
   ?string $file = null,
 ): EditableNode {
+  $version = $json['version'] ?? null;
+  if ($version is string && $version !== SCHEMA_VERSION) {
+    throw new SchemaVersionError($file ?? '! no file !', $version);
+  }
   return EditableNode::fromJSON(
     /* HH_IGNORE_ERROR[4110] */ $json['parse_tree'],
     $file ?? '! no file !',
