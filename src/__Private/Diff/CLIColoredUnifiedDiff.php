@@ -12,6 +12,16 @@ namespace Facebook\HHAST\__Private\Diff;
 
 use namespace HH\Lib\Str;
 
+/** Create a colored diff between two strings, using standard terminal
+ * escape sequences.
+ *
+ * This class does not check that the current terminal supports color escape
+ * sequences.
+ *
+ * If the terminal does not support color escape sequences (or if you don't
+ * know), you probably want `StringDiff::lines($a, $b)->getUnifiedDiff()`
+ * instead.
+ */
 final abstract class CLIColoredUnifiedDiff extends ColoredUnifiedDiff<string> {
   const string RESET = "\e[0m";
   const string BLACK = "\e[30m";

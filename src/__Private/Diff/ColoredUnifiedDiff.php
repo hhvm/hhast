@@ -24,6 +24,18 @@ abstract class ColoredUnifiedDiff<TOut> {
   abstract protected static function colorDeleteLine(string $line): TOut;
   abstract protected static function colorInsertLine(string $line): TOut;
 
+  /** Render a deletion line from character keep/delete operations.
+   *
+   * If we have `- foo` `+ bar` where `foo` and `bar` are very similar, this
+   * allows highlighting the changed characters in addition to/instead of the
+   * whole line.
+   *
+   * Note that the input does not include the `- `, and you may want to re-add
+   * it.
+   *
+   * The default implementation prepends `- ` then delegates to
+   * `colorDeleteLine()` without doing any special handling.
+   */
   protected static function colorDeleteLineWithIntralineEdits(
     vec<DiffOp<string>> $ops,
   ): TOut {
@@ -32,6 +44,18 @@ abstract class ColoredUnifiedDiff<TOut> {
     );
   }
 
+  /** Render an insertion line from character keep/insert operations.
+   *
+   * If we have `- foo` `+ bar` where `foo` and `bar` are very similar, this
+   * allows highlighting the changed characters in addition to/instead of the
+   * whole line.
+   *
+   * Note that the input does not include the `+ `, and you may want to re-add
+   * it.
+   *
+   * The default implementation prepends `+ ` then delegates to
+   * `colorInsertLine()` without doing any special handling.
+   */
 	protected static function colorInsertLineWithIntralineEdits(
 		vec<DiffOp<string>> $ops,
 	): TOut {
