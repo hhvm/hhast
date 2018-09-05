@@ -11,6 +11,7 @@
 
 namespace Facebook\HHAST\TestLib;
 
+use namespace Facebook\DiffLib;
 use namespace HH\Lib\Str;
 
 final class ExpectObj<T> extends \Facebook\FBExpect\ExpectObj<T> {
@@ -38,28 +39,47 @@ final class ExpectObj<T> extends \Facebook\FBExpect\ExpectObj<T> {
     $out_file = Str\strip_suffix($expect_file, '.expect').'.out';
     $code = $this->var;
 
-    \file_put_contents(
-      Str\strip_suffix($expect_file, '.expect').'.out',
-      $code,
-    );
+    \file_put_contents(Str\strip_suffix($expect_file, '.expect').'.out', $code);
     if (!\file_exists($expect_file)) {
+      \stream_set_blocking(\STDERR, true);
       \fprintf(\STDERR, "\n===== NEW TEST: %s =====\n", $expect_file);
       \fprintf(\STDERR, "----- %s -----\n", $input_file);
       \fwrite(\STDERR, \file_get_contents($input_file));
       \fprintf(\STDERR, "----- %s -----\n", $out_file);
       \fwrite(\STDERR, $code);
+
+      $diff = DiffLib\StringDiff::lines(\file_get_contents($input_file), $code)
+        ->getUnifiedDiff();
+      if (Str\length($diff) < Str\length($code)) {
+        if (\posix_isatty(\STDERR)) {
+          $diff = DiffLib\CLIColoredUnifiedDiff::create(
+            \file_get_contents($input_file),
+            $code,
+          );
+        }
+        \fprintf(
+          \STDERR,
+          "----- diff -u %s %s ----\n",
+          \basename($input_file),
+          \basename($out_file),
+        );
+        \fwrite(\STDERR, $diff);
+      }
       \fwrite(\STDERR, "----- END -----\n");
+      \stream_set_blocking(\STDERR, false);
 
       $recorded = false;
       if (\posix_isatty(\STDIN) && \posix_isatty(\STDERR)) {
         \fprintf(\STDERR, "Would you like to save this output? [y/N] ");
+        \stream_set_blocking(\STDIN, true);
         $response = Str\trim(\fgets(\STDIN));
+        \stream_set_blocking(\STDIN, false);
         if ($response === 'y') {
           \file_put_contents($expect_file, $code);
           $recorded = true;
         }
       } else {
-        $this->markTestIncomplete($expect_file.' does not exist');
+        throw new \Exception($expect_file.' does not exist');
       }
     }
     $this->toBeSame(\file_get_contents($expect_file));
