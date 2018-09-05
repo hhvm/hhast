@@ -45,7 +45,13 @@ final class CodeActionCommand extends LSPLib\CodeActionCommand {
             return null;
           }
 
-          $ca = $linter->getCodeActionForError($e);
+          try {
+            $ca = $linter->getCodeActionForError($e);
+          } catch (\Exception $_) {
+            // usually some form of parse error, especially with as-you-type.
+            // Don't crash the LSP server.
+            return null;
+          }
           if ($ca === null) {
             return null;
           }
