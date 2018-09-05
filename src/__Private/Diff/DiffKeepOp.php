@@ -26,6 +26,7 @@ final class DiffKeepOp<TContent> extends DiffOp<TContent> {
     return $this->newPos;
   }
 
+  <<__Override>>
   public function getContent(): TContent {
     return $this->content;
   }

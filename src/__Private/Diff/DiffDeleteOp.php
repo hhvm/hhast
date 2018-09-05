@@ -21,6 +21,7 @@ final class DiffDeleteOp<TContent> extends DiffOp<TContent> {
     return $this->oldPos;
   }
 
+  <<__Override>>
   public function getContent(): TContent {
     return $this->content;
   }
