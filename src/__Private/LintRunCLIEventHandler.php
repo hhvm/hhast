@@ -11,7 +11,7 @@
 namespace Facebook\HHAST\__Private;
 
 use type Facebook\CLILib\ITerminal;
-use type Facebook\HHAST\__Private\Diff\StringDiff;
+use type Facebook\HHAST\__Private\Diff\{CLIColoredUnifiedDiff, StringDiff};
 use namespace Facebook\HHAST\Linters;
 use namespace HH\Lib\{C, Str, Vec};
 
@@ -110,32 +110,14 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
       return false;
     }
 
-    $colors = $this->terminal->supportsColors();
-    $reset = $colors ? "\e[0m" : '';
-
-      $diff = StringDiff::lines($old, $new)->getUnifiedDiff();
-      if (!$colors) {
-        $this->terminal->getStdout()->write($diff);
+      if ($this->terminal->supportsColors()) {
+        $this->terminal->getStdout()->write(
+          CLIColoredUnifiedDiff::create($old, $new),
+        );
       } else {
-        $diff
-          |> Str\split($$, "\n")
-          |> Vec\map(
-            $$,
-            $line ==> {
-              if (Str\starts_with($line, '@@')) {
-                return "\e[36m".$line.$reset; // blue
-              }
-              if (Str\starts_with($line, '-')) {
-                return "\e[31m".$line.$reset; // red;
-              }
-              if (Str\starts_with($line, '+')) {
-                return "\e[32m".$line.$reset; // green;
-              }
-              return $line;
-            },
-          )
-          |> Str\join($$, "\n")
-          |> $this->terminal->getStdout()->write($$);
+        $this->terminal->getStdout()->write(
+          StringDiff::lines($old, $new)->getUnifiedDiff(),
+        );
       }
 
     if (!$this->terminal->isInteractive()) {
