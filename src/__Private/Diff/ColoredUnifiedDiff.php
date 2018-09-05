@@ -10,7 +10,7 @@
 
 namespace Facebook\HHAST\__Private\Diff;
 
-use namespace HH\Lib\Str;
+use namespace HH\Lib\{C, Str, Vec};
 
 /** Base class for colorizing diffs.
  *
@@ -24,6 +24,23 @@ abstract class ColoredUnifiedDiff<TOut> {
   abstract protected static function colorDeleteLine(string $line): TOut;
   abstract protected static function colorInsertLine(string $line): TOut;
 
+  protected static function colorDeleteLineWithIntralineEdits(
+    vec<DiffOp<string>> $ops,
+  ): TOut {
+    return static::colorDeleteLine(
+      '- '.(Vec\map($ops, $op ==> $op->getContent()) |> Str\join($$, '')),
+    );
+  }
+
+	protected static function colorInsertLineWithIntralineEdits(
+		vec<DiffOp<string>> $ops,
+	): TOut {
+		return static::colorInsertLine(
+			'+ '.(Vec\map($ops, $op ==> $op->getContent()) |> Str\join($$, '')),
+		);
+	}
+
+
   abstract protected static function join(vec<TOut> $lines): TOut;
 
   final public static function create(
@@ -34,8 +51,13 @@ abstract class ColoredUnifiedDiff<TOut> {
     $diff = StringDiff::lines($a, $b)->getUnifiedDiff($context);
 
     $out = vec[];
-    foreach (Str\split($diff, "\n") as $line) {
+    $lines = Str\split($diff, "\n");
+    while (!C\is_empty($lines)) {
+      $line = C\firstx($lines);
+      $lines = Vec\drop($lines, 1);
+
       if ($line === '') {
+        invariant(C\is_empty($lines), "Blank line was not last line");
         break;
       }
       if ($line[0] === '@') {
@@ -51,6 +73,28 @@ abstract class ColoredUnifiedDiff<TOut> {
         continue;
       }
       if ($line[0] === '-') {
+        $next = C\first($lines);
+        if (
+          $next !== null
+          && $next !== ''
+          && $next[0] === '+'
+          // -2 to deal with the prefix
+          && \levenshtein($line, $next) - 2 <= (0.5 * (Str\length($line) - 2))
+        ) {
+          // Drop the prefix
+          $line = Str\slice($line, 2);
+          $next = Str\slice($next, 2);
+          $lines = Vec\drop($lines, 1);
+
+          $intraline = StringDiff::characters($line, $next)->getDiff();
+          $out[] = $intraline
+            |> Vec\filter($$, $op ==> !$op is DiffInsertOp<_>)
+            |> static::colorDeleteLineWithIntralineEdits($$);
+          $out[] = $intraline
+            |> Vec\filter($$, $op ==> !$op is DiffDeleteOp<_>)
+            |> static::colorInsertLineWithIntralineEdits($$);
+          continue;
+        }
         $out[] = static::colorDeleteLine($line);
         continue;
       }
