@@ -10,24 +10,25 @@
 
 namespace Facebook\HHAST\__Private\LSPLib;
 
-use namespace Facebook\HHAST\__Private\{LSP, Diff};
+use namespace Facebook\HHAST\__Private\LSP;
+use namespace Facebook\DiffLib;
 use namespace HH\Lib\{C, Str, Vec};
 
 function create_textedits(string $from, string $to): vec<LSP\TextEdit> {
-  $diff = Diff\StringDiff::lines($from, $to)
+  $diff = DiffLib\StringDiff::lines($from, $to)
     ->getDiff()
-    |> Diff\cluster($$);
+    |> DiffLib\cluster($$);
   $edits = vec[];
   while (!C\is_empty($diff)) {
     $first = C\firstx($diff);
     $diff = Vec\drop($diff, 1);
-    if ($first instanceof Diff\DiffKeepOp) {
+    if ($first instanceof DiffLib\DiffKeepOp) {
       continue;
     }
 
     // If we have a replacement, the deletion always comes first - so, if we
     // have an InsertOp here, it's a pure insertion
-    if ($first instanceof Diff\DiffInsertOp) {
+    if ($first instanceof DiffLib\DiffInsertOp) {
       $pos = shape(
         'line' => $first->getNewPos(),
         'character' => 0,
@@ -41,7 +42,7 @@ function create_textedits(string $from, string $to): vec<LSP\TextEdit> {
     }
 
     invariant(
-      $first instanceof Diff\DiffDeleteOp,
+      $first instanceof DiffLib\DiffDeleteOp,
       'Expected a DeleteOp, InsertOp, or KeepOp, got %s',
       \get_class($first),
     );
@@ -51,7 +52,7 @@ function create_textedits(string $from, string $to): vec<LSP\TextEdit> {
 
     // if ($first, $next) is (Delete, Insert) we have a replacement
     $next = C\first($diff);
-    if (!$next instanceof Diff\DiffInsertOp) {
+    if (!$next instanceof DiffLib\DiffInsertOp) {
       // (Delete, null|Keep) - just a deletion
       $edits[] = shape(
         'range' => shape(
@@ -82,8 +83,8 @@ function create_textedits(string $from, string $to): vec<LSP\TextEdit> {
     }
 
     // Just replace characters within the line
-    $ildiff = Diff\StringDiff::characters($a, $b)
-      |> Diff\cluster($$->getDiff());
+    $ildiff = DiffLib\StringDiff::characters($a, $b)
+      |> DiffLib\cluster($$->getDiff());
 
     $offset_to_pos = (int $offset) ==> {
       $haystack = Str\slice($a, 0, $offset);
@@ -99,11 +100,11 @@ function create_textedits(string $from, string $to): vec<LSP\TextEdit> {
       $ilfirst = C\firstx($ildiff);
       $ildiff = Vec\drop($ildiff, 1);
 
-      if ($ilfirst instanceof Diff\DiffKeepOp) {
+      if ($ilfirst instanceof DiffLib\DiffKeepOp) {
         continue;
       }
 
-      if ($ilfirst instanceof Diff\DiffInsertOp) {
+      if ($ilfirst instanceof DiffLib\DiffInsertOp) {
         $ilpos = $offset_to_pos($ilfirst->getNewPos());
         $edits[] = shape(
           'range' => shape(
@@ -115,10 +116,10 @@ function create_textedits(string $from, string $to): vec<LSP\TextEdit> {
         continue;
       }
 
-      invariant($ilfirst instanceof Diff\DiffDeleteOp, 'unhandled op kind');
+      invariant($ilfirst instanceof DiffLib\DiffDeleteOp, 'unhandled op kind');
 
       $ilnext = C\first($ildiff);
-      if (!$ilnext instanceof Diff\DiffInsertOp) {
+      if (!$ilnext instanceof DiffLib\DiffInsertOp) {
         $edits[] = shape(
           'range' => shape(
             'start' => $offset_to_pos($ilfirst->getOldPos()),

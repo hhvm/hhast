@@ -11,7 +11,7 @@
 namespace Facebook\HHAST\__Private;
 
 use type Facebook\CLILib\ITerminal;
-use type Facebook\HHAST\__Private\Diff\{CLIColoredUnifiedDiff, StringDiff};
+use type Facebook\DiffLib\{CLIColoredUnifiedDiff, StringDiff};
 use namespace Facebook\HHAST\Linters;
 use namespace HH\Lib\{C, Str, Vec};
 
