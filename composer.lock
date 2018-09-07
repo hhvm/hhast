@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4fc8be166cb6146c4920e077c276bb11",
+    "content-hash": "e79c2e911375a65caa1d363d51068a14",
     "packages": [
         {
             "name": "facebook/difflib",
-            "version": "v0.1",
+            "version": "v0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/difflib.git",
-                "reference": "6c3132642b8b8a691875c5bc9ddfd00f851ccd8c"
+                "reference": "2066396b8499ddc7d5a9436322c493e55379818b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/difflib/zipball/6c3132642b8b8a691875c5bc9ddfd00f851ccd8c",
-                "reference": "6c3132642b8b8a691875c5bc9ddfd00f851ccd8c",
+                "url": "https://api.github.com/repos/hhvm/difflib/zipball/2066396b8499ddc7d5a9436322c493e55379818b",
+                "reference": "2066396b8499ddc7d5a9436322c493e55379818b",
                 "shasum": ""
             },
             "require": {
@@ -31,7 +31,7 @@
             "license": [
                 "MIT"
             ],
-            "time": "2018-09-05T19:26:26+00:00"
+            "time": "2018-09-06T17:19:19+00:00"
         },
         {
             "name": "facebook/hh-clilib",
