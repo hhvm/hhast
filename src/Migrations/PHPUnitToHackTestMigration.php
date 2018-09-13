@@ -498,8 +498,6 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
   }
 
   private function getUniqueSteps(): vec<IMigrationStep> {
-    \stream_set_blocking(\STDERR, true); // FIXME
-    \stream_set_blocking(\STDOUT, true); // FIXME
     return vec[
       new TypedMigrationStep(
         'replace base class references via use statements',
