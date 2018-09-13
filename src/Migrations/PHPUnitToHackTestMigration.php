@@ -343,6 +343,151 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
       ->withModifiers(new HHAST\EditableList($new_modifiers));
   }
 
+  final private function migrateExpectException(
+    HHAST\MethodishDeclaration $node,
+  ): HHAST\MethodishDeclaration {
+    $body = $node->getFunctionBody()?->getStatements()?->getItems();
+    if ($body === null) {
+      return $node;
+    }
+
+    $indent = (
+      C\lastx(
+        (
+          $node->getFunctionDeclHeader()
+            ->getFirstTokenx()
+            ->getLeading() as HHAST\EditableList<_>
+        )->getItems(),
+      ) as HHAST\EditableTrivia
+    )->getText();
+    $new = $this->migrateExpectExceptionInStatements($body, $indent);
+    if ($new === $body) {
+      return $node;
+    }
+
+    return $node->withFunctionBody(
+      $node->getFunctionBodyx()
+        ->withStatements(new HHAST\EditableList($new)),
+    );
+  }
+
+  final private function migrateExpectExceptionInStatements(
+    vec<HHAST\EditableNode> $statements,
+    string $indent,
+  ): vec<HHAST\EditableNode> {
+    $idx = C\find_key(
+      $statements,
+      $n ==> {
+        if (!$n is HHAST\ExpressionStatement) {
+          return false;
+        }
+        $n = $n->getExpression();
+
+        if (!$n is HHAST\FunctionCallExpression) {
+          return false;
+        }
+
+        $r = $n->getReceiver();
+        if (!$r is HHAST\MemberSelectionExpression) {
+          return false;
+        }
+
+        $var = ($r->getObject() ?as HHAST\VariableExpression)
+          ?->getExpression() ?as HHAST\VariableToken;
+        if ($var?->getText() !== '$this') {
+          return false;
+        }
+
+        $n = $r->getNamex() ?as HHAST\NameToken;
+        if ($n?->getText() !== 'expectException') {
+          return false;
+        }
+
+        return true;
+      },
+    );
+
+    if ($idx === null) {
+      return $statements;
+    }
+
+    $pre = Vec\take($statements, $idx);
+    $expect_exception =
+      ($statements[$idx] as HHAST\ExpressionStatement)->getExpressionx() as
+        HHAST\FunctionCallExpression;
+    $inner = Vec\drop($statements, $idx + 1)
+      |> Vec\map(
+        $$,
+        $statement ==> {
+          $t = $statement->getFirstTokenx();
+          return $statement->replace(
+            $t,
+            $t->withLeading(
+              new HHAST\EditableList(vec[
+                $t->getLeading(),
+                new HHAST\WhiteSpace($indent),
+              ]),
+            ),
+          );
+        },
+      )
+      |> $this->migrateExpectExceptionInStatements($$, $indent);
+
+    $m = HHAST\Missing();
+    $expect_call = new HHAST\FunctionCallExpression(
+      new HHAST\NameToken(
+        $expect_exception->getFirstTokenx()->getLeading(),
+        $m,
+        'expect',
+      ),
+      new HHAST\LeftParenToken($m, $m),
+      new HHAST\LambdaExpression(
+        /* attrs = */ $m,
+        /* async = */ $m,
+        /* coroutine = */ $m,
+        new HHAST\LambdaSignature(
+          new HHAST\LeftParenToken($m, $m),
+          /* parameters = */ $m,
+          new HHAST\RightParenToken($m, new HHAST\WhiteSpace(' ')),
+          /* colon = */ $m,
+          /* type = */ $m,
+        ),
+        new HHAST\EqualEqualGreaterThanToken($m, new HHAST\WhiteSpace(' ')),
+        new HHAST\CompoundStatement(
+          new HHAST\LeftBraceToken($m, new HHAST\EndOfLine("\n")),
+          new HHAST\EditableList($inner),
+          new HHAST\RightBraceToken(
+            $expect_exception->getFirstTokenx()->getLeading(),
+            $m,
+          ),
+        ),
+      ),
+      new HHAST\RightParenToken($m, $m),
+    );
+
+    $expectation = new HHAST\FunctionCallExpression(
+      new HHAST\MemberSelectionExpression(
+        $expect_call,
+        new HHAST\MinusGreaterThanToken($m, $m),
+        new HHAST\NameToken($m, $m, 'toThrow'),
+      ),
+      new HHAST\LeftParenToken($m, $m),
+      $expect_exception->getArgumentList() ?? $m,
+      new HHAST\RightParenToken($m, $m),
+    );
+
+    $new = $pre;
+    $new[] = new HHAST\ExpressionStatement(
+      $expectation,
+      new HHAST\SemicolonToken($m, new HHAST\EndOfLine("\n")),
+    );
+
+    // In theory, there should be a 'return' at the end of the statement - but
+    // given we've wrapped up the entire remainder of the body into the lambda,
+    // it does no difference
+    return $new;
+  }
+
   <<__Override>>
   final public function getSteps(): Traversable<IMigrationStep> {
     return Vec\concat(
@@ -353,6 +498,8 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
   }
 
   private function getUniqueSteps(): vec<IMigrationStep> {
+    \stream_set_blocking(\STDERR, true); // FIXME
+    \stream_set_blocking(\STDOUT, true); // FIXME
     return vec[
       new TypedMigrationStep(
         'replace base class references via use statements',
@@ -389,6 +536,12 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
         HHAST\MethodishDeclaration::class,
         HHAST\MethodishDeclaration::class,
         $node ==> $this->migrateDataProvider($node),
+      ),
+      new TypedMigrationStep(
+        '$this->expectException() to expect()->toThrow()',
+        HHAST\MethodishDeclaration::class,
+        HHAST\MethodishDeclaration::class,
+        $node ==> $this->migrateExpectException($node),
       ),
     ];
   }
