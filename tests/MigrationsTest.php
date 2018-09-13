@@ -55,6 +55,10 @@ final class MigrationsTest extends TestCase {
       ),
       tuple(
         Migrations\PHPUnitToHackTestMigration::class,
+        'migrations/PHPUnitToHackTest/setup_teardown.php',
+      ),
+      tuple(
+        Migrations\PHPUnitToHackTestMigration::class,
         'migrations/PHPUnitToHackTest/old_name_no_ns.php',
       ),
       tuple(

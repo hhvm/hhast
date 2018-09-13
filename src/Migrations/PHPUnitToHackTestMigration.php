@@ -300,6 +300,49 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
     return $node->withName($this->getQualifiedNameForHackTestCase());
   }
 
+  private function renameSetUpTearDownFunctions(
+    HHAST\FunctionDeclarationHeader $node,
+  ): HHAST\FunctionDeclarationHeader {
+    $name = ($node->getNamex() ?as HHAST\NameToken)?->getText();
+    if ($name === null) {
+      return $node;
+    }
+
+    $names = dict[
+      'setup' => 'beforeEachTestAsync',
+      'teardown' => 'afterEachTestAsync',
+      'setupbeforeclass' => 'beforeFirstTestAsync',
+      'teardownafterclass' => 'afterLastTestAsync',
+    ];
+    $new_name = $names[Str\lowercase($name)] ?? null;
+    if ($new_name === null) {
+      return $node;
+    }
+    $leading = $node->getFirstTokenx()->getLeading();
+    $new_modifiers = Vec\map(
+      $node->getModifiers()?->getItems() ?? vec[],
+      $m ==> {
+        if ($m is HHAST\PrivateToken || $m is HHAST\ProtectedToken) {
+          return
+            new HHAST\PublicToken(HHAST\Missing(), new HHAST\WhiteSpace(' '));
+        }
+        return ($m as HHAST\EditableToken)->withLeading(HHAST\Missing())
+          ->withTrailing(new HHAST\WhiteSpace(' '));
+      },
+    );
+    $new_modifiers[] =
+      new HHAST\AsyncToken(HHAST\Missing(), new HHAST\WhiteSpace(' '));
+    $new_modifiers[0] = $new_modifiers[0]->withLeading($leading);
+    return $node->withName(
+      new HHAST\NameToken(
+        $node->getNamex()->getLeading(),
+        $node->getNamex()->getTrailing(),
+        $new_name,
+      ),
+    )
+      ->withModifiers(new HHAST\EditableList($new_modifiers));
+  }
+
   <<__Override>>
   final public function getSteps(): Traversable<IMigrationStep> {
     return vec[
@@ -320,6 +363,12 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
         HHAST\QualifiedName::class,
         HHAST\QualifiedName::class,
         $node ==> $this->replaceQualifiedName($node),
+      ),
+      new TypedMigrationStep(
+        'rename setup/teardown functions',
+        HHAST\FunctionDeclarationHeader::class,
+        HHAST\FunctionDeclarationHeader::class,
+        $node ==> $this->renameSetUpTearDownFunctions($node),
       ),
       new TypedMigrationStep(
         'replace `$this->markTestFoo` with static calls',

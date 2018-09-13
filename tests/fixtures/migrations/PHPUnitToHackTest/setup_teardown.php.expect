@@ -1,0 +1,30 @@
+<?hh // strict
+
+/**
+ * Copyright (c) 2016, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional
+ * grant of patent rights can be found in the PATENTS file in the same
+ * directory.
+ *
+ */
+
+final class FooTest extends PHPUnit_Framework_TestCase {
+  public async function beforeEachTestAsync(): void {
+    // call me before each test method
+  }
+
+  public async function afterEachTestAsync(): void {
+    // call me after each test method
+  }
+
+  public static async function beforeFirstTestAsync(): void {
+    // call me before the first test method
+  }
+
+  public static async function afterLastTestAsync(): void {
+    // call me before the first test method
+  }
+}
