@@ -345,6 +345,14 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
 
   <<__Override>>
   final public function getSteps(): Traversable<IMigrationStep> {
+    return Vec\concat(
+      (new HHAST\Migrations\AssertToExpectMigration($this->getRoot()))
+        ->getSteps(),
+      $this->getUniqueSteps(),
+    );
+  }
+
+  private function getUniqueSteps(): vec<IMigrationStep> {
     return vec[
       new TypedMigrationStep(
         'replace base class references via use statements',
