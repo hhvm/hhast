@@ -12,7 +12,7 @@ namespace Facebook\HHAST\Migrations;
 
 use namespace Facebook\HHAST;
 
-use namespace HH\Lib\{C, Str, Vec};
+use namespace HH\Lib\{C, Dict, Str, Vec};
 
 final class PHPUnitToHackTestMigration extends StepBasedMigration {
   private function replaceQualifiedName(
@@ -143,8 +143,8 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
       } else {
         $leading = vec[];
         foreach (
-          ($decl->getFirstTokenx()->getLeading() as HHAST\EditableList<_>)->getItems()
-          as $item
+          ($decl->getFirstTokenx()->getLeading() as HHAST\EditableList<_>)
+            ->getItems() as $item
         ) {
           if ($item === $comment) {
             break;
@@ -211,20 +211,115 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
     );
   }
 
+  final private function replaceUsedTypes(HHAST\Script $script): HHAST\Script {
+    $uses = HHAST\__Private\Resolution\get_uses_directly_in_scope(
+      $script->getDeclarations(),
+    )['types']
+      |> Dict\filter(
+        $$,
+        $resolved ==> $resolved === 'PHPUnit_Framework_TestCase' ||
+          $resolved === 'PHPUnit\\Framework\\TestCase',
+      );
+    if (C\is_empty($uses)) {
+      return $script;
+    }
+
+    return $script->rewriteDescendants(
+      ($node, $_p) ==> {
+        if (!$node is HHAST\ClassishDeclaration) {
+          return $node;
+        }
+        $extends = $node->getExtendsList()?->getItems();
+        if ($extends === null) {
+          return $node;
+        }
+
+        if (C\count($extends) !== 1) {
+          // interface
+          return $node;
+        }
+        $extends = C\onlyx($extends);
+        if (!$extends is HHAST\SimpleTypeSpecifier) {
+          return $node;
+        }
+        $extends = $extends->getSpecifierx();
+        if (!$extends is HHAST\NameToken) {
+          return $node;
+        }
+
+        if (!C\contains_key($uses, $extends->getText())) {
+          return $node;
+        }
+
+        return $node->replace($extends, $extends->withText('HackTestCase'));
+      },
+    );
+  }
+
+  private function getQualifiedNameForHackTestCase(): HHAST\QualifiedName {
+    $m = HHAST\Missing();
+    return new HHAST\QualifiedName(
+      new HHAST\EditableList(
+        vec[
+          new HHAST\NameToken($m, $m, "Facebook"),
+          new HHAST\BackslashToken($m, $m),
+          new HHAST\NameToken($m, $m, "HackTest"),
+          new HHAST\BackslashToken($m, $m),
+          new HHAST\NameToken($m, $m, "HackTestCase"),
+        ],
+      ),
+    );
+
+  }
+
+  private function replaceUseClause(
+    HHAST\NamespaceUseClause $node,
+  ): HHAST\NamespaceUseClause {
+    $what = $node->getName();
+    if ($what is HHAST\NameToken) {
+      if ($what->getText() !== "PHPUnit_Framework_TestCase") {
+        return $node;
+      }
+      return $node->withName($this->getQualifiedNameForHackTestCase());
+    }
+
+    if (!$what is HHAST\QualifiedName) {
+      return $node;
+    }
+
+    $text = $what->getDescendantsOfType(HHAST\EditableToken::class)
+      |> Vec\map($$, $t ==> $t->getText())
+      |> Str\join($$, '')
+      |> Str\strip_prefix($$, '\\');
+    if (
+      $text !== 'PHPUnit_Framework_TestCase' &&
+      $text !== 'PHPUnit\\Framework\\TestCase'
+    ) {
+      return $node;
+    }
+    return $node->withName($this->getQualifiedNameForHackTestCase());
+  }
+
   <<__Override>>
   final public function getSteps(): Traversable<IMigrationStep> {
     return vec[
       new TypedMigrationStep(
-        'replace direct base class reference',
+        'replace base class references via use statements',
+        HHAST\Script::class,
+        HHAST\Script::class,
+        $node ==> $this->replaceUsedTypes($node),
+      ),
+      new TypedMigrationStep(
+        'replace use clauses',
+        HHAST\NamespaceUseClause::class,
+        HHAST\NamespaceUseClause::class,
+        $node ==> $this->replaceUseClause($node),
+      ),
+      new TypedMigrationStep(
+        'replace direct base class references',
         HHAST\QualifiedName::class,
         HHAST\QualifiedName::class,
         $node ==> $this->replaceQualifiedName($node),
-      ),
-      new TypedMigrationStep( // TODO: PLACEHOLDER
-        'replace base class references via use statements',
-        HHAST\EditableNode::class,
-        HHAST\EditableNode::class,
-        $node ==> $node,
       ),
       new TypedMigrationStep(
         'replace `$this->markTestFoo` with static calls',

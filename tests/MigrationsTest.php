@@ -37,14 +37,35 @@ final class MigrationsTest extends TestCase {
         'migrations/change_assert_to_expect.php',
       ),
       tuple(Migrations\HSLMigration::class, 'migrations/hsl.php'),
-    ];
-
-    if (\version_compare(\HHVM_VERSION, '3.25.0-dev', '>=')) {
-      $migrations[] = tuple(
+      tuple(
         Migrations\NamespaceFallbackMigration::class,
         'migrations/namespace_fallback.php',
-      );
-    }
+      ),
+      tuple(
+        Migrations\PHPUnitToHackTestMigration::class,
+        'migrations/PHPUnitToHackTest/new_name_no_ns_with_use.php',
+      ),
+      tuple(
+        Migrations\PHPUnitToHackTestMigration::class,
+        'migrations/PHPUnitToHackTest/new_name_no_ns.php',
+      ),
+      tuple(
+        Migrations\PHPUnitToHackTestMigration::class,
+        'migrations/PHPUnitToHackTest/new_name_ns_direct.php',
+      ),
+      tuple(
+        Migrations\PHPUnitToHackTestMigration::class,
+        'migrations/PHPUnitToHackTest/old_name_no_ns.php',
+      ),
+      tuple(
+        Migrations\PHPUnitToHackTestMigration::class,
+        'migrations/PHPUnitToHackTest/old_name_ns_direct.php',
+      ),
+      tuple(
+        Migrations\PHPUnitToHackTestMigration::class,
+        'migrations/PHPUnitToHackTest/old_name_ns_with_use.php',
+      ),
+    ];
 
     return $migrations;
   }
