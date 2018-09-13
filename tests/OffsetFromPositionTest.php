@@ -23,9 +23,7 @@ final class OffsetFromPositionTest extends TestCase {
     ];
   }
 
-  /**
-   * @dataProvider getExamples
-   */
+  <<DataProvider('getExamples')>>
   public function testOffsetFromPosition(
     string $code,
     (int, int) $position,

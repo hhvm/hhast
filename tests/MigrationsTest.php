@@ -74,9 +74,7 @@ final class MigrationsTest extends TestCase {
   }
 
 
-  /**
-   * @dataProvider getMigrationSteps
-   */
+  <<DataProvider('getMigrationSteps')>>
   public function testMigrationStepsAreIdempotent(
     classname<Migrations\StepBasedMigration> $migration,
     Migrations\IMigrationStep $step,
@@ -102,9 +100,7 @@ final class MigrationsTest extends TestCase {
     );
   }
 
-  /**
-   * @dataProvider getMigrations
-   */
+  <<DataProvider('getMigrations')>>
   public function testMigrationHasExpectedOutput(
     classname<Migrations\BaseMigration> $migration,
     string $fixture,
@@ -121,9 +117,7 @@ final class MigrationsTest extends TestCase {
     expect($ast->getCode())->toMatchExpectFile($fixture.'.expect');
   }
 
-  /**
-   * @dataProvider getMigrations
-   */
+  <<DataProvider('getMigrations')>>
   public function testMigrationIsIdempotent(
     classname<Migrations\BaseMigration> $migration,
     string $fixture,

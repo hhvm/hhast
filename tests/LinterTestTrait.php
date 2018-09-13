@@ -38,9 +38,7 @@ trait LinterTestTrait {
       |> $$.'/'.$name.'.php';
   }
 
-  /**
-   * @dataProvider getCleanExamples
-   */
+  <<DataProvider('getCleanExamples')>>
   final public function testCleanExample(string $code): void {
     $file = \tempnam(
       \sys_get_temp_dir(),
@@ -57,9 +55,7 @@ trait LinterTestTrait {
     }
   }
 
-  /**
-   * @dataProvider getDirtyFixtures
-   */
+  <<DataProvider('getDirtyFixtures')>>
   final public function testDirtyFixtures(string $fixture): void {
     $fixture = $this->getFullFixtureName($fixture);
 

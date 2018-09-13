@@ -107,9 +107,7 @@ final class ResolutionTest extends TestCase {
     ];
   }
 
-  /**
-   * @dataProvider getUseStatementExamples
-   */
+  <<DataProvider('getUseStatementExamples')>>
   public function testUseStatementResolution(
     string $code,
     shape(
@@ -161,9 +159,7 @@ final class ResolutionTest extends TestCase {
     ];
   }
 
-  /**
-   * @dataProvider getTypeResolutionExamples
-   */
+  <<DataProvider('getTypeResolutionExamples')>>
   public function testTypeResolution(
     string $code,
     string $type,

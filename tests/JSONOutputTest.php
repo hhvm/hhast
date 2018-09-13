@@ -68,6 +68,6 @@ final class JSONOutputTest extends TestCase {
       Vec\map($data['errors'], $e ==> $e['range']['start']['line'] ?? null);
     expect($lines)->toBeSame(vec[12, 13, 14]);
 
-    $this->markTestIncomplete("range ends are not currently set");
+    static::markTestIncomplete("range ends are not currently set");
   }
 }

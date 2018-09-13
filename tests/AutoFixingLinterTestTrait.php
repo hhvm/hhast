@@ -22,9 +22,7 @@ trait AutoFixingLinterTestTrait<Terror as Linters\LintError> {
 		string $file,
 	): Linters\AutoFixingLinter<Terror>;
 
-	/**
-	 * @dataProvider getDirtyFixtures
-	 */
+	<<DataProvider('getDirtyFixtures')>>
 	final public function testAutofix(string $fixture): void {
 		$fixture = $this->getFullFixtureName($fixture);
 
