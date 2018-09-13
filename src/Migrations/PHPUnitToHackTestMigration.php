@@ -81,7 +81,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
       |> $in->withReceiver($$);
   }
 
-  private function migrateDocCommentsToAttributes(
+  private function migrateDataProvider(
     HHAST\MethodishDeclaration $decl,
   ): HHAST\MethodishDeclaration {
     $leading = $decl->getFirstTokenx()->getLeading();
@@ -385,10 +385,10 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
         $node ==> $this->rewriteMarkTestCalls($node),
       ),
       new TypedMigrationStep(
-        'DataProvider docblock tags to attributes',
+        '@dataProvider to attribute',
         HHAST\MethodishDeclaration::class,
         HHAST\MethodishDeclaration::class,
-        $node ==> $this->migrateDocCommentsToAttributes($node),
+        $node ==> $this->migrateDataProvider($node),
       ),
     ];
   }
