@@ -6,7 +6,7 @@ composer install --ignore-platform-reqs
 
 hh_client
 
-hhvm vendor/bin/phpunit
+hhvm vendor/bin/hacktest tests/
 
 vendor/bin/hh-codegen-verify-signatures codegen/
 
