@@ -10,8 +10,9 @@
  *
  */
 
-class Foo extends \Facebook\HHAST\MustUseOverrideAttributeLinterTest {
+abstract class Foo extends \Facebook\HHAST\Linters\ASTLinter {
   <<__Override>>
-  public function setUp(): void {
+  public static function shouldLintFile(File $_): bool {
+    return false;
   }
 }

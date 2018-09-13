@@ -10,9 +10,10 @@
  *
  */
 
-class Foo extends \Facebook\HackTest\HackTestCase {
-  
+abstract class Foo extends \Facebook\HHAST\Linters\BaseLinter {
+
   <<__Override>>
-  public function setUp(): void {
+  public static function shouldLintFile(File $_): bool {
+    return false;
   }
 }
