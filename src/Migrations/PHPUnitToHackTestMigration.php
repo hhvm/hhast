@@ -121,7 +121,9 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
       |> Str\split($$, "\n")
       |> Vec\filter($$, $line ==> !Str\contains_ci($line, '@dataprovider'))
       |> Str\join($$, "\n");
-    if (\preg_match('/^[\/*\s]*$/', $comment_text) === 1) {
+    if (
+      \preg_match('/^[\/*\s]*$/', $comment_text) === 1
+    ) {
       $comment_text = null;
     }
 
@@ -151,23 +153,8 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
           }
           $leading[] = $item as HHAST\EditableTrivia;
         }
-        $saved = vec[];
-        $whitespace = vec[];
-        foreach ($leading as $item) {
-          if ($leading is HHAST\EndOfLine) {
-            $whitespace = vec[];
-            $saved[] = $item;
-            continue;
-          } else if ($item is HHAST\WhiteSpace) {
-            $whitespace[] = $item;
-            continue;
-          }
-          $saved = Vec\concat($saved, $whitespace);
-          $whitespace = vec[];
-          $saved[] = $item;
-        }
         $leading =
-          HHAST\EditableList::fromItems(Vec\concat($saved, $whitespace));
+          HHAST\EditableList::fromItems($this->trimWhitespace($leading));
       }
       $attrs = new HHAST\AttributeSpecification(
         new HHAST\LessThanLessThanToken($leading, HHAST\Missing()),
@@ -192,23 +179,36 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
       ->withAttribute($attrs)
       ->replace(
         $comment,
-        $comment_text === null
+        ($comment_text === null)
           ? HHAST\Missing()
           : $comment->withText($comment_text),
       );
     $first = $decl->getFunctionDeclHeader()->getFirstTokenx();
-    $leading = $first->getLeading() as HHAST\EditableList<_>;
-    $new_leading = vec[];
-    foreach ($leading->getItems() as $node) {
-      if ($node is HHAST\EndOfLine) {
-        $new_leading = vec[];
-      }
-      $new_leading[] = $node as HHAST\EditableTrivia;
-    }
+    $leading = ($first->getLeading() as HHAST\EditableList<_>)->getItems()
+      |> Vec\map($$, $n ==> $n as HHAST\EditableNode);
     return $decl->replace(
       $first,
-      $first->withLeading(HHAST\EditableList::fromItems($new_leading)),
+      $first->withLeading(HHAST\EditableList::fromItems($this->trimWhitespace($leading))),
     );
+  }
+
+  private function trimWhitespace(vec<HHAST\EditableNode> $leading): vec<HHAST\EditableNode> {
+    $saved = vec[];
+    $whitespace = vec[];
+    foreach ($leading as $item) {
+      if ($leading is HHAST\EndOfLine) {
+        $whitespace = vec[];
+        $saved[] = $item;
+        continue;
+      } else if ($leading is HHAST\WhiteSpace) {
+        $whitespace[] = $item;
+        continue;
+      }
+      $saved = Vec\concat($saved, $whitespace);
+      $whitespace = vec[];
+      $saved[] = $item;
+    }
+    return Vec\concat($saved, $whitespace);
   }
 
   final private function replaceUsedTypes(HHAST\Script $script): HHAST\Script {

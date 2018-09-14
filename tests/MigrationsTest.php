@@ -43,6 +43,10 @@ final class MigrationsTest extends TestCase {
       ),
       tuple(
         Migrations\PHPUnitToHackTestMigration::class,
+        'migrations/PHPUnitToHackTest/dataprovider_and_comment.php',
+      ),
+      tuple(
+        Migrations\PHPUnitToHackTestMigration::class,
         'migrations/PHPUnitToHackTest/expect_exception.php',
       ),
       tuple(
