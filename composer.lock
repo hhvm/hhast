@@ -35,16 +35,16 @@
         },
         {
             "name": "facebook/hh-clilib",
-            "version": "v1.2.0",
+            "version": "v1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/hh-clilib.git",
-                "reference": "d8d19b4f230b6f02c6fc2be16ec1fb19c3fcbc0e"
+                "reference": "12542c339972c6fd77b2037a41b8f9b53212adcf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/hh-clilib/zipball/d8d19b4f230b6f02c6fc2be16ec1fb19c3fcbc0e",
-                "reference": "d8d19b4f230b6f02c6fc2be16ec1fb19c3fcbc0e",
+                "url": "https://api.github.com/repos/hhvm/hh-clilib/zipball/12542c339972c6fd77b2037a41b8f9b53212adcf",
+                "reference": "12542c339972c6fd77b2037a41b8f9b53212adcf",
                 "shasum": ""
             },
             "require": {
@@ -52,17 +52,21 @@
                 "hhvm/type-assert": "^3.2"
             },
             "require-dev": {
-                "91carriage/phpunit-hhi": "^5.7",
-                "facebook/fbexpect": "^1.1.0",
-                "hhvm/hhast": "^3.27.0",
-                "phpunit/phpunit": "^5.7"
+                "facebook/fbexpect": "^2.1.0",
+                "hhvm/hacktest": "^0.2.0",
+                "hhvm/hhast": "~3.28.0"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
-            "time": "2018-08-27T20:03:09+00:00"
+            "time": "2018-09-14T20:36:22+00:00"
         },
         {
             "name": "hhvm/hhvm-autoload",

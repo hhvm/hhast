@@ -36,12 +36,18 @@ final class DidChangeWatchedFilesNotification
       )
       |> $changes_to_file_uris($$);
 
-    foreach ($to_purge as $uri) {
-      (new LSPLib\PublishDiagnosticsNotification(shape(
-        'uri' => $uri,
-        'diagnostics' => vec[],
-      )))->asMessage() |> $this->client->sendNotificationMessage($$);
-    }
+    await Vec\map_async(
+      $to_purge,
+      async $uri ==> await $this->client
+        ->sendNotificationMessageAsync(
+          (
+            new LSPLib\PublishDiagnosticsNotification(shape(
+              'uri' => $uri,
+              'diagnostics' => vec[],
+            ))
+          )->asMessage(),
+        ),
+    );
 
     $to_relint = $p['changes']
       |> Vec\filter(

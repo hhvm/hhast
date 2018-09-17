@@ -35,12 +35,14 @@ final class DidCloseTextDocumentNotification
       return;
     }
 
-    (
-      new LSPLib\PublishDiagnosticsNotification(shape(
-        'uri' => $uri,
-        'diagnostics' => vec[],
-      ))
-    )->asMessage()
-      |> $this->client->sendNotificationMessage($$);
+    await $this->client
+      ->sendNotificationMessageAsync(
+        (
+          new LSPLib\PublishDiagnosticsNotification(shape(
+            'uri' => $uri,
+            'diagnostics' => vec[],
+          ))
+        )->asMessage(),
+      );
   }
 }

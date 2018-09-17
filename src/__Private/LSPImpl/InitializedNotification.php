@@ -43,7 +43,7 @@ final class InitializedNotification
         ),
       )
     )->asMessage();
-    $this->client->sendRequestMessage($message);
+    await $this->client->sendRequestMessageAsync($message);
     await parent::executeAsync($p);
   }
 }

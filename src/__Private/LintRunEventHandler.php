@@ -29,7 +29,7 @@ interface LintRunEventHandler {
     Traversable<Linters\LintError> $errors,
   ): LintAutoFixResult;
 
-  public function finishedFile(string $path, LintRunResult $result): void;
+  public function finishedFileAsync(string $path, LintRunResult $result): Awaitable<void>;
 
-  public function finishedRun(LintRunResult $result): void;
+  public function finishedRunAsync(LintRunResult $result): Awaitable<void>;
 }

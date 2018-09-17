@@ -58,7 +58,7 @@ final class LintRun {
       },
     );
     $result = self::worstResult(...$results);
-    $this->handler->finishedRun($result);
+    await $this->handler->finishedRunAsync($result);
     return $result;
   }
 
@@ -81,7 +81,7 @@ final class LintRun {
         throw new LinterException($class, $file->getPath(), $t->getMessage(), null, $t);
       }
     }
-    $this->handler->finishedFile($file->getPath(), $result);
+    await $this->handler->finishedFileAsync($file->getPath(), $result);
     return $result;
   }
 
