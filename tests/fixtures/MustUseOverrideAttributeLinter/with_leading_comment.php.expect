@@ -1,7 +1,7 @@
 [
     {
-        "blame": "  \/**\n   * Set up stuff\n   *\/\n  public function setUp(): void {\n  }\n",
-        "blame_pretty": "  \/**\n   * Set up stuff\n   *\/\n  public function setUp(): void {",
-        "description": "Foo::setUp() overrides PHPUnit_Framework_TestCase::setUp() without <<__Override>>"
+        "blame": "  \/**\n   * Set up stuff\n   *\/\n  public static function shouldLintFile(File $_): bool {\n    return false;\n  }\n",
+        "blame_pretty": "  \/**\n   * Set up stuff\n   *\/\n  public static function shouldLintFile(File $_): bool {",
+        "description": "Foo::shouldLintFile() overrides Facebook\\HHAST\\Linters\\BaseLinter::shouldLintFile() without <<__Override>>"
     }
 ]

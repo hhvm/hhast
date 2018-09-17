@@ -90,9 +90,7 @@ final class LSPServerTest extends TestCase {
   );
   const type TExchange = vec<this::TMessage>;
 
-  /**
-   * @dataProvider provideExampleExchanges
-   */
+  <<DataProvider('provideExampleExchanges')>>
   public function testExampleExchange(string $name): void {
     $mappings = dict[
       'HHAST_ROOT_URI' => 'file://'.\realpath(\dirname(__DIR__)),

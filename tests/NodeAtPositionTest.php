@@ -31,9 +31,7 @@ final class NodeAtPositionTest extends TestCase {
     ];
   }
 
-  /**
-   * @dataProvider getExamples
-   */
+  <<DataProvider('getExamples')>>
   public function testNodeAtPosition(
     string $code,
     (int, int) $position,

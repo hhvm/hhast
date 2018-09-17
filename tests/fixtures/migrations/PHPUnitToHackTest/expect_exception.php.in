@@ -1,4 +1,5 @@
 <?hh // strict
+
 /**
  * Copyright (c) 2016, Facebook, Inc.
  * All rights reserved.
@@ -10,9 +11,12 @@
  *
  */
 
-abstract class Foo extends \Facebook\HHAST\Linters\BaseLinter {
-  <<__Override>>
-  public static function shouldLintFile(File $_): bool {
-    return false;
+final class FooTest extends PHPUnit_Framework_TestCase {
+  public function testFoo(): void {
+    foo();
+    $this->expectException(Exception1::class);
+    bar();
+    $this->expectException(Exception2::class);
+    baz();
   }
 }

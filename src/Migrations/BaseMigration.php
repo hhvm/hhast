@@ -17,6 +17,10 @@ abstract class BaseMigration {
   public function __construct(private string $root) {
   }
 
+  final protected function getRoot(): string {
+    return $this->root;
+  }
+
   abstract public function migrateFile(
     string $path,
     EditableNode $ast,

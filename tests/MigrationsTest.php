@@ -37,14 +37,47 @@ final class MigrationsTest extends TestCase {
         'migrations/change_assert_to_expect.php',
       ),
       tuple(Migrations\HSLMigration::class, 'migrations/hsl.php'),
-    ];
-
-    if (\version_compare(\HHVM_VERSION, '3.25.0-dev', '>=')) {
-      $migrations[] = tuple(
+      tuple(
         Migrations\NamespaceFallbackMigration::class,
         'migrations/namespace_fallback.php',
-      );
-    }
+      ),
+      tuple(
+        Migrations\PHPUnitToHackTestMigration::class,
+        'migrations/PHPUnitToHackTest/dataprovider_and_comment.php',
+      ),
+      tuple(
+        Migrations\PHPUnitToHackTestMigration::class,
+        'migrations/PHPUnitToHackTest/expect_exception.php',
+      ),
+      tuple(
+        Migrations\PHPUnitToHackTestMigration::class,
+        'migrations/PHPUnitToHackTest/new_name_no_ns_with_use.php',
+      ),
+      tuple(
+        Migrations\PHPUnitToHackTestMigration::class,
+        'migrations/PHPUnitToHackTest/new_name_no_ns.php',
+      ),
+      tuple(
+        Migrations\PHPUnitToHackTestMigration::class,
+        'migrations/PHPUnitToHackTest/new_name_ns_direct.php',
+      ),
+      tuple(
+        Migrations\PHPUnitToHackTestMigration::class,
+        'migrations/PHPUnitToHackTest/setup_teardown.php',
+      ),
+      tuple(
+        Migrations\PHPUnitToHackTestMigration::class,
+        'migrations/PHPUnitToHackTest/old_name_no_ns.php',
+      ),
+      tuple(
+        Migrations\PHPUnitToHackTestMigration::class,
+        'migrations/PHPUnitToHackTest/old_name_ns_direct.php',
+      ),
+      tuple(
+        Migrations\PHPUnitToHackTestMigration::class,
+        'migrations/PHPUnitToHackTest/old_name_ns_with_use.php',
+      ),
+    ];
 
     return $migrations;
   }
@@ -74,9 +107,7 @@ final class MigrationsTest extends TestCase {
   }
 
 
-  /**
-   * @dataProvider getMigrationSteps
-   */
+  <<DataProvider('getMigrationSteps')>>
   public function testMigrationStepsAreIdempotent(
     classname<Migrations\StepBasedMigration> $migration,
     Migrations\IMigrationStep $step,
@@ -102,9 +133,7 @@ final class MigrationsTest extends TestCase {
     );
   }
 
-  /**
-   * @dataProvider getMigrations
-   */
+  <<DataProvider('getMigrations')>>
   public function testMigrationHasExpectedOutput(
     classname<Migrations\BaseMigration> $migration,
     string $fixture,
@@ -121,9 +150,7 @@ final class MigrationsTest extends TestCase {
     expect($ast->getCode())->toMatchExpectFile($fixture.'.expect');
   }
 
-  /**
-   * @dataProvider getMigrations
-   */
+  <<DataProvider('getMigrations')>>
   public function testMigrationIsIdempotent(
     classname<Migrations\BaseMigration> $migration,
     string $fixture,

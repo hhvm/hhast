@@ -17,11 +17,12 @@ use type Facebook\HHAST\Migrations\{
   AssertToExpectMigration,
   BaseMigration,
   CallTimePassByReferenceMigration,
+  HSLMigration,
   IMigrationWithFileList,
   ImplicitShapeSubtypesMigration,
   OptionalShapeFieldsMigration,
   NamespaceFallbackMigration,
-  HSLMigration,
+  PHPUnitToHackTestMigration,
 };
 
 use type Facebook\CLILib\CLIWithRequiredArguments;
@@ -97,6 +98,12 @@ class MigrationCLI extends CLIWithRequiredArguments {
         'Add leading \\ to calls to unqualified references to global '.
         'functions or constants',
         '--no-namespace-fallback',
+      ),
+      CLIOptions\flag(
+        () ==> { $this->migrations[] = PHPUnitToHackTestMigration::class; },
+        'Migrate from PHPUnit to HackTest. You may need to run '.
+        '--assert-to-expect first.',
+        '--phpunit-to-hacktest',
       ),
       CLIOptions\flag(
         () ==> { $this->migrations[] = AddFixMesMigration::class; },
