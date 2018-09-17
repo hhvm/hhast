@@ -34,9 +34,17 @@ final class ExecuteCommandCommand extends LSPLib\ExecuteCommandCommand {
           type_structure(self::class, 'THHAST_ApplyWorkspaceEditParams'),
           $p['arguments'] ?? vec[],
         );
-        (new LSPLib\ApplyWorkspaceEditCommand(self::generateID(), shape(
-          'edit' => $args[0],
-        )))->asMessage() |> $this->client->sendRequestMessage($$);
+        await $this->client
+          ->sendRequestMessageAsync(
+            (
+              new LSPLib\ApplyWorkspaceEditCommand(
+                self::generateID(),
+                shape(
+                  'edit' => $args[0],
+                ),
+              )
+            )->asMessage(),
+          );
         return self::success(null);
     }
     return self::error(0, 'Unsupported command: '.$command, null);

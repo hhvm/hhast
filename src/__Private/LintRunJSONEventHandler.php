@@ -39,9 +39,7 @@ final class LintRunJSONEventHandler implements LintRunEventHandler {
 
   private vec<self::TOutputError> $errors = vec[];
 
-  public function __construct(
-    private ITerminal $terminal,
-  ) {
+  public function __construct(private ITerminal $terminal) {
   }
 
 
@@ -55,11 +53,16 @@ final class LintRunJSONEventHandler implements LintRunEventHandler {
     return LintAutoFixResult::SOME_UNFIXED;
   }
 
-  public function finishedFile(string $_, LintRunResult $_): void {
+  public async function finishedFileAsync(
+    string $_,
+    LintRunResult $_,
+  ): Awaitable<void> {
   }
 
-  public function finishedRun(LintRunResult $_): void {
-    $this->terminal->getStdout()->write(\json_encode($this->getOutput()));
+  public async function finishedRunAsync(LintRunResult $_): Awaitable<void> {
+    await $this->terminal
+      ->getStdout()
+      ->writeAsync(\json_encode($this->getOutput()));
   }
 
   private function getOutput(): self::TOutput {

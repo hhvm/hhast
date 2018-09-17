@@ -29,9 +29,11 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
     $colors = $this->terminal->supportsColors();
 
     $fixing_linter = (
-      $linter instanceof Linters\AutoFixingLinter
-      && !C\contains_key($config['autoFixBlacklist'], $class)
-     ) ? $linter : null;
+      $linter instanceof Linters\AutoFixingLinter &&
+      !C\contains_key($config['autoFixBlacklist'], $class)
+    )
+      ? $linter
+      : null;
 
     foreach ($errors as $error) {
       $position = $error->getPosition();
@@ -64,8 +66,8 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
         continue;
       }
 
-       $this->renderLintBlame($error);
-       $result = LintAutoFixResult::SOME_UNFIXED;
+      $this->renderLintBlame($error);
+      $result = LintAutoFixResult::SOME_UNFIXED;
     }
 
     if (!C\is_empty($to_fix)) {
@@ -76,12 +78,17 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
     return $result;
   }
 
-  public function finishedFile(string $_, LintRunResult $_): void {
+  public async function finishedFileAsync(
+    string $_,
+    LintRunResult $_,
+  ): Awaitable<void> {
   }
 
-  public function finishedRun(LintRunResult $result): void {
+  public async function finishedRunAsync(
+    LintRunResult $result,
+  ): Awaitable<void> {
     if ($result === LintRunResult::NO_ERRORS) {
-      $this->terminal->getStdout()->write("No errors.\n");
+      await $this->terminal->getStdout()->writeAsync("No errors.\n");
     }
   }
 
@@ -110,15 +117,15 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
       return false;
     }
 
-      if ($this->terminal->supportsColors()) {
-        $this->terminal->getStdout()->write(
-          CLIColoredUnifiedDiff::create($old, $new),
-        );
-      } else {
-        $this->terminal->getStdout()->write(
-          StringDiff::lines($old, $new)->getUnifiedDiff(),
-        );
-      }
+    if ($this->terminal->supportsColors()) {
+      $this->terminal
+        ->getStdout()
+        ->write(CLIColoredUnifiedDiff::create($old, $new));
+    } else {
+      $this->terminal
+        ->getStdout()
+        ->write(StringDiff::lines($old, $new)->getUnifiedDiff());
+    }
 
     if (!$this->terminal->isInteractive()) {
       return false;

@@ -15,15 +15,26 @@ use type Facebook\CLILib\ITerminal;
 use namespace HH\Lib\Str;
 
 final class Client extends LSPLib\Client {
+  private ?Awaitable<void> $pendingStdout;
+
   public function __construct(private ITerminal $terminal) {}
 
+  /** This is intentionally not an async function; it stores/directly creates
+   * waithandles to preserve ordering */
   <<__Override>>
-  protected function sendMessage(LSP\Message $message): void {
+  protected function sendMessageAsync(LSP\Message $message): Awaitable<void> {
     $json = \json_encode($message, \JSON_UNESCAPED_SLASHES);
-    $this->terminal
-      ->getStdout()
-      ->write(
-        Str\format("Content-Length: %d\r\n\r\n%s", Str\length($json), $json),
-      );
+
+    $tail = $this->pendingStdout;
+    $next = async {
+      await $tail;
+      await $this->terminal
+        ->getStdout()
+        ->writeAsync(
+          Str\format("Content-Length: %d\r\n\r\n%s", Str\length($json), $json),
+        );
+    };
+    $this->pendingStdout = $next;
+    return $next;
   }
 }

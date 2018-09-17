@@ -60,10 +60,10 @@ final class LintRunLSPPublishDiagnosticsEventHandler
     );
   }
 
-  private function publishDiagnostics(
+  private async function publishDiagnosticsAsync(
     string $file,
     vec<Linters\LintError> $errors,
-  ): void {
+  ): Awaitable<void> {
     $uri = 'file://'.$file;
     $this->state->lintErrors[$uri] = $errors;
     $message = (
@@ -72,10 +72,13 @@ final class LintRunLSPPublishDiagnosticsEventHandler
         'diagnostics' => Vec\map($errors, $e ==> $this->asDiagnostic($e)),
       ))
     )->asMessage();
-    $this->client->sendNotificationMessage($message);
+    await $this->client->sendNotificationMessageAsync($message);
   }
 
-  public function finishedFile(string $path, LintRunResult $result): void {
+  public async function finishedFileAsync(
+    string $path,
+    LintRunResult $result,
+  ): Awaitable<void> {
     $path = \realpath($path);
     invariant(
       $this->file === null || $this->file === $path,
@@ -96,11 +99,11 @@ final class LintRunLSPPublishDiagnosticsEventHandler
       );
     }
 
-    $this->publishDiagnostics($path, $errors);
+    await $this->publishDiagnosticsAsync($path, $errors);
     $this->file = null;
     $this->errors = vec[];
   }
 
-  public function finishedRun(LintRunResult $_): void {
+  public async function finishedRunAsync(LintRunResult $_): Awaitable<void> {
   }
 }
