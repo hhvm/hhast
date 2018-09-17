@@ -21,6 +21,26 @@ use namespace HH\Lib\Str;
 
 final class Server extends LSPLib\Server<ServerState> {
   public function __construct(private ITerminal $terminal) {
+    // The default behavior is to write to STDOUT; as we're talking JSON-RPC
+    // on STDIN/OUT, we can't do that. We could directly write to STDERR,
+    // but lets make all errors/notices/warnings etc go through the same
+    // mechanism
+    \set_error_handler(
+      function(
+        int $severity,
+        string $message,
+        string $file,
+        int $line,
+      ): bool {
+        throw new \ErrorException(
+          $message, /* code = */
+          0,
+          $severity,
+          $file,
+          $line,
+        );
+      },
+    );
     parent::__construct(new LSPImpl\Client($terminal), new ServerState());
   }
 
