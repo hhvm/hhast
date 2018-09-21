@@ -11,7 +11,7 @@
  *
  */
 
-final class FooTest extends Facebook\HackTest\HackTestCase {
+final class FooTest extends Facebook\HackTest\HackTest {
   public function provideFoo(): array<array<string>> {
     return [['abc']];
   }
@@ -21,5 +21,5 @@ final class FooTest extends Facebook\HackTest\HackTestCase {
   }
 }
 
-final class BarTest extends \Facebook\HackTest\HackTestCase {
+final class BarTest extends \Facebook\HackTest\HackTest {
 }

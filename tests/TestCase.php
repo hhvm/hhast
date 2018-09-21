@@ -13,7 +13,7 @@ namespace Facebook\HHAST;
 
 use namespace HH\Lib\C;
 
-abstract class TestCase extends \Facebook\HackTest\HackTestCase {
+abstract class TestCase extends \Facebook\HackTest\HackTest {
   protected static function getNodeAndParents(
     string $code,
   ): (EditableNode, vec<EditableNode>) {

@@ -11,9 +11,9 @@
  *
  */
 
-use type Facebook\HackTest\HackTestCase;
+use type Facebook\HackTest\HackTest;
 
-final class FooTest extends HackTestCase {
+final class FooTest extends HackTest {
   public function provideFoo(): array<array<string>> {
     return [['abc']];
   }

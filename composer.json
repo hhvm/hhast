@@ -11,7 +11,7 @@
         "facebook/fbexpect": "^2.1.1",
         "facebook/hack-codegen": "~3.2.1",
         "hhvm/hhvm-autoload": "^1.5",
-        "hhvm/hacktest": "^0.2.0"
+        "hhvm/hacktest": "^1.0"
     },
     "require": {
         "hhvm": "^3.28.0",

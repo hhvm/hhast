@@ -25,7 +25,9 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
       $name !== "\\PHPUnit_Framework_TestCase" &&
       $name !== "\\PHPUnit\\Framework\\TestCase" &&
       $name !== "PHPUnit_Framework_TestCase" &&
-      $name !== "PHPUnit\\Framework\\TestCase"
+      $name !== "PHPUnit\\Framework\\TestCase" &&
+      $name !== "Facebook\\HackTest\\HackTestCase" &&
+      $name !== "\\Facebook\\HackTest\\HackTestCase"
     ) {
       return $in;
     }
@@ -38,7 +40,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
         new HHAST\BackslashToken($m, $m),
         new HHAST\NameToken($m, $m, "HackTest"),
         new HHAST\BackslashToken($m, $m),
-        new HHAST\NameToken($m, $m, "HackTestCase"),
+        new HHAST\NameToken($m, $m, "HackTest"),
       ],
     );
 
@@ -218,7 +220,8 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
       |> Dict\filter(
         $$,
         $resolved ==> $resolved === 'PHPUnit_Framework_TestCase' ||
-          $resolved === 'PHPUnit\\Framework\\TestCase',
+          $resolved === 'PHPUnit\\Framework\\TestCase' ||
+          $resolved === 'Facebook\\HackTest\\HackTestCase'
       );
     if (C\is_empty($uses)) {
       return $script;
@@ -251,12 +254,12 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
           return $node;
         }
 
-        return $node->replace($extends, $extends->withText('HackTestCase'));
+        return $node->replace($extends, $extends->withText('HackTest'));
       },
     );
   }
 
-  private function getQualifiedNameForHackTestCase(): HHAST\QualifiedName {
+  private function getQualifiedNameForHackTest(): HHAST\QualifiedName {
     $m = HHAST\Missing();
     return new HHAST\QualifiedName(
       new HHAST\EditableList(
@@ -265,7 +268,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
           new HHAST\BackslashToken($m, $m),
           new HHAST\NameToken($m, $m, "HackTest"),
           new HHAST\BackslashToken($m, $m),
-          new HHAST\NameToken($m, $m, "HackTestCase"),
+          new HHAST\NameToken($m, $m, "HackTest"),
         ],
       ),
     );
@@ -280,7 +283,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
       if ($what->getText() !== "PHPUnit_Framework_TestCase") {
         return $node;
       }
-      return $node->withName($this->getQualifiedNameForHackTestCase());
+      return $node->withName($this->getQualifiedNameForHackTest());
     }
 
     if (!$what is HHAST\QualifiedName) {
@@ -293,11 +296,12 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
       |> Str\strip_prefix($$, '\\');
     if (
       $text !== 'PHPUnit_Framework_TestCase' &&
-      $text !== 'PHPUnit\\Framework\\TestCase'
+      $text !== 'PHPUnit\\Framework\\TestCase' &&
+      $text !== 'Facebook\\HackTest\\HackTestCase'
     ) {
       return $node;
     }
-    return $node->withName($this->getQualifiedNameForHackTestCase());
+    return $node->withName($this->getQualifiedNameForHackTest());
   }
 
   private function renameSetUpTearDownFunctions(

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7427be72aab80b699c9a4a89e64941be",
+    "content-hash": "6b85dba13d9ee62daaeaff05e7d5f02a",
     "packages": [
         {
             "name": "facebook/difflib",
@@ -247,16 +247,16 @@
         },
         {
             "name": "facebook/fbexpect",
-            "version": "v2.1.1",
+            "version": "v2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/fbexpect.git",
-                "reference": "99f029651078432112154a099ce9f3c4cbb4c46b"
+                "reference": "59fec5457ddfd38f4431f4a29089244c07b9d780"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/fbexpect/zipball/99f029651078432112154a099ce9f3c4cbb4c46b",
-                "reference": "99f029651078432112154a099ce9f3c4cbb4c46b",
+                "url": "https://api.github.com/repos/hhvm/fbexpect/zipball/59fec5457ddfd38f4431f4a29089244c07b9d780",
+                "reference": "59fec5457ddfd38f4431f4a29089244c07b9d780",
                 "shasum": ""
             },
             "require": {
@@ -266,7 +266,7 @@
                 "hhvm/hsl": "^3.26"
             },
             "require-dev": {
-                "hhvm/hacktest": "^0.2"
+                "hhvm/hacktest": "^1.0"
             },
             "type": "library",
             "notification-url": "https://packagist.org/downloads/",
@@ -274,7 +274,7 @@
                 "MIT"
             ],
             "description": "Unit test helpers for Facebook projects",
-            "time": "2018-09-13T17:56:12+00:00"
+            "time": "2018-09-21T19:19:49+00:00"
         },
         {
             "name": "facebook/fbmarkdown",
@@ -406,16 +406,16 @@
         },
         {
             "name": "hhvm/hacktest",
-            "version": "0.2",
+            "version": "v1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/hacktest.git",
-                "reference": "f03361f1b5f3b376a764ab860661c4e8b96e8d7c"
+                "reference": "36708c4b05912aa57d1639bfd26608d05d6064a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/hacktest/zipball/f03361f1b5f3b376a764ab860661c4e8b96e8d7c",
-                "reference": "f03361f1b5f3b376a764ab860661c4e8b96e8d7c",
+                "url": "https://api.github.com/repos/hhvm/hacktest/zipball/36708c4b05912aa57d1639bfd26608d05d6064a6",
+                "reference": "36708c4b05912aa57d1639bfd26608d05d6064a6",
                 "shasum": ""
             },
             "require": {
@@ -441,7 +441,7 @@
                 "MIT"
             ],
             "description": "The Hack Test Library",
-            "time": "2018-08-24T23:45:22+00:00"
+            "time": "2018-09-19T02:15:14+00:00"
         }
     ],
     "aliases": [],

@@ -101,8 +101,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
       ),
       CLIOptions\flag(
         () ==> { $this->migrations[] = PHPUnitToHackTestMigration::class; },
-        'Migrate from PHPUnit to HackTest. You may need to run '.
-        '--assert-to-expect first.',
+        'Migrate from PHPUnit to HackTest',
         '--phpunit-to-hacktest',
       ),
       CLIOptions\flag(
