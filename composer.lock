@@ -4,34 +4,41 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6b85dba13d9ee62daaeaff05e7d5f02a",
+    "content-hash": "2297a034be493c2545c5f663092dd644",
     "packages": [
         {
             "name": "facebook/difflib",
-            "version": "v0.2",
+            "version": "v1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/difflib.git",
-                "reference": "2066396b8499ddc7d5a9436322c493e55379818b"
+                "reference": "09505c7d66224fa7e5a8f775825bd70f05e57b01"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/difflib/zipball/2066396b8499ddc7d5a9436322c493e55379818b",
-                "reference": "2066396b8499ddc7d5a9436322c493e55379818b",
+                "url": "https://api.github.com/repos/hhvm/difflib/zipball/09505c7d66224fa7e5a8f775825bd70f05e57b01",
+                "reference": "09505c7d66224fa7e5a8f775825bd70f05e57b01",
                 "shasum": ""
             },
             "require": {
                 "hhvm/hsl": "^3.28"
             },
             "require-dev": {
+                "facebook/fbexpect": "^2.1.2",
+                "hhvm/hacktest": "^1.0",
                 "hhvm/hhast": "^3.28"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.2.x-dev"
+                }
+            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
-            "time": "2018-09-06T17:19:19+00:00"
+            "time": "2018-09-24T22:01:02+00:00"
         },
         {
             "name": "facebook/hh-clilib",
@@ -247,20 +254,20 @@
         },
         {
             "name": "facebook/fbexpect",
-            "version": "v2.1.2",
+            "version": "v2.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/fbexpect.git",
-                "reference": "59fec5457ddfd38f4431f4a29089244c07b9d780"
+                "reference": "77bf828c3181a28e6ae87db1c2cac88705f2ccb5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/fbexpect/zipball/59fec5457ddfd38f4431f4a29089244c07b9d780",
-                "reference": "59fec5457ddfd38f4431f4a29089244c07b9d780",
+                "url": "https://api.github.com/repos/hhvm/fbexpect/zipball/77bf828c3181a28e6ae87db1c2cac88705f2ccb5",
+                "reference": "77bf828c3181a28e6ae87db1c2cac88705f2ccb5",
                 "shasum": ""
             },
             "require": {
-                "facebook/difflib": "^0.2.0",
+                "facebook/difflib": "^1.0.0",
                 "hhvm": "^3.28",
                 "hhvm/hhvm-autoload": "^1.6",
                 "hhvm/hsl": "^3.26"
@@ -274,7 +281,7 @@
                 "MIT"
             ],
             "description": "Unit test helpers for Facebook projects",
-            "time": "2018-09-21T19:19:49+00:00"
+            "time": "2018-09-25T16:08:09+00:00"
         },
         {
             "name": "facebook/fbmarkdown",
