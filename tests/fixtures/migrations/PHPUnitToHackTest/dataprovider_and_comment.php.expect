@@ -17,12 +17,13 @@ final class FooTest extends \Facebook\HackTest\HackTest {
   public function provideFoo(): array<array<string>> {
     return [['abc']];
   }
-  <<DataProvider('provideFoo')>>
+
   /** Foo bar.
    *
    * baz.
    *
    */
+  <<DataProvider('provideFoo')>>
   public function testFoo(string $_): void {
   }
 }

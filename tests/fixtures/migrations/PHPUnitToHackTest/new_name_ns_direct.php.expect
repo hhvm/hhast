@@ -18,7 +18,7 @@ final class FooTest extends \Facebook\HackTest\HackTest {
     return [['abc']];
   }
 
-  /** @dataProvider provideFoo */
+  <<DataProvider('provideFoo')>>
   public function testFoo(string $_): void {
   }
 }

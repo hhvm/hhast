@@ -106,10 +106,9 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
 
     $comment = C\onlyx($doc_comments);
     $comment_text = $comment->getText();
-
     $matches = [];
     \preg_match(
-      '/@dataprovider (?<func>[a-zA-Z]+)$/mi',
+      '/^[\/\s*]*@dataprovider (?<func>[a-zA-Z0-9]+)[ *\/]*$/mi',
       $comment_text,
       &$matches,
     );
@@ -143,7 +142,9 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
     $attrs = $decl->getAttribute();
     if ($attrs === null) {
       if ($comment_text !== null) {
-        $leading = $decl->getFirstTokenx()->getLeadingWhitespace();
+        $leading =
+          ($decl->getFirstTokenx()->getLeading() as HHAST\EditableList<_>)
+            ->replace($comment, $comment->withText($comment_text));
       } else {
         $leading = vec[];
         foreach (
@@ -158,12 +159,19 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
         $leading =
           HHAST\EditableList::fromItems($this->trimWhitespace($leading));
       }
+      $decl = $decl->replace($comment, HHAST\Missing());
       $attrs = new HHAST\AttributeSpecification(
         new HHAST\LessThanLessThanToken($leading, HHAST\Missing()),
         HHAST\EditableList::fromItems(vec[$attr]),
         new HHAST\GreaterThanGreaterThanToken(HHAST\Missing(), HHAST\Missing()),
       );
     } else {
+      $decl->replace(
+        $comment,
+        $comment_text === null
+          ? HHAST\Missing()
+          : $comment->withText($comment_text),
+      );
       $attrs = $attrs->withAttributes(
         new HHAST\EditableList(
           Vec\concat(
@@ -177,14 +185,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
       );
     }
 
-    $decl = $decl
-      ->withAttribute($attrs)
-      ->replace(
-        $comment,
-        ($comment_text === null)
-          ? HHAST\Missing()
-          : $comment->withText($comment_text),
-      );
+    $decl = $decl->withAttribute($attrs);
     $first = $decl->getFunctionDeclHeader()->getFirstTokenx();
     $leading = ($first->getLeading() as HHAST\EditableList<_>)->getItems()
       |> Vec\map($$, $n ==> $n as HHAST\EditableNode);
@@ -198,11 +199,20 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
     $saved = vec[];
     $whitespace = vec[];
     foreach ($leading as $item) {
-      if ($leading is HHAST\EndOfLine) {
+      if ($item is HHAST\EndOfLine) {
         $whitespace = vec[];
-        $saved[] = $item;
+        if (
+          C\every(
+            $saved,
+            $s ==> $s is HHAST\WhiteSpace || $s is HHAST\EndOfLine,
+          )
+        ) {
+          $saved = vec[$item];
+        } else {
+          $saved[] = $item;
+        }
         continue;
-      } else if ($leading is HHAST\WhiteSpace) {
+      } else if ($item is HHAST\WhiteSpace) {
         $whitespace[] = $item;
         continue;
       }
