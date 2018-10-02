@@ -35,5 +35,6 @@ public class Test {
     expect(vec[1, 2, 3])->toBeFalse();
     expect($obj)->toBeInstanceOf(HackTestCase::class, 'Not an instance of HackTestCase!');
     expect(2)->toBeGreaterThanOrEqualTo(1, '2 > 1');
+    $this->foo->assertType('not a PHPUnit Assertion');
   }
 }

@@ -32,6 +32,8 @@ use type Facebook\HHAST\{
   ScopeResolutionExpression,
   SemicolonToken,
   UseToken,
+  VariableExpression,
+  VariableToken,
   WhiteSpace,
 };
 use namespace HH\Lib\{Str, Vec, C};
@@ -335,11 +337,20 @@ final class AssertToExpectMigration extends StepBasedMigration {
   private static function isAssert(FunctionCallExpression $node): string {
     $rec = $node->getReceiver();
     $method = '';
-    if ($rec instanceof MemberSelectionExpression) {
+    if ($rec is MemberSelectionExpression) {
+      if (
+        (
+          ($rec->getObject() ?as VariableExpression)
+            ?->getExpression() ?as VariableToken
+        )
+          ?->getText() ===
+          '$this'
+      ) {
+        $method = $rec->getName()->getCode();
+      }
+    } else if ($rec is ScopeResolutionExpression) {
       $method = $rec->getName()->getCode();
-    } else if ($rec instanceof ScopeResolutionExpression) {
-      $method = $rec->getName()->getCode();
-    } else if ($rec instanceof NameToken) {
+    } else if ($rec is NameToken) {
       $method = $rec->getText();
     }
     if (!Str\starts_with($method, 'assert')) {
