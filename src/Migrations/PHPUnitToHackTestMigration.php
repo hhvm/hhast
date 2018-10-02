@@ -122,9 +122,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
       |> Str\split($$, "\n")
       |> Vec\filter($$, $line ==> !Str\contains_ci($line, '@dataprovider'))
       |> Str\join($$, "\n");
-    if (
-      \preg_match('/^[\/*\s]*$/', $comment_text) === 1
-    ) {
+    if (\preg_match('/^[\/*\s]*$/', $comment_text) === 1) {
       $comment_text = null;
     }
 
@@ -191,11 +189,15 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
       |> Vec\map($$, $n ==> $n as HHAST\EditableNode);
     return $decl->replace(
       $first,
-      $first->withLeading(HHAST\EditableList::fromItems($this->trimWhitespace($leading))),
+      $first->withLeading(
+        HHAST\EditableList::fromItems($this->trimWhitespace($leading)),
+      ),
     );
   }
 
-  private function trimWhitespace(vec<HHAST\EditableNode> $leading): vec<HHAST\EditableNode> {
+  private function trimWhitespace(
+    vec<HHAST\EditableNode> $leading,
+  ): vec<HHAST\EditableNode> {
     $saved = vec[];
     $whitespace = vec[];
     foreach ($leading as $item) {
@@ -231,7 +233,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
         $$,
         $resolved ==> $resolved === 'PHPUnit_Framework_TestCase' ||
           $resolved === 'PHPUnit\\Framework\\TestCase' ||
-          $resolved === 'Facebook\\HackTest\\HackTestCase'
+          $resolved === 'Facebook\\HackTest\\HackTestCase',
       );
     if (C\is_empty($uses)) {
       return $script;
@@ -347,6 +349,59 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
     $new_modifiers[] =
       new HHAST\AsyncToken(HHAST\Missing(), new HHAST\WhiteSpace(' '));
     $new_modifiers[0] = $new_modifiers[0]->withLeading($leading);
+
+    $type = $node->getType();
+    if ($type === null) {
+      $node = $node
+        ->withRightParen($node->getRightParenx()->withTrailing(HHAST\Missing()))
+        ->withColon(
+          new HHAST\ColonToken(HHAST\Missing(), new HHAST\WhiteSpace(' ')),
+        )
+        ->withType(
+          new HHAST\GenericTypeSpecifier(
+            new HHAST\NameToken(HHAST\Missing(), HHAST\Missing(), 'Awaitable'),
+            new HHAST\TypeArguments(
+              new HHAST\LessThanToken(HHAST\Missing(), HHAST\Missing()),
+              HHAST\EditableList::fromItems(vec[
+                new HHAST\VoidToken(HHAST\Missing(), HHAST\Missing()),
+              ]),
+              new HHAST\GreaterThanToken(
+                HHAST\Missing(),
+                $node->getRightParenx()->getTrailing(),
+              ),
+            ),
+          ),
+        );
+    } else {
+      $node = $node->withType(
+        new HHAST\GenericTypeSpecifier(
+          new HHAST\NameToken(
+            $type->getFirstTokenx()->getLeading(),
+            HHAST\Missing(),
+            'Awaitable',
+          ),
+          new HHAST\TypeArguments(
+            new HHAST\LessThanToken(HHAST\Missing(), HHAST\Missing()),
+            HHAST\EditableList::fromItems(vec[
+              $type
+                ->replace(
+                  $type->getFirstTokenx(),
+                  $type->getFirstTokenx()->withLeading(HHAST\Missing()),
+                )
+                ->replace(
+                  $type->getLastTokenx(),
+                  $type->getLastTokenx()->withTrailing(HHAST\Missing()),
+                ),
+            ]),
+            new HHAST\GreaterThanToken(
+              HHAST\Missing(),
+              $type->getLastTokenx()->getTrailing(),
+            ),
+          ),
+        ),
+      );
+    }
+
     return $node->withName(
       new HHAST\NameToken(
         $node->getNamex()->getLeading(),

@@ -12,19 +12,19 @@
  */
 
 final class FooTest extends PHPUnit_Framework_TestCase {
-  public async function beforeEachTestAsync(): void {
+  public async function beforeEachTestAsync(): Awaitable<void> {
     // call me before each test method
   }
 
-  public async function afterEachTestAsync(): void {
+  public async function afterEachTestAsync(): Awaitable<void> {
     // call me after each test method
   }
 
-  public static async function beforeFirstTestAsync(): void {
+  public static async function beforeFirstTestAsync(): Awaitable<void> {
     // call me before the first test method
   }
 
-  public static async function afterLastTestAsync(): void {
+  public static async function afterLastTestAsync(): Awaitable<void> {
     // call me before the first test method
   }
 }

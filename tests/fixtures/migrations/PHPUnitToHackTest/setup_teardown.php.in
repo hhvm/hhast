@@ -24,7 +24,7 @@ final class FooTest extends PHPUnit_Framework_TestCase {
     // call me before the first test method
   }
 
-  public static function tearDownAfterClass(): void {
+  public static function tearDownAfterClass() {
     // call me before the first test method
   }
 }
