@@ -19,7 +19,7 @@ An `hhast-lint.json` in your project root can be used to modify which linters ar
 }
 ```
 
-This would configure `hhast-lint` with no arguments check `src/` with otherwise-default settings. For information on additional options, see [`LinterCLIConfig::TConfigFile`](../src/__Private/LinterCLIConfig.php).
+This would configure `hhast-lint` with no arguments check `src/` with otherwise-default settings. For information on additional options, see [`LintRunConfig::TConfigFile`](../src/__Private/LintRunConfig.php).
 
 Options can also be overriden for specific file patterns or subdirectories - for example, [HHAST itself](../hhast-lint.json) disables autofixes for `codegen/`.
 
