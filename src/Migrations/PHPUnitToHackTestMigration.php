@@ -15,9 +15,9 @@ use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Dict, Str, Vec};
 
 final class PHPUnitToHackTestMigration extends StepBasedMigration {
-  private function replaceQualifiedName(
-    HHAST\QualifiedName $in,
-  ): HHAST\QualifiedName {
+  private function replaceTypeSpecifier(
+    HHAST\SimpleTypeSpecifier $in,
+  ): HHAST\SimpleTypeSpecifier {
     $name = $in->getDescendantsOfType(HHAST\EditableToken::class)
       |> Vec\map($$, $t ==> $t->getText())
       |> Str\join($$, '');
@@ -48,7 +48,9 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
     $last_idx = C\count($parts) - 1;
     $parts[$last_idx] =
       $parts[$last_idx]->withTrailing($in->getLastTokenx()->getTrailing());
-    return new HHAST\QualifiedName(new HHAST\EditableList($parts));
+    return $in->withSpecifier(
+      new HHAST\QualifiedName(new HHAST\EditableList($parts)),
+    );
   }
 
   final private function rewriteMarkTestCalls(
@@ -581,10 +583,10 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
         $node ==> $this->replaceUseClause($node),
       ),
       new TypedMigrationStep(
-        'replace direct base class references',
-        HHAST\QualifiedName::class,
-        HHAST\QualifiedName::class,
-        $node ==> $this->replaceQualifiedName($node),
+        'replace direct base class references to new name',
+        HHAST\SimpleTypeSpecifier::class,
+        HHAST\SimpleTypeSpecifier::class,
+        $node ==> $this->replaceTypeSpecifier($node),
       ),
       new TypedMigrationStep(
         'rename setup/teardown functions',

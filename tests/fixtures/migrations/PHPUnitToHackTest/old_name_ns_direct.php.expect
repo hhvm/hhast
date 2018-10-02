@@ -23,5 +23,5 @@ final class FooTest extends \Facebook\HackTest\HackTest {
   }
 }
 
-final class NotATest extends PHPUnit_Framework_TestCase {
+final class NotATest extends Facebook\HackTest\HackTest {
 }

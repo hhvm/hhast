@@ -11,7 +11,7 @@
  *
  */
 
-final class FooTest extends PHPUnit_Framework_TestCase {
+final class FooTest extends Facebook\HackTest\HackTest {
   public function testFoo(): void {
     foo();
     expect(() ==> {
