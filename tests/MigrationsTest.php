@@ -77,6 +77,10 @@ final class MigrationsTest extends TestCase {
         Migrations\PHPUnitToHackTestMigration::class,
         'migrations/PHPUnitToHackTest/old_name_ns_with_use.php',
       ),
+      tuple(
+        Migrations\PHPLessThanGreaterThanOperatorMigration::class,
+        'migrations/ltgt.php',
+      ),
     ];
 
     return $migrations;
