@@ -49,7 +49,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
     $parts[$last_idx] =
       $parts[$last_idx]->withTrailing($in->getLastTokenx()->getTrailing());
     return $in->withSpecifier(
-      new HHAST\QualifiedName(new HHAST\EditableList($parts)),
+      new HHAST\QualifiedName(HHAST\EditableList::fromItems($parts)),
     );
   }
 
@@ -85,53 +85,66 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
       |> $in->withReceiver($$);
   }
 
-  private function migrateDataProvider(
-    HHAST\MethodishDeclaration $decl,
-  ): HHAST\MethodishDeclaration {
-    $leading = $decl->getFirstTokenx()->getLeading();
+  private function getAndRemoveDocTag<T as HHAST\EditableNode>(
+    T $in,
+    string $doc_tag,
+  ): ?(HHAST\DelimitedComment, ?string, string) {
+    $leading = $in->getFirstTokenx()->getLeading();
     if ($leading->isMissing()) {
-      return $decl;
+      return null;
     }
     if ($leading is HHAST\EditableList<_>) {
       $leading = $leading->getItemsOfType(HHAST\DelimitedComment::class);
     } else if ($leading is HHAST\DelimitedComment) {
       $leading = vec[$leading];
     } else {
-      return $decl;
+      return null;
     }
 
     $doc_comments =
       Vec\filter($leading, $c ==> Str\starts_with($c->getText(), '/**'));
     if (C\count($doc_comments) !== 1) {
-      return $decl;
+      return null;
     }
 
     $comment = C\onlyx($doc_comments);
     $comment_text = $comment->getText();
     $matches = [];
     \preg_match(
-      '/^[\/\s*]*@dataprovider (?<func>[a-zA-Z0-9]+)[ *\/]*$/mi',
+      '/^[\/\s*]*'.\preg_quote($doc_tag, '/').' (?<value>[^\\s]+)[ *\/]*$/mi',
       $comment_text,
       &$matches,
     );
 
-    $provider = $matches['func'] ?? null;
-    if ($provider === null) {
-      return $decl;
+    $result = $matches['value'] ?? null;
+    if ($result === null) {
+      return null;
     }
+
 
     $comment_text = $comment_text
       |> Str\split($$, "\n")
-      |> Vec\filter($$, $line ==> !Str\contains_ci($line, '@dataprovider'))
+      |> Vec\filter($$, $line ==> !Str\contains_ci($line, $doc_tag))
       |> Str\join($$, "\n");
     if (\preg_match('/^[\/*\s]*$/', $comment_text) === 1) {
-      $comment_text = null;
+      return tuple($comment, null, $result);
     }
+    return tuple($comment, $comment_text, $result);
+  }
+
+  private function migrateDataProvider(
+    HHAST\MethodishDeclaration $decl,
+  ): HHAST\MethodishDeclaration {
+    $new = $this->getAndRemoveDocTag($decl, '@dataProvider');
+    if ($new === null) {
+      return $decl;
+    }
+    list($comment, $comment_text, $provider) = $new;
 
     $attr = new HHAST\Attribute(
       new HHAST\NameToken(HHAST\Missing(), HHAST\Missing(), "DataProvider"),
       new HHAST\LeftParenToken(HHAST\Missing(), HHAST\Missing()),
-      new HHAST\EditableList(vec[new HHAST\SingleQuotedStringLiteralToken(
+      HHAST\EditableList::fromItems(vec[new HHAST\SingleQuotedStringLiteralToken(
         HHAST\Missing(),
         HHAST\Missing(),
         "'".$provider."'",
@@ -173,7 +186,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
           : $comment->withText($comment_text),
       );
       $attrs = $attrs->withAttributes(
-        new HHAST\EditableList(
+        HHAST\EditableList::fromItems(
           Vec\concat(
             $attrs->getAttributesx()->getChildren(),
             vec[new HHAST\ListItem(
@@ -276,7 +289,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
   private function getQualifiedNameForHackTest(): HHAST\QualifiedName {
     $m = HHAST\Missing();
     return new HHAST\QualifiedName(
-      new HHAST\EditableList(
+      HHAST\EditableList::fromItems(
         vec[
           new HHAST\NameToken($m, $m, "Facebook"),
           new HHAST\BackslashToken($m, $m),
@@ -411,7 +424,80 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
         $new_name,
       ),
     )
-      ->withModifiers(new HHAST\EditableList($new_modifiers));
+      ->withModifiers(HHAST\EditableList::fromItems($new_modifiers));
+  }
+
+  final private function migrateExpectedExceptionAttribute(
+    HHAST\MethodishDeclaration $node,
+  ): HHAST\MethodishDeclaration {
+    $match = $this->getAndRemoveDocTag($node, '@expectedException');
+    if ($match === null) {
+      return $node;
+    }
+    list($comment, $comment_text, $exception) = $match;
+    $body = $node->getFunctionBody()?->getStatements()?->getItems();
+    if ($body === null) {
+      return $node;
+    }
+    if (C\is_empty($body)) {
+      return $node;
+    }
+
+    $m = HHAST\Missing();
+    $body = Vec\concat(
+      vec[
+        new HHAST\ExpressionStatement(
+          new HHAST\FunctionCallExpression(
+            new HHAST\MemberSelectionExpression(
+              new HHAST\VariableExpression(
+                new HHAST\VariableToken(
+                  C\firstx($body)->getFirstTokenx()->getLeadingWhitespace(),
+                  $m,
+                  '$this',
+                ),
+              ),
+              new HHAST\MinusGreaterThanToken($m, $m),
+              new HHAST\NameToken($m, $m, 'expectException'),
+            ),
+            new HHAST\LeftParenToken($m, $m),
+            HHAST\EditableList::fromItems(vec[
+              new HHAST\NameToken(
+                $m,
+                $m,
+                Str\ends_with($exception, '::class')
+                  ? $exception
+                  : ($exception.'::class'),
+              ),
+            ]),
+            new HHAST\RightParenToken($m, $m),
+          ),
+          new HHAST\SemicolonToken($m, new HHAST\EndOfLine("\n")),
+        ),
+      ],
+      $body,
+    );
+
+    $node = $node->withFunctionBody(
+      $node->getFunctionBodyx()
+        ->withStatements(HHAST\EditableList::fromItems($body)),
+    );
+
+    if ($comment_text !== null) {
+      return $node->replace($comment, $comment->withText($comment_text));
+    }
+
+    $first = $node->getFirstTokenx();
+    $leading = $first->getLeading();
+    $items = ($leading is HHAST\EditableList<_>)
+      ? Vec\map($leading->getItems(), $it ==> $it as HHAST\EditableNode)
+      : vec[$leading];
+    $idx = C\find_key($items, $it ==> $it === $comment) as nonnull;
+    return $node->replace(
+      $first,
+      $first->withLeading(
+        HHAST\EditableList::fromItems(Vec\take($items, $idx)),
+      ),
+    );
   }
 
   final private function migrateExpectException(
@@ -421,25 +507,24 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
     if ($body === null) {
       return $node;
     }
+    if (C\is_empty($body)) {
+      return $node;
+    }
 
-    $indent = (
-      C\lastx(
-        (
-          $node->getFunctionDeclHeader()
-            ->getFirstTokenx()
-            ->getLeading() as HHAST\EditableList<_>
-        )->getItems(),
-      ) as HHAST\EditableTrivia
-    )->getText();
+    $indent = $node->getFunctionDeclHeader()
+      ->getFirstTokenx()
+      ->getLeadingWhitespace()->getCode();
+
     $new = $this->migrateExpectExceptionInStatements($body, $indent);
     if ($new === $body) {
       return $node;
     }
 
-    return $node->withFunctionBody(
+    $ret = $node->withFunctionBody(
       $node->getFunctionBodyx()
-        ->withStatements(new HHAST\EditableList($new)),
+        ->withStatements(HHAST\EditableList::fromItems($new)),
     );
+    return $ret;
   }
 
   final private function migrateExpectExceptionInStatements(
@@ -482,11 +567,40 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
       return $statements;
     }
 
-    $pre = Vec\take($statements, $idx);
     $expect_exception =
       ($statements[$idx] as HHAST\ExpressionStatement)->getExpressionx() as
         HHAST\FunctionCallExpression;
-    $inner = Vec\drop($statements, $idx + 1)
+
+    $pre = Vec\take($statements, $idx);
+    $post = Vec\drop($statements, $idx + 1);
+    if (C\is_empty($post)) {
+      return $pre;
+    }
+    $expectation = $this->wrapStatementsInExpectException(
+      $post,
+      $expect_exception->getArgumentList() ?? HHAST\Missing(),
+      $indent,
+    );
+
+    $new = $pre;
+    $new[] = new HHAST\ExpressionStatement(
+      $expectation,
+      new HHAST\SemicolonToken(HHAST\Missing(), new HHAST\EndOfLine("\n")),
+    );
+
+    // In theory, there should be a 'return' at the end of the statement - but
+    // given we've wrapped up the entire remainder of the body into the lambda,
+    // it does no difference
+    return $new;
+
+  }
+
+  private function wrapStatementsInExpectException(
+    vec<HHAST\EditableNode> $statements,
+    HHAST\EditableNode $exception,
+    string $indent,
+  ): HHAST\FunctionCallExpression {
+    $inner = $statements
       |> Vec\map(
         $$,
         $statement ==> {
@@ -494,23 +608,25 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
           return $statement->replace(
             $t,
             $t->withLeading(
-              new HHAST\EditableList(vec[
-                $t->getLeading(),
-                new HHAST\WhiteSpace($indent),
-              ]),
+              new HHAST\WhiteSpace($t->getLeadingWhitespace()->getCode().$indent),
             ),
           );
         },
       )
       |> $this->migrateExpectExceptionInStatements($$, $indent);
 
+    $new_line_leading = HHAST\EditableList::fromItems(vec[
+      C\first($statements)?->getFirstToken()?->getLeadingWhitespace() ??
+        new HHAST\WhiteSpace($indent.$indent),
+    ]);
+
+    $a = HHAST\EditableList::fromItems($statements);
+    $b = HHAST\EditableList::fromItems($inner);
+    invariant($a->getCode() !== $b->getCode(), 'idempotency problem');
+
     $m = HHAST\Missing();
     $expect_call = new HHAST\FunctionCallExpression(
-      new HHAST\NameToken(
-        $expect_exception->getFirstTokenx()->getLeading(),
-        $m,
-        'expect',
-      ),
+      new HHAST\NameToken($new_line_leading, $m, 'expect'),
       new HHAST\LeftParenToken($m, $m),
       new HHAST\LambdaExpression(
         /* attrs = */ $m,
@@ -526,37 +642,23 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
         new HHAST\EqualEqualGreaterThanToken($m, new HHAST\WhiteSpace(' ')),
         new HHAST\CompoundStatement(
           new HHAST\LeftBraceToken($m, new HHAST\EndOfLine("\n")),
-          new HHAST\EditableList($inner),
-          new HHAST\RightBraceToken(
-            $expect_exception->getFirstTokenx()->getLeading(),
-            $m,
-          ),
+          HHAST\EditableList::fromItems($inner),
+          new HHAST\RightBraceToken($new_line_leading, $m),
         ),
       ),
       new HHAST\RightParenToken($m, $m),
     );
 
-    $expectation = new HHAST\FunctionCallExpression(
+    return new HHAST\FunctionCallExpression(
       new HHAST\MemberSelectionExpression(
         $expect_call,
         new HHAST\MinusGreaterThanToken($m, $m),
         new HHAST\NameToken($m, $m, 'toThrow'),
       ),
       new HHAST\LeftParenToken($m, $m),
-      $expect_exception->getArgumentList() ?? $m,
+      $exception,
       new HHAST\RightParenToken($m, $m),
     );
-
-    $new = $pre;
-    $new[] = new HHAST\ExpressionStatement(
-      $expectation,
-      new HHAST\SemicolonToken($m, new HHAST\EndOfLine("\n")),
-    );
-
-    // In theory, there should be a 'return' at the end of the statement - but
-    // given we've wrapped up the entire remainder of the body into the lambda,
-    // it does no difference
-    return $new;
   }
 
   <<__Override>>
@@ -605,6 +707,12 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
         HHAST\MethodishDeclaration::class,
         HHAST\MethodishDeclaration::class,
         $node ==> $this->migrateDataProvider($node),
+      ),
+      new TypedMigrationStep(
+        '@expectException to $this->expectException()',
+        HHAST\MethodishDeclaration::class,
+        HHAST\MethodishDeclaration::class,
+        $node ==> $this->migrateExpectedExceptionAttribute($node),
       ),
       new TypedMigrationStep(
         '$this->expectException() to expect()->toThrow()',

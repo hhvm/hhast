@@ -19,4 +19,20 @@ final class FooTest extends PHPUnit_Framework_TestCase {
     $this->expectException(Exception2::class);
     baz();
   }
+
+  /** @expectedException Exception3::class */
+  public function testBar(): void {
+    foo();
+  }
+
+  /** @expectedException Exception4 */
+  public function testBaz(): void {
+    // OK, I lied
+    $this->expectException(Exception5::class);
+    foo();
+  }
+
+  public function testBat(): void {
+    $this->expectException(Exception6::class);
+  }
 }
