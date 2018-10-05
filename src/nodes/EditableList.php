@@ -14,6 +14,11 @@ use namespace HH\Lib\{C, Dict, Vec};
 
 final class EditableList<Titem as ?EditableNode> extends EditableNode {
   private vec<EditableNode> $_children;
+  /**
+   * Use `EditableList::createMaybeEmptyList()` or
+   * `EditableList::createNonEmptyListOrMissing()` instead to be explicit
+   * about desired behavior.
+   */
   <<__Override>>
   public function __construct(vec<EditableNode> $children) {
     parent::__construct('list');
@@ -65,15 +70,29 @@ final class EditableList<Titem as ?EditableNode> extends EditableNode {
     return $out;
   }
 
+  /**
+   * @deprecated use `createNonEmptyListOrMissing()` instead
+   */
   public static function fromItems(
-    vec<EditableNode> $syntax_list,
+    vec<EditableNode> $items,
   ): EditableNode {
-    $syntax_list = vec($syntax_list);
-    if (C\count($syntax_list) === 0) {
+    return self::createNonEmptyListOrMissing($items);
+  }
+
+  public static function createNonEmptyListOrMissing(
+    vec<EditableNode> $items,
+  ): EditableNode {
+    if (C\count($items) === 0) {
       return Missing();
     } else {
-      return new EditableList($syntax_list);
+      return new self($items);
     }
+  }
+
+  public static function createMaybeEmptyList<T as EditableNode>(
+    vec<T> $items,
+  ): EditableList<T> {
+    return new self($items);
   }
 
   public static function concat(
