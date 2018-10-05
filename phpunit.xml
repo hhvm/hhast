@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<phpunit bootstrap="vendor/hh_autoload.php">
-  <testsuites>
-    <testsuite name="HHAST Tests">
-      <directory>tests/</directory>
-    </testsuite>
-  </testsuites>
-</phpunit>
