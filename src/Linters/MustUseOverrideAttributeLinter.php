@@ -11,7 +11,6 @@
 namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
-  Attribute,
   AttributeSpecification,
   ClassishDeclaration,
   ClassToken,
@@ -19,6 +18,7 @@ use type Facebook\HHAST\{
   GenericTypeSpecifier,
   ListItem,
   MethodishDeclaration,
+  NameToken,
   PrivateToken,
 };
 use namespace Facebook\TypeAssert;
@@ -63,7 +63,7 @@ final class MustUseOverrideAttributeLinter
         $this,
         Str\format(
           '%s::%s() overrides %s::%s() without <<__Override>>',
-          $class->getName()->getCode()
+          $class->getNamex()->getCode()
           |> Str\trim($$)
           |> resolve_type($$, $node, $parents)
           |> TypeAssert\not_null($$),
@@ -130,8 +130,8 @@ final class MustUseOverrideAttributeLinter
     if ($attrs === null) {
       return false;
     }
-    $attrs = $attrs->getAttributes()->getDescendantsOfType(Attribute::class)
-      |> Vec\map($$, $attr ==> $attr->getName()->getText());
+    $attrs = $attrs->getAttributes()->getItems()
+      |> Vec\map($$, $attr ==> ($attr->getType() ?as NameToken)?->getText());
     return C\contains($attrs, '__Override');
   }
 
@@ -166,7 +166,7 @@ final class MustUseOverrideAttributeLinter
             $first_token->getLeading(),
             HHAST\Missing(),
           ),
-          new HHAST\Attribute(
+          new HHAST\ConstructorCall(
             new HHAST\NameToken(HHAST\Missing(), HHAST\Missing(), '__Override'),
             HHAST\Missing(),
             HHAST\Missing(),
@@ -203,7 +203,7 @@ final class MustUseOverrideAttributeLinter
             if (!$child instanceof HHAST\ListItem) {
               return $child;
             }
-            if (!$child->getItem() instanceof HHAST\Attribute) {
+            if (!$child->getItem() instanceof HHAST\ConstructorCall) {
               return $child;
             }
             if ($child->hasSeparator()) {

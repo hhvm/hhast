@@ -11,11 +11,13 @@
 namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
+  CompoundStatement,
   EditableNode,
   FunctionDeclaration,
   IFunctionishDeclaration,
   MethodishDeclaration,
   ParameterDeclaration,
+  SemicolonToken,
   VariableToken,
 };
 use namespace HH\Lib\{C, Str};
@@ -57,12 +59,12 @@ final class UnusedParameterLinter
       invariant_violation("Couldn't find functionish for parameter declaration");
     }
 
-    if ($body === null) {
+    if ($body === null || $body is SemicolonToken) {
       // Don't require `$_` for abstract or interface methods
       return null;
     }
 
-    $statements = $body->getStatements();
+    $statements = ($body as CompoundStatement)->getStatements();
     if ($statements !== null) {
       $match = $statements->getDescendantsOfType(VariableToken::class)
         |> C\find($$, $x ==> $x->getText() === $name->getText());

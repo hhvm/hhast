@@ -35,10 +35,10 @@ final class AddFixMesMigration extends BaseMigration {
   ): EditableNode {
     $errors_by_position = $this->getTypecheckerErrorsForFile($path)
       |> Vec\map($$, $error ==> C\firstx($error['message']))
-      |> Dict\group_by(
-        $$,
-        $error ==> ($error['line'] << 32) + $error['start'],
-      );
+      |> Dict\group_by($$, $error ==> ($error['line'] << 32) + $error['start']);
+
+    $previous_error_line = -1;
+    $column_offset = 0;
 
     foreach ($errors_by_position as $position => $errors) {
       $fixmes = $errors
@@ -54,6 +54,12 @@ final class AddFixMesMigration extends BaseMigration {
 
       $line = $position >> 32;
       $column = $position - ($line << 32);
+      if ($line === $previous_error_line) {
+        $column += $column_offset;
+      } else {
+        $previous_error_line = $line;
+        $column_offest = 0;
+      }
       $node = find_node_at_position($root, $line, $column)->getFirstTokenx();
       $leading = $node->getLeading();
       if ($leading instanceof Missing) {
@@ -73,6 +79,9 @@ final class AddFixMesMigration extends BaseMigration {
           )
         );
       }
+
+      $column_offset +=
+        Str\length($new_leading->getCode()) - Str\length($leading->getCode());
 
       $root = $root->replace(
         $node,

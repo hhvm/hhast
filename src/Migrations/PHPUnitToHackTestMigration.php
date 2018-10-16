@@ -141,7 +141,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
     }
     list($comment, $comment_text, $provider) = $new;
 
-    $attr = new HHAST\Attribute(
+    $attr = new HHAST\ConstructorCall(
       new HHAST\NameToken(HHAST\Missing(), HHAST\Missing(), "DataProvider"),
       new HHAST\LeftParenToken(HHAST\Missing(), HHAST\Missing()),
       HHAST\EditableList::fromItems(vec[new HHAST\SingleQuotedStringLiteralToken(

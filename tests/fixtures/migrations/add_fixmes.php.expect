@@ -12,7 +12,7 @@
  */
 
 function foo(string $bar): void {
-  /* HH_FIXME[4084] */ return 123;
+  /* HH_FIXME[4084] */ return /* HH_FIXME[4110] */ 123;
 }
 
 function main(): void {
