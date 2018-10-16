@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6f5bb4a8b8160822ded4931e38e9d1e6>>
+ * @generated SignedSource<<bf068e4e73715c90b44ef9e73bc8ec91>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -206,7 +206,8 @@ final class VectorTypeSpecifier extends EditableNode {
 
   /**
    * @returns ClassnameTypeSpecifier | ClosureTypeSpecifier |
-   * NullableTypeSpecifier | SimpleTypeSpecifier | VectorTypeSpecifier
+   * NullableTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
+   * VectorTypeSpecifier
    */
   public function getType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);
@@ -214,7 +215,8 @@ final class VectorTypeSpecifier extends EditableNode {
 
   /**
    * @returns ClassnameTypeSpecifier | ClosureTypeSpecifier |
-   * NullableTypeSpecifier | SimpleTypeSpecifier | VectorTypeSpecifier
+   * NullableTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
+   * VectorTypeSpecifier
    */
   public function getTypex(): EditableNode {
     return $this->getType();

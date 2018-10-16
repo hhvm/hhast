@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8aa401ed1e28f84df94744af69896903>>
+ * @generated SignedSource<<59ad3349c3602788c4730def97da56bb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -251,7 +251,7 @@ final class FunctionCallWithTypeArgumentsExpression extends EditableNode {
 
   /**
    * @returns EditableList<EditableNode> | EditableList<LiteralExpression> |
-   * EditableList<VariableExpression> | Missing
+   * EditableList<TupleExpression> | EditableList<VariableExpression> | Missing
    */
   public function getArgumentList(): ?EditableList<EditableNode> {
     if ($this->_argument_list->isMissing()) {
@@ -262,7 +262,7 @@ final class FunctionCallWithTypeArgumentsExpression extends EditableNode {
 
   /**
    * @returns EditableList<EditableNode> | EditableList<LiteralExpression> |
-   * EditableList<VariableExpression>
+   * EditableList<TupleExpression> | EditableList<VariableExpression>
    */
   public function getArgumentListx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_argument_list);

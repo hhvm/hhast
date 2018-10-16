@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1231d1fee8c00a7a751357cf028e9fb2>>
+ * @generated SignedSource<<4d70e562c08eb59778b5e961bbc66401>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -200,15 +200,16 @@ final class ConstructorCall extends EditableNode {
    * EditableList<DarrayIntrinsicExpression> |
    * EditableList<DecoratedExpression> |
    * EditableList<DictionaryIntrinsicExpression> |
-   * EditableList<FunctionCallExpression> | EditableList<LambdaExpression> |
+   * EditableList<FunctionCallExpression> |
+   * EditableList<KeysetIntrinsicExpression> | EditableList<LambdaExpression> |
    * EditableList<LiteralExpression> | EditableList<MemberSelectionExpression>
    * | EditableList<ObjectCreationExpression> |
    * EditableList<ParenthesizedExpression> |
    * EditableList<PrefixUnaryExpression> |
-   * EditableList<ScopeResolutionExpression> |
+   * EditableList<ScopeResolutionExpression> | EditableList<ShapeExpression> |
    * EditableList<SubscriptExpression> | EditableList<NameToken> |
-   * EditableList<VariableExpression> | EditableList<VectorIntrinsicExpression>
-   * | Missing
+   * EditableList<VariableExpression> | EditableList<VarrayIntrinsicExpression>
+   * | EditableList<VectorIntrinsicExpression> | Missing
    */
   public function getArgumentList(): ?EditableList<EditableNode> {
     if ($this->_argument_list->isMissing()) {
@@ -226,14 +227,16 @@ final class ConstructorCall extends EditableNode {
    * EditableList<DarrayIntrinsicExpression> |
    * EditableList<DecoratedExpression> |
    * EditableList<DictionaryIntrinsicExpression> |
-   * EditableList<FunctionCallExpression> | EditableList<LambdaExpression> |
+   * EditableList<FunctionCallExpression> |
+   * EditableList<KeysetIntrinsicExpression> | EditableList<LambdaExpression> |
    * EditableList<LiteralExpression> | EditableList<MemberSelectionExpression>
    * | EditableList<ObjectCreationExpression> |
    * EditableList<ParenthesizedExpression> |
    * EditableList<PrefixUnaryExpression> |
-   * EditableList<ScopeResolutionExpression> |
+   * EditableList<ScopeResolutionExpression> | EditableList<ShapeExpression> |
    * EditableList<SubscriptExpression> | EditableList<NameToken> |
-   * EditableList<VariableExpression> | EditableList<VectorIntrinsicExpression>
+   * EditableList<VariableExpression> | EditableList<VarrayIntrinsicExpression>
+   * | EditableList<VectorIntrinsicExpression>
    */
   public function getArgumentListx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_argument_list);

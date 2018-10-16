@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1c78e112d464ceb824ed8b79dc554d90>>
+ * @generated SignedSource<<de3ecaead112058e286d80170d4526e7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -83,11 +83,11 @@ final class ListItem extends EditableNode {
 
   /**
    * @returns AnonymousFunction | ArrayCreationExpression |
-   * ArrayIntrinsicExpression | AsExpression | Attribute |
-   * AwaitableCreationExpression | BinaryExpression | CastExpression |
-   * ClassnameTypeSpecifier | ClosureParameterTypeSpecifier |
-   * ClosureTypeSpecifier | CollectionLiteralExpression | ConditionalExpression
-   * | ConstantDeclarator | DarrayIntrinsicExpression | DecoratedExpression |
+   * ArrayIntrinsicExpression | AsExpression | AwaitableCreationExpression |
+   * BinaryExpression | CastExpression | ClassnameTypeSpecifier |
+   * ClosureParameterTypeSpecifier | ClosureTypeSpecifier |
+   * CollectionLiteralExpression | ConditionalExpression | ConstantDeclarator |
+   * ConstructorCall | DarrayIntrinsicExpression | DecoratedExpression |
    * DefineExpression | DictionaryIntrinsicExpression | DictionaryTypeSpecifier
    * | ElementInitializer | EmptyExpression | EvalExpression | FieldInitializer
    * | FieldSpecifier | FunctionCallExpression | GenericTypeSpecifier |
@@ -98,10 +98,11 @@ final class ListItem extends EditableNode {
    * NullableTypeSpecifier | ObjectCreationExpression | ParameterDeclaration |
    * ParenthesizedExpression | PipeVariableExpression | PostfixUnaryExpression
    * | PrefixUnaryExpression | PropertyDeclarator | QualifiedName |
-   * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * ShapeExpression | ShapeTypeSpecifier | SimpleTypeSpecifier |
-   * StaticDeclarator | SubscriptExpression | XHPCategoryNameToken | NameToken
-   * | VariableToken | TraitUseAliasItem | TraitUsePrecedenceItem |
+   * ReifiedTypeArgument | SafeMemberSelectionExpression |
+   * ScopeResolutionExpression | ShapeExpression | ShapeTypeSpecifier |
+   * SimpleTypeSpecifier | StaticDeclarator | SubscriptExpression |
+   * XHPCategoryNameToken | ConstToken | NameToken | ReturnToken |
+   * VariableToken | TraitUseAliasItem | TraitUsePrecedenceItem |
    * TupleExpression | TupleTypeSpecifier | TypeConstant | TypeParameter |
    * VariableExpression | VariadicParameter | VarrayIntrinsicExpression |
    * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorIntrinsicExpression
@@ -117,11 +118,11 @@ final class ListItem extends EditableNode {
 
   /**
    * @returns AnonymousFunction | ArrayCreationExpression |
-   * ArrayIntrinsicExpression | AsExpression | Attribute |
-   * AwaitableCreationExpression | BinaryExpression | CastExpression |
-   * ClassnameTypeSpecifier | ClosureParameterTypeSpecifier |
-   * ClosureTypeSpecifier | CollectionLiteralExpression | ConditionalExpression
-   * | ConstantDeclarator | DarrayIntrinsicExpression | DecoratedExpression |
+   * ArrayIntrinsicExpression | AsExpression | AwaitableCreationExpression |
+   * BinaryExpression | CastExpression | ClassnameTypeSpecifier |
+   * ClosureParameterTypeSpecifier | ClosureTypeSpecifier |
+   * CollectionLiteralExpression | ConditionalExpression | ConstantDeclarator |
+   * ConstructorCall | DarrayIntrinsicExpression | DecoratedExpression |
    * DefineExpression | DictionaryIntrinsicExpression | DictionaryTypeSpecifier
    * | ElementInitializer | EmptyExpression | EvalExpression | FieldInitializer
    * | FieldSpecifier | FunctionCallExpression | GenericTypeSpecifier |
@@ -131,10 +132,11 @@ final class ListItem extends EditableNode {
    * MemberSelectionExpression | NamespaceUseClause | NullableTypeSpecifier |
    * ObjectCreationExpression | ParameterDeclaration | ParenthesizedExpression
    * | PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression
-   * | PropertyDeclarator | QualifiedName | SafeMemberSelectionExpression |
-   * ScopeResolutionExpression | ShapeExpression | ShapeTypeSpecifier |
-   * SimpleTypeSpecifier | StaticDeclarator | SubscriptExpression |
-   * XHPCategoryNameToken | NameToken | VariableToken | TraitUseAliasItem |
+   * | PropertyDeclarator | QualifiedName | ReifiedTypeArgument |
+   * SafeMemberSelectionExpression | ScopeResolutionExpression |
+   * ShapeExpression | ShapeTypeSpecifier | SimpleTypeSpecifier |
+   * StaticDeclarator | SubscriptExpression | XHPCategoryNameToken | ConstToken
+   * | NameToken | ReturnToken | VariableToken | TraitUseAliasItem |
    * TraitUsePrecedenceItem | TupleExpression | TupleTypeSpecifier |
    * TypeConstant | TypeParameter | VariableExpression | VariadicParameter |
    * VarrayIntrinsicExpression | VarrayTypeSpecifier | VectorArrayTypeSpecifier

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<57eec61e4591684a12d7d1ccce9e9dd4>>
+ * @generated SignedSource<<316f0f7f7ba81fc2bed90fc96440d1e9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -103,8 +103,9 @@ final class InstanceofExpression extends EditableNode {
   /**
    * @returns AnonymousFunction | CastExpression | CollectionLiteralExpression
    * | FunctionCallExpression | LiteralExpression | MemberSelectionExpression |
-   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
-   * | ScopeResolutionExpression | SubscriptExpression | VariableExpression
+   * ObjectCreationExpression | ParenthesizedExpression |
+   * PipeVariableExpression | PrefixUnaryExpression | ScopeResolutionExpression
+   * | SubscriptExpression | VariableExpression
    */
   public function getLeftOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_left_operand);
@@ -113,8 +114,9 @@ final class InstanceofExpression extends EditableNode {
   /**
    * @returns AnonymousFunction | CastExpression | CollectionLiteralExpression
    * | FunctionCallExpression | LiteralExpression | MemberSelectionExpression |
-   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
-   * | ScopeResolutionExpression | SubscriptExpression | VariableExpression
+   * ObjectCreationExpression | ParenthesizedExpression |
+   * PipeVariableExpression | PrefixUnaryExpression | ScopeResolutionExpression
+   * | SubscriptExpression | VariableExpression
    */
   public function getLeftOperandx(): EditableNode {
     return $this->getLeftOperand();

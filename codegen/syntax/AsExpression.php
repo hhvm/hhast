@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<77a7ee002e9d9a20e3093c873e00c177>>
+ * @generated SignedSource<<e05d4226981212e53431ec93caf6b83b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -102,7 +102,8 @@ final class AsExpression extends EditableNode {
 
   /**
    * @returns CollectionLiteralExpression | LiteralExpression |
-   * MemberSelectionExpression | TupleExpression | VariableExpression
+   * MemberSelectionExpression | ParenthesizedExpression | TupleExpression |
+   * VariableExpression
    */
   public function getLeftOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_left_operand);
@@ -110,7 +111,8 @@ final class AsExpression extends EditableNode {
 
   /**
    * @returns CollectionLiteralExpression | LiteralExpression |
-   * MemberSelectionExpression | TupleExpression | VariableExpression
+   * MemberSelectionExpression | ParenthesizedExpression | TupleExpression |
+   * VariableExpression
    */
   public function getLeftOperandx(): EditableNode {
     return $this->getLeftOperand();

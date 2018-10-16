@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f87e53dc6bc5595c06e9cb9b39b4c6b0>>
+ * @generated SignedSource<<7cde6a156c9f9fb5a4f583149299f581>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -91,8 +91,6 @@ function editable_node_from_json(
       );
     case 'as_expression':
       return HHAST\AsExpression::fromJSON($json, $file, $offset, $source);
-    case 'attribute':
-      return HHAST\Attribute::fromJSON($json, $file, $offset, $source);
     case 'attribute_specification':
       return
         HHAST\AttributeSpecification::fromJSON($json, $file, $offset, $source);

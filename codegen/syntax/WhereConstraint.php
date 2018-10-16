@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7469ccdcf64e78ed5486571e486f3f63>>
+ * @generated SignedSource<<63617ef9d43f9124cd21ff8efb0bdc81>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -160,7 +160,7 @@ final class WhereConstraint extends EditableNode {
 
   /**
    * @returns GenericTypeSpecifier | NullableTypeSpecifier |
-   * SimpleTypeSpecifier | TypeConstant
+   * SimpleTypeSpecifier | TypeConstant | VectorTypeSpecifier
    */
   public function getRightType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_right_type);
@@ -168,7 +168,7 @@ final class WhereConstraint extends EditableNode {
 
   /**
    * @returns GenericTypeSpecifier | NullableTypeSpecifier |
-   * SimpleTypeSpecifier | TypeConstant
+   * SimpleTypeSpecifier | TypeConstant | VectorTypeSpecifier
    */
   public function getRightTypex(): EditableNode {
     return $this->getRightType();

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8940685b43624ab69083ede9317e478f>>
+ * @generated SignedSource<<f2861a941fcf8e88f2b4276a6de9a7bc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -122,7 +122,7 @@ final class FunctionCallExpression extends EditableNode {
    * @returns ArrayCreationExpression | FunctionCallExpression |
    * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
    * PrefixUnaryExpression | QualifiedName | SafeMemberSelectionExpression |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * ScopeResolutionExpression | SubscriptExpression | IfToken | NameToken |
    * VariableExpression
    */
   public function getReceiver(): EditableNode {
@@ -133,7 +133,7 @@ final class FunctionCallExpression extends EditableNode {
    * @returns ArrayCreationExpression | FunctionCallExpression |
    * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
    * PrefixUnaryExpression | QualifiedName | SafeMemberSelectionExpression |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * ScopeResolutionExpression | SubscriptExpression | IfToken | NameToken |
    * VariableExpression
    */
   public function getReceiverx(): EditableNode {

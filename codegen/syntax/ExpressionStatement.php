@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f5a4c67b5f6314b9c35d0e8fbe7f8bee>>
+ * @generated SignedSource<<208e9d0c980408fe7e4d96f94d6296e3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -89,16 +89,17 @@ final class ExpressionStatement extends EditableNode {
   /**
    * @returns AnonymousFunction | AsExpression | BinaryExpression |
    * CastExpression | CollectionLiteralExpression | ConditionalExpression |
-   * DarrayIntrinsicExpression | DefineExpression | EmptyExpression |
-   * EvalExpression | FunctionCallExpression |
-   * FunctionCallWithTypeArgumentsExpression | HaltCompilerExpression |
-   * InclusionExpression | InstanceofExpression | IssetExpression |
-   * LambdaExpression | LiteralExpression | MemberSelectionExpression | Missing
-   * | ObjectCreationExpression | ParenthesizedExpression |
-   * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
-   * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * SubscriptExpression | RightParenToken | CommaToken | ColonToken |
-   * EqualEqualEqualToken | NameToken | RightBraceToken | VariableExpression |
+   * DarrayIntrinsicExpression | DefineExpression |
+   * DictionaryIntrinsicExpression | EmptyExpression | EvalExpression |
+   * FunctionCallExpression | FunctionCallWithTypeArgumentsExpression |
+   * HaltCompilerExpression | InclusionExpression | InstanceofExpression |
+   * IssetExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | Missing | ObjectCreationExpression |
+   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
+   * QualifiedName | SafeMemberSelectionExpression | ScopeResolutionExpression
+   * | SubscriptExpression | RightParenToken | CommaToken | ColonToken |
+   * EqualEqualEqualToken | EqualGreaterThanToken | ConstToken | NameToken |
+   * UseToken | RightBraceToken | VariableExpression |
    * VarrayIntrinsicExpression | XHPExpression | YieldExpression |
    * YieldFromExpression
    */
@@ -112,16 +113,17 @@ final class ExpressionStatement extends EditableNode {
   /**
    * @returns AnonymousFunction | AsExpression | BinaryExpression |
    * CastExpression | CollectionLiteralExpression | ConditionalExpression |
-   * DarrayIntrinsicExpression | DefineExpression | EmptyExpression |
-   * EvalExpression | FunctionCallExpression |
-   * FunctionCallWithTypeArgumentsExpression | HaltCompilerExpression |
-   * InclusionExpression | InstanceofExpression | IssetExpression |
-   * LambdaExpression | LiteralExpression | MemberSelectionExpression |
-   * ObjectCreationExpression | ParenthesizedExpression |
-   * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
-   * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * SubscriptExpression | RightParenToken | CommaToken | ColonToken |
-   * EqualEqualEqualToken | NameToken | RightBraceToken | VariableExpression |
+   * DarrayIntrinsicExpression | DefineExpression |
+   * DictionaryIntrinsicExpression | EmptyExpression | EvalExpression |
+   * FunctionCallExpression | FunctionCallWithTypeArgumentsExpression |
+   * HaltCompilerExpression | InclusionExpression | InstanceofExpression |
+   * IssetExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
+   * QualifiedName | SafeMemberSelectionExpression | ScopeResolutionExpression
+   * | SubscriptExpression | RightParenToken | CommaToken | ColonToken |
+   * EqualEqualEqualToken | EqualGreaterThanToken | ConstToken | NameToken |
+   * UseToken | RightBraceToken | VariableExpression |
    * VarrayIntrinsicExpression | XHPExpression | YieldExpression |
    * YieldFromExpression
    */

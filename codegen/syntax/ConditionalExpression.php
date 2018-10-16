@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bcb57a0b9a43dd910ba06e7ecb29ef7d>>
+ * @generated SignedSource<<54b06c1e67f7aa1e574bc4010795f371>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -134,10 +134,11 @@ final class ConditionalExpression extends EditableNode {
 
   /**
    * @returns BinaryExpression | ConditionalExpression | EmptyExpression |
-   * FunctionCallExpression | InstanceofExpression | IssetExpression |
-   * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
-   * PrefixUnaryExpression | ScopeResolutionExpression | SubscriptExpression |
-   * ColonToken | LessThanToken | NameToken | VariableExpression
+   * FunctionCallExpression | InstanceofExpression | IsExpression |
+   * IssetExpression | LiteralExpression | MemberSelectionExpression |
+   * ParenthesizedExpression | PipeVariableExpression | PrefixUnaryExpression |
+   * ScopeResolutionExpression | SubscriptExpression | ColonToken |
+   * LessThanToken | NameToken | VariableExpression
    */
   public function getTest(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_test);
@@ -145,10 +146,11 @@ final class ConditionalExpression extends EditableNode {
 
   /**
    * @returns BinaryExpression | ConditionalExpression | EmptyExpression |
-   * FunctionCallExpression | InstanceofExpression | IssetExpression |
-   * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
-   * PrefixUnaryExpression | ScopeResolutionExpression | SubscriptExpression |
-   * ColonToken | LessThanToken | NameToken | VariableExpression
+   * FunctionCallExpression | InstanceofExpression | IsExpression |
+   * IssetExpression | LiteralExpression | MemberSelectionExpression |
+   * ParenthesizedExpression | PipeVariableExpression | PrefixUnaryExpression |
+   * ScopeResolutionExpression | SubscriptExpression | ColonToken |
+   * LessThanToken | NameToken | VariableExpression
    */
   public function getTestx(): EditableNode {
     return $this->getTest();
@@ -304,7 +306,7 @@ final class ConditionalExpression extends EditableNode {
    * CollectionLiteralExpression | FunctionCallExpression | IssetExpression |
    * LambdaExpression | LiteralExpression | Missing | ObjectCreationExpression
    * | ParenthesizedExpression | PrefixUnaryExpression |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * ScopeResolutionExpression | SubscriptExpression | NameToken | UseToken |
    * TupleExpression | VariableExpression
    */
   public function getAlternative(): ?EditableNode {
@@ -320,7 +322,7 @@ final class ConditionalExpression extends EditableNode {
    * CollectionLiteralExpression | FunctionCallExpression | IssetExpression |
    * LambdaExpression | LiteralExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PrefixUnaryExpression |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * ScopeResolutionExpression | SubscriptExpression | NameToken | UseToken |
    * TupleExpression | VariableExpression
    */
   public function getAlternativex(): EditableNode {

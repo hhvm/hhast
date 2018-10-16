@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1b0a2b8eaf72e7f9ef0bf511b3811034>>
+ * @generated SignedSource<<4b64b7c045c3c5337ac53972b559cff1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -102,16 +102,16 @@ final class BinaryExpression extends EditableNode {
 
   /**
    * @returns AnonymousFunction | ArrayCreationExpression |
-   * ArrayIntrinsicExpression | AsExpression | BinaryExpression |
-   * CastExpression | CollectionLiteralExpression | DarrayIntrinsicExpression |
+   * ArrayIntrinsicExpression | BinaryExpression | CastExpression |
+   * CollectionLiteralExpression | DarrayIntrinsicExpression |
    * DictionaryIntrinsicExpression | EmptyExpression | FunctionCallExpression |
    * InstanceofExpression | IssetExpression | KeysetIntrinsicExpression |
    * ListExpression | LiteralExpression | MemberSelectionExpression |
    * ObjectCreationExpression | ParenthesizedExpression |
    * PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
-   * NameToken | VariableExpression | VarrayIntrinsicExpression |
-   * VectorIntrinsicExpression
+   * LessThanToken | NameToken | RightBraceToken | VariableExpression |
+   * VarrayIntrinsicExpression | VectorIntrinsicExpression | XHPExpression
    */
   public function getLeftOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_left_operand);
@@ -119,16 +119,16 @@ final class BinaryExpression extends EditableNode {
 
   /**
    * @returns AnonymousFunction | ArrayCreationExpression |
-   * ArrayIntrinsicExpression | AsExpression | BinaryExpression |
-   * CastExpression | CollectionLiteralExpression | DarrayIntrinsicExpression |
+   * ArrayIntrinsicExpression | BinaryExpression | CastExpression |
+   * CollectionLiteralExpression | DarrayIntrinsicExpression |
    * DictionaryIntrinsicExpression | EmptyExpression | FunctionCallExpression |
    * InstanceofExpression | IssetExpression | KeysetIntrinsicExpression |
    * ListExpression | LiteralExpression | MemberSelectionExpression |
    * ObjectCreationExpression | ParenthesizedExpression |
    * PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
-   * NameToken | VariableExpression | VarrayIntrinsicExpression |
-   * VectorIntrinsicExpression
+   * LessThanToken | NameToken | RightBraceToken | VariableExpression |
+   * VarrayIntrinsicExpression | VectorIntrinsicExpression | XHPExpression
    */
   public function getLeftOperandx(): EditableNode {
     return $this->getLeftOperand();
@@ -204,21 +204,22 @@ final class BinaryExpression extends EditableNode {
 
   /**
    * @returns AnonymousFunction | ArrayCreationExpression |
-   * ArrayIntrinsicExpression | AwaitableCreationExpression | BinaryExpression
-   * | CastExpression | CollectionLiteralExpression | ConditionalExpression |
-   * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
-   * EmptyExpression | EvalExpression | FunctionCallExpression |
-   * FunctionCallWithTypeArgumentsExpression | InclusionExpression |
-   * InstanceofExpression | IssetExpression | KeysetIntrinsicExpression |
-   * LambdaExpression | LiteralExpression | MemberSelectionExpression | Missing
-   * | NullableAsExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | Php7AnonymousFunction | PipeVariableExpression |
-   * PostfixUnaryExpression | PrefixUnaryExpression | PrefixedStringExpression
-   * | QualifiedName | SafeMemberSelectionExpression |
-   * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
-   * QuestionToken | EndOfFileToken | NameToken | TupleExpression |
-   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
-   * | XHPExpression | YieldExpression | YieldFromExpression
+   * ArrayIntrinsicExpression | AsExpression | AwaitableCreationExpression |
+   * BinaryExpression | CastExpression | CollectionLiteralExpression |
+   * ConditionalExpression | DarrayIntrinsicExpression |
+   * DictionaryIntrinsicExpression | EmptyExpression | EvalExpression |
+   * FunctionCallExpression | FunctionCallWithTypeArgumentsExpression |
+   * InclusionExpression | InstanceofExpression | IssetExpression |
+   * KeysetIntrinsicExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | Missing | NullableAsExpression |
+   * ObjectCreationExpression | ParenthesizedExpression | Php7AnonymousFunction
+   * | PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression
+   * | PrefixedStringExpression | QualifiedName | SafeMemberSelectionExpression
+   * | ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
+   * SemicolonToken | QuestionToken | EndOfFileToken | NameToken |
+   * TupleExpression | VariableExpression | VarrayIntrinsicExpression |
+   * VectorIntrinsicExpression | XHPExpression | YieldExpression |
+   * YieldFromExpression
    */
   public function getRightOperand(): ?EditableNode {
     if ($this->_right_operand->isMissing()) {
@@ -229,21 +230,22 @@ final class BinaryExpression extends EditableNode {
 
   /**
    * @returns AnonymousFunction | ArrayCreationExpression |
-   * ArrayIntrinsicExpression | AwaitableCreationExpression | BinaryExpression
-   * | CastExpression | CollectionLiteralExpression | ConditionalExpression |
-   * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
-   * EmptyExpression | EvalExpression | FunctionCallExpression |
-   * FunctionCallWithTypeArgumentsExpression | InclusionExpression |
-   * InstanceofExpression | IssetExpression | KeysetIntrinsicExpression |
-   * LambdaExpression | LiteralExpression | MemberSelectionExpression |
-   * NullableAsExpression | ObjectCreationExpression | ParenthesizedExpression
-   * | Php7AnonymousFunction | PipeVariableExpression | PostfixUnaryExpression
-   * | PrefixUnaryExpression | PrefixedStringExpression | QualifiedName |
-   * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * ShapeExpression | SubscriptExpression | QuestionToken | EndOfFileToken |
-   * NameToken | TupleExpression | VariableExpression |
-   * VarrayIntrinsicExpression | VectorIntrinsicExpression | XHPExpression |
-   * YieldExpression | YieldFromExpression
+   * ArrayIntrinsicExpression | AsExpression | AwaitableCreationExpression |
+   * BinaryExpression | CastExpression | CollectionLiteralExpression |
+   * ConditionalExpression | DarrayIntrinsicExpression |
+   * DictionaryIntrinsicExpression | EmptyExpression | EvalExpression |
+   * FunctionCallExpression | FunctionCallWithTypeArgumentsExpression |
+   * InclusionExpression | InstanceofExpression | IssetExpression |
+   * KeysetIntrinsicExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | NullableAsExpression |
+   * ObjectCreationExpression | ParenthesizedExpression | Php7AnonymousFunction
+   * | PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression
+   * | PrefixedStringExpression | QualifiedName | SafeMemberSelectionExpression
+   * | ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
+   * SemicolonToken | QuestionToken | EndOfFileToken | NameToken |
+   * TupleExpression | VariableExpression | VarrayIntrinsicExpression |
+   * VectorIntrinsicExpression | XHPExpression | YieldExpression |
+   * YieldFromExpression
    */
   public function getRightOperandx(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_right_operand);

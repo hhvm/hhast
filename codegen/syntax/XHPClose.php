@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ab3fd0be46d2f289b38f1c51e7bdb591>>
+ * @generated SignedSource<<0fc1b5764771ab8971c5c529c9066112>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,14 +101,14 @@ final class XHPClose extends EditableNode {
   }
 
   /**
-   * @returns LessThanSlashToken | EndOfFileToken
+   * @returns LessThanToken | LessThanSlashToken | EndOfFileToken
    */
   public function getLeftAngle(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_left_angle);
   }
 
   /**
-   * @returns LessThanSlashToken | EndOfFileToken
+   * @returns LessThanToken | LessThanSlashToken | EndOfFileToken
    */
   public function getLeftAnglex(): EditableToken {
     return $this->getLeftAngle();

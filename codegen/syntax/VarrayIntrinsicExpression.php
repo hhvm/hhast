@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5fc4b57a4884681b12dfb3f9526a44b2>>
+ * @generated SignedSource<<2a77c11295da4300c7b449ef6da03cc6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -255,6 +255,7 @@ final class VarrayIntrinsicExpression extends EditableNode {
 
   /**
    * @returns EditableList<EditableNode> |
+   * EditableList<ArrayIntrinsicExpression> |
    * EditableList<DarrayIntrinsicExpression> |
    * EditableList<FunctionCallExpression> | EditableList<LiteralExpression> |
    * EditableList<ScopeResolutionExpression> | EditableList<NameToken> |
@@ -270,6 +271,7 @@ final class VarrayIntrinsicExpression extends EditableNode {
 
   /**
    * @returns EditableList<EditableNode> |
+   * EditableList<ArrayIntrinsicExpression> |
    * EditableList<DarrayIntrinsicExpression> |
    * EditableList<FunctionCallExpression> | EditableList<LiteralExpression> |
    * EditableList<ScopeResolutionExpression> | EditableList<NameToken> |

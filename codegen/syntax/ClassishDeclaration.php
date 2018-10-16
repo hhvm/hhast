@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1d0a68ac9b486e5ea4466b5d650a04e2>>
+ * @generated SignedSource<<bcde4a847b5a6e1b449fa0f938891284>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -354,9 +354,12 @@ final class ClassishDeclaration extends EditableNode {
   }
 
   /**
-   * @returns XHPClassNameToken | NameToken
+   * @returns Missing | XHPClassNameToken | NameToken
    */
-  public function getName(): EditableToken {
+  public function getName(): ?EditableToken {
+    if ($this->_name->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EditableToken::class, $this->_name);
   }
 
@@ -364,7 +367,7 @@ final class ClassishDeclaration extends EditableNode {
    * @returns XHPClassNameToken | NameToken
    */
   public function getNamex(): EditableToken {
-    return $this->getName();
+    return TypeAssert\instance_of(EditableToken::class, $this->_name);
   }
 
   public function getTypeParametersUNTYPED(): EditableNode {
