@@ -70,9 +70,7 @@ final class EditableList<Titem as ?EditableNode> extends EditableNode {
     return $out;
   }
 
-  /**
-   * @deprecated use `createNonEmptyListOrMissing()` instead
-   */
+  <<__Deprecated("Use createNonEmptyListOrMissing() instead")>>
   public static function fromItems(
     vec<EditableNode> $items,
   ): EditableNode {

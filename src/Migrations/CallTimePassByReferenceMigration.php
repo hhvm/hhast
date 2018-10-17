@@ -52,7 +52,7 @@ final class CallTimePassByReferenceMigration extends BaseMigration {
       $node = $node->getFirstTokenx();
       $root = $root->replace(
         $node,
-        EditableList::fromItems(
+        EditableList::createNonEmptyListOrMissing(
           vec[
             new AmpersandToken(
               $node->getLeading(),

@@ -398,12 +398,12 @@ final class HSLMigration extends BaseMigration {
         $replacement_patterns =
           $this->nodeFromCode($expr, ExpressionStatement::class);
 
-        $new_argument_list = EditableList::fromItems(vec[
+        $new_argument_list = EditableList::createNonEmptyListOrMissing(vec[
           new ListItem(
             $items[2],
             new CommaToken(
               HHAST\Missing(),
-              EditableList::fromItems(vec[new WhiteSpace(' ')]),
+              EditableList::createNonEmptyListOrMissing(vec[new WhiteSpace(' ')]),
             ),
           ),
           new ListItem($replacement_patterns, HHAST\Missing()),
@@ -488,7 +488,7 @@ final class HSLMigration extends BaseMigration {
           $argument->replace($argument->getItemx(), $new_items[(int)$i]);
       }
 
-      $new_argument_list = EditableList::fromItems($new_argument_list);
+      $new_argument_list = EditableList::createNonEmptyListOrMissing($new_argument_list);
     }
 
     return tuple(

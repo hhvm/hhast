@@ -140,7 +140,7 @@ class MustUseBracesForControlFlowLinter
         }
         $no_newlines[] = $whitespace;
       }
-      $right_brace_leading = EditableList::fromItems(Vec\reverse($no_newlines));
+      $right_brace_leading = EditableList::createNonEmptyListOrMissing(Vec\reverse($no_newlines));
       $body_trailing = $body->getLastTokenx()->getTrailing();
     }
     return $node

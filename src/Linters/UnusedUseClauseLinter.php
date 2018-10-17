@@ -153,7 +153,7 @@ final class UnusedUseClauseLinter
       $name = $clause->getName();
       if ($name instanceof NameToken) {
         $name = new QualifiedName(
-          EditableList::fromItems(
+          EditableList::createNonEmptyListOrMissing(
             Vec\concat(
               $node->getPrefix()->getParts()->getChildren(),
               vec[$name],
@@ -166,7 +166,7 @@ final class UnusedUseClauseLinter
           'name is not a name or qualified name',
         );
         $name = new QualifiedName(
-          EditableList::fromItems(
+          EditableList::createNonEmptyListOrMissing(
             Vec\concat(
               $node->getPrefix()->getParts()->getChildren(),
               $name->getParts()->getChildren(),
@@ -181,7 +181,7 @@ final class UnusedUseClauseLinter
       $fixed = new NamespaceUseDeclaration(
         $node->getKeyword(),
         $node->getKind() ?? HHAST\Missing(),
-        EditableList::fromItems(
+        EditableList::createNonEmptyListOrMissing(
           vec[new HHAST\ListItem($clause, HHAST\Missing())],
         ),
         $node->getSemicolon() ?? HHAST\Missing(),

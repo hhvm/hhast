@@ -163,6 +163,6 @@ final class NoStringInterpolationLinter
       ++$i;
     }
 
-    return EditableList::fromItems($children);
+    return EditableList::createNonEmptyListOrMissing($children);
   }
 }

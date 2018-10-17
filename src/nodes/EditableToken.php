@@ -85,7 +85,7 @@ abstract class EditableToken extends EditableNode {
         break;
       }
     }
-    return EditableList::fromItems($result);
+    return EditableList::createNonEmptyListOrMissing($result);
   }
 
   public function getTrailing(): EditableNode {
@@ -150,7 +150,7 @@ abstract class EditableToken extends EditableNode {
       $offset,
     );
 
-    $leading = EditableList::fromItems($leading_list);
+    $leading = EditableList::createNonEmptyListOrMissing($leading_list);
     $token_position = $offset + $leading->getWidth();
     $token_width = TypeAssert\int($json['width']);
     $token_text = Str\slice($source, $token_position, $token_width);
@@ -161,7 +161,7 @@ abstract class EditableToken extends EditableNode {
       ($j, $p) ==> $j['width'] + $p,
       $trailing_position,
     );
-    $trailing = EditableList::fromItems($trailing_list);
+    $trailing = EditableList::createNonEmptyListOrMissing($trailing_list);
     return EditableToken::factory(
       $file,
       $token_position,

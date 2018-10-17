@@ -69,7 +69,7 @@ final class NamespaceFallbackMigration extends BaseMigration {
       }
       $root = $root->replace(
         $node,
-        EditableList::fromItems(
+        EditableList::createNonEmptyListOrMissing(
           vec[
             new BackslashToken(
               $node->getLeading(),

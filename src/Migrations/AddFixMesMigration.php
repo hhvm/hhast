@@ -63,16 +63,16 @@ final class AddFixMesMigration extends BaseMigration {
       $node = find_node_at_position($root, $line, $column)->getFirstTokenx();
       $leading = $node->getLeading();
       if ($leading instanceof Missing) {
-        $new_leading = EditableList::fromItems($fixmes);
+        $new_leading = EditableList::createNonEmptyListOrMissing($fixmes);
       } else if ($leading instanceof EditableList) {
-        $new_leading = EditableList::fromItems(
+        $new_leading = EditableList::createNonEmptyListOrMissing(
           Vec\concat(
             $leading->getChildren(),
             $fixmes,
           ),
         );
       } else {
-        $new_leading = EditableList::fromItems(
+        $new_leading = EditableList::createNonEmptyListOrMissing(
           Vec\concat(
             vec[$leading],
             $fixmes,

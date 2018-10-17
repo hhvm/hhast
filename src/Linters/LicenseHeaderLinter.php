@@ -65,7 +65,7 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter<Script> {
   ): string {
     return $node->getDeclarations()->getItems()
       |> Vec\take($$, 2)
-      |> EditableList::fromItems($$)
+      |> EditableList::createNonEmptyListOrMissing($$)
       |> $$->getCode();
   }
 
@@ -109,7 +109,7 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter<Script> {
         $new[] = new EndOfLine("\n");
       }
 
-      return $node->replace($existing, EditableList::fromItems($new));
+      return $node->replace($existing, EditableList::createNonEmptyListOrMissing($new));
     }
 
 
@@ -127,7 +127,7 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter<Script> {
     );
     return $node->replace(
       $first,
-      $first->withLeading(EditableList::fromItems($leading)),
+      $first->withLeading(EditableList::createNonEmptyListOrMissing($leading)),
     );
   }
 

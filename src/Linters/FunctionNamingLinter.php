@@ -171,7 +171,7 @@ abstract class FunctionNamingLinter
           break;
         }
       }
-      $leading = EditableList::fromItems(Vec\reverse($new));
+      $leading = EditableList::createNonEmptyListOrMissing(Vec\reverse($new));
     }
     return $node->replace(
       $node->getFirstTokenx(),
