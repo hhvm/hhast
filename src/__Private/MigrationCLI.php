@@ -20,6 +20,7 @@ use type Facebook\HHAST\Migrations\{
   HSLMigration,
   IMigrationWithFileList,
   ImplicitShapeSubtypesMigration,
+  IsRefinementMigration,
   OptionalShapeFieldsMigration,
   NamespaceFallbackMigration,
   PHPLessThanGreaterThanOperatorMigration,
@@ -105,6 +106,20 @@ class MigrationCLI extends CLIWithRequiredArguments {
         },
         'Apply all migrations for moving from 3.28 to 3.29',
         '--hhvm-3.28-to-3.29',
+      ),
+      CLIOptions\flag(
+        () ==> {
+          $this->migrations[] = IsRefinementMigration::class;
+        },
+        'Replace is_foo() with is expressions',
+        '--is-refinement',
+      ),
+			CLIOptions\flag(
+				() ==> {
+					$this->migrations[] = IsRefinementMigration::class;
+				},
+        'Apply all migrations for moving from 3.29 to 3.30',
+        '--hhvm-3.29-to-3.30',
       ),
       CLIOptions\flag(
         () ==> {

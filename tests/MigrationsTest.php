@@ -81,6 +81,10 @@ final class MigrationsTest extends TestCase {
         Migrations\PHPLessThanGreaterThanOperatorMigration::class,
         'migrations/ltgt.php',
       ),
+      tuple(
+        Migrations\IsRefinementMigration::class,
+        'migrations/is_refinement.php',
+      ),
     ];
 
     return $migrations;
