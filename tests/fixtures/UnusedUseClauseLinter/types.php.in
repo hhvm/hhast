@@ -5,11 +5,15 @@ use type Foo\{
   GenericParentClass,
   GenericType,
   InstanceOfType,
+  InstantiatedClass,
   ParameterType,
   ParentClass,
   ParentClassGeneric,
   ReturnType,
   Unused,
+  UserAttribute,
+  UsedAsType,
+  UsedIsType,
   UsedTrait,
 };
 
@@ -28,4 +32,13 @@ class Class3 extends GenericParentClass<ParentClassGeneric> {
 }
 
 class Class4<T as GenericConstraint> {
+}
+
+<<UserAttribute>>
+class Class5 {}
+
+function myfun(): void {
+  $_ = new InstantiatedClass();
+  $_ = 123 as UsedAsType;
+  $_ = 456 is UsedIsType;
 }

@@ -77,6 +77,15 @@ function get_unresolved_referenced_names(
       }
       continue;
     }
+
+    // `new Foo()` gets us a SimpleTypeSpecifier, but
+    // <<Foo>> gets us a NameToken directly
+    if ($node instanceof ConstructorCall) {
+      $name = $node->getType() ?as NameToken;
+      if ($name !== null) {
+        $ret['types'][] = $name->getText();
+      }
+    }
   }
 
   return $ret;
