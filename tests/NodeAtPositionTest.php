@@ -8,10 +8,10 @@
  *
  */
 
-
 namespace Facebook\HHAST;
 
 use function Facebook\FBExpect\expect;
+use type Facebook\HackTest\DataProvider;
 
 final class NodeAtPositionTest extends TestCase {
   public function getExamples(): array<(string, (int, int), classname<EditableNode>, string)> {

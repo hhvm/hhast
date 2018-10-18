@@ -13,6 +13,7 @@ namespace Facebook\HHAST;
 
 use function Facebook\FBExpect\expect;
 use namespace Facebook\HHAST\__Private\Resolution;
+use type Facebook\HackTest\DataProvider;
 
 final class ResolutionTest extends TestCase {
   public function testWithoutNamespaces(): void {

@@ -14,6 +14,7 @@ namespace Facebook\HHAST;
 use function Facebook\HHAST\TestLib\expect;
 use namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use type Facebook\HackTest\DataProvider;
 
 final class MigrationsTest extends TestCase {
   public function getMigrations(

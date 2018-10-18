@@ -11,6 +11,7 @@
 
 namespace Facebook\HHAST;
 
+use type Facebook\HackTest\DataProvider;
 use function Facebook\HHAST\TestLib\expect;
 use namespace HH\Lib\{C, Str, Vec};
 

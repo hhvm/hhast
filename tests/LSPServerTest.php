@@ -8,16 +8,16 @@
  *
  */
 
-
 namespace Facebook\HHAST;
 
 use function Facebook\HHAST\TestLib\{cli_pipe, expect, Ref};
-use type Facebook\HHAST\TestLib\TestLSPMessageResponseBehavior;
 use function Facebook\HHAST\__Private\LSPImpl\read_message_async;
 use namespace Facebook\HHAST\__Private\{LSP, LSPImpl};
-use type Facebook\CLILib\Terminal;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{Dict, Str, Tuple};
+use type Facebook\CLILib\Terminal;
+use type Facebook\HHAST\TestLib\TestLSPMessageResponseBehavior;
+use type Facebook\HackTest\DataProvider;
 
 final class LSPServerTest extends TestCase {
   use LinterCLITestTrait;
