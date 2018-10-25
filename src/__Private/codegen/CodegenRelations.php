@@ -117,7 +117,11 @@ final class CodegenRelations extends CodegenBase {
       $this->hhvmRoot.'/hphp/hack/test/typecheck',
     );
 
-    return Keyset\flatten(vec[$hhvm_tests, $hack_tests]);
+    $systemlib = $this->getTestFilesInDirectory(
+      $this->hhvmRoot.'/hphp/system/php'
+    );
+
+    return Keyset\flatten(vec[$hhvm_tests, $hack_tests, $systemlib]);
   }
 
   private function getFileListFromHHVMTestDirectory(
