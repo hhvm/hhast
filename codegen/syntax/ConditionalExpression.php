@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<54b06c1e67f7aa1e574bc4010795f371>>
+ * @generated SignedSource<<e1a664961e0c7f2a0a56f83257c46396>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -304,10 +304,10 @@ final class ConditionalExpression extends EditableNode {
    * @returns AnonymousFunction | ArrayCreationExpression |
    * ArrayIntrinsicExpression | BinaryExpression | CastExpression |
    * CollectionLiteralExpression | FunctionCallExpression | IssetExpression |
-   * LambdaExpression | LiteralExpression | Missing | ObjectCreationExpression
-   * | ParenthesizedExpression | PrefixUnaryExpression |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken | UseToken |
-   * TupleExpression | VariableExpression
+   * LambdaExpression | LiteralExpression | MemberSelectionExpression | Missing
+   * | ObjectCreationExpression | ParenthesizedExpression |
+   * PrefixUnaryExpression | ScopeResolutionExpression | SubscriptExpression |
+   * NameToken | UseToken | TupleExpression | VariableExpression
    */
   public function getAlternative(): ?EditableNode {
     if ($this->_alternative->isMissing()) {
@@ -320,9 +320,9 @@ final class ConditionalExpression extends EditableNode {
    * @returns AnonymousFunction | ArrayCreationExpression |
    * ArrayIntrinsicExpression | BinaryExpression | CastExpression |
    * CollectionLiteralExpression | FunctionCallExpression | IssetExpression |
-   * LambdaExpression | LiteralExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | PrefixUnaryExpression |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken | UseToken |
+   * LambdaExpression | LiteralExpression | MemberSelectionExpression |
+   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
+   * | ScopeResolutionExpression | SubscriptExpression | NameToken | UseToken |
    * TupleExpression | VariableExpression
    */
   public function getAlternativex(): EditableNode {

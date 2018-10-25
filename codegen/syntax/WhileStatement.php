@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4b954ac328fe4102935e42506bf35f7d>>
+ * @generated SignedSource<<51b0bb21fbcb9ffe79e7f2390cf769ec>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -206,8 +206,9 @@ final class WhileStatement
 
   /**
    * @returns BinaryExpression | FunctionCallExpression | InstanceofExpression
-   * | IssetExpression | LiteralExpression | ParenthesizedExpression |
-   * PostfixUnaryExpression | PrefixUnaryExpression | VariableExpression
+   * | IssetExpression | LiteralExpression | MemberSelectionExpression |
+   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
+   * VariableExpression
    */
   public function getCondition(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_condition);
@@ -215,8 +216,9 @@ final class WhileStatement
 
   /**
    * @returns BinaryExpression | FunctionCallExpression | InstanceofExpression
-   * | IssetExpression | LiteralExpression | ParenthesizedExpression |
-   * PostfixUnaryExpression | PrefixUnaryExpression | VariableExpression
+   * | IssetExpression | LiteralExpression | MemberSelectionExpression |
+   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
+   * VariableExpression
    */
   public function getConditionx(): EditableNode {
     return $this->getCondition();
