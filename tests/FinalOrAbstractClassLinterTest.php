@@ -10,11 +10,6 @@
 
 namespace Facebook\HHAST;
 
-use type Facebook\HHAST\{
-  BinaryExpression
-};
-use type Facebook\HHAST\Linters\{BaseLinter, File, ASTLintError};
-
 final class FinalOrAbstractClassLinterTest extends TestCase {
   use LinterTestTrait;
 
