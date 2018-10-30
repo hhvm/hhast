@@ -1,0 +1,17 @@
+<?hh
+
+class test {
+
+}
+
+final class test3 {
+
+}
+
+abstract class test4 {
+
+}
+
+interface interface1 {
+
+}
