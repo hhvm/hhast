@@ -20,6 +20,10 @@ final class FinalOrAbstractClassLinterTest extends TestCase {
   }
 
   public function getCleanExamples(): array<array<string>> {
-    return [['<?hh final class test {}'], ['<?hh abstract class test {}'], ['<?hh interface test {}']];
+    return vec[
+      ['<?hh final class test {}'],
+      ['<?hh abstract class test {}'],
+      ['<?hh interface test {}'],
+    ];
   }
 }

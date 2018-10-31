@@ -20,43 +20,41 @@ use type Facebook\HHAST\{
 
 use type Facebook\HHAST\Linters\{ASTLinter, ASTLintError};
 
-#
-# This linter ensures we always qualify classes as final or abstract
-#
+/*
+ * This linter ensures we always qualify classes as final or abstract
+ */
 final class FinalOrAbstractClassLinter extends ASTLinter<ClassishDeclaration> {
+  <<__Override>>
+  protected static function getTargetType(): classname<ClassishDeclaration> {
+    return ClassishDeclaration::class;
+  }
 
-	<<__Override>>
-	protected static function getTargetType(): classname<ClassishDeclaration> {
-		return ClassishDeclaration::class;
-	}
+  <<__Override>>
+  public function getLintErrorForNode(
+    ClassishDeclaration $node,
+    vec<EditableNode> $_parents,
+  ): ?ASTLintError<ClassishDeclaration> {
+    // ensure we are looking at a class declaration
+    if (!($node->getKeyword() is ClassToken)) {
+      return null;
+    }
 
-	<<__Override>>
-	public function getLintErrorForNode(
-		ClassishDeclaration $node,
-		vec<EditableNode> $_parents,
-		): ?ASTLintError<ClassishDeclaration> {
-		# ensure we are looking at a class declaration
-		if (!($node->getKeyword() is ClassToken)) {
-			return null;
-		}
-		
-		# check if the ClassishDeclaration has modifiers
-		$modifiers = $node->getModifiers();
-		$found = false;
-		if ($modifiers !== null) {
-			foreach ($modifiers->traverse() as $mod) {
-				if ($mod is FinalToken || $mod is AbstractToken) {
-					$found = true;
-				}
-			}
-		}
-		if (!$found) {
-			return new ASTLintError(
-				$this,
-				'Class should always be declared abstract or final',
-				$node,
-			);
-		}
-		return null;
-	}
+    // check if the ClassishDeclaration has modifiers
+    $modifiers = $node->getModifiers();
+    $found = false;
+    if ($modifiers !== null) {
+      foreach ($modifiers->traverse() as $mod) {
+        $isFinal = $mod is FinalToken;
+        $isAbstract = $mod is AbstractToken;
+        if (($isFinal || $isAbstract) && !($isFinal && $isAbstract)) {
+          return null;
+        }
+      }
+    }
+    return new ASTLintError(
+      $this,
+      'Class should always be declared abstract or final',
+      $node,
+    );
+  }
 }

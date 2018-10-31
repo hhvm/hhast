@@ -4,13 +4,26 @@ class test {
 
 }
 
-final class test3 {
+abstract final class test2 {
 
 }
 
-abstract class test4 {
+final class :page:test-page-1 extends SomeXHPPage {
 
 }
+
+class :page:test-page-2 extends SomeXHPPage {
+
+}
+
+final class test4 {
+
+}
+
+abstract class test5 {
+
+}
+
 
 interface interface1 {
 
