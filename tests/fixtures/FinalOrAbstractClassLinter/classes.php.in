@@ -28,3 +28,7 @@ abstract class test5 {
 interface interface1 {
 
 }
+
+trait trait1 {
+	
+}

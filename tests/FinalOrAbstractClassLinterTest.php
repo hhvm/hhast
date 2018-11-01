@@ -19,7 +19,7 @@ final class FinalOrAbstractClassLinterTest extends TestCase {
     return Linters\FinalOrAbstractClassLinter::fromPath($file);
   }
 
-  public function getCleanExamples(): array<array<string>> {
+  public function getCleanExamples(): vec<array<string>> {
     return vec[
       ['<?hh final class test {}'],
       ['<?hh abstract class test {}'],
