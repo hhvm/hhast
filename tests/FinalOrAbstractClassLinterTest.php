@@ -19,11 +19,14 @@ final class FinalOrAbstractClassLinterTest extends TestCase {
     return Linters\FinalOrAbstractClassLinter::fromPath($file);
   }
 
-  public function getCleanExamples(): vec<array<string>> {
-    return vec[
+  public function getCleanExamples(): array<array<string>> {
+    return [
       ['<?hh final class test {}'],
       ['<?hh abstract class test {}'],
       ['<?hh interface test {}'],
+      ['<?hh trait test {}'],
+      ['<?hh final class :page:test-page-1 extends SomeXHPPage {}'],
+      ['<?hh abstract final class test {}'],
     ];
   }
 }

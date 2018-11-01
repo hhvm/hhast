@@ -44,9 +44,7 @@ final class FinalOrAbstractClassLinter extends ASTLinter<ClassishDeclaration> {
     $found = false;
     if ($modifiers !== null) {
       foreach ($modifiers->traverse() as $mod) {
-        $isFinal = $mod is FinalToken;
-        $isAbstract = $mod is AbstractToken;
-        if (($isFinal || $isAbstract) && !($isFinal && $isAbstract)) {
+        if ($mod is FinalToken || $mod is AbstractToken) {
           return null;
         }
       }
