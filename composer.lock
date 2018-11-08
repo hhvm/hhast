@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c33c5c670f2b07cec0102f4a03b423a4",
+    "content-hash": "fe374299009f25aab5b7a67b96ac7297",
     "packages": [
         {
             "name": "facebook/difflib",
@@ -237,29 +237,29 @@
         },
         {
             "name": "facebook/hack-codegen",
-            "version": "v3.2.1",
+            "version": "v4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/hack-codegen.git",
-                "reference": "f7531131509be9d779a4bac7ad65351e4372be6f"
+                "reference": "c9de775742094762412fb4ed9ab3283a80efc886"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/hack-codegen/zipball/f7531131509be9d779a4bac7ad65351e4372be6f",
-                "reference": "f7531131509be9d779a4bac7ad65351e4372be6f",
+                "url": "https://api.github.com/repos/hhvm/hack-codegen/zipball/c9de775742094762412fb4ed9ab3283a80efc886",
+                "reference": "c9de775742094762412fb4ed9ab3283a80efc886",
                 "shasum": ""
             },
             "require": {
-                "hhvm": ">=3.27.0",
-                "hhvm/hhvm-autoload": "^1.5",
-                "hhvm/hsl": "^1.0.0|^3.26.0"
+                "hhvm": ">=3.28.0",
+                "hhvm/hhvm-autoload": "^1.6",
+                "hhvm/hsl": "^3.28.0"
             },
             "require-dev": {
-                "91carriage/phpunit-hhi": "^5.6",
-                "facebook/fbexpect": "^0.4.0|^1.0.0",
-                "hhvm/hhast": "^3.26.0",
-                "hhvm/type-assert": "^3.1",
-                "phpunit/phpunit": "^5.7"
+                "facebook/difflib": "^1.0",
+                "facebook/fbexpect": "^2.1.0",
+                "hhvm/hacktest": "^1.0",
+                "hhvm/hhast": "^3.28.0",
+                "hhvm/type-assert": "^3.1"
             },
             "bin": [
                 "bin/hh-codegen-verify-signatures"
@@ -293,7 +293,7 @@
                 "code generation",
                 "hack"
             ],
-            "time": "2018-08-28T19:37:07+00:00"
+            "time": "2018-11-07T22:08:39+00:00"
         },
         {
             "name": "hhvm/hacktest",

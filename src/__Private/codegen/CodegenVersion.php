@@ -10,6 +10,8 @@
 
 namespace Facebook\HHAST\__Private;
 
+use type Facebook\HackCodegen\HackBuilderValues;
+
 final class CodegenVersion extends CodegenBase {
   <<__Override>>
   public function generate(): void {
@@ -18,8 +20,19 @@ final class CodegenVersion extends CodegenBase {
     $cg
       ->codegenFile($this->getOutputDirectory().'/version.php')
       ->setNamespace('Facebook\\HHAST')
-      ->addConst('string SCHEMA_VERSION', $this->getSchema()['version'])
-      ->addConst('int HHVM_VERSION_ID', \HHVM_VERSION_ID)
+      ->addConstant(
+        $cg->codegenConstant('SCHEMA_VERSION')
+          ->setType('string')
+          ->setValue(
+            $this->getSchema()['version'],
+            HackBuilderValues::export(),
+          ),
+      )
+      ->addConstant(
+        $cg->codegenConstant('HHVM_VERSION_ID')
+          ->setType('int')
+          ->setValue(\HHVM_VERSION_ID, HackBuilderValues::export()),
+      )
       ->save();
   }
 }

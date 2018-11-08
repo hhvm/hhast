@@ -12,10 +12,7 @@ namespace Facebook\HHAST\__Private;
 
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Str;
-use type Facebook\HackCodegen\{
-  HackBuilderKeys,
-  HackBuilderValues
-};
+use type Facebook\HackCodegen\{HackBuilderKeys, HackBuilderValues};
 
 final class CodegenEditableTokenFromData extends CodegenBase {
   <<__Override>>
@@ -29,7 +26,8 @@ final class CodegenEditableTokenFromData extends CodegenBase {
 
     foreach ($tokens['noText'] as $token) {
       $kind = StrP\underscored($token['token_kind']);
-      $class_map[$kind] = Str\format('HHAST\\%sToken::class', $token['token_kind']);
+      $class_map[$kind] =
+        Str\format('HHAST\\%sToken::class', $token['token_kind']);
     }
 
     foreach ($tokens['fixedText'] as $token) {
@@ -38,13 +36,15 @@ final class CodegenEditableTokenFromData extends CodegenBase {
       if (Str\lowercase($text) === Str\uppercase($text)) {
         $class_map[$text] = Str\format('HHAST\\%sToken::class', $kind);
       } else {
-        $class_map_with_text[$text] = Str\format('HHAST\\%sToken::class', $kind);
+        $class_map_with_text[$text] =
+          Str\format('HHAST\\%sToken::class', $kind);
       }
     }
 
     foreach ($tokens['variableText'] as $token) {
       $kind = StrP\underscored($token['token_kind']);
-      $class_map_with_text[$kind] = Str\format('HHAST\\%sToken::class', $token['token_kind']);
+      $class_map_with_text[$kind] =
+        Str\format('HHAST\\%sToken::class', $token['token_kind']);
     }
 
     $cg
@@ -54,36 +54,34 @@ final class CodegenEditableTokenFromData extends CodegenBase {
       ->addClass(
         $cg
           ->codegenClass('TokenClassMap')
-          ->addConst(
-            'dict<string, classname<HHAST\EditableTokenWithVariableText>> WITH_TEXT',
+          ->addConstant(
             $cg
-              ->codegenHackBuilder()
-              ->addValue(
+              ->codegenClassConstant('WITH_TEXT')
+              ->setType(
+                'dict<string, classname<HHAST\EditableTokenWithVariableText>>',
+              )
+              ->setValue(
                 $class_map_with_text,
                 HackBuilderValues::dict(
                   HackBuilderKeys::export(),
                   HackBuilderValues::literal(),
                 ),
-              )
-              ->getCode(),
-            null,
-            HackBuilderValues::literal()
+              ),
           )
-          ->addConst(
-            'dict<string, classname<HHAST\EditableTokenWithFixedText>> WITHOUT_TEXT',
+          ->addConstant(
             $cg
-              ->codegenHackBuilder()
-              ->addValue(
+              ->codegenClassConstant('WITHOUT_TEXT')
+              ->setType(
+                'dict<string, classname<HHAST\EditableTokenWithFixedText>>',
+              )
+              ->setValue(
                 $class_map,
                 HackBuilderValues::dict(
                   HackBuilderKeys::export(),
                   HackBuilderValues::literal(),
                 ),
-              )
-              ->getCode(),
-            null,
-            HackBuilderValues::literal()
-          )
+              ),
+          ),
       )
       ->addFunction(
         $cg
@@ -99,9 +97,13 @@ final class CodegenEditableTokenFromData extends CodegenBase {
             $cg
               ->codegenHackBuilder()
               ->add('$cls = TokenClassMap::WITHOUT_TEXT[$token_kind] ?? null;')
-              ->add('if ($cls !== null) { return new $cls($leading, $trailing); }')
+              ->add(
+                'if ($cls !== null) { return new $cls($leading, $trailing); }',
+              )
               ->add('$cls = TokenClassMap::WITH_TEXT[$token_kind] ?? null;')
-              ->add('if ($cls !== null) { return new $cls($leading, $trailing, $token_text); }')
+              ->add(
+                'if ($cls !== null) { return new $cls($leading, $trailing, $token_text); }',
+              )
               ->addMultilineCall(
                 'throw new HHAST\\UnsupportedTokenError',
                 vec[

@@ -84,18 +84,16 @@ final class CodegenRelations extends CodegenBase {
 
     $cg->codegenFile($this->getOutputDirectory().'/inferred_relationships.php')
       ->setNamespace('Facebook\\HHAST\\__Private')
-      ->addConst(
-        'dict<string, keyset<string>> INFERRED_RELATIONSHIPS',
-        $cg->codegenHackBuilder()
-          ->addValue(
+      ->addConstant(
+        $cg->codegenConstant('INFERRED_RELATIONSHIPS')
+          ->setType('dict<string, keyset<string>>')
+          ->setValue(
             $result,
             HackBuilderValues::dict(
               HackBuilderKeys::export(),
               HackBuilderValues::keyset(HackBuilderValues::export()),
             ),
           ),
-        /* comment = */ null,
-        HackBuilderValues::code(),
       )
       ->save();
     print("... done!\n");
@@ -117,9 +115,8 @@ final class CodegenRelations extends CodegenBase {
       $this->hhvmRoot.'/hphp/hack/test/typecheck',
     );
 
-    $systemlib = $this->getTestFilesInDirectory(
-      $this->hhvmRoot.'/hphp/system/php'
-    );
+    $systemlib =
+      $this->getTestFilesInDirectory($this->hhvmRoot.'/hphp/system/php');
 
     return Keyset\flatten(vec[$hhvm_tests, $hack_tests, $systemlib]);
   }

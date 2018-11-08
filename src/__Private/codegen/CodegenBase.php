@@ -40,8 +40,9 @@ abstract class CodegenBase {
   }
 
   final protected function getCodegenFactory(): HackCodegenFactory {
+    $config = new HackCodegenConfig();
     return new HackCodegenFactory(
-      (new HackCodegenConfig())->withFormatter(new HackfmtFormatter()),
+      $config->withFormatter(new HackfmtFormatter($config)),
     );
   }
 

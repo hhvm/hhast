@@ -14,7 +14,8 @@ use namespace HH\Lib\{C, Str, Vec};
 use type Facebook\HackCodegen\{
   CodegenClass,
   CodegenConstructor,
-  CodegenMethod
+  CodegenMethod,
+  HackBuilderValues,
 };
 
 final class CodegenTokens extends CodegenBase {
@@ -114,7 +115,11 @@ final class CodegenTokens extends CodegenBase {
       ->codegenClass($token['kind'].'Token')
       ->setIsFinal()
       ->setExtends($this->generateExtends($token))
-      ->addConst('string KIND', $token['description'])
+      ->addConstant(
+        $cg->codegenClassConstant('KIND')
+          ->setType('string')
+          ->setValue($token['description'], HackBuilderValues::export())
+      )
       ->setConstructor($this->generateConstructor($token))
       ->addMethods($this->generateFieldMethods($token))
       ->addMethod($this->generateRewriteChildrenMethod($token));
@@ -122,7 +127,11 @@ final class CodegenTokens extends CodegenBase {
     $text = $token['text'];
     if ($text !== null) {
       if (Str\uppercase($text) === Str\lowercase($text)) {
-        $cc->addConst('string TEXT', $text);
+        $cc->addConstant(
+          $cg->codegenClassConstant('TEXT')
+            ->setType('string')
+            ->setValue($text, HackBuilderValues::export()),
+        );
       }
     }
 

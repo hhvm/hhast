@@ -9,7 +9,7 @@
     },
     "require-dev": {
         "facebook/fbexpect": "^2.1.1",
-        "facebook/hack-codegen": "~3.2.1",
+        "facebook/hack-codegen": "^4.0",
         "hhvm/hhvm-autoload": "^1.5",
         "hhvm/hacktest": "^1.0"
     },
