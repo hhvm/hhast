@@ -13,14 +13,8 @@ namespace Facebook\HHAST\Linters;
 use type Facebook\HHAST\{
   ExpressionStatement,
   EditableNode,
-  EqualEqualToken,
-  EqualEqualEqualToken,
-  ExclamationEqualToken,
-  ExclamationEqualEqualToken,
-  LessThanGreaterThanToken,
+  EditableList,
 };
-use function Facebook\HHAST\Missing;
-use namespace HH\Lib\Str;
 
 final class NoEmptyStatementsLinter
   extends AutoFixingASTLinter<ExpressionStatement> {
@@ -48,7 +42,11 @@ final class NoEmptyStatementsLinter
   }
 
   <<__Override>>
-  public function getFixedNode(ExpressionStatement $_expr): EditableNode {
-    return Missing();
+  public function getFixedNode(ExpressionStatement $expr): EditableNode {
+    $semicolon = $expr->getSemicolonx();
+    $leading = $semicolon->getLeading();
+    $trailing = $semicolon->getTrailing();
+
+    return EditableList::concat($semicolon->getLeading(), $semicolon->getTrailing());
   }
 }
