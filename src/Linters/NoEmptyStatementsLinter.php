@@ -42,8 +42,8 @@ final class NoEmptyStatementsLinter
   }
 
   <<__Override>>
-  public function getFixedNode(ExpressionStatement $expr): EditableNode {
-    $semicolon = $expr->getSemicolonx();
+  public function getFixedNode(ExpressionStatement $stmt): EditableNode {
+    $semicolon = $stmt->getSemicolonx();
     $leading = $semicolon->getLeading();
     $trailing = $semicolon->getTrailing();
 
