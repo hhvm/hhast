@@ -10,9 +10,8 @@
 
 function foo(): void {
   some_function();
-
+  
 }
 
 function bar(): void {
-
 }
