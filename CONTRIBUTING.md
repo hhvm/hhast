@@ -32,8 +32,8 @@ We actively welcome your pull requests.
 1. Fork the repo and create your branch from `master`.
 2. If you've added code that should be tested, add tests
 3. Ensure that:
- - the test suite passes
- - all linters pass
+ - the test suite passes (run `vendor/bin/hacktest tests`)
+ - all linters pass (run `bin/hhast-lint`)
  - the codegen regenerates with no changes
 4. If you haven't already, complete the Contributor License Agreement ("CLA").
 
