@@ -33,7 +33,7 @@ final class NoEmptyStatementsLinter
     if ($expr === null) {
           return new ASTLintError(
       $this,
-      'Delete this empty statement',
+      'This statement is empty',
       $stmt,
     );
     }
