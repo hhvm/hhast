@@ -1,0 +1,17 @@
+[
+    {
+        "blame": "function($a, $b) {\n\t\tdo_something();\n\t}",
+        "blame_pretty": "function($a, $b) {\n\t\tdo_something();\n\t}",
+        "description": "Use lambdas instead of PHP anonymous functions"
+    },
+    {
+        "blame": "function($a, $b) use ($outer) {\n\t\tdo_something();\n\t}",
+        "blame_pretty": "function($a, $b) use ($outer) {\n\t\tdo_something();\n\t}",
+        "description": "Use lambdas instead of PHP anonymous functions"
+    },
+    {
+        "blame": "        function() {\n          do_something();\n        }\n",
+        "blame_pretty": "        function() {\n          do_something();\n        }\n",
+        "description": "Use lambdas instead of PHP anonymous functions"
+    }
+]
