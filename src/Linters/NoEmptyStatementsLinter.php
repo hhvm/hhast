@@ -24,6 +24,11 @@ final class NoEmptyStatementsLinter
   }
 
   <<__Override>>
+  public function getTitleForFix(LintError $_): string {
+    return 'Remove statement';
+  }
+
+  <<__Override>>
   public function getLintErrorForNode(
     ExpressionStatement $stmt,
     vec<EditableNode> $_parents,
