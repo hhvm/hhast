@@ -65,25 +65,31 @@ final class PreferLambdasLinter extends AutoFixingASTLinter<AnonymousFunction> {
 
   <<__Override>>
   public function getFixedNode(AnonymousFunction $node): ?EditableNode {
-    $attribute_spec = $node->getAttributeSpecUNTYPED();
-    $async = $node->getAsyncKeywordUNTYPED();
-    $coroutine = $node->getCoroutineKeywordUNTYPED();
+    $attribute_spec = $node->getAttributeSpec();
+    $async = $node->getAsyncKeyword();
+    $coroutine = $node->getCoroutineKeyword();
+    $parameters = $node->getParameters();
     $left_paren =
       new LeftParenToken($node->getFunctionKeyword()->getLeading(), Missing());
+    $right_paren = $node->getRightParen();
+    $colon = $node->getColon();
+    $type = $node->getType();
+
     $signature = new LambdaSignature(
       $left_paren,
-      $node->getParametersUNTYPED(),
-      $node->getRightParenUNTYPED(),
-      Missing(),
-      Missing(),
+      $parameters ?? Missing(),
+      $right_paren ?? Missing(),
+      $colon ?? Missing(),
+      $type ?? Missing(),
     );
+
     $arrow = new EqualEqualGreaterThanToken(Missing(), new WhiteSpace(' '));
-    $body = $node->getBody();
+		$body = $node->getBody();
 
     return new LambdaExpression(
-      $attribute_spec,
-      $async,
-      $coroutine,
+      $attribute_spec ?? Missing(),
+      $async ?? Missing(),
+      $coroutine ?? Missing(),
       $signature,
       $arrow,
       $body,
