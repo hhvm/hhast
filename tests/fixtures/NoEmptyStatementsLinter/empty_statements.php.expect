@@ -2,16 +2,31 @@
     {
         "blame": ";\n",
         "blame_pretty": ";\n",
-        "description": "Delete this empty statement"
+        "description": "This statement is empty"
     },
     {
         "blame": "  ;\n",
         "blame_pretty": "  ;\n",
-        "description": "Delete this empty statement"
+        "description": "This statement is empty"
+    },
+    {
+        "blame": "\n  \/\/ leading comment\n  ;\n",
+        "blame_pretty": "\n  \/\/ leading comment\n  ;\n",
+        "description": "This statement is empty"
+    },
+    {
+        "blame": "\n  ; \/\/ trailing comment\n",
+        "blame_pretty": "\n  ; \/\/ trailing comment\n",
+        "description": "This statement is empty"
+    },
+    {
+        "blame": "\n  \/\/ leading\n  \/* kinda sorta looks like a statement *\/ ;\n",
+        "blame_pretty": "\n  \/\/ leading\n  \/* kinda sorta looks like a statement *\/ ;\n",
+        "description": "This statement is empty"
     },
     {
         "blame": ";\n",
         "blame_pretty": ";\n",
-        "description": "Delete this empty statement"
+        "description": "This statement is empty"
     }
 ]

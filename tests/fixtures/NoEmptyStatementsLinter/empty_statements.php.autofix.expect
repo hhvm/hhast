@@ -10,7 +10,15 @@
 
 function foo(): void {
   some_function();
-  
+
+
+  // leading comment
+
+
+   // trailing comment
+
+  // leading
+  /* kinda sorta looks like a statement */
 }
 
 function bar(): void {
