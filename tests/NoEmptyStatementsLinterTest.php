@@ -13,16 +13,11 @@ namespace Facebook\HHAST;
 final class NoEmptyStatementsLinterTest extends TestCase {
   use AutoFixingLinterTestTrait<Linters\ASTLintError<ExpressionStatement>>;
 
-  protected function getLinter(
-    string $file,
-  ): Linters\NoEmptyStatementsLinter{
+  protected function getLinter(string $file): Linters\NoEmptyStatementsLinter {
     return Linters\NoEmptyStatementsLinter::fromPath($file);
   }
 
   public function getCleanExamples(): array<array<string>> {
-    return [
-      ['<?hh fn_call(); '],
-      ['<?hh for(;;) { }'],
-    ];
+    return [['<?hh fn_call(); '], ['<?hh for(;;) { }']];
   }
 }

@@ -10,11 +10,7 @@
 
 namespace Facebook\HHAST\Linters;
 
-use type Facebook\HHAST\{
-  ExpressionStatement,
-  EditableNode,
-  EditableList,
-};
+use type Facebook\HHAST\{ExpressionStatement, EditableNode, EditableList};
 
 final class NoEmptyStatementsLinter
   extends AutoFixingASTLinter<ExpressionStatement> {
@@ -36,11 +32,7 @@ final class NoEmptyStatementsLinter
 
     $expr = $stmt->getExpression();
     if ($expr === null) {
-          return new ASTLintError(
-      $this,
-      'This statement is empty',
-      $stmt,
-    );
+      return new ASTLintError($this, 'This statement is empty', $stmt);
     }
 
     return null;
@@ -52,6 +44,7 @@ final class NoEmptyStatementsLinter
     $leading = $semicolon->getLeading();
     $trailing = $semicolon->getTrailing();
 
-    return EditableList::concat($semicolon->getLeading(), $semicolon->getTrailing());
+    return
+      EditableList::concat($semicolon->getLeading(), $semicolon->getTrailing());
   }
 }
