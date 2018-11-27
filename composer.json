@@ -1,6 +1,6 @@
 {
     "name": "hhvm/hhast",
-    "bin": [ "bin/hhast-lint", "bin/hhast-inspect" ],
+    "bin": [ "bin/hhast-lint", "bin/hhast-inspect", "bin/hhast-migrate" ],
     "license": "MIT",
     "extra": {
       "branch-alias": {
