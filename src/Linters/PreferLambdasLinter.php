@@ -39,7 +39,7 @@ final class PreferLambdasLinter extends AutoFixingASTLinter<AnonymousFunction> {
   <<__Override>>
   public function getLintErrorForNode(
     AnonymousFunction $node,
-    vec<EditableNode> $parents,
+    vec<EditableNode> $_parents,
   ): ?ASTLintError<AnonymousFunction> {
 
     $use_expr = $node->getUse();
@@ -54,13 +54,13 @@ final class PreferLambdasLinter extends AutoFixingASTLinter<AnonymousFunction> {
 
     if ($uses_references) {
       return null;
-    } else {
-      return new ASTLintError(
-        $this,
-        'Use lambdas instead of PHP anonymous functions',
-        $node,
-      );
     }
+
+    return new ASTLintError(
+      $this,
+      'Use lambdas instead of PHP anonymous functions',
+      $node,
+    );
   }
 
   <<__Override>>
@@ -84,7 +84,7 @@ final class PreferLambdasLinter extends AutoFixingASTLinter<AnonymousFunction> {
     );
 
     $arrow = new EqualEqualGreaterThanToken(Missing(), new WhiteSpace(' '));
-		$body = $node->getBody();
+    $body = $node->getBody();
 
     return new LambdaExpression(
       $attribute_spec ?? Missing(),
