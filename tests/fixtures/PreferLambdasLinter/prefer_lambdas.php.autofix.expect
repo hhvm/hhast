@@ -1,0 +1,31 @@
+<?hh
+
+function test_anon(): void {
+
+	$outer = [];
+
+	$f1 = ($a, $b) ==> {
+		do_something();
+	};
+
+	$f2 = ($a, $b) ==> {
+		do_something();
+	};
+
+	$f3 = function($a, $b) use (&$outer) {
+		do_something();
+	};
+
+	$f4 = (int $a): int ==> { return $a * $a; };
+
+	$f5 = ($a, $b) ==> {
+		do_something();
+	};
+
+  it(
+    'formats numbers as strings',
+        () ==> {
+          do_something();
+        }
+  );
+}
