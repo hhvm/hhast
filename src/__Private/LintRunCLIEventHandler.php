@@ -18,7 +18,31 @@ use namespace HH\Lib\{C, Str, Vec};
 final class LintRunCLIEventHandler implements LintRunEventHandler {
   public function __construct(private ITerminal $terminal) {}
 
+  private ?Awaitable<LintAutoFixResult> $interactivityQueue;
   public async function linterRaisedErrorsAsync(
+    Linters\BaseLinter $linter,
+    LintRunConfig::TFileConfig $config,
+    Traversable<Linters\LintError> $errors,
+  ): Awaitable<LintAutoFixResult> {
+    if (!$this->terminal->isInteractive()) {
+      return
+        await $this->linterRaisedErrorsImplAsync($linter, $config, $errors);
+    }
+
+    // We need full ordering so that we don't print something else after
+    // an autofix prompt until the user has entered yes or no, especially when
+    // there are lint errors in multiple files
+    $queue = $this->interactivityQueue;
+    $next = async {
+      await $queue;
+      return
+        await $this->linterRaisedErrorsImplAsync($linter, $config, $errors);
+    };
+    $this->interactivityQueue = $next;
+    return await $next;
+  }
+
+  private async function linterRaisedErrorsImplAsync(
     Linters\BaseLinter $linter,
     LintRunConfig::TFileConfig $config,
     Traversable<Linters\LintError> $errors,
