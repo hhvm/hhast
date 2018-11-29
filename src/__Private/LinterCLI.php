@@ -94,7 +94,7 @@ final class LinterCLI extends CLIWithArguments {
       $config = LintRunConfig::getForPath(\getcwd());
       $roots = $config->getRoots();
       if (C\is_empty($roots)) {
-        $err->write(
+        await $err->writeAsync(
           "You must either specify PATH arguments, or provide a configuration".
           "file.\n",
         );
@@ -106,7 +106,8 @@ final class LinterCLI extends CLIWithArguments {
         if (\is_dir($path)) {
           $config_file = $path.'/hhast-lint.json';
           if (\file_exists($config_file)) {
-            $err->write(
+            /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
+            await $err->writeAsync(
               "Warning: PATH arguments contain a hhast-lint.json, ".
               "which modifies the linters used and customizes behavior. ".
               "Consider 'cd ".
@@ -137,7 +138,7 @@ final class LinterCLI extends CLIWithArguments {
       $orig = $e->getPrevious() ?? $e;
       $err = $terminal->getStderr();
       $pos = $e->getPosition();
-      $err->write(Str\format(
+      await $err->writeAsync(Str\format(
         "A linter threw an exception:\n  Linter: %s\n  File: %s%s\n",
         $e->getLinterClass(),
         \realpath($e->getFileBeingLinted()),
@@ -146,21 +147,21 @@ final class LinterCLI extends CLIWithArguments {
       if ($pos !== null && \is_readable($e->getFileBeingLinted())) {
         list($line, $column) = $pos;
         $content = \file_get_contents($e->getFileBeingLinted());
-        \file_get_contents($e->getFileBeingLinted())
+        await \file_get_contents($e->getFileBeingLinted())
           |> Str\split($$, "\n")
           |> Vec\take($$, $line)
           |> Vec\slice($$, Math\maxva($line - 3, 0))
           |> Vec\map($$, $line ==> '    > '.$line)
           |> Str\join($$, "\n")
           |> Str\format("%s\n      %s^ HERE\n", $$, Str\repeat(' ', $column))
-          |> $err->write($$);
+          |> $err->writeAsync($$);
       }
-      $err->write(Str\format(
+      await $err->writeAsync(Str\format(
         "  Exception: %s\n"."  Message: %s\n",
         \get_class($orig),
         $orig->getMessage(),
       ));
-      $err->write(
+      await $err->writeAsync(
         $orig->getTraceAsString()
           |> Str\split($$, "\n")
           |> Vec\map($$, $line ==> '    '.$line)

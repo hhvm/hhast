@@ -18,11 +18,11 @@ use namespace HH\Lib\{C, Str, Vec};
 final class LintRunCLIEventHandler implements LintRunEventHandler {
   public function __construct(private ITerminal $terminal) {}
 
-  public function linterRaisedErrors(
+  public async function linterRaisedErrorsAsync(
     Linters\BaseLinter $linter,
     LintRunConfig::TFileConfig $config,
     Traversable<Linters\LintError> $errors,
-  ): LintAutoFixResult {
+  ): Awaitable<LintAutoFixResult> {
     $class = \get_class($linter);
     $to_fix = vec[];
     $result = LintAutoFixResult::ALL_FIXED;
@@ -37,9 +37,10 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
 
     foreach ($errors as $error) {
       $position = $error->getPosition();
-      $this->terminal
+      /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
+      await $this->terminal
         ->getStdout()
-        ->write(Str\format(
+        ->writeAsync(Str\format(
           "%s%s%s\n"."  %sLinter: %s%s\n"."  Location: %s\n",
           $colors ? "\e[1;31m" : '',
           $error->getDescription(),
@@ -58,7 +59,9 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
         ));
 
       if ($fixing_linter) {
-        if ($this->shouldFixLint($fixing_linter, $error)) {
+        /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
+        $should_fix = await $this->shouldFixLintAsync($fixing_linter, $error);
+        if ($should_fix) {
           $to_fix[] = $error;
         } else {
           $result = LintAutoFixResult::SOME_UNFIXED;
@@ -66,7 +69,8 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
         continue;
       }
 
-      $this->renderLintBlame($error);
+      /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
+      await $this->renderLintBlameAsync($error);
       $result = LintAutoFixResult::SOME_UNFIXED;
     }
 
@@ -106,25 +110,25 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
     \file_put_contents($file->getPath(), $file->getContents());
   }
 
-  private function shouldFixLint<Terror as Linters\LintError>(
+  private async function shouldFixLintAsync<Terror as Linters\LintError>(
     Linters\AutoFixingLinter<Terror> $linter,
     Terror $error,
-  ): bool {
+  ): Awaitable<bool> {
     $old = $linter->getFile()->getContents();
     $new = $linter->getFixedFile(vec[$error])->getContents();
     if ($old === $new) {
-      $this->renderLintBlame($error);
+      await $this->renderLintBlameAsync($error);
       return false;
     }
 
     if ($this->terminal->supportsColors()) {
-      $this->terminal
+      await $this->terminal
         ->getStdout()
-        ->write(CLIColoredUnifiedDiff::create($old, $new));
+        ->writeAsync(CLIColoredUnifiedDiff::create($old, $new));
     } else {
-      $this->terminal
+      await $this->terminal
         ->getStdout()
-        ->write(StringDiff::lines($old, $new)->getUnifiedDiff());
+        ->writeAsync(StringDiff::lines($old, $new)->getUnifiedDiff());
     }
 
     if (!$this->terminal->isInteractive()) {
@@ -135,9 +139,9 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
     $cache_key = \get_class($error->getLinter());
     if (C\contains_key($cache, $cache_key)) {
       $should_fix = $cache[$cache_key];
-      $this->terminal
+      await $this->terminal
         ->getStdout()
-        ->write(Str\format(
+        ->writeAsync(Str\format(
           "Would you like to apply this fix?\n  <%s to all>\n",
           $should_fix ? 'yes' : 'no',
         ));
@@ -146,13 +150,14 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
 
     $response = null;
     do {
-      $this->terminal
+      /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
+      await $this->terminal
         ->getStdout()
-        ->write(
+        ->writeAsync(
           "\e[94mWould you like to apply this fix?\e[0m\n".
           "  \e[37m[y]es/[N]o/yes to [a]ll/n[o] to all:\e[0m ",
         );
-      $response = \HH\Asio\join($this->terminal->getStdin()->readLineAsync());
+      $response = await $this->terminal->getStdin()->readLineAsync();
       $response = Str\trim($response);
       switch ($response) {
         case 'a':
@@ -167,30 +172,35 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
         case '':
           return false;
         default:
-          $this->terminal
+          /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
+          await $this->terminal
             ->getStderr()
-            ->write(Str\format("'%s' is not a valid response.\n", $response));
+            ->writeAsync(
+              Str\format("'%s' is not a valid response.\n", $response),
+            );
           $response = null;
       }
     } while ($response === null);
     return false;
   }
 
-  private function renderLintBlame(Linters\LintError $error): void {
+  private async function renderLintBlameAsync(
+    Linters\LintError $error,
+  ): Awaitable<void> {
     $blame = $error->getPrettyBlame();
     if ($blame === null) {
       return;
     }
 
     $colors = $this->terminal->supportsColors();
-    $this->terminal
+    await $this->terminal
       ->getStdout()
-      ->write(Str\format(
+      ->writeAsync(Str\format(
         "  Code:\n%s%s%s\n",
         $colors ? "\e[33m" : '',
         Str\split($blame, "\n")
-        |> Vec\map($$, $line ==> '  >'.$line)
-        |> Str\join($$, "\n"),
+          |> Vec\map($$, $line ==> '  >'.$line)
+          |> Str\join($$, "\n"),
         $colors ? "\e[0m" : '',
       ));
   }

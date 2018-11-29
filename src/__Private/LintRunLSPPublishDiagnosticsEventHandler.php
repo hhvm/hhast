@@ -24,11 +24,11 @@ final class LintRunLSPPublishDiagnosticsEventHandler
   private ?string $file = null;
   private vec<Linters\LintError> $errors = vec[];
 
-  public function linterRaisedErrors(
+  public async function linterRaisedErrorsAsync(
     Linters\BaseLinter $linter,
     LintRunConfig::TFileConfig $_config,
     Traversable<Linters\LintError> $errors,
-  ): LintAutoFixResult {
+  ): Awaitable<LintAutoFixResult> {
     $file = \realpath($linter->getFile()->getPath());
     invariant(
       $this->file === null || $this->file === $file,

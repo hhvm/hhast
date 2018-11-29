@@ -17,7 +17,7 @@
         "hhvm": "3.29.*",
         "hhvm/hsl": "^1.0.0|^3.26.0",
         "hhvm/type-assert": "^3.1",
-        "facebook/hh-clilib": "^1.1.1",
+        "facebook/hh-clilib": "dev-master",
         "facebook/difflib": "^1.0.0"
     }
 }

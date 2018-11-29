@@ -20,7 +20,7 @@ use type Facebook\HHAST\{
   EditableList,
   EditableNode,
 };
-use function Facebook\HHAST\__Private\execute;
+use function Facebook\HHAST\__Private\execute_async;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Str, Vec};
 
@@ -94,12 +94,12 @@ final class NamespaceFallbackMigration extends BaseMigration {
     string $name,
     string $path,
   ): bool {
-    $lines = execute(
+    $lines = \HH\Asio\join(execute_async(
       'hh_client',
       '--search', "\\".$name,
       '--json',
       $path,
-    );
+    ));
     $json = Str\join($lines, "\n");
     $results = TypeAssert\matches_type_structure(
       type_structure(self::class, 'TSearchResult'),

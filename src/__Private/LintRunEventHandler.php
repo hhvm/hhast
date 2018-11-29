@@ -23,11 +23,11 @@ interface LintRunEventHandler {
    * Process a set of errors returned by running an individual linter on a
    * single file
    */
-  public function linterRaisedErrors(
+  public function linterRaisedErrorsAsync(
     Linters\BaseLinter $linter,
     LintRunConfig::TFileConfig $config,
     Traversable<Linters\LintError> $errors,
-  ): LintAutoFixResult;
+  ): Awaitable<LintAutoFixResult>;
 
   public function finishedFileAsync(string $path, LintRunResult $result): Awaitable<void>;
 

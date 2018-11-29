@@ -77,9 +77,9 @@ final class Server extends LSPLib\Server<ServerState> {
     } catch (ExitException $e) {
       return $e->getCode();
     } catch (\Throwable $e) {
-      $this->terminal
+      await $this->terminal
         ->getStderr()
-        ->write(
+        ->writeAsync(
           Str\format(
             "Uncaught exception: %s:\n%s\n%s\n",
             \get_class($e),
@@ -100,14 +100,14 @@ final class Server extends LSPLib\Server<ServerState> {
     $verbose = $debug ? $this->terminal->getStderr() : null;
     $poll->add(
       async {
-        while (!$stdin->isEof()) {
-          $verbose?->write("< [waiting]\n");
+        while (!$stdin->isEndOfFile()) {
+          await $verbose?->writeAsync("< [waiting]\n");
           $body = await $this->readMessageAsync();
-          $verbose?->write("> [dispatch]\n");
+          await $verbose?->writeAsync("> [dispatch]\n");
           $poll->add(async {
-            $verbose?->write("> [start]\n");
+            await $verbose?->writeAsync("> [start]\n");
             await $this->handleMessageAsync($body);
-            $verbose?->write("> [done]\n");
+            await $verbose?->writeAsync("> [done]\n");
           });
         }
       },

@@ -10,11 +10,12 @@
 
 namespace Facebook\HHAST;
 
-use function Facebook\HHAST\TestLib\{cli_pipe, expect, Ref};
+use function Facebook\HHAST\TestLib\{expect, Ref};
 use function Facebook\HHAST\__Private\LSPImpl\read_message_async;
 use namespace Facebook\HHAST\__Private\{LSP, LSPImpl};
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{Dict, Str, Tuple};
+use namespace HH\Lib\Experimental\IO;
 use type Facebook\CLILib\Terminal;
 use type Facebook\HHAST\TestLib\TestLSPMessageResponseBehavior;
 use type Facebook\HackTest\DataProvider;
@@ -32,8 +33,6 @@ final class LSPServerTest extends TestCase {
     )
       |> $this->messageToRPC($$)
       |> $in->appendToBuffer($$);
-
-    $in->close();
 
     $exit_code = \HH\Asio\join($cli->mainAsync());
     expect($exit_code)->toBeSame(1);
@@ -59,8 +58,6 @@ final class LSPServerTest extends TestCase {
     )
       |> $this->messageToRPC($$)
       |> $in->appendToBuffer($$);
-
-    $in->close();
 
     $exit_code = \HH\Asio\join($cli->mainAsync());
     expect($exit_code)->toBeSame(0);
@@ -110,9 +107,9 @@ final class LSPServerTest extends TestCase {
         $$,
       );
 
-    list($inr, $inw) = cli_pipe();
-    list($outr, $outw) = cli_pipe();
-    $err = new \Facebook\CLILib\FileHandleOutput(\STDERR);
+    list($inr, $inw) = IO\pipe_non_disposable();
+    list($outr, $outw) = IO\pipe_non_disposable();
+    $err = IO\stderr();
     $cli = new __Private\LinterCLI(
       vec[__FILE__, '--mode', 'lsp'],
       new Terminal($inr, $outw, $err),
@@ -131,7 +128,7 @@ final class LSPServerTest extends TestCase {
           if ($debug) {
             \fprintf(\STDERR, "< %s\n", $message);
           }
-          $inw->write(
+          await $inw->writeAsync(
             'Content-Length: '.Str\length($message)."\r\n\r\n".$message,
           );
           switch ($behavior) {

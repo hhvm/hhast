@@ -110,10 +110,8 @@ final class LintRun {
     if (!$errors) {
       return LintRunResult::NO_ERRORS;
     }
-    return (
-      $this->handler->linterRaisedErrors($linter, $config, $errors) ===
-        LintAutoFixResult::ALL_FIXED
-    )
+    $result = await $this->handler->linterRaisedErrorsAsync($linter, $config, $errors);
+    return $result === LintAutoFixResult::ALL_FIXED
       ? LintRunResult::HAD_AUTOFIXED_ERRORS
       : LintRunResult::HAVE_UNFIXED_ERRORS;
   }

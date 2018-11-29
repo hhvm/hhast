@@ -1,5 +1,5 @@
 #!/usr/bin/env hhvm
-<?hh
+<?hh // strict
 /*
  *  Copyright (c) 2017-present, Facebook, Inc.
  *  All rights reserved.
@@ -11,26 +11,30 @@
 
 namespace Facebook\HHAST\__Private;
 
-$root = realpath(__DIR__.'/..');
-$found_autoloader = false;
-while (true) {
-  $autoloader = $root.'/vendor/hh_autoload.php';
-  if (file_exists($autoloader)) {
-    $found_autoloader = true;
-    require_once($autoloader);
-    break;
+<<__EntryPoint>>
+async function hhast_lint_main_async(): Awaitable<noreturn> {
+  $root = realpath(__DIR__.'/..');
+  $found_autoloader = false;
+  while (true) {
+    $autoloader = $root.'/vendor/hh_autoload.php';
+    if (file_exists($autoloader)) {
+      $found_autoloader = true;
+      require_once($autoloader);
+      break;
+    }
+    if ($root === '') {
+      break;
+    }
+    $parts = explode('/', $root);
+    array_pop(&$parts);
+    $root = implode('/', $parts);
   }
-  if ($root === '') {
-    break;
+
+  if (!$found_autoloader) {
+    fprintf(STDERR, "Failed to find autoloader.\n");
+    exit(1);
   }
-  $parts = explode('/', $root);
-  array_pop(&$parts);
-  $root = implode('/', $parts);
-}
 
-if (!$found_autoloader) {
-  fprintf(STDERR, "Failed to find autoloader.\n");
-  exit(1);
+  $result = await LinterCLI::runAsync();
+  exit($result);
 }
-
-LinterCLI::main();

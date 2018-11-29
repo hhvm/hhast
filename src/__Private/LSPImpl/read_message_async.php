@@ -10,10 +10,10 @@
 
 namespace Facebook\HHAST\__Private\LSPImpl;
 
-use type Facebook\CLILib\InputInterface;
 use namespace HH\Lib\Str;
+use namespace HH\Lib\Experimental\IO;
 
-async function read_message_async(InputInterface $in): Awaitable<string> {
+async function read_message_async(IO\ReadHandle $in): Awaitable<string> {
   $length = null;
   $line = '';
 
@@ -37,7 +37,7 @@ async function read_message_async(InputInterface $in): Awaitable<string> {
 
   // read body
   $body = '';
-  while ($length > 0 && !$in->isEof()) {
+  while ($length > 0 && !$in->isEndOfFile()) {
     /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
     $part = await $in->readAsync($length);
     $body .= $part;

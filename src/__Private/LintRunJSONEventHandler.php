@@ -43,11 +43,11 @@ final class LintRunJSONEventHandler implements LintRunEventHandler {
   }
 
 
-  public function linterRaisedErrors(
+  public async function linterRaisedErrorsAsync(
     Linters\BaseLinter $_linter,
     LintRunConfig::TFileConfig $_config,
     Traversable<Linters\LintError> $errors,
-  ): LintAutoFixResult {
+  ): Awaitable<LintAutoFixResult> {
     $transformed_errors = self::transformErrors($errors);
     $this->errors = Vec\concat($this->errors, $transformed_errors);
     return LintAutoFixResult::SOME_UNFIXED;

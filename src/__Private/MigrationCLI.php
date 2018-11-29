@@ -52,22 +52,30 @@ class MigrationCLI extends CLIWithRequiredArguments {
   protected function getSupportedOptions(): vec<CLIOptions\CLIOption> {
     return vec[
       CLIOptions\flag(
-        () ==> { $this->migrations[] = HSLMigration::class; },
+        () ==> {
+          $this->migrations[] = HSLMigration::class;
+        },
         'Convert PHP standard library calls to HSL',
         '--hsl',
       ),
       CLIOptions\flag(
-        () ==> { $this->migrations[] = AssertToExpectMigration::class; },
+        () ==> {
+          $this->migrations[] = AssertToExpectMigration::class;
+        },
         'Change assert calls to expect ',
         '--assert-to-expect',
       ),
       CLIOptions\flag(
-        () ==> { $this->migrations[] = ImplicitShapeSubtypesMigration::class; },
+        () ==> {
+          $this->migrations[] = ImplicitShapeSubtypesMigration::class;
+        },
         'Allow implicit structural subtyping of all shapes',
         '--implicit-shape-subtypes',
       ),
       CLIOptions\flag(
-        () ==> { $this->migrations[] = OptionalShapeFieldsMigration::class; },
+        () ==> {
+          $this->migrations[] = OptionalShapeFieldsMigration::class;
+        },
         'Migrate nullable shape fields to be both nullable and optional',
         '--optional-shape-fields',
       ),
@@ -114,10 +122,10 @@ class MigrationCLI extends CLIWithRequiredArguments {
         'Replace is_foo() with is expressions',
         '--is-refinement',
       ),
-			CLIOptions\flag(
-				() ==> {
-					$this->migrations[] = IsRefinementMigration::class;
-				},
+      CLIOptions\flag(
+        () ==> {
+          $this->migrations[] = IsRefinementMigration::class;
+        },
         'Apply all migrations for moving from 3.29 to 3.30',
         '--hhvm-3.29-to-3.30',
       ),
@@ -130,22 +138,30 @@ class MigrationCLI extends CLIWithRequiredArguments {
         '--no-namespace-fallback',
       ),
       CLIOptions\flag(
-        () ==> { $this->migrations[] = PHPUnitToHackTestMigration::class; },
+        () ==> {
+          $this->migrations[] = PHPUnitToHackTestMigration::class;
+        },
         'Migrate from PHPUnit to HackTest',
         '--phpunit-to-hacktest',
       ),
       CLIOptions\flag(
-        () ==> { $this->migrations[] = AddFixMesMigration::class; },
+        () ==> {
+          $this->migrations[] = AddFixMesMigration::class;
+        },
         'Add /* HH_FIXME[] */ comments where needed',
         '--add-fixmes',
       ),
       CLIOptions\flag(
-        () ==> { $this->includeVendor = true; },
+        () ==> {
+          $this->includeVendor = true;
+        },
         'Also migrate files in vendor/ subdirectories',
         '--include-vendor',
       ),
       CLIOptions\flag(
-        () ==> { $this->xhprof = true; },
+        () ==> {
+          $this->xhprof = true;
+        },
         'Enable XHProf profiling',
         '--xhprof',
       ),
@@ -266,22 +282,19 @@ class MigrationCLI extends CLIWithRequiredArguments {
   private async function mainImplAsync(): Awaitable<int> {
     $err = $this->getStderr();
     if (C\is_empty($this->migrations)) {
-      $err->write("You must specify at least one migration!\n\n");
+      await $err->writeAsync("You must specify at least one migration!\n\n");
       $this->displayHelp($err);
       return 1;
     }
 
     $args = $this->getArguments();
     if (C\is_empty($args)) {
-      $err->write("You must specify at least one path!\n\n");
+      await $err->writeAsync("You must specify at least one path!\n\n");
       $this->displayHelp($err);
       return 1;
     }
     foreach ($args as $path) {
-      $migrations = Vec\map(
-        $this->migrations,
-        $class ==> new $class($path),
-      );
+      $migrations = Vec\map($this->migrations, $class ==> new $class($path));
       if (\is_file($path)) {
         $this->migrateFile($migrations, $path);
         continue;
@@ -291,7 +304,10 @@ class MigrationCLI extends CLIWithRequiredArguments {
         continue;
       }
 
-      $err->write(Str\format("Don't know how to process path: %s\n", $path));
+      /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
+      await $err->writeAsync(
+        Str\format("Don't know how to process path: %s\n", $path),
+      );
       return 1;
     }
     return 0;
