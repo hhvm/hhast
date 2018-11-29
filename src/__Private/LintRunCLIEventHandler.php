@@ -16,9 +16,12 @@ use namespace Facebook\HHAST\Linters;
 use namespace HH\Lib\{C, Str, Vec};
 
 final class LintRunCLIEventHandler implements LintRunEventHandler {
-  public function __construct(private ITerminal $terminal) {}
+  private AsyncQueue $interactivityQueue;
 
-  private ?Awaitable<LintAutoFixResult> $interactivityQueue;
+  public function __construct(private ITerminal $terminal) {
+    $this->interactivityQueue = new AsyncQueue();
+  }
+
   public async function linterRaisedErrorsAsync(
     Linters\BaseLinter $linter,
     LintRunConfig::TFileConfig $config,
@@ -29,17 +32,13 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
         await $this->linterRaisedErrorsImplAsync($linter, $config, $errors);
     }
 
-    // We need full ordering so that we don't print something else after
-    // an autofix prompt until the user has entered yes or no, especially when
-    // there are lint errors in multiple files
-    $queue = $this->interactivityQueue;
-    $next = async {
-      await $queue;
-      return
-        await $this->linterRaisedErrorsImplAsync($linter, $config, $errors);
-    };
-    $this->interactivityQueue = $next;
-    return await $next;
+    return await $this->interactivityQueue->enqueueAndWaitForAsync(
+      async () ==> await $this->linterRaisedErrorsImplAsync(
+        $linter,
+        $config,
+        $errors,
+      ),
+    );
   }
 
   private async function linterRaisedErrorsImplAsync(
