@@ -18,5 +18,3 @@ git archive --format=tar -o "${EXPORT_DIR}/exported.tar" HEAD
 cd "$EXPORT_DIR"
 tar -xf exported.tar
 composer install --no-dev
-echo > .hhconfig
-hh_server --check $(pwd)
