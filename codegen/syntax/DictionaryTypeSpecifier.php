@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<15257798cec262aae7022dae37566f98>>
+ * @generated SignedSource<<3a49fd643b95b441259ebc8c30034aef>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -119,14 +119,14 @@ final class DictionaryTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns DictToken
+   * @return DictToken
    */
   public function getKeyword(): DictToken {
     return TypeAssert\instance_of(DictToken::class, $this->_keyword);
   }
 
   /**
-   * @returns DictToken
+   * @return DictToken
    */
   public function getKeywordx(): DictToken {
     return $this->getKeyword();
@@ -149,14 +149,14 @@ final class DictionaryTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns LessThanToken
+   * @return LessThanToken
    */
   public function getLeftAngle(): LessThanToken {
     return TypeAssert\instance_of(LessThanToken::class, $this->_left_angle);
   }
 
   /**
-   * @returns LessThanToken
+   * @return LessThanToken
    */
   public function getLeftAnglex(): LessThanToken {
     return $this->getLeftAngle();
@@ -183,14 +183,14 @@ final class DictionaryTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns EditableList<EditableNode> | EditableList<SimpleTypeSpecifier>
+   * @return EditableList<EditableNode> | EditableList<SimpleTypeSpecifier>
    */
   public function getMembers(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_members);
   }
 
   /**
-   * @returns EditableList<EditableNode> | EditableList<SimpleTypeSpecifier>
+   * @return EditableList<EditableNode> | EditableList<SimpleTypeSpecifier>
    */
   public function getMembersx(): EditableList<EditableNode> {
     return $this->getMembers();
@@ -213,14 +213,14 @@ final class DictionaryTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns GreaterThanToken
+   * @return GreaterThanToken
    */
   public function getRightAngle(): GreaterThanToken {
     return TypeAssert\instance_of(GreaterThanToken::class, $this->_right_angle);
   }
 
   /**
-   * @returns GreaterThanToken
+   * @return GreaterThanToken
    */
   public function getRightAnglex(): GreaterThanToken {
     return $this->getRightAngle();

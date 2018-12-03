@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<86645b02403c1c68e9c662d5b5c1637e>>
+ * @generated SignedSource<<f511c419930f77c6d7940931337d7814>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,14 +101,14 @@ final class XHPCategoryDeclaration extends EditableNode {
   }
 
   /**
-   * @returns CategoryToken
+   * @return CategoryToken
    */
   public function getKeyword(): CategoryToken {
     return TypeAssert\instance_of(CategoryToken::class, $this->_keyword);
   }
 
   /**
-   * @returns CategoryToken
+   * @return CategoryToken
    */
   public function getKeywordx(): CategoryToken {
     return $this->getKeyword();
@@ -130,14 +130,14 @@ final class XHPCategoryDeclaration extends EditableNode {
   }
 
   /**
-   * @returns EditableList<XHPCategoryNameToken>
+   * @return EditableList<XHPCategoryNameToken>
    */
   public function getCategories(): EditableList<XHPCategoryNameToken> {
     return TypeAssert\instance_of(EditableList::class, $this->_categories);
   }
 
   /**
-   * @returns EditableList<XHPCategoryNameToken>
+   * @return EditableList<XHPCategoryNameToken>
    */
   public function getCategoriesx(): EditableList<XHPCategoryNameToken> {
     return $this->getCategories();
@@ -159,14 +159,14 @@ final class XHPCategoryDeclaration extends EditableNode {
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSemicolonx(): SemicolonToken {
     return $this->getSemicolon();

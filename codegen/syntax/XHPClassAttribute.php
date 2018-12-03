@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b98e2989c1ed07e53f3e08e0cbace69a>>
+ * @generated SignedSource<<fd033f8de6409e2ed7f6a5e807a1a164>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -115,7 +115,7 @@ final class XHPClassAttribute extends EditableNode {
   }
 
   /**
-   * @returns GenericTypeSpecifier | MapArrayTypeSpecifier |
+   * @return GenericTypeSpecifier | MapArrayTypeSpecifier |
    * NullableTypeSpecifier | SimpleTypeSpecifier | VectorArrayTypeSpecifier |
    * XHPEnumType
    */
@@ -124,7 +124,7 @@ final class XHPClassAttribute extends EditableNode {
   }
 
   /**
-   * @returns GenericTypeSpecifier | MapArrayTypeSpecifier |
+   * @return GenericTypeSpecifier | MapArrayTypeSpecifier |
    * NullableTypeSpecifier | SimpleTypeSpecifier | VectorArrayTypeSpecifier |
    * XHPEnumType
    */
@@ -149,14 +149,14 @@ final class XHPClassAttribute extends EditableNode {
   }
 
   /**
-   * @returns XHPElementNameToken
+   * @return XHPElementNameToken
    */
   public function getName(): XHPElementNameToken {
     return TypeAssert\instance_of(XHPElementNameToken::class, $this->_name);
   }
 
   /**
-   * @returns XHPElementNameToken
+   * @return XHPElementNameToken
    */
   public function getNamex(): XHPElementNameToken {
     return $this->getName();
@@ -178,7 +178,7 @@ final class XHPClassAttribute extends EditableNode {
   }
 
   /**
-   * @returns Missing | SimpleInitializer
+   * @return null | SimpleInitializer
    */
   public function getInitializer(): ?SimpleInitializer {
     if ($this->_initializer->isMissing()) {
@@ -189,7 +189,7 @@ final class XHPClassAttribute extends EditableNode {
   }
 
   /**
-   * @returns SimpleInitializer
+   * @return SimpleInitializer
    */
   public function getInitializerx(): SimpleInitializer {
     return
@@ -212,7 +212,7 @@ final class XHPClassAttribute extends EditableNode {
   }
 
   /**
-   * @returns Missing | XHPRequired
+   * @return null | XHPRequired
    */
   public function getRequired(): ?XHPRequired {
     if ($this->_required->isMissing()) {
@@ -222,7 +222,7 @@ final class XHPClassAttribute extends EditableNode {
   }
 
   /**
-   * @returns XHPRequired
+   * @return XHPRequired
    */
   public function getRequiredx(): XHPRequired {
     return TypeAssert\instance_of(XHPRequired::class, $this->_required);

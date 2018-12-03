@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<68e176bb40c360cf188a6e3e84cc62dd>>
+ * @generated SignedSource<<1f1bd9b81b0d372c9919b802ceeee5c1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -130,14 +130,14 @@ final class TryStatement extends EditableNode {
   }
 
   /**
-   * @returns TryToken
+   * @return TryToken
    */
   public function getKeyword(): TryToken {
     return TypeAssert\instance_of(TryToken::class, $this->_keyword);
   }
 
   /**
-   * @returns TryToken
+   * @return TryToken
    */
   public function getKeywordx(): TryToken {
     return $this->getKeyword();
@@ -164,7 +164,7 @@ final class TryStatement extends EditableNode {
   }
 
   /**
-   * @returns CompoundStatement
+   * @return CompoundStatement
    */
   public function getCompoundStatement(): CompoundStatement {
     return TypeAssert\instance_of(
@@ -174,7 +174,7 @@ final class TryStatement extends EditableNode {
   }
 
   /**
-   * @returns CompoundStatement
+   * @return CompoundStatement
    */
   public function getCompoundStatementx(): CompoundStatement {
     return $this->getCompoundStatement();
@@ -201,7 +201,7 @@ final class TryStatement extends EditableNode {
   }
 
   /**
-   * @returns EditableList<EditableNode> | Missing
+   * @return EditableList<EditableNode> | null
    */
   public function getCatchClauses(): ?EditableList<EditableNode> {
     if ($this->_catch_clauses->isMissing()) {
@@ -211,7 +211,7 @@ final class TryStatement extends EditableNode {
   }
 
   /**
-   * @returns EditableList<EditableNode>
+   * @return EditableList<EditableNode>
    */
   public function getCatchClausesx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_catch_clauses);
@@ -238,7 +238,7 @@ final class TryStatement extends EditableNode {
   }
 
   /**
-   * @returns FinallyClause | Missing
+   * @return FinallyClause | null
    */
   public function getFinallyClause(): ?FinallyClause {
     if ($this->_finally_clause->isMissing()) {
@@ -248,7 +248,7 @@ final class TryStatement extends EditableNode {
   }
 
   /**
-   * @returns FinallyClause
+   * @return FinallyClause
    */
   public function getFinallyClausex(): FinallyClause {
     return TypeAssert\instance_of(FinallyClause::class, $this->_finally_clause);

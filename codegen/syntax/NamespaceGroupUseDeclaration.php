@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bba9ce2e5be75dbaf7212090f51fcf73>>
+ * @generated SignedSource<<acfab585dccae805c4d30c8f92d2adff>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -179,14 +179,14 @@ final class NamespaceGroupUseDeclaration
   }
 
   /**
-   * @returns UseToken
+   * @return UseToken
    */
   public function getKeyword(): UseToken {
     return TypeAssert\instance_of(UseToken::class, $this->_keyword);
   }
 
   /**
-   * @returns UseToken
+   * @return UseToken
    */
   public function getKeywordx(): UseToken {
     return $this->getKeyword();
@@ -216,7 +216,7 @@ final class NamespaceGroupUseDeclaration
   }
 
   /**
-   * @returns Missing | ConstToken | FunctionToken | NamespaceToken | TypeToken
+   * @return null | ConstToken | FunctionToken | NamespaceToken | TypeToken
    */
   public function getKind(): ?EditableToken {
     if ($this->_kind->isMissing()) {
@@ -226,7 +226,7 @@ final class NamespaceGroupUseDeclaration
   }
 
   /**
-   * @returns ConstToken | FunctionToken | NamespaceToken | TypeToken
+   * @return ConstToken | FunctionToken | NamespaceToken | TypeToken
    */
   public function getKindx(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_kind);
@@ -256,14 +256,14 @@ final class NamespaceGroupUseDeclaration
   }
 
   /**
-   * @returns QualifiedName
+   * @return QualifiedName
    */
   public function getPrefix(): QualifiedName {
     return TypeAssert\instance_of(QualifiedName::class, $this->_prefix);
   }
 
   /**
-   * @returns QualifiedName
+   * @return QualifiedName
    */
   public function getPrefixx(): QualifiedName {
     return $this->getPrefix();
@@ -293,14 +293,14 @@ final class NamespaceGroupUseDeclaration
   }
 
   /**
-   * @returns LeftBraceToken
+   * @return LeftBraceToken
    */
   public function getLeftBrace(): LeftBraceToken {
     return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
   }
 
   /**
-   * @returns LeftBraceToken
+   * @return LeftBraceToken
    */
   public function getLeftBracex(): LeftBraceToken {
     return $this->getLeftBrace();
@@ -330,14 +330,14 @@ final class NamespaceGroupUseDeclaration
   }
 
   /**
-   * @returns EditableList<NamespaceUseClause>
+   * @return EditableList<NamespaceUseClause>
    */
   public function getClauses(): EditableList<NamespaceUseClause> {
     return TypeAssert\instance_of(EditableList::class, $this->_clauses);
   }
 
   /**
-   * @returns EditableList<NamespaceUseClause>
+   * @return EditableList<NamespaceUseClause>
    */
   public function getClausesx(): EditableList<NamespaceUseClause> {
     return $this->getClauses();
@@ -367,7 +367,7 @@ final class NamespaceGroupUseDeclaration
   }
 
   /**
-   * @returns Missing | RightBraceToken
+   * @return null | RightBraceToken
    */
   public function getRightBrace(): ?RightBraceToken {
     if ($this->_right_brace->isMissing()) {
@@ -377,7 +377,7 @@ final class NamespaceGroupUseDeclaration
   }
 
   /**
-   * @returns RightBraceToken
+   * @return RightBraceToken
    */
   public function getRightBracex(): RightBraceToken {
     return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
@@ -407,7 +407,7 @@ final class NamespaceGroupUseDeclaration
   }
 
   /**
-   * @returns Missing | SemicolonToken
+   * @return null | SemicolonToken
    */
   public function getSemicolon(): ?SemicolonToken {
     if ($this->_semicolon->isMissing()) {
@@ -417,7 +417,7 @@ final class NamespaceGroupUseDeclaration
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSemicolonx(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<30c83cc9eb68ecdf52c6425ea4e80397>>
+ * @generated SignedSource<<e526a6c11c65b25902b83d0d207e042d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -119,14 +119,14 @@ final class EmptyExpression extends EditableNode {
   }
 
   /**
-   * @returns EmptyToken
+   * @return EmptyToken
    */
   public function getKeyword(): EmptyToken {
     return TypeAssert\instance_of(EmptyToken::class, $this->_keyword);
   }
 
   /**
-   * @returns EmptyToken
+   * @return EmptyToken
    */
   public function getKeywordx(): EmptyToken {
     return $this->getKeyword();
@@ -153,14 +153,14 @@ final class EmptyExpression extends EditableNode {
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParenx(): LeftParenToken {
     return $this->getLeftParen();
@@ -187,7 +187,7 @@ final class EmptyExpression extends EditableNode {
   }
 
   /**
-   * @returns ArrayCreationExpression | ArrayIntrinsicExpression |
+   * @return ArrayCreationExpression | ArrayIntrinsicExpression |
    * BinaryExpression | CollectionLiteralExpression | FunctionCallExpression |
    * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PrefixUnaryExpression |
@@ -199,7 +199,7 @@ final class EmptyExpression extends EditableNode {
   }
 
   /**
-   * @returns ArrayCreationExpression | ArrayIntrinsicExpression |
+   * @return ArrayCreationExpression | ArrayIntrinsicExpression |
    * BinaryExpression | CollectionLiteralExpression | FunctionCallExpression |
    * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PrefixUnaryExpression |
@@ -227,14 +227,14 @@ final class EmptyExpression extends EditableNode {
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParenx(): RightParenToken {
     return $this->getRightParen();

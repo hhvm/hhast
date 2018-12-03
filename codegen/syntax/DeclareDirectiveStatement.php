@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7d8c2c9395b8ed9305920fb0503663f7>>
+ * @generated SignedSource<<14561a120170d58830d8362bd62fd1ef>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -135,14 +135,14 @@ final class DeclareDirectiveStatement extends EditableNode {
   }
 
   /**
-   * @returns DeclareToken
+   * @return DeclareToken
    */
   public function getKeyword(): DeclareToken {
     return TypeAssert\instance_of(DeclareToken::class, $this->_keyword);
   }
 
   /**
-   * @returns DeclareToken
+   * @return DeclareToken
    */
   public function getKeywordx(): DeclareToken {
     return $this->getKeyword();
@@ -170,14 +170,14 @@ final class DeclareDirectiveStatement extends EditableNode {
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParenx(): LeftParenToken {
     return $this->getLeftParen();
@@ -205,14 +205,14 @@ final class DeclareDirectiveStatement extends EditableNode {
   }
 
   /**
-   * @returns BinaryExpression
+   * @return BinaryExpression
    */
   public function getExpression(): BinaryExpression {
     return TypeAssert\instance_of(BinaryExpression::class, $this->_expression);
   }
 
   /**
-   * @returns BinaryExpression
+   * @return BinaryExpression
    */
   public function getExpressionx(): BinaryExpression {
     return $this->getExpression();
@@ -240,14 +240,14 @@ final class DeclareDirectiveStatement extends EditableNode {
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParenx(): RightParenToken {
     return $this->getRightParen();
@@ -275,14 +275,14 @@ final class DeclareDirectiveStatement extends EditableNode {
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSemicolonx(): SemicolonToken {
     return $this->getSemicolon();

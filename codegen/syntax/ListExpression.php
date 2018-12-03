@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6041c108a5012b665480b290cd66d2eb>>
+ * @generated SignedSource<<96884181bb6bcd40560d4ed1e6a2a347>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -119,14 +119,14 @@ final class ListExpression extends EditableNode {
   }
 
   /**
-   * @returns ListToken
+   * @return ListToken
    */
   public function getKeyword(): ListToken {
     return TypeAssert\instance_of(ListToken::class, $this->_keyword);
   }
 
   /**
-   * @returns ListToken
+   * @return ListToken
    */
   public function getKeywordx(): ListToken {
     return $this->getKeyword();
@@ -149,14 +149,14 @@ final class ListExpression extends EditableNode {
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParenx(): LeftParenToken {
     return $this->getLeftParen();
@@ -183,10 +183,10 @@ final class ListExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList<ListExpression> | EditableList<EditableNode> |
+   * @return EditableList<ListExpression> | EditableList<EditableNode> |
    * EditableList<?EditableNode> | EditableList<MemberSelectionExpression> |
    * EditableList<?VariableExpression> | EditableList<SubscriptExpression> |
-   * EditableList<VariableExpression> | Missing
+   * EditableList<VariableExpression> | null
    */
   public function getMembers(): ?EditableList<?EditableNode> {
     if ($this->_members->isMissing()) {
@@ -196,7 +196,7 @@ final class ListExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList<ListExpression> | EditableList<EditableNode> |
+   * @return EditableList<ListExpression> | EditableList<EditableNode> |
    * EditableList<?EditableNode> | EditableList<MemberSelectionExpression> |
    * EditableList<?VariableExpression> | EditableList<SubscriptExpression> |
    * EditableList<VariableExpression>
@@ -222,14 +222,14 @@ final class ListExpression extends EditableNode {
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParenx(): RightParenToken {
     return $this->getRightParen();

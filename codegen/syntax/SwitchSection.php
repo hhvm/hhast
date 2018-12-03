@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<89bd5a559e6e1c4817a1290654246f86>>
+ * @generated SignedSource<<fdffbb6998a2b11732e17abeeb2ee85e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,14 +101,14 @@ final class SwitchSection extends EditableNode {
   }
 
   /**
-   * @returns EditableList<EditableNode>
+   * @return EditableList<EditableNode>
    */
   public function getLabels(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_labels);
   }
 
   /**
-   * @returns EditableList<EditableNode>
+   * @return EditableList<EditableNode>
    */
   public function getLabelsx(): EditableList<EditableNode> {
     return $this->getLabels();
@@ -130,7 +130,7 @@ final class SwitchSection extends EditableNode {
   }
 
   /**
-   * @returns EditableList<EditableNode> | Missing
+   * @return EditableList<EditableNode> | null
    */
   public function getStatements(): ?EditableList<EditableNode> {
     if ($this->_statements->isMissing()) {
@@ -140,7 +140,7 @@ final class SwitchSection extends EditableNode {
   }
 
   /**
-   * @returns EditableList<EditableNode>
+   * @return EditableList<EditableNode>
    */
   public function getStatementsx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_statements);
@@ -162,7 +162,7 @@ final class SwitchSection extends EditableNode {
   }
 
   /**
-   * @returns Missing | SwitchFallthrough
+   * @return null | SwitchFallthrough
    */
   public function getFallthrough(): ?SwitchFallthrough {
     if ($this->_fallthrough->isMissing()) {
@@ -173,7 +173,7 @@ final class SwitchSection extends EditableNode {
   }
 
   /**
-   * @returns SwitchFallthrough
+   * @return SwitchFallthrough
    */
   public function getFallthroughx(): SwitchFallthrough {
     return

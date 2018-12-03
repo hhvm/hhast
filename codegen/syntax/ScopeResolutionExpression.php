@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a4d26ce02300bc32a1759e2797559c86>>
+ * @generated SignedSource<<36978fae04a6ea600d577d5f37bc66c9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,7 +101,7 @@ final class ScopeResolutionExpression extends EditableNode {
   }
 
   /**
-   * @returns FunctionCallExpression | GenericTypeSpecifier | LiteralExpression
+   * @return FunctionCallExpression | GenericTypeSpecifier | LiteralExpression
    * | ParenthesizedExpression | PipeVariableExpression | PrefixUnaryExpression
    * | QualifiedName | ScopeResolutionExpression | SimpleTypeSpecifier |
    * XHPClassNameToken | NameToken | ParentToken | SelfToken | StaticToken |
@@ -112,7 +112,7 @@ final class ScopeResolutionExpression extends EditableNode {
   }
 
   /**
-   * @returns FunctionCallExpression | GenericTypeSpecifier | LiteralExpression
+   * @return FunctionCallExpression | GenericTypeSpecifier | LiteralExpression
    * | ParenthesizedExpression | PipeVariableExpression | PrefixUnaryExpression
    * | QualifiedName | ScopeResolutionExpression | SimpleTypeSpecifier |
    * XHPClassNameToken | NameToken | ParentToken | SelfToken | StaticToken |
@@ -138,14 +138,14 @@ final class ScopeResolutionExpression extends EditableNode {
   }
 
   /**
-   * @returns ColonColonToken
+   * @return ColonColonToken
    */
   public function getOperator(): ColonColonToken {
     return TypeAssert\instance_of(ColonColonToken::class, $this->_operator);
   }
 
   /**
-   * @returns ColonColonToken
+   * @return ColonColonToken
    */
   public function getOperatorx(): ColonColonToken {
     return $this->getOperator();
@@ -167,7 +167,7 @@ final class ScopeResolutionExpression extends EditableNode {
   }
 
   /**
-   * @returns BracedExpression | PrefixUnaryExpression | ClassToken | NameToken
+   * @return BracedExpression | PrefixUnaryExpression | ClassToken | NameToken
    * | VariableToken
    */
   public function getName(): EditableNode {
@@ -175,7 +175,7 @@ final class ScopeResolutionExpression extends EditableNode {
   }
 
   /**
-   * @returns BracedExpression | PrefixUnaryExpression | ClassToken | NameToken
+   * @return BracedExpression | PrefixUnaryExpression | ClassToken | NameToken
    * | VariableToken
    */
   public function getNamex(): EditableNode {

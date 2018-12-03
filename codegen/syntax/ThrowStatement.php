@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<12e7a72abf515cd24912c631d3f6a982>>
+ * @generated SignedSource<<fe5190394b58902e50af8f1d57434c80>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,14 +101,14 @@ final class ThrowStatement extends EditableNode {
   }
 
   /**
-   * @returns ThrowToken
+   * @return ThrowToken
    */
   public function getKeyword(): ThrowToken {
     return TypeAssert\instance_of(ThrowToken::class, $this->_keyword);
   }
 
   /**
-   * @returns ThrowToken
+   * @return ThrowToken
    */
   public function getKeywordx(): ThrowToken {
     return $this->getKeyword();
@@ -130,7 +130,7 @@ final class ThrowStatement extends EditableNode {
   }
 
   /**
-   * @returns FunctionCallExpression | LiteralExpression |
+   * @return FunctionCallExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | VariableExpression
    */
@@ -139,7 +139,7 @@ final class ThrowStatement extends EditableNode {
   }
 
   /**
-   * @returns FunctionCallExpression | LiteralExpression |
+   * @return FunctionCallExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | VariableExpression
    */
@@ -163,14 +163,14 @@ final class ThrowStatement extends EditableNode {
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSemicolonx(): SemicolonToken {
     return $this->getSemicolon();

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6b1f42032eb97c4959addc22cc8f2a25>>
+ * @generated SignedSource<<dca35918dbba00ae98e75873ba3ee274>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,7 +101,7 @@ final class MemberSelectionExpression extends EditableNode {
   }
 
   /**
-   * @returns FunctionCallExpression | MemberSelectionExpression |
+   * @return FunctionCallExpression | MemberSelectionExpression |
    * ObjectCreationExpression | ParenthesizedExpression |
    * PipeVariableExpression | PrefixUnaryExpression | ScopeResolutionExpression
    * | SubscriptExpression | NameToken | VariableExpression
@@ -111,7 +111,7 @@ final class MemberSelectionExpression extends EditableNode {
   }
 
   /**
-   * @returns FunctionCallExpression | MemberSelectionExpression |
+   * @return FunctionCallExpression | MemberSelectionExpression |
    * ObjectCreationExpression | ParenthesizedExpression |
    * PipeVariableExpression | PrefixUnaryExpression | ScopeResolutionExpression
    * | SubscriptExpression | NameToken | VariableExpression
@@ -136,7 +136,7 @@ final class MemberSelectionExpression extends EditableNode {
   }
 
   /**
-   * @returns MinusGreaterThanToken
+   * @return MinusGreaterThanToken
    */
   public function getOperator(): MinusGreaterThanToken {
     return
@@ -144,7 +144,7 @@ final class MemberSelectionExpression extends EditableNode {
   }
 
   /**
-   * @returns MinusGreaterThanToken
+   * @return MinusGreaterThanToken
    */
   public function getOperatorx(): MinusGreaterThanToken {
     return $this->getOperator();
@@ -166,7 +166,7 @@ final class MemberSelectionExpression extends EditableNode {
   }
 
   /**
-   * @returns BracedExpression | PrefixUnaryExpression | XHPClassNameToken |
+   * @return BracedExpression | PrefixUnaryExpression | XHPClassNameToken |
    * NameToken | VariableToken
    */
   public function getName(): EditableNode {
@@ -174,7 +174,7 @@ final class MemberSelectionExpression extends EditableNode {
   }
 
   /**
-   * @returns BracedExpression | PrefixUnaryExpression | XHPClassNameToken |
+   * @return BracedExpression | PrefixUnaryExpression | XHPClassNameToken |
    * NameToken | VariableToken
    */
   public function getNamex(): EditableNode {

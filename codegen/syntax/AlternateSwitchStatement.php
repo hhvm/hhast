@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a073e58fc9be4ce9ad1d168407923894>>
+ * @generated SignedSource<<d9227437a1e57dd1601da1e476d2a91a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -197,14 +197,14 @@ final class AlternateSwitchStatement
   }
 
   /**
-   * @returns SwitchToken
+   * @return SwitchToken
    */
   public function getKeyword(): SwitchToken {
     return TypeAssert\instance_of(SwitchToken::class, $this->_keyword);
   }
 
   /**
-   * @returns SwitchToken
+   * @return SwitchToken
    */
   public function getKeywordx(): SwitchToken {
     return $this->getKeyword();
@@ -235,14 +235,14 @@ final class AlternateSwitchStatement
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParenx(): LeftParenToken {
     return $this->getLeftParen();
@@ -273,14 +273,14 @@ final class AlternateSwitchStatement
   }
 
   /**
-   * @returns LiteralExpression | VariableExpression
+   * @return LiteralExpression | VariableExpression
    */
   public function getExpression(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_expression);
   }
 
   /**
-   * @returns LiteralExpression | VariableExpression
+   * @return LiteralExpression | VariableExpression
    */
   public function getExpressionx(): EditableNode {
     return $this->getExpression();
@@ -311,14 +311,14 @@ final class AlternateSwitchStatement
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParenx(): RightParenToken {
     return $this->getRightParen();
@@ -349,14 +349,14 @@ final class AlternateSwitchStatement
   }
 
   /**
-   * @returns ColonToken
+   * @return ColonToken
    */
   public function getOpeningColon(): ColonToken {
     return TypeAssert\instance_of(ColonToken::class, $this->_opening_colon);
   }
 
   /**
-   * @returns ColonToken
+   * @return ColonToken
    */
   public function getOpeningColonx(): ColonToken {
     return $this->getOpeningColon();
@@ -387,14 +387,14 @@ final class AlternateSwitchStatement
   }
 
   /**
-   * @returns EditableList<EditableNode>
+   * @return EditableList<EditableNode>
    */
   public function getSections(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_sections);
   }
 
   /**
-   * @returns EditableList<EditableNode>
+   * @return EditableList<EditableNode>
    */
   public function getSectionsx(): EditableList<EditableNode> {
     return $this->getSections();
@@ -425,7 +425,7 @@ final class AlternateSwitchStatement
   }
 
   /**
-   * @returns EndswitchToken
+   * @return EndswitchToken
    */
   public function getClosingEndswitch(): EndswitchToken {
     return
@@ -433,7 +433,7 @@ final class AlternateSwitchStatement
   }
 
   /**
-   * @returns EndswitchToken
+   * @return EndswitchToken
    */
   public function getClosingEndswitchx(): EndswitchToken {
     return $this->getClosingEndswitch();
@@ -464,7 +464,7 @@ final class AlternateSwitchStatement
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getClosingSemicolon(): SemicolonToken {
     return
@@ -472,7 +472,7 @@ final class AlternateSwitchStatement
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getClosingSemicolonx(): SemicolonToken {
     return $this->getClosingSemicolon();

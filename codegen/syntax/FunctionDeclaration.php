@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dc2428e2bc05b2151c4feaca8cb0ef4c>>
+ * @generated SignedSource<<e368d0ae1b8aed7b3e1f422098fd0fcc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -104,7 +104,7 @@ final class FunctionDeclaration
   }
 
   /**
-   * @returns AttributeSpecification | Missing
+   * @return AttributeSpecification | null
    */
   public function getAttributeSpec(): ?AttributeSpecification {
     if ($this->_attribute_spec->isMissing()) {
@@ -117,7 +117,7 @@ final class FunctionDeclaration
   }
 
   /**
-   * @returns AttributeSpecification
+   * @return AttributeSpecification
    */
   public function getAttributeSpecx(): AttributeSpecification {
     return TypeAssert\instance_of(
@@ -142,7 +142,7 @@ final class FunctionDeclaration
   }
 
   /**
-   * @returns FunctionDeclarationHeader
+   * @return FunctionDeclarationHeader
    */
   public function getDeclarationHeader(): FunctionDeclarationHeader {
     return TypeAssert\instance_of(
@@ -152,7 +152,7 @@ final class FunctionDeclaration
   }
 
   /**
-   * @returns FunctionDeclarationHeader
+   * @return FunctionDeclarationHeader
    */
   public function getDeclarationHeaderx(): FunctionDeclarationHeader {
     return $this->getDeclarationHeader();
@@ -175,14 +175,14 @@ final class FunctionDeclaration
   }
 
   /**
-   * @returns CompoundStatement | SemicolonToken
+   * @return CompoundStatement | SemicolonToken
    */
   public function getBody(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_body);
   }
 
   /**
-   * @returns CompoundStatement | SemicolonToken
+   * @return CompoundStatement | SemicolonToken
    */
   public function getBodyx(): EditableNode {
     return $this->getBody();

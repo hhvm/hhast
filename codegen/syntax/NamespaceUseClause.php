@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5892b70cbe60b77e5419604b0a5650b4>>
+ * @generated SignedSource<<48b091b96e2c8388f41e3ecd9f4e303e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -114,7 +114,7 @@ final class NamespaceUseClause extends EditableNode {
   }
 
   /**
-   * @returns Missing | ConstToken | FunctionToken
+   * @return null | ConstToken | FunctionToken
    */
   public function getClauseKind(): ?EditableToken {
     if ($this->_clause_kind->isMissing()) {
@@ -124,7 +124,7 @@ final class NamespaceUseClause extends EditableNode {
   }
 
   /**
-   * @returns ConstToken | FunctionToken
+   * @return ConstToken | FunctionToken
    */
   public function getClauseKindx(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_clause_kind);
@@ -146,14 +146,14 @@ final class NamespaceUseClause extends EditableNode {
   }
 
   /**
-   * @returns QualifiedName | NameToken
+   * @return QualifiedName | NameToken
    */
   public function getName(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_name);
   }
 
   /**
-   * @returns QualifiedName | NameToken
+   * @return QualifiedName | NameToken
    */
   public function getNamex(): EditableNode {
     return $this->getName();
@@ -175,7 +175,7 @@ final class NamespaceUseClause extends EditableNode {
   }
 
   /**
-   * @returns Missing | AsToken
+   * @return null | AsToken
    */
   public function getAs(): ?AsToken {
     if ($this->_as->isMissing()) {
@@ -185,7 +185,7 @@ final class NamespaceUseClause extends EditableNode {
   }
 
   /**
-   * @returns AsToken
+   * @return AsToken
    */
   public function getAsx(): AsToken {
     return TypeAssert\instance_of(AsToken::class, $this->_as);
@@ -207,7 +207,7 @@ final class NamespaceUseClause extends EditableNode {
   }
 
   /**
-   * @returns Missing | NameToken
+   * @return null | NameToken
    */
   public function getAlias(): ?NameToken {
     if ($this->_alias->isMissing()) {
@@ -217,7 +217,7 @@ final class NamespaceUseClause extends EditableNode {
   }
 
   /**
-   * @returns NameToken
+   * @return NameToken
    */
   public function getAliasx(): NameToken {
     return TypeAssert\instance_of(NameToken::class, $this->_alias);

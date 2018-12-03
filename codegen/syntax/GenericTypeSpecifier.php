@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cf7142ff4986e7e4130b7ec18bdd4e4c>>
+ * @generated SignedSource<<6de5ec36e6e08b97e4cbd4d3f8e0c86c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -88,14 +88,14 @@ final class GenericTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns QualifiedName | XHPClassNameToken | NameToken | StringToken
+   * @return QualifiedName | XHPClassNameToken | NameToken | StringToken
    */
   public function getClassType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_class_type);
   }
 
   /**
-   * @returns QualifiedName | XHPClassNameToken | NameToken | StringToken
+   * @return QualifiedName | XHPClassNameToken | NameToken | StringToken
    */
   public function getClassTypex(): EditableNode {
     return $this->getClassType();
@@ -117,14 +117,14 @@ final class GenericTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns TypeArguments
+   * @return TypeArguments
    */
   public function getArgumentList(): TypeArguments {
     return TypeAssert\instance_of(TypeArguments::class, $this->_argument_list);
   }
 
   /**
-   * @returns TypeArguments
+   * @return TypeArguments
    */
   public function getArgumentListx(): TypeArguments {
     return $this->getArgumentList();

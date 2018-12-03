@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7bac61816aedcf7555487832714eea69>>
+ * @generated SignedSource<<61fe992e6c4737e61515503ff70bb915>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -161,7 +161,7 @@ final class ConstDeclaration extends EditableNode {
   }
 
   /**
-   * @returns Missing | ProtectedToken | PublicToken
+   * @return null | ProtectedToken | PublicToken
    */
   public function getVisibility(): ?EditableToken {
     if ($this->_visibility->isMissing()) {
@@ -171,7 +171,7 @@ final class ConstDeclaration extends EditableNode {
   }
 
   /**
-   * @returns ProtectedToken | PublicToken
+   * @return ProtectedToken | PublicToken
    */
   public function getVisibilityx(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_visibility);
@@ -200,7 +200,7 @@ final class ConstDeclaration extends EditableNode {
   }
 
   /**
-   * @returns Missing | AbstractToken
+   * @return null | AbstractToken
    */
   public function getAbstract(): ?AbstractToken {
     if ($this->_abstract->isMissing()) {
@@ -210,7 +210,7 @@ final class ConstDeclaration extends EditableNode {
   }
 
   /**
-   * @returns AbstractToken
+   * @return AbstractToken
    */
   public function getAbstractx(): AbstractToken {
     return TypeAssert\instance_of(AbstractToken::class, $this->_abstract);
@@ -239,14 +239,14 @@ final class ConstDeclaration extends EditableNode {
   }
 
   /**
-   * @returns ConstToken
+   * @return ConstToken
    */
   public function getKeyword(): ConstToken {
     return TypeAssert\instance_of(ConstToken::class, $this->_keyword);
   }
 
   /**
-   * @returns ConstToken
+   * @return ConstToken
    */
   public function getKeywordx(): ConstToken {
     return $this->getKeyword();
@@ -275,10 +275,9 @@ final class ConstDeclaration extends EditableNode {
   }
 
   /**
-   * @returns ClassnameTypeSpecifier | GenericTypeSpecifier |
-   * KeysetTypeSpecifier | Missing | NullableTypeSpecifier |
-   * SimpleTypeSpecifier | TypeConstant | VarrayTypeSpecifier |
-   * VectorTypeSpecifier
+   * @return ClassnameTypeSpecifier | GenericTypeSpecifier |
+   * KeysetTypeSpecifier | null | NullableTypeSpecifier | SimpleTypeSpecifier |
+   * TypeConstant | VarrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getTypeSpecifier(): ?EditableNode {
     if ($this->_type_specifier->isMissing()) {
@@ -288,7 +287,7 @@ final class ConstDeclaration extends EditableNode {
   }
 
   /**
-   * @returns ClassnameTypeSpecifier | GenericTypeSpecifier |
+   * @return ClassnameTypeSpecifier | GenericTypeSpecifier |
    * KeysetTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier |
    * TypeConstant | VarrayTypeSpecifier | VectorTypeSpecifier
    */
@@ -319,14 +318,14 @@ final class ConstDeclaration extends EditableNode {
   }
 
   /**
-   * @returns EditableList<ConstantDeclarator>
+   * @return EditableList<ConstantDeclarator>
    */
   public function getDeclarators(): EditableList<ConstantDeclarator> {
     return TypeAssert\instance_of(EditableList::class, $this->_declarators);
   }
 
   /**
-   * @returns EditableList<ConstantDeclarator>
+   * @return EditableList<ConstantDeclarator>
    */
   public function getDeclaratorsx(): EditableList<ConstantDeclarator> {
     return $this->getDeclarators();
@@ -355,14 +354,14 @@ final class ConstDeclaration extends EditableNode {
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSemicolonx(): SemicolonToken {
     return $this->getSemicolon();

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f2c23fd0a030acf19891174b52d810ab>>
+ * @generated SignedSource<<b820c0bbfaa01d1a99e9c55f1f0852aa>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -114,7 +114,7 @@ final class FieldSpecifier extends EditableNode {
   }
 
   /**
-   * @returns Missing | QuestionToken
+   * @return null | QuestionToken
    */
   public function getQuestion(): ?QuestionToken {
     if ($this->_question->isMissing()) {
@@ -124,7 +124,7 @@ final class FieldSpecifier extends EditableNode {
   }
 
   /**
-   * @returns QuestionToken
+   * @return QuestionToken
    */
   public function getQuestionx(): QuestionToken {
     return TypeAssert\instance_of(QuestionToken::class, $this->_question);
@@ -146,14 +146,14 @@ final class FieldSpecifier extends EditableNode {
   }
 
   /**
-   * @returns LiteralExpression | ScopeResolutionExpression
+   * @return LiteralExpression | ScopeResolutionExpression
    */
   public function getName(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_name);
   }
 
   /**
-   * @returns LiteralExpression | ScopeResolutionExpression
+   * @return LiteralExpression | ScopeResolutionExpression
    */
   public function getNamex(): EditableNode {
     return $this->getName();
@@ -175,14 +175,14 @@ final class FieldSpecifier extends EditableNode {
   }
 
   /**
-   * @returns EqualGreaterThanToken
+   * @return EqualGreaterThanToken
    */
   public function getArrow(): EqualGreaterThanToken {
     return TypeAssert\instance_of(EqualGreaterThanToken::class, $this->_arrow);
   }
 
   /**
-   * @returns EqualGreaterThanToken
+   * @return EqualGreaterThanToken
    */
   public function getArrowx(): EqualGreaterThanToken {
     return $this->getArrow();
@@ -204,7 +204,7 @@ final class FieldSpecifier extends EditableNode {
   }
 
   /**
-   * @returns ClosureTypeSpecifier | GenericTypeSpecifier |
+   * @return ClosureTypeSpecifier | GenericTypeSpecifier |
    * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
    * TypeConstant | VectorTypeSpecifier
    */
@@ -213,7 +213,7 @@ final class FieldSpecifier extends EditableNode {
   }
 
   /**
-   * @returns ClosureTypeSpecifier | GenericTypeSpecifier |
+   * @return ClosureTypeSpecifier | GenericTypeSpecifier |
    * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
    * TypeConstant | VectorTypeSpecifier
    */

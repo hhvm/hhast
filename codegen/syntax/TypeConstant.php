@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4d6e2db00b0b43187a1e2d66fd84ef7e>>
+ * @generated SignedSource<<75a0195bb89ea93cea689a610e73fa8b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,14 +101,14 @@ final class TypeConstant extends EditableNode {
   }
 
   /**
-   * @returns NameToken | ParentToken | SelfToken | ThisToken | TypeConstant
+   * @return NameToken | ParentToken | SelfToken | ThisToken | TypeConstant
    */
   public function getLeftType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_left_type);
   }
 
   /**
-   * @returns NameToken | ParentToken | SelfToken | ThisToken | TypeConstant
+   * @return NameToken | ParentToken | SelfToken | ThisToken | TypeConstant
    */
   public function getLeftTypex(): EditableNode {
     return $this->getLeftType();
@@ -130,14 +130,14 @@ final class TypeConstant extends EditableNode {
   }
 
   /**
-   * @returns ColonColonToken
+   * @return ColonColonToken
    */
   public function getSeparator(): ColonColonToken {
     return TypeAssert\instance_of(ColonColonToken::class, $this->_separator);
   }
 
   /**
-   * @returns ColonColonToken
+   * @return ColonColonToken
    */
   public function getSeparatorx(): ColonColonToken {
     return $this->getSeparator();
@@ -159,14 +159,14 @@ final class TypeConstant extends EditableNode {
   }
 
   /**
-   * @returns NameToken
+   * @return NameToken
    */
   public function getRightType(): NameToken {
     return TypeAssert\instance_of(NameToken::class, $this->_right_type);
   }
 
   /**
-   * @returns NameToken
+   * @return NameToken
    */
   public function getRightTypex(): NameToken {
     return $this->getRightType();

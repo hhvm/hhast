@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<70a95be935fffb99a17ecac91202623f>>
+ * @generated SignedSource<<380fb05bed3d8a4d3a1c8d6ff3d01c5b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -89,7 +89,7 @@ final class MarkupSuffix extends EditableNode {
   }
 
   /**
-   * @returns LessThanQuestionToken
+   * @return LessThanQuestionToken
    */
   public function getLessThanQuestion(): LessThanQuestionToken {
     return TypeAssert\instance_of(
@@ -99,7 +99,7 @@ final class MarkupSuffix extends EditableNode {
   }
 
   /**
-   * @returns LessThanQuestionToken
+   * @return LessThanQuestionToken
    */
   public function getLessThanQuestionx(): LessThanQuestionToken {
     return $this->getLessThanQuestion();
@@ -121,7 +121,7 @@ final class MarkupSuffix extends EditableNode {
   }
 
   /**
-   * @returns Missing | EqualToken | NameToken
+   * @return null | EqualToken | NameToken
    */
   public function getName(): ?EditableToken {
     if ($this->_name->isMissing()) {
@@ -131,7 +131,7 @@ final class MarkupSuffix extends EditableNode {
   }
 
   /**
-   * @returns EqualToken | NameToken
+   * @return EqualToken | NameToken
    */
   public function getNamex(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_name);

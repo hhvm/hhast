@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<57d0293a56e6bb183a148a4c4a8b5468>>
+ * @generated SignedSource<<2f93db371fa8b2ca847c176c8ac817e7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -145,14 +145,14 @@ final class DictionaryIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns DictToken
+   * @return DictToken
    */
   public function getKeyword(): DictToken {
     return TypeAssert\instance_of(DictToken::class, $this->_keyword);
   }
 
   /**
-   * @returns DictToken
+   * @return DictToken
    */
   public function getKeywordx(): DictToken {
     return $this->getKeyword();
@@ -180,7 +180,7 @@ final class DictionaryIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns Missing
+   * @return null
    */
   public function getExplicitType(): ?EditableNode {
     if ($this->_explicit_type->isMissing()) {
@@ -190,7 +190,7 @@ final class DictionaryIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns
+   * @return
    */
   public function getExplicitTypex(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_explicit_type);
@@ -218,7 +218,7 @@ final class DictionaryIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns LeftBracketToken
+   * @return LeftBracketToken
    */
   public function getLeftBracket(): LeftBracketToken {
     return
@@ -226,7 +226,7 @@ final class DictionaryIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns LeftBracketToken
+   * @return LeftBracketToken
    */
   public function getLeftBracketx(): LeftBracketToken {
     return $this->getLeftBracket();
@@ -254,7 +254,7 @@ final class DictionaryIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList<ElementInitializer> | Missing
+   * @return EditableList<ElementInitializer> | null
    */
   public function getMembers(): ?EditableList<ElementInitializer> {
     if ($this->_members->isMissing()) {
@@ -264,7 +264,7 @@ final class DictionaryIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList<ElementInitializer>
+   * @return EditableList<ElementInitializer>
    */
   public function getMembersx(): EditableList<ElementInitializer> {
     return TypeAssert\instance_of(EditableList::class, $this->_members);
@@ -292,7 +292,7 @@ final class DictionaryIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns RightBracketToken
+   * @return RightBracketToken
    */
   public function getRightBracket(): RightBracketToken {
     return
@@ -300,7 +300,7 @@ final class DictionaryIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns RightBracketToken
+   * @return RightBracketToken
    */
   public function getRightBracketx(): RightBracketToken {
     return $this->getRightBracket();

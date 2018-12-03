@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ad9bc060af97cef9f55ad959bef34ab8>>
+ * @generated SignedSource<<7de13b3e1e58f71e0375b56d59008061>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -82,14 +82,14 @@ final class XHPRequired extends EditableNode {
   }
 
   /**
-   * @returns AtToken
+   * @return AtToken
    */
   public function getAt(): AtToken {
     return TypeAssert\instance_of(AtToken::class, $this->_at);
   }
 
   /**
-   * @returns AtToken
+   * @return AtToken
    */
   public function getAtx(): AtToken {
     return $this->getAt();
@@ -111,14 +111,14 @@ final class XHPRequired extends EditableNode {
   }
 
   /**
-   * @returns RequiredToken
+   * @return RequiredToken
    */
   public function getKeyword(): RequiredToken {
     return TypeAssert\instance_of(RequiredToken::class, $this->_keyword);
   }
 
   /**
-   * @returns RequiredToken
+   * @return RequiredToken
    */
   public function getKeywordx(): RequiredToken {
     return $this->getKeyword();

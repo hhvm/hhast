@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<17c9cd27ccd934dfba04bd7db1c09d1d>>
+ * @generated SignedSource<<efeeab9bc321b2af4dd477a9901773d1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -71,7 +71,7 @@ final class SimpleTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns QualifiedName | XHPClassNameToken | ConstructToken | ArrayToken |
+   * @return QualifiedName | XHPClassNameToken | ConstructToken | ArrayToken |
    * ArraykeyToken | BoolToken | BooleanToken | DarrayToken | DictToken |
    * DoubleToken | FloatToken | IntToken | IntegerToken | KeysetToken |
    * MixedToken | NameToken | NoreturnToken | NumToken | ObjectToken |
@@ -83,7 +83,7 @@ final class SimpleTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns QualifiedName | XHPClassNameToken | ConstructToken | ArrayToken |
+   * @return QualifiedName | XHPClassNameToken | ConstructToken | ArrayToken |
    * ArraykeyToken | BoolToken | BooleanToken | DarrayToken | DictToken |
    * DoubleToken | FloatToken | IntToken | IntegerToken | KeysetToken |
    * MixedToken | NameToken | NoreturnToken | NumToken | ObjectToken |

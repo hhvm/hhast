@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6724d3be551d026a6315bb62eba9ceab>>
+ * @generated SignedSource<<54671d8dab3acfa7d4ea77395a7f6cb0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -82,14 +82,14 @@ final class NullableTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns QuestionToken
+   * @return QuestionToken
    */
   public function getQuestion(): QuestionToken {
     return TypeAssert\instance_of(QuestionToken::class, $this->_question);
   }
 
   /**
-   * @returns QuestionToken
+   * @return QuestionToken
    */
   public function getQuestionx(): QuestionToken {
     return $this->getQuestion();
@@ -111,7 +111,7 @@ final class NullableTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns ClosureTypeSpecifier | DictionaryTypeSpecifier |
+   * @return ClosureTypeSpecifier | DictionaryTypeSpecifier |
    * GenericTypeSpecifier | KeysetTypeSpecifier | MapArrayTypeSpecifier |
    * ShapeTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier |
    * TupleTypeSpecifier | TypeConstant | VectorArrayTypeSpecifier |
@@ -122,7 +122,7 @@ final class NullableTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns ClosureTypeSpecifier | DictionaryTypeSpecifier |
+   * @return ClosureTypeSpecifier | DictionaryTypeSpecifier |
    * GenericTypeSpecifier | KeysetTypeSpecifier | MapArrayTypeSpecifier |
    * ShapeTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier |
    * TupleTypeSpecifier | TypeConstant | VectorArrayTypeSpecifier |

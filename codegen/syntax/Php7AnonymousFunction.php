@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4c6a37864effc40565d4b6f978a5d07f>>
+ * @generated SignedSource<<d63db96ab03aa21219408f21a8bbf352>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -274,7 +274,7 @@ final class Php7AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns Missing
+   * @return null
    */
   public function getAttributeSpec(): ?EditableNode {
     if ($this->_attribute_spec->isMissing()) {
@@ -284,7 +284,7 @@ final class Php7AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns
+   * @return
    */
   public function getAttributeSpecx(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_attribute_spec);
@@ -320,7 +320,7 @@ final class Php7AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns Missing
+   * @return null
    */
   public function getStaticKeyword(): ?EditableNode {
     if ($this->_static_keyword->isMissing()) {
@@ -330,7 +330,7 @@ final class Php7AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns
+   * @return
    */
   public function getStaticKeywordx(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_static_keyword);
@@ -366,7 +366,7 @@ final class Php7AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns Missing
+   * @return null
    */
   public function getAsyncKeyword(): ?EditableNode {
     if ($this->_async_keyword->isMissing()) {
@@ -376,7 +376,7 @@ final class Php7AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns
+   * @return
    */
   public function getAsyncKeywordx(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_async_keyword);
@@ -412,7 +412,7 @@ final class Php7AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns Missing
+   * @return null
    */
   public function getCoroutineKeyword(): ?EditableNode {
     if ($this->_coroutine_keyword->isMissing()) {
@@ -423,7 +423,7 @@ final class Php7AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns
+   * @return
    */
   public function getCoroutineKeywordx(): EditableNode {
     return
@@ -460,7 +460,7 @@ final class Php7AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns FunctionToken
+   * @return FunctionToken
    */
   public function getFunctionKeyword(): FunctionToken {
     return
@@ -468,7 +468,7 @@ final class Php7AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns FunctionToken
+   * @return FunctionToken
    */
   public function getFunctionKeywordx(): FunctionToken {
     return $this->getFunctionKeyword();
@@ -504,7 +504,7 @@ final class Php7AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns Missing
+   * @return null
    */
   public function getAmpersand(): ?EditableNode {
     if ($this->_ampersand->isMissing()) {
@@ -514,7 +514,7 @@ final class Php7AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns
+   * @return
    */
   public function getAmpersandx(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_ampersand);
@@ -550,14 +550,14 @@ final class Php7AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParenx(): LeftParenToken {
     return $this->getLeftParen();
@@ -593,7 +593,7 @@ final class Php7AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns Missing
+   * @return null
    */
   public function getParameters(): ?EditableNode {
     if ($this->_parameters->isMissing()) {
@@ -603,7 +603,7 @@ final class Php7AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns
+   * @return
    */
   public function getParametersx(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_parameters);
@@ -639,14 +639,14 @@ final class Php7AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParenx(): RightParenToken {
     return $this->getRightParen();
@@ -682,7 +682,7 @@ final class Php7AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns AnonymousFunctionUseClause
+   * @return AnonymousFunctionUseClause
    */
   public function getUse(): AnonymousFunctionUseClause {
     return
@@ -690,7 +690,7 @@ final class Php7AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns AnonymousFunctionUseClause
+   * @return AnonymousFunctionUseClause
    */
   public function getUsex(): AnonymousFunctionUseClause {
     return $this->getUse();
@@ -726,14 +726,14 @@ final class Php7AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns ColonToken
+   * @return ColonToken
    */
   public function getColon(): ColonToken {
     return TypeAssert\instance_of(ColonToken::class, $this->_colon);
   }
 
   /**
-   * @returns ColonToken
+   * @return ColonToken
    */
   public function getColonx(): ColonToken {
     return $this->getColon();
@@ -769,14 +769,14 @@ final class Php7AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns SimpleTypeSpecifier
+   * @return SimpleTypeSpecifier
    */
   public function getType(): SimpleTypeSpecifier {
     return TypeAssert\instance_of(SimpleTypeSpecifier::class, $this->_type);
   }
 
   /**
-   * @returns SimpleTypeSpecifier
+   * @return SimpleTypeSpecifier
    */
   public function getTypex(): SimpleTypeSpecifier {
     return $this->getType();
@@ -812,14 +812,14 @@ final class Php7AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns CompoundStatement
+   * @return CompoundStatement
    */
   public function getBody(): CompoundStatement {
     return TypeAssert\instance_of(CompoundStatement::class, $this->_body);
   }
 
   /**
-   * @returns CompoundStatement
+   * @return CompoundStatement
    */
   public function getBodyx(): CompoundStatement {
     return $this->getBody();

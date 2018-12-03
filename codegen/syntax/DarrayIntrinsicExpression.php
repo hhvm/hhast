@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a94b5a6994b8d7360fcd5d2b9f6edd6c>>
+ * @generated SignedSource<<020ebd61cc100c087d36c280537e04d6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -145,14 +145,14 @@ final class DarrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns DarrayToken
+   * @return DarrayToken
    */
   public function getKeyword(): DarrayToken {
     return TypeAssert\instance_of(DarrayToken::class, $this->_keyword);
   }
 
   /**
-   * @returns DarrayToken
+   * @return DarrayToken
    */
   public function getKeywordx(): DarrayToken {
     return $this->getKeyword();
@@ -180,7 +180,7 @@ final class DarrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns Missing
+   * @return null
    */
   public function getExplicitType(): ?EditableNode {
     if ($this->_explicit_type->isMissing()) {
@@ -190,7 +190,7 @@ final class DarrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns
+   * @return
    */
   public function getExplicitTypex(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_explicit_type);
@@ -218,7 +218,7 @@ final class DarrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns LeftBracketToken
+   * @return LeftBracketToken
    */
   public function getLeftBracket(): LeftBracketToken {
     return
@@ -226,7 +226,7 @@ final class DarrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns LeftBracketToken
+   * @return LeftBracketToken
    */
   public function getLeftBracketx(): LeftBracketToken {
     return $this->getLeftBracket();
@@ -254,7 +254,7 @@ final class DarrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList<ElementInitializer> | Missing
+   * @return EditableList<ElementInitializer> | null
    */
   public function getMembers(): ?EditableList<ElementInitializer> {
     if ($this->_members->isMissing()) {
@@ -264,7 +264,7 @@ final class DarrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList<ElementInitializer>
+   * @return EditableList<ElementInitializer>
    */
   public function getMembersx(): EditableList<ElementInitializer> {
     return TypeAssert\instance_of(EditableList::class, $this->_members);
@@ -292,7 +292,7 @@ final class DarrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns RightBracketToken
+   * @return RightBracketToken
    */
   public function getRightBracket(): RightBracketToken {
     return
@@ -300,7 +300,7 @@ final class DarrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns RightBracketToken
+   * @return RightBracketToken
    */
   public function getRightBracketx(): RightBracketToken {
     return $this->getRightBracket();

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<08bafd7156dbde9c1d1dba0412da4800>>
+ * @generated SignedSource<<83303bc03f7ceb53bc99a3144833d0e1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -135,14 +135,14 @@ final class ClassnameTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns ClassnameToken
+   * @return ClassnameToken
    */
   public function getKeyword(): ClassnameToken {
     return TypeAssert\instance_of(ClassnameToken::class, $this->_keyword);
   }
 
   /**
-   * @returns ClassnameToken
+   * @return ClassnameToken
    */
   public function getKeywordx(): ClassnameToken {
     return $this->getKeyword();
@@ -170,7 +170,7 @@ final class ClassnameTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns Missing | LessThanToken
+   * @return null | LessThanToken
    */
   public function getLeftAngle(): ?LessThanToken {
     if ($this->_left_angle->isMissing()) {
@@ -180,7 +180,7 @@ final class ClassnameTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns LessThanToken
+   * @return LessThanToken
    */
   public function getLeftAnglex(): LessThanToken {
     return TypeAssert\instance_of(LessThanToken::class, $this->_left_angle);
@@ -208,7 +208,7 @@ final class ClassnameTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns Missing | SimpleTypeSpecifier | TypeConstant
+   * @return null | SimpleTypeSpecifier | TypeConstant
    */
   public function getType(): ?EditableNode {
     if ($this->_type->isMissing()) {
@@ -218,7 +218,7 @@ final class ClassnameTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns SimpleTypeSpecifier | TypeConstant
+   * @return SimpleTypeSpecifier | TypeConstant
    */
   public function getTypex(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);
@@ -246,7 +246,7 @@ final class ClassnameTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns Missing
+   * @return null
    */
   public function getTrailingComma(): ?EditableNode {
     if ($this->_trailing_comma->isMissing()) {
@@ -256,7 +256,7 @@ final class ClassnameTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns
+   * @return
    */
   public function getTrailingCommax(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_trailing_comma);
@@ -284,7 +284,7 @@ final class ClassnameTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns Missing | GreaterThanToken
+   * @return null | GreaterThanToken
    */
   public function getRightAngle(): ?GreaterThanToken {
     if ($this->_right_angle->isMissing()) {
@@ -294,7 +294,7 @@ final class ClassnameTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns GreaterThanToken
+   * @return GreaterThanToken
    */
   public function getRightAnglex(): GreaterThanToken {
     return TypeAssert\instance_of(GreaterThanToken::class, $this->_right_angle);

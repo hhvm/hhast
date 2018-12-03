@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f995a5961ac2ae282bd0b3c80c0164ef>>
+ * @generated SignedSource<<104863f267c902e235bfbf6f0a444c00>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -133,14 +133,14 @@ final class TraitUseConflictResolution extends EditableNode {
   }
 
   /**
-   * @returns UseToken
+   * @return UseToken
    */
   public function getKeyword(): UseToken {
     return TypeAssert\instance_of(UseToken::class, $this->_keyword);
   }
 
   /**
-   * @returns UseToken
+   * @return UseToken
    */
   public function getKeywordx(): UseToken {
     return $this->getKeyword();
@@ -168,14 +168,14 @@ final class TraitUseConflictResolution extends EditableNode {
   }
 
   /**
-   * @returns EditableList<SimpleTypeSpecifier>
+   * @return EditableList<SimpleTypeSpecifier>
    */
   public function getNames(): EditableList<SimpleTypeSpecifier> {
     return TypeAssert\instance_of(EditableList::class, $this->_names);
   }
 
   /**
-   * @returns EditableList<SimpleTypeSpecifier>
+   * @return EditableList<SimpleTypeSpecifier>
    */
   public function getNamesx(): EditableList<SimpleTypeSpecifier> {
     return $this->getNames();
@@ -203,14 +203,14 @@ final class TraitUseConflictResolution extends EditableNode {
   }
 
   /**
-   * @returns LeftBraceToken
+   * @return LeftBraceToken
    */
   public function getLeftBrace(): LeftBraceToken {
     return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
   }
 
   /**
-   * @returns LeftBraceToken
+   * @return LeftBraceToken
    */
   public function getLeftBracex(): LeftBraceToken {
     return $this->getLeftBrace();
@@ -238,8 +238,8 @@ final class TraitUseConflictResolution extends EditableNode {
   }
 
   /**
-   * @returns EditableList<TraitUseAliasItem> | EditableList<EditableNode> |
-   * EditableList<TraitUsePrecedenceItem> | Missing
+   * @return EditableList<TraitUseAliasItem> | EditableList<EditableNode> |
+   * EditableList<TraitUsePrecedenceItem> | null
    */
   public function getClauses(): ?EditableList<EditableNode> {
     if ($this->_clauses->isMissing()) {
@@ -249,7 +249,7 @@ final class TraitUseConflictResolution extends EditableNode {
   }
 
   /**
-   * @returns EditableList<TraitUseAliasItem> | EditableList<EditableNode> |
+   * @return EditableList<TraitUseAliasItem> | EditableList<EditableNode> |
    * EditableList<TraitUsePrecedenceItem>
    */
   public function getClausesx(): EditableList<EditableNode> {
@@ -278,14 +278,14 @@ final class TraitUseConflictResolution extends EditableNode {
   }
 
   /**
-   * @returns RightBraceToken
+   * @return RightBraceToken
    */
   public function getRightBrace(): RightBraceToken {
     return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
   }
 
   /**
-   * @returns RightBraceToken
+   * @return RightBraceToken
    */
   public function getRightBracex(): RightBraceToken {
     return $this->getRightBrace();

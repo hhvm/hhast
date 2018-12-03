@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f5c5be209252300ac03c604491d6cd3d>>
+ * @generated SignedSource<<ef7df98ad2a607aa15d37820b7113aea>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,7 +101,7 @@ final class SafeMemberSelectionExpression extends EditableNode {
   }
 
   /**
-   * @returns FunctionCallExpression | MemberSelectionExpression |
+   * @return FunctionCallExpression | MemberSelectionExpression |
    * PrefixUnaryExpression | SafeMemberSelectionExpression |
    * ScopeResolutionExpression | VariableExpression
    */
@@ -110,7 +110,7 @@ final class SafeMemberSelectionExpression extends EditableNode {
   }
 
   /**
-   * @returns FunctionCallExpression | MemberSelectionExpression |
+   * @return FunctionCallExpression | MemberSelectionExpression |
    * PrefixUnaryExpression | SafeMemberSelectionExpression |
    * ScopeResolutionExpression | VariableExpression
    */
@@ -134,7 +134,7 @@ final class SafeMemberSelectionExpression extends EditableNode {
   }
 
   /**
-   * @returns QuestionMinusGreaterThanToken
+   * @return QuestionMinusGreaterThanToken
    */
   public function getOperator(): QuestionMinusGreaterThanToken {
     return TypeAssert\instance_of(
@@ -144,7 +144,7 @@ final class SafeMemberSelectionExpression extends EditableNode {
   }
 
   /**
-   * @returns QuestionMinusGreaterThanToken
+   * @return QuestionMinusGreaterThanToken
    */
   public function getOperatorx(): QuestionMinusGreaterThanToken {
     return $this->getOperator();
@@ -166,14 +166,14 @@ final class SafeMemberSelectionExpression extends EditableNode {
   }
 
   /**
-   * @returns PrefixUnaryExpression | XHPClassNameToken | NameToken
+   * @return PrefixUnaryExpression | XHPClassNameToken | NameToken
    */
   public function getName(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_name);
   }
 
   /**
-   * @returns PrefixUnaryExpression | XHPClassNameToken | NameToken
+   * @return PrefixUnaryExpression | XHPClassNameToken | NameToken
    */
   public function getNamex(): EditableNode {
     return $this->getName();

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<52ad1657e248e81337b7f612c8f576f6>>
+ * @generated SignedSource<<0778d4161d8d42f7246d448261462a00>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,14 +101,14 @@ final class FunctionStaticStatement extends EditableNode {
   }
 
   /**
-   * @returns StaticToken
+   * @return StaticToken
    */
   public function getStaticKeyword(): StaticToken {
     return TypeAssert\instance_of(StaticToken::class, $this->_static_keyword);
   }
 
   /**
-   * @returns StaticToken
+   * @return StaticToken
    */
   public function getStaticKeywordx(): StaticToken {
     return $this->getStaticKeyword();
@@ -130,14 +130,14 @@ final class FunctionStaticStatement extends EditableNode {
   }
 
   /**
-   * @returns EditableList<StaticDeclarator>
+   * @return EditableList<StaticDeclarator>
    */
   public function getDeclarations(): EditableList<StaticDeclarator> {
     return TypeAssert\instance_of(EditableList::class, $this->_declarations);
   }
 
   /**
-   * @returns EditableList<StaticDeclarator>
+   * @return EditableList<StaticDeclarator>
    */
   public function getDeclarationsx(): EditableList<StaticDeclarator> {
     return $this->getDeclarations();
@@ -159,14 +159,14 @@ final class FunctionStaticStatement extends EditableNode {
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSemicolonx(): SemicolonToken {
     return $this->getSemicolon();

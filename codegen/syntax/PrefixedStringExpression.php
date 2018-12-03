@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dd6466e39bf96392a097f795856d869f>>
+ * @generated SignedSource<<8a5328ddb2884528c7791b14d1d8912e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -82,14 +82,14 @@ final class PrefixedStringExpression extends EditableNode {
   }
 
   /**
-   * @returns unknown
+   * @return unknown
    */
   public function getName(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_name);
   }
 
   /**
-   * @returns unknown
+   * @return unknown
    */
   public function getNamex(): EditableNode {
     return $this->getName();
@@ -111,14 +111,14 @@ final class PrefixedStringExpression extends EditableNode {
   }
 
   /**
-   * @returns unknown
+   * @return unknown
    */
   public function getStr(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_str);
   }
 
   /**
-   * @returns unknown
+   * @return unknown
    */
   public function getStrx(): EditableNode {
     return $this->getStr();

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<de3ecaead112058e286d80170d4526e7>>
+ * @generated SignedSource<<4a8724afe12b3c5659012f449ad27e52>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -82,7 +82,7 @@ final class ListItem extends EditableNode {
   }
 
   /**
-   * @returns AnonymousFunction | ArrayCreationExpression |
+   * @return AnonymousFunction | ArrayCreationExpression |
    * ArrayIntrinsicExpression | AsExpression | AwaitableCreationExpression |
    * BinaryExpression | CastExpression | ClassnameTypeSpecifier |
    * ClosureParameterTypeSpecifier | ClosureTypeSpecifier |
@@ -94,7 +94,7 @@ final class ListItem extends EditableNode {
    * InclusionExpression | InstanceofExpression | IsExpression |
    * IssetExpression | KeysetIntrinsicExpression | LambdaExpression |
    * ListExpression | LiteralExpression | MapArrayTypeSpecifier |
-   * MemberSelectionExpression | Missing | NamespaceUseClause |
+   * MemberSelectionExpression | null | NamespaceUseClause |
    * NullableTypeSpecifier | ObjectCreationExpression | ParameterDeclaration |
    * ParenthesizedExpression | PipeVariableExpression | PostfixUnaryExpression
    * | PrefixUnaryExpression | PropertyDeclarator | QualifiedName |
@@ -117,7 +117,7 @@ final class ListItem extends EditableNode {
   }
 
   /**
-   * @returns AnonymousFunction | ArrayCreationExpression |
+   * @return AnonymousFunction | ArrayCreationExpression |
    * ArrayIntrinsicExpression | AsExpression | AwaitableCreationExpression |
    * BinaryExpression | CastExpression | ClassnameTypeSpecifier |
    * ClosureParameterTypeSpecifier | ClosureTypeSpecifier |
@@ -163,7 +163,7 @@ final class ListItem extends EditableNode {
   }
 
   /**
-   * @returns Missing | CommaToken | SemicolonToken | BackslashToken
+   * @return null | CommaToken | SemicolonToken | BackslashToken
    */
   public function getSeparator(): ?EditableToken {
     if ($this->_separator->isMissing()) {
@@ -173,7 +173,7 @@ final class ListItem extends EditableNode {
   }
 
   /**
-   * @returns CommaToken | SemicolonToken | BackslashToken
+   * @return CommaToken | SemicolonToken | BackslashToken
    */
   public function getSeparatorx(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_separator);

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<88837a7a4fe65ff619ac7df60ef13a6c>>
+ * @generated SignedSource<<0ee682553a15543d8b54011a4ec58008>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -119,14 +119,14 @@ final class ArrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns ArrayToken
+   * @return ArrayToken
    */
   public function getKeyword(): ArrayToken {
     return TypeAssert\instance_of(ArrayToken::class, $this->_keyword);
   }
 
   /**
-   * @returns ArrayToken
+   * @return ArrayToken
    */
   public function getKeywordx(): ArrayToken {
     return $this->getKeyword();
@@ -149,14 +149,14 @@ final class ArrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParenx(): LeftParenToken {
     return $this->getLeftParen();
@@ -183,7 +183,7 @@ final class ArrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList<AnonymousFunction> | EditableList<EditableNode> |
+   * @return EditableList<AnonymousFunction> | EditableList<EditableNode> |
    * EditableList<ArrayCreationExpression> |
    * EditableList<ArrayIntrinsicExpression> |
    * EditableList<AwaitableCreationExpression> | EditableList<BinaryExpression>
@@ -196,7 +196,7 @@ final class ArrayIntrinsicExpression extends EditableNode {
    * EditableList<ScopeResolutionExpression> |
    * EditableList<SubscriptExpression> | EditableList<NameToken> |
    * EditableList<TupleExpression> | EditableList<VariableExpression> |
-   * EditableList<VectorIntrinsicExpression> | Missing
+   * EditableList<VectorIntrinsicExpression> | null
    */
   public function getMembers(): ?EditableList<EditableNode> {
     if ($this->_members->isMissing()) {
@@ -206,7 +206,7 @@ final class ArrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList<AnonymousFunction> | EditableList<EditableNode> |
+   * @return EditableList<AnonymousFunction> | EditableList<EditableNode> |
    * EditableList<ArrayCreationExpression> |
    * EditableList<ArrayIntrinsicExpression> |
    * EditableList<AwaitableCreationExpression> | EditableList<BinaryExpression>
@@ -242,14 +242,14 @@ final class ArrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParenx(): RightParenToken {
     return $this->getRightParen();

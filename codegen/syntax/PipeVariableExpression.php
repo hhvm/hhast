@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<954899c7bb0796e80afe72c6330afc77>>
+ * @generated SignedSource<<65cf07941a12082f1672cdb347000000>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -71,14 +71,14 @@ final class PipeVariableExpression extends EditableNode {
   }
 
   /**
-   * @returns unknown
+   * @return unknown
    */
   public function getExpression(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_expression);
   }
 
   /**
-   * @returns unknown
+   * @return unknown
    */
   public function getExpressionx(): EditableNode {
     return $this->getExpression();

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d9bac9601f00d81a1848e52e1c61111a>>
+ * @generated SignedSource<<26b10d3d5da8efae924119e0164209f7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -82,14 +82,14 @@ final class DefaultLabel extends EditableNode {
   }
 
   /**
-   * @returns DefaultToken
+   * @return DefaultToken
    */
   public function getKeyword(): DefaultToken {
     return TypeAssert\instance_of(DefaultToken::class, $this->_keyword);
   }
 
   /**
-   * @returns DefaultToken
+   * @return DefaultToken
    */
   public function getKeywordx(): DefaultToken {
     return $this->getKeyword();
@@ -111,14 +111,14 @@ final class DefaultLabel extends EditableNode {
   }
 
   /**
-   * @returns ColonToken | SemicolonToken
+   * @return ColonToken | SemicolonToken
    */
   public function getColon(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_colon);
   }
 
   /**
-   * @returns ColonToken | SemicolonToken
+   * @return ColonToken | SemicolonToken
    */
   public function getColonx(): EditableToken {
     return $this->getColon();

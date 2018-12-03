@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e6bae27989fc692c92fea69759970a1f>>
+ * @generated SignedSource<<f5fb0079b4d56dfa30164e7c65a0d39e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,7 +101,7 @@ final class ArrayCreationExpression extends EditableNode {
   }
 
   /**
-   * @returns LeftBracketToken
+   * @return LeftBracketToken
    */
   public function getLeftBracket(): LeftBracketToken {
     return
@@ -109,7 +109,7 @@ final class ArrayCreationExpression extends EditableNode {
   }
 
   /**
-   * @returns LeftBracketToken
+   * @return LeftBracketToken
    */
   public function getLeftBracketx(): LeftBracketToken {
     return $this->getLeftBracket();
@@ -131,10 +131,9 @@ final class ArrayCreationExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList<EditableNode> |
-   * EditableList<ArrayCreationExpression> |
-   * EditableList<ArrayIntrinsicExpression> | EditableList<BinaryExpression> |
-   * EditableList<ConditionalExpression> |
+   * @return EditableList<EditableNode> | EditableList<ArrayCreationExpression>
+   * | EditableList<ArrayIntrinsicExpression> | EditableList<BinaryExpression>
+   * | EditableList<ConditionalExpression> |
    * EditableList<DictionaryIntrinsicExpression> |
    * EditableList<ElementInitializer> | EditableList<FunctionCallExpression> |
    * EditableList<KeysetIntrinsicExpression> | EditableList<LiteralExpression>
@@ -143,7 +142,7 @@ final class ArrayCreationExpression extends EditableNode {
    * EditableList<ScopeResolutionExpression> |
    * EditableList<SubscriptExpression> | EditableList<NameToken> |
    * EditableList<VariableExpression> | EditableList<VarrayIntrinsicExpression>
-   * | EditableList<VectorIntrinsicExpression> | Missing
+   * | EditableList<VectorIntrinsicExpression> | null
    */
   public function getMembers(): ?EditableList<EditableNode> {
     if ($this->_members->isMissing()) {
@@ -153,10 +152,9 @@ final class ArrayCreationExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList<EditableNode> |
-   * EditableList<ArrayCreationExpression> |
-   * EditableList<ArrayIntrinsicExpression> | EditableList<BinaryExpression> |
-   * EditableList<ConditionalExpression> |
+   * @return EditableList<EditableNode> | EditableList<ArrayCreationExpression>
+   * | EditableList<ArrayIntrinsicExpression> | EditableList<BinaryExpression>
+   * | EditableList<ConditionalExpression> |
    * EditableList<DictionaryIntrinsicExpression> |
    * EditableList<ElementInitializer> | EditableList<FunctionCallExpression> |
    * EditableList<KeysetIntrinsicExpression> | EditableList<LiteralExpression>
@@ -187,7 +185,7 @@ final class ArrayCreationExpression extends EditableNode {
   }
 
   /**
-   * @returns RightBracketToken
+   * @return RightBracketToken
    */
   public function getRightBracket(): RightBracketToken {
     return
@@ -195,7 +193,7 @@ final class ArrayCreationExpression extends EditableNode {
   }
 
   /**
-   * @returns RightBracketToken
+   * @return RightBracketToken
    */
   public function getRightBracketx(): RightBracketToken {
     return $this->getRightBracket();

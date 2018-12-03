@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fc9ce1fb37896c4298f2a586f0cfb3f5>>
+ * @generated SignedSource<<5d3855770652604757e323702066bde4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -116,14 +116,14 @@ final class NamespaceUseDeclaration
   }
 
   /**
-   * @returns UseToken
+   * @return UseToken
    */
   public function getKeyword(): UseToken {
     return TypeAssert\instance_of(UseToken::class, $this->_keyword);
   }
 
   /**
-   * @returns UseToken
+   * @return UseToken
    */
   public function getKeywordx(): UseToken {
     return $this->getKeyword();
@@ -146,7 +146,7 @@ final class NamespaceUseDeclaration
   }
 
   /**
-   * @returns Missing | ConstToken | FunctionToken | NamespaceToken | TypeToken
+   * @return null | ConstToken | FunctionToken | NamespaceToken | TypeToken
    */
   public function getKind(): ?EditableToken {
     if ($this->_kind->isMissing()) {
@@ -156,7 +156,7 @@ final class NamespaceUseDeclaration
   }
 
   /**
-   * @returns ConstToken | FunctionToken | NamespaceToken | TypeToken
+   * @return ConstToken | FunctionToken | NamespaceToken | TypeToken
    */
   public function getKindx(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_kind);
@@ -178,14 +178,14 @@ final class NamespaceUseDeclaration
   }
 
   /**
-   * @returns EditableList<NamespaceUseClause>
+   * @return EditableList<NamespaceUseClause>
    */
   public function getClauses(): EditableList<NamespaceUseClause> {
     return TypeAssert\instance_of(EditableList::class, $this->_clauses);
   }
 
   /**
-   * @returns EditableList<NamespaceUseClause>
+   * @return EditableList<NamespaceUseClause>
    */
   public function getClausesx(): EditableList<NamespaceUseClause> {
     return $this->getClauses();
@@ -207,14 +207,14 @@ final class NamespaceUseDeclaration
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSemicolonx(): SemicolonToken {
     return $this->getSemicolon();

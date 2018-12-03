@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ea4d52becb712fd11b7b977d2ddc929d>>
+ * @generated SignedSource<<8a1fb20674d6644f8671275e37181d54>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,14 +101,14 @@ abstract class NamespaceDeclarationGeneratedBase extends EditableNode {
   }
 
   /**
-   * @returns NamespaceToken
+   * @return NamespaceToken
    */
   public function getKeyword(): NamespaceToken {
     return TypeAssert\instance_of(NamespaceToken::class, $this->_keyword);
   }
 
   /**
-   * @returns NamespaceToken
+   * @return NamespaceToken
    */
   public function getKeywordx(): NamespaceToken {
     return $this->getKeyword();
@@ -130,7 +130,7 @@ abstract class NamespaceDeclarationGeneratedBase extends EditableNode {
   }
 
   /**
-   * @returns Missing | QualifiedName | NameToken
+   * @return null | QualifiedName | NameToken
    */
   public function getName(): ?EditableNode {
     if ($this->_name->isMissing()) {
@@ -140,7 +140,7 @@ abstract class NamespaceDeclarationGeneratedBase extends EditableNode {
   }
 
   /**
-   * @returns QualifiedName | NameToken
+   * @return QualifiedName | NameToken
    */
   public function getNamex(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_name);
@@ -162,14 +162,14 @@ abstract class NamespaceDeclarationGeneratedBase extends EditableNode {
   }
 
   /**
-   * @returns NamespaceBody | NamespaceEmptyBody
+   * @return NamespaceBody | NamespaceEmptyBody
    */
   public function getBody(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_body);
   }
 
   /**
-   * @returns NamespaceBody | NamespaceEmptyBody
+   * @return NamespaceBody | NamespaceEmptyBody
    */
   public function getBodyx(): EditableNode {
     return $this->getBody();

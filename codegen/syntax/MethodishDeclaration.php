@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<418c7267e38ea8be641ee84ddadbe40e>>
+ * @generated SignedSource<<05b8ff9e39856c1f8bd4e6b807d8e13c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -124,7 +124,7 @@ final class MethodishDeclaration
   }
 
   /**
-   * @returns AttributeSpecification | Missing
+   * @return AttributeSpecification | null
    */
   public function getAttribute(): ?AttributeSpecification {
     if ($this->_attribute->isMissing()) {
@@ -135,7 +135,7 @@ final class MethodishDeclaration
   }
 
   /**
-   * @returns AttributeSpecification
+   * @return AttributeSpecification
    */
   public function getAttributex(): AttributeSpecification {
     return
@@ -163,7 +163,7 @@ final class MethodishDeclaration
   }
 
   /**
-   * @returns FunctionDeclarationHeader
+   * @return FunctionDeclarationHeader
    */
   public function getFunctionDeclHeader(): FunctionDeclarationHeader {
     return TypeAssert\instance_of(
@@ -173,7 +173,7 @@ final class MethodishDeclaration
   }
 
   /**
-   * @returns FunctionDeclarationHeader
+   * @return FunctionDeclarationHeader
    */
   public function getFunctionDeclHeaderx(): FunctionDeclarationHeader {
     return $this->getFunctionDeclHeader();
@@ -200,7 +200,7 @@ final class MethodishDeclaration
   }
 
   /**
-   * @returns CompoundStatement | Missing
+   * @return CompoundStatement | null
    */
   public function getFunctionBody(): ?CompoundStatement {
     if ($this->_function_body->isMissing()) {
@@ -211,7 +211,7 @@ final class MethodishDeclaration
   }
 
   /**
-   * @returns CompoundStatement
+   * @return CompoundStatement
    */
   public function getFunctionBodyx(): CompoundStatement {
     return
@@ -239,7 +239,7 @@ final class MethodishDeclaration
   }
 
   /**
-   * @returns Missing | SemicolonToken
+   * @return null | SemicolonToken
    */
   public function getSemicolon(): ?SemicolonToken {
     if ($this->_semicolon->isMissing()) {
@@ -249,7 +249,7 @@ final class MethodishDeclaration
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSemicolonx(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);

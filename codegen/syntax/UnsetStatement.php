@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<40980bfa4a4584dee2e8135ef9e49a98>>
+ * @generated SignedSource<<c407cf717680a6576a74d2d64a7744bc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -135,14 +135,14 @@ final class UnsetStatement extends EditableNode {
   }
 
   /**
-   * @returns UnsetToken
+   * @return UnsetToken
    */
   public function getKeyword(): UnsetToken {
     return TypeAssert\instance_of(UnsetToken::class, $this->_keyword);
   }
 
   /**
-   * @returns UnsetToken
+   * @return UnsetToken
    */
   public function getKeywordx(): UnsetToken {
     return $this->getKeyword();
@@ -170,14 +170,14 @@ final class UnsetStatement extends EditableNode {
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParenx(): LeftParenToken {
     return $this->getLeftParen();
@@ -205,7 +205,7 @@ final class UnsetStatement extends EditableNode {
   }
 
   /**
-   * @returns EditableList<MemberSelectionExpression> |
+   * @return EditableList<MemberSelectionExpression> |
    * EditableList<EditableNode> | EditableList<PrefixUnaryExpression> |
    * EditableList<SafeMemberSelectionExpression> |
    * EditableList<ScopeResolutionExpression> |
@@ -216,7 +216,7 @@ final class UnsetStatement extends EditableNode {
   }
 
   /**
-   * @returns EditableList<MemberSelectionExpression> |
+   * @return EditableList<MemberSelectionExpression> |
    * EditableList<EditableNode> | EditableList<PrefixUnaryExpression> |
    * EditableList<SafeMemberSelectionExpression> |
    * EditableList<ScopeResolutionExpression> |
@@ -248,14 +248,14 @@ final class UnsetStatement extends EditableNode {
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParenx(): RightParenToken {
     return $this->getRightParen();
@@ -283,14 +283,14 @@ final class UnsetStatement extends EditableNode {
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSemicolonx(): SemicolonToken {
     return $this->getSemicolon();

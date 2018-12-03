@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eb6b6e673a313df22fe6711c08c9ed7b>>
+ * @generated SignedSource<<8e25714d0605012f8a9fb18c5518345e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -161,7 +161,7 @@ final class UsingStatementBlockScoped extends EditableNode {
   }
 
   /**
-   * @returns Missing | AwaitToken
+   * @return null | AwaitToken
    */
   public function getAwaitKeyword(): ?AwaitToken {
     if ($this->_await_keyword->isMissing()) {
@@ -171,7 +171,7 @@ final class UsingStatementBlockScoped extends EditableNode {
   }
 
   /**
-   * @returns AwaitToken
+   * @return AwaitToken
    */
   public function getAwaitKeywordx(): AwaitToken {
     return TypeAssert\instance_of(AwaitToken::class, $this->_await_keyword);
@@ -200,14 +200,14 @@ final class UsingStatementBlockScoped extends EditableNode {
   }
 
   /**
-   * @returns UsingToken
+   * @return UsingToken
    */
   public function getUsingKeyword(): UsingToken {
     return TypeAssert\instance_of(UsingToken::class, $this->_using_keyword);
   }
 
   /**
-   * @returns UsingToken
+   * @return UsingToken
    */
   public function getUsingKeywordx(): UsingToken {
     return $this->getUsingKeyword();
@@ -236,14 +236,14 @@ final class UsingStatementBlockScoped extends EditableNode {
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParenx(): LeftParenToken {
     return $this->getLeftParen();
@@ -272,8 +272,8 @@ final class UsingStatementBlockScoped extends EditableNode {
   }
 
   /**
-   * @returns EditableList<AnonymousFunction> | EditableList<BinaryExpression>
-   * | EditableList<LambdaExpression> | EditableList<LiteralExpression> |
+   * @return EditableList<AnonymousFunction> | EditableList<BinaryExpression> |
+   * EditableList<LambdaExpression> | EditableList<LiteralExpression> |
    * EditableList<ObjectCreationExpression> | EditableList<EditableNode> |
    * EditableList<PrefixUnaryExpression> | EditableList<VariableExpression>
    */
@@ -282,8 +282,8 @@ final class UsingStatementBlockScoped extends EditableNode {
   }
 
   /**
-   * @returns EditableList<AnonymousFunction> | EditableList<BinaryExpression>
-   * | EditableList<LambdaExpression> | EditableList<LiteralExpression> |
+   * @return EditableList<AnonymousFunction> | EditableList<BinaryExpression> |
+   * EditableList<LambdaExpression> | EditableList<LiteralExpression> |
    * EditableList<ObjectCreationExpression> | EditableList<EditableNode> |
    * EditableList<PrefixUnaryExpression> | EditableList<VariableExpression>
    */
@@ -314,14 +314,14 @@ final class UsingStatementBlockScoped extends EditableNode {
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParenx(): RightParenToken {
     return $this->getRightParen();
@@ -350,14 +350,14 @@ final class UsingStatementBlockScoped extends EditableNode {
   }
 
   /**
-   * @returns CompoundStatement
+   * @return CompoundStatement
    */
   public function getBody(): CompoundStatement {
     return TypeAssert\instance_of(CompoundStatement::class, $this->_body);
   }
 
   /**
-   * @returns CompoundStatement
+   * @return CompoundStatement
    */
   public function getBodyx(): CompoundStatement {
     return $this->getBody();

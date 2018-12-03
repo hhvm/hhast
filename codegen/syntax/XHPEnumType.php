@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<63b1b67bd97ff9e9af6cb6751d821db6>>
+ * @generated SignedSource<<8f735c3b9856fa6c95abe9d4f9708260>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -133,7 +133,7 @@ final class XHPEnumType extends EditableNode {
   }
 
   /**
-   * @returns Missing
+   * @return null
    */
   public function getOptional(): ?EditableNode {
     if ($this->_optional->isMissing()) {
@@ -143,7 +143,7 @@ final class XHPEnumType extends EditableNode {
   }
 
   /**
-   * @returns
+   * @return
    */
   public function getOptionalx(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_optional);
@@ -171,14 +171,14 @@ final class XHPEnumType extends EditableNode {
   }
 
   /**
-   * @returns EnumToken
+   * @return EnumToken
    */
   public function getKeyword(): EnumToken {
     return TypeAssert\instance_of(EnumToken::class, $this->_keyword);
   }
 
   /**
-   * @returns EnumToken
+   * @return EnumToken
    */
   public function getKeywordx(): EnumToken {
     return $this->getKeyword();
@@ -206,14 +206,14 @@ final class XHPEnumType extends EditableNode {
   }
 
   /**
-   * @returns LeftBraceToken
+   * @return LeftBraceToken
    */
   public function getLeftBrace(): LeftBraceToken {
     return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
   }
 
   /**
-   * @returns LeftBraceToken
+   * @return LeftBraceToken
    */
   public function getLeftBracex(): LeftBraceToken {
     return $this->getLeftBrace();
@@ -241,14 +241,14 @@ final class XHPEnumType extends EditableNode {
   }
 
   /**
-   * @returns EditableList<LiteralExpression>
+   * @return EditableList<LiteralExpression>
    */
   public function getValues(): EditableList<LiteralExpression> {
     return TypeAssert\instance_of(EditableList::class, $this->_values);
   }
 
   /**
-   * @returns EditableList<LiteralExpression>
+   * @return EditableList<LiteralExpression>
    */
   public function getValuesx(): EditableList<LiteralExpression> {
     return $this->getValues();
@@ -276,14 +276,14 @@ final class XHPEnumType extends EditableNode {
   }
 
   /**
-   * @returns RightBraceToken
+   * @return RightBraceToken
    */
   public function getRightBrace(): RightBraceToken {
     return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
   }
 
   /**
-   * @returns RightBraceToken
+   * @return RightBraceToken
    */
   public function getRightBracex(): RightBraceToken {
     return $this->getRightBrace();

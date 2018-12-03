@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<55cf773eff1a2640f2467e1573f96111>>
+ * @generated SignedSource<<ca38f92190905ac87833cba3ec407d87>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,7 +101,7 @@ final class TraitUsePrecedenceItem extends EditableNode {
   }
 
   /**
-   * @returns ScopeResolutionExpression
+   * @return ScopeResolutionExpression
    */
   public function getName(): ScopeResolutionExpression {
     return
@@ -109,7 +109,7 @@ final class TraitUsePrecedenceItem extends EditableNode {
   }
 
   /**
-   * @returns ScopeResolutionExpression
+   * @return ScopeResolutionExpression
    */
   public function getNamex(): ScopeResolutionExpression {
     return $this->getName();
@@ -131,14 +131,14 @@ final class TraitUsePrecedenceItem extends EditableNode {
   }
 
   /**
-   * @returns InsteadofToken
+   * @return InsteadofToken
    */
   public function getKeyword(): InsteadofToken {
     return TypeAssert\instance_of(InsteadofToken::class, $this->_keyword);
   }
 
   /**
-   * @returns InsteadofToken
+   * @return InsteadofToken
    */
   public function getKeywordx(): InsteadofToken {
     return $this->getKeyword();
@@ -160,14 +160,14 @@ final class TraitUsePrecedenceItem extends EditableNode {
   }
 
   /**
-   * @returns EditableList<SimpleTypeSpecifier>
+   * @return EditableList<SimpleTypeSpecifier>
    */
   public function getRemovedNames(): EditableList<SimpleTypeSpecifier> {
     return TypeAssert\instance_of(EditableList::class, $this->_removed_names);
   }
 
   /**
-   * @returns EditableList<SimpleTypeSpecifier>
+   * @return EditableList<SimpleTypeSpecifier>
    */
   public function getRemovedNamesx(): EditableList<SimpleTypeSpecifier> {
     return $this->getRemovedNames();

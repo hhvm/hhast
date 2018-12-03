@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2856f5d46ecf2c1b97b2b4789df4ba6c>>
+ * @generated SignedSource<<b72721ecae227204e9c77ab745e6c3a6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,7 +101,7 @@ final class VariadicParameter extends EditableNode {
   }
 
   /**
-   * @returns Missing
+   * @return null
    */
   public function getCallConvention(): ?EditableNode {
     if ($this->_call_convention->isMissing()) {
@@ -111,7 +111,7 @@ final class VariadicParameter extends EditableNode {
   }
 
   /**
-   * @returns
+   * @return
    */
   public function getCallConventionx(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_call_convention);
@@ -133,7 +133,7 @@ final class VariadicParameter extends EditableNode {
   }
 
   /**
-   * @returns ClosureTypeSpecifier | Missing | SimpleTypeSpecifier |
+   * @return ClosureTypeSpecifier | null | SimpleTypeSpecifier |
    * TupleTypeSpecifier
    */
   public function getType(): ?EditableNode {
@@ -144,7 +144,7 @@ final class VariadicParameter extends EditableNode {
   }
 
   /**
-   * @returns ClosureTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier
+   * @return ClosureTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier
    */
   public function getTypex(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);
@@ -166,14 +166,14 @@ final class VariadicParameter extends EditableNode {
   }
 
   /**
-   * @returns DotDotDotToken
+   * @return DotDotDotToken
    */
   public function getEllipsis(): DotDotDotToken {
     return TypeAssert\instance_of(DotDotDotToken::class, $this->_ellipsis);
   }
 
   /**
-   * @returns DotDotDotToken
+   * @return DotDotDotToken
    */
   public function getEllipsisx(): DotDotDotToken {
     return $this->getEllipsis();

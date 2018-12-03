@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fe76961e126174d88fac5c2173c1f912>>
+ * @generated SignedSource<<4794693eee03d927bf7edc8ff8cd284b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -179,14 +179,14 @@ final class SwitchStatement
   }
 
   /**
-   * @returns SwitchToken
+   * @return SwitchToken
    */
   public function getKeyword(): SwitchToken {
     return TypeAssert\instance_of(SwitchToken::class, $this->_keyword);
   }
 
   /**
-   * @returns SwitchToken
+   * @return SwitchToken
    */
   public function getKeywordx(): SwitchToken {
     return $this->getKeyword();
@@ -216,14 +216,14 @@ final class SwitchStatement
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParenx(): LeftParenToken {
     return $this->getLeftParen();
@@ -253,7 +253,7 @@ final class SwitchStatement
   }
 
   /**
-   * @returns BinaryExpression | FunctionCallExpression | LiteralExpression |
+   * @return BinaryExpression | FunctionCallExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
    * PrefixUnaryExpression | SubscriptExpression | VariableExpression
    */
@@ -262,7 +262,7 @@ final class SwitchStatement
   }
 
   /**
-   * @returns BinaryExpression | FunctionCallExpression | LiteralExpression |
+   * @return BinaryExpression | FunctionCallExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
    * PrefixUnaryExpression | SubscriptExpression | VariableExpression
    */
@@ -294,14 +294,14 @@ final class SwitchStatement
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParenx(): RightParenToken {
     return $this->getRightParen();
@@ -331,14 +331,14 @@ final class SwitchStatement
   }
 
   /**
-   * @returns LeftBraceToken
+   * @return LeftBraceToken
    */
   public function getLeftBrace(): LeftBraceToken {
     return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
   }
 
   /**
-   * @returns LeftBraceToken
+   * @return LeftBraceToken
    */
   public function getLeftBracex(): LeftBraceToken {
     return $this->getLeftBrace();
@@ -368,7 +368,7 @@ final class SwitchStatement
   }
 
   /**
-   * @returns EditableList<EditableNode> | Missing
+   * @return EditableList<EditableNode> | null
    */
   public function getSections(): ?EditableList<EditableNode> {
     if ($this->_sections->isMissing()) {
@@ -378,7 +378,7 @@ final class SwitchStatement
   }
 
   /**
-   * @returns EditableList<EditableNode>
+   * @return EditableList<EditableNode>
    */
   public function getSectionsx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_sections);
@@ -408,14 +408,14 @@ final class SwitchStatement
   }
 
   /**
-   * @returns RightBraceToken
+   * @return RightBraceToken
    */
   public function getRightBrace(): RightBraceToken {
     return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
   }
 
   /**
-   * @returns RightBraceToken
+   * @return RightBraceToken
    */
   public function getRightBracex(): RightBraceToken {
     return $this->getRightBrace();

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<48387d2ff5f84554544861925d4578ae>>
+ * @generated SignedSource<<975e872c87c59506997082b79c70aa96>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,14 +101,14 @@ final class GlobalStatement extends EditableNode {
   }
 
   /**
-   * @returns GlobalToken
+   * @return GlobalToken
    */
   public function getKeyword(): GlobalToken {
     return TypeAssert\instance_of(GlobalToken::class, $this->_keyword);
   }
 
   /**
-   * @returns GlobalToken
+   * @return GlobalToken
    */
   public function getKeywordx(): GlobalToken {
     return $this->getKeyword();
@@ -130,14 +130,14 @@ final class GlobalStatement extends EditableNode {
   }
 
   /**
-   * @returns EditableList<PrefixUnaryExpression> | EditableList<VariableToken>
+   * @return EditableList<PrefixUnaryExpression> | EditableList<VariableToken>
    */
   public function getVariables(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_variables);
   }
 
   /**
-   * @returns EditableList<PrefixUnaryExpression> | EditableList<VariableToken>
+   * @return EditableList<PrefixUnaryExpression> | EditableList<VariableToken>
    */
   public function getVariablesx(): EditableList<EditableNode> {
     return $this->getVariables();
@@ -159,14 +159,14 @@ final class GlobalStatement extends EditableNode {
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSemicolonx(): SemicolonToken {
     return $this->getSemicolon();

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8844d5ccb4478b20068126a026f9b497>>
+ * @generated SignedSource<<53827dd2d1bf06f560f126a44369964f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -119,7 +119,7 @@ final class SubscriptExpression extends EditableNode {
   }
 
   /**
-   * @returns ArrayCreationExpression | ArrayIntrinsicExpression |
+   * @return ArrayCreationExpression | ArrayIntrinsicExpression |
    * FunctionCallExpression | LiteralExpression | MemberSelectionExpression |
    * ParenthesizedExpression | PrefixUnaryExpression |
    * SafeMemberSelectionExpression | ScopeResolutionExpression |
@@ -130,7 +130,7 @@ final class SubscriptExpression extends EditableNode {
   }
 
   /**
-   * @returns ArrayCreationExpression | ArrayIntrinsicExpression |
+   * @return ArrayCreationExpression | ArrayIntrinsicExpression |
    * FunctionCallExpression | LiteralExpression | MemberSelectionExpression |
    * ParenthesizedExpression | PrefixUnaryExpression |
    * SafeMemberSelectionExpression | ScopeResolutionExpression |
@@ -161,14 +161,14 @@ final class SubscriptExpression extends EditableNode {
   }
 
   /**
-   * @returns LeftBracketToken | LeftBraceToken
+   * @return LeftBracketToken | LeftBraceToken
    */
   public function getLeftBracket(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_left_bracket);
   }
 
   /**
-   * @returns LeftBracketToken | LeftBraceToken
+   * @return LeftBracketToken | LeftBraceToken
    */
   public function getLeftBracketx(): EditableToken {
     return $this->getLeftBracket();
@@ -195,9 +195,9 @@ final class SubscriptExpression extends EditableNode {
   }
 
   /**
-   * @returns AnonymousFunction | ArrayIntrinsicExpression | BinaryExpression |
+   * @return AnonymousFunction | ArrayIntrinsicExpression | BinaryExpression |
    * CastExpression | FunctionCallExpression | LiteralExpression |
-   * MemberSelectionExpression | Missing | ObjectCreationExpression |
+   * MemberSelectionExpression | null | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * SafeMemberSelectionExpression | ScopeResolutionExpression |
    * SubscriptExpression | EchoToken | NameToken | ReturnToken |
@@ -211,7 +211,7 @@ final class SubscriptExpression extends EditableNode {
   }
 
   /**
-   * @returns AnonymousFunction | ArrayIntrinsicExpression | BinaryExpression |
+   * @return AnonymousFunction | ArrayIntrinsicExpression | BinaryExpression |
    * CastExpression | FunctionCallExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
@@ -240,7 +240,7 @@ final class SubscriptExpression extends EditableNode {
   }
 
   /**
-   * @returns Missing | RightBracketToken | RightBraceToken
+   * @return null | RightBracketToken | RightBraceToken
    */
   public function getRightBracket(): ?EditableToken {
     if ($this->_right_bracket->isMissing()) {
@@ -250,7 +250,7 @@ final class SubscriptExpression extends EditableNode {
   }
 
   /**
-   * @returns RightBracketToken | RightBraceToken
+   * @return RightBracketToken | RightBraceToken
    */
   public function getRightBracketx(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_right_bracket);

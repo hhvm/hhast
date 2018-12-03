@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<32a406ddb605e6d4e369f6ff14f90774>>
+ * @generated SignedSource<<08b588245b3ec90bb0c2d7b60b132a18>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -119,14 +119,14 @@ final class XHPSpreadAttribute extends EditableNode {
   }
 
   /**
-   * @returns LeftBraceToken
+   * @return LeftBraceToken
    */
   public function getLeftBrace(): LeftBraceToken {
     return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
   }
 
   /**
-   * @returns LeftBraceToken
+   * @return LeftBraceToken
    */
   public function getLeftBracex(): LeftBraceToken {
     return $this->getLeftBrace();
@@ -153,7 +153,7 @@ final class XHPSpreadAttribute extends EditableNode {
   }
 
   /**
-   * @returns DotDotDotToken
+   * @return DotDotDotToken
    */
   public function getSpreadOperator(): DotDotDotToken {
     return
@@ -161,7 +161,7 @@ final class XHPSpreadAttribute extends EditableNode {
   }
 
   /**
-   * @returns DotDotDotToken
+   * @return DotDotDotToken
    */
   public function getSpreadOperatorx(): DotDotDotToken {
     return $this->getSpreadOperator();
@@ -188,14 +188,14 @@ final class XHPSpreadAttribute extends EditableNode {
   }
 
   /**
-   * @returns VariableExpression | XHPExpression
+   * @return VariableExpression | XHPExpression
    */
   public function getExpression(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_expression);
   }
 
   /**
-   * @returns VariableExpression | XHPExpression
+   * @return VariableExpression | XHPExpression
    */
   public function getExpressionx(): EditableNode {
     return $this->getExpression();
@@ -222,14 +222,14 @@ final class XHPSpreadAttribute extends EditableNode {
   }
 
   /**
-   * @returns RightBraceToken
+   * @return RightBraceToken
    */
   public function getRightBrace(): RightBraceToken {
     return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
   }
 
   /**
-   * @returns RightBraceToken
+   * @return RightBraceToken
    */
   public function getRightBracex(): RightBraceToken {
     return $this->getRightBrace();

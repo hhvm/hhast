@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<aa966ea0e084eef5000ac6ca0a39353f>>
+ * @generated SignedSource<<5a5928b3f9585a4f93a67638c62d01a9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -71,7 +71,7 @@ final class ErrorSyntax extends EditableNode {
   }
 
   /**
-   * @returns CommaToken | SemicolonToken | EqualToken | DecimalLiteralToken |
+   * @return CommaToken | SemicolonToken | EqualToken | DecimalLiteralToken |
    * NameToken | SingleQuotedStringLiteralToken | VariableToken |
    * LeftBraceToken | RightBraceToken
    */
@@ -80,7 +80,7 @@ final class ErrorSyntax extends EditableNode {
   }
 
   /**
-   * @returns CommaToken | SemicolonToken | EqualToken | DecimalLiteralToken |
+   * @return CommaToken | SemicolonToken | EqualToken | DecimalLiteralToken |
    * NameToken | SingleQuotedStringLiteralToken | VariableToken |
    * LeftBraceToken | RightBraceToken
    */

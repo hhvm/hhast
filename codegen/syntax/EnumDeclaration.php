@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cf9a32d0fefc3b47e139b1e21b3afc5a>>
+ * @generated SignedSource<<85dbc279f341f783da0c7a1ab3fb9e7d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -209,7 +209,7 @@ final class EnumDeclaration extends EditableNode {
   }
 
   /**
-   * @returns AttributeSpecification | Missing
+   * @return AttributeSpecification | null
    */
   public function getAttributeSpec(): ?AttributeSpecification {
     if ($this->_attribute_spec->isMissing()) {
@@ -222,7 +222,7 @@ final class EnumDeclaration extends EditableNode {
   }
 
   /**
-   * @returns AttributeSpecification
+   * @return AttributeSpecification
    */
   public function getAttributeSpecx(): AttributeSpecification {
     return TypeAssert\instance_of(
@@ -257,14 +257,14 @@ final class EnumDeclaration extends EditableNode {
   }
 
   /**
-   * @returns EnumToken
+   * @return EnumToken
    */
   public function getKeyword(): EnumToken {
     return TypeAssert\instance_of(EnumToken::class, $this->_keyword);
   }
 
   /**
-   * @returns EnumToken
+   * @return EnumToken
    */
   public function getKeywordx(): EnumToken {
     return $this->getKeyword();
@@ -296,14 +296,14 @@ final class EnumDeclaration extends EditableNode {
   }
 
   /**
-   * @returns NameToken
+   * @return NameToken
    */
   public function getName(): NameToken {
     return TypeAssert\instance_of(NameToken::class, $this->_name);
   }
 
   /**
-   * @returns NameToken
+   * @return NameToken
    */
   public function getNamex(): NameToken {
     return $this->getName();
@@ -335,14 +335,14 @@ final class EnumDeclaration extends EditableNode {
   }
 
   /**
-   * @returns ColonToken
+   * @return ColonToken
    */
   public function getColon(): ColonToken {
     return TypeAssert\instance_of(ColonToken::class, $this->_colon);
   }
 
   /**
-   * @returns ColonToken
+   * @return ColonToken
    */
   public function getColonx(): ColonToken {
     return $this->getColon();
@@ -374,16 +374,14 @@ final class EnumDeclaration extends EditableNode {
   }
 
   /**
-   * @returns ClassnameTypeSpecifier | GenericTypeSpecifier |
-   * SimpleTypeSpecifier
+   * @return ClassnameTypeSpecifier | GenericTypeSpecifier | SimpleTypeSpecifier
    */
   public function getBase(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_base);
   }
 
   /**
-   * @returns ClassnameTypeSpecifier | GenericTypeSpecifier |
-   * SimpleTypeSpecifier
+   * @return ClassnameTypeSpecifier | GenericTypeSpecifier | SimpleTypeSpecifier
    */
   public function getBasex(): EditableNode {
     return $this->getBase();
@@ -415,7 +413,7 @@ final class EnumDeclaration extends EditableNode {
   }
 
   /**
-   * @returns Missing | TypeConstraint
+   * @return null | TypeConstraint
    */
   public function getType(): ?TypeConstraint {
     if ($this->_type->isMissing()) {
@@ -425,7 +423,7 @@ final class EnumDeclaration extends EditableNode {
   }
 
   /**
-   * @returns TypeConstraint
+   * @return TypeConstraint
    */
   public function getTypex(): TypeConstraint {
     return TypeAssert\instance_of(TypeConstraint::class, $this->_type);
@@ -457,14 +455,14 @@ final class EnumDeclaration extends EditableNode {
   }
 
   /**
-   * @returns LeftBraceToken
+   * @return LeftBraceToken
    */
   public function getLeftBrace(): LeftBraceToken {
     return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
   }
 
   /**
-   * @returns LeftBraceToken
+   * @return LeftBraceToken
    */
   public function getLeftBracex(): LeftBraceToken {
     return $this->getLeftBrace();
@@ -496,7 +494,7 @@ final class EnumDeclaration extends EditableNode {
   }
 
   /**
-   * @returns EditableList<EditableNode> | Missing
+   * @return EditableList<EditableNode> | null
    */
   public function getEnumerators(): ?EditableList<EditableNode> {
     if ($this->_enumerators->isMissing()) {
@@ -506,7 +504,7 @@ final class EnumDeclaration extends EditableNode {
   }
 
   /**
-   * @returns EditableList<EditableNode>
+   * @return EditableList<EditableNode>
    */
   public function getEnumeratorsx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_enumerators);
@@ -538,14 +536,14 @@ final class EnumDeclaration extends EditableNode {
   }
 
   /**
-   * @returns RightBraceToken
+   * @return RightBraceToken
    */
   public function getRightBrace(): RightBraceToken {
     return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
   }
 
   /**
-   * @returns RightBraceToken
+   * @return RightBraceToken
    */
   public function getRightBracex(): RightBraceToken {
     return $this->getRightBrace();

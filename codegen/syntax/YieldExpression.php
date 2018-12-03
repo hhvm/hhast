@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a26e1b549982cd290973e44d82f5e752>>
+ * @generated SignedSource<<f2a0865818f7fe893a1ad777c66e9c51>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -82,14 +82,14 @@ final class YieldExpression extends EditableNode {
   }
 
   /**
-   * @returns YieldToken
+   * @return YieldToken
    */
   public function getKeyword(): YieldToken {
     return TypeAssert\instance_of(YieldToken::class, $this->_keyword);
   }
 
   /**
-   * @returns YieldToken
+   * @return YieldToken
    */
   public function getKeywordx(): YieldToken {
     return $this->getKeyword();
@@ -111,9 +111,9 @@ final class YieldExpression extends EditableNode {
   }
 
   /**
-   * @returns AnonymousFunction | BinaryExpression | ElementInitializer |
+   * @return AnonymousFunction | BinaryExpression | ElementInitializer |
    * FunctionCallExpression | LambdaExpression | LiteralExpression |
-   * MemberSelectionExpression | Missing | ObjectCreationExpression |
+   * MemberSelectionExpression | null | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * SubscriptExpression | BreakToken | NameToken | TupleExpression |
    * VariableExpression
@@ -126,7 +126,7 @@ final class YieldExpression extends EditableNode {
   }
 
   /**
-   * @returns AnonymousFunction | BinaryExpression | ElementInitializer |
+   * @return AnonymousFunction | BinaryExpression | ElementInitializer |
    * FunctionCallExpression | LambdaExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |

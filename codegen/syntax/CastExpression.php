@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8dd5f2ff611b1a1199460338933e50e7>>
+ * @generated SignedSource<<0ed095491a801c76fe51654bc971303a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -115,14 +115,14 @@ final class CastExpression extends EditableNode {
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParenx(): LeftParenToken {
     return $this->getLeftParen();
@@ -149,7 +149,7 @@ final class CastExpression extends EditableNode {
   }
 
   /**
-   * @returns ArrayToken | BinaryToken | BoolToken | BooleanToken | DoubleToken
+   * @return ArrayToken | BinaryToken | BoolToken | BooleanToken | DoubleToken
    * | FloatToken | IntToken | IntegerToken | ObjectToken | RealToken |
    * StringToken | UnsetToken
    */
@@ -158,7 +158,7 @@ final class CastExpression extends EditableNode {
   }
 
   /**
-   * @returns ArrayToken | BinaryToken | BoolToken | BooleanToken | DoubleToken
+   * @return ArrayToken | BinaryToken | BoolToken | BooleanToken | DoubleToken
    * | FloatToken | IntToken | IntegerToken | ObjectToken | RealToken |
    * StringToken | UnsetToken
    */
@@ -183,14 +183,14 @@ final class CastExpression extends EditableNode {
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParenx(): RightParenToken {
     return $this->getRightParen();
@@ -213,7 +213,7 @@ final class CastExpression extends EditableNode {
   }
 
   /**
-   * @returns AnonymousFunction | ArrayCreationExpression |
+   * @return AnonymousFunction | ArrayCreationExpression |
    * ArrayIntrinsicExpression | CastExpression | CollectionLiteralExpression |
    * DictionaryIntrinsicExpression | FunctionCallExpression |
    * KeysetIntrinsicExpression | LiteralExpression | MemberSelectionExpression
@@ -227,7 +227,7 @@ final class CastExpression extends EditableNode {
   }
 
   /**
-   * @returns AnonymousFunction | ArrayCreationExpression |
+   * @return AnonymousFunction | ArrayCreationExpression |
    * ArrayIntrinsicExpression | CastExpression | CollectionLiteralExpression |
    * DictionaryIntrinsicExpression | FunctionCallExpression |
    * KeysetIntrinsicExpression | LiteralExpression | MemberSelectionExpression

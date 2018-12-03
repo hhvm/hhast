@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3349405ffb9eb9d60befa607625b5239>>
+ * @generated SignedSource<<f038e57acc431b7997b3a9c26a7ae55e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -133,14 +133,14 @@ final class DeclareBlockStatement extends EditableNode {
   }
 
   /**
-   * @returns DeclareToken
+   * @return DeclareToken
    */
   public function getKeyword(): DeclareToken {
     return TypeAssert\instance_of(DeclareToken::class, $this->_keyword);
   }
 
   /**
-   * @returns DeclareToken
+   * @return DeclareToken
    */
   public function getKeywordx(): DeclareToken {
     return $this->getKeyword();
@@ -168,14 +168,14 @@ final class DeclareBlockStatement extends EditableNode {
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParenx(): LeftParenToken {
     return $this->getLeftParen();
@@ -203,14 +203,14 @@ final class DeclareBlockStatement extends EditableNode {
   }
 
   /**
-   * @returns BinaryExpression
+   * @return BinaryExpression
    */
   public function getExpression(): BinaryExpression {
     return TypeAssert\instance_of(BinaryExpression::class, $this->_expression);
   }
 
   /**
-   * @returns BinaryExpression
+   * @return BinaryExpression
    */
   public function getExpressionx(): BinaryExpression {
     return $this->getExpression();
@@ -238,14 +238,14 @@ final class DeclareBlockStatement extends EditableNode {
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParenx(): RightParenToken {
     return $this->getRightParen();
@@ -273,14 +273,14 @@ final class DeclareBlockStatement extends EditableNode {
   }
 
   /**
-   * @returns AlternateLoopStatement | CompoundStatement
+   * @return AlternateLoopStatement | CompoundStatement
    */
   public function getBody(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_body);
   }
 
   /**
-   * @returns AlternateLoopStatement | CompoundStatement
+   * @return AlternateLoopStatement | CompoundStatement
    */
   public function getBodyx(): EditableNode {
     return $this->getBody();

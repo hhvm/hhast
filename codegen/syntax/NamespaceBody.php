@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<37debaacbb53751805afe1af46efcfb8>>
+ * @generated SignedSource<<3ebd1f8a5e3e127efa1717c8135e3b93>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,14 +101,14 @@ final class NamespaceBody extends EditableNode {
   }
 
   /**
-   * @returns LeftBraceToken
+   * @return LeftBraceToken
    */
   public function getLeftBrace(): LeftBraceToken {
     return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
   }
 
   /**
-   * @returns LeftBraceToken
+   * @return LeftBraceToken
    */
   public function getLeftBracex(): LeftBraceToken {
     return $this->getLeftBrace();
@@ -130,7 +130,7 @@ final class NamespaceBody extends EditableNode {
   }
 
   /**
-   * @returns EditableList<EditableNode> | Missing
+   * @return EditableList<EditableNode> | null
    */
   public function getDeclarations(): ?EditableList<EditableNode> {
     if ($this->_declarations->isMissing()) {
@@ -140,7 +140,7 @@ final class NamespaceBody extends EditableNode {
   }
 
   /**
-   * @returns EditableList<EditableNode>
+   * @return EditableList<EditableNode>
    */
   public function getDeclarationsx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_declarations);
@@ -162,7 +162,7 @@ final class NamespaceBody extends EditableNode {
   }
 
   /**
-   * @returns Missing | RightBraceToken
+   * @return null | RightBraceToken
    */
   public function getRightBrace(): ?RightBraceToken {
     if ($this->_right_brace->isMissing()) {
@@ -172,7 +172,7 @@ final class NamespaceBody extends EditableNode {
   }
 
   /**
-   * @returns RightBraceToken
+   * @return RightBraceToken
    */
   public function getRightBracex(): RightBraceToken {
     return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);

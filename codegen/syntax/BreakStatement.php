@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b061253e00bf5cad5fd6f6e1da4e0a38>>
+ * @generated SignedSource<<773041621a96ba09d56ab30f584c764b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,14 +101,14 @@ final class BreakStatement extends EditableNode {
   }
 
   /**
-   * @returns BreakToken
+   * @return BreakToken
    */
   public function getKeyword(): BreakToken {
     return TypeAssert\instance_of(BreakToken::class, $this->_keyword);
   }
 
   /**
-   * @returns BreakToken
+   * @return BreakToken
    */
   public function getKeywordx(): BreakToken {
     return $this->getKeyword();
@@ -130,7 +130,7 @@ final class BreakStatement extends EditableNode {
   }
 
   /**
-   * @returns LiteralExpression | Missing | VariableExpression
+   * @return LiteralExpression | null | VariableExpression
    */
   public function getLevel(): ?EditableNode {
     if ($this->_level->isMissing()) {
@@ -140,7 +140,7 @@ final class BreakStatement extends EditableNode {
   }
 
   /**
-   * @returns LiteralExpression | VariableExpression
+   * @return LiteralExpression | VariableExpression
    */
   public function getLevelx(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_level);
@@ -162,14 +162,14 @@ final class BreakStatement extends EditableNode {
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSemicolonx(): SemicolonToken {
     return $this->getSemicolon();

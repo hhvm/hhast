@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e05d4226981212e53431ec93caf6b83b>>
+ * @generated SignedSource<<9ac68ca67791f161dec5ac97480099ec>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,7 +101,7 @@ final class AsExpression extends EditableNode {
   }
 
   /**
-   * @returns CollectionLiteralExpression | LiteralExpression |
+   * @return CollectionLiteralExpression | LiteralExpression |
    * MemberSelectionExpression | ParenthesizedExpression | TupleExpression |
    * VariableExpression
    */
@@ -110,7 +110,7 @@ final class AsExpression extends EditableNode {
   }
 
   /**
-   * @returns CollectionLiteralExpression | LiteralExpression |
+   * @return CollectionLiteralExpression | LiteralExpression |
    * MemberSelectionExpression | ParenthesizedExpression | TupleExpression |
    * VariableExpression
    */
@@ -134,14 +134,14 @@ final class AsExpression extends EditableNode {
   }
 
   /**
-   * @returns AsToken
+   * @return AsToken
    */
   public function getOperator(): AsToken {
     return TypeAssert\instance_of(AsToken::class, $this->_operator);
   }
 
   /**
-   * @returns AsToken
+   * @return AsToken
    */
   public function getOperatorx(): AsToken {
     return $this->getOperator();
@@ -163,7 +163,7 @@ final class AsExpression extends EditableNode {
   }
 
   /**
-   * @returns ClosureTypeSpecifier | NullableTypeSpecifier | ShapeTypeSpecifier
+   * @return ClosureTypeSpecifier | NullableTypeSpecifier | ShapeTypeSpecifier
    * | SimpleTypeSpecifier | SoftTypeSpecifier | TupleTypeSpecifier
    */
   public function getRightOperand(): EditableNode {
@@ -171,7 +171,7 @@ final class AsExpression extends EditableNode {
   }
 
   /**
-   * @returns ClosureTypeSpecifier | NullableTypeSpecifier | ShapeTypeSpecifier
+   * @return ClosureTypeSpecifier | NullableTypeSpecifier | ShapeTypeSpecifier
    * | SimpleTypeSpecifier | SoftTypeSpecifier | TupleTypeSpecifier
    */
   public function getRightOperandx(): EditableNode {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eb64c2d5fe88012704c27434f0a4dead>>
+ * @generated SignedSource<<51a4fdf793f67d129148f0fe15756f81>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -119,14 +119,14 @@ final class EmbeddedSubscriptExpression extends EditableNode {
   }
 
   /**
-   * @returns unknown
+   * @return unknown
    */
   public function getReceiver(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_receiver);
   }
 
   /**
-   * @returns unknown
+   * @return unknown
    */
   public function getReceiverx(): EditableNode {
     return $this->getReceiver();
@@ -153,14 +153,14 @@ final class EmbeddedSubscriptExpression extends EditableNode {
   }
 
   /**
-   * @returns unknown
+   * @return unknown
    */
   public function getLeftBracket(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_left_bracket);
   }
 
   /**
-   * @returns unknown
+   * @return unknown
    */
   public function getLeftBracketx(): EditableNode {
     return $this->getLeftBracket();
@@ -187,14 +187,14 @@ final class EmbeddedSubscriptExpression extends EditableNode {
   }
 
   /**
-   * @returns unknown
+   * @return unknown
    */
   public function getIndex(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_index);
   }
 
   /**
-   * @returns unknown
+   * @return unknown
    */
   public function getIndexx(): EditableNode {
     return $this->getIndex();
@@ -217,14 +217,14 @@ final class EmbeddedSubscriptExpression extends EditableNode {
   }
 
   /**
-   * @returns unknown
+   * @return unknown
    */
   public function getRightBracket(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_right_bracket);
   }
 
   /**
-   * @returns unknown
+   * @return unknown
    */
   public function getRightBracketx(): EditableNode {
     return $this->getRightBracket();

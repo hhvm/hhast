@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<23b0ec3cd1d7b9ae07b8ce5b25dfad83>>
+ * @generated SignedSource<<df5559d353cd7251d215d44f79bcb073>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,7 +101,7 @@ final class ElementInitializer extends EditableNode {
   }
 
   /**
-   * @returns AnonymousFunction | ArrayCreationExpression |
+   * @return AnonymousFunction | ArrayCreationExpression |
    * ArrayIntrinsicExpression | BinaryExpression | CastExpression |
    * CollectionLiteralExpression | DictionaryIntrinsicExpression |
    * FunctionCallExpression | KeysetIntrinsicExpression | LiteralExpression |
@@ -114,7 +114,7 @@ final class ElementInitializer extends EditableNode {
   }
 
   /**
-   * @returns AnonymousFunction | ArrayCreationExpression |
+   * @return AnonymousFunction | ArrayCreationExpression |
    * ArrayIntrinsicExpression | BinaryExpression | CastExpression |
    * CollectionLiteralExpression | DictionaryIntrinsicExpression |
    * FunctionCallExpression | KeysetIntrinsicExpression | LiteralExpression |
@@ -142,14 +142,14 @@ final class ElementInitializer extends EditableNode {
   }
 
   /**
-   * @returns EqualGreaterThanToken
+   * @return EqualGreaterThanToken
    */
   public function getArrow(): EqualGreaterThanToken {
     return TypeAssert\instance_of(EqualGreaterThanToken::class, $this->_arrow);
   }
 
   /**
-   * @returns EqualGreaterThanToken
+   * @return EqualGreaterThanToken
    */
   public function getArrowx(): EqualGreaterThanToken {
     return $this->getArrow();
@@ -171,7 +171,7 @@ final class ElementInitializer extends EditableNode {
   }
 
   /**
-   * @returns AnonymousFunction | ArrayCreationExpression |
+   * @return AnonymousFunction | ArrayCreationExpression |
    * ArrayIntrinsicExpression | BinaryExpression | CastExpression |
    * CollectionLiteralExpression | ConditionalExpression |
    * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
@@ -187,7 +187,7 @@ final class ElementInitializer extends EditableNode {
   }
 
   /**
-   * @returns AnonymousFunction | ArrayCreationExpression |
+   * @return AnonymousFunction | ArrayCreationExpression |
    * ArrayIntrinsicExpression | BinaryExpression | CastExpression |
    * CollectionLiteralExpression | ConditionalExpression |
    * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |

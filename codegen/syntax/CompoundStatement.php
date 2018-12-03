@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4caceb0289c9b4de2b2b2eff836686ee>>
+ * @generated SignedSource<<c8db016422db3175f719df37e9cd4cb2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,7 +101,7 @@ final class CompoundStatement extends EditableNode {
   }
 
   /**
-   * @returns Missing | LeftBraceToken
+   * @return null | LeftBraceToken
    */
   public function getLeftBrace(): ?LeftBraceToken {
     if ($this->_left_brace->isMissing()) {
@@ -111,7 +111,7 @@ final class CompoundStatement extends EditableNode {
   }
 
   /**
-   * @returns LeftBraceToken
+   * @return LeftBraceToken
    */
   public function getLeftBracex(): LeftBraceToken {
     return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
@@ -133,7 +133,7 @@ final class CompoundStatement extends EditableNode {
   }
 
   /**
-   * @returns EditableList<EditableNode> | Missing
+   * @return EditableList<EditableNode> | null
    */
   public function getStatements(): ?EditableList<EditableNode> {
     if ($this->_statements->isMissing()) {
@@ -143,7 +143,7 @@ final class CompoundStatement extends EditableNode {
   }
 
   /**
-   * @returns EditableList<EditableNode>
+   * @return EditableList<EditableNode>
    */
   public function getStatementsx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_statements);
@@ -165,7 +165,7 @@ final class CompoundStatement extends EditableNode {
   }
 
   /**
-   * @returns Missing | RightBraceToken
+   * @return null | RightBraceToken
    */
   public function getRightBrace(): ?RightBraceToken {
     if ($this->_right_brace->isMissing()) {
@@ -175,7 +175,7 @@ final class CompoundStatement extends EditableNode {
   }
 
   /**
-   * @returns RightBraceToken
+   * @return RightBraceToken
    */
   public function getRightBracex(): RightBraceToken {
     return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<663a8f5003fbcd265ea7c15dee242988>>
+ * @generated SignedSource<<c68a721cac7c0652fecc000b12104323>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,7 +101,7 @@ final class FieldInitializer extends EditableNode {
   }
 
   /**
-   * @returns LiteralExpression | ScopeResolutionExpression | QuestionToken |
+   * @return LiteralExpression | ScopeResolutionExpression | QuestionToken |
    * VariableExpression
    */
   public function getName(): EditableNode {
@@ -109,7 +109,7 @@ final class FieldInitializer extends EditableNode {
   }
 
   /**
-   * @returns LiteralExpression | ScopeResolutionExpression | QuestionToken |
+   * @return LiteralExpression | ScopeResolutionExpression | QuestionToken |
    * VariableExpression
    */
   public function getNamex(): EditableNode {
@@ -132,14 +132,14 @@ final class FieldInitializer extends EditableNode {
   }
 
   /**
-   * @returns EqualGreaterThanToken
+   * @return EqualGreaterThanToken
    */
   public function getArrow(): EqualGreaterThanToken {
     return TypeAssert\instance_of(EqualGreaterThanToken::class, $this->_arrow);
   }
 
   /**
-   * @returns EqualGreaterThanToken
+   * @return EqualGreaterThanToken
    */
   public function getArrowx(): EqualGreaterThanToken {
     return $this->getArrow();
@@ -161,7 +161,7 @@ final class FieldInitializer extends EditableNode {
   }
 
   /**
-   * @returns ArrayIntrinsicExpression | BinaryExpression | LambdaExpression |
+   * @return ArrayIntrinsicExpression | BinaryExpression | LambdaExpression |
    * LiteralExpression | ObjectCreationExpression | ScopeResolutionExpression |
    * SubscriptExpression | NameToken | VariableExpression |
    * VectorIntrinsicExpression
@@ -171,7 +171,7 @@ final class FieldInitializer extends EditableNode {
   }
 
   /**
-   * @returns ArrayIntrinsicExpression | BinaryExpression | LambdaExpression |
+   * @return ArrayIntrinsicExpression | BinaryExpression | LambdaExpression |
    * LiteralExpression | ObjectCreationExpression | ScopeResolutionExpression |
    * SubscriptExpression | NameToken | VariableExpression |
    * VectorIntrinsicExpression

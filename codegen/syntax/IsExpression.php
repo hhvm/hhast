@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<787808121e5e2a60ec6cb21a125f98af>>
+ * @generated SignedSource<<57de81f2803de4a5690047559e683022>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,16 +101,16 @@ final class IsExpression extends EditableNode {
   }
 
   /**
-   * @returns FunctionCallWithTypeArgumentsExpression | PipeVariableExpression
-   * | PrefixUnaryExpression | VariableExpression
+   * @return FunctionCallWithTypeArgumentsExpression | PipeVariableExpression |
+   * PrefixUnaryExpression | VariableExpression
    */
   public function getLeftOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_left_operand);
   }
 
   /**
-   * @returns FunctionCallWithTypeArgumentsExpression | PipeVariableExpression
-   * | PrefixUnaryExpression | VariableExpression
+   * @return FunctionCallWithTypeArgumentsExpression | PipeVariableExpression |
+   * PrefixUnaryExpression | VariableExpression
    */
   public function getLeftOperandx(): EditableNode {
     return $this->getLeftOperand();
@@ -132,14 +132,14 @@ final class IsExpression extends EditableNode {
   }
 
   /**
-   * @returns IsToken
+   * @return IsToken
    */
   public function getOperator(): IsToken {
     return TypeAssert\instance_of(IsToken::class, $this->_operator);
   }
 
   /**
-   * @returns IsToken
+   * @return IsToken
    */
   public function getOperatorx(): IsToken {
     return $this->getOperator();
@@ -161,7 +161,7 @@ final class IsExpression extends EditableNode {
   }
 
   /**
-   * @returns ClosureTypeSpecifier | DictionaryTypeSpecifier |
+   * @return ClosureTypeSpecifier | DictionaryTypeSpecifier |
    * GenericTypeSpecifier | KeysetTypeSpecifier | NullableTypeSpecifier |
    * ShapeTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier |
    * TupleTypeSpecifier | TypeConstant | VectorTypeSpecifier
@@ -171,7 +171,7 @@ final class IsExpression extends EditableNode {
   }
 
   /**
-   * @returns ClosureTypeSpecifier | DictionaryTypeSpecifier |
+   * @return ClosureTypeSpecifier | DictionaryTypeSpecifier |
    * GenericTypeSpecifier | KeysetTypeSpecifier | NullableTypeSpecifier |
    * ShapeTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier |
    * TupleTypeSpecifier | TypeConstant | VectorTypeSpecifier

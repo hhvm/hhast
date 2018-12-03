@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a7d9e29fae7909141ace401acdd4dc1b>>
+ * @generated SignedSource<<f4bc0b2d2052add8123e11a042107bd7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -82,14 +82,14 @@ final class TypeConstraint extends EditableNode {
   }
 
   /**
-   * @returns AsToken | SuperToken
+   * @return AsToken | SuperToken
    */
   public function getKeyword(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_keyword);
   }
 
   /**
-   * @returns AsToken | SuperToken
+   * @return AsToken | SuperToken
    */
   public function getKeywordx(): EditableToken {
     return $this->getKeyword();
@@ -111,7 +111,7 @@ final class TypeConstraint extends EditableNode {
   }
 
   /**
-   * @returns ClassnameTypeSpecifier | ClosureTypeSpecifier |
+   * @return ClassnameTypeSpecifier | ClosureTypeSpecifier |
    * DictionaryTypeSpecifier | GenericTypeSpecifier | KeysetTypeSpecifier |
    * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
    * TypeConstant | VectorArrayTypeSpecifier | VectorTypeSpecifier
@@ -121,7 +121,7 @@ final class TypeConstraint extends EditableNode {
   }
 
   /**
-   * @returns ClassnameTypeSpecifier | ClosureTypeSpecifier |
+   * @return ClassnameTypeSpecifier | ClosureTypeSpecifier |
    * DictionaryTypeSpecifier | GenericTypeSpecifier | KeysetTypeSpecifier |
    * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
    * TypeConstant | VectorArrayTypeSpecifier | VectorTypeSpecifier

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<86a36e36a886a01ecd8ed02dd91754e9>>
+ * @generated SignedSource<<cbeab3de95b2869d73dca9b3353c9a73>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -147,14 +147,14 @@ final class LetStatement extends EditableNode {
   }
 
   /**
-   * @returns LetToken
+   * @return LetToken
    */
   public function getKeyword(): LetToken {
     return TypeAssert\instance_of(LetToken::class, $this->_keyword);
   }
 
   /**
-   * @returns LetToken
+   * @return LetToken
    */
   public function getKeywordx(): LetToken {
     return $this->getKeyword();
@@ -183,14 +183,14 @@ final class LetStatement extends EditableNode {
   }
 
   /**
-   * @returns NameToken
+   * @return NameToken
    */
   public function getName(): NameToken {
     return TypeAssert\instance_of(NameToken::class, $this->_name);
   }
 
   /**
-   * @returns NameToken
+   * @return NameToken
    */
   public function getNamex(): NameToken {
     return $this->getName();
@@ -219,7 +219,7 @@ final class LetStatement extends EditableNode {
   }
 
   /**
-   * @returns Missing | ColonToken
+   * @return null | ColonToken
    */
   public function getColon(): ?ColonToken {
     if ($this->_colon->isMissing()) {
@@ -229,7 +229,7 @@ final class LetStatement extends EditableNode {
   }
 
   /**
-   * @returns ColonToken
+   * @return ColonToken
    */
   public function getColonx(): ColonToken {
     return TypeAssert\instance_of(ColonToken::class, $this->_colon);
@@ -258,7 +258,7 @@ final class LetStatement extends EditableNode {
   }
 
   /**
-   * @returns ClosureTypeSpecifier | GenericTypeSpecifier | Missing |
+   * @return ClosureTypeSpecifier | GenericTypeSpecifier | null |
    * NullableTypeSpecifier | SimpleTypeSpecifier
    */
   public function getType(): ?EditableNode {
@@ -269,7 +269,7 @@ final class LetStatement extends EditableNode {
   }
 
   /**
-   * @returns ClosureTypeSpecifier | GenericTypeSpecifier |
+   * @return ClosureTypeSpecifier | GenericTypeSpecifier |
    * NullableTypeSpecifier | SimpleTypeSpecifier
    */
   public function getTypex(): EditableNode {
@@ -299,7 +299,7 @@ final class LetStatement extends EditableNode {
   }
 
   /**
-   * @returns SimpleInitializer
+   * @return SimpleInitializer
    */
   public function getInitializer(): SimpleInitializer {
     return
@@ -307,7 +307,7 @@ final class LetStatement extends EditableNode {
   }
 
   /**
-   * @returns SimpleInitializer
+   * @return SimpleInitializer
    */
   public function getInitializerx(): SimpleInitializer {
     return $this->getInitializer();
@@ -336,14 +336,14 @@ final class LetStatement extends EditableNode {
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSemicolonx(): SemicolonToken {
     return $this->getSemicolon();

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8af418dd148dfdb36b8ba95c979b4819>>
+ * @generated SignedSource<<d017837f6ad8231a3814a96369430d19>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -145,14 +145,14 @@ final class KeysetIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns KeysetToken
+   * @return KeysetToken
    */
   public function getKeyword(): KeysetToken {
     return TypeAssert\instance_of(KeysetToken::class, $this->_keyword);
   }
 
   /**
-   * @returns KeysetToken
+   * @return KeysetToken
    */
   public function getKeywordx(): KeysetToken {
     return $this->getKeyword();
@@ -180,7 +180,7 @@ final class KeysetIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns Missing
+   * @return null
    */
   public function getExplicitType(): ?EditableNode {
     if ($this->_explicit_type->isMissing()) {
@@ -190,7 +190,7 @@ final class KeysetIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns
+   * @return
    */
   public function getExplicitTypex(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_explicit_type);
@@ -218,7 +218,7 @@ final class KeysetIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns LeftBracketToken
+   * @return LeftBracketToken
    */
   public function getLeftBracket(): LeftBracketToken {
     return
@@ -226,7 +226,7 @@ final class KeysetIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns LeftBracketToken
+   * @return LeftBracketToken
    */
   public function getLeftBracketx(): LeftBracketToken {
     return $this->getLeftBracket();
@@ -254,7 +254,7 @@ final class KeysetIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList<ArrayIntrinsicExpression> |
+   * @return EditableList<ArrayIntrinsicExpression> |
    * EditableList<EditableNode> | EditableList<CollectionLiteralExpression> |
    * EditableList<ConditionalExpression> |
    * EditableList<DictionaryIntrinsicExpression> |
@@ -263,7 +263,7 @@ final class KeysetIntrinsicExpression extends EditableNode {
    * | EditableList<ObjectCreationExpression> |
    * EditableList<ScopeResolutionExpression> | EditableList<NameToken> |
    * EditableList<VariableExpression> | EditableList<VectorIntrinsicExpression>
-   * | Missing
+   * | null
    */
   public function getMembers(): ?EditableList<EditableNode> {
     if ($this->_members->isMissing()) {
@@ -273,7 +273,7 @@ final class KeysetIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList<ArrayIntrinsicExpression> |
+   * @return EditableList<ArrayIntrinsicExpression> |
    * EditableList<EditableNode> | EditableList<CollectionLiteralExpression> |
    * EditableList<ConditionalExpression> |
    * EditableList<DictionaryIntrinsicExpression> |
@@ -309,7 +309,7 @@ final class KeysetIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns RightBracketToken
+   * @return RightBracketToken
    */
   public function getRightBracket(): RightBracketToken {
     return
@@ -317,7 +317,7 @@ final class KeysetIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns RightBracketToken
+   * @return RightBracketToken
    */
   public function getRightBracketx(): RightBracketToken {
     return $this->getRightBracket();

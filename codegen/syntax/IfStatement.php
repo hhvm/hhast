@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9d48ab305ddb66e80ec83afd2fdfe80c>>
+ * @generated SignedSource<<7c5e78c04ad3c690f515de46f5986972>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -177,14 +177,14 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
   }
 
   /**
-   * @returns IfToken
+   * @return IfToken
    */
   public function getKeyword(): IfToken {
     return TypeAssert\instance_of(IfToken::class, $this->_keyword);
   }
 
   /**
-   * @returns IfToken
+   * @return IfToken
    */
   public function getKeywordx(): IfToken {
     return $this->getKeyword();
@@ -214,14 +214,14 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParenx(): LeftParenToken {
     return $this->getLeftParen();
@@ -251,7 +251,7 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
   }
 
   /**
-   * @returns ArrayIntrinsicExpression | AsExpression | BinaryExpression |
+   * @return ArrayIntrinsicExpression | AsExpression | BinaryExpression |
    * CastExpression | EmptyExpression | FunctionCallExpression |
    * InstanceofExpression | IsExpression | IssetExpression | LiteralExpression
    * | MemberSelectionExpression | ParenthesizedExpression |
@@ -263,7 +263,7 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
   }
 
   /**
-   * @returns ArrayIntrinsicExpression | AsExpression | BinaryExpression |
+   * @return ArrayIntrinsicExpression | AsExpression | BinaryExpression |
    * CastExpression | EmptyExpression | FunctionCallExpression |
    * InstanceofExpression | IsExpression | IssetExpression | LiteralExpression
    * | MemberSelectionExpression | ParenthesizedExpression |
@@ -298,14 +298,14 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParenx(): RightParenToken {
     return $this->getRightParen();
@@ -335,7 +335,7 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
   }
 
   /**
-   * @returns BreakStatement | CompoundStatement | ContinueStatement |
+   * @return BreakStatement | CompoundStatement | ContinueStatement |
    * EchoStatement | ExpressionStatement | GlobalStatement | GotoStatement |
    * ReturnStatement | ThrowStatement | UnsetStatement
    */
@@ -344,7 +344,7 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
   }
 
   /**
-   * @returns BreakStatement | CompoundStatement | ContinueStatement |
+   * @return BreakStatement | CompoundStatement | ContinueStatement |
    * EchoStatement | ExpressionStatement | GlobalStatement | GotoStatement |
    * ReturnStatement | ThrowStatement | UnsetStatement
    */
@@ -376,7 +376,7 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
   }
 
   /**
-   * @returns EditableList<EditableNode> | Missing
+   * @return EditableList<EditableNode> | null
    */
   public function getElseifClauses(): ?EditableList<EditableNode> {
     if ($this->_elseif_clauses->isMissing()) {
@@ -386,7 +386,7 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
   }
 
   /**
-   * @returns EditableList<EditableNode>
+   * @return EditableList<EditableNode>
    */
   public function getElseifClausesx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_elseif_clauses);
@@ -416,7 +416,7 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
   }
 
   /**
-   * @returns ElseClause | Missing
+   * @return ElseClause | null
    */
   public function getElseClause(): ?ElseClause {
     if ($this->_else_clause->isMissing()) {
@@ -426,7 +426,7 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
   }
 
   /**
-   * @returns ElseClause
+   * @return ElseClause
    */
   public function getElseClausex(): ElseClause {
     return TypeAssert\instance_of(ElseClause::class, $this->_else_clause);

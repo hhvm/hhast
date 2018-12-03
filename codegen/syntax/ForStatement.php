@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c8775c91fb67f1f67434920ca4171177>>
+ * @generated SignedSource<<c90703af80def230422c602bc1703fb0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -211,14 +211,14 @@ final class ForStatement
   }
 
   /**
-   * @returns ForToken
+   * @return ForToken
    */
   public function getKeyword(): ForToken {
     return TypeAssert\instance_of(ForToken::class, $this->_keyword);
   }
 
   /**
-   * @returns ForToken
+   * @return ForToken
    */
   public function getKeywordx(): ForToken {
     return $this->getKeyword();
@@ -250,14 +250,14 @@ final class ForStatement
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParenx(): LeftParenToken {
     return $this->getLeftParen();
@@ -289,9 +289,9 @@ final class ForStatement
   }
 
   /**
-   * @returns EditableList<BinaryExpression> |
+   * @return EditableList<BinaryExpression> |
    * EditableList<FunctionCallExpression> | EditableList<LiteralExpression> |
-   * Missing
+   * null
    */
   public function getInitializer(): ?EditableList<EditableNode> {
     if ($this->_initializer->isMissing()) {
@@ -301,7 +301,7 @@ final class ForStatement
   }
 
   /**
-   * @returns EditableList<BinaryExpression> |
+   * @return EditableList<BinaryExpression> |
    * EditableList<FunctionCallExpression> | EditableList<LiteralExpression>
    */
   public function getInitializerx(): EditableList<EditableNode> {
@@ -334,7 +334,7 @@ final class ForStatement
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getFirstSemicolon(): SemicolonToken {
     return
@@ -342,7 +342,7 @@ final class ForStatement
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getFirstSemicolonx(): SemicolonToken {
     return $this->getFirstSemicolon();
@@ -374,10 +374,10 @@ final class ForStatement
   }
 
   /**
-   * @returns EditableList<BinaryExpression> | EditableList<EditableNode> |
+   * @return EditableList<BinaryExpression> | EditableList<EditableNode> |
    * EditableList<ConditionalExpression> | EditableList<FunctionCallExpression>
    * | EditableList<PrefixUnaryExpression> | EditableList<VariableExpression> |
-   * Missing
+   * null
    */
   public function getControl(): ?EditableList<EditableNode> {
     if ($this->_control->isMissing()) {
@@ -387,7 +387,7 @@ final class ForStatement
   }
 
   /**
-   * @returns EditableList<BinaryExpression> | EditableList<EditableNode> |
+   * @return EditableList<BinaryExpression> | EditableList<EditableNode> |
    * EditableList<ConditionalExpression> | EditableList<FunctionCallExpression>
    * | EditableList<PrefixUnaryExpression> | EditableList<VariableExpression>
    */
@@ -421,7 +421,7 @@ final class ForStatement
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSecondSemicolon(): SemicolonToken {
     return
@@ -429,7 +429,7 @@ final class ForStatement
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSecondSemicolonx(): SemicolonToken {
     return $this->getSecondSemicolon();
@@ -461,10 +461,10 @@ final class ForStatement
   }
 
   /**
-   * @returns EditableList<BinaryExpression> |
+   * @return EditableList<BinaryExpression> |
    * EditableList<FunctionCallExpression> |
    * EditableList<PostfixUnaryExpression> | EditableList<PrefixUnaryExpression>
-   * | Missing
+   * | null
    */
   public function getEndOfLoop(): ?EditableList<EditableNode> {
     if ($this->_end_of_loop->isMissing()) {
@@ -474,7 +474,7 @@ final class ForStatement
   }
 
   /**
-   * @returns EditableList<BinaryExpression> |
+   * @return EditableList<BinaryExpression> |
    * EditableList<FunctionCallExpression> |
    * EditableList<PostfixUnaryExpression> | EditableList<PrefixUnaryExpression>
    */
@@ -508,14 +508,14 @@ final class ForStatement
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParenx(): RightParenToken {
     return $this->getRightParen();
@@ -547,7 +547,7 @@ final class ForStatement
   }
 
   /**
-   * @returns AlternateLoopStatement | CompoundStatement | EchoStatement |
+   * @return AlternateLoopStatement | CompoundStatement | EchoStatement |
    * ExpressionStatement | ForStatement | UnsetStatement
    */
   public function getBody(): EditableNode {
@@ -555,7 +555,7 @@ final class ForStatement
   }
 
   /**
-   * @returns AlternateLoopStatement | CompoundStatement | EchoStatement |
+   * @return AlternateLoopStatement | CompoundStatement | EchoStatement |
    * ExpressionStatement | ForStatement | UnsetStatement
    */
   public function getBodyx(): EditableNode {
