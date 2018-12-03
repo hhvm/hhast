@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bf068e4e73715c90b44ef9e73bc8ec91>>
+ * @generated SignedSource<<ff14d0c011fc5e5aac7f993cc557c6ec>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -135,14 +135,14 @@ final class VectorTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns VecToken
+   * @return VecToken
    */
   public function getKeyword(): VecToken {
     return TypeAssert\instance_of(VecToken::class, $this->_keyword);
   }
 
   /**
-   * @returns VecToken
+   * @return VecToken
    */
   public function getKeywordx(): VecToken {
     return $this->getKeyword();
@@ -170,14 +170,14 @@ final class VectorTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns LessThanToken
+   * @return LessThanToken
    */
   public function getLeftAngle(): LessThanToken {
     return TypeAssert\instance_of(LessThanToken::class, $this->_left_angle);
   }
 
   /**
-   * @returns LessThanToken
+   * @return LessThanToken
    */
   public function getLeftAnglex(): LessThanToken {
     return $this->getLeftAngle();
@@ -205,7 +205,7 @@ final class VectorTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns ClassnameTypeSpecifier | ClosureTypeSpecifier |
+   * @return ClassnameTypeSpecifier | ClosureTypeSpecifier |
    * NullableTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
    * VectorTypeSpecifier
    */
@@ -214,7 +214,7 @@ final class VectorTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns ClassnameTypeSpecifier | ClosureTypeSpecifier |
+   * @return ClassnameTypeSpecifier | ClosureTypeSpecifier |
    * NullableTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
    * VectorTypeSpecifier
    */
@@ -244,7 +244,7 @@ final class VectorTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns Missing
+   * @return null
    */
   public function getTrailingComma(): ?EditableNode {
     if ($this->_trailing_comma->isMissing()) {
@@ -254,7 +254,7 @@ final class VectorTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns
+   * @return
    */
   public function getTrailingCommax(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_trailing_comma);
@@ -282,14 +282,14 @@ final class VectorTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns GreaterThanToken
+   * @return GreaterThanToken
    */
   public function getRightAngle(): GreaterThanToken {
     return TypeAssert\instance_of(GreaterThanToken::class, $this->_right_angle);
   }
 
   /**
-   * @returns GreaterThanToken
+   * @return GreaterThanToken
    */
   public function getRightAnglex(): GreaterThanToken {
     return $this->getRightAngle();

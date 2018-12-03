@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ae1d40e2b7663fe4182e53b402438c36>>
+ * @generated SignedSource<<d8b43da312eac551c768266e1e7f94f0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -149,14 +149,14 @@ final class CatchClause extends EditableNode {
   }
 
   /**
-   * @returns CatchToken
+   * @return CatchToken
    */
   public function getKeyword(): CatchToken {
     return TypeAssert\instance_of(CatchToken::class, $this->_keyword);
   }
 
   /**
-   * @returns CatchToken
+   * @return CatchToken
    */
   public function getKeywordx(): CatchToken {
     return $this->getKeyword();
@@ -185,14 +185,14 @@ final class CatchClause extends EditableNode {
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParenx(): LeftParenToken {
     return $this->getLeftParen();
@@ -221,14 +221,14 @@ final class CatchClause extends EditableNode {
   }
 
   /**
-   * @returns SimpleTypeSpecifier
+   * @return SimpleTypeSpecifier
    */
   public function getType(): SimpleTypeSpecifier {
     return TypeAssert\instance_of(SimpleTypeSpecifier::class, $this->_type);
   }
 
   /**
-   * @returns SimpleTypeSpecifier
+   * @return SimpleTypeSpecifier
    */
   public function getTypex(): SimpleTypeSpecifier {
     return $this->getType();
@@ -257,14 +257,14 @@ final class CatchClause extends EditableNode {
   }
 
   /**
-   * @returns NameToken | VariableToken
+   * @return NameToken | VariableToken
    */
   public function getVariable(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_variable);
   }
 
   /**
-   * @returns NameToken | VariableToken
+   * @return NameToken | VariableToken
    */
   public function getVariablex(): EditableToken {
     return $this->getVariable();
@@ -293,14 +293,14 @@ final class CatchClause extends EditableNode {
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParenx(): RightParenToken {
     return $this->getRightParen();
@@ -329,14 +329,14 @@ final class CatchClause extends EditableNode {
   }
 
   /**
-   * @returns CompoundStatement
+   * @return CompoundStatement
    */
   public function getBody(): CompoundStatement {
     return TypeAssert\instance_of(CompoundStatement::class, $this->_body);
   }
 
   /**
-   * @returns CompoundStatement
+   * @return CompoundStatement
    */
   public function getBodyx(): CompoundStatement {
     return $this->getBody();

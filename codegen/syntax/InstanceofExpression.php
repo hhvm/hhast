@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<316f0f7f7ba81fc2bed90fc96440d1e9>>
+ * @generated SignedSource<<2c75885f528fda8f58f7f839f893e71b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,8 +101,8 @@ final class InstanceofExpression extends EditableNode {
   }
 
   /**
-   * @returns AnonymousFunction | CastExpression | CollectionLiteralExpression
-   * | FunctionCallExpression | LiteralExpression | MemberSelectionExpression |
+   * @return AnonymousFunction | CastExpression | CollectionLiteralExpression |
+   * FunctionCallExpression | LiteralExpression | MemberSelectionExpression |
    * ObjectCreationExpression | ParenthesizedExpression |
    * PipeVariableExpression | PrefixUnaryExpression | ScopeResolutionExpression
    * | SubscriptExpression | VariableExpression
@@ -112,8 +112,8 @@ final class InstanceofExpression extends EditableNode {
   }
 
   /**
-   * @returns AnonymousFunction | CastExpression | CollectionLiteralExpression
-   * | FunctionCallExpression | LiteralExpression | MemberSelectionExpression |
+   * @return AnonymousFunction | CastExpression | CollectionLiteralExpression |
+   * FunctionCallExpression | LiteralExpression | MemberSelectionExpression |
    * ObjectCreationExpression | ParenthesizedExpression |
    * PipeVariableExpression | PrefixUnaryExpression | ScopeResolutionExpression
    * | SubscriptExpression | VariableExpression
@@ -138,14 +138,14 @@ final class InstanceofExpression extends EditableNode {
   }
 
   /**
-   * @returns InstanceofToken
+   * @return InstanceofToken
    */
   public function getOperator(): InstanceofToken {
     return TypeAssert\instance_of(InstanceofToken::class, $this->_operator);
   }
 
   /**
-   * @returns InstanceofToken
+   * @return InstanceofToken
    */
   public function getOperatorx(): InstanceofToken {
     return $this->getOperator();
@@ -167,7 +167,7 @@ final class InstanceofExpression extends EditableNode {
   }
 
   /**
-   * @returns MemberSelectionExpression | Missing | ParenthesizedExpression |
+   * @return MemberSelectionExpression | null | ParenthesizedExpression |
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
    * NameToken | VariableExpression
    */
@@ -179,7 +179,7 @@ final class InstanceofExpression extends EditableNode {
   }
 
   /**
-   * @returns MemberSelectionExpression | ParenthesizedExpression |
+   * @return MemberSelectionExpression | ParenthesizedExpression |
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
    * NameToken | VariableExpression
    */

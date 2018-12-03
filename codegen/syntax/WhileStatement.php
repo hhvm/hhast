@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<51b0bb21fbcb9ffe79e7f2390cf769ec>>
+ * @generated SignedSource<<6645c4dc9b119f248280bc0235340c8d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -135,14 +135,14 @@ final class WhileStatement
   }
 
   /**
-   * @returns WhileToken
+   * @return WhileToken
    */
   public function getKeyword(): WhileToken {
     return TypeAssert\instance_of(WhileToken::class, $this->_keyword);
   }
 
   /**
-   * @returns WhileToken
+   * @return WhileToken
    */
   public function getKeywordx(): WhileToken {
     return $this->getKeyword();
@@ -170,14 +170,14 @@ final class WhileStatement
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParenx(): LeftParenToken {
     return $this->getLeftParen();
@@ -205,8 +205,8 @@ final class WhileStatement
   }
 
   /**
-   * @returns BinaryExpression | FunctionCallExpression | InstanceofExpression
-   * | IssetExpression | LiteralExpression | MemberSelectionExpression |
+   * @return BinaryExpression | FunctionCallExpression | InstanceofExpression |
+   * IssetExpression | LiteralExpression | MemberSelectionExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * VariableExpression
    */
@@ -215,8 +215,8 @@ final class WhileStatement
   }
 
   /**
-   * @returns BinaryExpression | FunctionCallExpression | InstanceofExpression
-   * | IssetExpression | LiteralExpression | MemberSelectionExpression |
+   * @return BinaryExpression | FunctionCallExpression | InstanceofExpression |
+   * IssetExpression | LiteralExpression | MemberSelectionExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * VariableExpression
    */
@@ -246,14 +246,14 @@ final class WhileStatement
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParenx(): RightParenToken {
     return $this->getRightParen();
@@ -281,7 +281,7 @@ final class WhileStatement
   }
 
   /**
-   * @returns AlternateLoopStatement | CompoundStatement | ContinueStatement |
+   * @return AlternateLoopStatement | CompoundStatement | ContinueStatement |
    * EchoStatement | ExpressionStatement
    */
   public function getBody(): EditableNode {
@@ -289,7 +289,7 @@ final class WhileStatement
   }
 
   /**
-   * @returns AlternateLoopStatement | CompoundStatement | ContinueStatement |
+   * @return AlternateLoopStatement | CompoundStatement | ContinueStatement |
    * EchoStatement | ExpressionStatement
    */
   public function getBodyx(): EditableNode {

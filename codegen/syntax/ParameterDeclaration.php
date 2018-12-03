@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3098dc5df2a146e1613910226564a4f0>>
+ * @generated SignedSource<<263b3e09f94796a9099579ce6cec0921>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -161,7 +161,7 @@ final class ParameterDeclaration extends EditableNode {
   }
 
   /**
-   * @returns AttributeSpecification | Missing
+   * @return AttributeSpecification | null
    */
   public function getAttribute(): ?AttributeSpecification {
     if ($this->_attribute->isMissing()) {
@@ -172,7 +172,7 @@ final class ParameterDeclaration extends EditableNode {
   }
 
   /**
-   * @returns AttributeSpecification
+   * @return AttributeSpecification
    */
   public function getAttributex(): AttributeSpecification {
     return
@@ -202,7 +202,7 @@ final class ParameterDeclaration extends EditableNode {
   }
 
   /**
-   * @returns Missing | PrivateToken | ProtectedToken | PublicToken
+   * @return null | PrivateToken | ProtectedToken | PublicToken
    */
   public function getVisibility(): ?EditableToken {
     if ($this->_visibility->isMissing()) {
@@ -212,7 +212,7 @@ final class ParameterDeclaration extends EditableNode {
   }
 
   /**
-   * @returns PrivateToken | ProtectedToken | PublicToken
+   * @return PrivateToken | ProtectedToken | PublicToken
    */
   public function getVisibilityx(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_visibility);
@@ -241,7 +241,7 @@ final class ParameterDeclaration extends EditableNode {
   }
 
   /**
-   * @returns Missing | InoutToken
+   * @return null | InoutToken
    */
   public function getCallConvention(): ?InoutToken {
     if ($this->_call_convention->isMissing()) {
@@ -251,7 +251,7 @@ final class ParameterDeclaration extends EditableNode {
   }
 
   /**
-   * @returns InoutToken
+   * @return InoutToken
    */
   public function getCallConventionx(): InoutToken {
     return TypeAssert\instance_of(InoutToken::class, $this->_call_convention);
@@ -280,12 +280,12 @@ final class ParameterDeclaration extends EditableNode {
   }
 
   /**
-   * @returns ClassnameTypeSpecifier | ClosureTypeSpecifier |
+   * @return ClassnameTypeSpecifier | ClosureTypeSpecifier |
    * DarrayTypeSpecifier | DictionaryTypeSpecifier | GenericTypeSpecifier |
-   * KeysetTypeSpecifier | MapArrayTypeSpecifier | Missing |
-   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
-   * SoftTypeSpecifier | TupleTypeSpecifier | TypeConstant |
-   * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
+   * KeysetTypeSpecifier | MapArrayTypeSpecifier | null | NullableTypeSpecifier
+   * | ShapeTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier |
+   * TupleTypeSpecifier | TypeConstant | VarrayTypeSpecifier |
+   * VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getType(): ?EditableNode {
     if ($this->_type->isMissing()) {
@@ -295,7 +295,7 @@ final class ParameterDeclaration extends EditableNode {
   }
 
   /**
-   * @returns ClassnameTypeSpecifier | ClosureTypeSpecifier |
+   * @return ClassnameTypeSpecifier | ClosureTypeSpecifier |
    * DarrayTypeSpecifier | DictionaryTypeSpecifier | GenericTypeSpecifier |
    * KeysetTypeSpecifier | MapArrayTypeSpecifier | NullableTypeSpecifier |
    * ShapeTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier |
@@ -329,7 +329,7 @@ final class ParameterDeclaration extends EditableNode {
   }
 
   /**
-   * @returns DecoratedExpression | Missing | VariableToken
+   * @return DecoratedExpression | null | VariableToken
    */
   public function getName(): ?EditableNode {
     if ($this->_name->isMissing()) {
@@ -339,7 +339,7 @@ final class ParameterDeclaration extends EditableNode {
   }
 
   /**
-   * @returns DecoratedExpression | VariableToken
+   * @return DecoratedExpression | VariableToken
    */
   public function getNamex(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_name);
@@ -368,7 +368,7 @@ final class ParameterDeclaration extends EditableNode {
   }
 
   /**
-   * @returns Missing | SimpleInitializer
+   * @return null | SimpleInitializer
    */
   public function getDefaultValue(): ?SimpleInitializer {
     if ($this->_default_value->isMissing()) {
@@ -379,7 +379,7 @@ final class ParameterDeclaration extends EditableNode {
   }
 
   /**
-   * @returns SimpleInitializer
+   * @return SimpleInitializer
    */
   public function getDefaultValuex(): SimpleInitializer {
     return

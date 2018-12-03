@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e480de5445c3981abda3e4c19a1f53c9>>
+ * @generated SignedSource<<bfce08f37ce67eefbc18dc87b0a8c848>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -82,14 +82,14 @@ final class PropertyDeclarator extends EditableNode {
   }
 
   /**
-   * @returns VariableToken
+   * @return VariableToken
    */
   public function getName(): VariableToken {
     return TypeAssert\instance_of(VariableToken::class, $this->_name);
   }
 
   /**
-   * @returns VariableToken
+   * @return VariableToken
    */
   public function getNamex(): VariableToken {
     return $this->getName();
@@ -111,7 +111,7 @@ final class PropertyDeclarator extends EditableNode {
   }
 
   /**
-   * @returns Missing | SimpleInitializer
+   * @return null | SimpleInitializer
    */
   public function getInitializer(): ?SimpleInitializer {
     if ($this->_initializer->isMissing()) {
@@ -122,7 +122,7 @@ final class PropertyDeclarator extends EditableNode {
   }
 
   /**
-   * @returns SimpleInitializer
+   * @return SimpleInitializer
    */
   public function getInitializerx(): SimpleInitializer {
     return

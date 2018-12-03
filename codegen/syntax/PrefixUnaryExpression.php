@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bb9bb2ed717dbb50b9e4ef81b6391d32>>
+ * @generated SignedSource<<fc150534346c197114b0aa711a0423ed>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -82,7 +82,7 @@ final class PrefixUnaryExpression extends EditableNode {
   }
 
   /**
-   * @returns ExclamationToken | DollarToken | AmpersandToken | PlusToken |
+   * @return ExclamationToken | DollarToken | AmpersandToken | PlusToken |
    * PlusPlusToken | MinusToken | MinusMinusToken | AtToken | AwaitToken |
    * CloneToken | PrintToken | SuspendToken | TildeToken
    */
@@ -91,7 +91,7 @@ final class PrefixUnaryExpression extends EditableNode {
   }
 
   /**
-   * @returns ExclamationToken | DollarToken | AmpersandToken | PlusToken |
+   * @return ExclamationToken | DollarToken | AmpersandToken | PlusToken |
    * PlusPlusToken | MinusToken | MinusMinusToken | AtToken | AwaitToken |
    * CloneToken | PrintToken | SuspendToken | TildeToken
    */
@@ -115,7 +115,7 @@ final class PrefixUnaryExpression extends EditableNode {
   }
 
   /**
-   * @returns AnonymousFunction | ArrayIntrinsicExpression |
+   * @return AnonymousFunction | ArrayIntrinsicExpression |
    * AwaitableCreationExpression | BinaryExpression | BracedExpression |
    * CastExpression | ConditionalExpression | DefineExpression |
    * EmptyExpression | EvalExpression | FunctionCallExpression |
@@ -131,7 +131,7 @@ final class PrefixUnaryExpression extends EditableNode {
   }
 
   /**
-   * @returns AnonymousFunction | ArrayIntrinsicExpression |
+   * @return AnonymousFunction | ArrayIntrinsicExpression |
    * AwaitableCreationExpression | BinaryExpression | BracedExpression |
    * CastExpression | ConditionalExpression | DefineExpression |
    * EmptyExpression | EvalExpression | FunctionCallExpression |

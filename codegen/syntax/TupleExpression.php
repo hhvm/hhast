@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1e1acd17552711df94d875ff2f3dbf36>>
+ * @generated SignedSource<<243fcaf723250580bcec8f852e99d23f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -119,14 +119,14 @@ final class TupleExpression extends EditableNode {
   }
 
   /**
-   * @returns TupleToken
+   * @return TupleToken
    */
   public function getKeyword(): TupleToken {
     return TypeAssert\instance_of(TupleToken::class, $this->_keyword);
   }
 
   /**
-   * @returns TupleToken
+   * @return TupleToken
    */
   public function getKeywordx(): TupleToken {
     return $this->getKeyword();
@@ -149,14 +149,14 @@ final class TupleExpression extends EditableNode {
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParenx(): LeftParenToken {
     return $this->getLeftParen();
@@ -183,11 +183,10 @@ final class TupleExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList<EditableNode> |
+   * @return EditableList<EditableNode> |
    * EditableList<ArrayIntrinsicExpression> | EditableList<BinaryExpression> |
    * EditableList<CastExpression> | EditableList<FunctionCallExpression> |
-   * EditableList<LiteralExpression> | EditableList<VariableExpression> |
-   * Missing
+   * EditableList<LiteralExpression> | EditableList<VariableExpression> | null
    */
   public function getItems(): ?EditableList<EditableNode> {
     if ($this->_items->isMissing()) {
@@ -197,7 +196,7 @@ final class TupleExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList<EditableNode> |
+   * @return EditableList<EditableNode> |
    * EditableList<ArrayIntrinsicExpression> | EditableList<BinaryExpression> |
    * EditableList<CastExpression> | EditableList<FunctionCallExpression> |
    * EditableList<LiteralExpression> | EditableList<VariableExpression>
@@ -223,14 +222,14 @@ final class TupleExpression extends EditableNode {
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParenx(): RightParenToken {
     return $this->getRightParen();

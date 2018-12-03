@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9fd5e9d9809d3513907a5b15f0d97c34>>
+ * @generated SignedSource<<46b07d07c23f5fae6e98976311bc8773>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -119,14 +119,14 @@ final class IssetExpression extends EditableNode {
   }
 
   /**
-   * @returns IssetToken
+   * @return IssetToken
    */
   public function getKeyword(): IssetToken {
     return TypeAssert\instance_of(IssetToken::class, $this->_keyword);
   }
 
   /**
-   * @returns IssetToken
+   * @return IssetToken
    */
   public function getKeywordx(): IssetToken {
     return $this->getKeyword();
@@ -153,14 +153,14 @@ final class IssetExpression extends EditableNode {
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParenx(): LeftParenToken {
     return $this->getLeftParen();
@@ -187,7 +187,7 @@ final class IssetExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList<FunctionCallExpression> | EditableList<EditableNode>
+   * @return EditableList<FunctionCallExpression> | EditableList<EditableNode>
    * | EditableList<MemberSelectionExpression> |
    * EditableList<PrefixUnaryExpression> |
    * EditableList<SafeMemberSelectionExpression> |
@@ -199,7 +199,7 @@ final class IssetExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList<FunctionCallExpression> | EditableList<EditableNode>
+   * @return EditableList<FunctionCallExpression> | EditableList<EditableNode>
    * | EditableList<MemberSelectionExpression> |
    * EditableList<PrefixUnaryExpression> |
    * EditableList<SafeMemberSelectionExpression> |
@@ -231,14 +231,14 @@ final class IssetExpression extends EditableNode {
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParenx(): RightParenToken {
     return $this->getRightParen();

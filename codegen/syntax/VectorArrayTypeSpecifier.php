@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a1cc74550b618468b76dcf5942aae1e0>>
+ * @generated SignedSource<<5d872c6207bf339ac832c9b48ece4aa9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -115,14 +115,14 @@ final class VectorArrayTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns ArrayToken
+   * @return ArrayToken
    */
   public function getKeyword(): ArrayToken {
     return TypeAssert\instance_of(ArrayToken::class, $this->_keyword);
   }
 
   /**
-   * @returns ArrayToken
+   * @return ArrayToken
    */
   public function getKeywordx(): ArrayToken {
     return $this->getKeyword();
@@ -145,14 +145,14 @@ final class VectorArrayTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns LessThanToken
+   * @return LessThanToken
    */
   public function getLeftAngle(): LessThanToken {
     return TypeAssert\instance_of(LessThanToken::class, $this->_left_angle);
   }
 
   /**
-   * @returns LessThanToken
+   * @return LessThanToken
    */
   public function getLeftAnglex(): LessThanToken {
     return $this->getLeftAngle();
@@ -179,18 +179,18 @@ final class VectorArrayTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns DarrayTypeSpecifier | GenericTypeSpecifier |
-   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
-   * TupleTypeSpecifier | VarrayTypeSpecifier | VectorArrayTypeSpecifier
+   * @return DarrayTypeSpecifier | GenericTypeSpecifier | NullableTypeSpecifier
+   * | ShapeTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
+   * VarrayTypeSpecifier | VectorArrayTypeSpecifier
    */
   public function getType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);
   }
 
   /**
-   * @returns DarrayTypeSpecifier | GenericTypeSpecifier |
-   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
-   * TupleTypeSpecifier | VarrayTypeSpecifier | VectorArrayTypeSpecifier
+   * @return DarrayTypeSpecifier | GenericTypeSpecifier | NullableTypeSpecifier
+   * | ShapeTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
+   * VarrayTypeSpecifier | VectorArrayTypeSpecifier
    */
   public function getTypex(): EditableNode {
     return $this->getType();
@@ -213,14 +213,14 @@ final class VectorArrayTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns GreaterThanToken
+   * @return GreaterThanToken
    */
   public function getRightAngle(): GreaterThanToken {
     return TypeAssert\instance_of(GreaterThanToken::class, $this->_right_angle);
   }
 
   /**
-   * @returns GreaterThanToken
+   * @return GreaterThanToken
    */
   public function getRightAnglex(): GreaterThanToken {
     return $this->getRightAngle();

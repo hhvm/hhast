@@ -23,7 +23,7 @@ We develop HHAST purely on GitHub, and welcome pull requests.
    correctly implemented in the hand-written base classes. If you need to
    extend any of these, **do not modify them directly** - instead, edit the
    code that generates them in `src/__Private/codegen/`, and run
-   `bin/update-codegen.php`.
+   `bin/update-codegen`.
  - the linter framework
  - the migration framework
 

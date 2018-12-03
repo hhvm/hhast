@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<94cc30b608da445aeffb85add1f4a392>>
+ * @generated SignedSource<<f05935c41581199963b508c5419ed7fe>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -82,14 +82,14 @@ final class ObjectCreationExpression extends EditableNode {
   }
 
   /**
-   * @returns NewToken
+   * @return NewToken
    */
   public function getNewKeyword(): NewToken {
     return TypeAssert\instance_of(NewToken::class, $this->_new_keyword);
   }
 
   /**
-   * @returns NewToken
+   * @return NewToken
    */
   public function getNewKeywordx(): NewToken {
     return $this->getNewKeyword();
@@ -111,14 +111,14 @@ final class ObjectCreationExpression extends EditableNode {
   }
 
   /**
-   * @returns AnonymousClass | ConstructorCall
+   * @return AnonymousClass | ConstructorCall
    */
   public function getObject(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_object);
   }
 
   /**
-   * @returns AnonymousClass | ConstructorCall
+   * @return AnonymousClass | ConstructorCall
    */
   public function getObjectx(): EditableNode {
     return $this->getObject();

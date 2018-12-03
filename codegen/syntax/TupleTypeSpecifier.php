@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b3f7e6f720869406e1462903e7f50b09>>
+ * @generated SignedSource<<79406efcd056d15059ff7f493269f75b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,14 +101,14 @@ final class TupleTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParenx(): LeftParenToken {
     return $this->getLeftParen();
@@ -130,7 +130,7 @@ final class TupleTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns EditableList<EditableNode> | EditableList<SimpleTypeSpecifier> |
+   * @return EditableList<EditableNode> | EditableList<SimpleTypeSpecifier> |
    * EditableList<VectorArrayTypeSpecifier> | EditableList<VectorTypeSpecifier>
    */
   public function getTypes(): EditableList<EditableNode> {
@@ -138,7 +138,7 @@ final class TupleTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns EditableList<EditableNode> | EditableList<SimpleTypeSpecifier> |
+   * @return EditableList<EditableNode> | EditableList<SimpleTypeSpecifier> |
    * EditableList<VectorArrayTypeSpecifier> | EditableList<VectorTypeSpecifier>
    */
   public function getTypesx(): EditableList<EditableNode> {
@@ -161,14 +161,14 @@ final class TupleTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParenx(): RightParenToken {
     return $this->getRightParen();

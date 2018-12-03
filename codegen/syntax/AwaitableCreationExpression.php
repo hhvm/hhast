@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<953198e3455abc447403ead911f5ebf5>>
+ * @generated SignedSource<<7c7e5c101c44d4c7fc7745f31f60384d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -120,7 +120,7 @@ final class AwaitableCreationExpression extends EditableNode {
   }
 
   /**
-   * @returns AttributeSpecification | Missing
+   * @return AttributeSpecification | null
    */
   public function getAttributeSpec(): ?AttributeSpecification {
     if ($this->_attribute_spec->isMissing()) {
@@ -133,7 +133,7 @@ final class AwaitableCreationExpression extends EditableNode {
   }
 
   /**
-   * @returns AttributeSpecification
+   * @return AttributeSpecification
    */
   public function getAttributeSpecx(): AttributeSpecification {
     return TypeAssert\instance_of(
@@ -163,14 +163,14 @@ final class AwaitableCreationExpression extends EditableNode {
   }
 
   /**
-   * @returns AsyncToken
+   * @return AsyncToken
    */
   public function getAsync(): AsyncToken {
     return TypeAssert\instance_of(AsyncToken::class, $this->_async);
   }
 
   /**
-   * @returns AsyncToken
+   * @return AsyncToken
    */
   public function getAsyncx(): AsyncToken {
     return $this->getAsync();
@@ -197,7 +197,7 @@ final class AwaitableCreationExpression extends EditableNode {
   }
 
   /**
-   * @returns Missing
+   * @return null
    */
   public function getCoroutine(): ?EditableNode {
     if ($this->_coroutine->isMissing()) {
@@ -207,7 +207,7 @@ final class AwaitableCreationExpression extends EditableNode {
   }
 
   /**
-   * @returns
+   * @return
    */
   public function getCoroutinex(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_coroutine);
@@ -234,7 +234,7 @@ final class AwaitableCreationExpression extends EditableNode {
   }
 
   /**
-   * @returns CompoundStatement
+   * @return CompoundStatement
    */
   public function getCompoundStatement(): CompoundStatement {
     return TypeAssert\instance_of(
@@ -244,7 +244,7 @@ final class AwaitableCreationExpression extends EditableNode {
   }
 
   /**
-   * @returns CompoundStatement
+   * @return CompoundStatement
    */
   public function getCompoundStatementx(): CompoundStatement {
     return $this->getCompoundStatement();

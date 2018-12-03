@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a86ee9f4877d5eb1083fbbda254887e3>>
+ * @generated SignedSource<<49be2543c18ffec790beb1bc0cea2225>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,14 +101,14 @@ final class ReturnStatement extends EditableNode {
   }
 
   /**
-   * @returns ReturnToken
+   * @return ReturnToken
    */
   public function getKeyword(): ReturnToken {
     return TypeAssert\instance_of(ReturnToken::class, $this->_keyword);
   }
 
   /**
-   * @returns ReturnToken
+   * @return ReturnToken
    */
   public function getKeywordx(): ReturnToken {
     return $this->getKeyword();
@@ -130,7 +130,7 @@ final class ReturnStatement extends EditableNode {
   }
 
   /**
-   * @returns AnonymousFunction | ArrayCreationExpression |
+   * @return AnonymousFunction | ArrayCreationExpression |
    * ArrayIntrinsicExpression | AsExpression | AwaitableCreationExpression |
    * BinaryExpression | CastExpression | CollectionLiteralExpression |
    * ConditionalExpression | DarrayIntrinsicExpression |
@@ -138,7 +138,7 @@ final class ReturnStatement extends EditableNode {
    * FunctionCallExpression | FunctionCallWithTypeArgumentsExpression |
    * InstanceofExpression | IsExpression | IssetExpression |
    * KeysetIntrinsicExpression | LambdaExpression | LiteralExpression |
-   * MemberSelectionExpression | Missing | ObjectCreationExpression |
+   * MemberSelectionExpression | null | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * QualifiedName | SafeMemberSelectionExpression | ScopeResolutionExpression
    * | ShapeExpression | SubscriptExpression | NameToken | TupleExpression |
@@ -153,7 +153,7 @@ final class ReturnStatement extends EditableNode {
   }
 
   /**
-   * @returns AnonymousFunction | ArrayCreationExpression |
+   * @return AnonymousFunction | ArrayCreationExpression |
    * ArrayIntrinsicExpression | AsExpression | AwaitableCreationExpression |
    * BinaryExpression | CastExpression | CollectionLiteralExpression |
    * ConditionalExpression | DarrayIntrinsicExpression |
@@ -188,7 +188,7 @@ final class ReturnStatement extends EditableNode {
   }
 
   /**
-   * @returns Missing | SemicolonToken
+   * @return null | SemicolonToken
    */
   public function getSemicolon(): ?SemicolonToken {
     if ($this->_semicolon->isMissing()) {
@@ -198,7 +198,7 @@ final class ReturnStatement extends EditableNode {
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSemicolonx(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);

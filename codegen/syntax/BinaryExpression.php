@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4b64b7c045c3c5337ac53972b559cff1>>
+ * @generated SignedSource<<10101db005d6ba65bd0f3d62a89e5a68>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,7 +101,7 @@ final class BinaryExpression extends EditableNode {
   }
 
   /**
-   * @returns AnonymousFunction | ArrayCreationExpression |
+   * @return AnonymousFunction | ArrayCreationExpression |
    * ArrayIntrinsicExpression | BinaryExpression | CastExpression |
    * CollectionLiteralExpression | DarrayIntrinsicExpression |
    * DictionaryIntrinsicExpression | EmptyExpression | FunctionCallExpression |
@@ -118,7 +118,7 @@ final class BinaryExpression extends EditableNode {
   }
 
   /**
-   * @returns AnonymousFunction | ArrayCreationExpression |
+   * @return AnonymousFunction | ArrayCreationExpression |
    * ArrayIntrinsicExpression | BinaryExpression | CastExpression |
    * CollectionLiteralExpression | DarrayIntrinsicExpression |
    * DictionaryIntrinsicExpression | EmptyExpression | FunctionCallExpression |
@@ -150,7 +150,7 @@ final class BinaryExpression extends EditableNode {
   }
 
   /**
-   * @returns ExclamationEqualToken | ExclamationEqualEqualToken | PercentToken
+   * @return ExclamationEqualToken | ExclamationEqualEqualToken | PercentToken
    * | PercentEqualToken | AmpersandToken | AmpersandAmpersandToken |
    * AmpersandEqualToken | StarToken | StarStarToken | StarStarEqualToken |
    * StarEqualToken | PlusToken | PlusEqualToken | MinusToken | MinusEqualToken
@@ -169,7 +169,7 @@ final class BinaryExpression extends EditableNode {
   }
 
   /**
-   * @returns ExclamationEqualToken | ExclamationEqualEqualToken | PercentToken
+   * @return ExclamationEqualToken | ExclamationEqualEqualToken | PercentToken
    * | PercentEqualToken | AmpersandToken | AmpersandAmpersandToken |
    * AmpersandEqualToken | StarToken | StarStarToken | StarStarEqualToken |
    * StarEqualToken | PlusToken | PlusEqualToken | MinusToken | MinusEqualToken
@@ -203,7 +203,7 @@ final class BinaryExpression extends EditableNode {
   }
 
   /**
-   * @returns AnonymousFunction | ArrayCreationExpression |
+   * @return AnonymousFunction | ArrayCreationExpression |
    * ArrayIntrinsicExpression | AsExpression | AwaitableCreationExpression |
    * BinaryExpression | CastExpression | CollectionLiteralExpression |
    * ConditionalExpression | DarrayIntrinsicExpression |
@@ -211,7 +211,7 @@ final class BinaryExpression extends EditableNode {
    * FunctionCallExpression | FunctionCallWithTypeArgumentsExpression |
    * InclusionExpression | InstanceofExpression | IssetExpression |
    * KeysetIntrinsicExpression | LambdaExpression | LiteralExpression |
-   * MemberSelectionExpression | Missing | NullableAsExpression |
+   * MemberSelectionExpression | null | NullableAsExpression |
    * ObjectCreationExpression | ParenthesizedExpression | Php7AnonymousFunction
    * | PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression
    * | PrefixedStringExpression | QualifiedName | SafeMemberSelectionExpression
@@ -229,7 +229,7 @@ final class BinaryExpression extends EditableNode {
   }
 
   /**
-   * @returns AnonymousFunction | ArrayCreationExpression |
+   * @return AnonymousFunction | ArrayCreationExpression |
    * ArrayIntrinsicExpression | AsExpression | AwaitableCreationExpression |
    * BinaryExpression | CastExpression | CollectionLiteralExpression |
    * ConditionalExpression | DarrayIntrinsicExpression |

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fa070672841864ae51658fb9a864e620>>
+ * @generated SignedSource<<ba18fb829b459e0c5b2cd42c2aab4c35>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -119,14 +119,14 @@ final class AnonymousFunctionUseClause extends EditableNode {
   }
 
   /**
-   * @returns UseToken
+   * @return UseToken
    */
   public function getKeyword(): UseToken {
     return TypeAssert\instance_of(UseToken::class, $this->_keyword);
   }
 
   /**
-   * @returns UseToken
+   * @return UseToken
    */
   public function getKeywordx(): UseToken {
     return $this->getKeyword();
@@ -153,14 +153,14 @@ final class AnonymousFunctionUseClause extends EditableNode {
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParenx(): LeftParenToken {
     return $this->getLeftParen();
@@ -187,18 +187,16 @@ final class AnonymousFunctionUseClause extends EditableNode {
   }
 
   /**
-   * @returns EditableList<?VariableToken> |
-   * EditableList<PrefixUnaryExpression> | EditableList<EditableNode> |
-   * EditableList<VariableToken>
+   * @return EditableList<?VariableToken> | EditableList<PrefixUnaryExpression>
+   * | EditableList<EditableNode> | EditableList<VariableToken>
    */
   public function getVariables(): EditableList<?EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_variables);
   }
 
   /**
-   * @returns EditableList<?VariableToken> |
-   * EditableList<PrefixUnaryExpression> | EditableList<EditableNode> |
-   * EditableList<VariableToken>
+   * @return EditableList<?VariableToken> | EditableList<PrefixUnaryExpression>
+   * | EditableList<EditableNode> | EditableList<VariableToken>
    */
   public function getVariablesx(): EditableList<?EditableNode> {
     return $this->getVariables();
@@ -225,14 +223,14 @@ final class AnonymousFunctionUseClause extends EditableNode {
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParenx(): RightParenToken {
     return $this->getRightParen();

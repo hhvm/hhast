@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5c0c853456635ddd29e88cf3d10dfa57>>
+ * @generated SignedSource<<a3137581d153f42863130fb3f422fddb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -119,14 +119,14 @@ final class ShapeExpression extends EditableNode {
   }
 
   /**
-   * @returns ShapeToken
+   * @return ShapeToken
    */
   public function getKeyword(): ShapeToken {
     return TypeAssert\instance_of(ShapeToken::class, $this->_keyword);
   }
 
   /**
-   * @returns ShapeToken
+   * @return ShapeToken
    */
   public function getKeywordx(): ShapeToken {
     return $this->getKeyword();
@@ -149,14 +149,14 @@ final class ShapeExpression extends EditableNode {
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParenx(): LeftParenToken {
     return $this->getLeftParen();
@@ -183,7 +183,7 @@ final class ShapeExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList<FieldInitializer> | Missing
+   * @return EditableList<FieldInitializer> | null
    */
   public function getFields(): ?EditableList<FieldInitializer> {
     if ($this->_fields->isMissing()) {
@@ -193,7 +193,7 @@ final class ShapeExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList<FieldInitializer>
+   * @return EditableList<FieldInitializer>
    */
   public function getFieldsx(): EditableList<FieldInitializer> {
     return TypeAssert\instance_of(EditableList::class, $this->_fields);
@@ -216,14 +216,14 @@ final class ShapeExpression extends EditableNode {
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParenx(): RightParenToken {
     return $this->getRightParen();

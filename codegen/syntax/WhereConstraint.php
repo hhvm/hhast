@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<63617ef9d43f9124cd21ff8efb0bdc81>>
+ * @generated SignedSource<<5b330a55a89774ef8062323437174825>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,14 +101,14 @@ final class WhereConstraint extends EditableNode {
   }
 
   /**
-   * @returns GenericTypeSpecifier | SimpleTypeSpecifier | TypeConstant
+   * @return GenericTypeSpecifier | SimpleTypeSpecifier | TypeConstant
    */
   public function getLeftType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_left_type);
   }
 
   /**
-   * @returns GenericTypeSpecifier | SimpleTypeSpecifier | TypeConstant
+   * @return GenericTypeSpecifier | SimpleTypeSpecifier | TypeConstant
    */
   public function getLeftTypex(): EditableNode {
     return $this->getLeftType();
@@ -130,14 +130,14 @@ final class WhereConstraint extends EditableNode {
   }
 
   /**
-   * @returns EqualToken | AsToken | SuperToken
+   * @return EqualToken | AsToken | SuperToken
    */
   public function getOperator(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_operator);
   }
 
   /**
-   * @returns EqualToken | AsToken | SuperToken
+   * @return EqualToken | AsToken | SuperToken
    */
   public function getOperatorx(): EditableToken {
     return $this->getOperator();
@@ -159,16 +159,16 @@ final class WhereConstraint extends EditableNode {
   }
 
   /**
-   * @returns GenericTypeSpecifier | NullableTypeSpecifier |
-   * SimpleTypeSpecifier | TypeConstant | VectorTypeSpecifier
+   * @return GenericTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier
+   * | TypeConstant | VectorTypeSpecifier
    */
   public function getRightType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_right_type);
   }
 
   /**
-   * @returns GenericTypeSpecifier | NullableTypeSpecifier |
-   * SimpleTypeSpecifier | TypeConstant | VectorTypeSpecifier
+   * @return GenericTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier
+   * | TypeConstant | VectorTypeSpecifier
    */
   public function getRightTypex(): EditableNode {
     return $this->getRightType();

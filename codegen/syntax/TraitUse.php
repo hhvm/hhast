@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8aec8e80c06f10ec335320c77637937e>>
+ * @generated SignedSource<<37f5a29fe46c8102977f8d19c9556e1a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,14 +101,14 @@ final class TraitUse extends EditableNode {
   }
 
   /**
-   * @returns UseToken
+   * @return UseToken
    */
   public function getKeyword(): UseToken {
     return TypeAssert\instance_of(UseToken::class, $this->_keyword);
   }
 
   /**
-   * @returns UseToken
+   * @return UseToken
    */
   public function getKeywordx(): UseToken {
     return $this->getKeyword();
@@ -130,7 +130,7 @@ final class TraitUse extends EditableNode {
   }
 
   /**
-   * @returns EditableList<GenericTypeSpecifier> | EditableList<EditableNode> |
+   * @return EditableList<GenericTypeSpecifier> | EditableList<EditableNode> |
    * EditableList<SimpleTypeSpecifier>
    */
   public function getNames(): EditableList<EditableNode> {
@@ -138,7 +138,7 @@ final class TraitUse extends EditableNode {
   }
 
   /**
-   * @returns EditableList<GenericTypeSpecifier> | EditableList<EditableNode> |
+   * @return EditableList<GenericTypeSpecifier> | EditableList<EditableNode> |
    * EditableList<SimpleTypeSpecifier>
    */
   public function getNamesx(): EditableList<EditableNode> {
@@ -161,14 +161,14 @@ final class TraitUse extends EditableNode {
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSemicolonx(): SemicolonToken {
     return $this->getSemicolon();

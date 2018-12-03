@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9e8b13a41d02b94eae0eab6a59a4996f>>
+ * @generated SignedSource<<55e9c005b2451c616f2ab7a22b0c181f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -115,14 +115,14 @@ final class XHPOpen extends EditableNode {
   }
 
   /**
-   * @returns LessThanToken
+   * @return LessThanToken
    */
   public function getLeftAngle(): LessThanToken {
     return TypeAssert\instance_of(LessThanToken::class, $this->_left_angle);
   }
 
   /**
-   * @returns LessThanToken
+   * @return LessThanToken
    */
   public function getLeftAnglex(): LessThanToken {
     return $this->getLeftAngle();
@@ -149,14 +149,14 @@ final class XHPOpen extends EditableNode {
   }
 
   /**
-   * @returns XHPElementNameToken
+   * @return XHPElementNameToken
    */
   public function getName(): XHPElementNameToken {
     return TypeAssert\instance_of(XHPElementNameToken::class, $this->_name);
   }
 
   /**
-   * @returns XHPElementNameToken
+   * @return XHPElementNameToken
    */
   public function getNamex(): XHPElementNameToken {
     return $this->getName();
@@ -179,7 +179,7 @@ final class XHPOpen extends EditableNode {
   }
 
   /**
-   * @returns EditableList<EditableNode> | Missing
+   * @return EditableList<EditableNode> | null
    */
   public function getAttributes(): ?EditableList<EditableNode> {
     if ($this->_attributes->isMissing()) {
@@ -189,7 +189,7 @@ final class XHPOpen extends EditableNode {
   }
 
   /**
-   * @returns EditableList<EditableNode>
+   * @return EditableList<EditableNode>
    */
   public function getAttributesx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_attributes);
@@ -212,7 +212,7 @@ final class XHPOpen extends EditableNode {
   }
 
   /**
-   * @returns Missing | SlashGreaterThanToken | GreaterThanToken
+   * @return null | SlashGreaterThanToken | GreaterThanToken
    */
   public function getRightAngle(): ?EditableToken {
     if ($this->_right_angle->isMissing()) {
@@ -222,7 +222,7 @@ final class XHPOpen extends EditableNode {
   }
 
   /**
-   * @returns SlashGreaterThanToken | GreaterThanToken
+   * @return SlashGreaterThanToken | GreaterThanToken
    */
   public function getRightAnglex(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_right_angle);

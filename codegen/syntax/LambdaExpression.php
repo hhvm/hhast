@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<948770ddde2618e0d8218a85cd0d3823>>
+ * @generated SignedSource<<664e7cd39cddd81337d7c55a1933b073>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -161,7 +161,7 @@ final class LambdaExpression extends EditableNode {
   }
 
   /**
-   * @returns AttributeSpecification | Missing
+   * @return AttributeSpecification | null
    */
   public function getAttributeSpec(): ?AttributeSpecification {
     if ($this->_attribute_spec->isMissing()) {
@@ -174,7 +174,7 @@ final class LambdaExpression extends EditableNode {
   }
 
   /**
-   * @returns AttributeSpecification
+   * @return AttributeSpecification
    */
   public function getAttributeSpecx(): AttributeSpecification {
     return TypeAssert\instance_of(
@@ -206,7 +206,7 @@ final class LambdaExpression extends EditableNode {
   }
 
   /**
-   * @returns Missing | AsyncToken
+   * @return null | AsyncToken
    */
   public function getAsync(): ?AsyncToken {
     if ($this->_async->isMissing()) {
@@ -216,7 +216,7 @@ final class LambdaExpression extends EditableNode {
   }
 
   /**
-   * @returns AsyncToken
+   * @return AsyncToken
    */
   public function getAsyncx(): AsyncToken {
     return TypeAssert\instance_of(AsyncToken::class, $this->_async);
@@ -245,7 +245,7 @@ final class LambdaExpression extends EditableNode {
   }
 
   /**
-   * @returns Missing | CoroutineToken
+   * @return null | CoroutineToken
    */
   public function getCoroutine(): ?CoroutineToken {
     if ($this->_coroutine->isMissing()) {
@@ -255,7 +255,7 @@ final class LambdaExpression extends EditableNode {
   }
 
   /**
-   * @returns CoroutineToken
+   * @return CoroutineToken
    */
   public function getCoroutinex(): CoroutineToken {
     return TypeAssert\instance_of(CoroutineToken::class, $this->_coroutine);
@@ -284,14 +284,14 @@ final class LambdaExpression extends EditableNode {
   }
 
   /**
-   * @returns LambdaSignature | VariableToken
+   * @return LambdaSignature | VariableToken
    */
   public function getSignature(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_signature);
   }
 
   /**
-   * @returns LambdaSignature | VariableToken
+   * @return LambdaSignature | VariableToken
    */
   public function getSignaturex(): EditableNode {
     return $this->getSignature();
@@ -320,7 +320,7 @@ final class LambdaExpression extends EditableNode {
   }
 
   /**
-   * @returns EqualEqualGreaterThanToken
+   * @return EqualEqualGreaterThanToken
    */
   public function getArrow(): EqualEqualGreaterThanToken {
     return
@@ -328,7 +328,7 @@ final class LambdaExpression extends EditableNode {
   }
 
   /**
-   * @returns EqualEqualGreaterThanToken
+   * @return EqualEqualGreaterThanToken
    */
   public function getArrowx(): EqualEqualGreaterThanToken {
     return $this->getArrow();
@@ -357,7 +357,7 @@ final class LambdaExpression extends EditableNode {
   }
 
   /**
-   * @returns ArrayIntrinsicExpression | BinaryExpression | CastExpression |
+   * @return ArrayIntrinsicExpression | BinaryExpression | CastExpression |
    * CompoundStatement | ConditionalExpression | FunctionCallExpression |
    * LambdaExpression | LiteralExpression | MemberSelectionExpression |
    * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
@@ -368,7 +368,7 @@ final class LambdaExpression extends EditableNode {
   }
 
   /**
-   * @returns ArrayIntrinsicExpression | BinaryExpression | CastExpression |
+   * @return ArrayIntrinsicExpression | BinaryExpression | CastExpression |
    * CompoundStatement | ConditionalExpression | FunctionCallExpression |
    * LambdaExpression | LiteralExpression | MemberSelectionExpression |
    * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression

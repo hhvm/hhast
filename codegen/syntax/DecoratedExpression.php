@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4631f5bb8f95d42c329389474931b0f3>>
+ * @generated SignedSource<<60ad2f5e844e0bde1accddb49597e116>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -87,14 +87,14 @@ final class DecoratedExpression extends EditableNode {
   }
 
   /**
-   * @returns AmpersandToken | DotDotDotToken | InoutToken
+   * @return AmpersandToken | DotDotDotToken | InoutToken
    */
   public function getDecorator(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_decorator);
   }
 
   /**
-   * @returns AmpersandToken | DotDotDotToken | InoutToken
+   * @return AmpersandToken | DotDotDotToken | InoutToken
    */
   public function getDecoratorx(): EditableToken {
     return $this->getDecorator();
@@ -116,7 +116,7 @@ final class DecoratedExpression extends EditableNode {
   }
 
   /**
-   * @returns ArrayCreationExpression | ArrayIntrinsicExpression |
+   * @return ArrayCreationExpression | ArrayIntrinsicExpression |
    * DecoratedExpression | FunctionCallExpression | ScopeResolutionExpression |
    * SubscriptExpression | VariableToken | VariableExpression
    */
@@ -125,7 +125,7 @@ final class DecoratedExpression extends EditableNode {
   }
 
   /**
-   * @returns ArrayCreationExpression | ArrayIntrinsicExpression |
+   * @return ArrayCreationExpression | ArrayIntrinsicExpression |
    * DecoratedExpression | FunctionCallExpression | ScopeResolutionExpression |
    * SubscriptExpression | VariableToken | VariableExpression
    */

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d88a12c1fa96faa2031dc1e5cd890e80>>
+ * @generated SignedSource<<f1fdb0d4e9b3b659625b84e67a38e451>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,14 +101,14 @@ final class XHPClassAttributeDeclaration extends EditableNode {
   }
 
   /**
-   * @returns AttributeToken
+   * @return AttributeToken
    */
   public function getKeyword(): AttributeToken {
     return TypeAssert\instance_of(AttributeToken::class, $this->_keyword);
   }
 
   /**
-   * @returns AttributeToken
+   * @return AttributeToken
    */
   public function getKeywordx(): AttributeToken {
     return $this->getKeyword();
@@ -130,7 +130,7 @@ final class XHPClassAttributeDeclaration extends EditableNode {
   }
 
   /**
-   * @returns EditableList<XHPClassAttribute> | EditableList<EditableNode> |
+   * @return EditableList<XHPClassAttribute> | EditableList<EditableNode> |
    * EditableList<XHPSimpleClassAttribute>
    */
   public function getAttributes(): EditableList<EditableNode> {
@@ -138,7 +138,7 @@ final class XHPClassAttributeDeclaration extends EditableNode {
   }
 
   /**
-   * @returns EditableList<XHPClassAttribute> | EditableList<EditableNode> |
+   * @return EditableList<XHPClassAttribute> | EditableList<EditableNode> |
    * EditableList<XHPSimpleClassAttribute>
    */
   public function getAttributesx(): EditableList<EditableNode> {
@@ -161,14 +161,14 @@ final class XHPClassAttributeDeclaration extends EditableNode {
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSemicolonx(): SemicolonToken {
     return $this->getSemicolon();

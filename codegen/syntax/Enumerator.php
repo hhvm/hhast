@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2671fc02b823a6b6d4e4b3a79d3c1952>>
+ * @generated SignedSource<<1fada0f17fd48b97dce8783b166f94b5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -114,14 +114,14 @@ final class Enumerator extends EditableNode {
   }
 
   /**
-   * @returns NameToken
+   * @return NameToken
    */
   public function getName(): NameToken {
     return TypeAssert\instance_of(NameToken::class, $this->_name);
   }
 
   /**
-   * @returns NameToken
+   * @return NameToken
    */
   public function getNamex(): NameToken {
     return $this->getName();
@@ -143,14 +143,14 @@ final class Enumerator extends EditableNode {
   }
 
   /**
-   * @returns EqualToken
+   * @return EqualToken
    */
   public function getEqual(): EqualToken {
     return TypeAssert\instance_of(EqualToken::class, $this->_equal);
   }
 
   /**
-   * @returns EqualToken
+   * @return EqualToken
    */
   public function getEqualx(): EqualToken {
     return $this->getEqual();
@@ -172,7 +172,7 @@ final class Enumerator extends EditableNode {
   }
 
   /**
-   * @returns BinaryExpression | FunctionCallExpression | LiteralExpression |
+   * @return BinaryExpression | FunctionCallExpression | LiteralExpression |
    * ObjectCreationExpression | ScopeResolutionExpression | NameToken |
    * VariableExpression
    */
@@ -181,7 +181,7 @@ final class Enumerator extends EditableNode {
   }
 
   /**
-   * @returns BinaryExpression | FunctionCallExpression | LiteralExpression |
+   * @return BinaryExpression | FunctionCallExpression | LiteralExpression |
    * ObjectCreationExpression | ScopeResolutionExpression | NameToken |
    * VariableExpression
    */
@@ -205,14 +205,14 @@ final class Enumerator extends EditableNode {
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSemicolonx(): SemicolonToken {
     return $this->getSemicolon();

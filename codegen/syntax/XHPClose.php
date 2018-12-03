@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0fc1b5764771ab8971c5c529c9066112>>
+ * @generated SignedSource<<0c82d41aa1d8d7ded8e5669bafe9575f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,14 +101,14 @@ final class XHPClose extends EditableNode {
   }
 
   /**
-   * @returns LessThanToken | LessThanSlashToken | EndOfFileToken
+   * @return LessThanToken | LessThanSlashToken | EndOfFileToken
    */
   public function getLeftAngle(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_left_angle);
   }
 
   /**
-   * @returns LessThanToken | LessThanSlashToken | EndOfFileToken
+   * @return LessThanToken | LessThanSlashToken | EndOfFileToken
    */
   public function getLeftAnglex(): EditableToken {
     return $this->getLeftAngle();
@@ -130,7 +130,7 @@ final class XHPClose extends EditableNode {
   }
 
   /**
-   * @returns Missing | XHPElementNameToken
+   * @return null | XHPElementNameToken
    */
   public function getName(): ?XHPElementNameToken {
     if ($this->_name->isMissing()) {
@@ -140,7 +140,7 @@ final class XHPClose extends EditableNode {
   }
 
   /**
-   * @returns XHPElementNameToken
+   * @return XHPElementNameToken
    */
   public function getNamex(): XHPElementNameToken {
     return TypeAssert\instance_of(XHPElementNameToken::class, $this->_name);
@@ -162,7 +162,7 @@ final class XHPClose extends EditableNode {
   }
 
   /**
-   * @returns Missing | GreaterThanToken
+   * @return null | GreaterThanToken
    */
   public function getRightAngle(): ?GreaterThanToken {
     if ($this->_right_angle->isMissing()) {
@@ -172,7 +172,7 @@ final class XHPClose extends EditableNode {
   }
 
   /**
-   * @returns GreaterThanToken
+   * @return GreaterThanToken
    */
   public function getRightAnglex(): GreaterThanToken {
     return TypeAssert\instance_of(GreaterThanToken::class, $this->_right_angle);

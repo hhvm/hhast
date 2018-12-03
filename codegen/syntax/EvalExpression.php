@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7ab111bb07cd23882503065a30b70382>>
+ * @generated SignedSource<<d951e3e14c2c71f718c94ad9c777a611>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -119,14 +119,14 @@ final class EvalExpression extends EditableNode {
   }
 
   /**
-   * @returns EvalToken
+   * @return EvalToken
    */
   public function getKeyword(): EvalToken {
     return TypeAssert\instance_of(EvalToken::class, $this->_keyword);
   }
 
   /**
-   * @returns EvalToken
+   * @return EvalToken
    */
   public function getKeywordx(): EvalToken {
     return $this->getKeyword();
@@ -153,14 +153,14 @@ final class EvalExpression extends EditableNode {
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParenx(): LeftParenToken {
     return $this->getLeftParen();
@@ -187,7 +187,7 @@ final class EvalExpression extends EditableNode {
   }
 
   /**
-   * @returns BinaryExpression | FunctionCallExpression | LiteralExpression |
+   * @return BinaryExpression | FunctionCallExpression | LiteralExpression |
    * VariableExpression
    */
   public function getArgument(): EditableNode {
@@ -195,7 +195,7 @@ final class EvalExpression extends EditableNode {
   }
 
   /**
-   * @returns BinaryExpression | FunctionCallExpression | LiteralExpression |
+   * @return BinaryExpression | FunctionCallExpression | LiteralExpression |
    * VariableExpression
    */
   public function getArgumentx(): EditableNode {
@@ -219,14 +219,14 @@ final class EvalExpression extends EditableNode {
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParenx(): RightParenToken {
     return $this->getRightParen();

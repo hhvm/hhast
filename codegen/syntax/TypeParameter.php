@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<323322927a58fd400bce0ddfd7fb01ca>>
+ * @generated SignedSource<<e7cd16d96d0d88bf26e9c0833c3328a4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -115,7 +115,7 @@ final class TypeParameter extends EditableNode {
   }
 
   /**
-   * @returns Missing | ReifiedToken
+   * @return null | ReifiedToken
    */
   public function getReified(): ?ReifiedToken {
     if ($this->_reified->isMissing()) {
@@ -125,7 +125,7 @@ final class TypeParameter extends EditableNode {
   }
 
   /**
-   * @returns ReifiedToken
+   * @return ReifiedToken
    */
   public function getReifiedx(): ReifiedToken {
     return TypeAssert\instance_of(ReifiedToken::class, $this->_reified);
@@ -148,7 +148,7 @@ final class TypeParameter extends EditableNode {
   }
 
   /**
-   * @returns Missing | PlusToken | MinusToken
+   * @return null | PlusToken | MinusToken
    */
   public function getVariance(): ?EditableToken {
     if ($this->_variance->isMissing()) {
@@ -158,7 +158,7 @@ final class TypeParameter extends EditableNode {
   }
 
   /**
-   * @returns PlusToken | MinusToken
+   * @return PlusToken | MinusToken
    */
   public function getVariancex(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_variance);
@@ -185,14 +185,14 @@ final class TypeParameter extends EditableNode {
   }
 
   /**
-   * @returns NameToken
+   * @return NameToken
    */
   public function getName(): NameToken {
     return TypeAssert\instance_of(NameToken::class, $this->_name);
   }
 
   /**
-   * @returns NameToken
+   * @return NameToken
    */
   public function getNamex(): NameToken {
     return $this->getName();
@@ -214,7 +214,7 @@ final class TypeParameter extends EditableNode {
   }
 
   /**
-   * @returns EditableList<EditableNode> | Missing
+   * @return EditableList<EditableNode> | null
    */
   public function getConstraints(): ?EditableList<EditableNode> {
     if ($this->_constraints->isMissing()) {
@@ -224,7 +224,7 @@ final class TypeParameter extends EditableNode {
   }
 
   /**
-   * @returns EditableList<EditableNode>
+   * @return EditableList<EditableNode>
    */
   public function getConstraintsx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_constraints);

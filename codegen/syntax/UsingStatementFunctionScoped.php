@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<162b4a5d19b01f9e8fe2459720bab0d3>>
+ * @generated SignedSource<<6cf6c16a1b8f522fcc26cb68a31f6c05>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -119,7 +119,7 @@ final class UsingStatementFunctionScoped extends EditableNode {
   }
 
   /**
-   * @returns Missing | AwaitToken
+   * @return null | AwaitToken
    */
   public function getAwaitKeyword(): ?AwaitToken {
     if ($this->_await_keyword->isMissing()) {
@@ -129,7 +129,7 @@ final class UsingStatementFunctionScoped extends EditableNode {
   }
 
   /**
-   * @returns AwaitToken
+   * @return AwaitToken
    */
   public function getAwaitKeywordx(): AwaitToken {
     return TypeAssert\instance_of(AwaitToken::class, $this->_await_keyword);
@@ -156,14 +156,14 @@ final class UsingStatementFunctionScoped extends EditableNode {
   }
 
   /**
-   * @returns UsingToken
+   * @return UsingToken
    */
   public function getUsingKeyword(): UsingToken {
     return TypeAssert\instance_of(UsingToken::class, $this->_using_keyword);
   }
 
   /**
-   * @returns UsingToken
+   * @return UsingToken
    */
   public function getUsingKeywordx(): UsingToken {
     return $this->getUsingKeyword();
@@ -190,7 +190,7 @@ final class UsingStatementFunctionScoped extends EditableNode {
   }
 
   /**
-   * @returns BinaryExpression | LambdaExpression | ObjectCreationExpression |
+   * @return BinaryExpression | LambdaExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PrefixUnaryExpression | VariableExpression
    */
   public function getExpression(): EditableNode {
@@ -198,7 +198,7 @@ final class UsingStatementFunctionScoped extends EditableNode {
   }
 
   /**
-   * @returns BinaryExpression | LambdaExpression | ObjectCreationExpression |
+   * @return BinaryExpression | LambdaExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PrefixUnaryExpression | VariableExpression
    */
   public function getExpressionx(): EditableNode {
@@ -226,14 +226,14 @@ final class UsingStatementFunctionScoped extends EditableNode {
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSemicolonx(): SemicolonToken {
     return $this->getSemicolon();

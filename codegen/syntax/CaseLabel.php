@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<95ba351dd1e2416868685f615e77dcfc>>
+ * @generated SignedSource<<d6429e2d2e4ea340d943df67da267e02>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,14 +101,14 @@ final class CaseLabel extends EditableNode {
   }
 
   /**
-   * @returns CaseToken
+   * @return CaseToken
    */
   public function getKeyword(): CaseToken {
     return TypeAssert\instance_of(CaseToken::class, $this->_keyword);
   }
 
   /**
-   * @returns CaseToken
+   * @return CaseToken
    */
   public function getKeywordx(): CaseToken {
     return $this->getKeyword();
@@ -130,7 +130,7 @@ final class CaseLabel extends EditableNode {
   }
 
   /**
-   * @returns ArrayIntrinsicExpression | FunctionCallExpression |
+   * @return ArrayIntrinsicExpression | FunctionCallExpression |
    * InstanceofExpression | LiteralExpression | PrefixUnaryExpression |
    * ScopeResolutionExpression | NameToken | VariableExpression
    */
@@ -139,7 +139,7 @@ final class CaseLabel extends EditableNode {
   }
 
   /**
-   * @returns ArrayIntrinsicExpression | FunctionCallExpression |
+   * @return ArrayIntrinsicExpression | FunctionCallExpression |
    * InstanceofExpression | LiteralExpression | PrefixUnaryExpression |
    * ScopeResolutionExpression | NameToken | VariableExpression
    */
@@ -163,14 +163,14 @@ final class CaseLabel extends EditableNode {
   }
 
   /**
-   * @returns ColonToken | SemicolonToken
+   * @return ColonToken | SemicolonToken
    */
   public function getColon(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_colon);
   }
 
   /**
-   * @returns ColonToken | SemicolonToken
+   * @return ColonToken | SemicolonToken
    */
   public function getColonx(): EditableToken {
     return $this->getColon();

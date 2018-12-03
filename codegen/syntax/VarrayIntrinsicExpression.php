@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2a77c11295da4300c7b449ef6da03cc6>>
+ * @generated SignedSource<<a796a8ef44e27f673f0ff975741c563e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -145,14 +145,14 @@ final class VarrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns VarrayToken
+   * @return VarrayToken
    */
   public function getKeyword(): VarrayToken {
     return TypeAssert\instance_of(VarrayToken::class, $this->_keyword);
   }
 
   /**
-   * @returns VarrayToken
+   * @return VarrayToken
    */
   public function getKeywordx(): VarrayToken {
     return $this->getKeyword();
@@ -180,7 +180,7 @@ final class VarrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns Missing
+   * @return null
    */
   public function getExplicitType(): ?EditableNode {
     if ($this->_explicit_type->isMissing()) {
@@ -190,7 +190,7 @@ final class VarrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns
+   * @return
    */
   public function getExplicitTypex(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_explicit_type);
@@ -218,7 +218,7 @@ final class VarrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns LeftBracketToken
+   * @return LeftBracketToken
    */
   public function getLeftBracket(): LeftBracketToken {
     return
@@ -226,7 +226,7 @@ final class VarrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns LeftBracketToken
+   * @return LeftBracketToken
    */
   public function getLeftBracketx(): LeftBracketToken {
     return $this->getLeftBracket();
@@ -254,13 +254,13 @@ final class VarrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList<EditableNode> |
+   * @return EditableList<EditableNode> |
    * EditableList<ArrayIntrinsicExpression> |
    * EditableList<DarrayIntrinsicExpression> |
    * EditableList<FunctionCallExpression> | EditableList<LiteralExpression> |
    * EditableList<ScopeResolutionExpression> | EditableList<NameToken> |
    * EditableList<VariableExpression> | EditableList<VarrayIntrinsicExpression>
-   * | EditableList<VectorIntrinsicExpression> | Missing
+   * | EditableList<VectorIntrinsicExpression> | null
    */
   public function getMembers(): ?EditableList<EditableNode> {
     if ($this->_members->isMissing()) {
@@ -270,7 +270,7 @@ final class VarrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList<EditableNode> |
+   * @return EditableList<EditableNode> |
    * EditableList<ArrayIntrinsicExpression> |
    * EditableList<DarrayIntrinsicExpression> |
    * EditableList<FunctionCallExpression> | EditableList<LiteralExpression> |
@@ -304,7 +304,7 @@ final class VarrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns RightBracketToken
+   * @return RightBracketToken
    */
   public function getRightBracket(): RightBracketToken {
     return
@@ -312,7 +312,7 @@ final class VarrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @returns RightBracketToken
+   * @return RightBracketToken
    */
   public function getRightBracketx(): RightBracketToken {
     return $this->getRightBracket();

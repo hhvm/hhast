@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1821d54b9310e323be7d5b5ed47f6a28>>
+ * @generated SignedSource<<835fecc817f2f53f05449eb8fd15fb3f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -132,14 +132,14 @@ abstract class AlternateLoopStatementGeneratedBase
   }
 
   /**
-   * @returns ColonToken
+   * @return ColonToken
    */
   public function getOpeningColon(): ColonToken {
     return TypeAssert\instance_of(ColonToken::class, $this->_opening_colon);
   }
 
   /**
-   * @returns ColonToken
+   * @return ColonToken
    */
   public function getOpeningColonx(): ColonToken {
     return $this->getOpeningColon();
@@ -166,14 +166,14 @@ abstract class AlternateLoopStatementGeneratedBase
   }
 
   /**
-   * @returns EditableList<EditableNode>
+   * @return EditableList<EditableNode>
    */
   public function getStatements(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_statements);
   }
 
   /**
-   * @returns EditableList<EditableNode>
+   * @return EditableList<EditableNode>
    */
   public function getStatementsx(): EditableList<EditableNode> {
     return $this->getStatements();
@@ -200,7 +200,7 @@ abstract class AlternateLoopStatementGeneratedBase
   }
 
   /**
-   * @returns EnddeclareToken | EndforToken | EndforeachToken | EndwhileToken
+   * @return EnddeclareToken | EndforToken | EndforeachToken | EndwhileToken
    */
   public function getClosingKeyword(): EditableToken {
     return
@@ -208,7 +208,7 @@ abstract class AlternateLoopStatementGeneratedBase
   }
 
   /**
-   * @returns EnddeclareToken | EndforToken | EndforeachToken | EndwhileToken
+   * @return EnddeclareToken | EndforToken | EndforeachToken | EndwhileToken
    */
   public function getClosingKeywordx(): EditableToken {
     return $this->getClosingKeyword();
@@ -235,7 +235,7 @@ abstract class AlternateLoopStatementGeneratedBase
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getClosingSemicolon(): SemicolonToken {
     return
@@ -243,7 +243,7 @@ abstract class AlternateLoopStatementGeneratedBase
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getClosingSemicolonx(): SemicolonToken {
     return $this->getClosingSemicolon();

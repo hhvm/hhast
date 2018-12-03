@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5e3a2a17d865e8210130a9a5525fd2fd>>
+ * @generated SignedSource<<98a6c2f20c31e8729507c3524979c3f4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -225,14 +225,14 @@ final class AlternateIfStatement extends EditableNode {
   }
 
   /**
-   * @returns IfToken
+   * @return IfToken
    */
   public function getKeyword(): IfToken {
     return TypeAssert\instance_of(IfToken::class, $this->_keyword);
   }
 
   /**
-   * @returns IfToken
+   * @return IfToken
    */
   public function getKeywordx(): IfToken {
     return $this->getKeyword();
@@ -265,14 +265,14 @@ final class AlternateIfStatement extends EditableNode {
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParenx(): LeftParenToken {
     return $this->getLeftParen();
@@ -305,14 +305,14 @@ final class AlternateIfStatement extends EditableNode {
   }
 
   /**
-   * @returns BinaryExpression | LiteralExpression | VariableExpression
+   * @return BinaryExpression | LiteralExpression | VariableExpression
    */
   public function getCondition(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_condition);
   }
 
   /**
-   * @returns BinaryExpression | LiteralExpression | VariableExpression
+   * @return BinaryExpression | LiteralExpression | VariableExpression
    */
   public function getConditionx(): EditableNode {
     return $this->getCondition();
@@ -345,14 +345,14 @@ final class AlternateIfStatement extends EditableNode {
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParenx(): RightParenToken {
     return $this->getRightParen();
@@ -385,14 +385,14 @@ final class AlternateIfStatement extends EditableNode {
   }
 
   /**
-   * @returns ColonToken
+   * @return ColonToken
    */
   public function getColon(): ColonToken {
     return TypeAssert\instance_of(ColonToken::class, $this->_colon);
   }
 
   /**
-   * @returns ColonToken
+   * @return ColonToken
    */
   public function getColonx(): ColonToken {
     return $this->getColon();
@@ -425,14 +425,14 @@ final class AlternateIfStatement extends EditableNode {
   }
 
   /**
-   * @returns EditableList<EditableNode>
+   * @return EditableList<EditableNode>
    */
   public function getStatement(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_statement);
   }
 
   /**
-   * @returns EditableList<EditableNode>
+   * @return EditableList<EditableNode>
    */
   public function getStatementx(): EditableList<EditableNode> {
     return $this->getStatement();
@@ -465,7 +465,7 @@ final class AlternateIfStatement extends EditableNode {
   }
 
   /**
-   * @returns Missing
+   * @return null
    */
   public function getElseifClauses(): ?EditableNode {
     if ($this->_elseif_clauses->isMissing()) {
@@ -475,7 +475,7 @@ final class AlternateIfStatement extends EditableNode {
   }
 
   /**
-   * @returns
+   * @return
    */
   public function getElseifClausesx(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_elseif_clauses);
@@ -508,7 +508,7 @@ final class AlternateIfStatement extends EditableNode {
   }
 
   /**
-   * @returns AlternateElseClause | Missing
+   * @return AlternateElseClause | null
    */
   public function getElseClause(): ?AlternateElseClause {
     if ($this->_else_clause->isMissing()) {
@@ -519,7 +519,7 @@ final class AlternateIfStatement extends EditableNode {
   }
 
   /**
-   * @returns AlternateElseClause
+   * @return AlternateElseClause
    */
   public function getElseClausex(): AlternateElseClause {
     return
@@ -553,14 +553,14 @@ final class AlternateIfStatement extends EditableNode {
   }
 
   /**
-   * @returns EndifToken
+   * @return EndifToken
    */
   public function getEndifKeyword(): EndifToken {
     return TypeAssert\instance_of(EndifToken::class, $this->_endif_keyword);
   }
 
   /**
-   * @returns EndifToken
+   * @return EndifToken
    */
   public function getEndifKeywordx(): EndifToken {
     return $this->getEndifKeyword();
@@ -593,14 +593,14 @@ final class AlternateIfStatement extends EditableNode {
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSemicolonx(): SemicolonToken {
     return $this->getSemicolon();

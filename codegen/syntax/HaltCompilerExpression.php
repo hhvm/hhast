@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e197cab58cb484f5f67851e264ebb629>>
+ * @generated SignedSource<<e0fb29152c2739e104189cb017849de7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -119,14 +119,14 @@ final class HaltCompilerExpression extends EditableNode {
   }
 
   /**
-   * @returns HaltCompilerToken
+   * @return HaltCompilerToken
    */
   public function getKeyword(): HaltCompilerToken {
     return TypeAssert\instance_of(HaltCompilerToken::class, $this->_keyword);
   }
 
   /**
-   * @returns HaltCompilerToken
+   * @return HaltCompilerToken
    */
   public function getKeywordx(): HaltCompilerToken {
     return $this->getKeyword();
@@ -153,14 +153,14 @@ final class HaltCompilerExpression extends EditableNode {
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParenx(): LeftParenToken {
     return $this->getLeftParen();
@@ -187,7 +187,7 @@ final class HaltCompilerExpression extends EditableNode {
   }
 
   /**
-   * @returns Missing
+   * @return null
    */
   public function getArgumentList(): ?EditableNode {
     if ($this->_argument_list->isMissing()) {
@@ -197,7 +197,7 @@ final class HaltCompilerExpression extends EditableNode {
   }
 
   /**
-   * @returns
+   * @return
    */
   public function getArgumentListx(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_argument_list);
@@ -224,14 +224,14 @@ final class HaltCompilerExpression extends EditableNode {
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParenx(): RightParenToken {
     return $this->getRightParen();

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<846f33fdb6dcb443eb58237a067ff5b9>>
+ * @generated SignedSource<<0584a02f7feae8f1c89b78af82cf0f93>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -103,14 +103,14 @@ final class AlternateElseClause
   }
 
   /**
-   * @returns ElseToken
+   * @return ElseToken
    */
   public function getKeyword(): ElseToken {
     return TypeAssert\instance_of(ElseToken::class, $this->_keyword);
   }
 
   /**
-   * @returns ElseToken
+   * @return ElseToken
    */
   public function getKeywordx(): ElseToken {
     return $this->getKeyword();
@@ -132,14 +132,14 @@ final class AlternateElseClause
   }
 
   /**
-   * @returns ColonToken
+   * @return ColonToken
    */
   public function getColon(): ColonToken {
     return TypeAssert\instance_of(ColonToken::class, $this->_colon);
   }
 
   /**
-   * @returns ColonToken
+   * @return ColonToken
    */
   public function getColonx(): ColonToken {
     return $this->getColon();
@@ -161,14 +161,14 @@ final class AlternateElseClause
   }
 
   /**
-   * @returns EditableList<EditableNode>
+   * @return EditableList<EditableNode>
    */
   public function getStatement(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_statement);
   }
 
   /**
-   * @returns EditableList<EditableNode>
+   * @return EditableList<EditableNode>
    */
   public function getStatementx(): EditableList<EditableNode> {
     return $this->getStatement();

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<210cc98a634bbd2f1b95432e25adab1b>>
+ * @generated SignedSource<<4c8b60669b284b2eb04e4a0a7af10440>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -179,14 +179,14 @@ final class DoStatement
   }
 
   /**
-   * @returns DoToken
+   * @return DoToken
    */
   public function getKeyword(): DoToken {
     return TypeAssert\instance_of(DoToken::class, $this->_keyword);
   }
 
   /**
-   * @returns DoToken
+   * @return DoToken
    */
   public function getKeywordx(): DoToken {
     return $this->getKeyword();
@@ -216,14 +216,14 @@ final class DoStatement
   }
 
   /**
-   * @returns CompoundStatement | ExpressionStatement
+   * @return CompoundStatement | ExpressionStatement
    */
   public function getBody(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_body);
   }
 
   /**
-   * @returns CompoundStatement | ExpressionStatement
+   * @return CompoundStatement | ExpressionStatement
    */
   public function getBodyx(): EditableNode {
     return $this->getBody();
@@ -253,14 +253,14 @@ final class DoStatement
   }
 
   /**
-   * @returns WhileToken
+   * @return WhileToken
    */
   public function getWhileKeyword(): WhileToken {
     return TypeAssert\instance_of(WhileToken::class, $this->_while_keyword);
   }
 
   /**
-   * @returns WhileToken
+   * @return WhileToken
    */
   public function getWhileKeywordx(): WhileToken {
     return $this->getWhileKeyword();
@@ -290,14 +290,14 @@ final class DoStatement
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParenx(): LeftParenToken {
     return $this->getLeftParen();
@@ -327,7 +327,7 @@ final class DoStatement
   }
 
   /**
-   * @returns BinaryExpression | FunctionCallExpression | LiteralExpression |
+   * @return BinaryExpression | FunctionCallExpression | LiteralExpression |
    * PrefixUnaryExpression | SubscriptExpression | VariableExpression
    */
   public function getCondition(): EditableNode {
@@ -335,7 +335,7 @@ final class DoStatement
   }
 
   /**
-   * @returns BinaryExpression | FunctionCallExpression | LiteralExpression |
+   * @return BinaryExpression | FunctionCallExpression | LiteralExpression |
    * PrefixUnaryExpression | SubscriptExpression | VariableExpression
    */
   public function getConditionx(): EditableNode {
@@ -366,14 +366,14 @@ final class DoStatement
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParenx(): RightParenToken {
     return $this->getRightParen();
@@ -403,14 +403,14 @@ final class DoStatement
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSemicolonx(): SemicolonToken {
     return $this->getSemicolon();

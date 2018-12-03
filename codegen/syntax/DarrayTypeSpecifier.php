@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b622e43ad9a2d10c498478e5e9685001>>
+ * @generated SignedSource<<e71768a6e90f5df5c450449d023a98aa>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -177,14 +177,14 @@ final class DarrayTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns DarrayToken
+   * @return DarrayToken
    */
   public function getKeyword(): DarrayToken {
     return TypeAssert\instance_of(DarrayToken::class, $this->_keyword);
   }
 
   /**
-   * @returns DarrayToken
+   * @return DarrayToken
    */
   public function getKeywordx(): DarrayToken {
     return $this->getKeyword();
@@ -214,14 +214,14 @@ final class DarrayTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns LessThanToken
+   * @return LessThanToken
    */
   public function getLeftAngle(): LessThanToken {
     return TypeAssert\instance_of(LessThanToken::class, $this->_left_angle);
   }
 
   /**
-   * @returns LessThanToken
+   * @return LessThanToken
    */
   public function getLeftAnglex(): LessThanToken {
     return $this->getLeftAngle();
@@ -251,14 +251,14 @@ final class DarrayTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns SimpleTypeSpecifier
+   * @return SimpleTypeSpecifier
    */
   public function getKey(): SimpleTypeSpecifier {
     return TypeAssert\instance_of(SimpleTypeSpecifier::class, $this->_key);
   }
 
   /**
-   * @returns SimpleTypeSpecifier
+   * @return SimpleTypeSpecifier
    */
   public function getKeyx(): SimpleTypeSpecifier {
     return $this->getKey();
@@ -288,14 +288,14 @@ final class DarrayTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns CommaToken
+   * @return CommaToken
    */
   public function getComma(): CommaToken {
     return TypeAssert\instance_of(CommaToken::class, $this->_comma);
   }
 
   /**
-   * @returns CommaToken
+   * @return CommaToken
    */
   public function getCommax(): CommaToken {
     return $this->getComma();
@@ -325,7 +325,7 @@ final class DarrayTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns DarrayTypeSpecifier | SimpleTypeSpecifier | VarrayTypeSpecifier |
+   * @return DarrayTypeSpecifier | SimpleTypeSpecifier | VarrayTypeSpecifier |
    * VectorArrayTypeSpecifier
    */
   public function getValue(): EditableNode {
@@ -333,7 +333,7 @@ final class DarrayTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns DarrayTypeSpecifier | SimpleTypeSpecifier | VarrayTypeSpecifier |
+   * @return DarrayTypeSpecifier | SimpleTypeSpecifier | VarrayTypeSpecifier |
    * VectorArrayTypeSpecifier
    */
   public function getValuex(): EditableNode {
@@ -364,7 +364,7 @@ final class DarrayTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns Missing
+   * @return null
    */
   public function getTrailingComma(): ?EditableNode {
     if ($this->_trailing_comma->isMissing()) {
@@ -374,7 +374,7 @@ final class DarrayTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns
+   * @return
    */
   public function getTrailingCommax(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_trailing_comma);
@@ -404,14 +404,14 @@ final class DarrayTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns GreaterThanToken
+   * @return GreaterThanToken
    */
   public function getRightAngle(): GreaterThanToken {
     return TypeAssert\instance_of(GreaterThanToken::class, $this->_right_angle);
   }
 
   /**
-   * @returns GreaterThanToken
+   * @return GreaterThanToken
    */
   public function getRightAnglex(): GreaterThanToken {
     return $this->getRightAngle();

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d13ceb1786a12012ae19e4eb23d7925a>>
+ * @generated SignedSource<<d62d5ee4ae95c3b90be1832d15b323c4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -82,14 +82,14 @@ final class SimpleInitializer extends EditableNode {
   }
 
   /**
-   * @returns EqualToken
+   * @return EqualToken
    */
   public function getEqual(): EqualToken {
     return TypeAssert\instance_of(EqualToken::class, $this->_equal);
   }
 
   /**
-   * @returns EqualToken
+   * @return EqualToken
    */
   public function getEqualx(): EqualToken {
     return $this->getEqual();
@@ -111,7 +111,7 @@ final class SimpleInitializer extends EditableNode {
   }
 
   /**
-   * @returns AnonymousFunction | ArrayCreationExpression |
+   * @return AnonymousFunction | ArrayCreationExpression |
    * ArrayIntrinsicExpression | BinaryExpression | CastExpression |
    * CollectionLiteralExpression | ConditionalExpression |
    * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
@@ -127,7 +127,7 @@ final class SimpleInitializer extends EditableNode {
   }
 
   /**
-   * @returns AnonymousFunction | ArrayCreationExpression |
+   * @return AnonymousFunction | ArrayCreationExpression |
    * ArrayIntrinsicExpression | BinaryExpression | CastExpression |
    * CollectionLiteralExpression | ConditionalExpression |
    * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |

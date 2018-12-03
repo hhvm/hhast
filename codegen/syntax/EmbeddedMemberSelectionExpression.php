@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b52c96f6a540d86e8fdcc65b7bee57d8>>
+ * @generated SignedSource<<3364589efdbe86c48ae7d56d4e274ae3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,14 +101,14 @@ final class EmbeddedMemberSelectionExpression extends EditableNode {
   }
 
   /**
-   * @returns unknown
+   * @return unknown
    */
   public function getObject(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_object);
   }
 
   /**
-   * @returns unknown
+   * @return unknown
    */
   public function getObjectx(): EditableNode {
     return $this->getObject();
@@ -130,14 +130,14 @@ final class EmbeddedMemberSelectionExpression extends EditableNode {
   }
 
   /**
-   * @returns unknown
+   * @return unknown
    */
   public function getOperator(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_operator);
   }
 
   /**
-   * @returns unknown
+   * @return unknown
    */
   public function getOperatorx(): EditableNode {
     return $this->getOperator();
@@ -159,14 +159,14 @@ final class EmbeddedMemberSelectionExpression extends EditableNode {
   }
 
   /**
-   * @returns unknown
+   * @return unknown
    */
   public function getName(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_name);
   }
 
   /**
-   * @returns unknown
+   * @return unknown
    */
   public function getNamex(): EditableNode {
     return $this->getName();

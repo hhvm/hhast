@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<33a0af6e527da45e1c245749475abf4c>>
+ * @generated SignedSource<<41fd2b5beef4da0fd89c3e7fd9c7a93a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -274,7 +274,7 @@ final class AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns AttributeSpecification | Missing
+   * @return AttributeSpecification | null
    */
   public function getAttributeSpec(): ?AttributeSpecification {
     if ($this->_attribute_spec->isMissing()) {
@@ -287,7 +287,7 @@ final class AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns AttributeSpecification
+   * @return AttributeSpecification
    */
   public function getAttributeSpecx(): AttributeSpecification {
     return TypeAssert\instance_of(
@@ -326,7 +326,7 @@ final class AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns Missing | StaticToken
+   * @return null | StaticToken
    */
   public function getStaticKeyword(): ?StaticToken {
     if ($this->_static_keyword->isMissing()) {
@@ -336,7 +336,7 @@ final class AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns StaticToken
+   * @return StaticToken
    */
   public function getStaticKeywordx(): StaticToken {
     return TypeAssert\instance_of(StaticToken::class, $this->_static_keyword);
@@ -372,7 +372,7 @@ final class AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns Missing | AsyncToken
+   * @return null | AsyncToken
    */
   public function getAsyncKeyword(): ?AsyncToken {
     if ($this->_async_keyword->isMissing()) {
@@ -382,7 +382,7 @@ final class AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns AsyncToken
+   * @return AsyncToken
    */
   public function getAsyncKeywordx(): AsyncToken {
     return TypeAssert\instance_of(AsyncToken::class, $this->_async_keyword);
@@ -418,7 +418,7 @@ final class AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns Missing | CoroutineToken
+   * @return null | CoroutineToken
    */
   public function getCoroutineKeyword(): ?CoroutineToken {
     if ($this->_coroutine_keyword->isMissing()) {
@@ -429,7 +429,7 @@ final class AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns CoroutineToken
+   * @return CoroutineToken
    */
   public function getCoroutineKeywordx(): CoroutineToken {
     return
@@ -466,7 +466,7 @@ final class AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns FunctionToken
+   * @return FunctionToken
    */
   public function getFunctionKeyword(): FunctionToken {
     return
@@ -474,7 +474,7 @@ final class AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns FunctionToken
+   * @return FunctionToken
    */
   public function getFunctionKeywordx(): FunctionToken {
     return $this->getFunctionKeyword();
@@ -510,7 +510,7 @@ final class AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns Missing | AmpersandToken
+   * @return null | AmpersandToken
    */
   public function getAmpersand(): ?AmpersandToken {
     if ($this->_ampersand->isMissing()) {
@@ -520,7 +520,7 @@ final class AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns AmpersandToken
+   * @return AmpersandToken
    */
   public function getAmpersandx(): AmpersandToken {
     return TypeAssert\instance_of(AmpersandToken::class, $this->_ampersand);
@@ -556,7 +556,7 @@ final class AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns Missing | LeftParenToken
+   * @return null | LeftParenToken
    */
   public function getLeftParen(): ?LeftParenToken {
     if ($this->_left_paren->isMissing()) {
@@ -566,7 +566,7 @@ final class AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParenx(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
@@ -602,8 +602,8 @@ final class AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns EditableList<ParameterDeclaration> |
-   * EditableList<VariadicParameter> | Missing
+   * @return EditableList<ParameterDeclaration> |
+   * EditableList<VariadicParameter> | null
    */
   public function getParameters(): ?EditableList<EditableNode> {
     if ($this->_parameters->isMissing()) {
@@ -613,7 +613,7 @@ final class AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns EditableList<ParameterDeclaration> |
+   * @return EditableList<ParameterDeclaration> |
    * EditableList<VariadicParameter>
    */
   public function getParametersx(): EditableList<EditableNode> {
@@ -650,7 +650,7 @@ final class AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns Missing | RightParenToken
+   * @return null | RightParenToken
    */
   public function getRightParen(): ?RightParenToken {
     if ($this->_right_paren->isMissing()) {
@@ -660,7 +660,7 @@ final class AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParenx(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
@@ -696,7 +696,7 @@ final class AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns Missing | ColonToken
+   * @return null | ColonToken
    */
   public function getColon(): ?ColonToken {
     if ($this->_colon->isMissing()) {
@@ -706,7 +706,7 @@ final class AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns ColonToken
+   * @return ColonToken
    */
   public function getColonx(): ColonToken {
     return TypeAssert\instance_of(ColonToken::class, $this->_colon);
@@ -742,10 +742,9 @@ final class AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns ClosureTypeSpecifier | GenericTypeSpecifier |
-   * MapArrayTypeSpecifier | Missing | NullableTypeSpecifier |
-   * SimpleTypeSpecifier | SoftTypeSpecifier | TupleTypeSpecifier |
-   * VectorArrayTypeSpecifier
+   * @return ClosureTypeSpecifier | GenericTypeSpecifier |
+   * MapArrayTypeSpecifier | null | NullableTypeSpecifier | SimpleTypeSpecifier
+   * | SoftTypeSpecifier | TupleTypeSpecifier | VectorArrayTypeSpecifier
    */
   public function getType(): ?EditableNode {
     if ($this->_type->isMissing()) {
@@ -755,7 +754,7 @@ final class AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns ClosureTypeSpecifier | GenericTypeSpecifier |
+   * @return ClosureTypeSpecifier | GenericTypeSpecifier |
    * MapArrayTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier |
    * SoftTypeSpecifier | TupleTypeSpecifier | VectorArrayTypeSpecifier
    */
@@ -793,7 +792,7 @@ final class AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns AnonymousFunctionUseClause | Missing
+   * @return AnonymousFunctionUseClause | null
    */
   public function getUse(): ?AnonymousFunctionUseClause {
     if ($this->_use->isMissing()) {
@@ -804,7 +803,7 @@ final class AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns AnonymousFunctionUseClause
+   * @return AnonymousFunctionUseClause
    */
   public function getUsex(): AnonymousFunctionUseClause {
     return
@@ -841,14 +840,14 @@ final class AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @returns CompoundStatement
+   * @return CompoundStatement
    */
   public function getBody(): CompoundStatement {
     return TypeAssert\instance_of(CompoundStatement::class, $this->_body);
   }
 
   /**
-   * @returns CompoundStatement
+   * @return CompoundStatement
    */
   public function getBodyx(): CompoundStatement {
     return $this->getBody();

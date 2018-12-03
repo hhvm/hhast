@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2a13db192b3d143ed1641971bab0d13b>>
+ * @generated SignedSource<<00837caa9775cfa0da396c49bf9318fa>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -119,14 +119,14 @@ final class TraitUseAliasItem extends EditableNode {
   }
 
   /**
-   * @returns ScopeResolutionExpression | SimpleTypeSpecifier
+   * @return ScopeResolutionExpression | SimpleTypeSpecifier
    */
   public function getAliasingName(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_aliasing_name);
   }
 
   /**
-   * @returns ScopeResolutionExpression | SimpleTypeSpecifier
+   * @return ScopeResolutionExpression | SimpleTypeSpecifier
    */
   public function getAliasingNamex(): EditableNode {
     return $this->getAliasingName();
@@ -153,14 +153,14 @@ final class TraitUseAliasItem extends EditableNode {
   }
 
   /**
-   * @returns AsToken
+   * @return AsToken
    */
   public function getKeyword(): AsToken {
     return TypeAssert\instance_of(AsToken::class, $this->_keyword);
   }
 
   /**
-   * @returns AsToken
+   * @return AsToken
    */
   public function getKeywordx(): AsToken {
     return $this->getKeyword();
@@ -187,7 +187,7 @@ final class TraitUseAliasItem extends EditableNode {
   }
 
   /**
-   * @returns EditableList<EditableNode> | Missing
+   * @return EditableList<EditableNode> | null
    */
   public function getModifiers(): ?EditableList<EditableNode> {
     if ($this->_modifiers->isMissing()) {
@@ -197,7 +197,7 @@ final class TraitUseAliasItem extends EditableNode {
   }
 
   /**
-   * @returns EditableList<EditableNode>
+   * @return EditableList<EditableNode>
    */
   public function getModifiersx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_modifiers);
@@ -224,7 +224,7 @@ final class TraitUseAliasItem extends EditableNode {
   }
 
   /**
-   * @returns Missing | SimpleTypeSpecifier
+   * @return null | SimpleTypeSpecifier
    */
   public function getAliasedName(): ?SimpleTypeSpecifier {
     if ($this->_aliased_name->isMissing()) {
@@ -235,7 +235,7 @@ final class TraitUseAliasItem extends EditableNode {
   }
 
   /**
-   * @returns SimpleTypeSpecifier
+   * @return SimpleTypeSpecifier
    */
   public function getAliasedNamex(): SimpleTypeSpecifier {
     return

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d721cf3e9f35390d6bc895256e6b0fd8>>
+ * @generated SignedSource<<5c20de49a506c79e0807dede9d644310>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,14 +101,14 @@ final class BracedExpression extends EditableNode {
   }
 
   /**
-   * @returns LeftBraceToken
+   * @return LeftBraceToken
    */
   public function getLeftBrace(): LeftBraceToken {
     return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
   }
 
   /**
-   * @returns LeftBraceToken
+   * @return LeftBraceToken
    */
   public function getLeftBracex(): LeftBraceToken {
     return $this->getLeftBrace();
@@ -130,7 +130,7 @@ final class BracedExpression extends EditableNode {
   }
 
   /**
-   * @returns ArrayIntrinsicExpression | BinaryExpression |
+   * @return ArrayIntrinsicExpression | BinaryExpression |
    * CollectionLiteralExpression | FunctionCallExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
    * PrefixUnaryExpression | SubscriptExpression | NameToken |
@@ -141,7 +141,7 @@ final class BracedExpression extends EditableNode {
   }
 
   /**
-   * @returns ArrayIntrinsicExpression | BinaryExpression |
+   * @return ArrayIntrinsicExpression | BinaryExpression |
    * CollectionLiteralExpression | FunctionCallExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
    * PrefixUnaryExpression | SubscriptExpression | NameToken |
@@ -167,14 +167,14 @@ final class BracedExpression extends EditableNode {
   }
 
   /**
-   * @returns RightBraceToken
+   * @return RightBraceToken
    */
   public function getRightBrace(): RightBraceToken {
     return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
   }
 
   /**
-   * @returns RightBraceToken
+   * @return RightBraceToken
    */
   public function getRightBracex(): RightBraceToken {
     return $this->getRightBrace();

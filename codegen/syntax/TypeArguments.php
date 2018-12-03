@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7e46cdbe17ecc6c425606c7c58c3e3a3>>
+ * @generated SignedSource<<be644a89c38be3a518900972103a7636>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,14 +101,14 @@ final class TypeArguments extends EditableNode {
   }
 
   /**
-   * @returns LessThanToken
+   * @return LessThanToken
    */
   public function getLeftAngle(): LessThanToken {
     return TypeAssert\instance_of(LessThanToken::class, $this->_left_angle);
   }
 
   /**
-   * @returns LessThanToken
+   * @return LessThanToken
    */
   public function getLeftAnglex(): LessThanToken {
     return $this->getLeftAngle();
@@ -130,7 +130,7 @@ final class TypeArguments extends EditableNode {
   }
 
   /**
-   * @returns EditableList<ClassnameTypeSpecifier> |
+   * @return EditableList<ClassnameTypeSpecifier> |
    * EditableList<ClosureTypeSpecifier> | EditableList<DictionaryTypeSpecifier>
    * | EditableList<GenericTypeSpecifier> | EditableList<EditableNode> |
    * EditableList<MapArrayTypeSpecifier> | EditableList<NullableTypeSpecifier>
@@ -143,7 +143,7 @@ final class TypeArguments extends EditableNode {
   }
 
   /**
-   * @returns EditableList<ClassnameTypeSpecifier> |
+   * @return EditableList<ClassnameTypeSpecifier> |
    * EditableList<ClosureTypeSpecifier> | EditableList<DictionaryTypeSpecifier>
    * | EditableList<GenericTypeSpecifier> | EditableList<EditableNode> |
    * EditableList<MapArrayTypeSpecifier> | EditableList<NullableTypeSpecifier>
@@ -171,7 +171,7 @@ final class TypeArguments extends EditableNode {
   }
 
   /**
-   * @returns Missing | GreaterThanToken
+   * @return null | GreaterThanToken
    */
   public function getRightAngle(): ?GreaterThanToken {
     if ($this->_right_angle->isMissing()) {
@@ -181,7 +181,7 @@ final class TypeArguments extends EditableNode {
   }
 
   /**
-   * @returns GreaterThanToken
+   * @return GreaterThanToken
    */
   public function getRightAnglex(): GreaterThanToken {
     return TypeAssert\instance_of(GreaterThanToken::class, $this->_right_angle);

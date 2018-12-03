@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e4bedfc5bea6f7a3f55fd95f901c40e1>>
+ * @generated SignedSource<<5029007fc66dc195883cb200b72807db>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,14 +101,14 @@ final class XHPExpression extends EditableNode {
   }
 
   /**
-   * @returns XHPOpen
+   * @return XHPOpen
    */
   public function getOpen(): XHPOpen {
     return TypeAssert\instance_of(XHPOpen::class, $this->_open);
   }
 
   /**
-   * @returns XHPOpen
+   * @return XHPOpen
    */
   public function getOpenx(): XHPOpen {
     return $this->getOpen();
@@ -130,7 +130,7 @@ final class XHPExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList<EditableNode> | Missing
+   * @return EditableList<EditableNode> | null
    */
   public function getBody(): ?EditableList<EditableNode> {
     if ($this->_body->isMissing()) {
@@ -140,7 +140,7 @@ final class XHPExpression extends EditableNode {
   }
 
   /**
-   * @returns EditableList<EditableNode>
+   * @return EditableList<EditableNode>
    */
   public function getBodyx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_body);
@@ -162,7 +162,7 @@ final class XHPExpression extends EditableNode {
   }
 
   /**
-   * @returns Missing | XHPClose
+   * @return null | XHPClose
    */
   public function getClose(): ?XHPClose {
     if ($this->_close->isMissing()) {
@@ -172,7 +172,7 @@ final class XHPExpression extends EditableNode {
   }
 
   /**
-   * @returns XHPClose
+   * @return XHPClose
    */
   public function getClosex(): XHPClose {
     return TypeAssert\instance_of(XHPClose::class, $this->_close);

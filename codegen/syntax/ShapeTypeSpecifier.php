@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ec962cec6acb178332b930a41df4d5a5>>
+ * @generated SignedSource<<6ed0262f09ee0dba43adddccaca3e206>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -133,14 +133,14 @@ final class ShapeTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns ShapeToken
+   * @return ShapeToken
    */
   public function getKeyword(): ShapeToken {
     return TypeAssert\instance_of(ShapeToken::class, $this->_keyword);
   }
 
   /**
-   * @returns ShapeToken
+   * @return ShapeToken
    */
   public function getKeywordx(): ShapeToken {
     return $this->getKeyword();
@@ -168,14 +168,14 @@ final class ShapeTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParenx(): LeftParenToken {
     return $this->getLeftParen();
@@ -203,7 +203,7 @@ final class ShapeTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns EditableList<FieldSpecifier> | Missing
+   * @return EditableList<FieldSpecifier> | null
    */
   public function getFields(): ?EditableList<FieldSpecifier> {
     if ($this->_fields->isMissing()) {
@@ -213,7 +213,7 @@ final class ShapeTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns EditableList<FieldSpecifier>
+   * @return EditableList<FieldSpecifier>
    */
   public function getFieldsx(): EditableList<FieldSpecifier> {
     return TypeAssert\instance_of(EditableList::class, $this->_fields);
@@ -241,7 +241,7 @@ final class ShapeTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns Missing | DotDotDotToken
+   * @return null | DotDotDotToken
    */
   public function getEllipsis(): ?DotDotDotToken {
     if ($this->_ellipsis->isMissing()) {
@@ -251,7 +251,7 @@ final class ShapeTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns DotDotDotToken
+   * @return DotDotDotToken
    */
   public function getEllipsisx(): DotDotDotToken {
     return TypeAssert\instance_of(DotDotDotToken::class, $this->_ellipsis);
@@ -279,14 +279,14 @@ final class ShapeTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParenx(): RightParenToken {
     return $this->getRightParen();

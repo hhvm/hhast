@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<208e9d0c980408fe7e4d96f94d6296e3>>
+ * @generated SignedSource<<34601cb602305dbe45dec2d72f463b6b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -87,14 +87,14 @@ final class ExpressionStatement extends EditableNode {
   }
 
   /**
-   * @returns AnonymousFunction | AsExpression | BinaryExpression |
+   * @return AnonymousFunction | AsExpression | BinaryExpression |
    * CastExpression | CollectionLiteralExpression | ConditionalExpression |
    * DarrayIntrinsicExpression | DefineExpression |
    * DictionaryIntrinsicExpression | EmptyExpression | EvalExpression |
    * FunctionCallExpression | FunctionCallWithTypeArgumentsExpression |
    * HaltCompilerExpression | InclusionExpression | InstanceofExpression |
    * IssetExpression | LambdaExpression | LiteralExpression |
-   * MemberSelectionExpression | Missing | ObjectCreationExpression |
+   * MemberSelectionExpression | null | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * QualifiedName | SafeMemberSelectionExpression | ScopeResolutionExpression
    * | SubscriptExpression | RightParenToken | CommaToken | ColonToken |
@@ -111,7 +111,7 @@ final class ExpressionStatement extends EditableNode {
   }
 
   /**
-   * @returns AnonymousFunction | AsExpression | BinaryExpression |
+   * @return AnonymousFunction | AsExpression | BinaryExpression |
    * CastExpression | CollectionLiteralExpression | ConditionalExpression |
    * DarrayIntrinsicExpression | DefineExpression |
    * DictionaryIntrinsicExpression | EmptyExpression | EvalExpression |
@@ -147,7 +147,7 @@ final class ExpressionStatement extends EditableNode {
   }
 
   /**
-   * @returns Missing | SemicolonToken
+   * @return null | SemicolonToken
    */
   public function getSemicolon(): ?SemicolonToken {
     if ($this->_semicolon->isMissing()) {
@@ -157,7 +157,7 @@ final class ExpressionStatement extends EditableNode {
   }
 
   /**
-   * @returns SemicolonToken
+   * @return SemicolonToken
    */
   public function getSemicolonx(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4f5556b44e4f860ef90aaca8b92bd5e2>>
+ * @generated SignedSource<<cd6ba52db76f28fa62e7142d553e7b0b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -82,16 +82,14 @@ final class InclusionExpression extends EditableNode {
   }
 
   /**
-   * @returns IncludeToken | Include_onceToken | RequireToken |
-   * Require_onceToken
+   * @return IncludeToken | Include_onceToken | RequireToken | Require_onceToken
    */
   public function getRequire(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_require);
   }
 
   /**
-   * @returns IncludeToken | Include_onceToken | RequireToken |
-   * Require_onceToken
+   * @return IncludeToken | Include_onceToken | RequireToken | Require_onceToken
    */
   public function getRequirex(): EditableToken {
     return $this->getRequire();
@@ -113,7 +111,7 @@ final class InclusionExpression extends EditableNode {
   }
 
   /**
-   * @returns BinaryExpression | LiteralExpression | ParenthesizedExpression |
+   * @return BinaryExpression | LiteralExpression | ParenthesizedExpression |
    * SubscriptExpression | NameToken | VariableExpression
    */
   public function getFilename(): EditableNode {
@@ -121,7 +119,7 @@ final class InclusionExpression extends EditableNode {
   }
 
   /**
-   * @returns BinaryExpression | LiteralExpression | ParenthesizedExpression |
+   * @return BinaryExpression | LiteralExpression | ParenthesizedExpression |
    * SubscriptExpression | NameToken | VariableExpression
    */
   public function getFilenamex(): EditableNode {

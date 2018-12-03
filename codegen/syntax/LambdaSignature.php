@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<054a7f11c9bb79b1a90db8e47fbb0d9b>>
+ * @generated SignedSource<<a0aa0a0baeea58bff92e7d4510abc8e0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -133,14 +133,14 @@ final class LambdaSignature extends EditableNode {
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   /**
-   * @returns LeftParenToken
+   * @return LeftParenToken
    */
   public function getLeftParenx(): LeftParenToken {
     return $this->getLeftParen();
@@ -168,8 +168,8 @@ final class LambdaSignature extends EditableNode {
   }
 
   /**
-   * @returns EditableList<ParameterDeclaration> | EditableList<EditableNode> |
-   * EditableList<VariadicParameter> | Missing
+   * @return EditableList<ParameterDeclaration> | EditableList<EditableNode> |
+   * EditableList<VariadicParameter> | null
    */
   public function getParameters(): ?EditableList<EditableNode> {
     if ($this->_parameters->isMissing()) {
@@ -179,7 +179,7 @@ final class LambdaSignature extends EditableNode {
   }
 
   /**
-   * @returns EditableList<ParameterDeclaration> | EditableList<EditableNode> |
+   * @return EditableList<ParameterDeclaration> | EditableList<EditableNode> |
    * EditableList<VariadicParameter>
    */
   public function getParametersx(): EditableList<EditableNode> {
@@ -208,14 +208,14 @@ final class LambdaSignature extends EditableNode {
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   /**
-   * @returns RightParenToken
+   * @return RightParenToken
    */
   public function getRightParenx(): RightParenToken {
     return $this->getRightParen();
@@ -243,7 +243,7 @@ final class LambdaSignature extends EditableNode {
   }
 
   /**
-   * @returns Missing | ColonToken
+   * @return null | ColonToken
    */
   public function getColon(): ?ColonToken {
     if ($this->_colon->isMissing()) {
@@ -253,7 +253,7 @@ final class LambdaSignature extends EditableNode {
   }
 
   /**
-   * @returns ColonToken
+   * @return ColonToken
    */
   public function getColonx(): ColonToken {
     return TypeAssert\instance_of(ColonToken::class, $this->_colon);
@@ -281,7 +281,7 @@ final class LambdaSignature extends EditableNode {
   }
 
   /**
-   * @returns ClosureTypeSpecifier | GenericTypeSpecifier | Missing |
+   * @return ClosureTypeSpecifier | GenericTypeSpecifier | null |
    * SimpleTypeSpecifier
    */
   public function getType(): ?EditableNode {
@@ -292,7 +292,7 @@ final class LambdaSignature extends EditableNode {
   }
 
   /**
-   * @returns ClosureTypeSpecifier | GenericTypeSpecifier | SimpleTypeSpecifier
+   * @return ClosureTypeSpecifier | GenericTypeSpecifier | SimpleTypeSpecifier
    */
   public function getTypex(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);

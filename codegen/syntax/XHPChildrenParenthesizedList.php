@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<45205ee6dbb85aa08d61a64d3de85dfc>>
+ * @generated SignedSource<<273ffcaf0a259ac05808f0f01a07f750>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,14 +101,14 @@ final class XHPChildrenParenthesizedList extends EditableNode {
   }
 
   /**
-   * @returns unknown
+   * @return unknown
    */
   public function getLeftParen(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_left_paren);
   }
 
   /**
-   * @returns unknown
+   * @return unknown
    */
   public function getLeftParenx(): EditableNode {
     return $this->getLeftParen();
@@ -130,14 +130,14 @@ final class XHPChildrenParenthesizedList extends EditableNode {
   }
 
   /**
-   * @returns unknown
+   * @return unknown
    */
   public function getXhpChildren(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_xhp_children);
   }
 
   /**
-   * @returns unknown
+   * @return unknown
    */
   public function getXhpChildrenx(): EditableNode {
     return $this->getXhpChildren();
@@ -159,14 +159,14 @@ final class XHPChildrenParenthesizedList extends EditableNode {
   }
 
   /**
-   * @returns unknown
+   * @return unknown
    */
   public function getRightParen(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_right_paren);
   }
 
   /**
-   * @returns unknown
+   * @return unknown
    */
   public function getRightParenx(): EditableNode {
     return $this->getRightParen();

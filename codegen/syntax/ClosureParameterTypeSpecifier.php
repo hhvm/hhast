@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a4ab78d71700014e147c44ec6c1d44ee>>
+ * @generated SignedSource<<6ec29544b823cff8da2fcf41b8d5f5cf>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -87,7 +87,7 @@ final class ClosureParameterTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns Missing | InoutToken
+   * @return null | InoutToken
    */
   public function getCallConvention(): ?InoutToken {
     if ($this->_call_convention->isMissing()) {
@@ -97,7 +97,7 @@ final class ClosureParameterTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns InoutToken
+   * @return InoutToken
    */
   public function getCallConventionx(): InoutToken {
     return TypeAssert\instance_of(InoutToken::class, $this->_call_convention);
@@ -119,16 +119,16 @@ final class ClosureParameterTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @returns GenericTypeSpecifier | NullableTypeSpecifier |
-   * SimpleTypeSpecifier | SoftTypeSpecifier | TupleTypeSpecifier | TypeConstant
+   * @return GenericTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier
+   * | SoftTypeSpecifier | TupleTypeSpecifier | TypeConstant
    */
   public function getType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);
   }
 
   /**
-   * @returns GenericTypeSpecifier | NullableTypeSpecifier |
-   * SimpleTypeSpecifier | SoftTypeSpecifier | TupleTypeSpecifier | TypeConstant
+   * @return GenericTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier
+   * | SoftTypeSpecifier | TupleTypeSpecifier | TypeConstant
    */
   public function getTypex(): EditableNode {
     return $this->getType();
