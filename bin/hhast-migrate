@@ -11,6 +11,34 @@
 
 namespace Facebook\HHAST\__Private;
 
-require_once(__DIR__.'/../vendor/hh_autoload.php');
+<<__EntryPoint>>
+async function hhast_migrate_main_async(): Awaitable<noreturn> {
+    $root = realpath(__DIR__.'/..');
+    $found_autoloader = false;
 
-MigrationCLI::main();
+    while (true) {
+        $autoloader = $root.'/vendor/hh_autoload.php';
+
+        if (file_exists($autoloader)) {
+            $found_autoloader = true;
+            require_once($autoloader);
+            break;
+        }
+
+        if ($root === '') {
+          break;
+        }
+
+        $parts = explode('/', $root);
+        array_pop(&$parts);
+        $root = implode('/', $parts);
+      }
+
+      if (!$found_autoloader) {
+        fprintf(STDERR, "Failed to find autoloader.\n");
+        exit(1);
+    }
+
+    $result = await MigrationCLI::runAsync();
+    exit($result);
+}
