@@ -9,7 +9,8 @@
  */
 
 function foo(): void {
-  some_function();;
+  some_function();
+  ;
   ;
 
   // leading comment
@@ -19,7 +20,118 @@ function foo(): void {
 
   // leading
   /* kinda sorta looks like a statement */ ;
-};
+}
+;
 
-function bar(): void {
+function empty_exprs($a, $b, $dict, $key): void {
+  "a";
+  $a;
+  $a.$b;
+  $a + $b;
+  "a"."b";
+  $a.$b;
+  $a && $b;
+  $dict[$key];
+  [1, 2, 3];
+  vec[1, 2, 3];
+  dict['a' => 1, 'b' => 2];
+  keyset[1, 2, 3];
+  ($a);
+  ($a.$b);
+  ('a');
+  ($a, $b) ==> $a + $b;
+  function($a, $b) {
+    return $a + $b;
+  };
+  (int)$a;
+  isset($a);
+
+  varray[1, 2, 3];
+  darray['a' => 1, 'b' => 2];
+
+  $a is int;
+  $a instanceof MyClass;
+}
+
+function empty_binary_expr(int $a, int $b): void {
+  $a && $b;
+  $a & $b;
+  $a || $b;
+  $a | $b;
+  $a ^ $b;
+  $a.$b;
+  $a >> $b;
+  $a > $b;
+  $a == 1;
+  $a === 1;
+  $a != 1;
+  $a !== 1;
+  $a <=> $b;
+  $a << $b;
+  $a < $b;
+  $a - $b;
+  $a % $b;
+  $a + $b;
+  $a ?: $b;
+  $a ?? $b;
+  $a / $b;
+  $a ** $b;
+  $a * $b;
+
+  /* HH_FIXME[1002] */
+  $a <> $b;
+  /* HH_FIXME[1002] */
+  $a or $b;
+  /* HH_FIXME[1002] */
+  $a and $b;
+  /* HH_FIXME[1002] */
+  $a xor $b;
+}
+
+function not_empty_exprs(): void {
+  side_effect();
+  new MyClass();
+  throw new RuntimeException();
+
+  $i = 0;
+
+  // Prefix/postfix
+  $i++;
+  $i--;
+  ++$i;
+  --$i;
+
+  // Arithmetic
+  $i += 1;
+  $i -= 1;
+  $i *= 1;
+  $i /= 1;
+  $i %= 1;
+  $i **= 1;
+
+  // Bitwise
+  $i = 1;
+  $i &= 1;
+  $i |= 1;
+  $i ^= 1;
+  $i <<= 1;
+  $i >>= 1;
+
+  $i ??= 5;
+  $i .= 1;
+
+  list($a, $b) = [1, 2];
+
+  ($i = 0);
+
+  $i as int;
+  fn1() |> fn2($$);
+
+  $fn = () ==> 'a';
+  $fn = () ==> {
+    return 'a';
+  }
+
+  /* HH_FIXME[1002] */
+  `cp a.txt b.txt`;
 }

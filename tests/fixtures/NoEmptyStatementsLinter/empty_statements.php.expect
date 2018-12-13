@@ -1,7 +1,7 @@
 [
     {
-        "blame": ";\n",
-        "blame_pretty": ";\n",
+        "blame": "  ;\n",
+        "blame_pretty": "  ;\n",
         "description": "This statement is empty"
     },
     {
@@ -28,5 +28,255 @@
         "blame": ";\n",
         "blame_pretty": ";\n",
         "description": "This statement is empty"
+    },
+    {
+        "blame": "  \"a\";\n",
+        "blame_pretty": "  \"a\";\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  $a;\n",
+        "blame_pretty": "  $a;\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  $a.$b;\n",
+        "blame_pretty": "  $a.$b;\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  $a + $b;\n",
+        "blame_pretty": "  $a + $b;\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  \"a\".\"b\";\n",
+        "blame_pretty": "  \"a\".\"b\";\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  $a.$b;\n",
+        "blame_pretty": "  $a.$b;\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  $a && $b;\n",
+        "blame_pretty": "  $a && $b;\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  $dict[$key];\n",
+        "blame_pretty": "  $dict[$key];\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  [1, 2, 3];\n",
+        "blame_pretty": "  [1, 2, 3];\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  vec[1, 2, 3];\n",
+        "blame_pretty": "  vec[1, 2, 3];\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  dict['a' => 1, 'b' => 2];\n",
+        "blame_pretty": "  dict['a' => 1, 'b' => 2];\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  keyset[1, 2, 3];\n",
+        "blame_pretty": "  keyset[1, 2, 3];\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  ($a);\n",
+        "blame_pretty": "  ($a);\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  ($a.$b);\n",
+        "blame_pretty": "  ($a.$b);\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  ('a');\n",
+        "blame_pretty": "  ('a');\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  ($a, $b) ==> $a + $b;\n",
+        "blame_pretty": "  ($a, $b) ==> $a + $b;\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  function($a, $b) {\n    return $a + $b;\n  };\n",
+        "blame_pretty": "  function($a, $b) {\n    return $a + $b;\n  };\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  (int)$a;\n",
+        "blame_pretty": "  (int)$a;\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  isset($a);\n",
+        "blame_pretty": "  isset($a);\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "\n  varray[1, 2, 3];\n",
+        "blame_pretty": "\n  varray[1, 2, 3];\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  darray['a' => 1, 'b' => 2];\n",
+        "blame_pretty": "  darray['a' => 1, 'b' => 2];\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "\n  $a is int;\n",
+        "blame_pretty": "\n  $a is int;\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  $a instanceof MyClass;\n",
+        "blame_pretty": "  $a instanceof MyClass;\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  $a && $b;\n",
+        "blame_pretty": "  $a && $b;\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  $a & $b;\n",
+        "blame_pretty": "  $a & $b;\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  $a || $b;\n",
+        "blame_pretty": "  $a || $b;\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  $a | $b;\n",
+        "blame_pretty": "  $a | $b;\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  $a ^ $b;\n",
+        "blame_pretty": "  $a ^ $b;\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  $a.$b;\n",
+        "blame_pretty": "  $a.$b;\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  $a >> $b;\n",
+        "blame_pretty": "  $a >> $b;\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  $a > $b;\n",
+        "blame_pretty": "  $a > $b;\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  $a == 1;\n",
+        "blame_pretty": "  $a == 1;\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  $a === 1;\n",
+        "blame_pretty": "  $a === 1;\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  $a != 1;\n",
+        "blame_pretty": "  $a != 1;\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  $a !== 1;\n",
+        "blame_pretty": "  $a !== 1;\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  $a <=> $b;\n",
+        "blame_pretty": "  $a <=> $b;\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  $a << $b;\n",
+        "blame_pretty": "  $a << $b;\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  $a < $b;\n",
+        "blame_pretty": "  $a < $b;\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  $a - $b;\n",
+        "blame_pretty": "  $a - $b;\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  $a % $b;\n",
+        "blame_pretty": "  $a % $b;\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  $a + $b;\n",
+        "blame_pretty": "  $a + $b;\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  $a ?: $b;\n",
+        "blame_pretty": "  $a ?: $b;\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  $a ?? $b;\n",
+        "blame_pretty": "  $a ?? $b;\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  $a \/ $b;\n",
+        "blame_pretty": "  $a \/ $b;\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  $a ** $b;\n",
+        "blame_pretty": "  $a ** $b;\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  $a * $b;\n",
+        "blame_pretty": "  $a * $b;\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "\n  \/* HH_FIXME[1002] *\/\n  $a <> $b;\n",
+        "blame_pretty": "\n  \/* HH_FIXME[1002] *\/\n  $a <> $b;\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  \/* HH_FIXME[1002] *\/\n  $a or $b;\n",
+        "blame_pretty": "  \/* HH_FIXME[1002] *\/\n  $a or $b;\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  \/* HH_FIXME[1002] *\/\n  $a and $b;\n",
+        "blame_pretty": "  \/* HH_FIXME[1002] *\/\n  $a and $b;\n",
+        "description": "This statement includes an expression that has no effect"
+    },
+    {
+        "blame": "  \/* HH_FIXME[1002] *\/\n  $a xor $b;\n",
+        "blame_pretty": "  \/* HH_FIXME[1002] *\/\n  $a xor $b;\n",
+        "description": "This statement includes an expression that has no effect"
     }
 ]
