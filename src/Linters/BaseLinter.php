@@ -15,7 +15,7 @@ use namespace HH\Lib\{C, Str};
 <<__ConsistentConstruct>>
 abstract class BaseLinter {
   abstract public function getLintErrorsAsync(
-  ): Awaitable<Traversable<LintError>>;
+  ): Awaitable<vec<LintError>>;
 
   public static function shouldLintFile(File $_): bool {
     return true;

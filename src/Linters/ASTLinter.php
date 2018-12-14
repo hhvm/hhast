@@ -66,7 +66,7 @@ abstract class ASTLinter<Tnode as HHAST\EditableNode> extends BaseLinter {
 
   <<__Override>>
   final public async function getLintErrorsAsync(
-  ): Awaitable<Traversable<ASTLintError<Tnode>>> {
+  ): Awaitable<vec<ASTLintError<Tnode>>> {
     $this->ast = await self::getASTFromFileAsync($this->getFile());
     $target = static::getTargetType();
 

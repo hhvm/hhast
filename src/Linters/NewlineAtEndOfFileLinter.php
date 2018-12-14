@@ -19,7 +19,7 @@ final class NewlineAtEndOfFileLinter
 
   <<__Override>>
   public async function getLintErrorsAsync(
-  ): Awaitable<Traversable<LintError>> {
+  ): Awaitable<vec<LintError>> {
     $contents = $this->getFile()->getContents();
     $fixed = $this->getFixedFile(vec[])->getContents();
     if ($contents === $fixed) {

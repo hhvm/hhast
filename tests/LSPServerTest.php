@@ -109,7 +109,7 @@ final class LSPServerTest extends TestCase {
 
     list($inr, $inw) = IO\pipe_non_disposable();
     list($outr, $outw) = IO\pipe_non_disposable();
-    $err = IO\stderr();
+    $err = IO\request_error();
     $cli = new __Private\LinterCLI(
       vec[__FILE__, '--mode', 'lsp'],
       new Terminal($inr, $outw, $err),

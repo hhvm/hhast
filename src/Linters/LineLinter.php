@@ -26,7 +26,7 @@ abstract class LineLinter<+Terror as LineLintError> extends BaseLinter {
   }
 
   <<__Override>>
-  public async function getLintErrorsAsync(): Awaitable<Traversable<Terror>> {
+  public async function getLintErrorsAsync(): Awaitable<vec<Terror>> {
     $lines = $this->getLinesFromFile();
     $errs = vec[];
 
