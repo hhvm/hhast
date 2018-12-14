@@ -27,6 +27,7 @@ async function execute_async(string ...$args): Awaitable<vec<string>> {
 
   list($stdin, $stdout, $stderr) = $pipes;
   \fclose($stdin);
+  \stream_set_blocking($stdout, false);
 
   $exit_code = -2;
   $output = '';
