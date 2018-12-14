@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<243fcaf723250580bcec8f852e99d23f>>
+ * @generated SignedSource<<b2f189859651a5e47d28e7a4475d2784>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -183,9 +183,9 @@ final class TupleExpression extends EditableNode {
   }
 
   /**
-   * @return EditableList<EditableNode> |
-   * EditableList<ArrayIntrinsicExpression> | EditableList<BinaryExpression> |
-   * EditableList<CastExpression> | EditableList<FunctionCallExpression> |
+   * @return EditableList<ArrayCreationExpression> | EditableList<EditableNode>
+   * | EditableList<ArrayIntrinsicExpression> | EditableList<BinaryExpression>
+   * | EditableList<CastExpression> | EditableList<FunctionCallExpression> |
    * EditableList<LiteralExpression> | EditableList<VariableExpression> | null
    */
   public function getItems(): ?EditableList<EditableNode> {
@@ -196,9 +196,9 @@ final class TupleExpression extends EditableNode {
   }
 
   /**
-   * @return EditableList<EditableNode> |
-   * EditableList<ArrayIntrinsicExpression> | EditableList<BinaryExpression> |
-   * EditableList<CastExpression> | EditableList<FunctionCallExpression> |
+   * @return EditableList<ArrayCreationExpression> | EditableList<EditableNode>
+   * | EditableList<ArrayIntrinsicExpression> | EditableList<BinaryExpression>
+   * | EditableList<CastExpression> | EditableList<FunctionCallExpression> |
    * EditableList<LiteralExpression> | EditableList<VariableExpression>
    */
   public function getItemsx(): EditableList<EditableNode> {

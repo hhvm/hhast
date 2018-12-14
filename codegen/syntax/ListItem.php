@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4a8724afe12b3c5659012f449ad27e52>>
+ * @generated SignedSource<<55be1017dad8694ffb0ba561734d0a9d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -98,16 +98,15 @@ final class ListItem extends EditableNode {
    * NullableTypeSpecifier | ObjectCreationExpression | ParameterDeclaration |
    * ParenthesizedExpression | PipeVariableExpression | PostfixUnaryExpression
    * | PrefixUnaryExpression | PropertyDeclarator | QualifiedName |
-   * ReifiedTypeArgument | SafeMemberSelectionExpression |
-   * ScopeResolutionExpression | ShapeExpression | ShapeTypeSpecifier |
-   * SimpleTypeSpecifier | StaticDeclarator | SubscriptExpression |
-   * XHPCategoryNameToken | ConstToken | NameToken | ReturnToken |
-   * VariableToken | TraitUseAliasItem | TraitUsePrecedenceItem |
-   * TupleExpression | TupleTypeSpecifier | TypeConstant | TypeParameter |
-   * VariableExpression | VariadicParameter | VarrayIntrinsicExpression |
-   * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorIntrinsicExpression
-   * | VectorTypeSpecifier | WhereConstraint | XHPClassAttribute |
-   * XHPExpression | XHPSimpleClassAttribute
+   * SafeMemberSelectionExpression | ScopeResolutionExpression |
+   * ShapeExpression | ShapeTypeSpecifier | SimpleTypeSpecifier |
+   * StaticDeclarator | SubscriptExpression | XHPCategoryNameToken | ConstToken
+   * | NameToken | ReturnToken | VariableToken | TraitUseAliasItem |
+   * TraitUsePrecedenceItem | TupleExpression | TupleTypeSpecifier |
+   * TypeConstant | TypeParameter | VariableExpression | VariadicParameter |
+   * VarrayIntrinsicExpression | VarrayTypeSpecifier | VectorArrayTypeSpecifier
+   * | VectorIntrinsicExpression | VectorTypeSpecifier | WhereConstraint |
+   * XHPClassAttribute | XHPExpression | XHPSimpleClassAttribute
    */
   public function getItem(): ?EditableNode {
     if ($this->_item->isMissing()) {
@@ -132,16 +131,16 @@ final class ListItem extends EditableNode {
    * MemberSelectionExpression | NamespaceUseClause | NullableTypeSpecifier |
    * ObjectCreationExpression | ParameterDeclaration | ParenthesizedExpression
    * | PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression
-   * | PropertyDeclarator | QualifiedName | ReifiedTypeArgument |
-   * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * ShapeExpression | ShapeTypeSpecifier | SimpleTypeSpecifier |
-   * StaticDeclarator | SubscriptExpression | XHPCategoryNameToken | ConstToken
-   * | NameToken | ReturnToken | VariableToken | TraitUseAliasItem |
-   * TraitUsePrecedenceItem | TupleExpression | TupleTypeSpecifier |
-   * TypeConstant | TypeParameter | VariableExpression | VariadicParameter |
-   * VarrayIntrinsicExpression | VarrayTypeSpecifier | VectorArrayTypeSpecifier
-   * | VectorIntrinsicExpression | VectorTypeSpecifier | WhereConstraint |
-   * XHPClassAttribute | XHPExpression | XHPSimpleClassAttribute
+   * | PropertyDeclarator | QualifiedName | SafeMemberSelectionExpression |
+   * ScopeResolutionExpression | ShapeExpression | ShapeTypeSpecifier |
+   * SimpleTypeSpecifier | StaticDeclarator | SubscriptExpression |
+   * XHPCategoryNameToken | ConstToken | NameToken | ReturnToken |
+   * VariableToken | TraitUseAliasItem | TraitUsePrecedenceItem |
+   * TupleExpression | TupleTypeSpecifier | TypeConstant | TypeParameter |
+   * VariableExpression | VariadicParameter | VarrayIntrinsicExpression |
+   * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorIntrinsicExpression
+   * | VectorTypeSpecifier | WhereConstraint | XHPClassAttribute |
+   * XHPExpression | XHPSimpleClassAttribute
    */
   public function getItemx(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_item);

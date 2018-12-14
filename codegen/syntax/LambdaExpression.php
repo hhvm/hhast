@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<664e7cd39cddd81337d7c55a1933b073>>
+ * @generated SignedSource<<dea38ef6a8d31d9576828daa23cace07>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -359,9 +359,10 @@ final class LambdaExpression extends EditableNode {
   /**
    * @return ArrayIntrinsicExpression | BinaryExpression | CastExpression |
    * CompoundStatement | ConditionalExpression | FunctionCallExpression |
-   * LambdaExpression | LiteralExpression | MemberSelectionExpression |
-   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
-   * | SubscriptExpression | VariableExpression
+   * IsExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression | SubscriptExpression |
+   * VariableExpression
    */
   public function getBody(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_body);
@@ -370,9 +371,10 @@ final class LambdaExpression extends EditableNode {
   /**
    * @return ArrayIntrinsicExpression | BinaryExpression | CastExpression |
    * CompoundStatement | ConditionalExpression | FunctionCallExpression |
-   * LambdaExpression | LiteralExpression | MemberSelectionExpression |
-   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
-   * | SubscriptExpression | VariableExpression
+   * IsExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression | SubscriptExpression |
+   * VariableExpression
    */
   public function getBodyx(): EditableNode {
     return $this->getBody();

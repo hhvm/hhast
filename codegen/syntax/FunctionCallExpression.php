@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<14692f136c4081791b71b5db519f745c>>
+ * @generated SignedSource<<4456cfba91b9442a975c974415b35a53>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -122,8 +122,8 @@ final class FunctionCallExpression extends EditableNode {
    * @return ArrayCreationExpression | FunctionCallExpression |
    * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
    * PrefixUnaryExpression | QualifiedName | SafeMemberSelectionExpression |
-   * ScopeResolutionExpression | SubscriptExpression | IfToken | NameToken |
-   * VariableExpression
+   * ScopeResolutionExpression | SubscriptExpression | GreaterThanToken |
+   * CatchToken | IfToken | NameToken | VariableExpression
    */
   public function getReceiver(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_receiver);
@@ -133,8 +133,8 @@ final class FunctionCallExpression extends EditableNode {
    * @return ArrayCreationExpression | FunctionCallExpression |
    * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
    * PrefixUnaryExpression | QualifiedName | SafeMemberSelectionExpression |
-   * ScopeResolutionExpression | SubscriptExpression | IfToken | NameToken |
-   * VariableExpression
+   * ScopeResolutionExpression | SubscriptExpression | GreaterThanToken |
+   * CatchToken | IfToken | NameToken | VariableExpression
    */
   public function getReceiverx(): EditableNode {
     return $this->getReceiver();

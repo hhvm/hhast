@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9ac68ca67791f161dec5ac97480099ec>>
+ * @generated SignedSource<<622280109da024471064b84230d4ad71>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,18 +101,18 @@ final class AsExpression extends EditableNode {
   }
 
   /**
-   * @return CollectionLiteralExpression | LiteralExpression |
-   * MemberSelectionExpression | ParenthesizedExpression | TupleExpression |
-   * VariableExpression
+   * @return CollectionLiteralExpression | FunctionCallExpression |
+   * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
+   * TupleExpression | VariableExpression
    */
   public function getLeftOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_left_operand);
   }
 
   /**
-   * @return CollectionLiteralExpression | LiteralExpression |
-   * MemberSelectionExpression | ParenthesizedExpression | TupleExpression |
-   * VariableExpression
+   * @return CollectionLiteralExpression | FunctionCallExpression |
+   * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
+   * TupleExpression | VariableExpression
    */
   public function getLeftOperandx(): EditableNode {
     return $this->getLeftOperand();
@@ -163,16 +163,18 @@ final class AsExpression extends EditableNode {
   }
 
   /**
-   * @return ClosureTypeSpecifier | NullableTypeSpecifier | ShapeTypeSpecifier
-   * | SimpleTypeSpecifier | SoftTypeSpecifier | TupleTypeSpecifier
+   * @return ClosureTypeSpecifier | GenericTypeSpecifier |
+   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
+   * SoftTypeSpecifier | TupleTypeSpecifier
    */
   public function getRightOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_right_operand);
   }
 
   /**
-   * @return ClosureTypeSpecifier | NullableTypeSpecifier | ShapeTypeSpecifier
-   * | SimpleTypeSpecifier | SoftTypeSpecifier | TupleTypeSpecifier
+   * @return ClosureTypeSpecifier | GenericTypeSpecifier |
+   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
+   * SoftTypeSpecifier | TupleTypeSpecifier
    */
   public function getRightOperandx(): EditableNode {
     return $this->getRightOperand();

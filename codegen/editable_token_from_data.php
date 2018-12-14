@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7e6751d96c6b659722a49b478b4fd56a>>
+ * @generated SignedSource<<9b4379299c3c2d0f112d1a1de1ec4b39>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -51,6 +51,7 @@ class TokenClassMap {
     'class' => HHAST\ClassToken::class,
     'classname' => HHAST\ClassnameToken::class,
     'clone' => HHAST\CloneToken::class,
+    'concurrent' => HHAST\ConcurrentToken::class,
     'const' => HHAST\ConstToken::class,
     '__construct' => HHAST\ConstructToken::class,
     'continue' => HHAST\ContinueToken::class,

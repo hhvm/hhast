@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<efeeab9bc321b2af4dd477a9901773d1>>
+ * @generated SignedSource<<2d5a6ff24cad262808e1b227d6ba82dd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -74,9 +74,9 @@ final class SimpleTypeSpecifier extends EditableNode {
    * @return QualifiedName | XHPClassNameToken | ConstructToken | ArrayToken |
    * ArraykeyToken | BoolToken | BooleanToken | DarrayToken | DictToken |
    * DoubleToken | FloatToken | IntToken | IntegerToken | KeysetToken |
-   * MixedToken | NameToken | NoreturnToken | NumToken | ObjectToken |
-   * ParentToken | RealToken | ResourceToken | SelfToken | StringToken |
-   * ThisToken | VarToken | VarrayToken | VecToken | VoidToken
+   * MixedToken | NameToken | NoreturnToken | NullLiteralToken | NumToken |
+   * ObjectToken | ParentToken | RealToken | ResourceToken | SelfToken |
+   * StringToken | ThisToken | VarToken | VarrayToken | VecToken | VoidToken
    */
   public function getSpecifier(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_specifier);
@@ -86,9 +86,9 @@ final class SimpleTypeSpecifier extends EditableNode {
    * @return QualifiedName | XHPClassNameToken | ConstructToken | ArrayToken |
    * ArraykeyToken | BoolToken | BooleanToken | DarrayToken | DictToken |
    * DoubleToken | FloatToken | IntToken | IntegerToken | KeysetToken |
-   * MixedToken | NameToken | NoreturnToken | NumToken | ObjectToken |
-   * ParentToken | RealToken | ResourceToken | SelfToken | StringToken |
-   * ThisToken | VarToken | VarrayToken | VecToken | VoidToken
+   * MixedToken | NameToken | NoreturnToken | NullLiteralToken | NumToken |
+   * ObjectToken | ParentToken | RealToken | ResourceToken | SelfToken |
+   * StringToken | ThisToken | VarToken | VarrayToken | VecToken | VoidToken
    */
   public function getSpecifierx(): EditableNode {
     return $this->getSpecifier();

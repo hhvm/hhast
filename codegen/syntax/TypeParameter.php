@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e7cd16d96d0d88bf26e9c0833c3328a4>>
+ * @generated SignedSource<<db864e8aeac877dd6a5054fa36b46350>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -115,20 +115,20 @@ final class TypeParameter extends EditableNode {
   }
 
   /**
-   * @return null | ReifiedToken
+   * @return null
    */
-  public function getReified(): ?ReifiedToken {
+  public function getReified(): ?EditableNode {
     if ($this->_reified->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(ReifiedToken::class, $this->_reified);
+    return TypeAssert\instance_of(EditableNode::class, $this->_reified);
   }
 
   /**
-   * @return ReifiedToken
+   * @return
    */
-  public function getReifiedx(): ReifiedToken {
-    return TypeAssert\instance_of(ReifiedToken::class, $this->_reified);
+  public function getReifiedx(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_reified);
   }
 
   public function getVarianceUNTYPED(): EditableNode {

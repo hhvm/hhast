@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5a5928b3f9585a4f93a67638c62d01a9>>
+ * @generated SignedSource<<2fe31ec5e096ff30d74231212781c0cf>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -71,8 +71,10 @@ final class ErrorSyntax extends EditableNode {
   }
 
   /**
-   * @return CommaToken | SemicolonToken | EqualToken | DecimalLiteralToken |
-   * NameToken | SingleQuotedStringLiteralToken | VariableToken |
+   * @return LeftParenToken | RightParenToken | PlusToken | CommaToken |
+   * SemicolonToken | LessThanToken | EqualToken | GreaterThanToken |
+   * DecimalLiteralToken | ExtendsToken | IntToken | NameToken |
+   * SingleQuotedStringLiteralToken | StringToken | VariableToken |
    * LeftBraceToken | RightBraceToken
    */
   public function getError(): EditableToken {
@@ -80,8 +82,10 @@ final class ErrorSyntax extends EditableNode {
   }
 
   /**
-   * @return CommaToken | SemicolonToken | EqualToken | DecimalLiteralToken |
-   * NameToken | SingleQuotedStringLiteralToken | VariableToken |
+   * @return LeftParenToken | RightParenToken | PlusToken | CommaToken |
+   * SemicolonToken | LessThanToken | EqualToken | GreaterThanToken |
+   * DecimalLiteralToken | ExtendsToken | IntToken | NameToken |
+   * SingleQuotedStringLiteralToken | StringToken | VariableToken |
    * LeftBraceToken | RightBraceToken
    */
   public function getErrorx(): EditableToken {

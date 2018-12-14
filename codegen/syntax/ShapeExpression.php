@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a3137581d153f42863130fb3f422fddb>>
+ * @generated SignedSource<<7340a1b66509f40efaeeeebe2bc10795>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -216,9 +216,12 @@ final class ShapeExpression extends EditableNode {
   }
 
   /**
-   * @return RightParenToken
+   * @return null | RightParenToken
    */
-  public function getRightParen(): RightParenToken {
+  public function getRightParen(): ?RightParenToken {
+    if ($this->_right_paren->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
@@ -226,6 +229,6 @@ final class ShapeExpression extends EditableNode {
    * @return RightParenToken
    */
   public function getRightParenx(): RightParenToken {
-    return $this->getRightParen();
+    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 }

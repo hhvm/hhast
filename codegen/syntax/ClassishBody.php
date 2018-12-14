@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0be4e52e4b826ddb71272eff78086ccc>>
+ * @generated SignedSource<<7e842c726e7c444f18015c33077adf22>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,9 +101,12 @@ final class ClassishBody extends EditableNode {
   }
 
   /**
-   * @return LeftBraceToken
+   * @return null | LeftBraceToken
    */
-  public function getLeftBrace(): LeftBraceToken {
+  public function getLeftBrace(): ?LeftBraceToken {
+    if ($this->_left_brace->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
   }
 
@@ -111,7 +114,7 @@ final class ClassishBody extends EditableNode {
    * @return LeftBraceToken
    */
   public function getLeftBracex(): LeftBraceToken {
-    return $this->getLeftBrace();
+    return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
   }
 
   public function getElementsUNTYPED(): EditableNode {
