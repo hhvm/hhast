@@ -33,6 +33,8 @@ final class DidOpenTextDocumentNotification
       $this->state->ignoreFilenameExtensions
       || Str\ends_with($uri, '.php')
       || Str\ends_with($uri, '.hh')
+      || Str\ends_with($uri, '.hack')
+      || Str\ends_with($uri, '.hck')
     )) {
       return;
     }
