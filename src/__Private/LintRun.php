@@ -128,7 +128,7 @@ final class LintRun {
         continue;
       }
       $ext = Str\lowercase($info->getExtension());
-      if ($ext === 'hh' || $ext === 'php') {
+      if ($ext === 'hh' || $ext === 'php' || $ext === 'hack' || $ext === 'hck') {
         $files[] = $this->getFileForPath($info->getPathname());
       }
     }

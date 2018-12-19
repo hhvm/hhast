@@ -35,6 +35,8 @@ final class InitializedNotification
               'registerOptions' => shape(
                 'watchers' => vec[
                   shape('globPattern' => '**/*.php'),
+                  shape('globPattern' => '**/*.hck'),
+                  shape('globPattern' => '**/*.hack'),
                   shape('globPattern' => '**/*.hh'),
                 ],
               ),
