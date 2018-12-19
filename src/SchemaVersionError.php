@@ -20,8 +20,8 @@ final class SchemaVersionError extends ParseError {
       Str\format(
         "AST version mismatch: expected '%s' (%d.%d.%d), but got '%s'",
         SCHEMA_VERSION,
-        intdiv(HHVM_VERSION_ID, 10000) as int,
-        intdiv(HHVM_VERSION_ID, 100) as int % 100,
+        \intdiv(HHVM_VERSION_ID, 10000),
+        \intdiv(HHVM_VERSION_ID, 100) % 100,
         HHVM_VERSION_ID % 100,
         $version,
       ),
