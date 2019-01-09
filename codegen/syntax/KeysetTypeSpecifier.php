@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<99567486820fb5833edefbc5a2fb0bc4>>
+ * @generated SignedSource<<22119ddd8261511a595231d5e74b5960>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -205,16 +205,16 @@ final class KeysetTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @return SimpleTypeSpecifier
+   * @return ClassnameTypeSpecifier | SimpleTypeSpecifier
    */
-  public function getType(): SimpleTypeSpecifier {
-    return TypeAssert\instance_of(SimpleTypeSpecifier::class, $this->_type);
+  public function getType(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_type);
   }
 
   /**
-   * @return SimpleTypeSpecifier
+   * @return ClassnameTypeSpecifier | SimpleTypeSpecifier
    */
-  public function getTypex(): SimpleTypeSpecifier {
+  public function getTypex(): EditableNode {
     return $this->getType();
   }
 

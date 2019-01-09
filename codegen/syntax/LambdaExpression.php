@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dea38ef6a8d31d9576828daa23cace07>>
+ * @generated SignedSource<<9826a40568e0e1142b152c84b1a7faee>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -357,24 +357,24 @@ final class LambdaExpression extends EditableNode {
   }
 
   /**
-   * @return ArrayIntrinsicExpression | BinaryExpression | CastExpression |
-   * CompoundStatement | ConditionalExpression | FunctionCallExpression |
-   * IsExpression | LambdaExpression | LiteralExpression |
-   * MemberSelectionExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | PrefixUnaryExpression | SubscriptExpression |
-   * VariableExpression
+   * @return ArrayIntrinsicExpression | AsExpression | BinaryExpression |
+   * CastExpression | CompoundStatement | ConditionalExpression |
+   * FunctionCallExpression | IsExpression | KeysetIntrinsicExpression |
+   * LambdaExpression | LiteralExpression | MemberSelectionExpression |
+   * NullableAsExpression | ObjectCreationExpression | ParenthesizedExpression
+   * | PrefixUnaryExpression | SubscriptExpression | VariableExpression
    */
   public function getBody(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_body);
   }
 
   /**
-   * @return ArrayIntrinsicExpression | BinaryExpression | CastExpression |
-   * CompoundStatement | ConditionalExpression | FunctionCallExpression |
-   * IsExpression | LambdaExpression | LiteralExpression |
-   * MemberSelectionExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | PrefixUnaryExpression | SubscriptExpression |
-   * VariableExpression
+   * @return ArrayIntrinsicExpression | AsExpression | BinaryExpression |
+   * CastExpression | CompoundStatement | ConditionalExpression |
+   * FunctionCallExpression | IsExpression | KeysetIntrinsicExpression |
+   * LambdaExpression | LiteralExpression | MemberSelectionExpression |
+   * NullableAsExpression | ObjectCreationExpression | ParenthesizedExpression
+   * | PrefixUnaryExpression | SubscriptExpression | VariableExpression
    */
   public function getBodyx(): EditableNode {
     return $this->getBody();

@@ -118,7 +118,12 @@ final class CodegenRelations extends CodegenBase {
     $systemlib =
       $this->getTestFilesInDirectory($this->hhvmRoot.'/hphp/system/php');
 
-    return Keyset\flatten(vec[$hhvm_tests, $hack_tests, $systemlib]);
+    return Keyset\flatten(vec[
+      $hhvm_tests,
+      $hack_tests,
+      $systemlib,
+      keyset[__FILE__], // see syntaxExamples()
+    ]);
   }
 
   private function getFileListFromHHVMTestDirectory(
@@ -302,5 +307,15 @@ final class CodegenRelations extends CodegenBase {
           }
         }
     }
+  }
+
+  // If some valid syntax isn't in the HHVM/Hack tests, use it here to make sure
+  // it's permitted by the types
+  private static function syntaxExamples(): void {
+    // https://github.com/hhvm/hhast/issues/150
+    $_ = (): keyset<classname<this>> ==> keyset[self::class];
+    // https://github.com/hhvm/hhast/issues/151
+    $_ = (this $x) ==> $x->flatten(dict[]) ?as this;
+    $_ = (this $x) ==> $x->flatten(dict[]) as this;
   }
 }

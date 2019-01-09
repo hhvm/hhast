@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<de1db32b7c5a2e29ba2ef8dc485cbdb2>>
+ * @generated SignedSource<<b9c616f45ab518a98e5365cbf64e5dd6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,17 +101,16 @@ final class NullableAsExpression extends EditableNode {
   }
 
   /**
-   * @return VariableExpression
+   * @return FunctionCallExpression | VariableExpression
    */
-  public function getLeftOperand(): VariableExpression {
-    return
-      TypeAssert\instance_of(VariableExpression::class, $this->_left_operand);
+  public function getLeftOperand(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_left_operand);
   }
 
   /**
-   * @return VariableExpression
+   * @return FunctionCallExpression | VariableExpression
    */
-  public function getLeftOperandx(): VariableExpression {
+  public function getLeftOperandx(): EditableNode {
     return $this->getLeftOperand();
   }
 

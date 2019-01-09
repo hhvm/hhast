@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<89c7d430ce6c536fe3afc4bf56ecba6d>>
+ * @generated SignedSource<<2612747906a179220e9129bf43774c69>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -1266,6 +1266,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'dictionary_type_specifier.dictionary_type_members' => keyset[
     'list<dictionary_type_specifier|simple_type_specifier>',
+    'list<keyset_type_specifier|simple_type_specifier>',
     'list<simple_type_specifier>',
     'list<simple_type_specifier|tuple_type_specifier>',
     'list<simple_type_specifier|varray_type_specifier>',
@@ -1889,6 +1890,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<cast_expression>',
     'list<cast_expression|function_call_expression>',
     'list<cast_expression|function_call_expression|literal>',
+    'list<cast_expression|function_call_expression|literal|qualified_name|variable>',
     'list<cast_expression|lambda_expression>',
     'list<cast_expression|literal>',
     'list<cast_expression|literal|prefix_unary_expression>',
@@ -2010,6 +2012,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<lambda_expression|object_creation_expression>',
     'list<lambda_expression|pipe_variable>',
     'list<lambda_expression|prefix_unary_expression>',
+    'list<lambda_expression|subscript_expression>',
     'list<lambda_expression|token:name>',
     'list<lambda_expression|token:name|variable>',
     'list<lambda_expression|variable>',
@@ -2492,6 +2495,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'missing',
   ],
   'keyset_type_specifier.keyset_type_type' => keyset[
+    'classname_type_specifier',
     'simple_type_specifier',
   ],
   'lambda_expression.lambda_arrow' => keyset[
@@ -2507,15 +2511,18 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'lambda_expression.lambda_body' => keyset[
     'array_intrinsic_expression',
+    'as_expression',
     'binary_expression',
     'cast_expression',
     'compound_statement',
     'conditional_expression',
     'function_call_expression',
     'is_expression',
+    'keyset_intrinsic_expression',
     'lambda_expression',
     'literal',
     'member_selection_expression',
+    'nullable_as_expression',
     'object_creation_expression',
     'parenthesized_expression',
     'prefix_unary_expression',
@@ -2549,6 +2556,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   'lambda_signature.lambda_type' => keyset[
     'closure_type_specifier',
     'generic_type_specifier',
+    'keyset_type_specifier',
     'missing',
     'simple_type_specifier',
   ],
@@ -2633,6 +2641,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'is_expression',
     'isset_expression',
     'keyset_intrinsic_expression',
+    'keyset_type_specifier',
     'lambda_expression',
     'list_expression',
     'literal',
@@ -2873,6 +2882,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token:;',
   ],
   'nullable_as_expression.nullable_as_left_operand' => keyset[
+    'function_call_expression',
     'variable',
   ],
   'nullable_as_expression.nullable_as_operator' => keyset[
@@ -3918,6 +3928,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'classname_type_specifier',
     'closure_type_specifier',
     'nullable_type_specifier',
+    'shape_type_specifier',
     'simple_type_specifier',
     'tuple_type_specifier',
     'vector_type_specifier',
