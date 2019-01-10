@@ -15,6 +15,7 @@ use namespace HH\Lib\{C, Str, Vec};
 use type Facebook\HHAST\Migrations\{
   AddFixMesMigration,
   AssertToExpectMigration,
+  AwaitPrecedenceMigration,
   BaseMigration,
   CallTimePassByReferenceMigration,
   HSLMigration,
@@ -50,7 +51,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
 
   <<__Override>>
   protected function getSupportedOptions(): vec<CLIOptions\CLIOption> {
-    return vec[
+    $options = vec[
       CLIOptions\flag(
         () ==> {
           $this->migrations[] = HSLMigration::class;
@@ -165,8 +166,20 @@ class MigrationCLI extends CLIWithRequiredArguments {
         'Enable XHProf profiling',
         '--xhprof',
       ),
-      $this->getVerbosityOption(),
     ];
+
+    if(\HHVM_VERSION_ID >= 33100) {
+      $options[] = CLIOptions\flag(
+        () ==> {
+          $this->migrations[] = AwaitPrecedenceMigration::class;
+        }, 
+        'Parenthesize await operands that would break if precedence of await changes',
+        '--await-precedence',
+        );
+    }
+
+    $options[] = $this->getVerbosityOption();
+    return $options;
   }
 
   final private function migrateFile(
