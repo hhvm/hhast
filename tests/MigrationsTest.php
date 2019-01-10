@@ -88,6 +88,12 @@ final class MigrationsTest extends TestCase {
       ),
     ];
 
+    if(HHVM_VERSION_ID >= 33100) {
+      $migrations[] = tuple(
+        Migrations\AwaitPrecedenceMigration::class,
+        'migrations/await_precedence.php');
+    }
+    
     return $migrations;
   }
 

@@ -11,6 +11,8 @@
 namespace Facebook\HHAST;
 
 use namespace HH\Lib\Str;
+use namespace HH\Lib\Vec;
+use namespace HH\Lib\Traversable;
 
 function from_json(
   dict<string, mixed> $json,
@@ -31,13 +33,22 @@ function from_json(
 async function json_from_file_async(
   string $file,
 ): Awaitable<dict<string, mixed>> {
+  return await json_from_file_args_async($file, vec[]);
+}
+
+async function json_from_file_args_async(
+  string $file,
+  Traversable<string> $parse_args,
+): Awaitable<dict<string, mixed>> {
+  $cmd = Vec\concat(
+    vec['hh_parse', '--php5-compat-mode', '--full-fidelity-json'],
+    $parse_args,
+    vec[$file]);
+
   try {
     using (await __Private\ParserConcurrencyLease::getAsync()) {
       $results = await __Private\execute_async(
-        'hh_parse',
-        '--php5-compat-mode',
-        '--full-fidelity-json',
-        $file,
+        ...$cmd,
       );
     }
   } catch (__Private\SubprocessException $e) {
@@ -99,8 +110,20 @@ async function from_file_async(string $file): Awaitable<EditableNode> {
   return from_json($json, $file);
 }
 
+async function from_file_args_async(
+  string $file, 
+  Traversable<string> $parse_args,
+  ): Awaitable<EditableNode>{
+    $json = await json_from_file_args_async($file, $parse_args);
+    return from_json($json, $file);
+}
+
 function from_file(string $file): EditableNode {
   return \HH\Asio\join(from_file_async($file));
+}
+
+function from_file_args(string $file, Traversable<string> $parse_args): EditableNode{
+  return \HH\Asio\join(from_file_args_async($file, $parse_args));
 }
 
 async function json_from_text_async(
