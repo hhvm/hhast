@@ -32,16 +32,6 @@ final class LinterCLI extends CLIWithArguments {
     return vec[
       CLIOptions\flag(
         () ==> {
-          throw new ExitException(
-            1,
-            "--perf is no longer supported; consider --xhprof",
-          );
-        },
-        '[unsupported]',
-        '--perf',
-      ),
-      CLIOptions\flag(
-        () ==> {
           $this->xhprof = true;
         },
         'Enable XHProf profiling',
