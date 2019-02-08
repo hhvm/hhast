@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9826a40568e0e1142b152c84b1a7faee>>
+ * @generated SignedSource<<cd19cbdafafdf42aa49b6365f06721a7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -357,24 +357,26 @@ final class LambdaExpression extends EditableNode {
   }
 
   /**
-   * @return ArrayIntrinsicExpression | AsExpression | BinaryExpression |
-   * CastExpression | CompoundStatement | ConditionalExpression |
-   * FunctionCallExpression | IsExpression | KeysetIntrinsicExpression |
-   * LambdaExpression | LiteralExpression | MemberSelectionExpression |
-   * NullableAsExpression | ObjectCreationExpression | ParenthesizedExpression
-   * | PrefixUnaryExpression | SubscriptExpression | VariableExpression
+   * @return AnonymousFunction | ArrayIntrinsicExpression | AsExpression |
+   * BinaryExpression | CastExpression | CollectionLiteralExpression |
+   * CompoundStatement | ConditionalExpression | FunctionCallExpression |
+   * IsExpression | KeysetIntrinsicExpression | LambdaExpression |
+   * LiteralExpression | MemberSelectionExpression | NullableAsExpression |
+   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
+   * | SubscriptExpression | VariableExpression
    */
   public function getBody(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_body);
   }
 
   /**
-   * @return ArrayIntrinsicExpression | AsExpression | BinaryExpression |
-   * CastExpression | CompoundStatement | ConditionalExpression |
-   * FunctionCallExpression | IsExpression | KeysetIntrinsicExpression |
-   * LambdaExpression | LiteralExpression | MemberSelectionExpression |
-   * NullableAsExpression | ObjectCreationExpression | ParenthesizedExpression
-   * | PrefixUnaryExpression | SubscriptExpression | VariableExpression
+   * @return AnonymousFunction | ArrayIntrinsicExpression | AsExpression |
+   * BinaryExpression | CastExpression | CollectionLiteralExpression |
+   * CompoundStatement | ConditionalExpression | FunctionCallExpression |
+   * IsExpression | KeysetIntrinsicExpression | LambdaExpression |
+   * LiteralExpression | MemberSelectionExpression | NullableAsExpression |
+   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
+   * | SubscriptExpression | VariableExpression
    */
   public function getBodyx(): EditableNode {
     return $this->getBody();

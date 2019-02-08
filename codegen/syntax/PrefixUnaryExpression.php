@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fc150534346c197114b0aa711a0423ed>>
+ * @generated SignedSource<<66230afc63902b402d91cbaa07e8f4c2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -119,12 +119,13 @@ final class PrefixUnaryExpression extends EditableNode {
    * AwaitableCreationExpression | BinaryExpression | BracedExpression |
    * CastExpression | ConditionalExpression | DefineExpression |
    * EmptyExpression | EvalExpression | FunctionCallExpression |
-   * InclusionExpression | InstanceofExpression | IssetExpression |
-   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | PipeVariableExpression | PostfixUnaryExpression
-   * | PrefixUnaryExpression | SafeMemberSelectionExpression |
-   * ScopeResolutionExpression | SubscriptExpression | EndOfFileToken |
-   * NameToken | VariableToken | VariableExpression
+   * InclusionExpression | InstanceofExpression | IsExpression |
+   * IssetExpression | LiteralExpression | MemberSelectionExpression |
+   * ObjectCreationExpression | ParenthesizedExpression |
+   * PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression |
+   * QualifiedName | SafeMemberSelectionExpression | ScopeResolutionExpression
+   * | SubscriptExpression | EndOfFileToken | NameToken | VariableToken |
+   * VariableExpression
    */
   public function getOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_operand);
@@ -135,12 +136,13 @@ final class PrefixUnaryExpression extends EditableNode {
    * AwaitableCreationExpression | BinaryExpression | BracedExpression |
    * CastExpression | ConditionalExpression | DefineExpression |
    * EmptyExpression | EvalExpression | FunctionCallExpression |
-   * InclusionExpression | InstanceofExpression | IssetExpression |
-   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | PipeVariableExpression | PostfixUnaryExpression
-   * | PrefixUnaryExpression | SafeMemberSelectionExpression |
-   * ScopeResolutionExpression | SubscriptExpression | EndOfFileToken |
-   * NameToken | VariableToken | VariableExpression
+   * InclusionExpression | InstanceofExpression | IsExpression |
+   * IssetExpression | LiteralExpression | MemberSelectionExpression |
+   * ObjectCreationExpression | ParenthesizedExpression |
+   * PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression |
+   * QualifiedName | SafeMemberSelectionExpression | ScopeResolutionExpression
+   * | SubscriptExpression | EndOfFileToken | NameToken | VariableToken |
+   * VariableExpression
    */
   public function getOperandx(): EditableNode {
     return $this->getOperand();

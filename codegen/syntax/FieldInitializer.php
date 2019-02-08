@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<958b018fbe4e0b9149e311850f5bd5f8>>
+ * @generated SignedSource<<c68a721cac7c0652fecc000b12104323>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,16 +101,16 @@ final class FieldInitializer extends EditableNode {
   }
 
   /**
-   * @return LiteralExpression | ScopeResolutionExpression | DotDotDotToken |
-   * QuestionToken | VariableExpression
+   * @return LiteralExpression | ScopeResolutionExpression | QuestionToken |
+   * VariableExpression
    */
   public function getName(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_name);
   }
 
   /**
-   * @return LiteralExpression | ScopeResolutionExpression | DotDotDotToken |
-   * QuestionToken | VariableExpression
+   * @return LiteralExpression | ScopeResolutionExpression | QuestionToken |
+   * VariableExpression
    */
   public function getNamex(): EditableNode {
     return $this->getName();
@@ -132,12 +132,9 @@ final class FieldInitializer extends EditableNode {
   }
 
   /**
-   * @return null | EqualGreaterThanToken
+   * @return EqualGreaterThanToken
    */
-  public function getArrow(): ?EqualGreaterThanToken {
-    if ($this->_arrow->isMissing()) {
-      return null;
-    }
+  public function getArrow(): EqualGreaterThanToken {
     return TypeAssert\instance_of(EqualGreaterThanToken::class, $this->_arrow);
   }
 
@@ -145,7 +142,7 @@ final class FieldInitializer extends EditableNode {
    * @return EqualGreaterThanToken
    */
   public function getArrowx(): EqualGreaterThanToken {
-    return TypeAssert\instance_of(EqualGreaterThanToken::class, $this->_arrow);
+    return $this->getArrow();
   }
 
   public function getValueUNTYPED(): EditableNode {

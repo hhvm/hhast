@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ed29e58ee125748d5d5476807e438f23>>
+ * @generated SignedSource<<945576c10159b4c87c2c84b57992a9e5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -82,16 +82,16 @@ final class ReifiedTypeArgument extends EditableNode {
   }
 
   /**
-   * @return unknown
+   * @return ReifyToken
    */
-  public function getReified(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_reified);
+  public function getReified(): ReifyToken {
+    return TypeAssert\instance_of(ReifyToken::class, $this->_reified);
   }
 
   /**
-   * @return unknown
+   * @return ReifyToken
    */
-  public function getReifiedx(): EditableNode {
+  public function getReifiedx(): ReifyToken {
     return $this->getReified();
   }
 
@@ -111,14 +111,16 @@ final class ReifiedTypeArgument extends EditableNode {
   }
 
   /**
-   * @return unknown
+   * @return GenericTypeSpecifier | NullableTypeSpecifier | ShapeTypeSpecifier
+   * | SimpleTypeSpecifier | TupleTypeSpecifier | TypeConstant
    */
   public function getType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);
   }
 
   /**
-   * @return unknown
+   * @return GenericTypeSpecifier | NullableTypeSpecifier | ShapeTypeSpecifier
+   * | SimpleTypeSpecifier | TupleTypeSpecifier | TypeConstant
    */
   public function getTypex(): EditableNode {
     return $this->getType();

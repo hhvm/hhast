@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<797a99a4f0c850d130d7fc8ca0e82be5>>
+ * @generated SignedSource<<53827dd2d1bf06f560f126a44369964f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,8 +123,7 @@ final class SubscriptExpression extends EditableNode {
    * FunctionCallExpression | LiteralExpression | MemberSelectionExpression |
    * ParenthesizedExpression | PrefixUnaryExpression |
    * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * SubscriptExpression | RightParenToken | NameToken | TryToken |
-   * VariableExpression
+   * SubscriptExpression | RightParenToken | NameToken | VariableExpression
    */
   public function getReceiver(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_receiver);
@@ -135,8 +134,7 @@ final class SubscriptExpression extends EditableNode {
    * FunctionCallExpression | LiteralExpression | MemberSelectionExpression |
    * ParenthesizedExpression | PrefixUnaryExpression |
    * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * SubscriptExpression | RightParenToken | NameToken | TryToken |
-   * VariableExpression
+   * SubscriptExpression | RightParenToken | NameToken | VariableExpression
    */
   public function getReceiverx(): EditableNode {
     return $this->getReceiver();
@@ -202,7 +200,7 @@ final class SubscriptExpression extends EditableNode {
    * MemberSelectionExpression | null | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * SubscriptExpression | EchoToken | NameToken | ReturnToken | ThrowToken |
+   * SubscriptExpression | EchoToken | NameToken | ReturnToken |
    * VariableExpression
    */
   public function getIndex(): ?EditableNode {
@@ -218,7 +216,7 @@ final class SubscriptExpression extends EditableNode {
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * SubscriptExpression | EchoToken | NameToken | ReturnToken | ThrowToken |
+   * SubscriptExpression | EchoToken | NameToken | ReturnToken |
    * VariableExpression
    */
   public function getIndexx(): EditableNode {

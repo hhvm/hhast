@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d63db96ab03aa21219408f21a8bbf352>>
+ * @generated SignedSource<<a82c9784c2521cd812297011d3f2bf4d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -15,7 +15,6 @@ final class Php7AnonymousFunction extends EditableNode {
   private EditableNode $_async_keyword;
   private EditableNode $_coroutine_keyword;
   private EditableNode $_function_keyword;
-  private EditableNode $_ampersand;
   private EditableNode $_left_paren;
   private EditableNode $_parameters;
   private EditableNode $_right_paren;
@@ -30,7 +29,6 @@ final class Php7AnonymousFunction extends EditableNode {
     EditableNode $async_keyword,
     EditableNode $coroutine_keyword,
     EditableNode $function_keyword,
-    EditableNode $ampersand,
     EditableNode $left_paren,
     EditableNode $parameters,
     EditableNode $right_paren,
@@ -45,7 +43,6 @@ final class Php7AnonymousFunction extends EditableNode {
     $this->_async_keyword = $async_keyword;
     $this->_coroutine_keyword = $coroutine_keyword;
     $this->_function_keyword = $function_keyword;
-    $this->_ampersand = $ampersand;
     $this->_left_paren = $left_paren;
     $this->_parameters = $parameters;
     $this->_right_paren = $right_paren;
@@ -97,13 +94,6 @@ final class Php7AnonymousFunction extends EditableNode {
       $source,
     );
     $offset += $function_keyword->getWidth();
-    $ampersand = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['php7_anonymous_ampersand'],
-      $file,
-      $offset,
-      $source,
-    );
-    $offset += $ampersand->getWidth();
     $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['php7_anonymous_left_paren'],
       $file,
@@ -159,7 +149,6 @@ final class Php7AnonymousFunction extends EditableNode {
       $async_keyword,
       $coroutine_keyword,
       $function_keyword,
-      $ampersand,
       $left_paren,
       $parameters,
       $right_paren,
@@ -178,7 +167,6 @@ final class Php7AnonymousFunction extends EditableNode {
       'async_keyword' => $this->_async_keyword,
       'coroutine_keyword' => $this->_coroutine_keyword,
       'function_keyword' => $this->_function_keyword,
-      'ampersand' => $this->_ampersand,
       'left_paren' => $this->_left_paren,
       'parameters' => $this->_parameters,
       'right_paren' => $this->_right_paren,
@@ -202,7 +190,6 @@ final class Php7AnonymousFunction extends EditableNode {
     $coroutine_keyword =
       $this->_coroutine_keyword->rewrite($rewriter, $parents);
     $function_keyword = $this->_function_keyword->rewrite($rewriter, $parents);
-    $ampersand = $this->_ampersand->rewrite($rewriter, $parents);
     $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
     $parameters = $this->_parameters->rewrite($rewriter, $parents);
     $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
@@ -216,7 +203,6 @@ final class Php7AnonymousFunction extends EditableNode {
       $async_keyword === $this->_async_keyword &&
       $coroutine_keyword === $this->_coroutine_keyword &&
       $function_keyword === $this->_function_keyword &&
-      $ampersand === $this->_ampersand &&
       $left_paren === $this->_left_paren &&
       $parameters === $this->_parameters &&
       $right_paren === $this->_right_paren &&
@@ -233,7 +219,6 @@ final class Php7AnonymousFunction extends EditableNode {
       $async_keyword,
       $coroutine_keyword,
       $function_keyword,
-      $ampersand,
       $left_paren,
       $parameters,
       $right_paren,
@@ -258,7 +243,6 @@ final class Php7AnonymousFunction extends EditableNode {
       $this->_async_keyword,
       $this->_coroutine_keyword,
       $this->_function_keyword,
-      $this->_ampersand,
       $this->_left_paren,
       $this->_parameters,
       $this->_right_paren,
@@ -304,7 +288,6 @@ final class Php7AnonymousFunction extends EditableNode {
       $this->_async_keyword,
       $this->_coroutine_keyword,
       $this->_function_keyword,
-      $this->_ampersand,
       $this->_left_paren,
       $this->_parameters,
       $this->_right_paren,
@@ -350,7 +333,6 @@ final class Php7AnonymousFunction extends EditableNode {
       $value,
       $this->_coroutine_keyword,
       $this->_function_keyword,
-      $this->_ampersand,
       $this->_left_paren,
       $this->_parameters,
       $this->_right_paren,
@@ -396,7 +378,6 @@ final class Php7AnonymousFunction extends EditableNode {
       $this->_async_keyword,
       $value,
       $this->_function_keyword,
-      $this->_ampersand,
       $this->_left_paren,
       $this->_parameters,
       $this->_right_paren,
@@ -444,7 +425,6 @@ final class Php7AnonymousFunction extends EditableNode {
       $this->_async_keyword,
       $this->_coroutine_keyword,
       $value,
-      $this->_ampersand,
       $this->_left_paren,
       $this->_parameters,
       $this->_right_paren,
@@ -474,52 +454,6 @@ final class Php7AnonymousFunction extends EditableNode {
     return $this->getFunctionKeyword();
   }
 
-  public function getAmpersandUNTYPED(): EditableNode {
-    return $this->_ampersand;
-  }
-
-  public function withAmpersand(EditableNode $value): this {
-    if ($value === $this->_ampersand) {
-      return $this;
-    }
-    return new static(
-      $this->_attribute_spec,
-      $this->_static_keyword,
-      $this->_async_keyword,
-      $this->_coroutine_keyword,
-      $this->_function_keyword,
-      $value,
-      $this->_left_paren,
-      $this->_parameters,
-      $this->_right_paren,
-      $this->_use,
-      $this->_colon,
-      $this->_type,
-      $this->_body,
-    );
-  }
-
-  public function hasAmpersand(): bool {
-    return !$this->_ampersand->isMissing();
-  }
-
-  /**
-   * @return null
-   */
-  public function getAmpersand(): ?EditableNode {
-    if ($this->_ampersand->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(EditableNode::class, $this->_ampersand);
-  }
-
-  /**
-   * @return
-   */
-  public function getAmpersandx(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_ampersand);
-  }
-
   public function getLeftParenUNTYPED(): EditableNode {
     return $this->_left_paren;
   }
@@ -534,7 +468,6 @@ final class Php7AnonymousFunction extends EditableNode {
       $this->_async_keyword,
       $this->_coroutine_keyword,
       $this->_function_keyword,
-      $this->_ampersand,
       $value,
       $this->_parameters,
       $this->_right_paren,
@@ -577,7 +510,6 @@ final class Php7AnonymousFunction extends EditableNode {
       $this->_async_keyword,
       $this->_coroutine_keyword,
       $this->_function_keyword,
-      $this->_ampersand,
       $this->_left_paren,
       $value,
       $this->_right_paren,
@@ -623,7 +555,6 @@ final class Php7AnonymousFunction extends EditableNode {
       $this->_async_keyword,
       $this->_coroutine_keyword,
       $this->_function_keyword,
-      $this->_ampersand,
       $this->_left_paren,
       $this->_parameters,
       $value,
@@ -666,7 +597,6 @@ final class Php7AnonymousFunction extends EditableNode {
       $this->_async_keyword,
       $this->_coroutine_keyword,
       $this->_function_keyword,
-      $this->_ampersand,
       $this->_left_paren,
       $this->_parameters,
       $this->_right_paren,
@@ -710,7 +640,6 @@ final class Php7AnonymousFunction extends EditableNode {
       $this->_async_keyword,
       $this->_coroutine_keyword,
       $this->_function_keyword,
-      $this->_ampersand,
       $this->_left_paren,
       $this->_parameters,
       $this->_right_paren,
@@ -753,7 +682,6 @@ final class Php7AnonymousFunction extends EditableNode {
       $this->_async_keyword,
       $this->_coroutine_keyword,
       $this->_function_keyword,
-      $this->_ampersand,
       $this->_left_paren,
       $this->_parameters,
       $this->_right_paren,
@@ -796,7 +724,6 @@ final class Php7AnonymousFunction extends EditableNode {
       $this->_async_keyword,
       $this->_coroutine_keyword,
       $this->_function_keyword,
-      $this->_ampersand,
       $this->_left_paren,
       $this->_parameters,
       $this->_right_paren,

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<94062507b53eb88fc5914b3afaa162a5>>
+ * @generated SignedSource<<6b3d3889ec73f99efbf1d9436d40f3be>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -189,14 +189,14 @@ final class CollectionLiteralExpression extends EditableNode {
    * EditableList<CastExpression> | EditableList<CollectionLiteralExpression> |
    * EditableList<ElementInitializer> | EditableList<FunctionCallExpression> |
    * EditableList<LambdaExpression> | EditableList<LiteralExpression> |
-   * EditableList<ObjectCreationExpression> |
+   * EditableList<?EditableNode> | EditableList<ObjectCreationExpression> |
    * EditableList<ScopeResolutionExpression> |
    * EditableList<SubscriptExpression> | EditableList<EditableToken> |
    * EditableList<NameToken> | EditableList<ReturnToken> |
    * EditableList<TupleExpression> | EditableList<VariableExpression> |
    * EditableList<VarrayIntrinsicExpression> | null
    */
-  public function getInitializers(): ?EditableList<EditableNode> {
+  public function getInitializers(): ?EditableList<?EditableNode> {
     if ($this->_initializers->isMissing()) {
       return null;
     }
@@ -210,14 +210,14 @@ final class CollectionLiteralExpression extends EditableNode {
    * EditableList<CastExpression> | EditableList<CollectionLiteralExpression> |
    * EditableList<ElementInitializer> | EditableList<FunctionCallExpression> |
    * EditableList<LambdaExpression> | EditableList<LiteralExpression> |
-   * EditableList<ObjectCreationExpression> |
+   * EditableList<?EditableNode> | EditableList<ObjectCreationExpression> |
    * EditableList<ScopeResolutionExpression> |
    * EditableList<SubscriptExpression> | EditableList<EditableToken> |
    * EditableList<NameToken> | EditableList<ReturnToken> |
    * EditableList<TupleExpression> | EditableList<VariableExpression> |
    * EditableList<VarrayIntrinsicExpression>
    */
-  public function getInitializersx(): EditableList<EditableNode> {
+  public function getInitializersx(): EditableList<?EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_initializers);
   }
 

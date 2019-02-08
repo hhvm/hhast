@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<36978fae04a6ea600d577d5f37bc66c9>>
+ * @generated SignedSource<<0df28550c3acffb7dc831baf5157d0e5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -102,10 +102,9 @@ final class ScopeResolutionExpression extends EditableNode {
 
   /**
    * @return FunctionCallExpression | GenericTypeSpecifier | LiteralExpression
-   * | ParenthesizedExpression | PipeVariableExpression | PrefixUnaryExpression
-   * | QualifiedName | ScopeResolutionExpression | SimpleTypeSpecifier |
-   * XHPClassNameToken | NameToken | ParentToken | SelfToken | StaticToken |
-   * VariableExpression
+   * | ParenthesizedExpression | PipeVariableExpression | QualifiedName |
+   * ScopeResolutionExpression | SimpleTypeSpecifier | XHPClassNameToken |
+   * NameToken | ParentToken | SelfToken | StaticToken | VariableExpression
    */
   public function getQualifier(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_qualifier);
@@ -113,10 +112,9 @@ final class ScopeResolutionExpression extends EditableNode {
 
   /**
    * @return FunctionCallExpression | GenericTypeSpecifier | LiteralExpression
-   * | ParenthesizedExpression | PipeVariableExpression | PrefixUnaryExpression
-   * | QualifiedName | ScopeResolutionExpression | SimpleTypeSpecifier |
-   * XHPClassNameToken | NameToken | ParentToken | SelfToken | StaticToken |
-   * VariableExpression
+   * | ParenthesizedExpression | PipeVariableExpression | QualifiedName |
+   * ScopeResolutionExpression | SimpleTypeSpecifier | XHPClassNameToken |
+   * NameToken | ParentToken | SelfToken | StaticToken | VariableExpression
    */
   public function getQualifierx(): EditableNode {
     return $this->getQualifier();

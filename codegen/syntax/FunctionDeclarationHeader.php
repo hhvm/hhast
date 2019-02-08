@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bc21cb6e1412667b2c7097c41988188f>>
+ * @generated SignedSource<<0b87a51ca62562d2fa3c845519195a90>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,7 +12,6 @@ final class FunctionDeclarationHeader extends EditableNode {
 
   private EditableNode $_modifiers;
   private EditableNode $_keyword;
-  private EditableNode $_ampersand;
   private EditableNode $_name;
   private EditableNode $_type_parameter_list;
   private EditableNode $_left_paren;
@@ -25,7 +24,6 @@ final class FunctionDeclarationHeader extends EditableNode {
   public function __construct(
     EditableNode $modifiers,
     EditableNode $keyword,
-    EditableNode $ampersand,
     EditableNode $name,
     EditableNode $type_parameter_list,
     EditableNode $left_paren,
@@ -38,7 +36,6 @@ final class FunctionDeclarationHeader extends EditableNode {
     parent::__construct('function_declaration_header');
     $this->_modifiers = $modifiers;
     $this->_keyword = $keyword;
-    $this->_ampersand = $ampersand;
     $this->_name = $name;
     $this->_type_parameter_list = $type_parameter_list;
     $this->_left_paren = $left_paren;
@@ -70,13 +67,6 @@ final class FunctionDeclarationHeader extends EditableNode {
       $source,
     );
     $offset += $keyword->getWidth();
-    $ampersand = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['function_ampersand'],
-      $file,
-      $offset,
-      $source,
-    );
-    $offset += $ampersand->getWidth();
     $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_name'],
       $file,
@@ -136,7 +126,6 @@ final class FunctionDeclarationHeader extends EditableNode {
     return new static(
       $modifiers,
       $keyword,
-      $ampersand,
       $name,
       $type_parameter_list,
       $left_paren,
@@ -153,7 +142,6 @@ final class FunctionDeclarationHeader extends EditableNode {
     return dict[
       'modifiers' => $this->_modifiers,
       'keyword' => $this->_keyword,
-      'ampersand' => $this->_ampersand,
       'name' => $this->_name,
       'type_parameter_list' => $this->_type_parameter_list,
       'left_paren' => $this->_left_paren,
@@ -174,7 +162,6 @@ final class FunctionDeclarationHeader extends EditableNode {
     $parents[] = $this;
     $modifiers = $this->_modifiers->rewrite($rewriter, $parents);
     $keyword = $this->_keyword->rewrite($rewriter, $parents);
-    $ampersand = $this->_ampersand->rewrite($rewriter, $parents);
     $name = $this->_name->rewrite($rewriter, $parents);
     $type_parameter_list =
       $this->_type_parameter_list->rewrite($rewriter, $parents);
@@ -187,7 +174,6 @@ final class FunctionDeclarationHeader extends EditableNode {
     if (
       $modifiers === $this->_modifiers &&
       $keyword === $this->_keyword &&
-      $ampersand === $this->_ampersand &&
       $name === $this->_name &&
       $type_parameter_list === $this->_type_parameter_list &&
       $left_paren === $this->_left_paren &&
@@ -202,7 +188,6 @@ final class FunctionDeclarationHeader extends EditableNode {
     return new static(
       $modifiers,
       $keyword,
-      $ampersand,
       $name,
       $type_parameter_list,
       $left_paren,
@@ -225,7 +210,6 @@ final class FunctionDeclarationHeader extends EditableNode {
     return new static(
       $value,
       $this->_keyword,
-      $this->_ampersand,
       $this->_name,
       $this->_type_parameter_list,
       $this->_left_paren,
@@ -269,7 +253,6 @@ final class FunctionDeclarationHeader extends EditableNode {
     return new static(
       $this->_modifiers,
       $value,
-      $this->_ampersand,
       $this->_name,
       $this->_type_parameter_list,
       $this->_left_paren,
@@ -302,50 +285,6 @@ final class FunctionDeclarationHeader extends EditableNode {
     return TypeAssert\instance_of(FunctionToken::class, $this->_keyword);
   }
 
-  public function getAmpersandUNTYPED(): EditableNode {
-    return $this->_ampersand;
-  }
-
-  public function withAmpersand(EditableNode $value): this {
-    if ($value === $this->_ampersand) {
-      return $this;
-    }
-    return new static(
-      $this->_modifiers,
-      $this->_keyword,
-      $value,
-      $this->_name,
-      $this->_type_parameter_list,
-      $this->_left_paren,
-      $this->_parameter_list,
-      $this->_right_paren,
-      $this->_colon,
-      $this->_type,
-      $this->_where_clause,
-    );
-  }
-
-  public function hasAmpersand(): bool {
-    return !$this->_ampersand->isMissing();
-  }
-
-  /**
-   * @return null | AmpersandToken
-   */
-  public function getAmpersand(): ?AmpersandToken {
-    if ($this->_ampersand->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(AmpersandToken::class, $this->_ampersand);
-  }
-
-  /**
-   * @return AmpersandToken
-   */
-  public function getAmpersandx(): AmpersandToken {
-    return TypeAssert\instance_of(AmpersandToken::class, $this->_ampersand);
-  }
-
   public function getNameUNTYPED(): EditableNode {
     return $this->_name;
   }
@@ -357,7 +296,6 @@ final class FunctionDeclarationHeader extends EditableNode {
     return new static(
       $this->_modifiers,
       $this->_keyword,
-      $this->_ampersand,
       $value,
       $this->_type_parameter_list,
       $this->_left_paren,
@@ -398,7 +336,6 @@ final class FunctionDeclarationHeader extends EditableNode {
     return new static(
       $this->_modifiers,
       $this->_keyword,
-      $this->_ampersand,
       $this->_name,
       $value,
       $this->_left_paren,
@@ -448,7 +385,6 @@ final class FunctionDeclarationHeader extends EditableNode {
     return new static(
       $this->_modifiers,
       $this->_keyword,
-      $this->_ampersand,
       $this->_name,
       $this->_type_parameter_list,
       $value,
@@ -492,7 +428,6 @@ final class FunctionDeclarationHeader extends EditableNode {
     return new static(
       $this->_modifiers,
       $this->_keyword,
-      $this->_ampersand,
       $this->_name,
       $this->_type_parameter_list,
       $this->_left_paren,
@@ -540,7 +475,6 @@ final class FunctionDeclarationHeader extends EditableNode {
     return new static(
       $this->_modifiers,
       $this->_keyword,
-      $this->_ampersand,
       $this->_name,
       $this->_type_parameter_list,
       $this->_left_paren,
@@ -584,7 +518,6 @@ final class FunctionDeclarationHeader extends EditableNode {
     return new static(
       $this->_modifiers,
       $this->_keyword,
-      $this->_ampersand,
       $this->_name,
       $this->_type_parameter_list,
       $this->_left_paren,
@@ -628,7 +561,6 @@ final class FunctionDeclarationHeader extends EditableNode {
     return new static(
       $this->_modifiers,
       $this->_keyword,
-      $this->_ampersand,
       $this->_name,
       $this->_type_parameter_list,
       $this->_left_paren,
@@ -682,7 +614,6 @@ final class FunctionDeclarationHeader extends EditableNode {
     return new static(
       $this->_modifiers,
       $this->_keyword,
-      $this->_ampersand,
       $this->_name,
       $this->_type_parameter_list,
       $this->_left_paren,

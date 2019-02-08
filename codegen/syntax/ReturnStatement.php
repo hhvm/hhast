@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<49be2543c18ffec790beb1bc0cea2225>>
+ * @generated SignedSource<<c8f9b3d413e9b020bdd202a23f448726>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -137,11 +137,12 @@ final class ReturnStatement extends EditableNode {
    * DictionaryIntrinsicExpression | EmptyExpression | EvalExpression |
    * FunctionCallExpression | FunctionCallWithTypeArgumentsExpression |
    * InstanceofExpression | IsExpression | IssetExpression |
-   * KeysetIntrinsicExpression | LambdaExpression | LiteralExpression |
-   * MemberSelectionExpression | null | ObjectCreationExpression |
-   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
-   * QualifiedName | SafeMemberSelectionExpression | ScopeResolutionExpression
-   * | ShapeExpression | SubscriptExpression | NameToken | TupleExpression |
+   * KeysetIntrinsicExpression | LambdaExpression | ListExpression |
+   * LiteralExpression | MemberSelectionExpression | null |
+   * ObjectCreationExpression | ParenthesizedExpression |
+   * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
+   * SafeMemberSelectionExpression | ScopeResolutionExpression |
+   * ShapeExpression | SubscriptExpression | NameToken | TupleExpression |
    * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
    * | XHPExpression | YieldFromExpression
    */
@@ -160,8 +161,8 @@ final class ReturnStatement extends EditableNode {
    * DictionaryIntrinsicExpression | EmptyExpression | EvalExpression |
    * FunctionCallExpression | FunctionCallWithTypeArgumentsExpression |
    * InstanceofExpression | IsExpression | IssetExpression |
-   * KeysetIntrinsicExpression | LambdaExpression | LiteralExpression |
-   * MemberSelectionExpression | ObjectCreationExpression |
+   * KeysetIntrinsicExpression | LambdaExpression | ListExpression |
+   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * QualifiedName | SafeMemberSelectionExpression | ScopeResolutionExpression
    * | ShapeExpression | SubscriptExpression | NameToken | TupleExpression |

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4456cfba91b9442a975c974415b35a53>>
+ * @generated SignedSource<<37665fa2903ffcb331c0240bc5615d1c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -122,8 +122,8 @@ final class FunctionCallExpression extends EditableNode {
    * @return ArrayCreationExpression | FunctionCallExpression |
    * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
    * PrefixUnaryExpression | QualifiedName | SafeMemberSelectionExpression |
-   * ScopeResolutionExpression | SubscriptExpression | GreaterThanToken |
-   * CatchToken | IfToken | NameToken | VariableExpression
+   * ScopeResolutionExpression | SubscriptExpression | IfToken | NameToken |
+   * VariableExpression
    */
   public function getReceiver(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_receiver);
@@ -133,8 +133,8 @@ final class FunctionCallExpression extends EditableNode {
    * @return ArrayCreationExpression | FunctionCallExpression |
    * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
    * PrefixUnaryExpression | QualifiedName | SafeMemberSelectionExpression |
-   * ScopeResolutionExpression | SubscriptExpression | GreaterThanToken |
-   * CatchToken | IfToken | NameToken | VariableExpression
+   * ScopeResolutionExpression | SubscriptExpression | IfToken | NameToken |
+   * VariableExpression
    */
   public function getReceiverx(): EditableNode {
     return $this->getReceiver();
@@ -205,12 +205,12 @@ final class FunctionCallExpression extends EditableNode {
    * EditableList<DecoratedExpression> | EditableList<DefineExpression> |
    * EditableList<DictionaryIntrinsicExpression> |
    * EditableList<EmptyExpression> | EditableList<EvalExpression> |
-   * EditableList<FunctionCallExpression> | EditableList<InclusionExpression> |
-   * EditableList<InstanceofExpression> | EditableList<IsExpression> |
-   * EditableList<IssetExpression> | EditableList<KeysetIntrinsicExpression> |
-   * EditableList<LambdaExpression> | EditableList<LiteralExpression> |
-   * EditableList<?LiteralExpression> | EditableList<MemberSelectionExpression>
-   * | EditableList<ObjectCreationExpression> |
+   * EditableList<FunctionCallExpression> | EditableList<InstanceofExpression>
+   * | EditableList<IsExpression> | EditableList<IssetExpression> |
+   * EditableList<KeysetIntrinsicExpression> | EditableList<LambdaExpression> |
+   * EditableList<LiteralExpression> | EditableList<?LiteralExpression> |
+   * EditableList<MemberSelectionExpression> |
+   * EditableList<ObjectCreationExpression> |
    * EditableList<ParenthesizedExpression> |
    * EditableList<PipeVariableExpression> |
    * EditableList<PostfixUnaryExpression> | EditableList<PrefixUnaryExpression>
@@ -241,12 +241,12 @@ final class FunctionCallExpression extends EditableNode {
    * EditableList<DecoratedExpression> | EditableList<DefineExpression> |
    * EditableList<DictionaryIntrinsicExpression> |
    * EditableList<EmptyExpression> | EditableList<EvalExpression> |
-   * EditableList<FunctionCallExpression> | EditableList<InclusionExpression> |
-   * EditableList<InstanceofExpression> | EditableList<IsExpression> |
-   * EditableList<IssetExpression> | EditableList<KeysetIntrinsicExpression> |
-   * EditableList<LambdaExpression> | EditableList<LiteralExpression> |
-   * EditableList<?LiteralExpression> | EditableList<MemberSelectionExpression>
-   * | EditableList<ObjectCreationExpression> |
+   * EditableList<FunctionCallExpression> | EditableList<InstanceofExpression>
+   * | EditableList<IsExpression> | EditableList<IssetExpression> |
+   * EditableList<KeysetIntrinsicExpression> | EditableList<LambdaExpression> |
+   * EditableList<LiteralExpression> | EditableList<?LiteralExpression> |
+   * EditableList<MemberSelectionExpression> |
+   * EditableList<ObjectCreationExpression> |
    * EditableList<ParenthesizedExpression> |
    * EditableList<PipeVariableExpression> |
    * EditableList<PostfixUnaryExpression> | EditableList<PrefixUnaryExpression>

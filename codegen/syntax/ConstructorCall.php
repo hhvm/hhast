@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0f8206b046a4d60f946a55e776facb75>>
+ * @generated SignedSource<<25f046e9622419471a11f6d6ce3afe85>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -205,9 +205,9 @@ final class ConstructorCall extends EditableNode {
    * EditableList<LiteralExpression> | EditableList<MemberSelectionExpression>
    * | EditableList<ObjectCreationExpression> |
    * EditableList<ParenthesizedExpression> |
-   * EditableList<PrefixUnaryExpression> |
-   * EditableList<ScopeResolutionExpression> | EditableList<ShapeExpression> |
-   * EditableList<SubscriptExpression> | EditableList<NameToken> |
+   * EditableList<PipeVariableExpression> | EditableList<PrefixUnaryExpression>
+   * | EditableList<ScopeResolutionExpression> | EditableList<ShapeExpression>
+   * | EditableList<SubscriptExpression> | EditableList<NameToken> |
    * EditableList<VariableExpression> | EditableList<VarrayIntrinsicExpression>
    * | EditableList<VectorIntrinsicExpression> | null
    */
@@ -232,9 +232,9 @@ final class ConstructorCall extends EditableNode {
    * EditableList<LiteralExpression> | EditableList<MemberSelectionExpression>
    * | EditableList<ObjectCreationExpression> |
    * EditableList<ParenthesizedExpression> |
-   * EditableList<PrefixUnaryExpression> |
-   * EditableList<ScopeResolutionExpression> | EditableList<ShapeExpression> |
-   * EditableList<SubscriptExpression> | EditableList<NameToken> |
+   * EditableList<PipeVariableExpression> | EditableList<PrefixUnaryExpression>
+   * | EditableList<ScopeResolutionExpression> | EditableList<ShapeExpression>
+   * | EditableList<SubscriptExpression> | EditableList<NameToken> |
    * EditableList<VariableExpression> | EditableList<VarrayIntrinsicExpression>
    * | EditableList<VectorIntrinsicExpression>
    */

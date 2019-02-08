@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<df5559d353cd7251d215d44f79bcb073>>
+ * @generated SignedSource<<baecab43571e5e51eb2089621f087a81>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -176,11 +176,11 @@ final class ElementInitializer extends EditableNode {
    * CollectionLiteralExpression | ConditionalExpression |
    * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
    * FunctionCallExpression | IssetExpression | KeysetIntrinsicExpression |
-   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | PrefixUnaryExpression | QualifiedName |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * TupleExpression | VariableExpression | VarrayIntrinsicExpression |
-   * VectorIntrinsicExpression
+   * LambdaExpression | LiteralExpression | MemberSelectionExpression |
+   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
+   * | QualifiedName | ScopeResolutionExpression | SubscriptExpression |
+   * NameToken | TupleExpression | VariableExpression |
+   * VarrayIntrinsicExpression | VectorIntrinsicExpression
    */
   public function getValue(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_value);
@@ -192,11 +192,11 @@ final class ElementInitializer extends EditableNode {
    * CollectionLiteralExpression | ConditionalExpression |
    * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
    * FunctionCallExpression | IssetExpression | KeysetIntrinsicExpression |
-   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | PrefixUnaryExpression | QualifiedName |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * TupleExpression | VariableExpression | VarrayIntrinsicExpression |
-   * VectorIntrinsicExpression
+   * LambdaExpression | LiteralExpression | MemberSelectionExpression |
+   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
+   * | QualifiedName | ScopeResolutionExpression | SubscriptExpression |
+   * NameToken | TupleExpression | VariableExpression |
+   * VarrayIntrinsicExpression | VectorIntrinsicExpression
    */
   public function getValuex(): EditableNode {
     return $this->getValue();

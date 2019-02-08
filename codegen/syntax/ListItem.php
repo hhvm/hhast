@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b5f992f229bc7c99780dd7a4a70f9227>>
+ * @generated SignedSource<<aa1a48c6341c3be98567eea23f97ed97>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -87,26 +87,27 @@ final class ListItem extends EditableNode {
    * BinaryExpression | CastExpression | ClassnameTypeSpecifier |
    * ClosureParameterTypeSpecifier | ClosureTypeSpecifier |
    * CollectionLiteralExpression | ConditionalExpression | ConstantDeclarator |
-   * ConstructorCall | DarrayIntrinsicExpression | DecoratedExpression |
-   * DefineExpression | DictionaryIntrinsicExpression | DictionaryTypeSpecifier
-   * | ElementInitializer | EmptyExpression | EvalExpression | FieldInitializer
-   * | FieldSpecifier | FunctionCallExpression | GenericTypeSpecifier |
-   * InclusionExpression | InstanceofExpression | IsExpression |
-   * IssetExpression | KeysetIntrinsicExpression | KeysetTypeSpecifier |
-   * LambdaExpression | ListExpression | LiteralExpression |
-   * MapArrayTypeSpecifier | MemberSelectionExpression | null |
-   * NamespaceUseClause | NullableTypeSpecifier | ObjectCreationExpression |
-   * ParameterDeclaration | ParenthesizedExpression | PipeVariableExpression |
-   * PostfixUnaryExpression | PrefixUnaryExpression | PropertyDeclarator |
-   * QualifiedName | SafeMemberSelectionExpression | ScopeResolutionExpression
-   * | ShapeExpression | ShapeTypeSpecifier | SimpleTypeSpecifier |
-   * StaticDeclarator | SubscriptExpression | XHPCategoryNameToken | ConstToken
-   * | NameToken | ReturnToken | VariableToken | TraitUseAliasItem |
-   * TraitUsePrecedenceItem | TupleExpression | TupleTypeSpecifier |
-   * TypeConstant | TypeParameter | VariableExpression | VariadicParameter |
-   * VarrayIntrinsicExpression | VarrayTypeSpecifier | VectorArrayTypeSpecifier
-   * | VectorIntrinsicExpression | VectorTypeSpecifier | WhereConstraint |
-   * XHPClassAttribute | XHPExpression | XHPSimpleClassAttribute
+   * ConstructorCall | DarrayIntrinsicExpression | DarrayTypeSpecifier |
+   * DecoratedExpression | DefineExpression | DictionaryIntrinsicExpression |
+   * DictionaryTypeSpecifier | ElementInitializer | EmptyExpression |
+   * EvalExpression | FieldInitializer | FieldSpecifier |
+   * FunctionCallExpression | GenericTypeSpecifier | InstanceofExpression |
+   * IsExpression | IssetExpression | KeysetIntrinsicExpression |
+   * KeysetTypeSpecifier | LambdaExpression | ListExpression |
+   * LiteralExpression | MapArrayTypeSpecifier | MemberSelectionExpression |
+   * null | NamespaceUseClause | NullableTypeSpecifier |
+   * ObjectCreationExpression | ParameterDeclaration | ParenthesizedExpression
+   * | PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression
+   * | PropertyDeclarator | QualifiedName | ReifiedTypeArgument |
+   * SafeMemberSelectionExpression | ScopeResolutionExpression |
+   * ShapeExpression | ShapeTypeSpecifier | SimpleTypeSpecifier |
+   * StaticDeclarator | SubscriptExpression | ConstToken | NameToken |
+   * ReturnToken | VariableToken | TraitUseAliasItem | TraitUsePrecedenceItem |
+   * TupleExpression | TupleTypeSpecifier | TypeConstant | TypeParameter |
+   * VariableExpression | VariadicParameter | VarrayIntrinsicExpression |
+   * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorIntrinsicExpression
+   * | VectorTypeSpecifier | WhereConstraint | XHPClassAttribute |
+   * XHPExpression | XHPSimpleClassAttribute
    */
   public function getItem(): ?EditableNode {
     if ($this->_item->isMissing()) {
@@ -121,20 +122,20 @@ final class ListItem extends EditableNode {
    * BinaryExpression | CastExpression | ClassnameTypeSpecifier |
    * ClosureParameterTypeSpecifier | ClosureTypeSpecifier |
    * CollectionLiteralExpression | ConditionalExpression | ConstantDeclarator |
-   * ConstructorCall | DarrayIntrinsicExpression | DecoratedExpression |
-   * DefineExpression | DictionaryIntrinsicExpression | DictionaryTypeSpecifier
-   * | ElementInitializer | EmptyExpression | EvalExpression | FieldInitializer
-   * | FieldSpecifier | FunctionCallExpression | GenericTypeSpecifier |
-   * InclusionExpression | InstanceofExpression | IsExpression |
-   * IssetExpression | KeysetIntrinsicExpression | KeysetTypeSpecifier |
-   * LambdaExpression | ListExpression | LiteralExpression |
-   * MapArrayTypeSpecifier | MemberSelectionExpression | NamespaceUseClause |
-   * NullableTypeSpecifier | ObjectCreationExpression | ParameterDeclaration |
-   * ParenthesizedExpression | PipeVariableExpression | PostfixUnaryExpression
-   * | PrefixUnaryExpression | PropertyDeclarator | QualifiedName |
-   * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * ShapeExpression | ShapeTypeSpecifier | SimpleTypeSpecifier |
-   * StaticDeclarator | SubscriptExpression | XHPCategoryNameToken | ConstToken
+   * ConstructorCall | DarrayIntrinsicExpression | DarrayTypeSpecifier |
+   * DecoratedExpression | DefineExpression | DictionaryIntrinsicExpression |
+   * DictionaryTypeSpecifier | ElementInitializer | EmptyExpression |
+   * EvalExpression | FieldInitializer | FieldSpecifier |
+   * FunctionCallExpression | GenericTypeSpecifier | InstanceofExpression |
+   * IsExpression | IssetExpression | KeysetIntrinsicExpression |
+   * KeysetTypeSpecifier | LambdaExpression | ListExpression |
+   * LiteralExpression | MapArrayTypeSpecifier | MemberSelectionExpression |
+   * NamespaceUseClause | NullableTypeSpecifier | ObjectCreationExpression |
+   * ParameterDeclaration | ParenthesizedExpression | PipeVariableExpression |
+   * PostfixUnaryExpression | PrefixUnaryExpression | PropertyDeclarator |
+   * QualifiedName | ReifiedTypeArgument | SafeMemberSelectionExpression |
+   * ScopeResolutionExpression | ShapeExpression | ShapeTypeSpecifier |
+   * SimpleTypeSpecifier | StaticDeclarator | SubscriptExpression | ConstToken
    * | NameToken | ReturnToken | VariableToken | TraitUseAliasItem |
    * TraitUsePrecedenceItem | TupleExpression | TupleTypeSpecifier |
    * TypeConstant | TypeParameter | VariableExpression | VariadicParameter |

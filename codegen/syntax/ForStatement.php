@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c90703af80def230422c602bc1703fb0>>
+ * @generated SignedSource<<751110346d4c2be7b670ba7f0e915c1b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -289,7 +289,7 @@ final class ForStatement
   }
 
   /**
-   * @return EditableList<BinaryExpression> |
+   * @return EditableList<BinaryExpression> | EditableList<EditableNode> |
    * EditableList<FunctionCallExpression> | EditableList<LiteralExpression> |
    * null
    */
@@ -301,7 +301,7 @@ final class ForStatement
   }
 
   /**
-   * @return EditableList<BinaryExpression> |
+   * @return EditableList<BinaryExpression> | EditableList<EditableNode> |
    * EditableList<FunctionCallExpression> | EditableList<LiteralExpression>
    */
   public function getInitializerx(): EditableList<EditableNode> {

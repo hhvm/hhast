@@ -2,18 +2,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dc4997f7094214f05a2f498c3ff0a1b0>>
+ * @generated SignedSource<<296496053a7415f2e798d9d3e9e777b4>>
  */
 namespace Facebook\HHAST;
 
-final class ReifiedToken extends EditableTokenWithVariableText {
+final class FileToken extends EditableTokenWithVariableText {
 
-  const string KIND = 'reified';
+  const string KIND = 'file';
 
   public function __construct(
     EditableNode $leading,
     EditableNode $trailing,
-    string $token_text = 'reified',
+    string $token_text = 'file',
   ) {
     parent::__construct($leading, $trailing, $token_text);
   }

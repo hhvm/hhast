@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<45d5817de78fbb7e5dad129bed9ef60c>>
+ * @generated SignedSource<<142dc61f95f505a8f19487aa95f0ddaf>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -130,32 +130,32 @@ final class ParenthesizedExpression extends EditableNode {
   }
 
   /**
-   * @return AnonymousFunction | ArrayIntrinsicExpression | BinaryExpression |
-   * CastExpression | CollectionLiteralExpression | ConditionalExpression |
-   * EmptyExpression | FunctionCallExpression | InclusionExpression |
-   * InstanceofExpression | IsExpression | IssetExpression | LambdaExpression |
-   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * @return AnonymousFunction | ArrayIntrinsicExpression | AsExpression |
+   * BinaryExpression | CastExpression | CollectionLiteralExpression |
+   * ConditionalExpression | EmptyExpression | FunctionCallExpression |
+   * InclusionExpression | InstanceofExpression | IsExpression |
+   * IssetExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
-   * RightParenToken | QuestionToken | NameToken | TupleExpression |
-   * VariableExpression | VectorIntrinsicExpression | XHPExpression |
-   * YieldExpression
+   * QuestionToken | NameToken | VariableExpression | VectorIntrinsicExpression
+   * | XHPExpression | YieldExpression
    */
   public function getExpression(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_expression);
   }
 
   /**
-   * @return AnonymousFunction | ArrayIntrinsicExpression | BinaryExpression |
-   * CastExpression | CollectionLiteralExpression | ConditionalExpression |
-   * EmptyExpression | FunctionCallExpression | InclusionExpression |
-   * InstanceofExpression | IsExpression | IssetExpression | LambdaExpression |
-   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * @return AnonymousFunction | ArrayIntrinsicExpression | AsExpression |
+   * BinaryExpression | CastExpression | CollectionLiteralExpression |
+   * ConditionalExpression | EmptyExpression | FunctionCallExpression |
+   * InclusionExpression | InstanceofExpression | IsExpression |
+   * IssetExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
-   * RightParenToken | QuestionToken | NameToken | TupleExpression |
-   * VariableExpression | VectorIntrinsicExpression | XHPExpression |
-   * YieldExpression
+   * QuestionToken | NameToken | VariableExpression | VectorIntrinsicExpression
+   * | XHPExpression | YieldExpression
    */
   public function getExpressionx(): EditableNode {
     return $this->getExpression();

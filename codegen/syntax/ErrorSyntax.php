@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2fe31ec5e096ff30d74231212781c0cf>>
+ * @generated SignedSource<<83a250ebe4b85a3682dbb66006704171>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -71,22 +71,20 @@ final class ErrorSyntax extends EditableNode {
   }
 
   /**
-   * @return LeftParenToken | RightParenToken | PlusToken | CommaToken |
-   * SemicolonToken | LessThanToken | EqualToken | GreaterThanToken |
-   * DecimalLiteralToken | ExtendsToken | IntToken | NameToken |
-   * SingleQuotedStringLiteralToken | StringToken | VariableToken |
-   * LeftBraceToken | RightBraceToken
+   * @return AmpersandToken | CommaToken | SemicolonToken | EqualToken |
+   * BackslashToken | DecimalLiteralToken | NameToken |
+   * SingleQuotedStringLiteralToken | VariableToken | LeftBraceToken |
+   * RightBraceToken
    */
   public function getError(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_error);
   }
 
   /**
-   * @return LeftParenToken | RightParenToken | PlusToken | CommaToken |
-   * SemicolonToken | LessThanToken | EqualToken | GreaterThanToken |
-   * DecimalLiteralToken | ExtendsToken | IntToken | NameToken |
-   * SingleQuotedStringLiteralToken | StringToken | VariableToken |
-   * LeftBraceToken | RightBraceToken
+   * @return AmpersandToken | CommaToken | SemicolonToken | EqualToken |
+   * BackslashToken | DecimalLiteralToken | NameToken |
+   * SingleQuotedStringLiteralToken | VariableToken | LeftBraceToken |
+   * RightBraceToken
    */
   public function getErrorx(): EditableToken {
     return $this->getError();

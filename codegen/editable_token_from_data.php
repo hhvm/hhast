@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9b4379299c3c2d0f112d1a1de1ec4b39>>
+ * @generated SignedSource<<abd3396e38d385219b6cd50b688a45b4>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -78,6 +78,7 @@ class TokenClassMap {
     'eval' => HHAST\EvalToken::class,
     'extends' => HHAST\ExtendsToken::class,
     'fallthrough' => HHAST\FallthroughToken::class,
+    'file' => HHAST\FileToken::class,
     'final' => HHAST\FinalToken::class,
     'finally' => HHAST\FinallyToken::class,
     'float' => HHAST\FloatToken::class,
@@ -119,7 +120,7 @@ class TokenClassMap {
     'public' => HHAST\PublicToken::class,
     '?as' => HHAST\QuestionAsToken::class,
     'real' => HHAST\RealToken::class,
-    'reified' => HHAST\ReifiedToken::class,
+    'reify' => HHAST\ReifyToken::class,
     'require' => HHAST\RequireToken::class,
     'require_once' => HHAST\Require_onceToken::class,
     'required' => HHAST\RequiredToken::class,

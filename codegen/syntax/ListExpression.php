@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<96884181bb6bcd40560d4ed1e6a2a347>>
+ * @generated SignedSource<<3625272b4bcebbb52161f26d2b97a7ef>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -184,7 +184,8 @@ final class ListExpression extends EditableNode {
 
   /**
    * @return EditableList<ListExpression> | EditableList<EditableNode> |
-   * EditableList<?EditableNode> | EditableList<MemberSelectionExpression> |
+   * EditableList<?EditableNode> | EditableList<LiteralExpression> |
+   * EditableList<MemberSelectionExpression> |
    * EditableList<?VariableExpression> | EditableList<SubscriptExpression> |
    * EditableList<VariableExpression> | null
    */
@@ -197,7 +198,8 @@ final class ListExpression extends EditableNode {
 
   /**
    * @return EditableList<ListExpression> | EditableList<EditableNode> |
-   * EditableList<?EditableNode> | EditableList<MemberSelectionExpression> |
+   * EditableList<?EditableNode> | EditableList<LiteralExpression> |
+   * EditableList<MemberSelectionExpression> |
    * EditableList<?VariableExpression> | EditableList<SubscriptExpression> |
    * EditableList<VariableExpression>
    */

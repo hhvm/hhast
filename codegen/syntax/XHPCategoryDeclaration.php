@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f511c419930f77c6d7940931337d7814>>
+ * @generated SignedSource<<821f29735e276fbf1cf6f07a904df849>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,16 +101,16 @@ final class XHPCategoryDeclaration extends EditableNode {
   }
 
   /**
-   * @return CategoryToken
+   * @return unknown
    */
-  public function getKeyword(): CategoryToken {
-    return TypeAssert\instance_of(CategoryToken::class, $this->_keyword);
+  public function getKeyword(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_keyword);
   }
 
   /**
-   * @return CategoryToken
+   * @return unknown
    */
-  public function getKeywordx(): CategoryToken {
+  public function getKeywordx(): EditableNode {
     return $this->getKeyword();
   }
 
@@ -130,16 +130,16 @@ final class XHPCategoryDeclaration extends EditableNode {
   }
 
   /**
-   * @return EditableList<XHPCategoryNameToken>
+   * @return unknown
    */
-  public function getCategories(): EditableList<XHPCategoryNameToken> {
-    return TypeAssert\instance_of(EditableList::class, $this->_categories);
+  public function getCategories(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_categories);
   }
 
   /**
-   * @return EditableList<XHPCategoryNameToken>
+   * @return unknown
    */
-  public function getCategoriesx(): EditableList<XHPCategoryNameToken> {
+  public function getCategoriesx(): EditableNode {
     return $this->getCategories();
   }
 
@@ -159,16 +159,16 @@ final class XHPCategoryDeclaration extends EditableNode {
   }
 
   /**
-   * @return SemicolonToken
+   * @return unknown
    */
-  public function getSemicolon(): SemicolonToken {
-    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
+  public function getSemicolon(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_semicolon);
   }
 
   /**
-   * @return SemicolonToken
+   * @return unknown
    */
-  public function getSemicolonx(): SemicolonToken {
+  public function getSemicolonx(): EditableNode {
     return $this->getSemicolon();
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<db864e8aeac877dd6a5054fa36b46350>>
+ * @generated SignedSource<<fd1da9a89e6857b980e3b11baa168193>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,18 +10,21 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class TypeParameter extends EditableNode {
 
+  private EditableNode $_attribute_spec;
   private EditableNode $_reified;
   private EditableNode $_variance;
   private EditableNode $_name;
   private EditableNode $_constraints;
 
   public function __construct(
+    EditableNode $attribute_spec,
     EditableNode $reified,
     EditableNode $variance,
     EditableNode $name,
     EditableNode $constraints,
   ) {
     parent::__construct('type_parameter');
+    $this->_attribute_spec = $attribute_spec;
     $this->_reified = $reified;
     $this->_variance = $variance;
     $this->_name = $name;
@@ -35,6 +38,13 @@ final class TypeParameter extends EditableNode {
     int $offset,
     string $source,
   ): this {
+    $attribute_spec = EditableNode::fromJSON(
+      /* UNSAFE_EXPR */ $json['type_attribute_spec'],
+      $file,
+      $offset,
+      $source,
+    );
+    $offset += $attribute_spec->getWidth();
     $reified = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_reified'],
       $file,
@@ -63,12 +73,14 @@ final class TypeParameter extends EditableNode {
       $source,
     );
     $offset += $constraints->getWidth();
-    return new static($reified, $variance, $name, $constraints);
+    return
+      new static($attribute_spec, $reified, $variance, $name, $constraints);
   }
 
   <<__Override>>
   public function getChildren(): dict<string, EditableNode> {
     return dict[
+      'attribute_spec' => $this->_attribute_spec,
       'reified' => $this->_reified,
       'variance' => $this->_variance,
       'name' => $this->_name,
@@ -83,11 +95,13 @@ final class TypeParameter extends EditableNode {
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
+    $attribute_spec = $this->_attribute_spec->rewrite($rewriter, $parents);
     $reified = $this->_reified->rewrite($rewriter, $parents);
     $variance = $this->_variance->rewrite($rewriter, $parents);
     $name = $this->_name->rewrite($rewriter, $parents);
     $constraints = $this->_constraints->rewrite($rewriter, $parents);
     if (
+      $attribute_spec === $this->_attribute_spec &&
       $reified === $this->_reified &&
       $variance === $this->_variance &&
       $name === $this->_name &&
@@ -95,7 +109,52 @@ final class TypeParameter extends EditableNode {
     ) {
       return $this;
     }
-    return new static($reified, $variance, $name, $constraints);
+    return
+      new static($attribute_spec, $reified, $variance, $name, $constraints);
+  }
+
+  public function getAttributeSpecUNTYPED(): EditableNode {
+    return $this->_attribute_spec;
+  }
+
+  public function withAttributeSpec(EditableNode $value): this {
+    if ($value === $this->_attribute_spec) {
+      return $this;
+    }
+    return new static(
+      $value,
+      $this->_reified,
+      $this->_variance,
+      $this->_name,
+      $this->_constraints,
+    );
+  }
+
+  public function hasAttributeSpec(): bool {
+    return !$this->_attribute_spec->isMissing();
+  }
+
+  /**
+   * @return AttributeSpecification | null
+   */
+  public function getAttributeSpec(): ?AttributeSpecification {
+    if ($this->_attribute_spec->isMissing()) {
+      return null;
+    }
+    return TypeAssert\instance_of(
+      AttributeSpecification::class,
+      $this->_attribute_spec,
+    );
+  }
+
+  /**
+   * @return AttributeSpecification
+   */
+  public function getAttributeSpecx(): AttributeSpecification {
+    return TypeAssert\instance_of(
+      AttributeSpecification::class,
+      $this->_attribute_spec,
+    );
   }
 
   public function getReifiedUNTYPED(): EditableNode {
@@ -106,8 +165,13 @@ final class TypeParameter extends EditableNode {
     if ($value === $this->_reified) {
       return $this;
     }
-    return
-      new static($value, $this->_variance, $this->_name, $this->_constraints);
+    return new static(
+      $this->_attribute_spec,
+      $value,
+      $this->_variance,
+      $this->_name,
+      $this->_constraints,
+    );
   }
 
   public function hasReified(): bool {
@@ -115,20 +179,20 @@ final class TypeParameter extends EditableNode {
   }
 
   /**
-   * @return null
+   * @return null | ReifyToken
    */
-  public function getReified(): ?EditableNode {
+  public function getReified(): ?ReifyToken {
     if ($this->_reified->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_reified);
+    return TypeAssert\instance_of(ReifyToken::class, $this->_reified);
   }
 
   /**
-   * @return
+   * @return ReifyToken
    */
-  public function getReifiedx(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_reified);
+  public function getReifiedx(): ReifyToken {
+    return TypeAssert\instance_of(ReifyToken::class, $this->_reified);
   }
 
   public function getVarianceUNTYPED(): EditableNode {
@@ -139,8 +203,13 @@ final class TypeParameter extends EditableNode {
     if ($value === $this->_variance) {
       return $this;
     }
-    return
-      new static($this->_reified, $value, $this->_name, $this->_constraints);
+    return new static(
+      $this->_attribute_spec,
+      $this->_reified,
+      $value,
+      $this->_name,
+      $this->_constraints,
+    );
   }
 
   public function hasVariance(): bool {
@@ -173,6 +242,7 @@ final class TypeParameter extends EditableNode {
       return $this;
     }
     return new static(
+      $this->_attribute_spec,
       $this->_reified,
       $this->_variance,
       $value,
@@ -206,7 +276,13 @@ final class TypeParameter extends EditableNode {
     if ($value === $this->_constraints) {
       return $this;
     }
-    return new static($this->_reified, $this->_variance, $this->_name, $value);
+    return new static(
+      $this->_attribute_spec,
+      $this->_reified,
+      $this->_variance,
+      $this->_name,
+      $value,
+    );
   }
 
   public function hasConstraints(): bool {
