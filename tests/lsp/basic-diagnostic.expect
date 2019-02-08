@@ -35,6 +35,12 @@
                                 "globPattern": "**/*.php"
                             },
                             {
+                                "globPattern": "**/*.hck"
+                            },
+                            {
+                                "globPattern": "**/*.hack"
+                            },
+                            {
                                 "globPattern": "**/*.hh"
                             }
                         ]
