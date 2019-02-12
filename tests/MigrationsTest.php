@@ -19,7 +19,7 @@ use type Facebook\HackTest\DataProvider;
 final class MigrationsTest extends TestCase {
   public function getMigrations(
   ): array<(classname<Migrations\BaseMigration>, string)> {
-    $migrations = [
+    return [
       tuple(
         Migrations\OptionalShapeFieldsMigration::class,
         'migrations/optional_shape_fields.php',
@@ -86,15 +86,11 @@ final class MigrationsTest extends TestCase {
         Migrations\IsRefinementMigration::class,
         'migrations/is_refinement.php',
       ),
-    ];
-
-    if(HHVM_VERSION_ID >= 33100) {
-      $migrations[] = tuple(
+      tuple(
         Migrations\AwaitPrecedenceMigration::class,
-        'migrations/await_precedence.php');
-    }
-
-    return $migrations;
+        'migrations/await_precedence.php',
+      ),
+    ];
   }
 
   public function getMigrationSteps(
