@@ -12,6 +12,7 @@ namespace Facebook\HHAST\Migrations;
 
 use function Facebook\HHAST\{Missing, from_file_args};
 use type Facebook\HHAST\{
+  AwaitToken,
   EditableNode,
   LeftParenToken,
   ParenthesizedExpression,
@@ -24,21 +25,17 @@ final class AwaitPrecedenceMigration extends BaseMigration {
   <<__Override>>
   public function migrateFile(string $path, EditableNode $ast): EditableNode {
     // Find our targets - await calls.
-    $nodes = $ast->getDescendantsOfType(PrefixUnaryExpression::class);
-    $nodes =
-      Vec\filter($nodes, $n ==> $n->getOperator()->getCode() === 'await');
+    $nodes = $ast->getDescendantsOfType(PrefixUnaryExpression::class)
+      |> Vec\filter($$, $n ==> $n->getOperator() is AwaitToken);
     if (C\is_empty($nodes)) {
       return $ast;
     }
 
     // Figure out how this parses with stronger await precedence.
     //  If this throws a parse error, just let the caller deal with it.
-    $stronger_await_ast =
-      from_file_args($path, vec['--stronger-await-binding']);
-    $stronger_nodes =
-      $stronger_await_ast->getDescendantsOfType(PrefixUnaryExpression::class);
-    $stronger_nodes =
-      Vec\filter($nodes, $n ==> $n->getOperator()->getCode() === 'await');
+    $stronger_nodes = from_file_args($path, vec['--stronger-await-binding'])
+      |> $$->getDescendantsOfType(PrefixUnaryExpression::class)
+      |> Vec\filter($$, $n ==> $n->getOperator() is AwaitToken);
 
     // Now, we should have two parses of the same code.
     // Specifically, we have all of the await expressions using different precedences
@@ -51,7 +48,6 @@ final class AwaitPrecedenceMigration extends BaseMigration {
         $nodes[$i]->getOperand()->getCode() !==
           $stronger_nodes[$i]->getOperand()->getCode()
       ) {
-
         // We've found something!
         $target = $nodes[$i]->getOperand();
         $targetStart = $target->getFirstTokenx();
