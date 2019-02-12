@@ -1,8 +1,15 @@
 #!/bin/sh
 set -ex
+apt update -y
+DEBIAN_FRONTEND=noninteractive apt install -y php-cli zip unzip
 hhvm --version
+php --version
 
-composer install --ignore-platform-reqs
+(
+  cd $(mktemp -d)
+  curl https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+)
+composer install
 
 hh_client
 
