@@ -1,6 +1,6 @@
 <?hh // strict
 
-require(__DIR__.'/../../../vendor/hh_autoload.php');
+require(__DIR__.'/../../../vendor/autoload.hack');
 
 function hsl_migration_main(): void {
 

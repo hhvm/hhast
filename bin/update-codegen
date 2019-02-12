@@ -11,7 +11,7 @@
 
 namespace Facebook\HHAST\__Private;
 
-require_once(__DIR__.'/../vendor/hh_autoload.php');
+require_once(__DIR__.'/../vendor/autoload.hack');
 
 <<__EntryPoint>>
 async function update_codegen_async(): Awaitable<noreturn> {

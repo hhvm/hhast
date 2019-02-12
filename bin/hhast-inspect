@@ -14,7 +14,7 @@ namespace Facebook\HHAST\__Private;
 $root = realpath(__DIR__.'/..');
 $found_autoloader = false;
 while (true) {
-  $autoloader = $root.'/vendor/hh_autoload.php';
+  $autoloader = $root.'/vendor/autoload.hack';
   if (file_exists($autoloader)) {
     $found_autoloader = true;
     require_once($autoloader);

@@ -3,7 +3,7 @@
 ## Installation
 
 ```
-hhvm composer require hhvm/hhast
+composer require hhvm/hhast
 ```
 
 ## Introduction

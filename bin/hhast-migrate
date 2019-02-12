@@ -17,7 +17,7 @@ async function hhast_migrate_main_async(): Awaitable<noreturn> {
     $found_autoloader = false;
 
     while (true) {
-        $autoloader = $root.'/vendor/hh_autoload.php';
+        $autoloader = $root.'/vendor/autoload.hack';
 
         if (file_exists($autoloader)) {
             $found_autoloader = true;
