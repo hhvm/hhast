@@ -10,7 +10,7 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\{Str, Traversable, Vec};
+use namespace HH\Lib\{Str, Vec};
 
 function from_json(
   dict<string, mixed> $json,

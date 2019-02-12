@@ -93,7 +93,7 @@ final class MigrationsTest extends TestCase {
         Migrations\AwaitPrecedenceMigration::class,
         'migrations/await_precedence.php');
     }
-    
+
     return $migrations;
   }
 

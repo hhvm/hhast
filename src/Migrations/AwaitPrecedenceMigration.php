@@ -1,4 +1,4 @@
-<?hh //strict
+<?hh // strict
 /*
  *  Copyright (c) 2017-present, Facebook, Inc.
  *  All rights reserved.
@@ -12,14 +12,13 @@ namespace Facebook\HHAST\Migrations;
 
 use function Facebook\HHAST\{Missing, from_file_args};
 use type Facebook\HHAST\{
-    EditableList,
     EditableNode,
     LeftParenToken,
     ParenthesizedExpression,
     PrefixUnaryExpression,
     RightParenToken,
 };
-use namespace HH\Lib\{Str, Vec, C};
+use namespace HH\Lib\{Vec, C};
 
 final class AwaitPrecedenceMigration extends BaseMigration {
     <<__Override>>
@@ -46,7 +45,7 @@ final class AwaitPrecedenceMigration extends BaseMigration {
         // Specifically, we have all of the await expressions using different precedences
         //  from the same code file.
         // They should have the same start, since the _await_ isn't changing. If they
-        //  have different operands, then the precedence change effects that await. 
+        //  have different operands, then the precedence change effects that await.
         //  Migrate it.
         for ($i = 0; $i < C\count($nodes); $i++) {
             if (

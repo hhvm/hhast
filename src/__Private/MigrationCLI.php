@@ -172,7 +172,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
       $options[] = CLIOptions\flag(
         () ==> {
           $this->migrations[] = AwaitPrecedenceMigration::class;
-        }, 
+        },
         'Parenthesize await operands that would break if precedence of await changes',
         '--await-precedence',
         );

@@ -13,7 +13,7 @@ namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST\Linters;
 use namespace HH\Lib\{C, Math, Str, Vec};
 
-use type Facebook\CLILib\{CLIWithArguments, ExitException};
+use type Facebook\CLILib\CLIWithArguments;
 use namespace Facebook\CLILib\CLIOptions;
 
 final class LinterCLI extends CLIWithArguments {
