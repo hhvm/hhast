@@ -17,6 +17,9 @@ final class LicenseHeaderLinterTest extends TestCase {
   protected function getLinter(
     string $file,
   ): Linters\LicenseHeaderLinter {
+    Linters\LicenseHeaderLinter::__setExpectedHeaderForTesting(
+      \file_get_contents(__DIR__.'/../.LICENSE_HEADER.hh.txt')
+    );
     return Linters\LicenseHeaderLinter::fromPath($file);
   }
 
@@ -28,8 +31,16 @@ final class LicenseHeaderLinterTest extends TestCase {
       ["<?hh // strict\n".$header],
       ["<?hh // partial\n".$header],
       ["<?php\n".$header],
+      ["<?php\n".$header."\nfoo();\n"],
       // .hack
       [$header],
+      [
+        $header.
+        "\n".
+        "use namespace HH\Lib\Str;\n".
+        "<<__EntryPoint>>\n".
+        "function main(): noreturn { exit (0); }\n"
+      ],
     ];
   }
 }
