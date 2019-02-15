@@ -135,7 +135,7 @@ async function json_from_text_async(
   ) {
     $file .= '.php';
   } else {
-    $file.= '.hack';
+    $file .= '.hack';
   }
   $handle = \fopen($file, "w");
   \fwrite($handle, $text);
