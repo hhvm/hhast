@@ -33,4 +33,5 @@ if (!$found_autoloader) {
   exit(1);
 }
 
-InspectorCLI::main();
+$result = \HH\Asio\join(InspectorCLI::runAsync());
+exit($result);
