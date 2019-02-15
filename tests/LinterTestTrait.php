@@ -46,7 +46,7 @@ trait LinterTestTrait {
   }
 
   <<DataProvider('getCleanExamples')>>
-  final public function testCleanExample(string $code): void {
+  final public async function testCleanExample(string $code): Awaitable<void> {
     $file = \tempnam(
       \sys_get_temp_dir(),
       'hhast-test',
@@ -54,9 +54,19 @@ trait LinterTestTrait {
     \file_put_contents($file, $code);
     try {
       $linter = $this->getLinter($file);
-      expect(C\first(\HH\Asio\join($linter->getLintErrorsAsync())))->toBeNull(
-        'Got lint errors on supposedly-clean example',
-      );
+      $errors = await $linter->getLintErrorsAsync();
+      if (C\is_empty($errors)) {
+        return;
+      }
+      Vec\map($errors, $error ==> Str\format(
+        "- %s: %s at line %d:\n%s",
+        \get_class($error->getLinter()),
+        $error->getDescription(),
+        $error->getPosition()[1] ?? -1,
+        $error->getPrettyBlame() ?? ''
+      ))
+        |> Str\join($$, "\n")
+        |> self::fail("Expected no errors, got:\n".$$);
     } finally {
       \unlink($file);
     }
