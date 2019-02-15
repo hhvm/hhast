@@ -47,10 +47,15 @@ trait LinterTestTrait {
 
   <<DataProvider('getCleanExamples')>>
   final public async function testCleanExample(string $code): Awaitable<void> {
-    $file = \tempnam(
-      \sys_get_temp_dir(),
-      'hhast-test',
-    );
+    $file = \sys_get_temp_dir().'/hhast-tmp-'.\bin2hex(\random_bytes(16));
+    if (
+      Str\starts_with($code, '<?') ||
+      Str\starts_with(Str\split($code, "\n")[1] ?? '', '<?') // #! lines
+    ) {
+      $file .= '.php';
+    } else {
+      $file .= '.hack';
+    }
     \file_put_contents($file, $code);
     try {
       $linter = $this->getLinter($file);
