@@ -15,12 +15,15 @@ use type Facebook\HHAST\{
   EditableNode,
   EndOfFile,
   EndOfLine,
+  MarkupSection,
   Script,
 };
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Str, Vec};
 
 final class LicenseHeaderLinter extends AutoFixingASTLinter<Script> {
+  public static ?string $forcedHeader = null;
+
   <<__Override>>
   protected static function getTargetType(): classname<Script> {
     return Script::class;
@@ -31,7 +34,12 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter<Script> {
     Script $script,
     vec<EditableNode> $_parents,
   ): ?ASTLintError<Script> {
-    $first = $script->getDeclarations()->getItems()[1] ?? null;
+    $decls = $script->getDeclarations()->getItems();
+    $first = C\first($decls);
+    if ($first is MarkupSection) {
+      // <?hh or <?php ; not present in .hack files
+      $first = $decls[1] ?? null;
+    }
     if ($first === null) {
       return null;
     }
@@ -135,8 +143,15 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter<Script> {
     return self::getLicenseHeaderForPath($file->getPath()) !== null;
   }
 
+  public static function __setExpectedHeaderForTesting(string $header): void {
+    self::$forcedHeader = $header;
+  }
+
   <<__Memoize>>
   private static function getLicenseHeaderForPath(string $path): ?string {
+    if (self::$forcedHeader !== null) {
+      return Str\trim(self::$forcedHeader);
+    }
     if (\file_exists($path.'/.LICENSE_HEADER.hh.txt')) {
       $header = \file_get_contents($path.'/.LICENSE_HEADER.hh.txt');
       return ($header === '' || $header === "\n") ? null : Str\trim($header);
