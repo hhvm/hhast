@@ -21,8 +21,15 @@ final class LicenseHeaderLinterTest extends TestCase {
   }
 
   public function getCleanExamples(): array<array<string>> {
+    $header = \file_get_contents(__DIR__.'/../.LICENSE_HEADER.hh.txt');
     return [
-      ["<?hh\n".\file_get_contents(__DIR__.'/../.LICENSE_HEADER.hh.txt')],
+      // .php, hh
+      ["<?hh\n".$header],
+      ["<?hh // strict\n".$header],
+      ["<?hh // partial\n".$header],
+      ["<?php\n".$header],
+      // .hack
+      [$header],
     ];
   }
 }

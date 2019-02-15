@@ -129,12 +129,23 @@ function from_file_args(
 async function json_from_text_async(
   string $text,
 ): Awaitable<dict<string, mixed>> {
-  $file = \tempnam("/tmp", "");
+  $file = \sys_get_temp_dir().'/hhast-tmp-'.\bin2hex(\random_bytes(16));
+  if (
+    Str\starts_with($text, '<?') ||
+    Str\starts_with(Str\split($text, "\n")[1] ?? '', '<?')
+  ) {
+    $file .= '.php';
+  } else {
+    $file.= '.hack';
+  }
   $handle = \fopen($file, "w");
   \fwrite($handle, $text);
   \fclose($handle);
-  $json = await json_from_file_async($file);
-  \unlink($file);
+  try {
+    $json = await json_from_file_async($file);
+  } finally {
+    \unlink($file);
+  }
   return $json;
 }
 

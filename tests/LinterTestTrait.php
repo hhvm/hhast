@@ -21,22 +21,28 @@ trait LinterTestTrait {
   abstract protected function getLinter(string $file): Linters\BaseLinter ;
 
   abstract public function getCleanExamples(): array<array<string>>;
-  final public function getDirtyFixtures(): array<array<string>> {
+  final public function getDirtyFixtures(): vec<array<string>> {
     return static::class
       |> \explode('\\', $$)
       |> C\lastx($$)
       |> Str\strip_suffix($$, 'Test')
-      |> \glob(__DIR__.'/fixtures/'.$$.'/*.php.in')
-      |> Vec\map($$, $path ==> [\basename($path, '.php.in')])
-      |> \array_values($$);
+      |> \glob(__DIR__.'/fixtures/'.$$.'/*.in')
+      |> Vec\map($$, $path ==> \basename($path, '.in'))
+      |> Vec\map($$, $path ==> Str\strip_suffix($path, '.php'))
+      |> Vec\map($$, $path ==> Str\strip_suffix($path, '.hack'))
+      |> Vec\map($$, $arg ==> [$arg]);
   }
 
   final protected function getFullFixtureName(string $name): string {
-    return static::class
+    $base = static::class
       |> \explode('\\', $$)
       |> C\lastx($$)
       |> Str\strip_suffix($$, 'Test')
-      |> $$.'/'.$name.'.php';
+      |> $$.'/'.$name;
+    if (\file_exists(__DIR__.'/fixtures/'.$base.'.php.in')) {
+      return $base.'.php';
+    }
+    return $base.'.hack';
   }
 
   <<DataProvider('getCleanExamples')>>
