@@ -25,9 +25,9 @@ final class ResolutionTest extends TestCase {
     $code = '<?hh namespace MyNS\\SubNS { class Foo {}; class Bar {} }';
     $ast = from_code($code);
     $namespaces = $ast->getDescendantsOfType(NamespaceDeclaration::class);
-    $class_names = $ast->getDescendantsOfType(NamespaceDeclaration::class)
+    $namespace_names = $ast->getDescendantsOfType(NamespaceDeclaration::class)
       |> Vec\map($$, $namespace ==> $namespace->getQualifiedNameAsString());
-    expect($class_names)->toBeSame(vec[
+    expect($namespace_names)->toBeSame(vec[
       "MyNS\\SubNS",
     ]);
   }
