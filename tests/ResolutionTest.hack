@@ -13,11 +13,23 @@ namespace Facebook\HHAST;
 use function Facebook\FBExpect\expect;
 use namespace Facebook\HHAST\__Private\Resolution;
 use type Facebook\HackTest\DataProvider;
+use namespace HH\Lib\Vec;
 
 final class ResolutionTest extends TestCase {
   public function testWithoutNamespaces(): void {
     list($node, $parents) = self::getNodeAndParents('<?hh class Foo {}');
     expect(Resolution\get_current_namespace($node, $parents))->toBeNull();
+  }
+
+  public function testMultipleClassesInNamespaceBlock(): void {
+    $code = '<?hh namespace MyNS\\SubNS { class Foo {}; class Bar {} }';
+    $ast = from_code($code);
+    $namespaces = $ast->getDescendantsOfType(NamespaceDeclaration::class);
+    $namespace_names = $ast->getDescendantsOfType(NamespaceDeclaration::class)
+      |> Vec\map($$, $namespace ==> $namespace->getQualifiedNameAsString());
+    expect($namespace_names)->toBeSame(vec[
+      "MyNS\\SubNS",
+    ]);
   }
 
   public function testWithNamespaceStatement(): void {
