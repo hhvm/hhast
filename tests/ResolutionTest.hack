@@ -24,11 +24,20 @@ final class ResolutionTest extends TestCase {
   public function testMultipleClassesInNamespaceBlock(): void {
     $code = '<?hh namespace MyNS\\SubNS { class Foo {}; class Bar {} }';
     $ast = from_code($code);
-    $namespaces = $ast->getDescendantsOfType(NamespaceDeclaration::class);
     $namespace_names = $ast->getDescendantsOfType(NamespaceDeclaration::class)
       |> Vec\map($$, $namespace ==> $namespace->getQualifiedNameAsString());
     expect($namespace_names)->toBeSame(vec[
       "MyNS\\SubNS",
+    ]);
+    $class_names =
+      $ast->getDescendantsOfType(ClassishDeclaration::class)
+      |> Vec\map($$, $class ==> {
+        $parents = $ast->findWithParents($x ==> $x === $class);
+        return Resolution\get_current_namespace($class, $parents)."\\".($class->getName() as EditableToken)->getText();
+      });
+    expect($class_names)->toBeSame(vec[
+      "MyNS\\SubNS\\Foo",
+      "MyNS\\SubNS\\Bar",
     ]);
   }
 
