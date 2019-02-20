@@ -2,9 +2,12 @@ sudo: required
 language: generic
 services: docker
 env:
- - HHVM_VERSION=latest
- - HHVM_VERSION=nightly
+- HHVM_VERSION=latest
+- HHVM_VERSION=nightly
 install:
- - docker pull hhvm/hhvm:$HHVM_VERSION
+- docker pull hhvm/hhvm:$HHVM_VERSION
 script:
- - docker run --rm -w /var/source -v $(pwd):/var/source hhvm/hhvm:$HHVM_VERSION ./.travis.sh
+- docker run --rm -w /var/source -v $(pwd):/var/source hhvm/hhvm:$HHVM_VERSION ./.travis.sh
+notifications:
+  slack:
+    secure: s975PWtPBa54jbP/cEwQL9UmMjTuTayO2y0Bb6whIgvao4fNKZoEZEayANwmCQi2xObqeZd1p3Tx1OnPK4x4uHAG7GnwtMfwlHqsCz03cM8lS9zvb/RoMNuBmI67ZV8irt4GDkNoKG+ht1j8WNJcjFEd2HBxVP4N+HzlJ4YiJfCkX2esGXAojD0AJ1wr5+1otMwP4VF2G4vCjsnS8PyFwNI7vCuQRZUp/cpvPiJ6QfjQBOx7MoSndnJx/Hk/LSZKFCnkX0lRd1FThJAQZ0nURyu2PDPuh8UMYmcRoUE71hgyKRfLl95oIvEugRVIwbUixAS6jxefzBMlaEtToxhO9PjL8Uk1+jRbeRgYoc0C/Vn6xjd+xmrkifjhlFZUPESYToWWgndWQvfaAUXQ5lO4mqYke0cTwv0Po22RBFP2ZlYyhG/U/rdviRIfMj55143xu/q9DGAzbIvlTu0cOpSFM9+d1DoRs/dn+bePdGyjdqkCdTn/yW5JBmqccmlaNe856haPtR8BjAu84E9v8fJcY5vmPDaeCKr3d172wmWh1oKMQfWvbGNHb/bcvyfTX8TUGyvA34gYiyYGEhdQl5jsWxLRZ1LFL28kTOIYdYt1TiuXJwwozoSeT4LwDBo/w0JGBl+dv4Q7KVWa0x/l3kRo9dFCOt2ItjC+aeWENMisVeg=
