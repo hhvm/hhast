@@ -44,6 +44,7 @@ final class LintRunConfig {
       shape(
         // Which files this override applies to (uses `fnmatch()`)
         'patterns' => vec<string>,
+        ?'builtinLinters' => NamedLinterGroup,
         ?'extraLinters' => vec<string>,
         ?'disabledLinters' => vec<string>,
         ?'disabledAutoFixes' => vec<string>,
@@ -195,6 +196,7 @@ final class LintRunConfig {
     $linters = Keyset\union(
       $linters,
       self::getNamedLinterGroup(
+        $override['builtinLinters'] ??
         $this->configFile['builtinLinters'] ??
           NamedLinterGroup::DEFAULT_BUILTINS,
       ),
