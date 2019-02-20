@@ -176,7 +176,7 @@ final class LintRunConfig {
           'autoFixBlacklist' => keyset[],
         );
       }
-      if (\Shapes::keyExists($override, 'builtinLinters')) {
+      if (Shapes::keyExists($override, 'builtinLinters')) {
         $builtin_linters = $override['builtinLinters'];
       }
       $linters = Vec\concat($linters, $override['extraLinters'] ?? vec[]);
