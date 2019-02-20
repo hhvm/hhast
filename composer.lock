@@ -161,16 +161,16 @@
         },
         {
             "name": "hhvm/hsl-experimental",
-            "version": "v4.0.0",
+            "version": "v4.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/hsl-experimental.git",
-                "reference": "208fa5defedb0deb99095eaa09a5255bae26a198"
+                "reference": "c1084e5f6a6d8e5a110f3e9bb630a4b20166cc53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/hsl-experimental/zipball/208fa5defedb0deb99095eaa09a5255bae26a198",
-                "reference": "208fa5defedb0deb99095eaa09a5255bae26a198",
+                "url": "https://api.github.com/repos/hhvm/hsl-experimental/zipball/c1084e5f6a6d8e5a110f3e9bb630a4b20166cc53",
+                "reference": "c1084e5f6a6d8e5a110f3e9bb630a4b20166cc53",
                 "shasum": ""
             },
             "require": {
@@ -183,12 +183,18 @@
                 "hhvm/hhvm-autoload": "^2.0"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.x-dev",
+                    "dev-v4.0.x": "4.0.x-dev"
+                }
+            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "description": "The Hack Standard Library - Experimental Additions",
-            "time": "2019-02-08T23:24:49+00:00"
+            "time": "2019-02-20T21:11:25+00:00"
         },
         {
             "name": "hhvm/type-assert",
@@ -267,16 +273,16 @@
         },
         {
             "name": "facebook/hack-codegen",
-            "version": "v4.1.0",
+            "version": "v4.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/hack-codegen.git",
-                "reference": "aada2399e1d59ea99483cbe8f0b66a4ffa9da19d"
+                "reference": "fcd9edb78866a8a14e69e3e38d724b2f6adf603d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/hack-codegen/zipball/aada2399e1d59ea99483cbe8f0b66a4ffa9da19d",
-                "reference": "aada2399e1d59ea99483cbe8f0b66a4ffa9da19d",
+                "url": "https://api.github.com/repos/hhvm/hack-codegen/zipball/fcd9edb78866a8a14e69e3e38d724b2f6adf603d",
+                "reference": "fcd9edb78866a8a14e69e3e38d724b2f6adf603d",
                 "shasum": ""
             },
             "require": {
@@ -323,7 +329,7 @@
                 "code generation",
                 "hack"
             ],
-            "time": "2019-02-08T22:04:08+00:00"
+            "time": "2019-02-20T22:20:00+00:00"
         },
         {
             "name": "hhvm/hacktest",
@@ -375,8 +381,5 @@
     "platform": {
         "hhvm": "^4.0"
     },
-    "platform-dev": [],
-    "platform-overrides": {
-        "hhvm": "4.0.0"
-    }
+    "platform-dev": []
 }
