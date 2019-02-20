@@ -59,31 +59,29 @@ final class LintRunConfig {
     'autoFixBlacklist' => keyset<classname<BaseLinter>>,
   );
 
-  const vec<classname<BaseLinter>>
-    DEFAULT_LINTERS = vec[
-      Linters\AsyncFunctionAndMethodLinter::class,
-      Linters\CamelCasedMethodsUnderscoredFunctionsLinter::class,
-      Linters\DontAwaitInALoopLinter::class,
-      Linters\LicenseHeaderLinter::class,
-      Linters\NewlineAtEndOfFileLinter::class,
-      Linters\NoBasicAssignmentFunctionParameterLinter::class,
-      Linters\MethodCallOnConstructorLinter::class,
-      Linters\MustUseBracesForControlFlowLinter::class,
-      Linters\MustUseOverrideAttributeLinter::class,
-      Linters\NoPHPEqualityLinter::class,
-      Linters\UnusedParameterLinter::class,
-      Linters\UnusedUseClauseLinter::class,
-      Linters\UseStatementWithLeadingBackslashLinter::class,
-      Linters\UseStatementWithoutKindLinter::class,
-      Linters\NoWhitespaceAtEndOfLineLinter::class,
-    ];
+  const vec<classname<BaseLinter>> DEFAULT_LINTERS = vec[
+    Linters\AsyncFunctionAndMethodLinter::class,
+    Linters\CamelCasedMethodsUnderscoredFunctionsLinter::class,
+    Linters\DontAwaitInALoopLinter::class,
+    Linters\LicenseHeaderLinter::class,
+    Linters\NewlineAtEndOfFileLinter::class,
+    Linters\NoBasicAssignmentFunctionParameterLinter::class,
+    Linters\MethodCallOnConstructorLinter::class,
+    Linters\MustUseBracesForControlFlowLinter::class,
+    Linters\MustUseOverrideAttributeLinter::class,
+    Linters\NoPHPEqualityLinter::class,
+    Linters\UnusedParameterLinter::class,
+    Linters\UnusedUseClauseLinter::class,
+    Linters\UseStatementWithLeadingBackslashLinter::class,
+    Linters\UseStatementWithoutKindLinter::class,
+    Linters\NoWhitespaceAtEndOfLineLinter::class,
+  ];
 
-  const vec<classname<BaseLinter>>
-    NON_DEFAULT_LINTERS = vec[
-      Linters\NoStringInterpolationLinter::class,
-      Linters\StrictModeOnlyLinter::class,
-      Linters\UseStatementWithAsLinter::class,
-    ];
+  const vec<classname<BaseLinter>> NON_DEFAULT_LINTERS = vec[
+    Linters\NoStringInterpolationLinter::class,
+    Linters\StrictModeOnlyLinter::class,
+    Linters\UseStatementWithAsLinter::class,
+  ];
 
   private static function getNamedLinterGroup(
     NamedLinterGroup $group,
@@ -143,7 +141,8 @@ final class LintRunConfig {
   }
 
   public function getConfigForFile(string $file_path): self::TFileConfig {
-    $roots = Vec\map($this->configFile['roots'], $s ==> Str\strip_suffix($s, '/').'/');
+    $roots =
+      Vec\map($this->configFile['roots'], $s ==> Str\strip_suffix($s, '/').'/');
     $file_path = Str\strip_prefix($file_path, $this->projectRoot.'/');
     if (
       $roots !== vec[] &&
@@ -154,6 +153,8 @@ final class LintRunConfig {
         'autoFixBlacklist' => keyset[],
       );
     }
+    $builtin_linters =
+      $this->configFile['builtinLinters'] ?? NamedLinterGroup::DEFAULT_BUILTINS;
     $linters = $this->configFile['extraLinters'] ?? vec[];
     $blacklist = $this->configFile['disabledLinters'] ?? vec[];
     $autofix_blacklist = $this->configFile['disabledAutoFixes'] ?? vec[];
@@ -175,6 +176,9 @@ final class LintRunConfig {
           'autoFixBlacklist' => keyset[],
         );
       }
+      if (\Shapes::keyExists($override, 'builtinLinters')) {
+        $builtin_linters = $override['builtinLinters'];
+      }
       $linters = Vec\concat($linters, $override['extraLinters'] ?? vec[]);
       $blacklist =
         Vec\concat($blacklist, $override['disabledLinters'] ?? vec[]);
@@ -193,14 +197,8 @@ final class LintRunConfig {
     $blacklist = $normalize($blacklist);
     $autofix_blacklist = $normalize($autofix_blacklist);
 
-    $linters = Keyset\union(
-      $linters,
-      self::getNamedLinterGroup(
-        $override['builtinLinters'] ??
-        $this->configFile['builtinLinters'] ??
-          NamedLinterGroup::DEFAULT_BUILTINS,
-      ),
-    );
+    $linters =
+      Keyset\union($linters, self::getNamedLinterGroup($builtin_linters));
 
     $linters = Keyset\diff($linters, $blacklist);
     if ($no_autofixes) {
