@@ -87,7 +87,7 @@ final class LSPServerTest extends TestCase {
   const type TExchange = vec<this::TMessage>;
 
   <<DataProvider('provideExampleExchanges')>>
-  public function testExampleExchange(string $name): void {
+  public async function testExampleExchange(string $name): Awaitable<void> {
     $mappings = dict[
       'HHAST_ROOT_URI' => 'file://'.\realpath(\dirname(__DIR__)),
       'HHAST_FIXTURES_URI' => 'file://'.\realpath(__DIR__.'/fixtures'),
@@ -118,7 +118,7 @@ final class LSPServerTest extends TestCase {
 
     $debug = (bool) \getenv('HHAST_LSP_DEBUG') ?? false;
 
-    list($code, $_) = \HH\Asio\join(Tuple\from_async(
+    list($code, $_) = await Tuple\from_async(
       $cli->mainAsync(),
       async {
         foreach ($messages as $message) {
@@ -151,7 +151,7 @@ final class LSPServerTest extends TestCase {
           }
         }
       },
-    ));
+    );
 
     $output =
       \json_encode($responses->v, \JSON_PRETTY_PRINT | \JSON_UNESCAPED_SLASHES).
