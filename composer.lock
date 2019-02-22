@@ -273,16 +273,16 @@
         },
         {
             "name": "facebook/hack-codegen",
-            "version": "v4.1.1",
+            "version": "v4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/hack-codegen.git",
-                "reference": "fcd9edb78866a8a14e69e3e38d724b2f6adf603d"
+                "reference": "542555d74bac08fe54fd3cf36847b8ed956000ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/hack-codegen/zipball/fcd9edb78866a8a14e69e3e38d724b2f6adf603d",
-                "reference": "fcd9edb78866a8a14e69e3e38d724b2f6adf603d",
+                "url": "https://api.github.com/repos/hhvm/hack-codegen/zipball/542555d74bac08fe54fd3cf36847b8ed956000ad",
+                "reference": "542555d74bac08fe54fd3cf36847b8ed956000ad",
                 "shasum": ""
             },
             "require": {
@@ -329,7 +329,7 @@
                 "code generation",
                 "hack"
             ],
-            "time": "2019-02-20T22:20:00+00:00"
+            "time": "2019-02-21T22:38:07+00:00"
         },
         {
             "name": "hhvm/hacktest",
