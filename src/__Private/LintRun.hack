@@ -34,6 +34,9 @@ final class LintRun {
   private static function worstResult(
     LintRunResult ...$results
   ): LintRunResult {
+    if (C\is_empty($results)) {
+      return LintRunResult::NO_ERRORS;
+    }
     $results = keyset($results);
     if (C\contains($results, LintRunResult::HAVE_UNFIXED_ERRORS)) {
       return LintRunResult::HAVE_UNFIXED_ERRORS;
