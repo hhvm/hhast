@@ -17,6 +17,7 @@ use type Facebook\HHAST\Migrations\{
   AwaitPrecedenceMigration,
   BaseMigration,
   CallTimePassByReferenceMigration,
+  ExplicitPartialModeMigration,
   HSLMigration,
   IMigrationWithFileList,
   ImplicitShapeSubtypesMigration,
@@ -146,6 +147,20 @@ class MigrationCLI extends CLIWithRequiredArguments {
       ),
       CLIOptions\flag(
         () ==> {
+          $this->migrations[] = ExplicitPartialModeMigration::class;
+        },
+        "Add `// partial` to files that don't specify a mode",
+        '--explicit-partial-mode',
+      ),
+      CLIOptions\flag(
+        () ==> {
+          $this->migrations[] = ExplicitPartialModeMigration::class;
+        },
+        'Apply all migrations for moving from 4.0 to 4.1',
+        '--hhvm-4.0-to-4.1',
+      ),
+      CLIOptions\flag(
+        () ==> {
           $this->migrations[] = AddFixMesMigration::class;
         },
         'Add /* HH_FIXME[] */ comments where needed',
@@ -167,14 +182,14 @@ class MigrationCLI extends CLIWithRequiredArguments {
       ),
     ];
 
-    if(\HHVM_VERSION_ID >= 33100) {
+    if (\HHVM_VERSION_ID >= 33100) {
       $options[] = CLIOptions\flag(
         () ==> {
           $this->migrations[] = AwaitPrecedenceMigration::class;
         },
         'Parenthesize await operands that would break if precedence of await changes',
         '--await-precedence',
-        );
+      );
     }
 
     $options[] = $this->getVerbosityOption();

@@ -89,6 +89,34 @@ final class MigrationsTest extends TestCase {
         Migrations\AwaitPrecedenceMigration::class,
         'migrations/await_precedence.php',
       ),
+      tuple(
+        Migrations\ExplicitPartialModeMigration::class,
+        'migrations/ExplicitPartialMode/strict.php',
+      ),
+      tuple(
+        Migrations\ExplicitPartialModeMigration::class,
+        'migrations/ExplicitPartialMode/partial.php',
+      ),
+      tuple(
+        Migrations\ExplicitPartialModeMigration::class,
+        'migrations/ExplicitPartialMode/eof.php',
+      ),
+      tuple(
+        Migrations\ExplicitPartialModeMigration::class,
+        'migrations/ExplicitPartialMode/none.hack',
+      ),
+      tuple(
+        Migrations\ExplicitPartialModeMigration::class,
+        'migrations/ExplicitPartialMode/missing.php',
+      ),
+      tuple(
+        Migrations\ExplicitPartialModeMigration::class,
+        'migrations/ExplicitPartialMode/php.php',
+      ),
+      tuple(
+        Migrations\ExplicitPartialModeMigration::class,
+        'migrations/ExplicitPartialMode/extra_comments.php',
+      ),
     ];
   }
 
