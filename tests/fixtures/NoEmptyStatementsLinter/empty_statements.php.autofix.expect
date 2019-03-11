@@ -131,7 +131,4 @@ function not_empty_exprs(): void {
   $fn = () ==> {
     return 'a';
   }
-
-  /* HH_FIXME[1002] */
-  `cp a.txt b.txt`;
 }

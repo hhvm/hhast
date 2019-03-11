@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7e4227d1e1476866f4673dcdab2ddc77>>
+ * @generated SignedSource<<7df291cc909ad354713ec2ae5432837f>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -160,11 +160,6 @@ class TokenClassMap {
     'double_quoted_string_literal_tail' =>
       HHAST\DoubleQuotedStringLiteralTailToken::class,
     'error_token' => HHAST\ErrorTokenToken::class,
-    'execution_string_literal' => HHAST\ExecutionStringLiteralToken::class,
-    'execution_string_literal_head' =>
-      HHAST\ExecutionStringLiteralHeadToken::class,
-    'execution_string_literal_tail' =>
-      HHAST\ExecutionStringLiteralTailToken::class,
     'floating_literal' => HHAST\FloatingLiteralToken::class,
     'heredoc_string_literal' => HHAST\HeredocStringLiteralToken::class,
     'heredoc_string_literal_head' => HHAST\HeredocStringLiteralHeadToken::class,

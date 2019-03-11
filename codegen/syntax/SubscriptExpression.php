@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7be7698c5293f0112e24e98d6bfc5186>>
+ * @generated SignedSource<<2e92cd8b012ae5c1e21c38fc3b21ab04>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -200,7 +200,7 @@ final class SubscriptExpression extends EditableNode {
    * MemberSelectionExpression | null | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * SubscriptExpression | QuestionGreaterThanToken | EchoToken | NameToken |
+   * SubscriptExpression | EchoToken | NameToken | ReturnToken |
    * VariableExpression
    */
   public function getIndex(): ?EditableNode {
@@ -216,7 +216,7 @@ final class SubscriptExpression extends EditableNode {
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * SubscriptExpression | QuestionGreaterThanToken | EchoToken | NameToken |
+   * SubscriptExpression | EchoToken | NameToken | ReturnToken |
    * VariableExpression
    */
   public function getIndexx(): EditableNode {

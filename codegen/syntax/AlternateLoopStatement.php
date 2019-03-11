@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6702da5f01b8365225e8a28aa5c8cc8a>>
+ * @generated SignedSource<<be9365e151c61d438cae0a1561af4d98>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -203,13 +203,9 @@ abstract class AlternateLoopStatementGeneratedBase
   }
 
   /**
-   * @return null | EnddeclareToken | EndforToken | EndforeachToken |
-   * EndwhileToken
+   * @return EnddeclareToken | EndforToken | EndforeachToken | EndwhileToken
    */
-  public function getClosingKeyword(): ?EditableToken {
-    if ($this->_closing_keyword->isMissing()) {
-      return null;
-    }
+  public function getClosingKeyword(): EditableToken {
     return TypeAssert\instance_of(
       EditableToken::class,
       $this->_closing_keyword,
@@ -220,10 +216,7 @@ abstract class AlternateLoopStatementGeneratedBase
    * @return EnddeclareToken | EndforToken | EndforeachToken | EndwhileToken
    */
   public function getClosingKeywordx(): EditableToken {
-    return TypeAssert\instance_of(
-      EditableToken::class,
-      $this->_closing_keyword,
-    );
+    return $this->getClosingKeyword();
   }
 
   public function getClosingSemicolonUNTYPED(): EditableNode {
@@ -247,12 +240,9 @@ abstract class AlternateLoopStatementGeneratedBase
   }
 
   /**
-   * @return null | SemicolonToken
+   * @return SemicolonToken
    */
-  public function getClosingSemicolon(): ?SemicolonToken {
-    if ($this->_closing_semicolon->isMissing()) {
-      return null;
-    }
+  public function getClosingSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(
       SemicolonToken::class,
       $this->_closing_semicolon,
@@ -263,9 +253,6 @@ abstract class AlternateLoopStatementGeneratedBase
    * @return SemicolonToken
    */
   public function getClosingSemicolonx(): SemicolonToken {
-    return TypeAssert\instance_of(
-      SemicolonToken::class,
-      $this->_closing_semicolon,
-    );
+    return $this->getClosingSemicolon();
   }
 }

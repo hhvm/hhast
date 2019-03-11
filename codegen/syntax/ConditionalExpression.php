@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5dfe2df1e8bd1cb0f0b3224ccb357d3f>>
+ * @generated SignedSource<<f50691e7e81fb0ae2ebf61aef94583b9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -304,12 +304,11 @@ final class ConditionalExpression extends EditableNode {
    * @return AnonymousFunction | ArrayCreationExpression |
    * ArrayIntrinsicExpression | BinaryExpression | CastExpression |
    * CollectionLiteralExpression | DarrayIntrinsicExpression |
-   * FunctionCallExpression | InclusionExpression | IssetExpression |
-   * LambdaExpression | LiteralExpression | MemberSelectionExpression | null |
+   * FunctionCallExpression | IssetExpression | LambdaExpression |
+   * LiteralExpression | MemberSelectionExpression | null |
    * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
-   * | ScopeResolutionExpression | SubscriptExpression | AbstractToken |
-   * EchoToken | EndOfFileToken | NameToken | UseToken | TupleExpression |
-   * VariableExpression
+   * | ScopeResolutionExpression | SubscriptExpression | NameToken | UseToken |
+   * TupleExpression | VariableExpression
    */
   public function getAlternative(): ?EditableNode {
     if ($this->_alternative->isMissing()) {
@@ -322,12 +321,11 @@ final class ConditionalExpression extends EditableNode {
    * @return AnonymousFunction | ArrayCreationExpression |
    * ArrayIntrinsicExpression | BinaryExpression | CastExpression |
    * CollectionLiteralExpression | DarrayIntrinsicExpression |
-   * FunctionCallExpression | InclusionExpression | IssetExpression |
-   * LambdaExpression | LiteralExpression | MemberSelectionExpression |
-   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
-   * | ScopeResolutionExpression | SubscriptExpression | AbstractToken |
-   * EchoToken | EndOfFileToken | NameToken | UseToken | TupleExpression |
-   * VariableExpression
+   * FunctionCallExpression | IssetExpression | LambdaExpression |
+   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression |
+   * ScopeResolutionExpression | SubscriptExpression | NameToken | UseToken |
+   * TupleExpression | VariableExpression
    */
   public function getAlternativex(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_alternative);

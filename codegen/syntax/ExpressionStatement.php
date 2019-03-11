@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<10fc368e18698f274665cfb7b232b5af>>
+ * @generated SignedSource<<eaf617c427235e1668e0ca104b854c5e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -97,9 +97,9 @@ final class ExpressionStatement extends EditableNode {
    * MemberSelectionExpression | null | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * QualifiedName | SafeMemberSelectionExpression | ScopeResolutionExpression
-   * | SubscriptExpression | CommaToken | ColonToken | EqualEqualEqualToken |
-   * EqualGreaterThanToken | QuestionGreaterThanToken | ConstToken | NameToken
-   * | UseToken | RightBraceToken | VariableExpression |
+   * | SubscriptExpression | RightParenToken | CommaToken | ColonToken |
+   * EqualEqualEqualToken | EqualGreaterThanToken | ConstToken | NameToken |
+   * UseToken | RightBraceToken | VariableExpression |
    * VarrayIntrinsicExpression | XHPExpression | YieldExpression |
    * YieldFromExpression
    */
@@ -121,9 +121,9 @@ final class ExpressionStatement extends EditableNode {
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * QualifiedName | SafeMemberSelectionExpression | ScopeResolutionExpression
-   * | SubscriptExpression | CommaToken | ColonToken | EqualEqualEqualToken |
-   * EqualGreaterThanToken | QuestionGreaterThanToken | ConstToken | NameToken
-   * | UseToken | RightBraceToken | VariableExpression |
+   * | SubscriptExpression | RightParenToken | CommaToken | ColonToken |
+   * EqualEqualEqualToken | EqualGreaterThanToken | ConstToken | NameToken |
+   * UseToken | RightBraceToken | VariableExpression |
    * VarrayIntrinsicExpression | XHPExpression | YieldExpression |
    * YieldFromExpression
    */

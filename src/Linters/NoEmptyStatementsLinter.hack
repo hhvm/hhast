@@ -87,11 +87,7 @@ final class NoEmptyStatementsLinter
       $expr is HHAST\IssetExpression ||
       $expr is HHAST\KeysetIntrinsicExpression ||
       $expr is HHAST\LambdaExpression ||
-      // TODO: Remove when library requires hhvm >= 3.30 and PHP support has been dropped
-      (
-        $expr is HHAST\LiteralExpression &&
-        !($expr->getExpression() is HHAST\ExecutionStringLiteralToken)
-      ) ||
+      $expr is HHAST\LiteralExpression ||
       $expr is HHAST\Missing ||
       (
         $expr is HHAST\ParenthesizedExpression &&

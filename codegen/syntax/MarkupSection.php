@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<93d6c1a8a1db39cee7dee17cbba208ae>>
+ * @generated SignedSource<<7f773ccdd106c56e80c23613ce086a98>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -114,20 +114,26 @@ final class MarkupSection extends EditableNode {
   }
 
   /**
-   * @return null
+   * @return null | QuestionGreaterThanToken
    */
-  public function getPrefix(): ?EditableNode {
+  public function getPrefix(): ?QuestionGreaterThanToken {
     if ($this->_prefix->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_prefix);
+    return TypeAssert\instance_of(
+      QuestionGreaterThanToken::class,
+      $this->_prefix,
+    );
   }
 
   /**
-   * @return
+   * @return QuestionGreaterThanToken
    */
-  public function getPrefixx(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_prefix);
+  public function getPrefixx(): QuestionGreaterThanToken {
+    return TypeAssert\instance_of(
+      QuestionGreaterThanToken::class,
+      $this->_prefix,
+    );
   }
 
   public function getTextUNTYPED(): EditableNode {
@@ -151,9 +157,12 @@ final class MarkupSection extends EditableNode {
   }
 
   /**
-   * @return MarkupToken
+   * @return null | MarkupToken
    */
-  public function getText(): MarkupToken {
+  public function getText(): ?MarkupToken {
+    if ($this->_text->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(MarkupToken::class, $this->_text);
   }
 
@@ -161,7 +170,7 @@ final class MarkupSection extends EditableNode {
    * @return MarkupToken
    */
   public function getTextx(): MarkupToken {
-    return $this->getText();
+    return TypeAssert\instance_of(MarkupToken::class, $this->_text);
   }
 
   public function getSuffixUNTYPED(): EditableNode {
@@ -180,9 +189,12 @@ final class MarkupSection extends EditableNode {
   }
 
   /**
-   * @return MarkupSuffix
+   * @return MarkupSuffix | null
    */
-  public function getSuffix(): MarkupSuffix {
+  public function getSuffix(): ?MarkupSuffix {
+    if ($this->_suffix->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(MarkupSuffix::class, $this->_suffix);
   }
 
@@ -190,7 +202,7 @@ final class MarkupSection extends EditableNode {
    * @return MarkupSuffix
    */
   public function getSuffixx(): MarkupSuffix {
-    return $this->getSuffix();
+    return TypeAssert\instance_of(MarkupSuffix::class, $this->_suffix);
   }
 
   public function getExpressionUNTYPED(): EditableNode {

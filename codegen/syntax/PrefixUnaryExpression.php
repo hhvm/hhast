@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2880329e43b6fc47145c03465a79d7fa>>
+ * @generated SignedSource<<a892d8ebe03ab5f893cc91b1d67579f9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,8 +123,8 @@ final class PrefixUnaryExpression extends EditableNode {
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PipeVariableExpression | PostfixUnaryExpression
    * | PrefixUnaryExpression | QualifiedName | SafeMemberSelectionExpression |
-   * ScopeResolutionExpression | SubscriptExpression | LessThanToken |
-   * EndOfFileToken | NameToken | VariableToken | VariableExpression
+   * ScopeResolutionExpression | SubscriptExpression | EndOfFileToken |
+   * NameToken | VariableToken | VariableExpression
    */
   public function getOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_operand);
@@ -139,8 +139,8 @@ final class PrefixUnaryExpression extends EditableNode {
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PipeVariableExpression | PostfixUnaryExpression
    * | PrefixUnaryExpression | QualifiedName | SafeMemberSelectionExpression |
-   * ScopeResolutionExpression | SubscriptExpression | LessThanToken |
-   * EndOfFileToken | NameToken | VariableToken | VariableExpression
+   * ScopeResolutionExpression | SubscriptExpression | EndOfFileToken |
+   * NameToken | VariableToken | VariableExpression
    */
   public function getOperandx(): EditableNode {
     return $this->getOperand();

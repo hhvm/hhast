@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fc8efd018d57c47d11cb7a7159ba2aa2>>
+ * @generated SignedSource<<bdcea200e76d525b54b31479245d70d1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -557,12 +557,9 @@ final class AlternateIfStatement extends EditableNode {
   }
 
   /**
-   * @return null | EndifToken
+   * @return EndifToken
    */
-  public function getEndifKeyword(): ?EndifToken {
-    if ($this->_endif_keyword->isMissing()) {
-      return null;
-    }
+  public function getEndifKeyword(): EndifToken {
     return TypeAssert\instance_of(EndifToken::class, $this->_endif_keyword);
   }
 
@@ -570,7 +567,7 @@ final class AlternateIfStatement extends EditableNode {
    * @return EndifToken
    */
   public function getEndifKeywordx(): EndifToken {
-    return TypeAssert\instance_of(EndifToken::class, $this->_endif_keyword);
+    return $this->getEndifKeyword();
   }
 
   public function getSemicolonUNTYPED(): EditableNode {
@@ -600,12 +597,9 @@ final class AlternateIfStatement extends EditableNode {
   }
 
   /**
-   * @return null | SemicolonToken
+   * @return SemicolonToken
    */
-  public function getSemicolon(): ?SemicolonToken {
-    if ($this->_semicolon->isMissing()) {
-      return null;
-    }
+  public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 
@@ -613,6 +607,6 @@ final class AlternateIfStatement extends EditableNode {
    * @return SemicolonToken
    */
   public function getSemicolonx(): SemicolonToken {
-    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
+    return $this->getSemicolon();
   }
 }

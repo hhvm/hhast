@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c568d5a3bceb057cdff058dc23b2d47a>>
+ * @generated SignedSource<<58da9b1814a0f3b1b8277ea73401b821>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -102,8 +102,8 @@ final class AsExpression extends EditableNode {
 
   /**
    * @return CollectionLiteralExpression | FunctionCallExpression |
-   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | NameToken | TupleExpression | VariableExpression
+   * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
+   * NameToken | TupleExpression | VariableExpression
    */
   public function getLeftOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_left_operand);
@@ -111,8 +111,8 @@ final class AsExpression extends EditableNode {
 
   /**
    * @return CollectionLiteralExpression | FunctionCallExpression |
-   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | NameToken | TupleExpression | VariableExpression
+   * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
+   * NameToken | TupleExpression | VariableExpression
    */
   public function getLeftOperandx(): EditableNode {
     return $this->getLeftOperand();
@@ -163,20 +163,18 @@ final class AsExpression extends EditableNode {
   }
 
   /**
-   * @return ClosureTypeSpecifier | DictionaryTypeSpecifier |
-   * GenericTypeSpecifier | KeysetTypeSpecifier | NullableTypeSpecifier |
-   * ShapeTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier |
-   * TupleTypeSpecifier | TypeConstant
+   * @return ClosureTypeSpecifier | GenericTypeSpecifier |
+   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
+   * SoftTypeSpecifier | TupleTypeSpecifier | TypeConstant
    */
   public function getRightOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_right_operand);
   }
 
   /**
-   * @return ClosureTypeSpecifier | DictionaryTypeSpecifier |
-   * GenericTypeSpecifier | KeysetTypeSpecifier | NullableTypeSpecifier |
-   * ShapeTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier |
-   * TupleTypeSpecifier | TypeConstant
+   * @return ClosureTypeSpecifier | GenericTypeSpecifier |
+   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
+   * SoftTypeSpecifier | TupleTypeSpecifier | TypeConstant
    */
   public function getRightOperandx(): EditableNode {
     return $this->getRightOperand();

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2601b19293329ebfe91fe11ef4caf62c>>
+ * @generated SignedSource<<742790fdbf71dca3b28fbec04f7684ad>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -102,13 +102,13 @@ final class ListItem extends EditableNode {
    * QualifiedName | ReifiedTypeArgument | SafeMemberSelectionExpression |
    * ScopeResolutionExpression | ShapeExpression | ShapeTypeSpecifier |
    * SimpleTypeSpecifier | SoftTypeSpecifier | StaticDeclarator |
-   * SubscriptExpression | AsToken | ConstToken | NameToken | ReturnToken |
-   * VariableToken | TraitUseAliasItem | TraitUsePrecedenceItem |
-   * TupleExpression | TupleTypeSpecifier | TypeConstant | TypeParameter |
-   * VariableExpression | VariadicParameter | VarrayIntrinsicExpression |
-   * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorIntrinsicExpression
-   * | VectorTypeSpecifier | WhereConstraint | XHPClassAttribute |
-   * XHPExpression | XHPSimpleClassAttribute
+   * SubscriptExpression | ConstToken | NameToken | ReturnToken | VariableToken
+   * | TraitUseAliasItem | TraitUsePrecedenceItem | TupleExpression |
+   * TupleTypeSpecifier | TypeConstant | TypeParameter | VariableExpression |
+   * VariadicParameter | VarrayIntrinsicExpression | VarrayTypeSpecifier |
+   * VectorArrayTypeSpecifier | VectorIntrinsicExpression | VectorTypeSpecifier
+   * | WhereConstraint | XHPClassAttribute | XHPExpression |
+   * XHPSimpleClassAttribute
    */
   public function getItem(): ?EditableNode {
     if ($this->_item->isMissing()) {
@@ -138,13 +138,13 @@ final class ListItem extends EditableNode {
    * ReifiedTypeArgument | SafeMemberSelectionExpression |
    * ScopeResolutionExpression | ShapeExpression | ShapeTypeSpecifier |
    * SimpleTypeSpecifier | SoftTypeSpecifier | StaticDeclarator |
-   * SubscriptExpression | AsToken | ConstToken | NameToken | ReturnToken |
-   * VariableToken | TraitUseAliasItem | TraitUsePrecedenceItem |
-   * TupleExpression | TupleTypeSpecifier | TypeConstant | TypeParameter |
-   * VariableExpression | VariadicParameter | VarrayIntrinsicExpression |
-   * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorIntrinsicExpression
-   * | VectorTypeSpecifier | WhereConstraint | XHPClassAttribute |
-   * XHPExpression | XHPSimpleClassAttribute
+   * SubscriptExpression | ConstToken | NameToken | ReturnToken | VariableToken
+   * | TraitUseAliasItem | TraitUsePrecedenceItem | TupleExpression |
+   * TupleTypeSpecifier | TypeConstant | TypeParameter | VariableExpression |
+   * VariadicParameter | VarrayIntrinsicExpression | VarrayTypeSpecifier |
+   * VectorArrayTypeSpecifier | VectorIntrinsicExpression | VectorTypeSpecifier
+   * | WhereConstraint | XHPClassAttribute | XHPExpression |
+   * XHPSimpleClassAttribute
    */
   public function getItemx(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_item);
