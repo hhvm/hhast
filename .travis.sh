@@ -13,8 +13,8 @@ composer install
 
 hh_client
 
-hhvm vendor/bin/hacktest tests/
+vendor/bin/hacktest tests/
 
 vendor/bin/hh-codegen-verify-signatures codegen/
 
-hhvm bin/hhast-lint
+bin/hhast-lint
