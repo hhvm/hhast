@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c1f5cba34a67cd1832aa02189fda3a2d>>
+ * @generated SignedSource<<7be7698c5293f0112e24e98d6bfc5186>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -121,9 +121,9 @@ final class SubscriptExpression extends EditableNode {
   /**
    * @return ArrayCreationExpression | ArrayIntrinsicExpression |
    * FunctionCallExpression | LiteralExpression | MemberSelectionExpression |
-   * ParenthesizedExpression | PrefixUnaryExpression |
-   * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * SubscriptExpression | RightParenToken | NameToken | VariableExpression
+   * ParenthesizedExpression | SafeMemberSelectionExpression |
+   * ScopeResolutionExpression | SubscriptExpression | RightParenToken |
+   * NameToken | VariableExpression
    */
   public function getReceiver(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_receiver);
@@ -132,9 +132,9 @@ final class SubscriptExpression extends EditableNode {
   /**
    * @return ArrayCreationExpression | ArrayIntrinsicExpression |
    * FunctionCallExpression | LiteralExpression | MemberSelectionExpression |
-   * ParenthesizedExpression | PrefixUnaryExpression |
-   * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * SubscriptExpression | RightParenToken | NameToken | VariableExpression
+   * ParenthesizedExpression | SafeMemberSelectionExpression |
+   * ScopeResolutionExpression | SubscriptExpression | RightParenToken |
+   * NameToken | VariableExpression
    */
   public function getReceiverx(): EditableNode {
     return $this->getReceiver();
@@ -200,7 +200,7 @@ final class SubscriptExpression extends EditableNode {
    * MemberSelectionExpression | null | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * SubscriptExpression | EchoToken | NameToken | ReturnToken |
+   * SubscriptExpression | QuestionGreaterThanToken | EchoToken | NameToken |
    * VariableExpression
    */
   public function getIndex(): ?EditableNode {
@@ -216,7 +216,7 @@ final class SubscriptExpression extends EditableNode {
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * SubscriptExpression | EchoToken | NameToken | ReturnToken |
+   * SubscriptExpression | QuestionGreaterThanToken | EchoToken | NameToken |
    * VariableExpression
    */
   public function getIndexx(): EditableNode {

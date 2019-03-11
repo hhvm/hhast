@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a206f0d48d023573d4912ada22ff2101>>
+ * @generated SignedSource<<e9db6f23760fc669039c1bb68d28b98d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -119,16 +119,16 @@ final class DefineExpression extends EditableNode {
   }
 
   /**
-   * @return DefineToken
+   * @return unknown
    */
-  public function getKeyword(): DefineToken {
-    return TypeAssert\instance_of(DefineToken::class, $this->_keyword);
+  public function getKeyword(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_keyword);
   }
 
   /**
-   * @return DefineToken
+   * @return unknown
    */
-  public function getKeywordx(): DefineToken {
+  public function getKeywordx(): EditableNode {
     return $this->getKeyword();
   }
 
@@ -153,16 +153,16 @@ final class DefineExpression extends EditableNode {
   }
 
   /**
-   * @return LeftParenToken
+   * @return unknown
    */
-  public function getLeftParen(): LeftParenToken {
-    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
+  public function getLeftParen(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_left_paren);
   }
 
   /**
-   * @return LeftParenToken
+   * @return unknown
    */
-  public function getLeftParenx(): LeftParenToken {
+  public function getLeftParenx(): EditableNode {
     return $this->getLeftParen();
   }
 
@@ -187,20 +187,17 @@ final class DefineExpression extends EditableNode {
   }
 
   /**
-   * @return EditableList<EditableNode> | EditableList<LiteralExpression> | null
+   * @return unknown
    */
-  public function getArgumentList(): ?EditableList<EditableNode> {
-    if ($this->_argument_list->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(EditableList::class, $this->_argument_list);
+  public function getArgumentList(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_argument_list);
   }
 
   /**
-   * @return EditableList<EditableNode> | EditableList<LiteralExpression>
+   * @return unknown
    */
-  public function getArgumentListx(): EditableList<EditableNode> {
-    return TypeAssert\instance_of(EditableList::class, $this->_argument_list);
+  public function getArgumentListx(): EditableNode {
+    return $this->getArgumentList();
   }
 
   public function getRightParenUNTYPED(): EditableNode {
@@ -224,16 +221,16 @@ final class DefineExpression extends EditableNode {
   }
 
   /**
-   * @return RightParenToken
+   * @return unknown
    */
-  public function getRightParen(): RightParenToken {
-    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
+  public function getRightParen(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_right_paren);
   }
 
   /**
-   * @return RightParenToken
+   * @return unknown
    */
-  public function getRightParenx(): RightParenToken {
+  public function getRightParenx(): EditableNode {
     return $this->getRightParen();
   }
 }

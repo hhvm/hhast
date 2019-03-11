@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<416419d18dd4c70ce858b3d470b5c01d>>
+ * @generated SignedSource<<375814ab77b6a472f81ac704526d6a22>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -212,8 +212,9 @@ final class ConstructorCall extends EditableNode {
    * EditableList<PipeVariableExpression> | EditableList<PrefixUnaryExpression>
    * | EditableList<ScopeResolutionExpression> | EditableList<ShapeExpression>
    * | EditableList<SubscriptExpression> | EditableList<NameToken> |
-   * EditableList<VariableExpression> | EditableList<VarrayIntrinsicExpression>
-   * | EditableList<VectorIntrinsicExpression> | null
+   * EditableList<TupleExpression> | EditableList<VariableExpression> |
+   * EditableList<VarrayIntrinsicExpression> |
+   * EditableList<VectorIntrinsicExpression> | null
    */
   public function getArgumentList(): ?EditableList<EditableNode> {
     if ($this->_argument_list->isMissing()) {
@@ -239,8 +240,9 @@ final class ConstructorCall extends EditableNode {
    * EditableList<PipeVariableExpression> | EditableList<PrefixUnaryExpression>
    * | EditableList<ScopeResolutionExpression> | EditableList<ShapeExpression>
    * | EditableList<SubscriptExpression> | EditableList<NameToken> |
-   * EditableList<VariableExpression> | EditableList<VarrayIntrinsicExpression>
-   * | EditableList<VectorIntrinsicExpression>
+   * EditableList<TupleExpression> | EditableList<VariableExpression> |
+   * EditableList<VarrayIntrinsicExpression> |
+   * EditableList<VectorIntrinsicExpression>
    */
   public function getArgumentListx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_argument_list);

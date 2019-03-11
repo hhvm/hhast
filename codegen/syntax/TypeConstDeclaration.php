@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<231f160b21423158699ec45c5e9f233a>>
+ * @generated SignedSource<<6661c1a710ae0f730578029426b73300>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class TypeConstDeclaration extends EditableNode {
 
+  private EditableNode $_attribute_spec;
   private EditableNode $_abstract;
   private EditableNode $_keyword;
   private EditableNode $_type_keyword;
@@ -21,6 +22,7 @@ final class TypeConstDeclaration extends EditableNode {
   private EditableNode $_semicolon;
 
   public function __construct(
+    EditableNode $attribute_spec,
     EditableNode $abstract,
     EditableNode $keyword,
     EditableNode $type_keyword,
@@ -32,6 +34,7 @@ final class TypeConstDeclaration extends EditableNode {
     EditableNode $semicolon,
   ) {
     parent::__construct('type_const_declaration');
+    $this->_attribute_spec = $attribute_spec;
     $this->_abstract = $abstract;
     $this->_keyword = $keyword;
     $this->_type_keyword = $type_keyword;
@@ -50,6 +53,13 @@ final class TypeConstDeclaration extends EditableNode {
     int $offset,
     string $source,
   ): this {
+    $attribute_spec = EditableNode::fromJSON(
+      /* UNSAFE_EXPR */ $json['type_const_attribute_spec'],
+      $file,
+      $offset,
+      $source,
+    );
+    $offset += $attribute_spec->getWidth();
     $abstract = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_const_abstract'],
       $file,
@@ -114,6 +124,7 @@ final class TypeConstDeclaration extends EditableNode {
     );
     $offset += $semicolon->getWidth();
     return new static(
+      $attribute_spec,
       $abstract,
       $keyword,
       $type_keyword,
@@ -129,6 +140,7 @@ final class TypeConstDeclaration extends EditableNode {
   <<__Override>>
   public function getChildren(): dict<string, EditableNode> {
     return dict[
+      'attribute_spec' => $this->_attribute_spec,
       'abstract' => $this->_abstract,
       'keyword' => $this->_keyword,
       'type_keyword' => $this->_type_keyword,
@@ -148,6 +160,7 @@ final class TypeConstDeclaration extends EditableNode {
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
+    $attribute_spec = $this->_attribute_spec->rewrite($rewriter, $parents);
     $abstract = $this->_abstract->rewrite($rewriter, $parents);
     $keyword = $this->_keyword->rewrite($rewriter, $parents);
     $type_keyword = $this->_type_keyword->rewrite($rewriter, $parents);
@@ -158,6 +171,7 @@ final class TypeConstDeclaration extends EditableNode {
     $type_specifier = $this->_type_specifier->rewrite($rewriter, $parents);
     $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
     if (
+      $attribute_spec === $this->_attribute_spec &&
       $abstract === $this->_abstract &&
       $keyword === $this->_keyword &&
       $type_keyword === $this->_type_keyword &&
@@ -171,6 +185,7 @@ final class TypeConstDeclaration extends EditableNode {
       return $this;
     }
     return new static(
+      $attribute_spec,
       $abstract,
       $keyword,
       $type_keyword,
@@ -183,6 +198,49 @@ final class TypeConstDeclaration extends EditableNode {
     );
   }
 
+  public function getAttributeSpecUNTYPED(): EditableNode {
+    return $this->_attribute_spec;
+  }
+
+  public function withAttributeSpec(EditableNode $value): this {
+    if ($value === $this->_attribute_spec) {
+      return $this;
+    }
+    return new static(
+      $value,
+      $this->_abstract,
+      $this->_keyword,
+      $this->_type_keyword,
+      $this->_name,
+      $this->_type_parameters,
+      $this->_type_constraint,
+      $this->_equal,
+      $this->_type_specifier,
+      $this->_semicolon,
+    );
+  }
+
+  public function hasAttributeSpec(): bool {
+    return !$this->_attribute_spec->isMissing();
+  }
+
+  /**
+   * @return null
+   */
+  public function getAttributeSpec(): ?EditableNode {
+    if ($this->_attribute_spec->isMissing()) {
+      return null;
+    }
+    return TypeAssert\instance_of(EditableNode::class, $this->_attribute_spec);
+  }
+
+  /**
+   * @return
+   */
+  public function getAttributeSpecx(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_attribute_spec);
+  }
+
   public function getAbstractUNTYPED(): EditableNode {
     return $this->_abstract;
   }
@@ -192,6 +250,7 @@ final class TypeConstDeclaration extends EditableNode {
       return $this;
     }
     return new static(
+      $this->_attribute_spec,
       $value,
       $this->_keyword,
       $this->_type_keyword,
@@ -234,6 +293,7 @@ final class TypeConstDeclaration extends EditableNode {
       return $this;
     }
     return new static(
+      $this->_attribute_spec,
       $this->_abstract,
       $value,
       $this->_type_keyword,
@@ -273,6 +333,7 @@ final class TypeConstDeclaration extends EditableNode {
       return $this;
     }
     return new static(
+      $this->_attribute_spec,
       $this->_abstract,
       $this->_keyword,
       $value,
@@ -312,6 +373,7 @@ final class TypeConstDeclaration extends EditableNode {
       return $this;
     }
     return new static(
+      $this->_attribute_spec,
       $this->_abstract,
       $this->_keyword,
       $this->_type_keyword,
@@ -351,6 +413,7 @@ final class TypeConstDeclaration extends EditableNode {
       return $this;
     }
     return new static(
+      $this->_attribute_spec,
       $this->_abstract,
       $this->_keyword,
       $this->_type_keyword,
@@ -393,6 +456,7 @@ final class TypeConstDeclaration extends EditableNode {
       return $this;
     }
     return new static(
+      $this->_attribute_spec,
       $this->_abstract,
       $this->_keyword,
       $this->_type_keyword,
@@ -441,6 +505,7 @@ final class TypeConstDeclaration extends EditableNode {
       return $this;
     }
     return new static(
+      $this->_attribute_spec,
       $this->_abstract,
       $this->_keyword,
       $this->_type_keyword,
@@ -483,6 +548,7 @@ final class TypeConstDeclaration extends EditableNode {
       return $this;
     }
     return new static(
+      $this->_attribute_spec,
       $this->_abstract,
       $this->_keyword,
       $this->_type_keyword,
@@ -531,6 +597,7 @@ final class TypeConstDeclaration extends EditableNode {
       return $this;
     }
     return new static(
+      $this->_attribute_spec,
       $this->_abstract,
       $this->_keyword,
       $this->_type_keyword,

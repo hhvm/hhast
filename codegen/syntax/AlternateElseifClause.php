@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<51c625f0a4f326cb519cbe6810d2fac0>>
+ * @generated SignedSource<<a97f9ad85b11a3221b625288e2ec9bad>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -163,16 +163,16 @@ final class AlternateElseifClause
   }
 
   /**
-   * @return unknown
+   * @return ElseifToken
    */
-  public function getKeyword(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_keyword);
+  public function getKeyword(): ElseifToken {
+    return TypeAssert\instance_of(ElseifToken::class, $this->_keyword);
   }
 
   /**
-   * @return unknown
+   * @return ElseifToken
    */
-  public function getKeywordx(): EditableNode {
+  public function getKeywordx(): ElseifToken {
     return $this->getKeyword();
   }
 
@@ -199,16 +199,16 @@ final class AlternateElseifClause
   }
 
   /**
-   * @return unknown
+   * @return LeftParenToken
    */
-  public function getLeftParen(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_left_paren);
+  public function getLeftParen(): LeftParenToken {
+    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   /**
-   * @return unknown
+   * @return LeftParenToken
    */
-  public function getLeftParenx(): EditableNode {
+  public function getLeftParenx(): LeftParenToken {
     return $this->getLeftParen();
   }
 
@@ -235,16 +235,16 @@ final class AlternateElseifClause
   }
 
   /**
-   * @return unknown
+   * @return BinaryExpression
    */
-  public function getCondition(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_condition);
+  public function getCondition(): BinaryExpression {
+    return TypeAssert\instance_of(BinaryExpression::class, $this->_condition);
   }
 
   /**
-   * @return unknown
+   * @return BinaryExpression
    */
-  public function getConditionx(): EditableNode {
+  public function getConditionx(): BinaryExpression {
     return $this->getCondition();
   }
 
@@ -271,16 +271,16 @@ final class AlternateElseifClause
   }
 
   /**
-   * @return unknown
+   * @return RightParenToken
    */
-  public function getRightParen(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_right_paren);
+  public function getRightParen(): RightParenToken {
+    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   /**
-   * @return unknown
+   * @return RightParenToken
    */
-  public function getRightParenx(): EditableNode {
+  public function getRightParenx(): RightParenToken {
     return $this->getRightParen();
   }
 
@@ -307,16 +307,16 @@ final class AlternateElseifClause
   }
 
   /**
-   * @return unknown
+   * @return ColonToken
    */
-  public function getColon(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_colon);
+  public function getColon(): ColonToken {
+    return TypeAssert\instance_of(ColonToken::class, $this->_colon);
   }
 
   /**
-   * @return unknown
+   * @return ColonToken
    */
-  public function getColonx(): EditableNode {
+  public function getColonx(): ColonToken {
     return $this->getColon();
   }
 
@@ -343,16 +343,16 @@ final class AlternateElseifClause
   }
 
   /**
-   * @return unknown
+   * @return EditableList<EditableNode>
    */
-  public function getStatement(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_statement);
+  public function getStatement(): EditableList<EditableNode> {
+    return TypeAssert\instance_of(EditableList::class, $this->_statement);
   }
 
   /**
-   * @return unknown
+   * @return EditableList<EditableNode>
    */
-  public function getStatementx(): EditableNode {
+  public function getStatementx(): EditableList<EditableNode> {
     return $this->getStatement();
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<825951051019b4bc8dbe749ff7ed713c>>
+ * @generated SignedSource<<ff8e39b67842e7ecd21c7c2ddbd7a64c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -153,9 +153,12 @@ final class ArrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @return LeftParenToken
+   * @return null | LeftParenToken
    */
-  public function getLeftParen(): LeftParenToken {
+  public function getLeftParen(): ?LeftParenToken {
+    if ($this->_left_paren->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
@@ -163,7 +166,7 @@ final class ArrayIntrinsicExpression extends EditableNode {
    * @return LeftParenToken
    */
   public function getLeftParenx(): LeftParenToken {
-    return $this->getLeftParen();
+    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   public function getMembersUNTYPED(): EditableNode {
@@ -200,7 +203,8 @@ final class ArrayIntrinsicExpression extends EditableNode {
    * EditableList<ScopeResolutionExpression> |
    * EditableList<SubscriptExpression> | EditableList<NameToken> |
    * EditableList<TupleExpression> | EditableList<VariableExpression> |
-   * EditableList<VectorIntrinsicExpression> | null
+   * EditableList<VectorIntrinsicExpression> | EditableList<XHPExpression> |
+   * null
    */
   public function getMembers(): ?EditableList<EditableNode> {
     if ($this->_members->isMissing()) {
@@ -223,7 +227,7 @@ final class ArrayIntrinsicExpression extends EditableNode {
    * EditableList<ScopeResolutionExpression> |
    * EditableList<SubscriptExpression> | EditableList<NameToken> |
    * EditableList<TupleExpression> | EditableList<VariableExpression> |
-   * EditableList<VectorIntrinsicExpression>
+   * EditableList<VectorIntrinsicExpression> | EditableList<XHPExpression>
    */
   public function getMembersx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_members);
@@ -250,9 +254,12 @@ final class ArrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @return RightParenToken
+   * @return null | RightParenToken
    */
-  public function getRightParen(): RightParenToken {
+  public function getRightParen(): ?RightParenToken {
+    if ($this->_right_paren->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
@@ -260,6 +267,6 @@ final class ArrayIntrinsicExpression extends EditableNode {
    * @return RightParenToken
    */
   public function getRightParenx(): RightParenToken {
-    return $this->getRightParen();
+    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 }

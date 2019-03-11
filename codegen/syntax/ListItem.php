@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<aa1a48c6341c3be98567eea23f97ed97>>
+ * @generated SignedSource<<2601b19293329ebfe91fe11ef4caf62c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -88,21 +88,22 @@ final class ListItem extends EditableNode {
    * ClosureParameterTypeSpecifier | ClosureTypeSpecifier |
    * CollectionLiteralExpression | ConditionalExpression | ConstantDeclarator |
    * ConstructorCall | DarrayIntrinsicExpression | DarrayTypeSpecifier |
-   * DecoratedExpression | DefineExpression | DictionaryIntrinsicExpression |
+   * DecoratedExpression | DictionaryIntrinsicExpression |
    * DictionaryTypeSpecifier | ElementInitializer | EmptyExpression |
    * EvalExpression | FieldInitializer | FieldSpecifier |
-   * FunctionCallExpression | GenericTypeSpecifier | InstanceofExpression |
-   * IsExpression | IssetExpression | KeysetIntrinsicExpression |
-   * KeysetTypeSpecifier | LambdaExpression | ListExpression |
-   * LiteralExpression | MapArrayTypeSpecifier | MemberSelectionExpression |
-   * null | NamespaceUseClause | NullableTypeSpecifier |
-   * ObjectCreationExpression | ParameterDeclaration | ParenthesizedExpression
-   * | PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression
-   * | PropertyDeclarator | QualifiedName | ReifiedTypeArgument |
-   * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * ShapeExpression | ShapeTypeSpecifier | SimpleTypeSpecifier |
-   * StaticDeclarator | SubscriptExpression | ConstToken | NameToken |
-   * ReturnToken | VariableToken | TraitUseAliasItem | TraitUsePrecedenceItem |
+   * FunctionCallExpression | FunctionCallWithTypeArgumentsExpression |
+   * GenericTypeSpecifier | InstanceofExpression | IsExpression |
+   * IssetExpression | KeysetIntrinsicExpression | KeysetTypeSpecifier |
+   * LambdaExpression | ListExpression | LiteralExpression |
+   * MapArrayTypeSpecifier | MemberSelectionExpression | null |
+   * NamespaceUseClause | NullableTypeSpecifier | ObjectCreationExpression |
+   * ParameterDeclaration | ParenthesizedExpression | PipeVariableExpression |
+   * PostfixUnaryExpression | PrefixUnaryExpression | PropertyDeclarator |
+   * QualifiedName | ReifiedTypeArgument | SafeMemberSelectionExpression |
+   * ScopeResolutionExpression | ShapeExpression | ShapeTypeSpecifier |
+   * SimpleTypeSpecifier | SoftTypeSpecifier | StaticDeclarator |
+   * SubscriptExpression | AsToken | ConstToken | NameToken | ReturnToken |
+   * VariableToken | TraitUseAliasItem | TraitUsePrecedenceItem |
    * TupleExpression | TupleTypeSpecifier | TypeConstant | TypeParameter |
    * VariableExpression | VariadicParameter | VarrayIntrinsicExpression |
    * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorIntrinsicExpression
@@ -123,25 +124,27 @@ final class ListItem extends EditableNode {
    * ClosureParameterTypeSpecifier | ClosureTypeSpecifier |
    * CollectionLiteralExpression | ConditionalExpression | ConstantDeclarator |
    * ConstructorCall | DarrayIntrinsicExpression | DarrayTypeSpecifier |
-   * DecoratedExpression | DefineExpression | DictionaryIntrinsicExpression |
+   * DecoratedExpression | DictionaryIntrinsicExpression |
    * DictionaryTypeSpecifier | ElementInitializer | EmptyExpression |
    * EvalExpression | FieldInitializer | FieldSpecifier |
-   * FunctionCallExpression | GenericTypeSpecifier | InstanceofExpression |
-   * IsExpression | IssetExpression | KeysetIntrinsicExpression |
-   * KeysetTypeSpecifier | LambdaExpression | ListExpression |
-   * LiteralExpression | MapArrayTypeSpecifier | MemberSelectionExpression |
-   * NamespaceUseClause | NullableTypeSpecifier | ObjectCreationExpression |
-   * ParameterDeclaration | ParenthesizedExpression | PipeVariableExpression |
-   * PostfixUnaryExpression | PrefixUnaryExpression | PropertyDeclarator |
-   * QualifiedName | ReifiedTypeArgument | SafeMemberSelectionExpression |
+   * FunctionCallExpression | FunctionCallWithTypeArgumentsExpression |
+   * GenericTypeSpecifier | InstanceofExpression | IsExpression |
+   * IssetExpression | KeysetIntrinsicExpression | KeysetTypeSpecifier |
+   * LambdaExpression | ListExpression | LiteralExpression |
+   * MapArrayTypeSpecifier | MemberSelectionExpression | NamespaceUseClause |
+   * NullableTypeSpecifier | ObjectCreationExpression | ParameterDeclaration |
+   * ParenthesizedExpression | PipeVariableExpression | PostfixUnaryExpression
+   * | PrefixUnaryExpression | PropertyDeclarator | QualifiedName |
+   * ReifiedTypeArgument | SafeMemberSelectionExpression |
    * ScopeResolutionExpression | ShapeExpression | ShapeTypeSpecifier |
-   * SimpleTypeSpecifier | StaticDeclarator | SubscriptExpression | ConstToken
-   * | NameToken | ReturnToken | VariableToken | TraitUseAliasItem |
-   * TraitUsePrecedenceItem | TupleExpression | TupleTypeSpecifier |
-   * TypeConstant | TypeParameter | VariableExpression | VariadicParameter |
-   * VarrayIntrinsicExpression | VarrayTypeSpecifier | VectorArrayTypeSpecifier
-   * | VectorIntrinsicExpression | VectorTypeSpecifier | WhereConstraint |
-   * XHPClassAttribute | XHPExpression | XHPSimpleClassAttribute
+   * SimpleTypeSpecifier | SoftTypeSpecifier | StaticDeclarator |
+   * SubscriptExpression | AsToken | ConstToken | NameToken | ReturnToken |
+   * VariableToken | TraitUseAliasItem | TraitUsePrecedenceItem |
+   * TupleExpression | TupleTypeSpecifier | TypeConstant | TypeParameter |
+   * VariableExpression | VariadicParameter | VarrayIntrinsicExpression |
+   * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorIntrinsicExpression
+   * | VectorTypeSpecifier | WhereConstraint | XHPClassAttribute |
+   * XHPExpression | XHPSimpleClassAttribute
    */
   public function getItemx(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_item);

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e904ac97ed2c3233a18a5c4fd5eccc84>>
+ * @generated SignedSource<<9e38dfe326411852ce012e67a60406ee>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -387,9 +387,12 @@ final class AlternateSwitchStatement
   }
 
   /**
-   * @return EditableList<EditableNode>
+   * @return EditableList<EditableNode> | null
    */
-  public function getSections(): EditableList<EditableNode> {
+  public function getSections(): ?EditableList<EditableNode> {
+    if ($this->_sections->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EditableList::class, $this->_sections);
   }
 
@@ -397,7 +400,7 @@ final class AlternateSwitchStatement
    * @return EditableList<EditableNode>
    */
   public function getSectionsx(): EditableList<EditableNode> {
-    return $this->getSections();
+    return TypeAssert\instance_of(EditableList::class, $this->_sections);
   }
 
   public function getClosingEndswitchUNTYPED(): EditableNode {

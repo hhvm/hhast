@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e4ab6b26466bfb822088d0a148a29712>>
+ * @generated SignedSource<<ab197409262270cb0125e5ae0d246461>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -231,8 +231,7 @@ final class CastExpression extends EditableNode {
    * KeysetIntrinsicExpression | LiteralExpression | MemberSelectionExpression
    * | ObjectCreationExpression | ParenthesizedExpression |
    * PostfixUnaryExpression | PrefixUnaryExpression | ScopeResolutionExpression
-   * | SubscriptExpression | NameToken | VariableExpression |
-   * VectorIntrinsicExpression | XHPExpression
+   * | SubscriptExpression | NameToken | VariableExpression | XHPExpression
    */
   public function getOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_operand);
@@ -245,8 +244,7 @@ final class CastExpression extends EditableNode {
    * KeysetIntrinsicExpression | LiteralExpression | MemberSelectionExpression
    * | ObjectCreationExpression | ParenthesizedExpression |
    * PostfixUnaryExpression | PrefixUnaryExpression | ScopeResolutionExpression
-   * | SubscriptExpression | NameToken | VariableExpression |
-   * VectorIntrinsicExpression | XHPExpression
+   * | SubscriptExpression | NameToken | VariableExpression | XHPExpression
    */
   public function getOperandx(): EditableNode {
     return $this->getOperand();

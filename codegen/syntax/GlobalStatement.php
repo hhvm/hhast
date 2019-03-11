@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<975e872c87c59506997082b79c70aa96>>
+ * @generated SignedSource<<b91636090be6db8c8ed5d91f4a0c9fc0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -130,16 +130,16 @@ final class GlobalStatement extends EditableNode {
   }
 
   /**
-   * @return EditableList<PrefixUnaryExpression> | EditableList<VariableToken>
+   * @return EditableList<VariableToken>
    */
-  public function getVariables(): EditableList<EditableNode> {
+  public function getVariables(): EditableList<VariableToken> {
     return TypeAssert\instance_of(EditableList::class, $this->_variables);
   }
 
   /**
-   * @return EditableList<PrefixUnaryExpression> | EditableList<VariableToken>
+   * @return EditableList<VariableToken>
    */
-  public function getVariablesx(): EditableList<EditableNode> {
+  public function getVariablesx(): EditableList<VariableToken> {
     return $this->getVariables();
   }
 

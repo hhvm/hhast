@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5c20de49a506c79e0807dede9d644310>>
+ * @generated SignedSource<<a836fbe55df3881d3c77053f3b69f970>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -132,9 +132,8 @@ final class BracedExpression extends EditableNode {
   /**
    * @return ArrayIntrinsicExpression | BinaryExpression |
    * CollectionLiteralExpression | FunctionCallExpression | LiteralExpression |
-   * MemberSelectionExpression | ObjectCreationExpression |
-   * PrefixUnaryExpression | SubscriptExpression | NameToken |
-   * VariableExpression
+   * MemberSelectionExpression | ObjectCreationExpression | NameToken |
+   * RightBraceToken | VariableExpression
    */
   public function getExpression(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_expression);
@@ -143,9 +142,8 @@ final class BracedExpression extends EditableNode {
   /**
    * @return ArrayIntrinsicExpression | BinaryExpression |
    * CollectionLiteralExpression | FunctionCallExpression | LiteralExpression |
-   * MemberSelectionExpression | ObjectCreationExpression |
-   * PrefixUnaryExpression | SubscriptExpression | NameToken |
-   * VariableExpression
+   * MemberSelectionExpression | ObjectCreationExpression | NameToken |
+   * RightBraceToken | VariableExpression
    */
   public function getExpressionx(): EditableNode {
     return $this->getExpression();
@@ -167,9 +165,12 @@ final class BracedExpression extends EditableNode {
   }
 
   /**
-   * @return RightBraceToken
+   * @return null | RightBraceToken
    */
-  public function getRightBrace(): RightBraceToken {
+  public function getRightBrace(): ?RightBraceToken {
+    if ($this->_right_brace->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
   }
 
@@ -177,6 +178,6 @@ final class BracedExpression extends EditableNode {
    * @return RightBraceToken
    */
   public function getRightBracex(): RightBraceToken {
-    return $this->getRightBrace();
+    return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
   }
 }

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b929465cc87937bd8af6596b3a42b572>>
+ * @generated SignedSource<<a3df60ab8c0fcdf6a3b24c6ec86e5adc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -194,7 +194,7 @@ final class CollectionLiteralExpression extends EditableNode {
    * EditableList<ElementInitializer> | EditableList<FunctionCallExpression> |
    * EditableList<LambdaExpression> | EditableList<LiteralExpression> |
    * EditableList<?EditableNode> | EditableList<ObjectCreationExpression> |
-   * EditableList<ScopeResolutionExpression> |
+   * EditableList<ScopeResolutionExpression> | EditableList<ShapeExpression> |
    * EditableList<SubscriptExpression> | EditableList<EditableToken> |
    * EditableList<NameToken> | EditableList<ReturnToken> |
    * EditableList<TupleExpression> | EditableList<VariableExpression> |
@@ -215,7 +215,7 @@ final class CollectionLiteralExpression extends EditableNode {
    * EditableList<ElementInitializer> | EditableList<FunctionCallExpression> |
    * EditableList<LambdaExpression> | EditableList<LiteralExpression> |
    * EditableList<?EditableNode> | EditableList<ObjectCreationExpression> |
-   * EditableList<ScopeResolutionExpression> |
+   * EditableList<ScopeResolutionExpression> | EditableList<ShapeExpression> |
    * EditableList<SubscriptExpression> | EditableList<EditableToken> |
    * EditableList<NameToken> | EditableList<ReturnToken> |
    * EditableList<TupleExpression> | EditableList<VariableExpression> |

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e95c4222dd40e157cad2bb63f56d20f8>>
+ * @generated SignedSource<<fc8efd018d57c47d11cb7a7159ba2aa2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -465,20 +465,20 @@ final class AlternateIfStatement extends EditableNode {
   }
 
   /**
-   * @return null
+   * @return EditableList<EditableNode> | null
    */
-  public function getElseifClauses(): ?EditableNode {
+  public function getElseifClauses(): ?EditableList<EditableNode> {
     if ($this->_elseif_clauses->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_elseif_clauses);
+    return TypeAssert\instance_of(EditableList::class, $this->_elseif_clauses);
   }
 
   /**
-   * @return
+   * @return EditableList<EditableNode>
    */
-  public function getElseifClausesx(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_elseif_clauses);
+  public function getElseifClausesx(): EditableList<EditableNode> {
+    return TypeAssert\instance_of(EditableList::class, $this->_elseif_clauses);
   }
 
   public function getElseClauseUNTYPED(): EditableNode {
@@ -557,9 +557,12 @@ final class AlternateIfStatement extends EditableNode {
   }
 
   /**
-   * @return EndifToken
+   * @return null | EndifToken
    */
-  public function getEndifKeyword(): EndifToken {
+  public function getEndifKeyword(): ?EndifToken {
+    if ($this->_endif_keyword->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EndifToken::class, $this->_endif_keyword);
   }
 
@@ -567,7 +570,7 @@ final class AlternateIfStatement extends EditableNode {
    * @return EndifToken
    */
   public function getEndifKeywordx(): EndifToken {
-    return $this->getEndifKeyword();
+    return TypeAssert\instance_of(EndifToken::class, $this->_endif_keyword);
   }
 
   public function getSemicolonUNTYPED(): EditableNode {
@@ -597,9 +600,12 @@ final class AlternateIfStatement extends EditableNode {
   }
 
   /**
-   * @return SemicolonToken
+   * @return null | SemicolonToken
    */
-  public function getSemicolon(): SemicolonToken {
+  public function getSemicolon(): ?SemicolonToken {
+    if ($this->_semicolon->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 
@@ -607,6 +613,6 @@ final class AlternateIfStatement extends EditableNode {
    * @return SemicolonToken
    */
   public function getSemicolonx(): SemicolonToken {
-    return $this->getSemicolon();
+    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 }

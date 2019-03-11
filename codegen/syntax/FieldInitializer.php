@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c68a721cac7c0652fecc000b12104323>>
+ * @generated SignedSource<<1868803bcd0157b1817b8e9c95ad4639>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -161,20 +161,20 @@ final class FieldInitializer extends EditableNode {
   }
 
   /**
-   * @return ArrayIntrinsicExpression | BinaryExpression | LambdaExpression |
-   * LiteralExpression | ObjectCreationExpression | ScopeResolutionExpression |
-   * SubscriptExpression | NameToken | VariableExpression |
-   * VectorIntrinsicExpression
+   * @return ArrayIntrinsicExpression | BinaryExpression |
+   * DarrayIntrinsicExpression | LambdaExpression | LiteralExpression |
+   * ObjectCreationExpression | ScopeResolutionExpression | SubscriptExpression
+   * | NameToken | VariableExpression | VectorIntrinsicExpression
    */
   public function getValue(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_value);
   }
 
   /**
-   * @return ArrayIntrinsicExpression | BinaryExpression | LambdaExpression |
-   * LiteralExpression | ObjectCreationExpression | ScopeResolutionExpression |
-   * SubscriptExpression | NameToken | VariableExpression |
-   * VectorIntrinsicExpression
+   * @return ArrayIntrinsicExpression | BinaryExpression |
+   * DarrayIntrinsicExpression | LambdaExpression | LiteralExpression |
+   * ObjectCreationExpression | ScopeResolutionExpression | SubscriptExpression
+   * | NameToken | VariableExpression | VectorIntrinsicExpression
    */
   public function getValuex(): EditableNode {
     return $this->getValue();

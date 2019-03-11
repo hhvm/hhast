@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a93baed45640e78fde27934fb180b229>>
+ * @generated SignedSource<<85431db07f52535d081d8c817f387268>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -145,14 +145,16 @@ final class FunctionCallWithTypeArgumentsExpression extends EditableNode {
   }
 
   /**
-   * @return MemberSelectionExpression | ScopeResolutionExpression | NameToken
+   * @return MemberSelectionExpression | QualifiedName |
+   * ScopeResolutionExpression | NameToken
    */
   public function getReceiver(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_receiver);
   }
 
   /**
-   * @return MemberSelectionExpression | ScopeResolutionExpression | NameToken
+   * @return MemberSelectionExpression | QualifiedName |
+   * ScopeResolutionExpression | NameToken
    */
   public function getReceiverx(): EditableNode {
     return $this->getReceiver();
@@ -215,9 +217,12 @@ final class FunctionCallWithTypeArgumentsExpression extends EditableNode {
   }
 
   /**
-   * @return LeftParenToken
+   * @return null | LeftParenToken
    */
-  public function getLeftParen(): LeftParenToken {
+  public function getLeftParen(): ?LeftParenToken {
+    if ($this->_left_paren->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
@@ -225,7 +230,7 @@ final class FunctionCallWithTypeArgumentsExpression extends EditableNode {
    * @return LeftParenToken
    */
   public function getLeftParenx(): LeftParenToken {
-    return $this->getLeftParen();
+    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   public function getArgumentListUNTYPED(): EditableNode {
@@ -251,10 +256,12 @@ final class FunctionCallWithTypeArgumentsExpression extends EditableNode {
 
   /**
    * @return EditableList<EditableNode> | EditableList<FunctionCallExpression>
-   * | EditableList<LiteralExpression> | EditableList<ObjectCreationExpression>
-   * | EditableList<TupleExpression> | EditableList<VariableExpression> | null
+   * | EditableList<LiteralExpression> | EditableList<?EditableNode> |
+   * EditableList<ObjectCreationExpression> | EditableList<SubscriptExpression>
+   * | EditableList<AsToken> | EditableList<TupleExpression> |
+   * EditableList<VariableExpression> | null
    */
-  public function getArgumentList(): ?EditableList<EditableNode> {
+  public function getArgumentList(): ?EditableList<?EditableNode> {
     if ($this->_argument_list->isMissing()) {
       return null;
     }
@@ -263,10 +270,12 @@ final class FunctionCallWithTypeArgumentsExpression extends EditableNode {
 
   /**
    * @return EditableList<EditableNode> | EditableList<FunctionCallExpression>
-   * | EditableList<LiteralExpression> | EditableList<ObjectCreationExpression>
-   * | EditableList<TupleExpression> | EditableList<VariableExpression>
+   * | EditableList<LiteralExpression> | EditableList<?EditableNode> |
+   * EditableList<ObjectCreationExpression> | EditableList<SubscriptExpression>
+   * | EditableList<AsToken> | EditableList<TupleExpression> |
+   * EditableList<VariableExpression>
    */
-  public function getArgumentListx(): EditableList<EditableNode> {
+  public function getArgumentListx(): EditableList<?EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_argument_list);
   }
 
@@ -292,9 +301,12 @@ final class FunctionCallWithTypeArgumentsExpression extends EditableNode {
   }
 
   /**
-   * @return RightParenToken
+   * @return null | RightParenToken
    */
-  public function getRightParen(): RightParenToken {
+  public function getRightParen(): ?RightParenToken {
+    if ($this->_right_paren->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
@@ -302,6 +314,6 @@ final class FunctionCallWithTypeArgumentsExpression extends EditableNode {
    * @return RightParenToken
    */
   public function getRightParenx(): RightParenToken {
-    return $this->getRightParen();
+    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 }

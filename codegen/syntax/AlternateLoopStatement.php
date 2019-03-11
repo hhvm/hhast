@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c65327b3d394256107f4a9b6a1e997bb>>
+ * @generated SignedSource<<6702da5f01b8365225e8a28aa5c8cc8a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -166,9 +166,12 @@ abstract class AlternateLoopStatementGeneratedBase
   }
 
   /**
-   * @return EditableList<EditableNode>
+   * @return EditableList<EditableNode> | null
    */
-  public function getStatements(): EditableList<EditableNode> {
+  public function getStatements(): ?EditableList<EditableNode> {
+    if ($this->_statements->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EditableList::class, $this->_statements);
   }
 
@@ -176,7 +179,7 @@ abstract class AlternateLoopStatementGeneratedBase
    * @return EditableList<EditableNode>
    */
   public function getStatementsx(): EditableList<EditableNode> {
-    return $this->getStatements();
+    return TypeAssert\instance_of(EditableList::class, $this->_statements);
   }
 
   public function getClosingKeywordUNTYPED(): EditableNode {
@@ -200,9 +203,13 @@ abstract class AlternateLoopStatementGeneratedBase
   }
 
   /**
-   * @return EnddeclareToken | EndforToken | EndforeachToken | EndwhileToken
+   * @return null | EnddeclareToken | EndforToken | EndforeachToken |
+   * EndwhileToken
    */
-  public function getClosingKeyword(): EditableToken {
+  public function getClosingKeyword(): ?EditableToken {
+    if ($this->_closing_keyword->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(
       EditableToken::class,
       $this->_closing_keyword,
@@ -213,7 +220,10 @@ abstract class AlternateLoopStatementGeneratedBase
    * @return EnddeclareToken | EndforToken | EndforeachToken | EndwhileToken
    */
   public function getClosingKeywordx(): EditableToken {
-    return $this->getClosingKeyword();
+    return TypeAssert\instance_of(
+      EditableToken::class,
+      $this->_closing_keyword,
+    );
   }
 
   public function getClosingSemicolonUNTYPED(): EditableNode {
@@ -237,9 +247,12 @@ abstract class AlternateLoopStatementGeneratedBase
   }
 
   /**
-   * @return SemicolonToken
+   * @return null | SemicolonToken
    */
-  public function getClosingSemicolon(): SemicolonToken {
+  public function getClosingSemicolon(): ?SemicolonToken {
+    if ($this->_closing_semicolon->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(
       SemicolonToken::class,
       $this->_closing_semicolon,
@@ -250,6 +263,9 @@ abstract class AlternateLoopStatementGeneratedBase
    * @return SemicolonToken
    */
   public function getClosingSemicolonx(): SemicolonToken {
-    return $this->getClosingSemicolon();
+    return TypeAssert\instance_of(
+      SemicolonToken::class,
+      $this->_closing_semicolon,
+    );
   }
 }

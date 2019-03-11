@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<71387cb720cd4354bf18866f7ff7943c>>
+ * @generated SignedSource<<30423c376927a892a73d34db67d4f684>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -103,9 +103,9 @@ final class MemberSelectionExpression extends EditableNode {
   /**
    * @return FunctionCallExpression | MemberSelectionExpression |
    * ObjectCreationExpression | ParenthesizedExpression |
-   * PipeVariableExpression | PrefixUnaryExpression |
-   * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * SubscriptExpression | NameToken | VariableExpression
+   * PipeVariableExpression | SafeMemberSelectionExpression |
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * VariableExpression
    */
   public function getObject(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_object);
@@ -114,9 +114,9 @@ final class MemberSelectionExpression extends EditableNode {
   /**
    * @return FunctionCallExpression | MemberSelectionExpression |
    * ObjectCreationExpression | ParenthesizedExpression |
-   * PipeVariableExpression | PrefixUnaryExpression |
-   * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * SubscriptExpression | NameToken | VariableExpression
+   * PipeVariableExpression | SafeMemberSelectionExpression |
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * VariableExpression
    */
   public function getObjectx(): EditableNode {
     return $this->getObject();
@@ -170,16 +170,14 @@ final class MemberSelectionExpression extends EditableNode {
   }
 
   /**
-   * @return BracedExpression | PrefixUnaryExpression | XHPClassNameToken |
-   * NameToken | VariableToken
+   * @return BracedExpression | XHPClassNameToken | NameToken | VariableToken
    */
   public function getName(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_name);
   }
 
   /**
-   * @return BracedExpression | PrefixUnaryExpression | XHPClassNameToken |
-   * NameToken | VariableToken
+   * @return BracedExpression | XHPClassNameToken | NameToken | VariableToken
    */
   public function getNamex(): EditableNode {
     return $this->getName();

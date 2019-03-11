@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<abd3396e38d385219b6cd50b688a45b4>>
+ * @generated SignedSource<<7e4227d1e1476866f4673dcdab2ddc77>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -174,6 +174,7 @@ class TokenClassMap {
     'name' => HHAST\NameToken::class,
     'nowdoc_string_literal' => HHAST\NowdocStringLiteralToken::class,
     'octal_literal' => HHAST\OctalLiteralToken::class,
+    'PU_atom' => HHAST\PUAtomToken::class,
     'single_quoted_string_literal' =>
       HHAST\SingleQuotedStringLiteralToken::class,
     'string_literal_body' => HHAST\StringLiteralBodyToken::class,

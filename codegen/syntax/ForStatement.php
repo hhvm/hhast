@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eba123b412497c841a6d65536198f617>>
+ * @generated SignedSource<<77c3591caf55121b09c649412a9752b2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -465,7 +465,7 @@ final class ForStatement
   }
 
   /**
-   * @return EditableList<BinaryExpression> |
+   * @return EditableList<BinaryExpression> | EditableList<EditableNode> |
    * EditableList<FunctionCallExpression> |
    * EditableList<PostfixUnaryExpression> | EditableList<PrefixUnaryExpression>
    * | null
@@ -478,7 +478,7 @@ final class ForStatement
   }
 
   /**
-   * @return EditableList<BinaryExpression> |
+   * @return EditableList<BinaryExpression> | EditableList<EditableNode> |
    * EditableList<FunctionCallExpression> |
    * EditableList<PostfixUnaryExpression> | EditableList<PrefixUnaryExpression>
    */

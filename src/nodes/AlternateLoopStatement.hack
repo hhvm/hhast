@@ -12,7 +12,7 @@ namespace Facebook\HHAST;
 
 final class AlternateLoopStatement extends AlternateLoopStatementGeneratedBase {
   <<__Override>>
-  public function getBody(): EditableNode {
+  public function getBody(): ?EditableNode {
     return $this->getStatements();
   }
 

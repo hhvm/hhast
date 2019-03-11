@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<71ad2d182477051667d80c3fe1574e27>>
+ * @generated SignedSource<<97c09218068bd067c5a8a836707d384d>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -524,6 +524,55 @@ function editable_node_from_json(
       );
     case 'pipe_variable':
       return HHAST\PipeVariableExpression::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
+    case 'pocket_atom':
+      return HHAST\PocketAtomExpression::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
+    case 'pocket_atom_mapping':
+      return HHAST\PocketAtomMappingDeclaration::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
+    case 'pocket_enum_declaration':
+      return HHAST\PocketEnumDeclaration::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
+    case 'pocket_field_type_declaration':
+      return HHAST\PocketFieldTypeDeclaration::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
+    case 'pocket_field_type_expr_declaration':
+      return HHAST\PocketFieldTypeExprDeclaration::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
+    case 'pocket_mapping_id_declaration':
+      return HHAST\PocketMappingIdDeclaration::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
+    case 'pocket_mapping_type_declaration':
+      return HHAST\PocketMappingTypeDeclaration::fromJSON(
         $json,
         $file,
         $offset,

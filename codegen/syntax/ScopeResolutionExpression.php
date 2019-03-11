@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0df28550c3acffb7dc831baf5157d0e5>>
+ * @generated SignedSource<<d16f6ccb587648979bb6a09eda4732a6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -165,16 +165,14 @@ final class ScopeResolutionExpression extends EditableNode {
   }
 
   /**
-   * @return BracedExpression | PrefixUnaryExpression | ClassToken | NameToken
-   * | VariableToken
+   * @return BracedExpression | ClassToken | NameToken | VariableToken
    */
   public function getName(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_name);
   }
 
   /**
-   * @return BracedExpression | PrefixUnaryExpression | ClassToken | NameToken
-   * | VariableToken
+   * @return BracedExpression | ClassToken | NameToken | VariableToken
    */
   public function getNamex(): EditableNode {
     return $this->getName();
