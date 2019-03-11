@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<acd6d37f2b2e1e4d1da9f1bdd2815c5e>>
+ * @generated SignedSource<<85c3bad47a83fa8b1c1349363b869bb6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -73,8 +73,13 @@ final class MethodishTraitResolution extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
-    return
-      new static($attribute, $function_decl_header, $equal, $name, $semicolon);
+    return new static(
+      $attribute,
+      $function_decl_header,
+      $equal,
+      $name,
+      $semicolon,
+    );
   }
 
   <<__Override>>
@@ -96,8 +101,8 @@ final class MethodishTraitResolution extends EditableNode {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $attribute = $this->_attribute->rewrite($rewriter, $parents);
-    $function_decl_header =
-      $this->_function_decl_header->rewrite($rewriter, $parents);
+    $function_decl_header = $this->_function_decl_header
+      ->rewrite($rewriter, $parents);
     $equal = $this->_equal->rewrite($rewriter, $parents);
     $name = $this->_name->rewrite($rewriter, $parents);
     $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
@@ -110,8 +115,13 @@ final class MethodishTraitResolution extends EditableNode {
     ) {
       return $this;
     }
-    return
-      new static($attribute, $function_decl_header, $equal, $name, $semicolon);
+    return new static(
+      $attribute,
+      $function_decl_header,
+      $equal,
+      $name,
+      $semicolon,
+    );
   }
 
   public function getAttributeUNTYPED(): EditableNode {
@@ -250,8 +260,10 @@ final class MethodishTraitResolution extends EditableNode {
    * @return ScopeResolutionExpression
    */
   public function getName(): ScopeResolutionExpression {
-    return
-      TypeAssert\instance_of(ScopeResolutionExpression::class, $this->_name);
+    return TypeAssert\instance_of(
+      ScopeResolutionExpression::class,
+      $this->_name,
+    );
   }
 
   /**

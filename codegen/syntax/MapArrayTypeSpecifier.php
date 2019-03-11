@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b2c636f44514939bf1727d927bf52623>>
+ * @generated SignedSource<<ba4ad1f54379bd40b2c0d5d0c9069668>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -83,8 +83,14 @@ final class MapArrayTypeSpecifier extends EditableNode {
       $source,
     );
     $offset += $right_angle->getWidth();
-    return
-      new static($keyword, $left_angle, $key, $comma, $value, $right_angle);
+    return new static(
+      $keyword,
+      $left_angle,
+      $key,
+      $comma,
+      $value,
+      $right_angle,
+    );
   }
 
   <<__Override>>
@@ -122,8 +128,14 @@ final class MapArrayTypeSpecifier extends EditableNode {
     ) {
       return $this;
     }
-    return
-      new static($keyword, $left_angle, $key, $comma, $value, $right_angle);
+    return new static(
+      $keyword,
+      $left_angle,
+      $key,
+      $comma,
+      $value,
+      $right_angle,
+    );
   }
 
   public function getKeywordUNTYPED(): EditableNode {

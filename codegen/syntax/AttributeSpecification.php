@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<214db37529f9031cb77d1df3f215aad3>>
+ * @generated SignedSource<<31f4f764d7659e6435462181d8a61d19>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -72,11 +72,11 @@ final class AttributeSpecification extends EditableNode {
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
-    $left_double_angle =
-      $this->_left_double_angle->rewrite($rewriter, $parents);
+    $left_double_angle = $this->_left_double_angle
+      ->rewrite($rewriter, $parents);
     $attributes = $this->_attributes->rewrite($rewriter, $parents);
-    $right_double_angle =
-      $this->_right_double_angle->rewrite($rewriter, $parents);
+    $right_double_angle = $this->_right_double_angle
+      ->rewrite($rewriter, $parents);
     if (
       $left_double_angle === $this->_left_double_angle &&
       $attributes === $this->_attributes &&
@@ -127,8 +127,11 @@ final class AttributeSpecification extends EditableNode {
     if ($value === $this->_attributes) {
       return $this;
     }
-    return
-      new static($this->_left_double_angle, $value, $this->_right_double_angle);
+    return new static(
+      $this->_left_double_angle,
+      $value,
+      $this->_right_double_angle,
+    );
   }
 
   public function hasAttributes(): bool {

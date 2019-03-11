@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<55e9c005b2451c616f2ab7a22b0c181f>>
+ * @generated SignedSource<<6effc94bd14f5957682583933fb28ed9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -106,8 +106,12 @@ final class XHPOpen extends EditableNode {
     if ($value === $this->_left_angle) {
       return $this;
     }
-    return
-      new static($value, $this->_name, $this->_attributes, $this->_right_angle);
+    return new static(
+      $value,
+      $this->_name,
+      $this->_attributes,
+      $this->_right_angle,
+    );
   }
 
   public function hasLeftAngle(): bool {
@@ -170,8 +174,12 @@ final class XHPOpen extends EditableNode {
     if ($value === $this->_attributes) {
       return $this;
     }
-    return
-      new static($this->_left_angle, $this->_name, $value, $this->_right_angle);
+    return new static(
+      $this->_left_angle,
+      $this->_name,
+      $value,
+      $this->_right_angle,
+    );
   }
 
   public function hasAttributes(): bool {
@@ -203,8 +211,12 @@ final class XHPOpen extends EditableNode {
     if ($value === $this->_right_angle) {
       return $this;
     }
-    return
-      new static($this->_left_angle, $this->_name, $this->_attributes, $value);
+    return new static(
+      $this->_left_angle,
+      $this->_name,
+      $this->_attributes,
+      $value,
+    );
   }
 
   public function hasRightAngle(): bool {

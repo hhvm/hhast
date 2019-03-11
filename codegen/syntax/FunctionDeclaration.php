@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e368d0ae1b8aed7b3e1f422098fd0fcc>>
+ * @generated SignedSource<<5a74cce15bebcdbc07ead5fff27466c8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -75,8 +75,8 @@ final class FunctionDeclaration
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $attribute_spec = $this->_attribute_spec->rewrite($rewriter, $parents);
-    $declaration_header =
-      $this->_declaration_header->rewrite($rewriter, $parents);
+    $declaration_header = $this->_declaration_header
+      ->rewrite($rewriter, $parents);
     $body = $this->_body->rewrite($rewriter, $parents);
     if (
       $attribute_spec === $this->_attribute_spec &&
@@ -166,8 +166,11 @@ final class FunctionDeclaration
     if ($value === $this->_body) {
       return $this;
     }
-    return
-      new static($this->_attribute_spec, $this->_declaration_header, $value);
+    return new static(
+      $this->_attribute_spec,
+      $this->_declaration_header,
+      $value,
+    );
   }
 
   public function hasBody(): bool {

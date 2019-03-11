@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<901c107bc071d13812c4d72218a26804>>
+ * @generated SignedSource<<01c65b9d7940ae78d7c61e5d2f644d61>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -167,8 +167,8 @@ final class ClassishDeclaration extends EditableNode {
     $type_parameters = $this->_type_parameters->rewrite($rewriter, $parents);
     $extends_keyword = $this->_extends_keyword->rewrite($rewriter, $parents);
     $extends_list = $this->_extends_list->rewrite($rewriter, $parents);
-    $implements_keyword =
-      $this->_implements_keyword->rewrite($rewriter, $parents);
+    $implements_keyword = $this->_implements_keyword
+      ->rewrite($rewriter, $parents);
     $implements_list = $this->_implements_list->rewrite($rewriter, $parents);
     $body = $this->_body->rewrite($rewriter, $parents);
     if (
@@ -232,16 +232,20 @@ final class ClassishDeclaration extends EditableNode {
     if ($this->_attribute->isMissing()) {
       return null;
     }
-    return
-      TypeAssert\instance_of(AttributeSpecification::class, $this->_attribute);
+    return TypeAssert\instance_of(
+      AttributeSpecification::class,
+      $this->_attribute,
+    );
   }
 
   /**
    * @return AttributeSpecification
    */
   public function getAttributex(): AttributeSpecification {
-    return
-      TypeAssert\instance_of(AttributeSpecification::class, $this->_attribute);
+    return TypeAssert\instance_of(
+      AttributeSpecification::class,
+      $this->_attribute,
+    );
   }
 
   public function getModifiersUNTYPED(): EditableNode {
@@ -403,16 +407,20 @@ final class ClassishDeclaration extends EditableNode {
     if ($this->_type_parameters->isMissing()) {
       return null;
     }
-    return
-      TypeAssert\instance_of(TypeParameters::class, $this->_type_parameters);
+    return TypeAssert\instance_of(
+      TypeParameters::class,
+      $this->_type_parameters,
+    );
   }
 
   /**
    * @return TypeParameters
    */
   public function getTypeParametersx(): TypeParameters {
-    return
-      TypeAssert\instance_of(TypeParameters::class, $this->_type_parameters);
+    return TypeAssert\instance_of(
+      TypeParameters::class,
+      $this->_type_parameters,
+    );
   }
 
   public function getExtendsKeywordUNTYPED(): EditableNode {

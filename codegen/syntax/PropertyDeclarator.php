@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bfce08f37ce67eefbc18dc87b0a8c848>>
+ * @generated SignedSource<<ecbb5c840ef95b94af6f35ec72978c54>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -117,15 +117,19 @@ final class PropertyDeclarator extends EditableNode {
     if ($this->_initializer->isMissing()) {
       return null;
     }
-    return
-      TypeAssert\instance_of(SimpleInitializer::class, $this->_initializer);
+    return TypeAssert\instance_of(
+      SimpleInitializer::class,
+      $this->_initializer,
+    );
   }
 
   /**
    * @return SimpleInitializer
    */
   public function getInitializerx(): SimpleInitializer {
-    return
-      TypeAssert\instance_of(SimpleInitializer::class, $this->_initializer);
+    return TypeAssert\instance_of(
+      SimpleInitializer::class,
+      $this->_initializer,
+    );
   }
 }

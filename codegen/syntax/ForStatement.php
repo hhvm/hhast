@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<751110346d4c2be7b670ba7f0e915c1b>>
+ * @generated SignedSource<<eba123b412497c841a6d65536198f617>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -337,8 +337,10 @@ final class ForStatement
    * @return SemicolonToken
    */
   public function getFirstSemicolon(): SemicolonToken {
-    return
-      TypeAssert\instance_of(SemicolonToken::class, $this->_first_semicolon);
+    return TypeAssert\instance_of(
+      SemicolonToken::class,
+      $this->_first_semicolon,
+    );
   }
 
   /**
@@ -424,8 +426,10 @@ final class ForStatement
    * @return SemicolonToken
    */
   public function getSecondSemicolon(): SemicolonToken {
-    return
-      TypeAssert\instance_of(SemicolonToken::class, $this->_second_semicolon);
+    return TypeAssert\instance_of(
+      SemicolonToken::class,
+      $this->_second_semicolon,
+    );
   }
 
   /**

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a3389abccffdd4a827d82ee244253480>>
+ * @generated SignedSource<<f2fb1dcee565ea4953beb6321120371e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -187,8 +187,8 @@ final class AnonymousFunction extends EditableNode {
     $attribute_spec = $this->_attribute_spec->rewrite($rewriter, $parents);
     $static_keyword = $this->_static_keyword->rewrite($rewriter, $parents);
     $async_keyword = $this->_async_keyword->rewrite($rewriter, $parents);
-    $coroutine_keyword =
-      $this->_coroutine_keyword->rewrite($rewriter, $parents);
+    $coroutine_keyword = $this->_coroutine_keyword
+      ->rewrite($rewriter, $parents);
     $function_keyword = $this->_function_keyword->rewrite($rewriter, $parents);
     $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
     $parameters = $this->_parameters->rewrite($rewriter, $parents);
@@ -405,16 +405,20 @@ final class AnonymousFunction extends EditableNode {
     if ($this->_coroutine_keyword->isMissing()) {
       return null;
     }
-    return
-      TypeAssert\instance_of(CoroutineToken::class, $this->_coroutine_keyword);
+    return TypeAssert\instance_of(
+      CoroutineToken::class,
+      $this->_coroutine_keyword,
+    );
   }
 
   /**
    * @return CoroutineToken
    */
   public function getCoroutineKeywordx(): CoroutineToken {
-    return
-      TypeAssert\instance_of(CoroutineToken::class, $this->_coroutine_keyword);
+    return TypeAssert\instance_of(
+      CoroutineToken::class,
+      $this->_coroutine_keyword,
+    );
   }
 
   public function getFunctionKeywordUNTYPED(): EditableNode {
@@ -449,8 +453,10 @@ final class AnonymousFunction extends EditableNode {
    * @return FunctionToken
    */
   public function getFunctionKeyword(): FunctionToken {
-    return
-      TypeAssert\instance_of(FunctionToken::class, $this->_function_keyword);
+    return TypeAssert\instance_of(
+      FunctionToken::class,
+      $this->_function_keyword,
+    );
   }
 
   /**
@@ -728,16 +734,20 @@ final class AnonymousFunction extends EditableNode {
     if ($this->_use->isMissing()) {
       return null;
     }
-    return
-      TypeAssert\instance_of(AnonymousFunctionUseClause::class, $this->_use);
+    return TypeAssert\instance_of(
+      AnonymousFunctionUseClause::class,
+      $this->_use,
+    );
   }
 
   /**
    * @return AnonymousFunctionUseClause
    */
   public function getUsex(): AnonymousFunctionUseClause {
-    return
-      TypeAssert\instance_of(AnonymousFunctionUseClause::class, $this->_use);
+    return TypeAssert\instance_of(
+      AnonymousFunctionUseClause::class,
+      $this->_use,
+    );
   }
 
   public function getBodyUNTYPED(): EditableNode {

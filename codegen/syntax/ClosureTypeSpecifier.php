@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1201d57d4f9ae937ba6fa1a69853eee0>>
+ * @generated SignedSource<<5c8dbad5f0c68abfdf75eb0048a8f4f4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -153,12 +153,12 @@ final class ClosureTypeSpecifier extends EditableNode {
     $function_keyword = $this->_function_keyword->rewrite($rewriter, $parents);
     $inner_left_paren = $this->_inner_left_paren->rewrite($rewriter, $parents);
     $parameter_list = $this->_parameter_list->rewrite($rewriter, $parents);
-    $inner_right_paren =
-      $this->_inner_right_paren->rewrite($rewriter, $parents);
+    $inner_right_paren = $this->_inner_right_paren
+      ->rewrite($rewriter, $parents);
     $colon = $this->_colon->rewrite($rewriter, $parents);
     $return_type = $this->_return_type->rewrite($rewriter, $parents);
-    $outer_right_paren =
-      $this->_outer_right_paren->rewrite($rewriter, $parents);
+    $outer_right_paren = $this->_outer_right_paren
+      ->rewrite($rewriter, $parents);
     if (
       $outer_left_paren === $this->_outer_left_paren &&
       $coroutine === $this->_coroutine &&
@@ -214,8 +214,10 @@ final class ClosureTypeSpecifier extends EditableNode {
    * @return LeftParenToken
    */
   public function getOuterLeftParen(): LeftParenToken {
-    return
-      TypeAssert\instance_of(LeftParenToken::class, $this->_outer_left_paren);
+    return TypeAssert\instance_of(
+      LeftParenToken::class,
+      $this->_outer_left_paren,
+    );
   }
 
   /**
@@ -296,8 +298,10 @@ final class ClosureTypeSpecifier extends EditableNode {
    * @return FunctionToken
    */
   public function getFunctionKeyword(): FunctionToken {
-    return
-      TypeAssert\instance_of(FunctionToken::class, $this->_function_keyword);
+    return TypeAssert\instance_of(
+      FunctionToken::class,
+      $this->_function_keyword,
+    );
   }
 
   /**
@@ -336,8 +340,10 @@ final class ClosureTypeSpecifier extends EditableNode {
    * @return LeftParenToken
    */
   public function getInnerLeftParen(): LeftParenToken {
-    return
-      TypeAssert\instance_of(LeftParenToken::class, $this->_inner_left_paren);
+    return TypeAssert\instance_of(
+      LeftParenToken::class,
+      $this->_inner_left_paren,
+    );
   }
 
   /**
@@ -420,8 +426,10 @@ final class ClosureTypeSpecifier extends EditableNode {
    * @return RightParenToken
    */
   public function getInnerRightParen(): RightParenToken {
-    return
-      TypeAssert\instance_of(RightParenToken::class, $this->_inner_right_paren);
+    return TypeAssert\instance_of(
+      RightParenToken::class,
+      $this->_inner_right_paren,
+    );
   }
 
   /**
@@ -540,8 +548,10 @@ final class ClosureTypeSpecifier extends EditableNode {
    * @return RightParenToken
    */
   public function getOuterRightParen(): RightParenToken {
-    return
-      TypeAssert\instance_of(RightParenToken::class, $this->_outer_right_paren);
+    return TypeAssert\instance_of(
+      RightParenToken::class,
+      $this->_outer_right_paren,
+    );
   }
 
   /**

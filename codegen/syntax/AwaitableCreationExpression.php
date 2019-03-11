@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7c7e5c101c44d4c7fc7745f31f60384d>>
+ * @generated SignedSource<<f99ee3767d2b2477af5d0095a2350fc3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -86,8 +86,8 @@ final class AwaitableCreationExpression extends EditableNode {
     $attribute_spec = $this->_attribute_spec->rewrite($rewriter, $parents);
     $async = $this->_async->rewrite($rewriter, $parents);
     $coroutine = $this->_coroutine->rewrite($rewriter, $parents);
-    $compound_statement =
-      $this->_compound_statement->rewrite($rewriter, $parents);
+    $compound_statement = $this->_compound_statement
+      ->rewrite($rewriter, $parents);
     if (
       $attribute_spec === $this->_attribute_spec &&
       $async === $this->_async &&

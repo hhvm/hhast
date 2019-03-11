@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<05b8ff9e39856c1f8bd4e6b807d8e13c>>
+ * @generated SignedSource<<4338fe47dce177648442853bc3ab0de0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -65,8 +65,12 @@ final class MethodishDeclaration
       $source,
     );
     $offset += $semicolon->getWidth();
-    return
-      new static($attribute, $function_decl_header, $function_body, $semicolon);
+    return new static(
+      $attribute,
+      $function_decl_header,
+      $function_body,
+      $semicolon,
+    );
   }
 
   <<__Override>>
@@ -87,8 +91,8 @@ final class MethodishDeclaration
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $attribute = $this->_attribute->rewrite($rewriter, $parents);
-    $function_decl_header =
-      $this->_function_decl_header->rewrite($rewriter, $parents);
+    $function_decl_header = $this->_function_decl_header
+      ->rewrite($rewriter, $parents);
     $function_body = $this->_function_body->rewrite($rewriter, $parents);
     $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
     if (
@@ -99,8 +103,12 @@ final class MethodishDeclaration
     ) {
       return $this;
     }
-    return
-      new static($attribute, $function_decl_header, $function_body, $semicolon);
+    return new static(
+      $attribute,
+      $function_decl_header,
+      $function_body,
+      $semicolon,
+    );
   }
 
   public function getAttributeUNTYPED(): EditableNode {
@@ -130,16 +138,20 @@ final class MethodishDeclaration
     if ($this->_attribute->isMissing()) {
       return null;
     }
-    return
-      TypeAssert\instance_of(AttributeSpecification::class, $this->_attribute);
+    return TypeAssert\instance_of(
+      AttributeSpecification::class,
+      $this->_attribute,
+    );
   }
 
   /**
    * @return AttributeSpecification
    */
   public function getAttributex(): AttributeSpecification {
-    return
-      TypeAssert\instance_of(AttributeSpecification::class, $this->_attribute);
+    return TypeAssert\instance_of(
+      AttributeSpecification::class,
+      $this->_attribute,
+    );
   }
 
   public function getFunctionDeclHeaderUNTYPED(): EditableNode {
@@ -206,16 +218,20 @@ final class MethodishDeclaration
     if ($this->_function_body->isMissing()) {
       return null;
     }
-    return
-      TypeAssert\instance_of(CompoundStatement::class, $this->_function_body);
+    return TypeAssert\instance_of(
+      CompoundStatement::class,
+      $this->_function_body,
+    );
   }
 
   /**
    * @return CompoundStatement
    */
   public function getFunctionBodyx(): CompoundStatement {
-    return
-      TypeAssert\instance_of(CompoundStatement::class, $this->_function_body);
+    return TypeAssert\instance_of(
+      CompoundStatement::class,
+      $this->_function_body,
+    );
   }
 
   public function getSemicolonUNTYPED(): EditableNode {

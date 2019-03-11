@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b9c616f45ab518a98e5365cbf64e5dd6>>
+ * @generated SignedSource<<0b0078fba2498de09c6271ec67ccfbc6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -162,8 +162,10 @@ final class NullableAsExpression extends EditableNode {
    * @return SimpleTypeSpecifier
    */
   public function getRightOperand(): SimpleTypeSpecifier {
-    return
-      TypeAssert\instance_of(SimpleTypeSpecifier::class, $this->_right_operand);
+    return TypeAssert\instance_of(
+      SimpleTypeSpecifier::class,
+      $this->_right_operand,
+    );
   }
 
   /**

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cd19cbdafafdf42aa49b6365f06721a7>>
+ * @generated SignedSource<<5168754c3c67b705f075ccc353873704>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -323,8 +323,10 @@ final class LambdaExpression extends EditableNode {
    * @return EqualEqualGreaterThanToken
    */
   public function getArrow(): EqualEqualGreaterThanToken {
-    return
-      TypeAssert\instance_of(EqualEqualGreaterThanToken::class, $this->_arrow);
+    return TypeAssert\instance_of(
+      EqualEqualGreaterThanToken::class,
+      $this->_arrow,
+    );
   }
 
   /**

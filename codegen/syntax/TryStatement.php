@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1f1bd9b81b0d372c9919b802ceeee5c1>>
+ * @generated SignedSource<<1465aa2a54fa5e87b446635baa060225>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -89,8 +89,8 @@ final class TryStatement extends EditableNode {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $keyword = $this->_keyword->rewrite($rewriter, $parents);
-    $compound_statement =
-      $this->_compound_statement->rewrite($rewriter, $parents);
+    $compound_statement = $this->_compound_statement
+      ->rewrite($rewriter, $parents);
     $catch_clauses = $this->_catch_clauses->rewrite($rewriter, $parents);
     $finally_clause = $this->_finally_clause->rewrite($rewriter, $parents);
     if (

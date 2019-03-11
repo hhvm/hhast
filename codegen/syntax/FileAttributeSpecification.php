@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<438666c85d0da5454d395214b98960da>>
+ * @generated SignedSource<<3fd9e7d800ad6c19c9463f7cbdea1911>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -100,13 +100,13 @@ final class FileAttributeSpecification extends EditableNode {
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
-    $left_double_angle =
-      $this->_left_double_angle->rewrite($rewriter, $parents);
+    $left_double_angle = $this->_left_double_angle
+      ->rewrite($rewriter, $parents);
     $keyword = $this->_keyword->rewrite($rewriter, $parents);
     $colon = $this->_colon->rewrite($rewriter, $parents);
     $attributes = $this->_attributes->rewrite($rewriter, $parents);
-    $right_double_angle =
-      $this->_right_double_angle->rewrite($rewriter, $parents);
+    $right_double_angle = $this->_right_double_angle
+      ->rewrite($rewriter, $parents);
     if (
       $left_double_angle === $this->_left_double_angle &&
       $keyword === $this->_keyword &&

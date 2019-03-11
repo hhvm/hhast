@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a3137581d153f42863130fb3f422fddb>>
+ * @generated SignedSource<<177e94fafbe288ede46b4034d30c2e0a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -140,8 +140,12 @@ final class ShapeExpression extends EditableNode {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return
-      new static($this->_keyword, $value, $this->_fields, $this->_right_paren);
+    return new static(
+      $this->_keyword,
+      $value,
+      $this->_fields,
+      $this->_right_paren,
+    );
   }
 
   public function hasLeftParen(): bool {
@@ -207,8 +211,12 @@ final class ShapeExpression extends EditableNode {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return
-      new static($this->_keyword, $this->_left_paren, $this->_fields, $value);
+    return new static(
+      $this->_keyword,
+      $this->_left_paren,
+      $this->_fields,
+      $value,
+    );
   }
 
   public function hasRightParen(): bool {

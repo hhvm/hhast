@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ca38f92190905ac87833cba3ec407d87>>
+ * @generated SignedSource<<8778467dbef0ca886a8f211b1859a056>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -104,8 +104,10 @@ final class TraitUsePrecedenceItem extends EditableNode {
    * @return ScopeResolutionExpression
    */
   public function getName(): ScopeResolutionExpression {
-    return
-      TypeAssert\instance_of(ScopeResolutionExpression::class, $this->_name);
+    return TypeAssert\instance_of(
+      ScopeResolutionExpression::class,
+      $this->_name,
+    );
   }
 
   /**

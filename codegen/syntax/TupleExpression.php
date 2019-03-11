@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5b877b3b19fc2eaf245c7f3de8f8ad53>>
+ * @generated SignedSource<<c2bb77bba798cc3b7d592ca2ba0502dd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -140,8 +140,12 @@ final class TupleExpression extends EditableNode {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return
-      new static($this->_keyword, $value, $this->_items, $this->_right_paren);
+    return new static(
+      $this->_keyword,
+      $value,
+      $this->_items,
+      $this->_right_paren,
+    );
   }
 
   public function hasLeftParen(): bool {
@@ -215,8 +219,12 @@ final class TupleExpression extends EditableNode {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return
-      new static($this->_keyword, $this->_left_paren, $this->_items, $value);
+    return new static(
+      $this->_keyword,
+      $this->_left_paren,
+      $this->_items,
+      $value,
+    );
   }
 
   public function hasRightParen(): bool {

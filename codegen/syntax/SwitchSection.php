@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fdffbb6998a2b11732e17abeeb2ee85e>>
+ * @generated SignedSource<<000496a3818e7d7e6054e6cd87b8b4d5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -168,15 +168,19 @@ final class SwitchSection extends EditableNode {
     if ($this->_fallthrough->isMissing()) {
       return null;
     }
-    return
-      TypeAssert\instance_of(SwitchFallthrough::class, $this->_fallthrough);
+    return TypeAssert\instance_of(
+      SwitchFallthrough::class,
+      $this->_fallthrough,
+    );
   }
 
   /**
    * @return SwitchFallthrough
    */
   public function getFallthroughx(): SwitchFallthrough {
-    return
-      TypeAssert\instance_of(SwitchFallthrough::class, $this->_fallthrough);
+    return TypeAssert\instance_of(
+      SwitchFallthrough::class,
+      $this->_fallthrough,
+    );
   }
 }

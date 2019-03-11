@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4a34e4d9f9f3ba0f06bc68dce3e9ec39>>
+ * @generated SignedSource<<71ad2d182477051667d80c3fe1574e27>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -50,17 +50,33 @@ function editable_node_from_json(
     case 'alias_declaration':
       return HHAST\AliasDeclaration::fromJSON($json, $file, $offset, $source);
     case 'alternate_else_clause':
-      return
-        HHAST\AlternateElseClause::fromJSON($json, $file, $offset, $source);
+      return HHAST\AlternateElseClause::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'alternate_elseif_clause':
-      return
-        HHAST\AlternateElseifClause::fromJSON($json, $file, $offset, $source);
+      return HHAST\AlternateElseifClause::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'alternate_if_statement':
-      return
-        HHAST\AlternateIfStatement::fromJSON($json, $file, $offset, $source);
+      return HHAST\AlternateIfStatement::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'alternate_loop_statement':
-      return
-        HHAST\AlternateLoopStatement::fromJSON($json, $file, $offset, $source);
+      return HHAST\AlternateLoopStatement::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'alternate_switch_statement':
       return HHAST\AlternateSwitchStatement::fromJSON(
         $json,
@@ -80,8 +96,12 @@ function editable_node_from_json(
         $source,
       );
     case 'array_creation_expression':
-      return
-        HHAST\ArrayCreationExpression::fromJSON($json, $file, $offset, $source);
+      return HHAST\ArrayCreationExpression::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'array_intrinsic_expression':
       return HHAST\ArrayIntrinsicExpression::fromJSON(
         $json,
@@ -92,8 +112,12 @@ function editable_node_from_json(
     case 'as_expression':
       return HHAST\AsExpression::fromJSON($json, $file, $offset, $source);
     case 'attribute_specification':
-      return
-        HHAST\AttributeSpecification::fromJSON($json, $file, $offset, $source);
+      return HHAST\AttributeSpecification::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'awaitable_creation_expression':
       return HHAST\AwaitableCreationExpression::fromJSON(
         $json,
@@ -116,11 +140,19 @@ function editable_node_from_json(
     case 'classish_body':
       return HHAST\ClassishBody::fromJSON($json, $file, $offset, $source);
     case 'classish_declaration':
-      return
-        HHAST\ClassishDeclaration::fromJSON($json, $file, $offset, $source);
+      return HHAST\ClassishDeclaration::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'classname_type_specifier':
-      return
-        HHAST\ClassnameTypeSpecifier::fromJSON($json, $file, $offset, $source);
+      return HHAST\ClassnameTypeSpecifier::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'closure_parameter_type_specifier':
       return HHAST\ClosureParameterTypeSpecifier::fromJSON(
         $json,
@@ -129,8 +161,12 @@ function editable_node_from_json(
         $source,
       );
     case 'closure_type_specifier':
-      return
-        HHAST\ClosureTypeSpecifier::fromJSON($json, $file, $offset, $source);
+      return HHAST\ClosureTypeSpecifier::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'collection_literal_expression':
       return HHAST\CollectionLiteralExpression::fromJSON(
         $json,
@@ -141,11 +177,19 @@ function editable_node_from_json(
     case 'compound_statement':
       return HHAST\CompoundStatement::fromJSON($json, $file, $offset, $source);
     case 'concurrent_statement':
-      return
-        HHAST\ConcurrentStatement::fromJSON($json, $file, $offset, $source);
+      return HHAST\ConcurrentStatement::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'conditional_expression':
-      return
-        HHAST\ConditionalExpression::fromJSON($json, $file, $offset, $source);
+      return HHAST\ConditionalExpression::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'const_declaration':
       return HHAST\ConstDeclaration::fromJSON($json, $file, $offset, $source);
     case 'constant_declarator':
@@ -162,11 +206,19 @@ function editable_node_from_json(
         $source,
       );
     case 'darray_type_specifier':
-      return
-        HHAST\DarrayTypeSpecifier::fromJSON($json, $file, $offset, $source);
+      return HHAST\DarrayTypeSpecifier::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'declare_block_statement':
-      return
-        HHAST\DeclareBlockStatement::fromJSON($json, $file, $offset, $source);
+      return HHAST\DeclareBlockStatement::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'declare_directive_statement':
       return HHAST\DeclareDirectiveStatement::fromJSON(
         $json,
@@ -175,8 +227,12 @@ function editable_node_from_json(
         $source,
       );
     case 'decorated_expression':
-      return
-        HHAST\DecoratedExpression::fromJSON($json, $file, $offset, $source);
+      return HHAST\DecoratedExpression::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'default_label':
       return HHAST\DefaultLabel::fromJSON($json, $file, $offset, $source);
     case 'define_expression':
@@ -189,8 +245,12 @@ function editable_node_from_json(
         $source,
       );
     case 'dictionary_type_specifier':
-      return
-        HHAST\DictionaryTypeSpecifier::fromJSON($json, $file, $offset, $source);
+      return HHAST\DictionaryTypeSpecifier::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'do_statement':
       return HHAST\DoStatement::fromJSON($json, $file, $offset, $source);
     case 'echo_statement':
@@ -235,8 +295,12 @@ function editable_node_from_json(
     case 'eval_expression':
       return HHAST\EvalExpression::fromJSON($json, $file, $offset, $source);
     case 'expression_statement':
-      return
-        HHAST\ExpressionStatement::fromJSON($json, $file, $offset, $source);
+      return HHAST\ExpressionStatement::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'field_initializer':
       return HHAST\FieldInitializer::fromJSON($json, $file, $offset, $source);
     case 'field_specifier':
@@ -255,8 +319,12 @@ function editable_node_from_json(
     case 'foreach_statement':
       return HHAST\ForeachStatement::fromJSON($json, $file, $offset, $source);
     case 'function_call_expression':
-      return
-        HHAST\FunctionCallExpression::fromJSON($json, $file, $offset, $source);
+      return HHAST\FunctionCallExpression::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'function_call_with_type_arguments_expression':
       return HHAST\FunctionCallWithTypeArgumentsExpression::fromJSON(
         $json,
@@ -265,8 +333,12 @@ function editable_node_from_json(
         $source,
       );
     case 'function_declaration':
-      return
-        HHAST\FunctionDeclaration::fromJSON($json, $file, $offset, $source);
+      return HHAST\FunctionDeclaration::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'function_declaration_header':
       return HHAST\FunctionDeclarationHeader::fromJSON(
         $json,
@@ -275,11 +347,19 @@ function editable_node_from_json(
         $source,
       );
     case 'function_static_statement':
-      return
-        HHAST\FunctionStaticStatement::fromJSON($json, $file, $offset, $source);
+      return HHAST\FunctionStaticStatement::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'generic_type_specifier':
-      return
-        HHAST\GenericTypeSpecifier::fromJSON($json, $file, $offset, $source);
+      return HHAST\GenericTypeSpecifier::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'global_statement':
       return HHAST\GlobalStatement::fromJSON($json, $file, $offset, $source);
     case 'goto_label':
@@ -287,18 +367,30 @@ function editable_node_from_json(
     case 'goto_statement':
       return HHAST\GotoStatement::fromJSON($json, $file, $offset, $source);
     case 'halt_compiler_expression':
-      return
-        HHAST\HaltCompilerExpression::fromJSON($json, $file, $offset, $source);
+      return HHAST\HaltCompilerExpression::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'if_statement':
       return HHAST\IfStatement::fromJSON($json, $file, $offset, $source);
     case 'inclusion_directive':
       return HHAST\InclusionDirective::fromJSON($json, $file, $offset, $source);
     case 'inclusion_expression':
-      return
-        HHAST\InclusionExpression::fromJSON($json, $file, $offset, $source);
+      return HHAST\InclusionExpression::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'instanceof_expression':
-      return
-        HHAST\InstanceofExpression::fromJSON($json, $file, $offset, $source);
+      return HHAST\InstanceofExpression::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'is_expression':
       return HHAST\IsExpression::fromJSON($json, $file, $offset, $source);
     case 'isset_expression':
@@ -311,8 +403,12 @@ function editable_node_from_json(
         $source,
       );
     case 'keyset_type_specifier':
-      return
-        HHAST\KeysetTypeSpecifier::fromJSON($json, $file, $offset, $source);
+      return HHAST\KeysetTypeSpecifier::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'lambda_expression':
       return HHAST\LambdaExpression::fromJSON($json, $file, $offset, $source);
     case 'lambda_signature':
@@ -326,8 +422,12 @@ function editable_node_from_json(
     case 'literal':
       return HHAST\LiteralExpression::fromJSON($json, $file, $offset, $source);
     case 'map_array_type_specifier':
-      return
-        HHAST\MapArrayTypeSpecifier::fromJSON($json, $file, $offset, $source);
+      return HHAST\MapArrayTypeSpecifier::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'markup_section':
       return HHAST\MarkupSection::fromJSON($json, $file, $offset, $source);
     case 'markup_suffix':
@@ -340,8 +440,12 @@ function editable_node_from_json(
         $source,
       );
     case 'methodish_declaration':
-      return
-        HHAST\MethodishDeclaration::fromJSON($json, $file, $offset, $source);
+      return HHAST\MethodishDeclaration::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'methodish_trait_resolution':
       return HHAST\MethodishTraitResolution::fromJSON(
         $json,
@@ -352,8 +456,12 @@ function editable_node_from_json(
     case 'namespace_body':
       return HHAST\NamespaceBody::fromJSON($json, $file, $offset, $source);
     case 'namespace_declaration':
-      return
-        HHAST\NamespaceDeclaration::fromJSON($json, $file, $offset, $source);
+      return HHAST\NamespaceDeclaration::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'namespace_empty_body':
       return HHAST\NamespaceEmptyBody::fromJSON($json, $file, $offset, $source);
     case 'namespace_group_use_declaration':
@@ -366,14 +474,26 @@ function editable_node_from_json(
     case 'namespace_use_clause':
       return HHAST\NamespaceUseClause::fromJSON($json, $file, $offset, $source);
     case 'namespace_use_declaration':
-      return
-        HHAST\NamespaceUseDeclaration::fromJSON($json, $file, $offset, $source);
+      return HHAST\NamespaceUseDeclaration::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'nullable_as_expression':
-      return
-        HHAST\NullableAsExpression::fromJSON($json, $file, $offset, $source);
+      return HHAST\NullableAsExpression::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'nullable_type_specifier':
-      return
-        HHAST\NullableTypeSpecifier::fromJSON($json, $file, $offset, $source);
+      return HHAST\NullableTypeSpecifier::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'object_creation_expression':
       return HHAST\ObjectCreationExpression::fromJSON(
         $json,
@@ -382,23 +502,47 @@ function editable_node_from_json(
         $source,
       );
     case 'parameter_declaration':
-      return
-        HHAST\ParameterDeclaration::fromJSON($json, $file, $offset, $source);
+      return HHAST\ParameterDeclaration::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'parenthesized_expression':
-      return
-        HHAST\ParenthesizedExpression::fromJSON($json, $file, $offset, $source);
+      return HHAST\ParenthesizedExpression::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'php7_anonymous_function':
-      return
-        HHAST\Php7AnonymousFunction::fromJSON($json, $file, $offset, $source);
+      return HHAST\Php7AnonymousFunction::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'pipe_variable':
-      return
-        HHAST\PipeVariableExpression::fromJSON($json, $file, $offset, $source);
+      return HHAST\PipeVariableExpression::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'postfix_unary_expression':
-      return
-        HHAST\PostfixUnaryExpression::fromJSON($json, $file, $offset, $source);
+      return HHAST\PostfixUnaryExpression::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'prefix_unary_expression':
-      return
-        HHAST\PrefixUnaryExpression::fromJSON($json, $file, $offset, $source);
+      return HHAST\PrefixUnaryExpression::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'prefixed_string':
       return HHAST\PrefixedStringExpression::fromJSON(
         $json,
@@ -407,15 +551,23 @@ function editable_node_from_json(
         $source,
       );
     case 'property_declaration':
-      return
-        HHAST\PropertyDeclaration::fromJSON($json, $file, $offset, $source);
+      return HHAST\PropertyDeclaration::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'property_declarator':
       return HHAST\PropertyDeclarator::fromJSON($json, $file, $offset, $source);
     case 'qualified_name':
       return HHAST\QualifiedName::fromJSON($json, $file, $offset, $source);
     case 'reified_type_argument':
-      return
-        HHAST\ReifiedTypeArgument::fromJSON($json, $file, $offset, $source);
+      return HHAST\ReifiedTypeArgument::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'require_clause':
       return HHAST\RequireClause::fromJSON($json, $file, $offset, $source);
     case 'return_statement':
@@ -443,15 +595,23 @@ function editable_node_from_json(
     case 'simple_initializer':
       return HHAST\SimpleInitializer::fromJSON($json, $file, $offset, $source);
     case 'simple_type_specifier':
-      return
-        HHAST\SimpleTypeSpecifier::fromJSON($json, $file, $offset, $source);
+      return HHAST\SimpleTypeSpecifier::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'soft_type_specifier':
       return HHAST\SoftTypeSpecifier::fromJSON($json, $file, $offset, $source);
     case 'static_declarator':
       return HHAST\StaticDeclarator::fromJSON($json, $file, $offset, $source);
     case 'subscript_expression':
-      return
-        HHAST\SubscriptExpression::fromJSON($json, $file, $offset, $source);
+      return HHAST\SubscriptExpression::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'switch_fallthrough':
       return HHAST\SwitchFallthrough::fromJSON($json, $file, $offset, $source);
     case 'switch_section':
@@ -472,8 +632,12 @@ function editable_node_from_json(
         $source,
       );
     case 'trait_use_precedence_item':
-      return
-        HHAST\TraitUsePrecedenceItem::fromJSON($json, $file, $offset, $source);
+      return HHAST\TraitUsePrecedenceItem::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'try_statement':
       return HHAST\TryStatement::fromJSON($json, $file, $offset, $source);
     case 'tuple_expression':
@@ -490,8 +654,12 @@ function editable_node_from_json(
     case 'type_arguments':
       return HHAST\TypeArguments::fromJSON($json, $file, $offset, $source);
     case 'type_const_declaration':
-      return
-        HHAST\TypeConstDeclaration::fromJSON($json, $file, $offset, $source);
+      return HHAST\TypeConstDeclaration::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'type_constant':
       return HHAST\TypeConstant::fromJSON($json, $file, $offset, $source);
     case 'type_constraint':
@@ -528,8 +696,12 @@ function editable_node_from_json(
         $source,
       );
     case 'varray_type_specifier':
-      return
-        HHAST\VarrayTypeSpecifier::fromJSON($json, $file, $offset, $source);
+      return HHAST\VarrayTypeSpecifier::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'vector_array_type_specifier':
       return HHAST\VectorArrayTypeSpecifier::fromJSON(
         $json,
@@ -545,8 +717,12 @@ function editable_node_from_json(
         $source,
       );
     case 'vector_type_specifier':
-      return
-        HHAST\VectorTypeSpecifier::fromJSON($json, $file, $offset, $source);
+      return HHAST\VectorTypeSpecifier::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'where_clause':
       return HHAST\WhereClause::fromJSON($json, $file, $offset, $source);
     case 'where_constraint':
@@ -554,11 +730,19 @@ function editable_node_from_json(
     case 'while_statement':
       return HHAST\WhileStatement::fromJSON($json, $file, $offset, $source);
     case 'xhp_category_declaration':
-      return
-        HHAST\XHPCategoryDeclaration::fromJSON($json, $file, $offset, $source);
+      return HHAST\XHPCategoryDeclaration::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'xhp_children_declaration':
-      return
-        HHAST\XHPChildrenDeclaration::fromJSON($json, $file, $offset, $source);
+      return HHAST\XHPChildrenDeclaration::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'xhp_children_parenthesized_list':
       return HHAST\XHPChildrenParenthesizedList::fromJSON(
         $json,
@@ -588,15 +772,23 @@ function editable_node_from_json(
     case 'xhp_simple_attribute':
       return HHAST\XHPSimpleAttribute::fromJSON($json, $file, $offset, $source);
     case 'xhp_simple_class_attribute':
-      return
-        HHAST\XHPSimpleClassAttribute::fromJSON($json, $file, $offset, $source);
+      return HHAST\XHPSimpleClassAttribute::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'xhp_spread_attribute':
       return HHAST\XHPSpreadAttribute::fromJSON($json, $file, $offset, $source);
     case 'yield_expression':
       return HHAST\YieldExpression::fromJSON($json, $file, $offset, $source);
     case 'yield_from_expression':
-      return
-        HHAST\YieldFromExpression::fromJSON($json, $file, $offset, $source);
+      return HHAST\YieldFromExpression::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     default:
       throw new HHAST\UnsupportedASTNodeError(
         $file,

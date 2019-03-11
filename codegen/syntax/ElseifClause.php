@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7db95e738d564f2922fe62010e7b66a4>>
+ * @generated SignedSource<<0a51bd517bc12c51a65db8ac99d23fbd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -73,8 +73,13 @@ final class ElseifClause extends EditableNode implements IControlFlowStatement {
       $source,
     );
     $offset += $statement->getWidth();
-    return
-      new static($keyword, $left_paren, $condition, $right_paren, $statement);
+    return new static(
+      $keyword,
+      $left_paren,
+      $condition,
+      $right_paren,
+      $statement,
+    );
   }
 
   <<__Override>>
@@ -109,8 +114,13 @@ final class ElseifClause extends EditableNode implements IControlFlowStatement {
     ) {
       return $this;
     }
-    return
-      new static($keyword, $left_paren, $condition, $right_paren, $statement);
+    return new static(
+      $keyword,
+      $left_paren,
+      $condition,
+      $right_paren,
+      $statement,
+    );
   }
 
   public function getKeywordUNTYPED(): EditableNode {

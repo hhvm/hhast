@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a796a8ef44e27f673f0ff975741c563e>>
+ * @generated SignedSource<<776f9fe39554b8b0c2271e5c04540844>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -221,8 +221,10 @@ final class VarrayIntrinsicExpression extends EditableNode {
    * @return LeftBracketToken
    */
   public function getLeftBracket(): LeftBracketToken {
-    return
-      TypeAssert\instance_of(LeftBracketToken::class, $this->_left_bracket);
+    return TypeAssert\instance_of(
+      LeftBracketToken::class,
+      $this->_left_bracket,
+    );
   }
 
   /**
@@ -307,8 +309,10 @@ final class VarrayIntrinsicExpression extends EditableNode {
    * @return RightBracketToken
    */
   public function getRightBracket(): RightBracketToken {
-    return
-      TypeAssert\instance_of(RightBracketToken::class, $this->_right_bracket);
+    return TypeAssert\instance_of(
+      RightBracketToken::class,
+      $this->_right_bracket,
+    );
   }
 
   /**

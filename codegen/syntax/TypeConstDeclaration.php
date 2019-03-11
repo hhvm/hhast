@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d241e0f0d408ce55acf7ddc60b3e5f22>>
+ * @generated SignedSource<<231f160b21423158699ec45c5e9f233a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -416,16 +416,20 @@ final class TypeConstDeclaration extends EditableNode {
     if ($this->_type_constraint->isMissing()) {
       return null;
     }
-    return
-      TypeAssert\instance_of(TypeConstraint::class, $this->_type_constraint);
+    return TypeAssert\instance_of(
+      TypeConstraint::class,
+      $this->_type_constraint,
+    );
   }
 
   /**
    * @return TypeConstraint
    */
   public function getTypeConstraintx(): TypeConstraint {
-    return
-      TypeAssert\instance_of(TypeConstraint::class, $this->_type_constraint);
+    return TypeAssert\instance_of(
+      TypeConstraint::class,
+      $this->_type_constraint,
+    );
   }
 
   public function getEqualUNTYPED(): EditableNode {

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<835fecc817f2f53f05449eb8fd15fb3f>>
+ * @generated SignedSource<<c65327b3d394256107f4a9b6a1e997bb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -93,8 +93,8 @@ abstract class AlternateLoopStatementGeneratedBase
     $opening_colon = $this->_opening_colon->rewrite($rewriter, $parents);
     $statements = $this->_statements->rewrite($rewriter, $parents);
     $closing_keyword = $this->_closing_keyword->rewrite($rewriter, $parents);
-    $closing_semicolon =
-      $this->_closing_semicolon->rewrite($rewriter, $parents);
+    $closing_semicolon = $this->_closing_semicolon
+      ->rewrite($rewriter, $parents);
     if (
       $opening_colon === $this->_opening_colon &&
       $statements === $this->_statements &&
@@ -203,8 +203,10 @@ abstract class AlternateLoopStatementGeneratedBase
    * @return EnddeclareToken | EndforToken | EndforeachToken | EndwhileToken
    */
   public function getClosingKeyword(): EditableToken {
-    return
-      TypeAssert\instance_of(EditableToken::class, $this->_closing_keyword);
+    return TypeAssert\instance_of(
+      EditableToken::class,
+      $this->_closing_keyword,
+    );
   }
 
   /**
@@ -238,8 +240,10 @@ abstract class AlternateLoopStatementGeneratedBase
    * @return SemicolonToken
    */
   public function getClosingSemicolon(): SemicolonToken {
-    return
-      TypeAssert\instance_of(SemicolonToken::class, $this->_closing_semicolon);
+    return TypeAssert\instance_of(
+      SemicolonToken::class,
+      $this->_closing_semicolon,
+    );
   }
 
   /**

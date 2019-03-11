@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<98a6c2f20c31e8729507c3524979c3f4>>
+ * @generated SignedSource<<e95c4222dd40e157cad2bb63f56d20f8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -514,16 +514,20 @@ final class AlternateIfStatement extends EditableNode {
     if ($this->_else_clause->isMissing()) {
       return null;
     }
-    return
-      TypeAssert\instance_of(AlternateElseClause::class, $this->_else_clause);
+    return TypeAssert\instance_of(
+      AlternateElseClause::class,
+      $this->_else_clause,
+    );
   }
 
   /**
    * @return AlternateElseClause
    */
   public function getElseClausex(): AlternateElseClause {
-    return
-      TypeAssert\instance_of(AlternateElseClause::class, $this->_else_clause);
+    return TypeAssert\instance_of(
+      AlternateElseClause::class,
+      $this->_else_clause,
+    );
   }
 
   public function getEndifKeywordUNTYPED(): EditableNode {

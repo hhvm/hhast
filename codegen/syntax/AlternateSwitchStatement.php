@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d9227437a1e57dd1601da1e476d2a91a>>
+ * @generated SignedSource<<e904ac97ed2c3233a18a5c4fd5eccc84>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -144,10 +144,10 @@ final class AlternateSwitchStatement
     $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
     $opening_colon = $this->_opening_colon->rewrite($rewriter, $parents);
     $sections = $this->_sections->rewrite($rewriter, $parents);
-    $closing_endswitch =
-      $this->_closing_endswitch->rewrite($rewriter, $parents);
-    $closing_semicolon =
-      $this->_closing_semicolon->rewrite($rewriter, $parents);
+    $closing_endswitch = $this->_closing_endswitch
+      ->rewrite($rewriter, $parents);
+    $closing_semicolon = $this->_closing_semicolon
+      ->rewrite($rewriter, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_paren === $this->_left_paren &&
@@ -428,8 +428,10 @@ final class AlternateSwitchStatement
    * @return EndswitchToken
    */
   public function getClosingEndswitch(): EndswitchToken {
-    return
-      TypeAssert\instance_of(EndswitchToken::class, $this->_closing_endswitch);
+    return TypeAssert\instance_of(
+      EndswitchToken::class,
+      $this->_closing_endswitch,
+    );
   }
 
   /**
@@ -467,8 +469,10 @@ final class AlternateSwitchStatement
    * @return SemicolonToken
    */
   public function getClosingSemicolon(): SemicolonToken {
-    return
-      TypeAssert\instance_of(SemicolonToken::class, $this->_closing_semicolon);
+    return TypeAssert\instance_of(
+      SemicolonToken::class,
+      $this->_closing_semicolon,
+    );
   }
 
   /**

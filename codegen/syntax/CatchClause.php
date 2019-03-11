@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d8b43da312eac551c768266e1e7f94f0>>
+ * @generated SignedSource<<3f15ff241dc4290486bcd3edc16ca97e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -83,8 +83,14 @@ final class CatchClause extends EditableNode {
       $source,
     );
     $offset += $body->getWidth();
-    return
-      new static($keyword, $left_paren, $type, $variable, $right_paren, $body);
+    return new static(
+      $keyword,
+      $left_paren,
+      $type,
+      $variable,
+      $right_paren,
+      $body,
+    );
   }
 
   <<__Override>>
@@ -122,8 +128,14 @@ final class CatchClause extends EditableNode {
     ) {
       return $this;
     }
-    return
-      new static($keyword, $left_paren, $type, $variable, $right_paren, $body);
+    return new static(
+      $keyword,
+      $left_paren,
+      $type,
+      $variable,
+      $right_paren,
+      $body,
+    );
   }
 
   public function getKeywordUNTYPED(): EditableNode {

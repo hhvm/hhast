@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d951e3e14c2c71f718c94ad9c777a611>>
+ * @generated SignedSource<<c7dfa68c01c583a4f47a2d05f2f518ef>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -210,8 +210,12 @@ final class EvalExpression extends EditableNode {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return
-      new static($this->_keyword, $this->_left_paren, $this->_argument, $value);
+    return new static(
+      $this->_keyword,
+      $this->_left_paren,
+      $this->_argument,
+      $value,
+    );
   }
 
   public function hasRightParen(): bool {

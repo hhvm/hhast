@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d017837f6ad8231a3814a96369430d19>>
+ * @generated SignedSource<<79dba3886a00e22e695ad7176ade6133>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -221,8 +221,10 @@ final class KeysetIntrinsicExpression extends EditableNode {
    * @return LeftBracketToken
    */
   public function getLeftBracket(): LeftBracketToken {
-    return
-      TypeAssert\instance_of(LeftBracketToken::class, $this->_left_bracket);
+    return TypeAssert\instance_of(
+      LeftBracketToken::class,
+      $this->_left_bracket,
+    );
   }
 
   /**
@@ -312,8 +314,10 @@ final class KeysetIntrinsicExpression extends EditableNode {
    * @return RightBracketToken
    */
   public function getRightBracket(): RightBracketToken {
-    return
-      TypeAssert\instance_of(RightBracketToken::class, $this->_right_bracket);
+    return TypeAssert\instance_of(
+      RightBracketToken::class,
+      $this->_right_bracket,
+    );
   }
 
   /**

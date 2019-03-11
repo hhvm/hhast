@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<380fb05bed3d8a4d3a1c8d6ff3d01c5b>>
+ * @generated SignedSource<<b23969dc4ee0fe50861883287a187f38>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -61,8 +61,8 @@ final class MarkupSuffix extends EditableNode {
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
-    $less_than_question =
-      $this->_less_than_question->rewrite($rewriter, $parents);
+    $less_than_question = $this->_less_than_question
+      ->rewrite($rewriter, $parents);
     $name = $this->_name->rewrite($rewriter, $parents);
     if (
       $less_than_question === $this->_less_than_question &&

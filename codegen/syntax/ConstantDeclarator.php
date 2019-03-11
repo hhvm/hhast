@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<14ae5900dfd1358ea7df542d39835215>>
+ * @generated SignedSource<<93f23a43a439c97ad011a8cc94a9211a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -117,15 +117,19 @@ final class ConstantDeclarator extends EditableNode {
     if ($this->_initializer->isMissing()) {
       return null;
     }
-    return
-      TypeAssert\instance_of(SimpleInitializer::class, $this->_initializer);
+    return TypeAssert\instance_of(
+      SimpleInitializer::class,
+      $this->_initializer,
+    );
   }
 
   /**
    * @return SimpleInitializer
    */
   public function getInitializerx(): SimpleInitializer {
-    return
-      TypeAssert\instance_of(SimpleInitializer::class, $this->_initializer);
+    return TypeAssert\instance_of(
+      SimpleInitializer::class,
+      $this->_initializer,
+    );
   }
 }

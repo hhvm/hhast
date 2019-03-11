@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fd033f8de6409e2ed7f6a5e807a1a164>>
+ * @generated SignedSource<<e10f1fade0f5b12f3ab49aacbedea96b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -106,8 +106,12 @@ final class XHPClassAttribute extends EditableNode {
     if ($value === $this->_type) {
       return $this;
     }
-    return
-      new static($value, $this->_name, $this->_initializer, $this->_required);
+    return new static(
+      $value,
+      $this->_name,
+      $this->_initializer,
+      $this->_required,
+    );
   }
 
   public function hasType(): bool {
@@ -140,8 +144,12 @@ final class XHPClassAttribute extends EditableNode {
     if ($value === $this->_name) {
       return $this;
     }
-    return
-      new static($this->_type, $value, $this->_initializer, $this->_required);
+    return new static(
+      $this->_type,
+      $value,
+      $this->_initializer,
+      $this->_required,
+    );
   }
 
   public function hasName(): bool {
@@ -184,16 +192,20 @@ final class XHPClassAttribute extends EditableNode {
     if ($this->_initializer->isMissing()) {
       return null;
     }
-    return
-      TypeAssert\instance_of(SimpleInitializer::class, $this->_initializer);
+    return TypeAssert\instance_of(
+      SimpleInitializer::class,
+      $this->_initializer,
+    );
   }
 
   /**
    * @return SimpleInitializer
    */
   public function getInitializerx(): SimpleInitializer {
-    return
-      TypeAssert\instance_of(SimpleInitializer::class, $this->_initializer);
+    return TypeAssert\instance_of(
+      SimpleInitializer::class,
+      $this->_initializer,
+    );
   }
 
   public function getRequiredUNTYPED(): EditableNode {

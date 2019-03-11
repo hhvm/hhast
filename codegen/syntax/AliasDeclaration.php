@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a1f0b89a8b0fbc1763cacfe591e2c18a>>
+ * @generated SignedSource<<7845dce0668225595ab6a55b83f4e0ba>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -139,8 +139,8 @@ final class AliasDeclaration extends EditableNode {
     $attribute_spec = $this->_attribute_spec->rewrite($rewriter, $parents);
     $keyword = $this->_keyword->rewrite($rewriter, $parents);
     $name = $this->_name->rewrite($rewriter, $parents);
-    $generic_parameter =
-      $this->_generic_parameter->rewrite($rewriter, $parents);
+    $generic_parameter = $this->_generic_parameter
+      ->rewrite($rewriter, $parents);
     $constraint = $this->_constraint->rewrite($rewriter, $parents);
     $equal = $this->_equal->rewrite($rewriter, $parents);
     $type = $this->_type->rewrite($rewriter, $parents);
@@ -323,16 +323,20 @@ final class AliasDeclaration extends EditableNode {
     if ($this->_generic_parameter->isMissing()) {
       return null;
     }
-    return
-      TypeAssert\instance_of(TypeParameters::class, $this->_generic_parameter);
+    return TypeAssert\instance_of(
+      TypeParameters::class,
+      $this->_generic_parameter,
+    );
   }
 
   /**
    * @return TypeParameters
    */
   public function getGenericParameterx(): TypeParameters {
-    return
-      TypeAssert\instance_of(TypeParameters::class, $this->_generic_parameter);
+    return TypeAssert\instance_of(
+      TypeParameters::class,
+      $this->_generic_parameter,
+    );
   }
 
   public function getConstraintUNTYPED(): EditableNode {

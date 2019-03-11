@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<263b3e09f94796a9099579ce6cec0921>>
+ * @generated SignedSource<<50971a576889a8b88eabc4f202fb3490>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -167,16 +167,20 @@ final class ParameterDeclaration extends EditableNode {
     if ($this->_attribute->isMissing()) {
       return null;
     }
-    return
-      TypeAssert\instance_of(AttributeSpecification::class, $this->_attribute);
+    return TypeAssert\instance_of(
+      AttributeSpecification::class,
+      $this->_attribute,
+    );
   }
 
   /**
    * @return AttributeSpecification
    */
   public function getAttributex(): AttributeSpecification {
-    return
-      TypeAssert\instance_of(AttributeSpecification::class, $this->_attribute);
+    return TypeAssert\instance_of(
+      AttributeSpecification::class,
+      $this->_attribute,
+    );
   }
 
   public function getVisibilityUNTYPED(): EditableNode {
@@ -374,15 +378,19 @@ final class ParameterDeclaration extends EditableNode {
     if ($this->_default_value->isMissing()) {
       return null;
     }
-    return
-      TypeAssert\instance_of(SimpleInitializer::class, $this->_default_value);
+    return TypeAssert\instance_of(
+      SimpleInitializer::class,
+      $this->_default_value,
+    );
   }
 
   /**
    * @return SimpleInitializer
    */
   public function getDefaultValuex(): SimpleInitializer {
-    return
-      TypeAssert\instance_of(SimpleInitializer::class, $this->_default_value);
+    return TypeAssert\instance_of(
+      SimpleInitializer::class,
+      $this->_default_value,
+    );
   }
 }

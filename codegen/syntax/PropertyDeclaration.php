@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6a0228d7313440582561c59f7f06a726>>
+ * @generated SignedSource<<00931be1d1eabceb3b4039b16055c5c9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -73,8 +73,13 @@ final class PropertyDeclaration extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
-    return
-      new static($attribute_spec, $modifiers, $type, $declarators, $semicolon);
+    return new static(
+      $attribute_spec,
+      $modifiers,
+      $type,
+      $declarators,
+      $semicolon,
+    );
   }
 
   <<__Override>>
@@ -109,8 +114,13 @@ final class PropertyDeclaration extends EditableNode {
     ) {
       return $this;
     }
-    return
-      new static($attribute_spec, $modifiers, $type, $declarators, $semicolon);
+    return new static(
+      $attribute_spec,
+      $modifiers,
+      $type,
+      $declarators,
+      $semicolon,
+    );
   }
 
   public function getAttributeSpecUNTYPED(): EditableNode {

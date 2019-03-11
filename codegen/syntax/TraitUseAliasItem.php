@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<00837caa9775cfa0da396c49bf9318fa>>
+ * @generated SignedSource<<62dfc25f96ee07018257f7c4f36d0bc7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -230,15 +230,19 @@ final class TraitUseAliasItem extends EditableNode {
     if ($this->_aliased_name->isMissing()) {
       return null;
     }
-    return
-      TypeAssert\instance_of(SimpleTypeSpecifier::class, $this->_aliased_name);
+    return TypeAssert\instance_of(
+      SimpleTypeSpecifier::class,
+      $this->_aliased_name,
+    );
   }
 
   /**
    * @return SimpleTypeSpecifier
    */
   public function getAliasedNamex(): SimpleTypeSpecifier {
-    return
-      TypeAssert\instance_of(SimpleTypeSpecifier::class, $this->_aliased_name);
+    return TypeAssert\instance_of(
+      SimpleTypeSpecifier::class,
+      $this->_aliased_name,
+    );
   }
 }

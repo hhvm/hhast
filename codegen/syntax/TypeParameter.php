@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fd1da9a89e6857b980e3b11baa168193>>
+ * @generated SignedSource<<f920c7b5b9c49761636be2eefcda1b83>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -73,8 +73,13 @@ final class TypeParameter extends EditableNode {
       $source,
     );
     $offset += $constraints->getWidth();
-    return
-      new static($attribute_spec, $reified, $variance, $name, $constraints);
+    return new static(
+      $attribute_spec,
+      $reified,
+      $variance,
+      $name,
+      $constraints,
+    );
   }
 
   <<__Override>>
@@ -109,8 +114,13 @@ final class TypeParameter extends EditableNode {
     ) {
       return $this;
     }
-    return
-      new static($attribute_spec, $reified, $variance, $name, $constraints);
+    return new static(
+      $attribute_spec,
+      $reified,
+      $variance,
+      $name,
+      $constraints,
+    );
   }
 
   public function getAttributeSpecUNTYPED(): EditableNode {

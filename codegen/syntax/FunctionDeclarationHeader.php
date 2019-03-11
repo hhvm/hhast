@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0b87a51ca62562d2fa3c845519195a90>>
+ * @generated SignedSource<<a65273414929ba3835033f78ce930ed4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -163,8 +163,8 @@ final class FunctionDeclarationHeader extends EditableNode {
     $modifiers = $this->_modifiers->rewrite($rewriter, $parents);
     $keyword = $this->_keyword->rewrite($rewriter, $parents);
     $name = $this->_name->rewrite($rewriter, $parents);
-    $type_parameter_list =
-      $this->_type_parameter_list->rewrite($rewriter, $parents);
+    $type_parameter_list = $this->_type_parameter_list
+      ->rewrite($rewriter, $parents);
     $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
     $parameter_list = $this->_parameter_list->rewrite($rewriter, $parents);
     $right_paren = $this->_right_paren->rewrite($rewriter, $parents);

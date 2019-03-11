@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<48e603d4eb2555bc4d35a680f7fd9cdc>>
+ * @generated SignedSource<<ca47f69bd25fe3131e8a6ed3273d8d34>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -73,8 +73,13 @@ final class ClassnameTypeSpecifier extends EditableNode {
       $source,
     );
     $offset += $right_angle->getWidth();
-    return
-      new static($keyword, $left_angle, $type, $trailing_comma, $right_angle);
+    return new static(
+      $keyword,
+      $left_angle,
+      $type,
+      $trailing_comma,
+      $right_angle,
+    );
   }
 
   <<__Override>>
@@ -109,8 +114,13 @@ final class ClassnameTypeSpecifier extends EditableNode {
     ) {
       return $this;
     }
-    return
-      new static($keyword, $left_angle, $type, $trailing_comma, $right_angle);
+    return new static(
+      $keyword,
+      $left_angle,
+      $type,
+      $trailing_comma,
+      $right_angle,
+    );
   }
 
   public function getKeywordUNTYPED(): EditableNode {

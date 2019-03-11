@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6b3d3889ec73f99efbf1d9436d40f3be>>
+ * @generated SignedSource<<b929465cc87937bd8af6596b3a42b572>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -174,8 +174,12 @@ final class CollectionLiteralExpression extends EditableNode {
     if ($value === $this->_initializers) {
       return $this;
     }
-    return
-      new static($this->_name, $this->_left_brace, $value, $this->_right_brace);
+    return new static(
+      $this->_name,
+      $this->_left_brace,
+      $value,
+      $this->_right_brace,
+    );
   }
 
   public function hasInitializers(): bool {

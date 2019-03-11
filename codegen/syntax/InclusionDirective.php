@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c626083815d15e0469614291f808c88d>>
+ * @generated SignedSource<<228f1cd31c6096dbd26c64736c5fbe89>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -90,8 +90,10 @@ final class InclusionDirective extends EditableNode {
    * @return InclusionExpression
    */
   public function getExpression(): InclusionExpression {
-    return
-      TypeAssert\instance_of(InclusionExpression::class, $this->_expression);
+    return TypeAssert\instance_of(
+      InclusionExpression::class,
+      $this->_expression,
+    );
   }
 
   /**

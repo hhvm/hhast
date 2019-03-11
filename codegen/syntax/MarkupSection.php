@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<90e5c49c3c7989da0fc254f4b99801ef>>
+ * @generated SignedSource<<7f773ccdd106c56e80c23613ce086a98>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -120,16 +120,20 @@ final class MarkupSection extends EditableNode {
     if ($this->_prefix->isMissing()) {
       return null;
     }
-    return
-      TypeAssert\instance_of(QuestionGreaterThanToken::class, $this->_prefix);
+    return TypeAssert\instance_of(
+      QuestionGreaterThanToken::class,
+      $this->_prefix,
+    );
   }
 
   /**
    * @return QuestionGreaterThanToken
    */
   public function getPrefixx(): QuestionGreaterThanToken {
-    return
-      TypeAssert\instance_of(QuestionGreaterThanToken::class, $this->_prefix);
+    return TypeAssert\instance_of(
+      QuestionGreaterThanToken::class,
+      $this->_prefix,
+    );
   }
 
   public function getTextUNTYPED(): EditableNode {
@@ -140,8 +144,12 @@ final class MarkupSection extends EditableNode {
     if ($value === $this->_text) {
       return $this;
     }
-    return
-      new static($this->_prefix, $value, $this->_suffix, $this->_expression);
+    return new static(
+      $this->_prefix,
+      $value,
+      $this->_suffix,
+      $this->_expression,
+    );
   }
 
   public function hasText(): bool {
@@ -219,15 +227,19 @@ final class MarkupSection extends EditableNode {
     if ($this->_expression->isMissing()) {
       return null;
     }
-    return
-      TypeAssert\instance_of(ExpressionStatement::class, $this->_expression);
+    return TypeAssert\instance_of(
+      ExpressionStatement::class,
+      $this->_expression,
+    );
   }
 
   /**
    * @return ExpressionStatement
    */
   public function getExpressionx(): ExpressionStatement {
-    return
-      TypeAssert\instance_of(ExpressionStatement::class, $this->_expression);
+    return TypeAssert\instance_of(
+      ExpressionStatement::class,
+      $this->_expression,
+    );
   }
 }

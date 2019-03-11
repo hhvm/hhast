@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5e861b445a8e92a31311c58ae0ae029f>>
+ * @generated SignedSource<<0895407689b48b2497037d813085700c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -73,8 +73,13 @@ final class UnsetStatement extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
-    return
-      new static($keyword, $left_paren, $variables, $right_paren, $semicolon);
+    return new static(
+      $keyword,
+      $left_paren,
+      $variables,
+      $right_paren,
+      $semicolon,
+    );
   }
 
   <<__Override>>
@@ -109,8 +114,13 @@ final class UnsetStatement extends EditableNode {
     ) {
       return $this;
     }
-    return
-      new static($keyword, $left_paren, $variables, $right_paren, $semicolon);
+    return new static(
+      $keyword,
+      $left_paren,
+      $variables,
+      $right_paren,
+      $semicolon,
+    );
   }
 
   public function getKeywordUNTYPED(): EditableNode {

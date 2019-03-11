@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cbeab3de95b2869d73dca9b3353c9a73>>
+ * @generated SignedSource<<203b7d322ae624eca0242e76cce1d284>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -302,8 +302,10 @@ final class LetStatement extends EditableNode {
    * @return SimpleInitializer
    */
   public function getInitializer(): SimpleInitializer {
-    return
-      TypeAssert\instance_of(SimpleInitializer::class, $this->_initializer);
+    return TypeAssert\instance_of(
+      SimpleInitializer::class,
+      $this->_initializer,
+    );
   }
 
   /**

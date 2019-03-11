@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<51a4fdf793f67d129148f0fe15756f81>>
+ * @generated SignedSource<<a7c6b5b5bb03ef6a8d61a5fe09573122>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -208,8 +208,12 @@ final class EmbeddedSubscriptExpression extends EditableNode {
     if ($value === $this->_right_bracket) {
       return $this;
     }
-    return
-      new static($this->_receiver, $this->_left_bracket, $this->_index, $value);
+    return new static(
+      $this->_receiver,
+      $this->_left_bracket,
+      $this->_index,
+      $value,
+    );
   }
 
   public function hasRightBracket(): bool {

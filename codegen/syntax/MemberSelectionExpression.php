@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<aa6461ab202eface4d0f518e06c01f10>>
+ * @generated SignedSource<<71387cb720cd4354bf18866f7ff7943c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -141,8 +141,10 @@ final class MemberSelectionExpression extends EditableNode {
    * @return MinusGreaterThanToken
    */
   public function getOperator(): MinusGreaterThanToken {
-    return
-      TypeAssert\instance_of(MinusGreaterThanToken::class, $this->_operator);
+    return TypeAssert\instance_of(
+      MinusGreaterThanToken::class,
+      $this->_operator,
+    );
   }
 
   /**

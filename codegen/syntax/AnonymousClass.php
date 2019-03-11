@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<533a10eaae1a3979d443a0b51fc556ee>>
+ * @generated SignedSource<<97966ab077c5516587b2049cc9ff61dc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -154,8 +154,8 @@ final class AnonymousClass extends EditableNode {
     $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
     $extends_keyword = $this->_extends_keyword->rewrite($rewriter, $parents);
     $extends_list = $this->_extends_list->rewrite($rewriter, $parents);
-    $implements_keyword =
-      $this->_implements_keyword->rewrite($rewriter, $parents);
+    $implements_keyword = $this->_implements_keyword
+      ->rewrite($rewriter, $parents);
     $implements_list = $this->_implements_list->rewrite($rewriter, $parents);
     $body = $this->_body->rewrite($rewriter, $parents);
     if (
