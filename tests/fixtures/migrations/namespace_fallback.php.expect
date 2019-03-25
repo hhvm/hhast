@@ -25,10 +25,10 @@ namespace MyNS {
     exit();
     isset($foo);
     unset($bar);
+    \var_dump(\is_string('foo'));
   }
 
   function valid_hh_autoimport(): void {
-    \var_dump(is_string('foo'));
     \var_dump(is_vec([]));
   }
 

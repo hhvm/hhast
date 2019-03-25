@@ -12,13 +12,9 @@ function test_anon(): void {
 		do_something();
 	};
 
-	$f3 = function($a, $b) use (&$outer) {
-		do_something();
-	};
+	$f3 = function(int $a): int { return $a * $a; };
 
-	$f4 = function(int $a): int { return $a * $a; };
-
-	$f5 = ($a, $b) ==> {
+	$f4 = ($a, $b) ==> {
 		do_something();
 	};
 
