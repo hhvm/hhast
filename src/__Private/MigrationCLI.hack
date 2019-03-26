@@ -155,6 +155,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
       CLIOptions\flag(
         () ==> {
           $this->migrations[] = ExplicitPartialModeMigration::class;
+          $this->migrations[] = NamespaceFallbackMigration::class;
         },
         'Apply all migrations for moving from 4.0 to 4.1',
         '--hhvm-4.0-to-4.1',
