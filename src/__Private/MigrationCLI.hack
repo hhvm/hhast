@@ -341,10 +341,11 @@ class MigrationCLI extends CLIWithRequiredArguments {
     return 0;
   }
 
+  private static ?(string, bool) $lastFileIsHack = null;
+
   private static function isHackFile(string $file): bool {
-    static $cache = null;
-    if ($cache !== null) {
-      list($cache_file, $cache_result) = $cache;
+    if (self::$lastFileIsHack is nonnull){
+      list($cache_file, $cache_result) = self::$lastFileIsHack;
       if ($cache_file === $file) {
         return $cache_result;
       }
@@ -353,12 +354,12 @@ class MigrationCLI extends CLIWithRequiredArguments {
     $f = \fopen($file, 'r');
     $prefix = \fread($f, 4);
     if ($prefix === '<?hh') {
-      $cache = tuple($file, true);
+      self::$lastFileIsHack = tuple($file, true);
       return true;
     }
 
     if (!Str\starts_with($prefix, '#!')) {
-      $cache = tuple($file, false);
+      self::$lastFileIsHack = tuple($file, false);
       return false;
     }
     \rewind($f);
@@ -367,7 +368,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
 
     $is_hh = $prefix === '<?hh';
 
-    $cache = tuple($file, $is_hh);
+    self::$lastFileIsHack = tuple($file, $is_hh);
     return $is_hh;
   }
 }

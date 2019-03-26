@@ -132,6 +132,8 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
     \file_put_contents($file->getPath(), $file->getContents());
   }
 
+  private dict<string, bool> $userResponseCache = dict[];
+
   private async function shouldFixLintAsync<Terror as Linters\LintError>(
     Linters\AutoFixingLinter<Terror> $linter,
     Terror $error,
@@ -157,10 +159,9 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
       return false;
     }
 
-    static $cache = dict[];
     $cache_key = \get_class($error->getLinter());
-    if (C\contains_key($cache, $cache_key)) {
-      $should_fix = $cache[$cache_key];
+    if (C\contains_key($this->userResponseCache, $cache_key)) {
+      $should_fix = $this->userResponseCache[$cache_key];
       await $this->terminal
         ->getStdout()
         ->writeAsync(Str\format(
@@ -183,12 +184,12 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
       $response = Str\trim($response);
       switch ($response) {
         case 'a':
-          $cache[$cache_key] = true;
+          $this->userResponseCache[$cache_key] = true;
           // FALLTHROUGH
         case 'y':
           return true;
         case 'o':
-          $cache[$cache_key] = false;
+          $this->userResponseCache[$cache_key] = false;
           // FALLTHROUGH
         case 'n':
         case '':

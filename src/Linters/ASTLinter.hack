@@ -16,34 +16,38 @@ use namespace Facebook\HHAST\Linters\SuppressASTLinter;
 abstract class ASTLinter<Tnode as HHAST\EditableNode> extends BaseLinter {
   private ?HHAST\EditableNode $ast;
 
+  private static ?shape('hash' => string, 'ast' => HHAST\EditableNode)
+    $lastFileCache = null;
+
   private static async function getASTFromFileAsync(
     File $file,
   ): Awaitable<HHAST\EditableNode> {
-    static $cache = null;
-
+    $cache = self::$lastFileCache;
     $hash = \sha1($file->getContents(), /* raw = */ true);
-    if ($cache !== null && $cache['hash'] === $hash) {
+    if ($cache is nonnull && $cache['hash'] === $hash) {
       return $cache['ast'];
     }
 
     $ast = await HHAST\from_code_async($file->getContents());
 
-    $cache = shape(
+    self::$lastFileCache = shape(
       'hash' => $hash,
       'ast' => $ast,
     );
     return $ast;
   }
 
-  private function getASTWithParents(): vec<(EditableNode, vec<EditableNode>)> {
-    static $cache = null;
+  private static ?vec<(EditableNode, vec<EditableNode>)> $parentsCache = null;
 
+  private function getASTWithParents(): vec<(EditableNode, vec<EditableNode>)> {
+    $cache = self::$parentsCache;
     $ast = $this->getAST();
-    if ($cache !== null && $cache[0][0] === $ast) {
+    if ($cache is nonnull && ($cache[0][0] ?? null) === $ast) {
       return $cache;
     }
-    $cache = $ast->traverseWithParents();
-    return $cache;
+    $result = $ast->traverseWithParents();
+    self::$parentsCache = $result;
+    return $result;
   }
 
   abstract protected static function getTargetType(): classname<Tnode>;

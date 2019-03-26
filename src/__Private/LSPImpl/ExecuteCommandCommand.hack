@@ -49,8 +49,9 @@ final class ExecuteCommandCommand extends LSPLib\ExecuteCommandCommand {
     return self::error(0, 'Unsupported command: '.$command, null);
   }
 
+  private static int $idCounter = 0;
+
   private static function generateID(): string {
-    static $counter = 0;
-    return __CLASS__.'!'.$counter++;
+    return __CLASS__.'!'.self::$idCounter++;
   }
 }
