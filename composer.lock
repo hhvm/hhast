@@ -161,21 +161,21 @@
         },
         {
             "name": "hhvm/hsl-experimental",
-            "version": "v4.0.2",
+            "version": "v4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/hsl-experimental.git",
-                "reference": "a06996b0e438b2c6d7b86d1cb3ce41312e9885a5"
+                "reference": "0e629c38fa1e65d5927103e3d7edd064e89c7d08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/hsl-experimental/zipball/a06996b0e438b2c6d7b86d1cb3ce41312e9885a5",
-                "reference": "a06996b0e438b2c6d7b86d1cb3ce41312e9885a5",
+                "url": "https://api.github.com/repos/hhvm/hsl-experimental/zipball/0e629c38fa1e65d5927103e3d7edd064e89c7d08",
+                "reference": "0e629c38fa1e65d5927103e3d7edd064e89c7d08",
                 "shasum": ""
             },
             "require": {
-                "hhvm": "^4.0",
-                "hhvm/hsl": "^4.0"
+                "hhvm": "^4.1",
+                "hhvm/hsl": "^4.1"
             },
             "require-dev": {
                 "facebook/fbexpect": "^2.0",
@@ -185,8 +185,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.x-dev",
-                    "dev-v4.0.x": "4.0.x-dev"
+                    "dev-master": "4.x-dev"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -194,7 +193,7 @@
                 "MIT"
             ],
             "description": "The Hack Standard Library - Experimental Additions",
-            "time": "2019-03-04T21:35:44+00:00"
+            "time": "2019-04-09T19:18:29+00:00"
         },
         {
             "name": "hhvm/type-assert",
