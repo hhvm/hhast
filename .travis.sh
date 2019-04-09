@@ -9,6 +9,9 @@ php --version
   cd $(mktemp -d)
   curl https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 )
+if (hhvm --version | grep -q -- -dev); then
+  rm -f composer.lock
+fi
 composer install
 
 hh_client
