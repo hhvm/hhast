@@ -14,7 +14,7 @@ use type Facebook\HackCodegen\{
   CodegenConstructor,
   CodegenMethod,
   HackBuilderKeys,
-  HackBuilderValues
+  HackBuilderValues,
 };
 
 use namespace HH\Lib\{C, Dict, Keyset, Str, Vec};
@@ -32,7 +32,7 @@ final class CodegenSyntax extends CodegenBase {
       }
       $cg
         ->codegenFile(
-          $this->getOutputDirectory().'/syntax/'.$syntax['kind_name'].'.php'
+          $this->getOutputDirectory().'/syntax/'.$syntax['kind_name'].'.php',
         )
         ->setNamespace('Facebook\\HHAST')
         ->useNamespace('Facebook\\TypeAssert')
@@ -64,7 +64,7 @@ final class CodegenSyntax extends CodegenBase {
       ->setExtends('EditableNode')
       ->setInterfaces(
         (self::getMarkerInterfaces()[$syntax['kind_name']] ?? vec[])
-        |> Vec\map($$, $if ==> $cg->codegenImplementsInterface($if)),
+          |> Vec\map($$, $if ==> $cg->codegenImplementsInterface($if)),
       )
       ->setConstructor($this->generateConstructor($syntax))
       ->addMethod($this->generateFromJSONMethod($syntax))
@@ -73,17 +73,18 @@ final class CodegenSyntax extends CodegenBase {
       ->addMethods(
         Vec\map(
           $syntax['fields'],
-          $field ==> $this->generateFieldMethods($syntax, $field['field_name']),
+          $field ==>
+            vec($this->generateFieldMethods($syntax, $field['field_name'])),
         )
-        |> Vec\flatten($$),
+          |> Vec\flatten($$),
       )
       ->addProperties(
         Vec\map(
           $syntax['fields'],
           $field ==> $cg
             ->codegenProperty('_'.$field['field_name'])
-            ->setType('EditableNode')
-        )
+            ->setType('EditableNode'),
+        ),
       );
   }
 
@@ -193,14 +194,16 @@ final class CodegenSyntax extends CodegenBase {
         ->setDocBlock('@return '.Str\join($types, ' | '))
         ->setReturnType($type)
         ->setBodyf('return $this->get%s();', $upper_camel);
-     return;
+      return;
     }
 
     yield $cg
       ->codegenMethodf('get%s', $upper_camel)
-      ->setDocBlock(Vec\map($types, $type ==> $type === 'Missing' ? 'null' : $type)
-        |> Str\join($$, ' | ')
-        |> '@return '.$$)
+      ->setDocBlock(
+        Vec\map($types, $type ==> $type === 'Missing' ? 'null' : $type)
+          |> Str\join($$, ' | ')
+          |> '@return '.$$,
+      )
       ->setReturnType($type)
       ->setBody(
         $cg
@@ -218,9 +221,11 @@ final class CodegenSyntax extends CodegenBase {
 
     yield $cg
       ->codegenMethodf('get%sx', $upper_camel)
-      ->setDocBlock(Vec\filter($types, $type ==> $type !== 'Missing')
-        |> Str\join($$, ' | ')
-        |> '@return '.$$)
+      ->setDocBlock(
+        Vec\filter($types, $type ==> $type !== 'Missing')
+          |> Str\join($$, ' | ')
+          |> '@return '.$$,
+      )
       ->setReturnType($spec['class'])
       ->setBodyf(
         'return TypeAssert\instance_of(%s::class, $this->_%s);',
@@ -258,7 +263,7 @@ final class CodegenSyntax extends CodegenBase {
               ),
             ),
           )
-          ->getCode()
+          ->getCode(),
       );
   }
 
@@ -317,19 +322,15 @@ final class CodegenSyntax extends CodegenBase {
           ->add('return ')
           ->addValue(
             $syntax['fields']
-            |> Vec\map($$, $field ==> $field['field_name'])
-            |> Dict\pull(
-              $$,
-              $field ==> '$this->_'.$field,
-              $field ==> $field,
-            ),
+              |> Vec\map($$, $field ==> $field['field_name'])
+              |> Dict\pull($$, $field ==> '$this->_'.$field, $field ==> $field),
             HackBuilderValues::dict(
               HackBuilderKeys::export(),
               HackBuilderValues::literal(),
             ),
           )
           ->add(';')
-          ->getCode()
+          ->getCode(),
       );
   }
 
@@ -368,13 +369,13 @@ final class CodegenSyntax extends CodegenBase {
               $fields,
               $field ==> Str\format('$%s === $this->_%s &&', $field, $field),
             )
-            |> (
-              $lines ==> {
-                $idx = C\last_keyx($lines);
-                $lines[$idx] = Str\strip_suffix($lines[$idx], ' &&');
-                return $lines;
-              }
-            )($$),
+              |> (
+                $lines ==> {
+                  $idx = C\last_keyx($lines);
+                  $lines[$idx] = Str\strip_suffix($lines[$idx], ' &&');
+                  return $lines;
+                }
+              )($$),
           )
           ->unindent()
           ->addLine(') {')
@@ -401,8 +402,12 @@ final class CodegenSyntax extends CodegenBase {
     Schema\TAST $syntax,
     string $field,
   ): self::TFieldSpec {
-    $key =
-      Str\format('%s.%s_%s', $syntax['description'], $syntax['prefix'], $field);
+    $key = Str\format(
+      '%s.%s_%s',
+      $syntax['description'],
+      $syntax['prefix'],
+      $field,
+    );
     $specs = $this->getRelationships();
     if (!C\contains_key($specs, $key)) {
       return shape(
@@ -421,10 +426,7 @@ final class CodegenSyntax extends CodegenBase {
     $nullable = C\contains_key($children, 'missing');
 
     if ($nullable) {
-      $children = Keyset\filter(
-        $children,
-        $child ==> $child !== 'missing',
-      );
+      $children = Keyset\filter($children, $child ==> $child !== 'missing');
     }
     return shape(
       'class' => $this->getUnifiedSyntaxClass($children),
@@ -434,7 +436,7 @@ final class CodegenSyntax extends CodegenBase {
   }
 
   <<__Memoize>>
-    private function getSyntaxClass(string $child): string {
+  private function getSyntaxClass(string $child): string {
     if ($child === 'token') {
       return 'EditableToken';
     }
@@ -486,7 +488,8 @@ final class CodegenSyntax extends CodegenBase {
       'AlternateElseClause' => keyset['IControlFlowStatement'],
       'AlternateElseifClause' => keyset['IControlFlowStatement'],
       'AlternateElseifStatement' => keyset['IControlFlowStatement'],
-      'AlternateLoopStatement' => keyset['IControlFlowStatement', 'ILoopStatement'],
+      'AlternateLoopStatement' =>
+        keyset['IControlFlowStatement', 'ILoopStatement'],
       'AlternateSwitchStatement' => keyset['IControlFlowStatement'],
       'DoStatement' => keyset['IControlFlowStatement', 'ILoopStatement'],
       'ElseClause' => keyset['IControlFlowStatement'],

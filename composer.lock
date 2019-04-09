@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "facebook/difflib",
-            "version": "v1.1",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/difflib.git",
-                "reference": "195502ecd77a691e91449a3b726c9c670a99addf"
+                "reference": "545adb5da05d342dad1bc45b75f6fb95aab3de4a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/difflib/zipball/195502ecd77a691e91449a3b726c9c670a99addf",
-                "reference": "195502ecd77a691e91449a3b726c9c670a99addf",
+                "url": "https://api.github.com/repos/hhvm/difflib/zipball/545adb5da05d342dad1bc45b75f6fb95aab3de4a",
+                "reference": "545adb5da05d342dad1bc45b75f6fb95aab3de4a",
                 "shasum": ""
             },
             "require": {
@@ -39,7 +39,7 @@
             "license": [
                 "MIT"
             ],
-            "time": "2019-02-09T01:44:39+00:00"
+            "time": "2019-03-22T23:29:07+00:00"
         },
         {
             "name": "facebook/hh-clilib",
@@ -126,20 +126,20 @@
         },
         {
             "name": "hhvm/hsl",
-            "version": "v4.0.1",
+            "version": "v4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/hsl.git",
-                "reference": "ccbb08fa6f27bf95d71653c7794d4dd113db2f95"
+                "reference": "2c115dbd4460fa922f041c0887b824280b586d4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/hsl/zipball/ccbb08fa6f27bf95d71653c7794d4dd113db2f95",
-                "reference": "ccbb08fa6f27bf95d71653c7794d4dd113db2f95",
+                "url": "https://api.github.com/repos/hhvm/hsl/zipball/2c115dbd4460fa922f041c0887b824280b586d4d",
+                "reference": "2c115dbd4460fa922f041c0887b824280b586d4d",
                 "shasum": ""
             },
             "require": {
-                "hhvm": "^4.0"
+                "hhvm": "^4.1"
             },
             "require-dev": {
                 "facebook/fbexpect": "^2.5.1",
@@ -157,7 +157,7 @@
                 "MIT"
             ],
             "description": "The Hack Standard Library",
-            "time": "2019-02-26T19:56:29+00:00"
+            "time": "2019-04-09T19:09:37+00:00"
         },
         {
             "name": "hhvm/hsl-experimental",
@@ -333,22 +333,22 @@
         },
         {
             "name": "hhvm/hacktest",
-            "version": "v1.4",
+            "version": "v1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/hacktest.git",
-                "reference": "b9d24382967f35eb745b991288ed4765f97d6d0c"
+                "reference": "365a7de745546ae50150e846c83054294af31d80"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/hacktest/zipball/b9d24382967f35eb745b991288ed4765f97d6d0c",
-                "reference": "b9d24382967f35eb745b991288ed4765f97d6d0c",
+                "url": "https://api.github.com/repos/hhvm/hacktest/zipball/365a7de745546ae50150e846c83054294af31d80",
+                "reference": "365a7de745546ae50150e846c83054294af31d80",
                 "shasum": ""
             },
             "require": {
                 "facebook/hh-clilib": "^2.0.0",
                 "hhvm": "^4.0",
-                "hhvm/hhvm-autoload": "^2.0",
+                "hhvm/hhvm-autoload": "^2.0.2",
                 "hhvm/hsl": "^4.0",
                 "hhvm/type-assert": "^3.2"
             },
@@ -357,7 +357,8 @@
                 "hhvm/hhast": "^4.0"
             },
             "bin": [
-                "bin/hacktest"
+                "bin/hacktest",
+                "bin/hacktest.hack"
             ],
             "type": "library",
             "extra": {
@@ -370,7 +371,7 @@
                 "MIT"
             ],
             "description": "The Hack Test Library",
-            "time": "2019-02-09T02:45:13+00:00"
+            "time": "2019-04-08T17:30:33+00:00"
         }
     ],
     "aliases": [],
