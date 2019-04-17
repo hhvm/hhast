@@ -12,6 +12,7 @@ namespace Facebook\HHAST\__Private;
 use type Facebook\HackCodegen\{
   CodegenClass,
   CodegenConstructor,
+  CodegenFileType,
   CodegenMethod,
   HackBuilderKeys,
   HackBuilderValues,
@@ -32,8 +33,9 @@ final class CodegenSyntax extends CodegenBase {
       }
       $cg
         ->codegenFile(
-          $this->getOutputDirectory().'/syntax/'.$syntax['kind_name'].'.php',
+          $this->getOutputDirectory().'/syntax/'.$syntax['kind_name'].'.hack',
         )
+        ->setFileType(CodegenFileType::DOT_HACK)
         ->setNamespace('Facebook\\HHAST')
         ->useNamespace('Facebook\\TypeAssert')
         ->addClass($this->generateClass($syntax))

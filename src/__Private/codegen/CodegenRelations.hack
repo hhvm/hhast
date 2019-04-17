@@ -11,7 +11,11 @@ namespace Facebook\HHAST\__Private;
 
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Dict, Keyset, Str, Tuple, Vec};
-use type Facebook\HackCodegen\{HackBuilderKeys, HackBuilderValues};
+use type Facebook\HackCodegen\{
+  CodegenFileType,
+  HackBuilderKeys,
+  HackBuilderValues,
+};
 use namespace Facebook\TypeAssert;
 
 final class CodegenRelations extends CodegenBase {
@@ -81,7 +85,8 @@ final class CodegenRelations extends CodegenBase {
 
     $cg = $this->getCodegenFactory();
 
-    $cg->codegenFile($this->getOutputDirectory().'/inferred_relationships.php')
+    $cg->codegenFile($this->getOutputDirectory().'/inferred_relationships.hack')
+      ->setFileType(CodegenFileType::DOT_HACK)
       ->setNamespace('Facebook\\HHAST\\__Private')
       ->addConstant(
         $cg->codegenConstant('INFERRED_RELATIONSHIPS')
@@ -105,8 +110,10 @@ final class CodegenRelations extends CodegenBase {
       'zend/good/',
     ];
 
-    $hhvm_tests =
-      Vec\map($hhvm_dirs, $dir ==> $this->hhvmRoot.'/hphp/test/'.$dir)
+    $hhvm_tests = Vec\map(
+      $hhvm_dirs,
+      $dir ==> $this->hhvmRoot.'/hphp/test/'.$dir,
+    )
       |> Vec\map($$, $dir ==> $this->getFileListFromHHVMTestDirectory($dir))
       |> Keyset\flatten($$);
 
@@ -115,7 +122,7 @@ final class CodegenRelations extends CodegenBase {
     );
 
     $systemlib = vec(
-      $this->getTestFilesInDirectory($this->hhvmRoot.'/hphp/system/php')
+      $this->getTestFilesInDirectory($this->hhvmRoot.'/hphp/system/php'),
     );
 
     return Keyset\flatten(vec[
@@ -167,8 +174,9 @@ final class CodegenRelations extends CodegenBase {
   }
 
   private function getTestFilesInDirectory(string $root): Traversable<string> {
-    $it =
-      new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($root));
+    $it = new \RecursiveIteratorIterator(
+      new \RecursiveDirectoryIterator($root),
+    );
     foreach ($it as $info) {
       if (!$info->isFile()) {
         continue;
@@ -204,6 +212,7 @@ final class CodegenRelations extends CodegenBase {
       /* HH_IGNORE_ERROR[4110] making assumptions about JSON */
       $ast = $this->flatten($json['parse_tree']);
     } catch (\Exception $_) {
+      // Ignore parse errors in PHP files
       if (!Str\contains(\file_get_contents($file), '<?php')) {
         \fprintf(\STDERR, "Failed to parse %s\n", $file);
       }

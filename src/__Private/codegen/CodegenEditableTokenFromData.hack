@@ -11,7 +11,11 @@ namespace Facebook\HHAST\__Private;
 
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Str;
-use type Facebook\HackCodegen\{HackBuilderKeys, HackBuilderValues};
+use type Facebook\HackCodegen\{
+  CodegenFileType,
+  HackBuilderKeys,
+  HackBuilderValues,
+};
 
 final class CodegenEditableTokenFromData extends CodegenBase {
   <<__Override>>
@@ -25,8 +29,10 @@ final class CodegenEditableTokenFromData extends CodegenBase {
 
     foreach ($tokens['noText'] as $token) {
       $kind = StrP\underscored($token['token_kind']);
-      $class_map[$kind] =
-        Str\format('HHAST\\%sToken::class', $token['token_kind']);
+      $class_map[$kind] = Str\format(
+        'HHAST\\%sToken::class',
+        $token['token_kind'],
+      );
     }
 
     foreach ($tokens['fixedText'] as $token) {
@@ -35,19 +41,24 @@ final class CodegenEditableTokenFromData extends CodegenBase {
       if (Str\lowercase($text) === Str\uppercase($text)) {
         $class_map[$text] = Str\format('HHAST\\%sToken::class', $kind);
       } else {
-        $class_map_with_text[$text] =
-          Str\format('HHAST\\%sToken::class', $kind);
+        $class_map_with_text[$text] = Str\format(
+          'HHAST\\%sToken::class',
+          $kind,
+        );
       }
     }
 
     foreach ($tokens['variableText'] as $token) {
       $kind = StrP\underscored($token['token_kind']);
-      $class_map_with_text[$kind] =
-        Str\format('HHAST\\%sToken::class', $token['token_kind']);
+      $class_map_with_text[$kind] = Str\format(
+        'HHAST\\%sToken::class',
+        $token['token_kind'],
+      );
     }
 
     $cg
-      ->codegenFile($this->getOutputDirectory().'/editable_token_from_data.php')
+      ->codegenFile($this->getOutputDirectory().'/editable_token_from_data.hack')
+      ->setFileType(CodegenFileType::DOT_HACK)
       ->setNamespace('Facebook\\HHAST\\__Private')
       ->useNamespace('Facebook\\HHAST')
       ->addClass(

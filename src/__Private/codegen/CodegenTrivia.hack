@@ -10,6 +10,7 @@
 namespace Facebook\HHAST\__Private;
 
 use namespace HH\Lib\Vec;
+use type Facebook\HackCodegen\CodegenFileType;
 
 final class CodegenTrivia extends CodegenBase {
   <<__Override>>
@@ -17,7 +18,8 @@ final class CodegenTrivia extends CodegenBase {
     $cg = $this->getCodegenFactory();
 
     $file = $cg
-      ->codegenFile($this->getOutputDirectory().'/Trivia.php')
+      ->codegenFile($this->getOutputDirectory().'/Trivia.hack')
+      ->setFileType(CodegenFileType::DOT_HACK)
       ->setNamespace('Facebook\\HHAST');
 
     foreach ($this->getSchema()['trivia'] as $trivia) {

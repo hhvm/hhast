@@ -13,6 +13,7 @@ use namespace HH\Lib\{C, Str, Vec};
 use type Facebook\HackCodegen\{
   CodegenClass,
   CodegenConstructor,
+  CodegenFileType,
   CodegenMethod,
   HackBuilderValues,
 };
@@ -98,8 +99,9 @@ final class CodegenTokens extends CodegenBase {
       $cg
         ->codegenFile(
           $this->getOutputDirectory().
-          '/tokens/'.$token['kind'].'Token.php',
+          '/tokens/'.$token['kind'].'Token.hack',
         )
+        ->setFileType(CodegenFileType::DOT_HACK)
         ->setNamespace('Facebook\\HHAST')
         ->addClass($this->generateClassForToken($token))
         ->save();

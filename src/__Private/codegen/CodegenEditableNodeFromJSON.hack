@@ -11,7 +11,7 @@ namespace Facebook\HHAST\__Private;
 
 use namespace HH\Lib\C;
 
-use type Facebook\HackCodegen\HackBuilderValues;
+use type Facebook\HackCodegen\{CodegenFileType, HackBuilderValues};
 
 final class CodegenEditableNodeFromJSON extends CodegenBase {
   <<__Override>>
@@ -20,7 +20,8 @@ final class CodegenEditableNodeFromJSON extends CodegenBase {
 
     $cg
       ->codegenFile($this->getOutputDirectory().
-        '/editable_node_from_json.php')
+        '/editable_node_from_json.hack')
+      ->setFileType(CodegenFileType::DOT_HACK)
       ->setNamespace('Facebook\\HHAST\\__Private')
       ->useNamespace('Facebook\\HHAST')
       ->addFunction(

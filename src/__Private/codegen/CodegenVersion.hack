@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST\__Private;
 
-use type Facebook\HackCodegen\HackBuilderValues;
+use type Facebook\HackCodegen\{CodegenFileType, HackBuilderValues};
 
 final class CodegenVersion extends CodegenBase {
   <<__Override>>
@@ -17,7 +17,8 @@ final class CodegenVersion extends CodegenBase {
     $cg = $this->getCodegenFactory();
 
     $cg
-      ->codegenFile($this->getOutputDirectory().'/version.php')
+      ->codegenFile($this->getOutputDirectory().'/version.hack')
+      ->setFileType(CodegenFileType::DOT_HACK)
       ->setNamespace('Facebook\\HHAST')
       ->addConstant(
         $cg->codegenConstant('SCHEMA_VERSION')
