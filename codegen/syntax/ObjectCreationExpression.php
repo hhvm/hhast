@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f05935c41581199963b508c5419ed7fe>>
+ * @generated SignedSource<<0f29de8131c97971d86d61b09357ad82>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -111,16 +111,16 @@ final class ObjectCreationExpression extends EditableNode {
   }
 
   /**
-   * @return AnonymousClass | ConstructorCall
+   * @return ConstructorCall
    */
-  public function getObject(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_object);
+  public function getObject(): ConstructorCall {
+    return TypeAssert\instance_of(ConstructorCall::class, $this->_object);
   }
 
   /**
-   * @return AnonymousClass | ConstructorCall
+   * @return ConstructorCall
    */
-  public function getObjectx(): EditableNode {
+  public function getObjectx(): ConstructorCall {
     return $this->getObject();
   }
 }

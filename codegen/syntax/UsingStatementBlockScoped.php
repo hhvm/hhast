@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8e25714d0605012f8a9fb18c5518345e>>
+ * @generated SignedSource<<211e5536153585a65ea917848177d260>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -274,20 +274,22 @@ final class UsingStatementBlockScoped extends EditableNode {
   /**
    * @return EditableList<AnonymousFunction> | EditableList<BinaryExpression> |
    * EditableList<LambdaExpression> | EditableList<LiteralExpression> |
-   * EditableList<ObjectCreationExpression> | EditableList<EditableNode> |
-   * EditableList<PrefixUnaryExpression> | EditableList<VariableExpression>
+   * EditableList<?EditableNode> | EditableList<ObjectCreationExpression> |
+   * EditableList<EditableNode> | EditableList<PrefixUnaryExpression> |
+   * EditableList<VariableExpression>
    */
-  public function getExpressions(): EditableList<EditableNode> {
+  public function getExpressions(): EditableList<?EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_expressions);
   }
 
   /**
    * @return EditableList<AnonymousFunction> | EditableList<BinaryExpression> |
    * EditableList<LambdaExpression> | EditableList<LiteralExpression> |
-   * EditableList<ObjectCreationExpression> | EditableList<EditableNode> |
-   * EditableList<PrefixUnaryExpression> | EditableList<VariableExpression>
+   * EditableList<?EditableNode> | EditableList<ObjectCreationExpression> |
+   * EditableList<EditableNode> | EditableList<PrefixUnaryExpression> |
+   * EditableList<VariableExpression>
    */
-  public function getExpressionsx(): EditableList<EditableNode> {
+  public function getExpressionsx(): EditableList<?EditableNode> {
     return $this->getExpressions();
   }
 

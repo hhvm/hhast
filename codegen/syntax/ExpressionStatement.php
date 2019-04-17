@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eaf617c427235e1668e0ca104b854c5e>>
+ * @generated SignedSource<<f557c135b88dc3debeafd8754dedc64f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -91,14 +91,14 @@ final class ExpressionStatement extends EditableNode {
    * CastExpression | CollectionLiteralExpression | ConditionalExpression |
    * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
    * EmptyExpression | EvalExpression | FunctionCallExpression |
-   * FunctionCallWithTypeArgumentsExpression | HaltCompilerExpression |
-   * InclusionExpression | InstanceofExpression | IsExpression |
-   * IssetExpression | LambdaExpression | LiteralExpression |
+   * HaltCompilerExpression | InclusionExpression | InstanceofExpression |
+   * IsExpression | IssetExpression | LambdaExpression | LiteralExpression |
    * MemberSelectionExpression | null | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * QualifiedName | SafeMemberSelectionExpression | ScopeResolutionExpression
-   * | SubscriptExpression | RightParenToken | CommaToken | ColonToken |
-   * EqualEqualEqualToken | EqualGreaterThanToken | ConstToken | NameToken |
+   * | SubscriptExpression | RightParenToken | CommaToken | DotDotDotToken |
+   * ColonToken | LessThanToken | EqualGreaterThanToken |
+   * QuestionGreaterThanToken | ConstToken | ErrorTokenToken | NameToken |
    * UseToken | RightBraceToken | VariableExpression |
    * VarrayIntrinsicExpression | XHPExpression | YieldExpression |
    * YieldFromExpression
@@ -115,14 +115,14 @@ final class ExpressionStatement extends EditableNode {
    * CastExpression | CollectionLiteralExpression | ConditionalExpression |
    * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
    * EmptyExpression | EvalExpression | FunctionCallExpression |
-   * FunctionCallWithTypeArgumentsExpression | HaltCompilerExpression |
-   * InclusionExpression | InstanceofExpression | IsExpression |
-   * IssetExpression | LambdaExpression | LiteralExpression |
+   * HaltCompilerExpression | InclusionExpression | InstanceofExpression |
+   * IsExpression | IssetExpression | LambdaExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * QualifiedName | SafeMemberSelectionExpression | ScopeResolutionExpression
-   * | SubscriptExpression | RightParenToken | CommaToken | ColonToken |
-   * EqualEqualEqualToken | EqualGreaterThanToken | ConstToken | NameToken |
+   * | SubscriptExpression | RightParenToken | CommaToken | DotDotDotToken |
+   * ColonToken | LessThanToken | EqualGreaterThanToken |
+   * QuestionGreaterThanToken | ConstToken | ErrorTokenToken | NameToken |
    * UseToken | RightBraceToken | VariableExpression |
    * VarrayIntrinsicExpression | XHPExpression | YieldExpression |
    * YieldFromExpression

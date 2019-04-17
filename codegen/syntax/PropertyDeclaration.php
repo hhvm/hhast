@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<00931be1d1eabceb3b4039b16055c5c9>>
+ * @generated SignedSource<<8a996ea243ce7a62d875dd750d2a3cbf>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -225,10 +225,10 @@ final class PropertyDeclaration extends EditableNode {
 
   /**
    * @return ClosureTypeSpecifier | DarrayTypeSpecifier |
-   * DictionaryTypeSpecifier | GenericTypeSpecifier | MapArrayTypeSpecifier |
-   * null | NullableTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier |
-   * TupleTypeSpecifier | TypeConstant | VarrayTypeSpecifier |
-   * VectorArrayTypeSpecifier | VectorTypeSpecifier
+   * DictionaryTypeSpecifier | GenericTypeSpecifier | LikeTypeSpecifier |
+   * MapArrayTypeSpecifier | null | NullableTypeSpecifier | SimpleTypeSpecifier
+   * | SoftTypeSpecifier | TupleTypeSpecifier | TypeConstant |
+   * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getType(): ?EditableNode {
     if ($this->_type->isMissing()) {
@@ -239,10 +239,10 @@ final class PropertyDeclaration extends EditableNode {
 
   /**
    * @return ClosureTypeSpecifier | DarrayTypeSpecifier |
-   * DictionaryTypeSpecifier | GenericTypeSpecifier | MapArrayTypeSpecifier |
-   * NullableTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier |
-   * TupleTypeSpecifier | TypeConstant | VarrayTypeSpecifier |
-   * VectorArrayTypeSpecifier | VectorTypeSpecifier
+   * DictionaryTypeSpecifier | GenericTypeSpecifier | LikeTypeSpecifier |
+   * MapArrayTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier |
+   * SoftTypeSpecifier | TupleTypeSpecifier | TypeConstant |
+   * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getTypex(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);

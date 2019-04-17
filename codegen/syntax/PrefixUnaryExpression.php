@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a892d8ebe03ab5f893cc91b1d67579f9>>
+ * @generated SignedSource<<0156a7bbfe99cb14b6b2dfa0838c3ad4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -84,7 +84,7 @@ final class PrefixUnaryExpression extends EditableNode {
   /**
    * @return ExclamationToken | DollarToken | AmpersandToken | PlusToken |
    * PlusPlusToken | MinusToken | MinusMinusToken | AtToken | AwaitToken |
-   * CloneToken | PrintToken | SuspendToken | TildeToken
+   * CloneToken | PrintToken | TildeToken
    */
   public function getOperator(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_operator);
@@ -93,7 +93,7 @@ final class PrefixUnaryExpression extends EditableNode {
   /**
    * @return ExclamationToken | DollarToken | AmpersandToken | PlusToken |
    * PlusPlusToken | MinusToken | MinusMinusToken | AtToken | AwaitToken |
-   * CloneToken | PrintToken | SuspendToken | TildeToken
+   * CloneToken | PrintToken | TildeToken
    */
   public function getOperatorx(): EditableToken {
     return $this->getOperator();
@@ -123,8 +123,8 @@ final class PrefixUnaryExpression extends EditableNode {
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PipeVariableExpression | PostfixUnaryExpression
    * | PrefixUnaryExpression | QualifiedName | SafeMemberSelectionExpression |
-   * ScopeResolutionExpression | SubscriptExpression | EndOfFileToken |
-   * NameToken | VariableToken | VariableExpression
+   * ScopeResolutionExpression | SubscriptExpression | LessThanToken |
+   * EndOfFileToken | NameToken | VariableExpression
    */
   public function getOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_operand);
@@ -139,8 +139,8 @@ final class PrefixUnaryExpression extends EditableNode {
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PipeVariableExpression | PostfixUnaryExpression
    * | PrefixUnaryExpression | QualifiedName | SafeMemberSelectionExpression |
-   * ScopeResolutionExpression | SubscriptExpression | EndOfFileToken |
-   * NameToken | VariableToken | VariableExpression
+   * ScopeResolutionExpression | SubscriptExpression | LessThanToken |
+   * EndOfFileToken | NameToken | VariableExpression
    */
   public function getOperandx(): EditableNode {
     return $this->getOperand();

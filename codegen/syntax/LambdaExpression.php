@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5168754c3c67b705f075ccc353873704>>
+ * @generated SignedSource<<739a5d14c21e00d904c483db281596a4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -245,20 +245,20 @@ final class LambdaExpression extends EditableNode {
   }
 
   /**
-   * @return null | CoroutineToken
+   * @return null
    */
-  public function getCoroutine(): ?CoroutineToken {
+  public function getCoroutine(): ?EditableNode {
     if ($this->_coroutine->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(CoroutineToken::class, $this->_coroutine);
+    return TypeAssert\instance_of(EditableNode::class, $this->_coroutine);
   }
 
   /**
-   * @return CoroutineToken
+   * @return
    */
-  public function getCoroutinex(): CoroutineToken {
-    return TypeAssert\instance_of(CoroutineToken::class, $this->_coroutine);
+  public function getCoroutinex(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_coroutine);
   }
 
   public function getSignatureUNTYPED(): EditableNode {
@@ -320,9 +320,12 @@ final class LambdaExpression extends EditableNode {
   }
 
   /**
-   * @return EqualEqualGreaterThanToken
+   * @return null | EqualEqualGreaterThanToken
    */
-  public function getArrow(): EqualEqualGreaterThanToken {
+  public function getArrow(): ?EqualEqualGreaterThanToken {
+    if ($this->_arrow->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(
       EqualEqualGreaterThanToken::class,
       $this->_arrow,
@@ -333,7 +336,10 @@ final class LambdaExpression extends EditableNode {
    * @return EqualEqualGreaterThanToken
    */
   public function getArrowx(): EqualEqualGreaterThanToken {
-    return $this->getArrow();
+    return TypeAssert\instance_of(
+      EqualEqualGreaterThanToken::class,
+      $this->_arrow,
+    );
   }
 
   public function getBodyUNTYPED(): EditableNode {
@@ -363,11 +369,14 @@ final class LambdaExpression extends EditableNode {
    * BinaryExpression | CastExpression | CollectionLiteralExpression |
    * CompoundStatement | ConditionalExpression | FunctionCallExpression |
    * IsExpression | KeysetIntrinsicExpression | LambdaExpression |
-   * LiteralExpression | MemberSelectionExpression | NullableAsExpression |
-   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
-   * | SubscriptExpression | VariableExpression
+   * LiteralExpression | MemberSelectionExpression | null |
+   * NullableAsExpression | ObjectCreationExpression | ParenthesizedExpression
+   * | PrefixUnaryExpression | SubscriptExpression | VariableExpression
    */
-  public function getBody(): EditableNode {
+  public function getBody(): ?EditableNode {
+    if ($this->_body->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EditableNode::class, $this->_body);
   }
 
@@ -381,6 +390,6 @@ final class LambdaExpression extends EditableNode {
    * | SubscriptExpression | VariableExpression
    */
   public function getBodyx(): EditableNode {
-    return $this->getBody();
+    return TypeAssert\instance_of(EditableNode::class, $this->_body);
   }
 }

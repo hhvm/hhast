@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b7f15eeb84141b70c1dd01edb09549de>>
+ * @generated SignedSource<<3e6ec76f8cc0558cd0a8161c289e2ce1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -258,20 +258,26 @@ final class Php7AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @return null
+   * @return AttributeSpecification | null
    */
-  public function getAttributeSpec(): ?EditableNode {
+  public function getAttributeSpec(): ?AttributeSpecification {
     if ($this->_attribute_spec->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_attribute_spec);
+    return TypeAssert\instance_of(
+      AttributeSpecification::class,
+      $this->_attribute_spec,
+    );
   }
 
   /**
-   * @return
+   * @return AttributeSpecification
    */
-  public function getAttributeSpecx(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_attribute_spec);
+  public function getAttributeSpecx(): AttributeSpecification {
+    return TypeAssert\instance_of(
+      AttributeSpecification::class,
+      $this->_attribute_spec,
+    );
   }
 
   public function getStaticKeywordUNTYPED(): EditableNode {

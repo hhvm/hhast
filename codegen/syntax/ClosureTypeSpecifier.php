@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5c8dbad5f0c68abfdf75eb0048a8f4f4>>
+ * @generated SignedSource<<4af993804f22980e8306eb7678d42eae>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -253,20 +253,20 @@ final class ClosureTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @return null | CoroutineToken
+   * @return null
    */
-  public function getCoroutine(): ?CoroutineToken {
+  public function getCoroutine(): ?EditableNode {
     if ($this->_coroutine->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(CoroutineToken::class, $this->_coroutine);
+    return TypeAssert\instance_of(EditableNode::class, $this->_coroutine);
   }
 
   /**
-   * @return CoroutineToken
+   * @return
    */
-  public function getCoroutinex(): CoroutineToken {
-    return TypeAssert\instance_of(CoroutineToken::class, $this->_coroutine);
+  public function getCoroutinex(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_coroutine);
   }
 
   public function getFunctionKeywordUNTYPED(): EditableNode {

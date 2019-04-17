@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a3df60ab8c0fcdf6a3b24c6ec86e5adc>>
+ * @generated SignedSource<<da669ceb5c06e3b1d609f7c307dc1f36>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -190,7 +190,8 @@ final class CollectionLiteralExpression extends EditableNode {
    * @return EditableList<AnonymousFunction> |
    * EditableList<ArrayCreationExpression> |
    * EditableList<ArrayIntrinsicExpression> | EditableList<EditableNode> |
-   * EditableList<CastExpression> | EditableList<CollectionLiteralExpression> |
+   * EditableList<BinaryExpression> | EditableList<CastExpression> |
+   * EditableList<CollectionLiteralExpression> |
    * EditableList<ElementInitializer> | EditableList<FunctionCallExpression> |
    * EditableList<LambdaExpression> | EditableList<LiteralExpression> |
    * EditableList<?EditableNode> | EditableList<ObjectCreationExpression> |
@@ -211,7 +212,8 @@ final class CollectionLiteralExpression extends EditableNode {
    * @return EditableList<AnonymousFunction> |
    * EditableList<ArrayCreationExpression> |
    * EditableList<ArrayIntrinsicExpression> | EditableList<EditableNode> |
-   * EditableList<CastExpression> | EditableList<CollectionLiteralExpression> |
+   * EditableList<BinaryExpression> | EditableList<CastExpression> |
+   * EditableList<CollectionLiteralExpression> |
    * EditableList<ElementInitializer> | EditableList<FunctionCallExpression> |
    * EditableList<LambdaExpression> | EditableList<LiteralExpression> |
    * EditableList<?EditableNode> | EditableList<ObjectCreationExpression> |

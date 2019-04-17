@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<05ee0fae08b9bb074fac26388af2b7c8>>
+ * @generated SignedSource<<14a3439333f253a4ca9b217681cfa07a>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -30,6 +30,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token:name',
   ],
   'alias_declaration.alias_semicolon' => keyset[
+    'missing',
     'token:;',
   ],
   'alias_declaration.alias_type' => keyset[
@@ -77,7 +78,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'alternate_if_statement.alternate_if_condition' => keyset[
     'binary_expression',
-    'literal',
     'variable',
   ],
   'alternate_if_statement.alternate_if_else_clause' => keyset[
@@ -129,7 +129,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token:;',
   ],
   'alternate_switch_statement.alternate_switch_expression' => keyset[
-    'literal',
     'variable',
   ],
   'alternate_switch_statement.alternate_switch_keyword' => keyset[
@@ -148,43 +147,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<>',
     'missing',
   ],
-  'anonymous_class.anonymous_class_argument_list' => keyset[
-    'list<anonymous_function>',
-    'list<literal>',
-    'list<member_selection_expression>',
-    'list<variable>',
-    'missing',
-  ],
-  'anonymous_class.anonymous_class_body' => keyset[
-    'classish_body',
-  ],
-  'anonymous_class.anonymous_class_class_keyword' => keyset[
-    'token:class',
-  ],
-  'anonymous_class.anonymous_class_extends_keyword' => keyset[
-    'missing',
-    'token:extends',
-  ],
-  'anonymous_class.anonymous_class_extends_list' => keyset[
-    'list<simple_type_specifier>',
-    'missing',
-  ],
-  'anonymous_class.anonymous_class_implements_keyword' => keyset[
-    'missing',
-    'token:implements',
-  ],
-  'anonymous_class.anonymous_class_implements_list' => keyset[
-    'list<simple_type_specifier>',
-    'missing',
-  ],
-  'anonymous_class.anonymous_class_left_paren' => keyset[
-    'missing',
-    'token:(',
-  ],
-  'anonymous_class.anonymous_class_right_paren' => keyset[
-    'missing',
-    'token:)',
-  ],
   'anonymous_function.anonymous_async_keyword' => keyset[
     'missing',
     'token:async',
@@ -202,7 +164,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'anonymous_function.anonymous_coroutine_keyword' => keyset[
     'missing',
-    'token:coroutine',
   ],
   'anonymous_function.anonymous_function_keyword' => keyset[
     'token:function',
@@ -233,7 +194,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'simple_type_specifier',
     'soft_type_specifier',
     'tuple_type_specifier',
-    'vector_array_type_specifier',
     'vector_type_specifier',
   ],
   'anonymous_function.anonymous_use' => keyset[
@@ -251,14 +211,13 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'anonymous_function_use_clause.anonymous_use_variables' => keyset[
     'list<missing|token:variable>',
-    'list<prefix_unary_expression>',
-    'list<prefix_unary_expression|token:variable>',
     'list<token:variable>',
   ],
   'array_creation_expression.array_creation_left_bracket' => keyset[
     'token:[',
   ],
   'array_creation_expression.array_creation_members' => keyset[
+    'list<anonymous_function>',
     'list<anonymous_function|literal>',
     'list<array_creation_expression>',
     'list<array_creation_expression|array_intrinsic_expression>',
@@ -304,7 +263,9 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<literal|token:name>',
     'list<literal|variable>',
     'list<literal|vector_intrinsic_expression>',
+    'list<member_selection_expression>',
     'list<object_creation_expression>',
+    'list<object_creation_expression|prefix_unary_expression>',
     'list<prefix_unary_expression>',
     'list<scope_resolution_expression>',
     'list<subscript_expression>',
@@ -322,11 +283,11 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token:array',
   ],
   'array_intrinsic_expression.array_intrinsic_left_paren' => keyset[
+    'missing',
     'token:(',
   ],
   'array_intrinsic_expression.array_intrinsic_members' => keyset[
     'list<anonymous_function>',
-    'list<anonymous_function|lambda_expression>',
     'list<anonymous_function|literal>',
     'list<array_creation_expression>',
     'list<array_creation_expression|literal|prefix_unary_expression>',
@@ -358,7 +319,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<array_intrinsic_expression|object_creation_expression>',
     'list<array_intrinsic_expression|prefix_unary_expression>',
     'list<array_intrinsic_expression|prefix_unary_expression|token:name>',
-    'list<array_intrinsic_expression|scope_resolution_expression|token:name>',
+    'list<array_intrinsic_expression|qualified_name|scope_resolution_expression>',
     'list<array_intrinsic_expression|token:name>',
     'list<array_intrinsic_expression|variable>',
     'list<awaitable_creation_expression>',
@@ -382,7 +343,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<binary_expression|token:name>',
     'list<binary_expression|variable>',
     'list<cast_expression>',
-    'list<cast_expression|function_call_expression>',
     'list<cast_expression|literal>',
     'list<cast_expression|literal|object_creation_expression|prefix_unary_expression|variable>',
     'list<collection_literal_expression>',
@@ -401,8 +361,8 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<function_call_expression|literal|variable>',
     'list<function_call_expression|object_creation_expression>',
     'list<function_call_expression|prefix_unary_expression>',
-    'list<function_call_expression|subscript_expression>',
-    'list<function_call_expression|subscript_expression|variable>',
+    'list<function_call_expression|scope_resolution_expression>',
+    'list<function_call_expression|scope_resolution_expression|subscript_expression>',
     'list<function_call_expression|token:name>',
     'list<function_call_expression|variable>',
     'list<isset_expression|prefix_unary_expression|variable>',
@@ -443,9 +403,11 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<tuple_expression>',
     'list<variable>',
     'list<vector_intrinsic_expression>',
+    'list<xhp_expression>',
     'missing',
   ],
   'array_intrinsic_expression.array_intrinsic_right_paren' => keyset[
+    'missing',
     'token:)',
   ],
   'as_expression.as_left_operand' => keyset[
@@ -463,8 +425,10 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'as_expression.as_right_operand' => keyset[
     'closure_type_specifier',
+    'dictionary_type_specifier',
     'error',
     'generic_type_specifier',
+    'keyset_type_specifier',
     'nullable_type_specifier',
     'shape_type_specifier',
     'simple_type_specifier',
@@ -521,8 +485,14 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'postfix_unary_expression',
     'prefix_unary_expression',
     'qualified_name',
+    'safe_member_selection_expression',
     'scope_resolution_expression',
     'subscript_expression',
+    'token:%',
+    'token:...',
+    'token:<',
+    'token:?>',
+    'token:error_token',
     'token:name',
     'token:}',
     'variable',
@@ -590,7 +560,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'empty_expression',
     'eval_expression',
     'function_call_expression',
-    'function_call_with_type_arguments_expression',
     'inclusion_expression',
     'instanceof_expression',
     'is_expression',
@@ -609,12 +578,13 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'prefix_unary_expression',
     'prefixed_string',
     'qualified_name',
+    'record_creation_expression',
     'safe_member_selection_expression',
     'scope_resolution_expression',
     'shape_expression',
     'subscript_expression',
+    'token:=',
     'token:?',
-    'token:end_of_file',
     'token:name',
     'tuple_expression',
     'variable',
@@ -633,12 +603,14 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'member_selection_expression',
     'object_creation_expression',
     'token:name',
+    'token:}',
     'variable',
   ],
   'braced_expression.braced_expression_left_brace' => keyset[
     'token:{',
   ],
   'braced_expression.braced_expression_right_brace' => keyset[
+    'missing',
     'token:}',
   ],
   'break_statement.break_keyword' => keyset[
@@ -828,7 +800,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'closure_type_specifier.closure_coroutine' => keyset[
     'missing',
-    'token:coroutine',
   ],
   'closure_type_specifier.closure_function_keyword' => keyset[
     'token:function',
@@ -864,6 +835,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<array_intrinsic_expression>',
     'list<array_intrinsic_expression|collection_literal_expression>',
     'list<array_intrinsic_expression|literal>',
+    'list<binary_expression>',
     'list<binary_expression|subscript_expression>',
     'list<cast_expression>',
     'list<collection_literal_expression>',
@@ -934,6 +906,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'collection_literal_expression',
     'darray_intrinsic_expression',
     'function_call_expression',
+    'inclusion_expression',
     'isset_expression',
     'lambda_expression',
     'literal',
@@ -944,6 +917,10 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'prefix_unary_expression',
     'scope_resolution_expression',
     'subscript_expression',
+    'token:=>',
+    'token:abstract',
+    'token:echo',
+    'token:end_of_file',
     'token:name',
     'token:use',
     'tuple_expression',
@@ -994,6 +971,8 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'subscript_expression',
     'token::',
     'token:<',
+    'token:??',
+    'token:error_token',
     'token:name',
     'variable',
   ],
@@ -1020,6 +999,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'tuple_type_specifier',
     'type_constant',
     'varray_type_specifier',
+    'vector_array_type_specifier',
     'vector_type_specifier',
   ],
   'const_declaration.const_visibility' => keyset[
@@ -1051,7 +1031,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<binary_expression|darray_intrinsic_expression>',
     'list<binary_expression|function_call_expression>',
     'list<binary_expression|literal>',
-    'list<binary_expression|literal|scope_resolution_expression|subscript_expression>',
     'list<binary_expression|literal|scope_resolution_expression|variable>',
     'list<binary_expression|object_creation_expression>',
     'list<binary_expression|scope_resolution_expression>',
@@ -1081,10 +1060,8 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<literal|prefix_unary_expression>',
     'list<literal|prefix_unary_expression|variable>',
     'list<literal|scope_resolution_expression>',
-    'list<literal|scope_resolution_expression|subscript_expression>',
     'list<literal|scope_resolution_expression|token:name|variable>',
     'list<literal|scope_resolution_expression|variable>',
-    'list<literal|subscript_expression|variable>',
     'list<literal|token:name>',
     'list<literal|variable>',
     'list<literal|vector_intrinsic_expression>',
@@ -1160,6 +1137,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'missing',
   ],
   'darray_intrinsic_expression.darray_intrinsic_right_bracket' => keyset[
+    'missing',
     'token:]',
   ],
   'darray_type_specifier.darray_comma' => keyset[
@@ -1225,10 +1203,14 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   'decorated_expression.decorated_expression_expression' => keyset[
     'array_creation_expression',
     'array_intrinsic_expression',
+    'binary_expression',
     'decorated_expression',
     'function_call_expression',
+    'member_selection_expression',
+    'missing',
     'scope_resolution_expression',
     'subscript_expression',
+    'token:name',
     'token:variable',
     'variable',
   ],
@@ -1256,6 +1238,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'dictionary_intrinsic_expression.dictionary_intrinsic_right_bracket' =>
     keyset[
+      'missing',
       'token:]',
     ],
   'dictionary_type_specifier.dictionary_type_keyword' => keyset[
@@ -1305,6 +1288,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   'echo_statement.echo_expressions' => keyset[
     'list<array_intrinsic_expression|literal>',
     'list<binary_expression>',
+    'list<binary_expression|function_call_expression|literal>',
     'list<binary_expression|function_call_expression|literal|token:name>',
     'list<binary_expression|function_call_expression|literal|variable>',
     'list<binary_expression|function_call_expression|scope_resolution_expression>',
@@ -1325,6 +1309,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<function_call_expression|literal|parenthesized_expression>',
     'list<function_call_expression|literal|token:name>',
     'list<function_call_expression|literal|variable>',
+    'list<function_call_expression|qualified_name>',
     'list<function_call_expression|scope_resolution_expression>',
     'list<function_call_expression|token:name>',
     'list<isset_expression>',
@@ -1365,6 +1350,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token:;',
   ],
   'element_initializer.element_arrow' => keyset[
+    'missing',
     'token:=>',
   ],
   'element_initializer.element_key' => keyset[
@@ -1383,6 +1369,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'prefix_unary_expression',
     'qualified_name',
     'scope_resolution_expression',
+    'subscript_expression',
     'token:name',
     'variable',
     'vector_intrinsic_expression',
@@ -1409,6 +1396,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'qualified_name',
     'scope_resolution_expression',
     'subscript_expression',
+    'token:,',
     'token:name',
     'tuple_expression',
     'variable',
@@ -1493,12 +1481,14 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token:enum',
   ],
   'enum_declaration.enum_left_brace' => keyset[
+    'missing',
     'token:{',
   ],
   'enum_declaration.enum_name' => keyset[
     'token:name',
   ],
   'enum_declaration.enum_right_brace' => keyset[
+    'missing',
     'token:}',
   ],
   'enum_declaration.enum_type' => keyset[
@@ -1506,16 +1496,19 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'type_constraint',
   ],
   'enumerator.enumerator_equal' => keyset[
+    'missing',
     'token:=',
   ],
   'enumerator.enumerator_name' => keyset[
     'token:name',
   ],
   'enumerator.enumerator_semicolon' => keyset[
+    'missing',
     'token:;',
   ],
   'enumerator.enumerator_value' => keyset[
     'binary_expression',
+    'collection_literal_expression',
     'function_call_expression',
     'literal',
     'object_creation_expression',
@@ -1525,13 +1518,19 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'error.error_error' => keyset[
     'token:&',
+    'token:)',
     'token:,',
     'token:;',
     'token:=',
+    'token:=>',
     'token:\\',
     'token:decimal_literal',
+    'token:inout',
+    'token:int',
     'token:name',
     'token:single_quoted_string_literal',
+    'token:static',
+    'token:using',
     'token:variable',
     'token:{',
     'token:}',
@@ -1563,7 +1562,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'empty_expression',
     'eval_expression',
     'function_call_expression',
-    'function_call_with_type_arguments_expression',
     'halt_compiler_expression',
     'inclusion_expression',
     'instanceof_expression',
@@ -1583,10 +1581,13 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'subscript_expression',
     'token:)',
     'token:,',
+    'token:...',
     'token::',
-    'token:===',
+    'token:<',
     'token:=>',
+    'token:?>',
     'token:const',
+    'token:error_token',
     'token:name',
     'token:use',
     'token:}',
@@ -1623,11 +1624,15 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'vector_intrinsic_expression',
   ],
   'field_specifier.field_arrow' => keyset[
+    'missing',
     'token:=>',
   ],
   'field_specifier.field_name' => keyset[
+    'conditional_expression',
     'literal',
     'scope_resolution_expression',
+    'token:)',
+    'token:name',
   ],
   'field_specifier.field_question' => keyset[
     'missing',
@@ -1635,6 +1640,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'field_specifier.field_type' => keyset[
     'closure_type_specifier',
+    'error',
     'generic_type_specifier',
     'nullable_type_specifier',
     'shape_type_specifier',
@@ -1788,11 +1794,13 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<anonymous_function|cast_expression>',
     'list<anonymous_function|function_call_expression>',
     'list<anonymous_function|literal>',
+    'list<anonymous_function|literal|member_selection_expression>',
     'list<anonymous_function|literal|variable>',
     'list<anonymous_function|prefix_unary_expression>',
     'list<anonymous_function|token:name>',
     'list<anonymous_function|token:name|variable>',
     'list<anonymous_function|variable>',
+    'list<anonymous_function|vector_intrinsic_expression>',
     'list<array_creation_expression>',
     'list<array_creation_expression|binary_expression>',
     'list<array_creation_expression|collection_literal_expression|literal>',
@@ -1830,10 +1838,11 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<array_intrinsic_expression|binary_expression|token:name>',
     'list<array_intrinsic_expression|cast_expression>',
     'list<array_intrinsic_expression|collection_literal_expression|literal>',
+    'list<array_intrinsic_expression|dictionary_intrinsic_expression>',
     'list<array_intrinsic_expression|function_call_expression>',
     'list<array_intrinsic_expression|function_call_expression|literal>',
     'list<array_intrinsic_expression|function_call_expression|token:name>',
-    'list<array_intrinsic_expression|function_call_expression|variable>',
+    'list<array_intrinsic_expression|keyset_intrinsic_expression>',
     'list<array_intrinsic_expression|lambda_expression>',
     'list<array_intrinsic_expression|literal>',
     'list<array_intrinsic_expression|literal|member_selection_expression>',
@@ -1848,6 +1857,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<array_intrinsic_expression|member_selection_expression>',
     'list<array_intrinsic_expression|member_selection_expression|prefix_unary_expression|variable>',
     'list<array_intrinsic_expression|object_creation_expression>',
+    'list<array_intrinsic_expression|object_creation_expression|prefix_unary_expression|variable>',
     'list<array_intrinsic_expression|pipe_variable>',
     'list<array_intrinsic_expression|prefix_unary_expression>',
     'list<array_intrinsic_expression|prefix_unary_expression|token:name>',
@@ -1857,6 +1867,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<array_intrinsic_expression|token:name>',
     'list<array_intrinsic_expression|token:name|variable>',
     'list<array_intrinsic_expression|variable>',
+    'list<array_intrinsic_expression|vector_intrinsic_expression>',
     'list<as_expression>',
     'list<as_expression|function_call_expression|is_expression>',
     'list<awaitable_creation_expression>',
@@ -1876,7 +1887,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<binary_expression|function_call_expression|prefix_unary_expression>',
     'list<binary_expression|function_call_expression|prefix_unary_expression|token:name>',
     'list<binary_expression|function_call_expression|variable>',
-    'list<binary_expression|instanceof_expression>',
     'list<binary_expression|keyset_intrinsic_expression>',
     'list<binary_expression|lambda_expression>',
     'list<binary_expression|literal>',
@@ -1890,7 +1900,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<binary_expression|literal|variable>',
     'list<binary_expression|literal|varray_intrinsic_expression>',
     'list<binary_expression|member_selection_expression>',
-    'list<binary_expression|member_selection_expression|qualified_name>',
     'list<binary_expression|object_creation_expression>',
     'list<binary_expression|parenthesized_expression>',
     'list<binary_expression|pipe_variable>',
@@ -1935,6 +1944,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<conditional_expression|literal|variable>',
     'list<darray_intrinsic_expression>',
     'list<darray_intrinsic_expression|function_call_expression>',
+    'list<darray_intrinsic_expression|function_call_expression|literal>',
     'list<darray_intrinsic_expression|lambda_expression>',
     'list<darray_intrinsic_expression|lambda_expression|literal>',
     'list<darray_intrinsic_expression|literal>',
@@ -1975,6 +1985,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<function_call_expression|isset_expression>',
     'list<function_call_expression|lambda_expression>',
     'list<function_call_expression|literal>',
+    'list<function_call_expression|literal|member_selection_expression>',
     'list<function_call_expression|literal|member_selection_expression|variable>',
     'list<function_call_expression|literal|object_creation_expression>',
     'list<function_call_expression|literal|parenthesized_expression>',
@@ -2009,7 +2020,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<function_call_expression|varray_intrinsic_expression>',
     'list<function_call_expression|vector_intrinsic_expression>',
     'list<function_call_expression|xhp_expression>',
-    'list<function_call_with_type_arguments_expression>',
     'list<instanceof_expression>',
     'list<instanceof_expression|literal>',
     'list<is_expression>',
@@ -2035,10 +2045,13 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<lambda_expression|object_creation_expression>',
     'list<lambda_expression|pipe_variable>',
     'list<lambda_expression|prefix_unary_expression>',
+    'list<lambda_expression|shape_expression>',
     'list<lambda_expression|subscript_expression>',
     'list<lambda_expression|token:name>',
     'list<lambda_expression|token:name|variable>',
+    'list<lambda_expression|tuple_expression>',
     'list<lambda_expression|variable>',
+    'list<lambda_expression|variable|vector_intrinsic_expression>',
     'list<lambda_expression|varray_intrinsic_expression>',
     'list<lambda_expression|vector_intrinsic_expression>',
     'list<literal>',
@@ -2069,6 +2082,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<literal|prefix_unary_expression|token:name>',
     'list<literal|prefix_unary_expression|token:name|variable>',
     'list<literal|prefix_unary_expression|variable>',
+    'list<literal|qualified_name>',
     'list<literal|qualified_name|variable>',
     'list<literal|scope_resolution_expression>',
     'list<literal|scope_resolution_expression|variable>',
@@ -2079,6 +2093,8 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<literal|subscript_expression|variable>',
     'list<literal|token:name>',
     'list<literal|token:name|variable>',
+    'list<literal|token:name|varray_intrinsic_expression>',
+    'list<literal|token:name|vector_intrinsic_expression>',
     'list<literal|tuple_expression>',
     'list<literal|variable>',
     'list<literal|variable|varray_intrinsic_expression>',
@@ -2086,15 +2102,13 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<literal|varray_intrinsic_expression>',
     'list<literal|vector_intrinsic_expression>',
     'list<member_selection_expression>',
-    'list<member_selection_expression|postfix_unary_expression>',
-    'list<member_selection_expression|prefix_unary_expression>',
     'list<member_selection_expression|prefix_unary_expression|variable>',
     'list<member_selection_expression|scope_resolution_expression>',
-    'list<member_selection_expression|scope_resolution_expression|variable>',
     'list<member_selection_expression|subscript_expression>',
     'list<member_selection_expression|subscript_expression|variable>',
     'list<member_selection_expression|token:name|variable>',
     'list<member_selection_expression|variable>',
+    'list<missing>',
     'list<object_creation_expression>',
     'list<object_creation_expression|pipe_variable>',
     'list<object_creation_expression|prefix_unary_expression>',
@@ -2111,7 +2125,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<pipe_variable|vector_intrinsic_expression>',
     'list<postfix_unary_expression>',
     'list<postfix_unary_expression|prefix_unary_expression>',
-    'list<postfix_unary_expression|prefix_unary_expression|subscript_expression>',
+    'list<postfix_unary_expression|scope_resolution_expression|variable>',
     'list<postfix_unary_expression|subscript_expression>',
     'list<postfix_unary_expression|variable>',
     'list<prefix_unary_expression>',
@@ -2134,6 +2148,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<scope_resolution_expression>',
     'list<scope_resolution_expression|subscript_expression>',
     'list<scope_resolution_expression|token:name>',
+    'list<scope_resolution_expression|token:name|variable>',
     'list<scope_resolution_expression|variable>',
     'list<scope_resolution_expression|varray_intrinsic_expression>',
     'list<shape_expression>',
@@ -2141,11 +2156,14 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<subscript_expression|token:name>',
     'list<subscript_expression|token:name|variable>',
     'list<subscript_expression|variable>',
+    'list<token:as>',
+    'list<token:error_token>',
     'list<token:name>',
     'list<token:name|variable>',
     'list<token:name|varray_intrinsic_expression>',
     'list<token:name|vector_intrinsic_expression>',
     'list<tuple_expression>',
+    'list<tuple_expression|variable>',
     'list<variable>',
     'list<variable|varray_intrinsic_expression>',
     'list<variable|vector_intrinsic_expression>',
@@ -2156,6 +2174,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'missing',
   ],
   'function_call_expression.function_call_left_paren' => keyset[
+    'missing',
     'token:(',
   ],
   'function_call_expression.function_call_receiver' => keyset[
@@ -2168,7 +2187,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'safe_member_selection_expression',
     'scope_resolution_expression',
     'subscript_expression',
-    'token:if',
+    'token:error_token',
     'token:name',
     'variable',
   ],
@@ -2176,39 +2195,10 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'missing',
     'token:)',
   ],
-  'function_call_with_type_arguments_expression.function_call_with_type_arguments_argument_list' =>
-    keyset[
-      'list<anonymous_function|variable>',
-      'list<anonymous_function|vector_intrinsic_expression>',
-      'list<function_call_expression>',
-      'list<lambda_expression|variable>',
-      'list<lambda_expression|variable|vector_intrinsic_expression>',
-      'list<literal>',
-      'list<object_creation_expression>',
-      'list<subscript_expression>',
-      'list<tuple_expression>',
-      'list<variable>',
-      'missing',
-    ],
-  'function_call_with_type_arguments_expression.function_call_with_type_arguments_left_paren' =>
-    keyset[
-      'token:(',
-    ],
-  'function_call_with_type_arguments_expression.function_call_with_type_arguments_receiver' =>
-    keyset[
-      'member_selection_expression',
-      'qualified_name',
-      'scope_resolution_expression',
-      'token:name',
-    ],
-  'function_call_with_type_arguments_expression.function_call_with_type_arguments_right_paren' =>
-    keyset[
-      'token:)',
-    ],
-  'function_call_with_type_arguments_expression.function_call_with_type_arguments_type_args' =>
-    keyset[
-      'type_arguments',
-    ],
+  'function_call_expression.function_call_type_args' => keyset[
+    'missing',
+    'type_arguments',
+  ],
   'function_declaration.function_attribute_spec' => keyset[
     'attribute_specification',
     'missing',
@@ -2260,6 +2250,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'dictionary_type_specifier',
     'generic_type_specifier',
     'keyset_type_specifier',
+    'like_type_specifier',
     'map_array_type_specifier',
     'missing',
     'nullable_type_specifier',
@@ -2281,15 +2272,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'missing',
     'where_clause',
   ],
-  'function_static_statement.static_declarations' => keyset[
-    'list<static_declarator>',
-  ],
-  'function_static_statement.static_semicolon' => keyset[
-    'token:;',
-  ],
-  'function_static_statement.static_static_keyword' => keyset[
-    'token:static',
-  ],
   'generic_type_specifier.generic_argument_list' => keyset[
     'type_arguments',
   ],
@@ -2298,15 +2280,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token:XHP_class_name',
     'token:name',
     'token:string',
-  ],
-  'global_statement.global_keyword' => keyset[
-    'token:global',
-  ],
-  'global_statement.global_semicolon' => keyset[
-    'token:;',
-  ],
-  'global_statement.global_variables' => keyset[
-    'list<token:variable>',
   ],
   'goto_label.goto_label_colon' => keyset[
     'token::',
@@ -2378,7 +2351,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'continue_statement',
     'echo_statement',
     'expression_statement',
-    'global_statement',
     'goto_statement',
     'return_statement',
     'throw_statement',
@@ -2434,7 +2406,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'is_expression.is_left_operand' => keyset[
     'function_call_expression',
-    'function_call_with_type_arguments_expression',
     'literal',
     'member_selection_expression',
     'pipe_variable',
@@ -2500,6 +2471,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<literal|object_creation_expression>',
     'list<literal|subscript_expression>',
     'list<object_creation_expression>',
+    'list<prefix_unary_expression|variable>',
     'list<scope_resolution_expression>',
     'list<token:name>',
     'list<variable>',
@@ -2507,6 +2479,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'missing',
   ],
   'keyset_intrinsic_expression.keyset_intrinsic_right_bracket' => keyset[
+    'missing',
     'token:]',
   ],
   'keyset_type_specifier.keyset_type_keyword' => keyset[
@@ -2526,6 +2499,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'simple_type_specifier',
   ],
   'lambda_expression.lambda_arrow' => keyset[
+    'missing',
     'token:==>',
   ],
   'lambda_expression.lambda_async' => keyset[
@@ -2551,6 +2525,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'lambda_expression',
     'literal',
     'member_selection_expression',
+    'missing',
     'nullable_as_expression',
     'object_creation_expression',
     'parenthesized_expression',
@@ -2560,7 +2535,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'lambda_expression.lambda_coroutine' => keyset[
     'missing',
-    'token:coroutine',
   ],
   'lambda_expression.lambda_signature' => keyset[
     'lambda_signature',
@@ -2571,6 +2545,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token::',
   ],
   'lambda_signature.lambda_left_paren' => keyset[
+    'missing',
     'token:(',
   ],
   'lambda_signature.lambda_parameters' => keyset[
@@ -2580,6 +2555,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'missing',
   ],
   'lambda_signature.lambda_right_paren' => keyset[
+    'missing',
     'token:)',
   ],
   'lambda_signature.lambda_type' => keyset[
@@ -2612,6 +2588,13 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'nullable_type_specifier',
     'simple_type_specifier',
   ],
+  'like_type_specifier.like_tilde' => keyset[
+    'token:~',
+  ],
+  'like_type_specifier.like_type' => keyset[
+    'generic_type_specifier',
+    'simple_type_specifier',
+  ],
   'list_expression.list_keyword' => keyset[
     'token:list',
   ],
@@ -2619,6 +2602,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token:(',
   ],
   'list_expression.list_members' => keyset[
+    'list<function_call_expression|member_selection_expression>',
     'list<list_expression>',
     'list<list_expression|member_selection_expression>',
     'list<list_expression|missing|subscript_expression>',
@@ -2631,6 +2615,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<member_selection_expression|variable>',
     'list<missing>',
     'list<missing|variable>',
+    'list<scope_resolution_expression>',
     'list<subscript_expression>',
     'list<subscript_expression|variable>',
     'list<variable>',
@@ -2665,7 +2650,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'field_initializer',
     'field_specifier',
     'function_call_expression',
-    'function_call_with_type_arguments_expression',
     'generic_type_specifier',
     'instanceof_expression',
     'is_expression',
@@ -2673,6 +2657,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'keyset_intrinsic_expression',
     'keyset_type_specifier',
     'lambda_expression',
+    'like_type_specifier',
     'list_expression',
     'literal',
     'map_array_type_specifier',
@@ -2695,9 +2680,10 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'shape_type_specifier',
     'simple_type_specifier',
     'soft_type_specifier',
-    'static_declarator',
     'subscript_expression',
+    'token:as',
     'token:const',
+    'token:error_token',
     'token:name',
     'token:return',
     'token:variable',
@@ -2747,22 +2733,17 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'shape_type_specifier',
     'simple_type_specifier',
     'soft_type_specifier',
-    'tuple_type_specifier',
   ],
   'markup_section.markup_expression' => keyset[
-    'expression_statement',
     'missing',
   ],
   'markup_section.markup_prefix' => keyset[
     'missing',
-    'token:?>',
   ],
   'markup_section.markup_suffix' => keyset[
     'markup_suffix',
-    'missing',
   ],
   'markup_section.markup_text' => keyset[
-    'missing',
     'token:markup',
   ],
   'markup_suffix.markup_suffix_less_than_question' => keyset[
@@ -2770,7 +2751,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'markup_suffix.markup_suffix_name' => keyset[
     'missing',
-    'token:=',
     'token:name',
   ],
   'member_selection_expression.member_name' => keyset[
@@ -2941,7 +2921,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token:new',
   ],
   'object_creation_expression.object_creation_object' => keyset[
-    'anonymous_class',
     'constructor_call',
   ],
   'parameter_declaration.parameter_attribute' => keyset[
@@ -2969,6 +2948,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'error',
     'generic_type_specifier',
     'keyset_type_specifier',
+    'like_type_specifier',
     'map_array_type_specifier',
     'missing',
     'nullable_type_specifier',
@@ -3011,7 +2991,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'qualified_name',
     'scope_resolution_expression',
     'subscript_expression',
-    'token:?',
+    'token:error_token',
     'token:name',
     'variable',
     'vector_intrinsic_expression',
@@ -3029,6 +3009,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'missing',
   ],
   'php7_anonymous_function.php7_anonymous_attribute_spec' => keyset[
+    'attribute_specification',
     'missing',
   ],
   'php7_anonymous_function.php7_anonymous_body' => keyset[
@@ -3097,9 +3078,9 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'safe_member_selection_expression',
     'scope_resolution_expression',
     'subscript_expression',
+    'token:<',
     'token:end_of_file',
     'token:name',
-    'token:variable',
     'variable',
   ],
   'prefix_unary_expression.prefix_unary_operator' => keyset[
@@ -3114,7 +3095,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token:await',
     'token:clone',
     'token:print',
-    'token:suspend',
     'token:~',
   ],
   'property_declaration.property_attribute_spec' => keyset[
@@ -3136,6 +3116,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'darray_type_specifier',
     'dictionary_type_specifier',
     'generic_type_specifier',
+    'like_type_specifier',
     'map_array_type_specifier',
     'missing',
     'nullable_type_specifier',
@@ -3155,8 +3136,21 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token:variable',
   ],
   'qualified_name.qualified_name_parts' => keyset[
+    'list<missing>',
     'list<missing|token:name>',
     'list<token:name>',
+  ],
+  'record_creation_expression.record_creation_left_bracket' => keyset[
+    'token:[',
+  ],
+  'record_creation_expression.record_creation_members' => keyset[
+    'list<element_initializer>',
+  ],
+  'record_creation_expression.record_creation_right_bracket' => keyset[
+    'token:]',
+  ],
+  'record_creation_expression.record_creation_type' => keyset[
+    'token:name',
   ],
   'reified_type_argument.reified_type_argument_reified' => keyset[
     'token:reify',
@@ -3193,7 +3187,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'empty_expression',
     'eval_expression',
     'function_call_expression',
-    'function_call_with_type_arguments_expression',
     'instanceof_expression',
     'is_expression',
     'isset_expression',
@@ -3224,7 +3217,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token:return',
   ],
   'return_statement.return_semicolon' => keyset[
-    'missing',
     'token:;',
   ],
   'safe_member_selection_expression.safe_member_name' => keyset[
@@ -3298,6 +3290,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token:(',
   ],
   'shape_type_specifier.shape_type_right_paren' => keyset[
+    'missing',
     'token:)',
   ],
   'simple_initializer.simple_initializer_equal' => keyset[
@@ -3368,18 +3361,14 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'soft_type_specifier.soft_type' => keyset[
     'closure_type_specifier',
+    'dictionary_type_specifier',
     'generic_type_specifier',
+    'keyset_type_specifier',
     'map_array_type_specifier',
     'nullable_type_specifier',
     'simple_type_specifier',
     'tuple_type_specifier',
-  ],
-  'static_declarator.static_initializer' => keyset[
-    'missing',
-    'simple_initializer',
-  ],
-  'static_declarator.static_name' => keyset[
-    'token:variable',
+    'vector_type_specifier',
   ],
   'subscript_expression.subscript_index' => keyset[
     'anonymous_function',
@@ -3398,8 +3387,8 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'scope_resolution_expression',
     'subscript_expression',
     'token:echo',
+    'token:error_token',
     'token:name',
-    'token:return',
     'variable',
   ],
   'subscript_expression.subscript_left_bracket' => keyset[
@@ -3417,6 +3406,8 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'scope_resolution_expression',
     'subscript_expression',
     'token:)',
+    'token:==>',
+    'token:error_token',
     'token:name',
     'variable',
   ],
@@ -3565,23 +3556,23 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<array_intrinsic_expression|function_call_expression>',
     'list<binary_expression>',
     'list<cast_expression>',
-    'list<darray_intrinsic_expression>',
-    'list<darray_intrinsic_expression|dictionary_intrinsic_expression>',
+    'list<collection_literal_expression|variable>',
     'list<dictionary_intrinsic_expression|literal>',
     'list<function_call_expression>',
     'list<function_call_expression|literal>',
     'list<function_call_expression|variable>',
+    'list<lambda_expression|object_creation_expression>',
     'list<literal>',
     'list<literal|object_creation_expression>',
     'list<literal|scope_resolution_expression>',
     'list<literal|subscript_expression>',
     'list<literal|tuple_expression>',
+    'list<object_creation_expression>',
     'list<object_creation_expression|variable>',
+    'list<subscript_expression>',
     'list<subscript_expression|variable>',
     'list<variable>',
     'list<variable|xhp_expression>',
-    'list<varray_intrinsic_expression>',
-    'list<varray_intrinsic_expression|vector_intrinsic_expression>',
     'list<vector_intrinsic_expression>',
     'missing',
   ],
@@ -3601,6 +3592,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token:)',
   ],
   'tuple_type_specifier.tuple_types' => keyset[
+    'list<closure_type_specifier|generic_type_specifier>',
     'list<closure_type_specifier|simple_type_specifier>',
     'list<generic_type_specifier>',
     'list<generic_type_specifier|nullable_type_specifier|simple_type_specifier>',
@@ -3608,7 +3600,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<nullable_type_specifier|simple_type_specifier>',
     'list<simple_type_specifier>',
     'list<simple_type_specifier|tuple_type_specifier>',
-    'list<simple_type_specifier|type_constant>',
     'list<simple_type_specifier|vector_array_type_specifier>',
     'list<tuple_type_specifier>',
     'list<vector_array_type_specifier>',
@@ -3629,6 +3620,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<dictionary_type_specifier>',
     'list<generic_type_specifier>',
     'list<generic_type_specifier|simple_type_specifier>',
+    'list<like_type_specifier>',
     'list<map_array_type_specifier>',
     'list<nullable_type_specifier>',
     'list<nullable_type_specifier|simple_type_specifier>',
@@ -3660,9 +3652,11 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token:const',
   ],
   'type_const_declaration.type_const_name' => keyset[
+    'missing',
     'token:name',
   ],
   'type_const_declaration.type_const_semicolon' => keyset[
+    'missing',
     'token:;',
   ],
   'type_const_declaration.type_const_type_constraint' => keyset[
@@ -3678,6 +3672,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   'type_const_declaration.type_const_type_specifier' => keyset[
     'closure_type_specifier',
     'dictionary_type_specifier',
+    'error',
     'generic_type_specifier',
     'keyset_type_specifier',
     'missing',
@@ -3708,9 +3703,8 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   'type_constraint.constraint_type' => keyset[
     'classname_type_specifier',
     'closure_type_specifier',
-    'dictionary_type_specifier',
+    'error',
     'generic_type_specifier',
-    'keyset_type_specifier',
     'nullable_type_specifier',
     'shape_type_specifier',
     'simple_type_specifier',
@@ -3779,6 +3773,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<binary_expression>',
     'list<lambda_expression>',
     'list<literal>',
+    'list<missing>',
     'list<object_creation_expression>',
     'list<object_creation_expression|prefix_unary_expression>',
     'list<prefix_unary_expression>',
@@ -3813,6 +3808,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'variadic_parameter.variadic_parameter_call_convention' => keyset[
     'missing',
+    'token:inout',
   ],
   'variadic_parameter.variadic_parameter_ellipsis' => keyset[
     'token:...',
@@ -3844,6 +3840,8 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<literal>',
     'list<literal|scope_resolution_expression>',
     'list<literal|variable>',
+    'list<member_selection_expression>',
+    'list<prefix_unary_expression>',
     'list<scope_resolution_expression>',
     'list<token:name>',
     'list<token:name|variable>',
@@ -3854,6 +3852,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'missing',
   ],
   'varray_intrinsic_expression.varray_intrinsic_right_bracket' => keyset[
+    'missing',
     'token:]',
   ],
   'varray_type_specifier.varray_keyword' => keyset[
@@ -3948,6 +3947,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<literal|vector_intrinsic_expression>',
     'list<member_selection_expression|variable>',
     'list<object_creation_expression>',
+    'list<prefix_unary_expression|variable>',
     'list<scope_resolution_expression>',
     'list<shape_expression>',
     'list<token:name>',
@@ -3959,6 +3959,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'missing',
   ],
   'vector_intrinsic_expression.vector_intrinsic_right_bracket' => keyset[
+    'missing',
     'token:]',
   ],
   'vector_type_specifier.vector_type_keyword' => keyset[
@@ -4018,6 +4019,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'binary_expression',
     'function_call_expression',
     'instanceof_expression',
+    'is_expression',
     'isset_expression',
     'literal',
     'member_selection_expression',
@@ -4167,6 +4169,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'parenthesized_expression',
     'postfix_unary_expression',
     'prefix_unary_expression',
+    'scope_resolution_expression',
     'subscript_expression',
     'token:break',
     'token:name',

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<35b52d4a12afa35553cb4dd24bec1cfe>>
+ * @generated SignedSource<<58355cc4fe88d85aa4a83bc731d84cd1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -260,6 +260,8 @@ final class VarrayIntrinsicExpression extends EditableNode {
    * EditableList<ArrayIntrinsicExpression> |
    * EditableList<DarrayIntrinsicExpression> |
    * EditableList<FunctionCallExpression> | EditableList<LiteralExpression> |
+   * EditableList<MemberSelectionExpression> |
+   * EditableList<PrefixUnaryExpression> |
    * EditableList<ScopeResolutionExpression> | EditableList<NameToken> |
    * EditableList<VariableExpression> | EditableList<VarrayIntrinsicExpression>
    * | EditableList<VectorIntrinsicExpression> | null
@@ -276,6 +278,8 @@ final class VarrayIntrinsicExpression extends EditableNode {
    * EditableList<ArrayIntrinsicExpression> |
    * EditableList<DarrayIntrinsicExpression> |
    * EditableList<FunctionCallExpression> | EditableList<LiteralExpression> |
+   * EditableList<MemberSelectionExpression> |
+   * EditableList<PrefixUnaryExpression> |
    * EditableList<ScopeResolutionExpression> | EditableList<NameToken> |
    * EditableList<VariableExpression> | EditableList<VarrayIntrinsicExpression>
    * | EditableList<VectorIntrinsicExpression>
@@ -306,9 +310,12 @@ final class VarrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @return RightBracketToken
+   * @return null | RightBracketToken
    */
-  public function getRightBracket(): RightBracketToken {
+  public function getRightBracket(): ?RightBracketToken {
+    if ($this->_right_bracket->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(
       RightBracketToken::class,
       $this->_right_bracket,
@@ -319,6 +326,9 @@ final class VarrayIntrinsicExpression extends EditableNode {
    * @return RightBracketToken
    */
   public function getRightBracketx(): RightBracketToken {
-    return $this->getRightBracket();
+    return TypeAssert\instance_of(
+      RightBracketToken::class,
+      $this->_right_bracket,
+    );
   }
 }

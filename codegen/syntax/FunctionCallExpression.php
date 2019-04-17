@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<aad33faf6a26e318e921243a0a43ad26>>
+ * @generated SignedSource<<cffa41015c4cd6e3c2586b6e9a8e7904>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,18 +11,21 @@ use namespace Facebook\TypeAssert;
 final class FunctionCallExpression extends EditableNode {
 
   private EditableNode $_receiver;
+  private EditableNode $_type_args;
   private EditableNode $_left_paren;
   private EditableNode $_argument_list;
   private EditableNode $_right_paren;
 
   public function __construct(
     EditableNode $receiver,
+    EditableNode $type_args,
     EditableNode $left_paren,
     EditableNode $argument_list,
     EditableNode $right_paren,
   ) {
     parent::__construct('function_call_expression');
     $this->_receiver = $receiver;
+    $this->_type_args = $type_args;
     $this->_left_paren = $left_paren;
     $this->_argument_list = $argument_list;
     $this->_right_paren = $right_paren;
@@ -42,6 +45,13 @@ final class FunctionCallExpression extends EditableNode {
       $source,
     );
     $offset += $receiver->getWidth();
+    $type_args = EditableNode::fromJSON(
+      /* UNSAFE_EXPR */ $json['function_call_type_args'],
+      $file,
+      $offset,
+      $source,
+    );
+    $offset += $type_args->getWidth();
     $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_call_left_paren'],
       $file,
@@ -63,13 +73,20 @@ final class FunctionCallExpression extends EditableNode {
       $source,
     );
     $offset += $right_paren->getWidth();
-    return new static($receiver, $left_paren, $argument_list, $right_paren);
+    return new static(
+      $receiver,
+      $type_args,
+      $left_paren,
+      $argument_list,
+      $right_paren,
+    );
   }
 
   <<__Override>>
   public function getChildren(): dict<string, EditableNode> {
     return dict[
       'receiver' => $this->_receiver,
+      'type_args' => $this->_type_args,
       'left_paren' => $this->_left_paren,
       'argument_list' => $this->_argument_list,
       'right_paren' => $this->_right_paren,
@@ -84,18 +101,26 @@ final class FunctionCallExpression extends EditableNode {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $receiver = $this->_receiver->rewrite($rewriter, $parents);
+    $type_args = $this->_type_args->rewrite($rewriter, $parents);
     $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
     $argument_list = $this->_argument_list->rewrite($rewriter, $parents);
     $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
     if (
       $receiver === $this->_receiver &&
+      $type_args === $this->_type_args &&
       $left_paren === $this->_left_paren &&
       $argument_list === $this->_argument_list &&
       $right_paren === $this->_right_paren
     ) {
       return $this;
     }
-    return new static($receiver, $left_paren, $argument_list, $right_paren);
+    return new static(
+      $receiver,
+      $type_args,
+      $left_paren,
+      $argument_list,
+      $right_paren,
+    );
   }
 
   public function getReceiverUNTYPED(): EditableNode {
@@ -108,6 +133,7 @@ final class FunctionCallExpression extends EditableNode {
     }
     return new static(
       $value,
+      $this->_type_args,
       $this->_left_paren,
       $this->_argument_list,
       $this->_right_paren,
@@ -122,7 +148,7 @@ final class FunctionCallExpression extends EditableNode {
    * @return ArrayCreationExpression | FunctionCallExpression |
    * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
    * QualifiedName | SafeMemberSelectionExpression | ScopeResolutionExpression
-   * | SubscriptExpression | IfToken | NameToken | VariableExpression
+   * | SubscriptExpression | ErrorTokenToken | NameToken | VariableExpression
    */
   public function getReceiver(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_receiver);
@@ -132,10 +158,48 @@ final class FunctionCallExpression extends EditableNode {
    * @return ArrayCreationExpression | FunctionCallExpression |
    * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
    * QualifiedName | SafeMemberSelectionExpression | ScopeResolutionExpression
-   * | SubscriptExpression | IfToken | NameToken | VariableExpression
+   * | SubscriptExpression | ErrorTokenToken | NameToken | VariableExpression
    */
   public function getReceiverx(): EditableNode {
     return $this->getReceiver();
+  }
+
+  public function getTypeArgsUNTYPED(): EditableNode {
+    return $this->_type_args;
+  }
+
+  public function withTypeArgs(EditableNode $value): this {
+    if ($value === $this->_type_args) {
+      return $this;
+    }
+    return new static(
+      $this->_receiver,
+      $value,
+      $this->_left_paren,
+      $this->_argument_list,
+      $this->_right_paren,
+    );
+  }
+
+  public function hasTypeArgs(): bool {
+    return !$this->_type_args->isMissing();
+  }
+
+  /**
+   * @return null | TypeArguments
+   */
+  public function getTypeArgs(): ?TypeArguments {
+    if ($this->_type_args->isMissing()) {
+      return null;
+    }
+    return TypeAssert\instance_of(TypeArguments::class, $this->_type_args);
+  }
+
+  /**
+   * @return TypeArguments
+   */
+  public function getTypeArgsx(): TypeArguments {
+    return TypeAssert\instance_of(TypeArguments::class, $this->_type_args);
   }
 
   public function getLeftParenUNTYPED(): EditableNode {
@@ -148,6 +212,7 @@ final class FunctionCallExpression extends EditableNode {
     }
     return new static(
       $this->_receiver,
+      $this->_type_args,
       $value,
       $this->_argument_list,
       $this->_right_paren,
@@ -159,9 +224,12 @@ final class FunctionCallExpression extends EditableNode {
   }
 
   /**
-   * @return LeftParenToken
+   * @return null | LeftParenToken
    */
-  public function getLeftParen(): LeftParenToken {
+  public function getLeftParen(): ?LeftParenToken {
+    if ($this->_left_paren->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
@@ -169,7 +237,7 @@ final class FunctionCallExpression extends EditableNode {
    * @return LeftParenToken
    */
   public function getLeftParenx(): LeftParenToken {
-    return $this->getLeftParen();
+    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   public function getArgumentListUNTYPED(): EditableNode {
@@ -182,6 +250,7 @@ final class FunctionCallExpression extends EditableNode {
     }
     return new static(
       $this->_receiver,
+      $this->_type_args,
       $this->_left_paren,
       $value,
       $this->_right_paren,
@@ -203,20 +272,20 @@ final class FunctionCallExpression extends EditableNode {
    * EditableList<DecoratedExpression> |
    * EditableList<DictionaryIntrinsicExpression> |
    * EditableList<EmptyExpression> | EditableList<EvalExpression> |
-   * EditableList<FunctionCallExpression> |
-   * EditableList<FunctionCallWithTypeArgumentsExpression> |
-   * EditableList<InstanceofExpression> | EditableList<IsExpression> |
-   * EditableList<IssetExpression> | EditableList<KeysetIntrinsicExpression> |
-   * EditableList<LambdaExpression> | EditableList<LiteralExpression> |
-   * EditableList<?LiteralExpression> | EditableList<MemberSelectionExpression>
-   * | EditableList<ObjectCreationExpression> |
+   * EditableList<FunctionCallExpression> | EditableList<InstanceofExpression>
+   * | EditableList<IsExpression> | EditableList<IssetExpression> |
+   * EditableList<KeysetIntrinsicExpression> | EditableList<LambdaExpression> |
+   * EditableList<LiteralExpression> | EditableList<?LiteralExpression> |
+   * EditableList<MemberSelectionExpression> | EditableList<?EditableNode> |
+   * EditableList<ObjectCreationExpression> |
    * EditableList<ParenthesizedExpression> |
    * EditableList<PipeVariableExpression> |
    * EditableList<PostfixUnaryExpression> | EditableList<PrefixUnaryExpression>
    * | EditableList<QualifiedName> |
    * EditableList<SafeMemberSelectionExpression> |
    * EditableList<ScopeResolutionExpression> | EditableList<ShapeExpression> |
-   * EditableList<SubscriptExpression> | EditableList<NameToken> |
+   * EditableList<SubscriptExpression> | EditableList<AsToken> |
+   * EditableList<ErrorTokenToken> | EditableList<NameToken> |
    * EditableList<TupleExpression> | EditableList<VariableExpression> |
    * EditableList<VarrayIntrinsicExpression> |
    * EditableList<VectorIntrinsicExpression> | EditableList<XHPExpression> |
@@ -240,20 +309,20 @@ final class FunctionCallExpression extends EditableNode {
    * EditableList<DecoratedExpression> |
    * EditableList<DictionaryIntrinsicExpression> |
    * EditableList<EmptyExpression> | EditableList<EvalExpression> |
-   * EditableList<FunctionCallExpression> |
-   * EditableList<FunctionCallWithTypeArgumentsExpression> |
-   * EditableList<InstanceofExpression> | EditableList<IsExpression> |
-   * EditableList<IssetExpression> | EditableList<KeysetIntrinsicExpression> |
-   * EditableList<LambdaExpression> | EditableList<LiteralExpression> |
-   * EditableList<?LiteralExpression> | EditableList<MemberSelectionExpression>
-   * | EditableList<ObjectCreationExpression> |
+   * EditableList<FunctionCallExpression> | EditableList<InstanceofExpression>
+   * | EditableList<IsExpression> | EditableList<IssetExpression> |
+   * EditableList<KeysetIntrinsicExpression> | EditableList<LambdaExpression> |
+   * EditableList<LiteralExpression> | EditableList<?LiteralExpression> |
+   * EditableList<MemberSelectionExpression> | EditableList<?EditableNode> |
+   * EditableList<ObjectCreationExpression> |
    * EditableList<ParenthesizedExpression> |
    * EditableList<PipeVariableExpression> |
    * EditableList<PostfixUnaryExpression> | EditableList<PrefixUnaryExpression>
    * | EditableList<QualifiedName> |
    * EditableList<SafeMemberSelectionExpression> |
    * EditableList<ScopeResolutionExpression> | EditableList<ShapeExpression> |
-   * EditableList<SubscriptExpression> | EditableList<NameToken> |
+   * EditableList<SubscriptExpression> | EditableList<AsToken> |
+   * EditableList<ErrorTokenToken> | EditableList<NameToken> |
    * EditableList<TupleExpression> | EditableList<VariableExpression> |
    * EditableList<VarrayIntrinsicExpression> |
    * EditableList<VectorIntrinsicExpression> | EditableList<XHPExpression>
@@ -272,6 +341,7 @@ final class FunctionCallExpression extends EditableNode {
     }
     return new static(
       $this->_receiver,
+      $this->_type_args,
       $this->_left_paren,
       $this->_argument_list,
       $value,

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6661c1a710ae0f730578029426b73300>>
+ * @generated SignedSource<<bfbfcc4359d22e66b9989ad93a0bec43>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -391,9 +391,12 @@ final class TypeConstDeclaration extends EditableNode {
   }
 
   /**
-   * @return NameToken
+   * @return null | NameToken
    */
-  public function getName(): NameToken {
+  public function getName(): ?NameToken {
+    if ($this->_name->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(NameToken::class, $this->_name);
   }
 
@@ -401,7 +404,7 @@ final class TypeConstDeclaration extends EditableNode {
    * @return NameToken
    */
   public function getNamex(): NameToken {
-    return $this->getName();
+    return TypeAssert\instance_of(NameToken::class, $this->_name);
   }
 
   public function getTypeParametersUNTYPED(): EditableNode {
@@ -615,9 +618,12 @@ final class TypeConstDeclaration extends EditableNode {
   }
 
   /**
-   * @return SemicolonToken
+   * @return null | SemicolonToken
    */
-  public function getSemicolon(): SemicolonToken {
+  public function getSemicolon(): ?SemicolonToken {
+    if ($this->_semicolon->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 
@@ -625,6 +631,6 @@ final class TypeConstDeclaration extends EditableNode {
    * @return SemicolonToken
    */
   public function getSemicolonx(): SemicolonToken {
-    return $this->getSemicolon();
+    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 }

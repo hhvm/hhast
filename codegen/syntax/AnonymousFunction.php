@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f2fb1dcee565ea4953beb6321120371e>>
+ * @generated SignedSource<<22d0c489f84c0303548d988b6ebdf459>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -399,24 +399,24 @@ final class AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @return null | CoroutineToken
+   * @return null
    */
-  public function getCoroutineKeyword(): ?CoroutineToken {
+  public function getCoroutineKeyword(): ?EditableNode {
     if ($this->_coroutine_keyword->isMissing()) {
       return null;
     }
     return TypeAssert\instance_of(
-      CoroutineToken::class,
+      EditableNode::class,
       $this->_coroutine_keyword,
     );
   }
 
   /**
-   * @return CoroutineToken
+   * @return
    */
-  public function getCoroutineKeywordx(): CoroutineToken {
+  public function getCoroutineKeywordx(): EditableNode {
     return TypeAssert\instance_of(
-      CoroutineToken::class,
+      EditableNode::class,
       $this->_coroutine_keyword,
     );
   }
@@ -679,8 +679,7 @@ final class AnonymousFunction extends EditableNode {
   /**
    * @return ClosureTypeSpecifier | GenericTypeSpecifier |
    * MapArrayTypeSpecifier | null | NullableTypeSpecifier | SimpleTypeSpecifier
-   * | SoftTypeSpecifier | TupleTypeSpecifier | VectorArrayTypeSpecifier |
-   * VectorTypeSpecifier
+   * | SoftTypeSpecifier | TupleTypeSpecifier | VectorTypeSpecifier
    */
   public function getType(): ?EditableNode {
     if ($this->_type->isMissing()) {
@@ -692,8 +691,7 @@ final class AnonymousFunction extends EditableNode {
   /**
    * @return ClosureTypeSpecifier | GenericTypeSpecifier |
    * MapArrayTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier |
-   * SoftTypeSpecifier | TupleTypeSpecifier | VectorArrayTypeSpecifier |
-   * VectorTypeSpecifier
+   * SoftTypeSpecifier | TupleTypeSpecifier | VectorTypeSpecifier
    */
   public function getTypex(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);

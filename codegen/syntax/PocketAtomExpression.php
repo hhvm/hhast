@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1ec382567eb4d7447d32536e0b3e3b88>>
+ * @generated SignedSource<<783bcc4d1ffbc2412180235384052ee2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,10 +10,12 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class PocketAtomExpression extends EditableNode {
 
+  private EditableNode $_glyph;
   private EditableNode $_expression;
 
-  public function __construct(EditableNode $expression) {
+  public function __construct(EditableNode $glyph, EditableNode $expression) {
     parent::__construct('pocket_atom_expression');
+    $this->_glyph = $glyph;
     $this->_expression = $expression;
   }
 
@@ -24,6 +26,13 @@ final class PocketAtomExpression extends EditableNode {
     int $offset,
     string $source,
   ): this {
+    $glyph = EditableNode::fromJSON(
+      /* UNSAFE_EXPR */ $json['pocket_atom_glyph'],
+      $file,
+      $offset,
+      $source,
+    );
+    $offset += $glyph->getWidth();
     $expression = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['pocket_atom_expression'],
       $file,
@@ -31,12 +40,13 @@ final class PocketAtomExpression extends EditableNode {
       $source,
     );
     $offset += $expression->getWidth();
-    return new static($expression);
+    return new static($glyph, $expression);
   }
 
   <<__Override>>
   public function getChildren(): dict<string, EditableNode> {
     return dict[
+      'glyph' => $this->_glyph,
       'expression' => $this->_expression,
     ];
   }
@@ -48,11 +58,41 @@ final class PocketAtomExpression extends EditableNode {
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
+    $glyph = $this->_glyph->rewrite($rewriter, $parents);
     $expression = $this->_expression->rewrite($rewriter, $parents);
-    if ($expression === $this->_expression) {
+    if ($glyph === $this->_glyph && $expression === $this->_expression) {
       return $this;
     }
-    return new static($expression);
+    return new static($glyph, $expression);
+  }
+
+  public function getGlyphUNTYPED(): EditableNode {
+    return $this->_glyph;
+  }
+
+  public function withGlyph(EditableNode $value): this {
+    if ($value === $this->_glyph) {
+      return $this;
+    }
+    return new static($value, $this->_expression);
+  }
+
+  public function hasGlyph(): bool {
+    return !$this->_glyph->isMissing();
+  }
+
+  /**
+   * @return unknown
+   */
+  public function getGlyph(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_glyph);
+  }
+
+  /**
+   * @return unknown
+   */
+  public function getGlyphx(): EditableNode {
+    return $this->getGlyph();
   }
 
   public function getExpressionUNTYPED(): EditableNode {
@@ -63,7 +103,7 @@ final class PocketAtomExpression extends EditableNode {
     if ($value === $this->_expression) {
       return $this;
     }
-    return new static($value);
+    return new static($this->_glyph, $value);
   }
 
   public function hasExpression(): bool {

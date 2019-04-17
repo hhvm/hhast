@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<34cd9d828d65ee5763e2cda1c40689cb>>
+ * @generated SignedSource<<6613b2dad4143df6a1063863db33ff59>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -110,9 +110,10 @@ final class BinaryExpression extends EditableNode {
    * ListExpression | LiteralExpression | MemberSelectionExpression |
    * ObjectCreationExpression | ParenthesizedExpression |
    * PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression |
-   * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
-   * NameToken | RightBraceToken | VariableExpression |
-   * VarrayIntrinsicExpression | VectorIntrinsicExpression
+   * QualifiedName | SafeMemberSelectionExpression | ScopeResolutionExpression
+   * | SubscriptExpression | PercentToken | DotDotDotToken | LessThanToken |
+   * QuestionGreaterThanToken | ErrorTokenToken | NameToken | RightBraceToken |
+   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
    */
   public function getLeftOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_left_operand);
@@ -128,9 +129,10 @@ final class BinaryExpression extends EditableNode {
    * ListExpression | LiteralExpression | MemberSelectionExpression |
    * ObjectCreationExpression | ParenthesizedExpression |
    * PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression |
-   * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
-   * NameToken | RightBraceToken | VariableExpression |
-   * VarrayIntrinsicExpression | VectorIntrinsicExpression
+   * QualifiedName | SafeMemberSelectionExpression | ScopeResolutionExpression
+   * | SubscriptExpression | PercentToken | DotDotDotToken | LessThanToken |
+   * QuestionGreaterThanToken | ErrorTokenToken | NameToken | RightBraceToken |
+   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
    */
   public function getLeftOperandx(): EditableNode {
     return $this->getLeftOperand();
@@ -210,18 +212,17 @@ final class BinaryExpression extends EditableNode {
    * BinaryExpression | CastExpression | CollectionLiteralExpression |
    * ConditionalExpression | DarrayIntrinsicExpression |
    * DictionaryIntrinsicExpression | EmptyExpression | EvalExpression |
-   * FunctionCallExpression | FunctionCallWithTypeArgumentsExpression |
-   * InclusionExpression | InstanceofExpression | IsExpression |
-   * IssetExpression | KeysetIntrinsicExpression | LambdaExpression |
-   * LiteralExpression | MemberSelectionExpression | null |
+   * FunctionCallExpression | InclusionExpression | InstanceofExpression |
+   * IsExpression | IssetExpression | KeysetIntrinsicExpression |
+   * LambdaExpression | LiteralExpression | MemberSelectionExpression | null |
    * NullableAsExpression | ObjectCreationExpression | ParenthesizedExpression
    * | Php7AnonymousFunction | PipeVariableExpression | PostfixUnaryExpression
    * | PrefixUnaryExpression | PrefixedStringExpression | QualifiedName |
-   * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * ShapeExpression | SubscriptExpression | QuestionToken | EndOfFileToken |
-   * NameToken | TupleExpression | VariableExpression |
-   * VarrayIntrinsicExpression | VectorIntrinsicExpression | XHPExpression |
-   * YieldExpression | YieldFromExpression
+   * RecordCreationExpression | SafeMemberSelectionExpression |
+   * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
+   * EqualToken | QuestionToken | NameToken | TupleExpression |
+   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
+   * | XHPExpression | YieldExpression | YieldFromExpression
    */
   public function getRightOperand(): ?EditableNode {
     if ($this->_right_operand->isMissing()) {
@@ -236,15 +237,15 @@ final class BinaryExpression extends EditableNode {
    * BinaryExpression | CastExpression | CollectionLiteralExpression |
    * ConditionalExpression | DarrayIntrinsicExpression |
    * DictionaryIntrinsicExpression | EmptyExpression | EvalExpression |
-   * FunctionCallExpression | FunctionCallWithTypeArgumentsExpression |
-   * InclusionExpression | InstanceofExpression | IsExpression |
-   * IssetExpression | KeysetIntrinsicExpression | LambdaExpression |
-   * LiteralExpression | MemberSelectionExpression | NullableAsExpression |
-   * ObjectCreationExpression | ParenthesizedExpression | Php7AnonymousFunction
-   * | PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression
-   * | PrefixedStringExpression | QualifiedName | SafeMemberSelectionExpression
-   * | ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
-   * QuestionToken | EndOfFileToken | NameToken | TupleExpression |
+   * FunctionCallExpression | InclusionExpression | InstanceofExpression |
+   * IsExpression | IssetExpression | KeysetIntrinsicExpression |
+   * LambdaExpression | LiteralExpression | MemberSelectionExpression |
+   * NullableAsExpression | ObjectCreationExpression | ParenthesizedExpression
+   * | Php7AnonymousFunction | PipeVariableExpression | PostfixUnaryExpression
+   * | PrefixUnaryExpression | PrefixedStringExpression | QualifiedName |
+   * RecordCreationExpression | SafeMemberSelectionExpression |
+   * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
+   * EqualToken | QuestionToken | NameToken | TupleExpression |
    * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
    * | XHPExpression | YieldExpression | YieldFromExpression
    */

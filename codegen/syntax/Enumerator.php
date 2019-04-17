@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1fada0f17fd48b97dce8783b166f94b5>>
+ * @generated SignedSource<<60942084aab7a11b11e1a8700f6d6870>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -143,9 +143,12 @@ final class Enumerator extends EditableNode {
   }
 
   /**
-   * @return EqualToken
+   * @return null | EqualToken
    */
-  public function getEqual(): EqualToken {
+  public function getEqual(): ?EqualToken {
+    if ($this->_equal->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EqualToken::class, $this->_equal);
   }
 
@@ -153,7 +156,7 @@ final class Enumerator extends EditableNode {
    * @return EqualToken
    */
   public function getEqualx(): EqualToken {
-    return $this->getEqual();
+    return TypeAssert\instance_of(EqualToken::class, $this->_equal);
   }
 
   public function getValueUNTYPED(): EditableNode {
@@ -172,18 +175,18 @@ final class Enumerator extends EditableNode {
   }
 
   /**
-   * @return BinaryExpression | FunctionCallExpression | LiteralExpression |
-   * ObjectCreationExpression | ScopeResolutionExpression | NameToken |
-   * VariableExpression
+   * @return BinaryExpression | CollectionLiteralExpression |
+   * FunctionCallExpression | LiteralExpression | ObjectCreationExpression |
+   * ScopeResolutionExpression | NameToken | VariableExpression
    */
   public function getValue(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_value);
   }
 
   /**
-   * @return BinaryExpression | FunctionCallExpression | LiteralExpression |
-   * ObjectCreationExpression | ScopeResolutionExpression | NameToken |
-   * VariableExpression
+   * @return BinaryExpression | CollectionLiteralExpression |
+   * FunctionCallExpression | LiteralExpression | ObjectCreationExpression |
+   * ScopeResolutionExpression | NameToken | VariableExpression
    */
   public function getValuex(): EditableNode {
     return $this->getValue();
@@ -205,9 +208,12 @@ final class Enumerator extends EditableNode {
   }
 
   /**
-   * @return SemicolonToken
+   * @return null | SemicolonToken
    */
-  public function getSemicolon(): SemicolonToken {
+  public function getSemicolon(): ?SemicolonToken {
+    if ($this->_semicolon->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 
@@ -215,6 +221,6 @@ final class Enumerator extends EditableNode {
    * @return SemicolonToken
    */
   public function getSemicolonx(): SemicolonToken {
-    return $this->getSemicolon();
+    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 }

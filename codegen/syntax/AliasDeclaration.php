@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7845dce0668225595ab6a55b83f4e0ba>>
+ * @generated SignedSource<<7c35a54fdd43e0f1716b96d6c8519bab>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -487,9 +487,12 @@ final class AliasDeclaration extends EditableNode {
   }
 
   /**
-   * @return SemicolonToken
+   * @return null | SemicolonToken
    */
-  public function getSemicolon(): SemicolonToken {
+  public function getSemicolon(): ?SemicolonToken {
+    if ($this->_semicolon->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 
@@ -497,6 +500,6 @@ final class AliasDeclaration extends EditableNode {
    * @return SemicolonToken
    */
   public function getSemicolonx(): SemicolonToken {
-    return $this->getSemicolon();
+    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 }

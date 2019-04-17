@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7c5e78c04ad3c690f515de46f5986972>>
+ * @generated SignedSource<<2dd0e2ac507a9353a8a953b0632ee5bd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -336,8 +336,8 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
 
   /**
    * @return BreakStatement | CompoundStatement | ContinueStatement |
-   * EchoStatement | ExpressionStatement | GlobalStatement | GotoStatement |
-   * ReturnStatement | ThrowStatement | UnsetStatement
+   * EchoStatement | ExpressionStatement | GotoStatement | ReturnStatement |
+   * ThrowStatement | UnsetStatement
    */
   public function getStatement(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_statement);
@@ -345,8 +345,8 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
 
   /**
    * @return BreakStatement | CompoundStatement | ContinueStatement |
-   * EchoStatement | ExpressionStatement | GlobalStatement | GotoStatement |
-   * ReturnStatement | ThrowStatement | UnsetStatement
+   * EchoStatement | ExpressionStatement | GotoStatement | ReturnStatement |
+   * ThrowStatement | UnsetStatement
    */
   public function getStatementx(): EditableNode {
     return $this->getStatement();

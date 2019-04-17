@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7df291cc909ad354713ec2ae5432837f>>
+ * @generated SignedSource<<1fb21dc18569bf28c8d98b0b5d533207>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -120,6 +120,8 @@ class TokenClassMap {
     'public' => HHAST\PublicToken::class,
     '?as' => HHAST\QuestionAsToken::class,
     'real' => HHAST\RealToken::class,
+    'recordname' => HHAST\RecordToken::class,
+    'record' => HHAST\RecordDecToken::class,
     'reify' => HHAST\ReifyToken::class,
     'require' => HHAST\RequireToken::class,
     'require_once' => HHAST\Require_onceToken::class,
@@ -169,7 +171,6 @@ class TokenClassMap {
     'name' => HHAST\NameToken::class,
     'nowdoc_string_literal' => HHAST\NowdocStringLiteralToken::class,
     'octal_literal' => HHAST\OctalLiteralToken::class,
-    'PU_atom' => HHAST\PUAtomToken::class,
     'single_quoted_string_literal' =>
       HHAST\SingleQuotedStringLiteralToken::class,
     'string_literal_body' => HHAST\StringLiteralBodyToken::class,
@@ -196,6 +197,7 @@ class TokenClassMap {
       '^' => HHAST\CaratToken::class,
       '^=' => HHAST\CaratEqualToken::class,
       ':' => HHAST\ColonToken::class,
+      ':@' => HHAST\ColonAtToken::class,
       '::' => HHAST\ColonColonToken::class,
       ',' => HHAST\CommaToken::class,
       '$' => HHAST\DollarToken::class,

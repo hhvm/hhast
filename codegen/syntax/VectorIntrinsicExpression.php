@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<56411917134cb3d55593d34239b1ce90>>
+ * @generated SignedSource<<2574638c96d332eaf67dec2f08aec932>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -316,9 +316,12 @@ final class VectorIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @return RightBracketToken
+   * @return null | RightBracketToken
    */
-  public function getRightBracket(): RightBracketToken {
+  public function getRightBracket(): ?RightBracketToken {
+    if ($this->_right_bracket->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(
       RightBracketToken::class,
       $this->_right_bracket,
@@ -329,6 +332,9 @@ final class VectorIntrinsicExpression extends EditableNode {
    * @return RightBracketToken
    */
   public function getRightBracketx(): RightBracketToken {
-    return $this->getRightBracket();
+    return TypeAssert\instance_of(
+      RightBracketToken::class,
+      $this->_right_bracket,
+    );
   }
 }

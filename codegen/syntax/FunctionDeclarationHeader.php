@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a65273414929ba3835033f78ce930ed4>>
+ * @generated SignedSource<<da2f39ac20a1e97ceabca60bb8b29afe>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -579,10 +579,10 @@ final class FunctionDeclarationHeader extends EditableNode {
   /**
    * @return ClassnameTypeSpecifier | ClosureTypeSpecifier |
    * DarrayTypeSpecifier | DictionaryTypeSpecifier | GenericTypeSpecifier |
-   * KeysetTypeSpecifier | MapArrayTypeSpecifier | null | NullableTypeSpecifier
-   * | ShapeTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier |
-   * NoreturnToken | TupleTypeSpecifier | TypeConstant | VarrayTypeSpecifier |
-   * VectorArrayTypeSpecifier | VectorTypeSpecifier
+   * KeysetTypeSpecifier | LikeTypeSpecifier | MapArrayTypeSpecifier | null |
+   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
+   * SoftTypeSpecifier | NoreturnToken | TupleTypeSpecifier | TypeConstant |
+   * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getType(): ?EditableNode {
     if ($this->_type->isMissing()) {
@@ -594,10 +594,10 @@ final class FunctionDeclarationHeader extends EditableNode {
   /**
    * @return ClassnameTypeSpecifier | ClosureTypeSpecifier |
    * DarrayTypeSpecifier | DictionaryTypeSpecifier | GenericTypeSpecifier |
-   * KeysetTypeSpecifier | MapArrayTypeSpecifier | NullableTypeSpecifier |
-   * ShapeTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier |
-   * NoreturnToken | TupleTypeSpecifier | TypeConstant | VarrayTypeSpecifier |
-   * VectorArrayTypeSpecifier | VectorTypeSpecifier
+   * KeysetTypeSpecifier | LikeTypeSpecifier | MapArrayTypeSpecifier |
+   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
+   * SoftTypeSpecifier | NoreturnToken | TupleTypeSpecifier | TypeConstant |
+   * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getTypex(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9e38dfe326411852ce012e67a60406ee>>
+ * @generated SignedSource<<33fa9c56e7643e7019df5b74fb0ec085>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -273,16 +273,19 @@ final class AlternateSwitchStatement
   }
 
   /**
-   * @return LiteralExpression | VariableExpression
+   * @return VariableExpression
    */
-  public function getExpression(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_expression);
+  public function getExpression(): VariableExpression {
+    return TypeAssert\instance_of(
+      VariableExpression::class,
+      $this->_expression,
+    );
   }
 
   /**
-   * @return LiteralExpression | VariableExpression
+   * @return VariableExpression
    */
-  public function getExpressionx(): EditableNode {
+  public function getExpressionx(): VariableExpression {
     return $this->getExpression();
   }
 

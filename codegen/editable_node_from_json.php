@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<97c09218068bd067c5a8a836707d384d>>
+ * @generated SignedSource<<b825203bde35f249d93bad6472458790>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -325,13 +325,6 @@ function editable_node_from_json(
         $offset,
         $source,
       );
-    case 'function_call_with_type_arguments_expression':
-      return HHAST\FunctionCallWithTypeArgumentsExpression::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
     case 'function_declaration':
       return HHAST\FunctionDeclaration::fromJSON(
         $json,
@@ -346,13 +339,6 @@ function editable_node_from_json(
         $offset,
         $source,
       );
-    case 'function_static_statement':
-      return HHAST\FunctionStaticStatement::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
     case 'generic_type_specifier':
       return HHAST\GenericTypeSpecifier::fromJSON(
         $json,
@@ -360,8 +346,6 @@ function editable_node_from_json(
         $offset,
         $source,
       );
-    case 'global_statement':
-      return HHAST\GlobalStatement::fromJSON($json, $file, $offset, $source);
     case 'goto_label':
       return HHAST\GotoLabel::fromJSON($json, $file, $offset, $source);
     case 'goto_statement':
@@ -415,6 +399,8 @@ function editable_node_from_json(
       return HHAST\LambdaSignature::fromJSON($json, $file, $offset, $source);
     case 'let_statement':
       return HHAST\LetStatement::fromJSON($json, $file, $offset, $source);
+    case 'like_type_specifier':
+      return HHAST\LikeTypeSpecifier::fromJSON($json, $file, $offset, $source);
     case 'list_expression':
       return HHAST\ListExpression::fromJSON($json, $file, $offset, $source);
     case 'list_item':
@@ -564,6 +550,13 @@ function editable_node_from_json(
         $offset,
         $source,
       );
+    case 'pocket_identifier':
+      return HHAST\PocketIdentifierExpression::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
     case 'pocket_mapping_id_declaration':
       return HHAST\PocketMappingIdDeclaration::fromJSON(
         $json,
@@ -610,6 +603,17 @@ function editable_node_from_json(
       return HHAST\PropertyDeclarator::fromJSON($json, $file, $offset, $source);
     case 'qualified_name':
       return HHAST\QualifiedName::fromJSON($json, $file, $offset, $source);
+    case 'record_creation_expression':
+      return HHAST\RecordCreationExpression::fromJSON(
+        $json,
+        $file,
+        $offset,
+        $source,
+      );
+    case 'record_declaration':
+      return HHAST\RecordDeclaration::fromJSON($json, $file, $offset, $source);
+    case 'record_field':
+      return HHAST\RecordField::fromJSON($json, $file, $offset, $source);
     case 'reified_type_argument':
       return HHAST\ReifiedTypeArgument::fromJSON(
         $json,
@@ -652,8 +656,6 @@ function editable_node_from_json(
       );
     case 'soft_type_specifier':
       return HHAST\SoftTypeSpecifier::fromJSON($json, $file, $offset, $source);
-    case 'static_declarator':
-      return HHAST\StaticDeclarator::fromJSON($json, $file, $offset, $source);
     case 'subscript_expression':
       return HHAST\SubscriptExpression::fromJSON(
         $json,

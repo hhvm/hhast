@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b72721ecae227204e9c77ab745e6c3a6>>
+ * @generated SignedSource<<397256d8441b851adfdb50bff0c41dda>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,20 +101,20 @@ final class VariadicParameter extends EditableNode {
   }
 
   /**
-   * @return null
+   * @return null | InoutToken
    */
-  public function getCallConvention(): ?EditableNode {
+  public function getCallConvention(): ?InoutToken {
     if ($this->_call_convention->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_call_convention);
+    return TypeAssert\instance_of(InoutToken::class, $this->_call_convention);
   }
 
   /**
-   * @return
+   * @return InoutToken
    */
-  public function getCallConventionx(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_call_convention);
+  public function getCallConventionx(): InoutToken {
+    return TypeAssert\instance_of(InoutToken::class, $this->_call_convention);
   }
 
   public function getTypeUNTYPED(): EditableNode {

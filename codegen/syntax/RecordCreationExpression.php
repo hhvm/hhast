@@ -2,30 +2,27 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<05afb0f13990914b0b949e79e2a43ec3>>
+ * @generated SignedSource<<79bdd1ce6b14bbd6d43501d57a9ed89e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class DarrayIntrinsicExpression extends EditableNode {
+final class RecordCreationExpression extends EditableNode {
 
-  private EditableNode $_keyword;
-  private EditableNode $_explicit_type;
+  private EditableNode $_type;
   private EditableNode $_left_bracket;
   private EditableNode $_members;
   private EditableNode $_right_bracket;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $explicit_type,
+    EditableNode $type,
     EditableNode $left_bracket,
     EditableNode $members,
     EditableNode $right_bracket,
   ) {
-    parent::__construct('darray_intrinsic_expression');
-    $this->_keyword = $keyword;
-    $this->_explicit_type = $explicit_type;
+    parent::__construct('record_creation_expression');
+    $this->_type = $type;
     $this->_left_bracket = $left_bracket;
     $this->_members = $members;
     $this->_right_bracket = $right_bracket;
@@ -38,55 +35,41 @@ final class DarrayIntrinsicExpression extends EditableNode {
     int $offset,
     string $source,
   ): this {
-    $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['darray_intrinsic_keyword'],
+    $type = EditableNode::fromJSON(
+      /* UNSAFE_EXPR */ $json['record_creation_type'],
       $file,
       $offset,
       $source,
     );
-    $offset += $keyword->getWidth();
-    $explicit_type = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['darray_intrinsic_explicit_type'],
-      $file,
-      $offset,
-      $source,
-    );
-    $offset += $explicit_type->getWidth();
+    $offset += $type->getWidth();
     $left_bracket = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['darray_intrinsic_left_bracket'],
+      /* UNSAFE_EXPR */ $json['record_creation_left_bracket'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_bracket->getWidth();
     $members = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['darray_intrinsic_members'],
+      /* UNSAFE_EXPR */ $json['record_creation_members'],
       $file,
       $offset,
       $source,
     );
     $offset += $members->getWidth();
     $right_bracket = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['darray_intrinsic_right_bracket'],
+      /* UNSAFE_EXPR */ $json['record_creation_right_bracket'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_bracket->getWidth();
-    return new static(
-      $keyword,
-      $explicit_type,
-      $left_bracket,
-      $members,
-      $right_bracket,
-    );
+    return new static($type, $left_bracket, $members, $right_bracket);
   }
 
   <<__Override>>
   public function getChildren(): dict<string, EditableNode> {
     return dict[
-      'keyword' => $this->_keyword,
-      'explicit_type' => $this->_explicit_type,
+      'type' => $this->_type,
       'left_bracket' => $this->_left_bracket,
       'members' => $this->_members,
       'right_bracket' => $this->_right_bracket,
@@ -100,74 +83,30 @@ final class DarrayIntrinsicExpression extends EditableNode {
   ): this {
     $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $parents);
-    $explicit_type = $this->_explicit_type->rewrite($rewriter, $parents);
+    $type = $this->_type->rewrite($rewriter, $parents);
     $left_bracket = $this->_left_bracket->rewrite($rewriter, $parents);
     $members = $this->_members->rewrite($rewriter, $parents);
     $right_bracket = $this->_right_bracket->rewrite($rewriter, $parents);
     if (
-      $keyword === $this->_keyword &&
-      $explicit_type === $this->_explicit_type &&
+      $type === $this->_type &&
       $left_bracket === $this->_left_bracket &&
       $members === $this->_members &&
       $right_bracket === $this->_right_bracket
     ) {
       return $this;
     }
-    return new static(
-      $keyword,
-      $explicit_type,
-      $left_bracket,
-      $members,
-      $right_bracket,
-    );
+    return new static($type, $left_bracket, $members, $right_bracket);
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
-    return $this->_keyword;
+  public function getTypeUNTYPED(): EditableNode {
+    return $this->_type;
   }
 
-  public function withKeyword(EditableNode $value): this {
-    if ($value === $this->_keyword) {
+  public function withType(EditableNode $value): this {
+    if ($value === $this->_type) {
       return $this;
     }
     return new static(
-      $value,
-      $this->_explicit_type,
-      $this->_left_bracket,
-      $this->_members,
-      $this->_right_bracket,
-    );
-  }
-
-  public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
-  }
-
-  /**
-   * @return DarrayToken
-   */
-  public function getKeyword(): DarrayToken {
-    return TypeAssert\instance_of(DarrayToken::class, $this->_keyword);
-  }
-
-  /**
-   * @return DarrayToken
-   */
-  public function getKeywordx(): DarrayToken {
-    return $this->getKeyword();
-  }
-
-  public function getExplicitTypeUNTYPED(): EditableNode {
-    return $this->_explicit_type;
-  }
-
-  public function withExplicitType(EditableNode $value): this {
-    if ($value === $this->_explicit_type) {
-      return $this;
-    }
-    return new static(
-      $this->_keyword,
       $value,
       $this->_left_bracket,
       $this->_members,
@@ -175,25 +114,22 @@ final class DarrayIntrinsicExpression extends EditableNode {
     );
   }
 
-  public function hasExplicitType(): bool {
-    return !$this->_explicit_type->isMissing();
+  public function hasType(): bool {
+    return !$this->_type->isMissing();
   }
 
   /**
-   * @return null | TypeArguments
+   * @return NameToken
    */
-  public function getExplicitType(): ?TypeArguments {
-    if ($this->_explicit_type->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(TypeArguments::class, $this->_explicit_type);
+  public function getType(): NameToken {
+    return TypeAssert\instance_of(NameToken::class, $this->_type);
   }
 
   /**
-   * @return TypeArguments
+   * @return NameToken
    */
-  public function getExplicitTypex(): TypeArguments {
-    return TypeAssert\instance_of(TypeArguments::class, $this->_explicit_type);
+  public function getTypex(): NameToken {
+    return $this->getType();
   }
 
   public function getLeftBracketUNTYPED(): EditableNode {
@@ -205,8 +141,7 @@ final class DarrayIntrinsicExpression extends EditableNode {
       return $this;
     }
     return new static(
-      $this->_keyword,
-      $this->_explicit_type,
+      $this->_type,
       $value,
       $this->_members,
       $this->_right_bracket,
@@ -243,8 +178,7 @@ final class DarrayIntrinsicExpression extends EditableNode {
       return $this;
     }
     return new static(
-      $this->_keyword,
-      $this->_explicit_type,
+      $this->_type,
       $this->_left_bracket,
       $value,
       $this->_right_bracket,
@@ -256,12 +190,9 @@ final class DarrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @return EditableList<ElementInitializer> | null
+   * @return EditableList<ElementInitializer>
    */
-  public function getMembers(): ?EditableList<ElementInitializer> {
-    if ($this->_members->isMissing()) {
-      return null;
-    }
+  public function getMembers(): EditableList<ElementInitializer> {
     return TypeAssert\instance_of(EditableList::class, $this->_members);
   }
 
@@ -269,7 +200,7 @@ final class DarrayIntrinsicExpression extends EditableNode {
    * @return EditableList<ElementInitializer>
    */
   public function getMembersx(): EditableList<ElementInitializer> {
-    return TypeAssert\instance_of(EditableList::class, $this->_members);
+    return $this->getMembers();
   }
 
   public function getRightBracketUNTYPED(): EditableNode {
@@ -281,8 +212,7 @@ final class DarrayIntrinsicExpression extends EditableNode {
       return $this;
     }
     return new static(
-      $this->_keyword,
-      $this->_explicit_type,
+      $this->_type,
       $this->_left_bracket,
       $this->_members,
       $value,
@@ -294,12 +224,9 @@ final class DarrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @return null | RightBracketToken
+   * @return RightBracketToken
    */
-  public function getRightBracket(): ?RightBracketToken {
-    if ($this->_right_bracket->isMissing()) {
-      return null;
-    }
+  public function getRightBracket(): RightBracketToken {
     return TypeAssert\instance_of(
       RightBracketToken::class,
       $this->_right_bracket,
@@ -310,9 +237,6 @@ final class DarrayIntrinsicExpression extends EditableNode {
    * @return RightBracketToken
    */
   public function getRightBracketx(): RightBracketToken {
-    return TypeAssert\instance_of(
-      RightBracketToken::class,
-      $this->_right_bracket,
-    );
+    return $this->getRightBracket();
   }
 }

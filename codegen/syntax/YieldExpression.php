@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ca41a830e421051227244416623a6a52>>
+ * @generated SignedSource<<9c251eaf4bc83058cdcee1df1d77c3f4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -115,8 +115,9 @@ final class YieldExpression extends EditableNode {
    * ElementInitializer | FunctionCallExpression | LambdaExpression |
    * LiteralExpression | MemberSelectionExpression | null |
    * ObjectCreationExpression | ParenthesizedExpression |
-   * PostfixUnaryExpression | PrefixUnaryExpression | SubscriptExpression |
-   * BreakToken | NameToken | TupleExpression | VariableExpression
+   * PostfixUnaryExpression | PrefixUnaryExpression | ScopeResolutionExpression
+   * | SubscriptExpression | BreakToken | NameToken | TupleExpression |
+   * VariableExpression
    */
   public function getOperand(): ?EditableNode {
     if ($this->_operand->isMissing()) {
@@ -130,8 +131,8 @@ final class YieldExpression extends EditableNode {
    * ElementInitializer | FunctionCallExpression | LambdaExpression |
    * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
-   * SubscriptExpression | BreakToken | NameToken | TupleExpression |
-   * VariableExpression
+   * ScopeResolutionExpression | SubscriptExpression | BreakToken | NameToken |
+   * TupleExpression | VariableExpression
    */
   public function getOperandx(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_operand);

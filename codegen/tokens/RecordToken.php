@@ -2,20 +2,20 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a1bc96e5e8e016f8fbb2c2dae1afe154>>
+ * @generated SignedSource<<b7ff45d2de12aa60665d87d9694ad86c>>
  */
 namespace Facebook\HHAST;
 
-final class PUAtomToken extends EditableTokenWithVariableText {
+final class RecordToken extends EditableTokenWithVariableText {
 
-  const string KIND = 'PU_atom';
+  const string KIND = 'recordname';
 
   public function __construct(
     EditableNode $leading,
     EditableNode $trailing,
-    string $text,
+    string $token_text = 'recordname',
   ) {
-    parent::__construct($leading, $trailing, $text);
+    parent::__construct($leading, $trailing, $token_text);
   }
 
   public function hasLeading(): bool {
@@ -27,7 +27,7 @@ final class PUAtomToken extends EditableTokenWithVariableText {
     if ($value === $this->getLeading()) {
       return $this;
     }
-    return new self($value, $this->getTrailing(), $this->getText());
+    return new self($value, $this->getTrailing());
   }
 
   public function hasTrailing(): bool {
@@ -39,14 +39,7 @@ final class PUAtomToken extends EditableTokenWithVariableText {
     if ($value === $this->getTrailing()) {
       return $this;
     }
-    return new self($this->getLeading(), $value, $this->getText());
-  }
-
-  public function withText(string $value): this {
-    if ($value === $this->getText()) {
-      return $this;
-    }
-    return new self($this->getLeading(), $this->getTrailing(), $value);
+    return new self($this->getLeading(), $value);
   }
 
   <<__Override>>
@@ -58,14 +51,11 @@ final class PUAtomToken extends EditableTokenWithVariableText {
     $parents[] = $this;
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
-    $text = $this->getText();
     if (
-      $leading === $this->getLeading() &&
-      $trailing === $this->getTrailing() &&
-      $text === $this->getText()
+      $leading === $this->getLeading() && $trailing === $this->getTrailing()
     ) {
       return $this;
     }
-    return new self($leading, $trailing, $text);
+    return new self($leading, $trailing);
   }
 }

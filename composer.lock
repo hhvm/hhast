@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6ac5b9512818de4f5025f973c104a584",
+    "content-hash": "c2175e470d4f685ac84ab22e26e44620",
     "packages": [
         {
             "name": "facebook/difflib",
@@ -272,20 +272,20 @@
         },
         {
             "name": "facebook/hack-codegen",
-            "version": "v4.2.1",
+            "version": "v4.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/hack-codegen.git",
-                "reference": "68935506c9daf2e091f9d915fa9203786b60cb6b"
+                "reference": "1226a67abe065d0e3aeb03c8e7f1c0fc14bfe8a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/hack-codegen/zipball/68935506c9daf2e091f9d915fa9203786b60cb6b",
-                "reference": "68935506c9daf2e091f9d915fa9203786b60cb6b",
+                "url": "https://api.github.com/repos/hhvm/hack-codegen/zipball/1226a67abe065d0e3aeb03c8e7f1c0fc14bfe8a1",
+                "reference": "1226a67abe065d0e3aeb03c8e7f1c0fc14bfe8a1",
                 "shasum": ""
             },
             "require": {
-                "hhvm": "^4.0.0",
+                "hhvm": "^4.1.0",
                 "hhvm/hhvm-autoload": "^2.0",
                 "hhvm/hsl": "^4.0"
             },
@@ -328,7 +328,7 @@
                 "code generation",
                 "hack"
             ],
-            "time": "2019-03-22T23:33:00+00:00"
+            "time": "2019-04-17T18:22:27+00:00"
         },
         {
             "name": "hhvm/hacktest",
@@ -379,7 +379,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "hhvm": "^4.1"
+        "hhvm": "^4.2"
     },
     "platform-dev": []
 }

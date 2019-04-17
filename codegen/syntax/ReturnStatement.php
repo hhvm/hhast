@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c8f9b3d413e9b020bdd202a23f448726>>
+ * @generated SignedSource<<6c5e56939e9c8a8bbdc04f6e142675eb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -135,10 +135,9 @@ final class ReturnStatement extends EditableNode {
    * BinaryExpression | CastExpression | CollectionLiteralExpression |
    * ConditionalExpression | DarrayIntrinsicExpression |
    * DictionaryIntrinsicExpression | EmptyExpression | EvalExpression |
-   * FunctionCallExpression | FunctionCallWithTypeArgumentsExpression |
-   * InstanceofExpression | IsExpression | IssetExpression |
-   * KeysetIntrinsicExpression | LambdaExpression | ListExpression |
-   * LiteralExpression | MemberSelectionExpression | null |
+   * FunctionCallExpression | InstanceofExpression | IsExpression |
+   * IssetExpression | KeysetIntrinsicExpression | LambdaExpression |
+   * ListExpression | LiteralExpression | MemberSelectionExpression | null |
    * ObjectCreationExpression | ParenthesizedExpression |
    * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
    * SafeMemberSelectionExpression | ScopeResolutionExpression |
@@ -159,13 +158,13 @@ final class ReturnStatement extends EditableNode {
    * BinaryExpression | CastExpression | CollectionLiteralExpression |
    * ConditionalExpression | DarrayIntrinsicExpression |
    * DictionaryIntrinsicExpression | EmptyExpression | EvalExpression |
-   * FunctionCallExpression | FunctionCallWithTypeArgumentsExpression |
-   * InstanceofExpression | IsExpression | IssetExpression |
-   * KeysetIntrinsicExpression | LambdaExpression | ListExpression |
-   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
-   * QualifiedName | SafeMemberSelectionExpression | ScopeResolutionExpression
-   * | ShapeExpression | SubscriptExpression | NameToken | TupleExpression |
+   * FunctionCallExpression | InstanceofExpression | IsExpression |
+   * IssetExpression | KeysetIntrinsicExpression | LambdaExpression |
+   * ListExpression | LiteralExpression | MemberSelectionExpression |
+   * ObjectCreationExpression | ParenthesizedExpression |
+   * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
+   * SafeMemberSelectionExpression | ScopeResolutionExpression |
+   * ShapeExpression | SubscriptExpression | NameToken | TupleExpression |
    * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
    * | XHPExpression | YieldFromExpression
    */
@@ -189,12 +188,9 @@ final class ReturnStatement extends EditableNode {
   }
 
   /**
-   * @return null | SemicolonToken
+   * @return SemicolonToken
    */
-  public function getSemicolon(): ?SemicolonToken {
-    if ($this->_semicolon->isMissing()) {
-      return null;
-    }
+  public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 
@@ -202,6 +198,6 @@ final class ReturnStatement extends EditableNode {
    * @return SemicolonToken
    */
   public function getSemicolonx(): SemicolonToken {
-    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
+    return $this->getSemicolon();
   }
 }

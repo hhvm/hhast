@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<973b5ce58331215d1e9841dc82b0236e>>
+ * @generated SignedSource<<ea942edf78d9478745b7a47224529574>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -133,13 +133,15 @@ final class ArrayCreationExpression extends EditableNode {
   }
 
   /**
-   * @return EditableList<EditableNode> | EditableList<ArrayCreationExpression>
-   * | EditableList<ArrayIntrinsicExpression> | EditableList<BinaryExpression>
-   * | EditableList<ConditionalExpression> |
+   * @return EditableList<AnonymousFunction> | EditableList<EditableNode> |
+   * EditableList<ArrayCreationExpression> |
+   * EditableList<ArrayIntrinsicExpression> | EditableList<BinaryExpression> |
+   * EditableList<ConditionalExpression> |
    * EditableList<DictionaryIntrinsicExpression> |
    * EditableList<ElementInitializer> | EditableList<FunctionCallExpression> |
    * EditableList<KeysetIntrinsicExpression> | EditableList<LiteralExpression>
-   * | EditableList<ObjectCreationExpression> |
+   * | EditableList<MemberSelectionExpression> |
+   * EditableList<ObjectCreationExpression> |
    * EditableList<PrefixUnaryExpression> |
    * EditableList<ScopeResolutionExpression> |
    * EditableList<SubscriptExpression> | EditableList<NameToken> |
@@ -154,13 +156,15 @@ final class ArrayCreationExpression extends EditableNode {
   }
 
   /**
-   * @return EditableList<EditableNode> | EditableList<ArrayCreationExpression>
-   * | EditableList<ArrayIntrinsicExpression> | EditableList<BinaryExpression>
-   * | EditableList<ConditionalExpression> |
+   * @return EditableList<AnonymousFunction> | EditableList<EditableNode> |
+   * EditableList<ArrayCreationExpression> |
+   * EditableList<ArrayIntrinsicExpression> | EditableList<BinaryExpression> |
+   * EditableList<ConditionalExpression> |
    * EditableList<DictionaryIntrinsicExpression> |
    * EditableList<ElementInitializer> | EditableList<FunctionCallExpression> |
    * EditableList<KeysetIntrinsicExpression> | EditableList<LiteralExpression>
-   * | EditableList<ObjectCreationExpression> |
+   * | EditableList<MemberSelectionExpression> |
+   * EditableList<ObjectCreationExpression> |
    * EditableList<PrefixUnaryExpression> |
    * EditableList<ScopeResolutionExpression> |
    * EditableList<SubscriptExpression> | EditableList<NameToken> |

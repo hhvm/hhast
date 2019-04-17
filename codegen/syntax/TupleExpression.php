@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<923a5491a43506f562efdc14f792a4e3>>
+ * @generated SignedSource<<101ea92585f9c33f0b7d42f9a4b34db7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -189,10 +189,10 @@ final class TupleExpression extends EditableNode {
   /**
    * @return EditableList<ArrayCreationExpression> | EditableList<EditableNode>
    * | EditableList<ArrayIntrinsicExpression> | EditableList<BinaryExpression>
-   * | EditableList<CastExpression> | EditableList<DarrayIntrinsicExpression> |
-   * EditableList<FunctionCallExpression> | EditableList<LiteralExpression> |
-   * EditableList<VariableExpression> | EditableList<VarrayIntrinsicExpression>
-   * | EditableList<VectorIntrinsicExpression> | null
+   * | EditableList<CastExpression> | EditableList<FunctionCallExpression> |
+   * EditableList<LiteralExpression> | EditableList<ObjectCreationExpression> |
+   * EditableList<SubscriptExpression> | EditableList<VariableExpression> |
+   * EditableList<VectorIntrinsicExpression> | null
    */
   public function getItems(): ?EditableList<EditableNode> {
     if ($this->_items->isMissing()) {
@@ -204,10 +204,10 @@ final class TupleExpression extends EditableNode {
   /**
    * @return EditableList<ArrayCreationExpression> | EditableList<EditableNode>
    * | EditableList<ArrayIntrinsicExpression> | EditableList<BinaryExpression>
-   * | EditableList<CastExpression> | EditableList<DarrayIntrinsicExpression> |
-   * EditableList<FunctionCallExpression> | EditableList<LiteralExpression> |
-   * EditableList<VariableExpression> | EditableList<VarrayIntrinsicExpression>
-   * | EditableList<VectorIntrinsicExpression>
+   * | EditableList<CastExpression> | EditableList<FunctionCallExpression> |
+   * EditableList<LiteralExpression> | EditableList<ObjectCreationExpression> |
+   * EditableList<SubscriptExpression> | EditableList<VariableExpression> |
+   * EditableList<VectorIntrinsicExpression>
    */
   public function getItemsx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_items);

@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<142dc61f95f505a8f19487aa95f0ddaf>>
+ * @generated SignedSource<<7d5460c3583f93bf233f3aac80fa47a7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -138,8 +138,8 @@ final class ParenthesizedExpression extends EditableNode {
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
-   * QuestionToken | NameToken | VariableExpression | VectorIntrinsicExpression
-   * | XHPExpression | YieldExpression
+   * ErrorTokenToken | NameToken | VariableExpression |
+   * VectorIntrinsicExpression | XHPExpression | YieldExpression
    */
   public function getExpression(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_expression);
@@ -154,8 +154,8 @@ final class ParenthesizedExpression extends EditableNode {
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
-   * QuestionToken | NameToken | VariableExpression | VectorIntrinsicExpression
-   * | XHPExpression | YieldExpression
+   * ErrorTokenToken | NameToken | VariableExpression |
+   * VectorIntrinsicExpression | XHPExpression | YieldExpression
    */
   public function getExpressionx(): EditableNode {
     return $this->getExpression();

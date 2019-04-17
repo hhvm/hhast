@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<85dbc279f341f783da0c7a1ab3fb9e7d>>
+ * @generated SignedSource<<e5346b2d34bbda15e352f69fab9f209f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -455,9 +455,12 @@ final class EnumDeclaration extends EditableNode {
   }
 
   /**
-   * @return LeftBraceToken
+   * @return null | LeftBraceToken
    */
-  public function getLeftBrace(): LeftBraceToken {
+  public function getLeftBrace(): ?LeftBraceToken {
+    if ($this->_left_brace->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
   }
 
@@ -465,7 +468,7 @@ final class EnumDeclaration extends EditableNode {
    * @return LeftBraceToken
    */
   public function getLeftBracex(): LeftBraceToken {
-    return $this->getLeftBrace();
+    return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
   }
 
   public function getEnumeratorsUNTYPED(): EditableNode {
@@ -536,9 +539,12 @@ final class EnumDeclaration extends EditableNode {
   }
 
   /**
-   * @return RightBraceToken
+   * @return null | RightBraceToken
    */
-  public function getRightBrace(): RightBraceToken {
+  public function getRightBrace(): ?RightBraceToken {
+    if ($this->_right_brace->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
   }
 
@@ -546,6 +552,6 @@ final class EnumDeclaration extends EditableNode {
    * @return RightBraceToken
    */
   public function getRightBracex(): RightBraceToken {
-    return $this->getRightBrace();
+    return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
   }
 }

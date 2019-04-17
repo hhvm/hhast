@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b23969dc4ee0fe50861883287a187f38>>
+ * @generated SignedSource<<7caae1c45c0309f9125e535f70fca6a1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -121,19 +121,19 @@ final class MarkupSuffix extends EditableNode {
   }
 
   /**
-   * @return null | EqualToken | NameToken
+   * @return null | NameToken
    */
-  public function getName(): ?EditableToken {
+  public function getName(): ?NameToken {
     if ($this->_name->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableToken::class, $this->_name);
+    return TypeAssert\instance_of(NameToken::class, $this->_name);
   }
 
   /**
-   * @return EqualToken | NameToken
+   * @return NameToken
    */
-  public function getNamex(): EditableToken {
-    return TypeAssert\instance_of(EditableToken::class, $this->_name);
+  public function getNamex(): NameToken {
+    return TypeAssert\instance_of(NameToken::class, $this->_name);
   }
 }

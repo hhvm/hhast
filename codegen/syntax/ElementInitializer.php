@@ -2,7 +2,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<baecab43571e5e51eb2089621f087a81>>
+ * @generated SignedSource<<32a9732e0c44935bab40ce3c27416e6f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -106,8 +106,8 @@ final class ElementInitializer extends EditableNode {
    * CollectionLiteralExpression | DictionaryIntrinsicExpression |
    * FunctionCallExpression | KeysetIntrinsicExpression | LiteralExpression |
    * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
-   * | QualifiedName | ScopeResolutionExpression | NameToken |
-   * VariableExpression | VectorIntrinsicExpression
+   * | QualifiedName | ScopeResolutionExpression | SubscriptExpression |
+   * NameToken | VariableExpression | VectorIntrinsicExpression
    */
   public function getKey(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_key);
@@ -119,8 +119,8 @@ final class ElementInitializer extends EditableNode {
    * CollectionLiteralExpression | DictionaryIntrinsicExpression |
    * FunctionCallExpression | KeysetIntrinsicExpression | LiteralExpression |
    * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
-   * | QualifiedName | ScopeResolutionExpression | NameToken |
-   * VariableExpression | VectorIntrinsicExpression
+   * | QualifiedName | ScopeResolutionExpression | SubscriptExpression |
+   * NameToken | VariableExpression | VectorIntrinsicExpression
    */
   public function getKeyx(): EditableNode {
     return $this->getKey();
@@ -142,9 +142,12 @@ final class ElementInitializer extends EditableNode {
   }
 
   /**
-   * @return EqualGreaterThanToken
+   * @return null | EqualGreaterThanToken
    */
-  public function getArrow(): EqualGreaterThanToken {
+  public function getArrow(): ?EqualGreaterThanToken {
+    if ($this->_arrow->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EqualGreaterThanToken::class, $this->_arrow);
   }
 
@@ -152,7 +155,7 @@ final class ElementInitializer extends EditableNode {
    * @return EqualGreaterThanToken
    */
   public function getArrowx(): EqualGreaterThanToken {
-    return $this->getArrow();
+    return TypeAssert\instance_of(EqualGreaterThanToken::class, $this->_arrow);
   }
 
   public function getValueUNTYPED(): EditableNode {
@@ -179,7 +182,7 @@ final class ElementInitializer extends EditableNode {
    * LambdaExpression | LiteralExpression | MemberSelectionExpression |
    * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
    * | QualifiedName | ScopeResolutionExpression | SubscriptExpression |
-   * NameToken | TupleExpression | VariableExpression |
+   * CommaToken | NameToken | TupleExpression | VariableExpression |
    * VarrayIntrinsicExpression | VectorIntrinsicExpression
    */
   public function getValue(): EditableNode {
@@ -195,7 +198,7 @@ final class ElementInitializer extends EditableNode {
    * LambdaExpression | LiteralExpression | MemberSelectionExpression |
    * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
    * | QualifiedName | ScopeResolutionExpression | SubscriptExpression |
-   * NameToken | TupleExpression | VariableExpression |
+   * CommaToken | NameToken | TupleExpression | VariableExpression |
    * VarrayIntrinsicExpression | VectorIntrinsicExpression
    */
   public function getValuex(): EditableNode {
