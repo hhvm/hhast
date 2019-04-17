@@ -321,6 +321,7 @@ final class AssertToExpectMigration extends StepBasedMigration {
         $rec->withObject(
           new FunctionCallExpression(
             new NameToken($leading, Missing(), 'expect'),
+            Missing(),
             new LeftParenToken(Missing(), Missing()),
             new EditableList(vec[$actual]),
             new RightParenToken(Missing(), Missing()),

@@ -458,6 +458,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
               new HHAST\MinusGreaterThanToken($m, $m),
               new HHAST\NameToken($m, $m, 'expectException'),
             ),
+            HHAST\Missing(),
             new HHAST\LeftParenToken($m, $m),
             HHAST\EditableList::createNonEmptyListOrMissing(vec[
               new HHAST\NameToken(
@@ -626,6 +627,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
     $m = HHAST\Missing();
     $expect_call = new HHAST\FunctionCallExpression(
       new HHAST\NameToken($new_line_leading, $m, 'expect'),
+      HHAST\Missing(),
       new HHAST\LeftParenToken($m, $m),
       new HHAST\LambdaExpression(
         /* attrs = */ $m,
@@ -654,6 +656,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
         new HHAST\MinusGreaterThanToken($m, $m),
         new HHAST\NameToken($m, $m, 'toThrow'),
       ),
+       HHAST\Missing(),
       new HHAST\LeftParenToken($m, $m),
       $exception,
       new HHAST\RightParenToken($m, $m),
