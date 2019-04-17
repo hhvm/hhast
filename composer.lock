@@ -272,16 +272,16 @@
         },
         {
             "name": "facebook/hack-codegen",
-            "version": "v4.2.2",
+            "version": "v4.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/hack-codegen.git",
-                "reference": "1226a67abe065d0e3aeb03c8e7f1c0fc14bfe8a1"
+                "reference": "a0e4ed99401e5416f39000bc8bb7d8a0dbda9506"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/hack-codegen/zipball/1226a67abe065d0e3aeb03c8e7f1c0fc14bfe8a1",
-                "reference": "1226a67abe065d0e3aeb03c8e7f1c0fc14bfe8a1",
+                "url": "https://api.github.com/repos/hhvm/hack-codegen/zipball/a0e4ed99401e5416f39000bc8bb7d8a0dbda9506",
+                "reference": "a0e4ed99401e5416f39000bc8bb7d8a0dbda9506",
                 "shasum": ""
             },
             "require": {
@@ -297,7 +297,8 @@
                 "hhvm/type-assert": "^3.1"
             },
             "bin": [
-                "bin/hh-codegen-verify-signatures"
+                "bin/hh-codegen-verify-signatures",
+                "bin/hh-codegen-verify-signatures.hack"
             ],
             "type": "library",
             "notification-url": "https://packagist.org/downloads/",
@@ -328,7 +329,7 @@
                 "code generation",
                 "hack"
             ],
-            "time": "2019-04-17T18:22:27+00:00"
+            "time": "2019-04-17T20:23:09+00:00"
         },
         {
             "name": "hhvm/hacktest",
