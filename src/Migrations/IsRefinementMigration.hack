@@ -103,8 +103,6 @@ final class IsRefinementMigration extends BaseMigration {
         $replacement,
         new HHAST\RightParenToken($m, $node->getLastTokenx()->getTrailing()),
       );
-
-      return $node;
     });
   }
 }

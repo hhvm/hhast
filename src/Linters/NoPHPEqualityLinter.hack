@@ -62,7 +62,6 @@ final class NoPHPEqualityLinter
       'Do not use PHP equality - use "'.$replacement.'" instead.',
       $expr,
     );
-    return null;
   }
 
   <<__Override>>

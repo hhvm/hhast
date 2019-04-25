@@ -50,7 +50,6 @@ final class NoStringInterpolationLinter
       'Str\format() instead ',
       $root_expr,
     );
-    return null;
   }
 
   <<__Override>>
