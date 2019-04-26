@@ -106,9 +106,9 @@ final abstract class XHProf {
       $this_id = $node_count++;
       $node_ids[$name] = $this_id;
       $out .= Str\format(
-        "node_%d [ label=\"%s\nInclusive: %.5f\nExclusive: %.5f\" penwidth=%.1f %s]\n",
+        "node_%d [ label=\"%s\nInclusive: %.5fs\nExclusive: %.5fs\" penwidth=%.1f %s]\n",
         $this_id,
-        $name,
+        Str\replace($name, "\\", "\\\\"),
         $data['inclusive'] / $scale,
         $data['exclusive'] / $scale,
         Math\maxva(1.0, 5 * $data['inclusive'] / $max),
@@ -130,7 +130,7 @@ final abstract class XHProf {
         continue;
       }
       $out .= Str\format(
-        "node_%d -> node_%d [ label=\"%.5f\" penwidth=\"%.1f\"]\n",
+        "node_%d -> node_%d [ label=\" %.5fs\" penwidth=\"%.1f\"]\n",
         $caller,
         $callee,
         $wall,
