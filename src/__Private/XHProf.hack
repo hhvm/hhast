@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST\__Private;
 
-use namespace HH\Lib\{Dict, Math, Str};
+use namespace HH\Lib\{Dict, Math, Str, Vec};
 
 final abstract class XHProf {
   private static bool $enabled = false;
@@ -68,14 +68,78 @@ final abstract class XHProf {
           'callers' => $func_callers,
           'callees' => $func_callees,
         );
-      }
+      },
     );
   }
 
-  public static function disableAndDump(
-    resource $handle,
-  ): void {
+  public static function disableAndDump(resource $handle): void {
     self::dump($handle, self::disable());
+  }
+
+  public static function disableAndGenerateDot(): string {
+    return self::generateDot(self::disable());
+  }
+
+  public static function generateDot(
+    dict<string, self::TResult> $counters,
+  ): string {
+    $counters = Dict\sort_by($counters, $row ==> -$row['inclusive']);
+    $scale = 1000000.0; // usec to sec
+    $out = "Digraph D {\n";
+    $cull_rate = 0.05;
+    $alert_rate = 0.3;
+
+    $node_count = 0;
+    $node_ids = dict[];
+    $edges = vec[];
+    $max = $counters
+      |> Vec\map($$, $data ==> $data['inclusive'])
+      |> Math\max($$) as nonnull
+      |> (float) $$;
+    $cull = $cull_rate * $max;
+    $alert = $alert_rate * $max;
+
+    foreach ($counters as $name => $data) {
+      if ($data['inclusive'] < $cull) {
+        continue;
+      }
+      $this_id = $node_count++;
+      $node_ids[$name] = $this_id;
+      $out .= Str\format(
+        "node_%d [ label=\"%s\nInclusive: %.5f\nExclusive: %.5f\" penwidth=%.1f %s]\n",
+        $this_id,
+        $name,
+        $data['inclusive'] / $scale,
+        $data['exclusive'] / $scale,
+        Math\maxva(1.0, 5 * $data['inclusive'] / $max),
+        $data['inclusive'] > $alert ? 'fillcolor="#ff9999" style=filled ' : '',
+      );
+      $callees = Dict\sort_by($data['callees'], $v ==> -$v);
+      foreach ($callees as $callee => $wall) {
+        $edges[] = tuple($this_id, $callee, $wall / $scale);
+      }
+    }
+    $max = Vec\map($edges, $edge ==> $edge[2]) |> Math\max($$) as nonnull;
+    $cull = $cull_rate * $max;
+    foreach ($edges as list($caller, $callee, $wall)) {
+      if ($wall < $cull) {
+        continue;
+      }
+      $callee = $node_ids[$callee] ?? null;
+      if ($callee is null) {
+        continue;
+      }
+      $out .= Str\format(
+        "node_%d -> node_%d [ label=\"%.5f\" penwidth=\"%.1f\"]\n",
+        $caller,
+        $callee,
+        $wall,
+        Math\maxva(1.0, 5 * $wall / $max),
+      );
+    }
+
+    $out .= "}\n";
+    return $out;
   }
 
   public static function dump(

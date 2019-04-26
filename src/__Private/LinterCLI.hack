@@ -17,6 +17,7 @@ use namespace Facebook\CLILib\CLIOptions;
 
 final class LinterCLI extends CLIWithArguments {
   private bool $xhprof = false;
+  private ?string $xhprofDotFile = null;
   private LinterCLIMode $mode = LinterCLIMode::PLAIN;
 
   use CLIWithVerbosityTrait;
@@ -35,6 +36,14 @@ final class LinterCLI extends CLIWithArguments {
         },
         'Enable XHProf profiling',
         '--xhprof',
+      ),
+      CLIOptions\with_required_string(
+        $v ==> {
+          $this->xhprof = true;
+          $this->xhprofDotFile = $v;
+        },
+        'Enable XHProf profiling, and generate a GraphViz dot file',
+        '--xhprof-dot',
       ),
       CLIOptions\with_required_enum(
         LinterCLIMode::class,
@@ -64,7 +73,21 @@ final class LinterCLI extends CLIWithArguments {
     $result = await $this->mainImplAsync();
 
     if ($this->xhprof) {
-      XHProf::disableAndDump(\STDERR);
+      $dotfile = $this->xhprofDotFile;
+      if ($dotfile is null) {
+        XHProf::disableAndDump(\STDERR);
+      } else {
+        $dot = XHProf::disableAndGenerateDot();
+        await using ($file = \HH\Lib\Experimental\Filesystem\open_write_only(
+          $dotfile,
+          \HH\Lib\Experimental\Filesystem\FileWriteMode::TRUNCATE,
+        )) {
+          await $file->writeAsync($dot);
+        }
+        await $this->getStderr()->writeAsync(
+          Str\format("Wrote XHProf data to %s\n", $dotfile)
+        );
+      }
     }
 
     return $result;
