@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c9893e66d9dad911890f7afc00ef2603>>
+ * @generated SignedSource<<7767e178248994325553c84344189619>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class InstanceofToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'instanceof',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

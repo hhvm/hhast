@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ea77259a505b9ccdeb9618431d4ab0bb>>
+ * @generated SignedSource<<4edb9cd26ef4277449456d868ad32be2>>
  */
 namespace Facebook\HHAST;
 
@@ -10,8 +10,12 @@ final class DollarDollarToken extends EditableTokenWithFixedText {
   const string KIND = '$$';
   const string TEXT = '$$';
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct($leading, $trailing);
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
+    parent::__construct($leading, $trailing, $source_ref);
   }
 
   public function hasLeading(): bool {

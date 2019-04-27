@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<21f89f95a183a3412cf4578e5df7c8d5>>
+ * @generated SignedSource<<02175a11068495ecb5645c2c1e979e14>>
  */
 namespace Facebook\HHAST;
 
@@ -10,8 +10,12 @@ final class ColonAtToken extends EditableTokenWithFixedText {
   const string KIND = ':@';
   const string TEXT = ':@';
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct($leading, $trailing);
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
+    parent::__construct($leading, $trailing, $source_ref);
   }
 
   public function hasLeading(): bool {

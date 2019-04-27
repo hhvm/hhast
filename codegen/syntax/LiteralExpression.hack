@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d52460c44ceb1aad2ad155125dd3bbed>>
+ * @generated SignedSource<<c300f490313c09ffbf8eafb2c0855012>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,18 +11,22 @@ final class LiteralExpression extends EditableNode {
 
   private EditableNode $_expression;
 
-  public function __construct(EditableNode $expression) {
-    parent::__construct('literal_expression');
+  public function __construct(
+    EditableNode $expression,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
     $this->_expression = $expression;
+    parent::__construct('literal_expression', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $expression = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['literal_expression'],
       $file,
@@ -30,7 +34,13 @@ final class LiteralExpression extends EditableNode {
       $source,
     );
     $offset += $expression->getWidth();
-    return new static($expression);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($expression, $source_ref);
   }
 
   <<__Override>>

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d3bb56405613c5a19e9765708f4b5313>>
+ * @generated SignedSource<<9854524ceb3e2b34708c5b69c1626810>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -29,8 +29,8 @@ final class AnonymousClass extends EditableNode {
     EditableNode $implements_keyword,
     EditableNode $implements_list,
     EditableNode $body,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('anonymous_class');
     $this->_class_keyword = $class_keyword;
     $this->_left_paren = $left_paren;
     $this->_argument_list = $argument_list;
@@ -40,15 +40,17 @@ final class AnonymousClass extends EditableNode {
     $this->_implements_keyword = $implements_keyword;
     $this->_implements_list = $implements_list;
     $this->_body = $body;
+    parent::__construct('anonymous_class', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $class_keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_class_class_keyword'],
       $file,
@@ -112,6 +114,12 @@ final class AnonymousClass extends EditableNode {
       $source,
     );
     $offset += $body->getWidth();
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
     return new static(
       $class_keyword,
       $left_paren,
@@ -122,6 +130,7 @@ final class AnonymousClass extends EditableNode {
       $implements_keyword,
       $implements_list,
       $body,
+      $source_ref,
     );
   }
 

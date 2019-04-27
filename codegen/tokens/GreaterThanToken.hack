@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bb8a83e01634bcf743c6cb301a49b895>>
+ * @generated SignedSource<<4f6c84a4ad939d6964ba34b113f19c56>>
  */
 namespace Facebook\HHAST;
 
@@ -10,8 +10,12 @@ final class GreaterThanToken extends EditableTokenWithFixedText {
   const string KIND = '>';
   const string TEXT = '>';
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct($leading, $trailing);
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
+    parent::__construct($leading, $trailing, $source_ref);
   }
 
   public function hasLeading(): bool {

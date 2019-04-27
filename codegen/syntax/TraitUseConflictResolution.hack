@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<22a3d762d0d413895be9a71a5ef9e08b>>
+ * @generated SignedSource<<04ee50d17b88ff60c22c44aaf18017a0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -21,22 +21,24 @@ final class TraitUseConflictResolution extends EditableNode {
     EditableNode $left_brace,
     EditableNode $clauses,
     EditableNode $right_brace,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('trait_use_conflict_resolution');
     $this->_keyword = $keyword;
     $this->_names = $names;
     $this->_left_brace = $left_brace;
     $this->_clauses = $clauses;
     $this->_right_brace = $right_brace;
+    parent::__construct('trait_use_conflict_resolution', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['trait_use_conflict_resolution_keyword'],
       $file,
@@ -72,7 +74,20 @@ final class TraitUseConflictResolution extends EditableNode {
       $source,
     );
     $offset += $right_brace->getWidth();
-    return new static($keyword, $names, $left_brace, $clauses, $right_brace);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static(
+      $keyword,
+      $names,
+      $left_brace,
+      $clauses,
+      $right_brace,
+      $source_ref,
+    );
   }
 
   <<__Override>>

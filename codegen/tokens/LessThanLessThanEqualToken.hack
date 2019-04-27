@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3c8e594dc765321c74f20c6b7916fe62>>
+ * @generated SignedSource<<0cd568d2e419381522ed7a147e1a9a98>>
  */
 namespace Facebook\HHAST;
 
@@ -10,8 +10,12 @@ final class LessThanLessThanEqualToken extends EditableTokenWithFixedText {
   const string KIND = '<<=';
   const string TEXT = '<<=';
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct($leading, $trailing);
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
+    parent::__construct($leading, $trailing, $source_ref);
   }
 
   public function hasLeading(): bool {

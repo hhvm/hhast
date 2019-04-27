@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<808bc764a93e6b8208025319d22d9e72>>
+ * @generated SignedSource<<d968be909a36b32609114ad59048dce8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -23,23 +23,25 @@ final class PocketEnumDeclaration extends EditableNode {
     EditableNode $left_brace,
     EditableNode $fields,
     EditableNode $right_brace,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('pocket_enum_declaration');
     $this->_modifiers = $modifiers;
     $this->_enum = $enum;
     $this->_name = $name;
     $this->_left_brace = $left_brace;
     $this->_fields = $fields;
     $this->_right_brace = $right_brace;
+    parent::__construct('pocket_enum_declaration', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $modifiers = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['pocket_enum_modifiers'],
       $file,
@@ -82,6 +84,12 @@ final class PocketEnumDeclaration extends EditableNode {
       $source,
     );
     $offset += $right_brace->getWidth();
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
     return new static(
       $modifiers,
       $enum,
@@ -89,6 +97,7 @@ final class PocketEnumDeclaration extends EditableNode {
       $left_brace,
       $fields,
       $right_brace,
+      $source_ref,
     );
   }
 

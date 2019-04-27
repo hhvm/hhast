@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cbaafa5bc1db683a0c649ad9345fdc40>>
+ * @generated SignedSource<<67fa16195b4e11f54b6305c230b67c6d>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class ConcurrentToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'concurrent',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

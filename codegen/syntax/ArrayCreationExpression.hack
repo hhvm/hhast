@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6ae0057bbe86e1745319098722ab0aaa>>
+ * @generated SignedSource<<2ba466d7fa99521950acc79678f3adf4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -17,20 +17,22 @@ final class ArrayCreationExpression extends EditableNode {
     EditableNode $left_bracket,
     EditableNode $members,
     EditableNode $right_bracket,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('array_creation_expression');
     $this->_left_bracket = $left_bracket;
     $this->_members = $members;
     $this->_right_bracket = $right_bracket;
+    parent::__construct('array_creation_expression', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $left_bracket = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['array_creation_left_bracket'],
       $file,
@@ -52,7 +54,13 @@ final class ArrayCreationExpression extends EditableNode {
       $source,
     );
     $offset += $right_bracket->getWidth();
-    return new static($left_bracket, $members, $right_bracket);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($left_bracket, $members, $right_bracket, $source_ref);
   }
 
   <<__Override>>

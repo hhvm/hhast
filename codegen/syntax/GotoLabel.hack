@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<67eca441d3482e3122f4a29c9a3901f2>>
+ * @generated SignedSource<<325bc7bb19214f43f5b814e254fc7eed>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,19 +12,24 @@ final class GotoLabel extends EditableNode {
   private EditableNode $_name;
   private EditableNode $_colon;
 
-  public function __construct(EditableNode $name, EditableNode $colon) {
-    parent::__construct('goto_label');
+  public function __construct(
+    EditableNode $name,
+    EditableNode $colon,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
     $this->_name = $name;
     $this->_colon = $colon;
+    parent::__construct('goto_label', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['goto_label_name'],
       $file,
@@ -39,7 +44,13 @@ final class GotoLabel extends EditableNode {
       $source,
     );
     $offset += $colon->getWidth();
-    return new static($name, $colon);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($name, $colon, $source_ref);
   }
 
   <<__Override>>

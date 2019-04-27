@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f1317d1e092b61d58959cf446c3a1451>>
+ * @generated SignedSource<<ad4712f32fa5b6c346d7c9a3a85ee8b4>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class FileToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'file',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

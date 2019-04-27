@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d3ddcb981f6990f950755af479213885>>
+ * @generated SignedSource<<6704dc8a0c5e89d84df01b572d5eee31>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -25,23 +25,25 @@ final class AlternateElseifClause
     EditableNode $right_paren,
     EditableNode $colon,
     EditableNode $statement,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('alternate_elseif_clause');
     $this->_keyword = $keyword;
     $this->_left_paren = $left_paren;
     $this->_condition = $condition;
     $this->_right_paren = $right_paren;
     $this->_colon = $colon;
     $this->_statement = $statement;
+    parent::__construct('alternate_elseif_clause', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['alternate_elseif_keyword'],
       $file,
@@ -84,6 +86,12 @@ final class AlternateElseifClause
       $source,
     );
     $offset += $statement->getWidth();
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
     return new static(
       $keyword,
       $left_paren,
@@ -91,6 +99,7 @@ final class AlternateElseifClause
       $right_paren,
       $colon,
       $statement,
+      $source_ref,
     );
   }
 

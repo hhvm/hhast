@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<10fcb591d59d26cb2c1a6e236b0bd342>>
+ * @generated SignedSource<<47f17426e2de9e700ad5d8838f400a72>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -21,22 +21,24 @@ final class ConditionalExpression extends EditableNode {
     EditableNode $consequence,
     EditableNode $colon,
     EditableNode $alternative,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('conditional_expression');
     $this->_test = $test;
     $this->_question = $question;
     $this->_consequence = $consequence;
     $this->_colon = $colon;
     $this->_alternative = $alternative;
+    parent::__construct('conditional_expression', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $test = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['conditional_test'],
       $file,
@@ -72,7 +74,20 @@ final class ConditionalExpression extends EditableNode {
       $source,
     );
     $offset += $alternative->getWidth();
-    return new static($test, $question, $consequence, $colon, $alternative);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static(
+      $test,
+      $question,
+      $consequence,
+      $colon,
+      $alternative,
+      $source_ref,
+    );
   }
 
   <<__Override>>

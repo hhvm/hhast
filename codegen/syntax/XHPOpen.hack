@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<06195e6cb0e4f1a7c4a0831e601b3419>>
+ * @generated SignedSource<<3698843f2dbe87d3e570700f0020aff4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -19,21 +19,23 @@ final class XHPOpen extends EditableNode {
     EditableNode $name,
     EditableNode $attributes,
     EditableNode $right_angle,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('xhp_open');
     $this->_left_angle = $left_angle;
     $this->_name = $name;
     $this->_attributes = $attributes;
     $this->_right_angle = $right_angle;
+    parent::__construct('xhp_open', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $left_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_open_left_angle'],
       $file,
@@ -62,7 +64,19 @@ final class XHPOpen extends EditableNode {
       $source,
     );
     $offset += $right_angle->getWidth();
-    return new static($left_angle, $name, $attributes, $right_angle);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static(
+      $left_angle,
+      $name,
+      $attributes,
+      $right_angle,
+      $source_ref,
+    );
   }
 
   <<__Override>>

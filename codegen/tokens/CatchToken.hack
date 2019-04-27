@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<406910e8ee8830f1d797edba11732150>>
+ * @generated SignedSource<<0886dfc2f63a24061f0a9746765bccbb>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class CatchToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'catch',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

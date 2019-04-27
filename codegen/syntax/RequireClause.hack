@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8d31d2a0b6ce67fe30d0c985ae60e7df>>
+ * @generated SignedSource<<bf8f5c292f9c046df55a2caf5360301b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -19,21 +19,23 @@ final class RequireClause extends EditableNode {
     EditableNode $kind,
     EditableNode $name,
     EditableNode $semicolon,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('require_clause');
     $this->_keyword = $keyword;
     $this->_kind = $kind;
     $this->_name = $name;
     $this->_semicolon = $semicolon;
+    parent::__construct('require_clause', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['require_keyword'],
       $file,
@@ -62,7 +64,13 @@ final class RequireClause extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
-    return new static($keyword, $kind, $name, $semicolon);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($keyword, $kind, $name, $semicolon, $source_ref);
   }
 
   <<__Override>>

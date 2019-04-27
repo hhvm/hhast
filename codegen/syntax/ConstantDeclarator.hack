@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cd1a6e761df076e949c988ebb37d59e0>>
+ * @generated SignedSource<<2ed9a7eac8c8c8f0114c2f59c0c634d8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,19 +12,24 @@ final class ConstantDeclarator extends EditableNode {
   private EditableNode $_name;
   private EditableNode $_initializer;
 
-  public function __construct(EditableNode $name, EditableNode $initializer) {
-    parent::__construct('constant_declarator');
+  public function __construct(
+    EditableNode $name,
+    EditableNode $initializer,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
     $this->_name = $name;
     $this->_initializer = $initializer;
+    parent::__construct('constant_declarator', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['constant_declarator_name'],
       $file,
@@ -39,7 +44,13 @@ final class ConstantDeclarator extends EditableNode {
       $source,
     );
     $offset += $initializer->getWidth();
-    return new static($name, $initializer);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($name, $initializer, $source_ref);
   }
 
   <<__Override>>

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d88e662972f7a480e69df7ee28900ccc>>
+ * @generated SignedSource<<c4fe184190895321320f1a6a0ac96bac>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class VecToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'vec',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

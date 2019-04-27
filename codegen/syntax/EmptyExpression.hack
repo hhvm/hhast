@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8111549006fb5273b96f06a88070147f>>
+ * @generated SignedSource<<b31d5d381867e3b8ca6d14d7e54a8e10>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -19,21 +19,23 @@ final class EmptyExpression extends EditableNode {
     EditableNode $left_paren,
     EditableNode $argument,
     EditableNode $right_paren,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('empty_expression');
     $this->_keyword = $keyword;
     $this->_left_paren = $left_paren;
     $this->_argument = $argument;
     $this->_right_paren = $right_paren;
+    parent::__construct('empty_expression', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['empty_keyword'],
       $file,
@@ -62,7 +64,19 @@ final class EmptyExpression extends EditableNode {
       $source,
     );
     $offset += $right_paren->getWidth();
-    return new static($keyword, $left_paren, $argument, $right_paren);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static(
+      $keyword,
+      $left_paren,
+      $argument,
+      $right_paren,
+      $source_ref,
+    );
   }
 
   <<__Override>>

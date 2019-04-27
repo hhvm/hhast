@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ba5600ac885dfdcbc8b3b4560f5c7fa1>>
+ * @generated SignedSource<<9c1aa99e1715eea95c862ae68d91b643>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -21,21 +21,23 @@ final class NamespaceUseDeclaration
     EditableNode $kind,
     EditableNode $clauses,
     EditableNode $semicolon,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('namespace_use_declaration');
     $this->_keyword = $keyword;
     $this->_kind = $kind;
     $this->_clauses = $clauses;
     $this->_semicolon = $semicolon;
+    parent::__construct('namespace_use_declaration', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_use_keyword'],
       $file,
@@ -64,7 +66,13 @@ final class NamespaceUseDeclaration
       $source,
     );
     $offset += $semicolon->getWidth();
-    return new static($keyword, $kind, $clauses, $semicolon);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($keyword, $kind, $clauses, $semicolon, $source_ref);
   }
 
   <<__Override>>

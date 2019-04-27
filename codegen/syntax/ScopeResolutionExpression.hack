@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fbc9c8f4e94a5fb4df1b93aba22eb1f9>>
+ * @generated SignedSource<<71d728a97d0b86ab40379bddf3338c54>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -17,20 +17,22 @@ final class ScopeResolutionExpression extends EditableNode {
     EditableNode $qualifier,
     EditableNode $operator,
     EditableNode $name,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('scope_resolution_expression');
     $this->_qualifier = $qualifier;
     $this->_operator = $operator;
     $this->_name = $name;
+    parent::__construct('scope_resolution_expression', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $qualifier = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['scope_resolution_qualifier'],
       $file,
@@ -52,7 +54,13 @@ final class ScopeResolutionExpression extends EditableNode {
       $source,
     );
     $offset += $name->getWidth();
-    return new static($qualifier, $operator, $name);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($qualifier, $operator, $name, $source_ref);
   }
 
   <<__Override>>

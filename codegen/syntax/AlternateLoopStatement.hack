@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<db1a747dd6bb4ed3d4817cee4cc042be>>
+ * @generated SignedSource<<3de1219ecfd71acdc7ea80677f2681f8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -21,21 +21,23 @@ abstract class AlternateLoopStatementGeneratedBase
     EditableNode $statements,
     EditableNode $closing_keyword,
     EditableNode $closing_semicolon,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('alternate_loop_statement');
     $this->_opening_colon = $opening_colon;
     $this->_statements = $statements;
     $this->_closing_keyword = $closing_keyword;
     $this->_closing_semicolon = $closing_semicolon;
+    parent::__construct('alternate_loop_statement', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $opening_colon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['alternate_loop_opening_colon'],
       $file,
@@ -64,11 +66,18 @@ abstract class AlternateLoopStatementGeneratedBase
       $source,
     );
     $offset += $closing_semicolon->getWidth();
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
     return new static(
       $opening_colon,
       $statements,
       $closing_keyword,
       $closing_semicolon,
+      $source_ref,
     );
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<aaf90fcdd5eb0ab2663ebd97225ecfb0>>
+ * @generated SignedSource<<514083341f40bfb5652f9276a6c22e08>>
  */
 namespace Facebook\HHAST;
 
@@ -10,8 +10,12 @@ final class BackslashToken extends EditableTokenWithFixedText {
   const string KIND = '\\';
   const string TEXT = '\\';
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct($leading, $trailing);
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
+    parent::__construct($leading, $trailing, $source_ref);
   }
 
   public function hasLeading(): bool {

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6ddbf3439a60c1e1d97e954b65fc4272>>
+ * @generated SignedSource<<9cdabf0625e9b6479859b8a02bf93a37>>
  */
 namespace Facebook\HHAST;
 
@@ -10,8 +10,12 @@ final class PlusPlusToken extends EditableTokenWithFixedText {
   const string KIND = '++';
   const string TEXT = '++';
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct($leading, $trailing);
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
+    parent::__construct($leading, $trailing, $source_ref);
   }
 
   public function hasLeading(): bool {

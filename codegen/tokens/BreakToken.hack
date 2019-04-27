@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5e75316503d800bffba1230bfd766a92>>
+ * @generated SignedSource<<a7a41acecd5029bab5d4807aa762d412>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class BreakToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'break',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

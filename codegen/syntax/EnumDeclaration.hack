@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<59717dc57e2126972c586873247e3bf7>>
+ * @generated SignedSource<<4262cfff94289d2616904a34a6b5897d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -29,8 +29,8 @@ final class EnumDeclaration extends EditableNode {
     EditableNode $left_brace,
     EditableNode $enumerators,
     EditableNode $right_brace,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('enum_declaration');
     $this->_attribute_spec = $attribute_spec;
     $this->_keyword = $keyword;
     $this->_name = $name;
@@ -40,15 +40,17 @@ final class EnumDeclaration extends EditableNode {
     $this->_left_brace = $left_brace;
     $this->_enumerators = $enumerators;
     $this->_right_brace = $right_brace;
+    parent::__construct('enum_declaration', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $attribute_spec = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['enum_attribute_spec'],
       $file,
@@ -112,6 +114,12 @@ final class EnumDeclaration extends EditableNode {
       $source,
     );
     $offset += $right_brace->getWidth();
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
     return new static(
       $attribute_spec,
       $keyword,
@@ -122,6 +130,7 @@ final class EnumDeclaration extends EditableNode {
       $left_brace,
       $enumerators,
       $right_brace,
+      $source_ref,
     );
   }
 

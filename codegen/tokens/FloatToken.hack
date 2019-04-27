@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b703f98728af09a8c5ae12a71a983d6a>>
+ * @generated SignedSource<<db36e78114182842ad0aad7a417156ea>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class FloatToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'float',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

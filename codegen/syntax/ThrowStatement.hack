@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6963c8977048ecae0e88db41814a5fc2>>
+ * @generated SignedSource<<d7ef225ab843e6fab1ebd3d2d29ae56f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -17,20 +17,22 @@ final class ThrowStatement extends EditableNode {
     EditableNode $keyword,
     EditableNode $expression,
     EditableNode $semicolon,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('throw_statement');
     $this->_keyword = $keyword;
     $this->_expression = $expression;
     $this->_semicolon = $semicolon;
+    parent::__construct('throw_statement', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['throw_keyword'],
       $file,
@@ -52,7 +54,13 @@ final class ThrowStatement extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
-    return new static($keyword, $expression, $semicolon);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($keyword, $expression, $semicolon, $source_ref);
   }
 
   <<__Override>>

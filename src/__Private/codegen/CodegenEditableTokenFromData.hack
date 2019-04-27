@@ -97,8 +97,7 @@ final class CodegenEditableTokenFromData extends CodegenBase {
         $cg
           ->codegenFunction('editable_token_from_data')
           ->setReturnType('HHAST\\EditableToken')
-          ->addParameter('string $file')
-          ->addParameter('int $offset')
+          ->addParameter('SourceRef $source_ref')
           ->addParameter('string $token_kind')
           ->addParameter('HHAST\\EditableNode $leading')
           ->addParameter('HHAST\\EditableNode $trailing')
@@ -108,17 +107,17 @@ final class CodegenEditableTokenFromData extends CodegenBase {
               ->codegenHackBuilder()
               ->add('$cls = TokenClassMap::WITHOUT_TEXT[$token_kind] ?? null;')
               ->add(
-                'if ($cls !== null) { return new $cls($leading, $trailing); }',
+                'if ($cls !== null) { return new $cls($leading, $trailing, $source_ref ); }',
               )
               ->add('$cls = TokenClassMap::WITH_TEXT[$token_kind] ?? null;')
               ->add(
-                'if ($cls !== null) { return new $cls($leading, $trailing, $token_text); }',
+                'if ($cls !== null) { return new $cls($leading, $trailing, $token_text, $source_ref ); }',
               )
               ->addMultilineCall(
                 'throw new HHAST\\UnsupportedTokenError',
                 vec[
-                  '$file',
-                  '$offset',
+                  '$source_ref[\'file\']',
+                  '$source_ref[\'offset\']',
                   '$token_kind',
                 ],
               )

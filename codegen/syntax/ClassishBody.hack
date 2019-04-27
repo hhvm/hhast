@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8a20236fe10b26ba0d7498adc09396dd>>
+ * @generated SignedSource<<7b072de91289b9e814bc733573d12b8b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -17,20 +17,22 @@ final class ClassishBody extends EditableNode {
     EditableNode $left_brace,
     EditableNode $elements,
     EditableNode $right_brace,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('classish_body');
     $this->_left_brace = $left_brace;
     $this->_elements = $elements;
     $this->_right_brace = $right_brace;
+    parent::__construct('classish_body', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $left_brace = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['classish_body_left_brace'],
       $file,
@@ -52,7 +54,13 @@ final class ClassishBody extends EditableNode {
       $source,
     );
     $offset += $right_brace->getWidth();
-    return new static($left_brace, $elements, $right_brace);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($left_brace, $elements, $right_brace, $source_ref);
   }
 
   <<__Override>>

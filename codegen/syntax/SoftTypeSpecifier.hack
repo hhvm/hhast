@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<32aceeaf1005fa94c3648c5a3b23bd53>>
+ * @generated SignedSource<<2d392858146eac834efc289bea582d71>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,19 +12,24 @@ final class SoftTypeSpecifier extends EditableNode {
   private EditableNode $_at;
   private EditableNode $_type;
 
-  public function __construct(EditableNode $at, EditableNode $type) {
-    parent::__construct('soft_type_specifier');
+  public function __construct(
+    EditableNode $at,
+    EditableNode $type,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
     $this->_at = $at;
     $this->_type = $type;
+    parent::__construct('soft_type_specifier', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $at = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['soft_at'],
       $file,
@@ -39,7 +44,13 @@ final class SoftTypeSpecifier extends EditableNode {
       $source,
     );
     $offset += $type->getWidth();
-    return new static($at, $type);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($at, $type, $source_ref);
   }
 
   <<__Override>>

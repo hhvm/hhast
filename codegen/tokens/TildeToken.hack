@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<db1311009dde79ee8fa5e10ad4bcb7c5>>
+ * @generated SignedSource<<7ff8d975833d2a3f0520a97e045344b1>>
  */
 namespace Facebook\HHAST;
 
@@ -10,8 +10,12 @@ final class TildeToken extends EditableTokenWithFixedText {
   const string KIND = '~';
   const string TEXT = '~';
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct($leading, $trailing);
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
+    parent::__construct($leading, $trailing, $source_ref);
   }
 
   public function hasLeading(): bool {

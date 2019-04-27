@@ -9,33 +9,47 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\{Dict, Vec, C};
+use namespace HH\Lib\{Dict, Vec, C, Str};
 use namespace Facebook\TypeAssert;
 
 abstract class EditableNode {
-  const type TRewriter =
-    (function(EditableNode, ?vec<EditableNode>): EditableNode);
+  const type TRewriter = (function(
+    EditableNode,
+    ?vec<EditableNode>,
+  ): EditableNode);
 
   private string $_syntax_kind;
   protected ?int $_width;
-  public function __construct(string $syntax_kind) {
+
+  public function __construct(
+    string $syntax_kind,
+    private ?__Private\SourceRef $sourceRef,
+  ) {
     $this->_syntax_kind = $syntax_kind;
+    /* handy for debugging :)
+    if ($sourceRef !== null) {
+      $code = $this->getCode();
+      $this->sourceRef = null;
+      invariant(
+        $code === $this->getCode(),
+        'MISMATCH: %s -> %s',
+        $this->getCode(),
+        $code,
+      );
+    }
+    */
   }
 
   public function getSyntaxKind(): string {
     return $this->_syntax_kind;
   }
 
-  public abstract function getChildren(
-  ): dict<string, EditableNode>;
+  public abstract function getChildren(): dict<string, EditableNode>;
 
   public function getChildrenWhere(
-    (function(EditableNode):bool) $filter,
+    (function(EditableNode): bool) $filter,
   ): dict<string, EditableNode> {
-    return Dict\filter(
-      $this->getChildren(),
-      $child ==> $filter($child),
-    );
+    return Dict\filter($this->getChildren(), $child ==> $filter($child));
   }
 
   final public function getChildrenOfType<T as EditableNode>(
@@ -67,7 +81,9 @@ abstract class EditableNode {
     $new_parents[] = $this;
     $out = vec[tuple($this, $parents)];
     foreach ($this->getChildren() as $child) {
-      foreach ($child->traverseImpl($new_parents) as list($child, $child_parents)) {
+      foreach (
+        $child->traverseImpl($new_parents) as list($child, $child_parents)
+      ) {
         $out[] = tuple($child, $child_parents);
       }
     }
@@ -109,10 +125,18 @@ abstract class EditableNode {
     }
   }
 
-  public function getCode(): string {
+  final public function getCode(): string {
+    $loc = $this->sourceRef;
+    if ($loc is nonnull) {
+      return Str\slice($loc['source'], $loc['offset'], $loc['width']);
+    }
+    return $this->getCodeUncached();
+  }
+
+  protected function getCodeUncached(): string {
     /* TODO: Make an accumulation sequence operator */
     $s = '';
-    foreach ($this->getChildren() as $node) {
+    foreach ($this->getChildren() as $key => $node) {
       $s .= $node->getCode();
     }
     return $s;
@@ -153,7 +177,7 @@ abstract class EditableNode {
   }
 
   public function getDescendantsWhere(
-    (function(EditableNode, vec<EditableNode>):bool) $filter,
+    (function(EditableNode, vec<EditableNode>): bool) $filter,
   ): vec<EditableNode> {
     $out = vec[];
     foreach ($this->traverseWithParents() as list($node, $parents)) {
@@ -189,10 +213,7 @@ abstract class EditableNode {
     return $this->removeWhere(($node, $parents) ==> $node === $target);
   }
 
-  public function replace(
-    EditableNode $target,
-    EditableNode $new_node,
-  ): this {
+  public function replace(EditableNode $target, EditableNode $new_node): this {
     return $this->rewriteDescendants(
       ($node, $parents) ==> $node === $target ? $new_node : $node,
     );
@@ -247,16 +268,12 @@ abstract class EditableNode {
 
       // Inserting trivia before token is inserting to the right end of
       // the leading trivia.
-      $new_leading =
-        EditableList::concat($token->getLeading(), $new_node);
+      $new_leading = EditableList::concat($token->getLeading(), $new_node);
       $new_token = $token->withLeading($new_leading);
       return $this->replace($token, $new_token);
     }
 
-    return $this->replace(
-      $target,
-      EditableList::concat($new_node, $target),
-    );
+    return $this->replace($target, EditableList::concat($new_node, $target));
   }
 
   public function insertAfter(
@@ -284,16 +301,12 @@ abstract class EditableNode {
 
       // Inserting trivia after token is inserting to the left end of
       // the trailing trivia.
-      $new_trailing =
-        EditableList::concat($new_node, $token->getTrailing());
+      $new_trailing = EditableList::concat($new_node, $token->getTrailing());
       $new_token = $token->withTrailing($new_trailing);
       return $this->replace($token, $new_token);
     }
 
-    return $this->replace(
-      $target,
-      EditableList::concat($target, $new_node),
-    );
+    return $this->replace($target, EditableList::concat($target, $new_node));
   }
 
   abstract public function rewriteDescendants(
@@ -306,10 +319,7 @@ abstract class EditableNode {
     ?vec<EditableNode> $parents = null,
   ): EditableNode {
     $parents = $parents === null ? vec[] : vec($parents);
-    $with_rewritten_children = $this->rewriteDescendants(
-      $rewriter,
-      $parents,
-    );
+    $with_rewritten_children = $this->rewriteDescendants($rewriter, $parents);
     return $rewriter($with_rewritten_children, $parents);
   }
 }

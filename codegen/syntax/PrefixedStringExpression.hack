@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<597e7e3a76d1d5382c08d4b5115c0e68>>
+ * @generated SignedSource<<fc49a55a8003e295f15f4bdcc3388991>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,19 +12,24 @@ final class PrefixedStringExpression extends EditableNode {
   private EditableNode $_name;
   private EditableNode $_str;
 
-  public function __construct(EditableNode $name, EditableNode $str) {
-    parent::__construct('prefixed_string_expression');
+  public function __construct(
+    EditableNode $name,
+    EditableNode $str,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
     $this->_name = $name;
     $this->_str = $str;
+    parent::__construct('prefixed_string_expression', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['prefixed_string_name'],
       $file,
@@ -39,7 +44,13 @@ final class PrefixedStringExpression extends EditableNode {
       $source,
     );
     $offset += $str->getWidth();
-    return new static($name, $str);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($name, $str, $source_ref);
   }
 
   <<__Override>>

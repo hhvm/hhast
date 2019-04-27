@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e8a7387c7255c9290527ed8ce53b951b>>
+ * @generated SignedSource<<1f86d0c98f0795e85310afde11bb4160>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class HaltCompilerToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = '__halt_compiler',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

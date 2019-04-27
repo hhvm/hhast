@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b5c41079e7035ad79560d208453e94a5>>
+ * @generated SignedSource<<16c377a3f5df7c94cc6a7f2425e69cbf>>
  */
 namespace Facebook\HHAST;
 
@@ -10,8 +10,12 @@ final class SlashToken extends EditableTokenWithFixedText {
   const string KIND = '/';
   const string TEXT = '/';
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct($leading, $trailing);
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
+    parent::__construct($leading, $trailing, $source_ref);
   }
 
   public function hasLeading(): bool {

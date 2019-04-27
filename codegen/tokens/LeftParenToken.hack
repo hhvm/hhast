@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<574711ba0d7718a13f767c19894f341c>>
+ * @generated SignedSource<<ed8f08c7b5137877c320f3d6f9794b24>>
  */
 namespace Facebook\HHAST;
 
@@ -10,8 +10,12 @@ final class LeftParenToken extends EditableTokenWithFixedText {
   const string KIND = '(';
   const string TEXT = '(';
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct($leading, $trailing);
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
+    parent::__construct($leading, $trailing, $source_ref);
   }
 
   public function hasLeading(): bool {

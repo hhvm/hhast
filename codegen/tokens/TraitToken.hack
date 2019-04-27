@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<780e92cb77d8a438d4f844d764bac6ff>>
+ * @generated SignedSource<<08a7854364c85b3df090c69c3b32abb6>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class TraitToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'trait',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

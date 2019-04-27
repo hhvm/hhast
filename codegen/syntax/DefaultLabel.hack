@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<901bb24598a6d47ac0db5ad944bcde54>>
+ * @generated SignedSource<<128af59ffad77df2f7b9759b6b61381d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,19 +12,24 @@ final class DefaultLabel extends EditableNode {
   private EditableNode $_keyword;
   private EditableNode $_colon;
 
-  public function __construct(EditableNode $keyword, EditableNode $colon) {
-    parent::__construct('default_label');
+  public function __construct(
+    EditableNode $keyword,
+    EditableNode $colon,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
     $this->_keyword = $keyword;
     $this->_colon = $colon;
+    parent::__construct('default_label', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['default_keyword'],
       $file,
@@ -39,7 +44,13 @@ final class DefaultLabel extends EditableNode {
       $source,
     );
     $offset += $colon->getWidth();
-    return new static($keyword, $colon);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($keyword, $colon, $source_ref);
   }
 
   <<__Override>>

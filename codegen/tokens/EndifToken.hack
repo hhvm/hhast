@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c47582d796abfe2fd0c9e0eb62e133e0>>
+ * @generated SignedSource<<4688b780b50b796dd48f9d56beb7ed49>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class EndifToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'endif',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

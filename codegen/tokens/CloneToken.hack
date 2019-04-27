@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c5b945741c8ee0b3e4a010ed494d8364>>
+ * @generated SignedSource<<db632293c9a097f4d4336ec695867267>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class CloneToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'clone',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6997d960d89864df08ff3d6c25a04afb>>
+ * @generated SignedSource<<c46b1f0d72ffa949a1deff586546c724>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class ReifyToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'reify',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

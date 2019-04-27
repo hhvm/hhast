@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<be2350cba4b5cd41eaf12eb2202ea34a>>
+ * @generated SignedSource<<1a86b7e9a2ffd3c307a9f4131be33fb3>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class ClassnameToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'classname',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

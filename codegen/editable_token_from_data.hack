@@ -1,14 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d3ad2a6cddbed282d924c2b2251c62a2>>
+ * @generated SignedSource<<182ad94e23e88b11f3d2b3aa604e22fe>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
 
 function editable_token_from_data(
-  string $file,
-  int $offset,
+  SourceRef $source_ref,
   string $token_kind,
   HHAST\EditableNode $leading,
   HHAST\EditableNode $trailing,
@@ -16,13 +15,17 @@ function editable_token_from_data(
 ): HHAST\EditableToken {
   $cls = TokenClassMap::WITHOUT_TEXT[$token_kind] ?? null;
   if ($cls !== null) {
-    return new $cls($leading, $trailing);
+    return new $cls($leading, $trailing, $source_ref);
   }
   $cls = TokenClassMap::WITH_TEXT[$token_kind] ?? null;
   if ($cls !== null) {
-    return new $cls($leading, $trailing, $token_text);
+    return new $cls($leading, $trailing, $token_text, $source_ref);
   }
-  throw new HHAST\UnsupportedTokenError($file, $offset, $token_kind);
+  throw new HHAST\UnsupportedTokenError(
+    $source_ref['file'],
+    $source_ref['offset'],
+    $token_kind,
+  );
 }
 
 class TokenClassMap {

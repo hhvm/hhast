@@ -36,8 +36,9 @@ final class CodegenTrivia extends CodegenBase {
             $cg
               ->codegenConstructor()
               ->addParameter('string $text')
+              ->addParameter('?__Private\\SourceRef $source_ref = null')
               ->setBodyf(
-                'parent::__construct(%s, $text);',
+                'parent::__construct(%s, $text, $source_ref);',
                 \var_export($trivia['trivia_type_name'], true),
               ),
           )

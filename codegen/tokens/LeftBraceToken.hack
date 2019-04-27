@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ad974c20e6b3345d143d0622f1d8fca4>>
+ * @generated SignedSource<<4f1ac734d9a29006c663c6ce989acfdf>>
  */
 namespace Facebook\HHAST;
 
@@ -10,8 +10,12 @@ final class LeftBraceToken extends EditableTokenWithFixedText {
   const string KIND = '{';
   const string TEXT = '{';
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct($leading, $trailing);
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
+    parent::__construct($leading, $trailing, $source_ref);
   }
 
   public function hasLeading(): bool {

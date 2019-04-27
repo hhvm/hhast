@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0e36ae5c2da37c05f6246ea401650a7c>>
+ * @generated SignedSource<<97395ef4bc6b3b44705c85157718d0fd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,8 +27,8 @@ final class DoStatement
     EditableNode $condition,
     EditableNode $right_paren,
     EditableNode $semicolon,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('do_statement');
     $this->_keyword = $keyword;
     $this->_body = $body;
     $this->_while_keyword = $while_keyword;
@@ -36,15 +36,17 @@ final class DoStatement
     $this->_condition = $condition;
     $this->_right_paren = $right_paren;
     $this->_semicolon = $semicolon;
+    parent::__construct('do_statement', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['do_keyword'],
       $file,
@@ -94,6 +96,12 @@ final class DoStatement
       $source,
     );
     $offset += $semicolon->getWidth();
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
     return new static(
       $keyword,
       $body,
@@ -102,6 +110,7 @@ final class DoStatement
       $condition,
       $right_paren,
       $semicolon,
+      $source_ref,
     );
   }
 

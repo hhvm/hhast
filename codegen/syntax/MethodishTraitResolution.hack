@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<67382e1de8ed84deb3ccd49a857657b2>>
+ * @generated SignedSource<<a946065d167f43e97b5ff62a5231347d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -21,22 +21,24 @@ final class MethodishTraitResolution extends EditableNode {
     EditableNode $equal,
     EditableNode $name,
     EditableNode $semicolon,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('methodish_trait_resolution');
     $this->_attribute = $attribute;
     $this->_function_decl_header = $function_decl_header;
     $this->_equal = $equal;
     $this->_name = $name;
     $this->_semicolon = $semicolon;
+    parent::__construct('methodish_trait_resolution', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $attribute = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['methodish_trait_attribute'],
       $file,
@@ -72,12 +74,19 @@ final class MethodishTraitResolution extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
     return new static(
       $attribute,
       $function_decl_header,
       $equal,
       $name,
       $semicolon,
+      $source_ref,
     );
   }
 

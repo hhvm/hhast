@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<83b0a7960d6a0e48c0edda3b7189a40b>>
+ * @generated SignedSource<<74561965ed868594ab969569ac3b0fe2>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class GlobalToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'global',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

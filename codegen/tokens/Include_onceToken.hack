@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3496380473e9067c8c34edbb1fe0ff2b>>
+ * @generated SignedSource<<e8112086dbf7fe3ba4d1376522f271fa>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class Include_onceToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'include_once',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

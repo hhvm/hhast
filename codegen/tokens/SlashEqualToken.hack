@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cf2bf23743f049c78744beeb8f7bd15a>>
+ * @generated SignedSource<<249bac4d4c1b72c853c5f3b9ee5c825b>>
  */
 namespace Facebook\HHAST;
 
@@ -10,8 +10,12 @@ final class SlashEqualToken extends EditableTokenWithFixedText {
   const string KIND = '/=';
   const string TEXT = '/=';
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct($leading, $trailing);
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
+    parent::__construct($leading, $trailing, $source_ref);
   }
 
   public function hasLeading(): bool {

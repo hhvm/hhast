@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4e64f217ab15ff3efa01adb59aaa54c0>>
+ * @generated SignedSource<<6b37f2d4e052db5bbc1380a7a2bdc0ce>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class WhereToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'where',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

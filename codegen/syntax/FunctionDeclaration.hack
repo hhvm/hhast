@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<71e86ceeb1801d93eaa48464e4e2f963>>
+ * @generated SignedSource<<491f4a177d4b5da353990dbfc2430e5f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -19,20 +19,22 @@ final class FunctionDeclaration
     EditableNode $attribute_spec,
     EditableNode $declaration_header,
     EditableNode $body,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('function_declaration');
     $this->_attribute_spec = $attribute_spec;
     $this->_declaration_header = $declaration_header;
     $this->_body = $body;
+    parent::__construct('function_declaration', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $attribute_spec = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_attribute_spec'],
       $file,
@@ -54,7 +56,13 @@ final class FunctionDeclaration
       $source,
     );
     $offset += $body->getWidth();
-    return new static($attribute_spec, $declaration_header, $body);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($attribute_spec, $declaration_header, $body, $source_ref);
   }
 
   <<__Override>>

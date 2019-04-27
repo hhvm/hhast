@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cbd15c716c4f926757fdc6bd903394ce>>
+ * @generated SignedSource<<7c5ea2945d661d44fcb027124e04f3e0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -15,19 +15,21 @@ final class InclusionDirective extends EditableNode {
   public function __construct(
     EditableNode $expression,
     EditableNode $semicolon,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('inclusion_directive');
     $this->_expression = $expression;
     $this->_semicolon = $semicolon;
+    parent::__construct('inclusion_directive', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $expression = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['inclusion_expression'],
       $file,
@@ -42,7 +44,13 @@ final class InclusionDirective extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
-    return new static($expression, $semicolon);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($expression, $semicolon, $source_ref);
   }
 
   <<__Override>>

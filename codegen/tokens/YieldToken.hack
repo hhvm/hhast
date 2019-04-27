@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d90d1782140c1b8909b0501252395cbc>>
+ * @generated SignedSource<<1efbe9a7e572d3270636662c5ec4990f>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class YieldToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'yield',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<12b29838d6399aa9ec280f305af557cd>>
+ * @generated SignedSource<<f9a9cd43b9c8a381a21e4423d978179e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -15,19 +15,21 @@ final class MarkupSuffix extends EditableNode {
   public function __construct(
     EditableNode $less_than_question,
     EditableNode $name,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('markup_suffix');
     $this->_less_than_question = $less_than_question;
     $this->_name = $name;
+    parent::__construct('markup_suffix', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $less_than_question = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['markup_suffix_less_than_question'],
       $file,
@@ -42,7 +44,13 @@ final class MarkupSuffix extends EditableNode {
       $source,
     );
     $offset += $name->getWidth();
-    return new static($less_than_question, $name);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($less_than_question, $name, $source_ref);
   }
 
   <<__Override>>

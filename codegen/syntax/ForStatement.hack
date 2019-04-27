@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e67f842fc2c893eb0045272da5f4c3a5>>
+ * @generated SignedSource<<6db362c643ddb6128049e5af9d8c2e55>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -31,8 +31,8 @@ final class ForStatement
     EditableNode $end_of_loop,
     EditableNode $right_paren,
     EditableNode $body,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('for_statement');
     $this->_keyword = $keyword;
     $this->_left_paren = $left_paren;
     $this->_initializer = $initializer;
@@ -42,15 +42,17 @@ final class ForStatement
     $this->_end_of_loop = $end_of_loop;
     $this->_right_paren = $right_paren;
     $this->_body = $body;
+    parent::__construct('for_statement', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['for_keyword'],
       $file,
@@ -114,6 +116,12 @@ final class ForStatement
       $source,
     );
     $offset += $body->getWidth();
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
     return new static(
       $keyword,
       $left_paren,
@@ -124,6 +132,7 @@ final class ForStatement
       $end_of_loop,
       $right_paren,
       $body,
+      $source_ref,
     );
   }
 

@@ -27,15 +27,13 @@ final class CodegenEditableTriviaFromJSON extends CodegenBase {
           ->codegenFunction('editable_trivia_from_json')
           ->setReturnType('HHAST\\EditableTrivia')
           ->addParameter('dict<string, mixed> $json')
-          ->addParameter('string $file')
-          ->addParameter('int $offset')
-          ->addParameter('string $source')
+          ->addParameter('SourceRef $source_ref')
           ->setBody(
             $cg
               ->codegenHackBuilder()
               ->addAssignment(
                 '$trivia_text',
-                '\\substr($source, $offset, $json[\'width\'] as int)',
+                '\\substr($source_ref[\'source\'], $source_ref[\'offset\'], $source_ref[\'width\'])',
                 HackBuilderValues::literal(),
               )
               ->startSwitch('(string) $json[\'kind\']')
@@ -48,7 +46,7 @@ final class CodegenEditableTriviaFromJSON extends CodegenBase {
                       HackBuilderValues::export(),
                     )
                     ->returnCasef(
-                      'new HHAST\\%s($trivia_text)',
+                      'new HHAST\\%s($trivia_text, $source_ref)',
                       $trivia['trivia_kind_name'],
                     );
                 },
@@ -57,9 +55,9 @@ final class CodegenEditableTriviaFromJSON extends CodegenBase {
               ->addMultilineCall(
                 'throw new HHAST\\UnsupportedASTNodeError',
                 vec[
-                  '$file',
-                  '$offset',
-                  '(string) $json[\'kind\']',
+                  '$source_ref["file"]',
+                  '$source_ref["offset"]',
+                  '$json[\'kind\'] as string',
                 ],
               )
               ->endDefault()

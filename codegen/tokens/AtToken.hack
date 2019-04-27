@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<48953160547f7be0141335b8aca317e0>>
+ * @generated SignedSource<<9484c89150e36d0b839b30154c1aaa11>>
  */
 namespace Facebook\HHAST;
 
@@ -10,8 +10,12 @@ final class AtToken extends EditableTokenWithFixedText {
   const string KIND = '@';
   const string TEXT = '@';
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct($leading, $trailing);
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
+    parent::__construct($leading, $trailing, $source_ref);
   }
 
   public function hasLeading(): bool {

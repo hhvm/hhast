@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<736289354914dc19c5ae5d7c3f274284>>
+ * @generated SignedSource<<b53ca38eb0a06b7d1f9ef2d345803a82>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -17,20 +17,22 @@ final class XHPChildrenDeclaration extends EditableNode {
     EditableNode $keyword,
     EditableNode $expression,
     EditableNode $semicolon,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('xhp_children_declaration');
     $this->_keyword = $keyword;
     $this->_expression = $expression;
     $this->_semicolon = $semicolon;
+    parent::__construct('xhp_children_declaration', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_children_keyword'],
       $file,
@@ -52,7 +54,13 @@ final class XHPChildrenDeclaration extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
-    return new static($keyword, $expression, $semicolon);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($keyword, $expression, $semicolon, $source_ref);
   }
 
   <<__Override>>

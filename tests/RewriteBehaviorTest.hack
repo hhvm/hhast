@@ -154,9 +154,9 @@ final class RewriteBehaviorTest extends TestCase {
   }
 
   public function testRewritesNewChildren(): void {
-    $orig = HHAST\from_code(
-      "<?hh type T = shape('subshape' => shape('subfield' => string));",
-    );
+    $code = "<?hh type T = shape('subshape' => shape('subfield' => string));";
+    $orig = HHAST\from_code($code);
+    expect($orig->getCode())->toBeSame($code);
 
     $new = $orig->rewrite(
       ($shape, $_) ==> {

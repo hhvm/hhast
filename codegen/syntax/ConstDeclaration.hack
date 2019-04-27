@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a69e3d91072f88663aba2a1b53cf191f>>
+ * @generated SignedSource<<ea57eda9a5e552d21b68fdff7938a2ba>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -23,23 +23,25 @@ final class ConstDeclaration extends EditableNode {
     EditableNode $type_specifier,
     EditableNode $declarators,
     EditableNode $semicolon,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('const_declaration');
     $this->_visibility = $visibility;
     $this->_abstract = $abstract;
     $this->_keyword = $keyword;
     $this->_type_specifier = $type_specifier;
     $this->_declarators = $declarators;
     $this->_semicolon = $semicolon;
+    parent::__construct('const_declaration', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $visibility = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['const_visibility'],
       $file,
@@ -82,6 +84,12 @@ final class ConstDeclaration extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
     return new static(
       $visibility,
       $abstract,
@@ -89,6 +97,7 @@ final class ConstDeclaration extends EditableNode {
       $type_specifier,
       $declarators,
       $semicolon,
+      $source_ref,
     );
   }
 

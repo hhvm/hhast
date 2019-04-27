@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7fc23b7020ae5edebc15d65c599eedcb>>
+ * @generated SignedSource<<d6f4e5314815a7f2f2cf88bffb5f28c5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -17,20 +17,22 @@ final class SwitchSection extends EditableNode {
     EditableNode $labels,
     EditableNode $statements,
     EditableNode $fallthrough,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('switch_section');
     $this->_labels = $labels;
     $this->_statements = $statements;
     $this->_fallthrough = $fallthrough;
+    parent::__construct('switch_section', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $labels = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['switch_section_labels'],
       $file,
@@ -52,7 +54,13 @@ final class SwitchSection extends EditableNode {
       $source,
     );
     $offset += $fallthrough->getWidth();
-    return new static($labels, $statements, $fallthrough);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($labels, $statements, $fallthrough, $source_ref);
   }
 
   <<__Override>>

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ec8d3e09d1be074b78922a8a79df17b8>>
+ * @generated SignedSource<<fe7aba214300e9d40c5ebf673ae6c512>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -23,23 +23,25 @@ final class ParameterDeclaration extends EditableNode {
     EditableNode $type,
     EditableNode $name,
     EditableNode $default_value,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('parameter_declaration');
     $this->_attribute = $attribute;
     $this->_visibility = $visibility;
     $this->_call_convention = $call_convention;
     $this->_type = $type;
     $this->_name = $name;
     $this->_default_value = $default_value;
+    parent::__construct('parameter_declaration', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $attribute = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['parameter_attribute'],
       $file,
@@ -82,6 +84,12 @@ final class ParameterDeclaration extends EditableNode {
       $source,
     );
     $offset += $default_value->getWidth();
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
     return new static(
       $attribute,
       $visibility,
@@ -89,6 +97,7 @@ final class ParameterDeclaration extends EditableNode {
       $type,
       $name,
       $default_value,
+      $source_ref,
     );
   }
 

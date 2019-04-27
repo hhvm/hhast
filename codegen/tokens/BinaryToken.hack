@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a86ee72453952fb9e12dd11f36029125>>
+ * @generated SignedSource<<5bd589b874a9ea58dd502bee9aab0c46>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class BinaryToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'binary',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

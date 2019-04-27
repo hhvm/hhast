@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cbd149286582b0f8c15a95a6c0bdacd2>>
+ * @generated SignedSource<<8feea2fd26f1961141aa4c3dcc32e584>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -19,21 +19,23 @@ final class CastExpression extends EditableNode {
     EditableNode $type,
     EditableNode $right_paren,
     EditableNode $operand,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('cast_expression');
     $this->_left_paren = $left_paren;
     $this->_type = $type;
     $this->_right_paren = $right_paren;
     $this->_operand = $operand;
+    parent::__construct('cast_expression', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['cast_left_paren'],
       $file,
@@ -62,7 +64,13 @@ final class CastExpression extends EditableNode {
       $source,
     );
     $offset += $operand->getWidth();
-    return new static($left_paren, $type, $right_paren, $operand);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($left_paren, $type, $right_paren, $operand, $source_ref);
   }
 
   <<__Override>>

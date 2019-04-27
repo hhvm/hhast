@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<304f978aab4d3abef640357ea7511c74>>
+ * @generated SignedSource<<5f5ffc34a22fb6e0fe7b7384fe59be98>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -21,22 +21,24 @@ final class DeclareBlockStatement extends EditableNode {
     EditableNode $expression,
     EditableNode $right_paren,
     EditableNode $body,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('declare_block_statement');
     $this->_keyword = $keyword;
     $this->_left_paren = $left_paren;
     $this->_expression = $expression;
     $this->_right_paren = $right_paren;
     $this->_body = $body;
+    parent::__construct('declare_block_statement', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['declare_block_keyword'],
       $file,
@@ -72,7 +74,20 @@ final class DeclareBlockStatement extends EditableNode {
       $source,
     );
     $offset += $body->getWidth();
-    return new static($keyword, $left_paren, $expression, $right_paren, $body);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static(
+      $keyword,
+      $left_paren,
+      $expression,
+      $right_paren,
+      $body,
+      $source_ref,
+    );
   }
 
   <<__Override>>

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c2002a301d4615891980fdcbd89497e9>>
+ * @generated SignedSource<<afa377240376fd81b71274c52fe15817>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -17,20 +17,22 @@ final class XHPCategoryDeclaration extends EditableNode {
     EditableNode $keyword,
     EditableNode $categories,
     EditableNode $semicolon,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('xhp_category_declaration');
     $this->_keyword = $keyword;
     $this->_categories = $categories;
     $this->_semicolon = $semicolon;
+    parent::__construct('xhp_category_declaration', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_category_keyword'],
       $file,
@@ -52,7 +54,13 @@ final class XHPCategoryDeclaration extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
-    return new static($keyword, $categories, $semicolon);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($keyword, $categories, $semicolon, $source_ref);
   }
 
   <<__Override>>

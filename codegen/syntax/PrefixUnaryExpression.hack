@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<85006c2ff23c3c7910ed71f34e4b93aa>>
+ * @generated SignedSource<<4b0e90537393ca9289a0e871664c9c65>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,19 +12,24 @@ final class PrefixUnaryExpression extends EditableNode {
   private EditableNode $_operator;
   private EditableNode $_operand;
 
-  public function __construct(EditableNode $operator, EditableNode $operand) {
-    parent::__construct('prefix_unary_expression');
+  public function __construct(
+    EditableNode $operator,
+    EditableNode $operand,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
     $this->_operator = $operator;
     $this->_operand = $operand;
+    parent::__construct('prefix_unary_expression', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $operator = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['prefix_unary_operator'],
       $file,
@@ -39,7 +44,13 @@ final class PrefixUnaryExpression extends EditableNode {
       $source,
     );
     $offset += $operand->getWidth();
-    return new static($operator, $operand);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($operator, $operand, $source_ref);
   }
 
   <<__Override>>

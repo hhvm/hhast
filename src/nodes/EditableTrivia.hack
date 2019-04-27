@@ -14,9 +14,13 @@ use namespace HH\Lib\Str;
 abstract class EditableTrivia extends EditableNode {
   private string $_text;
   <<__Override>>
-  public function __construct(string $trivia_kind, string $text) {
-    parent::__construct($trivia_kind);
+  public function __construct(
+    string $trivia_kind,
+    string $text,
+    ?__Private\SourceRef $ref,
+  ) {
     $this->_text = $text;
+    parent::__construct($trivia_kind, $ref);
   }
 
   public function getText(): string {
@@ -24,7 +28,7 @@ abstract class EditableTrivia extends EditableNode {
   }
 
   <<__Override>>
-  public function getCode(): string {
+  protected function getCodeUncached(): string {
     return $this->_text;
   }
 
@@ -50,7 +54,12 @@ abstract class EditableTrivia extends EditableNode {
     int $offset,
     string $source,
   ): EditableTrivia {
-    return __Private\editable_trivia_from_json($json, $file, $offset, $source);
+    return __Private\editable_trivia_from_json($json, shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $offset,
+      'width' => $json['width'] as int,
+    ));
   }
 
   <<__Override>>

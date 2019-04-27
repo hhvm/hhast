@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0c5178424318423afd616330df83f01e>>
+ * @generated SignedSource<<96134e2b6858bd6dc78b217ea63c2050>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class AsyncToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'async',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

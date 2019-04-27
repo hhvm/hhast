@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<457ccbc2e22adcae0ff026a325c81683>>
+ * @generated SignedSource<<0828b43b37a3f2bee4d51356edb5f5a4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -17,20 +17,22 @@ final class TraitUsePrecedenceItem extends EditableNode {
     EditableNode $name,
     EditableNode $keyword,
     EditableNode $removed_names,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('trait_use_precedence_item');
     $this->_name = $name;
     $this->_keyword = $keyword;
     $this->_removed_names = $removed_names;
+    parent::__construct('trait_use_precedence_item', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['trait_use_precedence_item_name'],
       $file,
@@ -52,7 +54,13 @@ final class TraitUsePrecedenceItem extends EditableNode {
       $source,
     );
     $offset += $removed_names->getWidth();
-    return new static($name, $keyword, $removed_names);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($name, $keyword, $removed_names, $source_ref);
   }
 
   <<__Override>>

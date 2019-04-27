@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e867a961676b14eb74b867abbb64db7e>>
+ * @generated SignedSource<<5149d3fd9e45efd8cb98d3f732e120f7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -17,20 +17,22 @@ final class VariadicParameter extends EditableNode {
     EditableNode $call_convention,
     EditableNode $type,
     EditableNode $ellipsis,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('variadic_parameter');
     $this->_call_convention = $call_convention;
     $this->_type = $type;
     $this->_ellipsis = $ellipsis;
+    parent::__construct('variadic_parameter', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $call_convention = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['variadic_parameter_call_convention'],
       $file,
@@ -52,7 +54,13 @@ final class VariadicParameter extends EditableNode {
       $source,
     );
     $offset += $ellipsis->getWidth();
-    return new static($call_convention, $type, $ellipsis);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($call_convention, $type, $ellipsis, $source_ref);
   }
 
   <<__Override>>

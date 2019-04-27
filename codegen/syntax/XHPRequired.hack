@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8c496946b89bcd1cbd78b9e849d18de6>>
+ * @generated SignedSource<<866241d20838fb82fd6578084a36c1fa>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,19 +12,24 @@ final class XHPRequired extends EditableNode {
   private EditableNode $_at;
   private EditableNode $_keyword;
 
-  public function __construct(EditableNode $at, EditableNode $keyword) {
-    parent::__construct('xhp_required');
+  public function __construct(
+    EditableNode $at,
+    EditableNode $keyword,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
     $this->_at = $at;
     $this->_keyword = $keyword;
+    parent::__construct('xhp_required', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $at = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_required_at'],
       $file,
@@ -39,7 +44,13 @@ final class XHPRequired extends EditableNode {
       $source,
     );
     $offset += $keyword->getWidth();
-    return new static($at, $keyword);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($at, $keyword, $source_ref);
   }
 
   <<__Override>>

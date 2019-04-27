@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<437e433a98f35b440539230739c43c58>>
+ * @generated SignedSource<<4bc340f1c813fd900ac6a24c4f66e2a1>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class XHPBodyToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $text,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $text);
+    parent::__construct($leading, $trailing, $text, $source_ref);
   }
 
   public function hasLeading(): bool {

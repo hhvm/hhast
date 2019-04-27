@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<020325ad12fcb3cb04bf3760dcad4abd>>
+ * @generated SignedSource<<70968626e8f88deedcc21e32bd095d50>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -17,20 +17,22 @@ final class ContinueStatement extends EditableNode {
     EditableNode $keyword,
     EditableNode $level,
     EditableNode $semicolon,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('continue_statement');
     $this->_keyword = $keyword;
     $this->_level = $level;
     $this->_semicolon = $semicolon;
+    parent::__construct('continue_statement', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['continue_keyword'],
       $file,
@@ -52,7 +54,13 @@ final class ContinueStatement extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
-    return new static($keyword, $level, $semicolon);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($keyword, $level, $semicolon, $source_ref);
   }
 
   <<__Override>>

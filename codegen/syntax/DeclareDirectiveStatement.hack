@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ff23d901cade1f79b3275be5a51e5004>>
+ * @generated SignedSource<<14cedea191b10c89e4173cb230ef95d4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -21,22 +21,24 @@ final class DeclareDirectiveStatement extends EditableNode {
     EditableNode $expression,
     EditableNode $right_paren,
     EditableNode $semicolon,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('declare_directive_statement');
     $this->_keyword = $keyword;
     $this->_left_paren = $left_paren;
     $this->_expression = $expression;
     $this->_right_paren = $right_paren;
     $this->_semicolon = $semicolon;
+    parent::__construct('declare_directive_statement', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['declare_directive_keyword'],
       $file,
@@ -72,12 +74,19 @@ final class DeclareDirectiveStatement extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
     return new static(
       $keyword,
       $left_paren,
       $expression,
       $right_paren,
       $semicolon,
+      $source_ref,
     );
   }
 

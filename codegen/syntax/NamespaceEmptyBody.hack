@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8c9c29f3d6cc27c2fa7a5b3762bb2683>>
+ * @generated SignedSource<<e42e0d5125a20caa69f093e996dfd107>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,18 +11,22 @@ final class NamespaceEmptyBody extends EditableNode {
 
   private EditableNode $_semicolon;
 
-  public function __construct(EditableNode $semicolon) {
-    parent::__construct('namespace_empty_body');
+  public function __construct(
+    EditableNode $semicolon,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
     $this->_semicolon = $semicolon;
+    parent::__construct('namespace_empty_body', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_semicolon'],
       $file,
@@ -30,7 +34,13 @@ final class NamespaceEmptyBody extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
-    return new static($semicolon);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($semicolon, $source_ref);
   }
 
   <<__Override>>

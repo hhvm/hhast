@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<91ea03320962476ea79d4a383c5790d0>>
+ * @generated SignedSource<<fba8289e81f2b06a72166573af5c2963>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class EndwhileToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'endwhile',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

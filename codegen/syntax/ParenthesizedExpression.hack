@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5267ba19af1d867a6bfd4d54fc4c5c40>>
+ * @generated SignedSource<<aab08e20e3f48f4ad0abc57aa8901181>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -17,20 +17,22 @@ final class ParenthesizedExpression extends EditableNode {
     EditableNode $left_paren,
     EditableNode $expression,
     EditableNode $right_paren,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('parenthesized_expression');
     $this->_left_paren = $left_paren;
     $this->_expression = $expression;
     $this->_right_paren = $right_paren;
+    parent::__construct('parenthesized_expression', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['parenthesized_expression_left_paren'],
       $file,
@@ -52,7 +54,13 @@ final class ParenthesizedExpression extends EditableNode {
       $source,
     );
     $offset += $right_paren->getWidth();
-    return new static($left_paren, $expression, $right_paren);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($left_paren, $expression, $right_paren, $source_ref);
   }
 
   <<__Override>>

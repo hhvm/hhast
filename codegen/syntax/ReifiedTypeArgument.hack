@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7a5b570a6654cb3139bc29cb1d7d33a8>>
+ * @generated SignedSource<<efcd0ce8078c813feaad1f7fcce9f70a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,19 +12,24 @@ final class ReifiedTypeArgument extends EditableNode {
   private EditableNode $_reified;
   private EditableNode $_type;
 
-  public function __construct(EditableNode $reified, EditableNode $type) {
-    parent::__construct('reified_type_argument');
+  public function __construct(
+    EditableNode $reified,
+    EditableNode $type,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
     $this->_reified = $reified;
     $this->_type = $type;
+    parent::__construct('reified_type_argument', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $reified = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['reified_type_argument_reified'],
       $file,
@@ -39,7 +44,13 @@ final class ReifiedTypeArgument extends EditableNode {
       $source,
     );
     $offset += $type->getWidth();
-    return new static($reified, $type);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($reified, $type, $source_ref);
   }
 
   <<__Override>>

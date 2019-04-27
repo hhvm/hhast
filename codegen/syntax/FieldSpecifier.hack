@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f42cff81e1f443bbcf1c0a97afd3b337>>
+ * @generated SignedSource<<58616aad6f94e3b68df20273ee4c94bc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -19,21 +19,23 @@ final class FieldSpecifier extends EditableNode {
     EditableNode $name,
     EditableNode $arrow,
     EditableNode $type,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('field_specifier');
     $this->_question = $question;
     $this->_name = $name;
     $this->_arrow = $arrow;
     $this->_type = $type;
+    parent::__construct('field_specifier', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $question = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['field_question'],
       $file,
@@ -62,7 +64,13 @@ final class FieldSpecifier extends EditableNode {
       $source,
     );
     $offset += $type->getWidth();
-    return new static($question, $name, $arrow, $type);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($question, $name, $arrow, $type, $source_ref);
   }
 
   <<__Override>>

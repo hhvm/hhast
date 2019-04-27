@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b35d551a4ed69bf63b986f0055baa6e8>>
+ * @generated SignedSource<<1d5c01808216236af38ea73ad0bdb535>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -21,22 +21,24 @@ final class PocketIdentifierExpression extends EditableNode {
     EditableNode $field,
     EditableNode $operator,
     EditableNode $name,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('pocket_identifier_expression');
     $this->_qualifier = $qualifier;
     $this->_pu_operator = $pu_operator;
     $this->_field = $field;
     $this->_operator = $operator;
     $this->_name = $name;
+    parent::__construct('pocket_identifier_expression', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $qualifier = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['pocket_identifier_qualifier'],
       $file,
@@ -72,7 +74,20 @@ final class PocketIdentifierExpression extends EditableNode {
       $source,
     );
     $offset += $name->getWidth();
-    return new static($qualifier, $pu_operator, $field, $operator, $name);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static(
+      $qualifier,
+      $pu_operator,
+      $field,
+      $operator,
+      $name,
+      $source_ref,
+    );
   }
 
   <<__Override>>

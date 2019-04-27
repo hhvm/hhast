@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d3564532dd7739a7cb4da425cf6b881d>>
+ * @generated SignedSource<<cb8fc77b6187a0a1c0f9c669721e6c44>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,19 +12,24 @@ final class FinallyClause extends EditableNode {
   private EditableNode $_keyword;
   private EditableNode $_body;
 
-  public function __construct(EditableNode $keyword, EditableNode $body) {
-    parent::__construct('finally_clause');
+  public function __construct(
+    EditableNode $keyword,
+    EditableNode $body,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
     $this->_keyword = $keyword;
     $this->_body = $body;
+    parent::__construct('finally_clause', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['finally_keyword'],
       $file,
@@ -39,7 +44,13 @@ final class FinallyClause extends EditableNode {
       $source,
     );
     $offset += $body->getWidth();
-    return new static($keyword, $body);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($keyword, $body, $source_ref);
   }
 
   <<__Override>>

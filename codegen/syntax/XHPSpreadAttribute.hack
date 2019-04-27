@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a74c0aeb1c14cfea48ead7ebcf8d6798>>
+ * @generated SignedSource<<5e5385a637cbdc3ec560b0a7474459a3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -19,21 +19,23 @@ final class XHPSpreadAttribute extends EditableNode {
     EditableNode $spread_operator,
     EditableNode $expression,
     EditableNode $right_brace,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('xhp_spread_attribute');
     $this->_left_brace = $left_brace;
     $this->_spread_operator = $spread_operator;
     $this->_expression = $expression;
     $this->_right_brace = $right_brace;
+    parent::__construct('xhp_spread_attribute', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $left_brace = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_spread_attribute_left_brace'],
       $file,
@@ -62,7 +64,19 @@ final class XHPSpreadAttribute extends EditableNode {
       $source,
     );
     $offset += $right_brace->getWidth();
-    return new static($left_brace, $spread_operator, $expression, $right_brace);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static(
+      $left_brace,
+      $spread_operator,
+      $expression,
+      $right_brace,
+      $source_ref,
+    );
   }
 
   <<__Override>>

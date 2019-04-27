@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ecae728c7ebe4336d375bcfc4a967761>>
+ * @generated SignedSource<<da39bb4aa0b1bef61b4f46f50f5c732d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -19,21 +19,23 @@ final class TraitUseAliasItem extends EditableNode {
     EditableNode $keyword,
     EditableNode $modifiers,
     EditableNode $aliased_name,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('trait_use_alias_item');
     $this->_aliasing_name = $aliasing_name;
     $this->_keyword = $keyword;
     $this->_modifiers = $modifiers;
     $this->_aliased_name = $aliased_name;
+    parent::__construct('trait_use_alias_item', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $aliasing_name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['trait_use_alias_item_aliasing_name'],
       $file,
@@ -62,7 +64,19 @@ final class TraitUseAliasItem extends EditableNode {
       $source,
     );
     $offset += $aliased_name->getWidth();
-    return new static($aliasing_name, $keyword, $modifiers, $aliased_name);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static(
+      $aliasing_name,
+      $keyword,
+      $modifiers,
+      $aliased_name,
+      $source_ref,
+    );
   }
 
   <<__Override>>

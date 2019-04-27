@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4dfaa1f6a40b8fd11d16d52819ef1719>>
+ * @generated SignedSource<<d2ce73afccd928a5b85536ecb91ded08>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,19 +12,24 @@ final class PocketMappingIdDeclaration extends EditableNode {
   private EditableNode $_name;
   private EditableNode $_initializer;
 
-  public function __construct(EditableNode $name, EditableNode $initializer) {
-    parent::__construct('pocket_mapping_id_declaration');
+  public function __construct(
+    EditableNode $name,
+    EditableNode $initializer,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
     $this->_name = $name;
     $this->_initializer = $initializer;
+    parent::__construct('pocket_mapping_id_declaration', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['pocket_mapping_id_name'],
       $file,
@@ -39,7 +44,13 @@ final class PocketMappingIdDeclaration extends EditableNode {
       $source,
     );
     $offset += $initializer->getWidth();
-    return new static($name, $initializer);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($name, $initializer, $source_ref);
   }
 
   <<__Override>>

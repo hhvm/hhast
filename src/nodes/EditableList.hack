@@ -12,16 +12,17 @@ namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Dict, Vec};
 
 final class EditableList<Titem as ?EditableNode> extends EditableNode {
-  private vec<EditableNode> $_children;
   /**
    * Use `EditableList::createMaybeEmptyList()` or
    * `EditableList::createNonEmptyListOrMissing()` instead to be explicit
    * about desired behavior.
    */
   <<__Override>>
-  public function __construct(vec<EditableNode> $children) {
-    parent::__construct('list');
-    $this->_children = vec($children);
+  public function __construct(
+    private vec<EditableNode> $_children,
+    ?__Private\SourceRef $ref = null,
+  ) {
+    parent::__construct('list', $ref);
   }
 
   <<__Override>>
@@ -39,7 +40,7 @@ final class EditableList<Titem as ?EditableNode> extends EditableNode {
     return Dict\pull_with_key(
       $this->_children,
       ($_, $v) ==> $v,
-      ($k, $_) ==> (string) $k,
+      ($k, $_) ==> (string)$k,
     );
   }
 
@@ -54,7 +55,7 @@ final class EditableList<Titem as ?EditableNode> extends EditableNode {
     return Vec\map(
       $this->_children,
       $child ==> $child instanceof ListItem ? $child->getItem() : $child,
-    );// |> Vec\filter_nulls($$);
+    ); // |> Vec\filter_nulls($$);
   }
 
   final public function getItemsOfType<T as EditableNode>(
@@ -70,9 +71,7 @@ final class EditableList<Titem as ?EditableNode> extends EditableNode {
   }
 
   <<__Deprecated("Use createNonEmptyListOrMissing() instead")>>
-  public static function fromItems(
-    vec<EditableNode> $items,
-  ): EditableNode {
+  public static function fromItems(vec<EditableNode> $items): EditableNode {
     return self::createNonEmptyListOrMissing($items);
   }
 
@@ -115,12 +114,21 @@ final class EditableList<Titem as ?EditableNode> extends EditableNode {
     $children = vec[];
     $current_position = $offset;
     foreach (/* UNSAFE_EXPR */$json['elements'] as $element) {
-      $child =
-        EditableNode::fromJSON($element, $file, $current_position, $source);
+      $child = EditableNode::fromJSON(
+        $element,
+        $file,
+        $current_position,
+        $source,
+      );
       $children[] = $child;
       $current_position += $child->getWidth();
     }
-    return new EditableList($children);
+    return new EditableList($children, shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $offset,
+      'width' => $current_position - $offset,
+    ));
   }
 
   <<__Override>>
@@ -163,10 +171,7 @@ final class EditableList<Titem as ?EditableNode> extends EditableNode {
     ?vec<EditableNode> $parents = null,
   ): EditableNode {
     $parents = $parents === null ? vec[] : vec($parents);
-    $with_rewritten_children = $this->rewriteDescendants(
-      $rewriter,
-      $parents,
-    );
+    $with_rewritten_children = $this->rewriteDescendants($rewriter, $parents);
     if (C\is_empty($with_rewritten_children->_children)) {
       $node = Missing();
     } else {

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8203c825e3058f277aaf43fd03cc8db9>>
+ * @generated SignedSource<<45fc73344583eed971a8345e0302a83d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -21,22 +21,24 @@ final class PropertyDeclaration extends EditableNode {
     EditableNode $type,
     EditableNode $declarators,
     EditableNode $semicolon,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('property_declaration');
     $this->_attribute_spec = $attribute_spec;
     $this->_modifiers = $modifiers;
     $this->_type = $type;
     $this->_declarators = $declarators;
     $this->_semicolon = $semicolon;
+    parent::__construct('property_declaration', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $attribute_spec = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['property_attribute_spec'],
       $file,
@@ -72,12 +74,19 @@ final class PropertyDeclaration extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
     return new static(
       $attribute_spec,
       $modifiers,
       $type,
       $declarators,
       $semicolon,
+      $source_ref,
     );
   }
 

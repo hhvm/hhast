@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5557fb1842bbb95b795b1a294fe90195>>
+ * @generated SignedSource<<31c18cc239ee30a2339dc1ac8ca1adbc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -17,20 +17,22 @@ final class XHPClassAttributeDeclaration extends EditableNode {
     EditableNode $keyword,
     EditableNode $attributes,
     EditableNode $semicolon,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('xhp_class_attribute_declaration');
     $this->_keyword = $keyword;
     $this->_attributes = $attributes;
     $this->_semicolon = $semicolon;
+    parent::__construct('xhp_class_attribute_declaration', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_attribute_keyword'],
       $file,
@@ -52,7 +54,13 @@ final class XHPClassAttributeDeclaration extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
-    return new static($keyword, $attributes, $semicolon);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($keyword, $attributes, $semicolon, $source_ref);
   }
 
   <<__Override>>

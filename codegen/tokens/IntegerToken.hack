@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<14cc6cf971ef25c718c7c59106cc2222>>
+ * @generated SignedSource<<e09b307a3a8371f22c77ae43cf487506>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class IntegerToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'integer',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

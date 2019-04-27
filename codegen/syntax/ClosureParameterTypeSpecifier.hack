@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<06c3dda507d78fb63031872a4a21a33f>>
+ * @generated SignedSource<<1449d74b4fb77124f7c7e836ee782021>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -15,19 +15,21 @@ final class ClosureParameterTypeSpecifier extends EditableNode {
   public function __construct(
     EditableNode $call_convention,
     EditableNode $type,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('closure_parameter_type_specifier');
     $this->_call_convention = $call_convention;
     $this->_type = $type;
+    parent::__construct('closure_parameter_type_specifier', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $call_convention = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['closure_parameter_call_convention'],
       $file,
@@ -42,7 +44,13 @@ final class ClosureParameterTypeSpecifier extends EditableNode {
       $source,
     );
     $offset += $type->getWidth();
-    return new static($call_convention, $type);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($call_convention, $type, $source_ref);
   }
 
   <<__Override>>

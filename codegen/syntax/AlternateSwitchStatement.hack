@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<383777cec0cb934a0a199b19795236f2>>
+ * @generated SignedSource<<01a0cded925a85ddaaec7b1db1c56956>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -29,8 +29,8 @@ final class AlternateSwitchStatement
     EditableNode $sections,
     EditableNode $closing_endswitch,
     EditableNode $closing_semicolon,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('alternate_switch_statement');
     $this->_keyword = $keyword;
     $this->_left_paren = $left_paren;
     $this->_expression = $expression;
@@ -39,15 +39,17 @@ final class AlternateSwitchStatement
     $this->_sections = $sections;
     $this->_closing_endswitch = $closing_endswitch;
     $this->_closing_semicolon = $closing_semicolon;
+    parent::__construct('alternate_switch_statement', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['alternate_switch_keyword'],
       $file,
@@ -104,6 +106,12 @@ final class AlternateSwitchStatement
       $source,
     );
     $offset += $closing_semicolon->getWidth();
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
     return new static(
       $keyword,
       $left_paren,
@@ -113,6 +121,7 @@ final class AlternateSwitchStatement
       $sections,
       $closing_endswitch,
       $closing_semicolon,
+      $source_ref,
     );
   }
 

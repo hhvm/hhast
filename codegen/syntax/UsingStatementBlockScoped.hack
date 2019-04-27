@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0dae1f31970ec4726d277a17d4ae9195>>
+ * @generated SignedSource<<db46feef2c8aec1d4e9df2a0a152d40c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -23,23 +23,25 @@ final class UsingStatementBlockScoped extends EditableNode {
     EditableNode $expressions,
     EditableNode $right_paren,
     EditableNode $body,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('using_statement_block_scoped');
     $this->_await_keyword = $await_keyword;
     $this->_using_keyword = $using_keyword;
     $this->_left_paren = $left_paren;
     $this->_expressions = $expressions;
     $this->_right_paren = $right_paren;
     $this->_body = $body;
+    parent::__construct('using_statement_block_scoped', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $await_keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['using_block_await_keyword'],
       $file,
@@ -82,6 +84,12 @@ final class UsingStatementBlockScoped extends EditableNode {
       $source,
     );
     $offset += $body->getWidth();
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
     return new static(
       $await_keyword,
       $using_keyword,
@@ -89,6 +97,7 @@ final class UsingStatementBlockScoped extends EditableNode {
       $expressions,
       $right_paren,
       $body,
+      $source_ref,
     );
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ba865c8a7c2215c73a815a01e2087bf0>>
+ * @generated SignedSource<<d2c7eca3a1dc59d80ac9f9081983b8fa>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -17,20 +17,22 @@ final class BinaryExpression extends EditableNode {
     EditableNode $left_operand,
     EditableNode $operator,
     EditableNode $right_operand,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('binary_expression');
     $this->_left_operand = $left_operand;
     $this->_operator = $operator;
     $this->_right_operand = $right_operand;
+    parent::__construct('binary_expression', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $left_operand = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['binary_left_operand'],
       $file,
@@ -52,7 +54,13 @@ final class BinaryExpression extends EditableNode {
       $source,
     );
     $offset += $right_operand->getWidth();
-    return new static($left_operand, $operator, $right_operand);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($left_operand, $operator, $right_operand, $source_ref);
   }
 
   <<__Override>>

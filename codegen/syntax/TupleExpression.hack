@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d4298b4b7d42acca2535dafa15532507>>
+ * @generated SignedSource<<3bfe6fdea5f5157b18a51ce9e4ad554b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -19,21 +19,23 @@ final class TupleExpression extends EditableNode {
     EditableNode $left_paren,
     EditableNode $items,
     EditableNode $right_paren,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('tuple_expression');
     $this->_keyword = $keyword;
     $this->_left_paren = $left_paren;
     $this->_items = $items;
     $this->_right_paren = $right_paren;
+    parent::__construct('tuple_expression', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['tuple_expression_keyword'],
       $file,
@@ -62,7 +64,13 @@ final class TupleExpression extends EditableNode {
       $source,
     );
     $offset += $right_paren->getWidth();
-    return new static($keyword, $left_paren, $items, $right_paren);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($keyword, $left_paren, $items, $right_paren, $source_ref);
   }
 
   <<__Override>>

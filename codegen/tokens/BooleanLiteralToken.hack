@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<701083ae157e90c2c6177f587a31ab63>>
+ * @generated SignedSource<<4d5d2a3bd3d3179e92117318d56e4efd>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class BooleanLiteralToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $text,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $text);
+    parent::__construct($leading, $trailing, $text, $source_ref);
   }
 
   public function hasLeading(): bool {

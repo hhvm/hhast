@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b04a35c6837a9a70f63a83c680e20dd8>>
+ * @generated SignedSource<<18da5defc1b61cdc71115c6e553d3d09>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class StaticToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'static',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

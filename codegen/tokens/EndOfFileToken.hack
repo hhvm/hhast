@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<16aeb85ee497a4ba058107132bdc0c67>>
+ * @generated SignedSource<<f216acce8b86830e5fdaef2d79118b28>>
  */
 namespace Facebook\HHAST;
 
@@ -10,8 +10,12 @@ final class EndOfFileToken extends EditableTokenWithFixedText {
   const string KIND = 'EndOfFile';
   const string TEXT = '';
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct($leading, $trailing);
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
+    parent::__construct($leading, $trailing, $source_ref);
   }
 
   public function hasLeading(): bool {

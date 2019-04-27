@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f4ad43b3168453a2ac8b519fb0d4a8db>>
+ * @generated SignedSource<<622f5f6bf143031aa99492bca61869d4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -17,20 +17,22 @@ final class XHPChildrenParenthesizedList extends EditableNode {
     EditableNode $left_paren,
     EditableNode $xhp_children,
     EditableNode $right_paren,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('xhp_children_parenthesized_list');
     $this->_left_paren = $left_paren;
     $this->_xhp_children = $xhp_children;
     $this->_right_paren = $right_paren;
+    parent::__construct('xhp_children_parenthesized_list', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_children_list_left_paren'],
       $file,
@@ -52,7 +54,13 @@ final class XHPChildrenParenthesizedList extends EditableNode {
       $source,
     );
     $offset += $right_paren->getWidth();
-    return new static($left_paren, $xhp_children, $right_paren);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($left_paren, $xhp_children, $right_paren, $source_ref);
   }
 
   <<__Override>>

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ccd57cfe9fb7a445f0600dfaad0e590e>>
+ * @generated SignedSource<<52fee3f896e8c1e2ed8d0fa4210d9c55>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -25,8 +25,8 @@ final class DarrayTypeSpecifier extends EditableNode {
     EditableNode $value,
     EditableNode $trailing_comma,
     EditableNode $right_angle,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('darray_type_specifier');
     $this->_keyword = $keyword;
     $this->_left_angle = $left_angle;
     $this->_key = $key;
@@ -34,15 +34,17 @@ final class DarrayTypeSpecifier extends EditableNode {
     $this->_value = $value;
     $this->_trailing_comma = $trailing_comma;
     $this->_right_angle = $right_angle;
+    parent::__construct('darray_type_specifier', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['darray_keyword'],
       $file,
@@ -92,6 +94,12 @@ final class DarrayTypeSpecifier extends EditableNode {
       $source,
     );
     $offset += $right_angle->getWidth();
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
     return new static(
       $keyword,
       $left_angle,
@@ -100,6 +108,7 @@ final class DarrayTypeSpecifier extends EditableNode {
       $value,
       $trailing_comma,
       $right_angle,
+      $source_ref,
     );
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<999c332483c00f51c5b0be4000711cce>>
+ * @generated SignedSource<<7e676df16ead515960d04416e85e5500>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -17,20 +17,22 @@ final class NullableAsExpression extends EditableNode {
     EditableNode $left_operand,
     EditableNode $operator,
     EditableNode $right_operand,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('nullable_as_expression');
     $this->_left_operand = $left_operand;
     $this->_operator = $operator;
     $this->_right_operand = $right_operand;
+    parent::__construct('nullable_as_expression', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $left_operand = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['nullable_as_left_operand'],
       $file,
@@ -52,7 +54,13 @@ final class NullableAsExpression extends EditableNode {
       $source,
     );
     $offset += $right_operand->getWidth();
-    return new static($left_operand, $operator, $right_operand);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($left_operand, $operator, $right_operand, $source_ref);
   }
 
   <<__Override>>

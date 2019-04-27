@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7ec8f18fba77a215f5a9714cb8f6d924>>
+ * @generated SignedSource<<856d8ea2ac5b363fcc6d085a112a825c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -17,20 +17,22 @@ final class AttributeSpecification extends EditableNode {
     EditableNode $left_double_angle,
     EditableNode $attributes,
     EditableNode $right_double_angle,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('attribute_specification');
     $this->_left_double_angle = $left_double_angle;
     $this->_attributes = $attributes;
     $this->_right_double_angle = $right_double_angle;
+    parent::__construct('attribute_specification', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $left_double_angle = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['attribute_specification_left_double_angle'],
       $file,
@@ -52,7 +54,18 @@ final class AttributeSpecification extends EditableNode {
       $source,
     );
     $offset += $right_double_angle->getWidth();
-    return new static($left_double_angle, $attributes, $right_double_angle);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static(
+      $left_double_angle,
+      $attributes,
+      $right_double_angle,
+      $source_ref,
+    );
   }
 
   <<__Override>>

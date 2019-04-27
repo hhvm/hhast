@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d4e6a386c8a43135a673640f6dcd3a1a>>
+ * @generated SignedSource<<ca3e88b611b161da4c861e1603ad45ac>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -19,21 +19,23 @@ final class ArrayIntrinsicExpression extends EditableNode {
     EditableNode $left_paren,
     EditableNode $members,
     EditableNode $right_paren,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('array_intrinsic_expression');
     $this->_keyword = $keyword;
     $this->_left_paren = $left_paren;
     $this->_members = $members;
     $this->_right_paren = $right_paren;
+    parent::__construct('array_intrinsic_expression', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['array_intrinsic_keyword'],
       $file,
@@ -62,7 +64,19 @@ final class ArrayIntrinsicExpression extends EditableNode {
       $source,
     );
     $offset += $right_paren->getWidth();
-    return new static($keyword, $left_paren, $members, $right_paren);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static(
+      $keyword,
+      $left_paren,
+      $members,
+      $right_paren,
+      $source_ref,
+    );
   }
 
   <<__Override>>

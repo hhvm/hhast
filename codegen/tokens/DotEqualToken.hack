@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ac4b5776d26626bf40cb5f6002d823e0>>
+ * @generated SignedSource<<6985d76dcb8c5157151b28e90ebe2c9e>>
  */
 namespace Facebook\HHAST;
 
@@ -10,8 +10,12 @@ final class DotEqualToken extends EditableTokenWithFixedText {
   const string KIND = '.=';
   const string TEXT = '.=';
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct($leading, $trailing);
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
+    parent::__construct($leading, $trailing, $source_ref);
   }
 
   public function hasLeading(): bool {

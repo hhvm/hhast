@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9b5d6038cfc29c55c155a0103a0edd2b>>
+ * @generated SignedSource<<02b72922860bbc9c5dcdaa468678d51f>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class TupleToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'tuple',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

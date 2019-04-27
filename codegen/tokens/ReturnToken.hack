@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<96ec61dfd18fac2535f504c48aaf28cc>>
+ * @generated SignedSource<<75fa6ccc89624862f01f3e25973e3d51>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class ReturnToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'return',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

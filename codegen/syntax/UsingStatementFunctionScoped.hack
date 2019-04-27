@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<15e12c05ed78263a4dc1309756e7ba22>>
+ * @generated SignedSource<<26306d7be6839dbc294bfb1323011ce7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -19,21 +19,23 @@ final class UsingStatementFunctionScoped extends EditableNode {
     EditableNode $using_keyword,
     EditableNode $expression,
     EditableNode $semicolon,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('using_statement_function_scoped');
     $this->_await_keyword = $await_keyword;
     $this->_using_keyword = $using_keyword;
     $this->_expression = $expression;
     $this->_semicolon = $semicolon;
+    parent::__construct('using_statement_function_scoped', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $await_keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['using_function_await_keyword'],
       $file,
@@ -62,7 +64,19 @@ final class UsingStatementFunctionScoped extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
-    return new static($await_keyword, $using_keyword, $expression, $semicolon);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static(
+      $await_keyword,
+      $using_keyword,
+      $expression,
+      $semicolon,
+      $source_ref,
+    );
   }
 
   <<__Override>>

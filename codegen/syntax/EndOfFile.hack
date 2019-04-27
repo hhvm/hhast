@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a687be24281ac102a0379a0624f4448d>>
+ * @generated SignedSource<<43565f8253abc3bd4a356c37e9a6c1cc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,18 +11,22 @@ final class EndOfFile extends EditableNode {
 
   private EditableNode $_token;
 
-  public function __construct(EditableNode $token) {
-    parent::__construct('end_of_file');
+  public function __construct(
+    EditableNode $token,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
     $this->_token = $token;
+    parent::__construct('end_of_file', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $token = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['end_of_file_token'],
       $file,
@@ -30,7 +34,13 @@ final class EndOfFile extends EditableNode {
       $source,
     );
     $offset += $token->getWidth();
-    return new static($token);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($token, $source_ref);
   }
 
   <<__Override>>

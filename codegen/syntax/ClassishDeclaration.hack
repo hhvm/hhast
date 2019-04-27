@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1f0421b6eed166db37272c1ab9b30c4c>>
+ * @generated SignedSource<<e829a662fb93982d0ea28679261a6852>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -31,8 +31,8 @@ final class ClassishDeclaration extends EditableNode {
     EditableNode $implements_keyword,
     EditableNode $implements_list,
     EditableNode $body,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('classish_declaration');
     $this->_attribute = $attribute;
     $this->_modifiers = $modifiers;
     $this->_keyword = $keyword;
@@ -43,15 +43,17 @@ final class ClassishDeclaration extends EditableNode {
     $this->_implements_keyword = $implements_keyword;
     $this->_implements_list = $implements_list;
     $this->_body = $body;
+    parent::__construct('classish_declaration', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $attribute = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['classish_attribute'],
       $file,
@@ -122,6 +124,12 @@ final class ClassishDeclaration extends EditableNode {
       $source,
     );
     $offset += $body->getWidth();
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
     return new static(
       $attribute,
       $modifiers,
@@ -133,6 +141,7 @@ final class ClassishDeclaration extends EditableNode {
       $implements_keyword,
       $implements_list,
       $body,
+      $source_ref,
     );
   }
 

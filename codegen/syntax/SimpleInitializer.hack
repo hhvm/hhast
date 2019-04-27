@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<208b1b09743216cade047f9c2f6ee3d8>>
+ * @generated SignedSource<<f2f6b50200f6e170d5d54e2d12abb7a3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,19 +12,24 @@ final class SimpleInitializer extends EditableNode {
   private EditableNode $_equal;
   private EditableNode $_value;
 
-  public function __construct(EditableNode $equal, EditableNode $value) {
-    parent::__construct('simple_initializer');
+  public function __construct(
+    EditableNode $equal,
+    EditableNode $value,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
     $this->_equal = $equal;
     $this->_value = $value;
+    parent::__construct('simple_initializer', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $equal = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['simple_initializer_equal'],
       $file,
@@ -39,7 +44,13 @@ final class SimpleInitializer extends EditableNode {
       $source,
     );
     $offset += $value->getWidth();
-    return new static($equal, $value);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($equal, $value, $source_ref);
   }
 
   <<__Override>>

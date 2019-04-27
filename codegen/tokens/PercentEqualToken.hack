@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<09afb262c4d8e2a6ac14b571b21efb61>>
+ * @generated SignedSource<<46b0f2050e085f288f5de68bc2e17307>>
  */
 namespace Facebook\HHAST;
 
@@ -10,8 +10,12 @@ final class PercentEqualToken extends EditableTokenWithFixedText {
   const string KIND = '%=';
   const string TEXT = '%=';
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct($leading, $trailing);
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
+    parent::__construct($leading, $trailing, $source_ref);
   }
 
   public function hasLeading(): bool {

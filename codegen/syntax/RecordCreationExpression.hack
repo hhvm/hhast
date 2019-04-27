@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<713cc1b0f6a5f7df02dfd2e3e1f02d3e>>
+ * @generated SignedSource<<e6be48739657fec66198d4b80ba1446b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -19,21 +19,23 @@ final class RecordCreationExpression extends EditableNode {
     EditableNode $left_bracket,
     EditableNode $members,
     EditableNode $right_bracket,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('record_creation_expression');
     $this->_type = $type;
     $this->_left_bracket = $left_bracket;
     $this->_members = $members;
     $this->_right_bracket = $right_bracket;
+    parent::__construct('record_creation_expression', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['record_creation_type'],
       $file,
@@ -62,7 +64,19 @@ final class RecordCreationExpression extends EditableNode {
       $source,
     );
     $offset += $right_bracket->getWidth();
-    return new static($type, $left_bracket, $members, $right_bracket);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static(
+      $type,
+      $left_bracket,
+      $members,
+      $right_bracket,
+      $source_ref,
+    );
   }
 
   <<__Override>>

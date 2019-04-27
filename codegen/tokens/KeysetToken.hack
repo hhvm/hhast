@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ba49a20b812bb651b0f8b95af9cf7db5>>
+ * @generated SignedSource<<de5aaabb6be56918b865f2952f1a241d>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class KeysetToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'keyset',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

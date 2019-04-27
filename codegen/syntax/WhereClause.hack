@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c2888758dde5104cec56416220f6a1fa>>
+ * @generated SignedSource<<2619329d8972e37dd3ea802337eff13a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -15,19 +15,21 @@ final class WhereClause extends EditableNode {
   public function __construct(
     EditableNode $keyword,
     EditableNode $constraints,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('where_clause');
     $this->_keyword = $keyword;
     $this->_constraints = $constraints;
+    parent::__construct('where_clause', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['where_clause_keyword'],
       $file,
@@ -42,7 +44,13 @@ final class WhereClause extends EditableNode {
       $source,
     );
     $offset += $constraints->getWidth();
-    return new static($keyword, $constraints);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($keyword, $constraints, $source_ref);
   }
 
   <<__Override>>

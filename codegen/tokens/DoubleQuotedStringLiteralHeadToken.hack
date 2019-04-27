@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f3b25d09770375236673dc37cde573ea>>
+ * @generated SignedSource<<19af283afcf301b6cbf129f66e17c0c9>>
  */
 namespace Facebook\HHAST;
 
@@ -14,8 +14,9 @@ final class DoubleQuotedStringLiteralHeadToken
     EditableNode $leading,
     EditableNode $trailing,
     string $text,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $text);
+    parent::__construct($leading, $trailing, $text, $source_ref);
   }
 
   public function hasLeading(): bool {

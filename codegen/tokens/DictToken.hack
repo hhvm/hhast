@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e6152ad0ede3aedbc57beecbf0b2ecdb>>
+ * @generated SignedSource<<fabe1987a48735cb109b5d1baae09da5>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class DictToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'dict',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

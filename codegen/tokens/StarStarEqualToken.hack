@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7a9baff603f4461d999911acb195c179>>
+ * @generated SignedSource<<d2bb9a1a06e2b6a0b93f6dc85d592133>>
  */
 namespace Facebook\HHAST;
 
@@ -10,8 +10,12 @@ final class StarStarEqualToken extends EditableTokenWithFixedText {
   const string KIND = '**=';
   const string TEXT = '**=';
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct($leading, $trailing);
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
+    parent::__construct($leading, $trailing, $source_ref);
   }
 
   public function hasLeading(): bool {

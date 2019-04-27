@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a5e1719f377211f0213f28290736ae29>>
+ * @generated SignedSource<<f2d5cd21fcd23022a13c6dbc1f50a05e>>
  */
 namespace Facebook\HHAST;
 
@@ -11,8 +11,12 @@ final class GreaterThanGreaterThanEqualToken
   const string KIND = '>>=';
   const string TEXT = '>>=';
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct($leading, $trailing);
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
+    parent::__construct($leading, $trailing, $source_ref);
   }
 
   public function hasLeading(): bool {

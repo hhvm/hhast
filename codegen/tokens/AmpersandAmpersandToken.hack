@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<15e53b6a72a0d58fcc6233acd96a8c6f>>
+ * @generated SignedSource<<761c340e9365c0b5657a266a577491cd>>
  */
 namespace Facebook\HHAST;
 
@@ -10,8 +10,12 @@ final class AmpersandAmpersandToken extends EditableTokenWithFixedText {
   const string KIND = '&&';
   const string TEXT = '&&';
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct($leading, $trailing);
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
+    parent::__construct($leading, $trailing, $source_ref);
   }
 
   public function hasLeading(): bool {

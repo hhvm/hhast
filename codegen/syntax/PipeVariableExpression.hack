@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e403cba913f30a4cd3da886fb9d6b8be>>
+ * @generated SignedSource<<2d14c53aabdde12ebb33161fa451adf4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,18 +11,22 @@ final class PipeVariableExpression extends EditableNode {
 
   private EditableNode $_expression;
 
-  public function __construct(EditableNode $expression) {
-    parent::__construct('pipe_variable_expression');
+  public function __construct(
+    EditableNode $expression,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
     $this->_expression = $expression;
+    parent::__construct('pipe_variable_expression', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $expression = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['pipe_variable_expression'],
       $file,
@@ -30,7 +34,13 @@ final class PipeVariableExpression extends EditableNode {
       $source,
     );
     $offset += $expression->getWidth();
-    return new static($expression);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($expression, $source_ref);
   }
 
   <<__Override>>

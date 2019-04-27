@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d5f76ca5147c4bc25e1b56b4b4f72a6e>>
+ * @generated SignedSource<<9a7d9222557b723ee796f501a54300a5>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class VoidToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'void',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

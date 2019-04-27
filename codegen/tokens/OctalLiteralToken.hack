@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a364535d68a79b3d2d8acebee324ee4c>>
+ * @generated SignedSource<<7c22e85a7fa65b865d7fe12be63cf1c0>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class OctalLiteralToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $text,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $text);
+    parent::__construct($leading, $trailing, $text, $source_ref);
   }
 
   public function hasLeading(): bool {

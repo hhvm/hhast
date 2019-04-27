@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0ac1b477027e8a075bb8ed7a52e21a66>>
+ * @generated SignedSource<<e1165b4efee6b8b82125be9e17493436>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -17,20 +17,22 @@ final class WhereConstraint extends EditableNode {
     EditableNode $left_type,
     EditableNode $operator,
     EditableNode $right_type,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('where_constraint');
     $this->_left_type = $left_type;
     $this->_operator = $operator;
     $this->_right_type = $right_type;
+    parent::__construct('where_constraint', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $left_type = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['where_constraint_left_type'],
       $file,
@@ -52,7 +54,13 @@ final class WhereConstraint extends EditableNode {
       $source,
     );
     $offset += $right_type->getWidth();
-    return new static($left_type, $operator, $right_type);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($left_type, $operator, $right_type, $source_ref);
   }
 
   <<__Override>>

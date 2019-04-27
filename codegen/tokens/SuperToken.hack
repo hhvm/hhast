@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7c7cd744265f0b96e09310d672f51df2>>
+ * @generated SignedSource<<811e2c4ba3770ea3b960b3f357fafab5>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class SuperToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'super',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

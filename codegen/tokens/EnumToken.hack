@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bd5e87cfb4a788d9ed7273bf37958c1d>>
+ * @generated SignedSource<<93f9bec51deab1446bc8f9dedd5f4763>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class EnumToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'enum',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

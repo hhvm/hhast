@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f72387ac98ef9b9ca48c3f49eb35418f>>
+ * @generated SignedSource<<931a4b7d33ca7b80c4ae1349ef52d77f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -23,23 +23,25 @@ final class PocketAtomMappingDeclaration extends EditableNode {
     EditableNode $mappings,
     EditableNode $right_paren,
     EditableNode $semicolon,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('pocket_atom_mapping_declaration');
     $this->_glyph = $glyph;
     $this->_name = $name;
     $this->_left_paren = $left_paren;
     $this->_mappings = $mappings;
     $this->_right_paren = $right_paren;
     $this->_semicolon = $semicolon;
+    parent::__construct('pocket_atom_mapping_declaration', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $glyph = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['pocket_atom_mapping_glyph'],
       $file,
@@ -82,6 +84,12 @@ final class PocketAtomMappingDeclaration extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
     return new static(
       $glyph,
       $name,
@@ -89,6 +97,7 @@ final class PocketAtomMappingDeclaration extends EditableNode {
       $mappings,
       $right_paren,
       $semicolon,
+      $source_ref,
     );
   }
 

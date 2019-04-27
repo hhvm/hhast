@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f6175cbd42dd2f1b93d8d1a78f36e1c5>>
+ * @generated SignedSource<<fe39138958f79d3f9301be2c3d7b761d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -21,22 +21,24 @@ final class ShapeTypeSpecifier extends EditableNode {
     EditableNode $fields,
     EditableNode $ellipsis,
     EditableNode $right_paren,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('shape_type_specifier');
     $this->_keyword = $keyword;
     $this->_left_paren = $left_paren;
     $this->_fields = $fields;
     $this->_ellipsis = $ellipsis;
     $this->_right_paren = $right_paren;
+    parent::__construct('shape_type_specifier', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['shape_type_keyword'],
       $file,
@@ -72,7 +74,20 @@ final class ShapeTypeSpecifier extends EditableNode {
       $source,
     );
     $offset += $right_paren->getWidth();
-    return new static($keyword, $left_paren, $fields, $ellipsis, $right_paren);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static(
+      $keyword,
+      $left_paren,
+      $fields,
+      $ellipsis,
+      $right_paren,
+      $source_ref,
+    );
   }
 
   <<__Override>>

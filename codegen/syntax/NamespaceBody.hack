@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d3662ac71816c8627645c347033e1736>>
+ * @generated SignedSource<<ba4235e23cc162ab9ac1aed80d2d3378>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -17,20 +17,22 @@ final class NamespaceBody extends EditableNode {
     EditableNode $left_brace,
     EditableNode $declarations,
     EditableNode $right_brace,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('namespace_body');
     $this->_left_brace = $left_brace;
     $this->_declarations = $declarations;
     $this->_right_brace = $right_brace;
+    parent::__construct('namespace_body', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $left_brace = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_left_brace'],
       $file,
@@ -52,7 +54,13 @@ final class NamespaceBody extends EditableNode {
       $source,
     );
     $offset += $right_brace->getWidth();
-    return new static($left_brace, $declarations, $right_brace);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($left_brace, $declarations, $right_brace, $source_ref);
   }
 
   <<__Override>>

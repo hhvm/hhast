@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ae808eae396c43d7697c379d686ff6cb>>
+ * @generated SignedSource<<78d0129eb781d746d2eb9473b1738288>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -21,22 +21,24 @@ final class LambdaSignature extends EditableNode {
     EditableNode $right_paren,
     EditableNode $colon,
     EditableNode $type,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('lambda_signature');
     $this->_left_paren = $left_paren;
     $this->_parameters = $parameters;
     $this->_right_paren = $right_paren;
     $this->_colon = $colon;
     $this->_type = $type;
+    parent::__construct('lambda_signature', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['lambda_left_paren'],
       $file,
@@ -72,7 +74,20 @@ final class LambdaSignature extends EditableNode {
       $source,
     );
     $offset += $type->getWidth();
-    return new static($left_paren, $parameters, $right_paren, $colon, $type);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static(
+      $left_paren,
+      $parameters,
+      $right_paren,
+      $colon,
+      $type,
+      $source_ref,
+    );
   }
 
   <<__Override>>

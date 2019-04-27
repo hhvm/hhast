@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c799d2c9768bf3a0bc8c1b2b719ff681>>
+ * @generated SignedSource<<481f1ea25d59e590093674be191859f7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -35,8 +35,8 @@ final class AnonymousFunction extends EditableNode {
     EditableNode $type,
     EditableNode $use,
     EditableNode $body,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('anonymous_function');
     $this->_attribute_spec = $attribute_spec;
     $this->_static_keyword = $static_keyword;
     $this->_async_keyword = $async_keyword;
@@ -49,15 +49,17 @@ final class AnonymousFunction extends EditableNode {
     $this->_type = $type;
     $this->_use = $use;
     $this->_body = $body;
+    parent::__construct('anonymous_function', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $attribute_spec = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['anonymous_attribute_spec'],
       $file,
@@ -142,6 +144,12 @@ final class AnonymousFunction extends EditableNode {
       $source,
     );
     $offset += $body->getWidth();
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
     return new static(
       $attribute_spec,
       $static_keyword,
@@ -155,6 +163,7 @@ final class AnonymousFunction extends EditableNode {
       $type,
       $use,
       $body,
+      $source_ref,
     );
   }
 

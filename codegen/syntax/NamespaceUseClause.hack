@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fcb4147df814a4977c0279a6cfbf96f6>>
+ * @generated SignedSource<<31e7134ff75c9e6a891e8560734ac2da>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -19,21 +19,23 @@ final class NamespaceUseClause extends EditableNode {
     EditableNode $name,
     EditableNode $as,
     EditableNode $alias,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('namespace_use_clause');
     $this->_clause_kind = $clause_kind;
     $this->_name = $name;
     $this->_as = $as;
     $this->_alias = $alias;
+    parent::__construct('namespace_use_clause', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $clause_kind = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_use_clause_kind'],
       $file,
@@ -62,7 +64,13 @@ final class NamespaceUseClause extends EditableNode {
       $source,
     );
     $offset += $alias->getWidth();
-    return new static($clause_kind, $name, $as, $alias);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($clause_kind, $name, $as, $alias, $source_ref);
   }
 
   <<__Override>>

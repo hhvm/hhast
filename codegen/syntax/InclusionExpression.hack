@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8032520cd10401d2ae3bf5a69cf86218>>
+ * @generated SignedSource<<b7e4876e65735b2bf5ac9101c7da5d6e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,19 +12,24 @@ final class InclusionExpression extends EditableNode {
   private EditableNode $_require;
   private EditableNode $_filename;
 
-  public function __construct(EditableNode $require, EditableNode $filename) {
-    parent::__construct('inclusion_expression');
+  public function __construct(
+    EditableNode $require,
+    EditableNode $filename,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
     $this->_require = $require;
     $this->_filename = $filename;
+    parent::__construct('inclusion_expression', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $require = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['inclusion_require'],
       $file,
@@ -39,7 +44,13 @@ final class InclusionExpression extends EditableNode {
       $source,
     );
     $offset += $filename->getWidth();
-    return new static($require, $filename);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($require, $filename, $source_ref);
   }
 
   <<__Override>>

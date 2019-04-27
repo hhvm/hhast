@@ -248,13 +248,10 @@ final class CodegenSyntax extends CodegenBase {
           $field ==> 'EditableNode $'.$field['field_name'],
         ),
       )
+      ->addParameter('?__Private\\SourceRef $source_ref = null')
       ->setBody(
         $cg
           ->codegenHackBuilder()
-          ->addLinef(
-            'parent::__construct(%s);',
-            \var_export($syntax['type_name'], true),
-          )
           ->addLines(
             Vec\map(
               $syntax['fields'],
@@ -265,6 +262,10 @@ final class CodegenSyntax extends CodegenBase {
               ),
             ),
           )
+          ->addLinef(
+            'parent::__construct(%s, $source_ref);',
+            \var_export($syntax['type_name'], true),
+          )
           ->getCode(),
       );
   }
@@ -272,7 +273,12 @@ final class CodegenSyntax extends CodegenBase {
   private function generateFromJSONMethod(Schema\TAST $syntax): CodegenMethod {
     $cg = $this->getCodegenFactory();
 
-    $body = $cg->codegenHackBuilder();
+    $body = $cg->codegenHackBuilder()
+      ->addAssignment(
+        '$offset',
+        '$initial_offset',
+        HackBuilderValues::literal(),
+      );
     foreach ($syntax['fields'] as $field) {
       $body
         ->addf('$%s = ', $field['field_name'])
@@ -298,14 +304,29 @@ final class CodegenSyntax extends CodegenBase {
       ->setIsStatic()
       ->addParameter('dict<string, mixed> $json')
       ->addParameter('string $file')
-      ->addParameter('int $offset')
+      ->addParameter('int $initial_offset')
       ->addParameter('string $source')
       ->setReturnType('this')
       ->setBody(
         $body
+          ->addAssignment(
+            '$source_ref',
+            shape(
+              'file' => '$file',
+              'source' => '$source',
+              'offset' => '$initial_offset',
+              'width' => '$offset - $initial_offset',
+            ),
+            HackBuilderValues::shapeWithUniformRendering(
+              HackBuilderValues::literal(),
+            ),
+          )
           ->addMultilineCall(
             'return new static',
-            Vec\map($syntax['fields'], $field ==> '$'.$field['field_name']),
+            Vec\concat(
+              Vec\map($syntax['fields'], $field ==> '$'.$field['field_name']),
+              vec['$source_ref'],
+            ),
           )
           ->getCode(),
       );

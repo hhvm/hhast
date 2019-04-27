@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<93e7ae766fdbc2e9b62da1e491d5321e>>
+ * @generated SignedSource<<471cfa0b3347ad1684d785466bfd5652>>
  */
 namespace Facebook\HHAST;
 
@@ -10,8 +10,12 @@ final class QuestionQuestionEqualToken extends EditableTokenWithFixedText {
   const string KIND = '??=';
   const string TEXT = '??=';
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct($leading, $trailing);
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
+    parent::__construct($leading, $trailing, $source_ref);
   }
 
   public function hasLeading(): bool {

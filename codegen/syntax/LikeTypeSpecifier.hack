@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9732d43a7b1ec76ccda67102922f40c5>>
+ * @generated SignedSource<<5076ca47cc0c751128eb7e285c29d7cc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,19 +12,24 @@ final class LikeTypeSpecifier extends EditableNode {
   private EditableNode $_tilde;
   private EditableNode $_type;
 
-  public function __construct(EditableNode $tilde, EditableNode $type) {
-    parent::__construct('like_type_specifier');
+  public function __construct(
+    EditableNode $tilde,
+    EditableNode $type,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
     $this->_tilde = $tilde;
     $this->_type = $type;
+    parent::__construct('like_type_specifier', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $tilde = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['like_tilde'],
       $file,
@@ -39,7 +44,13 @@ final class LikeTypeSpecifier extends EditableNode {
       $source,
     );
     $offset += $type->getWidth();
-    return new static($tilde, $type);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($tilde, $type, $source_ref);
   }
 
   <<__Override>>

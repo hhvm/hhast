@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e2cef576177bd6aa6b98d51ca0d56570>>
+ * @generated SignedSource<<e3e2597742af8ab5591507db9bf0d0fa>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,8 +27,8 @@ final class AliasDeclaration extends EditableNode {
     EditableNode $equal,
     EditableNode $type,
     EditableNode $semicolon,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('alias_declaration');
     $this->_attribute_spec = $attribute_spec;
     $this->_keyword = $keyword;
     $this->_name = $name;
@@ -37,15 +37,17 @@ final class AliasDeclaration extends EditableNode {
     $this->_equal = $equal;
     $this->_type = $type;
     $this->_semicolon = $semicolon;
+    parent::__construct('alias_declaration', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $attribute_spec = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['alias_attribute_spec'],
       $file,
@@ -102,6 +104,12 @@ final class AliasDeclaration extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
     return new static(
       $attribute_spec,
       $keyword,
@@ -111,6 +119,7 @@ final class AliasDeclaration extends EditableNode {
       $equal,
       $type,
       $semicolon,
+      $source_ref,
     );
   }
 

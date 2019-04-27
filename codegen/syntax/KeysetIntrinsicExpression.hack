@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1d977d063f088cd4c0d75105e2ddacfe>>
+ * @generated SignedSource<<2be213092a6645f02dd462dcd79f9499>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -21,22 +21,24 @@ final class KeysetIntrinsicExpression extends EditableNode {
     EditableNode $left_bracket,
     EditableNode $members,
     EditableNode $right_bracket,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('keyset_intrinsic_expression');
     $this->_keyword = $keyword;
     $this->_explicit_type = $explicit_type;
     $this->_left_bracket = $left_bracket;
     $this->_members = $members;
     $this->_right_bracket = $right_bracket;
+    parent::__construct('keyset_intrinsic_expression', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['keyset_intrinsic_keyword'],
       $file,
@@ -72,12 +74,19 @@ final class KeysetIntrinsicExpression extends EditableNode {
       $source,
     );
     $offset += $right_bracket->getWidth();
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
     return new static(
       $keyword,
       $explicit_type,
       $left_bracket,
       $members,
       $right_bracket,
+      $source_ref,
     );
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2866195ccd8ec522d5cf421f279add82>>
+ * @generated SignedSource<<30e2c68da58e94b97845690f9101a90a>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class ErrorTokenToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $text,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $text);
+    parent::__construct($leading, $trailing, $text, $source_ref);
   }
 
   public function hasLeading(): bool {

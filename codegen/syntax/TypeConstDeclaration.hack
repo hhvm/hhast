@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d60aa47b957f736b1f1fae19aa5def98>>
+ * @generated SignedSource<<a7c78b5882ef7dba0c7870f3c17516bd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -31,8 +31,8 @@ final class TypeConstDeclaration extends EditableNode {
     EditableNode $equal,
     EditableNode $type_specifier,
     EditableNode $semicolon,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('type_const_declaration');
     $this->_attribute_spec = $attribute_spec;
     $this->_abstract = $abstract;
     $this->_keyword = $keyword;
@@ -43,15 +43,17 @@ final class TypeConstDeclaration extends EditableNode {
     $this->_equal = $equal;
     $this->_type_specifier = $type_specifier;
     $this->_semicolon = $semicolon;
+    parent::__construct('type_const_declaration', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $attribute_spec = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_const_attribute_spec'],
       $file,
@@ -122,6 +124,12 @@ final class TypeConstDeclaration extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
     return new static(
       $attribute_spec,
       $abstract,
@@ -133,6 +141,7 @@ final class TypeConstDeclaration extends EditableNode {
       $equal,
       $type_specifier,
       $semicolon,
+      $source_ref,
     );
   }
 

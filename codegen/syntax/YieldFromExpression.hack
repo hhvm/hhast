@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6b52e15019fb75e9e8ad1f180e99509e>>
+ * @generated SignedSource<<f0e672f95a6e5ab54479f771028649df>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -17,20 +17,22 @@ final class YieldFromExpression extends EditableNode {
     EditableNode $yield_keyword,
     EditableNode $from_keyword,
     EditableNode $operand,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('yield_from_expression');
     $this->_yield_keyword = $yield_keyword;
     $this->_from_keyword = $from_keyword;
     $this->_operand = $operand;
+    parent::__construct('yield_from_expression', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $yield_keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['yield_from_yield_keyword'],
       $file,
@@ -52,7 +54,13 @@ final class YieldFromExpression extends EditableNode {
       $source,
     );
     $offset += $operand->getWidth();
-    return new static($yield_keyword, $from_keyword, $operand);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($yield_keyword, $from_keyword, $operand, $source_ref);
   }
 
   <<__Override>>

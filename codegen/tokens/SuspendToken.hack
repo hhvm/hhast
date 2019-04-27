@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9fb24f932e7e43cf57912cc22e045f9a>>
+ * @generated SignedSource<<cfed393e524281b7a06a4edca5ae510e>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class SuspendToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'suspend',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

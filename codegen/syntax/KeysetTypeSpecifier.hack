@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<45680865324e404b901114225c393da5>>
+ * @generated SignedSource<<e6d87e9804852803583ed908584fe3a9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -21,22 +21,24 @@ final class KeysetTypeSpecifier extends EditableNode {
     EditableNode $type,
     EditableNode $trailing_comma,
     EditableNode $right_angle,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('keyset_type_specifier');
     $this->_keyword = $keyword;
     $this->_left_angle = $left_angle;
     $this->_type = $type;
     $this->_trailing_comma = $trailing_comma;
     $this->_right_angle = $right_angle;
+    parent::__construct('keyset_type_specifier', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['keyset_type_keyword'],
       $file,
@@ -72,12 +74,19 @@ final class KeysetTypeSpecifier extends EditableNode {
       $source,
     );
     $offset += $right_angle->getWidth();
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
     return new static(
       $keyword,
       $left_angle,
       $type,
       $trailing_comma,
       $right_angle,
+      $source_ref,
     );
   }
 

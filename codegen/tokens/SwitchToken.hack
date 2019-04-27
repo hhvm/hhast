@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0b8f398d77bf8264cb90699dcd3f5b72>>
+ * @generated SignedSource<<6085104e732e87736fcec07e8460e3ce>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class SwitchToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'switch',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

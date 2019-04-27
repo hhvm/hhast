@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<236db00d8acec34abf8c6d5cb867da11>>
+ * @generated SignedSource<<e1fc83ccc587d8b1fad7e632695ce34d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -17,20 +17,22 @@ abstract class NamespaceDeclarationGeneratedBase extends EditableNode {
     EditableNode $keyword,
     EditableNode $name,
     EditableNode $body,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('namespace_declaration');
     $this->_keyword = $keyword;
     $this->_name = $name;
     $this->_body = $body;
+    parent::__construct('namespace_declaration', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['namespace_keyword'],
       $file,
@@ -52,7 +54,13 @@ abstract class NamespaceDeclarationGeneratedBase extends EditableNode {
       $source,
     );
     $offset += $body->getWidth();
-    return new static($keyword, $name, $body);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($keyword, $name, $body, $source_ref);
   }
 
   <<__Override>>

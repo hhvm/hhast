@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fdcc502a7e35196de08b5a68380028b9>>
+ * @generated SignedSource<<e82b99b748924c06e1957b8227f335aa>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,19 +12,24 @@ final class PocketAtomExpression extends EditableNode {
   private EditableNode $_glyph;
   private EditableNode $_expression;
 
-  public function __construct(EditableNode $glyph, EditableNode $expression) {
-    parent::__construct('pocket_atom_expression');
+  public function __construct(
+    EditableNode $glyph,
+    EditableNode $expression,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
     $this->_glyph = $glyph;
     $this->_expression = $expression;
+    parent::__construct('pocket_atom_expression', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $glyph = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['pocket_atom_glyph'],
       $file,
@@ -39,7 +44,13 @@ final class PocketAtomExpression extends EditableNode {
       $source,
     );
     $offset += $expression->getWidth();
-    return new static($glyph, $expression);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($glyph, $expression, $source_ref);
   }
 
   <<__Override>>

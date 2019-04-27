@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<24d74c2f056875d16d186da669f310b2>>
+ * @generated SignedSource<<0948f97f6b4269e27649d0a4079aa02a>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class InterfaceToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'interface',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

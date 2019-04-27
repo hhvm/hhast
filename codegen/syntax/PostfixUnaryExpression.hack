@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5edcefb9f57749ea60f3cdcbe377fa27>>
+ * @generated SignedSource<<d2ff4a4e034d73ecc05528f5ca335ed2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,19 +12,24 @@ final class PostfixUnaryExpression extends EditableNode {
   private EditableNode $_operand;
   private EditableNode $_operator;
 
-  public function __construct(EditableNode $operand, EditableNode $operator) {
-    parent::__construct('postfix_unary_expression');
+  public function __construct(
+    EditableNode $operand,
+    EditableNode $operator,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
     $this->_operand = $operand;
     $this->_operator = $operator;
+    parent::__construct('postfix_unary_expression', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $operand = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['postfix_unary_operand'],
       $file,
@@ -39,7 +44,13 @@ final class PostfixUnaryExpression extends EditableNode {
       $source,
     );
     $offset += $operator->getWidth();
-    return new static($operand, $operator);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($operand, $operator, $source_ref);
   }
 
   <<__Override>>

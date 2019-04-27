@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a462d2ff9bed401175021d4868500b02>>
+ * @generated SignedSource<<525d28449b14c1aa148ad490468fc9a3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -21,21 +21,23 @@ final class MethodishDeclaration
     EditableNode $function_decl_header,
     EditableNode $function_body,
     EditableNode $semicolon,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('methodish_declaration');
     $this->_attribute = $attribute;
     $this->_function_decl_header = $function_decl_header;
     $this->_function_body = $function_body;
     $this->_semicolon = $semicolon;
+    parent::__construct('methodish_declaration', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $attribute = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['methodish_attribute'],
       $file,
@@ -64,11 +66,18 @@ final class MethodishDeclaration
       $source,
     );
     $offset += $semicolon->getWidth();
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
     return new static(
       $attribute,
       $function_decl_header,
       $function_body,
       $semicolon,
+      $source_ref,
     );
   }
 

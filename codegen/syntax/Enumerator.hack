@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<aa54dd5a882b7624e137edd0513ec130>>
+ * @generated SignedSource<<4af6c15c5e3b37ee19c14c3d3a18fbb6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -19,21 +19,23 @@ final class Enumerator extends EditableNode {
     EditableNode $equal,
     EditableNode $value,
     EditableNode $semicolon,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('enumerator');
     $this->_name = $name;
     $this->_equal = $equal;
     $this->_value = $value;
     $this->_semicolon = $semicolon;
+    parent::__construct('enumerator', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['enumerator_name'],
       $file,
@@ -62,7 +64,13 @@ final class Enumerator extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
-    return new static($name, $equal, $value, $semicolon);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($name, $equal, $value, $semicolon, $source_ref);
   }
 
   <<__Override>>

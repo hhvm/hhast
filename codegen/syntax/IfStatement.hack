@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<42d47d8272259a714ddbc933857e39f5>>
+ * @generated SignedSource<<a2579adfcfb23ae4001fe8bc6d57d2e8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -25,8 +25,8 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
     EditableNode $statement,
     EditableNode $elseif_clauses,
     EditableNode $else_clause,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('if_statement');
     $this->_keyword = $keyword;
     $this->_left_paren = $left_paren;
     $this->_condition = $condition;
@@ -34,15 +34,17 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
     $this->_statement = $statement;
     $this->_elseif_clauses = $elseif_clauses;
     $this->_else_clause = $else_clause;
+    parent::__construct('if_statement', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['if_keyword'],
       $file,
@@ -92,6 +94,12 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
       $source,
     );
     $offset += $else_clause->getWidth();
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
     return new static(
       $keyword,
       $left_paren,
@@ -100,6 +108,7 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
       $statement,
       $elseif_clauses,
       $else_clause,
+      $source_ref,
     );
   }
 

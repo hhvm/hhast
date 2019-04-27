@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e3155102ae7a162af8053b5c3e275152>>
+ * @generated SignedSource<<cdc2db59b4c2e0dfbbe8200b3415de1d>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class ThrowToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'throw',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

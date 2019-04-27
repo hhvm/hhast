@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<432b6cbb141c8633b448aec9f8105925>>
+ * @generated SignedSource<<370620f47216d7e85ece374c0e3ac19a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -21,22 +21,24 @@ final class RecordField extends EditableNode {
     EditableNode $type,
     EditableNode $init,
     EditableNode $comma,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('record_field');
     $this->_name = $name;
     $this->_colon = $colon;
     $this->_type = $type;
     $this->_init = $init;
     $this->_comma = $comma;
+    parent::__construct('record_field', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['record_field_name'],
       $file,
@@ -72,7 +74,13 @@ final class RecordField extends EditableNode {
       $source,
     );
     $offset += $comma->getWidth();
-    return new static($name, $colon, $type, $init, $comma);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($name, $colon, $type, $init, $comma, $source_ref);
   }
 
   <<__Override>>

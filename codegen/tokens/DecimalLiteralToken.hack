@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<80e87907a7e5cee28adcce202ba4d881>>
+ * @generated SignedSource<<83a8bda0a7af8eae51449d23b7d24bcf>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class DecimalLiteralToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $text,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $text);
+    parent::__construct($leading, $trailing, $text, $source_ref);
   }
 
   public function hasLeading(): bool {

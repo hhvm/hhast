@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<932f7cafbed74de380bbafe82ce971d8>>
+ * @generated SignedSource<<118fe239a566d10d224205018c910a98>>
  */
 namespace Facebook\HHAST;
 
@@ -10,8 +10,12 @@ final class CommaToken extends EditableTokenWithFixedText {
   const string KIND = ',';
   const string TEXT = ',';
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct($leading, $trailing);
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
+    parent::__construct($leading, $trailing, $source_ref);
   }
 
   public function hasLeading(): bool {

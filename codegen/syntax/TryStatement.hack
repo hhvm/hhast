@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d8aefbead33a82ca57f4a773bb980b33>>
+ * @generated SignedSource<<344a509795e594d6ba98c30cd63fe3cb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -19,21 +19,23 @@ final class TryStatement extends EditableNode {
     EditableNode $compound_statement,
     EditableNode $catch_clauses,
     EditableNode $finally_clause,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('try_statement');
     $this->_keyword = $keyword;
     $this->_compound_statement = $compound_statement;
     $this->_catch_clauses = $catch_clauses;
     $this->_finally_clause = $finally_clause;
+    parent::__construct('try_statement', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['try_keyword'],
       $file,
@@ -62,11 +64,18 @@ final class TryStatement extends EditableNode {
       $source,
     );
     $offset += $finally_clause->getWidth();
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
     return new static(
       $keyword,
       $compound_statement,
       $catch_clauses,
       $finally_clause,
+      $source_ref,
     );
   }
 

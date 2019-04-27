@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<38ae4d4b9c3557c4d850186bea2a9a2b>>
+ * @generated SignedSource<<35797870512fa05995b71dbac83827f4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -17,20 +17,22 @@ final class XHPExpression extends EditableNode {
     EditableNode $open,
     EditableNode $body,
     EditableNode $close,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('xhp_expression');
     $this->_open = $open;
     $this->_body = $body;
     $this->_close = $close;
+    parent::__construct('xhp_expression', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $open = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_open'],
       $file,
@@ -52,7 +54,13 @@ final class XHPExpression extends EditableNode {
       $source,
     );
     $offset += $close->getWidth();
-    return new static($open, $body, $close);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($open, $body, $close, $source_ref);
   }
 
   <<__Override>>

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8cdbc60a37d87bfc0fd45509bdfa43ba>>
+ * @generated SignedSource<<945679094d217859e503eb561f5e2d0b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,18 +11,22 @@ final class Script extends EditableNode {
 
   private EditableNode $_declarations;
 
-  public function __construct(EditableNode $declarations) {
-    parent::__construct('script');
+  public function __construct(
+    EditableNode $declarations,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
     $this->_declarations = $declarations;
+    parent::__construct('script', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $declarations = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['script_declarations'],
       $file,
@@ -30,7 +34,13 @@ final class Script extends EditableNode {
       $source,
     );
     $offset += $declarations->getWidth();
-    return new static($declarations);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($declarations, $source_ref);
   }
 
   <<__Override>>

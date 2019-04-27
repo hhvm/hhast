@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3690ebf859bdab33b521f592cbafe4f0>>
+ * @generated SignedSource<<c320792f72b440804a577063f636eeba>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -23,23 +23,25 @@ final class LambdaExpression extends EditableNode {
     EditableNode $signature,
     EditableNode $arrow,
     EditableNode $body,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('lambda_expression');
     $this->_attribute_spec = $attribute_spec;
     $this->_async = $async;
     $this->_coroutine = $coroutine;
     $this->_signature = $signature;
     $this->_arrow = $arrow;
     $this->_body = $body;
+    parent::__construct('lambda_expression', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $attribute_spec = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['lambda_attribute_spec'],
       $file,
@@ -82,6 +84,12 @@ final class LambdaExpression extends EditableNode {
       $source,
     );
     $offset += $body->getWidth();
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
     return new static(
       $attribute_spec,
       $async,
@@ -89,6 +97,7 @@ final class LambdaExpression extends EditableNode {
       $signature,
       $arrow,
       $body,
+      $source_ref,
     );
   }
 

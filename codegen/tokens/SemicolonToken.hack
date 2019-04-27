@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1639f0e086cc758e41b6a6266d00427d>>
+ * @generated SignedSource<<016e20c8e9d44798a820b068230409ba>>
  */
 namespace Facebook\HHAST;
 
@@ -10,8 +10,12 @@ final class SemicolonToken extends EditableTokenWithFixedText {
   const string KIND = ';';
   const string TEXT = ';';
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct($leading, $trailing);
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
+    parent::__construct($leading, $trailing, $source_ref);
   }
 
   public function hasLeading(): bool {

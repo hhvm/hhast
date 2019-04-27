@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ee0bc33cc63fdca9ad44998ad99b5427>>
+ * @generated SignedSource<<f3dec099a902f4fdd772d4bba47bb917>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class HeredocStringLiteralToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $text,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $text);
+    parent::__construct($leading, $trailing, $text, $source_ref);
   }
 
   public function hasLeading(): bool {

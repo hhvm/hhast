@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<706de44ddbf6b3d5a0a9fac9b4e15714>>
+ * @generated SignedSource<<b18d27775278a90187a9bf3334d5dff7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,18 +11,22 @@ final class ErrorSyntax extends EditableNode {
 
   private EditableNode $_error;
 
-  public function __construct(EditableNode $error) {
-    parent::__construct('error');
+  public function __construct(
+    EditableNode $error,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
     $this->_error = $error;
+    parent::__construct('error', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $error = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['error_error'],
       $file,
@@ -30,7 +34,13 @@ final class ErrorSyntax extends EditableNode {
       $source,
     );
     $offset += $error->getWidth();
-    return new static($error);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($error, $source_ref);
   }
 
   <<__Override>>

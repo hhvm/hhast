@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<564fcf293bdbb66c1debe2ec2594ab10>>
+ * @generated SignedSource<<ce140838a7b5b7263f51ff3193f01597>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -23,23 +23,25 @@ final class LetStatement extends EditableNode {
     EditableNode $type,
     EditableNode $initializer,
     EditableNode $semicolon,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('let_statement');
     $this->_keyword = $keyword;
     $this->_name = $name;
     $this->_colon = $colon;
     $this->_type = $type;
     $this->_initializer = $initializer;
     $this->_semicolon = $semicolon;
+    parent::__construct('let_statement', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['let_statement_keyword'],
       $file,
@@ -82,7 +84,21 @@ final class LetStatement extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
-    return new static($keyword, $name, $colon, $type, $initializer, $semicolon);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static(
+      $keyword,
+      $name,
+      $colon,
+      $type,
+      $initializer,
+      $semicolon,
+      $source_ref,
+    );
   }
 
   <<__Override>>

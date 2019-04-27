@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<959e528e86fea170c7f21ddd191f4d8c>>
+ * @generated SignedSource<<5218cf10999a16110a36232462feea9f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,19 +12,24 @@ final class ListItem extends EditableNode {
   private EditableNode $_item;
   private EditableNode $_separator;
 
-  public function __construct(EditableNode $item, EditableNode $separator) {
-    parent::__construct('list_item');
+  public function __construct(
+    EditableNode $item,
+    EditableNode $separator,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
     $this->_item = $item;
     $this->_separator = $separator;
+    parent::__construct('list_item', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $item = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['list_item'],
       $file,
@@ -39,7 +44,13 @@ final class ListItem extends EditableNode {
       $source,
     );
     $offset += $separator->getWidth();
-    return new static($item, $separator);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($item, $separator, $source_ref);
   }
 
   <<__Override>>

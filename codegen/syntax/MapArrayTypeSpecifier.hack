@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d4e2a7cb8ef7f10277344a395b146944>>
+ * @generated SignedSource<<b2d7f56ab9f7996da9f2d3118023c474>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -23,23 +23,25 @@ final class MapArrayTypeSpecifier extends EditableNode {
     EditableNode $comma,
     EditableNode $value,
     EditableNode $right_angle,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('map_array_type_specifier');
     $this->_keyword = $keyword;
     $this->_left_angle = $left_angle;
     $this->_key = $key;
     $this->_comma = $comma;
     $this->_value = $value;
     $this->_right_angle = $right_angle;
+    parent::__construct('map_array_type_specifier', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['map_array_keyword'],
       $file,
@@ -82,6 +84,12 @@ final class MapArrayTypeSpecifier extends EditableNode {
       $source,
     );
     $offset += $right_angle->getWidth();
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
     return new static(
       $keyword,
       $left_angle,
@@ -89,6 +97,7 @@ final class MapArrayTypeSpecifier extends EditableNode {
       $comma,
       $value,
       $right_angle,
+      $source_ref,
     );
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<17ca0d58193d890bed552d7c4b312570>>
+ * @generated SignedSource<<cdb513a26fc95a489d2487cef4f2040f>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class DestructToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = '__destruct',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

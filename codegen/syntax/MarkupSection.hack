@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4b84ad690753d231f0c629edc9184569>>
+ * @generated SignedSource<<7009288980caccf6260b0ad648415a70>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -19,21 +19,23 @@ final class MarkupSection extends EditableNode {
     EditableNode $text,
     EditableNode $suffix,
     EditableNode $expression,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('markup_section');
     $this->_prefix = $prefix;
     $this->_text = $text;
     $this->_suffix = $suffix;
     $this->_expression = $expression;
+    parent::__construct('markup_section', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $prefix = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['markup_prefix'],
       $file,
@@ -62,7 +64,13 @@ final class MarkupSection extends EditableNode {
       $source,
     );
     $offset += $expression->getWidth();
-    return new static($prefix, $text, $suffix, $expression);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($prefix, $text, $suffix, $expression, $source_ref);
   }
 
   <<__Override>>

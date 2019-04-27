@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<68728c5e5a2d44095d6f245f1f985e00>>
+ * @generated SignedSource<<d6e0cde91f1d1e4023990d45ee171c1c>>
  */
 namespace Facebook\HHAST;
 
@@ -10,8 +10,12 @@ final class ExclamationEqualEqualToken extends EditableTokenWithFixedText {
   const string KIND = '!==';
   const string TEXT = '!==';
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct($leading, $trailing);
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
+    parent::__construct($leading, $trailing, $source_ref);
   }
 
   public function hasLeading(): bool {

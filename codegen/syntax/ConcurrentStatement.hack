@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0b0844b63f80c781eb91640d3bfba6cf>>
+ * @generated SignedSource<<a9c2b0f7901b8da7657f98ace85e1ef3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,19 +12,24 @@ final class ConcurrentStatement extends EditableNode {
   private EditableNode $_keyword;
   private EditableNode $_statement;
 
-  public function __construct(EditableNode $keyword, EditableNode $statement) {
-    parent::__construct('concurrent_statement');
+  public function __construct(
+    EditableNode $keyword,
+    EditableNode $statement,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
     $this->_keyword = $keyword;
     $this->_statement = $statement;
+    parent::__construct('concurrent_statement', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['concurrent_keyword'],
       $file,
@@ -39,7 +44,13 @@ final class ConcurrentStatement extends EditableNode {
       $source,
     );
     $offset += $statement->getWidth();
-    return new static($keyword, $statement);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($keyword, $statement, $source_ref);
   }
 
   <<__Override>>

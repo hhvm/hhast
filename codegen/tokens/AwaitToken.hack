@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<19c487f60b7ce7aaceb015c38102d606>>
+ * @generated SignedSource<<206d42fed8928b07d36187d490a5158c>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class AwaitToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'await',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

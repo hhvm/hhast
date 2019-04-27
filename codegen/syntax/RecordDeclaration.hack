@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cd22b77ad1e97a715ab3ff123a0f8f64>>
+ * @generated SignedSource<<069ee9b53a99a9601c01b8bd97ac577f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -23,23 +23,25 @@ final class RecordDeclaration extends EditableNode {
     EditableNode $left_brace,
     EditableNode $fields,
     EditableNode $right_brace,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('record_declaration');
     $this->_attribute_spec = $attribute_spec;
     $this->_keyword = $keyword;
     $this->_name = $name;
     $this->_left_brace = $left_brace;
     $this->_fields = $fields;
     $this->_right_brace = $right_brace;
+    parent::__construct('record_declaration', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $attribute_spec = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['record_attribute_spec'],
       $file,
@@ -82,6 +84,12 @@ final class RecordDeclaration extends EditableNode {
       $source,
     );
     $offset += $right_brace->getWidth();
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
     return new static(
       $attribute_spec,
       $keyword,
@@ -89,6 +97,7 @@ final class RecordDeclaration extends EditableNode {
       $left_brace,
       $fields,
       $right_brace,
+      $source_ref,
     );
   }
 

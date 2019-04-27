@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cd5d903ba56183adcccb4a9139eb6be8>>
+ * @generated SignedSource<<4adda652f24e18375e410e68f1123eed>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -19,21 +19,23 @@ final class PocketFieldTypeExprDeclaration extends EditableNode {
     EditableNode $type,
     EditableNode $name,
     EditableNode $semicolon,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('pocket_field_type_expr_declaration');
     $this->_case = $case;
     $this->_type = $type;
     $this->_name = $name;
     $this->_semicolon = $semicolon;
+    parent::__construct('pocket_field_type_expr_declaration', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $case = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['pocket_field_type_expr_case'],
       $file,
@@ -62,7 +64,13 @@ final class PocketFieldTypeExprDeclaration extends EditableNode {
       $source,
     );
     $offset += $semicolon->getWidth();
-    return new static($case, $type, $name, $semicolon);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($case, $type, $name, $semicolon, $source_ref);
   }
 
   <<__Override>>

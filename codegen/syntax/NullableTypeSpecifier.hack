@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bf802a6b5c59445f47af26e16d3da7ff>>
+ * @generated SignedSource<<8c661d0a0f08ad5d2b2f6a7b464cbc3b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,19 +12,24 @@ final class NullableTypeSpecifier extends EditableNode {
   private EditableNode $_question;
   private EditableNode $_type;
 
-  public function __construct(EditableNode $question, EditableNode $type) {
-    parent::__construct('nullable_type_specifier');
+  public function __construct(
+    EditableNode $question,
+    EditableNode $type,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
     $this->_question = $question;
     $this->_type = $type;
+    parent::__construct('nullable_type_specifier', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $question = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['nullable_question'],
       $file,
@@ -39,7 +44,13 @@ final class NullableTypeSpecifier extends EditableNode {
       $source,
     );
     $offset += $type->getWidth();
-    return new static($question, $type);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($question, $type, $source_ref);
   }
 
   <<__Override>>

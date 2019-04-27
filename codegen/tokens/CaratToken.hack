@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<49791bea0e4bcb3f09029a1ccb0fcff5>>
+ * @generated SignedSource<<8744856f079262f72a258cf378df2259>>
  */
 namespace Facebook\HHAST;
 
@@ -10,8 +10,12 @@ final class CaratToken extends EditableTokenWithFixedText {
   const string KIND = '^';
   const string TEXT = '^';
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct($leading, $trailing);
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
+    parent::__construct($leading, $trailing, $source_ref);
   }
 
   public function hasLeading(): bool {

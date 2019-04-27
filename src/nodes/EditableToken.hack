@@ -10,7 +10,7 @@
 namespace Facebook\HHAST;
 
 use namespace Facebook\TypeAssert;
-use namespace HH\Lib\Str;
+use namespace HH\Lib\{C, Str};
 
 abstract class EditableToken extends EditableNode {
   private string $_token_kind;
@@ -23,13 +23,16 @@ abstract class EditableToken extends EditableNode {
     EditableNode $leading,
     EditableNode $trailing,
     string $text,
+    ?__Private\SourceRef $ref,
   ) {
-    parent::__construct('token');
     $this->_token_kind = $token_kind;
     $this->_leading = $leading;
     $this->_trailing = $trailing;
     $this->_text = $text;
-    $this->_width = Str\length($text) + $leading->getWidth() + $trailing->getWidth();
+    $this->_width = Str\length($text) +
+      $leading->getWidth() +
+      $trailing->getWidth();
+    parent::__construct('token', $ref);
   }
 
   public function getTokenKind(): string {
@@ -105,7 +108,7 @@ abstract class EditableToken extends EditableNode {
   }
 
   <<__Override>>
-  public function getCode(): string {
+  protected function getCodeUncached(): string {
     return $this->getLeading()->getCode().
       $this->getText().
       $this->getTrailing()->getCode();
@@ -113,30 +116,10 @@ abstract class EditableToken extends EditableNode {
 
   public abstract function withLeading(EditableNode $leading): EditableToken;
 
-  public abstract function withTrailing(
-    EditableNode $trailing,
-  ): EditableToken;
-
-  private static function factory(
-    string $file,
-    int $offset,
-    string $token_kind,
-    EditableNode $leading,
-    EditableNode $trailing,
-    string $token_text,
-  ): EditableToken {
-    return __Private\editable_token_from_data(
-      $file,
-      $offset,
-      $token_kind,
-      $leading,
-      $trailing,
-      $token_text,
-    );
-  }
+  public abstract function withTrailing(EditableNode $trailing): EditableToken;
 
   <<__Override>>
-  public static function fromJSON(
+  final public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
     int $offset,
@@ -149,8 +132,18 @@ abstract class EditableToken extends EditableNode {
       $offset,
     );
 
-    $leading = EditableList::createNonEmptyListOrMissing($leading_list);
-    $token_position = $offset + $leading->getWidth();
+    $leading = C\is_empty($leading_list)
+      ? Missing()
+      : new EditableList(
+          $leading_list,
+          shape(
+            'file' => $file,
+            'source' => $source,
+            'offset' => $offset,
+            'width' => $json['leading_width'] as int,
+          ),
+        );
+    $token_position = $offset + $json['leading_width'] as int;
     $token_width = TypeAssert\int($json['width']);
     $token_text = Str\slice($source, $token_position, $token_width);
     $trailing_position = $token_position + $token_width;
@@ -160,11 +153,28 @@ abstract class EditableToken extends EditableNode {
       ($j, $p) ==> $j['width'] + $p,
       $trailing_position,
     );
-    $trailing = EditableList::createNonEmptyListOrMissing($trailing_list);
-    return EditableToken::factory(
-      $file,
-      $token_position,
-      /* HH_IGNORE_ERROR[4110] */ $json['kind'],
+    $trailing = C\is_empty($trailing_list)
+      ? Missing()
+      : new EditableList(
+          $trailing_list,
+          shape(
+            'file' => $file,
+            'source' => $source,
+            'offset' => $trailing_position,
+            'width' => $json['trailing_width'] as int,
+          ),
+        );
+    $width = $json['leading_width'] as int +
+      $json['width'] as int +
+      $json['trailing_width'] as int;
+    return __Private\editable_token_from_data(
+      shape(
+        'file' => $file,
+        'source' => $source,
+        'offset' => $offset,
+        'width' => $width,
+      ),
+      $json['kind'] as string,
       $leading,
       $trailing,
       $token_text,

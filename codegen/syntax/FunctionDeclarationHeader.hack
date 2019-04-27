@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c1828bed4393dff0435087cf7e748efd>>
+ * @generated SignedSource<<18aff5b495c77c9fd461f68aa6cb417f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -31,8 +31,8 @@ final class FunctionDeclarationHeader extends EditableNode {
     EditableNode $colon,
     EditableNode $type,
     EditableNode $where_clause,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('function_declaration_header');
     $this->_modifiers = $modifiers;
     $this->_keyword = $keyword;
     $this->_name = $name;
@@ -43,15 +43,17 @@ final class FunctionDeclarationHeader extends EditableNode {
     $this->_colon = $colon;
     $this->_type = $type;
     $this->_where_clause = $where_clause;
+    parent::__construct('function_declaration_header', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $modifiers = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_modifiers'],
       $file,
@@ -122,6 +124,12 @@ final class FunctionDeclarationHeader extends EditableNode {
       $source,
     );
     $offset += $where_clause->getWidth();
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
     return new static(
       $modifiers,
       $keyword,
@@ -133,6 +141,7 @@ final class FunctionDeclarationHeader extends EditableNode {
       $colon,
       $type,
       $where_clause,
+      $source_ref,
     );
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6b451eb24971ea40385f2d19a328f855>>
+ * @generated SignedSource<<e85225f59433aa9a5d607ad9d8944ad0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -17,20 +17,22 @@ final class TupleTypeSpecifier extends EditableNode {
     EditableNode $left_paren,
     EditableNode $types,
     EditableNode $right_paren,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('tuple_type_specifier');
     $this->_left_paren = $left_paren;
     $this->_types = $types;
     $this->_right_paren = $right_paren;
+    parent::__construct('tuple_type_specifier', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['tuple_left_paren'],
       $file,
@@ -52,7 +54,13 @@ final class TupleTypeSpecifier extends EditableNode {
       $source,
     );
     $offset += $right_paren->getWidth();
-    return new static($left_paren, $types, $right_paren);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($left_paren, $types, $right_paren, $source_ref);
   }
 
   <<__Override>>

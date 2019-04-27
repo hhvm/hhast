@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2abfd3773bbc21bc1b193b9c82893baf>>
+ * @generated SignedSource<<6e26a2832b42f15aaee0f3d546365c97>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -17,20 +17,22 @@ final class CompoundStatement extends EditableNode {
     EditableNode $left_brace,
     EditableNode $statements,
     EditableNode $right_brace,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('compound_statement');
     $this->_left_brace = $left_brace;
     $this->_statements = $statements;
     $this->_right_brace = $right_brace;
+    parent::__construct('compound_statement', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $left_brace = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['compound_left_brace'],
       $file,
@@ -52,7 +54,13 @@ final class CompoundStatement extends EditableNode {
       $source,
     );
     $offset += $right_brace->getWidth();
-    return new static($left_brace, $statements, $right_brace);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($left_brace, $statements, $right_brace, $source_ref);
   }
 
   <<__Override>>

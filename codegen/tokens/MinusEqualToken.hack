@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a13b17b116534d90238618bd7dc3c499>>
+ * @generated SignedSource<<0da8e41357959408eafdc4b9f0401b3f>>
  */
 namespace Facebook\HHAST;
 
@@ -10,8 +10,12 @@ final class MinusEqualToken extends EditableTokenWithFixedText {
   const string KIND = '-=';
   const string TEXT = '-=';
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct($leading, $trailing);
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
+    parent::__construct($leading, $trailing, $source_ref);
   }
 
   public function hasLeading(): bool {

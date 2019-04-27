@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<197f6da11ca1a15a47cc43a2d1e086c6>>
+ * @generated SignedSource<<47f8ac80abff8d6c16261772913d8cf2>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class CoroutineToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'coroutine',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

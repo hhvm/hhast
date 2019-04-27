@@ -189,6 +189,9 @@ final class CodegenTokens extends CodegenBase {
       }
     }
 
+    $it->addParameter('?__Private\\SourceRef $source_ref = null');
+    $parent_args[] = '$source_ref';
+
     $it->setBody(
       $cg->codegenHackBuilder()
         ->addMultilineCall(

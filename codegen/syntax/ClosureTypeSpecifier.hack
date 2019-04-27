@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d1de92b39a1be74f9446535fe1a2d16f>>
+ * @generated SignedSource<<953b6d7ee2df8aee757cd3985e860729>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -29,8 +29,8 @@ final class ClosureTypeSpecifier extends EditableNode {
     EditableNode $colon,
     EditableNode $return_type,
     EditableNode $outer_right_paren,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('closure_type_specifier');
     $this->_outer_left_paren = $outer_left_paren;
     $this->_coroutine = $coroutine;
     $this->_function_keyword = $function_keyword;
@@ -40,15 +40,17 @@ final class ClosureTypeSpecifier extends EditableNode {
     $this->_colon = $colon;
     $this->_return_type = $return_type;
     $this->_outer_right_paren = $outer_right_paren;
+    parent::__construct('closure_type_specifier', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $outer_left_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['closure_outer_left_paren'],
       $file,
@@ -112,6 +114,12 @@ final class ClosureTypeSpecifier extends EditableNode {
       $source,
     );
     $offset += $outer_right_paren->getWidth();
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
     return new static(
       $outer_left_paren,
       $coroutine,
@@ -122,6 +130,7 @@ final class ClosureTypeSpecifier extends EditableNode {
       $colon,
       $return_type,
       $outer_right_paren,
+      $source_ref,
     );
   }
 

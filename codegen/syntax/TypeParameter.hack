@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b3788788f78c9d4ac0570a62b1fb9c41>>
+ * @generated SignedSource<<5e3a51609060b6ec20ddc637de33d3ed>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -21,22 +21,24 @@ final class TypeParameter extends EditableNode {
     EditableNode $variance,
     EditableNode $name,
     EditableNode $constraints,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('type_parameter');
     $this->_attribute_spec = $attribute_spec;
     $this->_reified = $reified;
     $this->_variance = $variance;
     $this->_name = $name;
     $this->_constraints = $constraints;
+    parent::__construct('type_parameter', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $attribute_spec = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['type_attribute_spec'],
       $file,
@@ -72,12 +74,19 @@ final class TypeParameter extends EditableNode {
       $source,
     );
     $offset += $constraints->getWidth();
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
     return new static(
       $attribute_spec,
       $reified,
       $variance,
       $name,
       $constraints,
+      $source_ref,
     );
   }
 

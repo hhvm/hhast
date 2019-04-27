@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2e70ea477480a188fb208ff9c36b91a0>>
+ * @generated SignedSource<<deb8a029cd2e94324ada4c5b1be1932e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -17,20 +17,22 @@ final class SafeMemberSelectionExpression extends EditableNode {
     EditableNode $object,
     EditableNode $operator,
     EditableNode $name,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('safe_member_selection_expression');
     $this->_object = $object;
     $this->_operator = $operator;
     $this->_name = $name;
+    parent::__construct('safe_member_selection_expression', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $object = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['safe_member_object'],
       $file,
@@ -52,7 +54,13 @@ final class SafeMemberSelectionExpression extends EditableNode {
       $source,
     );
     $offset += $name->getWidth();
-    return new static($object, $operator, $name);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($object, $operator, $name, $source_ref);
   }
 
   <<__Override>>

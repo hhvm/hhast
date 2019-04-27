@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8fa2faa5d044800cfbbd80c82a9d14ea>>
+ * @generated SignedSource<<bdc1cc6432b9a620564620136125c3b9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -17,20 +17,22 @@ final class EmbeddedBracedExpression extends EditableNode {
     EditableNode $left_brace,
     EditableNode $expression,
     EditableNode $right_brace,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('embedded_braced_expression');
     $this->_left_brace = $left_brace;
     $this->_expression = $expression;
     $this->_right_brace = $right_brace;
+    parent::__construct('embedded_braced_expression', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $left_brace = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['embedded_braced_expression_left_brace'],
       $file,
@@ -52,7 +54,13 @@ final class EmbeddedBracedExpression extends EditableNode {
       $source,
     );
     $offset += $right_brace->getWidth();
-    return new static($left_brace, $expression, $right_brace);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($left_brace, $expression, $right_brace, $source_ref);
   }
 
   <<__Override>>

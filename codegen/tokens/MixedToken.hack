@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9b290d771dd804c404fca889718dc1a8>>
+ * @generated SignedSource<<8f9524dd067e8da5223a53d9cd3f8c9f>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class MixedToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'mixed',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<459a34b9373643d976a1600361d3d86a>>
+ * @generated SignedSource<<4e0f6f8461f2fe8e2874609640075b16>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,8 +27,8 @@ final class SwitchStatement
     EditableNode $left_brace,
     EditableNode $sections,
     EditableNode $right_brace,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('switch_statement');
     $this->_keyword = $keyword;
     $this->_left_paren = $left_paren;
     $this->_expression = $expression;
@@ -36,15 +36,17 @@ final class SwitchStatement
     $this->_left_brace = $left_brace;
     $this->_sections = $sections;
     $this->_right_brace = $right_brace;
+    parent::__construct('switch_statement', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['switch_keyword'],
       $file,
@@ -94,6 +96,12 @@ final class SwitchStatement
       $source,
     );
     $offset += $right_brace->getWidth();
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
     return new static(
       $keyword,
       $left_paren,
@@ -102,6 +110,7 @@ final class SwitchStatement
       $left_brace,
       $sections,
       $right_brace,
+      $source_ref,
     );
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<010d81ce290ef468f6e317004bc6f647>>
+ * @generated SignedSource<<fcf46cb3b42fefeed23e56d904224fdd>>
  */
 namespace Facebook\HHAST;
 
@@ -14,8 +14,9 @@ final class HeredocStringLiteralHeadToken
     EditableNode $leading,
     EditableNode $trailing,
     string $text,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $text);
+    parent::__construct($leading, $trailing, $text, $source_ref);
   }
 
   public function hasLeading(): bool {

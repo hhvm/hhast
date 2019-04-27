@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ae4701f3f377dbc8ac119b8822ea7a8b>>
+ * @generated SignedSource<<8431743e3d6b990f69c6d49f0e865683>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -23,23 +23,25 @@ final class CatchClause extends EditableNode {
     EditableNode $variable,
     EditableNode $right_paren,
     EditableNode $body,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('catch_clause');
     $this->_keyword = $keyword;
     $this->_left_paren = $left_paren;
     $this->_type = $type;
     $this->_variable = $variable;
     $this->_right_paren = $right_paren;
     $this->_body = $body;
+    parent::__construct('catch_clause', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['catch_keyword'],
       $file,
@@ -82,6 +84,12 @@ final class CatchClause extends EditableNode {
       $source,
     );
     $offset += $body->getWidth();
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
     return new static(
       $keyword,
       $left_paren,
@@ -89,6 +97,7 @@ final class CatchClause extends EditableNode {
       $variable,
       $right_paren,
       $body,
+      $source_ref,
     );
   }
 

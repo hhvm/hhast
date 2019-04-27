@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<50bd63784dd5d70af92b7818381c24e2>>
+ * @generated SignedSource<<3db521521436b4ec5f5820240bb4a92a>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class VarrayToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'varray',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

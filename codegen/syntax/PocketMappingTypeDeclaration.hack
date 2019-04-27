@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<50ba37151f28b45c7aca0f72de6c7e06>>
+ * @generated SignedSource<<fa338c879c0d3d3c798e16bcf2fc5d44>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -19,21 +19,23 @@ final class PocketMappingTypeDeclaration extends EditableNode {
     EditableNode $name,
     EditableNode $equal,
     EditableNode $type,
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('pocket_mapping_type_declaration');
     $this->_keyword = $keyword;
     $this->_name = $name;
     $this->_equal = $equal;
     $this->_type = $type;
+    parent::__construct('pocket_mapping_type_declaration', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['pocket_mapping_type_keyword'],
       $file,
@@ -62,7 +64,13 @@ final class PocketMappingTypeDeclaration extends EditableNode {
       $source,
     );
     $offset += $type->getWidth();
-    return new static($keyword, $name, $equal, $type);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($keyword, $name, $equal, $type, $source_ref);
   }
 
   <<__Override>>

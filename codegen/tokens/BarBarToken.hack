@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<848b1601c151f26e156ae86e338ac678>>
+ * @generated SignedSource<<a429135d25a156a9d571a2e11dba0480>>
  */
 namespace Facebook\HHAST;
 
@@ -10,8 +10,12 @@ final class BarBarToken extends EditableTokenWithFixedText {
   const string KIND = '||';
   const string TEXT = '||';
 
-  public function __construct(EditableNode $leading, EditableNode $trailing) {
-    parent::__construct($leading, $trailing);
+  public function __construct(
+    EditableNode $leading,
+    EditableNode $trailing,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
+    parent::__construct($leading, $trailing, $source_ref);
   }
 
   public function hasLeading(): bool {

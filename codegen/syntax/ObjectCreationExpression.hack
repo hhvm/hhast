@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<859d3e2518f421fbd5f68c6f86faba8f>>
+ * @generated SignedSource<<20140348edae33d5c93d7314fe32ac8b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,19 +12,24 @@ final class ObjectCreationExpression extends EditableNode {
   private EditableNode $_new_keyword;
   private EditableNode $_object;
 
-  public function __construct(EditableNode $new_keyword, EditableNode $object) {
-    parent::__construct('object_creation_expression');
+  public function __construct(
+    EditableNode $new_keyword,
+    EditableNode $object,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
     $this->_new_keyword = $new_keyword;
     $this->_object = $object;
+    parent::__construct('object_creation_expression', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $new_keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['object_creation_new_keyword'],
       $file,
@@ -39,7 +44,13 @@ final class ObjectCreationExpression extends EditableNode {
       $source,
     );
     $offset += $object->getWidth();
-    return new static($new_keyword, $object);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($new_keyword, $object, $source_ref);
   }
 
   <<__Override>>

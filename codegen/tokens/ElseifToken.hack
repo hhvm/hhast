@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3b753ee67e02747e105c2d4ebbc9c146>>
+ * @generated SignedSource<<4cd52a794e4f53db073dce6538bf07ac>>
  */
 namespace Facebook\HHAST;
 
@@ -13,8 +13,9 @@ final class ElseifToken extends EditableTokenWithVariableText {
     EditableNode $leading,
     EditableNode $trailing,
     string $token_text = 'elseif',
+    ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct($leading, $trailing, $token_text);
+    parent::__construct($leading, $trailing, $token_text, $source_ref);
   }
 
   public function hasLeading(): bool {

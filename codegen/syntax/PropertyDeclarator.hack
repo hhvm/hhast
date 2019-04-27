@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<525ac603ad5bf14bb01157a8ae52b04b>>
+ * @generated SignedSource<<517a4e87538a68863835cff49f1dc4e9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,19 +12,24 @@ final class PropertyDeclarator extends EditableNode {
   private EditableNode $_name;
   private EditableNode $_initializer;
 
-  public function __construct(EditableNode $name, EditableNode $initializer) {
-    parent::__construct('property_declarator');
+  public function __construct(
+    EditableNode $name,
+    EditableNode $initializer,
+    ?__Private\SourceRef $source_ref = null,
+  ) {
     $this->_name = $name;
     $this->_initializer = $initializer;
+    parent::__construct('property_declarator', $source_ref);
   }
 
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
     string $file,
-    int $offset,
+    int $initial_offset,
     string $source,
   ): this {
+    $offset = $initial_offset;
     $name = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['property_name'],
       $file,
@@ -39,7 +44,13 @@ final class PropertyDeclarator extends EditableNode {
       $source,
     );
     $offset += $initializer->getWidth();
-    return new static($name, $initializer);
+    $source_ref = shape(
+      'file' => $file,
+      'source' => $source,
+      'offset' => $initial_offset,
+      'width' => $offset - $initial_offset,
+    );
+    return new static($name, $initializer, $source_ref);
   }
 
   <<__Override>>
