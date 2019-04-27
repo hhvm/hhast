@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<47f8ac80abff8d6c16261772913d8cf2>>
+ * @generated SignedSource<<b3f28f94e0095e5dc6771d16d23505c9>>
  */
 namespace Facebook\HHAST;
 
@@ -45,9 +45,8 @@ final class CoroutineToken extends EditableTokenWithVariableText {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);

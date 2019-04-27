@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2e7e029433fde15344c070e5cf412587>>
+ * @generated SignedSource<<c06c25dd45a9808886a3491d49dd3d2b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -104,9 +104,8 @@ final class FileAttributeSpecification extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $left_double_angle = $this->_left_double_angle
       ->rewrite($rewriter, $parents);

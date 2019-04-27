@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c320792f72b440804a577063f636eeba>>
+ * @generated SignedSource<<daff2c9b5b19feb20ea92bddfe0f718c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -116,9 +116,8 @@ final class LambdaExpression extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $attribute_spec = $this->_attribute_spec->rewrite($rewriter, $parents);
     $async = $this->_async->rewrite($rewriter, $parents);

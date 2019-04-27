@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b903ccd5daad7dd7437f938da48c31d9>>
+ * @generated SignedSource<<9e48bef52707ebe18c0cb6a4579cf7de>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -164,9 +164,8 @@ final class AlternateIfStatement extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $keyword = $this->_keyword->rewrite($rewriter, $parents);
     $left_paren = $this->_left_paren->rewrite($rewriter, $parents);

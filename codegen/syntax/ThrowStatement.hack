@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d7ef225ab843e6fab1ebd3d2d29ae56f>>
+ * @generated SignedSource<<fe352294dad23abf280b3493c81511a3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -75,9 +75,8 @@ final class ThrowStatement extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $keyword = $this->_keyword->rewrite($rewriter, $parents);
     $expression = $this->_expression->rewrite($rewriter, $parents);

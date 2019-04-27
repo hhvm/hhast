@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<21c2a34868be37091c4a4ec7baeb41fc>>
+ * @generated SignedSource<<a1d0847361a7375b439608ace5138a19>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -104,9 +104,8 @@ final class XHPEnumType extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $optional = $this->_optional->rewrite($rewriter, $parents);
     $keyword = $this->_keyword->rewrite($rewriter, $parents);

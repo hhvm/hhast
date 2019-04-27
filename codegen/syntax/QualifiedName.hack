@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ea69569e2fed615ee0a160cb6da9c29e>>
+ * @generated SignedSource<<3b6f09f34bd40d5407a70ce20375653e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,9 +53,8 @@ final class QualifiedName extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $parts = $this->_parts->rewrite($rewriter, $parents);
     if ($parts === $this->_parts) {

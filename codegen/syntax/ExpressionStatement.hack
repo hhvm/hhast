@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<309ff9291d023d90a830427b401a2ed9>>
+ * @generated SignedSource<<183fc024c2e2add2713bed04996b3474>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -64,9 +64,8 @@ final class ExpressionStatement extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $expression = $this->_expression->rewrite($rewriter, $parents);
     $semicolon = $this->_semicolon->rewrite($rewriter, $parents);

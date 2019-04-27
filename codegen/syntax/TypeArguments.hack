@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9ff32a8ad620fba1568c34766815edf4>>
+ * @generated SignedSource<<be155d2c371a84dfc584135afeae7d52>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -75,9 +75,8 @@ final class TypeArguments extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $left_angle = $this->_left_angle->rewrite($rewriter, $parents);
     $types = $this->_types->rewrite($rewriter, $parents);

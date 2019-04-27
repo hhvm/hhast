@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<80ff8cb268fd5a6e7e77639d5f7bbec9>>
+ * @generated SignedSource<<db97f966b340503a13fece7c6bd4b2d9>>
  */
 namespace Facebook\HHAST;
 
@@ -45,9 +45,8 @@ final class GreaterThanGreaterThanToken extends EditableTokenWithFixedText {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);

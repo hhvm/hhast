@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cdc2db59b4c2e0dfbbe8200b3415de1d>>
+ * @generated SignedSource<<bed170e7754b6cee1c5e25dfb535ba0e>>
  */
 namespace Facebook\HHAST;
 
@@ -45,9 +45,8 @@ final class ThrowToken extends EditableTokenWithVariableText {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);

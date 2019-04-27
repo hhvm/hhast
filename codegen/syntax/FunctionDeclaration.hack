@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<491f4a177d4b5da353990dbfc2430e5f>>
+ * @generated SignedSource<<6a72a045731309f2f8f5039ee0c1e531>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -77,9 +77,8 @@ final class FunctionDeclaration
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $attribute_spec = $this->_attribute_spec->rewrite($rewriter, $parents);
     $declaration_header = $this->_declaration_header

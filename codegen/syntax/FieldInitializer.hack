@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<af7a259faf0db75e16698d7aaba933c2>>
+ * @generated SignedSource<<fbde3e5f23da24dd95c04a1f55503afc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -75,9 +75,8 @@ final class FieldInitializer extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $name = $this->_name->rewrite($rewriter, $parents);
     $arrow = $this->_arrow->rewrite($rewriter, $parents);

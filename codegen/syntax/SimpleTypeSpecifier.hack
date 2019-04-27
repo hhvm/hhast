@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<138972fc7a00002536782e683c3c6bf9>>
+ * @generated SignedSource<<6d628f7130bfd4516c02866898de87c5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,9 +53,8 @@ final class SimpleTypeSpecifier extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $specifier = $this->_specifier->rewrite($rewriter, $parents);
     if ($specifier === $this->_specifier) {

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6f3414b0e447c7d2bcd583e964e30333>>
+ * @generated SignedSource<<26f699a719f0ebd5e0503c06f11a5fe7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,9 +53,8 @@ final class XHPSimpleClassAttribute extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $type = $this->_type->rewrite($rewriter, $parents);
     if ($type === $this->_type) {

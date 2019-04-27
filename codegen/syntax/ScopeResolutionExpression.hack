@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<71d728a97d0b86ab40379bddf3338c54>>
+ * @generated SignedSource<<93c00f30f2e6b22c28ed014197bdb1ce>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -75,9 +75,8 @@ final class ScopeResolutionExpression extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $qualifier = $this->_qualifier->rewrite($rewriter, $parents);
     $operator = $this->_operator->rewrite($rewriter, $parents);

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6e26a2832b42f15aaee0f3d546365c97>>
+ * @generated SignedSource<<c66a6a94d41ab7af2492171712276dae>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -75,9 +75,8 @@ final class CompoundStatement extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $left_brace = $this->_left_brace->rewrite($rewriter, $parents);
     $statements = $this->_statements->rewrite($rewriter, $parents);

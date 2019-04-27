@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8c661d0a0f08ad5d2b2f6a7b464cbc3b>>
+ * @generated SignedSource<<e76042129febeb6371007c782d77e159>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -64,9 +64,8 @@ final class NullableTypeSpecifier extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $question = $this->_question->rewrite($rewriter, $parents);
     $type = $this->_type->rewrite($rewriter, $parents);

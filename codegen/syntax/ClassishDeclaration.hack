@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e829a662fb93982d0ea28679261a6852>>
+ * @generated SignedSource<<6410624b5d6f3a42850222af6e0b2020>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -164,9 +164,8 @@ final class ClassishDeclaration extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $attribute = $this->_attribute->rewrite($rewriter, $parents);
     $modifiers = $this->_modifiers->rewrite($rewriter, $parents);

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<97395ef4bc6b3b44705c85157718d0fd>>
+ * @generated SignedSource<<03717568e57f54ab41573f3578c75ba2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -130,9 +130,8 @@ final class DoStatement
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $keyword = $this->_keyword->rewrite($rewriter, $parents);
     $body = $this->_body->rewrite($rewriter, $parents);

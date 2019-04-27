@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<52fee3f896e8c1e2ed8d0fa4210d9c55>>
+ * @generated SignedSource<<71a5189deaf375ce1e41098dcd7c8c38>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -128,9 +128,8 @@ final class DarrayTypeSpecifier extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $keyword = $this->_keyword->rewrite($rewriter, $parents);
     $left_angle = $this->_left_angle->rewrite($rewriter, $parents);

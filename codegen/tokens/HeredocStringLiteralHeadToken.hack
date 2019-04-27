@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fcf46cb3b42fefeed23e56d904224fdd>>
+ * @generated SignedSource<<ed4af1ad16d897f16132eed2840961ee>>
  */
 namespace Facebook\HHAST;
 
@@ -53,9 +53,8 @@ final class HeredocStringLiteralHeadToken
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);

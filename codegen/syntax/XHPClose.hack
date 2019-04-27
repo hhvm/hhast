@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<60c81b7e3dd384475a282d4108e85ca1>>
+ * @generated SignedSource<<d1c6e9f1e9f122694f0078c96a7610a0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -75,9 +75,8 @@ final class XHPClose extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $left_angle = $this->_left_angle->rewrite($rewriter, $parents);
     $name = $this->_name->rewrite($rewriter, $parents);

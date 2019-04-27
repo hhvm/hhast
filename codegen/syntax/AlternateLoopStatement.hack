@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3de1219ecfd71acdc7ea80677f2681f8>>
+ * @generated SignedSource<<71ee39dd215fd2c049132e7ac7fe45a9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -94,9 +94,8 @@ abstract class AlternateLoopStatementGeneratedBase
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $opening_colon = $this->_opening_colon->rewrite($rewriter, $parents);
     $statements = $this->_statements->rewrite($rewriter, $parents);

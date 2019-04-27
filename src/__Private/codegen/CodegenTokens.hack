@@ -257,11 +257,10 @@ final class CodegenTokens extends CodegenBase {
     return $cg->codegenMethod('rewriteDescendants')
       ->setIsOverride()
       ->addParameter('self::TRewriter $rewriter')
-      ->addParameter('?vec<EditableNode> $parents = null')
+      ->addParameter('vec<EditableNode> $parents = vec[]')
       ->setReturnType('this')
       ->setBody(
         $cg->codegenHackBuilder()
-          ->addLine('$parents = $parents === null ? vec[] : vec($parents);')
           ->addLine('$parents[] = $this;')
           ->addLines(
             Vec\map(

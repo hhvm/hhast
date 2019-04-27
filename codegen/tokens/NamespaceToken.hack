@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<17e06cd706fba7d4d3e4eb73bde75a58>>
+ * @generated SignedSource<<7fb2d341b627d2aa131cb169f8ffa19d>>
  */
 namespace Facebook\HHAST;
 
@@ -45,9 +45,8 @@ final class NamespaceToken extends EditableTokenWithVariableText {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);

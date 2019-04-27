@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f0e672f95a6e5ab54479f771028649df>>
+ * @generated SignedSource<<a5ac6b34e9367a4acba124c463eb2ffd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -75,9 +75,8 @@ final class YieldFromExpression extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $yield_keyword = $this->_yield_keyword->rewrite($rewriter, $parents);
     $from_keyword = $this->_from_keyword->rewrite($rewriter, $parents);

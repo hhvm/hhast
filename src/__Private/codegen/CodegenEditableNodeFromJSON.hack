@@ -9,7 +9,6 @@
 
 namespace Facebook\HHAST\__Private;
 
-use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Dict};
 
 use type Facebook\HackCodegen\{

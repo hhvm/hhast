@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<014d76911a91d6c483a07a429588c70d>>
+ * @generated SignedSource<<3e97f1b9be377af6b578df40c21122d8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -188,9 +188,8 @@ final class Php7AnonymousFunction extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $attribute_spec = $this->_attribute_spec->rewrite($rewriter, $parents);
     $static_keyword = $this->_static_keyword->rewrite($rewriter, $parents);

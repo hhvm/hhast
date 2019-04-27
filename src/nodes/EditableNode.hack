@@ -159,9 +159,8 @@ abstract class EditableNode {
   // that matches a predicate, or [] if there is no such node.
   public function findWithParents(
     (function(EditableNode): bool) $predicate,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): vec<EditableNode> {
-    $parents = $parents === null ? vec[] : vec($parents);
     $new_parents = $parents;
     $new_parents[] = $this;
     if ($predicate($this)) {
@@ -311,14 +310,13 @@ abstract class EditableNode {
 
   abstract public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this;
 
   public function rewrite(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): EditableNode {
-    $parents = $parents === null ? vec[] : vec($parents);
     $with_rewritten_children = $this->rewriteDescendants($rewriter, $parents);
     return $rewriter($with_rewritten_children, $parents);
   }

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b7e4876e65735b2bf5ac9101c7da5d6e>>
+ * @generated SignedSource<<7fb9dfbffe4fef38f2e5d3740224a443>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -64,9 +64,8 @@ final class InclusionExpression extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $require = $this->_require->rewrite($rewriter, $parents);
     $filename = $this->_filename->rewrite($rewriter, $parents);

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<16c377a3f5df7c94cc6a7f2425e69cbf>>
+ * @generated SignedSource<<b726bfe45685eb38f6cd0e6b5b14a1fc>>
  */
 namespace Facebook\HHAST;
 
@@ -45,9 +45,8 @@ final class SlashToken extends EditableTokenWithFixedText {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);

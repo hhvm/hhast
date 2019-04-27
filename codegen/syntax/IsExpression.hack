@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8c21de291f4893e69581cd45768252b1>>
+ * @generated SignedSource<<c226b2240b151e900dc878f172923c73>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -75,9 +75,8 @@ final class IsExpression extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $left_operand = $this->_left_operand->rewrite($rewriter, $parents);
     $operator = $this->_operator->rewrite($rewriter, $parents);

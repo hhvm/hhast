@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<aab08e20e3f48f4ad0abc57aa8901181>>
+ * @generated SignedSource<<d37fc67249aca918ce62d6b741d2c6d7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -75,9 +75,8 @@ final class ParenthesizedExpression extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
     $expression = $this->_expression->rewrite($rewriter, $parents);

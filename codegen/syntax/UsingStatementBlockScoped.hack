@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<db46feef2c8aec1d4e9df2a0a152d40c>>
+ * @generated SignedSource<<cb5d820f78d1c039c6bb4a3ab1137f28>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -116,9 +116,8 @@ final class UsingStatementBlockScoped extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $await_keyword = $this->_await_keyword->rewrite($rewriter, $parents);
     $using_keyword = $this->_using_keyword->rewrite($rewriter, $parents);

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4262cfff94289d2616904a34a6b5897d>>
+ * @generated SignedSource<<ec4ce89d0745b5873d844f7e4399c408>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -152,9 +152,8 @@ final class EnumDeclaration extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $attribute_spec = $this->_attribute_spec->rewrite($rewriter, $parents);
     $keyword = $this->_keyword->rewrite($rewriter, $parents);

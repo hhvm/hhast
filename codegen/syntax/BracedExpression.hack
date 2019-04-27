@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<083f851371c00e1f31dfd5a82db99a8a>>
+ * @generated SignedSource<<c0c770dea8edb342706c8dd29f9fad26>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -75,9 +75,8 @@ final class BracedExpression extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $left_brace = $this->_left_brace->rewrite($rewriter, $parents);
     $expression = $this->_expression->rewrite($rewriter, $parents);

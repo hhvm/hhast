@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e82b99b748924c06e1957b8227f335aa>>
+ * @generated SignedSource<<58f011e5161ee0c002af79a61bb7990c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -64,9 +64,8 @@ final class PocketAtomExpression extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $glyph = $this->_glyph->rewrite($rewriter, $parents);
     $expression = $this->_expression->rewrite($rewriter, $parents);

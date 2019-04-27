@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a946065d167f43e97b5ff62a5231347d>>
+ * @generated SignedSource<<d69cc8f50b436ef2e4bfd0e5a8655b48>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -104,9 +104,8 @@ final class MethodishTraitResolution extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $attribute = $this->_attribute->rewrite($rewriter, $parents);
     $function_decl_header = $this->_function_decl_header

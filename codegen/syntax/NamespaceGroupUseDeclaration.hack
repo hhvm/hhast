@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7d83efe1ac1ba89bc15b3c1c5738eec3>>
+ * @generated SignedSource<<61bedef6cb1ff842aa528147dfa62f6e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -130,9 +130,8 @@ final class NamespaceGroupUseDeclaration
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $keyword = $this->_keyword->rewrite($rewriter, $parents);
     $kind = $this->_kind->rewrite($rewriter, $parents);

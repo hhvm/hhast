@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c28702ceec4a58713ffb5ade02c1fe60>>
+ * @generated SignedSource<<7c7fe16b1d2eecfe85b2d0aadbbdbc2c>>
  */
 namespace Facebook\HHAST;
 
@@ -45,9 +45,8 @@ final class UsingToken extends EditableTokenWithVariableText {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);

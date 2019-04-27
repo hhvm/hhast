@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3eba07e27ef8abaf9c0ddc80afd9fdfd>>
+ * @generated SignedSource<<fcf8ee91836963791f60b1a1d913d88b>>
  */
 namespace Facebook\HHAST;
 
@@ -45,9 +45,8 @@ final class LeftBracketToken extends EditableTokenWithFixedText {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $leading = $this->getLeading()->rewrite($rewriter, $parents);
     $trailing = $this->getTrailing()->rewrite($rewriter, $parents);

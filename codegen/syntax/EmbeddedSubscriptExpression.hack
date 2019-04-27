@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<af714d78dd336b385025cd54520ad0e1>>
+ * @generated SignedSource<<19231287a673abc84e68e9875ee0ce56>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -92,9 +92,8 @@ final class EmbeddedSubscriptExpression extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $receiver = $this->_receiver->rewrite($rewriter, $parents);
     $left_bracket = $this->_left_bracket->rewrite($rewriter, $parents);

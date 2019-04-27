@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e42e0d5125a20caa69f093e996dfd107>>
+ * @generated SignedSource<<7eb6cdb6b4aa3cb913e4afabc970689e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,9 +53,8 @@ final class NamespaceEmptyBody extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
     if ($semicolon === $this->_semicolon) {

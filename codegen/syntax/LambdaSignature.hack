@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<78d0129eb781d746d2eb9473b1738288>>
+ * @generated SignedSource<<a94edb77ad13a1572d4d7e1921702df1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -104,9 +104,8 @@ final class LambdaSignature extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
     $parameters = $this->_parameters->rewrite($rewriter, $parents);

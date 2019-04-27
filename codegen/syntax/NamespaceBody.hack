@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ba4235e23cc162ab9ac1aed80d2d3378>>
+ * @generated SignedSource<<5faf68b1737dbbb369661ba37a8d9747>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -75,9 +75,8 @@ final class NamespaceBody extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $left_brace = $this->_left_brace->rewrite($rewriter, $parents);
     $declarations = $this->_declarations->rewrite($rewriter, $parents);

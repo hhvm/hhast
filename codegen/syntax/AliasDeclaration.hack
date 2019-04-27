@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e3e2597742af8ab5591507db9bf0d0fa>>
+ * @generated SignedSource<<4c8de33bec066b1ed63be86a2b14cfe7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -140,9 +140,8 @@ final class AliasDeclaration extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $attribute_spec = $this->_attribute_spec->rewrite($rewriter, $parents);
     $keyword = $this->_keyword->rewrite($rewriter, $parents);

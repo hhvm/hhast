@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<deb8a029cd2e94324ada4c5b1be1932e>>
+ * @generated SignedSource<<ea9e94209e0a3765510a76a8fef1fff9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -75,9 +75,8 @@ final class SafeMemberSelectionExpression extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $object = $this->_object->rewrite($rewriter, $parents);
     $operator = $this->_operator->rewrite($rewriter, $parents);

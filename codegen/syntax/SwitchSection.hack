@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d6f4e5314815a7f2f2cf88bffb5f28c5>>
+ * @generated SignedSource<<d56dddac3e61824a4f9293d9aef3a7c2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -75,9 +75,8 @@ final class SwitchSection extends EditableNode {
   <<__Override>>
   public function rewriteDescendants(
     self::TRewriter $rewriter,
-    ?vec<EditableNode> $parents = null,
+    vec<EditableNode> $parents = vec[],
   ): this {
-    $parents = $parents === null ? vec[] : vec($parents);
     $parents[] = $this;
     $labels = $this->_labels->rewrite($rewriter, $parents);
     $statements = $this->_statements->rewrite($rewriter, $parents);
