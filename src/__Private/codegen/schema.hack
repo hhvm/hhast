@@ -16,20 +16,18 @@ type TToken = shape('token_kind' => string, 'token_text' => ?string);
 
 type TASTField = shape('field_name' => string);
 
-// We can't switch these arrays over to vec until we update to TypeAssert 3
-
 type TAST = shape(
   'kind_name' => string,
   'type_name' => string,
   'description' => string,
   'prefix' => string,
-  'fields' => Traversable<TASTField>,
+  'fields' => vec<TASTField>,
 );
 
 type TSchema = shape(
-  'trivia' => Traversable<TTrivia>,
-  'tokens' => Traversable<TToken>,
-  'AST' => Traversable<TAST>,
+  'trivia' => vec<TTrivia>,
+  'tokens' => vec<TToken>,
+  'AST' => vec<TAST>,
   ?'description' => string,
   'version' => string,
 );

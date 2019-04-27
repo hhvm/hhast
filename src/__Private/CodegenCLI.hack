@@ -23,12 +23,16 @@ final class CodegenCLI extends CLIBase {
   protected function getSupportedOptions(): vec<CLIOptions\CLIOption> {
     return vec[
       CLIOptions\with_required_string(
-        $path ==> { $this->hhvmPath = $path; },
+        $path ==> {
+          $this->hhvmPath = $path;
+        },
         'Path to HHVM source tree',
         '--hhvm-path',
       ),
       CLIOptions\flag(
-        () ==> { $this->rebuildRelationships = true; },
+        () ==> {
+          $this->rebuildRelationships = true;
+        },
         'Update inferred relationships based on the HHVM and Hack tests; requires --hhvm-path',
         '--rebuild-relationships',
       ),
@@ -53,7 +57,7 @@ final class CodegenCLI extends CLIBase {
       if ($hhvm === null) {
         await $this->getStderr()->writeAsync(
           "--hhvm-path is required when rebuilding relationships.\n",
-         );
+        );
         return 1;
       }
       $relationships = dict[];
@@ -76,7 +80,12 @@ final class CodegenCLI extends CLIBase {
     $json = \file_get_contents(
       \Facebook\AutoloadMap\Generated\root().'/codegen/schema.json',
     );
-    $array = \json_decode($json, /* associative array = */ true);
+    $array = \json_decode(
+      $json, /* associative array = */
+      true, /* depth = */
+      512,
+      \JSON_FB_HACK_ARRAYS,
+    );
 
     return TypeAssert\matches_type_structure(
       type_structure(self::class, 'TSchema'),

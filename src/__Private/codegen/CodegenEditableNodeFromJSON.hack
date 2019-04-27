@@ -9,18 +9,45 @@
 
 namespace Facebook\HHAST\__Private;
 
-use namespace HH\Lib\C;
+use namespace Facebook\HHAST;
+use namespace HH\Lib\{C, Dict};
 
-use type Facebook\HackCodegen\{CodegenFileType, HackBuilderValues};
+use type Facebook\HackCodegen\{
+  CodegenFileType,
+  HackBuilderKeys,
+  HackBuilderValues,
+};
 
 final class CodegenEditableNodeFromJSON extends CodegenBase {
   <<__Override>>
   public function generate(): void {
     $cg = $this->getCodegenFactory();
 
+    $kind_to_class = Dict\merge(
+      dict[
+        'list' => 'EditableList',
+        'missing' => 'Missing',
+      ],
+      Dict\pull(
+        $this->getSchema()['trivia'],
+        $trivia ==> $trivia['trivia_kind_name'],
+        $trivia ==> $trivia['trivia_type_name'],
+      ),
+      Dict\pull(
+        Dict\filter(
+          $this->getSchema()['AST'],
+          $ast ==> !C\contains_key(
+            self::getHandWrittenSyntaxKinds(),
+            $ast['kind_name'],
+          ),
+        ),
+        $ast ==> $ast['kind_name'],
+        $ast ==> $ast['description'],
+      ),
+    );
+
     $cg
-      ->codegenFile($this->getOutputDirectory().
-        '/editable_node_from_json.hack')
+      ->codegenFile($this->getOutputDirectory().'/editable_node_from_json.hack')
       ->setFileType(CodegenFileType::DOT_HACK)
       ->setNamespace('Facebook\\HHAST\\__Private')
       ->useNamespace('Facebook\\HHAST')
@@ -35,59 +62,45 @@ final class CodegenEditableNodeFromJSON extends CodegenBase {
           ->setBody(
             $cg
               ->codegenHackBuilder()
-              ->startSwitch('(string) $json[\'kind\']')
-              ->addCase('token', HackBuilderValues::export())
+              ->addAssignment(
+                '$kind',
+                '$json["kind"] as string',
+                HackBuilderValues::literal(),
+              )
+              ->startIfBlock('$kind === "token"')
               ->add('return ')
               ->addMultilineCall(
                 'HHAST\\EditableToken::fromJSON',
                 vec[
-                  '/* HH_IGNORE_ERROR[4110] */ $json[\'token\']',
+                  '$json[\'token\'] as dict<_, _>',
                   '$file',
                   '$offset',
                   '$source',
                 ],
               )
-              ->unindent()
-              ->addCase('list', HackBuilderValues::export())
-              ->returnCasef(
-                'HHAST\\EditableList::fromJSON($json, $file, $offset, $source)',
-              )
-              ->addCase('missing', HackBuilderValues::export())
-              ->addReturnf('HHAST\\Missing()')
-              ->unindent()
-              ->addCaseBlocks(
-                $this->getSchema()['trivia'],
-                ($trivia, $body) ==> {
-                  $body
-                    ->addCase(
-                      $trivia['trivia_type_name'],
-                      HackBuilderValues::export(),
-                    )
-                    ->addReturnf(
-                      'HHAST\\%s::fromJSON($json, $file, $offset, $source)',
-                      $trivia['trivia_kind_name'],
-                    )
-                    ->unindent();
-                },
-              )
-              ->addCaseBlocks(
-                (new Vector($this->getSchema()['AST']))->filter(
-                  $ast ==> !C\contains_key(
-                    self::getHandWrittenSyntaxKinds(),
-                    $ast['kind_name'],
+              ->endIfBlock()
+              ->addAssignment(
+                '$kind_to_class',
+                $kind_to_class,
+                HackBuilderValues::dict(
+                  HackBuilderKeys::export(),
+                  HackBuilderValues::lambda(
+                    ($_, $v) ==> 'HHAST\\'.$v.'::class',
                   ),
                 ),
-                ($ast, $body) ==> {
-                  $body
-                    ->addCase($ast['description'], HackBuilderValues::export())
-                    ->addReturnf(
-                      'HHAST\\%s::fromJSON($json, $file, $offset, $source)',
-                      $ast['kind_name'],
-                    )
-                    ->unindent();
-                },
               )
-              ->addDefault()
+              ->addAssignment(
+                '$class',
+                '$kind_to_class[$kind] ?? null',
+                HackBuilderValues::literal(),
+              )
+              ->startIfBlock('$class is nonnull')
+              ->add('return ')
+              ->addMultilineCall(
+                '$class::fromJSON',
+                vec['$json', '$file', '$offset', '$source'],
+              )
+              ->endIfBlock()
               ->addMultilineCall(
                 'throw new HHAST\\UnsupportedASTNodeError',
                 vec[
@@ -96,8 +109,6 @@ final class CodegenEditableNodeFromJSON extends CodegenBase {
                   '(string) $json[\'kind\']',
                 ],
               )
-              ->endDefault()
-              ->endSwitch()
               ->getCode(),
           ),
       )

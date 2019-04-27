@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<931aeafe904376722823a8c6f3447756>>
+ * @generated SignedSource<<021e515c858787721995d8e44a492ef7>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -12,838 +12,226 @@ function editable_node_from_json(
   int $offset,
   string $source,
 ): HHAST\EditableNode {
-  switch ((string)$json['kind']) {
-    case 'token':
-      return HHAST\EditableToken::fromJSON(
-        /* HH_IGNORE_ERROR[4110] */ $json['token'],
-        $file,
-        $offset,
-        $source,
-      );
-    case 'list':
-      return HHAST\EditableList::fromJSON($json, $file, $offset, $source);
-    case 'missing':
-      return HHAST\Missing();
-    case 'after_halt_compiler':
-      return HHAST\AfterHaltCompiler::fromJSON($json, $file, $offset, $source);
-    case 'delimited_comment':
-      return HHAST\DelimitedComment::fromJSON($json, $file, $offset, $source);
-    case 'end_of_line':
-      return HHAST\EndOfLine::fromJSON($json, $file, $offset, $source);
-    case 'extra_token_error':
-      return HHAST\ExtraTokenError::fromJSON($json, $file, $offset, $source);
-    case 'fall_through':
-      return HHAST\FallThrough::fromJSON($json, $file, $offset, $source);
-    case 'fix_me':
-      return HHAST\FixMe::fromJSON($json, $file, $offset, $source);
-    case 'ignore_error':
-      return HHAST\IgnoreError::fromJSON($json, $file, $offset, $source);
-    case 'single_line_comment':
-      return HHAST\SingleLineComment::fromJSON($json, $file, $offset, $source);
-    case 'unsafe':
-      return HHAST\Unsafe::fromJSON($json, $file, $offset, $source);
-    case 'unsafe_expression':
-      return HHAST\UnsafeExpression::fromJSON($json, $file, $offset, $source);
-    case 'whitespace':
-      return HHAST\WhiteSpace::fromJSON($json, $file, $offset, $source);
-    case 'alias_declaration':
-      return HHAST\AliasDeclaration::fromJSON($json, $file, $offset, $source);
-    case 'alternate_else_clause':
-      return HHAST\AlternateElseClause::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'alternate_elseif_clause':
-      return HHAST\AlternateElseifClause::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'alternate_if_statement':
-      return HHAST\AlternateIfStatement::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'alternate_loop_statement':
-      return HHAST\AlternateLoopStatement::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'alternate_switch_statement':
-      return HHAST\AlternateSwitchStatement::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'anonymous_class':
-      return HHAST\AnonymousClass::fromJSON($json, $file, $offset, $source);
-    case 'anonymous_function':
-      return HHAST\AnonymousFunction::fromJSON($json, $file, $offset, $source);
-    case 'anonymous_function_use_clause':
-      return HHAST\AnonymousFunctionUseClause::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'array_creation_expression':
-      return HHAST\ArrayCreationExpression::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'array_intrinsic_expression':
-      return HHAST\ArrayIntrinsicExpression::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'as_expression':
-      return HHAST\AsExpression::fromJSON($json, $file, $offset, $source);
-    case 'attribute_specification':
-      return HHAST\AttributeSpecification::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'awaitable_creation_expression':
-      return HHAST\AwaitableCreationExpression::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'binary_expression':
-      return HHAST\BinaryExpression::fromJSON($json, $file, $offset, $source);
-    case 'braced_expression':
-      return HHAST\BracedExpression::fromJSON($json, $file, $offset, $source);
-    case 'break_statement':
-      return HHAST\BreakStatement::fromJSON($json, $file, $offset, $source);
-    case 'case_label':
-      return HHAST\CaseLabel::fromJSON($json, $file, $offset, $source);
-    case 'cast_expression':
-      return HHAST\CastExpression::fromJSON($json, $file, $offset, $source);
-    case 'catch_clause':
-      return HHAST\CatchClause::fromJSON($json, $file, $offset, $source);
-    case 'classish_body':
-      return HHAST\ClassishBody::fromJSON($json, $file, $offset, $source);
-    case 'classish_declaration':
-      return HHAST\ClassishDeclaration::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'classname_type_specifier':
-      return HHAST\ClassnameTypeSpecifier::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'closure_parameter_type_specifier':
-      return HHAST\ClosureParameterTypeSpecifier::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'closure_type_specifier':
-      return HHAST\ClosureTypeSpecifier::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'collection_literal_expression':
-      return HHAST\CollectionLiteralExpression::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'compound_statement':
-      return HHAST\CompoundStatement::fromJSON($json, $file, $offset, $source);
-    case 'concurrent_statement':
-      return HHAST\ConcurrentStatement::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'conditional_expression':
-      return HHAST\ConditionalExpression::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'const_declaration':
-      return HHAST\ConstDeclaration::fromJSON($json, $file, $offset, $source);
-    case 'constant_declarator':
-      return HHAST\ConstantDeclarator::fromJSON($json, $file, $offset, $source);
-    case 'constructor_call':
-      return HHAST\ConstructorCall::fromJSON($json, $file, $offset, $source);
-    case 'continue_statement':
-      return HHAST\ContinueStatement::fromJSON($json, $file, $offset, $source);
-    case 'darray_intrinsic_expression':
-      return HHAST\DarrayIntrinsicExpression::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'darray_type_specifier':
-      return HHAST\DarrayTypeSpecifier::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'declare_block_statement':
-      return HHAST\DeclareBlockStatement::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'declare_directive_statement':
-      return HHAST\DeclareDirectiveStatement::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'decorated_expression':
-      return HHAST\DecoratedExpression::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'default_label':
-      return HHAST\DefaultLabel::fromJSON($json, $file, $offset, $source);
-    case 'define_expression':
-      return HHAST\DefineExpression::fromJSON($json, $file, $offset, $source);
-    case 'dictionary_intrinsic_expression':
-      return HHAST\DictionaryIntrinsicExpression::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'dictionary_type_specifier':
-      return HHAST\DictionaryTypeSpecifier::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'do_statement':
-      return HHAST\DoStatement::fromJSON($json, $file, $offset, $source);
-    case 'echo_statement':
-      return HHAST\EchoStatement::fromJSON($json, $file, $offset, $source);
-    case 'element_initializer':
-      return HHAST\ElementInitializer::fromJSON($json, $file, $offset, $source);
-    case 'else_clause':
-      return HHAST\ElseClause::fromJSON($json, $file, $offset, $source);
-    case 'elseif_clause':
-      return HHAST\ElseifClause::fromJSON($json, $file, $offset, $source);
-    case 'embedded_braced_expression':
-      return HHAST\EmbeddedBracedExpression::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'embedded_member_selection_expression':
-      return HHAST\EmbeddedMemberSelectionExpression::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'embedded_subscript_expression':
-      return HHAST\EmbeddedSubscriptExpression::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'empty_expression':
-      return HHAST\EmptyExpression::fromJSON($json, $file, $offset, $source);
-    case 'end_of_file':
-      return HHAST\EndOfFile::fromJSON($json, $file, $offset, $source);
-    case 'enum_declaration':
-      return HHAST\EnumDeclaration::fromJSON($json, $file, $offset, $source);
-    case 'enumerator':
-      return HHAST\Enumerator::fromJSON($json, $file, $offset, $source);
-    case 'error':
-      return HHAST\ErrorSyntax::fromJSON($json, $file, $offset, $source);
-    case 'eval_expression':
-      return HHAST\EvalExpression::fromJSON($json, $file, $offset, $source);
-    case 'expression_statement':
-      return HHAST\ExpressionStatement::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'field_initializer':
-      return HHAST\FieldInitializer::fromJSON($json, $file, $offset, $source);
-    case 'field_specifier':
-      return HHAST\FieldSpecifier::fromJSON($json, $file, $offset, $source);
-    case 'file_attribute_specification':
-      return HHAST\FileAttributeSpecification::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'finally_clause':
-      return HHAST\FinallyClause::fromJSON($json, $file, $offset, $source);
-    case 'for_statement':
-      return HHAST\ForStatement::fromJSON($json, $file, $offset, $source);
-    case 'foreach_statement':
-      return HHAST\ForeachStatement::fromJSON($json, $file, $offset, $source);
-    case 'function_call_expression':
-      return HHAST\FunctionCallExpression::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'function_declaration':
-      return HHAST\FunctionDeclaration::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'function_declaration_header':
-      return HHAST\FunctionDeclarationHeader::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'generic_type_specifier':
-      return HHAST\GenericTypeSpecifier::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'goto_label':
-      return HHAST\GotoLabel::fromJSON($json, $file, $offset, $source);
-    case 'goto_statement':
-      return HHAST\GotoStatement::fromJSON($json, $file, $offset, $source);
-    case 'halt_compiler_expression':
-      return HHAST\HaltCompilerExpression::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'if_statement':
-      return HHAST\IfStatement::fromJSON($json, $file, $offset, $source);
-    case 'inclusion_directive':
-      return HHAST\InclusionDirective::fromJSON($json, $file, $offset, $source);
-    case 'inclusion_expression':
-      return HHAST\InclusionExpression::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'instanceof_expression':
-      return HHAST\InstanceofExpression::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'is_expression':
-      return HHAST\IsExpression::fromJSON($json, $file, $offset, $source);
-    case 'isset_expression':
-      return HHAST\IssetExpression::fromJSON($json, $file, $offset, $source);
-    case 'keyset_intrinsic_expression':
-      return HHAST\KeysetIntrinsicExpression::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'keyset_type_specifier':
-      return HHAST\KeysetTypeSpecifier::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'lambda_expression':
-      return HHAST\LambdaExpression::fromJSON($json, $file, $offset, $source);
-    case 'lambda_signature':
-      return HHAST\LambdaSignature::fromJSON($json, $file, $offset, $source);
-    case 'let_statement':
-      return HHAST\LetStatement::fromJSON($json, $file, $offset, $source);
-    case 'like_type_specifier':
-      return HHAST\LikeTypeSpecifier::fromJSON($json, $file, $offset, $source);
-    case 'list_expression':
-      return HHAST\ListExpression::fromJSON($json, $file, $offset, $source);
-    case 'list_item':
-      return HHAST\ListItem::fromJSON($json, $file, $offset, $source);
-    case 'literal':
-      return HHAST\LiteralExpression::fromJSON($json, $file, $offset, $source);
-    case 'map_array_type_specifier':
-      return HHAST\MapArrayTypeSpecifier::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'markup_section':
-      return HHAST\MarkupSection::fromJSON($json, $file, $offset, $source);
-    case 'markup_suffix':
-      return HHAST\MarkupSuffix::fromJSON($json, $file, $offset, $source);
-    case 'member_selection_expression':
-      return HHAST\MemberSelectionExpression::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'methodish_declaration':
-      return HHAST\MethodishDeclaration::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'methodish_trait_resolution':
-      return HHAST\MethodishTraitResolution::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'namespace_body':
-      return HHAST\NamespaceBody::fromJSON($json, $file, $offset, $source);
-    case 'namespace_declaration':
-      return HHAST\NamespaceDeclaration::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'namespace_empty_body':
-      return HHAST\NamespaceEmptyBody::fromJSON($json, $file, $offset, $source);
-    case 'namespace_group_use_declaration':
-      return HHAST\NamespaceGroupUseDeclaration::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'namespace_use_clause':
-      return HHAST\NamespaceUseClause::fromJSON($json, $file, $offset, $source);
-    case 'namespace_use_declaration':
-      return HHAST\NamespaceUseDeclaration::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'nullable_as_expression':
-      return HHAST\NullableAsExpression::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'nullable_type_specifier':
-      return HHAST\NullableTypeSpecifier::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'object_creation_expression':
-      return HHAST\ObjectCreationExpression::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'parameter_declaration':
-      return HHAST\ParameterDeclaration::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'parenthesized_expression':
-      return HHAST\ParenthesizedExpression::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'php7_anonymous_function':
-      return HHAST\Php7AnonymousFunction::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'pipe_variable':
-      return HHAST\PipeVariableExpression::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'pocket_atom':
-      return HHAST\PocketAtomExpression::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'pocket_atom_mapping':
-      return HHAST\PocketAtomMappingDeclaration::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'pocket_enum_declaration':
-      return HHAST\PocketEnumDeclaration::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'pocket_field_type_declaration':
-      return HHAST\PocketFieldTypeDeclaration::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'pocket_field_type_expr_declaration':
-      return HHAST\PocketFieldTypeExprDeclaration::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'pocket_identifier':
-      return HHAST\PocketIdentifierExpression::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'pocket_mapping_id_declaration':
-      return HHAST\PocketMappingIdDeclaration::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'pocket_mapping_type_declaration':
-      return HHAST\PocketMappingTypeDeclaration::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'postfix_unary_expression':
-      return HHAST\PostfixUnaryExpression::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'prefix_unary_expression':
-      return HHAST\PrefixUnaryExpression::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'prefixed_string':
-      return HHAST\PrefixedStringExpression::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'property_declaration':
-      return HHAST\PropertyDeclaration::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'property_declarator':
-      return HHAST\PropertyDeclarator::fromJSON($json, $file, $offset, $source);
-    case 'qualified_name':
-      return HHAST\QualifiedName::fromJSON($json, $file, $offset, $source);
-    case 'record_creation_expression':
-      return HHAST\RecordCreationExpression::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'record_declaration':
-      return HHAST\RecordDeclaration::fromJSON($json, $file, $offset, $source);
-    case 'record_field':
-      return HHAST\RecordField::fromJSON($json, $file, $offset, $source);
-    case 'reified_type_argument':
-      return HHAST\ReifiedTypeArgument::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'require_clause':
-      return HHAST\RequireClause::fromJSON($json, $file, $offset, $source);
-    case 'return_statement':
-      return HHAST\ReturnStatement::fromJSON($json, $file, $offset, $source);
-    case 'safe_member_selection_expression':
-      return HHAST\SafeMemberSelectionExpression::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'scope_resolution_expression':
-      return HHAST\ScopeResolutionExpression::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'script':
-      return HHAST\Script::fromJSON($json, $file, $offset, $source);
-    case 'shape_expression':
-      return HHAST\ShapeExpression::fromJSON($json, $file, $offset, $source);
-    case 'shape_type_specifier':
-      return HHAST\ShapeTypeSpecifier::fromJSON($json, $file, $offset, $source);
-    case 'simple_initializer':
-      return HHAST\SimpleInitializer::fromJSON($json, $file, $offset, $source);
-    case 'simple_type_specifier':
-      return HHAST\SimpleTypeSpecifier::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'soft_type_specifier':
-      return HHAST\SoftTypeSpecifier::fromJSON($json, $file, $offset, $source);
-    case 'subscript_expression':
-      return HHAST\SubscriptExpression::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'switch_fallthrough':
-      return HHAST\SwitchFallthrough::fromJSON($json, $file, $offset, $source);
-    case 'switch_section':
-      return HHAST\SwitchSection::fromJSON($json, $file, $offset, $source);
-    case 'switch_statement':
-      return HHAST\SwitchStatement::fromJSON($json, $file, $offset, $source);
-    case 'throw_statement':
-      return HHAST\ThrowStatement::fromJSON($json, $file, $offset, $source);
-    case 'trait_use':
-      return HHAST\TraitUse::fromJSON($json, $file, $offset, $source);
-    case 'trait_use_alias_item':
-      return HHAST\TraitUseAliasItem::fromJSON($json, $file, $offset, $source);
-    case 'trait_use_conflict_resolution':
-      return HHAST\TraitUseConflictResolution::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'trait_use_precedence_item':
-      return HHAST\TraitUsePrecedenceItem::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'try_statement':
-      return HHAST\TryStatement::fromJSON($json, $file, $offset, $source);
-    case 'tuple_expression':
-      return HHAST\TupleExpression::fromJSON($json, $file, $offset, $source);
-    case 'tuple_type_explicit_specifier':
-      return HHAST\TupleTypeExplicitSpecifier::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'tuple_type_specifier':
-      return HHAST\TupleTypeSpecifier::fromJSON($json, $file, $offset, $source);
-    case 'type_arguments':
-      return HHAST\TypeArguments::fromJSON($json, $file, $offset, $source);
-    case 'type_const_declaration':
-      return HHAST\TypeConstDeclaration::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'type_constant':
-      return HHAST\TypeConstant::fromJSON($json, $file, $offset, $source);
-    case 'type_constraint':
-      return HHAST\TypeConstraint::fromJSON($json, $file, $offset, $source);
-    case 'type_parameter':
-      return HHAST\TypeParameter::fromJSON($json, $file, $offset, $source);
-    case 'type_parameters':
-      return HHAST\TypeParameters::fromJSON($json, $file, $offset, $source);
-    case 'unset_statement':
-      return HHAST\UnsetStatement::fromJSON($json, $file, $offset, $source);
-    case 'using_statement_block_scoped':
-      return HHAST\UsingStatementBlockScoped::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'using_statement_function_scoped':
-      return HHAST\UsingStatementFunctionScoped::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'variable':
-      return HHAST\VariableExpression::fromJSON($json, $file, $offset, $source);
-    case 'variadic_parameter':
-      return HHAST\VariadicParameter::fromJSON($json, $file, $offset, $source);
-    case 'varray_intrinsic_expression':
-      return HHAST\VarrayIntrinsicExpression::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'varray_type_specifier':
-      return HHAST\VarrayTypeSpecifier::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'vector_array_type_specifier':
-      return HHAST\VectorArrayTypeSpecifier::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'vector_intrinsic_expression':
-      return HHAST\VectorIntrinsicExpression::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'vector_type_specifier':
-      return HHAST\VectorTypeSpecifier::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'where_clause':
-      return HHAST\WhereClause::fromJSON($json, $file, $offset, $source);
-    case 'where_constraint':
-      return HHAST\WhereConstraint::fromJSON($json, $file, $offset, $source);
-    case 'while_statement':
-      return HHAST\WhileStatement::fromJSON($json, $file, $offset, $source);
-    case 'xhp_category_declaration':
-      return HHAST\XHPCategoryDeclaration::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'xhp_children_declaration':
-      return HHAST\XHPChildrenDeclaration::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'xhp_children_parenthesized_list':
-      return HHAST\XHPChildrenParenthesizedList::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'xhp_class_attribute':
-      return HHAST\XHPClassAttribute::fromJSON($json, $file, $offset, $source);
-    case 'xhp_class_attribute_declaration':
-      return HHAST\XHPClassAttributeDeclaration::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'xhp_close':
-      return HHAST\XHPClose::fromJSON($json, $file, $offset, $source);
-    case 'xhp_enum_type':
-      return HHAST\XHPEnumType::fromJSON($json, $file, $offset, $source);
-    case 'xhp_expression':
-      return HHAST\XHPExpression::fromJSON($json, $file, $offset, $source);
-    case 'xhp_open':
-      return HHAST\XHPOpen::fromJSON($json, $file, $offset, $source);
-    case 'xhp_required':
-      return HHAST\XHPRequired::fromJSON($json, $file, $offset, $source);
-    case 'xhp_simple_attribute':
-      return HHAST\XHPSimpleAttribute::fromJSON($json, $file, $offset, $source);
-    case 'xhp_simple_class_attribute':
-      return HHAST\XHPSimpleClassAttribute::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    case 'xhp_spread_attribute':
-      return HHAST\XHPSpreadAttribute::fromJSON($json, $file, $offset, $source);
-    case 'yield_expression':
-      return HHAST\YieldExpression::fromJSON($json, $file, $offset, $source);
-    case 'yield_from_expression':
-      return HHAST\YieldFromExpression::fromJSON(
-        $json,
-        $file,
-        $offset,
-        $source,
-      );
-    default:
-      throw new HHAST\UnsupportedASTNodeError(
-        $file,
-        $offset,
-        (string)$json['kind'],
-      );
+  $kind = $json["kind"] as string;
+  if ($kind === "token") {
+    return HHAST\EditableToken::fromJSON(
+      $json['token'] as dict<_, _>,
+      $file,
+      $offset,
+      $source,
+    );
   }
+  $kind_to_class = dict[
+    'list' => HHAST\EditableList::class,
+    'missing' => HHAST\Missing::class,
+    'after_halt_compiler' => HHAST\AfterHaltCompiler::class,
+    'delimited_comment' => HHAST\DelimitedComment::class,
+    'end_of_line' => HHAST\EndOfLine::class,
+    'extra_token_error' => HHAST\ExtraTokenError::class,
+    'fall_through' => HHAST\FallThrough::class,
+    'fix_me' => HHAST\FixMe::class,
+    'ignore_error' => HHAST\IgnoreError::class,
+    'single_line_comment' => HHAST\SingleLineComment::class,
+    'unsafe' => HHAST\Unsafe::class,
+    'unsafe_expression' => HHAST\UnsafeExpression::class,
+    'whitespace' => HHAST\WhiteSpace::class,
+    'alias_declaration' => HHAST\AliasDeclaration::class,
+    'alternate_else_clause' => HHAST\AlternateElseClause::class,
+    'alternate_elseif_clause' => HHAST\AlternateElseifClause::class,
+    'alternate_if_statement' => HHAST\AlternateIfStatement::class,
+    'alternate_loop_statement' => HHAST\AlternateLoopStatement::class,
+    'alternate_switch_statement' => HHAST\AlternateSwitchStatement::class,
+    'anonymous_class' => HHAST\AnonymousClass::class,
+    'anonymous_function' => HHAST\AnonymousFunction::class,
+    'anonymous_function_use_clause' => HHAST\AnonymousFunctionUseClause::class,
+    'array_creation_expression' => HHAST\ArrayCreationExpression::class,
+    'array_intrinsic_expression' => HHAST\ArrayIntrinsicExpression::class,
+    'as_expression' => HHAST\AsExpression::class,
+    'attribute_specification' => HHAST\AttributeSpecification::class,
+    'awaitable_creation_expression' => HHAST\AwaitableCreationExpression::class,
+    'binary_expression' => HHAST\BinaryExpression::class,
+    'braced_expression' => HHAST\BracedExpression::class,
+    'break_statement' => HHAST\BreakStatement::class,
+    'case_label' => HHAST\CaseLabel::class,
+    'cast_expression' => HHAST\CastExpression::class,
+    'catch_clause' => HHAST\CatchClause::class,
+    'classish_body' => HHAST\ClassishBody::class,
+    'classish_declaration' => HHAST\ClassishDeclaration::class,
+    'classname_type_specifier' => HHAST\ClassnameTypeSpecifier::class,
+    'closure_parameter_type_specifier' =>
+      HHAST\ClosureParameterTypeSpecifier::class,
+    'closure_type_specifier' => HHAST\ClosureTypeSpecifier::class,
+    'collection_literal_expression' => HHAST\CollectionLiteralExpression::class,
+    'compound_statement' => HHAST\CompoundStatement::class,
+    'concurrent_statement' => HHAST\ConcurrentStatement::class,
+    'conditional_expression' => HHAST\ConditionalExpression::class,
+    'const_declaration' => HHAST\ConstDeclaration::class,
+    'constant_declarator' => HHAST\ConstantDeclarator::class,
+    'constructor_call' => HHAST\ConstructorCall::class,
+    'continue_statement' => HHAST\ContinueStatement::class,
+    'darray_intrinsic_expression' => HHAST\DarrayIntrinsicExpression::class,
+    'darray_type_specifier' => HHAST\DarrayTypeSpecifier::class,
+    'declare_block_statement' => HHAST\DeclareBlockStatement::class,
+    'declare_directive_statement' => HHAST\DeclareDirectiveStatement::class,
+    'decorated_expression' => HHAST\DecoratedExpression::class,
+    'default_label' => HHAST\DefaultLabel::class,
+    'define_expression' => HHAST\DefineExpression::class,
+    'dictionary_intrinsic_expression' =>
+      HHAST\DictionaryIntrinsicExpression::class,
+    'dictionary_type_specifier' => HHAST\DictionaryTypeSpecifier::class,
+    'do_statement' => HHAST\DoStatement::class,
+    'echo_statement' => HHAST\EchoStatement::class,
+    'element_initializer' => HHAST\ElementInitializer::class,
+    'else_clause' => HHAST\ElseClause::class,
+    'elseif_clause' => HHAST\ElseifClause::class,
+    'embedded_braced_expression' => HHAST\EmbeddedBracedExpression::class,
+    'embedded_member_selection_expression' =>
+      HHAST\EmbeddedMemberSelectionExpression::class,
+    'embedded_subscript_expression' => HHAST\EmbeddedSubscriptExpression::class,
+    'empty_expression' => HHAST\EmptyExpression::class,
+    'end_of_file' => HHAST\EndOfFile::class,
+    'enum_declaration' => HHAST\EnumDeclaration::class,
+    'enumerator' => HHAST\Enumerator::class,
+    'error' => HHAST\ErrorSyntax::class,
+    'eval_expression' => HHAST\EvalExpression::class,
+    'expression_statement' => HHAST\ExpressionStatement::class,
+    'field_initializer' => HHAST\FieldInitializer::class,
+    'field_specifier' => HHAST\FieldSpecifier::class,
+    'file_attribute_specification' => HHAST\FileAttributeSpecification::class,
+    'finally_clause' => HHAST\FinallyClause::class,
+    'for_statement' => HHAST\ForStatement::class,
+    'foreach_statement' => HHAST\ForeachStatement::class,
+    'function_call_expression' => HHAST\FunctionCallExpression::class,
+    'function_declaration' => HHAST\FunctionDeclaration::class,
+    'function_declaration_header' => HHAST\FunctionDeclarationHeader::class,
+    'generic_type_specifier' => HHAST\GenericTypeSpecifier::class,
+    'goto_label' => HHAST\GotoLabel::class,
+    'goto_statement' => HHAST\GotoStatement::class,
+    'halt_compiler_expression' => HHAST\HaltCompilerExpression::class,
+    'if_statement' => HHAST\IfStatement::class,
+    'inclusion_directive' => HHAST\InclusionDirective::class,
+    'inclusion_expression' => HHAST\InclusionExpression::class,
+    'instanceof_expression' => HHAST\InstanceofExpression::class,
+    'is_expression' => HHAST\IsExpression::class,
+    'isset_expression' => HHAST\IssetExpression::class,
+    'keyset_intrinsic_expression' => HHAST\KeysetIntrinsicExpression::class,
+    'keyset_type_specifier' => HHAST\KeysetTypeSpecifier::class,
+    'lambda_expression' => HHAST\LambdaExpression::class,
+    'lambda_signature' => HHAST\LambdaSignature::class,
+    'let_statement' => HHAST\LetStatement::class,
+    'like_type_specifier' => HHAST\LikeTypeSpecifier::class,
+    'list_expression' => HHAST\ListExpression::class,
+    'list_item' => HHAST\ListItem::class,
+    'literal' => HHAST\LiteralExpression::class,
+    'map_array_type_specifier' => HHAST\MapArrayTypeSpecifier::class,
+    'markup_section' => HHAST\MarkupSection::class,
+    'markup_suffix' => HHAST\MarkupSuffix::class,
+    'member_selection_expression' => HHAST\MemberSelectionExpression::class,
+    'methodish_declaration' => HHAST\MethodishDeclaration::class,
+    'methodish_trait_resolution' => HHAST\MethodishTraitResolution::class,
+    'namespace_body' => HHAST\NamespaceBody::class,
+    'namespace_declaration' => HHAST\NamespaceDeclaration::class,
+    'namespace_empty_body' => HHAST\NamespaceEmptyBody::class,
+    'namespace_group_use_declaration' =>
+      HHAST\NamespaceGroupUseDeclaration::class,
+    'namespace_use_clause' => HHAST\NamespaceUseClause::class,
+    'namespace_use_declaration' => HHAST\NamespaceUseDeclaration::class,
+    'nullable_as_expression' => HHAST\NullableAsExpression::class,
+    'nullable_type_specifier' => HHAST\NullableTypeSpecifier::class,
+    'object_creation_expression' => HHAST\ObjectCreationExpression::class,
+    'parameter_declaration' => HHAST\ParameterDeclaration::class,
+    'parenthesized_expression' => HHAST\ParenthesizedExpression::class,
+    'php7_anonymous_function' => HHAST\Php7AnonymousFunction::class,
+    'pipe_variable' => HHAST\PipeVariableExpression::class,
+    'pocket_atom' => HHAST\PocketAtomExpression::class,
+    'pocket_atom_mapping' => HHAST\PocketAtomMappingDeclaration::class,
+    'pocket_enum_declaration' => HHAST\PocketEnumDeclaration::class,
+    'pocket_field_type_declaration' => HHAST\PocketFieldTypeDeclaration::class,
+    'pocket_field_type_expr_declaration' =>
+      HHAST\PocketFieldTypeExprDeclaration::class,
+    'pocket_identifier' => HHAST\PocketIdentifierExpression::class,
+    'pocket_mapping_id_declaration' => HHAST\PocketMappingIdDeclaration::class,
+    'pocket_mapping_type_declaration' =>
+      HHAST\PocketMappingTypeDeclaration::class,
+    'postfix_unary_expression' => HHAST\PostfixUnaryExpression::class,
+    'prefix_unary_expression' => HHAST\PrefixUnaryExpression::class,
+    'prefixed_string' => HHAST\PrefixedStringExpression::class,
+    'property_declaration' => HHAST\PropertyDeclaration::class,
+    'property_declarator' => HHAST\PropertyDeclarator::class,
+    'qualified_name' => HHAST\QualifiedName::class,
+    'record_creation_expression' => HHAST\RecordCreationExpression::class,
+    'record_declaration' => HHAST\RecordDeclaration::class,
+    'record_field' => HHAST\RecordField::class,
+    'reified_type_argument' => HHAST\ReifiedTypeArgument::class,
+    'require_clause' => HHAST\RequireClause::class,
+    'return_statement' => HHAST\ReturnStatement::class,
+    'safe_member_selection_expression' =>
+      HHAST\SafeMemberSelectionExpression::class,
+    'scope_resolution_expression' => HHAST\ScopeResolutionExpression::class,
+    'script' => HHAST\Script::class,
+    'shape_expression' => HHAST\ShapeExpression::class,
+    'shape_type_specifier' => HHAST\ShapeTypeSpecifier::class,
+    'simple_initializer' => HHAST\SimpleInitializer::class,
+    'simple_type_specifier' => HHAST\SimpleTypeSpecifier::class,
+    'soft_type_specifier' => HHAST\SoftTypeSpecifier::class,
+    'subscript_expression' => HHAST\SubscriptExpression::class,
+    'switch_fallthrough' => HHAST\SwitchFallthrough::class,
+    'switch_section' => HHAST\SwitchSection::class,
+    'switch_statement' => HHAST\SwitchStatement::class,
+    'throw_statement' => HHAST\ThrowStatement::class,
+    'trait_use' => HHAST\TraitUse::class,
+    'trait_use_alias_item' => HHAST\TraitUseAliasItem::class,
+    'trait_use_conflict_resolution' => HHAST\TraitUseConflictResolution::class,
+    'trait_use_precedence_item' => HHAST\TraitUsePrecedenceItem::class,
+    'try_statement' => HHAST\TryStatement::class,
+    'tuple_expression' => HHAST\TupleExpression::class,
+    'tuple_type_explicit_specifier' => HHAST\TupleTypeExplicitSpecifier::class,
+    'tuple_type_specifier' => HHAST\TupleTypeSpecifier::class,
+    'type_arguments' => HHAST\TypeArguments::class,
+    'type_const_declaration' => HHAST\TypeConstDeclaration::class,
+    'type_constant' => HHAST\TypeConstant::class,
+    'type_constraint' => HHAST\TypeConstraint::class,
+    'type_parameter' => HHAST\TypeParameter::class,
+    'type_parameters' => HHAST\TypeParameters::class,
+    'unset_statement' => HHAST\UnsetStatement::class,
+    'using_statement_block_scoped' => HHAST\UsingStatementBlockScoped::class,
+    'using_statement_function_scoped' =>
+      HHAST\UsingStatementFunctionScoped::class,
+    'variable' => HHAST\VariableExpression::class,
+    'variadic_parameter' => HHAST\VariadicParameter::class,
+    'varray_intrinsic_expression' => HHAST\VarrayIntrinsicExpression::class,
+    'varray_type_specifier' => HHAST\VarrayTypeSpecifier::class,
+    'vector_array_type_specifier' => HHAST\VectorArrayTypeSpecifier::class,
+    'vector_intrinsic_expression' => HHAST\VectorIntrinsicExpression::class,
+    'vector_type_specifier' => HHAST\VectorTypeSpecifier::class,
+    'where_clause' => HHAST\WhereClause::class,
+    'where_constraint' => HHAST\WhereConstraint::class,
+    'while_statement' => HHAST\WhileStatement::class,
+    'xhp_category_declaration' => HHAST\XHPCategoryDeclaration::class,
+    'xhp_children_declaration' => HHAST\XHPChildrenDeclaration::class,
+    'xhp_children_parenthesized_list' =>
+      HHAST\XHPChildrenParenthesizedList::class,
+    'xhp_class_attribute' => HHAST\XHPClassAttribute::class,
+    'xhp_class_attribute_declaration' =>
+      HHAST\XHPClassAttributeDeclaration::class,
+    'xhp_close' => HHAST\XHPClose::class,
+    'xhp_enum_type' => HHAST\XHPEnumType::class,
+    'xhp_expression' => HHAST\XHPExpression::class,
+    'xhp_open' => HHAST\XHPOpen::class,
+    'xhp_required' => HHAST\XHPRequired::class,
+    'xhp_simple_attribute' => HHAST\XHPSimpleAttribute::class,
+    'xhp_simple_class_attribute' => HHAST\XHPSimpleClassAttribute::class,
+    'xhp_spread_attribute' => HHAST\XHPSpreadAttribute::class,
+    'yield_expression' => HHAST\YieldExpression::class,
+    'yield_from_expression' => HHAST\YieldFromExpression::class,
+  ];
+  $class = $kind_to_class[$kind] ?? null;
+  if ($class is nonnull) {
+    return $class::fromJSON($json, $file, $offset, $source);
+  }
+  throw new HHAST\UnsupportedASTNodeError(
+    $file,
+    $offset,
+    (string)$json['kind'],
+  );
 }

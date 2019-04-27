@@ -120,13 +120,13 @@ abstract class EditableToken extends EditableNode {
 
   <<__Override>>
   final public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $offset,
     string $source,
   ): EditableToken {
     $leading_list = __Private\fold_map(
-      /* HH_IGNORE_ERROR[4110] */ $json['leading'],
+      /* HH_FIXME[4110] use like-types when available*/ $json['leading'],
       ($j, $p) ==> EditableNode::fromJSON($j, $file, $p, $source),
       ($j, $p) ==> $j['width'] + $p,
       $offset,
