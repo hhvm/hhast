@@ -20,21 +20,20 @@ final class LintRunLSPPublishDiagnosticsEventHandler
   ) {
   }
 
-  private ?string $file = null;
-  private vec<Linters\LintError> $errors = vec[];
+  private dict<string, vec<Linters\LintError>> $errors = dict[];
+
+  <<__Memoize>>
+  private static function realPath(string $in): string {
+    return \realpath($in);
+  }
 
   public async function linterRaisedErrorsAsync(
     Linters\BaseLinter $linter,
     LintRunConfig::TFileConfig $_config,
     Traversable<Linters\LintError> $errors,
   ): Awaitable<LintAutoFixResult> {
-    $file = \realpath($linter->getFile()->getPath());
-    invariant(
-      $this->file === null || $this->file === $file,
-      "Unexpected file change in lint process",
-    );
-    $this->file = $file;
-    $this->errors = Vec\concat($this->errors ?? vec[], $errors);
+    $file = self::realPath($linter->getFile()->getPath());
+    $this->errors[$file] = Vec\concat($this->errors[$file] ?? vec[], vec($errors));
     return LintAutoFixResult::SOME_UNFIXED;
   }
 
@@ -78,13 +77,8 @@ final class LintRunLSPPublishDiagnosticsEventHandler
     string $path,
     LintRunResult $result,
   ): Awaitable<void> {
-    $path = \realpath($path);
-    invariant(
-      $this->file === null || $this->file === $path,
-      "Unexpected file change",
-    );
-
-    $errors = $this->errors;
+    $path = self::realPath($path);
+    $errors = $this->errors[$path] ?? vec[];
 
     if ($result === LintRunResult::NO_ERRORS) {
       invariant(
@@ -99,8 +93,7 @@ final class LintRunLSPPublishDiagnosticsEventHandler
     }
 
     await $this->publishDiagnosticsAsync($path, $errors);
-    $this->file = null;
-    $this->errors = vec[];
+    unset($this->errors[$path]);
   }
 
   public async function finishedRunAsync(LintRunResult $_): Awaitable<void> {
