@@ -18,6 +18,7 @@ abstract class EditableNode {
     ?vec<EditableNode>,
   ): EditableNode);
 
+  private keyset<int> $_descendants = keyset[];
   private string $_syntax_kind;
   protected ?int $_width;
 
@@ -26,6 +27,11 @@ abstract class EditableNode {
     private ?__Private\SourceRef $sourceRef,
   ) {
     $this->_syntax_kind = $syntax_kind;
+    $this->_descendants = Vec\map($this->getChildren(), $child ==> {
+        $with_child = $child->_descendants;
+        $with_child[] = $child->getUniqueID();
+        return $with_child;
+      }) |> Vec\flatten($$) |> keyset($$);
     /* handy for debugging :)
     if ($sourceRef !== null) {
       $code = $this->getCode();
@@ -38,6 +44,17 @@ abstract class EditableNode {
       );
     }
     */
+  }
+
+  private static int $_maxID = 0;
+
+  <<__Memoize>>
+  private function getUniqueID(): int {
+    return self::$_maxID++;
+  }
+
+  public function isAncestorOf(EditableNode $other): bool {
+    return C\contains_key($this->_descendants, $other->getUniqueID());
   }
 
   public function getSyntaxKind(): string {

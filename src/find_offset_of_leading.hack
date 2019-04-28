@@ -9,48 +9,30 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\{C, Vec};
 
 function find_offset_of_leading(
   EditableNode $root,
   EditableNode $node,
-  ?vec<EditableNode> $stack = null
 ): int {
   if ($root === $node) {
     return 0;
   }
 
-  $parents = null;
-  $found = false;
-
-  if ($stack === null) {
-    $stack = $root->findWithParents($it ==> $it === $node);
-  }
   invariant(
-    !C\is_empty($stack),
-    'did not find node in root',
-  );
-  invariant(
-    C\lastx($stack) === $node,
-    'expected node at top of stack',
+    $root->isAncestorOf($node),
+    'Root is not an ancestor of node',
   );
 
-  $stack_count = C\count($stack);
-  $parent = $stack[$stack_count - 2];
-
-  $within_parent = 0;
-  foreach ($parent->getChildren() as $child) {
+  $offset = 0;
+  foreach ($root->getChildren() as $child) {
     if ($child === $node) {
-      break;
+      return $offset;
     }
-    $within_parent += $child->getWidth();
+    if ($child->isAncestorOf($node)) {
+      return $offset + find_offset_of_leading($child, $node);
+    }
+    $offset += $child->getWidth();
   }
 
-  $stack = Vec\take($stack, $stack_count - 1);
-
-  return $within_parent + find_offset_of_leading(
-    $root,
-    $parent,
-    $stack
-  );
+  invariant_violation('never found next generation ancestor');
 }
