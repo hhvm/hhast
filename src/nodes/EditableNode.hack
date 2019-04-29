@@ -235,16 +235,21 @@ abstract class EditableNode {
   }
 
   final public function replace(EditableNode $old, EditableNode $new): this {
+    if ($old === $new) {
+      return $this;
+    }
+    return $this->replaceImpl($old, $new);
+  }
+  final private function replaceImpl(EditableNode $old, EditableNode $new): this {
     return $this->rewriteChildren(
-      ($n, $_) ==> {
-        if ($n === $old) {
+      ($child, $_) ==> {
+        if ($child === $old) {
           return $new;
         }
-        if (!C\contains_key($n->_descendants, $old->getUniqueID())) {
-          return $n;
+        if (!C\contains_key($child->_descendants, $old->getUniqueID())) {
+          return $child;
         }
-        $ret = $n->replace($old, $new);
-        return $ret;
+        return $child->replaceImpl($old, $new);
       },
     );
   }
@@ -343,7 +348,6 @@ abstract class EditableNode {
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
-    $parents[] = $this;
     return $this->rewriteChildren(
       ($c, $p) ==> $c->rewrite($rewriter, $p ?? vec[]),
       $parents,
