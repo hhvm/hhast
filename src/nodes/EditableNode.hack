@@ -24,7 +24,7 @@ abstract class EditableNode {
 
   public function __construct(
     string $syntax_kind,
-    private ?__Private\SourceRef $sourceRef,
+    protected ?__Private\SourceRef $sourceRef,
   ) {
     $this->_syntax_kind = $syntax_kind;
     $this->_descendants = Vec\map($this->getChildren(), $child ==> {

@@ -10,18 +10,24 @@
 namespace Facebook\HHAST;
 
 
-function find_offset_of_leading(
-  EditableNode $root,
-  EditableNode $node,
-): int {
+function find_offset_of_leading(EditableNode $root, EditableNode $node): int {
   if ($root === $node) {
     return 0;
   }
 
-  invariant(
-    $root->isAncestorOf($node),
-    'Root is not an ancestor of node',
-  );
+  invariant($root->isAncestorOf($node), 'Root is not an ancestor of node');
+
+  // - Script is the top-level item
+  // - Nodes are immutable
+  // - Modified copies do not have a source-ref
+  // So, if we have a top-level item with a source-ref, there have been no
+  // modifications, so the original sourceref is valid for any descendants
+  if ($root is Script && __Private\NodeImplementationDetails::getSourceRef($root)) {
+    $source = __Private\NodeImplementationDetails::getSourceRef($node);
+    if ($source is nonnull) {
+      return $source['offset'];
+    }
+  }
 
   $offset = 0;
   foreach ($root->getChildren() as $child) {
