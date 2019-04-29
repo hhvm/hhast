@@ -23,7 +23,7 @@ abstract class ASTLinter<Tnode as HHAST\EditableNode> extends BaseLinter {
     File $file,
   ): Awaitable<HHAST\EditableNode> {
     $cache = self::$lastFileCache;
-    $hash = \sha1($file->getContents(), /* raw = */ true);
+    $hash = \sodium_crypto_generichash($file->getContents());
     if ($cache is nonnull && $cache['hash'] === $hash) {
       return $cache['ast'];
     }
