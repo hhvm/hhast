@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2f845b8f366ecd33518eb6c4b564c246>>
+ * @generated SignedSource<<9d8a39312c1f4ba1dace87be3469a9cd>>
  */
 namespace Facebook\HHAST;
 
@@ -43,13 +43,13 @@ final class AmpersandAmpersandToken extends EditableTokenWithFixedText {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $leading = $this->getLeading()->rewrite($rewriter, $parents);
-    $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
+    $leading = $rewriter($this->getLeading(), $parents);
+    $trailing = $rewriter($this->getTrailing(), $parents);
     if (
       $leading === $this->getLeading() && $trailing === $this->getTrailing()
     ) {

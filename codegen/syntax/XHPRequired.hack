@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ef2a9c390b5a593627358f2d0f6a3f02>>
+ * @generated SignedSource<<d9946d68f1787cd99acd1fae028bf6de>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,13 +62,13 @@ final class XHPRequired extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $at = $this->_at->rewrite($rewriter, $parents);
-    $keyword = $this->_keyword->rewrite($rewriter, $parents);
+    $at = $rewriter($this->_at, $parents);
+    $keyword = $rewriter($this->_keyword, $parents);
     if ($at === $this->_at && $keyword === $this->_keyword) {
       return $this;
     }

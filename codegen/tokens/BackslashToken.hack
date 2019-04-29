@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<14d28d4a9cbad296d508b7ffba7b5f94>>
+ * @generated SignedSource<<00a648fbcd00e69808f0edda4c5e4a21>>
  */
 namespace Facebook\HHAST;
 
@@ -43,13 +43,13 @@ final class BackslashToken extends EditableTokenWithFixedText {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $leading = $this->getLeading()->rewrite($rewriter, $parents);
-    $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
+    $leading = $rewriter($this->getLeading(), $parents);
+    $trailing = $rewriter($this->getTrailing(), $parents);
     if (
       $leading === $this->getLeading() && $trailing === $this->getTrailing()
     ) {

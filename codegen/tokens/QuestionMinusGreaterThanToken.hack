@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<60cee9aaa43689d1c370f516acbbbfaa>>
+ * @generated SignedSource<<cfd729f7c11b32c08bfc2d5129f886a4>>
  */
 namespace Facebook\HHAST;
 
@@ -43,13 +43,13 @@ final class QuestionMinusGreaterThanToken extends EditableTokenWithFixedText {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $leading = $this->getLeading()->rewrite($rewriter, $parents);
-    $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
+    $leading = $rewriter($this->getLeading(), $parents);
+    $trailing = $rewriter($this->getTrailing(), $parents);
     if (
       $leading === $this->getLeading() && $trailing === $this->getTrailing()
     ) {

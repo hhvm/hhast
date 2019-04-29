@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eeb5f798f73027a9a06d35161e855f97>>
+ * @generated SignedSource<<4e527b15ac115505045243daae498c03>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -114,17 +114,17 @@ final class ConstDeclaration extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $visibility = $this->_visibility->rewrite($rewriter, $parents);
-    $abstract = $this->_abstract->rewrite($rewriter, $parents);
-    $keyword = $this->_keyword->rewrite($rewriter, $parents);
-    $type_specifier = $this->_type_specifier->rewrite($rewriter, $parents);
-    $declarators = $this->_declarators->rewrite($rewriter, $parents);
-    $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
+    $visibility = $rewriter($this->_visibility, $parents);
+    $abstract = $rewriter($this->_abstract, $parents);
+    $keyword = $rewriter($this->_keyword, $parents);
+    $type_specifier = $rewriter($this->_type_specifier, $parents);
+    $declarators = $rewriter($this->_declarators, $parents);
+    $semicolon = $rewriter($this->_semicolon, $parents);
     if (
       $visibility === $this->_visibility &&
       $abstract === $this->_abstract &&

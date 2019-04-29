@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<55d3f929b818b7d05d370d8179827da7>>
+ * @generated SignedSource<<28944262632c710831c898cbab409dc4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,13 +62,13 @@ final class SwitchFallthrough extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $parents);
-    $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
+    $keyword = $rewriter($this->_keyword, $parents);
+    $semicolon = $rewriter($this->_semicolon, $parents);
     if ($keyword === $this->_keyword && $semicolon === $this->_semicolon) {
       return $this;
     }

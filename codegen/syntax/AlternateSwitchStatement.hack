@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<30b14dcbfd375af908451ac8a767452e>>
+ * @generated SignedSource<<dddc48a5a68b811a922eab9a4f22e795>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -140,21 +140,19 @@ final class AlternateSwitchStatement
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $parents);
-    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
-    $expression = $this->_expression->rewrite($rewriter, $parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
-    $opening_colon = $this->_opening_colon->rewrite($rewriter, $parents);
-    $sections = $this->_sections->rewrite($rewriter, $parents);
-    $closing_endswitch = $this->_closing_endswitch
-      ->rewrite($rewriter, $parents);
-    $closing_semicolon = $this->_closing_semicolon
-      ->rewrite($rewriter, $parents);
+    $keyword = $rewriter($this->_keyword, $parents);
+    $left_paren = $rewriter($this->_left_paren, $parents);
+    $expression = $rewriter($this->_expression, $parents);
+    $right_paren = $rewriter($this->_right_paren, $parents);
+    $opening_colon = $rewriter($this->_opening_colon, $parents);
+    $sections = $rewriter($this->_sections, $parents);
+    $closing_endswitch = $rewriter($this->_closing_endswitch, $parents);
+    $closing_semicolon = $rewriter($this->_closing_semicolon, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_paren === $this->_left_paren &&

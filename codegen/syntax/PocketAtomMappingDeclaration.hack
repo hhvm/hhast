@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<013e286229850196560faf1f81b3c958>>
+ * @generated SignedSource<<a2233471472294362b48ac7b941a147e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -114,17 +114,17 @@ final class PocketAtomMappingDeclaration extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $glyph = $this->_glyph->rewrite($rewriter, $parents);
-    $name = $this->_name->rewrite($rewriter, $parents);
-    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
-    $mappings = $this->_mappings->rewrite($rewriter, $parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
-    $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
+    $glyph = $rewriter($this->_glyph, $parents);
+    $name = $rewriter($this->_name, $parents);
+    $left_paren = $rewriter($this->_left_paren, $parents);
+    $mappings = $rewriter($this->_mappings, $parents);
+    $right_paren = $rewriter($this->_right_paren, $parents);
+    $semicolon = $rewriter($this->_semicolon, $parents);
     if (
       $glyph === $this->_glyph &&
       $name === $this->_name &&

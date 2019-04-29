@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<edad34e87b894246b52eb7c9800d83f4>>
+ * @generated SignedSource<<3f6dbda4679c63080d869c75a59164c8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -51,12 +51,12 @@ final class ErrorSyntax extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $error = $this->_error->rewrite($rewriter, $parents);
+    $error = $rewriter($this->_error, $parents);
     if ($error === $this->_error) {
       return $this;
     }

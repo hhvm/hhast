@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ab3c47fe762d7d82286e6b791daea8a1>>
+ * @generated SignedSource<<e8539fce9137c9986eb4f9bf5f896a8d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -114,17 +114,17 @@ final class PocketEnumDeclaration extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $modifiers = $this->_modifiers->rewrite($rewriter, $parents);
-    $enum = $this->_enum->rewrite($rewriter, $parents);
-    $name = $this->_name->rewrite($rewriter, $parents);
-    $left_brace = $this->_left_brace->rewrite($rewriter, $parents);
-    $fields = $this->_fields->rewrite($rewriter, $parents);
-    $right_brace = $this->_right_brace->rewrite($rewriter, $parents);
+    $modifiers = $rewriter($this->_modifiers, $parents);
+    $enum = $rewriter($this->_enum, $parents);
+    $name = $rewriter($this->_name, $parents);
+    $left_brace = $rewriter($this->_left_brace, $parents);
+    $fields = $rewriter($this->_fields, $parents);
+    $right_brace = $rewriter($this->_right_brace, $parents);
     if (
       $modifiers === $this->_modifiers &&
       $enum === $this->_enum &&

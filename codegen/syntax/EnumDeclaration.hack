@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ec4ce89d0745b5873d844f7e4399c408>>
+ * @generated SignedSource<<dba2e09a2fe32ce8adb2de4cfaf7c65b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -150,20 +150,20 @@ final class EnumDeclaration extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute_spec = $this->_attribute_spec->rewrite($rewriter, $parents);
-    $keyword = $this->_keyword->rewrite($rewriter, $parents);
-    $name = $this->_name->rewrite($rewriter, $parents);
-    $colon = $this->_colon->rewrite($rewriter, $parents);
-    $base = $this->_base->rewrite($rewriter, $parents);
-    $type = $this->_type->rewrite($rewriter, $parents);
-    $left_brace = $this->_left_brace->rewrite($rewriter, $parents);
-    $enumerators = $this->_enumerators->rewrite($rewriter, $parents);
-    $right_brace = $this->_right_brace->rewrite($rewriter, $parents);
+    $attribute_spec = $rewriter($this->_attribute_spec, $parents);
+    $keyword = $rewriter($this->_keyword, $parents);
+    $name = $rewriter($this->_name, $parents);
+    $colon = $rewriter($this->_colon, $parents);
+    $base = $rewriter($this->_base, $parents);
+    $type = $rewriter($this->_type, $parents);
+    $left_brace = $rewriter($this->_left_brace, $parents);
+    $enumerators = $rewriter($this->_enumerators, $parents);
+    $right_brace = $rewriter($this->_right_brace, $parents);
     if (
       $attribute_spec === $this->_attribute_spec &&
       $keyword === $this->_keyword &&

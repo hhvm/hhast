@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a6a45e933e68bdd246d8384c195ca458>>
+ * @generated SignedSource<<aab00385fc82e66c2b8d9f35fe46a3b2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,13 +62,13 @@ final class ReifiedTypeArgument extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $reified = $this->_reified->rewrite($rewriter, $parents);
-    $type = $this->_type->rewrite($rewriter, $parents);
+    $reified = $rewriter($this->_reified, $parents);
+    $type = $rewriter($this->_type, $parents);
     if ($reified === $this->_reified && $type === $this->_type) {
       return $this;
     }

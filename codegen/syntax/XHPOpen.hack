@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ebc9ca33c8eb8cc843a4c61f1b31d282>>
+ * @generated SignedSource<<4c96a4167c03b378b6a3b923ae7c9304>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -90,15 +90,15 @@ final class XHPOpen extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $left_angle = $this->_left_angle->rewrite($rewriter, $parents);
-    $name = $this->_name->rewrite($rewriter, $parents);
-    $attributes = $this->_attributes->rewrite($rewriter, $parents);
-    $right_angle = $this->_right_angle->rewrite($rewriter, $parents);
+    $left_angle = $rewriter($this->_left_angle, $parents);
+    $name = $rewriter($this->_name, $parents);
+    $attributes = $rewriter($this->_attributes, $parents);
+    $right_angle = $rewriter($this->_right_angle, $parents);
     if (
       $left_angle === $this->_left_angle &&
       $name === $this->_name &&

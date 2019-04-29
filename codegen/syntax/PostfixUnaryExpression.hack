@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3ac39f33d10c4581c0d662ccc6ea5033>>
+ * @generated SignedSource<<469d38debdb69065d4da0f75d302df84>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,13 +62,13 @@ final class PostfixUnaryExpression extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $operand = $this->_operand->rewrite($rewriter, $parents);
-    $operator = $this->_operator->rewrite($rewriter, $parents);
+    $operand = $rewriter($this->_operand, $parents);
+    $operator = $rewriter($this->_operator, $parents);
     if ($operand === $this->_operand && $operator === $this->_operator) {
       return $this;
     }

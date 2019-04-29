@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<da33de6460440b82f6fefed67a769748>>
+ * @generated SignedSource<<a3a4ac69d19ed2dbeea5e816b835cbcb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,13 +62,13 @@ final class DecoratedExpression extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $decorator = $this->_decorator->rewrite($rewriter, $parents);
-    $expression = $this->_expression->rewrite($rewriter, $parents);
+    $decorator = $rewriter($this->_decorator, $parents);
+    $expression = $rewriter($this->_expression, $parents);
     if (
       $decorator === $this->_decorator && $expression === $this->_expression
     ) {

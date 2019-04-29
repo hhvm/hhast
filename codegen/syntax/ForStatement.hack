@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eb1f350886b9491f431106bc4a75570b>>
+ * @generated SignedSource<<8c354812fa45e291d3ad1507a6bbcf5a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -152,20 +152,20 @@ final class ForStatement
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $parents);
-    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
-    $initializer = $this->_initializer->rewrite($rewriter, $parents);
-    $first_semicolon = $this->_first_semicolon->rewrite($rewriter, $parents);
-    $control = $this->_control->rewrite($rewriter, $parents);
-    $second_semicolon = $this->_second_semicolon->rewrite($rewriter, $parents);
-    $end_of_loop = $this->_end_of_loop->rewrite($rewriter, $parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
-    $body = $this->_body->rewrite($rewriter, $parents);
+    $keyword = $rewriter($this->_keyword, $parents);
+    $left_paren = $rewriter($this->_left_paren, $parents);
+    $initializer = $rewriter($this->_initializer, $parents);
+    $first_semicolon = $rewriter($this->_first_semicolon, $parents);
+    $control = $rewriter($this->_control, $parents);
+    $second_semicolon = $rewriter($this->_second_semicolon, $parents);
+    $end_of_loop = $rewriter($this->_end_of_loop, $parents);
+    $right_paren = $rewriter($this->_right_paren, $parents);
+    $body = $rewriter($this->_body, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_paren === $this->_left_paren &&

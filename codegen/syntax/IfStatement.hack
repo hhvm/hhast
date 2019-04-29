@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5868426543513d660ddd5423f9544d0a>>
+ * @generated SignedSource<<ae692558ceee3dc46ac6a4cae3bcd520>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -126,18 +126,18 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $parents);
-    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
-    $condition = $this->_condition->rewrite($rewriter, $parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
-    $statement = $this->_statement->rewrite($rewriter, $parents);
-    $elseif_clauses = $this->_elseif_clauses->rewrite($rewriter, $parents);
-    $else_clause = $this->_else_clause->rewrite($rewriter, $parents);
+    $keyword = $rewriter($this->_keyword, $parents);
+    $left_paren = $rewriter($this->_left_paren, $parents);
+    $condition = $rewriter($this->_condition, $parents);
+    $right_paren = $rewriter($this->_right_paren, $parents);
+    $statement = $rewriter($this->_statement, $parents);
+    $elseif_clauses = $rewriter($this->_elseif_clauses, $parents);
+    $else_clause = $rewriter($this->_else_clause, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_paren === $this->_left_paren &&

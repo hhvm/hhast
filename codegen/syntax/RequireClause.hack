@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<86494b7ec20e9493cc582a86f68e98fb>>
+ * @generated SignedSource<<9ef9696d241237c0a4f0ed20233a3c39>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -84,15 +84,15 @@ final class RequireClause extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $parents);
-    $kind = $this->_kind->rewrite($rewriter, $parents);
-    $name = $this->_name->rewrite($rewriter, $parents);
-    $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
+    $keyword = $rewriter($this->_keyword, $parents);
+    $kind = $rewriter($this->_kind, $parents);
+    $name = $rewriter($this->_name, $parents);
+    $semicolon = $rewriter($this->_semicolon, $parents);
     if (
       $keyword === $this->_keyword &&
       $kind === $this->_kind &&

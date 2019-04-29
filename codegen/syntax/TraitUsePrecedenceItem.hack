@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<713c921b8376e6d06466a00690c21bab>>
+ * @generated SignedSource<<51166dab35288ae7164192433f94fe1c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -73,14 +73,14 @@ final class TraitUsePrecedenceItem extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $name = $this->_name->rewrite($rewriter, $parents);
-    $keyword = $this->_keyword->rewrite($rewriter, $parents);
-    $removed_names = $this->_removed_names->rewrite($rewriter, $parents);
+    $name = $rewriter($this->_name, $parents);
+    $keyword = $rewriter($this->_keyword, $parents);
+    $removed_names = $rewriter($this->_removed_names, $parents);
     if (
       $name === $this->_name &&
       $keyword === $this->_keyword &&

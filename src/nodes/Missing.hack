@@ -44,7 +44,7 @@ final class Missing extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $_rewriter,
     vec<EditableNode> $_parents = vec[],
   ): this {

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<68adb600ce596a6a93a6aba0b50c2a31>>
+ * @generated SignedSource<<99f023100d9014bd9bb8dcf6187286d1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -73,14 +73,14 @@ final class NullableAsExpression extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $left_operand = $this->_left_operand->rewrite($rewriter, $parents);
-    $operator = $this->_operator->rewrite($rewriter, $parents);
-    $right_operand = $this->_right_operand->rewrite($rewriter, $parents);
+    $left_operand = $rewriter($this->_left_operand, $parents);
+    $operator = $rewriter($this->_operator, $parents);
+    $right_operand = $rewriter($this->_right_operand, $parents);
     if (
       $left_operand === $this->_left_operand &&
       $operator === $this->_operator &&

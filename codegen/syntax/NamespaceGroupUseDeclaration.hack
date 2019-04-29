@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<61bedef6cb1ff842aa528147dfa62f6e>>
+ * @generated SignedSource<<8bfc0ae637b5341f4aaf5995f025b188>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -128,18 +128,18 @@ final class NamespaceGroupUseDeclaration
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $parents);
-    $kind = $this->_kind->rewrite($rewriter, $parents);
-    $prefix = $this->_prefix->rewrite($rewriter, $parents);
-    $left_brace = $this->_left_brace->rewrite($rewriter, $parents);
-    $clauses = $this->_clauses->rewrite($rewriter, $parents);
-    $right_brace = $this->_right_brace->rewrite($rewriter, $parents);
-    $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
+    $keyword = $rewriter($this->_keyword, $parents);
+    $kind = $rewriter($this->_kind, $parents);
+    $prefix = $rewriter($this->_prefix, $parents);
+    $left_brace = $rewriter($this->_left_brace, $parents);
+    $clauses = $rewriter($this->_clauses, $parents);
+    $right_brace = $rewriter($this->_right_brace, $parents);
+    $semicolon = $rewriter($this->_semicolon, $parents);
     if (
       $keyword === $this->_keyword &&
       $kind === $this->_kind &&

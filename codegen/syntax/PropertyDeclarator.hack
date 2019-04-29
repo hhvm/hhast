@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a041934e57ab110574400cfc6b134961>>
+ * @generated SignedSource<<d5840ff7e74f756f39c2bc5d5b6f9c35>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,13 +62,13 @@ final class PropertyDeclarator extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $name = $this->_name->rewrite($rewriter, $parents);
-    $initializer = $this->_initializer->rewrite($rewriter, $parents);
+    $name = $rewriter($this->_name, $parents);
+    $initializer = $rewriter($this->_initializer, $parents);
     if ($name === $this->_name && $initializer === $this->_initializer) {
       return $this;
     }

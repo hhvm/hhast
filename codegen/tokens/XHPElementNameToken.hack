@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3b27ea04684faf74bd09f8c8c2f03bf8>>
+ * @generated SignedSource<<33c2f3fa24367629929d1eafc60578e6>>
  */
 namespace Facebook\HHAST;
 
@@ -50,13 +50,13 @@ final class XHPElementNameToken extends EditableTokenWithVariableText {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $leading = $this->getLeading()->rewrite($rewriter, $parents);
-    $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
+    $leading = $rewriter($this->getLeading(), $parents);
+    $trailing = $rewriter($this->getTrailing(), $parents);
     $text = $this->getText();
     if (
       $leading === $this->getLeading() &&

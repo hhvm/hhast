@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a99cb32ef7c3311df59973a990ea6226>>
+ * @generated SignedSource<<95e2398ca7b5a345dacf327d700317cf>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -102,16 +102,16 @@ final class DeclareBlockStatement extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $parents);
-    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
-    $expression = $this->_expression->rewrite($rewriter, $parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
-    $body = $this->_body->rewrite($rewriter, $parents);
+    $keyword = $rewriter($this->_keyword, $parents);
+    $left_paren = $rewriter($this->_left_paren, $parents);
+    $expression = $rewriter($this->_expression, $parents);
+    $right_paren = $rewriter($this->_right_paren, $parents);
+    $body = $rewriter($this->_body, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_paren === $this->_left_paren &&

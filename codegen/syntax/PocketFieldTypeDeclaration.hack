@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e49c23ac5b1da6b646a55b6ba7369b80>>
+ * @generated SignedSource<<0e948fcdb1c50cf6648f66b4146629f7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -84,15 +84,15 @@ final class PocketFieldTypeDeclaration extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $case = $this->_case->rewrite($rewriter, $parents);
-    $type = $this->_type->rewrite($rewriter, $parents);
-    $name = $this->_name->rewrite($rewriter, $parents);
-    $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
+    $case = $rewriter($this->_case, $parents);
+    $type = $rewriter($this->_type, $parents);
+    $name = $rewriter($this->_name, $parents);
+    $semicolon = $rewriter($this->_semicolon, $parents);
     if (
       $case === $this->_case &&
       $type === $this->_type &&

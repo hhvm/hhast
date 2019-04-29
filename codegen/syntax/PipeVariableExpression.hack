@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<40d45fdc61ffed180291616866f624b3>>
+ * @generated SignedSource<<c4e7e7f1bf30cb21fcbe3016ca3ee3e1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -51,12 +51,12 @@ final class PipeVariableExpression extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $expression = $this->_expression->rewrite($rewriter, $parents);
+    $expression = $rewriter($this->_expression, $parents);
     if ($expression === $this->_expression) {
       return $this;
     }

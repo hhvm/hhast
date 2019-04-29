@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fab09ed7a0a6573a66246f3a7209678a>>
+ * @generated SignedSource<<4ad4d65646227259ece82aadf9b3b6f3>>
  */
 namespace Facebook\HHAST;
 
@@ -50,13 +50,13 @@ final class StringLiteralBodyToken extends EditableTokenWithVariableText {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $leading = $this->getLeading()->rewrite($rewriter, $parents);
-    $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
+    $leading = $rewriter($this->getLeading(), $parents);
+    $trailing = $rewriter($this->getTrailing(), $parents);
     $text = $this->getText();
     if (
       $leading === $this->getLeading() &&

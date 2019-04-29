@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2d4d62f4fe833a03ec6e15e5c2e68858>>
+ * @generated SignedSource<<b28da0143c4554b14d9b62e6dc19627b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,13 +62,13 @@ final class ConstantDeclarator extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $name = $this->_name->rewrite($rewriter, $parents);
-    $initializer = $this->_initializer->rewrite($rewriter, $parents);
+    $name = $rewriter($this->_name, $parents);
+    $initializer = $rewriter($this->_initializer, $parents);
     if ($name === $this->_name && $initializer === $this->_initializer) {
       return $this;
     }

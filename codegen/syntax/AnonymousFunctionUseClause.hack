@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<93ad4790b981b35abc09192f5113b003>>
+ * @generated SignedSource<<c9dbd5c9e0a9a6e06eac9d50d3ddd08c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -90,15 +90,15 @@ final class AnonymousFunctionUseClause extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $parents);
-    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
-    $variables = $this->_variables->rewrite($rewriter, $parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
+    $keyword = $rewriter($this->_keyword, $parents);
+    $left_paren = $rewriter($this->_left_paren, $parents);
+    $variables = $rewriter($this->_variables, $parents);
+    $right_paren = $rewriter($this->_right_paren, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_paren === $this->_left_paren &&

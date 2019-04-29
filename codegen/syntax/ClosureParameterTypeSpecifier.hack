@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<70b697e1f2358c33d27c3c7e49773fda>>
+ * @generated SignedSource<<62bac10c33cdffab49e212f92c675e70>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,13 +62,13 @@ final class ClosureParameterTypeSpecifier extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $call_convention = $this->_call_convention->rewrite($rewriter, $parents);
-    $type = $this->_type->rewrite($rewriter, $parents);
+    $call_convention = $rewriter($this->_call_convention, $parents);
+    $type = $rewriter($this->_type, $parents);
     if (
       $call_convention === $this->_call_convention && $type === $this->_type
     ) {

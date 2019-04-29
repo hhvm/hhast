@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<69f9202d52b4fff9c27b01b5f6a36a62>>
+ * @generated SignedSource<<544e4cb72112f139f01742ac9268433c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -114,17 +114,17 @@ final class CatchClause extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $parents);
-    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
-    $type = $this->_type->rewrite($rewriter, $parents);
-    $variable = $this->_variable->rewrite($rewriter, $parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
-    $body = $this->_body->rewrite($rewriter, $parents);
+    $keyword = $rewriter($this->_keyword, $parents);
+    $left_paren = $rewriter($this->_left_paren, $parents);
+    $type = $rewriter($this->_type, $parents);
+    $variable = $rewriter($this->_variable, $parents);
+    $right_paren = $rewriter($this->_right_paren, $parents);
+    $body = $rewriter($this->_body, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_paren === $this->_left_paren &&

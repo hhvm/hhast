@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9e48bef52707ebe18c0cb6a4579cf7de>>
+ * @generated SignedSource<<d52f59a2616b002b2fc988d6345264e3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -162,21 +162,21 @@ final class AlternateIfStatement extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $parents);
-    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
-    $condition = $this->_condition->rewrite($rewriter, $parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
-    $colon = $this->_colon->rewrite($rewriter, $parents);
-    $statement = $this->_statement->rewrite($rewriter, $parents);
-    $elseif_clauses = $this->_elseif_clauses->rewrite($rewriter, $parents);
-    $else_clause = $this->_else_clause->rewrite($rewriter, $parents);
-    $endif_keyword = $this->_endif_keyword->rewrite($rewriter, $parents);
-    $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
+    $keyword = $rewriter($this->_keyword, $parents);
+    $left_paren = $rewriter($this->_left_paren, $parents);
+    $condition = $rewriter($this->_condition, $parents);
+    $right_paren = $rewriter($this->_right_paren, $parents);
+    $colon = $rewriter($this->_colon, $parents);
+    $statement = $rewriter($this->_statement, $parents);
+    $elseif_clauses = $rewriter($this->_elseif_clauses, $parents);
+    $else_clause = $rewriter($this->_else_clause, $parents);
+    $endif_keyword = $rewriter($this->_endif_keyword, $parents);
+    $semicolon = $rewriter($this->_semicolon, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_paren === $this->_left_paren &&

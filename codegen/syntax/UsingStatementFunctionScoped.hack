@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c1086fde0d5a82468cc134a7a0f3bfd4>>
+ * @generated SignedSource<<b0dcaa04e0e060a031b93dc6ce11e267>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -90,15 +90,15 @@ final class UsingStatementFunctionScoped extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $await_keyword = $this->_await_keyword->rewrite($rewriter, $parents);
-    $using_keyword = $this->_using_keyword->rewrite($rewriter, $parents);
-    $expression = $this->_expression->rewrite($rewriter, $parents);
-    $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
+    $await_keyword = $rewriter($this->_await_keyword, $parents);
+    $using_keyword = $rewriter($this->_using_keyword, $parents);
+    $expression = $rewriter($this->_expression, $parents);
+    $semicolon = $rewriter($this->_semicolon, $parents);
     if (
       $await_keyword === $this->_await_keyword &&
       $using_keyword === $this->_using_keyword &&

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<77dfd93605ab4dc67d2ec04eec78ccfa>>
+ * @generated SignedSource<<d038efbd1370b3e4dc26ec98f91c7d19>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,13 +62,13 @@ final class FinallyClause extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $parents);
-    $body = $this->_body->rewrite($rewriter, $parents);
+    $keyword = $rewriter($this->_keyword, $parents);
+    $body = $rewriter($this->_body, $parents);
     if ($keyword === $this->_keyword && $body === $this->_body) {
       return $this;
     }

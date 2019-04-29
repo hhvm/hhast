@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9616126f4a0b9ac64353998dda2d0d1c>>
+ * @generated SignedSource<<0bf830257c2a8945751706882dd6cdb3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -114,17 +114,17 @@ final class RecordDeclaration extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute_spec = $this->_attribute_spec->rewrite($rewriter, $parents);
-    $keyword = $this->_keyword->rewrite($rewriter, $parents);
-    $name = $this->_name->rewrite($rewriter, $parents);
-    $left_brace = $this->_left_brace->rewrite($rewriter, $parents);
-    $fields = $this->_fields->rewrite($rewriter, $parents);
-    $right_brace = $this->_right_brace->rewrite($rewriter, $parents);
+    $attribute_spec = $rewriter($this->_attribute_spec, $parents);
+    $keyword = $rewriter($this->_keyword, $parents);
+    $name = $rewriter($this->_name, $parents);
+    $left_brace = $rewriter($this->_left_brace, $parents);
+    $fields = $rewriter($this->_fields, $parents);
+    $right_brace = $rewriter($this->_right_brace, $parents);
     if (
       $attribute_spec === $this->_attribute_spec &&
       $keyword === $this->_keyword &&

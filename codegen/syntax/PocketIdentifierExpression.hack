@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0b151a456fc06365c0419bb22f56c1a7>>
+ * @generated SignedSource<<d05105aa1ee75b2d646035df52a9c804>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -102,16 +102,16 @@ final class PocketIdentifierExpression extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $qualifier = $this->_qualifier->rewrite($rewriter, $parents);
-    $pu_operator = $this->_pu_operator->rewrite($rewriter, $parents);
-    $field = $this->_field->rewrite($rewriter, $parents);
-    $operator = $this->_operator->rewrite($rewriter, $parents);
-    $name = $this->_name->rewrite($rewriter, $parents);
+    $qualifier = $rewriter($this->_qualifier, $parents);
+    $pu_operator = $rewriter($this->_pu_operator, $parents);
+    $field = $rewriter($this->_field, $parents);
+    $operator = $rewriter($this->_operator, $parents);
+    $name = $rewriter($this->_name, $parents);
     if (
       $qualifier === $this->_qualifier &&
       $pu_operator === $this->_pu_operator &&

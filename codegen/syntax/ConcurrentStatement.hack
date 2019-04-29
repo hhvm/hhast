@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0b72fadda4147560a73749d03f223ca5>>
+ * @generated SignedSource<<31755bdeab5bb183c9eab5cf8bf13434>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,13 +62,13 @@ final class ConcurrentStatement extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $parents);
-    $statement = $this->_statement->rewrite($rewriter, $parents);
+    $keyword = $rewriter($this->_keyword, $parents);
+    $statement = $rewriter($this->_statement, $parents);
     if ($keyword === $this->_keyword && $statement === $this->_statement) {
       return $this;
     }

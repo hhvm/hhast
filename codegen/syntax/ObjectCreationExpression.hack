@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f48140f825d699b9b32f23d830be8e9d>>
+ * @generated SignedSource<<6478df4f07ceb8b14e72797acd06543a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,13 +62,13 @@ final class ObjectCreationExpression extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $new_keyword = $this->_new_keyword->rewrite($rewriter, $parents);
-    $object = $this->_object->rewrite($rewriter, $parents);
+    $new_keyword = $rewriter($this->_new_keyword, $parents);
+    $object = $rewriter($this->_object, $parents);
     if ($new_keyword === $this->_new_keyword && $object === $this->_object) {
       return $this;
     }

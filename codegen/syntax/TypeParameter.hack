@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cef03aefebc35a1bd1e8d39e770f748c>>
+ * @generated SignedSource<<9c7b8f7a39e55897944263fde5ac227a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -102,16 +102,16 @@ final class TypeParameter extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute_spec = $this->_attribute_spec->rewrite($rewriter, $parents);
-    $reified = $this->_reified->rewrite($rewriter, $parents);
-    $variance = $this->_variance->rewrite($rewriter, $parents);
-    $name = $this->_name->rewrite($rewriter, $parents);
-    $constraints = $this->_constraints->rewrite($rewriter, $parents);
+    $attribute_spec = $rewriter($this->_attribute_spec, $parents);
+    $reified = $rewriter($this->_reified, $parents);
+    $variance = $rewriter($this->_variance, $parents);
+    $name = $rewriter($this->_name, $parents);
+    $constraints = $rewriter($this->_constraints, $parents);
     if (
       $attribute_spec === $this->_attribute_spec &&
       $reified === $this->_reified &&

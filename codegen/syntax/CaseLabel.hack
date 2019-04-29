@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b55542c77550ba93a2acaee2e4dbe75b>>
+ * @generated SignedSource<<b50a42ca8bd15dd1eaf3ab128d1a89ef>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -73,14 +73,14 @@ final class CaseLabel extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $parents);
-    $expression = $this->_expression->rewrite($rewriter, $parents);
-    $colon = $this->_colon->rewrite($rewriter, $parents);
+    $keyword = $rewriter($this->_keyword, $parents);
+    $expression = $rewriter($this->_expression, $parents);
+    $colon = $rewriter($this->_colon, $parents);
     if (
       $keyword === $this->_keyword &&
       $expression === $this->_expression &&

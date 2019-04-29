@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fab2739a0b7307577213defa3241db85>>
+ * @generated SignedSource<<9533bda4821dcaeef0d026032b9b9b33>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,13 +62,13 @@ final class WhereClause extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $parents);
-    $constraints = $this->_constraints->rewrite($rewriter, $parents);
+    $keyword = $rewriter($this->_keyword, $parents);
+    $constraints = $rewriter($this->_constraints, $parents);
     if ($keyword === $this->_keyword && $constraints === $this->_constraints) {
       return $this;
     }

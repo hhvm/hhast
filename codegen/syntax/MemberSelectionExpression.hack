@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<054147fe8726306b5c58b1bcef9987d8>>
+ * @generated SignedSource<<a486cc8dfb30394e450ac3f912da898a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -73,14 +73,14 @@ final class MemberSelectionExpression extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $object = $this->_object->rewrite($rewriter, $parents);
-    $operator = $this->_operator->rewrite($rewriter, $parents);
-    $name = $this->_name->rewrite($rewriter, $parents);
+    $object = $rewriter($this->_object, $parents);
+    $operator = $rewriter($this->_operator, $parents);
+    $name = $rewriter($this->_name, $parents);
     if (
       $object === $this->_object &&
       $operator === $this->_operator &&

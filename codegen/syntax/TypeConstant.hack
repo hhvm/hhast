@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b4773c34531f573cee4618472f42bb7f>>
+ * @generated SignedSource<<1b3579add9eef98139779b43fcf0b5fa>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -73,14 +73,14 @@ final class TypeConstant extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $left_type = $this->_left_type->rewrite($rewriter, $parents);
-    $separator = $this->_separator->rewrite($rewriter, $parents);
-    $right_type = $this->_right_type->rewrite($rewriter, $parents);
+    $left_type = $rewriter($this->_left_type, $parents);
+    $separator = $rewriter($this->_separator, $parents);
+    $right_type = $rewriter($this->_right_type, $parents);
     if (
       $left_type === $this->_left_type &&
       $separator === $this->_separator &&

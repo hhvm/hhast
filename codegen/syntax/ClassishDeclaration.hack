@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6410624b5d6f3a42850222af6e0b2020>>
+ * @generated SignedSource<<5424e540bf26e8ab0529c1a99c474135>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -162,22 +162,21 @@ final class ClassishDeclaration extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute = $this->_attribute->rewrite($rewriter, $parents);
-    $modifiers = $this->_modifiers->rewrite($rewriter, $parents);
-    $keyword = $this->_keyword->rewrite($rewriter, $parents);
-    $name = $this->_name->rewrite($rewriter, $parents);
-    $type_parameters = $this->_type_parameters->rewrite($rewriter, $parents);
-    $extends_keyword = $this->_extends_keyword->rewrite($rewriter, $parents);
-    $extends_list = $this->_extends_list->rewrite($rewriter, $parents);
-    $implements_keyword = $this->_implements_keyword
-      ->rewrite($rewriter, $parents);
-    $implements_list = $this->_implements_list->rewrite($rewriter, $parents);
-    $body = $this->_body->rewrite($rewriter, $parents);
+    $attribute = $rewriter($this->_attribute, $parents);
+    $modifiers = $rewriter($this->_modifiers, $parents);
+    $keyword = $rewriter($this->_keyword, $parents);
+    $name = $rewriter($this->_name, $parents);
+    $type_parameters = $rewriter($this->_type_parameters, $parents);
+    $extends_keyword = $rewriter($this->_extends_keyword, $parents);
+    $extends_list = $rewriter($this->_extends_list, $parents);
+    $implements_keyword = $rewriter($this->_implements_keyword, $parents);
+    $implements_list = $rewriter($this->_implements_list, $parents);
+    $body = $rewriter($this->_body, $parents);
     if (
       $attribute === $this->_attribute &&
       $modifiers === $this->_modifiers &&

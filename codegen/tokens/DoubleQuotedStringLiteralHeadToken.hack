@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<beb5151689a699441ebff53005e3b7d7>>
+ * @generated SignedSource<<7cfd08e84bc4b06ea90765c8810fcf8e>>
  */
 namespace Facebook\HHAST;
 
@@ -51,13 +51,13 @@ final class DoubleQuotedStringLiteralHeadToken
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $leading = $this->getLeading()->rewrite($rewriter, $parents);
-    $trailing = $this->getTrailing()->rewrite($rewriter, $parents);
+    $leading = $rewriter($this->getLeading(), $parents);
+    $trailing = $rewriter($this->getTrailing(), $parents);
     $text = $this->getText();
     if (
       $leading === $this->getLeading() &&

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<20cba03bcc91f45f1aed9bc1562b1e3d>>
+ * @generated SignedSource<<47137bcf7bd59798b1a72da0e91d192a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -90,15 +90,15 @@ final class TraitUseAliasItem extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $aliasing_name = $this->_aliasing_name->rewrite($rewriter, $parents);
-    $keyword = $this->_keyword->rewrite($rewriter, $parents);
-    $modifiers = $this->_modifiers->rewrite($rewriter, $parents);
-    $aliased_name = $this->_aliased_name->rewrite($rewriter, $parents);
+    $aliasing_name = $rewriter($this->_aliasing_name, $parents);
+    $keyword = $rewriter($this->_keyword, $parents);
+    $modifiers = $rewriter($this->_modifiers, $parents);
+    $aliased_name = $rewriter($this->_aliased_name, $parents);
     if (
       $aliasing_name === $this->_aliasing_name &&
       $keyword === $this->_keyword &&

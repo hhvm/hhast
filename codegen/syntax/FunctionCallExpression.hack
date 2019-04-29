@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6ee79e0942a31d4bd40b3939c4c7cafe>>
+ * @generated SignedSource<<f42796be7caef3b20f963a084870c84b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -102,16 +102,16 @@ final class FunctionCallExpression extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $receiver = $this->_receiver->rewrite($rewriter, $parents);
-    $type_args = $this->_type_args->rewrite($rewriter, $parents);
-    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
-    $argument_list = $this->_argument_list->rewrite($rewriter, $parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
+    $receiver = $rewriter($this->_receiver, $parents);
+    $type_args = $rewriter($this->_type_args, $parents);
+    $left_paren = $rewriter($this->_left_paren, $parents);
+    $argument_list = $rewriter($this->_argument_list, $parents);
+    $right_paren = $rewriter($this->_right_paren, $parents);
     if (
       $receiver === $this->_receiver &&
       $type_args === $this->_type_args &&

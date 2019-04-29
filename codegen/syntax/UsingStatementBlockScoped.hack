@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cb5d820f78d1c039c6bb4a3ab1137f28>>
+ * @generated SignedSource<<bd5cd8453a585e6b7a925d52f0ace615>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -114,17 +114,17 @@ final class UsingStatementBlockScoped extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $await_keyword = $this->_await_keyword->rewrite($rewriter, $parents);
-    $using_keyword = $this->_using_keyword->rewrite($rewriter, $parents);
-    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
-    $expressions = $this->_expressions->rewrite($rewriter, $parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
-    $body = $this->_body->rewrite($rewriter, $parents);
+    $await_keyword = $rewriter($this->_await_keyword, $parents);
+    $using_keyword = $rewriter($this->_using_keyword, $parents);
+    $left_paren = $rewriter($this->_left_paren, $parents);
+    $expressions = $rewriter($this->_expressions, $parents);
+    $right_paren = $rewriter($this->_right_paren, $parents);
+    $body = $rewriter($this->_body, $parents);
     if (
       $await_keyword === $this->_await_keyword &&
       $using_keyword === $this->_using_keyword &&

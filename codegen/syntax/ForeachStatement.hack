@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9cd3e6af3fb61354a00c6ffdd3046964>>
+ * @generated SignedSource<<3241b5776b6b033b18e4419f8b0b6296>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -164,21 +164,21 @@ final class ForeachStatement
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $parents);
-    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
-    $collection = $this->_collection->rewrite($rewriter, $parents);
-    $await_keyword = $this->_await_keyword->rewrite($rewriter, $parents);
-    $as = $this->_as->rewrite($rewriter, $parents);
-    $key = $this->_key->rewrite($rewriter, $parents);
-    $arrow = $this->_arrow->rewrite($rewriter, $parents);
-    $value = $this->_value->rewrite($rewriter, $parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
-    $body = $this->_body->rewrite($rewriter, $parents);
+    $keyword = $rewriter($this->_keyword, $parents);
+    $left_paren = $rewriter($this->_left_paren, $parents);
+    $collection = $rewriter($this->_collection, $parents);
+    $await_keyword = $rewriter($this->_await_keyword, $parents);
+    $as = $rewriter($this->_as, $parents);
+    $key = $rewriter($this->_key, $parents);
+    $arrow = $rewriter($this->_arrow, $parents);
+    $value = $rewriter($this->_value, $parents);
+    $right_paren = $rewriter($this->_right_paren, $parents);
+    $body = $rewriter($this->_body, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_paren === $this->_left_paren &&

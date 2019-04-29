@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<03717568e57f54ab41573f3578c75ba2>>
+ * @generated SignedSource<<360f88e367fca0827b98c7a6f16752f5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -128,18 +128,18 @@ final class DoStatement
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $parents);
-    $body = $this->_body->rewrite($rewriter, $parents);
-    $while_keyword = $this->_while_keyword->rewrite($rewriter, $parents);
-    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
-    $condition = $this->_condition->rewrite($rewriter, $parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
-    $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
+    $keyword = $rewriter($this->_keyword, $parents);
+    $body = $rewriter($this->_body, $parents);
+    $while_keyword = $rewriter($this->_while_keyword, $parents);
+    $left_paren = $rewriter($this->_left_paren, $parents);
+    $condition = $rewriter($this->_condition, $parents);
+    $right_paren = $rewriter($this->_right_paren, $parents);
+    $semicolon = $rewriter($this->_semicolon, $parents);
     if (
       $keyword === $this->_keyword &&
       $body === $this->_body &&

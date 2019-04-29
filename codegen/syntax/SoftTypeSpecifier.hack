@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4555c2c2ed98112084799febbba27060>>
+ * @generated SignedSource<<efdfc90eac3dad7622e2f13b77210359>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,13 +62,13 @@ final class SoftTypeSpecifier extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $at = $this->_at->rewrite($rewriter, $parents);
-    $type = $this->_type->rewrite($rewriter, $parents);
+    $at = $rewriter($this->_at, $parents);
+    $type = $rewriter($this->_type, $parents);
     if ($at === $this->_at && $type === $this->_type) {
       return $this;
     }

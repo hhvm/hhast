@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eb78c1f738125a92658697377907cf1c>>
+ * @generated SignedSource<<08d95491a96424651fd17d84763f3949>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -102,16 +102,16 @@ final class TraitUseConflictResolution extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $parents);
-    $names = $this->_names->rewrite($rewriter, $parents);
-    $left_brace = $this->_left_brace->rewrite($rewriter, $parents);
-    $clauses = $this->_clauses->rewrite($rewriter, $parents);
-    $right_brace = $this->_right_brace->rewrite($rewriter, $parents);
+    $keyword = $rewriter($this->_keyword, $parents);
+    $names = $rewriter($this->_names, $parents);
+    $left_brace = $rewriter($this->_left_brace, $parents);
+    $clauses = $rewriter($this->_clauses, $parents);
+    $right_brace = $rewriter($this->_right_brace, $parents);
     if (
       $keyword === $this->_keyword &&
       $names === $this->_names &&

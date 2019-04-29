@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e3346c90c74e6bc1b4b657592b74ab28>>
+ * @generated SignedSource<<e3dd58686234b0f58cb93aae25932208>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -114,17 +114,17 @@ final class ParameterDeclaration extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute = $this->_attribute->rewrite($rewriter, $parents);
-    $visibility = $this->_visibility->rewrite($rewriter, $parents);
-    $call_convention = $this->_call_convention->rewrite($rewriter, $parents);
-    $type = $this->_type->rewrite($rewriter, $parents);
-    $name = $this->_name->rewrite($rewriter, $parents);
-    $default_value = $this->_default_value->rewrite($rewriter, $parents);
+    $attribute = $rewriter($this->_attribute, $parents);
+    $visibility = $rewriter($this->_visibility, $parents);
+    $call_convention = $rewriter($this->_call_convention, $parents);
+    $type = $rewriter($this->_type, $parents);
+    $name = $rewriter($this->_name, $parents);
+    $default_value = $rewriter($this->_default_value, $parents);
     if (
       $attribute === $this->_attribute &&
       $visibility === $this->_visibility &&

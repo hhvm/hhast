@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ae074e750588c4634d5aa695b425b132>>
+ * @generated SignedSource<<e60ea0250919e2227ae62702da8f1576>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,13 +62,13 @@ final class ListItem extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $item = $this->_item->rewrite($rewriter, $parents);
-    $separator = $this->_separator->rewrite($rewriter, $parents);
+    $item = $rewriter($this->_item, $parents);
+    $separator = $rewriter($this->_separator, $parents);
     if ($item === $this->_item && $separator === $this->_separator) {
       return $this;
     }

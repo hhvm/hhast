@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e3557f619b1ddc7d8983917766e6b2f4>>
+ * @generated SignedSource<<78d79f36e4dcd9dbf60a995e0d2ff7e3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,13 +62,13 @@ final class GenericTypeSpecifier extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $class_type = $this->_class_type->rewrite($rewriter, $parents);
-    $argument_list = $this->_argument_list->rewrite($rewriter, $parents);
+    $class_type = $rewriter($this->_class_type, $parents);
+    $argument_list = $rewriter($this->_argument_list, $parents);
     if (
       $class_type === $this->_class_type &&
       $argument_list === $this->_argument_list

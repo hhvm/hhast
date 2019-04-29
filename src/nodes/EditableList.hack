@@ -132,35 +132,19 @@ final class EditableList<Titem as ?EditableNode> extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
-    $dirty = false;
-    $new_children = vec[];
-    $new_parents = $parents;
-    $new_parents[] = $this;
-    foreach ($this->getChildren() as $child) {
-      $new_child = $child->rewrite($rewriter, $new_parents);
-      if ($new_child !== $child) {
-        $dirty = true;
-      }
-      if ($new_child !== null && !$new_child->isMissing()) {
-        if ($new_child->isList()) {
-          foreach ($new_child->getChildren() as $n) {
-            $new_children[] = $n;
-          }
-        } else {
-          $new_children[] = $new_child;
-        }
-      }
-    }
-
-    if (!$dirty) {
+    $parents[] = $this;
+    $children = vec($this->getChildren());
+    $new_children = Vec\map($children, $child ==> $rewriter($child, $parents))
+      |> Vec\filter($$, $child ==> !($child is Missing));
+    if ($children === $new_children) {
       return $this;
     }
 
-    return new self($new_children);
+    return new EditableList($new_children);
   }
 
   <<__Override>>

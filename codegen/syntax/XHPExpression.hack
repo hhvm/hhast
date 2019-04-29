@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<93385e720053d8278e3f9be9102b4689>>
+ * @generated SignedSource<<4f1a59d054dbf8340fae4823e4194ed7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -73,14 +73,14 @@ final class XHPExpression extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $open = $this->_open->rewrite($rewriter, $parents);
-    $body = $this->_body->rewrite($rewriter, $parents);
-    $close = $this->_close->rewrite($rewriter, $parents);
+    $open = $rewriter($this->_open, $parents);
+    $body = $rewriter($this->_body, $parents);
+    $close = $rewriter($this->_close, $parents);
     if (
       $open === $this->_open &&
       $body === $this->_body &&

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cc089507bf9caa90698d32c9c228033d>>
+ * @generated SignedSource<<4f8a3a2949d564ff31fa7ac486c7de27>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -162,21 +162,21 @@ final class TypeConstDeclaration extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute_spec = $this->_attribute_spec->rewrite($rewriter, $parents);
-    $abstract = $this->_abstract->rewrite($rewriter, $parents);
-    $keyword = $this->_keyword->rewrite($rewriter, $parents);
-    $type_keyword = $this->_type_keyword->rewrite($rewriter, $parents);
-    $name = $this->_name->rewrite($rewriter, $parents);
-    $type_parameters = $this->_type_parameters->rewrite($rewriter, $parents);
-    $type_constraint = $this->_type_constraint->rewrite($rewriter, $parents);
-    $equal = $this->_equal->rewrite($rewriter, $parents);
-    $type_specifier = $this->_type_specifier->rewrite($rewriter, $parents);
-    $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
+    $attribute_spec = $rewriter($this->_attribute_spec, $parents);
+    $abstract = $rewriter($this->_abstract, $parents);
+    $keyword = $rewriter($this->_keyword, $parents);
+    $type_keyword = $rewriter($this->_type_keyword, $parents);
+    $name = $rewriter($this->_name, $parents);
+    $type_parameters = $rewriter($this->_type_parameters, $parents);
+    $type_constraint = $rewriter($this->_type_constraint, $parents);
+    $equal = $rewriter($this->_equal, $parents);
+    $type_specifier = $rewriter($this->_type_specifier, $parents);
+    $semicolon = $rewriter($this->_semicolon, $parents);
     if (
       $attribute_spec === $this->_attribute_spec &&
       $abstract === $this->_abstract &&

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f8d2ffb3d4dfc0ccc43f55ab5d8a52fc>>
+ * @generated SignedSource<<c3f93ffc61f1a3fc12dd99feedbfc5aa>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -150,21 +150,20 @@ final class AnonymousClass extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $class_keyword = $this->_class_keyword->rewrite($rewriter, $parents);
-    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
-    $argument_list = $this->_argument_list->rewrite($rewriter, $parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
-    $extends_keyword = $this->_extends_keyword->rewrite($rewriter, $parents);
-    $extends_list = $this->_extends_list->rewrite($rewriter, $parents);
-    $implements_keyword = $this->_implements_keyword
-      ->rewrite($rewriter, $parents);
-    $implements_list = $this->_implements_list->rewrite($rewriter, $parents);
-    $body = $this->_body->rewrite($rewriter, $parents);
+    $class_keyword = $rewriter($this->_class_keyword, $parents);
+    $left_paren = $rewriter($this->_left_paren, $parents);
+    $argument_list = $rewriter($this->_argument_list, $parents);
+    $right_paren = $rewriter($this->_right_paren, $parents);
+    $extends_keyword = $rewriter($this->_extends_keyword, $parents);
+    $extends_list = $rewriter($this->_extends_list, $parents);
+    $implements_keyword = $rewriter($this->_implements_keyword, $parents);
+    $implements_list = $rewriter($this->_implements_list, $parents);
+    $body = $rewriter($this->_body, $parents);
     if (
       $class_keyword === $this->_class_keyword &&
       $left_paren === $this->_left_paren &&

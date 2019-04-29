@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cdabbbee0d53ace1780bcedc4d7899b1>>
+ * @generated SignedSource<<f8e065f5b02f50009c4d5e1722a659a3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -73,14 +73,14 @@ final class ArrayCreationExpression extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $left_bracket = $this->_left_bracket->rewrite($rewriter, $parents);
-    $members = $this->_members->rewrite($rewriter, $parents);
-    $right_bracket = $this->_right_bracket->rewrite($rewriter, $parents);
+    $left_bracket = $rewriter($this->_left_bracket, $parents);
+    $members = $rewriter($this->_members, $parents);
+    $right_bracket = $rewriter($this->_right_bracket, $parents);
     if (
       $left_bracket === $this->_left_bracket &&
       $members === $this->_members &&

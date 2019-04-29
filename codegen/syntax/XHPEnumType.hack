@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a1d0847361a7375b439608ace5138a19>>
+ * @generated SignedSource<<bdd89f2fa923fc37c03bcb54da01ff3e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -102,16 +102,16 @@ final class XHPEnumType extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $optional = $this->_optional->rewrite($rewriter, $parents);
-    $keyword = $this->_keyword->rewrite($rewriter, $parents);
-    $left_brace = $this->_left_brace->rewrite($rewriter, $parents);
-    $values = $this->_values->rewrite($rewriter, $parents);
-    $right_brace = $this->_right_brace->rewrite($rewriter, $parents);
+    $optional = $rewriter($this->_optional, $parents);
+    $keyword = $rewriter($this->_keyword, $parents);
+    $left_brace = $rewriter($this->_left_brace, $parents);
+    $values = $rewriter($this->_values, $parents);
+    $right_brace = $rewriter($this->_right_brace, $parents);
     if (
       $optional === $this->_optional &&
       $keyword === $this->_keyword &&

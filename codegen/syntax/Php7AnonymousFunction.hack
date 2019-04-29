@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3e97f1b9be377af6b578df40c21122d8>>
+ * @generated SignedSource<<6d9864ca069c982e1720afe12d343133>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -186,24 +186,23 @@ final class Php7AnonymousFunction extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute_spec = $this->_attribute_spec->rewrite($rewriter, $parents);
-    $static_keyword = $this->_static_keyword->rewrite($rewriter, $parents);
-    $async_keyword = $this->_async_keyword->rewrite($rewriter, $parents);
-    $coroutine_keyword = $this->_coroutine_keyword
-      ->rewrite($rewriter, $parents);
-    $function_keyword = $this->_function_keyword->rewrite($rewriter, $parents);
-    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
-    $parameters = $this->_parameters->rewrite($rewriter, $parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
-    $use = $this->_use->rewrite($rewriter, $parents);
-    $colon = $this->_colon->rewrite($rewriter, $parents);
-    $type = $this->_type->rewrite($rewriter, $parents);
-    $body = $this->_body->rewrite($rewriter, $parents);
+    $attribute_spec = $rewriter($this->_attribute_spec, $parents);
+    $static_keyword = $rewriter($this->_static_keyword, $parents);
+    $async_keyword = $rewriter($this->_async_keyword, $parents);
+    $coroutine_keyword = $rewriter($this->_coroutine_keyword, $parents);
+    $function_keyword = $rewriter($this->_function_keyword, $parents);
+    $left_paren = $rewriter($this->_left_paren, $parents);
+    $parameters = $rewriter($this->_parameters, $parents);
+    $right_paren = $rewriter($this->_right_paren, $parents);
+    $use = $rewriter($this->_use, $parents);
+    $colon = $rewriter($this->_colon, $parents);
+    $type = $rewriter($this->_type, $parents);
+    $body = $rewriter($this->_body, $parents);
     if (
       $attribute_spec === $this->_attribute_spec &&
       $static_keyword === $this->_static_keyword &&

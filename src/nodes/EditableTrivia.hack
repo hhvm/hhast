@@ -63,7 +63,7 @@ abstract class EditableTrivia extends EditableNode {
   }
 
   <<__Override>>
-  final public function rewriteDescendants(
+  final public function rewriteChildren(
     self::TRewriter $_rewriter,
     vec<EditableNode> $_parents = vec[],
   ): this {

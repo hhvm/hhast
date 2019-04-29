@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<70b71168061db5536d4d9859f0d66639>>
+ * @generated SignedSource<<dd782848b31307119c280699af468c9a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -84,15 +84,15 @@ final class CastExpression extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
-    $type = $this->_type->rewrite($rewriter, $parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
-    $operand = $this->_operand->rewrite($rewriter, $parents);
+    $left_paren = $rewriter($this->_left_paren, $parents);
+    $type = $rewriter($this->_type, $parents);
+    $right_paren = $rewriter($this->_right_paren, $parents);
+    $operand = $rewriter($this->_operand, $parents);
     if (
       $left_paren === $this->_left_paren &&
       $type === $this->_type &&

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<75a5e95b503822e184b2be05fdfa6490>>
+ * @generated SignedSource<<bddbe430d7e4ae427e59e1e3d4b916f8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -73,14 +73,14 @@ final class TupleTypeSpecifier extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
-    $types = $this->_types->rewrite($rewriter, $parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
+    $left_paren = $rewriter($this->_left_paren, $parents);
+    $types = $rewriter($this->_types, $parents);
+    $right_paren = $rewriter($this->_right_paren, $parents);
     if (
       $left_paren === $this->_left_paren &&
       $types === $this->_types &&

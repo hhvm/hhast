@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<46a38bc6f7c944aadd3918a0ddc9a3d0>>
+ * @generated SignedSource<<6c4543b5afeb20ac79cf5caf87e3ff98>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -102,16 +102,16 @@ final class ElseifClause extends EditableNode implements IControlFlowStatement {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $parents);
-    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
-    $condition = $this->_condition->rewrite($rewriter, $parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
-    $statement = $this->_statement->rewrite($rewriter, $parents);
+    $keyword = $rewriter($this->_keyword, $parents);
+    $left_paren = $rewriter($this->_left_paren, $parents);
+    $condition = $rewriter($this->_condition, $parents);
+    $right_paren = $rewriter($this->_right_paren, $parents);
+    $statement = $rewriter($this->_statement, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_paren === $this->_left_paren &&

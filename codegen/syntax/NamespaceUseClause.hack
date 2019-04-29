@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bb174e34b5384d5cd59ed231ff085465>>
+ * @generated SignedSource<<da8290fdca68bbbc9b661f56029958ee>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -84,15 +84,15 @@ final class NamespaceUseClause extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $clause_kind = $this->_clause_kind->rewrite($rewriter, $parents);
-    $name = $this->_name->rewrite($rewriter, $parents);
-    $as = $this->_as->rewrite($rewriter, $parents);
-    $alias = $this->_alias->rewrite($rewriter, $parents);
+    $clause_kind = $rewriter($this->_clause_kind, $parents);
+    $name = $rewriter($this->_name, $parents);
+    $as = $rewriter($this->_as, $parents);
+    $alias = $rewriter($this->_alias, $parents);
     if (
       $clause_kind === $this->_clause_kind &&
       $name === $this->_name &&

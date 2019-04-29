@@ -27,11 +27,16 @@ abstract class EditableNode {
     protected ?__Private\SourceRef $sourceRef,
   ) {
     $this->_syntax_kind = $syntax_kind;
-    $this->_descendants = Vec\map($this->getChildren(), $child ==> {
+    $this->_descendants = Vec\map(
+      $this->getChildren(),
+      $child ==> {
         $with_child = $child->_descendants;
         $with_child[] = $child->getUniqueID();
         return $with_child;
-      }) |> Vec\flatten($$) |> keyset($$);
+      },
+    )
+      |> Vec\flatten($$)
+      |> keyset($$);
     /* handy for debugging :)
     if ($sourceRef !== null) {
       $code = $this->getCode();
@@ -229,9 +234,18 @@ abstract class EditableNode {
     return $this->removeWhere(($node, $parents) ==> $node === $target);
   }
 
-  public function replace(EditableNode $target, EditableNode $new_node): this {
-    return $this->rewriteDescendants(
-      ($node, $parents) ==> $node === $target ? $new_node : $node,
+  final public function replace(EditableNode $old, EditableNode $new): this {
+    return $this->rewriteChildren(
+      ($n, $_) ==> {
+        if ($n === $old) {
+          return $new;
+        }
+        if (!C\contains_key($n->_descendants, $old->getUniqueID())) {
+          return $n;
+        }
+        $ret = $n->replace($old, $new);
+        return $ret;
+      },
     );
   }
 
@@ -325,7 +339,18 @@ abstract class EditableNode {
     return $this->replace($target, EditableList::concat($target, $new_node));
   }
 
-  abstract public function rewriteDescendants(
+  final public function rewriteDescendants(
+    self::TRewriter $rewriter,
+    vec<EditableNode> $parents = vec[],
+  ): this {
+    $parents[] = $this;
+    return $this->rewriteChildren(
+      ($c, $p) ==> $c->rewrite($rewriter, $p ?? vec[]),
+      $parents,
+    );
+  }
+
+  abstract public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this;

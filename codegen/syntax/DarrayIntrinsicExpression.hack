@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<41db9e94dc36192f7eca0f1ca6be41fb>>
+ * @generated SignedSource<<bcb8cfd022c0fc6325d1d338f6fbe0b9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -102,16 +102,16 @@ final class DarrayIntrinsicExpression extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $parents);
-    $explicit_type = $this->_explicit_type->rewrite($rewriter, $parents);
-    $left_bracket = $this->_left_bracket->rewrite($rewriter, $parents);
-    $members = $this->_members->rewrite($rewriter, $parents);
-    $right_bracket = $this->_right_bracket->rewrite($rewriter, $parents);
+    $keyword = $rewriter($this->_keyword, $parents);
+    $explicit_type = $rewriter($this->_explicit_type, $parents);
+    $left_bracket = $rewriter($this->_left_bracket, $parents);
+    $members = $rewriter($this->_members, $parents);
+    $right_bracket = $rewriter($this->_right_bracket, $parents);
     if (
       $keyword === $this->_keyword &&
       $explicit_type === $this->_explicit_type &&

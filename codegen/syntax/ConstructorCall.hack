@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bebac2ca5181ca96f899fbc73b6d2e64>>
+ * @generated SignedSource<<342b766dfaaacb2ff999229b2e0e090d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -90,15 +90,15 @@ final class ConstructorCall extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $type = $this->_type->rewrite($rewriter, $parents);
-    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
-    $argument_list = $this->_argument_list->rewrite($rewriter, $parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
+    $type = $rewriter($this->_type, $parents);
+    $left_paren = $rewriter($this->_left_paren, $parents);
+    $argument_list = $rewriter($this->_argument_list, $parents);
+    $right_paren = $rewriter($this->_right_paren, $parents);
     if (
       $type === $this->_type &&
       $left_paren === $this->_left_paren &&

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<46234bdbcb4c6612eaa8f7d57e484fd6>>
+ * @generated SignedSource<<b1951ea7034221391e1d3e5e473c747a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -51,12 +51,12 @@ final class EndOfFile extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $token = $this->_token->rewrite($rewriter, $parents);
+    $token = $rewriter($this->_token, $parents);
     if ($token === $this->_token) {
       return $this;
     }

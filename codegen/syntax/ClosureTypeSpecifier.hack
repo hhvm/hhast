@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f963a81a869c64138f27981eefee3df6>>
+ * @generated SignedSource<<21125cfcd69d22d94cdc5844b6f16193>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -150,22 +150,20 @@ final class ClosureTypeSpecifier extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $outer_left_paren = $this->_outer_left_paren->rewrite($rewriter, $parents);
-    $coroutine = $this->_coroutine->rewrite($rewriter, $parents);
-    $function_keyword = $this->_function_keyword->rewrite($rewriter, $parents);
-    $inner_left_paren = $this->_inner_left_paren->rewrite($rewriter, $parents);
-    $parameter_list = $this->_parameter_list->rewrite($rewriter, $parents);
-    $inner_right_paren = $this->_inner_right_paren
-      ->rewrite($rewriter, $parents);
-    $colon = $this->_colon->rewrite($rewriter, $parents);
-    $return_type = $this->_return_type->rewrite($rewriter, $parents);
-    $outer_right_paren = $this->_outer_right_paren
-      ->rewrite($rewriter, $parents);
+    $outer_left_paren = $rewriter($this->_outer_left_paren, $parents);
+    $coroutine = $rewriter($this->_coroutine, $parents);
+    $function_keyword = $rewriter($this->_function_keyword, $parents);
+    $inner_left_paren = $rewriter($this->_inner_left_paren, $parents);
+    $parameter_list = $rewriter($this->_parameter_list, $parents);
+    $inner_right_paren = $rewriter($this->_inner_right_paren, $parents);
+    $colon = $rewriter($this->_colon, $parents);
+    $return_type = $rewriter($this->_return_type, $parents);
+    $outer_right_paren = $rewriter($this->_outer_right_paren, $parents);
     if (
       $outer_left_paren === $this->_outer_left_paren &&
       $coroutine === $this->_coroutine &&

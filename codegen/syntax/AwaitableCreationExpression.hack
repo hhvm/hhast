@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<31658cab09cfc63f01cc234c112714f0>>
+ * @generated SignedSource<<42343f36ab2d681c90ce7b9f3752f7a3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -90,16 +90,15 @@ final class AwaitableCreationExpression extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute_spec = $this->_attribute_spec->rewrite($rewriter, $parents);
-    $async = $this->_async->rewrite($rewriter, $parents);
-    $coroutine = $this->_coroutine->rewrite($rewriter, $parents);
-    $compound_statement = $this->_compound_statement
-      ->rewrite($rewriter, $parents);
+    $attribute_spec = $rewriter($this->_attribute_spec, $parents);
+    $async = $rewriter($this->_async, $parents);
+    $coroutine = $rewriter($this->_coroutine, $parents);
+    $compound_statement = $rewriter($this->_compound_statement, $parents);
     if (
       $attribute_spec === $this->_attribute_spec &&
       $async === $this->_async &&

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3102195bbe5a385343812cb47686a8f0>>
+ * @generated SignedSource<<68f83d5c6c434f0465a9b22adf49b4a8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,13 +62,13 @@ final class GotoLabel extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $name = $this->_name->rewrite($rewriter, $parents);
-    $colon = $this->_colon->rewrite($rewriter, $parents);
+    $name = $rewriter($this->_name, $parents);
+    $colon = $rewriter($this->_colon, $parents);
     if ($name === $this->_name && $colon === $this->_colon) {
       return $this;
     }

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<db892472460cbc6f78c11272c722f8cf>>
+ * @generated SignedSource<<7f8e700493428adfd9589d799ba2f570>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -114,17 +114,17 @@ final class MapArrayTypeSpecifier extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $parents);
-    $left_angle = $this->_left_angle->rewrite($rewriter, $parents);
-    $key = $this->_key->rewrite($rewriter, $parents);
-    $comma = $this->_comma->rewrite($rewriter, $parents);
-    $value = $this->_value->rewrite($rewriter, $parents);
-    $right_angle = $this->_right_angle->rewrite($rewriter, $parents);
+    $keyword = $rewriter($this->_keyword, $parents);
+    $left_angle = $rewriter($this->_left_angle, $parents);
+    $key = $rewriter($this->_key, $parents);
+    $comma = $rewriter($this->_comma, $parents);
+    $value = $rewriter($this->_value, $parents);
+    $right_angle = $rewriter($this->_right_angle, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_angle === $this->_left_angle &&

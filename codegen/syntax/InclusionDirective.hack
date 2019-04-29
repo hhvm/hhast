@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<919fc5167ae9517a9337ef6dd061a478>>
+ * @generated SignedSource<<7480956d5cccd26d4fa2acea5e48b5ed>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,13 +62,13 @@ final class InclusionDirective extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $expression = $this->_expression->rewrite($rewriter, $parents);
-    $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
+    $expression = $rewriter($this->_expression, $parents);
+    $semicolon = $rewriter($this->_semicolon, $parents);
     if (
       $expression === $this->_expression && $semicolon === $this->_semicolon
     ) {

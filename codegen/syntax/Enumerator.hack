@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3e12064ff7a08c2745170033fd1a2a7f>>
+ * @generated SignedSource<<77c2e049677cd3f4b0ff907c44601101>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -84,15 +84,15 @@ final class Enumerator extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $name = $this->_name->rewrite($rewriter, $parents);
-    $equal = $this->_equal->rewrite($rewriter, $parents);
-    $value = $this->_value->rewrite($rewriter, $parents);
-    $semicolon = $this->_semicolon->rewrite($rewriter, $parents);
+    $name = $rewriter($this->_name, $parents);
+    $equal = $rewriter($this->_equal, $parents);
+    $value = $rewriter($this->_value, $parents);
+    $semicolon = $rewriter($this->_semicolon, $parents);
     if (
       $name === $this->_name &&
       $equal === $this->_equal &&

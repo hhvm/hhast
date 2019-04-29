@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<44aaac795366488fabfe05635de73af0>>
+ * @generated SignedSource<<c194339e3c92d99878ee9f9719d96a53>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -90,15 +90,15 @@ final class RecordCreationExpression extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $type = $this->_type->rewrite($rewriter, $parents);
-    $left_bracket = $this->_left_bracket->rewrite($rewriter, $parents);
-    $members = $this->_members->rewrite($rewriter, $parents);
-    $right_bracket = $this->_right_bracket->rewrite($rewriter, $parents);
+    $type = $rewriter($this->_type, $parents);
+    $left_bracket = $rewriter($this->_left_bracket, $parents);
+    $members = $rewriter($this->_members, $parents);
+    $right_bracket = $rewriter($this->_right_bracket, $parents);
     if (
       $type === $this->_type &&
       $left_bracket === $this->_left_bracket &&

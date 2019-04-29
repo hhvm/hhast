@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<039a9712ab9a22742949885f8915c695>>
+ * @generated SignedSource<<f1761edb31e703830d44b3450dea0489>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,13 +62,13 @@ final class LikeTypeSpecifier extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $tilde = $this->_tilde->rewrite($rewriter, $parents);
-    $type = $this->_type->rewrite($rewriter, $parents);
+    $tilde = $rewriter($this->_tilde, $parents);
+    $type = $rewriter($this->_type, $parents);
     if ($tilde === $this->_tilde && $type === $this->_type) {
       return $this;
     }

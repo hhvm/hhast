@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3edee4cd78f5c8dd0070060f2b3d2e22>>
+ * @generated SignedSource<<693dd9657b88d2379d0c31b894ac3004>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,13 +62,13 @@ final class PrefixedStringExpression extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $name = $this->_name->rewrite($rewriter, $parents);
-    $str = $this->_str->rewrite($rewriter, $parents);
+    $name = $rewriter($this->_name, $parents);
+    $str = $rewriter($this->_str, $parents);
     if ($name === $this->_name && $str === $this->_str) {
       return $this;
     }

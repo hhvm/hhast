@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1892f440f1ff4117ba13b6b16f7a40b9>>
+ * @generated SignedSource<<f23664fdce2724168985ac5708b31e64>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -73,14 +73,14 @@ final class XHPChildrenParenthesizedList extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
-    $xhp_children = $this->_xhp_children->rewrite($rewriter, $parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
+    $left_paren = $rewriter($this->_left_paren, $parents);
+    $xhp_children = $rewriter($this->_xhp_children, $parents);
+    $right_paren = $rewriter($this->_right_paren, $parents);
     if (
       $left_paren === $this->_left_paren &&
       $xhp_children === $this->_xhp_children &&

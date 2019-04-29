@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3ac37da1d3500966b86598b047ee4231>>
+ * @generated SignedSource<<dca2affd4659af0a5edd0f5aeb376a52>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -162,22 +162,21 @@ final class FunctionDeclarationHeader extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $modifiers = $this->_modifiers->rewrite($rewriter, $parents);
-    $keyword = $this->_keyword->rewrite($rewriter, $parents);
-    $name = $this->_name->rewrite($rewriter, $parents);
-    $type_parameter_list = $this->_type_parameter_list
-      ->rewrite($rewriter, $parents);
-    $left_paren = $this->_left_paren->rewrite($rewriter, $parents);
-    $parameter_list = $this->_parameter_list->rewrite($rewriter, $parents);
-    $right_paren = $this->_right_paren->rewrite($rewriter, $parents);
-    $colon = $this->_colon->rewrite($rewriter, $parents);
-    $type = $this->_type->rewrite($rewriter, $parents);
-    $where_clause = $this->_where_clause->rewrite($rewriter, $parents);
+    $modifiers = $rewriter($this->_modifiers, $parents);
+    $keyword = $rewriter($this->_keyword, $parents);
+    $name = $rewriter($this->_name, $parents);
+    $type_parameter_list = $rewriter($this->_type_parameter_list, $parents);
+    $left_paren = $rewriter($this->_left_paren, $parents);
+    $parameter_list = $rewriter($this->_parameter_list, $parents);
+    $right_paren = $rewriter($this->_right_paren, $parents);
+    $colon = $rewriter($this->_colon, $parents);
+    $type = $rewriter($this->_type, $parents);
+    $where_clause = $rewriter($this->_where_clause, $parents);
     if (
       $modifiers === $this->_modifiers &&
       $keyword === $this->_keyword &&

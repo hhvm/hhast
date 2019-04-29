@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c06c25dd45a9808886a3491d49dd3d2b>>
+ * @generated SignedSource<<a766f571289c24f273449132d6c3a18f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -102,18 +102,16 @@ final class FileAttributeSpecification extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $left_double_angle = $this->_left_double_angle
-      ->rewrite($rewriter, $parents);
-    $keyword = $this->_keyword->rewrite($rewriter, $parents);
-    $colon = $this->_colon->rewrite($rewriter, $parents);
-    $attributes = $this->_attributes->rewrite($rewriter, $parents);
-    $right_double_angle = $this->_right_double_angle
-      ->rewrite($rewriter, $parents);
+    $left_double_angle = $rewriter($this->_left_double_angle, $parents);
+    $keyword = $rewriter($this->_keyword, $parents);
+    $colon = $rewriter($this->_colon, $parents);
+    $attributes = $rewriter($this->_attributes, $parents);
+    $right_double_angle = $rewriter($this->_right_double_angle, $parents);
     if (
       $left_double_angle === $this->_left_double_angle &&
       $keyword === $this->_keyword &&

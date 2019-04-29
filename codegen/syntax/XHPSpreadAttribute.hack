@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ad8bf945cb01f5f1f117e8379e60a162>>
+ * @generated SignedSource<<dec2f9e4e6b2aacb0895b724046e6346>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -90,15 +90,15 @@ final class XHPSpreadAttribute extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $left_brace = $this->_left_brace->rewrite($rewriter, $parents);
-    $spread_operator = $this->_spread_operator->rewrite($rewriter, $parents);
-    $expression = $this->_expression->rewrite($rewriter, $parents);
-    $right_brace = $this->_right_brace->rewrite($rewriter, $parents);
+    $left_brace = $rewriter($this->_left_brace, $parents);
+    $spread_operator = $rewriter($this->_spread_operator, $parents);
+    $expression = $rewriter($this->_expression, $parents);
+    $right_brace = $rewriter($this->_right_brace, $parents);
     if (
       $left_brace === $this->_left_brace &&
       $spread_operator === $this->_spread_operator &&

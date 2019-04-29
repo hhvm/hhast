@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f93749116e0fedcfb50772821cc5e432>>
+ * @generated SignedSource<<dc76e7a439d6f015db5b893387b246dd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -75,14 +75,14 @@ final class AlternateElseClause
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $parents);
-    $colon = $this->_colon->rewrite($rewriter, $parents);
-    $statement = $this->_statement->rewrite($rewriter, $parents);
+    $keyword = $rewriter($this->_keyword, $parents);
+    $colon = $rewriter($this->_colon, $parents);
+    $statement = $rewriter($this->_statement, $parents);
     if (
       $keyword === $this->_keyword &&
       $colon === $this->_colon &&

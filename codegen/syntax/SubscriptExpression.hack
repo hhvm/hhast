@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9cb11148130c5b38e00a2d8e6b5f866b>>
+ * @generated SignedSource<<13429404fcb427e330399637f14580ae>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -90,15 +90,15 @@ final class SubscriptExpression extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $receiver = $this->_receiver->rewrite($rewriter, $parents);
-    $left_bracket = $this->_left_bracket->rewrite($rewriter, $parents);
-    $index = $this->_index->rewrite($rewriter, $parents);
-    $right_bracket = $this->_right_bracket->rewrite($rewriter, $parents);
+    $receiver = $rewriter($this->_receiver, $parents);
+    $left_bracket = $rewriter($this->_left_bracket, $parents);
+    $index = $rewriter($this->_index, $parents);
+    $right_bracket = $rewriter($this->_right_bracket, $parents);
     if (
       $receiver === $this->_receiver &&
       $left_bracket === $this->_left_bracket &&

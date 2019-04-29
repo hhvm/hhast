@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9626f6f592e6312fa05cf33027fa26f4>>
+ * @generated SignedSource<<7af2f26c408cc2cb65b6be488913cbec>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,13 +62,13 @@ final class PrefixUnaryExpression extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $operator = $this->_operator->rewrite($rewriter, $parents);
-    $operand = $this->_operand->rewrite($rewriter, $parents);
+    $operator = $rewriter($this->_operator, $parents);
+    $operand = $rewriter($this->_operand, $parents);
     if ($operator === $this->_operator && $operand === $this->_operand) {
       return $this;
     }

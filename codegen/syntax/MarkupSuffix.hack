@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<817cd34f8a1dc457f4108b7956cf8c7c>>
+ * @generated SignedSource<<668d7bb4b2d2d8d581ccfb86d11fd6a2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,14 +62,13 @@ final class MarkupSuffix extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $less_than_question = $this->_less_than_question
-      ->rewrite($rewriter, $parents);
-    $name = $this->_name->rewrite($rewriter, $parents);
+    $less_than_question = $rewriter($this->_less_than_question, $parents);
+    $name = $rewriter($this->_name, $parents);
     if (
       $less_than_question === $this->_less_than_question &&
       $name === $this->_name

@@ -254,7 +254,7 @@ final class CodegenTokens extends CodegenBase {
     self::TTokenSpec $token,
   ): CodegenMethod {
     $cg = $this->getCodegenFactory();
-    return $cg->codegenMethod('rewriteDescendants')
+    return $cg->codegenMethod('rewriteChildren')
       ->setIsOverride()
       ->addParameter('self::TRewriter $rewriter')
       ->addParameter('vec<EditableNode> $parents = vec[]')
@@ -272,7 +272,7 @@ final class CodegenTokens extends CodegenBase {
                   StrP\upper_camel($field['name']),
                 )
                 : Str\format(
-                  '$%s = $this->get%s()->rewrite($rewriter, $parents);',
+                  '$%s = $rewriter($this->get%s(), $parents);',
                   $field['name'],
                   StrP\upper_camel($field['name']),
                 )

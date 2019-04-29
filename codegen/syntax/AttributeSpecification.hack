@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<64cbd3c020f2fce2972e915f81798d95>>
+ * @generated SignedSource<<c5def867b78f0edc6c166b32b83382e4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -78,16 +78,14 @@ final class AttributeSpecification extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $left_double_angle = $this->_left_double_angle
-      ->rewrite($rewriter, $parents);
-    $attributes = $this->_attributes->rewrite($rewriter, $parents);
-    $right_double_angle = $this->_right_double_angle
-      ->rewrite($rewriter, $parents);
+    $left_double_angle = $rewriter($this->_left_double_angle, $parents);
+    $attributes = $rewriter($this->_attributes, $parents);
+    $right_double_angle = $rewriter($this->_right_double_angle, $parents);
     if (
       $left_double_angle === $this->_left_double_angle &&
       $attributes === $this->_attributes &&

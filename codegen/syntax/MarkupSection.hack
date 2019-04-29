@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3f8d2ef4b88e87752d4bcd6d4c1f80d1>>
+ * @generated SignedSource<<1ee105cc55b68ab6f9a33df075b30579>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -84,15 +84,15 @@ final class MarkupSection extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $prefix = $this->_prefix->rewrite($rewriter, $parents);
-    $text = $this->_text->rewrite($rewriter, $parents);
-    $suffix = $this->_suffix->rewrite($rewriter, $parents);
-    $expression = $this->_expression->rewrite($rewriter, $parents);
+    $prefix = $rewriter($this->_prefix, $parents);
+    $text = $rewriter($this->_text, $parents);
+    $suffix = $rewriter($this->_suffix, $parents);
+    $expression = $rewriter($this->_expression, $parents);
     if (
       $prefix === $this->_prefix &&
       $text === $this->_text &&

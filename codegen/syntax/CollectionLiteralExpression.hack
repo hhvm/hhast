@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3ece418cd9f8b6b21d486f7634fdb17d>>
+ * @generated SignedSource<<079d710fc32ea3a9b393d6ce5720bbb7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -90,15 +90,15 @@ final class CollectionLiteralExpression extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $name = $this->_name->rewrite($rewriter, $parents);
-    $left_brace = $this->_left_brace->rewrite($rewriter, $parents);
-    $initializers = $this->_initializers->rewrite($rewriter, $parents);
-    $right_brace = $this->_right_brace->rewrite($rewriter, $parents);
+    $name = $rewriter($this->_name, $parents);
+    $left_brace = $rewriter($this->_left_brace, $parents);
+    $initializers = $rewriter($this->_initializers, $parents);
+    $right_brace = $rewriter($this->_right_brace, $parents);
     if (
       $name === $this->_name &&
       $left_brace === $this->_left_brace &&

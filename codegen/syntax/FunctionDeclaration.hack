@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6a72a045731309f2f8f5039ee0c1e531>>
+ * @generated SignedSource<<df70e8ec2d05754900a26d4556dcfbd5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -75,15 +75,14 @@ final class FunctionDeclaration
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute_spec = $this->_attribute_spec->rewrite($rewriter, $parents);
-    $declaration_header = $this->_declaration_header
-      ->rewrite($rewriter, $parents);
-    $body = $this->_body->rewrite($rewriter, $parents);
+    $attribute_spec = $rewriter($this->_attribute_spec, $parents);
+    $declaration_header = $rewriter($this->_declaration_header, $parents);
+    $body = $rewriter($this->_body, $parents);
     if (
       $attribute_spec === $this->_attribute_spec &&
       $declaration_header === $this->_declaration_header &&

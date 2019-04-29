@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<75cd785db25deddda7ca08cb073d4e56>>
+ * @generated SignedSource<<9d025d260aa42153260d681f12153ce9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,13 +62,13 @@ final class PocketMappingIdDeclaration extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $name = $this->_name->rewrite($rewriter, $parents);
-    $initializer = $this->_initializer->rewrite($rewriter, $parents);
+    $name = $rewriter($this->_name, $parents);
+    $initializer = $rewriter($this->_initializer, $parents);
     if ($name === $this->_name && $initializer === $this->_initializer) {
       return $this;
     }

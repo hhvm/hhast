@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d703adab69eb4ccb1688fd9ac315895c>>
+ * @generated SignedSource<<9b56f0f453858d14283c461313d8a2b1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -73,14 +73,14 @@ final class VariadicParameter extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $call_convention = $this->_call_convention->rewrite($rewriter, $parents);
-    $type = $this->_type->rewrite($rewriter, $parents);
-    $ellipsis = $this->_ellipsis->rewrite($rewriter, $parents);
+    $call_convention = $rewriter($this->_call_convention, $parents);
+    $type = $rewriter($this->_type, $parents);
+    $ellipsis = $rewriter($this->_ellipsis, $parents);
     if (
       $call_convention === $this->_call_convention &&
       $type === $this->_type &&

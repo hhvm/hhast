@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e03c445cfe43a7ceff8511130134d141>>
+ * @generated SignedSource<<923506cff0af4a752263a8dced164b56>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,13 +62,13 @@ final class TypeConstraint extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $this->_keyword->rewrite($rewriter, $parents);
-    $type = $this->_type->rewrite($rewriter, $parents);
+    $keyword = $rewriter($this->_keyword, $parents);
+    $type = $rewriter($this->_type, $parents);
     if ($keyword === $this->_keyword && $type === $this->_type) {
       return $this;
     }

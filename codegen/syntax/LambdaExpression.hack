@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<daff2c9b5b19feb20ea92bddfe0f718c>>
+ * @generated SignedSource<<180c127b46ccf1d708639cefc6378c9c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -114,17 +114,17 @@ final class LambdaExpression extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute_spec = $this->_attribute_spec->rewrite($rewriter, $parents);
-    $async = $this->_async->rewrite($rewriter, $parents);
-    $coroutine = $this->_coroutine->rewrite($rewriter, $parents);
-    $signature = $this->_signature->rewrite($rewriter, $parents);
-    $arrow = $this->_arrow->rewrite($rewriter, $parents);
-    $body = $this->_body->rewrite($rewriter, $parents);
+    $attribute_spec = $rewriter($this->_attribute_spec, $parents);
+    $async = $rewriter($this->_async, $parents);
+    $coroutine = $rewriter($this->_coroutine, $parents);
+    $signature = $rewriter($this->_signature, $parents);
+    $arrow = $rewriter($this->_arrow, $parents);
+    $body = $rewriter($this->_body, $parents);
     if (
       $attribute_spec === $this->_attribute_spec &&
       $async === $this->_async &&

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d17685ce83f461c7c0d66e604c41f662>>
+ * @generated SignedSource<<d44474edcc1505de701c045e3bdf4eaa>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -84,15 +84,15 @@ final class FieldSpecifier extends EditableNode {
   }
 
   <<__Override>>
-  public function rewriteDescendants(
+  public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $question = $this->_question->rewrite($rewriter, $parents);
-    $name = $this->_name->rewrite($rewriter, $parents);
-    $arrow = $this->_arrow->rewrite($rewriter, $parents);
-    $type = $this->_type->rewrite($rewriter, $parents);
+    $question = $rewriter($this->_question, $parents);
+    $name = $rewriter($this->_name, $parents);
+    $arrow = $rewriter($this->_arrow, $parents);
+    $type = $rewriter($this->_type, $parents);
     if (
       $question === $this->_question &&
       $name === $this->_name &&
