@@ -19,6 +19,7 @@ abstract class EditableNode {
   ): EditableNode);
 
   private keyset<int> $_descendants = keyset[];
+  private static dict<int, EditableNode> $byID = dict[];
   private string $_syntax_kind;
   protected ?int $_width;
 
@@ -49,6 +50,7 @@ abstract class EditableNode {
       );
     }
     */
+    self::$byID[$this->getUniqueID()] = $this;
   }
 
   private static int $_maxID = 0;
@@ -87,13 +89,10 @@ abstract class EditableNode {
   }
 
   public function traverse(): vec<EditableNode> {
-    $out = vec[$this];
-    foreach ($this->getChildren() as $child) {
-      foreach ($child->traverse() as $descendant) {
-        $out[] = $descendant;
-      }
-    }
-    return $out;
+    return Vec\concat(
+      vec[$this],
+      Vec\map($this->_descendants, $id ==> self::$byID[$id]),
+    );
   }
 
   private function traverseImpl(
