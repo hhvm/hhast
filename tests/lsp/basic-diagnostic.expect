@@ -86,22 +86,6 @@
                     "message": "Do not use PHP equality - use \"!==\" instead.",
                     "code": "NoPHPEquality",
                     "source": "HHAST"
-                },
-                {
-                    "range": {
-                        "start": {
-                            "line": 13,
-                            "character": 11
-                        },
-                        "end": {
-                            "line": 13,
-                            "character": 29
-                        }
-                    },
-                    "severity": 2,
-                    "message": "Do not use PHP equality - use \"!==\" instead.",
-                    "code": "NoPHPEquality",
-                    "source": "HHAST"
                 }
             ]
         }

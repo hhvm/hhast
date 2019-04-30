@@ -86,22 +86,6 @@
                     "message": "Do not use PHP equality - use \"!==\" instead.",
                     "code": "NoPHPEquality",
                     "source": "HHAST"
-                },
-                {
-                    "range": {
-                        "start": {
-                            "line": 13,
-                            "character": 11
-                        },
-                        "end": {
-                            "line": 13,
-                            "character": 29
-                        }
-                    },
-                    "severity": 2,
-                    "message": "Do not use PHP equality - use \"!==\" instead.",
-                    "code": "NoPHPEquality",
-                    "source": "HHAST"
                 }
             ]
         }
@@ -154,31 +138,6 @@
                                         }
                                     },
                                     "newText": "="
-                                }
-                            ]
-                        }
-                    }
-                ]
-            },
-            {
-                "title": "Replace `<>` with `!==`",
-                "command": "hhast/applyWorkspaceEdit",
-                "arguments": [
-                    {
-                        "changes": {
-                            "HHAST_ROOT_URI/tests/fixtures/NoPHPEqualityLinter/double_equals.php.in": [
-                                {
-                                    "range": {
-                                        "start": {
-                                            "line": 13,
-                                            "character": 19
-                                        },
-                                        "end": {
-                                            "line": 13,
-                                            "character": 21
-                                        }
-                                    },
-                                    "newText": "!=="
                                 }
                             ]
                         }

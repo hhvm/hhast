@@ -79,8 +79,6 @@ function empty_binary_expr(int $a, int $b): void {
   $a * $b;
 
   /* HH_FIXME[1002] */
-  $a <> $b;
-  /* HH_FIXME[1002] */
   $a or $b;
   /* HH_FIXME[1002] */
   $a and $b;

@@ -11,5 +11,4 @@
 function foo(): void {
   var_dump('0e123' == '0e456');
   var_dump('0e123' != '0e456');
-  var_dump('0e123' <> '0e456');
 }

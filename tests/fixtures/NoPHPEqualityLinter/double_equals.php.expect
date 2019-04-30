@@ -8,10 +8,5 @@
         "blame": "'0e123' != '0e456'",
         "blame_pretty": "'0e123' != '0e456'",
         "description": "Do not use PHP equality - use \"!==\" instead."
-    },
-    {
-        "blame": "'0e123' <> '0e456'",
-        "blame_pretty": "'0e123' <> '0e456'",
-        "description": "Do not use PHP equality - use \"!==\" instead."
     }
 ]
