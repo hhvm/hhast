@@ -59,7 +59,7 @@ final class JSONOutputTest extends TestCase {
       $data,
     );
     expect($data['passed'])->toBeFalse();
-    expect(C\count($data['errors']))->toBeSame(3);
+    expect(C\count($data['errors']))->toBeSame(2);
     $linters = Keyset\map($data['errors'], $e ==> $e['linter']);
     expect($linters)->toBeSame(keyset['NoPHPEquality']);
 
