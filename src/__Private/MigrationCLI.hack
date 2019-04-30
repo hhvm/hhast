@@ -24,7 +24,6 @@ use type Facebook\HHAST\Migrations\{
   IsRefinementMigration,
   OptionalShapeFieldsMigration,
   NamespaceFallbackMigration,
-  PHPLessThanGreaterThanOperatorMigration,
   PHPUnitToHackTestMigration,
 };
 
@@ -104,23 +103,23 @@ class MigrationCLI extends CLIWithRequiredArguments {
       ),
       CLIOptions\flag(
         () ==> {
-          $this->migrations[] = PHPLessThanGreaterThanOperatorMigration::class;
+          invariant_violation("Use HHAST 4.2.* or below for this migration");
         },
-        'Apply all migrations for moving from 4.2 to 4.3',
+        'no longer supported',
         '--hhvm-4.2-to-4.3',
       ),
       CLIOptions\flag(
         () ==> {
-          $this->migrations[] = PHPLessThanGreaterThanOperatorMigration::class;
+          invariant_violation("Use HHAST 4.2.* or below for this migration");
         },
-        'Replace <> with != (no semantic change',
+        'no longer supported',
         '--ltgt-to-ne',
       ),
       CLIOptions\flag(
         () ==> {
-          $this->migrations[] = PHPLessThanGreaterThanOperatorMigration::class;
+          invariant_violation("Use HHAST 4.2.* or below for this migration");
         },
-        'Apply all migrations for moving from 3.28 to 3.29',
+        'no longer supported',
         '--hhvm-3.28-to-3.29',
       ),
       CLIOptions\flag(

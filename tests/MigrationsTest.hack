@@ -78,10 +78,6 @@ final class MigrationsTest extends TestCase {
         'migrations/PHPUnitToHackTest/old_name_ns_with_use.php',
       ),
       tuple(
-        Migrations\PHPLessThanGreaterThanOperatorMigration::class,
-        'migrations/ltgt.php',
-      ),
-      tuple(
         Migrations\IsRefinementMigration::class,
         'migrations/is_refinement.php',
       ),
