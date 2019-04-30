@@ -147,7 +147,8 @@ final class MigrationsTest extends TestCase {
     Migrations\IMigrationStep $step,
     string $fixture,
   ): void {
-    $rewrite = $ast ==> $ast->rewrite(($n, $_) ==> $step->rewrite($n));
+    $rewrite = (HHAST\EditableNode $ast) ==>
+      $ast->rewrite(($n, $_) ==> $step->rewrite($n));
 
     $ast = HHAST\from_file(__DIR__.'/fixtures/'.$fixture.'.in')
       |> $rewrite($$);

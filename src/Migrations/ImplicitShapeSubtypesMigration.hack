@@ -88,7 +88,10 @@ final class ImplicitShapeSubtypesMigration extends StepBasedMigration {
   <<__Override>>
   final public function getSteps(
   ): Traversable<IMigrationStep> {
-    $make_step = ($name, $impl) ==> new TypedMigrationStep(
+    $make_step = (
+      string $name,
+      (function(HHAST\ShapeTypeSpecifier): HHAST\ShapeTypeSpecifier) $impl,
+    ) ==> new TypedMigrationStep(
       $name,
       HHAST\ShapeTypeSpecifier::class,
       HHAST\ShapeTypeSpecifier::class,

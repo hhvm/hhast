@@ -237,25 +237,37 @@ final class AssertToExpectMigration extends StepBasedMigration {
   <<__Override>>
   public function getSteps(): Traversable<IMigrationStep> {
     $this->useExpectFunctionNeeded = false;
-    $make_step_add = ($name, $impl) ==> new TypedMigrationStep(
+    $make_step_add = (
+      string $name,
+      (function(NamespaceUseDeclaration): NamespaceUseDeclaration) $impl,
+    ) ==> new TypedMigrationStep(
       $name,
       NamespaceUseDeclaration::class,
       NamespaceUseDeclaration::class,
       $impl,
     );
-    $make_step_add_namespace = ($name, $impl) ==> new TypedMigrationStep(
+    $make_step_add_namespace = (
+      string $name,
+      (function(NamespaceDeclaration): NamespaceDeclaration) $impl,
+    ) ==> new TypedMigrationStep(
       $name,
       NamespaceDeclaration::class,
       NamespaceDeclaration::class,
       $impl,
     );
-    $make_step_add_comment = ($name, $impl) ==> new TypedMigrationStep(
+    $make_step_add_comment = (
+      string $name,
+      (function(DelimitedComment): EditableNode) $impl,
+    ) ==> new TypedMigrationStep(
       $name,
       DelimitedComment::class,
       EditableNode::class,
       $impl,
     );
-    $make_step_expect = ($name, $impl) ==> new TypedMigrationStep(
+    $make_step_expect = (
+      string $name,
+      (function(FunctionCallExpression): FunctionCallExpression) $impl,
+    ) ==> new TypedMigrationStep(
       $name,
       FunctionCallExpression::class,
       FunctionCallExpression::class,
