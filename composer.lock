@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c2175e470d4f685ac84ab22e26e44620",
+    "content-hash": "e064e015738f065b6eecf841418b6b06",
     "packages": [
         {
             "name": "facebook/difflib",
@@ -380,7 +380,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "hhvm": "^4.2"
+        "hhvm": "^4.3"
     },
     "platform-dev": []
 }
