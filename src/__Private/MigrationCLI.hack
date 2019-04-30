@@ -106,6 +106,13 @@ class MigrationCLI extends CLIWithRequiredArguments {
         () ==> {
           $this->migrations[] = PHPLessThanGreaterThanOperatorMigration::class;
         },
+        'Apply all migrations for moving from 4.2 to 4.3',
+        '--hhvm-4.2-to-4.3',
+      ),
+      CLIOptions\flag(
+        () ==> {
+          $this->migrations[] = PHPLessThanGreaterThanOperatorMigration::class;
+        },
         'Replace <> with != (no semantic change',
         '--ltgt-to-ne',
       ),
