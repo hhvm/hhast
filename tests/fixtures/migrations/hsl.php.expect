@@ -118,16 +118,16 @@ function hsl_migration_main(): void {
   echo "\nmin: ".Math\minva(1, 2, 3);
   echo "\nmin: ".Math\min([1, 2, 3]);
 
-  echo "\ncos: ".Math\cos(1);
+  echo "\ncos: ".Math\cos(1.0);
 
-  echo "\nsin: ".Math\sin(1);
+  echo "\nsin: ".Math\sin(1.0);
 
-  echo "\ntan: ".Math\tan(1);
+  echo "\ntan: ".Math\tan(1.0);
 
-  echo "\nsqrt: ".Math\sqrt(4);
+  echo "\nsqrt: ".Math\sqrt(4.0);
 
-  echo "\nlog: ".Math\log(5);
-  echo "\nlog: ".Math\log(5, 2);
+  echo "\nlog: ".Math\log(5.0);
+  echo "\nlog: ".Math\log(5.0, 2.0);
 
   echo "\ncount: " .C\count([1, 2, 3]);
 }
