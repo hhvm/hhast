@@ -103,7 +103,7 @@ final abstract class XHProf {
       if ($data['inclusive'] < $cull) {
         continue;
       }
-      $this_id = $node_count++;
+      $this_id = $node_count;
       $node_ids[$name] = $this_id;
       $out .= Str\format(
         "node_%d [ label=\"%s\nInclusive: %.5fs\nExclusive: %.5fs\" penwidth=%.1f %s]\n",
@@ -118,6 +118,7 @@ final abstract class XHProf {
       foreach ($callees as $callee => $wall) {
         $edges[] = tuple($this_id, $callee, $wall / $scale);
       }
+      $node_count++;
     }
     $max = Vec\map($edges, $edge ==> $edge[2]) |> Math\max($$) as nonnull;
     $cull = $cull_rate * $max;

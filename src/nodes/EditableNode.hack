@@ -57,7 +57,9 @@ abstract class EditableNode {
 
   <<__Memoize>>
   private function getUniqueID(): int {
-    return self::$_maxID++;
+    $id = self::$_maxID;
+    self::$_maxID++;
+    return $id;
   }
 
   public function isAncestorOf(EditableNode $other): bool {
