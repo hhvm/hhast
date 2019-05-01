@@ -38,11 +38,21 @@ abstract class CodegenBase {
     return __DIR__.'/../../../codegen';
   }
 
+  private bool $useHackfmt = true;
+
+  public function withoutHackFmt(): this {
+    invariant($this->useHackfmt, "can't disable hackfmt twice");
+    $new = clone $this;
+    $new->useHackfmt = false;
+    return $new;
+  }
+
   final protected function getCodegenFactory(): HackCodegenFactory {
     $config = new HackCodegenConfig();
-    return new HackCodegenFactory(
-      $config->withFormatter(new HackfmtFormatter($config)),
-    );
+    if ($this->useHackfmt) {
+      $config = $config->withFormatter(new HackfmtFormatter($config));
+    }
+    return new HackCodegenFactory($config);
   }
 
   final protected function getSchema(): Schema\TSchema {

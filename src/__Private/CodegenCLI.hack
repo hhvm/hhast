@@ -62,7 +62,7 @@ final class CodegenCLI extends CLIBase {
       }
       $relationships = dict[];
       foreach ($generators as $generator) {
-        (new $generator($schema, $relationships))->generate();
+        (new $generator($schema, $relationships))->withoutHackfmt()->generate();
       }
       (new CodegenRelations($hhvm, $schema))->generate();
     }
