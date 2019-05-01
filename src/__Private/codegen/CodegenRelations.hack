@@ -226,6 +226,7 @@ final class CodegenRelations extends CodegenBase {
       $schema ==> $schema,
       $schema ==> $schema['type_name'],
     );
+    $node_ts = type_structure(self::class, 'TNode');
 
     foreach ($ast as $node) {
       $kind = (string)$node['kind'];
@@ -242,10 +243,7 @@ final class CodegenRelations extends CodegenBase {
             $out[$key] = keyset[];
           }
 
-          $child = TypeAssert\matches_type_structure(
-            type_structure(self::class, 'TNode'),
-            $node[$field],
-          );
+          $child = TypeAssert\matches_type_structure($node_ts, $node['field']);
           $out[$key][] = self::getTypeString($child);
         }
       }
