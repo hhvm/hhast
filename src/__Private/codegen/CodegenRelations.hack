@@ -61,6 +61,9 @@ final class CodegenRelations extends CodegenBase {
         $total = C\count($files);
         while ($done->count() < $total) {
           await \HH\Asio\usleep(1000 * 1000);
+          if ($done->count() === 0) {
+            continue;
+          }
           $ratio = ((float)$done->count()) / $total;
           $now = \microtime(true);
           $elapsed = $now - $start;
