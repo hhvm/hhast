@@ -28,22 +28,32 @@ final class CodegenRelations extends CodegenBase {
     parent::__construct($schema, $relationships);
   }
 
+  private int $currentFiles = 0;
+
   <<__Override>>
   public function generate(): void {
-    print("Infering relationships, this can take a long time...\n");
+    print("Generating file list to infer relationships...\n");
     $files = $this->getFileList();
+    print("Infering relationships, this can take a long time...\n");
     $done = Set {};
     $start = \microtime(true);
     list($all_inferences, $_) = \HH\Asio\join(Tuple\from_async(
       Vec\map_async(
         $files,
         async $file ==> {
+          while ($this->currentFiles >= 8) {
+            await \HH\Asio\usleep(10 * 1000);
+          }
+          \fprintf(\STDERR, "Dequeue\n");
+          $this->currentFiles++;
           try {
             return await $this->getRelationsInFileAsync($file);
           } catch (\Throwable $t) {
+            \fprintf(\STDERR, "Error reading %s: %s\n", $file, $t->getMessage());
             throw $t;
           } finally {
             $done[] = $file;
+            $this->currentFiles--;
           }
         },
       ),
