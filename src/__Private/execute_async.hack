@@ -23,6 +23,7 @@ async function execute_async(string ...$args): Awaitable<vec<string>> {
   $pipes = [];
 
   $proc = \proc_open($command, $spec, &$pipes);
+  invariant($proc, "Failed to execute: %s", $command);
 
   list($stdin, $stdout, $stderr) = $pipes;
   \fclose($stdin);
