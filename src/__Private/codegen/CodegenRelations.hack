@@ -243,7 +243,7 @@ final class CodegenRelations extends CodegenBase {
             $out[$key] = keyset[];
           }
 
-          $child = TypeAssert\matches_type_structure($node_ts, $node['field']);
+          $child = TypeAssert\matches_type_structure($node_ts, $node[$field]);
           $out[$key][] = self::getTypeString($child);
         }
       }
