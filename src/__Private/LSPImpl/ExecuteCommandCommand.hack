@@ -52,6 +52,8 @@ final class ExecuteCommandCommand extends LSPLib\ExecuteCommandCommand {
   private static int $idCounter = 0;
 
   private static function generateID(): string {
-    return __CLASS__.'!'.self::$idCounter++;
+    $id = __CLASS__.'!'.self::$idCounter;
+    self::$idCounter++;
+    return $id;
   }
 }

@@ -188,7 +188,7 @@ final class LintRunConfig {
         $no_autofixes || ($override['disableAllAutoFixes'] ?? false);
     }
 
-    $normalize = $list ==> Keyset\map(
+    $normalize = (vec<string> $list) ==> Keyset\map(
       $list,
       $linter ==> $this->getFullyQualifiedLinterName($linter),
     );
@@ -205,7 +205,7 @@ final class LintRunConfig {
       $autofix_blacklist = $linters;
     }
 
-    $assert_types = $list ==> Keyset\map(
+    $assert_types = (keyset<string> $list) ==> Keyset\map(
       $list,
       $str ==> TypeAssert\classname_of(BaseLinter::class, $str),
     );

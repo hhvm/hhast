@@ -392,7 +392,7 @@ final class CodegenSyntax extends CodegenBase {
               $field ==> Str\format('$%s === $this->_%s &&', $field, $field),
             )
               |> (
-                $lines ==> {
+                (vec<string> $lines) ==> {
                   $idx = C\last_keyx($lines);
                   $lines[$idx] = Str\strip_suffix($lines[$idx], ' &&');
                   return $lines;
@@ -449,7 +449,7 @@ final class CodegenSyntax extends CodegenBase {
               $field ==> Str\format('$%s === $this->_%s &&', $field, $field),
             )
               |> (
-                $lines ==> {
+                (vec<string> $lines) ==> {
                   $idx = C\last_keyx($lines);
                   $lines[$idx] = Str\strip_suffix($lines[$idx], ' &&');
                   return $lines;

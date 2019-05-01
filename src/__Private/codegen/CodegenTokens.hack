@@ -290,7 +290,7 @@ final class CodegenTokens extends CodegenBase {
               ),
             )
             |> (
-              $lines ==> {
+              (vec<string> $lines) ==> {
                 $idx = C\last_keyx($lines);
                 $lines[$idx] = Str\strip_suffix($lines[$idx], ' &&');
                 return $lines;

@@ -17,7 +17,8 @@ final class AsyncConditionNode<T> extends AsyncCondition<T> {
 
   public function addNext(): AsyncConditionNode<T> {
     invariant($this->next === null, 'The next node already exists');
-    return $this->next = new AsyncConditionNode();
+    $this->next = new AsyncConditionNode();
+    return $this->next;
   }
   public function getNext(): ?AsyncConditionNode<T> {
     return $this->next;
