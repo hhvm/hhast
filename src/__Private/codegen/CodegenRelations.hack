@@ -221,14 +221,17 @@ final class CodegenRelations extends CodegenBase {
     string $file,
   ): Awaitable<dict<string, keyset<string>>> {
     try {
-      $json = await HHAST\json_from_file_async($file);
+      list($errors, $json) = await Tuple\from_async(
+        execute_async('hh_parse', '--full-fidelity-errors', $file),
+        HHAST\json_from_file_async($file),
+      );
+      if ($errors !== vec['']) {
+        \fprintf(\STDERR, "Skipping file %s\n", $file);
+        return dict[];
+      }
       /* HH_IGNORE_ERROR[4110] making assumptions about JSON */
       $ast = $this->flatten($json['parse_tree']);
     } catch (\Exception $_) {
-      // Ignore parse errors in PHP files
-      if (!Str\contains(\file_get_contents($file), '<?php')) {
-        \fprintf(\STDERR, "Failed to parse %s\n", $file);
-      }
       return dict[];
     }
 
