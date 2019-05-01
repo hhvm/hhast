@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fc75b23a85eca3feba469d9e574e5bf9>>
+ * @generated SignedSource<<78f157dd952a84bd1f65a9c09db893c2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -292,12 +292,9 @@ final class ShapeTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @return null | RightParenToken
+   * @return RightParenToken
    */
-  public function getRightParen(): ?RightParenToken {
-    if ($this->_right_paren->isMissing()) {
-      return null;
-    }
+  public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
@@ -305,6 +302,6 @@ final class ShapeTypeSpecifier extends EditableNode {
    * @return RightParenToken
    */
   public function getRightParenx(): RightParenToken {
-    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
+    return $this->getRightParen();
   }
 }

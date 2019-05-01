@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f42796be7caef3b20f963a084870c84b>>
+ * @generated SignedSource<<dd41bb69a2f4ad1cca69f3eaae7509ee>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -155,7 +155,7 @@ final class FunctionCallExpression extends EditableNode {
    * @return ArrayCreationExpression | FunctionCallExpression |
    * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
    * QualifiedName | SafeMemberSelectionExpression | ScopeResolutionExpression
-   * | SubscriptExpression | ErrorTokenToken | NameToken | VariableExpression
+   * | SubscriptExpression | NameToken | VariableExpression
    */
   public function getReceiver(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_receiver);
@@ -165,7 +165,7 @@ final class FunctionCallExpression extends EditableNode {
    * @return ArrayCreationExpression | FunctionCallExpression |
    * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
    * QualifiedName | SafeMemberSelectionExpression | ScopeResolutionExpression
-   * | SubscriptExpression | ErrorTokenToken | NameToken | VariableExpression
+   * | SubscriptExpression | NameToken | VariableExpression
    */
   public function getReceiverx(): EditableNode {
     return $this->getReceiver();
@@ -231,12 +231,9 @@ final class FunctionCallExpression extends EditableNode {
   }
 
   /**
-   * @return null | LeftParenToken
+   * @return LeftParenToken
    */
-  public function getLeftParen(): ?LeftParenToken {
-    if ($this->_left_paren->isMissing()) {
-      return null;
-    }
+  public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
@@ -244,7 +241,7 @@ final class FunctionCallExpression extends EditableNode {
    * @return LeftParenToken
    */
   public function getLeftParenx(): LeftParenToken {
-    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
+    return $this->getLeftParen();
   }
 
   public function getArgumentListUNTYPED(): EditableNode {
@@ -282,23 +279,21 @@ final class FunctionCallExpression extends EditableNode {
    * EditableList<FunctionCallExpression> | EditableList<InstanceofExpression>
    * | EditableList<IsExpression> | EditableList<IssetExpression> |
    * EditableList<KeysetIntrinsicExpression> | EditableList<LambdaExpression> |
-   * EditableList<LiteralExpression> | EditableList<?LiteralExpression> |
-   * EditableList<MemberSelectionExpression> | EditableList<?EditableNode> |
-   * EditableList<ObjectCreationExpression> |
+   * EditableList<LiteralExpression> | EditableList<MemberSelectionExpression>
+   * | EditableList<ObjectCreationExpression> |
    * EditableList<ParenthesizedExpression> |
    * EditableList<PipeVariableExpression> |
    * EditableList<PostfixUnaryExpression> | EditableList<PrefixUnaryExpression>
    * | EditableList<QualifiedName> |
    * EditableList<SafeMemberSelectionExpression> |
    * EditableList<ScopeResolutionExpression> | EditableList<ShapeExpression> |
-   * EditableList<SubscriptExpression> | EditableList<AsToken> |
-   * EditableList<ErrorTokenToken> | EditableList<NameToken> |
+   * EditableList<SubscriptExpression> | EditableList<NameToken> |
    * EditableList<TupleExpression> | EditableList<VariableExpression> |
    * EditableList<VarrayIntrinsicExpression> |
    * EditableList<VectorIntrinsicExpression> | EditableList<XHPExpression> |
    * null
    */
-  public function getArgumentList(): ?EditableList<?EditableNode> {
+  public function getArgumentList(): ?EditableList<EditableNode> {
     if ($this->_argument_list->isMissing()) {
       return null;
     }
@@ -319,22 +314,20 @@ final class FunctionCallExpression extends EditableNode {
    * EditableList<FunctionCallExpression> | EditableList<InstanceofExpression>
    * | EditableList<IsExpression> | EditableList<IssetExpression> |
    * EditableList<KeysetIntrinsicExpression> | EditableList<LambdaExpression> |
-   * EditableList<LiteralExpression> | EditableList<?LiteralExpression> |
-   * EditableList<MemberSelectionExpression> | EditableList<?EditableNode> |
-   * EditableList<ObjectCreationExpression> |
+   * EditableList<LiteralExpression> | EditableList<MemberSelectionExpression>
+   * | EditableList<ObjectCreationExpression> |
    * EditableList<ParenthesizedExpression> |
    * EditableList<PipeVariableExpression> |
    * EditableList<PostfixUnaryExpression> | EditableList<PrefixUnaryExpression>
    * | EditableList<QualifiedName> |
    * EditableList<SafeMemberSelectionExpression> |
    * EditableList<ScopeResolutionExpression> | EditableList<ShapeExpression> |
-   * EditableList<SubscriptExpression> | EditableList<AsToken> |
-   * EditableList<ErrorTokenToken> | EditableList<NameToken> |
+   * EditableList<SubscriptExpression> | EditableList<NameToken> |
    * EditableList<TupleExpression> | EditableList<VariableExpression> |
    * EditableList<VarrayIntrinsicExpression> |
    * EditableList<VectorIntrinsicExpression> | EditableList<XHPExpression>
    */
-  public function getArgumentListx(): EditableList<?EditableNode> {
+  public function getArgumentListx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_argument_list);
   }
 
@@ -360,12 +353,9 @@ final class FunctionCallExpression extends EditableNode {
   }
 
   /**
-   * @return null | RightParenToken
+   * @return RightParenToken
    */
-  public function getRightParen(): ?RightParenToken {
-    if ($this->_right_paren->isMissing()) {
-      return null;
-    }
+  public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
@@ -373,6 +363,6 @@ final class FunctionCallExpression extends EditableNode {
    * @return RightParenToken
    */
   public function getRightParenx(): RightParenToken {
-    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
+    return $this->getRightParen();
   }
 }

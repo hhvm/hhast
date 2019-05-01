@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a3a4ac69d19ed2dbeea5e816b835cbcb>>
+ * @generated SignedSource<<974cb3be440a5c0a967a96f144282590>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,24 +123,19 @@ final class DecoratedExpression extends EditableNode {
 
   /**
    * @return ArrayCreationExpression | ArrayIntrinsicExpression |
-   * BinaryExpression | DecoratedExpression | FunctionCallExpression |
-   * MemberSelectionExpression | null | ScopeResolutionExpression |
-   * SubscriptExpression | NameToken | VariableToken | VariableExpression
+   * DecoratedExpression | FunctionCallExpression | ScopeResolutionExpression |
+   * SubscriptExpression | VariableToken | VariableExpression
    */
-  public function getExpression(): ?EditableNode {
-    if ($this->_expression->isMissing()) {
-      return null;
-    }
+  public function getExpression(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_expression);
   }
 
   /**
    * @return ArrayCreationExpression | ArrayIntrinsicExpression |
-   * BinaryExpression | DecoratedExpression | FunctionCallExpression |
-   * MemberSelectionExpression | ScopeResolutionExpression |
-   * SubscriptExpression | NameToken | VariableToken | VariableExpression
+   * DecoratedExpression | FunctionCallExpression | ScopeResolutionExpression |
+   * SubscriptExpression | VariableToken | VariableExpression
    */
   public function getExpressionx(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_expression);
+    return $this->getExpression();
   }
 }

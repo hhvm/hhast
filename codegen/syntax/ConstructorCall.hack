@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<342b766dfaaacb2ff999229b2e0e090d>>
+ * @generated SignedSource<<d7b16ff8e5d5a38c7ed21923fd26a2b0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -214,12 +214,10 @@ final class ConstructorCall extends EditableNode {
    * EditableList<CastExpression> | EditableList<CollectionLiteralExpression> |
    * EditableList<ConditionalExpression> |
    * EditableList<DarrayIntrinsicExpression> |
-   * EditableList<DecoratedExpression> |
-   * EditableList<DictionaryIntrinsicExpression> |
-   * EditableList<FunctionCallExpression> |
-   * EditableList<KeysetIntrinsicExpression> | EditableList<LambdaExpression> |
-   * EditableList<LiteralExpression> | EditableList<MemberSelectionExpression>
-   * | EditableList<ObjectCreationExpression> |
+   * EditableList<DecoratedExpression> | EditableList<FunctionCallExpression> |
+   * EditableList<LambdaExpression> | EditableList<LiteralExpression> |
+   * EditableList<MemberSelectionExpression> |
+   * EditableList<ObjectCreationExpression> |
    * EditableList<ParenthesizedExpression> |
    * EditableList<PipeVariableExpression> | EditableList<PrefixUnaryExpression>
    * | EditableList<ScopeResolutionExpression> | EditableList<ShapeExpression>
@@ -242,12 +240,10 @@ final class ConstructorCall extends EditableNode {
    * EditableList<CastExpression> | EditableList<CollectionLiteralExpression> |
    * EditableList<ConditionalExpression> |
    * EditableList<DarrayIntrinsicExpression> |
-   * EditableList<DecoratedExpression> |
-   * EditableList<DictionaryIntrinsicExpression> |
-   * EditableList<FunctionCallExpression> |
-   * EditableList<KeysetIntrinsicExpression> | EditableList<LambdaExpression> |
-   * EditableList<LiteralExpression> | EditableList<MemberSelectionExpression>
-   * | EditableList<ObjectCreationExpression> |
+   * EditableList<DecoratedExpression> | EditableList<FunctionCallExpression> |
+   * EditableList<LambdaExpression> | EditableList<LiteralExpression> |
+   * EditableList<MemberSelectionExpression> |
+   * EditableList<ObjectCreationExpression> |
    * EditableList<ParenthesizedExpression> |
    * EditableList<PipeVariableExpression> | EditableList<PrefixUnaryExpression>
    * | EditableList<ScopeResolutionExpression> | EditableList<ShapeExpression>

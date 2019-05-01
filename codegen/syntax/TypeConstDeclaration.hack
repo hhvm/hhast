@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4f8a3a2949d564ff31fa7ac486c7de27>>
+ * @generated SignedSource<<37bdb7485a9f1d71415c04794a9c41c8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -398,12 +398,9 @@ final class TypeConstDeclaration extends EditableNode {
   }
 
   /**
-   * @return null | NameToken
+   * @return NameToken
    */
-  public function getName(): ?NameToken {
-    if ($this->_name->isMissing()) {
-      return null;
-    }
+  public function getName(): NameToken {
     return TypeAssert\instance_of(NameToken::class, $this->_name);
   }
 
@@ -411,7 +408,7 @@ final class TypeConstDeclaration extends EditableNode {
    * @return NameToken
    */
   public function getNamex(): NameToken {
-    return TypeAssert\instance_of(NameToken::class, $this->_name);
+    return $this->getName();
   }
 
   public function getTypeParametersUNTYPED(): EditableNode {
@@ -577,9 +574,9 @@ final class TypeConstDeclaration extends EditableNode {
 
   /**
    * @return ClosureTypeSpecifier | DictionaryTypeSpecifier |
-   * GenericTypeSpecifier | KeysetTypeSpecifier | null | NullableTypeSpecifier
-   * | ShapeTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
-   * TypeConstant | VectorTypeSpecifier
+   * GenericTypeSpecifier | KeysetTypeSpecifier | LikeTypeSpecifier | null |
+   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
+   * TupleTypeSpecifier | TypeConstant | VectorTypeSpecifier
    */
   public function getTypeSpecifier(): ?EditableNode {
     if ($this->_type_specifier->isMissing()) {
@@ -590,9 +587,9 @@ final class TypeConstDeclaration extends EditableNode {
 
   /**
    * @return ClosureTypeSpecifier | DictionaryTypeSpecifier |
-   * GenericTypeSpecifier | KeysetTypeSpecifier | NullableTypeSpecifier |
-   * ShapeTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
-   * TypeConstant | VectorTypeSpecifier
+   * GenericTypeSpecifier | KeysetTypeSpecifier | LikeTypeSpecifier |
+   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
+   * TupleTypeSpecifier | TypeConstant | VectorTypeSpecifier
    */
   public function getTypeSpecifierx(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type_specifier);
@@ -625,12 +622,9 @@ final class TypeConstDeclaration extends EditableNode {
   }
 
   /**
-   * @return null | SemicolonToken
+   * @return SemicolonToken
    */
-  public function getSemicolon(): ?SemicolonToken {
-    if ($this->_semicolon->isMissing()) {
-      return null;
-    }
+  public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 
@@ -638,6 +632,6 @@ final class TypeConstDeclaration extends EditableNode {
    * @return SemicolonToken
    */
   public function getSemicolonx(): SemicolonToken {
-    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
+    return $this->getSemicolon();
   }
 }

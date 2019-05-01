@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7af2f26c408cc2cb65b6be488913cbec>>
+ * @generated SignedSource<<25bd7ba2eb189c391e73b376b38972ae>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -131,9 +131,8 @@ final class PrefixUnaryExpression extends EditableNode {
    * IsExpression | IssetExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PipeVariableExpression | PostfixUnaryExpression
-   * | PrefixUnaryExpression | QualifiedName | SafeMemberSelectionExpression |
-   * ScopeResolutionExpression | SubscriptExpression | LessThanToken |
-   * EndOfFileToken | NameToken | VariableExpression
+   * | PrefixUnaryExpression | QualifiedName | ScopeResolutionExpression |
+   * SubscriptExpression | NameToken | VariableExpression
    */
   public function getOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_operand);
@@ -147,9 +146,8 @@ final class PrefixUnaryExpression extends EditableNode {
    * IsExpression | IssetExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PipeVariableExpression | PostfixUnaryExpression
-   * | PrefixUnaryExpression | QualifiedName | SafeMemberSelectionExpression |
-   * ScopeResolutionExpression | SubscriptExpression | LessThanToken |
-   * EndOfFileToken | NameToken | VariableExpression
+   * | PrefixUnaryExpression | QualifiedName | ScopeResolutionExpression |
+   * SubscriptExpression | NameToken | VariableExpression
    */
   public function getOperandx(): EditableNode {
     return $this->getOperand();

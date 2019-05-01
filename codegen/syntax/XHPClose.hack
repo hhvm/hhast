@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d73c2b73f5ff0d1c7f0ff4bc97db3231>>
+ * @generated SignedSource<<1cae3204753dd869adfab6615d3b09ef>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,16 +107,19 @@ final class XHPClose extends EditableNode {
   }
 
   /**
-   * @return LessThanSlashToken | EndOfFileToken
+   * @return LessThanSlashToken
    */
-  public function getLeftAngle(): EditableToken {
-    return TypeAssert\instance_of(EditableToken::class, $this->_left_angle);
+  public function getLeftAngle(): LessThanSlashToken {
+    return TypeAssert\instance_of(
+      LessThanSlashToken::class,
+      $this->_left_angle,
+    );
   }
 
   /**
-   * @return LessThanSlashToken | EndOfFileToken
+   * @return LessThanSlashToken
    */
-  public function getLeftAnglex(): EditableToken {
+  public function getLeftAnglex(): LessThanSlashToken {
     return $this->getLeftAngle();
   }
 
@@ -136,12 +139,9 @@ final class XHPClose extends EditableNode {
   }
 
   /**
-   * @return null | XHPElementNameToken
+   * @return XHPElementNameToken
    */
-  public function getName(): ?XHPElementNameToken {
-    if ($this->_name->isMissing()) {
-      return null;
-    }
+  public function getName(): XHPElementNameToken {
     return TypeAssert\instance_of(XHPElementNameToken::class, $this->_name);
   }
 
@@ -149,7 +149,7 @@ final class XHPClose extends EditableNode {
    * @return XHPElementNameToken
    */
   public function getNamex(): XHPElementNameToken {
-    return TypeAssert\instance_of(XHPElementNameToken::class, $this->_name);
+    return $this->getName();
   }
 
   public function getRightAngleUNTYPED(): EditableNode {
@@ -168,12 +168,9 @@ final class XHPClose extends EditableNode {
   }
 
   /**
-   * @return null | GreaterThanToken
+   * @return GreaterThanToken
    */
-  public function getRightAngle(): ?GreaterThanToken {
-    if ($this->_right_angle->isMissing()) {
-      return null;
-    }
+  public function getRightAngle(): GreaterThanToken {
     return TypeAssert\instance_of(GreaterThanToken::class, $this->_right_angle);
   }
 
@@ -181,6 +178,6 @@ final class XHPClose extends EditableNode {
    * @return GreaterThanToken
    */
   public function getRightAnglex(): GreaterThanToken {
-    return TypeAssert\instance_of(GreaterThanToken::class, $this->_right_angle);
+    return $this->getRightAngle();
   }
 }

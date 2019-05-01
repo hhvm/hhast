@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<928110696183486721f78d6e2771fd10>>
+ * @generated SignedSource<<c2f7933009de53fd08a55c3ab6663578>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,16 +107,14 @@ final class FieldInitializer extends EditableNode {
   }
 
   /**
-   * @return LiteralExpression | ScopeResolutionExpression | QuestionToken |
-   * VariableExpression
+   * @return LiteralExpression | ScopeResolutionExpression
    */
   public function getName(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_name);
   }
 
   /**
-   * @return LiteralExpression | ScopeResolutionExpression | QuestionToken |
-   * VariableExpression
+   * @return LiteralExpression | ScopeResolutionExpression
    */
   public function getNamex(): EditableNode {
     return $this->getName();
@@ -170,7 +168,7 @@ final class FieldInitializer extends EditableNode {
    * @return ArrayIntrinsicExpression | BinaryExpression |
    * DarrayIntrinsicExpression | LambdaExpression | LiteralExpression |
    * ObjectCreationExpression | ScopeResolutionExpression | SubscriptExpression
-   * | NameToken | VariableExpression | VectorIntrinsicExpression
+   * | VariableExpression
    */
   public function getValue(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_value);
@@ -180,7 +178,7 @@ final class FieldInitializer extends EditableNode {
    * @return ArrayIntrinsicExpression | BinaryExpression |
    * DarrayIntrinsicExpression | LambdaExpression | LiteralExpression |
    * ObjectCreationExpression | ScopeResolutionExpression | SubscriptExpression
-   * | NameToken | VariableExpression | VectorIntrinsicExpression
+   * | VariableExpression
    */
   public function getValuex(): EditableNode {
     return $this->getValue();

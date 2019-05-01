@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d46d82e3db2de410d1dd563c035e8348>>
+ * @generated SignedSource<<cdd73df7fc4f6f101ce9f82de4e6a2f3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -263,16 +263,9 @@ final class KeysetIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @return EditableList<ArrayIntrinsicExpression> |
-   * EditableList<EditableNode> | EditableList<CollectionLiteralExpression> |
-   * EditableList<ConditionalExpression> |
-   * EditableList<DictionaryIntrinsicExpression> |
-   * EditableList<FunctionCallExpression> |
-   * EditableList<KeysetIntrinsicExpression> | EditableList<LiteralExpression>
-   * | EditableList<ObjectCreationExpression> |
-   * EditableList<ScopeResolutionExpression> | EditableList<NameToken> |
-   * EditableList<VariableExpression> | EditableList<VectorIntrinsicExpression>
-   * | null
+   * @return EditableList<EditableNode> | EditableList<ConditionalExpression> |
+   * EditableList<FunctionCallExpression> | EditableList<LiteralExpression> |
+   * EditableList<ScopeResolutionExpression> | EditableList<NameToken> | null
    */
   public function getMembers(): ?EditableList<EditableNode> {
     if ($this->_members->isMissing()) {
@@ -282,15 +275,9 @@ final class KeysetIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @return EditableList<ArrayIntrinsicExpression> |
-   * EditableList<EditableNode> | EditableList<CollectionLiteralExpression> |
-   * EditableList<ConditionalExpression> |
-   * EditableList<DictionaryIntrinsicExpression> |
-   * EditableList<FunctionCallExpression> |
-   * EditableList<KeysetIntrinsicExpression> | EditableList<LiteralExpression>
-   * | EditableList<ObjectCreationExpression> |
-   * EditableList<ScopeResolutionExpression> | EditableList<NameToken> |
-   * EditableList<VariableExpression> | EditableList<VectorIntrinsicExpression>
+   * @return EditableList<EditableNode> | EditableList<ConditionalExpression> |
+   * EditableList<FunctionCallExpression> | EditableList<LiteralExpression> |
+   * EditableList<ScopeResolutionExpression> | EditableList<NameToken>
    */
   public function getMembersx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_members);
@@ -318,12 +305,9 @@ final class KeysetIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @return null | RightBracketToken
+   * @return RightBracketToken
    */
-  public function getRightBracket(): ?RightBracketToken {
-    if ($this->_right_bracket->isMissing()) {
-      return null;
-    }
+  public function getRightBracket(): RightBracketToken {
     return TypeAssert\instance_of(
       RightBracketToken::class,
       $this->_right_bracket,
@@ -334,9 +318,6 @@ final class KeysetIntrinsicExpression extends EditableNode {
    * @return RightBracketToken
    */
   public function getRightBracketx(): RightBracketToken {
-    return TypeAssert\instance_of(
-      RightBracketToken::class,
-      $this->_right_bracket,
-    );
+    return $this->getRightBracket();
   }
 }

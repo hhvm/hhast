@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<48e8c173d4f98189892b8445e44089e5>>
+ * @generated SignedSource<<ebb717d669adaa45c49d389747c40f53>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,22 +107,20 @@ final class InstanceofExpression extends EditableNode {
   }
 
   /**
-   * @return AnonymousFunction | CastExpression | CollectionLiteralExpression |
-   * FunctionCallExpression | LiteralExpression | MemberSelectionExpression |
-   * ObjectCreationExpression | ParenthesizedExpression |
-   * PipeVariableExpression | PrefixUnaryExpression | ScopeResolutionExpression
-   * | SubscriptExpression | VariableExpression
+   * @return AnonymousFunction | CastExpression | FunctionCallExpression |
+   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PipeVariableExpression | PrefixUnaryExpression |
+   * ScopeResolutionExpression | SubscriptExpression | VariableExpression
    */
   public function getLeftOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_left_operand);
   }
 
   /**
-   * @return AnonymousFunction | CastExpression | CollectionLiteralExpression |
-   * FunctionCallExpression | LiteralExpression | MemberSelectionExpression |
-   * ObjectCreationExpression | ParenthesizedExpression |
-   * PipeVariableExpression | PrefixUnaryExpression | ScopeResolutionExpression
-   * | SubscriptExpression | VariableExpression
+   * @return AnonymousFunction | CastExpression | FunctionCallExpression |
+   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PipeVariableExpression | PrefixUnaryExpression |
+   * ScopeResolutionExpression | SubscriptExpression | VariableExpression
    */
   public function getLeftOperandx(): EditableNode {
     return $this->getLeftOperand();
@@ -173,14 +171,11 @@ final class InstanceofExpression extends EditableNode {
   }
 
   /**
-   * @return MemberSelectionExpression | null | ParenthesizedExpression |
+   * @return MemberSelectionExpression | ParenthesizedExpression |
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
    * NameToken | VariableExpression
    */
-  public function getRightOperand(): ?EditableNode {
-    if ($this->_right_operand->isMissing()) {
-      return null;
-    }
+  public function getRightOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_right_operand);
   }
 
@@ -190,6 +185,6 @@ final class InstanceofExpression extends EditableNode {
    * NameToken | VariableExpression
    */
   public function getRightOperandx(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_right_operand);
+    return $this->getRightOperand();
   }
 }

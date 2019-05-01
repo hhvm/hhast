@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e7c5823a8ec4b4e1d8c2c32be27006a2>>
+ * @generated SignedSource<<313e1940d670d81f48b89f0d5aa5b40d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -138,10 +138,9 @@ final class EchoStatement extends EditableNode {
   /**
    * @return EditableList<EditableNode> | EditableList<BinaryExpression> |
    * EditableList<CastExpression> | EditableList<ConditionalExpression> |
-   * EditableList<EmptyExpression> | EditableList<FunctionCallExpression> |
-   * EditableList<IssetExpression> | EditableList<LiteralExpression> |
-   * EditableList<MemberSelectionExpression> | EditableList<?EditableNode> |
-   * EditableList<ObjectCreationExpression> |
+   * EditableList<FunctionCallExpression> | EditableList<IssetExpression> |
+   * EditableList<LiteralExpression> | EditableList<MemberSelectionExpression>
+   * | EditableList<ObjectCreationExpression> |
    * EditableList<ParenthesizedExpression> |
    * EditableList<PipeVariableExpression> |
    * EditableList<PostfixUnaryExpression> | EditableList<PrefixUnaryExpression>
@@ -149,17 +148,16 @@ final class EchoStatement extends EditableNode {
    * EditableList<SubscriptExpression> | EditableList<NameToken> |
    * EditableList<VariableExpression> | EditableList<XHPExpression>
    */
-  public function getExpressions(): EditableList<?EditableNode> {
+  public function getExpressions(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_expressions);
   }
 
   /**
    * @return EditableList<EditableNode> | EditableList<BinaryExpression> |
    * EditableList<CastExpression> | EditableList<ConditionalExpression> |
-   * EditableList<EmptyExpression> | EditableList<FunctionCallExpression> |
-   * EditableList<IssetExpression> | EditableList<LiteralExpression> |
-   * EditableList<MemberSelectionExpression> | EditableList<?EditableNode> |
-   * EditableList<ObjectCreationExpression> |
+   * EditableList<FunctionCallExpression> | EditableList<IssetExpression> |
+   * EditableList<LiteralExpression> | EditableList<MemberSelectionExpression>
+   * | EditableList<ObjectCreationExpression> |
    * EditableList<ParenthesizedExpression> |
    * EditableList<PipeVariableExpression> |
    * EditableList<PostfixUnaryExpression> | EditableList<PrefixUnaryExpression>
@@ -167,7 +165,7 @@ final class EchoStatement extends EditableNode {
    * EditableList<SubscriptExpression> | EditableList<NameToken> |
    * EditableList<VariableExpression> | EditableList<XHPExpression>
    */
-  public function getExpressionsx(): EditableList<?EditableNode> {
+  public function getExpressionsx(): EditableList<EditableNode> {
     return $this->getExpressions();
   }
 
@@ -187,12 +185,9 @@ final class EchoStatement extends EditableNode {
   }
 
   /**
-   * @return null | SemicolonToken
+   * @return SemicolonToken
    */
-  public function getSemicolon(): ?SemicolonToken {
-    if ($this->_semicolon->isMissing()) {
-      return null;
-    }
+  public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 
@@ -200,6 +195,6 @@ final class EchoStatement extends EditableNode {
    * @return SemicolonToken
    */
   public function getSemicolonx(): SemicolonToken {
-    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
+    return $this->getSemicolon();
   }
 }

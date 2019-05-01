@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6e9cf390c8c5c8ca5618911d43b9e840>>
+ * @generated SignedSource<<d5e0209a641a78ec7ed7ed7098dd1098>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -171,8 +171,8 @@ final class IsExpression extends EditableNode {
   /**
    * @return ClosureTypeSpecifier | DictionaryTypeSpecifier |
    * GenericTypeSpecifier | KeysetTypeSpecifier | NullableTypeSpecifier |
-   * ShapeTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier |
-   * TupleTypeSpecifier | TypeConstant | VectorTypeSpecifier
+   * ShapeTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
+   * TypeConstant | VectorTypeSpecifier
    */
   public function getRightOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_right_operand);
@@ -181,8 +181,8 @@ final class IsExpression extends EditableNode {
   /**
    * @return ClosureTypeSpecifier | DictionaryTypeSpecifier |
    * GenericTypeSpecifier | KeysetTypeSpecifier | NullableTypeSpecifier |
-   * ShapeTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier |
-   * TupleTypeSpecifier | TypeConstant | VectorTypeSpecifier
+   * ShapeTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
+   * TypeConstant | VectorTypeSpecifier
    */
   public function getRightOperandx(): EditableNode {
     return $this->getRightOperand();

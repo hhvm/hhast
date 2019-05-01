@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1d7488cf75e2ba44fe5518f5cb188548>>
+ * @generated SignedSource<<9dcc1fc82f4c8dae8b0df283c1b258f6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -301,12 +301,9 @@ final class DictionaryIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @return null | RightBracketToken
+   * @return RightBracketToken
    */
-  public function getRightBracket(): ?RightBracketToken {
-    if ($this->_right_bracket->isMissing()) {
-      return null;
-    }
+  public function getRightBracket(): RightBracketToken {
     return TypeAssert\instance_of(
       RightBracketToken::class,
       $this->_right_bracket,
@@ -317,9 +314,6 @@ final class DictionaryIntrinsicExpression extends EditableNode {
    * @return RightBracketToken
    */
   public function getRightBracketx(): RightBracketToken {
-    return TypeAssert\instance_of(
-      RightBracketToken::class,
-      $this->_right_bracket,
-    );
+    return $this->getRightBracket();
   }
 }

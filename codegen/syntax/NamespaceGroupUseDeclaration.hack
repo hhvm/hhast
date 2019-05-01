@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8bfc0ae637b5341f4aaf5995f025b188>>
+ * @generated SignedSource<<e08e8e72fcdd3e2ccde1790d955aa994>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -374,12 +374,9 @@ final class NamespaceGroupUseDeclaration
   }
 
   /**
-   * @return null | RightBraceToken
+   * @return RightBraceToken
    */
-  public function getRightBrace(): ?RightBraceToken {
-    if ($this->_right_brace->isMissing()) {
-      return null;
-    }
+  public function getRightBrace(): RightBraceToken {
     return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
   }
 
@@ -387,7 +384,7 @@ final class NamespaceGroupUseDeclaration
    * @return RightBraceToken
    */
   public function getRightBracex(): RightBraceToken {
-    return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
+    return $this->getRightBrace();
   }
 
   public function getSemicolonUNTYPED(): EditableNode {
@@ -414,12 +411,9 @@ final class NamespaceGroupUseDeclaration
   }
 
   /**
-   * @return null | SemicolonToken
+   * @return SemicolonToken
    */
-  public function getSemicolon(): ?SemicolonToken {
-    if ($this->_semicolon->isMissing()) {
-      return null;
-    }
+  public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 
@@ -427,6 +421,6 @@ final class NamespaceGroupUseDeclaration
    * @return SemicolonToken
    */
   public function getSemicolonx(): SemicolonToken {
-    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
+    return $this->getSemicolon();
   }
 }

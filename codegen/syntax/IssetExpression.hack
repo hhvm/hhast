@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5d64eb40cca896e91375bcba7ff4cd7c>>
+ * @generated SignedSource<<5e8da952d600d52b39cc2d78cafcdbb3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -199,9 +199,8 @@ final class IssetExpression extends EditableNode {
   }
 
   /**
-   * @return EditableList<FunctionCallExpression> | EditableList<EditableNode>
-   * | EditableList<MemberSelectionExpression> |
-   * EditableList<SafeMemberSelectionExpression> |
+   * @return EditableList<FunctionCallExpression> |
+   * EditableList<MemberSelectionExpression> | EditableList<EditableNode> |
    * EditableList<ScopeResolutionExpression> |
    * EditableList<SubscriptExpression> | EditableList<VariableExpression>
    */
@@ -210,9 +209,8 @@ final class IssetExpression extends EditableNode {
   }
 
   /**
-   * @return EditableList<FunctionCallExpression> | EditableList<EditableNode>
-   * | EditableList<MemberSelectionExpression> |
-   * EditableList<SafeMemberSelectionExpression> |
+   * @return EditableList<FunctionCallExpression> |
+   * EditableList<MemberSelectionExpression> | EditableList<EditableNode> |
    * EditableList<ScopeResolutionExpression> |
    * EditableList<SubscriptExpression> | EditableList<VariableExpression>
    */

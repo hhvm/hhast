@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e60ea0250919e2227ae62702da8f1576>>
+ * @generated SignedSource<<c156314893976dd92f74be1dfc18d9bf>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -110,14 +110,13 @@ final class ListItem extends EditableNode {
    * | PrefixUnaryExpression | PropertyDeclarator | QualifiedName |
    * ReifiedTypeArgument | SafeMemberSelectionExpression |
    * ScopeResolutionExpression | ShapeExpression | ShapeTypeSpecifier |
-   * SimpleTypeSpecifier | SoftTypeSpecifier | SubscriptExpression | AsToken |
-   * ConstToken | ErrorTokenToken | NameToken | ReturnToken | VariableToken |
-   * TraitUseAliasItem | TraitUsePrecedenceItem | TupleExpression |
-   * TupleTypeSpecifier | TypeConstant | TypeParameter | VariableExpression |
-   * VariadicParameter | VarrayIntrinsicExpression | VarrayTypeSpecifier |
-   * VectorArrayTypeSpecifier | VectorIntrinsicExpression | VectorTypeSpecifier
-   * | WhereConstraint | XHPClassAttribute | XHPExpression |
-   * XHPSimpleClassAttribute
+   * SimpleTypeSpecifier | SoftTypeSpecifier | SubscriptExpression | NameToken
+   * | VariableToken | TraitUseAliasItem | TraitUsePrecedenceItem |
+   * TupleExpression | TupleTypeSpecifier | TypeConstant | TypeParameter |
+   * VariableExpression | VariadicParameter | VarrayIntrinsicExpression |
+   * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorIntrinsicExpression
+   * | VectorTypeSpecifier | WhereConstraint | XHPClassAttribute |
+   * XHPExpression | XHPSimpleClassAttribute
    */
   public function getItem(): ?EditableNode {
     if ($this->_item->isMissing()) {
@@ -146,8 +145,7 @@ final class ListItem extends EditableNode {
    * | PropertyDeclarator | QualifiedName | ReifiedTypeArgument |
    * SafeMemberSelectionExpression | ScopeResolutionExpression |
    * ShapeExpression | ShapeTypeSpecifier | SimpleTypeSpecifier |
-   * SoftTypeSpecifier | SubscriptExpression | AsToken | ConstToken |
-   * ErrorTokenToken | NameToken | ReturnToken | VariableToken |
+   * SoftTypeSpecifier | SubscriptExpression | NameToken | VariableToken |
    * TraitUseAliasItem | TraitUsePrecedenceItem | TupleExpression |
    * TupleTypeSpecifier | TypeConstant | TypeParameter | VariableExpression |
    * VariadicParameter | VarrayIntrinsicExpression | VarrayTypeSpecifier |

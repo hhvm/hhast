@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0bf830257c2a8945751706882dd6cdb3>>
+ * @generated SignedSource<<e721ea52b6d1fa96499af5d7ab6d79e4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -168,17 +168,20 @@ final class RecordDeclaration extends EditableNode {
   }
 
   /**
-   * @return unknown
+   * @return null
    */
-  public function getAttributeSpec(): EditableNode {
+  public function getAttributeSpec(): ?EditableNode {
+    if ($this->_attribute_spec->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EditableNode::class, $this->_attribute_spec);
   }
 
   /**
-   * @return unknown
+   * @return
    */
   public function getAttributeSpecx(): EditableNode {
-    return $this->getAttributeSpec();
+    return TypeAssert\instance_of(EditableNode::class, $this->_attribute_spec);
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -204,16 +207,16 @@ final class RecordDeclaration extends EditableNode {
   }
 
   /**
-   * @return unknown
+   * @return RecordDecToken
    */
-  public function getKeyword(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_keyword);
+  public function getKeyword(): RecordDecToken {
+    return TypeAssert\instance_of(RecordDecToken::class, $this->_keyword);
   }
 
   /**
-   * @return unknown
+   * @return RecordDecToken
    */
-  public function getKeywordx(): EditableNode {
+  public function getKeywordx(): RecordDecToken {
     return $this->getKeyword();
   }
 
@@ -240,16 +243,16 @@ final class RecordDeclaration extends EditableNode {
   }
 
   /**
-   * @return unknown
+   * @return NameToken
    */
-  public function getName(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_name);
+  public function getName(): NameToken {
+    return TypeAssert\instance_of(NameToken::class, $this->_name);
   }
 
   /**
-   * @return unknown
+   * @return NameToken
    */
-  public function getNamex(): EditableNode {
+  public function getNamex(): NameToken {
     return $this->getName();
   }
 
@@ -276,16 +279,16 @@ final class RecordDeclaration extends EditableNode {
   }
 
   /**
-   * @return unknown
+   * @return LeftBraceToken
    */
-  public function getLeftBrace(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_left_brace);
+  public function getLeftBrace(): LeftBraceToken {
+    return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
   }
 
   /**
-   * @return unknown
+   * @return LeftBraceToken
    */
-  public function getLeftBracex(): EditableNode {
+  public function getLeftBracex(): LeftBraceToken {
     return $this->getLeftBrace();
   }
 
@@ -312,16 +315,16 @@ final class RecordDeclaration extends EditableNode {
   }
 
   /**
-   * @return unknown
+   * @return EditableList<EditableNode>
    */
-  public function getFields(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_fields);
+  public function getFields(): EditableList<EditableNode> {
+    return TypeAssert\instance_of(EditableList::class, $this->_fields);
   }
 
   /**
-   * @return unknown
+   * @return EditableList<EditableNode>
    */
-  public function getFieldsx(): EditableNode {
+  public function getFieldsx(): EditableList<EditableNode> {
     return $this->getFields();
   }
 
@@ -348,16 +351,16 @@ final class RecordDeclaration extends EditableNode {
   }
 
   /**
-   * @return unknown
+   * @return RightBraceToken
    */
-  public function getRightBrace(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_right_brace);
+  public function getRightBrace(): RightBraceToken {
+    return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
   }
 
   /**
-   * @return unknown
+   * @return RightBraceToken
    */
-  public function getRightBracex(): EditableNode {
+  public function getRightBracex(): RightBraceToken {
     return $this->getRightBrace();
   }
 }

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bcb8cfd022c0fc6325d1d338f6fbe0b9>>
+ * @generated SignedSource<<1fa106c4c081297c59b3e6f92fb89434>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -301,12 +301,9 @@ final class DarrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @return null | RightBracketToken
+   * @return RightBracketToken
    */
-  public function getRightBracket(): ?RightBracketToken {
-    if ($this->_right_bracket->isMissing()) {
-      return null;
-    }
+  public function getRightBracket(): RightBracketToken {
     return TypeAssert\instance_of(
       RightBracketToken::class,
       $this->_right_bracket,
@@ -317,9 +314,6 @@ final class DarrayIntrinsicExpression extends EditableNode {
    * @return RightBracketToken
    */
   public function getRightBracketx(): RightBracketToken {
-    return TypeAssert\instance_of(
-      RightBracketToken::class,
-      $this->_right_bracket,
-    );
+    return $this->getRightBracket();
   }
 }

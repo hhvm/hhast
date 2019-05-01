@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6c1759d77d8e7cc95ab3ca97aa5dffdc>>
+ * @generated SignedSource<<feb906d8f17d658c147884ea29d79b55>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -94,18 +94,14 @@ final class ExpressionStatement extends EditableNode {
 
   /**
    * @return AnonymousFunction | AsExpression | BinaryExpression |
-   * CastExpression | CollectionLiteralExpression | ConditionalExpression |
-   * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
-   * EmptyExpression | EvalExpression | FunctionCallExpression |
-   * HaltCompilerExpression | InclusionExpression | InstanceofExpression |
-   * IsExpression | IssetExpression | LambdaExpression | LiteralExpression |
-   * MemberSelectionExpression | null | ObjectCreationExpression |
-   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
-   * QualifiedName | SafeMemberSelectionExpression | ScopeResolutionExpression
-   * | SubscriptExpression | RightParenToken | CommaToken | DotDotDotToken |
-   * ColonToken | LessThanToken | EqualGreaterThanToken |
-   * QuestionGreaterThanToken | ConstToken | ErrorTokenToken | NameToken |
-   * UseToken | RightBraceToken | VariableExpression |
+   * CastExpression | ConditionalExpression | DarrayIntrinsicExpression |
+   * DictionaryIntrinsicExpression | EmptyExpression | EvalExpression |
+   * FunctionCallExpression | HaltCompilerExpression | InclusionExpression |
+   * InstanceofExpression | IsExpression | IssetExpression | LambdaExpression |
+   * LiteralExpression | MemberSelectionExpression | null |
+   * ObjectCreationExpression | PostfixUnaryExpression | PrefixUnaryExpression
+   * | SafeMemberSelectionExpression | ScopeResolutionExpression |
+   * SubscriptExpression | NameToken | VariableExpression |
    * VarrayIntrinsicExpression | XHPExpression | YieldExpression |
    * YieldFromExpression
    */
@@ -118,18 +114,14 @@ final class ExpressionStatement extends EditableNode {
 
   /**
    * @return AnonymousFunction | AsExpression | BinaryExpression |
-   * CastExpression | CollectionLiteralExpression | ConditionalExpression |
-   * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
-   * EmptyExpression | EvalExpression | FunctionCallExpression |
-   * HaltCompilerExpression | InclusionExpression | InstanceofExpression |
-   * IsExpression | IssetExpression | LambdaExpression | LiteralExpression |
-   * MemberSelectionExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
-   * QualifiedName | SafeMemberSelectionExpression | ScopeResolutionExpression
-   * | SubscriptExpression | RightParenToken | CommaToken | DotDotDotToken |
-   * ColonToken | LessThanToken | EqualGreaterThanToken |
-   * QuestionGreaterThanToken | ConstToken | ErrorTokenToken | NameToken |
-   * UseToken | RightBraceToken | VariableExpression |
+   * CastExpression | ConditionalExpression | DarrayIntrinsicExpression |
+   * DictionaryIntrinsicExpression | EmptyExpression | EvalExpression |
+   * FunctionCallExpression | HaltCompilerExpression | InclusionExpression |
+   * InstanceofExpression | IsExpression | IssetExpression | LambdaExpression |
+   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * PostfixUnaryExpression | PrefixUnaryExpression |
+   * SafeMemberSelectionExpression | ScopeResolutionExpression |
+   * SubscriptExpression | NameToken | VariableExpression |
    * VarrayIntrinsicExpression | XHPExpression | YieldExpression |
    * YieldFromExpression
    */
@@ -153,12 +145,9 @@ final class ExpressionStatement extends EditableNode {
   }
 
   /**
-   * @return null | SemicolonToken
+   * @return SemicolonToken
    */
-  public function getSemicolon(): ?SemicolonToken {
-    if ($this->_semicolon->isMissing()) {
-      return null;
-    }
+  public function getSemicolon(): SemicolonToken {
     return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 
@@ -166,6 +155,6 @@ final class ExpressionStatement extends EditableNode {
    * @return SemicolonToken
    */
   public function getSemicolonx(): SemicolonToken {
-    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
+    return $this->getSemicolon();
   }
 }

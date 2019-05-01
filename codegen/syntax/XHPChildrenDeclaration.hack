@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2d505ecfac229eea4d6a581ce04b2dcf>>
+ * @generated SignedSource<<0428a915a6b09f69bec0ad3e1c7e5d29>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,16 +107,16 @@ final class XHPChildrenDeclaration extends EditableNode {
   }
 
   /**
-   * @return unknown
+   * @return ChildrenToken
    */
-  public function getKeyword(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_keyword);
+  public function getKeyword(): ChildrenToken {
+    return TypeAssert\instance_of(ChildrenToken::class, $this->_keyword);
   }
 
   /**
-   * @return unknown
+   * @return ChildrenToken
    */
-  public function getKeywordx(): EditableNode {
+  public function getKeywordx(): ChildrenToken {
     return $this->getKeyword();
   }
 
@@ -136,16 +136,16 @@ final class XHPChildrenDeclaration extends EditableNode {
   }
 
   /**
-   * @return unknown
+   * @return EmptyToken
    */
-  public function getExpression(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_expression);
+  public function getExpression(): EmptyToken {
+    return TypeAssert\instance_of(EmptyToken::class, $this->_expression);
   }
 
   /**
-   * @return unknown
+   * @return EmptyToken
    */
-  public function getExpressionx(): EditableNode {
+  public function getExpressionx(): EmptyToken {
     return $this->getExpression();
   }
 
@@ -165,16 +165,16 @@ final class XHPChildrenDeclaration extends EditableNode {
   }
 
   /**
-   * @return unknown
+   * @return SemicolonToken
    */
-  public function getSemicolon(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_semicolon);
+  public function getSemicolon(): SemicolonToken {
+    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 
   /**
-   * @return unknown
+   * @return SemicolonToken
    */
-  public function getSemicolonx(): EditableNode {
+  public function getSemicolonx(): SemicolonToken {
     return $this->getSemicolon();
   }
 }

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<89c35a75fe335e8f6e1e8dee5a9f77f8>>
+ * @generated SignedSource<<38f31974fb986d077a7031bebbf4b830>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -268,7 +268,6 @@ final class VarrayIntrinsicExpression extends EditableNode {
    * EditableList<DarrayIntrinsicExpression> |
    * EditableList<FunctionCallExpression> | EditableList<LiteralExpression> |
    * EditableList<MemberSelectionExpression> |
-   * EditableList<PrefixUnaryExpression> |
    * EditableList<ScopeResolutionExpression> | EditableList<NameToken> |
    * EditableList<VariableExpression> | EditableList<VarrayIntrinsicExpression>
    * | EditableList<VectorIntrinsicExpression> | null
@@ -286,7 +285,6 @@ final class VarrayIntrinsicExpression extends EditableNode {
    * EditableList<DarrayIntrinsicExpression> |
    * EditableList<FunctionCallExpression> | EditableList<LiteralExpression> |
    * EditableList<MemberSelectionExpression> |
-   * EditableList<PrefixUnaryExpression> |
    * EditableList<ScopeResolutionExpression> | EditableList<NameToken> |
    * EditableList<VariableExpression> | EditableList<VarrayIntrinsicExpression>
    * | EditableList<VectorIntrinsicExpression>
@@ -317,12 +315,9 @@ final class VarrayIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @return null | RightBracketToken
+   * @return RightBracketToken
    */
-  public function getRightBracket(): ?RightBracketToken {
-    if ($this->_right_bracket->isMissing()) {
-      return null;
-    }
+  public function getRightBracket(): RightBracketToken {
     return TypeAssert\instance_of(
       RightBracketToken::class,
       $this->_right_bracket,
@@ -333,9 +328,6 @@ final class VarrayIntrinsicExpression extends EditableNode {
    * @return RightBracketToken
    */
   public function getRightBracketx(): RightBracketToken {
-    return TypeAssert\instance_of(
-      RightBracketToken::class,
-      $this->_right_bracket,
-    );
+    return $this->getRightBracket();
   }
 }

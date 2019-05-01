@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<079d710fc32ea3a9b393d6ce5720bbb7>>
+ * @generated SignedSource<<717bbbe5ede0b14807e65c597ef07e14>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -202,18 +202,16 @@ final class CollectionLiteralExpression extends EditableNode {
    * @return EditableList<AnonymousFunction> |
    * EditableList<ArrayCreationExpression> |
    * EditableList<ArrayIntrinsicExpression> | EditableList<EditableNode> |
-   * EditableList<BinaryExpression> | EditableList<CastExpression> |
-   * EditableList<CollectionLiteralExpression> |
+   * EditableList<CastExpression> | EditableList<CollectionLiteralExpression> |
    * EditableList<ElementInitializer> | EditableList<FunctionCallExpression> |
    * EditableList<LambdaExpression> | EditableList<LiteralExpression> |
-   * EditableList<?EditableNode> | EditableList<ObjectCreationExpression> |
+   * EditableList<ObjectCreationExpression> |
    * EditableList<ScopeResolutionExpression> | EditableList<ShapeExpression> |
-   * EditableList<SubscriptExpression> | EditableList<EditableToken> |
-   * EditableList<NameToken> | EditableList<ReturnToken> |
+   * EditableList<SubscriptExpression> | EditableList<NameToken> |
    * EditableList<TupleExpression> | EditableList<VariableExpression> |
    * EditableList<VarrayIntrinsicExpression> | null
    */
-  public function getInitializers(): ?EditableList<?EditableNode> {
+  public function getInitializers(): ?EditableList<EditableNode> {
     if ($this->_initializers->isMissing()) {
       return null;
     }
@@ -224,18 +222,16 @@ final class CollectionLiteralExpression extends EditableNode {
    * @return EditableList<AnonymousFunction> |
    * EditableList<ArrayCreationExpression> |
    * EditableList<ArrayIntrinsicExpression> | EditableList<EditableNode> |
-   * EditableList<BinaryExpression> | EditableList<CastExpression> |
-   * EditableList<CollectionLiteralExpression> |
+   * EditableList<CastExpression> | EditableList<CollectionLiteralExpression> |
    * EditableList<ElementInitializer> | EditableList<FunctionCallExpression> |
    * EditableList<LambdaExpression> | EditableList<LiteralExpression> |
-   * EditableList<?EditableNode> | EditableList<ObjectCreationExpression> |
+   * EditableList<ObjectCreationExpression> |
    * EditableList<ScopeResolutionExpression> | EditableList<ShapeExpression> |
-   * EditableList<SubscriptExpression> | EditableList<EditableToken> |
-   * EditableList<NameToken> | EditableList<ReturnToken> |
+   * EditableList<SubscriptExpression> | EditableList<NameToken> |
    * EditableList<TupleExpression> | EditableList<VariableExpression> |
    * EditableList<VarrayIntrinsicExpression>
    */
-  public function getInitializersx(): EditableList<?EditableNode> {
+  public function getInitializersx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_initializers);
   }
 
@@ -260,12 +256,9 @@ final class CollectionLiteralExpression extends EditableNode {
   }
 
   /**
-   * @return null | RightBraceToken
+   * @return RightBraceToken
    */
-  public function getRightBrace(): ?RightBraceToken {
-    if ($this->_right_brace->isMissing()) {
-      return null;
-    }
+  public function getRightBrace(): RightBraceToken {
     return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
   }
 
@@ -273,6 +266,6 @@ final class CollectionLiteralExpression extends EditableNode {
    * @return RightBraceToken
    */
   public function getRightBracex(): RightBraceToken {
-    return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
+    return $this->getRightBrace();
   }
 }

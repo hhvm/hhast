@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c78c50955dae9369c97ffdc6342491f3>>
+ * @generated SignedSource<<9052f4d89d1131b7477ecd31c54c7056>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,12 +107,9 @@ final class ClassishBody extends EditableNode {
   }
 
   /**
-   * @return null | LeftBraceToken
+   * @return LeftBraceToken
    */
-  public function getLeftBrace(): ?LeftBraceToken {
-    if ($this->_left_brace->isMissing()) {
-      return null;
-    }
+  public function getLeftBrace(): LeftBraceToken {
     return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
   }
 
@@ -120,7 +117,7 @@ final class ClassishBody extends EditableNode {
    * @return LeftBraceToken
    */
   public function getLeftBracex(): LeftBraceToken {
-    return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
+    return $this->getLeftBrace();
   }
 
   public function getElementsUNTYPED(): EditableNode {
@@ -171,12 +168,9 @@ final class ClassishBody extends EditableNode {
   }
 
   /**
-   * @return null | RightBraceToken
+   * @return RightBraceToken
    */
-  public function getRightBrace(): ?RightBraceToken {
-    if ($this->_right_brace->isMissing()) {
-      return null;
-    }
+  public function getRightBrace(): RightBraceToken {
     return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
   }
 
@@ -184,6 +178,6 @@ final class ClassishBody extends EditableNode {
    * @return RightBraceToken
    */
   public function getRightBracex(): RightBraceToken {
-    return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
+    return $this->getRightBrace();
   }
 }

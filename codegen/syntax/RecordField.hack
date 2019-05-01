@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<245e748713ed1c553517bd67786630c6>>
+ * @generated SignedSource<<12cf3c4266ab429bfebcd12394afb857>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -139,16 +139,16 @@ final class RecordField extends EditableNode {
   }
 
   /**
-   * @return unknown
+   * @return NameToken
    */
-  public function getName(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_name);
+  public function getName(): NameToken {
+    return TypeAssert\instance_of(NameToken::class, $this->_name);
   }
 
   /**
-   * @return unknown
+   * @return NameToken
    */
-  public function getNamex(): EditableNode {
+  public function getNamex(): NameToken {
     return $this->getName();
   }
 
@@ -174,16 +174,16 @@ final class RecordField extends EditableNode {
   }
 
   /**
-   * @return unknown
+   * @return ColonToken
    */
-  public function getColon(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_colon);
+  public function getColon(): ColonToken {
+    return TypeAssert\instance_of(ColonToken::class, $this->_colon);
   }
 
   /**
-   * @return unknown
+   * @return ColonToken
    */
-  public function getColonx(): EditableNode {
+  public function getColonx(): ColonToken {
     return $this->getColon();
   }
 
@@ -209,16 +209,16 @@ final class RecordField extends EditableNode {
   }
 
   /**
-   * @return unknown
+   * @return SimpleTypeSpecifier
    */
-  public function getType(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_type);
+  public function getType(): SimpleTypeSpecifier {
+    return TypeAssert\instance_of(SimpleTypeSpecifier::class, $this->_type);
   }
 
   /**
-   * @return unknown
+   * @return SimpleTypeSpecifier
    */
-  public function getTypex(): EditableNode {
+  public function getTypex(): SimpleTypeSpecifier {
     return $this->getType();
   }
 
@@ -244,17 +244,20 @@ final class RecordField extends EditableNode {
   }
 
   /**
-   * @return unknown
+   * @return null
    */
-  public function getInit(): EditableNode {
+  public function getInit(): ?EditableNode {
+    if ($this->_init->isMissing()) {
+      return null;
+    }
     return TypeAssert\instance_of(EditableNode::class, $this->_init);
   }
 
   /**
-   * @return unknown
+   * @return
    */
   public function getInitx(): EditableNode {
-    return $this->getInit();
+    return TypeAssert\instance_of(EditableNode::class, $this->_init);
   }
 
   public function getCommaUNTYPED(): EditableNode {
@@ -279,16 +282,16 @@ final class RecordField extends EditableNode {
   }
 
   /**
-   * @return unknown
+   * @return CommaToken
    */
-  public function getComma(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_comma);
+  public function getComma(): CommaToken {
+    return TypeAssert\instance_of(CommaToken::class, $this->_comma);
   }
 
   /**
-   * @return unknown
+   * @return CommaToken
    */
-  public function getCommax(): EditableNode {
+  public function getCommax(): CommaToken {
     return $this->getComma();
   }
 }

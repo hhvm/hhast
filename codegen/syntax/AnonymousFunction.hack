@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<89475d3cd4e26a1a8a412dc4369ec600>>
+ * @generated SignedSource<<3db5eaff684bfe061b3de4cdf48a89ce>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -501,12 +501,9 @@ final class AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @return null | LeftParenToken
+   * @return LeftParenToken
    */
-  public function getLeftParen(): ?LeftParenToken {
-    if ($this->_left_paren->isMissing()) {
-      return null;
-    }
+  public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
@@ -514,7 +511,7 @@ final class AnonymousFunction extends EditableNode {
    * @return LeftParenToken
    */
   public function getLeftParenx(): LeftParenToken {
-    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
+    return $this->getLeftParen();
   }
 
   public function getParametersUNTYPED(): EditableNode {
@@ -593,12 +590,9 @@ final class AnonymousFunction extends EditableNode {
   }
 
   /**
-   * @return null | RightParenToken
+   * @return RightParenToken
    */
-  public function getRightParen(): ?RightParenToken {
-    if ($this->_right_paren->isMissing()) {
-      return null;
-    }
+  public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
@@ -606,7 +600,7 @@ final class AnonymousFunction extends EditableNode {
    * @return RightParenToken
    */
   public function getRightParenx(): RightParenToken {
-    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
+    return $this->getRightParen();
   }
 
   public function getColonUNTYPED(): EditableNode {
@@ -685,7 +679,7 @@ final class AnonymousFunction extends EditableNode {
   /**
    * @return ClosureTypeSpecifier | GenericTypeSpecifier |
    * MapArrayTypeSpecifier | null | NullableTypeSpecifier | SimpleTypeSpecifier
-   * | SoftTypeSpecifier | TupleTypeSpecifier | VectorTypeSpecifier
+   * | SoftTypeSpecifier | TupleTypeSpecifier
    */
   public function getType(): ?EditableNode {
     if ($this->_type->isMissing()) {
@@ -697,7 +691,7 @@ final class AnonymousFunction extends EditableNode {
   /**
    * @return ClosureTypeSpecifier | GenericTypeSpecifier |
    * MapArrayTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier |
-   * SoftTypeSpecifier | TupleTypeSpecifier | VectorTypeSpecifier
+   * SoftTypeSpecifier | TupleTypeSpecifier
    */
   public function getTypex(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);

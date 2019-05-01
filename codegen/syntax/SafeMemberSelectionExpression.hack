@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<703f5509e06394cb8d781ac3a4d7096d>>
+ * @generated SignedSource<<9573164fc11ecba13e1e01e2b0ec176f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -172,14 +172,14 @@ final class SafeMemberSelectionExpression extends EditableNode {
   }
 
   /**
-   * @return XHPClassNameToken | NameToken | VariableToken
+   * @return NameToken | VariableToken
    */
   public function getName(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_name);
   }
 
   /**
-   * @return XHPClassNameToken | NameToken | VariableToken
+   * @return NameToken | VariableToken
    */
   public function getNamex(): EditableToken {
     return $this->getName();

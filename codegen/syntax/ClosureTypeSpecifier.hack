@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<21125cfcd69d22d94cdc5844b6f16193>>
+ * @generated SignedSource<<31489c6f54e594687e635fa732bc4e8f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -509,7 +509,7 @@ final class ClosureTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @return ClosureTypeSpecifier | GenericTypeSpecifier |
+   * @return ClosureTypeSpecifier | GenericTypeSpecifier | LikeTypeSpecifier |
    * NullableTypeSpecifier | SimpleTypeSpecifier | VectorTypeSpecifier
    */
   public function getReturnType(): EditableNode {
@@ -517,7 +517,7 @@ final class ClosureTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @return ClosureTypeSpecifier | GenericTypeSpecifier |
+   * @return ClosureTypeSpecifier | GenericTypeSpecifier | LikeTypeSpecifier |
    * NullableTypeSpecifier | SimpleTypeSpecifier | VectorTypeSpecifier
    */
   public function getReturnTypex(): EditableNode {

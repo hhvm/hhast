@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a9db95ca67fda6efbab63205be13d895>>
+ * @generated SignedSource<<ca1bd079387ec7309c5069e19afa0630>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -263,8 +263,7 @@ final class VectorIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @return EditableList<EditableNode> |
-   * EditableList<ArrayIntrinsicExpression> | EditableList<BinaryExpression> |
+   * @return EditableList<EditableNode> | EditableList<BinaryExpression> |
    * EditableList<CollectionLiteralExpression> |
    * EditableList<ConditionalExpression> |
    * EditableList<DictionaryIntrinsicExpression> |
@@ -284,8 +283,7 @@ final class VectorIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @return EditableList<EditableNode> |
-   * EditableList<ArrayIntrinsicExpression> | EditableList<BinaryExpression> |
+   * @return EditableList<EditableNode> | EditableList<BinaryExpression> |
    * EditableList<CollectionLiteralExpression> |
    * EditableList<ConditionalExpression> |
    * EditableList<DictionaryIntrinsicExpression> |
@@ -323,12 +321,9 @@ final class VectorIntrinsicExpression extends EditableNode {
   }
 
   /**
-   * @return null | RightBracketToken
+   * @return RightBracketToken
    */
-  public function getRightBracket(): ?RightBracketToken {
-    if ($this->_right_bracket->isMissing()) {
-      return null;
-    }
+  public function getRightBracket(): RightBracketToken {
     return TypeAssert\instance_of(
       RightBracketToken::class,
       $this->_right_bracket,
@@ -339,9 +334,6 @@ final class VectorIntrinsicExpression extends EditableNode {
    * @return RightBracketToken
    */
   public function getRightBracketx(): RightBracketToken {
-    return TypeAssert\instance_of(
-      RightBracketToken::class,
-      $this->_right_bracket,
-    );
+    return $this->getRightBracket();
   }
 }

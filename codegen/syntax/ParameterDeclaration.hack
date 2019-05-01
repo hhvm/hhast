@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e3dd58686234b0f58cb93aae25932208>>
+ * @generated SignedSource<<066c738a78be5b09876ecf2a989c1a39>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -340,12 +340,9 @@ final class ParameterDeclaration extends EditableNode {
   }
 
   /**
-   * @return DecoratedExpression | null | VariableToken
+   * @return DecoratedExpression | VariableToken
    */
-  public function getName(): ?EditableNode {
-    if ($this->_name->isMissing()) {
-      return null;
-    }
+  public function getName(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_name);
   }
 
@@ -353,7 +350,7 @@ final class ParameterDeclaration extends EditableNode {
    * @return DecoratedExpression | VariableToken
    */
   public function getNamex(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_name);
+    return $this->getName();
   }
 
   public function getDefaultValueUNTYPED(): EditableNode {

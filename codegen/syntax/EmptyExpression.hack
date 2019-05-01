@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a7b43d73bcb3cac07e925037a6fc16ef>>
+ * @generated SignedSource<<dedec935a715514e9a9ae49c1dac799a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -203,8 +203,8 @@ final class EmptyExpression extends EditableNode {
    * BinaryExpression | CollectionLiteralExpression | FunctionCallExpression |
    * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PrefixUnaryExpression |
-   * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * SubscriptExpression | VariableExpression | XHPExpression
+   * ScopeResolutionExpression | SubscriptExpression | VariableExpression |
+   * XHPExpression
    */
   public function getArgument(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_argument);
@@ -215,8 +215,8 @@ final class EmptyExpression extends EditableNode {
    * BinaryExpression | CollectionLiteralExpression | FunctionCallExpression |
    * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PrefixUnaryExpression |
-   * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * SubscriptExpression | VariableExpression | XHPExpression
+   * ScopeResolutionExpression | SubscriptExpression | VariableExpression |
+   * XHPExpression
    */
   public function getArgumentx(): EditableNode {
     return $this->getArgument();

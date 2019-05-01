@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<004da0bd808d48af1f99448060d66c9f>>
+ * @generated SignedSource<<d80917191092186886ad789d56658520>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -139,7 +139,7 @@ final class BracedExpression extends EditableNode {
    * @return ArrayIntrinsicExpression | BinaryExpression |
    * CollectionLiteralExpression | FunctionCallExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression | NameToken |
-   * RightBraceToken | VariableExpression
+   * VariableExpression
    */
   public function getExpression(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_expression);
@@ -149,7 +149,7 @@ final class BracedExpression extends EditableNode {
    * @return ArrayIntrinsicExpression | BinaryExpression |
    * CollectionLiteralExpression | FunctionCallExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression | NameToken |
-   * RightBraceToken | VariableExpression
+   * VariableExpression
    */
   public function getExpressionx(): EditableNode {
     return $this->getExpression();
@@ -171,12 +171,9 @@ final class BracedExpression extends EditableNode {
   }
 
   /**
-   * @return null | RightBraceToken
+   * @return RightBraceToken
    */
-  public function getRightBrace(): ?RightBraceToken {
-    if ($this->_right_brace->isMissing()) {
-      return null;
-    }
+  public function getRightBrace(): RightBraceToken {
     return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
   }
 
@@ -184,6 +181,6 @@ final class BracedExpression extends EditableNode {
    * @return RightBraceToken
    */
   public function getRightBracex(): RightBraceToken {
-    return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
+    return $this->getRightBrace();
   }
 }

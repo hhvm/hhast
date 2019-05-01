@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f3c69f2adcc838ed1841bf916673806e>>
+ * @generated SignedSource<<a16dc6d2449b709476ddecb6f29564f8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -109,11 +109,10 @@ final class ElementInitializer extends EditableNode {
   /**
    * @return AnonymousFunction | ArrayCreationExpression |
    * ArrayIntrinsicExpression | BinaryExpression | CastExpression |
-   * CollectionLiteralExpression | DictionaryIntrinsicExpression |
-   * FunctionCallExpression | KeysetIntrinsicExpression | LiteralExpression |
-   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
-   * | QualifiedName | ScopeResolutionExpression | SubscriptExpression |
-   * NameToken | VariableExpression | VectorIntrinsicExpression
+   * FunctionCallExpression | LiteralExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression | QualifiedName |
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * VariableExpression
    */
   public function getKey(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_key);
@@ -122,11 +121,10 @@ final class ElementInitializer extends EditableNode {
   /**
    * @return AnonymousFunction | ArrayCreationExpression |
    * ArrayIntrinsicExpression | BinaryExpression | CastExpression |
-   * CollectionLiteralExpression | DictionaryIntrinsicExpression |
-   * FunctionCallExpression | KeysetIntrinsicExpression | LiteralExpression |
-   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
-   * | QualifiedName | ScopeResolutionExpression | SubscriptExpression |
-   * NameToken | VariableExpression | VectorIntrinsicExpression
+   * FunctionCallExpression | LiteralExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression | QualifiedName |
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * VariableExpression
    */
   public function getKeyx(): EditableNode {
     return $this->getKey();
@@ -148,12 +146,9 @@ final class ElementInitializer extends EditableNode {
   }
 
   /**
-   * @return null | EqualGreaterThanToken
+   * @return EqualGreaterThanToken
    */
-  public function getArrow(): ?EqualGreaterThanToken {
-    if ($this->_arrow->isMissing()) {
-      return null;
-    }
+  public function getArrow(): EqualGreaterThanToken {
     return TypeAssert\instance_of(EqualGreaterThanToken::class, $this->_arrow);
   }
 
@@ -161,7 +156,7 @@ final class ElementInitializer extends EditableNode {
    * @return EqualGreaterThanToken
    */
   public function getArrowx(): EqualGreaterThanToken {
-    return TypeAssert\instance_of(EqualGreaterThanToken::class, $this->_arrow);
+    return $this->getArrow();
   }
 
   public function getValueUNTYPED(): EditableNode {
@@ -188,7 +183,7 @@ final class ElementInitializer extends EditableNode {
    * LambdaExpression | LiteralExpression | MemberSelectionExpression |
    * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
    * | QualifiedName | ScopeResolutionExpression | SubscriptExpression |
-   * CommaToken | NameToken | TupleExpression | VariableExpression |
+   * NameToken | TupleExpression | VariableExpression |
    * VarrayIntrinsicExpression | VectorIntrinsicExpression
    */
   public function getValue(): EditableNode {
@@ -204,7 +199,7 @@ final class ElementInitializer extends EditableNode {
    * LambdaExpression | LiteralExpression | MemberSelectionExpression |
    * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
    * | QualifiedName | ScopeResolutionExpression | SubscriptExpression |
-   * CommaToken | NameToken | TupleExpression | VariableExpression |
+   * NameToken | TupleExpression | VariableExpression |
    * VarrayIntrinsicExpression | VectorIntrinsicExpression
    */
   public function getValuex(): EditableNode {

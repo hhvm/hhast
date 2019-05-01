@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b2d0b5d78673a94bacd035ca5b929c84>>
+ * @generated SignedSource<<30d40c5176dcda644737eba6322eb007>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -127,9 +127,8 @@ final class SimpleInitializer extends EditableNode {
    * FunctionCallExpression | KeysetIntrinsicExpression | LambdaExpression |
    * LiteralExpression | ObjectCreationExpression | ParenthesizedExpression |
    * PrefixUnaryExpression | QualifiedName | ScopeResolutionExpression |
-   * ShapeExpression | SubscriptExpression | NameToken | TupleExpression |
-   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
-   * | XHPExpression
+   * ShapeExpression | NameToken | TupleExpression | VariableExpression |
+   * VarrayIntrinsicExpression | VectorIntrinsicExpression | XHPExpression
    */
   public function getValue(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_value);
@@ -143,9 +142,8 @@ final class SimpleInitializer extends EditableNode {
    * FunctionCallExpression | KeysetIntrinsicExpression | LambdaExpression |
    * LiteralExpression | ObjectCreationExpression | ParenthesizedExpression |
    * PrefixUnaryExpression | QualifiedName | ScopeResolutionExpression |
-   * ShapeExpression | SubscriptExpression | NameToken | TupleExpression |
-   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
-   * | XHPExpression
+   * ShapeExpression | NameToken | TupleExpression | VariableExpression |
+   * VarrayIntrinsicExpression | VectorIntrinsicExpression | XHPExpression
    */
   public function getValuex(): EditableNode {
     return $this->getValue();

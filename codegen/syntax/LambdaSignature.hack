@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<56628954599ff02fa3c84c22d84273da>>
+ * @generated SignedSource<<2d855bd49c6da536150ac73dfe858210>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -146,12 +146,9 @@ final class LambdaSignature extends EditableNode {
   }
 
   /**
-   * @return null | LeftParenToken
+   * @return LeftParenToken
    */
-  public function getLeftParen(): ?LeftParenToken {
-    if ($this->_left_paren->isMissing()) {
-      return null;
-    }
+  public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
@@ -159,7 +156,7 @@ final class LambdaSignature extends EditableNode {
    * @return LeftParenToken
    */
   public function getLeftParenx(): LeftParenToken {
-    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
+    return $this->getLeftParen();
   }
 
   public function getParametersUNTYPED(): EditableNode {
@@ -184,7 +181,7 @@ final class LambdaSignature extends EditableNode {
   }
 
   /**
-   * @return EditableList<ParameterDeclaration> | EditableList<EditableNode> |
+   * @return EditableList<ParameterDeclaration> |
    * EditableList<VariadicParameter> | null
    */
   public function getParameters(): ?EditableList<EditableNode> {
@@ -195,7 +192,7 @@ final class LambdaSignature extends EditableNode {
   }
 
   /**
-   * @return EditableList<ParameterDeclaration> | EditableList<EditableNode> |
+   * @return EditableList<ParameterDeclaration> |
    * EditableList<VariadicParameter>
    */
   public function getParametersx(): EditableList<EditableNode> {
@@ -224,12 +221,9 @@ final class LambdaSignature extends EditableNode {
   }
 
   /**
-   * @return null | RightParenToken
+   * @return RightParenToken
    */
-  public function getRightParen(): ?RightParenToken {
-    if ($this->_right_paren->isMissing()) {
-      return null;
-    }
+  public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
@@ -237,7 +231,7 @@ final class LambdaSignature extends EditableNode {
    * @return RightParenToken
    */
   public function getRightParenx(): RightParenToken {
-    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
+    return $this->getRightParen();
   }
 
   public function getColonUNTYPED(): EditableNode {

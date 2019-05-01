@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dca2affd4659af0a5edd0f5aeb376a52>>
+ * @generated SignedSource<<8f8cbca8273c4b6722eb15d11303624f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -275,12 +275,9 @@ final class FunctionDeclarationHeader extends EditableNode {
   }
 
   /**
-   * @return null | FunctionToken
+   * @return FunctionToken
    */
-  public function getKeyword(): ?FunctionToken {
-    if ($this->_keyword->isMissing()) {
-      return null;
-    }
+  public function getKeyword(): FunctionToken {
     return TypeAssert\instance_of(FunctionToken::class, $this->_keyword);
   }
 
@@ -288,7 +285,7 @@ final class FunctionDeclarationHeader extends EditableNode {
    * @return FunctionToken
    */
   public function getKeywordx(): FunctionToken {
-    return TypeAssert\instance_of(FunctionToken::class, $this->_keyword);
+    return $this->getKeyword();
   }
 
   public function getNameUNTYPED(): EditableNode {
@@ -407,12 +404,9 @@ final class FunctionDeclarationHeader extends EditableNode {
   }
 
   /**
-   * @return null | LeftParenToken
+   * @return LeftParenToken
    */
-  public function getLeftParen(): ?LeftParenToken {
-    if ($this->_left_paren->isMissing()) {
-      return null;
-    }
+  public function getLeftParen(): LeftParenToken {
     return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
@@ -420,7 +414,7 @@ final class FunctionDeclarationHeader extends EditableNode {
    * @return LeftParenToken
    */
   public function getLeftParenx(): LeftParenToken {
-    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
+    return $this->getLeftParen();
   }
 
   public function getParameterListUNTYPED(): EditableNode {
@@ -450,11 +444,10 @@ final class FunctionDeclarationHeader extends EditableNode {
   }
 
   /**
-   * @return EditableList<?ParameterDeclaration> |
-   * EditableList<ParameterDeclaration> | EditableList<EditableNode> |
+   * @return EditableList<ParameterDeclaration> | EditableList<EditableNode> |
    * EditableList<VariadicParameter> | null
    */
-  public function getParameterList(): ?EditableList<?EditableNode> {
+  public function getParameterList(): ?EditableList<EditableNode> {
     if ($this->_parameter_list->isMissing()) {
       return null;
     }
@@ -462,11 +455,10 @@ final class FunctionDeclarationHeader extends EditableNode {
   }
 
   /**
-   * @return EditableList<?ParameterDeclaration> |
-   * EditableList<ParameterDeclaration> | EditableList<EditableNode> |
+   * @return EditableList<ParameterDeclaration> | EditableList<EditableNode> |
    * EditableList<VariadicParameter>
    */
-  public function getParameterListx(): EditableList<?EditableNode> {
+  public function getParameterListx(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_parameter_list);
   }
 
@@ -497,12 +489,9 @@ final class FunctionDeclarationHeader extends EditableNode {
   }
 
   /**
-   * @return null | RightParenToken
+   * @return RightParenToken
    */
-  public function getRightParen(): ?RightParenToken {
-    if ($this->_right_paren->isMissing()) {
-      return null;
-    }
+  public function getRightParen(): RightParenToken {
     return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
@@ -510,7 +499,7 @@ final class FunctionDeclarationHeader extends EditableNode {
    * @return RightParenToken
    */
   public function getRightParenx(): RightParenToken {
-    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
+    return $this->getRightParen();
   }
 
   public function getColonUNTYPED(): EditableNode {

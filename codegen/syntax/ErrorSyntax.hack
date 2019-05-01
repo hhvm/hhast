@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3f6dbda4679c63080d869c75a59164c8>>
+ * @generated SignedSource<<aae32416f161eaa4bd3b7ee3fb94bbda>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -79,22 +79,16 @@ final class ErrorSyntax extends EditableNode {
   }
 
   /**
-   * @return AmpersandToken | RightParenToken | CommaToken | SemicolonToken |
-   * EqualToken | EqualGreaterThanToken | BackslashToken | DecimalLiteralToken
-   * | InoutToken | IntToken | NameToken | SingleQuotedStringLiteralToken |
-   * StaticToken | UsingToken | VariableToken | LeftBraceToken | RightBraceToken
+   * @return unknown
    */
-  public function getError(): EditableToken {
-    return TypeAssert\instance_of(EditableToken::class, $this->_error);
+  public function getError(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_error);
   }
 
   /**
-   * @return AmpersandToken | RightParenToken | CommaToken | SemicolonToken |
-   * EqualToken | EqualGreaterThanToken | BackslashToken | DecimalLiteralToken
-   * | InoutToken | IntToken | NameToken | SingleQuotedStringLiteralToken |
-   * StaticToken | UsingToken | VariableToken | LeftBraceToken | RightBraceToken
+   * @return unknown
    */
-  public function getErrorx(): EditableToken {
+  public function getErrorx(): EditableNode {
     return $this->getError();
   }
 }

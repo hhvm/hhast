@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f1761edb31e703830d44b3450dea0489>>
+ * @generated SignedSource<<7ee4b3a313e04d3d8d10e120452c6d50>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -120,14 +120,16 @@ final class LikeTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @return GenericTypeSpecifier | SimpleTypeSpecifier
+   * @return DictionaryTypeSpecifier | GenericTypeSpecifier | LikeTypeSpecifier
+   * | SimpleTypeSpecifier | TypeConstant
    */
   public function getType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);
   }
 
   /**
-   * @return GenericTypeSpecifier | SimpleTypeSpecifier
+   * @return DictionaryTypeSpecifier | GenericTypeSpecifier | LikeTypeSpecifier
+   * | SimpleTypeSpecifier | TypeConstant
    */
   public function getTypex(): EditableNode {
     return $this->getType();

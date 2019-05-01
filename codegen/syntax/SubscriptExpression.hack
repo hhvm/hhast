@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<13429404fcb427e330399637f14580ae>>
+ * @generated SignedSource<<96c8268c854ec814dba7e9a14045d4a9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -134,8 +134,7 @@ final class SubscriptExpression extends EditableNode {
    * @return ArrayCreationExpression | ArrayIntrinsicExpression |
    * FunctionCallExpression | LiteralExpression | MemberSelectionExpression |
    * ParenthesizedExpression | SafeMemberSelectionExpression |
-   * ScopeResolutionExpression | SubscriptExpression | RightParenToken |
-   * EqualEqualGreaterThanToken | ErrorTokenToken | NameToken |
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression
    */
   public function getReceiver(): EditableNode {
@@ -146,8 +145,7 @@ final class SubscriptExpression extends EditableNode {
    * @return ArrayCreationExpression | ArrayIntrinsicExpression |
    * FunctionCallExpression | LiteralExpression | MemberSelectionExpression |
    * ParenthesizedExpression | SafeMemberSelectionExpression |
-   * ScopeResolutionExpression | SubscriptExpression | RightParenToken |
-   * EqualEqualGreaterThanToken | ErrorTokenToken | NameToken |
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression
    */
   public function getReceiverx(): EditableNode {
@@ -213,8 +211,7 @@ final class SubscriptExpression extends EditableNode {
    * CastExpression | FunctionCallExpression | LiteralExpression |
    * MemberSelectionExpression | null | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
-   * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * SubscriptExpression | EchoToken | ErrorTokenToken | NameToken |
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression
    */
   public function getIndex(): ?EditableNode {
@@ -229,8 +226,7 @@ final class SubscriptExpression extends EditableNode {
    * CastExpression | FunctionCallExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
-   * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * SubscriptExpression | EchoToken | ErrorTokenToken | NameToken |
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression
    */
   public function getIndexx(): EditableNode {
@@ -258,12 +254,9 @@ final class SubscriptExpression extends EditableNode {
   }
 
   /**
-   * @return null | RightBracketToken | RightBraceToken
+   * @return RightBracketToken | RightBraceToken
    */
-  public function getRightBracket(): ?EditableToken {
-    if ($this->_right_bracket->isMissing()) {
-      return null;
-    }
+  public function getRightBracket(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_right_bracket);
   }
 
@@ -271,6 +264,6 @@ final class SubscriptExpression extends EditableNode {
    * @return RightBracketToken | RightBraceToken
    */
   public function getRightBracketx(): EditableToken {
-    return TypeAssert\instance_of(EditableToken::class, $this->_right_bracket);
+    return $this->getRightBracket();
   }
 }

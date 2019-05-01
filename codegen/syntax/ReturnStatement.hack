@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2ca04dbaee85829da02a4ff953946aa5>>
+ * @generated SignedSource<<fdac558afd91fc744e3995c82d801d7a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -143,7 +143,7 @@ final class ReturnStatement extends EditableNode {
    * DictionaryIntrinsicExpression | EmptyExpression | EvalExpression |
    * FunctionCallExpression | InstanceofExpression | IsExpression |
    * IssetExpression | KeysetIntrinsicExpression | LambdaExpression |
-   * ListExpression | LiteralExpression | MemberSelectionExpression | null |
+   * LiteralExpression | MemberSelectionExpression | null |
    * ObjectCreationExpression | ParenthesizedExpression |
    * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
    * SafeMemberSelectionExpression | ScopeResolutionExpression |
@@ -166,11 +166,10 @@ final class ReturnStatement extends EditableNode {
    * DictionaryIntrinsicExpression | EmptyExpression | EvalExpression |
    * FunctionCallExpression | InstanceofExpression | IsExpression |
    * IssetExpression | KeysetIntrinsicExpression | LambdaExpression |
-   * ListExpression | LiteralExpression | MemberSelectionExpression |
-   * ObjectCreationExpression | ParenthesizedExpression |
-   * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
-   * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * ShapeExpression | SubscriptExpression | NameToken | TupleExpression |
+   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
+   * QualifiedName | SafeMemberSelectionExpression | ScopeResolutionExpression
+   * | ShapeExpression | SubscriptExpression | NameToken | TupleExpression |
    * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
    * | XHPExpression | YieldFromExpression
    */

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<180c127b46ccf1d708639cefc6378c9c>>
+ * @generated SignedSource<<c738a7c3d007cfbbf80904200f2a7ba8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -327,12 +327,9 @@ final class LambdaExpression extends EditableNode {
   }
 
   /**
-   * @return null | EqualEqualGreaterThanToken
+   * @return EqualEqualGreaterThanToken
    */
-  public function getArrow(): ?EqualEqualGreaterThanToken {
-    if ($this->_arrow->isMissing()) {
-      return null;
-    }
+  public function getArrow(): EqualEqualGreaterThanToken {
     return TypeAssert\instance_of(
       EqualEqualGreaterThanToken::class,
       $this->_arrow,
@@ -343,10 +340,7 @@ final class LambdaExpression extends EditableNode {
    * @return EqualEqualGreaterThanToken
    */
   public function getArrowx(): EqualEqualGreaterThanToken {
-    return TypeAssert\instance_of(
-      EqualEqualGreaterThanToken::class,
-      $this->_arrow,
-    );
+    return $this->getArrow();
   }
 
   public function getBodyUNTYPED(): EditableNode {
@@ -376,14 +370,11 @@ final class LambdaExpression extends EditableNode {
    * BinaryExpression | CastExpression | CollectionLiteralExpression |
    * CompoundStatement | ConditionalExpression | FunctionCallExpression |
    * IsExpression | KeysetIntrinsicExpression | LambdaExpression |
-   * LiteralExpression | MemberSelectionExpression | null |
-   * NullableAsExpression | ObjectCreationExpression | ParenthesizedExpression
-   * | PrefixUnaryExpression | SubscriptExpression | VariableExpression
+   * LiteralExpression | MemberSelectionExpression | NullableAsExpression |
+   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
+   * | SubscriptExpression | VariableExpression
    */
-  public function getBody(): ?EditableNode {
-    if ($this->_body->isMissing()) {
-      return null;
-    }
+  public function getBody(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_body);
   }
 
@@ -397,6 +388,6 @@ final class LambdaExpression extends EditableNode {
    * | SubscriptExpression | VariableExpression
    */
   public function getBodyx(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_body);
+    return $this->getBody();
   }
 }
