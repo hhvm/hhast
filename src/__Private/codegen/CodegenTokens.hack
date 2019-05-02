@@ -125,6 +125,10 @@ final class CodegenTokens extends CodegenBase {
       ->addMethods($this->generateFieldMethods($token))
       ->addMethod($this->generateRewriteChildrenMethod($token));
 
+    if ($token['kind'] === 'Name') {
+      $cc->addInterface($cg->codegenImplementsInterface('INameishNode'));
+    }
+
     $text = $token['text'];
     if ($text !== null) {
       if (Str\uppercase($text) === Str\lowercase($text)) {

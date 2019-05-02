@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bdaab15d85dd59d6b9d3d7a762c3b7bf>>
+ * @generated SignedSource<<0fddcbc64af0c1120d0c9f446138a555>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class QualifiedName extends EditableNode {
+final class QualifiedName extends EditableNode implements INameishNode {
 
   private EditableNode $_parts;
 

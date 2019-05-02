@@ -586,6 +586,10 @@ final class CodegenSyntax extends CodegenBase {
         'ForeachStatement',
         'WhileStatement',
       ],
+      'INameishNode' => keyset [
+        // Also NameToken
+        'QualifiedName',
+      ],
       'INamespaceUseDeclaration' => keyset[
         'NamespaceUseDeclaration',
         'NamespaceGroupUseDeclaration',
