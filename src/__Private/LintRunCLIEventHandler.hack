@@ -178,7 +178,7 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
         ->getStdout()
         ->writeAsync(
           "\e[94mWould you like to apply this fix?\e[0m\n".
-          "  \e[37m[y]es/[N]o/yes to [a]ll/n[o] to all:\e[0m ",
+          "  \e[37m[y]es/[n]o/yes to [a]ll/n[o] to all:\e[0m ",
         );
       $response = await $this->terminal->getStdin()->readLineAsync();
       $response = Str\trim($response);
