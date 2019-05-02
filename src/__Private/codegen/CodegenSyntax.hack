@@ -563,26 +563,41 @@ final class CodegenSyntax extends CodegenBase {
   }
 
   private static function getMarkerInterfaces(): dict<string, keyset<string>> {
-    return dict[
-      'AlternateElseClause' => keyset['IControlFlowStatement'],
-      'AlternateElseifClause' => keyset['IControlFlowStatement'],
-      'AlternateElseifStatement' => keyset['IControlFlowStatement'],
-      'AlternateLoopStatement' =>
-        keyset['IControlFlowStatement', 'ILoopStatement'],
-      'AlternateSwitchStatement' => keyset['IControlFlowStatement'],
-      'DoStatement' => keyset['IControlFlowStatement', 'ILoopStatement'],
-      'ElseClause' => keyset['IControlFlowStatement'],
-      'ElseifClause' => keyset['IControlFlowStatement'],
-      'ForStatement' => keyset['IControlFlowStatement', 'ILoopStatement'],
-      'ForeachStatement' => keyset['IControlFlowStatement', 'ILoopStatement'],
-      'FunctionDeclaration' => keyset['IFunctionishDeclaration'],
-      'IfStatement' => keyset['IControlFlowStatement'],
-      'MethodishDeclaration' => keyset['IFunctionishDeclaration'],
-      'NamespaceUseDeclaration' => keyset['INamespaceUseDeclaration'],
-      'NamespaceGroupUseDeclaration' => keyset['INamespaceUseDeclaration'],
-      'SwitchStatement' => keyset['IControlFlowStatement'],
-      'WhileStatement' => keyset['IControlFlowStatement', 'ILoopStatement'],
+    $by_interface = dict[
+      'IControlFlowStatement' => keyset[
+        'AlternateElseClause',
+        'AlternateElseifClause',
+        'AlternateElseifStatement',
+        'AlternateSwitchStatement',
+        'ElseClause',
+        'ElseifClause',
+        'IfStatement',
+        'SwitchStatement',
+      ],
+      'IFunctionishDeclaration' => keyset[
+        'FunctionDeclaration',
+        'MethodishDeclaration',
+      ],
+      'ILoopStatement' => keyset[
+        'AlternateLoopStatement',
+        'DoStatement',
+        'ForStatement',
+        'ForeachStatement',
+        'WhileStatement',
+      ],
+      'INamespaceUseDeclaration' => keyset[
+        'NamespaceUseDeclaration',
+        'NamespaceGroupUseDeclaration',
+      ],
     ];
+    $by_implementation = dict[];
+    foreach ($by_interface as $if => $classes) {
+      foreach ($classes as $class) {
+        $by_implementation[$class] ??= keyset[];
+        $by_implementation[$class][] = $if;
+      }
+    }
+    return $by_implementation;
   }
 
   private static function getKindsWithManualSubclasses(): keyset<string> {

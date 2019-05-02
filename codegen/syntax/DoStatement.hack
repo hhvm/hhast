@@ -1,15 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<360f88e367fca0827b98c7a6f16752f5>>
+ * @generated SignedSource<<5151383677429cfe507acfdda3d5751c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class DoStatement
-  extends EditableNode
-  implements IControlFlowStatement, ILoopStatement {
+final class DoStatement extends EditableNode implements ILoopStatement {
 
   private EditableNode $_keyword;
   private EditableNode $_body;

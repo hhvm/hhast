@@ -1,15 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6976bfa504824eecdf7ff54da52c3961>>
+ * @generated SignedSource<<5d42ce014069ee8ffaecdc6d4de6c296>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class WhileStatement
-  extends EditableNode
-  implements IControlFlowStatement, ILoopStatement {
+final class WhileStatement extends EditableNode implements ILoopStatement {
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;
