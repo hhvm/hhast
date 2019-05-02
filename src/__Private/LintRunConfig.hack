@@ -69,6 +69,7 @@ final class LintRunConfig {
     Linters\MethodCallOnConstructorLinter::class,
     Linters\MustUseBracesForControlFlowLinter::class,
     Linters\MustUseOverrideAttributeLinter::class,
+    Linters\NoElseifLinter::class,
     Linters\NoPHPEqualityLinter::class,
     Linters\UnusedParameterLinter::class,
     Linters\UnusedUseClauseLinter::class,
