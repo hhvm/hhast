@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<84ca1c0be9d18c6597d3ea1dd0a0e365>>
+ * @generated SignedSource<<247fcadfa0bc55765d181e53e3303f0c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -45,6 +45,7 @@ final class FunctionCallExpression extends EditableNode implements IExpression {
       $offset,
       $source,
     );
+    $receiver = __Private\Wrap\wrap_IExpression($receiver);
     $offset += $receiver->getWidth();
     $type_args = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_call_type_args'],

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<37b1e40474d136eb22aaa9b22a2c3511>>
+ * @generated SignedSource<<abf7f826a0f6dbc2c5472dc4434d2a3f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -56,6 +56,7 @@ final class EvalExpression extends EditableNode implements IExpression {
       $offset,
       $source,
     );
+    $argument = __Private\Wrap\wrap_IExpression($argument);
     $offset += $argument->getWidth();
     $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['eval_right_paren'],

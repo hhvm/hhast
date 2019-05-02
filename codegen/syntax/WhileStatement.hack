@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6377bc4efb9c4c4b0714426551d36cb4>>
+ * @generated SignedSource<<8d66f000df25dd9695a46449760f899c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class WhileStatement extends EditableNode implements ILoopStatement {
+final class WhileStatement
+  extends EditableNode
+  implements IControlFlowStatement, ILoopStatement {
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;
@@ -59,6 +61,7 @@ final class WhileStatement extends EditableNode implements ILoopStatement {
       $offset,
       $source,
     );
+    $condition = __Private\Wrap\wrap_IExpression($condition);
     $offset += $condition->getWidth();
     $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['while_right_paren'],

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4a9dbd3b737c82a633ec1a98fe7f545e>>
+ * @generated SignedSource<<ffe04b54e9486a58ac36af1182873f31>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -154,14 +154,14 @@ final class NamespaceUseClause extends EditableNode {
   /**
    * @return QualifiedName | NameToken
    */
-  public function getName(): IExpression {
-    return TypeAssert\instance_of(IExpression::class, $this->_name);
+  public function getName(): INameishNode {
+    return TypeAssert\instance_of(INameishNode::class, $this->_name);
   }
 
   /**
    * @return QualifiedName | NameToken
    */
-  public function getNamex(): IExpression {
+  public function getNamex(): INameishNode {
     return $this->getName();
   }
 

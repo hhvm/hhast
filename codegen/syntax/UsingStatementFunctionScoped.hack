@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b3dbadc7d604a808d83d3d38cd6fab90>>
+ * @generated SignedSource<<ea5d1c6f1f84adc36dd0a53228a7db2f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -56,6 +56,7 @@ final class UsingStatementFunctionScoped extends EditableNode {
       $offset,
       $source,
     );
+    $expression = __Private\Wrap\wrap_IExpression($expression);
     $offset += $expression->getWidth();
     $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['using_function_semicolon'],

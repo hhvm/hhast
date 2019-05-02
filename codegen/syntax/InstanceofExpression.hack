@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<855c62a02e2bb4d9f8eeb2a2da8a428e>>
+ * @generated SignedSource<<33d99292b3bebfd99ad50629344b85fd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,6 +39,7 @@ final class InstanceofExpression extends EditableNode implements IExpression {
       $offset,
       $source,
     );
+    $left_operand = __Private\Wrap\wrap_IExpression($left_operand);
     $offset += $left_operand->getWidth();
     $operator = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['instanceof_operator'],
@@ -53,6 +54,7 @@ final class InstanceofExpression extends EditableNode implements IExpression {
       $offset,
       $source,
     );
+    $right_operand = __Private\Wrap\wrap_IExpression($right_operand);
     $offset += $right_operand->getWidth();
     $source_ref = shape(
       'file' => $file,

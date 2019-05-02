@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<79d3d33808da85d08189fed96042f70e>>
+ * @generated SignedSource<<4d484336e220b60d45a6e25a61c4dd62>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -45,6 +45,7 @@ final class ConditionalExpression extends EditableNode implements IExpression {
       $offset,
       $source,
     );
+    $test = __Private\Wrap\wrap_IExpression($test);
     $offset += $test->getWidth();
     $question = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['conditional_question'],
@@ -59,6 +60,7 @@ final class ConditionalExpression extends EditableNode implements IExpression {
       $offset,
       $source,
     );
+    $consequence = __Private\Wrap\wrap_IExpression($consequence);
     $offset += $consequence->getWidth();
     $colon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['conditional_colon'],
@@ -73,6 +75,7 @@ final class ConditionalExpression extends EditableNode implements IExpression {
       $offset,
       $source,
     );
+    $alternative = __Private\Wrap\wrap_IExpression($alternative);
     $offset += $alternative->getWidth();
     $source_ref = shape(
       'file' => $file,

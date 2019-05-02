@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<54007010bcf32220453c35fbbf404544>>
+ * @generated SignedSource<<0e6b9e7925cd2ec33f2eaee367b79140>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class DoStatement extends EditableNode implements ILoopStatement {
+final class DoStatement
+  extends EditableNode
+  implements IControlFlowStatement, ILoopStatement {
 
   private EditableNode $_keyword;
   private EditableNode $_body;
@@ -79,6 +81,7 @@ final class DoStatement extends EditableNode implements ILoopStatement {
       $offset,
       $source,
     );
+    $condition = __Private\Wrap\wrap_IExpression($condition);
     $offset += $condition->getWidth();
     $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['do_right_paren'],

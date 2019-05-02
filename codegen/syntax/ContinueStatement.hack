@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bf1434b47929541dc90da8cb6015f69b>>
+ * @generated SignedSource<<55f8df1b79fa3bdc2e941f04157a6870>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -46,6 +46,7 @@ final class ContinueStatement extends EditableNode {
       $offset,
       $source,
     );
+    $level = __Private\Wrap\wrap_IExpression($level);
     $offset += $level->getWidth();
     $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['continue_semicolon'],

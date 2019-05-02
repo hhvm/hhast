@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<349dc9faf7a834c5ba443a49f141aa45>>
+ * @generated SignedSource<<c91df42993baf2de3de15e23c10c080f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,6 +39,7 @@ final class NullableAsExpression extends EditableNode implements IExpression {
       $offset,
       $source,
     );
+    $left_operand = __Private\Wrap\wrap_IExpression($left_operand);
     $offset += $left_operand->getWidth();
     $operator = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['nullable_as_operator'],

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<47a13a19e2627ca8398db3b0561883c6>>
+ * @generated SignedSource<<56f8d5c2017bd353a15d395f9603baa7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -63,6 +63,7 @@ final class CastExpression extends EditableNode implements IExpression {
       $offset,
       $source,
     );
+    $operand = __Private\Wrap\wrap_IExpression($operand);
     $offset += $operand->getWidth();
     $source_ref = shape(
       'file' => $file,

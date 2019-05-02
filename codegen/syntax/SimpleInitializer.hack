@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<178d331556c88c68e3b98abfd2c16d26>>
+ * @generated SignedSource<<fa1f42eb0ea21a38ae5d7b966e057d53>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -43,6 +43,7 @@ final class SimpleInitializer extends EditableNode {
       $offset,
       $source,
     );
+    $value = __Private\Wrap\wrap_IExpression($value);
     $offset += $value->getWidth();
     $source_ref = shape(
       'file' => $file,

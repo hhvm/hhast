@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a5d6929042dc078857742c2d48a352d5>>
+ * @generated SignedSource<<e3dbb4d9f847011aff26fc45181fab56>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,6 +39,7 @@ final class ElementInitializer extends EditableNode {
       $offset,
       $source,
     );
+    $key = __Private\Wrap\wrap_IExpression($key);
     $offset += $key->getWidth();
     $arrow = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['element_arrow'],
@@ -53,6 +54,7 @@ final class ElementInitializer extends EditableNode {
       $offset,
       $source,
     );
+    $value = __Private\Wrap\wrap_IExpression($value);
     $offset += $value->getWidth();
     $source_ref = shape(
       'file' => $file,

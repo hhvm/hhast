@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<faa6c1ec01ef7b900cc5acaa5d12674b>>
+ * @generated SignedSource<<bf474e81ee34b895bb2504f40300a333>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -46,6 +46,7 @@ final class ThrowStatement extends EditableNode {
       $offset,
       $source,
     );
+    $expression = __Private\Wrap\wrap_IExpression($expression);
     $offset += $expression->getWidth();
     $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['throw_semicolon'],

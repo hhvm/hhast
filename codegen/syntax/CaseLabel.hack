@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<44fce5d13210a0bfb704a875f25123d1>>
+ * @generated SignedSource<<044e2049ce7a7b14ab233a033e00d365>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -46,6 +46,7 @@ final class CaseLabel extends EditableNode {
       $offset,
       $source,
     );
+    $expression = __Private\Wrap\wrap_IExpression($expression);
     $offset += $expression->getWidth();
     $colon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['case_colon'],

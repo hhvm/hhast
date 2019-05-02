@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<75c14767f9fa6fbe58df1a4487307898>>
+ * @generated SignedSource<<449107dfb01c3b9759d69d02a9f6e4b0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -49,6 +49,7 @@ final class FieldSpecifier extends EditableNode {
       $offset,
       $source,
     );
+    $name = __Private\Wrap\wrap_IExpression($name);
     $offset += $name->getWidth();
     $arrow = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['field_arrow'],

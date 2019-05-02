@@ -65,7 +65,11 @@ final class CodegenSyntax extends CodegenBase {
       ->setIsAbstract($is_abstract)
       ->setExtends('EditableNode')
       ->setInterfaces(
-        ($this->getMarkerInterfaces()[$syntax['kind_name']] ?? vec[])
+        (
+          $this
+            ->getMarkerInterfacesByImplementingClass()[$syntax['kind_name']] ??
+          vec[]
+        )
           |> Vec\map($$, $if ==> $cg->codegenImplementsInterface($if)),
       )
       ->setConstructor($this->generateConstructor($syntax))
@@ -139,8 +143,8 @@ final class CodegenSyntax extends CodegenBase {
         $$,
         $type ==> Keyset\union(
           keyset[$type],
-          $this->getMarkerInterfaces()[$type] ?? keyset[],
-          Keyset\keys($this->getInterfaceWrappers()[$type] ?? keyset[]),
+          $this->getMarkerInterfacesByImplementingClass()[$type] ?? keyset[],
+          $this->getInterfaceWrappers()[$type] ?? keyset[],
         ),
       );
     $intersected = C\reduce(
@@ -148,8 +152,15 @@ final class CodegenSyntax extends CodegenBase {
       ($acc, $i) ==> $acc = Keyset\intersect($acc, $i),
       C\firstx($expanded),
     );
-    if (C\count($intersected) === 1) {
-      return C\onlyx($intersected);
+    if ($intersected) {
+      // Return the most-specific; for example, INameish can be converted to
+      // IExpression, and we want INameish
+      return Dict\map(
+        $intersected,
+        $if ==> C\count($this->getMarkerInterfaces()[$if]),
+      )
+        |> Dict\sort($$)
+        |> C\first_keyx($$);
     }
     return 'EditableNode';
   }
@@ -299,6 +310,7 @@ final class CodegenSyntax extends CodegenBase {
         HackBuilderValues::literal(),
       );
     foreach ($syntax['fields'] as $field) {
+      $spec = $this->getTypeSpecForField($syntax, $field['field_name']);
       $body
         ->addf('$%s = ', $field['field_name'])
         ->addMultilineCall(
@@ -313,8 +325,16 @@ final class CodegenSyntax extends CodegenBase {
             '$offset',
             '$source',
           ],
-        )
-        ->addLinef('$offset += $%s->getWidth();', $field['field_name']);
+        );
+      if ($spec['needsWrapper']) {
+        $body->addLinef(
+          '$%s = __Private\Wrap\wrap_%s($%s);',
+          $field['field_name'],
+          $spec['class'],
+          $field['field_name'],
+        );
+      }
+      $body->addLinef('$offset += $%s->getWidth();', $field['field_name']);
     }
 
     return $cg
@@ -492,6 +512,7 @@ final class CodegenSyntax extends CodegenBase {
 
   const type TFieldSpec = shape(
     'class' => string,
+    'needsWrapper' => bool,
     'nullable' => bool,
     'possibleTypes' => keyset<string>,
   );
@@ -510,6 +531,7 @@ final class CodegenSyntax extends CodegenBase {
     if (!C\contains_key($specs, $key)) {
       return shape(
         'class' => 'EditableNode',
+        'needsWrapper' => false,
         'nullable' => false,
         'possibleTypes' => keyset['unknown'],
       );
@@ -526,8 +548,11 @@ final class CodegenSyntax extends CodegenBase {
     if ($nullable) {
       $children = Keyset\filter($children, $child ==> $child !== 'missing');
     }
+
+    $unified = $this->getUnifiedSyntaxClass($children);
     return shape(
-      'class' => $this->getUnifiedSyntaxClass($children),
+      'class' => $unified,
+      'needsWrapper' => $this->needsInterfaceWrapper($unified),
       'nullable' => $nullable,
       'possibleTypes' => $possible_types,
     );
@@ -581,18 +606,22 @@ final class CodegenSyntax extends CodegenBase {
     return $token['token_kind'].'Token';
   }
 
-  <<__Memoize>>
   private function getMarkerInterfaces(): dict<string, keyset<string>> {
-    $by_interface = dict[
+    return dict[
       'IControlFlowStatement' => keyset[
         'AlternateElseClause',
         'AlternateElseifClause',
         'AlternateElseifStatement',
+        'AlternateLoopStatement',
         'AlternateSwitchStatement',
         'ElseClause',
         'ElseifClause',
         'IfStatement',
+        'DoStatement',
+        'ForStatement',
+        'ForeachStatement',
         'SwitchStatement',
+        'WhileStatement',
       ],
       'IFunctionishDeclaration' => keyset[
         'FunctionDeclaration',
@@ -606,7 +635,7 @@ final class CodegenSyntax extends CodegenBase {
         'WhileStatement',
       ],
       'INameishNode' => keyset[
-        // Also NameToken
+        'NameToken',
         'QualifiedName',
       ],
       'INamespaceUseDeclaration' => keyset[
@@ -617,6 +646,7 @@ final class CodegenSyntax extends CodegenBase {
         keyset[
           'AnonymousFunction',
           'PHP7AnonymousFunction',
+          'Variable',
         ],
         Vec\filter(
           $this->getSchema()['AST'],
@@ -625,8 +655,13 @@ final class CodegenSyntax extends CodegenBase {
           |> Keyset\map($$, $node ==> $node['kind_name']),
       ),
     ];
+  }
+
+  <<__Memoize>>
+  private function getMarkerInterfacesByImplementingClass(
+  ): dict<string, keyset<string>> {
     $by_implementation = dict[];
-    foreach ($by_interface as $if => $classes) {
+    foreach ($this->getMarkerInterfaces() as $if => $classes) {
       foreach ($classes as $class) {
         $by_implementation[$class] ??= keyset[];
         $by_implementation[$class][] = $if;
@@ -635,13 +670,17 @@ final class CodegenSyntax extends CodegenBase {
     return $by_implementation;
   }
 
-  private function getInterfaceWrappers(): dict<string, dict<string, string>> {
+  private function needsInterfaceWrapper(string $kind): bool {
+    return C\any(
+      $this->getInterfaceWrappers(),
+      $inner ==> C\contains_key($inner, $kind),
+    );
+  }
+
+  private function getInterfaceWrappers(): dict<string, keyset<string>> {
     return dict[
-      'NameToken' => dict['IExpression' => 'nameish_as_constant_expression'],
-      'QualifiedName' =>
-        dict['IExpression' => 'nameish_as_constant_expression'],
-      'VariableToken' =>
-        dict['IExpression' => 'variable_token_as_variable_expression'],
+      'NameToken' => keyset['IExpression'],
+      'QualifiedName' => keyset['IExpression'],
     ];
   }
 

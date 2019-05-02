@@ -8,6 +8,12 @@
         "Facebook\\HHAST\\Linters\\LicenseHeaderLinter"
       ],
       "disableAllAutoFixes": true
+    },
+    {
+      "patterns": [ "src/__Private/Wrap/*" ],
+      "disabledLinters": [
+        "Facebook\\HHAST\\Linters\\CamelCasedMethodsUnderscoredFunctionsLinter"
+      ]
     }
   ]
 }

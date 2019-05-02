@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7f6d3e0e452a14b3047e5b059b01d4e8>>
+ * @generated SignedSource<<a992dd0145122dc94803cc2544dfa20d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class ForeachStatement extends EditableNode implements ILoopStatement {
+final class ForeachStatement
+  extends EditableNode
+  implements IControlFlowStatement, ILoopStatement {
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;
@@ -74,6 +76,7 @@ final class ForeachStatement extends EditableNode implements ILoopStatement {
       $offset,
       $source,
     );
+    $collection = __Private\Wrap\wrap_IExpression($collection);
     $offset += $collection->getWidth();
     $await_keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['foreach_await_keyword'],
@@ -95,6 +98,7 @@ final class ForeachStatement extends EditableNode implements ILoopStatement {
       $offset,
       $source,
     );
+    $key = __Private\Wrap\wrap_IExpression($key);
     $offset += $key->getWidth();
     $arrow = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['foreach_arrow'],
@@ -109,6 +113,7 @@ final class ForeachStatement extends EditableNode implements ILoopStatement {
       $offset,
       $source,
     );
+    $value = __Private\Wrap\wrap_IExpression($value);
     $offset += $value->getWidth();
     $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['foreach_right_paren'],

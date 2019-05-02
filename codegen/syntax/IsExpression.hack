@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ae8957e48ca5532b7fbe11920114370b>>
+ * @generated SignedSource<<eb6920841dc2da53439f7be0a5541be8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,6 +39,7 @@ final class IsExpression extends EditableNode implements IExpression {
       $offset,
       $source,
     );
+    $left_operand = __Private\Wrap\wrap_IExpression($left_operand);
     $offset += $left_operand->getWidth();
     $operator = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['is_operator'],

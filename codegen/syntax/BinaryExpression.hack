@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<71d420e91a9d723393e9a109a7aabd27>>
+ * @generated SignedSource<<3fb6eab6e0e2ba849975e0dd089260f2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,6 +39,7 @@ final class BinaryExpression extends EditableNode implements IExpression {
       $offset,
       $source,
     );
+    $left_operand = __Private\Wrap\wrap_IExpression($left_operand);
     $offset += $left_operand->getWidth();
     $operator = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['binary_operator'],

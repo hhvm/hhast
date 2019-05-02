@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<70ef9570d1b18652a4dc5b05d9f62e78>>
+ * @generated SignedSource<<1125846010f2eb61cdf3dce5e1b05da4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,6 +39,7 @@ final class FieldInitializer extends EditableNode {
       $offset,
       $source,
     );
+    $name = __Private\Wrap\wrap_IExpression($name);
     $offset += $name->getWidth();
     $arrow = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['field_initializer_arrow'],
@@ -53,6 +54,7 @@ final class FieldInitializer extends EditableNode {
       $offset,
       $source,
     );
+    $value = __Private\Wrap\wrap_IExpression($value);
     $offset += $value->getWidth();
     $source_ref = shape(
       'file' => $file,

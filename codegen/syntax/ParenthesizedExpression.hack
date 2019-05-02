@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<44dbcc405b4a71e9f6c8890878d61cbf>>
+ * @generated SignedSource<<a5055757d69fc866383ca80d5c0f6e2a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -48,6 +48,7 @@ final class ParenthesizedExpression
       $offset,
       $source,
     );
+    $expression = __Private\Wrap\wrap_IExpression($expression);
     $offset += $expression->getWidth();
     $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['parenthesized_expression_right_paren'],

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b5714c900ae3368a7727e428c3022c13>>
+ * @generated SignedSource<<5eb5205a10852350244bd986574ef2cb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -46,6 +46,7 @@ final class BreakStatement extends EditableNode {
       $offset,
       $source,
     );
+    $level = __Private\Wrap\wrap_IExpression($level);
     $offset += $level->getWidth();
     $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['break_semicolon'],

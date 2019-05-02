@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0aff48d2c0165630359a7c8a938e84ef>>
+ * @generated SignedSource<<fcb1ea3ba0fba4723e0ad55c50741bc0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class ForStatement extends EditableNode implements ILoopStatement {
+final class ForStatement
+  extends EditableNode
+  implements IControlFlowStatement, ILoopStatement {
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;
