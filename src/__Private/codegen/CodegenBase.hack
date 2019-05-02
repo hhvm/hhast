@@ -40,7 +40,7 @@ abstract class CodegenBase {
 
   private bool $useHackfmt = true;
 
-  public function withoutHackFmt(): this {
+  public function withoutHackfmt(): this {
     invariant($this->useHackfmt, "can't disable hackfmt twice");
     $new = clone $this;
     $new->useHackfmt = false;

@@ -136,7 +136,7 @@ abstract class FunctionNamingLinter
         $class instanceof ClassishDeclaration,
         'failed to find a class for a method',
       );
-      $class = $class->getName()?->getText();
+      $class = $class->getName()->getText();
     }
 
     return new FunctionNamingLintError(
