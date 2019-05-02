@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5151383677429cfe507acfdda3d5751c>>
+ * @generated SignedSource<<54007010bcf32220453c35fbbf404544>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -335,15 +335,15 @@ final class DoStatement extends EditableNode implements ILoopStatement {
    * @return BinaryExpression | FunctionCallExpression | LiteralExpression |
    * PrefixUnaryExpression | SubscriptExpression | VariableExpression
    */
-  public function getCondition(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_condition);
+  public function getCondition(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_condition);
   }
 
   /**
    * @return BinaryExpression | FunctionCallExpression | LiteralExpression |
    * PrefixUnaryExpression | SubscriptExpression | VariableExpression
    */
-  public function getConditionx(): EditableNode {
+  public function getConditionx(): IExpression {
     return $this->getCondition();
   }
 

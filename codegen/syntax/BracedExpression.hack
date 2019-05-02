@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c68360db4e353bc4ed4708390290a65b>>
+ * @generated SignedSource<<7ea2bfe01a8c3552f661e7e15cbf2a85>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -141,8 +141,8 @@ final class BracedExpression extends EditableNode implements IExpression {
    * MemberSelectionExpression | ObjectCreationExpression | NameToken |
    * VariableExpression
    */
-  public function getExpression(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_expression);
+  public function getExpression(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_expression);
   }
 
   /**
@@ -151,7 +151,7 @@ final class BracedExpression extends EditableNode implements IExpression {
    * MemberSelectionExpression | ObjectCreationExpression | NameToken |
    * VariableExpression
    */
-  public function getExpressionx(): EditableNode {
+  public function getExpressionx(): IExpression {
     return $this->getExpression();
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dec2f9e4e6b2aacb0895b724046e6346>>
+ * @generated SignedSource<<f8be1582b7b93897f540b8d91a378840>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -204,14 +204,14 @@ final class XHPSpreadAttribute extends EditableNode {
   /**
    * @return VariableExpression | XHPExpression
    */
-  public function getExpression(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_expression);
+  public function getExpression(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_expression);
   }
 
   /**
    * @return VariableExpression | XHPExpression
    */
-  public function getExpressionx(): EditableNode {
+  public function getExpressionx(): IExpression {
     return $this->getExpression();
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d8ec132ce6d4a48834ab6b14c6ef6434>>
+ * @generated SignedSource<<4e1bfae7cb95d53b2edd9a30dd5a39c6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -264,8 +264,8 @@ final class SwitchStatement
    * MemberSelectionExpression | ObjectCreationExpression |
    * ScopeResolutionExpression | SubscriptExpression | VariableExpression
    */
-  public function getExpression(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_expression);
+  public function getExpression(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_expression);
   }
 
   /**
@@ -273,7 +273,7 @@ final class SwitchStatement
    * MemberSelectionExpression | ObjectCreationExpression |
    * ScopeResolutionExpression | SubscriptExpression | VariableExpression
    */
-  public function getExpressionx(): EditableNode {
+  public function getExpressionx(): IExpression {
     return $this->getExpression();
   }
 

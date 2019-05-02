@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fdac558afd91fc744e3995c82d801d7a>>
+ * @generated SignedSource<<5646c4b30679369161d185ccd0a81703>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -151,11 +151,11 @@ final class ReturnStatement extends EditableNode {
    * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
    * | XHPExpression | YieldFromExpression
    */
-  public function getExpression(): ?EditableNode {
+  public function getExpression(): ?IExpression {
     if ($this->_expression->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_expression);
+    return TypeAssert\instance_of(IExpression::class, $this->_expression);
   }
 
   /**
@@ -173,8 +173,8 @@ final class ReturnStatement extends EditableNode {
    * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
    * | XHPExpression | YieldFromExpression
    */
-  public function getExpressionx(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_expression);
+  public function getExpressionx(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_expression);
   }
 
   public function getSemicolonUNTYPED(): EditableNode {

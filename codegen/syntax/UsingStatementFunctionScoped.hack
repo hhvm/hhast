@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b0dcaa04e0e060a031b93dc6ce11e267>>
+ * @generated SignedSource<<b3dbadc7d604a808d83d3d38cd6fab90>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -205,15 +205,15 @@ final class UsingStatementFunctionScoped extends EditableNode {
    * @return BinaryExpression | LambdaExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PrefixUnaryExpression | VariableExpression
    */
-  public function getExpression(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_expression);
+  public function getExpression(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_expression);
   }
 
   /**
    * @return BinaryExpression | LambdaExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PrefixUnaryExpression | VariableExpression
    */
-  public function getExpressionx(): EditableNode {
+  public function getExpressionx(): IExpression {
     return $this->getExpression();
   }
 

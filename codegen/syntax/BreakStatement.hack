@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7741dfb0ca0b5bd3b8a75ceaea5052f1>>
+ * @generated SignedSource<<b5714c900ae3368a7727e428c3022c13>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -138,18 +138,18 @@ final class BreakStatement extends EditableNode {
   /**
    * @return LiteralExpression | null | VariableExpression
    */
-  public function getLevel(): ?EditableNode {
+  public function getLevel(): ?IExpression {
     if ($this->_level->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_level);
+    return TypeAssert\instance_of(IExpression::class, $this->_level);
   }
 
   /**
    * @return LiteralExpression | VariableExpression
    */
-  public function getLevelx(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_level);
+  public function getLevelx(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_level);
   }
 
   public function getSemicolonUNTYPED(): EditableNode {

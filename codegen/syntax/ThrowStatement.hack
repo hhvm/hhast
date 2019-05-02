@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<64064c6d9dfd2abfcd121e664e54f79e>>
+ * @generated SignedSource<<faa6c1ec01ef7b900cc5acaa5d12674b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -140,8 +140,8 @@ final class ThrowStatement extends EditableNode {
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | VariableExpression
    */
-  public function getExpression(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_expression);
+  public function getExpression(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_expression);
   }
 
   /**
@@ -149,7 +149,7 @@ final class ThrowStatement extends EditableNode {
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | VariableExpression
    */
-  public function getExpressionx(): EditableNode {
+  public function getExpressionx(): IExpression {
     return $this->getExpression();
   }
 

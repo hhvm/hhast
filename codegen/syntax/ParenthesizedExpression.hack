@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9345364dcea11a3f7baff3d4ee6ec0b4>>
+ * @generated SignedSource<<44dbcc405b4a71e9f6c8890878d61cbf>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -148,8 +148,8 @@ final class ParenthesizedExpression
    * NameToken | VariableExpression | VectorIntrinsicExpression | XHPExpression
    * | YieldExpression
    */
-  public function getExpression(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_expression);
+  public function getExpression(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_expression);
   }
 
   /**
@@ -163,7 +163,7 @@ final class ParenthesizedExpression
    * NameToken | VariableExpression | VectorIntrinsicExpression | XHPExpression
    * | YieldExpression
    */
-  public function getExpressionx(): EditableNode {
+  public function getExpressionx(): IExpression {
     return $this->getExpression();
   }
 

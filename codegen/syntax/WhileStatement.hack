@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5d42ce014069ee8ffaecdc6d4de6c296>>
+ * @generated SignedSource<<6377bc4efb9c4c4b0714426551d36cb4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -221,8 +221,8 @@ final class WhileStatement extends EditableNode implements ILoopStatement {
    * MemberSelectionExpression | ParenthesizedExpression |
    * PostfixUnaryExpression | PrefixUnaryExpression | VariableExpression
    */
-  public function getCondition(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_condition);
+  public function getCondition(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_condition);
   }
 
   /**
@@ -231,7 +231,7 @@ final class WhileStatement extends EditableNode implements ILoopStatement {
    * MemberSelectionExpression | ParenthesizedExpression |
    * PostfixUnaryExpression | PrefixUnaryExpression | VariableExpression
    */
-  public function getConditionx(): EditableNode {
+  public function getConditionx(): IExpression {
     return $this->getCondition();
   }
 

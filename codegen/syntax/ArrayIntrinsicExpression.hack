@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<49d575ac4b83aca768f4044cb0e80819>>
+ * @generated SignedSource<<b8101946f6465c29d49ded4c07c37c65>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -201,9 +201,9 @@ final class ArrayIntrinsicExpression
   }
 
   /**
-   * @return EditableList<AnonymousFunction> | EditableList<EditableNode> |
+   * @return EditableList<AnonymousFunction> | EditableList<IExpression> |
    * EditableList<ArrayCreationExpression> |
-   * EditableList<ArrayIntrinsicExpression> |
+   * EditableList<ArrayIntrinsicExpression> | EditableList<EditableNode> |
    * EditableList<AwaitableCreationExpression> | EditableList<BinaryExpression>
    * | EditableList<CastExpression> | EditableList<CollectionLiteralExpression>
    * | EditableList<ElementInitializer> | EditableList<FunctionCallExpression>
@@ -224,9 +224,9 @@ final class ArrayIntrinsicExpression
   }
 
   /**
-   * @return EditableList<AnonymousFunction> | EditableList<EditableNode> |
+   * @return EditableList<AnonymousFunction> | EditableList<IExpression> |
    * EditableList<ArrayCreationExpression> |
-   * EditableList<ArrayIntrinsicExpression> |
+   * EditableList<ArrayIntrinsicExpression> | EditableList<EditableNode> |
    * EditableList<AwaitableCreationExpression> | EditableList<BinaryExpression>
    * | EditableList<CastExpression> | EditableList<CollectionLiteralExpression>
    * | EditableList<ElementInitializer> | EditableList<FunctionCallExpression>

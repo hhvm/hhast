@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fe49f8384c9f9448f1e8c8793ef2097c>>
+ * @generated SignedSource<<56b7ec574b4a7733f974083fc8f52a2f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -206,8 +206,8 @@ final class EmptyExpression extends EditableNode implements IExpression {
    * ScopeResolutionExpression | SubscriptExpression | VariableExpression |
    * XHPExpression
    */
-  public function getArgument(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_argument);
+  public function getArgument(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_argument);
   }
 
   /**
@@ -218,7 +218,7 @@ final class EmptyExpression extends EditableNode implements IExpression {
    * ScopeResolutionExpression | SubscriptExpression | VariableExpression |
    * XHPExpression
    */
-  public function getArgumentx(): EditableNode {
+  public function getArgumentx(): IExpression {
     return $this->getArgument();
   }
 

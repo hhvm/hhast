@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<066c738a78be5b09876ecf2a989c1a39>>
+ * @generated SignedSource<<550bf4096d114c300624d8091046c559>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -342,14 +342,14 @@ final class ParameterDeclaration extends EditableNode {
   /**
    * @return DecoratedExpression | VariableToken
    */
-  public function getName(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_name);
+  public function getName(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_name);
   }
 
   /**
    * @return DecoratedExpression | VariableToken
    */
-  public function getNamex(): EditableNode {
+  public function getNamex(): IExpression {
     return $this->getName();
   }
 

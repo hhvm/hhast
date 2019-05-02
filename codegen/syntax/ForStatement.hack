@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fca620289675ed2c6ecbe029524c475e>>
+ * @generated SignedSource<<0aff48d2c0165630359a7c8a938e84ef>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -294,11 +294,11 @@ final class ForStatement extends EditableNode implements ILoopStatement {
   }
 
   /**
-   * @return EditableList<BinaryExpression> | EditableList<EditableNode> |
+   * @return EditableList<BinaryExpression> | EditableList<IExpression> |
    * EditableList<FunctionCallExpression> | EditableList<LiteralExpression> |
    * null
    */
-  public function getInitializer(): ?EditableList<EditableNode> {
+  public function getInitializer(): ?EditableList<IExpression> {
     if ($this->_initializer->isMissing()) {
       return null;
     }
@@ -306,10 +306,10 @@ final class ForStatement extends EditableNode implements ILoopStatement {
   }
 
   /**
-   * @return EditableList<BinaryExpression> | EditableList<EditableNode> |
+   * @return EditableList<BinaryExpression> | EditableList<IExpression> |
    * EditableList<FunctionCallExpression> | EditableList<LiteralExpression>
    */
-  public function getInitializerx(): EditableList<EditableNode> {
+  public function getInitializerx(): EditableList<IExpression> {
     return TypeAssert\instance_of(EditableList::class, $this->_initializer);
   }
 
@@ -381,12 +381,12 @@ final class ForStatement extends EditableNode implements ILoopStatement {
   }
 
   /**
-   * @return EditableList<BinaryExpression> | EditableList<EditableNode> |
+   * @return EditableList<BinaryExpression> | EditableList<IExpression> |
    * EditableList<ConditionalExpression> | EditableList<FunctionCallExpression>
    * | EditableList<PrefixUnaryExpression> | EditableList<VariableExpression> |
    * null
    */
-  public function getControl(): ?EditableList<EditableNode> {
+  public function getControl(): ?EditableList<IExpression> {
     if ($this->_control->isMissing()) {
       return null;
     }
@@ -394,11 +394,11 @@ final class ForStatement extends EditableNode implements ILoopStatement {
   }
 
   /**
-   * @return EditableList<BinaryExpression> | EditableList<EditableNode> |
+   * @return EditableList<BinaryExpression> | EditableList<IExpression> |
    * EditableList<ConditionalExpression> | EditableList<FunctionCallExpression>
    * | EditableList<PrefixUnaryExpression> | EditableList<VariableExpression>
    */
-  public function getControlx(): EditableList<EditableNode> {
+  public function getControlx(): EditableList<IExpression> {
     return TypeAssert\instance_of(EditableList::class, $this->_control);
   }
 
@@ -470,12 +470,12 @@ final class ForStatement extends EditableNode implements ILoopStatement {
   }
 
   /**
-   * @return EditableList<BinaryExpression> | EditableList<EditableNode> |
+   * @return EditableList<BinaryExpression> | EditableList<IExpression> |
    * EditableList<FunctionCallExpression> |
    * EditableList<PostfixUnaryExpression> | EditableList<PrefixUnaryExpression>
    * | null
    */
-  public function getEndOfLoop(): ?EditableList<EditableNode> {
+  public function getEndOfLoop(): ?EditableList<IExpression> {
     if ($this->_end_of_loop->isMissing()) {
       return null;
     }
@@ -483,11 +483,11 @@ final class ForStatement extends EditableNode implements ILoopStatement {
   }
 
   /**
-   * @return EditableList<BinaryExpression> | EditableList<EditableNode> |
+   * @return EditableList<BinaryExpression> | EditableList<IExpression> |
    * EditableList<FunctionCallExpression> |
    * EditableList<PostfixUnaryExpression> | EditableList<PrefixUnaryExpression>
    */
-  public function getEndOfLoopx(): EditableList<EditableNode> {
+  public function getEndOfLoopx(): EditableList<IExpression> {
     return TypeAssert\instance_of(EditableList::class, $this->_end_of_loop);
   }
 

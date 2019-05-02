@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a51e8e8bcb928d39effb747d320c9dfd>>
+ * @generated SignedSource<<79d3d33808da85d08189fed96042f70e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -153,8 +153,8 @@ final class ConditionalExpression extends EditableNode implements IExpression {
    * | PrefixUnaryExpression | ScopeResolutionExpression | SubscriptExpression
    * | NameToken | VariableExpression
    */
-  public function getTest(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_test);
+  public function getTest(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_test);
   }
 
   /**
@@ -165,7 +165,7 @@ final class ConditionalExpression extends EditableNode implements IExpression {
    * | PrefixUnaryExpression | ScopeResolutionExpression | SubscriptExpression
    * | NameToken | VariableExpression
    */
-  public function getTestx(): EditableNode {
+  public function getTestx(): IExpression {
     return $this->getTest();
   }
 
@@ -234,11 +234,11 @@ final class ConditionalExpression extends EditableNode implements IExpression {
    * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
    * NameToken | VariableExpression
    */
-  public function getConsequence(): ?EditableNode {
+  public function getConsequence(): ?IExpression {
     if ($this->_consequence->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_consequence);
+    return TypeAssert\instance_of(IExpression::class, $this->_consequence);
   }
 
   /**
@@ -250,8 +250,8 @@ final class ConditionalExpression extends EditableNode implements IExpression {
    * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
    * NameToken | VariableExpression
    */
-  public function getConsequencex(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_consequence);
+  public function getConsequencex(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_consequence);
   }
 
   public function getColonUNTYPED(): EditableNode {
@@ -319,8 +319,8 @@ final class ConditionalExpression extends EditableNode implements IExpression {
    * | ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression
    */
-  public function getAlternative(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_alternative);
+  public function getAlternative(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_alternative);
   }
 
   /**
@@ -332,7 +332,7 @@ final class ConditionalExpression extends EditableNode implements IExpression {
    * | ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression
    */
-  public function getAlternativex(): EditableNode {
+  public function getAlternativex(): IExpression {
     return $this->getAlternative();
   }
 }

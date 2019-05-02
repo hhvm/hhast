@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<297d59a33b289b669a511de400060b82>>
+ * @generated SignedSource<<27866041cf6e55956f896d937fdb8b96>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -193,14 +193,14 @@ final class TupleExpression extends EditableNode implements IExpression {
   }
 
   /**
-   * @return EditableList<ArrayCreationExpression> | EditableList<EditableNode>
+   * @return EditableList<ArrayCreationExpression> | EditableList<IExpression>
    * | EditableList<ArrayIntrinsicExpression> | EditableList<BinaryExpression>
    * | EditableList<CastExpression> | EditableList<FunctionCallExpression> |
    * EditableList<LiteralExpression> | EditableList<ObjectCreationExpression> |
    * EditableList<SubscriptExpression> | EditableList<VariableExpression> |
    * EditableList<VectorIntrinsicExpression> | null
    */
-  public function getItems(): ?EditableList<EditableNode> {
+  public function getItems(): ?EditableList<IExpression> {
     if ($this->_items->isMissing()) {
       return null;
     }
@@ -208,14 +208,14 @@ final class TupleExpression extends EditableNode implements IExpression {
   }
 
   /**
-   * @return EditableList<ArrayCreationExpression> | EditableList<EditableNode>
+   * @return EditableList<ArrayCreationExpression> | EditableList<IExpression>
    * | EditableList<ArrayIntrinsicExpression> | EditableList<BinaryExpression>
    * | EditableList<CastExpression> | EditableList<FunctionCallExpression> |
    * EditableList<LiteralExpression> | EditableList<ObjectCreationExpression> |
    * EditableList<SubscriptExpression> | EditableList<VariableExpression> |
    * EditableList<VectorIntrinsicExpression>
    */
-  public function getItemsx(): EditableList<EditableNode> {
+  public function getItemsx(): EditableList<IExpression> {
     return TypeAssert\instance_of(EditableList::class, $this->_items);
   }
 

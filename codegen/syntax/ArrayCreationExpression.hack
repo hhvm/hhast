@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9073fcbdfe9b1887f83d041c06258237>>
+ * @generated SignedSource<<9db6577f641caa4b700f5f7abfff29b7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -141,9 +141,9 @@ final class ArrayCreationExpression
   }
 
   /**
-   * @return EditableList<AnonymousFunction> | EditableList<EditableNode> |
-   * EditableList<ArrayCreationExpression> | EditableList<BinaryExpression> |
-   * EditableList<ConditionalExpression> |
+   * @return EditableList<AnonymousFunction> | EditableList<IExpression> |
+   * EditableList<ArrayCreationExpression> | EditableList<EditableNode> |
+   * EditableList<BinaryExpression> | EditableList<ConditionalExpression> |
    * EditableList<DictionaryIntrinsicExpression> |
    * EditableList<ElementInitializer> | EditableList<FunctionCallExpression> |
    * EditableList<KeysetIntrinsicExpression> | EditableList<LiteralExpression>
@@ -163,9 +163,9 @@ final class ArrayCreationExpression
   }
 
   /**
-   * @return EditableList<AnonymousFunction> | EditableList<EditableNode> |
-   * EditableList<ArrayCreationExpression> | EditableList<BinaryExpression> |
-   * EditableList<ConditionalExpression> |
+   * @return EditableList<AnonymousFunction> | EditableList<IExpression> |
+   * EditableList<ArrayCreationExpression> | EditableList<EditableNode> |
+   * EditableList<BinaryExpression> | EditableList<ConditionalExpression> |
    * EditableList<DictionaryIntrinsicExpression> |
    * EditableList<ElementInitializer> | EditableList<FunctionCallExpression> |
    * EditableList<KeysetIntrinsicExpression> | EditableList<LiteralExpression>

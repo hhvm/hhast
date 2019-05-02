@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2b34ba56aca5e049b84b4169e6b947f3>>
+ * @generated SignedSource<<7f6d3e0e452a14b3047e5b059b01d4e8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -319,8 +319,8 @@ final class ForeachStatement extends EditableNode implements ILoopStatement {
    * | ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression | VectorIntrinsicExpression
    */
-  public function getCollection(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_collection);
+  public function getCollection(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_collection);
   }
 
   /**
@@ -331,7 +331,7 @@ final class ForeachStatement extends EditableNode implements ILoopStatement {
    * | ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression | VectorIntrinsicExpression
    */
-  public function getCollectionx(): EditableNode {
+  public function getCollectionx(): IExpression {
     return $this->getCollection();
   }
 
@@ -449,11 +449,11 @@ final class ForeachStatement extends EditableNode implements ILoopStatement {
    * MemberSelectionExpression | null | ScopeResolutionExpression |
    * SubscriptExpression | NameToken | VariableExpression
    */
-  public function getKey(): ?EditableNode {
+  public function getKey(): ?IExpression {
     if ($this->_key->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_key);
+    return TypeAssert\instance_of(IExpression::class, $this->_key);
   }
 
   /**
@@ -461,8 +461,8 @@ final class ForeachStatement extends EditableNode implements ILoopStatement {
    * MemberSelectionExpression | ScopeResolutionExpression |
    * SubscriptExpression | NameToken | VariableExpression
    */
-  public function getKeyx(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_key);
+  public function getKeyx(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_key);
   }
 
   public function getArrowUNTYPED(): EditableNode {
@@ -539,8 +539,8 @@ final class ForeachStatement extends EditableNode implements ILoopStatement {
    * MemberSelectionExpression | ScopeResolutionExpression |
    * SubscriptExpression | NameToken | VariableExpression
    */
-  public function getValue(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_value);
+  public function getValue(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_value);
   }
 
   /**
@@ -548,7 +548,7 @@ final class ForeachStatement extends EditableNode implements ILoopStatement {
    * MemberSelectionExpression | ScopeResolutionExpression |
    * SubscriptExpression | NameToken | VariableExpression
    */
-  public function getValuex(): EditableNode {
+  public function getValuex(): IExpression {
     return $this->getValue();
   }
 

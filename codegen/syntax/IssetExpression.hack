@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b690474f4035202cb45b0c922e3153ab>>
+ * @generated SignedSource<<3933b7481b9f6be56d6e51af9dc8925b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -200,21 +200,21 @@ final class IssetExpression extends EditableNode implements IExpression {
 
   /**
    * @return EditableList<FunctionCallExpression> |
-   * EditableList<MemberSelectionExpression> | EditableList<EditableNode> |
+   * EditableList<MemberSelectionExpression> | EditableList<IExpression> |
    * EditableList<ScopeResolutionExpression> |
    * EditableList<SubscriptExpression> | EditableList<VariableExpression>
    */
-  public function getArgumentList(): EditableList<EditableNode> {
+  public function getArgumentList(): EditableList<IExpression> {
     return TypeAssert\instance_of(EditableList::class, $this->_argument_list);
   }
 
   /**
    * @return EditableList<FunctionCallExpression> |
-   * EditableList<MemberSelectionExpression> | EditableList<EditableNode> |
+   * EditableList<MemberSelectionExpression> | EditableList<IExpression> |
    * EditableList<ScopeResolutionExpression> |
    * EditableList<SubscriptExpression> | EditableList<VariableExpression>
    */
-  public function getArgumentListx(): EditableList<EditableNode> {
+  public function getArgumentListx(): EditableList<IExpression> {
     return $this->getArgumentList();
   }
 

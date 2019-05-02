@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6a24d18ce49b79279a98207b82fd0e67>>
+ * @generated SignedSource<<ae8957e48ca5532b7fbe11920114370b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -111,8 +111,8 @@ final class IsExpression extends EditableNode implements IExpression {
    * MemberSelectionExpression | PipeVariableExpression | PrefixUnaryExpression
    * | VariableExpression
    */
-  public function getLeftOperand(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_left_operand);
+  public function getLeftOperand(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_left_operand);
   }
 
   /**
@@ -120,7 +120,7 @@ final class IsExpression extends EditableNode implements IExpression {
    * MemberSelectionExpression | PipeVariableExpression | PrefixUnaryExpression
    * | VariableExpression
    */
-  public function getLeftOperandx(): EditableNode {
+  public function getLeftOperandx(): IExpression {
     return $this->getLeftOperand();
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fc24b666e0e69430bf9c053940896968>>
+ * @generated SignedSource<<a5bfd8fe008f14240fcfd82789826daf>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -228,7 +228,7 @@ final class UnsetStatement extends EditableNode {
    * EditableList<ScopeResolutionExpression> |
    * EditableList<SubscriptExpression> | EditableList<VariableExpression>
    */
-  public function getVariables(): EditableList<EditableNode> {
+  public function getVariables(): EditableList<IExpression> {
     return TypeAssert\instance_of(EditableList::class, $this->_variables);
   }
 
@@ -239,7 +239,7 @@ final class UnsetStatement extends EditableNode {
    * EditableList<ScopeResolutionExpression> |
    * EditableList<SubscriptExpression> | EditableList<VariableExpression>
    */
-  public function getVariablesx(): EditableList<EditableNode> {
+  public function getVariablesx(): EditableList<IExpression> {
     return $this->getVariables();
   }
 

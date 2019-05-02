@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<43e7b1969f5d6eb9479c4c9cb0f47d0a>>
+ * @generated SignedSource<<3a2cd3c1ecfd5fe5472f7862cea3a6bd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -94,15 +94,15 @@ final class PostfixUnaryExpression extends EditableNode implements IExpression {
    * @return MemberSelectionExpression | ScopeResolutionExpression |
    * SubscriptExpression | VariableExpression
    */
-  public function getOperand(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_operand);
+  public function getOperand(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_operand);
   }
 
   /**
    * @return MemberSelectionExpression | ScopeResolutionExpression |
    * SubscriptExpression | VariableExpression
    */
-  public function getOperandx(): EditableNode {
+  public function getOperandx(): IExpression {
     return $this->getOperand();
   }
 

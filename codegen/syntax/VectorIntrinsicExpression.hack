@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ab61da5d6aef0f843031c30f16f9c4e5>>
+ * @generated SignedSource<<db3b73f345d47c123b354a6f6214b1cd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -265,7 +265,7 @@ final class VectorIntrinsicExpression
   }
 
   /**
-   * @return EditableList<EditableNode> | EditableList<BinaryExpression> |
+   * @return EditableList<IExpression> | EditableList<BinaryExpression> |
    * EditableList<CollectionLiteralExpression> |
    * EditableList<ConditionalExpression> |
    * EditableList<DictionaryIntrinsicExpression> |
@@ -277,7 +277,7 @@ final class VectorIntrinsicExpression
    * EditableList<VariableExpression> | EditableList<VectorIntrinsicExpression>
    * | EditableList<XHPExpression> | null
    */
-  public function getMembers(): ?EditableList<EditableNode> {
+  public function getMembers(): ?EditableList<IExpression> {
     if ($this->_members->isMissing()) {
       return null;
     }
@@ -285,7 +285,7 @@ final class VectorIntrinsicExpression
   }
 
   /**
-   * @return EditableList<EditableNode> | EditableList<BinaryExpression> |
+   * @return EditableList<IExpression> | EditableList<BinaryExpression> |
    * EditableList<CollectionLiteralExpression> |
    * EditableList<ConditionalExpression> |
    * EditableList<DictionaryIntrinsicExpression> |
@@ -297,7 +297,7 @@ final class VectorIntrinsicExpression
    * EditableList<VariableExpression> | EditableList<VectorIntrinsicExpression>
    * | EditableList<XHPExpression>
    */
-  public function getMembersx(): EditableList<EditableNode> {
+  public function getMembersx(): EditableList<IExpression> {
     return TypeAssert\instance_of(EditableList::class, $this->_members);
   }
 

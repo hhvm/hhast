@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<826755ff65f3546064fc8208726dc890>>
+ * @generated SignedSource<<75c14767f9fa6fbe58df1a4487307898>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -154,14 +154,14 @@ final class FieldSpecifier extends EditableNode {
   /**
    * @return LiteralExpression | ScopeResolutionExpression | NameToken
    */
-  public function getName(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_name);
+  public function getName(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_name);
   }
 
   /**
    * @return LiteralExpression | ScopeResolutionExpression | NameToken
    */
-  public function getNamex(): EditableNode {
+  public function getNamex(): IExpression {
     return $this->getName();
   }
 

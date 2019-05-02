@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d52f59a2616b002b2fc988d6345264e3>>
+ * @generated SignedSource<<d4fb2fe8d172966213d4e98144e634d3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -314,14 +314,14 @@ final class AlternateIfStatement extends EditableNode {
   /**
    * @return BinaryExpression | VariableExpression
    */
-  public function getCondition(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_condition);
+  public function getCondition(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_condition);
   }
 
   /**
    * @return BinaryExpression | VariableExpression
    */
-  public function getConditionx(): EditableNode {
+  public function getConditionx(): IExpression {
     return $this->getCondition();
   }
 

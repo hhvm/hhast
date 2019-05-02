@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<88829f5348e7196093bd26ef929c5870>>
+ * @generated SignedSource<<bf360d0c4a08c9987cb3a5f92c524c43>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -138,18 +138,18 @@ abstract class NamespaceDeclarationGeneratedBase extends EditableNode {
   /**
    * @return null | QualifiedName | NameToken
    */
-  public function getName(): ?EditableNode {
+  public function getName(): ?IExpression {
     if ($this->_name->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_name);
+    return TypeAssert\instance_of(IExpression::class, $this->_name);
   }
 
   /**
    * @return QualifiedName | NameToken
    */
-  public function getNamex(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_name);
+  public function getNamex(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_name);
   }
 
   public function getBodyUNTYPED(): EditableNode {

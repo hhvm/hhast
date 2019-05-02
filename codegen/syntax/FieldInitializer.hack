@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c2f7933009de53fd08a55c3ab6663578>>
+ * @generated SignedSource<<70ef9570d1b18652a4dc5b05d9f62e78>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -109,14 +109,14 @@ final class FieldInitializer extends EditableNode {
   /**
    * @return LiteralExpression | ScopeResolutionExpression
    */
-  public function getName(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_name);
+  public function getName(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_name);
   }
 
   /**
    * @return LiteralExpression | ScopeResolutionExpression
    */
-  public function getNamex(): EditableNode {
+  public function getNamex(): IExpression {
     return $this->getName();
   }
 
@@ -170,8 +170,8 @@ final class FieldInitializer extends EditableNode {
    * ObjectCreationExpression | ScopeResolutionExpression | SubscriptExpression
    * | VariableExpression
    */
-  public function getValue(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_value);
+  public function getValue(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_value);
   }
 
   /**
@@ -180,7 +180,7 @@ final class FieldInitializer extends EditableNode {
    * ObjectCreationExpression | ScopeResolutionExpression | SubscriptExpression
    * | VariableExpression
    */
-  public function getValuex(): EditableNode {
+  public function getValuex(): IExpression {
     return $this->getValue();
   }
 }

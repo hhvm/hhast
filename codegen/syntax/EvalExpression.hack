@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bb9100ac7846a8484e327c06862d0a23>>
+ * @generated SignedSource<<37b1e40474d136eb22aaa9b22a2c3511>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -202,15 +202,15 @@ final class EvalExpression extends EditableNode implements IExpression {
    * @return BinaryExpression | FunctionCallExpression | LiteralExpression |
    * VariableExpression
    */
-  public function getArgument(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_argument);
+  public function getArgument(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_argument);
   }
 
   /**
    * @return BinaryExpression | FunctionCallExpression | LiteralExpression |
    * VariableExpression
    */
-  public function getArgumentx(): EditableNode {
+  public function getArgumentx(): IExpression {
     return $this->getArgument();
   }
 

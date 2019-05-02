@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a16dc6d2449b709476ddecb6f29564f8>>
+ * @generated SignedSource<<a5d6929042dc078857742c2d48a352d5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -114,8 +114,8 @@ final class ElementInitializer extends EditableNode {
    * ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression
    */
-  public function getKey(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_key);
+  public function getKey(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_key);
   }
 
   /**
@@ -126,7 +126,7 @@ final class ElementInitializer extends EditableNode {
    * ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression
    */
-  public function getKeyx(): EditableNode {
+  public function getKeyx(): IExpression {
     return $this->getKey();
   }
 
@@ -186,8 +186,8 @@ final class ElementInitializer extends EditableNode {
    * NameToken | TupleExpression | VariableExpression |
    * VarrayIntrinsicExpression | VectorIntrinsicExpression
    */
-  public function getValue(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_value);
+  public function getValue(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_value);
   }
 
   /**
@@ -202,7 +202,7 @@ final class ElementInitializer extends EditableNode {
    * NameToken | TupleExpression | VariableExpression |
    * VarrayIntrinsicExpression | VectorIntrinsicExpression
    */
-  public function getValuex(): EditableNode {
+  public function getValuex(): IExpression {
     return $this->getValue();
   }
 }

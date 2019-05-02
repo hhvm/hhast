@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<313e1940d670d81f48b89f0d5aa5b40d>>
+ * @generated SignedSource<<8cab97f06178835b8b818980548f2425>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -136,7 +136,7 @@ final class EchoStatement extends EditableNode {
   }
 
   /**
-   * @return EditableList<EditableNode> | EditableList<BinaryExpression> |
+   * @return EditableList<IExpression> | EditableList<BinaryExpression> |
    * EditableList<CastExpression> | EditableList<ConditionalExpression> |
    * EditableList<FunctionCallExpression> | EditableList<IssetExpression> |
    * EditableList<LiteralExpression> | EditableList<MemberSelectionExpression>
@@ -148,12 +148,12 @@ final class EchoStatement extends EditableNode {
    * EditableList<SubscriptExpression> | EditableList<NameToken> |
    * EditableList<VariableExpression> | EditableList<XHPExpression>
    */
-  public function getExpressions(): EditableList<EditableNode> {
+  public function getExpressions(): EditableList<IExpression> {
     return TypeAssert\instance_of(EditableList::class, $this->_expressions);
   }
 
   /**
-   * @return EditableList<EditableNode> | EditableList<BinaryExpression> |
+   * @return EditableList<IExpression> | EditableList<BinaryExpression> |
    * EditableList<CastExpression> | EditableList<ConditionalExpression> |
    * EditableList<FunctionCallExpression> | EditableList<IssetExpression> |
    * EditableList<LiteralExpression> | EditableList<MemberSelectionExpression>
@@ -165,7 +165,7 @@ final class EchoStatement extends EditableNode {
    * EditableList<SubscriptExpression> | EditableList<NameToken> |
    * EditableList<VariableExpression> | EditableList<XHPExpression>
    */
-  public function getExpressionsx(): EditableList<EditableNode> {
+  public function getExpressionsx(): EditableList<IExpression> {
     return $this->getExpressions();
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fab645b9fa9bf83b66239fab86d88217>>
+ * @generated SignedSource<<274bae44970ff8af9192ce9a4fe858f7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -203,7 +203,7 @@ final class CollectionLiteralExpression
   /**
    * @return EditableList<AnonymousFunction> |
    * EditableList<ArrayCreationExpression> |
-   * EditableList<ArrayIntrinsicExpression> | EditableList<EditableNode> |
+   * EditableList<ArrayIntrinsicExpression> | EditableList<IExpression> |
    * EditableList<CastExpression> | EditableList<CollectionLiteralExpression> |
    * EditableList<ElementInitializer> | EditableList<FunctionCallExpression> |
    * EditableList<LambdaExpression> | EditableList<LiteralExpression> |
@@ -223,7 +223,7 @@ final class CollectionLiteralExpression
   /**
    * @return EditableList<AnonymousFunction> |
    * EditableList<ArrayCreationExpression> |
-   * EditableList<ArrayIntrinsicExpression> | EditableList<EditableNode> |
+   * EditableList<ArrayIntrinsicExpression> | EditableList<IExpression> |
    * EditableList<CastExpression> | EditableList<CollectionLiteralExpression> |
    * EditableList<ElementInitializer> | EditableList<FunctionCallExpression> |
    * EditableList<LambdaExpression> | EditableList<LiteralExpression> |

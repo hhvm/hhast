@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<006c058285095b641d960df55520f1c3>>
+ * @generated SignedSource<<002327272122f2891518ff78d0809d15>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -199,13 +199,13 @@ final class ListExpression extends EditableNode implements IExpression {
   }
 
   /**
-   * @return EditableList<ListExpression> | EditableList<EditableNode> |
-   * EditableList<?EditableNode> | EditableList<MemberSelectionExpression> |
-   * EditableList<?VariableExpression> |
+   * @return EditableList<ListExpression> | EditableList<IExpression> |
+   * EditableList<?IExpression> | EditableList<MemberSelectionExpression> |
+   * EditableList<?EditableNode> | EditableList<?VariableExpression> |
    * EditableList<ScopeResolutionExpression> |
    * EditableList<SubscriptExpression> | EditableList<VariableExpression> | null
    */
-  public function getMembers(): ?EditableList<?EditableNode> {
+  public function getMembers(): ?EditableList<?IExpression> {
     if ($this->_members->isMissing()) {
       return null;
     }
@@ -213,13 +213,13 @@ final class ListExpression extends EditableNode implements IExpression {
   }
 
   /**
-   * @return EditableList<ListExpression> | EditableList<EditableNode> |
-   * EditableList<?EditableNode> | EditableList<MemberSelectionExpression> |
-   * EditableList<?VariableExpression> |
+   * @return EditableList<ListExpression> | EditableList<IExpression> |
+   * EditableList<?IExpression> | EditableList<MemberSelectionExpression> |
+   * EditableList<?EditableNode> | EditableList<?VariableExpression> |
    * EditableList<ScopeResolutionExpression> |
    * EditableList<SubscriptExpression> | EditableList<VariableExpression>
    */
-  public function getMembersx(): EditableList<?EditableNode> {
+  public function getMembersx(): EditableList<?IExpression> {
     return TypeAssert\instance_of(EditableList::class, $this->_members);
   }
 

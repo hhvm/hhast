@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<968714da1b17332e426d84ffe39bd64c>>
+ * @generated SignedSource<<349dc9faf7a834c5ba443a49f141aa45>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -109,14 +109,14 @@ final class NullableAsExpression extends EditableNode implements IExpression {
   /**
    * @return FunctionCallExpression | VariableExpression
    */
-  public function getLeftOperand(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_left_operand);
+  public function getLeftOperand(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_left_operand);
   }
 
   /**
    * @return FunctionCallExpression | VariableExpression
    */
-  public function getLeftOperandx(): EditableNode {
+  public function getLeftOperandx(): IExpression {
     return $this->getLeftOperand();
   }
 

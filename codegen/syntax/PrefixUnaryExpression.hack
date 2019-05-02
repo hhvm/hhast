@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3257cfa1bcd7da9cd87f03a3d3361bd4>>
+ * @generated SignedSource<<6e9276c152144e89c9f7e5bafdbcaa71>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -134,8 +134,8 @@ final class PrefixUnaryExpression extends EditableNode implements IExpression {
    * | PrefixUnaryExpression | QualifiedName | ScopeResolutionExpression |
    * SubscriptExpression | NameToken | VariableExpression
    */
-  public function getOperand(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_operand);
+  public function getOperand(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_operand);
   }
 
   /**
@@ -149,7 +149,7 @@ final class PrefixUnaryExpression extends EditableNode implements IExpression {
    * | PrefixUnaryExpression | QualifiedName | ScopeResolutionExpression |
    * SubscriptExpression | NameToken | VariableExpression
    */
-  public function getOperandx(): EditableNode {
+  public function getOperandx(): IExpression {
     return $this->getOperand();
   }
 }

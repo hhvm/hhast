@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cb569bfa186b69dbe100b2bed62d6a21>>
+ * @generated SignedSource<<855c62a02e2bb4d9f8eeb2a2da8a428e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -112,8 +112,8 @@ final class InstanceofExpression extends EditableNode implements IExpression {
    * ParenthesizedExpression | PipeVariableExpression | PrefixUnaryExpression |
    * ScopeResolutionExpression | SubscriptExpression | VariableExpression
    */
-  public function getLeftOperand(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_left_operand);
+  public function getLeftOperand(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_left_operand);
   }
 
   /**
@@ -122,7 +122,7 @@ final class InstanceofExpression extends EditableNode implements IExpression {
    * ParenthesizedExpression | PipeVariableExpression | PrefixUnaryExpression |
    * ScopeResolutionExpression | SubscriptExpression | VariableExpression
    */
-  public function getLeftOperandx(): EditableNode {
+  public function getLeftOperandx(): IExpression {
     return $this->getLeftOperand();
   }
 
@@ -175,8 +175,8 @@ final class InstanceofExpression extends EditableNode implements IExpression {
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
    * NameToken | VariableExpression
    */
-  public function getRightOperand(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_right_operand);
+  public function getRightOperand(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_right_operand);
   }
 
   /**
@@ -184,7 +184,7 @@ final class InstanceofExpression extends EditableNode implements IExpression {
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
    * NameToken | VariableExpression
    */
-  public function getRightOperandx(): EditableNode {
+  public function getRightOperandx(): IExpression {
     return $this->getRightOperand();
   }
 }

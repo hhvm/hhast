@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7fbc8ed78416dbbdcc83777857d8f276>>
+ * @generated SignedSource<<568c15f8453d58ec60dec92ad8da5689>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -168,15 +168,15 @@ final class YieldFromExpression extends EditableNode implements IExpression {
    * @return ArrayCreationExpression | FunctionCallExpression |
    * LiteralExpression | ParenthesizedExpression | VariableExpression
    */
-  public function getOperand(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_operand);
+  public function getOperand(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_operand);
   }
 
   /**
    * @return ArrayCreationExpression | FunctionCallExpression |
    * LiteralExpression | ParenthesizedExpression | VariableExpression
    */
-  public function getOperandx(): EditableNode {
+  public function getOperandx(): IExpression {
     return $this->getOperand();
   }
 }

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8d19b9260ddabcac04e5025ac2ed114b>>
+ * @generated SignedSource<<89fb1549a710ea468e21b13a98889985>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -265,16 +265,15 @@ final class VarrayIntrinsicExpression
   }
 
   /**
-   * @return EditableList<EditableNode> |
-   * EditableList<ArrayIntrinsicExpression> |
-   * EditableList<DarrayIntrinsicExpression> |
+   * @return EditableList<IExpression> | EditableList<ArrayIntrinsicExpression>
+   * | EditableList<DarrayIntrinsicExpression> |
    * EditableList<FunctionCallExpression> | EditableList<LiteralExpression> |
    * EditableList<MemberSelectionExpression> |
    * EditableList<ScopeResolutionExpression> | EditableList<NameToken> |
    * EditableList<VariableExpression> | EditableList<VarrayIntrinsicExpression>
    * | EditableList<VectorIntrinsicExpression> | null
    */
-  public function getMembers(): ?EditableList<EditableNode> {
+  public function getMembers(): ?EditableList<IExpression> {
     if ($this->_members->isMissing()) {
       return null;
     }
@@ -282,16 +281,15 @@ final class VarrayIntrinsicExpression
   }
 
   /**
-   * @return EditableList<EditableNode> |
-   * EditableList<ArrayIntrinsicExpression> |
-   * EditableList<DarrayIntrinsicExpression> |
+   * @return EditableList<IExpression> | EditableList<ArrayIntrinsicExpression>
+   * | EditableList<DarrayIntrinsicExpression> |
    * EditableList<FunctionCallExpression> | EditableList<LiteralExpression> |
    * EditableList<MemberSelectionExpression> |
    * EditableList<ScopeResolutionExpression> | EditableList<NameToken> |
    * EditableList<VariableExpression> | EditableList<VarrayIntrinsicExpression>
    * | EditableList<VectorIntrinsicExpression>
    */
-  public function getMembersx(): EditableList<EditableNode> {
+  public function getMembersx(): EditableList<IExpression> {
     return TypeAssert\instance_of(EditableList::class, $this->_members);
   }
 

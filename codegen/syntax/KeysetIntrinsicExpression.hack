@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ddb52e5cc09f70d91d315971e011704f>>
+ * @generated SignedSource<<9a32a3cf6d39a9b083a826551faadd7b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -265,11 +265,11 @@ final class KeysetIntrinsicExpression
   }
 
   /**
-   * @return EditableList<EditableNode> | EditableList<ConditionalExpression> |
+   * @return EditableList<IExpression> | EditableList<ConditionalExpression> |
    * EditableList<FunctionCallExpression> | EditableList<LiteralExpression> |
    * EditableList<ScopeResolutionExpression> | EditableList<NameToken> | null
    */
-  public function getMembers(): ?EditableList<EditableNode> {
+  public function getMembers(): ?EditableList<IExpression> {
     if ($this->_members->isMissing()) {
       return null;
     }
@@ -277,11 +277,11 @@ final class KeysetIntrinsicExpression
   }
 
   /**
-   * @return EditableList<EditableNode> | EditableList<ConditionalExpression> |
+   * @return EditableList<IExpression> | EditableList<ConditionalExpression> |
    * EditableList<FunctionCallExpression> | EditableList<LiteralExpression> |
    * EditableList<ScopeResolutionExpression> | EditableList<NameToken>
    */
-  public function getMembersx(): EditableList<EditableNode> {
+  public function getMembersx(): EditableList<IExpression> {
     return TypeAssert\instance_of(EditableList::class, $this->_members);
   }
 

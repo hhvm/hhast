@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1e2c9360c018204c81dfee8625ce3151>>
+ * @generated SignedSource<<5b60a74959a63bc2cd9fd49b6b021b09>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -137,8 +137,8 @@ final class SubscriptExpression extends EditableNode implements IExpression {
    * ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression
    */
-  public function getReceiver(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_receiver);
+  public function getReceiver(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_receiver);
   }
 
   /**
@@ -148,7 +148,7 @@ final class SubscriptExpression extends EditableNode implements IExpression {
    * ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression
    */
-  public function getReceiverx(): EditableNode {
+  public function getReceiverx(): IExpression {
     return $this->getReceiver();
   }
 
@@ -214,11 +214,11 @@ final class SubscriptExpression extends EditableNode implements IExpression {
    * ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression
    */
-  public function getIndex(): ?EditableNode {
+  public function getIndex(): ?IExpression {
     if ($this->_index->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_index);
+    return TypeAssert\instance_of(IExpression::class, $this->_index);
   }
 
   /**
@@ -229,8 +229,8 @@ final class SubscriptExpression extends EditableNode implements IExpression {
    * ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression
    */
-  public function getIndexx(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_index);
+  public function getIndexx(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_index);
   }
 
   public function getRightBracketUNTYPED(): EditableNode {

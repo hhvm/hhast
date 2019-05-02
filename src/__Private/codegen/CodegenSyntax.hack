@@ -132,6 +132,25 @@ final class CodegenSyntax extends CodegenBase {
         |> $this->getUnifiedSyntaxClass($$)
         |> 'EditableList<'.$$.'>';
     }
+
+    $expanded = $types
+      |> Vec\map($$, $t ==> $this->getSyntaxClass($t))
+      |> Vec\map(
+        $$,
+        $type ==> Keyset\union(
+          keyset[$type],
+          $this->getMarkerInterfaces()[$type] ?? keyset[],
+          Keyset\keys($this->getInterfaceWrappers()[$type] ?? keyset[]),
+        ),
+      );
+    $intersected = C\reduce(
+      $expanded,
+      ($acc, $i) ==> $acc = Keyset\intersect($acc, $i),
+      C\firstx($expanded),
+    );
+    if (C\count($intersected) === 1) {
+      return C\onlyx($intersected);
+    }
     return 'EditableNode';
   }
 
@@ -586,7 +605,7 @@ final class CodegenSyntax extends CodegenBase {
         'ForeachStatement',
         'WhileStatement',
       ],
-      'INameishNode' => keyset [
+      'INameishNode' => keyset[
         // Also NameToken
         'QualifiedName',
       ],
@@ -602,7 +621,8 @@ final class CodegenSyntax extends CodegenBase {
         Vec\filter(
           $this->getSchema()['AST'],
           $node ==> Str\ends_with($node['kind_name'], 'Expression'),
-        ) |> Keyset\map($$, $node ==> $node['kind_name'])
+        )
+          |> Keyset\map($$, $node ==> $node['kind_name']),
       ),
     ];
     $by_implementation = dict[];
@@ -613,6 +633,16 @@ final class CodegenSyntax extends CodegenBase {
       }
     }
     return $by_implementation;
+  }
+
+  private function getInterfaceWrappers(): dict<string, dict<string, string>> {
+    return dict[
+      'NameToken' => dict['IExpression' => 'nameish_as_constant_expression'],
+      'QualifiedName' =>
+        dict['IExpression' => 'nameish_as_constant_expression'],
+      'VariableToken' =>
+        dict['IExpression' => 'variable_token_as_variable_expression'],
+    ];
   }
 
   private static function getKindsWithManualSubclasses(): keyset<string> {

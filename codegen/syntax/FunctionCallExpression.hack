@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ff96cdbcd5f7efcfbd6d4b1596b9e43f>>
+ * @generated SignedSource<<84ca1c0be9d18c6597d3ea1dd0a0e365>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -157,8 +157,8 @@ final class FunctionCallExpression extends EditableNode implements IExpression {
    * QualifiedName | SafeMemberSelectionExpression | ScopeResolutionExpression
    * | SubscriptExpression | NameToken | VariableExpression
    */
-  public function getReceiver(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_receiver);
+  public function getReceiver(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_receiver);
   }
 
   /**
@@ -167,7 +167,7 @@ final class FunctionCallExpression extends EditableNode implements IExpression {
    * QualifiedName | SafeMemberSelectionExpression | ScopeResolutionExpression
    * | SubscriptExpression | NameToken | VariableExpression
    */
-  public function getReceiverx(): EditableNode {
+  public function getReceiverx(): IExpression {
     return $this->getReceiver();
   }
 
@@ -266,7 +266,7 @@ final class FunctionCallExpression extends EditableNode implements IExpression {
   }
 
   /**
-   * @return EditableList<AnonymousFunction> | EditableList<EditableNode> |
+   * @return EditableList<AnonymousFunction> | EditableList<IExpression> |
    * EditableList<ArrayCreationExpression> |
    * EditableList<ArrayIntrinsicExpression> | EditableList<AsExpression> |
    * EditableList<AwaitableCreationExpression> | EditableList<BinaryExpression>
@@ -293,7 +293,7 @@ final class FunctionCallExpression extends EditableNode implements IExpression {
    * EditableList<VectorIntrinsicExpression> | EditableList<XHPExpression> |
    * null
    */
-  public function getArgumentList(): ?EditableList<EditableNode> {
+  public function getArgumentList(): ?EditableList<IExpression> {
     if ($this->_argument_list->isMissing()) {
       return null;
     }
@@ -301,7 +301,7 @@ final class FunctionCallExpression extends EditableNode implements IExpression {
   }
 
   /**
-   * @return EditableList<AnonymousFunction> | EditableList<EditableNode> |
+   * @return EditableList<AnonymousFunction> | EditableList<IExpression> |
    * EditableList<ArrayCreationExpression> |
    * EditableList<ArrayIntrinsicExpression> | EditableList<AsExpression> |
    * EditableList<AwaitableCreationExpression> | EditableList<BinaryExpression>
@@ -327,7 +327,7 @@ final class FunctionCallExpression extends EditableNode implements IExpression {
    * EditableList<VarrayIntrinsicExpression> |
    * EditableList<VectorIntrinsicExpression> | EditableList<XHPExpression>
    */
-  public function getArgumentListx(): EditableList<EditableNode> {
+  public function getArgumentListx(): EditableList<IExpression> {
     return TypeAssert\instance_of(EditableList::class, $this->_argument_list);
   }
 

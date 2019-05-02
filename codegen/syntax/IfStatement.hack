@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ae692558ceee3dc46ac6a4cae3bcd520>>
+ * @generated SignedSource<<390eb071d89b8a1e0781f2c56575f02d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -265,8 +265,8 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
    * PrefixUnaryExpression | QualifiedName | ScopeResolutionExpression |
    * SubscriptExpression | NameToken | VariableExpression
    */
-  public function getCondition(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_condition);
+  public function getCondition(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_condition);
   }
 
   /**
@@ -277,7 +277,7 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
    * PrefixUnaryExpression | QualifiedName | ScopeResolutionExpression |
    * SubscriptExpression | NameToken | VariableExpression
    */
-  public function getConditionx(): EditableNode {
+  public function getConditionx(): IExpression {
     return $this->getCondition();
   }
 
