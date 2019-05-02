@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<59d4b3780f320525ee3191e37ddebac3>>
+ * @generated SignedSource<<a51e8e8bcb928d39effb747d320c9dfd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class ConditionalExpression extends EditableNode {
+final class ConditionalExpression extends EditableNode implements IExpression {
 
   private EditableNode $_test;
   private EditableNode $_question;

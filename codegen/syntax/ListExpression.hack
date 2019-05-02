@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a7d32be94ebd954d9331fff6a08c9305>>
+ * @generated SignedSource<<006c058285095b641d960df55520f1c3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class ListExpression extends EditableNode {
+final class ListExpression extends EditableNode implements IExpression {
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;

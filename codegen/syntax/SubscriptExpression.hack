@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<96c8268c854ec814dba7e9a14045d4a9>>
+ * @generated SignedSource<<1e2c9360c018204c81dfee8625ce3151>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class SubscriptExpression extends EditableNode {
+final class SubscriptExpression extends EditableNode implements IExpression {
 
   private EditableNode $_receiver;
   private EditableNode $_left_bracket;

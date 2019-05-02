@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1fa106c4c081297c59b3e6f92fb89434>>
+ * @generated SignedSource<<f34597c10ff3de8d6089d932795def67>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class DarrayIntrinsicExpression extends EditableNode {
+final class DarrayIntrinsicExpression
+  extends EditableNode
+  implements IExpression {
 
   private EditableNode $_keyword;
   private EditableNode $_explicit_type;

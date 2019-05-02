@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fcca718fc9db24aea48c082100a82ab0>>
+ * @generated SignedSource<<5bd9502049f7b7f015deedeefcc1eb3e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class EmbeddedMemberSelectionExpression extends EditableNode {
+final class EmbeddedMemberSelectionExpression
+  extends EditableNode
+  implements IExpression {
 
   private EditableNode $_object;
   private EditableNode $_operator;

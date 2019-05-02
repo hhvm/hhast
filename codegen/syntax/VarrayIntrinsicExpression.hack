@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<38f31974fb986d077a7031bebbf4b830>>
+ * @generated SignedSource<<8d19b9260ddabcac04e5025ac2ed114b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class VarrayIntrinsicExpression extends EditableNode {
+final class VarrayIntrinsicExpression
+  extends EditableNode
+  implements IExpression {
 
   private EditableNode $_keyword;
   private EditableNode $_explicit_type;

@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3db5eaff684bfe061b3de4cdf48a89ce>>
+ * @generated SignedSource<<ebb99a2edb5bca4afe56346e131a972f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class AnonymousFunction extends EditableNode {
+final class AnonymousFunction extends EditableNode implements IExpression {
 
   private EditableNode $_attribute_spec;
   private EditableNode $_static_keyword;

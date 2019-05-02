@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9dcc1fc82f4c8dae8b0df283c1b258f6>>
+ * @generated SignedSource<<ae4889103517d6980453c7e2c1846eb8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class DictionaryIntrinsicExpression extends EditableNode {
+final class DictionaryIntrinsicExpression
+  extends EditableNode
+  implements IExpression {
 
   private EditableNode $_keyword;
   private EditableNode $_explicit_type;

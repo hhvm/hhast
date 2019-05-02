@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2054eac61d37baeab2fef5e20874c070>>
+ * @generated SignedSource<<9345364dcea11a3f7baff3d4ee6ec0b4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class ParenthesizedExpression extends EditableNode {
+final class ParenthesizedExpression
+  extends EditableNode
+  implements IExpression {
 
   private EditableNode $_left_paren;
   private EditableNode $_expression;

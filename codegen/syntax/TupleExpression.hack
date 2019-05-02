@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<da13481ec0a8d9fce6c682bc41647cb1>>
+ * @generated SignedSource<<297d59a33b289b669a511de400060b82>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class TupleExpression extends EditableNode {
+final class TupleExpression extends EditableNode implements IExpression {
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;

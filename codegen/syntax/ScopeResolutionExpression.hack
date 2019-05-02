@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<903b30e18017a46475328b2fa5e89878>>
+ * @generated SignedSource<<87ccd54b10f00cf4d5a2f6b421dbfc4e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class ScopeResolutionExpression extends EditableNode {
+final class ScopeResolutionExpression
+  extends EditableNode
+  implements IExpression {
 
   private EditableNode $_qualifier;
   private EditableNode $_operator;

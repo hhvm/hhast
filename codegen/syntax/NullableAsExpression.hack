@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<99f023100d9014bd9bb8dcf6187286d1>>
+ * @generated SignedSource<<968714da1b17332e426d84ffe39bd64c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class NullableAsExpression extends EditableNode {
+final class NullableAsExpression extends EditableNode implements IExpression {
 
   private EditableNode $_left_operand;
   private EditableNode $_operator;

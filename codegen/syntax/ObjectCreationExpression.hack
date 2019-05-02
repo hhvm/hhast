@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6478df4f07ceb8b14e72797acd06543a>>
+ * @generated SignedSource<<9071c0d6bf5d4fb50f4f27e17c383e3f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class ObjectCreationExpression extends EditableNode {
+final class ObjectCreationExpression
+  extends EditableNode
+  implements IExpression {
 
   private EditableNode $_new_keyword;
   private EditableNode $_object;

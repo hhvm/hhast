@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c194339e3c92d99878ee9f9719d96a53>>
+ * @generated SignedSource<<9d2292295b45b19333c035ed1df27abd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class RecordCreationExpression extends EditableNode {
+final class RecordCreationExpression
+  extends EditableNode
+  implements IExpression {
 
   private EditableNode $_type;
   private EditableNode $_left_bracket;

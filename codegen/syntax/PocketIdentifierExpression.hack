@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d05105aa1ee75b2d646035df52a9c804>>
+ * @generated SignedSource<<44d531bd99cd0232edd278c13bc4839e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class PocketIdentifierExpression extends EditableNode {
+final class PocketIdentifierExpression
+  extends EditableNode
+  implements IExpression {
 
   private EditableNode $_qualifier;
   private EditableNode $_pu_operator;

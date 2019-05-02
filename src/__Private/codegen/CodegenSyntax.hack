@@ -65,7 +65,7 @@ final class CodegenSyntax extends CodegenBase {
       ->setIsAbstract($is_abstract)
       ->setExtends('EditableNode')
       ->setInterfaces(
-        (self::getMarkerInterfaces()[$syntax['kind_name']] ?? vec[])
+        ($this->getMarkerInterfaces()[$syntax['kind_name']] ?? vec[])
           |> Vec\map($$, $if ==> $cg->codegenImplementsInterface($if)),
       )
       ->setConstructor($this->generateConstructor($syntax))
@@ -562,7 +562,8 @@ final class CodegenSyntax extends CodegenBase {
     return $token['token_kind'].'Token';
   }
 
-  private static function getMarkerInterfaces(): dict<string, keyset<string>> {
+  <<__Memoize>>
+  private function getMarkerInterfaces(): dict<string, keyset<string>> {
     $by_interface = dict[
       'IControlFlowStatement' => keyset[
         'AlternateElseClause',
@@ -589,6 +590,16 @@ final class CodegenSyntax extends CodegenBase {
         'NamespaceUseDeclaration',
         'NamespaceGroupUseDeclaration',
       ],
+      'IExpression' => Keyset\union(
+        keyset[
+          'AnonymousFunction',
+          'PHP7AnonymousFunction',
+        ],
+        Vec\filter(
+          $this->getSchema()['AST'],
+          $node ==> Str\ends_with($node['kind_name'], 'Expression'),
+        ) |> Keyset\map($$, $node ==> $node['kind_name'])
+      ),
     ];
     $by_implementation = dict[];
     foreach ($by_interface as $if => $classes) {

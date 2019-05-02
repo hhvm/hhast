@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<42343f36ab2d681c90ce7b9f3752f7a3>>
+ * @generated SignedSource<<6d44b4d8a0556476a4988fa07889aa46>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class AwaitableCreationExpression extends EditableNode {
+final class AwaitableCreationExpression
+  extends EditableNode
+  implements IExpression {
 
   private EditableNode $_attribute_spec;
   private EditableNode $_async;

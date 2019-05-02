@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c738a7c3d007cfbbf80904200f2a7ba8>>
+ * @generated SignedSource<<3400c63b5c4ff5a8dce500a165cd977b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class LambdaExpression extends EditableNode {
+final class LambdaExpression extends EditableNode implements IExpression {
 
   private EditableNode $_attribute_spec;
   private EditableNode $_async;
