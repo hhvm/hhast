@@ -1,0 +1,7 @@
+[
+    {
+        "blame": "elseif ",
+        "blame_pretty": "elseif ",
+        "description": "Do not use \"elseif\", use \"else if\" instead."
+    }
+]
