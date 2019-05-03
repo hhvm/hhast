@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6c6bb34f0ee527b0a33aebf957b434fd>>
+ * @generated SignedSource<<c21bdcf258897b53459afd5335b7e500>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -225,8 +225,9 @@ final class BinaryExpression extends EditableNode implements IExpression {
    * VarrayIntrinsicExpression | VectorIntrinsicExpression | XHPExpression |
    * YieldExpression | YieldFromExpression
    */
-  public function getRightOperand(): EditableNode {
-    return $this->_right_operand;
+  <<__Memoize>>
+  public function getRightOperand(): IExpression {
+    return __Private\Wrap\wrap_IExpression($this->_right_operand);
   }
 
   /**
@@ -247,7 +248,7 @@ final class BinaryExpression extends EditableNode implements IExpression {
    * VarrayIntrinsicExpression | VectorIntrinsicExpression | XHPExpression |
    * YieldExpression | YieldFromExpression
    */
-  public function getRightOperandx(): EditableNode {
+  public function getRightOperandx(): IExpression {
     return $this->getRightOperand();
   }
 }

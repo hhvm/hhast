@@ -658,7 +658,7 @@ final class CodegenSyntax extends CodegenBase {
       'IExpression' => Keyset\union(
         keyset[
           'AnonymousFunction',
-          'PHP7AnonymousFunction',
+          'Php7AnonymousFunction',
           'Variable',
         ],
         Vec\filter(
