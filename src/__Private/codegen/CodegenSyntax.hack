@@ -698,6 +698,12 @@ final class CodegenSyntax extends CodegenBase {
 
   private function getHardcodedTypes(
   ): dict<string, dict<string, self::TFieldSpec>> {
+    $editable_node = (bool $nullable, string $key) ==> shape(
+      'class' => 'EditableNode',
+      'needsWrapper' => false,
+      'nullable' => $nullable,
+      'possibleTypes' => $this->getRelationships()[$key],
+    );
     return dict[
       'InstanceofExpression' => dict[
         'right_operand' => shape(
@@ -707,6 +713,9 @@ final class CodegenSyntax extends CodegenBase {
           'possibleTypes' => $this
             ->getRelationships()['instanceof_expression.instanceof_right_operand'],
         ),
+      ],
+      'FunctionCallExpression' => dict[
+        'receiver' => $editable_node(false, 'function_call_expression.function_call_receiver'),
       ],
     ];
   }

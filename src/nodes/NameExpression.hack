@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST;
 
-final class ConstantExpression extends WrapperNode implements IExpression {
+final class NameExpression extends WrapperNode implements IExpression {
   const type TWrapped = INameishNode;
 
   <<__Override>>

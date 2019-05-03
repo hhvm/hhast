@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<247fcadfa0bc55765d181e53e3303f0c>>
+ * @generated SignedSource<<7686d327d3f8360b05fe306cbe57a16b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -45,7 +45,6 @@ final class FunctionCallExpression extends EditableNode implements IExpression {
       $offset,
       $source,
     );
-    $receiver = __Private\Wrap\wrap_IExpression($receiver);
     $offset += $receiver->getWidth();
     $type_args = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['function_call_type_args'],
@@ -153,22 +152,22 @@ final class FunctionCallExpression extends EditableNode implements IExpression {
   }
 
   /**
-   * @return ArrayCreationExpression | FunctionCallExpression |
-   * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
-   * QualifiedName | SafeMemberSelectionExpression | ScopeResolutionExpression
-   * | SubscriptExpression | NameToken | VariableExpression
+   * @return array_creation_expression | function_call_expression | literal |
+   * member_selection_expression | parenthesized_expression | qualified_name |
+   * safe_member_selection_expression | scope_resolution_expression |
+   * subscript_expression | token:name | variable
    */
-  public function getReceiver(): IExpression {
-    return TypeAssert\instance_of(IExpression::class, $this->_receiver);
+  public function getReceiver(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_receiver);
   }
 
   /**
-   * @return ArrayCreationExpression | FunctionCallExpression |
-   * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
-   * QualifiedName | SafeMemberSelectionExpression | ScopeResolutionExpression
-   * | SubscriptExpression | NameToken | VariableExpression
+   * @return array_creation_expression | function_call_expression | literal |
+   * member_selection_expression | parenthesized_expression | qualified_name |
+   * safe_member_selection_expression | scope_resolution_expression |
+   * subscript_expression | token:name | variable
    */
-  public function getReceiverx(): IExpression {
+  public function getReceiverx(): EditableNode {
     return $this->getReceiver();
   }
 

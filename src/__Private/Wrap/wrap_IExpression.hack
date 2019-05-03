@@ -10,10 +10,10 @@
 namespace Facebook\HHAST\__Private\Wrap;
 
 use type Facebook\HHAST\{
-  ConstantExpression,
   EditableNode,
   IExpression,
   INameishNode,
+  NameExpression,
 };
 
 function wrap_IExpression(EditableNode $node): IExpression {
@@ -22,7 +22,7 @@ function wrap_IExpression(EditableNode $node): IExpression {
   }
 
   if ($node instanceof INameishNode) {
-    return new ConstantExpression($node);
+    return new NameExpression($node);
   }
 
   invariant_violation('unhanded node type: %s', \get_class($node));
