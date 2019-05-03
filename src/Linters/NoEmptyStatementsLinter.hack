@@ -71,32 +71,33 @@ final class NoEmptyStatementsLinter
    * Returns whether the given expression is empty.
    */
   private function isEmptyExpression(EditableNode $expr): bool {
-    return $expr is HHAST\ArrayCreationExpression ||
-      $expr is HHAST\AnonymousFunction ||
+    return $expr instanceof HHAST\ArrayCreationExpression ||
+      $expr instanceof HHAST\AnonymousFunction ||
       (
-        $expr is HHAST\BinaryExpression &&
+        $expr instanceof HHAST\BinaryExpression &&
         $this->isOperatorWithoutSideEffects($expr->getOperator())
       ) ||
-      $expr is HHAST\CastExpression ||
-      $expr is HHAST\CollectionLiteralExpression ||
-      $expr is HHAST\DarrayIntrinsicExpression ||
-      $expr is HHAST\DictionaryIntrinsicExpression ||
-      $expr is HHAST\EmptyExpression ||
-      $expr is HHAST\InstanceofExpression ||
-      $expr is HHAST\IsExpression ||
-      $expr is HHAST\IssetExpression ||
-      $expr is HHAST\KeysetIntrinsicExpression ||
-      $expr is HHAST\LambdaExpression ||
-      $expr is HHAST\LiteralExpression ||
-      $expr is HHAST\Missing ||
+      $expr instanceof HHAST\CastExpression ||
+      $expr instanceof HHAST\CollectionLiteralExpression ||
+      $expr instanceof HHAST\DarrayIntrinsicExpression ||
+      $expr instanceof HHAST\DictionaryIntrinsicExpression ||
+      $expr instanceof HHAST\EmptyExpression ||
+      $expr instanceof HHAST\InstanceofExpression ||
+      $expr instanceof HHAST\IsExpression ||
+      $expr instanceof HHAST\IssetExpression ||
+      $expr instanceof HHAST\KeysetIntrinsicExpression ||
+      $expr instanceof HHAST\LambdaExpression ||
+      $expr instanceof HHAST\LiteralExpression ||
+      $expr instanceof HHAST\Missing ||
+      $expr instanceof HHAST\NameExpression ||
       (
-        $expr is HHAST\ParenthesizedExpression &&
+        $expr instanceof HHAST\ParenthesizedExpression &&
         $this->isEmptyExpression($expr->getExpression())
       ) ||
-      $expr is HHAST\SubscriptExpression ||
-      $expr is HHAST\VectorIntrinsicExpression ||
-      $expr is HHAST\VariableExpression ||
-      $expr is HHAST\VarrayIntrinsicExpression;
+      $expr instanceof HHAST\SubscriptExpression ||
+      $expr instanceof HHAST\VectorIntrinsicExpression ||
+      $expr instanceof HHAST\VariableExpression ||
+      $expr instanceof HHAST\VarrayIntrinsicExpression;
   }
 
   /**
@@ -107,7 +108,7 @@ final class NoEmptyStatementsLinter
     // The pipe operator does not necessarily have any side effects but it
     // typically implies function invocation which can have side effects.
     return
-      !$this->isAssignmentOperator($op) && !$op is HHAST\BarGreaterThanToken;
+      !$this->isAssignmentOperator($op) && !$op instanceof HHAST\BarGreaterThanToken;
   }
 
   /**
@@ -117,21 +118,21 @@ final class NoEmptyStatementsLinter
    * that include "Equal" and are not comparison operators (==, >=, etc.);
    */
   private function isAssignmentOperator(EditableToken $op): bool {
-    return $op is HHAST\AmpersandEqualToken ||
-      $op is HHAST\BarEqualToken ||
-      $op is HHAST\CaratEqualToken ||
-      $op is HHAST\DotEqualToken ||
-      $op is HHAST\EqualToken ||
-      $op is HHAST\GreaterThanEqualToken ||
-      $op is HHAST\GreaterThanGreaterThanEqualToken ||
-      $op is HHAST\LessThanEqualToken ||
-      $op is HHAST\LessThanLessThanEqualToken ||
-      $op is HHAST\MinusEqualToken ||
-      $op is HHAST\PercentEqualToken ||
-      $op is HHAST\PlusEqualToken ||
-      $op is HHAST\QuestionQuestionEqualToken ||
-      $op is HHAST\SlashEqualToken ||
-      $op is HHAST\StarEqualToken ||
-      $op is HHAST\StarStarEqualToken;
+    return $op instanceof HHAST\AmpersandEqualToken ||
+      $op instanceof HHAST\BarEqualToken ||
+      $op instanceof HHAST\CaratEqualToken ||
+      $op instanceof HHAST\DotEqualToken ||
+      $op instanceof HHAST\EqualToken ||
+      $op instanceof HHAST\GreaterThanEqualToken ||
+      $op instanceof HHAST\GreaterThanGreaterThanEqualToken ||
+      $op instanceof HHAST\LessThanEqualToken ||
+      $op instanceof HHAST\LessThanLessThanEqualToken ||
+      $op instanceof HHAST\MinusEqualToken ||
+      $op instanceof HHAST\PercentEqualToken ||
+      $op instanceof HHAST\PlusEqualToken ||
+      $op instanceof HHAST\QuestionQuestionEqualToken ||
+      $op instanceof HHAST\SlashEqualToken ||
+      $op instanceof HHAST\StarEqualToken ||
+      $op instanceof HHAST\StarStarEqualToken;
   }
 }
