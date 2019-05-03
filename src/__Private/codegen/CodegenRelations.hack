@@ -9,7 +9,6 @@
 
 namespace Facebook\HHAST\__Private;
 
-use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Dict, Keyset, Str, Tuple, Vec};
 use type Facebook\HackCodegen\{
   CodegenFileType,
@@ -46,7 +45,7 @@ final class CodegenRelations extends CodegenBase {
       Dict\map_async(
         $files,
         async $file ==> {
-          return await $queue->enqueueAndWaitFor(
+          return await $queue->enqueueAndWaitForAsync(
             async () ==> {
               try {
                 $links = await $this->getRelationsInFileAsync($file);

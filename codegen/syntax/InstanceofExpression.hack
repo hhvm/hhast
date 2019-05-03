@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<691224ddfb1a14d76dc4dafbaef89e8a>>
+ * @generated SignedSource<<0653c3c1f72d5e779ab61c21fe5413e5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -56,6 +56,9 @@ final class InstanceofExpression extends EditableNode implements IExpression {
       $offset,
       $source,
     );
+    $right_operand = $right_operand->isMissing()
+      ? $right_operand
+      : __Private\Wrap\wrap_IExpression($right_operand);
     $offset += $right_operand->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -174,20 +177,20 @@ final class InstanceofExpression extends EditableNode implements IExpression {
   }
 
   /**
-   * @return member_selection_expression | parenthesized_expression |
-   * qualified_name | scope_resolution_expression | subscript_expression |
-   * token:name | variable
+   * @return MemberSelectionExpression | ParenthesizedExpression |
+   * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
+   * NameToken | VariableExpression
    */
-  public function getRightOperand(): INameishNode {
-    return TypeAssert\instance_of(INameishNode::class, $this->_right_operand);
+  public function getRightOperand(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_right_operand);
   }
 
   /**
-   * @return member_selection_expression | parenthesized_expression |
-   * qualified_name | scope_resolution_expression | subscript_expression |
-   * token:name | variable
+   * @return MemberSelectionExpression | ParenthesizedExpression |
+   * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
+   * NameToken | VariableExpression
    */
-  public function getRightOperandx(): INameishNode {
+  public function getRightOperandx(): IExpression {
     return $this->getRightOperand();
   }
 }

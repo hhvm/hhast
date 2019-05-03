@@ -18,11 +18,11 @@ class ConcurrentAsyncQueue {
   private int $active = 0;
   private vec<Awaitable<void>> $queue = vec[];
 
-  public function getCurrentConcurrency(): int {
+  final public function getCurrentConcurrency(): int {
     return $this->active;
   }
 
-  public async function enqueueAndWaitFor<T>(
+  final public async function enqueueAndWaitForAsync<T>(
     (function(): Awaitable<T>) $next,
   ): Awaitable<T> {
     if ($this->active < $this->limit) {

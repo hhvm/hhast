@@ -16,9 +16,7 @@ abstract class WrapperNode extends EditableNode {
   abstract public function getWrappedNode(): this::TWrapped;
 
   <<__Override>>
-  final public function __construct(
-    protected EditableNode $wrapped,
-  ) {
+  final public function __construct(protected EditableNode $wrapped) {
     parent::__construct($wrapped->getSyntaxKind(), $wrapped->sourceRef);
   }
 
@@ -33,6 +31,7 @@ abstract class WrapperNode extends EditableNode {
     return dict['wrapped' => $this->wrapped];
   }
 
+  <<__Override>>
   final public function rewriteChildren(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],

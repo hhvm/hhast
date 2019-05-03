@@ -44,8 +44,8 @@ async function json_from_file_args_async(
   );
 
   try {
-    $results = await __Private\ParserQueue::get()->enqueueAndWaitFor(
-      async () ==> await __Private\execute_async(...$cmd)
+    $results = await __Private\ParserQueue::get()->enqueueAndWaitForAsync(
+      async () ==> await __Private\execute_async(...$cmd),
     );
   } catch (__Private\SubprocessException $e) {
     throw new HHParseError(
