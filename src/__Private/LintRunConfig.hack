@@ -78,6 +78,7 @@ final class LintRunConfig {
   ];
 
   const vec<classname<BaseLinter>> NON_DEFAULT_LINTERS = vec[
+    Linters\NoPHPArrayLiteralsLinter::class,
     Linters\NoStringInterpolationLinter::class,
     Linters\StrictModeOnlyLinter::class,
     Linters\UseStatementWithAsLinter::class,
@@ -136,13 +137,17 @@ final class LintRunConfig {
   }
 
   public function getRoots(): vec<string> {
-    return
-      Vec\map($this->configFile['roots'], $dir ==> $this->projectRoot.'/'.$dir);
+    return Vec\map(
+      $this->configFile['roots'],
+      $dir ==> $this->projectRoot.'/'.$dir,
+    );
   }
 
   public function getConfigForFile(string $file_path): self::TFileConfig {
-    $roots =
-      Vec\map($this->configFile['roots'], $s ==> Str\strip_suffix($s, '/').'/');
+    $roots = Vec\map(
+      $this->configFile['roots'],
+      $s ==> Str\strip_suffix($s, '/').'/',
+    );
     $file_path = Str\strip_prefix($file_path, $this->projectRoot.'/');
     if (
       $roots !== vec[] &&
@@ -153,8 +158,8 @@ final class LintRunConfig {
         'autoFixBlacklist' => keyset[],
       );
     }
-    $builtin_linters =
-      $this->configFile['builtinLinters'] ?? NamedLinterGroup::DEFAULT_BUILTINS;
+    $builtin_linters = $this->configFile['builtinLinters'] ??
+      NamedLinterGroup::DEFAULT_BUILTINS;
     $linters = $this->configFile['extraLinters'] ?? vec[];
     $blacklist = $this->configFile['disabledLinters'] ?? vec[];
     $autofix_blacklist = $this->configFile['disabledAutoFixes'] ?? vec[];
@@ -180,12 +185,16 @@ final class LintRunConfig {
         $builtin_linters = $override['builtinLinters'];
       }
       $linters = Vec\concat($linters, $override['extraLinters'] ?? vec[]);
-      $blacklist =
-        Vec\concat($blacklist, $override['disabledLinters'] ?? vec[]);
-      $autofix_blacklist =
-        Vec\concat($autofix_blacklist, $override['disabledAutoFixes'] ?? vec[]);
-      $no_autofixes =
-        $no_autofixes || ($override['disableAllAutoFixes'] ?? false);
+      $blacklist = Vec\concat(
+        $blacklist,
+        $override['disabledLinters'] ?? vec[],
+      );
+      $autofix_blacklist = Vec\concat(
+        $autofix_blacklist,
+        $override['disabledAutoFixes'] ?? vec[],
+      );
+      $no_autofixes = $no_autofixes ||
+        ($override['disableAllAutoFixes'] ?? false);
     }
 
     $normalize = (vec<string> $list) ==> Keyset\map(
@@ -197,8 +206,10 @@ final class LintRunConfig {
     $blacklist = $normalize($blacklist);
     $autofix_blacklist = $normalize($autofix_blacklist);
 
-    $linters =
-      Keyset\union($linters, self::getNamedLinterGroup($builtin_linters));
+    $linters = Keyset\union(
+      $linters,
+      self::getNamedLinterGroup($builtin_linters),
+    );
 
     $linters = Keyset\diff($linters, $blacklist);
     if ($no_autofixes) {
