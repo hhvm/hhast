@@ -25,5 +25,5 @@ function wrap_IExpression(EditableNode $node): IExpression {
     return new NameExpression($node);
   }
 
-  invariant_violation('unhanded node type: %s', \get_class($node));
+  invariant_violation('IExpression expected, got: %s', \get_class($node));
 }
