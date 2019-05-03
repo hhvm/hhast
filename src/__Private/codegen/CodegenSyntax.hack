@@ -521,6 +521,11 @@ final class CodegenSyntax extends CodegenBase {
     Schema\TAST $syntax,
     string $field,
   ): self::TFieldSpec {
+    $hardcoded = $this->getHardcodedTypes()[$syntax['kind_name']][$field] ??
+      null;
+    if ($hardcoded !== null) {
+      return $hardcoded;
+    }
     $key = Str\format(
       '%s.%s_%s',
       $syntax['description'],
@@ -688,6 +693,21 @@ final class CodegenSyntax extends CodegenBase {
     return keyset[
       'AlternateLoopStatement',
       'NamespaceDeclaration',
+    ];
+  }
+
+  private function getHardcodedTypes(
+  ): dict<string, dict<string, self::TFieldSpec>> {
+    return dict[
+      'InstanceofExpression' => dict[
+        'right_operand' => shape(
+          'class' => 'INameishNode',
+          'needsWrapper' => false,
+          'nullable' => false,
+          'possibleTypes' => $this
+            ->getRelationships()['instanceof_expression.instanceof_right_operand'],
+        ),
+      ],
     ];
   }
 }
