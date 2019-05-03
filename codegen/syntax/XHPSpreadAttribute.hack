@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a3a009e86512efd369acc7c82a5c9823>>
+ * @generated SignedSource<<ac7aac5ef3ae1623c6b775abecce66e7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -56,7 +56,9 @@ final class XHPSpreadAttribute extends EditableNode {
       $offset,
       $source,
     );
-    $expression = __Private\Wrap\wrap_IExpression($expression);
+    $expression = $expression->isMissing()
+      ? $expression
+      : __Private\Wrap\wrap_IExpression($expression);
     $offset += $expression->getWidth();
     $right_brace = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['xhp_spread_attribute_right_brace'],

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c416eca603ae1b410edf4218accc19d7>>
+ * @generated SignedSource<<1440215ac0741989892f9ffacb7c88ed>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -56,7 +56,9 @@ final class Enumerator extends EditableNode {
       $offset,
       $source,
     );
-    $value = __Private\Wrap\wrap_IExpression($value);
+    $value = $value->isMissing()
+      ? $value
+      : __Private\Wrap\wrap_IExpression($value);
     $offset += $value->getWidth();
     $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['enumerator_semicolon'],

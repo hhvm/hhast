@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3a27e57b0ce87ead2277e2e33c7a4035>>
+ * @generated SignedSource<<67178ad890fd07ad1b9d3771b9cb8383>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -65,7 +65,9 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
       $offset,
       $source,
     );
-    $condition = __Private\Wrap\wrap_IExpression($condition);
+    $condition = $condition->isMissing()
+      ? $condition
+      : __Private\Wrap\wrap_IExpression($condition);
     $offset += $condition->getWidth();
     $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['if_right_paren'],

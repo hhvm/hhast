@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2e24a9e98b547bdc1d49b53815c76907>>
+ * @generated SignedSource<<b5e242e36bff15e676d1ba35cc4a4d48>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -67,7 +67,9 @@ final class SwitchStatement
       $offset,
       $source,
     );
-    $expression = __Private\Wrap\wrap_IExpression($expression);
+    $expression = $expression->isMissing()
+      ? $expression
+      : __Private\Wrap\wrap_IExpression($expression);
     $offset += $expression->getWidth();
     $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['switch_right_paren'],

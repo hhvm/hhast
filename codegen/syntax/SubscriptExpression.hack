@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<63a8bb43d700bd801a699f2b15ed98db>>
+ * @generated SignedSource<<78788da280f899fcf9917f50a93f6714>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -42,7 +42,9 @@ final class SubscriptExpression extends EditableNode implements IExpression {
       $offset,
       $source,
     );
-    $receiver = __Private\Wrap\wrap_IExpression($receiver);
+    $receiver = $receiver->isMissing()
+      ? $receiver
+      : __Private\Wrap\wrap_IExpression($receiver);
     $offset += $receiver->getWidth();
     $left_bracket = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['subscript_left_bracket'],
@@ -57,7 +59,9 @@ final class SubscriptExpression extends EditableNode implements IExpression {
       $offset,
       $source,
     );
-    $index = __Private\Wrap\wrap_IExpression($index);
+    $index = $index->isMissing()
+      ? $index
+      : __Private\Wrap\wrap_IExpression($index);
     $offset += $index->getWidth();
     $right_bracket = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['subscript_right_bracket'],

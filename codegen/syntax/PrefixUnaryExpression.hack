@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c4866632f5c09df1e79c1d2efe4c5004>>
+ * @generated SignedSource<<622be6a38f1ae33b26d381d13a2b9272>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -43,7 +43,9 @@ final class PrefixUnaryExpression extends EditableNode implements IExpression {
       $offset,
       $source,
     );
-    $operand = __Private\Wrap\wrap_IExpression($operand);
+    $operand = $operand->isMissing()
+      ? $operand
+      : __Private\Wrap\wrap_IExpression($operand);
     $offset += $operand->getWidth();
     $source_ref = shape(
       'file' => $file,

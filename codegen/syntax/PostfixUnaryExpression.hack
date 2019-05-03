@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b6aa6213b4395a8d9d7ac429cb952a55>>
+ * @generated SignedSource<<e09206db9366d792846f455776342188>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,7 +36,9 @@ final class PostfixUnaryExpression extends EditableNode implements IExpression {
       $offset,
       $source,
     );
-    $operand = __Private\Wrap\wrap_IExpression($operand);
+    $operand = $operand->isMissing()
+      ? $operand
+      : __Private\Wrap\wrap_IExpression($operand);
     $offset += $operand->getWidth();
     $operator = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['postfix_unary_operator'],

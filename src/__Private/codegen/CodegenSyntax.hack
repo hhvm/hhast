@@ -328,7 +328,9 @@ final class CodegenSyntax extends CodegenBase {
         );
       if ($spec['needsWrapper']) {
         $body->addLinef(
-          '$%s = __Private\Wrap\wrap_%s($%s);',
+          '$%s = $%s->isMissing() ? $%s : __Private\Wrap\wrap_%s($%s);',
+          $field['field_name'],
+          $field['field_name'],
           $field['field_name'],
           $spec['class'],
           $field['field_name'],

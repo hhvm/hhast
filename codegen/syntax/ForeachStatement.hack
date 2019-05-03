@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6cc1f2bddb7582ce39e3c0244b4470cd>>
+ * @generated SignedSource<<37d25509b1f0f3970f0fead78bd0831c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -76,7 +76,9 @@ final class ForeachStatement
       $offset,
       $source,
     );
-    $collection = __Private\Wrap\wrap_IExpression($collection);
+    $collection = $collection->isMissing()
+      ? $collection
+      : __Private\Wrap\wrap_IExpression($collection);
     $offset += $collection->getWidth();
     $await_keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['foreach_await_keyword'],
@@ -98,7 +100,7 @@ final class ForeachStatement
       $offset,
       $source,
     );
-    $key = __Private\Wrap\wrap_IExpression($key);
+    $key = $key->isMissing() ? $key : __Private\Wrap\wrap_IExpression($key);
     $offset += $key->getWidth();
     $arrow = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['foreach_arrow'],
@@ -113,7 +115,9 @@ final class ForeachStatement
       $offset,
       $source,
     );
-    $value = __Private\Wrap\wrap_IExpression($value);
+    $value = $value->isMissing()
+      ? $value
+      : __Private\Wrap\wrap_IExpression($value);
     $offset += $value->getWidth();
     $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['foreach_right_paren'],

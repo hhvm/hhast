@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b96485510371a6b22289476ddac83c33>>
+ * @generated SignedSource<<21e3c5ef5ddd875781d415a0622993c0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -56,7 +56,9 @@ final class EmptyExpression extends EditableNode implements IExpression {
       $offset,
       $source,
     );
-    $argument = __Private\Wrap\wrap_IExpression($argument);
+    $argument = $argument->isMissing()
+      ? $argument
+      : __Private\Wrap\wrap_IExpression($argument);
     $offset += $argument->getWidth();
     $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['empty_right_paren'],

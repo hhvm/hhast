@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9f3acc0f8f1c8ce8216e46b1b68aa8b9>>
+ * @generated SignedSource<<32c8d024c19106e63035b063c68cfedf>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,7 +53,9 @@ final class YieldFromExpression extends EditableNode implements IExpression {
       $offset,
       $source,
     );
-    $operand = __Private\Wrap\wrap_IExpression($operand);
+    $operand = $operand->isMissing()
+      ? $operand
+      : __Private\Wrap\wrap_IExpression($operand);
     $offset += $operand->getWidth();
     $source_ref = shape(
       'file' => $file,

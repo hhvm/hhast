@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<427ad59cd0c8e1b049dbd6c07059deaa>>
+ * @generated SignedSource<<df07537f0f0a4ebfeb17a72aa6d7e4ba>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -46,7 +46,9 @@ final class BracedExpression extends EditableNode implements IExpression {
       $offset,
       $source,
     );
-    $expression = __Private\Wrap\wrap_IExpression($expression);
+    $expression = $expression->isMissing()
+      ? $expression
+      : __Private\Wrap\wrap_IExpression($expression);
     $offset += $expression->getWidth();
     $right_brace = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['braced_expression_right_brace'],
