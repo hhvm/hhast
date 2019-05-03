@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<19daa1bb0f86a8740e543f588ddb5e63>>
+ * @generated SignedSource<<5b73540945f84ddc4a41de14713d71ed>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -56,9 +56,6 @@ final class UsingStatementFunctionScoped extends EditableNode {
       $offset,
       $source,
     );
-    $expression = $expression->isMissing()
-      ? $expression
-      : __Private\Wrap\wrap_IExpression($expression);
     $offset += $expression->getWidth();
     $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['using_function_semicolon'],
@@ -147,7 +144,7 @@ final class UsingStatementFunctionScoped extends EditableNode {
    * @return AwaitToken
    */
   public function getAwaitKeywordx(): AwaitToken {
-    return TypeAssert\instance_of(AwaitToken::class, $this->_await_keyword);
+    return TypeAssert\not_null($this->getAwaitKeyword());
   }
 
   public function getUsingKeywordUNTYPED(): EditableNode {
@@ -208,8 +205,9 @@ final class UsingStatementFunctionScoped extends EditableNode {
    * @return BinaryExpression | LambdaExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PrefixUnaryExpression
    */
+  <<__Memoize>>
   public function getExpression(): IExpression {
-    return TypeAssert\instance_of(IExpression::class, $this->_expression);
+    return __Private\Wrap\wrap_IExpression($this->_expression);
   }
 
   /**

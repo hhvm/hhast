@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<783c89a959fab209692940ed99368d57>>
+ * @generated SignedSource<<09b2fcd86f576919f8e29928336568dd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -149,7 +149,7 @@ final class NamespaceBody extends EditableNode {
    * @return EditableList<EditableNode>
    */
   public function getDeclarationsx(): EditableList<EditableNode> {
-    return TypeAssert\instance_of(EditableList::class, $this->_declarations);
+    return TypeAssert\not_null($this->getDeclarations());
   }
 
   public function getRightBraceUNTYPED(): EditableNode {

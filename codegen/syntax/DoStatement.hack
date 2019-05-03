@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ad9abec604855825a8f67182569ee30e>>
+ * @generated SignedSource<<976a9ecfeac9539f457f3f1e23c55c0f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -81,9 +81,6 @@ final class DoStatement
       $offset,
       $source,
     );
-    $condition = $condition->isMissing()
-      ? $condition
-      : __Private\Wrap\wrap_IExpression($condition);
     $offset += $condition->getWidth();
     $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['do_right_paren'],
@@ -229,7 +226,7 @@ final class DoStatement
    * @return CompoundStatement | ExpressionStatement
    */
   public function getBody(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_body);
+    return $this->_body;
   }
 
   /**
@@ -340,8 +337,9 @@ final class DoStatement
    * @return BinaryExpression | FunctionCallExpression | LiteralExpression |
    * PrefixUnaryExpression | SubscriptExpression | VariableExpression
    */
+  <<__Memoize>>
   public function getCondition(): IExpression {
-    return TypeAssert\instance_of(IExpression::class, $this->_condition);
+    return __Private\Wrap\wrap_IExpression($this->_condition);
   }
 
   /**

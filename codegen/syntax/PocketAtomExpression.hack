@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<431aeb125ecd8440d9db25a2fb505317>>
+ * @generated SignedSource<<a9c612362a6625087b7104e0d41be97b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -94,7 +94,7 @@ final class PocketAtomExpression extends EditableNode implements IExpression {
    * @return unknown
    */
   public function getGlyph(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_glyph);
+    return $this->_glyph;
   }
 
   /**
@@ -123,7 +123,7 @@ final class PocketAtomExpression extends EditableNode implements IExpression {
    * @return unknown
    */
   public function getExpression(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_expression);
+    return $this->_expression;
   }
 
   /**

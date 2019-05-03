@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0c26d70d7f0f5c8d3efc0dce90832f34>>
+ * @generated SignedSource<<3fa92e56e4f9138c5e2bfd048fa24c10>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -171,7 +171,7 @@ final class RecordDeclaration extends EditableNode {
    * @return
    */
   public function getAttributeSpec(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_attribute_spec);
+    return $this->_attribute_spec;
   }
 
   /**
@@ -207,7 +207,7 @@ final class RecordDeclaration extends EditableNode {
    * @return
    */
   public function getKeyword(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_keyword);
+    return $this->_keyword;
   }
 
   /**
@@ -243,7 +243,7 @@ final class RecordDeclaration extends EditableNode {
    * @return
    */
   public function getName(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_name);
+    return $this->_name;
   }
 
   /**
@@ -279,7 +279,7 @@ final class RecordDeclaration extends EditableNode {
    * @return
    */
   public function getLeftBrace(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_left_brace);
+    return $this->_left_brace;
   }
 
   /**
@@ -315,7 +315,7 @@ final class RecordDeclaration extends EditableNode {
    * @return
    */
   public function getFields(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_fields);
+    return $this->_fields;
   }
 
   /**
@@ -351,7 +351,7 @@ final class RecordDeclaration extends EditableNode {
    * @return
    */
   public function getRightBrace(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_right_brace);
+    return $this->_right_brace;
   }
 
   /**

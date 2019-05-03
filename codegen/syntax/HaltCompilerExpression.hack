@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<30f4402aee96347ffe8a9cb7faabf840>>
+ * @generated SignedSource<<4ab3f4499a5f299252c265f80c264d30>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -205,14 +205,14 @@ final class HaltCompilerExpression extends EditableNode implements IExpression {
     if ($this->_argument_list->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_argument_list);
+    return $this->_argument_list;
   }
 
   /**
    * @return
    */
   public function getArgumentListx(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_argument_list);
+    return TypeAssert\not_null($this->getArgumentList());
   }
 
   public function getRightParenUNTYPED(): EditableNode {

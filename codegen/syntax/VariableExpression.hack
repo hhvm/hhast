@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6d807d3ab66b32903cff3f9eff49d6bd>>
+ * @generated SignedSource<<422a15c3e7c4a90d9d13ad7a1b8ecb0a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -82,7 +82,7 @@ final class VariableExpression extends EditableNode implements IExpression {
    * @return unknown
    */
   public function getExpression(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_expression);
+    return $this->_expression;
   }
 
   /**

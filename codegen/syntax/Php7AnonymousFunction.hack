@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<81c1122e32ae45e0cc308046275043cf>>
+ * @generated SignedSource<<32f9fe919a504147ec3190627c3e3273>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -270,14 +270,14 @@ final class Php7AnonymousFunction extends EditableNode {
     if ($this->_attribute_spec->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_attribute_spec);
+    return $this->_attribute_spec;
   }
 
   /**
    * @return
    */
   public function getAttributeSpecx(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_attribute_spec);
+    return TypeAssert\not_null($this->getAttributeSpec());
   }
 
   public function getStaticKeywordUNTYPED(): EditableNode {
@@ -315,14 +315,14 @@ final class Php7AnonymousFunction extends EditableNode {
     if ($this->_static_keyword->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_static_keyword);
+    return $this->_static_keyword;
   }
 
   /**
    * @return
    */
   public function getStaticKeywordx(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_static_keyword);
+    return TypeAssert\not_null($this->getStaticKeyword());
   }
 
   public function getAsyncKeywordUNTYPED(): EditableNode {
@@ -360,14 +360,14 @@ final class Php7AnonymousFunction extends EditableNode {
     if ($this->_async_keyword->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_async_keyword);
+    return $this->_async_keyword;
   }
 
   /**
    * @return
    */
   public function getAsyncKeywordx(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_async_keyword);
+    return TypeAssert\not_null($this->getAsyncKeyword());
   }
 
   public function getCoroutineKeywordUNTYPED(): EditableNode {
@@ -405,20 +405,14 @@ final class Php7AnonymousFunction extends EditableNode {
     if ($this->_coroutine_keyword->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(
-      EditableNode::class,
-      $this->_coroutine_keyword,
-    );
+    return $this->_coroutine_keyword;
   }
 
   /**
    * @return
    */
   public function getCoroutineKeywordx(): EditableNode {
-    return TypeAssert\instance_of(
-      EditableNode::class,
-      $this->_coroutine_keyword,
-    );
+    return TypeAssert\not_null($this->getCoroutineKeyword());
   }
 
   public function getFunctionKeywordUNTYPED(): EditableNode {
@@ -543,14 +537,14 @@ final class Php7AnonymousFunction extends EditableNode {
     if ($this->_parameters->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_parameters);
+    return $this->_parameters;
   }
 
   /**
    * @return
    */
   public function getParametersx(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_parameters);
+    return TypeAssert\not_null($this->getParameters());
   }
 
   public function getRightParenUNTYPED(): EditableNode {

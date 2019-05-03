@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<074be72f523ccb98ec2c221c72708df0>>
+ * @generated SignedSource<<60ddd860bd794ce3cf10bb8247682ec4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -94,7 +94,7 @@ final class ReifiedTypeArgument extends EditableNode {
    * @return
    */
   public function getReified(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_reified);
+    return $this->_reified;
   }
 
   /**
@@ -123,7 +123,7 @@ final class ReifiedTypeArgument extends EditableNode {
    * @return
    */
   public function getType(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_type);
+    return $this->_type;
   }
 
   /**

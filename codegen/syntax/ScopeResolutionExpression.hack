@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<82932684af6eeacced2b5d2cfc83e7f1>>
+ * @generated SignedSource<<2f2c564dee93ad797b7053c364a77b6d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -115,7 +115,7 @@ final class ScopeResolutionExpression
    * NameToken | ParentToken | SelfToken | StaticToken | VariableExpression
    */
   public function getQualifier(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_qualifier);
+    return $this->_qualifier;
   }
 
   /**
@@ -176,7 +176,7 @@ final class ScopeResolutionExpression
    * @return BracedExpression | ClassToken | NameToken | VariableToken
    */
   public function getName(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_name);
+    return $this->_name;
   }
 
   /**

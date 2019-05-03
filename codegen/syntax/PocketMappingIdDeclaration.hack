@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9d025d260aa42153260d681f12153ce9>>
+ * @generated SignedSource<<7b7f8dd51a888bbe8ca879f2b552adfc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -94,7 +94,7 @@ final class PocketMappingIdDeclaration extends EditableNode {
    * @return unknown
    */
   public function getName(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_name);
+    return $this->_name;
   }
 
   /**
@@ -123,7 +123,7 @@ final class PocketMappingIdDeclaration extends EditableNode {
    * @return unknown
    */
   public function getInitializer(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_initializer);
+    return $this->_initializer;
   }
 
   /**

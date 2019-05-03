@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d6bc1664d1500822dcb9aa54eb7e7a9c>>
+ * @generated SignedSource<<46f62185fed12b426a119eeb151e8c22>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -149,7 +149,7 @@ final class ContinueStatement extends EditableNode {
    * @return LiteralExpression
    */
   public function getLevelx(): LiteralExpression {
-    return TypeAssert\instance_of(LiteralExpression::class, $this->_level);
+    return TypeAssert\not_null($this->getLevel());
   }
 
   public function getSemicolonUNTYPED(): EditableNode {

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6c0a62491c12ceaa538e9120067709c2>>
+ * @generated SignedSource<<ca5868b8dd7cc60915c095d411c3e965>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -112,7 +112,7 @@ final class EmbeddedBracedExpression
    * @return unknown
    */
   public function getLeftBrace(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_left_brace);
+    return $this->_left_brace;
   }
 
   /**
@@ -141,7 +141,7 @@ final class EmbeddedBracedExpression
    * @return unknown
    */
   public function getExpression(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_expression);
+    return $this->_expression;
   }
 
   /**
@@ -170,7 +170,7 @@ final class EmbeddedBracedExpression
    * @return unknown
    */
   public function getRightBrace(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_right_brace);
+    return $this->_right_brace;
   }
 
   /**

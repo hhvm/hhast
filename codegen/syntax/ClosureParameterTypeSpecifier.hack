@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<62bac10c33cdffab49e212f92c675e70>>
+ * @generated SignedSource<<f618260a76a471769b4f1477a4e813d0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -106,7 +106,7 @@ final class ClosureParameterTypeSpecifier extends EditableNode {
    * @return InoutToken
    */
   public function getCallConventionx(): InoutToken {
-    return TypeAssert\instance_of(InoutToken::class, $this->_call_convention);
+    return TypeAssert\not_null($this->getCallConvention());
   }
 
   public function getTypeUNTYPED(): EditableNode {
@@ -130,7 +130,7 @@ final class ClosureParameterTypeSpecifier extends EditableNode {
    * TupleTypeSpecifier | TypeConstant
    */
   public function getType(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_type);
+    return $this->_type;
   }
 
   /**

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9c7b8f7a39e55897944263fde5ac227a>>
+ * @generated SignedSource<<4deb437a8b803a3420e58d79daa85c65>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -168,10 +168,7 @@ final class TypeParameter extends EditableNode {
    * @return AttributeSpecification
    */
   public function getAttributeSpecx(): AttributeSpecification {
-    return TypeAssert\instance_of(
-      AttributeSpecification::class,
-      $this->_attribute_spec,
-    );
+    return TypeAssert\not_null($this->getAttributeSpec());
   }
 
   public function getReifiedUNTYPED(): EditableNode {
@@ -209,7 +206,7 @@ final class TypeParameter extends EditableNode {
    * @return ReifyToken
    */
   public function getReifiedx(): ReifyToken {
-    return TypeAssert\instance_of(ReifyToken::class, $this->_reified);
+    return TypeAssert\not_null($this->getReified());
   }
 
   public function getVarianceUNTYPED(): EditableNode {
@@ -247,7 +244,7 @@ final class TypeParameter extends EditableNode {
    * @return PlusToken | MinusToken
    */
   public function getVariancex(): EditableToken {
-    return TypeAssert\instance_of(EditableToken::class, $this->_variance);
+    return TypeAssert\not_null($this->getVariance());
   }
 
   public function getNameUNTYPED(): EditableNode {
@@ -320,6 +317,6 @@ final class TypeParameter extends EditableNode {
    * @return EditableList<EditableNode>
    */
   public function getConstraintsx(): EditableList<EditableNode> {
-    return TypeAssert\instance_of(EditableList::class, $this->_constraints);
+    return TypeAssert\not_null($this->getConstraints());
   }
 }

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0653c3c1f72d5e779ab61c21fe5413e5>>
+ * @generated SignedSource<<c9b97e43c017c5971ecb203e3b39b66b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,9 +39,6 @@ final class InstanceofExpression extends EditableNode implements IExpression {
       $offset,
       $source,
     );
-    $left_operand = $left_operand->isMissing()
-      ? $left_operand
-      : __Private\Wrap\wrap_IExpression($left_operand);
     $offset += $left_operand->getWidth();
     $operator = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['instanceof_operator'],
@@ -56,9 +53,6 @@ final class InstanceofExpression extends EditableNode implements IExpression {
       $offset,
       $source,
     );
-    $right_operand = $right_operand->isMissing()
-      ? $right_operand
-      : __Private\Wrap\wrap_IExpression($right_operand);
     $offset += $right_operand->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -118,8 +112,9 @@ final class InstanceofExpression extends EditableNode implements IExpression {
    * ParenthesizedExpression | PipeVariableExpression | PrefixUnaryExpression |
    * ScopeResolutionExpression | SubscriptExpression | VariableExpression
    */
+  <<__Memoize>>
   public function getLeftOperand(): IExpression {
-    return TypeAssert\instance_of(IExpression::class, $this->_left_operand);
+    return __Private\Wrap\wrap_IExpression($this->_left_operand);
   }
 
   /**
@@ -181,8 +176,9 @@ final class InstanceofExpression extends EditableNode implements IExpression {
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
    * NameToken | VariableExpression
    */
+  <<__Memoize>>
   public function getRightOperand(): IExpression {
-    return TypeAssert\instance_of(IExpression::class, $this->_right_operand);
+    return __Private\Wrap\wrap_IExpression($this->_right_operand);
   }
 
   /**

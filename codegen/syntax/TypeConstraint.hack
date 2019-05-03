@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<923506cff0af4a752263a8dced164b56>>
+ * @generated SignedSource<<1c36b6e6843aae360f234e9ac29e95e7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -126,7 +126,7 @@ final class TypeConstraint extends EditableNode {
    * VectorTypeSpecifier
    */
   public function getType(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_type);
+    return $this->_type;
   }
 
   /**

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9052f4d89d1131b7477ecd31c54c7056>>
+ * @generated SignedSource<<22aaf8e8900e32a5c5909b124c465436>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -149,7 +149,7 @@ final class ClassishBody extends EditableNode {
    * @return EditableList<EditableNode>
    */
   public function getElementsx(): EditableList<EditableNode> {
-    return TypeAssert\instance_of(EditableList::class, $this->_elements);
+    return TypeAssert\not_null($this->getElements());
   }
 
   public function getRightBraceUNTYPED(): EditableNode {

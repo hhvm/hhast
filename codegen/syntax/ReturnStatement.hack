@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<37c533af5902a807c1cb62f6eccf5a48>>
+ * @generated SignedSource<<ce332653bc8b17e180b0b48389f85771>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -46,9 +46,6 @@ final class ReturnStatement extends EditableNode {
       $offset,
       $source,
     );
-    $expression = $expression->isMissing()
-      ? $expression
-      : __Private\Wrap\wrap_IExpression($expression);
     $offset += $expression->getWidth();
     $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['return_semicolon'],
@@ -154,11 +151,12 @@ final class ReturnStatement extends EditableNode {
    * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
    * | XHPExpression | YieldFromExpression
    */
+  <<__Memoize>>
   public function getExpression(): ?IExpression {
     if ($this->_expression->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(IExpression::class, $this->_expression);
+    return __Private\Wrap\wrap_IExpression($this->_expression);
   }
 
   /**
@@ -177,7 +175,7 @@ final class ReturnStatement extends EditableNode {
    * | XHPExpression | YieldFromExpression
    */
   public function getExpressionx(): IExpression {
-    return TypeAssert\instance_of(IExpression::class, $this->_expression);
+    return TypeAssert\not_null($this->getExpression());
   }
 
   public function getSemicolonUNTYPED(): EditableNode {

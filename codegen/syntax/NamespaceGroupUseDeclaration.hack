@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e08e8e72fcdd3e2ccde1790d955aa994>>
+ * @generated SignedSource<<c93a9587b7c8e0e1ae0cfddc04a045d5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -236,7 +236,7 @@ final class NamespaceGroupUseDeclaration
    * @return ConstToken | FunctionToken | NamespaceToken | TypeToken
    */
   public function getKindx(): EditableToken {
-    return TypeAssert\instance_of(EditableToken::class, $this->_kind);
+    return TypeAssert\not_null($this->getKind());
   }
 
   public function getPrefixUNTYPED(): EditableNode {

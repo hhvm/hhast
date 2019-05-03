@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f23664fdce2724168985ac5708b31e64>>
+ * @generated SignedSource<<f743f9e4325663858e9f0031ef19f541>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -110,7 +110,7 @@ final class XHPChildrenParenthesizedList extends EditableNode {
    * @return unknown
    */
   public function getLeftParen(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_left_paren);
+    return $this->_left_paren;
   }
 
   /**
@@ -139,7 +139,7 @@ final class XHPChildrenParenthesizedList extends EditableNode {
    * @return unknown
    */
   public function getXhpChildren(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_xhp_children);
+    return $this->_xhp_children;
   }
 
   /**
@@ -168,7 +168,7 @@ final class XHPChildrenParenthesizedList extends EditableNode {
    * @return unknown
    */
   public function getRightParen(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_right_paren);
+    return $this->_right_paren;
   }
 
   /**

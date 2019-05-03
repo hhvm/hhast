@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fb2cb094c568c3d354d74a53321f9c72>>
+ * @generated SignedSource<<46b57220644b43dde66004a97ff73ca6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -113,14 +113,14 @@ final class VariadicParameter extends EditableNode {
     if ($this->_call_convention->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_call_convention);
+    return $this->_call_convention;
   }
 
   /**
    * @return
    */
   public function getCallConventionx(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_call_convention);
+    return TypeAssert\not_null($this->getCallConvention());
   }
 
   public function getTypeUNTYPED(): EditableNode {
@@ -146,14 +146,14 @@ final class VariadicParameter extends EditableNode {
     if ($this->_type->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_type);
+    return $this->_type;
   }
 
   /**
    * @return ClosureTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier
    */
   public function getTypex(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_type);
+    return TypeAssert\not_null($this->getType());
   }
 
   public function getEllipsisUNTYPED(): EditableNode {

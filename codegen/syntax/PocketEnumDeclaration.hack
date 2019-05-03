@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e8539fce9137c9986eb4f9bf5f896a8d>>
+ * @generated SignedSource<<8d8f90671dfa72e0175fb50adb99ef62>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -171,7 +171,7 @@ final class PocketEnumDeclaration extends EditableNode {
    * @return unknown
    */
   public function getModifiers(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_modifiers);
+    return $this->_modifiers;
   }
 
   /**
@@ -207,7 +207,7 @@ final class PocketEnumDeclaration extends EditableNode {
    * @return unknown
    */
   public function getEnum(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_enum);
+    return $this->_enum;
   }
 
   /**
@@ -243,7 +243,7 @@ final class PocketEnumDeclaration extends EditableNode {
    * @return unknown
    */
   public function getName(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_name);
+    return $this->_name;
   }
 
   /**
@@ -279,7 +279,7 @@ final class PocketEnumDeclaration extends EditableNode {
    * @return unknown
    */
   public function getLeftBrace(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_left_brace);
+    return $this->_left_brace;
   }
 
   /**
@@ -315,7 +315,7 @@ final class PocketEnumDeclaration extends EditableNode {
    * @return unknown
    */
   public function getFields(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_fields);
+    return $this->_fields;
   }
 
   /**
@@ -351,7 +351,7 @@ final class PocketEnumDeclaration extends EditableNode {
    * @return unknown
    */
   public function getRightBrace(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_right_brace);
+    return $this->_right_brace;
   }
 
   /**

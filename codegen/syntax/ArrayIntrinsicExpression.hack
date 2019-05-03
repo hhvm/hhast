@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b8101946f6465c29d49ded4c07c37c65>>
+ * @generated SignedSource<<1aaa00ef5f2db1d037b29e57c5f47341>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -240,7 +240,7 @@ final class ArrayIntrinsicExpression
    * EditableList<VectorIntrinsicExpression>
    */
   public function getMembersx(): EditableList<EditableNode> {
-    return TypeAssert\instance_of(EditableList::class, $this->_members);
+    return TypeAssert\not_null($this->getMembers());
   }
 
   public function getRightParenUNTYPED(): EditableNode {

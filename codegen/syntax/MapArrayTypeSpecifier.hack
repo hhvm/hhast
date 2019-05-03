@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7f8e700493428adfd9589d799ba2f570>>
+ * @generated SignedSource<<3f014ea73a255ea74d74d4dacf6126a3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -319,7 +319,7 @@ final class MapArrayTypeSpecifier extends EditableNode {
     if ($this->_value->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_value);
+    return $this->_value;
   }
 
   /**
@@ -327,7 +327,7 @@ final class MapArrayTypeSpecifier extends EditableNode {
    * | SimpleTypeSpecifier | SoftTypeSpecifier
    */
   public function getValuex(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_value);
+    return TypeAssert\not_null($this->getValue());
   }
 
   public function getRightAngleUNTYPED(): EditableNode {

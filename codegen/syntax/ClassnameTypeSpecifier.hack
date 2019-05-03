@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8f1a8d841cc1393133e1fc2ff11375f0>>
+ * @generated SignedSource<<22ea190eea0ac627a673e2cd50944428>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -200,7 +200,7 @@ final class ClassnameTypeSpecifier extends EditableNode {
    * @return LessThanToken
    */
   public function getLeftAnglex(): LessThanToken {
-    return TypeAssert\instance_of(LessThanToken::class, $this->_left_angle);
+    return TypeAssert\not_null($this->getLeftAngle());
   }
 
   public function getTypeUNTYPED(): EditableNode {
@@ -231,14 +231,14 @@ final class ClassnameTypeSpecifier extends EditableNode {
     if ($this->_type->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_type);
+    return $this->_type;
   }
 
   /**
    * @return GenericTypeSpecifier | SimpleTypeSpecifier | TypeConstant
    */
   public function getTypex(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_type);
+    return TypeAssert\not_null($this->getType());
   }
 
   public function getTrailingCommaUNTYPED(): EditableNode {
@@ -269,14 +269,14 @@ final class ClassnameTypeSpecifier extends EditableNode {
     if ($this->_trailing_comma->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_trailing_comma);
+    return $this->_trailing_comma;
   }
 
   /**
    * @return
    */
   public function getTrailingCommax(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_trailing_comma);
+    return TypeAssert\not_null($this->getTrailingComma());
   }
 
   public function getRightAngleUNTYPED(): EditableNode {
@@ -314,6 +314,6 @@ final class ClassnameTypeSpecifier extends EditableNode {
    * @return GreaterThanToken
    */
   public function getRightAnglex(): GreaterThanToken {
-    return TypeAssert\instance_of(GreaterThanToken::class, $this->_right_angle);
+    return TypeAssert\not_null($this->getRightAngle());
   }
 }

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6282aaf82e5cae32acaff7092595fa25>>
+ * @generated SignedSource<<89ca6f70b4aea15dfc73cf2e42263518>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,9 +41,6 @@ final class MemberSelectionExpression
       $offset,
       $source,
     );
-    $object = $object->isMissing()
-      ? $object
-      : __Private\Wrap\wrap_IExpression($object);
     $offset += $object->getWidth();
     $operator = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['member_operator'],
@@ -117,8 +114,9 @@ final class MemberSelectionExpression
    * PipeVariableExpression | SafeMemberSelectionExpression |
    * ScopeResolutionExpression | SubscriptExpression | VariableExpression
    */
+  <<__Memoize>>
   public function getObject(): IExpression {
-    return TypeAssert\instance_of(IExpression::class, $this->_object);
+    return __Private\Wrap\wrap_IExpression($this->_object);
   }
 
   /**
@@ -182,7 +180,7 @@ final class MemberSelectionExpression
    * @return BracedExpression | XHPClassNameToken | NameToken | VariableToken
    */
   public function getName(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_name);
+    return $this->_name;
   }
 
   /**

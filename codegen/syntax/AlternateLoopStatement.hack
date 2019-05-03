@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<893006b594e5d7ec63f656626b36245f>>
+ * @generated SignedSource<<20d9311dffa254c1ec36af551d40ab4e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -185,7 +185,7 @@ abstract class AlternateLoopStatementGeneratedBase
    * @return EditableList<EditableNode>
    */
   public function getStatementsx(): EditableList<EditableNode> {
-    return TypeAssert\instance_of(EditableList::class, $this->_statements);
+    return TypeAssert\not_null($this->getStatements());
   }
 
   public function getClosingKeywordUNTYPED(): EditableNode {

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<01fac83c1e3d43cdf0dc07354ad5afd2>>
+ * @generated SignedSource<<615cd091d52d48a53f26f7c5c3d0901b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -154,10 +154,7 @@ final class MethodishDeclaration
    * @return AttributeSpecification
    */
   public function getAttributex(): AttributeSpecification {
-    return TypeAssert\instance_of(
-      AttributeSpecification::class,
-      $this->_attribute,
-    );
+    return TypeAssert\not_null($this->getAttribute());
   }
 
   public function getFunctionDeclHeaderUNTYPED(): EditableNode {
@@ -234,10 +231,7 @@ final class MethodishDeclaration
    * @return CompoundStatement
    */
   public function getFunctionBodyx(): CompoundStatement {
-    return TypeAssert\instance_of(
-      CompoundStatement::class,
-      $this->_function_body,
-    );
+    return TypeAssert\not_null($this->getFunctionBody());
   }
 
   public function getSemicolonUNTYPED(): EditableNode {
@@ -274,6 +268,6 @@ final class MethodishDeclaration
    * @return SemicolonToken
    */
   public function getSemicolonx(): SemicolonToken {
-    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
+    return TypeAssert\not_null($this->getSemicolon());
   }
 }

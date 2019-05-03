@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5bd9502049f7b7f015deedeefcc1eb3e>>
+ * @generated SignedSource<<5c7a786773fc55bf5946c51700157e59>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -112,7 +112,7 @@ final class EmbeddedMemberSelectionExpression
    * @return unknown
    */
   public function getObject(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_object);
+    return $this->_object;
   }
 
   /**
@@ -141,7 +141,7 @@ final class EmbeddedMemberSelectionExpression
    * @return unknown
    */
   public function getOperator(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_operator);
+    return $this->_operator;
   }
 
   /**
@@ -170,7 +170,7 @@ final class EmbeddedMemberSelectionExpression
    * @return unknown
    */
   public function getName(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_name);
+    return $this->_name;
   }
 
   /**

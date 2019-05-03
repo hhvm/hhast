@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<47137bcf7bd59798b1a72da0e91d192a>>
+ * @generated SignedSource<<b4b723c098d9bcfdfb7ddd4ab97c29b9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -134,7 +134,7 @@ final class TraitUseAliasItem extends EditableNode {
    * @return ScopeResolutionExpression | SimpleTypeSpecifier
    */
   public function getAliasingName(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_aliasing_name);
+    return $this->_aliasing_name;
   }
 
   /**
@@ -212,7 +212,7 @@ final class TraitUseAliasItem extends EditableNode {
    * @return EditableList<EditableNode>
    */
   public function getModifiersx(): EditableList<EditableNode> {
-    return TypeAssert\instance_of(EditableList::class, $this->_modifiers);
+    return TypeAssert\not_null($this->getModifiers());
   }
 
   public function getAliasedNameUNTYPED(): EditableNode {
@@ -252,9 +252,6 @@ final class TraitUseAliasItem extends EditableNode {
    * @return SimpleTypeSpecifier
    */
   public function getAliasedNamex(): SimpleTypeSpecifier {
-    return TypeAssert\instance_of(
-      SimpleTypeSpecifier::class,
-      $this->_aliased_name,
-    );
+    return TypeAssert\not_null($this->getAliasedName());
   }
 }

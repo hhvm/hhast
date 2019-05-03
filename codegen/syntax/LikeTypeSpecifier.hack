@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7ee4b3a313e04d3d8d10e120452c6d50>>
+ * @generated SignedSource<<243131398b8214dd4256e6a543c100ea>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -124,7 +124,7 @@ final class LikeTypeSpecifier extends EditableNode {
    * | SimpleTypeSpecifier | TypeConstant
    */
   public function getType(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_type);
+    return $this->_type;
   }
 
   /**

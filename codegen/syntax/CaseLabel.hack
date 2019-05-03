@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e8ed30ffe23852b54d23e15095ca1c69>>
+ * @generated SignedSource<<d3b15101e416e0461b87e7883316f5bc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -46,9 +46,6 @@ final class CaseLabel extends EditableNode {
       $offset,
       $source,
     );
-    $expression = $expression->isMissing()
-      ? $expression
-      : __Private\Wrap\wrap_IExpression($expression);
     $offset += $expression->getWidth();
     $colon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['case_colon'],
@@ -144,8 +141,9 @@ final class CaseLabel extends EditableNode {
    * PrefixUnaryExpression | ScopeResolutionExpression | NameToken |
    * VariableExpression
    */
+  <<__Memoize>>
   public function getExpression(): IExpression {
-    return TypeAssert\instance_of(IExpression::class, $this->_expression);
+    return __Private\Wrap\wrap_IExpression($this->_expression);
   }
 
   /**

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6ac8925f19d908f3a7e7fa0de60ba45d>>
+ * @generated SignedSource<<9ea0dca508b7aa2341e62d4dc90f168d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -130,7 +130,7 @@ final class XHPClassAttribute extends EditableNode {
    * XHPEnumType
    */
   public function getType(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_type);
+    return $this->_type;
   }
 
   /**
@@ -208,10 +208,7 @@ final class XHPClassAttribute extends EditableNode {
    * @return SimpleInitializer
    */
   public function getInitializerx(): SimpleInitializer {
-    return TypeAssert\instance_of(
-      SimpleInitializer::class,
-      $this->_initializer,
-    );
+    return TypeAssert\not_null($this->getInitializer());
   }
 
   public function getRequiredUNTYPED(): EditableNode {
@@ -243,6 +240,6 @@ final class XHPClassAttribute extends EditableNode {
    * @return XHPRequired
    */
   public function getRequiredx(): XHPRequired {
-    return TypeAssert\instance_of(XHPRequired::class, $this->_required);
+    return TypeAssert\not_null($this->getRequired());
   }
 }

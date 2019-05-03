@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<df70e8ec2d05754900a26d4556dcfbd5>>
+ * @generated SignedSource<<2a462fa6e61c0e5fc4349edcb7b654b5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -125,10 +125,7 @@ final class FunctionDeclaration
    * @return AttributeSpecification
    */
   public function getAttributeSpecx(): AttributeSpecification {
-    return TypeAssert\instance_of(
-      AttributeSpecification::class,
-      $this->_attribute_spec,
-    );
+    return TypeAssert\not_null($this->getAttributeSpec());
   }
 
   public function getDeclarationHeaderUNTYPED(): EditableNode {
@@ -186,7 +183,7 @@ final class FunctionDeclaration
    * @return CompoundStatement | SemicolonToken
    */
   public function getBody(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_body);
+    return $this->_body;
   }
 
   /**

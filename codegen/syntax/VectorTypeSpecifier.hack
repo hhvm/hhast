@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<967fb1b01d79b650ff67fdcfd4a7935c>>
+ * @generated SignedSource<<739e05a8fbb0477894e04a48cbb56abb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -228,7 +228,7 @@ final class VectorTypeSpecifier extends EditableNode {
    * TupleTypeSpecifier | VectorTypeSpecifier
    */
   public function getType(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_type);
+    return $this->_type;
   }
 
   /**
@@ -269,14 +269,14 @@ final class VectorTypeSpecifier extends EditableNode {
     if ($this->_trailing_comma->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_trailing_comma);
+    return $this->_trailing_comma;
   }
 
   /**
    * @return
    */
   public function getTrailingCommax(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_trailing_comma);
+    return TypeAssert\not_null($this->getTrailingComma());
   }
 
   public function getRightAngleUNTYPED(): EditableNode {

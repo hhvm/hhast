@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a6e92745b36de24aee60126e1aa7d585>>
+ * @generated SignedSource<<5899fafe5922f31b5e0c865dc4dfaf2c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -232,10 +232,7 @@ final class EnumDeclaration extends EditableNode {
    * @return AttributeSpecification
    */
   public function getAttributeSpecx(): AttributeSpecification {
-    return TypeAssert\instance_of(
-      AttributeSpecification::class,
-      $this->_attribute_spec,
-    );
+    return TypeAssert\not_null($this->getAttributeSpec());
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -384,7 +381,7 @@ final class EnumDeclaration extends EditableNode {
    * @return ClassnameTypeSpecifier | GenericTypeSpecifier | SimpleTypeSpecifier
    */
   public function getBase(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_base);
+    return $this->_base;
   }
 
   /**
@@ -433,7 +430,7 @@ final class EnumDeclaration extends EditableNode {
    * @return TypeConstraint
    */
   public function getTypex(): TypeConstraint {
-    return TypeAssert\instance_of(TypeConstraint::class, $this->_type);
+    return TypeAssert\not_null($this->getType());
   }
 
   public function getLeftBraceUNTYPED(): EditableNode {
@@ -514,7 +511,7 @@ final class EnumDeclaration extends EditableNode {
    * @return EditableList<EditableNode>
    */
   public function getEnumeratorsx(): EditableList<EditableNode> {
-    return TypeAssert\instance_of(EditableList::class, $this->_enumerators);
+    return TypeAssert\not_null($this->getEnumerators());
   }
 
   public function getRightBraceUNTYPED(): EditableNode {

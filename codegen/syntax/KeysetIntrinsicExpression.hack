@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9a32a3cf6d39a9b083a826551faadd7b>>
+ * @generated SignedSource<<6a6cca8920a8d93dd5bf23307062c132>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -202,7 +202,7 @@ final class KeysetIntrinsicExpression
    * @return TypeArguments
    */
   public function getExplicitTypex(): TypeArguments {
-    return TypeAssert\instance_of(TypeArguments::class, $this->_explicit_type);
+    return TypeAssert\not_null($this->getExplicitType());
   }
 
   public function getLeftBracketUNTYPED(): EditableNode {
@@ -282,7 +282,7 @@ final class KeysetIntrinsicExpression
    * EditableList<ScopeResolutionExpression> | EditableList<NameToken>
    */
   public function getMembersx(): EditableList<IExpression> {
-    return TypeAssert\instance_of(EditableList::class, $this->_members);
+    return TypeAssert\not_null($this->getMembers());
   }
 
   public function getRightBracketUNTYPED(): EditableNode {

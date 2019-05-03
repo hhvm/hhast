@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<58d8f3136d5be860e56c80abdb66176d>>
+ * @generated SignedSource<<f02204420db18c355686f673deb91e61>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -43,9 +43,6 @@ final class InclusionExpression extends EditableNode implements IExpression {
       $offset,
       $source,
     );
-    $filename = $filename->isMissing()
-      ? $filename
-      : __Private\Wrap\wrap_IExpression($filename);
     $offset += $filename->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -126,8 +123,9 @@ final class InclusionExpression extends EditableNode implements IExpression {
    * @return BinaryExpression | LiteralExpression | ParenthesizedExpression |
    * SubscriptExpression | NameToken | VariableExpression
    */
+  <<__Memoize>>
   public function getFilename(): IExpression {
-    return TypeAssert\instance_of(IExpression::class, $this->_filename);
+    return __Private\Wrap\wrap_IExpression($this->_filename);
   }
 
   /**

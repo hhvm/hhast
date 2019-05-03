@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<335665cfa69b91e76494f8553beaaeef>>
+ * @generated SignedSource<<4fcf688cfe9e38b233931aa0bcabbe6e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,7 +39,6 @@ final class ElementInitializer extends EditableNode {
       $offset,
       $source,
     );
-    $key = $key->isMissing() ? $key : __Private\Wrap\wrap_IExpression($key);
     $offset += $key->getWidth();
     $arrow = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['element_arrow'],
@@ -54,9 +53,6 @@ final class ElementInitializer extends EditableNode {
       $offset,
       $source,
     );
-    $value = $value->isMissing()
-      ? $value
-      : __Private\Wrap\wrap_IExpression($value);
     $offset += $value->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -118,8 +114,9 @@ final class ElementInitializer extends EditableNode {
    * ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression
    */
+  <<__Memoize>>
   public function getKey(): IExpression {
-    return TypeAssert\instance_of(IExpression::class, $this->_key);
+    return __Private\Wrap\wrap_IExpression($this->_key);
   }
 
   /**
@@ -190,8 +187,9 @@ final class ElementInitializer extends EditableNode {
    * NameToken | TupleExpression | VariableExpression |
    * VarrayIntrinsicExpression | VectorIntrinsicExpression
    */
+  <<__Memoize>>
   public function getValue(): IExpression {
-    return TypeAssert\instance_of(IExpression::class, $this->_value);
+    return __Private\Wrap\wrap_IExpression($this->_value);
   }
 
   /**

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ffe04b54e9486a58ac36af1182873f31>>
+ * @generated SignedSource<<bed5fdaf9b7265bf7eab0d50daa3203f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -133,7 +133,7 @@ final class NamespaceUseClause extends EditableNode {
    * @return ConstToken | FunctionToken
    */
   public function getClauseKindx(): EditableToken {
-    return TypeAssert\instance_of(EditableToken::class, $this->_clause_kind);
+    return TypeAssert\not_null($this->getClauseKind());
   }
 
   public function getNameUNTYPED(): EditableNode {
@@ -194,7 +194,7 @@ final class NamespaceUseClause extends EditableNode {
    * @return AsToken
    */
   public function getAsx(): AsToken {
-    return TypeAssert\instance_of(AsToken::class, $this->_as);
+    return TypeAssert\not_null($this->getAs());
   }
 
   public function getAliasUNTYPED(): EditableNode {
@@ -226,6 +226,6 @@ final class NamespaceUseClause extends EditableNode {
    * @return NameToken
    */
   public function getAliasx(): NameToken {
-    return TypeAssert\instance_of(NameToken::class, $this->_alias);
+    return TypeAssert\not_null($this->getAlias());
   }
 }

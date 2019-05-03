@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<200fcbc78bc2254414dbecf64a91ee53>>
+ * @generated SignedSource<<3f615154498fa82ec8f1577c83d824c0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -63,9 +63,6 @@ final class CastExpression extends EditableNode implements IExpression {
       $offset,
       $source,
     );
-    $operand = $operand->isMissing()
-      ? $operand
-      : __Private\Wrap\wrap_IExpression($operand);
     $offset += $operand->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -242,8 +239,9 @@ final class CastExpression extends EditableNode implements IExpression {
    * PostfixUnaryExpression | PrefixUnaryExpression | ScopeResolutionExpression
    * | SubscriptExpression | NameToken | VariableExpression | XHPExpression
    */
+  <<__Memoize>>
   public function getOperand(): IExpression {
-    return TypeAssert\instance_of(IExpression::class, $this->_operand);
+    return __Private\Wrap\wrap_IExpression($this->_operand);
   }
 
   /**

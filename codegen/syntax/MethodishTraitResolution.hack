@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<081c3937e8dbf2dc61dc11fc216b7e46>>
+ * @generated SignedSource<<f716496c1d93445187f397af19fdfdc3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -158,14 +158,14 @@ final class MethodishTraitResolution extends EditableNode {
     if ($this->_attribute->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_attribute);
+    return $this->_attribute;
   }
 
   /**
    * @return
    */
   public function getAttributex(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_attribute);
+    return TypeAssert\not_null($this->getAttribute());
   }
 
   public function getFunctionDeclHeaderUNTYPED(): EditableNode {

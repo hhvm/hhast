@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3400c63b5c4ff5a8dce500a165cd977b>>
+ * @generated SignedSource<<635f25e7cd5a9979094e2b43d189f215>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -184,10 +184,7 @@ final class LambdaExpression extends EditableNode implements IExpression {
    * @return AttributeSpecification
    */
   public function getAttributeSpecx(): AttributeSpecification {
-    return TypeAssert\instance_of(
-      AttributeSpecification::class,
-      $this->_attribute_spec,
-    );
+    return TypeAssert\not_null($this->getAttributeSpec());
   }
 
   public function getAsyncUNTYPED(): EditableNode {
@@ -226,7 +223,7 @@ final class LambdaExpression extends EditableNode implements IExpression {
    * @return AsyncToken
    */
   public function getAsyncx(): AsyncToken {
-    return TypeAssert\instance_of(AsyncToken::class, $this->_async);
+    return TypeAssert\not_null($this->getAsync());
   }
 
   public function getCoroutineUNTYPED(): EditableNode {
@@ -258,14 +255,14 @@ final class LambdaExpression extends EditableNode implements IExpression {
     if ($this->_coroutine->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_coroutine);
+    return $this->_coroutine;
   }
 
   /**
    * @return
    */
   public function getCoroutinex(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_coroutine);
+    return TypeAssert\not_null($this->getCoroutine());
   }
 
   public function getSignatureUNTYPED(): EditableNode {
@@ -294,7 +291,7 @@ final class LambdaExpression extends EditableNode implements IExpression {
    * @return LambdaSignature | VariableToken
    */
   public function getSignature(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_signature);
+    return $this->_signature;
   }
 
   /**
@@ -375,7 +372,7 @@ final class LambdaExpression extends EditableNode implements IExpression {
    * | SubscriptExpression | VariableExpression
    */
   public function getBody(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_body);
+    return $this->_body;
   }
 
   /**

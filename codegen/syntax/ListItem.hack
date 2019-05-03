@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<335a93aac915e444e0bc4d24902802e6>>
+ * @generated SignedSource<<4db591acd10c3cc8dedae04131ba7f53>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -122,7 +122,7 @@ final class ListItem extends EditableNode {
     if ($this->_item->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_item);
+    return $this->_item;
   }
 
   /**
@@ -153,7 +153,7 @@ final class ListItem extends EditableNode {
    * XHPExpression | XHPSimpleClassAttribute
    */
   public function getItemx(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_item);
+    return TypeAssert\not_null($this->getItem());
   }
 
   public function getSeparatorUNTYPED(): EditableNode {
@@ -185,6 +185,6 @@ final class ListItem extends EditableNode {
    * @return CommaToken | SemicolonToken | BackslashToken
    */
   public function getSeparatorx(): EditableToken {
-    return TypeAssert\instance_of(EditableToken::class, $this->_separator);
+    return TypeAssert\not_null($this->getSeparator());
   }
 }

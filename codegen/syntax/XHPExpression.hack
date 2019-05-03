@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e5163e53c1c5e4b659cea32622658fcc>>
+ * @generated SignedSource<<603dc92b3659cacb335d66e419f8d007>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -149,7 +149,7 @@ final class XHPExpression extends EditableNode implements IExpression {
    * @return EditableList<EditableNode>
    */
   public function getBodyx(): EditableList<EditableNode> {
-    return TypeAssert\instance_of(EditableList::class, $this->_body);
+    return TypeAssert\not_null($this->getBody());
   }
 
   public function getCloseUNTYPED(): EditableNode {
@@ -181,6 +181,6 @@ final class XHPExpression extends EditableNode implements IExpression {
    * @return XHPClose
    */
   public function getClosex(): XHPClose {
-    return TypeAssert\instance_of(XHPClose::class, $this->_close);
+    return TypeAssert\not_null($this->getClose());
   }
 }

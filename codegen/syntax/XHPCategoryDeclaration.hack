@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ad8d71416667530c447dbf3f5639b74c>>
+ * @generated SignedSource<<7e47cf173c27eff68eaaf762283a5616>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -110,7 +110,7 @@ final class XHPCategoryDeclaration extends EditableNode {
    * @return unknown
    */
   public function getKeyword(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_keyword);
+    return $this->_keyword;
   }
 
   /**
@@ -139,7 +139,7 @@ final class XHPCategoryDeclaration extends EditableNode {
    * @return unknown
    */
   public function getCategories(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_categories);
+    return $this->_categories;
   }
 
   /**
@@ -168,7 +168,7 @@ final class XHPCategoryDeclaration extends EditableNode {
    * @return unknown
    */
   public function getSemicolon(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_semicolon);
+    return $this->_semicolon;
   }
 
   /**

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bdd89f2fa923fc37c03bcb54da01ff3e>>
+ * @generated SignedSource<<b603ba10820c26d0beb9e0f66dbff4e9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -152,14 +152,14 @@ final class XHPEnumType extends EditableNode {
     if ($this->_optional->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_optional);
+    return $this->_optional;
   }
 
   /**
    * @return
    */
   public function getOptionalx(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_optional);
+    return TypeAssert\not_null($this->getOptional());
   }
 
   public function getKeywordUNTYPED(): EditableNode {

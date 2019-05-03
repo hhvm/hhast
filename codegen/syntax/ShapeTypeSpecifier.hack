@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<78f157dd952a84bd1f65a9c09db893c2>>
+ * @generated SignedSource<<e04f5ed87928a59bfd74e5289d9d6368>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -229,7 +229,7 @@ final class ShapeTypeSpecifier extends EditableNode {
    * @return EditableList<FieldSpecifier>
    */
   public function getFieldsx(): EditableList<FieldSpecifier> {
-    return TypeAssert\instance_of(EditableList::class, $this->_fields);
+    return TypeAssert\not_null($this->getFields());
   }
 
   public function getEllipsisUNTYPED(): EditableNode {
@@ -267,7 +267,7 @@ final class ShapeTypeSpecifier extends EditableNode {
    * @return DotDotDotToken
    */
   public function getEllipsisx(): DotDotDotToken {
-    return TypeAssert\instance_of(DotDotDotToken::class, $this->_ellipsis);
+    return TypeAssert\not_null($this->getEllipsis());
   }
 
   public function getRightParenUNTYPED(): EditableNode {

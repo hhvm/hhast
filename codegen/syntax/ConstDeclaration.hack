@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<16bb57221210ca19cbd9d5f7e7cc72a2>>
+ * @generated SignedSource<<de3093c772271c4fda08dac4d6de11a4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -181,7 +181,7 @@ final class ConstDeclaration extends EditableNode {
    * @return ProtectedToken | PublicToken
    */
   public function getVisibilityx(): EditableToken {
-    return TypeAssert\instance_of(EditableToken::class, $this->_visibility);
+    return TypeAssert\not_null($this->getVisibility());
   }
 
   public function getAbstractUNTYPED(): EditableNode {
@@ -220,7 +220,7 @@ final class ConstDeclaration extends EditableNode {
    * @return AbstractToken
    */
   public function getAbstractx(): AbstractToken {
-    return TypeAssert\instance_of(AbstractToken::class, $this->_abstract);
+    return TypeAssert\not_null($this->getAbstract());
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -291,7 +291,7 @@ final class ConstDeclaration extends EditableNode {
     if ($this->_type_specifier->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_type_specifier);
+    return $this->_type_specifier;
   }
 
   /**
@@ -301,7 +301,7 @@ final class ConstDeclaration extends EditableNode {
    * VectorTypeSpecifier
    */
   public function getTypeSpecifierx(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_type_specifier);
+    return TypeAssert\not_null($this->getTypeSpecifier());
   }
 
   public function getDeclaratorsUNTYPED(): EditableNode {

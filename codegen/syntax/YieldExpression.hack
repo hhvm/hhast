@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0c640929082cf593b4b580d2c52af9db>>
+ * @generated SignedSource<<b8fca9ad0c8a9654d0f5ab8fcf0f39bf>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -132,7 +132,7 @@ final class YieldExpression extends EditableNode implements IExpression {
     if ($this->_operand->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_operand);
+    return $this->_operand;
   }
 
   /**
@@ -144,6 +144,6 @@ final class YieldExpression extends EditableNode implements IExpression {
    * TupleExpression | VariableExpression
    */
   public function getOperandx(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_operand);
+    return TypeAssert\not_null($this->getOperand());
   }
 }

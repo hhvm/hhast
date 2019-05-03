@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c3f93ffc61f1a3fc12dd99feedbfc5aa>>
+ * @generated SignedSource<<6460d8a965fe365bc9fecbde17f25816>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -219,7 +219,7 @@ final class AnonymousClass extends EditableNode {
    * @return unknown
    */
   public function getClassKeyword(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_class_keyword);
+    return $this->_class_keyword;
   }
 
   /**
@@ -258,7 +258,7 @@ final class AnonymousClass extends EditableNode {
    * @return unknown
    */
   public function getLeftParen(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_left_paren);
+    return $this->_left_paren;
   }
 
   /**
@@ -297,7 +297,7 @@ final class AnonymousClass extends EditableNode {
    * @return unknown
    */
   public function getArgumentList(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_argument_list);
+    return $this->_argument_list;
   }
 
   /**
@@ -336,7 +336,7 @@ final class AnonymousClass extends EditableNode {
    * @return unknown
    */
   public function getRightParen(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_right_paren);
+    return $this->_right_paren;
   }
 
   /**
@@ -375,7 +375,7 @@ final class AnonymousClass extends EditableNode {
    * @return unknown
    */
   public function getExtendsKeyword(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_extends_keyword);
+    return $this->_extends_keyword;
   }
 
   /**
@@ -414,7 +414,7 @@ final class AnonymousClass extends EditableNode {
    * @return unknown
    */
   public function getExtendsList(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_extends_list);
+    return $this->_extends_list;
   }
 
   /**
@@ -453,10 +453,7 @@ final class AnonymousClass extends EditableNode {
    * @return unknown
    */
   public function getImplementsKeyword(): EditableNode {
-    return TypeAssert\instance_of(
-      EditableNode::class,
-      $this->_implements_keyword,
-    );
+    return $this->_implements_keyword;
   }
 
   /**
@@ -495,7 +492,7 @@ final class AnonymousClass extends EditableNode {
    * @return unknown
    */
   public function getImplementsList(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_implements_list);
+    return $this->_implements_list;
   }
 
   /**
@@ -534,7 +531,7 @@ final class AnonymousClass extends EditableNode {
    * @return unknown
    */
   public function getBody(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_body);
+    return $this->_body;
   }
 
   /**

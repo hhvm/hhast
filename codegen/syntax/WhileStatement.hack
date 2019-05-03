@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d981c0fbc4bdf6885cde365a9c2358d0>>
+ * @generated SignedSource<<2a1607637bbf04cc7fa85f274417232b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -61,9 +61,6 @@ final class WhileStatement
       $offset,
       $source,
     );
-    $condition = $condition->isMissing()
-      ? $condition
-      : __Private\Wrap\wrap_IExpression($condition);
     $offset += $condition->getWidth();
     $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['while_right_paren'],
@@ -226,8 +223,9 @@ final class WhileStatement
    * MemberSelectionExpression | ParenthesizedExpression |
    * PostfixUnaryExpression | PrefixUnaryExpression | VariableExpression
    */
+  <<__Memoize>>
   public function getCondition(): IExpression {
-    return TypeAssert\instance_of(IExpression::class, $this->_condition);
+    return __Private\Wrap\wrap_IExpression($this->_condition);
   }
 
   /**
@@ -301,7 +299,7 @@ final class WhileStatement
    * EchoStatement | ExpressionStatement
    */
   public function getBody(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_body);
+    return $this->_body;
   }
 
   /**

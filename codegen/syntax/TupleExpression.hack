@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c094faeccdcbee6fab8d6ad3ed8bfb59>>
+ * @generated SignedSource<<dd20e6edd2b307374555259fd32f9af7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -220,7 +220,7 @@ final class TupleExpression extends EditableNode implements IExpression {
    * EditableList<VectorIntrinsicExpression>
    */
   public function getItemsx(): EditableList<IExpression> {
-    return TypeAssert\instance_of(EditableList::class, $this->_items);
+    return TypeAssert\not_null($this->getItems());
   }
 
   public function getRightParenUNTYPED(): EditableNode {

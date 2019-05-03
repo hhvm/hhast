@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9bf7bc0ac6820d037371a7ee3be87546>>
+ * @generated SignedSource<<a62fab6059c2eadabdce35222a22b7bf>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,9 +39,6 @@ final class IsExpression extends EditableNode implements IExpression {
       $offset,
       $source,
     );
-    $left_operand = $left_operand->isMissing()
-      ? $left_operand
-      : __Private\Wrap\wrap_IExpression($left_operand);
     $offset += $left_operand->getWidth();
     $operator = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['is_operator'],
@@ -113,8 +110,9 @@ final class IsExpression extends EditableNode implements IExpression {
    * @return FunctionCallExpression | MemberSelectionExpression |
    * PipeVariableExpression | PrefixUnaryExpression | VariableExpression
    */
+  <<__Memoize>>
   public function getLeftOperand(): IExpression {
-    return TypeAssert\instance_of(IExpression::class, $this->_left_operand);
+    return __Private\Wrap\wrap_IExpression($this->_left_operand);
   }
 
   /**
@@ -176,7 +174,7 @@ final class IsExpression extends EditableNode implements IExpression {
    * VectorTypeSpecifier
    */
   public function getRightOperand(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_right_operand);
+    return $this->_right_operand;
   }
 
   /**

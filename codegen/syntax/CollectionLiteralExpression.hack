@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<274bae44970ff8af9192ce9a4fe858f7>>
+ * @generated SignedSource<<b01c7d296e082170357246176190505e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -136,7 +136,7 @@ final class CollectionLiteralExpression
    * @return GenericTypeSpecifier | SimpleTypeSpecifier
    */
   public function getName(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_name);
+    return $this->_name;
   }
 
   /**
@@ -234,7 +234,7 @@ final class CollectionLiteralExpression
    * EditableList<VarrayIntrinsicExpression>
    */
   public function getInitializersx(): EditableList<EditableNode> {
-    return TypeAssert\instance_of(EditableList::class, $this->_initializers);
+    return TypeAssert\not_null($this->getInitializers());
   }
 
   public function getRightBraceUNTYPED(): EditableNode {

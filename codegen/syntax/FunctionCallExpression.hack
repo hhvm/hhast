@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7686d327d3f8360b05fe306cbe57a16b>>
+ * @generated SignedSource<<f905f4be1c958d1046b46d3f0a3fd7f8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -158,7 +158,7 @@ final class FunctionCallExpression extends EditableNode implements IExpression {
    * subscript_expression | token:name | variable
    */
   public function getReceiver(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_receiver);
+    return $this->_receiver;
   }
 
   /**
@@ -206,7 +206,7 @@ final class FunctionCallExpression extends EditableNode implements IExpression {
    * @return TypeArguments
    */
   public function getTypeArgsx(): TypeArguments {
-    return TypeAssert\instance_of(TypeArguments::class, $this->_type_args);
+    return TypeAssert\not_null($this->getTypeArgs());
   }
 
   public function getLeftParenUNTYPED(): EditableNode {
@@ -328,7 +328,7 @@ final class FunctionCallExpression extends EditableNode implements IExpression {
    * EditableList<VectorIntrinsicExpression> | EditableList<XHPExpression>
    */
   public function getArgumentListx(): EditableList<IExpression> {
-    return TypeAssert\instance_of(EditableList::class, $this->_argument_list);
+    return TypeAssert\not_null($this->getArgumentList());
   }
 
   public function getRightParenUNTYPED(): EditableNode {

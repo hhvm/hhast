@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<37d25509b1f0f3970f0fead78bd0831c>>
+ * @generated SignedSource<<3d887149042f9b1231471f730bc10bf4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -76,9 +76,6 @@ final class ForeachStatement
       $offset,
       $source,
     );
-    $collection = $collection->isMissing()
-      ? $collection
-      : __Private\Wrap\wrap_IExpression($collection);
     $offset += $collection->getWidth();
     $await_keyword = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['foreach_await_keyword'],
@@ -100,7 +97,6 @@ final class ForeachStatement
       $offset,
       $source,
     );
-    $key = $key->isMissing() ? $key : __Private\Wrap\wrap_IExpression($key);
     $offset += $key->getWidth();
     $arrow = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['foreach_arrow'],
@@ -115,9 +111,6 @@ final class ForeachStatement
       $offset,
       $source,
     );
-    $value = $value->isMissing()
-      ? $value
-      : __Private\Wrap\wrap_IExpression($value);
     $offset += $value->getWidth();
     $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['foreach_right_paren'],
@@ -328,8 +321,9 @@ final class ForeachStatement
    * | ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression | VectorIntrinsicExpression
    */
+  <<__Memoize>>
   public function getCollection(): IExpression {
-    return TypeAssert\instance_of(IExpression::class, $this->_collection);
+    return __Private\Wrap\wrap_IExpression($this->_collection);
   }
 
   /**
@@ -384,7 +378,7 @@ final class ForeachStatement
    * @return AwaitToken
    */
   public function getAwaitKeywordx(): AwaitToken {
-    return TypeAssert\instance_of(AwaitToken::class, $this->_await_keyword);
+    return TypeAssert\not_null($this->getAwaitKeyword());
   }
 
   public function getAsUNTYPED(): EditableNode {
@@ -457,11 +451,12 @@ final class ForeachStatement
    * @return ListExpression | MemberSelectionExpression | null |
    * ScopeResolutionExpression | SubscriptExpression | VariableExpression
    */
+  <<__Memoize>>
   public function getKey(): ?IExpression {
     if ($this->_key->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(IExpression::class, $this->_key);
+    return __Private\Wrap\wrap_IExpression($this->_key);
   }
 
   /**
@@ -469,7 +464,7 @@ final class ForeachStatement
    * ScopeResolutionExpression | SubscriptExpression | VariableExpression
    */
   public function getKeyx(): IExpression {
-    return TypeAssert\instance_of(IExpression::class, $this->_key);
+    return TypeAssert\not_null($this->getKey());
   }
 
   public function getArrowUNTYPED(): EditableNode {
@@ -512,7 +507,7 @@ final class ForeachStatement
    * @return EqualGreaterThanToken
    */
   public function getArrowx(): EqualGreaterThanToken {
-    return TypeAssert\instance_of(EqualGreaterThanToken::class, $this->_arrow);
+    return TypeAssert\not_null($this->getArrow());
   }
 
   public function getValueUNTYPED(): EditableNode {
@@ -545,8 +540,9 @@ final class ForeachStatement
    * @return ListExpression | MemberSelectionExpression |
    * ScopeResolutionExpression | SubscriptExpression | VariableExpression
    */
+  <<__Memoize>>
   public function getValue(): IExpression {
-    return TypeAssert\instance_of(IExpression::class, $this->_value);
+    return __Private\Wrap\wrap_IExpression($this->_value);
   }
 
   /**
@@ -628,7 +624,7 @@ final class ForeachStatement
    * ExpressionStatement | ForeachStatement
    */
   public function getBody(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_body);
+    return $this->_body;
   }
 
   /**

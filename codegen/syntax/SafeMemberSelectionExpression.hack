@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fa3ca7923a914162bed1a92b3cadb960>>
+ * @generated SignedSource<<ed82b4ae31f5005b60d6c2d1d232b85a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,9 +41,6 @@ final class SafeMemberSelectionExpression
       $offset,
       $source,
     );
-    $object = $object->isMissing()
-      ? $object
-      : __Private\Wrap\wrap_IExpression($object);
     $offset += $object->getWidth();
     $operator = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['safe_member_operator'],
@@ -116,8 +113,9 @@ final class SafeMemberSelectionExpression
    * SafeMemberSelectionExpression | ScopeResolutionExpression |
    * VariableExpression
    */
+  <<__Memoize>>
   public function getObject(): IExpression {
-    return TypeAssert\instance_of(IExpression::class, $this->_object);
+    return __Private\Wrap\wrap_IExpression($this->_object);
   }
 
   /**

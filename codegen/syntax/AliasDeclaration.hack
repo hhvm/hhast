@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<72c55119a75182bb51b6681952a07563>>
+ * @generated SignedSource<<b09f9d3bf5a75084f9faf7eb11fed12f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -216,10 +216,7 @@ final class AliasDeclaration extends EditableNode {
    * @return AttributeSpecification
    */
   public function getAttributeSpecx(): AttributeSpecification {
-    return TypeAssert\instance_of(
-      AttributeSpecification::class,
-      $this->_attribute_spec,
-    );
+    return TypeAssert\not_null($this->getAttributeSpec());
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -339,10 +336,7 @@ final class AliasDeclaration extends EditableNode {
    * @return TypeParameters
    */
   public function getGenericParameterx(): TypeParameters {
-    return TypeAssert\instance_of(
-      TypeParameters::class,
-      $this->_generic_parameter,
-    );
+    return TypeAssert\not_null($this->getGenericParameter());
   }
 
   public function getConstraintUNTYPED(): EditableNode {
@@ -383,7 +377,7 @@ final class AliasDeclaration extends EditableNode {
    * @return TypeConstraint
    */
   public function getConstraintx(): TypeConstraint {
-    return TypeAssert\instance_of(TypeConstraint::class, $this->_constraint);
+    return TypeAssert\not_null($this->getConstraint());
   }
 
   public function getEqualUNTYPED(): EditableNode {
@@ -455,7 +449,7 @@ final class AliasDeclaration extends EditableNode {
    * TupleTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getType(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_type);
+    return $this->_type;
   }
 
   /**

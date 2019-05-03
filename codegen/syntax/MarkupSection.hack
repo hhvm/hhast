@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1ee105cc55b68ab6f9a33df075b30579>>
+ * @generated SignedSource<<861df99213599a1e17b75c09e2422315>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -126,14 +126,14 @@ final class MarkupSection extends EditableNode {
     if ($this->_prefix->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_prefix);
+    return $this->_prefix;
   }
 
   /**
    * @return
    */
   public function getPrefixx(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_prefix);
+    return TypeAssert\not_null($this->getPrefix());
   }
 
   public function getTextUNTYPED(): EditableNode {
@@ -221,13 +221,13 @@ final class MarkupSection extends EditableNode {
     if ($this->_expression->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_expression);
+    return $this->_expression;
   }
 
   /**
    * @return
    */
   public function getExpressionx(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_expression);
+    return TypeAssert\not_null($this->getExpression());
   }
 }

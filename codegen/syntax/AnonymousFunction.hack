@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ebb99a2edb5bca4afe56346e131a972f>>
+ * @generated SignedSource<<68bac2cdacae37127dd0cec931a8387b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -280,10 +280,7 @@ final class AnonymousFunction extends EditableNode implements IExpression {
    * @return AttributeSpecification
    */
   public function getAttributeSpecx(): AttributeSpecification {
-    return TypeAssert\instance_of(
-      AttributeSpecification::class,
-      $this->_attribute_spec,
-    );
+    return TypeAssert\not_null($this->getAttributeSpec());
   }
 
   public function getStaticKeywordUNTYPED(): EditableNode {
@@ -328,7 +325,7 @@ final class AnonymousFunction extends EditableNode implements IExpression {
    * @return StaticToken
    */
   public function getStaticKeywordx(): StaticToken {
-    return TypeAssert\instance_of(StaticToken::class, $this->_static_keyword);
+    return TypeAssert\not_null($this->getStaticKeyword());
   }
 
   public function getAsyncKeywordUNTYPED(): EditableNode {
@@ -373,7 +370,7 @@ final class AnonymousFunction extends EditableNode implements IExpression {
    * @return AsyncToken
    */
   public function getAsyncKeywordx(): AsyncToken {
-    return TypeAssert\instance_of(AsyncToken::class, $this->_async_keyword);
+    return TypeAssert\not_null($this->getAsyncKeyword());
   }
 
   public function getCoroutineKeywordUNTYPED(): EditableNode {
@@ -411,20 +408,14 @@ final class AnonymousFunction extends EditableNode implements IExpression {
     if ($this->_coroutine_keyword->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(
-      EditableNode::class,
-      $this->_coroutine_keyword,
-    );
+    return $this->_coroutine_keyword;
   }
 
   /**
    * @return
    */
   public function getCoroutineKeywordx(): EditableNode {
-    return TypeAssert\instance_of(
-      EditableNode::class,
-      $this->_coroutine_keyword,
-    );
+    return TypeAssert\not_null($this->getCoroutineKeyword());
   }
 
   public function getFunctionKeywordUNTYPED(): EditableNode {
@@ -558,7 +549,7 @@ final class AnonymousFunction extends EditableNode implements IExpression {
    * EditableList<VariadicParameter>
    */
   public function getParametersx(): EditableList<EditableNode> {
-    return TypeAssert\instance_of(EditableList::class, $this->_parameters);
+    return TypeAssert\not_null($this->getParameters());
   }
 
   public function getRightParenUNTYPED(): EditableNode {
@@ -645,7 +636,7 @@ final class AnonymousFunction extends EditableNode implements IExpression {
    * @return ColonToken
    */
   public function getColonx(): ColonToken {
-    return TypeAssert\instance_of(ColonToken::class, $this->_colon);
+    return TypeAssert\not_null($this->getColon());
   }
 
   public function getTypeUNTYPED(): EditableNode {
@@ -685,7 +676,7 @@ final class AnonymousFunction extends EditableNode implements IExpression {
     if ($this->_type->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_type);
+    return $this->_type;
   }
 
   /**
@@ -694,7 +685,7 @@ final class AnonymousFunction extends EditableNode implements IExpression {
    * SoftTypeSpecifier | TupleTypeSpecifier
    */
   public function getTypex(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_type);
+    return TypeAssert\not_null($this->getType());
   }
 
   public function getUseUNTYPED(): EditableNode {
@@ -742,10 +733,7 @@ final class AnonymousFunction extends EditableNode implements IExpression {
    * @return AnonymousFunctionUseClause
    */
   public function getUsex(): AnonymousFunctionUseClause {
-    return TypeAssert\instance_of(
-      AnonymousFunctionUseClause::class,
-      $this->_use,
-    );
+    return TypeAssert\not_null($this->getUse());
   }
 
   public function getBodyUNTYPED(): EditableNode {

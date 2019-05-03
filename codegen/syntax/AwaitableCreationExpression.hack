@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6d44b4d8a0556476a4988fa07889aa46>>
+ * @generated SignedSource<<6454a1a792e22fb928f9719801adde4a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -149,10 +149,7 @@ final class AwaitableCreationExpression
    * @return AttributeSpecification
    */
   public function getAttributeSpecx(): AttributeSpecification {
-    return TypeAssert\instance_of(
-      AttributeSpecification::class,
-      $this->_attribute_spec,
-    );
+    return TypeAssert\not_null($this->getAttributeSpec());
   }
 
   public function getAsyncUNTYPED(): EditableNode {
@@ -216,14 +213,14 @@ final class AwaitableCreationExpression
     if ($this->_coroutine->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_coroutine);
+    return $this->_coroutine;
   }
 
   /**
    * @return
    */
   public function getCoroutinex(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_coroutine);
+    return TypeAssert\not_null($this->getCoroutine());
   }
 
   public function getCompoundStatementUNTYPED(): EditableNode {

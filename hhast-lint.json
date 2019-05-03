@@ -5,6 +5,7 @@
     {
       "patterns": [ "codegen/*", "tests/fixtures/*" ],
       "disabledLinters": [
+        "Facebook\\HHAST\\Linters\\UnusedUseClauseLinter",
         "Facebook\\HHAST\\Linters\\LicenseHeaderLinter"
       ],
       "disableAllAutoFixes": true

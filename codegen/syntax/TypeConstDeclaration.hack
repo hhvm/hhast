@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<37bdb7485a9f1d71415c04794a9c41c8>>
+ * @generated SignedSource<<eb48e3102ce28f210889e66a339b483c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -238,14 +238,14 @@ final class TypeConstDeclaration extends EditableNode {
     if ($this->_attribute_spec->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_attribute_spec);
+    return $this->_attribute_spec;
   }
 
   /**
    * @return
    */
   public function getAttributeSpecx(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_attribute_spec);
+    return TypeAssert\not_null($this->getAttributeSpec());
   }
 
   public function getAbstractUNTYPED(): EditableNode {
@@ -288,7 +288,7 @@ final class TypeConstDeclaration extends EditableNode {
    * @return AbstractToken
    */
   public function getAbstractx(): AbstractToken {
-    return TypeAssert\instance_of(AbstractToken::class, $this->_abstract);
+    return TypeAssert\not_null($this->getAbstract());
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -444,14 +444,14 @@ final class TypeConstDeclaration extends EditableNode {
     if ($this->_type_parameters->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_type_parameters);
+    return $this->_type_parameters;
   }
 
   /**
    * @return
    */
   public function getTypeParametersx(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_type_parameters);
+    return TypeAssert\not_null($this->getTypeParameters());
   }
 
   public function getTypeConstraintUNTYPED(): EditableNode {
@@ -497,10 +497,7 @@ final class TypeConstDeclaration extends EditableNode {
    * @return TypeConstraint
    */
   public function getTypeConstraintx(): TypeConstraint {
-    return TypeAssert\instance_of(
-      TypeConstraint::class,
-      $this->_type_constraint,
-    );
+    return TypeAssert\not_null($this->getTypeConstraint());
   }
 
   public function getEqualUNTYPED(): EditableNode {
@@ -543,7 +540,7 @@ final class TypeConstDeclaration extends EditableNode {
    * @return EqualToken
    */
   public function getEqualx(): EqualToken {
-    return TypeAssert\instance_of(EqualToken::class, $this->_equal);
+    return TypeAssert\not_null($this->getEqual());
   }
 
   public function getTypeSpecifierUNTYPED(): EditableNode {
@@ -582,7 +579,7 @@ final class TypeConstDeclaration extends EditableNode {
     if ($this->_type_specifier->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_type_specifier);
+    return $this->_type_specifier;
   }
 
   /**
@@ -592,7 +589,7 @@ final class TypeConstDeclaration extends EditableNode {
    * TupleTypeSpecifier | TypeConstant | VectorTypeSpecifier
    */
   public function getTypeSpecifierx(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_type_specifier);
+    return TypeAssert\not_null($this->getTypeSpecifier());
   }
 
   public function getSemicolonUNTYPED(): EditableNode {

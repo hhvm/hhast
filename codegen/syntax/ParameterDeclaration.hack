@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<066c738a78be5b09876ecf2a989c1a39>>
+ * @generated SignedSource<<56a37b56708e18f264b92a23301dd80f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -184,10 +184,7 @@ final class ParameterDeclaration extends EditableNode {
    * @return AttributeSpecification
    */
   public function getAttributex(): AttributeSpecification {
-    return TypeAssert\instance_of(
-      AttributeSpecification::class,
-      $this->_attribute,
-    );
+    return TypeAssert\not_null($this->getAttribute());
   }
 
   public function getVisibilityUNTYPED(): EditableNode {
@@ -226,7 +223,7 @@ final class ParameterDeclaration extends EditableNode {
    * @return PrivateToken | ProtectedToken | PublicToken
    */
   public function getVisibilityx(): EditableToken {
-    return TypeAssert\instance_of(EditableToken::class, $this->_visibility);
+    return TypeAssert\not_null($this->getVisibility());
   }
 
   public function getCallConventionUNTYPED(): EditableNode {
@@ -265,7 +262,7 @@ final class ParameterDeclaration extends EditableNode {
    * @return InoutToken
    */
   public function getCallConventionx(): InoutToken {
-    return TypeAssert\instance_of(InoutToken::class, $this->_call_convention);
+    return TypeAssert\not_null($this->getCallConvention());
   }
 
   public function getTypeUNTYPED(): EditableNode {
@@ -302,7 +299,7 @@ final class ParameterDeclaration extends EditableNode {
     if ($this->_type->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_type);
+    return $this->_type;
   }
 
   /**
@@ -314,7 +311,7 @@ final class ParameterDeclaration extends EditableNode {
    * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getTypex(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_type);
+    return TypeAssert\not_null($this->getType());
   }
 
   public function getNameUNTYPED(): EditableNode {
@@ -343,7 +340,7 @@ final class ParameterDeclaration extends EditableNode {
    * @return DecoratedExpression | VariableToken
    */
   public function getName(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_name);
+    return $this->_name;
   }
 
   /**
@@ -392,9 +389,6 @@ final class ParameterDeclaration extends EditableNode {
    * @return SimpleInitializer
    */
   public function getDefaultValuex(): SimpleInitializer {
-    return TypeAssert\instance_of(
-      SimpleInitializer::class,
-      $this->_default_value,
-    );
+    return TypeAssert\not_null($this->getDefaultValue());
   }
 }

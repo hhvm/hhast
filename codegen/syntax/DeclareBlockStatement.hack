@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<95e2398ca7b5a345dacf327d700317cf>>
+ * @generated SignedSource<<b417ce727b48012b3ecd9028e52ff206>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -289,7 +289,7 @@ final class DeclareBlockStatement extends EditableNode {
    * @return AlternateLoopStatement | CompoundStatement
    */
   public function getBody(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_body);
+    return $this->_body;
   }
 
   /**

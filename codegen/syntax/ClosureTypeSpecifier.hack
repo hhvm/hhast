@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<31489c6f54e594687e635fa732bc4e8f>>
+ * @generated SignedSource<<9d9f233729e24a885e8e71ad805f2008>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -264,14 +264,14 @@ final class ClosureTypeSpecifier extends EditableNode {
     if ($this->_coroutine->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_coroutine);
+    return $this->_coroutine;
   }
 
   /**
    * @return
    */
   public function getCoroutinex(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_coroutine);
+    return TypeAssert\not_null($this->getCoroutine());
   }
 
   public function getFunctionKeywordUNTYPED(): EditableNode {
@@ -399,7 +399,7 @@ final class ClosureTypeSpecifier extends EditableNode {
    * EditableList<EditableNode> | EditableList<VariadicParameter>
    */
   public function getParameterListx(): EditableList<EditableNode> {
-    return TypeAssert\instance_of(EditableList::class, $this->_parameter_list);
+    return TypeAssert\not_null($this->getParameterList());
   }
 
   public function getInnerRightParenUNTYPED(): EditableNode {
@@ -513,7 +513,7 @@ final class ClosureTypeSpecifier extends EditableNode {
    * NullableTypeSpecifier | SimpleTypeSpecifier | VectorTypeSpecifier
    */
   public function getReturnType(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_return_type);
+    return $this->_return_type;
   }
 
   /**

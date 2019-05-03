@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4b0dbe14ce0d4c9bbc745328e04805bc>>
+ * @generated SignedSource<<a479036d8bd82a79812be92e1cc1807b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -164,7 +164,7 @@ final class LetStatement extends EditableNode {
    * @return
    */
   public function getKeyword(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_keyword);
+    return $this->_keyword;
   }
 
   /**
@@ -200,7 +200,7 @@ final class LetStatement extends EditableNode {
    * @return
    */
   public function getName(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_name);
+    return $this->_name;
   }
 
   /**
@@ -236,7 +236,7 @@ final class LetStatement extends EditableNode {
    * @return
    */
   public function getColon(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_colon);
+    return $this->_colon;
   }
 
   /**
@@ -272,7 +272,7 @@ final class LetStatement extends EditableNode {
    * @return
    */
   public function getType(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_type);
+    return $this->_type;
   }
 
   /**
@@ -308,7 +308,7 @@ final class LetStatement extends EditableNode {
    * @return
    */
   public function getInitializer(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_initializer);
+    return $this->_initializer;
   }
 
   /**
@@ -344,7 +344,7 @@ final class LetStatement extends EditableNode {
    * @return
    */
   public function getSemicolon(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_semicolon);
+    return $this->_semicolon;
   }
 
   /**

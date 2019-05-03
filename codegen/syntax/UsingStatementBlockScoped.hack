@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3330355877f18eb5adad854bd13d0095>>
+ * @generated SignedSource<<3a5c5e765bfbd5735129c80cbb666cf2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -181,7 +181,7 @@ final class UsingStatementBlockScoped extends EditableNode {
    * @return AwaitToken
    */
   public function getAwaitKeywordx(): AwaitToken {
-    return TypeAssert\instance_of(AwaitToken::class, $this->_await_keyword);
+    return TypeAssert\not_null($this->getAwaitKeyword());
   }
 
   public function getUsingKeywordUNTYPED(): EditableNode {

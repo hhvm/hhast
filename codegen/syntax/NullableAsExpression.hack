@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5680e4791a8bc6acdf885814a89de2ad>>
+ * @generated SignedSource<<6f3675fc108e2b5505301e2c53022e1c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,9 +39,6 @@ final class NullableAsExpression extends EditableNode implements IExpression {
       $offset,
       $source,
     );
-    $left_operand = $left_operand->isMissing()
-      ? $left_operand
-      : __Private\Wrap\wrap_IExpression($left_operand);
     $offset += $left_operand->getWidth();
     $operator = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['nullable_as_operator'],
@@ -112,8 +109,9 @@ final class NullableAsExpression extends EditableNode implements IExpression {
   /**
    * @return FunctionCallExpression | VariableExpression
    */
+  <<__Memoize>>
   public function getLeftOperand(): IExpression {
-    return TypeAssert\instance_of(IExpression::class, $this->_left_operand);
+    return __Private\Wrap\wrap_IExpression($this->_left_operand);
   }
 
   /**

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2ddc5eb4b0e87585e9bdf2d18edafa18>>
+ * @generated SignedSource<<3a22e312ac995e748859ba171799b7e2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,9 +39,6 @@ final class AsExpression extends EditableNode implements IExpression {
       $offset,
       $source,
     );
-    $left_operand = $left_operand->isMissing()
-      ? $left_operand
-      : __Private\Wrap\wrap_IExpression($left_operand);
     $offset += $left_operand->getWidth();
     $operator = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['as_operator'],
@@ -114,8 +111,9 @@ final class AsExpression extends EditableNode implements IExpression {
    * MemberSelectionExpression | ParenthesizedExpression | TupleExpression |
    * VariableExpression
    */
+  <<__Memoize>>
   public function getLeftOperand(): IExpression {
-    return TypeAssert\instance_of(IExpression::class, $this->_left_operand);
+    return __Private\Wrap\wrap_IExpression($this->_left_operand);
   }
 
   /**
@@ -176,7 +174,7 @@ final class AsExpression extends EditableNode implements IExpression {
    * | SimpleTypeSpecifier | TupleTypeSpecifier | TypeConstant
    */
   public function getRightOperand(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_right_operand);
+    return $this->_right_operand;
   }
 
   /**

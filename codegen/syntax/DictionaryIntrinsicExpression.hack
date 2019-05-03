@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ae4889103517d6980453c7e2c1846eb8>>
+ * @generated SignedSource<<34c4ccba152b5ebef463a77a0f1948dc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -202,7 +202,7 @@ final class DictionaryIntrinsicExpression
    * @return TypeArguments
    */
   public function getExplicitTypex(): TypeArguments {
-    return TypeAssert\instance_of(TypeArguments::class, $this->_explicit_type);
+    return TypeAssert\not_null($this->getExplicitType());
   }
 
   public function getLeftBracketUNTYPED(): EditableNode {
@@ -278,7 +278,7 @@ final class DictionaryIntrinsicExpression
    * @return EditableList<ElementInitializer>
    */
   public function getMembersx(): EditableList<ElementInitializer> {
-    return TypeAssert\instance_of(EditableList::class, $this->_members);
+    return TypeAssert\not_null($this->getMembers());
   }
 
   public function getRightBracketUNTYPED(): EditableNode {

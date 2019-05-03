@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<da97c6c1af372e435f0820e33a78251d>>
+ * @generated SignedSource<<57a306c2a0439110c22235f522335bc1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -142,7 +142,7 @@ final class RecordField extends EditableNode {
    * @return
    */
   public function getName(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_name);
+    return $this->_name;
   }
 
   /**
@@ -177,7 +177,7 @@ final class RecordField extends EditableNode {
    * @return
    */
   public function getColon(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_colon);
+    return $this->_colon;
   }
 
   /**
@@ -212,7 +212,7 @@ final class RecordField extends EditableNode {
    * @return
    */
   public function getType(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_type);
+    return $this->_type;
   }
 
   /**
@@ -247,7 +247,7 @@ final class RecordField extends EditableNode {
    * @return
    */
   public function getInit(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_init);
+    return $this->_init;
   }
 
   /**
@@ -282,7 +282,7 @@ final class RecordField extends EditableNode {
    * @return
    */
   public function getComma(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_comma);
+    return $this->_comma;
   }
 
   /**

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<50098536ab3a35e08ecc16faf5125ea1>>
+ * @generated SignedSource<<fbb8d1abe80c9d0bda56c1ce66891a3e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -212,7 +212,7 @@ final class ShapeExpression extends EditableNode implements IExpression {
    * @return EditableList<FieldInitializer>
    */
   public function getFieldsx(): EditableList<FieldInitializer> {
-    return TypeAssert\instance_of(EditableList::class, $this->_fields);
+    return TypeAssert\not_null($this->getFields());
   }
 
   public function getRightParenUNTYPED(): EditableNode {

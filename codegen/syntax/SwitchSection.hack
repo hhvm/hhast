@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<25b2929eeb3bf33f72b55df096e9d8ae>>
+ * @generated SignedSource<<a2d7b69cd7db634dd754677aa9a62d90>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -149,7 +149,7 @@ final class SwitchSection extends EditableNode {
    * @return EditableList<EditableNode>
    */
   public function getStatementsx(): EditableList<EditableNode> {
-    return TypeAssert\instance_of(EditableList::class, $this->_statements);
+    return TypeAssert\not_null($this->getStatements());
   }
 
   public function getFallthroughUNTYPED(): EditableNode {
@@ -184,9 +184,6 @@ final class SwitchSection extends EditableNode {
    * @return SwitchFallthrough
    */
   public function getFallthroughx(): SwitchFallthrough {
-    return TypeAssert\instance_of(
-      SwitchFallthrough::class,
-      $this->_fallthrough,
-    );
+    return TypeAssert\not_null($this->getFallthrough());
   }
 }

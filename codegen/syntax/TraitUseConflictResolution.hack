@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<08d95491a96424651fd17d84763f3949>>
+ * @generated SignedSource<<4158f09b809c634dba62081974d1bd00>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -266,7 +266,7 @@ final class TraitUseConflictResolution extends EditableNode {
    * EditableList<TraitUsePrecedenceItem>
    */
   public function getClausesx(): EditableList<EditableNode> {
-    return TypeAssert\instance_of(EditableList::class, $this->_clauses);
+    return TypeAssert\not_null($this->getClauses());
   }
 
   public function getRightBraceUNTYPED(): EditableNode {

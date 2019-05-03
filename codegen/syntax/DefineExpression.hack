@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c6f1874899fce6ec4cf522647001e5fb>>
+ * @generated SignedSource<<aa94ae9d5db37cea6da829652388e094>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -134,7 +134,7 @@ final class DefineExpression extends EditableNode implements IExpression {
    * @return unknown
    */
   public function getKeyword(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_keyword);
+    return $this->_keyword;
   }
 
   /**
@@ -168,7 +168,7 @@ final class DefineExpression extends EditableNode implements IExpression {
    * @return unknown
    */
   public function getLeftParen(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_left_paren);
+    return $this->_left_paren;
   }
 
   /**
@@ -202,7 +202,7 @@ final class DefineExpression extends EditableNode implements IExpression {
    * @return unknown
    */
   public function getArgumentList(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_argument_list);
+    return $this->_argument_list;
   }
 
   /**
@@ -236,7 +236,7 @@ final class DefineExpression extends EditableNode implements IExpression {
    * @return unknown
    */
   public function getRightParen(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_right_paren);
+    return $this->_right_paren;
   }
 
   /**

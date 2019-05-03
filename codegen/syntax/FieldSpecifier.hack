@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ff902c1aeb43a9424cee0c651dedce9b>>
+ * @generated SignedSource<<022ca14987ef811d00d009184c79a3c4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -49,7 +49,6 @@ final class FieldSpecifier extends EditableNode {
       $offset,
       $source,
     );
-    $name = $name->isMissing() ? $name : __Private\Wrap\wrap_IExpression($name);
     $offset += $name->getWidth();
     $arrow = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['field_arrow'],
@@ -134,7 +133,7 @@ final class FieldSpecifier extends EditableNode {
    * @return QuestionToken
    */
   public function getQuestionx(): QuestionToken {
-    return TypeAssert\instance_of(QuestionToken::class, $this->_question);
+    return TypeAssert\not_null($this->getQuestion());
   }
 
   public function getNameUNTYPED(): EditableNode {
@@ -155,8 +154,9 @@ final class FieldSpecifier extends EditableNode {
   /**
    * @return LiteralExpression | ScopeResolutionExpression
    */
+  <<__Memoize>>
   public function getName(): IExpression {
-    return TypeAssert\instance_of(IExpression::class, $this->_name);
+    return __Private\Wrap\wrap_IExpression($this->_name);
   }
 
   /**
@@ -216,7 +216,7 @@ final class FieldSpecifier extends EditableNode {
    * SoftTypeSpecifier | TupleTypeSpecifier | TypeConstant | VectorTypeSpecifier
    */
   public function getType(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_type);
+    return $this->_type;
   }
 
   /**

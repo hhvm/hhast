@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<668d7bb4b2d2d8d581ccfb86d11fd6a2>>
+ * @generated SignedSource<<317c2c4cf56fe0cd6b766147c454fa42>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -139,6 +139,6 @@ final class MarkupSuffix extends EditableNode {
    * @return NameToken
    */
   public function getNamex(): NameToken {
-    return TypeAssert\instance_of(NameToken::class, $this->_name);
+    return TypeAssert\not_null($this->getName());
   }
 }

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<002327272122f2891518ff78d0809d15>>
+ * @generated SignedSource<<4819c31b8ed7c9180e7cea3f3b59e8a2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -220,7 +220,7 @@ final class ListExpression extends EditableNode implements IExpression {
    * EditableList<SubscriptExpression> | EditableList<VariableExpression>
    */
   public function getMembersx(): EditableList<?IExpression> {
-    return TypeAssert\instance_of(EditableList::class, $this->_members);
+    return TypeAssert\not_null($this->getMembers());
   }
 
   public function getRightParenUNTYPED(): EditableNode {

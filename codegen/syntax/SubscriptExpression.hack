@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<78788da280f899fcf9917f50a93f6714>>
+ * @generated SignedSource<<14cc0d6b9ef81eefff7a79ef0656426e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -42,9 +42,6 @@ final class SubscriptExpression extends EditableNode implements IExpression {
       $offset,
       $source,
     );
-    $receiver = $receiver->isMissing()
-      ? $receiver
-      : __Private\Wrap\wrap_IExpression($receiver);
     $offset += $receiver->getWidth();
     $left_bracket = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['subscript_left_bracket'],
@@ -59,9 +56,6 @@ final class SubscriptExpression extends EditableNode implements IExpression {
       $offset,
       $source,
     );
-    $index = $index->isMissing()
-      ? $index
-      : __Private\Wrap\wrap_IExpression($index);
     $offset += $index->getWidth();
     $right_bracket = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['subscript_right_bracket'],
@@ -143,8 +137,9 @@ final class SubscriptExpression extends EditableNode implements IExpression {
    * ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression
    */
+  <<__Memoize>>
   public function getReceiver(): IExpression {
-    return TypeAssert\instance_of(IExpression::class, $this->_receiver);
+    return __Private\Wrap\wrap_IExpression($this->_receiver);
   }
 
   /**
@@ -220,11 +215,12 @@ final class SubscriptExpression extends EditableNode implements IExpression {
    * ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression
    */
+  <<__Memoize>>
   public function getIndex(): ?IExpression {
     if ($this->_index->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(IExpression::class, $this->_index);
+    return __Private\Wrap\wrap_IExpression($this->_index);
   }
 
   /**
@@ -236,7 +232,7 @@ final class SubscriptExpression extends EditableNode implements IExpression {
    * VariableExpression
    */
   public function getIndexx(): IExpression {
-    return TypeAssert\instance_of(IExpression::class, $this->_index);
+    return TypeAssert\not_null($this->getIndex());
   }
 
   public function getRightBracketUNTYPED(): EditableNode {

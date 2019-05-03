@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<44d531bd99cd0232edd278c13bc4839e>>
+ * @generated SignedSource<<6f792de5d39d5d242cfe3caf4dc93985>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -151,7 +151,7 @@ final class PocketIdentifierExpression
    * @return unknown
    */
   public function getQualifier(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_qualifier);
+    return $this->_qualifier;
   }
 
   /**
@@ -186,7 +186,7 @@ final class PocketIdentifierExpression
    * @return unknown
    */
   public function getPuOperator(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_pu_operator);
+    return $this->_pu_operator;
   }
 
   /**
@@ -221,7 +221,7 @@ final class PocketIdentifierExpression
    * @return unknown
    */
   public function getField(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_field);
+    return $this->_field;
   }
 
   /**
@@ -256,7 +256,7 @@ final class PocketIdentifierExpression
    * @return unknown
    */
   public function getOperator(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_operator);
+    return $this->_operator;
   }
 
   /**
@@ -291,7 +291,7 @@ final class PocketIdentifierExpression
    * @return unknown
    */
   public function getName(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_name);
+    return $this->_name;
   }
 
   /**

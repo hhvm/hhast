@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fcb1ea3ba0fba4723e0ad55c50741bc0>>
+ * @generated SignedSource<<2cb1411bbf74208a4c8b094fa0ba5334>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -312,7 +312,7 @@ final class ForStatement
    * EditableList<FunctionCallExpression> | EditableList<LiteralExpression>
    */
   public function getInitializerx(): EditableList<IExpression> {
-    return TypeAssert\instance_of(EditableList::class, $this->_initializer);
+    return TypeAssert\not_null($this->getInitializer());
   }
 
   public function getFirstSemicolonUNTYPED(): EditableNode {
@@ -401,7 +401,7 @@ final class ForStatement
    * | EditableList<PrefixUnaryExpression> | EditableList<VariableExpression>
    */
   public function getControlx(): EditableList<IExpression> {
-    return TypeAssert\instance_of(EditableList::class, $this->_control);
+    return TypeAssert\not_null($this->getControl());
   }
 
   public function getSecondSemicolonUNTYPED(): EditableNode {
@@ -490,7 +490,7 @@ final class ForStatement
    * EditableList<PostfixUnaryExpression> | EditableList<PrefixUnaryExpression>
    */
   public function getEndOfLoopx(): EditableList<IExpression> {
-    return TypeAssert\instance_of(EditableList::class, $this->_end_of_loop);
+    return TypeAssert\not_null($this->getEndOfLoop());
   }
 
   public function getRightParenUNTYPED(): EditableNode {
@@ -562,7 +562,7 @@ final class ForStatement
    * ExpressionStatement | ForStatement | UnsetStatement
    */
   public function getBody(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_body);
+    return $this->_body;
   }
 
   /**

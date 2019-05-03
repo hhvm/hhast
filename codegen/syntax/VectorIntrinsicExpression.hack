@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<db3b73f345d47c123b354a6f6214b1cd>>
+ * @generated SignedSource<<1cf1d3d082a750da0b0c53a0400eaff7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -202,7 +202,7 @@ final class VectorIntrinsicExpression
    * @return TypeArguments
    */
   public function getExplicitTypex(): TypeArguments {
-    return TypeAssert\instance_of(TypeArguments::class, $this->_explicit_type);
+    return TypeAssert\not_null($this->getExplicitType());
   }
 
   public function getLeftBracketUNTYPED(): EditableNode {
@@ -298,7 +298,7 @@ final class VectorIntrinsicExpression
    * | EditableList<XHPExpression>
    */
   public function getMembersx(): EditableList<IExpression> {
-    return TypeAssert\instance_of(EditableList::class, $this->_members);
+    return TypeAssert\not_null($this->getMembers());
   }
 
   public function getRightBracketUNTYPED(): EditableNode {

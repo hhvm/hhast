@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a0bc747e78c5fa760a14354842814630>>
+ * @generated SignedSource<<0b7eb8e180790ea3498dc2d4095e76ae>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -149,7 +149,7 @@ final class CompoundStatement extends EditableNode {
    * @return EditableList<EditableNode>
    */
   public function getStatementsx(): EditableList<EditableNode> {
-    return TypeAssert\instance_of(EditableList::class, $this->_statements);
+    return TypeAssert\not_null($this->getStatements());
   }
 
   public function getRightBraceUNTYPED(): EditableNode {

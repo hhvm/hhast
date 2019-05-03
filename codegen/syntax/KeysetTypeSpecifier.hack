@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3ea13440360ff7f22c5f76b4f4f8adb9>>
+ * @generated SignedSource<<df69c5f68a95002c00522bf1ba279e6c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -225,7 +225,7 @@ final class KeysetTypeSpecifier extends EditableNode {
    * @return ClassnameTypeSpecifier | SimpleTypeSpecifier
    */
   public function getType(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_type);
+    return $this->_type;
   }
 
   /**
@@ -263,14 +263,14 @@ final class KeysetTypeSpecifier extends EditableNode {
     if ($this->_trailing_comma->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_trailing_comma);
+    return $this->_trailing_comma;
   }
 
   /**
    * @return
    */
   public function getTrailingCommax(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_trailing_comma);
+    return TypeAssert\not_null($this->getTrailingComma());
   }
 
   public function getRightAngleUNTYPED(): EditableNode {

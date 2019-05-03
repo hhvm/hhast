@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<aae32416f161eaa4bd3b7ee3fb94bbda>>
+ * @generated SignedSource<<138b6dec96606bf79224534c74908ce1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -82,7 +82,7 @@ final class ErrorSyntax extends EditableNode {
    * @return unknown
    */
   public function getError(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_error);
+    return $this->_error;
   }
 
   /**

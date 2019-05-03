@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<45a7b264b0d7e18408c992f7f444792a>>
+ * @generated SignedSource<<7a2ef4ebb94e5306b72d9c92c8169dd3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,7 +123,7 @@ final class PocketMappingTypeDeclaration extends EditableNode {
    * @return unknown
    */
   public function getKeyword(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_keyword);
+    return $this->_keyword;
   }
 
   /**
@@ -152,7 +152,7 @@ final class PocketMappingTypeDeclaration extends EditableNode {
    * @return unknown
    */
   public function getName(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_name);
+    return $this->_name;
   }
 
   /**
@@ -181,7 +181,7 @@ final class PocketMappingTypeDeclaration extends EditableNode {
    * @return unknown
    */
   public function getEqual(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_equal);
+    return $this->_equal;
   }
 
   /**
@@ -210,7 +210,7 @@ final class PocketMappingTypeDeclaration extends EditableNode {
    * @return unknown
    */
   public function getType(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_type);
+    return $this->_type;
   }
 
   /**

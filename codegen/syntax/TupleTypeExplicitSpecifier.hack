@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<78e549be3d7aba73e0db516ec6696315>>
+ * @generated SignedSource<<5a7ed40148f9611e98becab2413128f9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -128,7 +128,7 @@ final class TupleTypeExplicitSpecifier extends EditableNode {
    * @return unknown
    */
   public function getKeyword(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_keyword);
+    return $this->_keyword;
   }
 
   /**
@@ -162,7 +162,7 @@ final class TupleTypeExplicitSpecifier extends EditableNode {
    * @return unknown
    */
   public function getLeftAngle(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_left_angle);
+    return $this->_left_angle;
   }
 
   /**
@@ -196,7 +196,7 @@ final class TupleTypeExplicitSpecifier extends EditableNode {
    * @return unknown
    */
   public function getTypes(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_types);
+    return $this->_types;
   }
 
   /**
@@ -230,7 +230,7 @@ final class TupleTypeExplicitSpecifier extends EditableNode {
    * @return unknown
    */
   public function getRightAngle(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_right_angle);
+    return $this->_right_angle;
   }
 
   /**

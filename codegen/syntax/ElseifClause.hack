@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<804214a14387254708e5cdf7e69d5959>>
+ * @generated SignedSource<<6ee21d944063ee054fe3d62ec3466e75>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -59,9 +59,6 @@ final class ElseifClause extends EditableNode implements IControlFlowStatement {
       $offset,
       $source,
     );
-    $condition = $condition->isMissing()
-      ? $condition
-      : __Private\Wrap\wrap_IExpression($condition);
     $offset += $condition->getWidth();
     $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['elseif_right_paren'],
@@ -228,8 +225,9 @@ final class ElseifClause extends EditableNode implements IControlFlowStatement {
    * @return BinaryExpression | FunctionCallExpression | LiteralExpression |
    * VariableExpression
    */
+  <<__Memoize>>
   public function getCondition(): IExpression {
-    return TypeAssert\instance_of(IExpression::class, $this->_condition);
+    return __Private\Wrap\wrap_IExpression($this->_condition);
   }
 
   /**
@@ -300,7 +298,7 @@ final class ElseifClause extends EditableNode implements IControlFlowStatement {
    * @return CompoundStatement | ExpressionStatement
    */
   public function getStatement(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_statement);
+    return $this->_statement;
   }
 
   /**

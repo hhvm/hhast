@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<542d704782e9eef6f3fc63e973cc3a15>>
+ * @generated SignedSource<<8001223fb3d6400806928ffd7bbe587d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -168,10 +168,7 @@ final class PropertyDeclaration extends EditableNode {
    * @return AttributeSpecification
    */
   public function getAttributeSpecx(): AttributeSpecification {
-    return TypeAssert\instance_of(
-      AttributeSpecification::class,
-      $this->_attribute_spec,
-    );
+    return TypeAssert\not_null($this->getAttributeSpec());
   }
 
   public function getModifiersUNTYPED(): EditableNode {
@@ -199,7 +196,7 @@ final class PropertyDeclaration extends EditableNode {
    * @return EditableList<EditableNode> | VarToken
    */
   public function getModifiers(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_modifiers);
+    return $this->_modifiers;
   }
 
   /**
@@ -241,7 +238,7 @@ final class PropertyDeclaration extends EditableNode {
     if ($this->_type->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_type);
+    return $this->_type;
   }
 
   /**
@@ -252,7 +249,7 @@ final class PropertyDeclaration extends EditableNode {
    * VectorTypeSpecifier
    */
   public function getTypex(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_type);
+    return TypeAssert\not_null($this->getType());
   }
 
   public function getDeclaratorsUNTYPED(): EditableNode {

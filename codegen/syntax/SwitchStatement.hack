@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b5e242e36bff15e676d1ba35cc4a4d48>>
+ * @generated SignedSource<<1763984da6eea34c1a603b17d3a985f6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -67,9 +67,6 @@ final class SwitchStatement
       $offset,
       $source,
     );
-    $expression = $expression->isMissing()
-      ? $expression
-      : __Private\Wrap\wrap_IExpression($expression);
     $offset += $expression->getWidth();
     $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['switch_right_paren'],
@@ -267,8 +264,9 @@ final class SwitchStatement
    * MemberSelectionExpression | ObjectCreationExpression |
    * ScopeResolutionExpression | SubscriptExpression | VariableExpression
    */
+  <<__Memoize>>
   public function getExpression(): IExpression {
-    return TypeAssert\instance_of(IExpression::class, $this->_expression);
+    return __Private\Wrap\wrap_IExpression($this->_expression);
   }
 
   /**
@@ -391,7 +389,7 @@ final class SwitchStatement
    * @return EditableList<EditableNode>
    */
   public function getSectionsx(): EditableList<EditableNode> {
-    return TypeAssert\instance_of(EditableList::class, $this->_sections);
+    return TypeAssert\not_null($this->getSections());
   }
 
   public function getRightBraceUNTYPED(): EditableNode {

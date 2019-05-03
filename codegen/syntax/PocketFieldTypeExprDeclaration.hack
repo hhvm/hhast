@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<62f4695a23747a4f03548289bf936784>>
+ * @generated SignedSource<<8b674c9ccf1353068633f5767873bb3d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,7 +123,7 @@ final class PocketFieldTypeExprDeclaration extends EditableNode {
    * @return unknown
    */
   public function getCase(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_case);
+    return $this->_case;
   }
 
   /**
@@ -152,7 +152,7 @@ final class PocketFieldTypeExprDeclaration extends EditableNode {
    * @return unknown
    */
   public function getType(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_type);
+    return $this->_type;
   }
 
   /**
@@ -181,7 +181,7 @@ final class PocketFieldTypeExprDeclaration extends EditableNode {
    * @return unknown
    */
   public function getName(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_name);
+    return $this->_name;
   }
 
   /**
@@ -210,7 +210,7 @@ final class PocketFieldTypeExprDeclaration extends EditableNode {
    * @return unknown
    */
   public function getSemicolon(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_semicolon);
+    return $this->_semicolon;
   }
 
   /**

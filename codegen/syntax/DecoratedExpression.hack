@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d048d03639af8722754ad3cb5c30560f>>
+ * @generated SignedSource<<8b241e17441c0f233b9d3332d45d2b49>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -127,7 +127,7 @@ final class DecoratedExpression extends EditableNode implements IExpression {
    * SubscriptExpression | VariableToken | VariableExpression
    */
   public function getExpression(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_expression);
+    return $this->_expression;
   }
 
   /**

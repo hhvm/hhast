@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b48a0208b9c6e4f17081d4999c6385dc>>
+ * @generated SignedSource<<2f5e1d92f0da1001d3acecf8ac524646>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -248,10 +248,7 @@ final class ClassishDeclaration extends EditableNode {
    * @return AttributeSpecification
    */
   public function getAttributex(): AttributeSpecification {
-    return TypeAssert\instance_of(
-      AttributeSpecification::class,
-      $this->_attribute,
-    );
+    return TypeAssert\not_null($this->getAttribute());
   }
 
   public function getModifiersUNTYPED(): EditableNode {
@@ -294,7 +291,7 @@ final class ClassishDeclaration extends EditableNode {
    * @return EditableList<EditableNode>
    */
   public function getModifiersx(): EditableList<EditableNode> {
-    return TypeAssert\instance_of(EditableList::class, $this->_modifiers);
+    return TypeAssert\not_null($this->getModifiers());
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -420,10 +417,7 @@ final class ClassishDeclaration extends EditableNode {
    * @return TypeParameters
    */
   public function getTypeParametersx(): TypeParameters {
-    return TypeAssert\instance_of(
-      TypeParameters::class,
-      $this->_type_parameters,
-    );
+    return TypeAssert\not_null($this->getTypeParameters());
   }
 
   public function getExtendsKeywordUNTYPED(): EditableNode {
@@ -466,7 +460,7 @@ final class ClassishDeclaration extends EditableNode {
    * @return ExtendsToken
    */
   public function getExtendsKeywordx(): ExtendsToken {
-    return TypeAssert\instance_of(ExtendsToken::class, $this->_extends_keyword);
+    return TypeAssert\not_null($this->getExtendsKeyword());
   }
 
   public function getExtendsListUNTYPED(): EditableNode {
@@ -511,7 +505,7 @@ final class ClassishDeclaration extends EditableNode {
    * EditableList<SimpleTypeSpecifier>
    */
   public function getExtendsListx(): EditableList<EditableNode> {
-    return TypeAssert\instance_of(EditableList::class, $this->_extends_list);
+    return TypeAssert\not_null($this->getExtendsList());
   }
 
   public function getImplementsKeywordUNTYPED(): EditableNode {
@@ -557,10 +551,7 @@ final class ClassishDeclaration extends EditableNode {
    * @return ImplementsToken
    */
   public function getImplementsKeywordx(): ImplementsToken {
-    return TypeAssert\instance_of(
-      ImplementsToken::class,
-      $this->_implements_keyword,
-    );
+    return TypeAssert\not_null($this->getImplementsKeyword());
   }
 
   public function getImplementsListUNTYPED(): EditableNode {
@@ -605,7 +596,7 @@ final class ClassishDeclaration extends EditableNode {
    * EditableList<SimpleTypeSpecifier>
    */
   public function getImplementsListx(): EditableList<EditableNode> {
-    return TypeAssert\instance_of(EditableList::class, $this->_implements_list);
+    return TypeAssert\not_null($this->getImplementsList());
   }
 
   public function getBodyUNTYPED(): EditableNode {

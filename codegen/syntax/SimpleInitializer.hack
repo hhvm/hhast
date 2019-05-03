@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<deb2c19c836df8456e6fd1522bf2cc02>>
+ * @generated SignedSource<<65064eeccabdbbf08d1227bee0d99024>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -43,9 +43,6 @@ final class SimpleInitializer extends EditableNode {
       $offset,
       $source,
     );
-    $value = $value->isMissing()
-      ? $value
-      : __Private\Wrap\wrap_IExpression($value);
     $offset += $value->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -132,8 +129,9 @@ final class SimpleInitializer extends EditableNode {
    * TupleExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression |
    * XHPExpression
    */
+  <<__Memoize>>
   public function getValue(): IExpression {
-    return TypeAssert\instance_of(IExpression::class, $this->_value);
+    return __Private\Wrap\wrap_IExpression($this->_value);
   }
 
   /**

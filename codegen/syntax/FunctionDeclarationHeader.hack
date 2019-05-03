@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8f8cbca8273c4b6722eb15d11303624f>>
+ * @generated SignedSource<<25175a84bb2b4426d9c17d2b28e1537c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -245,7 +245,7 @@ final class FunctionDeclarationHeader extends EditableNode {
    * @return EditableList<EditableNode>
    */
   public function getModifiersx(): EditableList<EditableNode> {
-    return TypeAssert\instance_of(EditableList::class, $this->_modifiers);
+    return TypeAssert\not_null($this->getModifiers());
   }
 
   public function getKeywordUNTYPED(): EditableNode {
@@ -371,10 +371,7 @@ final class FunctionDeclarationHeader extends EditableNode {
    * @return TypeParameters
    */
   public function getTypeParameterListx(): TypeParameters {
-    return TypeAssert\instance_of(
-      TypeParameters::class,
-      $this->_type_parameter_list,
-    );
+    return TypeAssert\not_null($this->getTypeParameterList());
   }
 
   public function getLeftParenUNTYPED(): EditableNode {
@@ -459,7 +456,7 @@ final class FunctionDeclarationHeader extends EditableNode {
    * EditableList<VariadicParameter>
    */
   public function getParameterListx(): EditableList<EditableNode> {
-    return TypeAssert\instance_of(EditableList::class, $this->_parameter_list);
+    return TypeAssert\not_null($this->getParameterList());
   }
 
   public function getRightParenUNTYPED(): EditableNode {
@@ -542,7 +539,7 @@ final class FunctionDeclarationHeader extends EditableNode {
    * @return ColonToken
    */
   public function getColonx(): ColonToken {
-    return TypeAssert\instance_of(ColonToken::class, $this->_colon);
+    return TypeAssert\not_null($this->getColon());
   }
 
   public function getTypeUNTYPED(): EditableNode {
@@ -583,7 +580,7 @@ final class FunctionDeclarationHeader extends EditableNode {
     if ($this->_type->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableNode::class, $this->_type);
+    return $this->_type;
   }
 
   /**
@@ -595,7 +592,7 @@ final class FunctionDeclarationHeader extends EditableNode {
    * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getTypex(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_type);
+    return TypeAssert\not_null($this->getType());
   }
 
   public function getWhereClauseUNTYPED(): EditableNode {
@@ -638,6 +635,6 @@ final class FunctionDeclarationHeader extends EditableNode {
    * @return WhereClause
    */
   public function getWhereClausex(): WhereClause {
-    return TypeAssert\instance_of(WhereClause::class, $this->_where_clause);
+    return TypeAssert\not_null($this->getWhereClause());
   }
 }

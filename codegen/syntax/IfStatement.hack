@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<67178ad890fd07ad1b9d3771b9cb8383>>
+ * @generated SignedSource<<4c7c150a2e3ec12ec0f418bceb423084>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -65,9 +65,6 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
       $offset,
       $source,
     );
-    $condition = $condition->isMissing()
-      ? $condition
-      : __Private\Wrap\wrap_IExpression($condition);
     $offset += $condition->getWidth();
     $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['if_right_paren'],
@@ -268,8 +265,9 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
    * PrefixUnaryExpression | QualifiedName | ScopeResolutionExpression |
    * SubscriptExpression | NameToken | VariableExpression
    */
+  <<__Memoize>>
   public function getCondition(): IExpression {
-    return TypeAssert\instance_of(IExpression::class, $this->_condition);
+    return __Private\Wrap\wrap_IExpression($this->_condition);
   }
 
   /**
@@ -350,7 +348,7 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
    * ThrowStatement | UnsetStatement
    */
   public function getStatement(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_statement);
+    return $this->_statement;
   }
 
   /**
@@ -399,7 +397,7 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
    * @return EditableList<EditableNode>
    */
   public function getElseifClausesx(): EditableList<EditableNode> {
-    return TypeAssert\instance_of(EditableList::class, $this->_elseif_clauses);
+    return TypeAssert\not_null($this->getElseifClauses());
   }
 
   public function getElseClauseUNTYPED(): EditableNode {
@@ -439,6 +437,6 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
    * @return ElseClause
    */
   public function getElseClausex(): ElseClause {
-    return TypeAssert\instance_of(ElseClause::class, $this->_else_clause);
+    return TypeAssert\not_null($this->getElseClause());
   }
 }

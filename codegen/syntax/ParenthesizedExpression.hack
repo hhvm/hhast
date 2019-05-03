@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f2a3bca50fe4f0a0d341090169145729>>
+ * @generated SignedSource<<cc5b5bfec96a468897b4bc05e8ba9d1e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -48,9 +48,6 @@ final class ParenthesizedExpression
       $offset,
       $source,
     );
-    $expression = $expression->isMissing()
-      ? $expression
-      : __Private\Wrap\wrap_IExpression($expression);
     $offset += $expression->getWidth();
     $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['parenthesized_expression_right_paren'],
@@ -151,8 +148,9 @@ final class ParenthesizedExpression
    * NameToken | VariableExpression | VectorIntrinsicExpression | XHPExpression
    * | YieldExpression
    */
+  <<__Memoize>>
   public function getExpression(): IExpression {
-    return TypeAssert\instance_of(IExpression::class, $this->_expression);
+    return __Private\Wrap\wrap_IExpression($this->_expression);
   }
 
   /**

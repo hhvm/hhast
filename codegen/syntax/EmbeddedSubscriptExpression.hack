@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<77db9346c2cdb1541f506c232fb3bd51>>
+ * @generated SignedSource<<0042ed041629341cbae872b32c6ff389>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -136,7 +136,7 @@ final class EmbeddedSubscriptExpression
    * @return unknown
    */
   public function getReceiver(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_receiver);
+    return $this->_receiver;
   }
 
   /**
@@ -170,7 +170,7 @@ final class EmbeddedSubscriptExpression
    * @return unknown
    */
   public function getLeftBracket(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_left_bracket);
+    return $this->_left_bracket;
   }
 
   /**
@@ -204,7 +204,7 @@ final class EmbeddedSubscriptExpression
    * @return unknown
    */
   public function getIndex(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_index);
+    return $this->_index;
   }
 
   /**
@@ -238,7 +238,7 @@ final class EmbeddedSubscriptExpression
    * @return unknown
    */
   public function getRightBracket(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_right_bracket);
+    return $this->_right_bracket;
   }
 
   /**

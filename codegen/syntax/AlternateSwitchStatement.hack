@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dddc48a5a68b811a922eab9a4f22e795>>
+ * @generated SignedSource<<fabe8c6f303c11a467761df018341357>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -408,7 +408,7 @@ final class AlternateSwitchStatement
    * @return EditableList<EditableNode>
    */
   public function getSectionsx(): EditableList<EditableNode> {
-    return TypeAssert\instance_of(EditableList::class, $this->_sections);
+    return TypeAssert\not_null($this->getSections());
   }
 
   public function getClosingEndswitchUNTYPED(): EditableNode {

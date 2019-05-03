@@ -210,15 +210,26 @@ final class CodegenSyntax extends CodegenBase {
     $type = $spec['nullable'] ? ('?'.$spec['class']) : $spec['class'];
 
     if (!$spec['nullable']) {
-      yield $cg
+      $get = $cg
         ->codegenMethodf('get%s', $upper_camel)
         ->setDocBlock('@return '.Str\join($types, ' | '))
-        ->setReturnType($type)
-        ->setBodyf(
+        ->setReturnType($type);
+      if ($spec['class'] === 'EditableNode') {
+        yield $get->setBodyf('return $this->_%s;', $underscored);
+      } else if ($spec['needsWrapper']) {
+        yield $get->setIsMemoized(true)
+          ->setBodyf(
+            'return __Private\\Wrap\\wrap_%s($this->_%s);',
+            $spec['class'],
+            $underscored,
+          );
+      } else {
+        yield $get->setBodyf(
           'return TypeAssert\instance_of(%s::class, $this->_%s);',
           $type |> Str\split($$, '<') |> C\firstx($$),
           $underscored,
         );
+      }
       // For backwards compatibility: always offer getFoox, in case it was
       // nullable in a previous version
       yield $cg
@@ -229,6 +240,27 @@ final class CodegenSyntax extends CodegenBase {
       return;
     }
 
+    // nullable
+    $get_body = $cg
+      ->codegenHackBuilder()
+      ->startIfBlockf('$this->_%s->isMissing()', $underscored)
+      ->addReturnf('null')
+      ->endIfBlock();
+    if ($spec['class'] === 'EditableNode') {
+      $get_body->addReturnf('$this->_%s', $underscored);
+    } else if ($spec['needsWrapper']) {
+      $get_body->addReturnf(
+        '__Private\\Wrap\\wrap_%s($this->_%s)',
+        $spec['class'],
+        $underscored,
+      );
+    } else {
+      $get_body->addReturnf(
+        'TypeAssert\instance_of(%s::class, $this->_%s)',
+        $spec['class'] |> Str\split($$, '<') |> C\firstx($$),
+        $underscored,
+      );
+    }
     yield $cg
       ->codegenMethodf('get%s', $upper_camel)
       ->setDocBlock(
@@ -236,20 +268,9 @@ final class CodegenSyntax extends CodegenBase {
           |> Str\join($$, ' | ')
           |> '@return '.$$,
       )
+      ->setIsMemoized($spec['needsWrapper'])
       ->setReturnType($type)
-      ->setBody(
-        $cg
-          ->codegenHackBuilder()
-          ->startIfBlockf('$this->_%s->isMissing()', $underscored)
-          ->addReturnf('null')
-          ->endIfBlock()
-          ->addReturnf(
-            'TypeAssert\instance_of(%s::class, $this->_%s)',
-            $spec['class'] |> Str\split($$, '<') |> C\firstx($$),
-            $underscored,
-          )
-          ->getCode(),
-      );
+      ->setBody($get_body->getCode());
 
     yield $cg
       ->codegenMethodf('get%sx', $upper_camel)
@@ -259,11 +280,7 @@ final class CodegenSyntax extends CodegenBase {
           |> '@return '.$$,
       )
       ->setReturnType($spec['class'])
-      ->setBodyf(
-        'return TypeAssert\instance_of(%s::class, $this->_%s);',
-        $spec['class'] |> Str\split($$, '<') |> C\firstx($$),
-        $underscored,
-      );
+      ->setBodyf('return TypeAssert\\not_null($this->get%s());', $upper_camel);
   }
 
   private function generateConstructor(
@@ -310,7 +327,6 @@ final class CodegenSyntax extends CodegenBase {
         HackBuilderValues::literal(),
       );
     foreach ($syntax['fields'] as $field) {
-      $spec = $this->getTypeSpecForField($syntax, $field['field_name']);
       $body
         ->addf('$%s = ', $field['field_name'])
         ->addMultilineCall(
@@ -325,18 +341,8 @@ final class CodegenSyntax extends CodegenBase {
             '$offset',
             '$source',
           ],
-        );
-      if ($spec['needsWrapper']) {
-        $body->addLinef(
-          '$%s = $%s->isMissing() ? $%s : __Private\Wrap\wrap_%s($%s);',
-          $field['field_name'],
-          $field['field_name'],
-          $field['field_name'],
-          $spec['class'],
-          $field['field_name'],
-        );
-      }
-      $body->addLinef('$offset += $%s->getWidth();', $field['field_name']);
+        )
+        ->addLinef('$offset += $%s->getWidth();', $field['field_name']);
     }
 
     return $cg

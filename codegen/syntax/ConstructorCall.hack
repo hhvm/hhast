@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2a22c89c7c03d4fcd9644cb7f3704423>>
+ * @generated SignedSource<<0f22283dc8e165eca7c06d012164dc75>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -137,7 +137,7 @@ final class ConstructorCall extends EditableNode {
    * SelfToken | StaticToken | VariableExpression
    */
   public function getType(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_type);
+    return $this->_type;
   }
 
   /**
@@ -184,7 +184,7 @@ final class ConstructorCall extends EditableNode {
    * @return LeftParenToken
    */
   public function getLeftParenx(): LeftParenToken {
-    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
+    return TypeAssert\not_null($this->getLeftParen());
   }
 
   public function getArgumentListUNTYPED(): EditableNode {
@@ -255,7 +255,7 @@ final class ConstructorCall extends EditableNode {
    * EditableList<VectorIntrinsicExpression>
    */
   public function getArgumentListx(): EditableList<IExpression> {
-    return TypeAssert\instance_of(EditableList::class, $this->_argument_list);
+    return TypeAssert\not_null($this->getArgumentList());
   }
 
   public function getRightParenUNTYPED(): EditableNode {
@@ -292,6 +292,6 @@ final class ConstructorCall extends EditableNode {
    * @return RightParenToken
    */
   public function getRightParenx(): RightParenToken {
-    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
+    return TypeAssert\not_null($this->getRightParen());
   }
 }

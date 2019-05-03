@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a2233471472294362b48ac7b941a147e>>
+ * @generated SignedSource<<d79e8ddcd1a785e12543494cd713ff48>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -171,7 +171,7 @@ final class PocketAtomMappingDeclaration extends EditableNode {
    * @return unknown
    */
   public function getGlyph(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_glyph);
+    return $this->_glyph;
   }
 
   /**
@@ -207,7 +207,7 @@ final class PocketAtomMappingDeclaration extends EditableNode {
    * @return unknown
    */
   public function getName(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_name);
+    return $this->_name;
   }
 
   /**
@@ -243,7 +243,7 @@ final class PocketAtomMappingDeclaration extends EditableNode {
    * @return unknown
    */
   public function getLeftParen(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_left_paren);
+    return $this->_left_paren;
   }
 
   /**
@@ -279,7 +279,7 @@ final class PocketAtomMappingDeclaration extends EditableNode {
    * @return unknown
    */
   public function getMappings(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_mappings);
+    return $this->_mappings;
   }
 
   /**
@@ -315,7 +315,7 @@ final class PocketAtomMappingDeclaration extends EditableNode {
    * @return unknown
    */
   public function getRightParen(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_right_paren);
+    return $this->_right_paren;
   }
 
   /**
@@ -351,7 +351,7 @@ final class PocketAtomMappingDeclaration extends EditableNode {
    * @return unknown
    */
   public function getSemicolon(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_semicolon);
+    return $this->_semicolon;
   }
 
   /**

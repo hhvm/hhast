@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<46b0e46a9b0f3e3022d591413811648c>>
+ * @generated SignedSource<<dfebfbfe553a7f3d9f348f11681dfd3f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -74,9 +74,6 @@ final class AlternateIfStatement extends EditableNode {
       $offset,
       $source,
     );
-    $condition = $condition->isMissing()
-      ? $condition
-      : __Private\Wrap\wrap_IExpression($condition);
     $offset += $condition->getWidth();
     $right_paren = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['alternate_if_right_paren'],
@@ -317,8 +314,9 @@ final class AlternateIfStatement extends EditableNode {
   /**
    * @return BinaryExpression | VariableExpression
    */
+  <<__Memoize>>
   public function getCondition(): IExpression {
-    return TypeAssert\instance_of(IExpression::class, $this->_condition);
+    return __Private\Wrap\wrap_IExpression($this->_condition);
   }
 
   /**
@@ -488,7 +486,7 @@ final class AlternateIfStatement extends EditableNode {
    * @return EditableList<EditableNode>
    */
   public function getElseifClausesx(): EditableList<EditableNode> {
-    return TypeAssert\instance_of(EditableList::class, $this->_elseif_clauses);
+    return TypeAssert\not_null($this->getElseifClauses());
   }
 
   public function getElseClauseUNTYPED(): EditableNode {
@@ -534,10 +532,7 @@ final class AlternateIfStatement extends EditableNode {
    * @return AlternateElseClause
    */
   public function getElseClausex(): AlternateElseClause {
-    return TypeAssert\instance_of(
-      AlternateElseClause::class,
-      $this->_else_clause,
-    );
+    return TypeAssert\not_null($this->getElseClause());
   }
 
   public function getEndifKeywordUNTYPED(): EditableNode {

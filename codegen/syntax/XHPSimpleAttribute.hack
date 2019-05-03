@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8fc9d60b15e8106324a797407e35c3a4>>
+ * @generated SignedSource<<2aa2a604cdaeb935fd1f75a3b4997f7a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -168,7 +168,7 @@ final class XHPSimpleAttribute extends EditableNode {
    * @return BracedExpression | XHPStringLiteralToken
    */
   public function getExpression(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_expression);
+    return $this->_expression;
   }
 
   /**
