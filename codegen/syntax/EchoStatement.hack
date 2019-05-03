@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8cab97f06178835b8b818980548f2425>>
+ * @generated SignedSource<<7a328c4041f65b27a6747a2ec023a31a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -142,7 +142,6 @@ final class EchoStatement extends EditableNode {
    * EditableList<LiteralExpression> | EditableList<MemberSelectionExpression>
    * | EditableList<ObjectCreationExpression> |
    * EditableList<ParenthesizedExpression> |
-   * EditableList<PipeVariableExpression> |
    * EditableList<PostfixUnaryExpression> | EditableList<PrefixUnaryExpression>
    * | EditableList<QualifiedName> | EditableList<ScopeResolutionExpression> |
    * EditableList<SubscriptExpression> | EditableList<NameToken> |
@@ -159,7 +158,6 @@ final class EchoStatement extends EditableNode {
    * EditableList<LiteralExpression> | EditableList<MemberSelectionExpression>
    * | EditableList<ObjectCreationExpression> |
    * EditableList<ParenthesizedExpression> |
-   * EditableList<PipeVariableExpression> |
    * EditableList<PostfixUnaryExpression> | EditableList<PrefixUnaryExpression>
    * | EditableList<QualifiedName> | EditableList<ScopeResolutionExpression> |
    * EditableList<SubscriptExpression> | EditableList<NameToken> |

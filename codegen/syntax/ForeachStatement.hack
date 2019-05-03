@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a992dd0145122dc94803cc2544dfa20d>>
+ * @generated SignedSource<<6cc1f2bddb7582ce39e3c0244b4470cd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -450,9 +450,8 @@ final class ForeachStatement
   }
 
   /**
-   * @return FunctionCallExpression | ListExpression |
-   * MemberSelectionExpression | null | ScopeResolutionExpression |
-   * SubscriptExpression | NameToken | VariableExpression
+   * @return ListExpression | MemberSelectionExpression | null |
+   * ScopeResolutionExpression | SubscriptExpression | VariableExpression
    */
   public function getKey(): ?IExpression {
     if ($this->_key->isMissing()) {
@@ -462,9 +461,8 @@ final class ForeachStatement
   }
 
   /**
-   * @return FunctionCallExpression | ListExpression |
-   * MemberSelectionExpression | ScopeResolutionExpression |
-   * SubscriptExpression | NameToken | VariableExpression
+   * @return ListExpression | MemberSelectionExpression |
+   * ScopeResolutionExpression | SubscriptExpression | VariableExpression
    */
   public function getKeyx(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_key);
@@ -540,18 +538,16 @@ final class ForeachStatement
   }
 
   /**
-   * @return FunctionCallExpression | ListExpression |
-   * MemberSelectionExpression | ScopeResolutionExpression |
-   * SubscriptExpression | NameToken | VariableExpression
+   * @return ListExpression | MemberSelectionExpression |
+   * ScopeResolutionExpression | SubscriptExpression | VariableExpression
    */
   public function getValue(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_value);
   }
 
   /**
-   * @return FunctionCallExpression | ListExpression |
-   * MemberSelectionExpression | ScopeResolutionExpression |
-   * SubscriptExpression | NameToken | VariableExpression
+   * @return ListExpression | MemberSelectionExpression |
+   * ScopeResolutionExpression | SubscriptExpression | VariableExpression
    */
   public function getValuex(): IExpression {
     return $this->getValue();

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4e527b15ac115505045243daae498c03>>
+ * @generated SignedSource<<16bb57221210ca19cbd9d5f7e7cc72a2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -285,7 +285,7 @@ final class ConstDeclaration extends EditableNode {
    * @return ClassnameTypeSpecifier | GenericTypeSpecifier |
    * KeysetTypeSpecifier | null | NullableTypeSpecifier | SimpleTypeSpecifier |
    * TupleTypeSpecifier | TypeConstant | VarrayTypeSpecifier |
-   * VectorArrayTypeSpecifier | VectorTypeSpecifier
+   * VectorTypeSpecifier
    */
   public function getTypeSpecifier(): ?EditableNode {
     if ($this->_type_specifier->isMissing()) {
@@ -298,7 +298,7 @@ final class ConstDeclaration extends EditableNode {
    * @return ClassnameTypeSpecifier | GenericTypeSpecifier |
    * KeysetTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier |
    * TupleTypeSpecifier | TypeConstant | VarrayTypeSpecifier |
-   * VectorArrayTypeSpecifier | VectorTypeSpecifier
+   * VectorTypeSpecifier
    */
   public function getTypeSpecifierx(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type_specifier);

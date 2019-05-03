@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5eb5205a10852350244bd986574ef2cb>>
+ * @generated SignedSource<<88d5533538a85917c74e9bccfded6b79>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -46,7 +46,6 @@ final class BreakStatement extends EditableNode {
       $offset,
       $source,
     );
-    $level = __Private\Wrap\wrap_IExpression($level);
     $offset += $level->getWidth();
     $semicolon = EditableNode::fromJSON(
       /* UNSAFE_EXPR */ $json['break_semicolon'],
@@ -137,20 +136,20 @@ final class BreakStatement extends EditableNode {
   }
 
   /**
-   * @return LiteralExpression | null | VariableExpression
+   * @return LiteralExpression | null
    */
-  public function getLevel(): ?IExpression {
+  public function getLevel(): ?LiteralExpression {
     if ($this->_level->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(IExpression::class, $this->_level);
+    return TypeAssert\instance_of(LiteralExpression::class, $this->_level);
   }
 
   /**
-   * @return LiteralExpression | VariableExpression
+   * @return LiteralExpression
    */
-  public function getLevelx(): IExpression {
-    return TypeAssert\instance_of(IExpression::class, $this->_level);
+  public function getLevelx(): LiteralExpression {
+    return TypeAssert\instance_of(LiteralExpression::class, $this->_level);
   }
 
   public function getSemicolonUNTYPED(): EditableNode {

@@ -28,73 +28,88 @@ final class CodegenRelations extends CodegenBase {
     parent::__construct($schema, $relationships);
   }
 
-  private int $currentFiles = 0;
-
   <<__Override>>
   public function generate(): void {
+    \HH\Asio\join($this->generateAsync());
+  }
+
+  private async function generateAsync(): Awaitable<void> {
     print("Generating file list to infer relationships...\n");
     $files = $this->getFileList();
     print("Infering relationships, this can take a long time...\n");
-    $done = Set {};
+    $done = new Ref(0);
     $start = \microtime(true);
-    list($all_inferences, $_) = \HH\Asio\join(Tuple\from_async(
-      Vec\map_async(
+    $queue = new ConcurrentAsyncQueue(32);
+
+    $relationships = new Ref(dict[]);
+    await Tuple\from_async(
+      Dict\map_async(
         $files,
         async $file ==> {
-          while ($this->currentFiles >= 8) {
-            await \HH\Asio\usleep(10 * 1000);
-          }
-          \fprintf(\STDERR, "Dequeue\n");
-          $this->currentFiles++;
-          try {
-            return await $this->getRelationsInFileAsync($file);
-          } catch (\Throwable $t) {
-            \fprintf(\STDERR, "Error reading %s: %s\n", $file, $t->getMessage());
-            throw $t;
-          } finally {
-            $done[] = $file;
-            $this->currentFiles--;
-          }
+          return await $queue->enqueueAndWaitFor(
+            async () ==> {
+              try {
+                $links = await $this->getRelationsInFileAsync($file);
+                $new = dict[];
+                foreach ($links as $key => $children) {
+                  $relationships->v[$key] ??= keyset[];
+                  $new_children = Keyset\diff(
+                    $children,
+                    $relationships->v[$key],
+                  );
+                  if ($new_children) {
+                    $new[$key] = $children;
+                  }
+                }
+                if ($new) {
+                  await execute_async(
+                    'hhvm',
+                    '-vEval.EnablePHP=true',
+                    '-l',
+                    $file,
+                  );
+                  foreach ($new as $key => $children) {
+                    $relationships->v[$key] = Keyset\union(
+                      $relationships->v[$key],
+                      $children,
+                    );
+                  }
+                }
+              } catch (\Throwable $_) {
+                // HHVM and Hack tests intentionally include lots of invalid
+                // files
+              } finally {
+                $done->v++;
+              }
+            },
+          );
         },
       ),
       async {
         $total = C\count($files);
-        while ($done->count() < $total) {
+        while ($done->v < $total) {
           await \HH\Asio\usleep(1000 * 1000);
-          if ($done->count() === 0) {
+          if ($done->v === 0) {
             continue;
           }
-          $ratio = ((float)$done->count()) / $total;
+          $ratio = ((float)$done->v) / $total;
           $now = \microtime(true);
           $elapsed = $now - $start;
-          $rate = $done->count() / $elapsed;
+          $rate = $done->v / $elapsed;
           $end = $start + ($total / $rate);
           \fprintf(
             \STDERR,
-            "%d%%\t(%d / %d)\tExpected finish in %ds at %s\n",
+            "%d%%\t(%d / %d)\tExpected finish in %ds at %s - concurrency: %d\n",
             (int)($ratio * 100),
-            $done->count(),
+            $done->v,
             $total,
             (int)($end - $now),
             \strftime('%H:%M:%S', (int)$end),
+            $queue->getCurrentConcurrency(),
           );
         }
       },
-    ));
-
-    $result = dict[];
-    foreach ($all_inferences as $inferences) {
-      foreach ($inferences as $key => $child_keys) {
-        $result[$key] = Keyset\flatten(
-          vec[
-            $result[$key] ?? keyset[],
-            $child_keys,
-          ],
-        )
-          |> Keyset\sort($$);
-      }
-    }
-    $result = Dict\sort_by_key($result);
+    );
 
     $cg = $this->getCodegenFactory();
 
@@ -105,7 +120,9 @@ final class CodegenRelations extends CodegenBase {
         $cg->codegenConstant('INFERRED_RELATIONSHIPS')
           ->setType('dict<string, keyset<string>>')
           ->setValue(
-            $result,
+            $relationships->v
+              |> Dict\sort_by_key($$)
+              |> Dict\map($$, $children ==> Keyset\sort($children)),
             HackBuilderValues::dict(
               HackBuilderKeys::export(),
               HackBuilderValues::keyset(HackBuilderValues::export()),
@@ -221,12 +238,27 @@ final class CodegenRelations extends CodegenBase {
     string $file,
   ): Awaitable<dict<string, keyset<string>>> {
     try {
-      list($errors, $json) = await Tuple\from_async(
-        execute_async('hh_parse', '--full-fidelity-errors', $file),
-        HHAST\json_from_file_async($file),
+      // Get errors too, and avoid the UTF8 handling. If we fail on invalid
+      // UTF8, we throw an exception and ignore the file. This is fine as the
+      // invalid UTF8 is only in files that are testing encoding, and the odds
+      // of them introducing new node relationships are pretty low
+      $lines = await execute_async(
+        'hh_parse',
+        '--full-fidelity-errors',
+        '--full-fidelity-json',
+        $file,
       );
-      if ($errors !== vec['']) {
-        \fprintf(\STDERR, "Skipping file %s\n", $file);
+      $lines = Vec\filter($lines, $line ==> $line !== '');
+      if (C\count($lines) !== 1) {
+        return dict[];
+      }
+      $json = \json_decode(
+        C\lastx($lines),
+        /* as array = */ true,
+        /* depth = */ 512, // default
+        \JSON_FB_HACK_ARRAYS,
+      );
+      if (!\is_dict($json)) {
         return dict[];
       }
       /* HH_IGNORE_ERROR[4110] making assumptions about JSON */
@@ -289,11 +321,8 @@ final class CodegenRelations extends CodegenBase {
     return 'list<'.Str\join($types, '|').'>';
   }
 
-  public function flatten(
-    dict<string, mixed> $json,
-  ): Traversable<dict<string, mixed>> {
-    // UNSAFE_BLOCK making assumptions about JSON struct
-    yield $json;
+  public function flatten(dynamic $json): vec<dict<string, mixed>> {
+    $ret = vec[$json];
 
     $kind = (string)$json['kind'];
     $schemas = Dict\pull(
@@ -304,32 +333,34 @@ final class CodegenRelations extends CodegenBase {
 
     switch ($kind) {
       case 'token':
-        yield $json['token'];
+        $ret[] = $json['token'];
         break;
       case 'list':
         foreach ($json['elements'] as $item) {
           foreach ($this->flatten($item) as $inner) {
-            yield $inner;
+            $ret[] = $inner;
           }
         }
         break;
       case 'missing':
-        return;
+        break;
       default:
         $schema = $schemas[$kind] ?? null;
         if ($schema === null) {
-          return;
+          break;
         }
         foreach ($schema['fields'] as $field) {
           $field = $schema['prefix'].'_'.$field['field_name'];
           $content = $json[$field] ?? null;
           if ($content !== null) {
             foreach ($this->flatten($content) as $inner) {
-              yield $inner;
+              $ret[] = $inner;
             }
           }
         }
     }
+
+    return /* HH_FIXME[4110] dynamic to real type */ $ret;
   }
 
   // If some valid syntax isn't in the HHVM/Hack tests, use it here to make sure

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<544e4cb72112f139f01742ac9268433c>>
+ * @generated SignedSource<<37d07cb874c9967492da59b30f13b460>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -276,16 +276,16 @@ final class CatchClause extends EditableNode {
   }
 
   /**
-   * @return NameToken | VariableToken
+   * @return VariableToken
    */
-  public function getVariable(): EditableToken {
-    return TypeAssert\instance_of(EditableToken::class, $this->_variable);
+  public function getVariable(): VariableToken {
+    return TypeAssert\instance_of(VariableToken::class, $this->_variable);
   }
 
   /**
-   * @return NameToken | VariableToken
+   * @return VariableToken
    */
-  public function getVariablex(): EditableToken {
+  public function getVariablex(): VariableToken {
     return $this->getVariable();
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<03bf9772124a845f1d378ff60f6d3dca>>
+ * @generated SignedSource<<4b0dbe14ce0d4c9bbc745328e04805bc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -161,16 +161,16 @@ final class LetStatement extends EditableNode {
   }
 
   /**
-   * @return LetToken
+   * @return
    */
-  public function getKeyword(): LetToken {
-    return TypeAssert\instance_of(LetToken::class, $this->_keyword);
+  public function getKeyword(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_keyword);
   }
 
   /**
-   * @return LetToken
+   * @return
    */
-  public function getKeywordx(): LetToken {
+  public function getKeywordx(): EditableNode {
     return $this->getKeyword();
   }
 
@@ -197,16 +197,16 @@ final class LetStatement extends EditableNode {
   }
 
   /**
-   * @return NameToken
+   * @return
    */
-  public function getName(): NameToken {
-    return TypeAssert\instance_of(NameToken::class, $this->_name);
+  public function getName(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_name);
   }
 
   /**
-   * @return NameToken
+   * @return
    */
-  public function getNamex(): NameToken {
+  public function getNamex(): EditableNode {
     return $this->getName();
   }
 
@@ -233,20 +233,17 @@ final class LetStatement extends EditableNode {
   }
 
   /**
-   * @return null | ColonToken
+   * @return
    */
-  public function getColon(): ?ColonToken {
-    if ($this->_colon->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(ColonToken::class, $this->_colon);
+  public function getColon(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_colon);
   }
 
   /**
-   * @return ColonToken
+   * @return
    */
-  public function getColonx(): ColonToken {
-    return TypeAssert\instance_of(ColonToken::class, $this->_colon);
+  public function getColonx(): EditableNode {
+    return $this->getColon();
   }
 
   public function getTypeUNTYPED(): EditableNode {
@@ -272,22 +269,17 @@ final class LetStatement extends EditableNode {
   }
 
   /**
-   * @return ClosureTypeSpecifier | GenericTypeSpecifier | null |
-   * NullableTypeSpecifier | SimpleTypeSpecifier
+   * @return
    */
-  public function getType(): ?EditableNode {
-    if ($this->_type->isMissing()) {
-      return null;
-    }
+  public function getType(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_type);
   }
 
   /**
-   * @return ClosureTypeSpecifier | GenericTypeSpecifier |
-   * NullableTypeSpecifier | SimpleTypeSpecifier
+   * @return
    */
   public function getTypex(): EditableNode {
-    return TypeAssert\instance_of(EditableNode::class, $this->_type);
+    return $this->getType();
   }
 
   public function getInitializerUNTYPED(): EditableNode {
@@ -313,19 +305,16 @@ final class LetStatement extends EditableNode {
   }
 
   /**
-   * @return SimpleInitializer
+   * @return
    */
-  public function getInitializer(): SimpleInitializer {
-    return TypeAssert\instance_of(
-      SimpleInitializer::class,
-      $this->_initializer,
-    );
+  public function getInitializer(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_initializer);
   }
 
   /**
-   * @return SimpleInitializer
+   * @return
    */
-  public function getInitializerx(): SimpleInitializer {
+  public function getInitializerx(): EditableNode {
     return $this->getInitializer();
   }
 
@@ -352,16 +341,16 @@ final class LetStatement extends EditableNode {
   }
 
   /**
-   * @return SemicolonToken
+   * @return
    */
-  public function getSemicolon(): SemicolonToken {
-    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
+  public function getSemicolon(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_semicolon);
   }
 
   /**
-   * @return SemicolonToken
+   * @return
    */
-  public function getSemicolonx(): SemicolonToken {
+  public function getSemicolonx(): EditableNode {
     return $this->getSemicolon();
   }
 }

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eb6920841dc2da53439f7be0a5541be8>>
+ * @generated SignedSource<<da9581877644b64cabcbb2bd9d7c98e4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -108,18 +108,16 @@ final class IsExpression extends EditableNode implements IExpression {
   }
 
   /**
-   * @return FunctionCallExpression | LiteralExpression |
-   * MemberSelectionExpression | PipeVariableExpression | PrefixUnaryExpression
-   * | VariableExpression
+   * @return FunctionCallExpression | MemberSelectionExpression |
+   * PipeVariableExpression | PrefixUnaryExpression | VariableExpression
    */
   public function getLeftOperand(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_left_operand);
   }
 
   /**
-   * @return FunctionCallExpression | LiteralExpression |
-   * MemberSelectionExpression | PipeVariableExpression | PrefixUnaryExpression
-   * | VariableExpression
+   * @return FunctionCallExpression | MemberSelectionExpression |
+   * PipeVariableExpression | PrefixUnaryExpression | VariableExpression
    */
   public function getLeftOperandx(): IExpression {
     return $this->getLeftOperand();
@@ -170,20 +168,20 @@ final class IsExpression extends EditableNode implements IExpression {
   }
 
   /**
-   * @return ClosureTypeSpecifier | DictionaryTypeSpecifier |
-   * GenericTypeSpecifier | KeysetTypeSpecifier | NullableTypeSpecifier |
-   * ShapeTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
-   * TypeConstant | VectorTypeSpecifier
+   * @return DictionaryTypeSpecifier | GenericTypeSpecifier |
+   * KeysetTypeSpecifier | NullableTypeSpecifier | ShapeTypeSpecifier |
+   * SimpleTypeSpecifier | TupleTypeSpecifier | TypeConstant |
+   * VectorTypeSpecifier
    */
   public function getRightOperand(): EditableNode {
     return TypeAssert\instance_of(EditableNode::class, $this->_right_operand);
   }
 
   /**
-   * @return ClosureTypeSpecifier | DictionaryTypeSpecifier |
-   * GenericTypeSpecifier | KeysetTypeSpecifier | NullableTypeSpecifier |
-   * ShapeTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
-   * TypeConstant | VectorTypeSpecifier
+   * @return DictionaryTypeSpecifier | GenericTypeSpecifier |
+   * KeysetTypeSpecifier | NullableTypeSpecifier | ShapeTypeSpecifier |
+   * SimpleTypeSpecifier | TupleTypeSpecifier | TypeConstant |
+   * VectorTypeSpecifier
    */
   public function getRightOperandx(): EditableNode {
     return $this->getRightOperand();

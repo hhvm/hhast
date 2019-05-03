@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<27866041cf6e55956f896d937fdb8b96>>
+ * @generated SignedSource<<c094faeccdcbee6fab8d6ad3ed8bfb59>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -195,9 +195,11 @@ final class TupleExpression extends EditableNode implements IExpression {
   /**
    * @return EditableList<ArrayCreationExpression> | EditableList<IExpression>
    * | EditableList<ArrayIntrinsicExpression> | EditableList<BinaryExpression>
-   * | EditableList<CastExpression> | EditableList<FunctionCallExpression> |
-   * EditableList<LiteralExpression> | EditableList<ObjectCreationExpression> |
-   * EditableList<SubscriptExpression> | EditableList<VariableExpression> |
+   * | EditableList<CastExpression> | EditableList<DarrayIntrinsicExpression> |
+   * EditableList<FunctionCallExpression> | EditableList<LiteralExpression> |
+   * EditableList<ObjectCreationExpression> | EditableList<SubscriptExpression>
+   * | EditableList<VariableExpression> |
+   * EditableList<VarrayIntrinsicExpression> |
    * EditableList<VectorIntrinsicExpression> | null
    */
   public function getItems(): ?EditableList<IExpression> {
@@ -210,9 +212,11 @@ final class TupleExpression extends EditableNode implements IExpression {
   /**
    * @return EditableList<ArrayCreationExpression> | EditableList<IExpression>
    * | EditableList<ArrayIntrinsicExpression> | EditableList<BinaryExpression>
-   * | EditableList<CastExpression> | EditableList<FunctionCallExpression> |
-   * EditableList<LiteralExpression> | EditableList<ObjectCreationExpression> |
-   * EditableList<SubscriptExpression> | EditableList<VariableExpression> |
+   * | EditableList<CastExpression> | EditableList<DarrayIntrinsicExpression> |
+   * EditableList<FunctionCallExpression> | EditableList<LiteralExpression> |
+   * EditableList<ObjectCreationExpression> | EditableList<SubscriptExpression>
+   * | EditableList<VariableExpression> |
+   * EditableList<VarrayIntrinsicExpression> |
    * EditableList<VectorIntrinsicExpression>
    */
   public function getItemsx(): EditableList<IExpression> {

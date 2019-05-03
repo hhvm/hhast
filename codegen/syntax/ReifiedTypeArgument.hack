@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<aab00385fc82e66c2b8d9f35fe46a3b2>>
+ * @generated SignedSource<<074be72f523ccb98ec2c221c72708df0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -91,16 +91,16 @@ final class ReifiedTypeArgument extends EditableNode {
   }
 
   /**
-   * @return ReifyToken
+   * @return
    */
-  public function getReified(): ReifyToken {
-    return TypeAssert\instance_of(ReifyToken::class, $this->_reified);
+  public function getReified(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_reified);
   }
 
   /**
-   * @return ReifyToken
+   * @return
    */
-  public function getReifiedx(): ReifyToken {
+  public function getReifiedx(): EditableNode {
     return $this->getReified();
   }
 
@@ -120,16 +120,16 @@ final class ReifiedTypeArgument extends EditableNode {
   }
 
   /**
-   * @return SimpleTypeSpecifier
+   * @return
    */
-  public function getType(): SimpleTypeSpecifier {
-    return TypeAssert\instance_of(SimpleTypeSpecifier::class, $this->_type);
+  public function getType(): EditableNode {
+    return TypeAssert\instance_of(EditableNode::class, $this->_type);
   }
 
   /**
-   * @return SimpleTypeSpecifier
+   * @return
    */
-  public function getTypex(): SimpleTypeSpecifier {
+  public function getTypex(): EditableNode {
     return $this->getType();
   }
 }

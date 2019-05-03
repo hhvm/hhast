@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a5bfd8fe008f14240fcfd82789826daf>>
+ * @generated SignedSource<<b8822173ca952849a8226d78aa33525d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -224,7 +224,6 @@ final class UnsetStatement extends EditableNode {
   /**
    * @return EditableList<MemberSelectionExpression> |
    * EditableList<PrefixUnaryExpression> |
-   * EditableList<SafeMemberSelectionExpression> |
    * EditableList<ScopeResolutionExpression> |
    * EditableList<SubscriptExpression> | EditableList<VariableExpression>
    */
@@ -235,7 +234,6 @@ final class UnsetStatement extends EditableNode {
   /**
    * @return EditableList<MemberSelectionExpression> |
    * EditableList<PrefixUnaryExpression> |
-   * EditableList<SafeMemberSelectionExpression> |
    * EditableList<ScopeResolutionExpression> |
    * EditableList<SubscriptExpression> | EditableList<VariableExpression>
    */

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<87ccd54b10f00cf4d5a2f6b421dbfc4e>>
+ * @generated SignedSource<<82932684af6eeacced2b5d2cfc83e7f1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -109,8 +109,8 @@ final class ScopeResolutionExpression
   }
 
   /**
-   * @return FunctionCallExpression | GenericTypeSpecifier | LiteralExpression
-   * | ParenthesizedExpression | PipeVariableExpression | QualifiedName |
+   * @return FunctionCallExpression | LiteralExpression |
+   * ParenthesizedExpression | PipeVariableExpression | QualifiedName |
    * ScopeResolutionExpression | SimpleTypeSpecifier | XHPClassNameToken |
    * NameToken | ParentToken | SelfToken | StaticToken | VariableExpression
    */
@@ -119,8 +119,8 @@ final class ScopeResolutionExpression
   }
 
   /**
-   * @return FunctionCallExpression | GenericTypeSpecifier | LiteralExpression
-   * | ParenthesizedExpression | PipeVariableExpression | QualifiedName |
+   * @return FunctionCallExpression | LiteralExpression |
+   * ParenthesizedExpression | PipeVariableExpression | QualifiedName |
    * ScopeResolutionExpression | SimpleTypeSpecifier | XHPClassNameToken |
    * NameToken | ParentToken | SelfToken | StaticToken | VariableExpression
    */

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<62506b1f6d9f89637e183d2bdb00233c>>
+ * @generated SignedSource<<8ffabb06db5ad74dd772b2bd0689c76e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -113,8 +113,7 @@ final class MemberSelectionExpression
    * @return FunctionCallExpression | MemberSelectionExpression |
    * ObjectCreationExpression | ParenthesizedExpression |
    * PipeVariableExpression | SafeMemberSelectionExpression |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression
+   * ScopeResolutionExpression | SubscriptExpression | VariableExpression
    */
   public function getObject(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_object);
@@ -124,8 +123,7 @@ final class MemberSelectionExpression
    * @return FunctionCallExpression | MemberSelectionExpression |
    * ObjectCreationExpression | ParenthesizedExpression |
    * PipeVariableExpression | SafeMemberSelectionExpression |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression
+   * ScopeResolutionExpression | SubscriptExpression | VariableExpression
    */
   public function getObjectx(): IExpression {
     return $this->getObject();
