@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<01053a641f1bb8a1bed3ba8c95473d60>>
+ * @generated SignedSource<<a0658b36c41037644144ce9f8f5a2315>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class AlternateIfStatement extends EditableNode implements IStatement {
+final class AlternateIfStatement
+  extends EditableNode
+  implements IControlFlowStatement, IStatement {
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;

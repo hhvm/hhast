@@ -14,7 +14,7 @@ use type Facebook\HackCodegen\{
   HackCodegenFactory,
   HackfmtFormatter,
 };
-
+use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Dict, Keyset, Str, Vec};
 
 abstract class CodegenBase {
@@ -118,121 +118,121 @@ abstract class CodegenBase {
   final protected function getMarkerInterfacesByInterface(
   ): dict<string, keyset<string>> {
     $ifs = dict[
-      'IControlFlowStatement' => keyset[
-        'ILoopStatement',
-        'AlternateElseClause',
-        'AlternateElseifClause',
-        'AlternateElseifStatement',
-        'AlternateSwitchStatement',
-        'ElseClause',
-        'ElseifClause',
-        'IfStatement',
-        'SwitchStatement',
+      HHAST\IControlFlowStatement::class => keyset[
+        HHAST\ILoopStatement::class,
+        HHAST\AlternateElseClause::class,
+        HHAST\AlternateElseifClause::class,
+        HHAST\AlternateIfStatement::class,
+        HHAST\AlternateSwitchStatement::class,
+        HHAST\ElseClause::class,
+        HHAST\ElseifClause::class,
+        HHAST\IfStatement::class,
+        HHAST\SwitchStatement::class,
       ],
-      'IClassBodyDeclaration' => keyset[
-        'MethodishDeclaration',
-        'MethodishTraitResolution',
-        'ConstDeclaration',
-        'PropertyDeclaration',
-        'RequireClause',
-        'TraitUse',
-        'TraitUseConflictResolution',
-        'TypeConstDeclaration',
-        'XHPCategoryDeclaration',
-        'XHPClassAttributeDeclaration',
-        'XHPChildrenDeclaration',
+      HHAST\IClassBodyDeclaration::class => keyset[
+        HHAST\MethodishDeclaration::class,
+        HHAST\MethodishTraitResolution::class,
+        HHAST\ConstDeclaration::class,
+        HHAST\PropertyDeclaration::class,
+        HHAST\RequireClause::class,
+        HHAST\TraitUse::class,
+        HHAST\TraitUseConflictResolution::class,
+        HHAST\TypeConstDeclaration::class,
+        HHAST\XHPCategoryDeclaration::class,
+        HHAST\XHPClassAttributeDeclaration::class,
+        HHAST\XHPChildrenDeclaration::class,
       ],
-      'IComment' => keyset[
-        'SingleLineComment',
-        'DelimitedComment',
+      HHAST\IComment::class => keyset[
+        HHAST\SingleLineComment::class,
+        HHAST\DelimitedComment::class,
       ],
-      'IFunctionishDeclaration' => keyset[
-        'FunctionDeclaration',
-        'MethodishDeclaration',
+      HHAST\IFunctionishDeclaration::class => keyset[
+        HHAST\FunctionDeclaration::class,
+        HHAST\MethodishDeclaration::class,
       ],
-      'IFunctionCallishExpression' => keyset[
-        'FunctionCallExpression',
-        'ObjectCreationExpression',
+      HHAST\IFunctionCallishExpression::class => keyset[
+        HHAST\FunctionCallExpression::class,
+        HHAST\ObjectCreationExpression::class,
       ],
-      'IHasFunctionBody' => keyset[
-        'IFunctionishDeclaration',
-        'AnonymousFunction',
-        'AwaitableCreationExpression',
-        'Php7AnonymousFunction',
-        'LambdaExpression',
+      HHAST\IHasFunctionBody::class => keyset[
+        HHAST\IFunctionishDeclaration::class,
+        HHAST\AnonymousFunction::class,
+        HHAST\AwaitableCreationExpression::class,
+        HHAST\Php7AnonymousFunction::class,
+        HHAST\LambdaExpression::class,
       ],
-      'IHasTypeHint' => keyset[
-        'IParameter',
-        'PropertyDeclaration',
+      HHAST\IHasTypeHint::class => keyset[
+        HHAST\IParameter::class,
+        HHAST\PropertyDeclaration::class,
       ],
-      'IPHPArray' => keyset[
-        'ArrayCreationExpression',
-        'ArrayIntrinsicExpression',
+      HHAST\IPHPArray::class => keyset[
+        HHAST\ArrayCreationExpression::class,
+        HHAST\ArrayIntrinsicExpression::class,
       ],
-      'IHackArray' => keyset[
-        'DictionaryIntrinsicExpression',
-        'KeysetIntrinsicExpression',
-        'VectorIntrinsicExpression',
+      HHAST\IHackArray::class => keyset[
+        HHAST\DictionaryIntrinsicExpression::class,
+        HHAST\KeysetIntrinsicExpression::class,
+        HHAST\VectorIntrinsicExpression::class,
       ],
-      'IContainer' => keyset[
-        'IPHPArray',
-        'IHackArray',
-        'CollectionLiteralExpression',
+      HHAST\IContainer::class => keyset[
+        HHAST\IPHPArray::class,
+        HHAST\IHackArray::class,
+        HHAST\CollectionLiteralExpression::class,
       ],
-      'IHasOperator' => keyset[
-        'BinaryExpression',
-        'PrefixUnaryExpression',
-        'PostfixUnaryExpression',
+      HHAST\IHasOperator::class => keyset[
+        HHAST\BinaryExpression::class,
+        HHAST\PrefixUnaryExpression::class,
+        HHAST\PostfixUnaryExpression::class,
       ],
-      'ILambdaBody' => keyset[
-        'IExpression',
-        'CompoundStatement',
+      HHAST\ILambdaBody::class => keyset[
+        HHAST\IExpression::class,
+        HHAST\CompoundStatement::class,
       ],
-      'ILambdaSignature' => keyset[
-        'VariableExpression',
-        'LambdaSignature',
+      HHAST\ILambdaSignature::class => keyset[
+        HHAST\VariableExpression::class,
+        HHAST\LambdaSignature::class,
       ],
-      'ILoopStatement' => keyset[
-        'AlternateLoopStatement',
-        'DoStatement',
-        'ForStatement',
-        'ForeachStatement',
-        'WhileStatement',
+      HHAST\ILoopStatement::class => keyset[
+        HHAST\AlternateLoopStatement::class,
+        HHAST\DoStatement::class,
+        HHAST\ForStatement::class,
+        HHAST\ForeachStatement::class,
+        HHAST\WhileStatement::class,
       ],
-      'IHasAttributeSpec' => keyset[
-        'AliasDeclaration',
-        'AwaitableCreationExpression',
-        'AnonymousFunction',
-        'ClassishDeclaration',
-        'MethodishDeclaration',
-        'EnumDeclaration',
-        'FunctionDeclaration',
-        'ParameterDeclaration',
-        'PHP7AnonymousFunction',
-        'PropertyDeclaration',
-        'LambdaExpression',
+      HHAST\IHasAttributeSpec::class => keyset[
+        HHAST\AliasDeclaration::class,
+        HHAST\AwaitableCreationExpression::class,
+        HHAST\AnonymousFunction::class,
+        HHAST\ClassishDeclaration::class,
+        HHAST\MethodishDeclaration::class,
+        HHAST\EnumDeclaration::class,
+        HHAST\FunctionDeclaration::class,
+        HHAST\ParameterDeclaration::class,
+        HHAST\Php7AnonymousFunction::class,
+        HHAST\PropertyDeclaration::class,
+        HHAST\LambdaExpression::class,
       ],
-      'INameishNode' => keyset[
-        'NameToken',
-        'QualifiedName',
+      HHAST\INameishNode::class => keyset[
+        HHAST\NameToken::class,
+        HHAST\QualifiedName::class,
       ],
-      'INamespaceBody' => keyset[
-        'NamespaceBody',
-        'NamespaceEmptyBody',
+      HHAST\INamespaceBody::class => keyset[
+        HHAST\NamespaceBody::class,
+        HHAST\NamespaceEmptyBody::class,
       ],
-      'INamespaceUseDeclaration' => keyset[
-        'NamespaceUseDeclaration',
-        'NamespaceGroupUseDeclaration',
+      HHAST\INamespaceUseDeclaration::class => keyset[
+        HHAST\NamespaceUseDeclaration::class,
+        HHAST\NamespaceGroupUseDeclaration::class,
       ],
-      'IParameter' => keyset[
-        'ParameterDeclaration',
-        'VariadicParameter',
+      HHAST\IParameter::class => keyset[
+        HHAST\ParameterDeclaration::class,
+        HHAST\VariadicParameter::class,
       ],
-      'IExpression' => Keyset\union(
+      HHAST\IExpression::class => Keyset\union(
         keyset[
-          'AnonymousFunction',
-          'Php7AnonymousFunction',
-          'Variable',
+          HHAST\AnonymousFunction::class,
+          HHAST\Php7AnonymousFunction::class,
+          HHAST\VariableToken::class,
         ],
         Vec\filter(
           $this->getSchema()['AST'],
@@ -240,17 +240,17 @@ abstract class CodegenBase {
         )
           |> Keyset\map($$, $node ==> $node['kind_name']),
       ),
-      'ISimpleCreationSpecifier' => keyset[
-        'SimpleTypeSpecifier',
-        'GenericTypeSpecifier',
+      HHAST\ISimpleCreationSpecifier::class => keyset[
+        HHAST\SimpleTypeSpecifier::class,
+        HHAST\GenericTypeSpecifier::class,
       ],
-      'IStatement' => Keyset\union(
+      HHAST\IStatement::class => Keyset\union(
         keyset[
-          'InclusionDirective',
-          'SwitchFallthrough',
-          'GotoLabel',
-          'UsingStatementBlockScoped',
-          'UsingStatementFunctionScoped',
+          HHAST\InclusionDirective::class,
+          HHAST\SwitchFallthrough::class,
+          HHAST\GotoLabel::class,
+          HHAST\UsingStatementBlockScoped::class,
+          HHAST\UsingStatementFunctionScoped::class,
         ],
         Vec\filter(
           $this->getSchema()['AST'],
@@ -258,27 +258,27 @@ abstract class CodegenBase {
         )
           |> Keyset\map($$, $node ==> $node['kind_name']),
       ),
-      'IStringLiteral' => keyset[
-        'SingleQuotedStringLiteralToken',
-        'DoubleQuotedStringLiteralToken',
-        'HeredocStringLiteralToken',
-        'NowdocStringLiteralToken',
+      HHAST\IStringLiteral::class => keyset[
+        HHAST\SingleQuotedStringLiteralToken::class,
+        HHAST\DoubleQuotedStringLiteralToken::class,
+        HHAST\HeredocStringLiteralToken::class,
+        HHAST\NowdocStringLiteralToken::class,
       ],
-      'ISwitchLabel' => keyset[
-        'CaseLabel',
-        'DefaultLabel',
+      HHAST\ISwitchLabel::class => keyset[
+        HHAST\CaseLabel::class,
+        HHAST\DefaultLabel::class,
       ],
-      'ITraitUseItem' => keyset[
-        'TraitUseAliasItem',
-        'TraitUsePrecedenceItem',
+      HHAST\ITraitUseItem::class => keyset[
+        HHAST\TraitUseAliasItem::class,
+        HHAST\TraitUsePrecedenceItem::class,
       ],
-      'ITypeSpecifier' => Keyset\union(
+      HHAST\ITypeSpecifier::class => Keyset\union(
         keyset[
-          'ReifiedTypeArgument',
+          HHAST\ReifiedTypeArgument::class,
           // Dubious:
-          'TypeConstant',
-          'VariadicParameter',
-          'XHPEnumType',
+          HHAST\TypeConstant::class,
+          HHAST\VariadicParameter::class,
+          HHAST\XHPEnumType::class,
         ],
         Vec\filter(
           $this->getSchema()['AST'],
@@ -286,11 +286,19 @@ abstract class CodegenBase {
         )
           |> Keyset\map($$, $node ==> $node['kind_name']),
       ),
-      'IXHPAttribute' => keyset[
-        'XHPClassAttribute',
-        'XHPSimpleAttribute',
+      HHAST\IXHPAttribute::class => keyset[
+        HHAST\XHPClassAttribute::class,
+        HHAST\XHPSimpleAttribute::class,
       ],
-    ];
+    ]
+      |> Dict\map_keys($$, $key ==> Str\strip_prefix($key, "Facebook\\HHAST\\"))
+      |> Dict\map(
+        $$,
+        $impls ==> Keyset\map(
+          $impls,
+          $impl ==> Str\strip_prefix($impl, "Facebook\\HHAST\\"),
+        ),
+      );
 
     foreach ($ifs as $if => $impls) {
       foreach ($impls as $impl) {

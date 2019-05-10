@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<063417979b43f30eed47bb4d2c246a97>>
+ * @generated SignedSource<<6af04d59dff18797692b0112a1fd7383>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -341,14 +341,15 @@ final class ParameterDeclaration
   /**
    * @return DecoratedExpression | VariableToken
    */
-  public function getName(): EditableNode {
-    return $this->_name;
+  <<__Memoize>>
+  public function getName(): IExpression {
+    return __Private\Wrap\wrap_IExpression($this->_name);
   }
 
   /**
    * @return DecoratedExpression | VariableToken
    */
-  public function getNamex(): EditableNode {
+  public function getNamex(): IExpression {
     return $this->getName();
   }
 
