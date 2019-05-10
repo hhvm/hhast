@@ -7,13 +7,13 @@
  *
  */
 
- namespace Facebook\HHAST;
+namespace Facebook\HHAST;
 
- interface IHasTypeHint {
-   require extends EditableNode;
+interface IHasTypeHint {
+  require extends EditableNode;
 
   public function hasType(): bool;
   public function getType(): ?ITypeSpecifier;
   public function getTypex(): ITypeSpecifier;
   public function getTypeUNTYPED(): EditableNode;
- }
+}

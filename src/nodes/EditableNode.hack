@@ -241,7 +241,10 @@ abstract class EditableNode {
     }
     return $this->replaceImpl($old, $new);
   }
-  final private function replaceImpl(EditableNode $old, EditableNode $new): this {
+  final private function replaceImpl(
+    EditableNode $old,
+    EditableNode $new,
+  ): this {
     return $this->rewriteChildren(
       ($child, $_) ==> {
         if ($child === $old) {

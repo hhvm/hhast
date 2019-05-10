@@ -7,13 +7,13 @@
  *
  */
 
- namespace Facebook\HHAST;
+namespace Facebook\HHAST;
 
- interface IHasOperator {
-   require extends EditableNode;
+interface IHasOperator {
+  require extends EditableNode;
 
   public function hasOperator(): bool;
   public function getOperator(): ?EditableToken;
   public function getOperatorx(): EditableToken;
   public function getOperatorUNTYPED(): EditableNode;
- }
+}

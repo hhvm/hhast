@@ -7,7 +7,7 @@
  *
  */
 
- namespace Facebook\HHAST;
+namespace Facebook\HHAST;
 
- interface IPHPArray extends IContainer {
- }
+interface IPHPArray extends IContainer {
+}

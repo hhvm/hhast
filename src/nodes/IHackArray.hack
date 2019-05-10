@@ -7,7 +7,7 @@
  *
  */
 
- namespace Facebook\HHAST;
+namespace Facebook\HHAST;
 
- interface IHackArray extends IContainer {
- }
+interface IHackArray extends IContainer {
+}

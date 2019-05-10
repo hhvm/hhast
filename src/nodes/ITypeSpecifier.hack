@@ -7,8 +7,8 @@
  *
  */
 
- namespace Facebook\HHAST;
+namespace Facebook\HHAST;
 
- interface ITypeSpecifier {
-   require extends EditableNode;
- }
+interface ITypeSpecifier {
+  require extends EditableNode;
+}

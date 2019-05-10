@@ -7,7 +7,7 @@
  *
  */
 
- namespace Facebook\HHAST;
+namespace Facebook\HHAST;
 
 interface INamespaceUseDeclaration {
   require extends EditableNode;
@@ -28,4 +28,4 @@ interface INamespaceUseDeclaration {
   public function getClausesx(): EditableList<NamespaceUseClause>;
 
   public function getSemicolon(): ?SemicolonToken;
- }
+}

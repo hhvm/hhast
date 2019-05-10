@@ -7,7 +7,7 @@
  *
  */
 
- namespace Facebook\HHAST;
+namespace Facebook\HHAST;
 
- interface IFunctionCallishExpression extends IExpression {
- }
+interface IFunctionCallishExpression extends IExpression {
+}

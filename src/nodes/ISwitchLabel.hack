@@ -7,8 +7,8 @@
  *
  */
 
- namespace Facebook\HHAST;
+namespace Facebook\HHAST;
 
- interface ISwitchLabel {
-   require extends EditableNode;
- }
+interface ISwitchLabel {
+  require extends EditableNode;
+}

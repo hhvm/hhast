@@ -7,10 +7,10 @@
  *
  */
 
- namespace Facebook\HHAST;
+namespace Facebook\HHAST;
 
- interface IComment {
-   require extends EditableTrivia;
+interface IComment {
+  require extends EditableTrivia;
 
-   public function withText(string $text): this;
- }
+  public function withText(string $text): this;
+}

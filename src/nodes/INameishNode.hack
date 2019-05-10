@@ -7,8 +7,8 @@
  *
  */
 
- namespace Facebook\HHAST;
+namespace Facebook\HHAST;
 
- interface INameishNode {
-   require extends EditableNode;
- }
+interface INameishNode {
+  require extends EditableNode;
+}

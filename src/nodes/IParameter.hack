@@ -7,8 +7,8 @@
  *
  */
 
- namespace Facebook\HHAST;
+namespace Facebook\HHAST;
 
- interface IParameter extends IHasTypeHint {
-   require extends EditableNode;
- }
+interface IParameter extends IHasTypeHint {
+  require extends EditableNode;
+}

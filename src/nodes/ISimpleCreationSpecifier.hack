@@ -7,7 +7,7 @@
  *
  */
 
- namespace Facebook\HHAST;
+namespace Facebook\HHAST;
 
- interface ISimpleCreationSpecifier extends IExpression {
- }
+interface ISimpleCreationSpecifier extends IExpression {
+}
