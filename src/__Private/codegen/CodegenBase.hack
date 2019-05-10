@@ -137,6 +137,19 @@ abstract class CodegenBase {
         'FunctionDeclaration',
         'MethodishDeclaration',
       ],
+      'IPHPArray' => keyset[
+        'ArrayCreationExpression',
+        'ArrayIntrinsicExpression',
+      ],
+      'IHackArray' => keyset[
+        'DictionaryIntrinsicExpression',
+        'KeysetIntrinsicExpression',
+        'VectorIntrinsicExpression',
+      ],
+      'IContainer' => keyset[
+        // IPHPArray and IHackArray also extend this interface
+        'CollectionLiteralExpression',
+      ],
       'ILoopStatement' => keyset[
         'AlternateLoopStatement',
         'DoStatement',

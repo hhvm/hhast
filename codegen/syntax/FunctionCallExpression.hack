@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f905f4be1c958d1046b46d3f0a3fd7f8>>
+ * @generated SignedSource<<f49cef49b83a5fa0f890ccf1ecf4250d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -274,7 +274,7 @@ final class FunctionCallExpression extends EditableNode implements IExpression {
    * | EditableList<ConditionalExpression> |
    * EditableList<DarrayIntrinsicExpression> |
    * EditableList<DecoratedExpression> |
-   * EditableList<DictionaryIntrinsicExpression> |
+   * EditableList<DictionaryIntrinsicExpression> | EditableList<IHackArray> |
    * EditableList<EmptyExpression> | EditableList<EvalExpression> |
    * EditableList<FunctionCallExpression> | EditableList<InstanceofExpression>
    * | EditableList<IsExpression> | EditableList<IssetExpression> |
@@ -309,7 +309,7 @@ final class FunctionCallExpression extends EditableNode implements IExpression {
    * | EditableList<ConditionalExpression> |
    * EditableList<DarrayIntrinsicExpression> |
    * EditableList<DecoratedExpression> |
-   * EditableList<DictionaryIntrinsicExpression> |
+   * EditableList<DictionaryIntrinsicExpression> | EditableList<IHackArray> |
    * EditableList<EmptyExpression> | EditableList<EvalExpression> |
    * EditableList<FunctionCallExpression> | EditableList<InstanceofExpression>
    * | EditableList<IsExpression> | EditableList<IssetExpression> |

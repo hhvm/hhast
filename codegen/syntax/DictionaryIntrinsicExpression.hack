@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<34c4ccba152b5ebef463a77a0f1948dc>>
+ * @generated SignedSource<<d97ecdceaa56105bf34778fdf5438978>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class DictionaryIntrinsicExpression
   extends EditableNode
-  implements IExpression {
+  implements IHackArray, IExpression {
 
   private EditableNode $_keyword;
   private EditableNode $_explicit_type;

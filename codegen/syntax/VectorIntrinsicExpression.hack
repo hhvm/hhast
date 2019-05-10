@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1cf1d3d082a750da0b0c53a0400eaff7>>
+ * @generated SignedSource<<b84c20c0ec36ec62224eed7d783d1c5e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class VectorIntrinsicExpression
   extends EditableNode
-  implements IExpression {
+  implements IHackArray, IExpression {
 
   private EditableNode $_keyword;
   private EditableNode $_explicit_type;
@@ -268,7 +268,7 @@ final class VectorIntrinsicExpression
    * @return EditableList<IExpression> | EditableList<BinaryExpression> |
    * EditableList<CollectionLiteralExpression> |
    * EditableList<ConditionalExpression> |
-   * EditableList<DictionaryIntrinsicExpression> |
+   * EditableList<DictionaryIntrinsicExpression> | EditableList<IHackArray> |
    * EditableList<FunctionCallExpression> |
    * EditableList<KeysetIntrinsicExpression> | EditableList<LiteralExpression>
    * | EditableList<ObjectCreationExpression> |
@@ -288,7 +288,7 @@ final class VectorIntrinsicExpression
    * @return EditableList<IExpression> | EditableList<BinaryExpression> |
    * EditableList<CollectionLiteralExpression> |
    * EditableList<ConditionalExpression> |
-   * EditableList<DictionaryIntrinsicExpression> |
+   * EditableList<DictionaryIntrinsicExpression> | EditableList<IHackArray> |
    * EditableList<FunctionCallExpression> |
    * EditableList<KeysetIntrinsicExpression> | EditableList<LiteralExpression>
    * | EditableList<ObjectCreationExpression> |

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d7406f7048397ef878c9efeeebc6f056>>
+ * @generated SignedSource<<e060dd0c2bcf35149cbec935083c2250>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class ArrayCreationExpression
   extends EditableNode
-  implements IExpression {
+  implements IPHPArray, IExpression {
 
   private EditableNode $_left_bracket;
   private EditableNode $_members;
@@ -142,9 +142,10 @@ final class ArrayCreationExpression
 
   /**
    * @return EditableList<AnonymousFunction> | EditableList<IExpression> |
-   * EditableList<ArrayCreationExpression> | EditableList<EditableNode> |
-   * EditableList<BinaryExpression> | EditableList<ConditionalExpression> |
-   * EditableList<DictionaryIntrinsicExpression> |
+   * EditableList<ArrayCreationExpression> | EditableList<IPHPArray> |
+   * EditableList<EditableNode> | EditableList<BinaryExpression> |
+   * EditableList<ConditionalExpression> |
+   * EditableList<DictionaryIntrinsicExpression> | EditableList<IHackArray> |
    * EditableList<ElementInitializer> | EditableList<FunctionCallExpression> |
    * EditableList<KeysetIntrinsicExpression> | EditableList<LiteralExpression>
    * | EditableList<MemberSelectionExpression> |
@@ -164,9 +165,10 @@ final class ArrayCreationExpression
 
   /**
    * @return EditableList<AnonymousFunction> | EditableList<IExpression> |
-   * EditableList<ArrayCreationExpression> | EditableList<EditableNode> |
-   * EditableList<BinaryExpression> | EditableList<ConditionalExpression> |
-   * EditableList<DictionaryIntrinsicExpression> |
+   * EditableList<ArrayCreationExpression> | EditableList<IPHPArray> |
+   * EditableList<EditableNode> | EditableList<BinaryExpression> |
+   * EditableList<ConditionalExpression> |
+   * EditableList<DictionaryIntrinsicExpression> | EditableList<IHackArray> |
    * EditableList<ElementInitializer> | EditableList<FunctionCallExpression> |
    * EditableList<KeysetIntrinsicExpression> | EditableList<LiteralExpression>
    * | EditableList<MemberSelectionExpression> |

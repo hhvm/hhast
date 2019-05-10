@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b01c7d296e082170357246176190505e>>
+ * @generated SignedSource<<cca48f4cbdcd251988c61f4f0c241085>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class CollectionLiteralExpression
   extends EditableNode
-  implements IExpression {
+  implements IContainer, IExpression {
 
   private EditableNode $_name;
   private EditableNode $_left_brace;
