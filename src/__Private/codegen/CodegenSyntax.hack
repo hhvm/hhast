@@ -660,6 +660,14 @@ final class CodegenSyntax extends CodegenBase {
           'function_call_expression.function_call_receiver',
         ),
       ],
+      // Not an IExpression: IExpression | classname | xhp classname; name
+      // tokens are referencing class names, not constants.
+      'InstanceofExpression' => dict[
+        'right_operand' => $editable_node(
+          false,
+          'instanceof_expression.instanceof_right_operand',
+        ),
+      ],
     ];
   }
 }

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<18721d6a797b6a09fe3b89a0e3c6daf6>>
+ * @generated SignedSource<<e03e7c722102df262b6839468b2ca6ac>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -174,21 +174,20 @@ final class InstanceofExpression
   }
 
   /**
-   * @return MemberSelectionExpression | ParenthesizedExpression |
-   * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
-   * NameToken | VariableExpression
+   * @return member_selection_expression | parenthesized_expression |
+   * qualified_name | scope_resolution_expression | subscript_expression |
+   * token:name | variable
    */
-  <<__Memoize>>
-  public function getRightOperand(): IExpression {
-    return __Private\Wrap\wrap_IExpression($this->_right_operand);
+  public function getRightOperand(): EditableNode {
+    return $this->_right_operand;
   }
 
   /**
-   * @return MemberSelectionExpression | ParenthesizedExpression |
-   * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
-   * NameToken | VariableExpression
+   * @return member_selection_expression | parenthesized_expression |
+   * qualified_name | scope_resolution_expression | subscript_expression |
+   * token:name | variable
    */
-  public function getRightOperandx(): IExpression {
+  public function getRightOperandx(): EditableNode {
     return $this->getRightOperand();
   }
 }

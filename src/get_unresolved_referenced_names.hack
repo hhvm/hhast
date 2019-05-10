@@ -63,9 +63,6 @@ function get_unresolved_referenced_names(
 
     if ($node instanceof InstanceofExpression) {
       $name = $node->getRightOperand();
-      if ($name instanceof NameExpression) {
-        $name = $name->getWrappedNode();
-      }
       if ($name instanceof NameToken) {
         $ret['types'][] = $name->getText();
       }
