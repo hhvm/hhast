@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<df69c5f68a95002c00522bf1ba279e6c>>
+ * @generated SignedSource<<acea004dc71a71ea06abb72749e6c5bf>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class KeysetTypeSpecifier extends EditableNode {
+final class KeysetTypeSpecifier extends EditableNode implements ITypeSpecifier {
 
   private EditableNode $_keyword;
   private EditableNode $_left_angle;
@@ -224,14 +224,14 @@ final class KeysetTypeSpecifier extends EditableNode {
   /**
    * @return ClassnameTypeSpecifier | SimpleTypeSpecifier
    */
-  public function getType(): EditableNode {
-    return $this->_type;
+  public function getType(): ITypeSpecifier {
+    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
   }
 
   /**
    * @return ClassnameTypeSpecifier | SimpleTypeSpecifier
    */
-  public function getTypex(): EditableNode {
+  public function getTypex(): ITypeSpecifier {
     return $this->getType();
   }
 

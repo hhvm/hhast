@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fabe8c6f303c11a467761df018341357>>
+ * @generated SignedSource<<cfcc8c378d2f701b9a14242c5ee3bd31>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class AlternateSwitchStatement
   extends EditableNode
-  implements IControlFlowStatement {
+  implements IControlFlowStatement, IStatement {
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;

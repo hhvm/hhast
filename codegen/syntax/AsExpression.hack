@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3a22e312ac995e748859ba171799b7e2>>
+ * @generated SignedSource<<4205c70cc36a81494165d489070c65ee>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -173,15 +173,15 @@ final class AsExpression extends EditableNode implements IExpression {
    * @return GenericTypeSpecifier | NullableTypeSpecifier | ShapeTypeSpecifier
    * | SimpleTypeSpecifier | TupleTypeSpecifier | TypeConstant
    */
-  public function getRightOperand(): EditableNode {
-    return $this->_right_operand;
+  public function getRightOperand(): ITypeSpecifier {
+    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_right_operand);
   }
 
   /**
    * @return GenericTypeSpecifier | NullableTypeSpecifier | ShapeTypeSpecifier
    * | SimpleTypeSpecifier | TupleTypeSpecifier | TypeConstant
    */
-  public function getRightOperandx(): EditableNode {
+  public function getRightOperandx(): ITypeSpecifier {
     return $this->getRightOperand();
   }
 }

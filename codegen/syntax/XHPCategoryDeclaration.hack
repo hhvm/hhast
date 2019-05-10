@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7e47cf173c27eff68eaaf762283a5616>>
+ * @generated SignedSource<<aa7247a2fd4b2357fbc75bf37f3ec961>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class XHPCategoryDeclaration extends EditableNode {
+final class XHPCategoryDeclaration
+  extends EditableNode
+  implements IClassBodyDeclaration {
 
   private EditableNode $_keyword;
   private EditableNode $_categories;

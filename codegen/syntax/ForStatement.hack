@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2cb1411bbf74208a4c8b094fa0ba5334>>
+ * @generated SignedSource<<b1da25d8289454bd38d4026a3689050c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class ForStatement
   extends EditableNode
-  implements IControlFlowStatement, ILoopStatement {
+  implements IControlFlowStatement, ILoopStatement, IStatement {
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;
@@ -383,7 +383,7 @@ final class ForStatement
   }
 
   /**
-   * @return EditableList<BinaryExpression> | EditableList<IExpression> |
+   * @return EditableList<BinaryExpression> | EditableList<IHasOperator> |
    * EditableList<ConditionalExpression> | EditableList<FunctionCallExpression>
    * | EditableList<PrefixUnaryExpression> | EditableList<VariableExpression> |
    * null
@@ -396,7 +396,7 @@ final class ForStatement
   }
 
   /**
-   * @return EditableList<BinaryExpression> | EditableList<IExpression> |
+   * @return EditableList<BinaryExpression> | EditableList<IHasOperator> |
    * EditableList<ConditionalExpression> | EditableList<FunctionCallExpression>
    * | EditableList<PrefixUnaryExpression> | EditableList<VariableExpression>
    */
@@ -472,7 +472,7 @@ final class ForStatement
   }
 
   /**
-   * @return EditableList<BinaryExpression> | EditableList<IExpression> |
+   * @return EditableList<BinaryExpression> | EditableList<IHasOperator> |
    * EditableList<FunctionCallExpression> |
    * EditableList<PostfixUnaryExpression> | EditableList<PrefixUnaryExpression>
    * | null
@@ -485,7 +485,7 @@ final class ForStatement
   }
 
   /**
-   * @return EditableList<BinaryExpression> | EditableList<IExpression> |
+   * @return EditableList<BinaryExpression> | EditableList<IHasOperator> |
    * EditableList<FunctionCallExpression> |
    * EditableList<PostfixUnaryExpression> | EditableList<PrefixUnaryExpression>
    */
@@ -561,15 +561,15 @@ final class ForStatement
    * @return AlternateLoopStatement | CompoundStatement | EchoStatement |
    * ExpressionStatement | ForStatement | UnsetStatement
    */
-  public function getBody(): EditableNode {
-    return $this->_body;
+  public function getBody(): IStatement {
+    return TypeAssert\instance_of(IStatement::class, $this->_body);
   }
 
   /**
    * @return AlternateLoopStatement | CompoundStatement | EchoStatement |
    * ExpressionStatement | ForStatement | UnsetStatement
    */
-  public function getBodyx(): EditableNode {
+  public function getBodyx(): IStatement {
     return $this->getBody();
   }
 }

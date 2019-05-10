@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5b73540945f84ddc4a41de14713d71ed>>
+ * @generated SignedSource<<d09bd88b51c72c8426fc605f20b566e9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class UsingStatementFunctionScoped extends EditableNode {
+final class UsingStatementFunctionScoped
+  extends EditableNode
+  implements IStatement {
 
   private EditableNode $_await_keyword;
   private EditableNode $_using_keyword;

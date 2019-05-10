@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4c7c150a2e3ec12ec0f418bceb423084>>
+ * @generated SignedSource<<4e17b48b22c23c726b4908e651714474>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class IfStatement extends EditableNode implements IControlFlowStatement {
+final class IfStatement
+  extends EditableNode
+  implements IControlFlowStatement, IStatement {
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;
@@ -347,8 +349,8 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
    * EchoStatement | ExpressionStatement | GotoStatement | ReturnStatement |
    * ThrowStatement | UnsetStatement
    */
-  public function getStatement(): EditableNode {
-    return $this->_statement;
+  public function getStatement(): IStatement {
+    return TypeAssert\instance_of(IStatement::class, $this->_statement);
   }
 
   /**
@@ -356,7 +358,7 @@ final class IfStatement extends EditableNode implements IControlFlowStatement {
    * EchoStatement | ExpressionStatement | GotoStatement | ReturnStatement |
    * ThrowStatement | UnsetStatement
    */
-  public function getStatementx(): EditableNode {
+  public function getStatementx(): IStatement {
     return $this->getStatement();
   }
 

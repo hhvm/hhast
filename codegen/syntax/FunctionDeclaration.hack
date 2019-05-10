@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2a462fa6e61c0e5fc4349edcb7b654b5>>
+ * @generated SignedSource<<bd9c8bb9b0678f6e3185a8c231eec510>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class FunctionDeclaration
   extends EditableNode
-  implements IFunctionishDeclaration {
+  implements IFunctionishDeclaration, IHasAttributeSpec {
 
   private EditableNode $_attribute_spec;
   private EditableNode $_declaration_header;

@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<72c7d22ff0ad70a6d1b7e848ad220b2a>>
+ * @generated SignedSource<<e9d00bebe33dea82d3cdd15c491da163>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class LambdaSignature extends EditableNode {
+final class LambdaSignature extends EditableNode implements ILambdaSignature {
 
   private EditableNode $_left_paren;
   private EditableNode $_parameters;
@@ -184,7 +184,7 @@ final class LambdaSignature extends EditableNode {
    * @return EditableList<ParameterDeclaration> |
    * EditableList<VariadicParameter> | null
    */
-  public function getParameters(): ?EditableList<EditableNode> {
+  public function getParameters(): ?EditableList<IParameter> {
     if ($this->_parameters->isMissing()) {
       return null;
     }
@@ -195,7 +195,7 @@ final class LambdaSignature extends EditableNode {
    * @return EditableList<ParameterDeclaration> |
    * EditableList<VariadicParameter>
    */
-  public function getParametersx(): EditableList<EditableNode> {
+  public function getParametersx(): EditableList<IParameter> {
     return TypeAssert\not_null($this->getParameters());
   }
 
@@ -297,18 +297,18 @@ final class LambdaSignature extends EditableNode {
    * @return ClosureTypeSpecifier | GenericTypeSpecifier | KeysetTypeSpecifier
    * | null | SimpleTypeSpecifier
    */
-  public function getType(): ?EditableNode {
+  public function getType(): ?ITypeSpecifier {
     if ($this->_type->isMissing()) {
       return null;
     }
-    return $this->_type;
+    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
   }
 
   /**
    * @return ClosureTypeSpecifier | GenericTypeSpecifier | KeysetTypeSpecifier
    * | SimpleTypeSpecifier
    */
-  public function getTypex(): EditableNode {
+  public function getTypex(): ITypeSpecifier {
     return TypeAssert\not_null($this->getType());
   }
 }

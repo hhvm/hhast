@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f618260a76a471769b4f1477a4e813d0>>
+ * @generated SignedSource<<002bf0539a83cfeacfbb302b8d101079>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class ClosureParameterTypeSpecifier extends EditableNode {
+final class ClosureParameterTypeSpecifier
+  extends EditableNode
+  implements ITypeSpecifier {
 
   private EditableNode $_call_convention;
   private EditableNode $_type;
@@ -129,8 +131,8 @@ final class ClosureParameterTypeSpecifier extends EditableNode {
    * NullableTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier |
    * TupleTypeSpecifier | TypeConstant
    */
-  public function getType(): EditableNode {
-    return $this->_type;
+  public function getType(): ITypeSpecifier {
+    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
   }
 
   /**
@@ -138,7 +140,7 @@ final class ClosureParameterTypeSpecifier extends EditableNode {
    * NullableTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier |
    * TupleTypeSpecifier | TypeConstant
    */
-  public function getTypex(): EditableNode {
+  public function getTypex(): ITypeSpecifier {
     return $this->getType();
   }
 }

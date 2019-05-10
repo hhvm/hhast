@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d68dd0ccd024da37af543c60307d9a0b>>
+ * @generated SignedSource<<0da11859d8c8accb32bb168088478a28>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class DeclareDirectiveStatement extends EditableNode {
+final class DeclareDirectiveStatement
+  extends EditableNode
+  implements IStatement {
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;

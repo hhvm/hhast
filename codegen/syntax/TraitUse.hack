@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2e796051cbb1edf3825d4a0b94474716>>
+ * @generated SignedSource<<1bbab58fb907bfb03caebe089e37d01a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class TraitUse extends EditableNode {
+final class TraitUse extends EditableNode implements IClassBodyDeclaration {
 
   private EditableNode $_keyword;
   private EditableNode $_names;
@@ -136,18 +136,18 @@ final class TraitUse extends EditableNode {
   }
 
   /**
-   * @return EditableList<GenericTypeSpecifier> | EditableList<EditableNode> |
-   * EditableList<SimpleTypeSpecifier>
+   * @return EditableList<GenericTypeSpecifier> |
+   * EditableList<ISimpleCreationSpecifier> | EditableList<SimpleTypeSpecifier>
    */
-  public function getNames(): EditableList<EditableNode> {
+  public function getNames(): EditableList<ISimpleCreationSpecifier> {
     return TypeAssert\instance_of(EditableList::class, $this->_names);
   }
 
   /**
-   * @return EditableList<GenericTypeSpecifier> | EditableList<EditableNode> |
-   * EditableList<SimpleTypeSpecifier>
+   * @return EditableList<GenericTypeSpecifier> |
+   * EditableList<ISimpleCreationSpecifier> | EditableList<SimpleTypeSpecifier>
    */
-  public function getNamesx(): EditableList<EditableNode> {
+  public function getNamesx(): EditableList<ISimpleCreationSpecifier> {
     return $this->getNames();
   }
 

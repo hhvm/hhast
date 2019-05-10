@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3b10b27520f56b472dc183353b7cd7e2>>
+ * @generated SignedSource<<20bb1a2610a19430a0b8998dc5dca6c8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class ExpressionStatement extends EditableNode {
+final class ExpressionStatement extends EditableNode implements IStatement {
 
   private EditableNode $_expression;
   private EditableNode $_semicolon;

@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<803db734290fc222a1d6095d458873d0>>
+ * @generated SignedSource<<63171c7c2b03a21fb204c5d7d714b0b2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class NamespaceEmptyBody extends EditableNode {
+final class NamespaceEmptyBody extends EditableNode implements INamespaceBody {
 
   private EditableNode $_semicolon;
 

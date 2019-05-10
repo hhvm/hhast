@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<09b2fcd86f576919f8e29928336568dd>>
+ * @generated SignedSource<<4eb0691d422fd14c07814676ede66c26>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class NamespaceBody extends EditableNode {
+final class NamespaceBody extends EditableNode implements INamespaceBody {
 
   private EditableNode $_left_brace;
   private EditableNode $_declarations;

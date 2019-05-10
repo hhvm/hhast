@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cca48f4cbdcd251988c61f4f0c241085>>
+ * @generated SignedSource<<05bddf37d18c89894a7374b2df9a6f85>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -135,14 +135,17 @@ final class CollectionLiteralExpression
   /**
    * @return GenericTypeSpecifier | SimpleTypeSpecifier
    */
-  public function getName(): EditableNode {
-    return $this->_name;
+  public function getName(): ISimpleCreationSpecifier {
+    return TypeAssert\instance_of(
+      ISimpleCreationSpecifier::class,
+      $this->_name,
+    );
   }
 
   /**
    * @return GenericTypeSpecifier | SimpleTypeSpecifier
    */
-  public function getNamex(): EditableNode {
+  public function getNamex(): ISimpleCreationSpecifier {
     return $this->getName();
   }
 

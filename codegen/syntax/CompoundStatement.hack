@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0b7eb8e180790ea3498dc2d4095e76ae>>
+ * @generated SignedSource<<d524c261bf6ef5c8808d4356fba478b8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class CompoundStatement extends EditableNode {
+final class CompoundStatement
+  extends EditableNode
+  implements ILambdaBody, IStatement {
 
   private EditableNode $_left_brace;
   private EditableNode $_statements;

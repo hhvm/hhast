@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d689a2b7499276f3b32907208069c6e2>>
+ * @generated SignedSource<<df781e3e21e10d4f8243bead532972f0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class XHPClassAttributeDeclaration extends EditableNode {
+final class XHPClassAttributeDeclaration
+  extends EditableNode
+  implements IClassBodyDeclaration {
 
   private EditableNode $_keyword;
   private EditableNode $_attributes;

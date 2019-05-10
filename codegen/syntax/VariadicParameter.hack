@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<46b57220644b43dde66004a97ff73ca6>>
+ * @generated SignedSource<<cda19e0614f9c9f2c2f0b1a11b800214>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class VariadicParameter extends EditableNode {
+final class VariadicParameter
+  extends EditableNode
+  implements IParameter, ITypeSpecifier {
 
   private EditableNode $_call_convention;
   private EditableNode $_type;
@@ -142,17 +144,17 @@ final class VariadicParameter extends EditableNode {
    * @return ClosureTypeSpecifier | null | SimpleTypeSpecifier |
    * TupleTypeSpecifier
    */
-  public function getType(): ?EditableNode {
+  public function getType(): ?ITypeSpecifier {
     if ($this->_type->isMissing()) {
       return null;
     }
-    return $this->_type;
+    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
   }
 
   /**
    * @return ClosureTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier
    */
-  public function getTypex(): EditableNode {
+  public function getTypex(): ITypeSpecifier {
     return TypeAssert\not_null($this->getType());
   }
 

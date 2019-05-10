@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<60ddd860bd794ce3cf10bb8247682ec4>>
+ * @generated SignedSource<<1b95f5789e426bf0a7815f34f6776f17>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class ReifiedTypeArgument extends EditableNode {
+final class ReifiedTypeArgument extends EditableNode implements ITypeSpecifier {
 
   private EditableNode $_reified;
   private EditableNode $_type;

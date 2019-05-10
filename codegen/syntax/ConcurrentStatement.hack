@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4a78a38f42b8995373badd6f963b2ad8>>
+ * @generated SignedSource<<3cb463a8950abb98c04f975fd0ad69b9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class ConcurrentStatement extends EditableNode {
+final class ConcurrentStatement extends EditableNode implements IStatement {
 
   private EditableNode $_keyword;
   private EditableNode $_statement;

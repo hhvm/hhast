@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a479036d8bd82a79812be92e1cc1807b>>
+ * @generated SignedSource<<169ceeb1d301bcdf910d435078800a7f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class LetStatement extends EditableNode {
+final class LetStatement extends EditableNode implements IStatement {
 
   private EditableNode $_keyword;
   private EditableNode $_name;

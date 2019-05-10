@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5899fafe5922f31b5e0c865dc4dfaf2c>>
+ * @generated SignedSource<<761349b25f48395b66646f10c01fb9e6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class EnumDeclaration extends EditableNode {
+final class EnumDeclaration extends EditableNode implements IHasAttributeSpec {
 
   private EditableNode $_attribute_spec;
   private EditableNode $_keyword;
@@ -380,14 +380,14 @@ final class EnumDeclaration extends EditableNode {
   /**
    * @return ClassnameTypeSpecifier | GenericTypeSpecifier | SimpleTypeSpecifier
    */
-  public function getBase(): EditableNode {
-    return $this->_base;
+  public function getBase(): ITypeSpecifier {
+    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_base);
   }
 
   /**
    * @return ClassnameTypeSpecifier | GenericTypeSpecifier | SimpleTypeSpecifier
    */
-  public function getBasex(): EditableNode {
+  public function getBasex(): ITypeSpecifier {
     return $this->getBase();
   }
 

@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9ea0dca508b7aa2341e62d4dc90f168d>>
+ * @generated SignedSource<<88d973816fd92be05bb6781e008eabdb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class XHPClassAttribute extends EditableNode {
+final class XHPClassAttribute extends EditableNode implements IXHPAttribute {
 
   private EditableNode $_type;
   private EditableNode $_name;
@@ -129,8 +129,8 @@ final class XHPClassAttribute extends EditableNode {
    * NullableTypeSpecifier | SimpleTypeSpecifier | VectorArrayTypeSpecifier |
    * XHPEnumType
    */
-  public function getType(): EditableNode {
-    return $this->_type;
+  public function getType(): ITypeSpecifier {
+    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
   }
 
   /**
@@ -138,7 +138,7 @@ final class XHPClassAttribute extends EditableNode {
    * NullableTypeSpecifier | SimpleTypeSpecifier | VectorArrayTypeSpecifier |
    * XHPEnumType
    */
-  public function getTypex(): EditableNode {
+  public function getTypex(): ITypeSpecifier {
     return $this->getType();
   }
 

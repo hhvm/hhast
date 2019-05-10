@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<358011d66ecc7cbc42ce53895639bf27>>
+ * @generated SignedSource<<6f5289d46c824d8429b31de9ff900f46>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -110,15 +110,15 @@ final class WhereConstraint extends EditableNode {
    * @return GenericTypeSpecifier | SimpleTypeSpecifier | TypeConstant |
    * VectorTypeSpecifier
    */
-  public function getLeftType(): EditableNode {
-    return $this->_left_type;
+  public function getLeftType(): ITypeSpecifier {
+    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_left_type);
   }
 
   /**
    * @return GenericTypeSpecifier | SimpleTypeSpecifier | TypeConstant |
    * VectorTypeSpecifier
    */
-  public function getLeftTypex(): EditableNode {
+  public function getLeftTypex(): ITypeSpecifier {
     return $this->getLeftType();
   }
 
@@ -170,15 +170,15 @@ final class WhereConstraint extends EditableNode {
    * @return GenericTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier
    * | TypeConstant | VectorTypeSpecifier
    */
-  public function getRightType(): EditableNode {
-    return $this->_right_type;
+  public function getRightType(): ITypeSpecifier {
+    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_right_type);
   }
 
   /**
    * @return GenericTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier
    * | TypeConstant | VectorTypeSpecifier
    */
-  public function getRightTypex(): EditableNode {
+  public function getRightTypex(): ITypeSpecifier {
     return $this->getRightType();
   }
 }

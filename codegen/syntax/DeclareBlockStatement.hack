@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b417ce727b48012b3ecd9028e52ff206>>
+ * @generated SignedSource<<48f8e5e54a52baee72ec762cdb7b1f75>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class DeclareBlockStatement extends EditableNode {
+final class DeclareBlockStatement extends EditableNode implements IStatement {
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;
@@ -288,14 +288,14 @@ final class DeclareBlockStatement extends EditableNode {
   /**
    * @return AlternateLoopStatement | CompoundStatement
    */
-  public function getBody(): EditableNode {
-    return $this->_body;
+  public function getBody(): IStatement {
+    return TypeAssert\instance_of(IStatement::class, $this->_body);
   }
 
   /**
    * @return AlternateLoopStatement | CompoundStatement
    */
-  public function getBodyx(): EditableNode {
+  public function getBodyx(): IStatement {
     return $this->getBody();
   }
 }

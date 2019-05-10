@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3d887149042f9b1231471f730bc10bf4>>
+ * @generated SignedSource<<aac510a34f533d2fa014892dec0d0e83>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class ForeachStatement
   extends EditableNode
-  implements IControlFlowStatement, ILoopStatement {
+  implements IControlFlowStatement, ILoopStatement, IStatement {
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;
@@ -623,15 +623,15 @@ final class ForeachStatement
    * @return AlternateLoopStatement | CompoundStatement | EchoStatement |
    * ExpressionStatement | ForeachStatement
    */
-  public function getBody(): EditableNode {
-    return $this->_body;
+  public function getBody(): IStatement {
+    return TypeAssert\instance_of(IStatement::class, $this->_body);
   }
 
   /**
    * @return AlternateLoopStatement | CompoundStatement | EchoStatement |
    * ExpressionStatement | ForeachStatement
    */
-  public function getBodyx(): EditableNode {
+  public function getBodyx(): IStatement {
     return $this->getBody();
   }
 }

@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<51166dab35288ae7164192433f94fe1c>>
+ * @generated SignedSource<<7bfcb3e9d07ff9c5d6e97145798bc039>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class TraitUsePrecedenceItem extends EditableNode {
+final class TraitUsePrecedenceItem
+  extends EditableNode
+  implements ITraitUseItem {
 
   private EditableNode $_name;
   private EditableNode $_keyword;

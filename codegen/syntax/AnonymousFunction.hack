@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<68bac2cdacae37127dd0cec931a8387b>>
+ * @generated SignedSource<<32fac2ce23177e46f0052e30a5e61a17>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class AnonymousFunction extends EditableNode implements IExpression {
+final class AnonymousFunction
+  extends EditableNode
+  implements IHasFunctionBody, IHasAttributeSpec, IExpression {
 
   private EditableNode $_attribute_spec;
   private EditableNode $_static_keyword;
@@ -537,7 +539,7 @@ final class AnonymousFunction extends EditableNode implements IExpression {
    * @return EditableList<ParameterDeclaration> |
    * EditableList<VariadicParameter> | null
    */
-  public function getParameters(): ?EditableList<EditableNode> {
+  public function getParameters(): ?EditableList<IParameter> {
     if ($this->_parameters->isMissing()) {
       return null;
     }
@@ -548,7 +550,7 @@ final class AnonymousFunction extends EditableNode implements IExpression {
    * @return EditableList<ParameterDeclaration> |
    * EditableList<VariadicParameter>
    */
-  public function getParametersx(): EditableList<EditableNode> {
+  public function getParametersx(): EditableList<IParameter> {
     return TypeAssert\not_null($this->getParameters());
   }
 
@@ -672,11 +674,11 @@ final class AnonymousFunction extends EditableNode implements IExpression {
    * MapArrayTypeSpecifier | null | NullableTypeSpecifier | SimpleTypeSpecifier
    * | SoftTypeSpecifier | TupleTypeSpecifier
    */
-  public function getType(): ?EditableNode {
+  public function getType(): ?ITypeSpecifier {
     if ($this->_type->isMissing()) {
       return null;
     }
-    return $this->_type;
+    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
   }
 
   /**
@@ -684,7 +686,7 @@ final class AnonymousFunction extends EditableNode implements IExpression {
    * MapArrayTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier |
    * SoftTypeSpecifier | TupleTypeSpecifier
    */
-  public function getTypex(): EditableNode {
+  public function getTypex(): ITypeSpecifier {
     return TypeAssert\not_null($this->getType());
   }
 

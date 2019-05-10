@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6ee21d944063ee054fe3d62ec3466e75>>
+ * @generated SignedSource<<669046dc582ef0581f6eadac61c534ae>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -297,14 +297,14 @@ final class ElseifClause extends EditableNode implements IControlFlowStatement {
   /**
    * @return CompoundStatement | ExpressionStatement
    */
-  public function getStatement(): EditableNode {
-    return $this->_statement;
+  public function getStatement(): IStatement {
+    return TypeAssert\instance_of(IStatement::class, $this->_statement);
   }
 
   /**
    * @return CompoundStatement | ExpressionStatement
    */
-  public function getStatementx(): EditableNode {
+  public function getStatementx(): IStatement {
     return $this->getStatement();
   }
 }

@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<22ea190eea0ac627a673e2cd50944428>>
+ * @generated SignedSource<<9efe5cb276eb4c486c50225d01d8839f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class ClassnameTypeSpecifier extends EditableNode {
+final class ClassnameTypeSpecifier
+  extends EditableNode
+  implements ITypeSpecifier {
 
   private EditableNode $_keyword;
   private EditableNode $_left_angle;
@@ -227,17 +229,17 @@ final class ClassnameTypeSpecifier extends EditableNode {
   /**
    * @return GenericTypeSpecifier | null | SimpleTypeSpecifier | TypeConstant
    */
-  public function getType(): ?EditableNode {
+  public function getType(): ?ITypeSpecifier {
     if ($this->_type->isMissing()) {
       return null;
     }
-    return $this->_type;
+    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
   }
 
   /**
    * @return GenericTypeSpecifier | SimpleTypeSpecifier | TypeConstant
    */
-  public function getTypex(): EditableNode {
+  public function getTypex(): ITypeSpecifier {
     return TypeAssert\not_null($this->getType());
   }
 

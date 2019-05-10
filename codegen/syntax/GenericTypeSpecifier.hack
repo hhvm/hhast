@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<98ad23c59f8ffdbd2606a9d68d2488e6>>
+ * @generated SignedSource<<a6f25b7753021a3a3eb3ed2296cee849>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class GenericTypeSpecifier extends EditableNode {
+final class GenericTypeSpecifier
+  extends EditableNode
+  implements ISimpleCreationSpecifier, ITypeSpecifier {
 
   private EditableNode $_class_type;
   private EditableNode $_argument_list;

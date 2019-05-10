@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5a7ed40148f9611e98becab2413128f9>>
+ * @generated SignedSource<<03bd22e2024cbfd3dff1256cf992259e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class TupleTypeExplicitSpecifier extends EditableNode {
+final class TupleTypeExplicitSpecifier
+  extends EditableNode
+  implements ITypeSpecifier {
 
   private EditableNode $_keyword;
   private EditableNode $_left_angle;

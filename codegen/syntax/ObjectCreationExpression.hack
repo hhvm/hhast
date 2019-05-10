@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9071c0d6bf5d4fb50f4f27e17c383e3f>>
+ * @generated SignedSource<<3b2c9c735fe695a4ce3e737b4887b68c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class ObjectCreationExpression
   extends EditableNode
-  implements IExpression {
+  implements IFunctionCallishExpression, IExpression {
 
   private EditableNode $_new_keyword;
   private EditableNode $_object;

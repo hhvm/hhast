@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<46033ed686bd357d78fec56089cfb382>>
+ * @generated SignedSource<<fa27dc4cbd935743aa9a105b1eb3f8a3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class DictionaryTypeSpecifier extends EditableNode {
+final class DictionaryTypeSpecifier
+  extends EditableNode
+  implements ITypeSpecifier {
 
   private EditableNode $_keyword;
   private EditableNode $_left_angle;
@@ -199,16 +201,16 @@ final class DictionaryTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @return EditableList<EditableNode> | EditableList<SimpleTypeSpecifier>
+   * @return EditableList<ITypeSpecifier> | EditableList<SimpleTypeSpecifier>
    */
-  public function getMembers(): EditableList<EditableNode> {
+  public function getMembers(): EditableList<ITypeSpecifier> {
     return TypeAssert\instance_of(EditableList::class, $this->_members);
   }
 
   /**
-   * @return EditableList<EditableNode> | EditableList<SimpleTypeSpecifier>
+   * @return EditableList<ITypeSpecifier> | EditableList<SimpleTypeSpecifier>
    */
-  public function getMembersx(): EditableList<EditableNode> {
+  public function getMembersx(): EditableList<ITypeSpecifier> {
     return $this->getMembers();
   }
 
