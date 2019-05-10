@@ -19,6 +19,7 @@ use type Facebook\HackCodegen\{
 };
 
 use namespace HH\Lib\{C, Dict, Keyset, Str, Vec};
+use namespace Facebook\HHAST;
 
 final class CodegenSyntax extends CodegenBase {
   <<__Override>>
@@ -635,9 +636,13 @@ final class CodegenSyntax extends CodegenBase {
 
   private static function getKindsWithManualSubclasses(): keyset<string> {
     return keyset[
-      'AlternateLoopStatement',
-      'NamespaceDeclaration',
-    ];
+      HHAST\AlternateLoopStatement::class,
+      HHAST\AwaitableCreationExpression::class,
+      HHAST\ClassishDeclaration::class,
+      HHAST\MethodishDeclaration::class,
+      HHAST\NamespaceDeclaration::class,
+      HHAST\ParameterDeclaration::class,
+    ] |> Keyset\map($$, $class ==> Str\strip_prefix($class, "Facebook\\HHAST\\"));
   }
 
   private function getHardcodedTypes(

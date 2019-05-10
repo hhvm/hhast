@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<33f349653ee3450eae33b6c9bdcb6490>>
+ * @generated SignedSource<<0ca1e8fd353572474ef02efff4c1fa8f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class MethodishDeclaration
+abstract class MethodishDeclarationGeneratedBase
   extends EditableNode
   implements
     IClassBodyDeclaration,

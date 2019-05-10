@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9f55ba1d2855f967bd6ee8eabceea796>>
+ * @generated SignedSource<<c3a0136b8414dd107afd101dc797f1ff>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class ClassishDeclaration
+abstract class ClassishDeclarationGeneratedBase
   extends EditableNode
   implements IHasAttributeSpec {
 
