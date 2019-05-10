@@ -13,18 +13,22 @@ namespace Facebook\HHAST;
 final class AwaitableCreationExpression
   extends AwaitableCreationExpressionGeneratedBase {
 
+  <<__Override>>
   public function hasBody(): bool {
     return $this->hasCompoundStatement();
   }
 
+  <<__Override>>
   public function getBodyUNTYPED(): EditableNode {
     return $this->getCompoundStatementUNTYPED();
   }
 
+  <<__Override>>
   public function getBodyx(): CompoundStatement {
     return $this->getCompoundStatementx();
   }
 
+  <<__Override>>
   public function getBody(): ?CompoundStatement {
     return $this->getCompoundStatement();
   }
