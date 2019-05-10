@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0042ed041629341cbae872b32c6ff389>>
+ * @generated SignedSource<<949e590bcce0ae65488fd45835ea7593>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class EmbeddedSubscriptExpression
   extends EditableNode
-  implements IExpression {
+  implements ILambdaBody, IExpression {
 
   private EditableNode $_receiver;
   private EditableNode $_left_bracket;

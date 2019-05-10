@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<05bddf37d18c89894a7374b2df9a6f85>>
+ * @generated SignedSource<<eb67cc7c68f70f62cfd87a1558744d2f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class CollectionLiteralExpression
   extends EditableNode
-  implements IContainer, IExpression {
+  implements IContainer, ILambdaBody, IExpression {
 
   private EditableNode $_name;
   private EditableNode $_left_brace;
@@ -206,8 +206,9 @@ final class CollectionLiteralExpression
   /**
    * @return EditableList<AnonymousFunction> |
    * EditableList<ArrayCreationExpression> |
-   * EditableList<ArrayIntrinsicExpression> | EditableList<IExpression> |
-   * EditableList<CastExpression> | EditableList<CollectionLiteralExpression> |
+   * EditableList<ArrayIntrinsicExpression> | EditableList<IContainer> |
+   * EditableList<IExpression> | EditableList<CastExpression> |
+   * EditableList<CollectionLiteralExpression> |
    * EditableList<ElementInitializer> | EditableList<FunctionCallExpression> |
    * EditableList<LambdaExpression> | EditableList<LiteralExpression> |
    * EditableList<ObjectCreationExpression> |
@@ -226,8 +227,9 @@ final class CollectionLiteralExpression
   /**
    * @return EditableList<AnonymousFunction> |
    * EditableList<ArrayCreationExpression> |
-   * EditableList<ArrayIntrinsicExpression> | EditableList<IExpression> |
-   * EditableList<CastExpression> | EditableList<CollectionLiteralExpression> |
+   * EditableList<ArrayIntrinsicExpression> | EditableList<IContainer> |
+   * EditableList<IExpression> | EditableList<CastExpression> |
+   * EditableList<CollectionLiteralExpression> |
    * EditableList<ElementInitializer> | EditableList<FunctionCallExpression> |
    * EditableList<LambdaExpression> | EditableList<LiteralExpression> |
    * EditableList<ObjectCreationExpression> |

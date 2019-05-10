@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8ea18226994dff548eb9220b53910dcf>>
+ * @generated SignedSource<<71b22b3c5415f1d473c2ea4c0699a950>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class BinaryExpression
   extends EditableNode
-  implements IHasOperator, IExpression {
+  implements IHasOperator, ILambdaBody, IExpression {
 
   private EditableNode $_left_operand;
   private EditableNode $_operator;

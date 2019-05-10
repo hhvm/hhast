@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2f2c564dee93ad797b7053c364a77b6d>>
+ * @generated SignedSource<<843accae58a6ef8aa10d9750a54ec388>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class ScopeResolutionExpression
   extends EditableNode
-  implements IExpression {
+  implements ILambdaBody, IExpression {
 
   private EditableNode $_qualifier;
   private EditableNode $_operator;

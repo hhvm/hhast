@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c2e39a58aad3343ece01eba2a53a3357>>
+ * @generated SignedSource<<e79f1d1f1c3575e32b9613591c8d341e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class LambdaExpression
   extends EditableNode
-  implements IHasFunctionBody, IHasAttributeSpec, IExpression {
+  implements IHasFunctionBody, ILambdaBody, IHasAttributeSpec, IExpression {
 
   private EditableNode $_attribute_spec;
   private EditableNode $_async;
@@ -373,8 +373,8 @@ final class LambdaExpression
    * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
    * | SubscriptExpression | VariableExpression
    */
-  public function getBody(): EditableNode {
-    return $this->_body;
+  public function getBody(): ILambdaBody {
+    return TypeAssert\instance_of(ILambdaBody::class, $this->_body);
   }
 
   /**
@@ -386,7 +386,7 @@ final class LambdaExpression
    * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
    * | SubscriptExpression | VariableExpression
    */
-  public function getBodyx(): EditableNode {
+  public function getBodyx(): ILambdaBody {
     return $this->getBody();
   }
 }

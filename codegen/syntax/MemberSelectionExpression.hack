@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<89ca6f70b4aea15dfc73cf2e42263518>>
+ * @generated SignedSource<<7c85507c9b864709a32c0dee4e053c4e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class MemberSelectionExpression
   extends EditableNode
-  implements IExpression {
+  implements ILambdaBody, IExpression {
 
   private EditableNode $_object;
   private EditableNode $_operator;

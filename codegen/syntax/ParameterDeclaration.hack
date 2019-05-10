@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d0c5408aee395ba106c36d6af1477953>>
+ * @generated SignedSource<<063417979b43f30eed47bb4d2c246a97>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class ParameterDeclaration
   extends EditableNode
-  implements IHasAttributeSpec, IParameter {
+  implements IHasTypeHint, IHasAttributeSpec, IParameter {
 
   private EditableNode $_attribute;
   private EditableNode $_visibility;

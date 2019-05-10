@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<14cc0d6b9ef81eefff7a79ef0656426e>>
+ * @generated SignedSource<<2e68241b60a35a84758a5a92cb6395ce>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class SubscriptExpression extends EditableNode implements IExpression {
+final class SubscriptExpression
+  extends EditableNode
+  implements ILambdaBody, IExpression {
 
   private EditableNode $_receiver;
   private EditableNode $_left_bracket;

@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f02204420db18c355686f673deb91e61>>
+ * @generated SignedSource<<bcb8ec6d609f0ac8de76f86499af6773>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class InclusionExpression extends EditableNode implements IExpression {
+final class InclusionExpression
+  extends EditableNode
+  implements ILambdaBody, IExpression {
 
   private EditableNode $_require;
   private EditableNode $_filename;

@@ -117,21 +117,17 @@ abstract class CodegenBase {
   <<__Memoize>>
   final protected function getMarkerInterfacesByInterface(
   ): dict<string, keyset<string>> {
-    return dict[
+    $ifs = dict[
       'IControlFlowStatement' => keyset[
+        'ILoopStatement',
         'AlternateElseClause',
         'AlternateElseifClause',
         'AlternateElseifStatement',
-        'AlternateLoopStatement',
         'AlternateSwitchStatement',
         'ElseClause',
         'ElseifClause',
         'IfStatement',
-        'DoStatement',
-        'ForStatement',
-        'ForeachStatement',
         'SwitchStatement',
-        'WhileStatement',
       ],
       'IClassBodyDeclaration' => keyset[
         'MethodishDeclaration',
@@ -159,14 +155,14 @@ abstract class CodegenBase {
         'ObjectCreationExpression',
       ],
       'IHasFunctionBody' => keyset[
-        // + IFunctionishDeclaration
+        'IFunctionishDeclaration',
         'AnonymousFunction',
         'AwaitableCreationExpression',
         'Php7AnonymousFunction',
         'LambdaExpression',
       ],
       'IHasTypeHint' => keyset[
-        // + IParameter
+        'IParameter',
         'PropertyDeclaration',
       ],
       'IPHPArray' => keyset[
@@ -179,8 +175,8 @@ abstract class CodegenBase {
         'VectorIntrinsicExpression',
       ],
       'IContainer' => keyset[
-        // + IPHPArray
-        // + IHackArray
+        'IPHPArray',
+        'IHackArray',
         'CollectionLiteralExpression',
       ],
       'IHasOperator' => keyset[
@@ -189,7 +185,7 @@ abstract class CodegenBase {
         'PostfixUnaryExpression',
       ],
       'ILambdaBody' => keyset[
-        // + IExpression
+        'IExpression',
         'CompoundStatement',
       ],
       'ILambdaSignature' => keyset[
@@ -295,5 +291,16 @@ abstract class CodegenBase {
         'XHPSimpleAttribute',
       ],
     ];
+
+    foreach ($ifs as $if => $impls) {
+      foreach ($impls as $impl) {
+        if (Str\starts_with($impl, 'I') && C\contains_key($ifs, $impl)) {
+          unset($impls[$impl]);
+          $impls = Keyset\union($impls, $ifs[$impl]);
+        }
+      }
+      $ifs[$if] = $impls;
+    }
+    return $ifs;
   }
 }

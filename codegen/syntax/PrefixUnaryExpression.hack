@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<70e49448a5f8a66d73c92e5023941c20>>
+ * @generated SignedSource<<09699d1c92c8d355e0ed6c10e6c37418>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class PrefixUnaryExpression
   extends EditableNode
-  implements IHasOperator, IExpression {
+  implements IHasOperator, ILambdaBody, IExpression {
 
   private EditableNode $_operator;
   private EditableNode $_operand;

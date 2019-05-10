@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<10f1982ee2dc7e418ed7c1884e4fbc44>>
+ * @generated SignedSource<<e3d2347cf44dd0abf1a51275e22525ae>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class FunctionCallExpression
   extends EditableNode
-  implements IFunctionCallishExpression, IExpression {
+  implements IFunctionCallishExpression, ILambdaBody, IExpression {
 
   private EditableNode $_receiver;
   private EditableNode $_type_args;
@@ -269,7 +269,7 @@ final class FunctionCallExpression
 
   /**
    * @return EditableList<AnonymousFunction> | EditableList<IExpression> |
-   * EditableList<ArrayCreationExpression> |
+   * EditableList<ArrayCreationExpression> | EditableList<IContainer> |
    * EditableList<ArrayIntrinsicExpression> | EditableList<AsExpression> |
    * EditableList<AwaitableCreationExpression> | EditableList<BinaryExpression>
    * | EditableList<IHasOperator> | EditableList<CastExpression> |
@@ -307,7 +307,7 @@ final class FunctionCallExpression
 
   /**
    * @return EditableList<AnonymousFunction> | EditableList<IExpression> |
-   * EditableList<ArrayCreationExpression> |
+   * EditableList<ArrayCreationExpression> | EditableList<IContainer> |
    * EditableList<ArrayIntrinsicExpression> | EditableList<AsExpression> |
    * EditableList<AwaitableCreationExpression> | EditableList<BinaryExpression>
    * | EditableList<IHasOperator> | EditableList<CastExpression> |

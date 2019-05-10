@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<32fac2ce23177e46f0052e30a5e61a17>>
+ * @generated SignedSource<<eb0a6f31aa3a33c91c58f8b9cc34eb18>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class AnonymousFunction
   extends EditableNode
-  implements IHasFunctionBody, IHasAttributeSpec, IExpression {
+  implements IHasFunctionBody, ILambdaBody, IHasAttributeSpec, IExpression {
 
   private EditableNode $_attribute_spec;
   private EditableNode $_static_keyword;

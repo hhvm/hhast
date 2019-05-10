@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6f792de5d39d5d242cfe3caf4dc93985>>
+ * @generated SignedSource<<87110eae3c9f99f38bafd9de748a0399>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class PocketIdentifierExpression
   extends EditableNode
-  implements IExpression {
+  implements ILambdaBody, IExpression {
 
   private EditableNode $_qualifier;
   private EditableNode $_pu_operator;
