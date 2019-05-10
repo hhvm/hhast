@@ -208,9 +208,10 @@ abstract class CodegenBase {
         HHAST\EnumDeclaration::class,
         HHAST\FunctionDeclaration::class,
         HHAST\ParameterDeclaration::class,
-        HHAST\Php7AnonymousFunction::class,
         HHAST\PropertyDeclaration::class,
         HHAST\LambdaExpression::class,
+        // HHAST\Php7AnonymousFunction::class : not valid in hack. No attributes
+        // if not hack
       ],
       HHAST\INameishNode::class => keyset[
         HHAST\NameToken::class,
