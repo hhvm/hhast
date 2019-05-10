@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<243131398b8214dd4256e6a543c100ea>>
+ * @generated SignedSource<<78ba57b395ffdc6b00e96c89087447ff>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class LikeTypeSpecifier extends EditableNode {
+final class LikeTypeSpecifier extends EditableNode implements ITypeSpecifier {
 
   private EditableNode $_tilde;
   private EditableNode $_type;
@@ -123,15 +123,15 @@ final class LikeTypeSpecifier extends EditableNode {
    * @return DictionaryTypeSpecifier | GenericTypeSpecifier | LikeTypeSpecifier
    * | SimpleTypeSpecifier | TypeConstant
    */
-  public function getType(): EditableNode {
-    return $this->_type;
+  public function getType(): ITypeSpecifier {
+    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
   }
 
   /**
    * @return DictionaryTypeSpecifier | GenericTypeSpecifier | LikeTypeSpecifier
    * | SimpleTypeSpecifier | TypeConstant
    */
-  public function getTypex(): EditableNode {
+  public function getTypex(): ITypeSpecifier {
     return $this->getType();
   }
 }

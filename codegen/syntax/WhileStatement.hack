@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2a1607637bbf04cc7fa85f274417232b>>
+ * @generated SignedSource<<ebd2b06dcc84deea812db8f9c86027de>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class WhileStatement
   extends EditableNode
-  implements IControlFlowStatement, ILoopStatement {
+  implements IControlFlowStatement, ILoopStatement, IStatement {
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;
@@ -298,15 +298,15 @@ final class WhileStatement
    * @return AlternateLoopStatement | CompoundStatement | ContinueStatement |
    * EchoStatement | ExpressionStatement
    */
-  public function getBody(): EditableNode {
-    return $this->_body;
+  public function getBody(): IStatement {
+    return TypeAssert\instance_of(IStatement::class, $this->_body);
   }
 
   /**
    * @return AlternateLoopStatement | CompoundStatement | ContinueStatement |
    * EchoStatement | ExpressionStatement
    */
-  public function getBodyx(): EditableNode {
+  public function getBodyx(): IStatement {
     return $this->getBody();
   }
 }

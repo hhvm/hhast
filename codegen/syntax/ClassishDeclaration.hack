@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2f5e1d92f0da1001d3acecf8ac524646>>
+ * @generated SignedSource<<9f55ba1d2855f967bd6ee8eabceea796>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class ClassishDeclaration extends EditableNode {
+final class ClassishDeclaration
+  extends EditableNode
+  implements IHasAttributeSpec {
 
   private EditableNode $_attribute;
   private EditableNode $_modifiers;
@@ -490,10 +492,11 @@ final class ClassishDeclaration extends EditableNode {
   }
 
   /**
-   * @return EditableList<GenericTypeSpecifier> | EditableList<EditableNode> |
-   * EditableList<SimpleTypeSpecifier> | null
+   * @return EditableList<GenericTypeSpecifier> |
+   * EditableList<ISimpleCreationSpecifier> | EditableList<SimpleTypeSpecifier>
+   * | null
    */
-  public function getExtendsList(): ?EditableList<EditableNode> {
+  public function getExtendsList(): ?EditableList<ISimpleCreationSpecifier> {
     if ($this->_extends_list->isMissing()) {
       return null;
     }
@@ -501,10 +504,10 @@ final class ClassishDeclaration extends EditableNode {
   }
 
   /**
-   * @return EditableList<GenericTypeSpecifier> | EditableList<EditableNode> |
-   * EditableList<SimpleTypeSpecifier>
+   * @return EditableList<GenericTypeSpecifier> |
+   * EditableList<ISimpleCreationSpecifier> | EditableList<SimpleTypeSpecifier>
    */
-  public function getExtendsListx(): EditableList<EditableNode> {
+  public function getExtendsListx(): EditableList<ISimpleCreationSpecifier> {
     return TypeAssert\not_null($this->getExtendsList());
   }
 
@@ -581,10 +584,11 @@ final class ClassishDeclaration extends EditableNode {
   }
 
   /**
-   * @return EditableList<GenericTypeSpecifier> | EditableList<EditableNode> |
-   * EditableList<SimpleTypeSpecifier> | null
+   * @return EditableList<GenericTypeSpecifier> |
+   * EditableList<ISimpleCreationSpecifier> | EditableList<SimpleTypeSpecifier>
+   * | null
    */
-  public function getImplementsList(): ?EditableList<EditableNode> {
+  public function getImplementsList(): ?EditableList<ISimpleCreationSpecifier> {
     if ($this->_implements_list->isMissing()) {
       return null;
     }
@@ -592,10 +596,10 @@ final class ClassishDeclaration extends EditableNode {
   }
 
   /**
-   * @return EditableList<GenericTypeSpecifier> | EditableList<EditableNode> |
-   * EditableList<SimpleTypeSpecifier>
+   * @return EditableList<GenericTypeSpecifier> |
+   * EditableList<ISimpleCreationSpecifier> | EditableList<SimpleTypeSpecifier>
    */
-  public function getImplementsListx(): EditableList<EditableNode> {
+  public function getImplementsListx(): EditableList<ISimpleCreationSpecifier> {
     return TypeAssert\not_null($this->getImplementsList());
   }
 

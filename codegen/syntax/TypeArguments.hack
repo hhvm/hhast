@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<944d3595c4c91edd15d1945702a06a7c>>
+ * @generated SignedSource<<b3189dc874ccdbc50d6f3d47ca60b897>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -138,30 +138,32 @@ final class TypeArguments extends EditableNode {
   /**
    * @return EditableList<ClassnameTypeSpecifier> |
    * EditableList<ClosureTypeSpecifier> | EditableList<DarrayTypeSpecifier> |
-   * EditableList<EditableNode> | EditableList<DictionaryTypeSpecifier> |
-   * EditableList<GenericTypeSpecifier> | EditableList<LikeTypeSpecifier> |
+   * EditableList<ITypeSpecifier> | EditableList<DictionaryTypeSpecifier> |
+   * EditableList<GenericTypeSpecifier> |
+   * EditableList<ISimpleCreationSpecifier> | EditableList<LikeTypeSpecifier> |
    * EditableList<MapArrayTypeSpecifier> | EditableList<NullableTypeSpecifier>
    * | EditableList<ShapeTypeSpecifier> | EditableList<SimpleTypeSpecifier> |
    * EditableList<SoftTypeSpecifier> | EditableList<TupleTypeSpecifier> |
    * EditableList<TypeConstant> | EditableList<VectorArrayTypeSpecifier> |
    * EditableList<VectorTypeSpecifier>
    */
-  public function getTypes(): EditableList<EditableNode> {
+  public function getTypes(): EditableList<ITypeSpecifier> {
     return TypeAssert\instance_of(EditableList::class, $this->_types);
   }
 
   /**
    * @return EditableList<ClassnameTypeSpecifier> |
    * EditableList<ClosureTypeSpecifier> | EditableList<DarrayTypeSpecifier> |
-   * EditableList<EditableNode> | EditableList<DictionaryTypeSpecifier> |
-   * EditableList<GenericTypeSpecifier> | EditableList<LikeTypeSpecifier> |
+   * EditableList<ITypeSpecifier> | EditableList<DictionaryTypeSpecifier> |
+   * EditableList<GenericTypeSpecifier> |
+   * EditableList<ISimpleCreationSpecifier> | EditableList<LikeTypeSpecifier> |
    * EditableList<MapArrayTypeSpecifier> | EditableList<NullableTypeSpecifier>
    * | EditableList<ShapeTypeSpecifier> | EditableList<SimpleTypeSpecifier> |
    * EditableList<SoftTypeSpecifier> | EditableList<TupleTypeSpecifier> |
    * EditableList<TypeConstant> | EditableList<VectorArrayTypeSpecifier> |
    * EditableList<VectorTypeSpecifier>
    */
-  public function getTypesx(): EditableList<EditableNode> {
+  public function getTypesx(): EditableList<ITypeSpecifier> {
     return $this->getTypes();
   }
 

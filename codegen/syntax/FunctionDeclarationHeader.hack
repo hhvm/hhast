@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<25175a84bb2b4426d9c17d2b28e1537c>>
+ * @generated SignedSource<<35c18ac3ae88b05a0000de8aedf1cc67>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -441,10 +441,10 @@ final class FunctionDeclarationHeader extends EditableNode {
   }
 
   /**
-   * @return EditableList<ParameterDeclaration> | EditableList<EditableNode> |
+   * @return EditableList<ParameterDeclaration> | EditableList<IParameter> |
    * EditableList<VariadicParameter> | null
    */
-  public function getParameterList(): ?EditableList<EditableNode> {
+  public function getParameterList(): ?EditableList<IParameter> {
     if ($this->_parameter_list->isMissing()) {
       return null;
     }
@@ -452,10 +452,10 @@ final class FunctionDeclarationHeader extends EditableNode {
   }
 
   /**
-   * @return EditableList<ParameterDeclaration> | EditableList<EditableNode> |
+   * @return EditableList<ParameterDeclaration> | EditableList<IParameter> |
    * EditableList<VariadicParameter>
    */
-  public function getParameterListx(): EditableList<EditableNode> {
+  public function getParameterListx(): EditableList<IParameter> {
     return TypeAssert\not_null($this->getParameterList());
   }
 

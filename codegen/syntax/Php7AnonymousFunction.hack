@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1661445a75718f7ef03c9568566d1cb2>>
+ * @generated SignedSource<<22d65a0eb72f36aae712af0e1b1bff06>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class Php7AnonymousFunction extends EditableNode implements IExpression {
+final class Php7AnonymousFunction
+  extends EditableNode
+  implements IHasFunctionBody, IExpression {
 
   private EditableNode $_attribute_spec;
   private EditableNode $_static_keyword;

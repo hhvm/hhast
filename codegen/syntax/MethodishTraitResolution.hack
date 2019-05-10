@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f716496c1d93445187f397af19fdfdc3>>
+ * @generated SignedSource<<56b7024c80373d2714bb5e9bd75964ad>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class MethodishTraitResolution extends EditableNode {
+final class MethodishTraitResolution
+  extends EditableNode
+  implements IClassBodyDeclaration {
 
   private EditableNode $_attribute;
   private EditableNode $_function_decl_header;

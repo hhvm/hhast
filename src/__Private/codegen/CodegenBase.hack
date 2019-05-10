@@ -69,8 +69,11 @@ abstract class CodegenBase {
     'fixedText' => vec<Schema\TToken>,
     'variableText' => vec<Schema\TToken>,
   ) {
-    $ret =
-      shape('noText' => vec[], 'fixedText' => vec[], 'variableText' => vec[]);
+    $ret = shape(
+      'noText' => vec[],
+      'fixedText' => vec[],
+      'variableText' => vec[],
+    );
 
     $asts = $this->getSchemaASTByKindName();
 
@@ -112,7 +115,8 @@ abstract class CodegenBase {
   }
 
   <<__Memoize>>
-  final protected function getMarkerInterfacesByInterface(): dict<string, keyset<string>> {
+  final protected function getMarkerInterfacesByInterface(
+  ): dict<string, keyset<string>> {
     return dict[
       'IControlFlowStatement' => keyset[
         'AlternateElseClause',
@@ -129,6 +133,19 @@ abstract class CodegenBase {
         'SwitchStatement',
         'WhileStatement',
       ],
+      'IClassBodyDeclaration' => keyset[
+        'MethodishDeclaration',
+        'MethodishTraitResolution',
+        'ConstDeclaration',
+        'PropertyDeclaration',
+        'RequireClause',
+        'TraitUse',
+        'TraitUseConflictResolution',
+        'TypeConstDeclaration',
+        'XHPCategoryDeclaration',
+        'XHPClassAttributeDeclaration',
+        'XHPChildrenDeclaration',
+      ],
       'IComment' => keyset[
         'SingleLineComment',
         'DelimitedComment',
@@ -136,6 +153,21 @@ abstract class CodegenBase {
       'IFunctionishDeclaration' => keyset[
         'FunctionDeclaration',
         'MethodishDeclaration',
+      ],
+      'IFunctionCallishExpression' => keyset[
+        'FunctionCallExpression',
+        'ObjectCreationExpression',
+      ],
+      'IHasFunctionBody' => keyset[
+        // + IFunctionishDeclaration
+        'AnonymousFunction',
+        'AwaitableCreationExpression',
+        'Php7AnonymousFunction',
+        'LambdaExpression',
+      ],
+      'IHasTypeHint' => keyset[
+        // + IParameter
+        'PropertyDeclaration',
       ],
       'IPHPArray' => keyset[
         'ArrayCreationExpression',
@@ -147,8 +179,22 @@ abstract class CodegenBase {
         'VectorIntrinsicExpression',
       ],
       'IContainer' => keyset[
-        // IPHPArray and IHackArray also extend this interface
+        // + IPHPArray
+        // + IHackArray
         'CollectionLiteralExpression',
+      ],
+      'IHasOperator' => keyset[
+        'BinaryExpression',
+        'PrefixUnaryExpression',
+        'PostfixUnaryExpression',
+      ],
+      'ILambdaBody' => keyset[
+        // + IExpression
+        'CompoundStatement',
+      ],
+      'ILambdaSignature' => keyset[
+        'VariableExpression',
+        'LambdaSignature',
       ],
       'ILoopStatement' => keyset[
         'AlternateLoopStatement',
@@ -157,13 +203,34 @@ abstract class CodegenBase {
         'ForeachStatement',
         'WhileStatement',
       ],
+      'IHasAttributeSpec' => keyset[
+        'AliasDeclaration',
+        'AwaitableCreationExpression',
+        'AnonymousFunction',
+        'ClassishDeclaration',
+        'MethodishDeclaration',
+        'EnumDeclaration',
+        'FunctionDeclaration',
+        'ParameterDeclaration',
+        'PHP7AnonymousFunction',
+        'PropertyDeclaration',
+        'LambdaExpression',
+      ],
       'INameishNode' => keyset[
         'NameToken',
         'QualifiedName',
       ],
+      'INamespaceBody' => keyset[
+        'NamespaceBody',
+        'NamespaceEmptyBody',
+      ],
       'INamespaceUseDeclaration' => keyset[
         'NamespaceUseDeclaration',
         'NamespaceGroupUseDeclaration',
+      ],
+      'IParameter' => keyset[
+        'ParameterDeclaration',
+        'VariadicParameter',
       ],
       'IExpression' => Keyset\union(
         keyset[
@@ -177,11 +244,55 @@ abstract class CodegenBase {
         )
           |> Keyset\map($$, $node ==> $node['kind_name']),
       ),
+      'ISimpleCreationSpecifier' => keyset[
+        'SimpleTypeSpecifier',
+        'GenericTypeSpecifier',
+      ],
+      'IStatement' => Keyset\union(
+        keyset[
+          'InclusionDirective',
+          'SwitchFallthrough',
+          'GotoLabel',
+          'UsingStatementBlockScoped',
+          'UsingStatementFunctionScoped',
+        ],
+        Vec\filter(
+          $this->getSchema()['AST'],
+          $node ==> Str\ends_with($node['kind_name'], 'Statement'),
+        )
+          |> Keyset\map($$, $node ==> $node['kind_name']),
+      ),
       'IStringLiteral' => keyset[
         'SingleQuotedStringLiteralToken',
         'DoubleQuotedStringLiteralToken',
         'HeredocStringLiteralToken',
         'NowdocStringLiteralToken',
+      ],
+      'ISwitchLabel' => keyset[
+        'CaseLabel',
+        'DefaultLabel',
+      ],
+      'ITraitUseItem' => keyset[
+        'TraitUseAliasItem',
+        'TraitUsePrecedenceItem',
+      ],
+      'ITypeSpecifier' => Keyset\union(
+        keyset[
+          'ReifiedTypeArgument',
+          // Dubious:
+          'TypeConstant',
+          'VariadicParameter',
+          'XHPEnumType',
+        ],
+        Vec\filter(
+          $this->getSchema()['AST'],
+          $node ==> Str\ends_with($node['kind_name'], 'Specifier'),
+        )
+          |> Keyset\map($$, $node ==> $node['kind_name']),
+      ),
+      'IXHPAttribute' => keyset[
+        'XHPClassAttribute',
+        'XHPSimpleAttribute',
       ],
     ];
   }

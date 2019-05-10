@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d3b15101e416e0461b87e7883316f5bc>>
+ * @generated SignedSource<<7cb742f3de327383945c3e4ff7ab5cb7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class CaseLabel extends EditableNode {
+final class CaseLabel extends EditableNode implements ISwitchLabel {
 
   private EditableNode $_keyword;
   private EditableNode $_expression;

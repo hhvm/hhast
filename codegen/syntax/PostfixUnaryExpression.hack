@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c2de589f570578eeda18486e04698f85>>
+ * @generated SignedSource<<bb02d26778e07c500c7e3935fc26e5aa>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class PostfixUnaryExpression extends EditableNode implements IExpression {
+final class PostfixUnaryExpression
+  extends EditableNode
+  implements IHasOperator, IExpression {
 
   private EditableNode $_operand;
   private EditableNode $_operator;

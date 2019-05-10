@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b4b723c098d9bcfdfb7ddd4ab97c29b9>>
+ * @generated SignedSource<<95de2f30c78b4100ae3635f31a1540c1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class TraitUseAliasItem extends EditableNode {
+final class TraitUseAliasItem extends EditableNode implements ITraitUseItem {
 
   private EditableNode $_aliasing_name;
   private EditableNode $_keyword;

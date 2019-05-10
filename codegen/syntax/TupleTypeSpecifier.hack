@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bddbe430d7e4ae427e59e1e3d4b916f8>>
+ * @generated SignedSource<<ef6fc8bc05356b4ed7d1cafa31470fd7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class TupleTypeSpecifier extends EditableNode {
+final class TupleTypeSpecifier extends EditableNode implements ITypeSpecifier {
 
   private EditableNode $_left_paren;
   private EditableNode $_types;
@@ -136,20 +136,22 @@ final class TupleTypeSpecifier extends EditableNode {
   }
 
   /**
-   * @return EditableList<EditableNode> | EditableList<GenericTypeSpecifier> |
+   * @return EditableList<ITypeSpecifier> | EditableList<GenericTypeSpecifier>
+   * | EditableList<ISimpleCreationSpecifier> |
    * EditableList<SimpleTypeSpecifier> | EditableList<TupleTypeSpecifier> |
    * EditableList<VectorArrayTypeSpecifier> | EditableList<VectorTypeSpecifier>
    */
-  public function getTypes(): EditableList<EditableNode> {
+  public function getTypes(): EditableList<ITypeSpecifier> {
     return TypeAssert\instance_of(EditableList::class, $this->_types);
   }
 
   /**
-   * @return EditableList<EditableNode> | EditableList<GenericTypeSpecifier> |
+   * @return EditableList<ITypeSpecifier> | EditableList<GenericTypeSpecifier>
+   * | EditableList<ISimpleCreationSpecifier> |
    * EditableList<SimpleTypeSpecifier> | EditableList<TupleTypeSpecifier> |
    * EditableList<VectorArrayTypeSpecifier> | EditableList<VectorTypeSpecifier>
    */
-  public function getTypesx(): EditableList<EditableNode> {
+  public function getTypesx(): EditableList<ITypeSpecifier> {
     return $this->getTypes();
   }
 

@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e04f5ed87928a59bfd74e5289d9d6368>>
+ * @generated SignedSource<<63690fa4e9d6f31dad72e6114f3d1f40>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class ShapeTypeSpecifier extends EditableNode {
+final class ShapeTypeSpecifier extends EditableNode implements ITypeSpecifier {
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;

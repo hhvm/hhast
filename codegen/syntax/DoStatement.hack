@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<976a9ecfeac9539f457f3f1e23c55c0f>>
+ * @generated SignedSource<<22376d4e6a6f5a47cef4e3b806575659>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class DoStatement
   extends EditableNode
-  implements IControlFlowStatement, ILoopStatement {
+  implements IControlFlowStatement, ILoopStatement, IStatement {
 
   private EditableNode $_keyword;
   private EditableNode $_body;
@@ -225,14 +225,14 @@ final class DoStatement
   /**
    * @return CompoundStatement | ExpressionStatement
    */
-  public function getBody(): EditableNode {
-    return $this->_body;
+  public function getBody(): IStatement {
+    return TypeAssert\instance_of(IStatement::class, $this->_body);
   }
 
   /**
    * @return CompoundStatement | ExpressionStatement
    */
-  public function getBodyx(): EditableNode {
+  public function getBodyx(): IStatement {
     return $this->getBody();
   }
 

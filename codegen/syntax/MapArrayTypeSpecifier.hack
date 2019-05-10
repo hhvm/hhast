@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3f014ea73a255ea74d74d4dacf6126a3>>
+ * @generated SignedSource<<d4ff8345716e522f193ad720c7a408c9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class MapArrayTypeSpecifier extends EditableNode {
+final class MapArrayTypeSpecifier
+  extends EditableNode
+  implements ITypeSpecifier {
 
   private EditableNode $_keyword;
   private EditableNode $_left_angle;
@@ -315,18 +317,18 @@ final class MapArrayTypeSpecifier extends EditableNode {
    * @return GenericTypeSpecifier | null | NullableTypeSpecifier |
    * ShapeTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier
    */
-  public function getValue(): ?EditableNode {
+  public function getValue(): ?ITypeSpecifier {
     if ($this->_value->isMissing()) {
       return null;
     }
-    return $this->_value;
+    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_value);
   }
 
   /**
    * @return GenericTypeSpecifier | NullableTypeSpecifier | ShapeTypeSpecifier
    * | SimpleTypeSpecifier | SoftTypeSpecifier
    */
-  public function getValuex(): EditableNode {
+  public function getValuex(): ITypeSpecifier {
     return TypeAssert\not_null($this->getValue());
   }
 

@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0193f6f8848e5c79748b4adafabc1948>>
+ * @generated SignedSource<<9089ecd3a7321e1b8218c83ebe460a15>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class TypeConstant extends EditableNode {
+final class TypeConstant extends EditableNode implements ITypeSpecifier {
 
   private EditableNode $_left_type;
   private EditableNode $_separator;

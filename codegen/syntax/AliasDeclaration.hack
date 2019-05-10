@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b09f9d3bf5a75084f9faf7eb11fed12f>>
+ * @generated SignedSource<<b7a5ca90bdcd1bb24b96fbc84144b2f8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class AliasDeclaration extends EditableNode {
+final class AliasDeclaration extends EditableNode implements IHasAttributeSpec {
 
   private EditableNode $_attribute_spec;
   private EditableNode $_keyword;
@@ -448,8 +448,8 @@ final class AliasDeclaration extends EditableNode {
    * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
    * TupleTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
-  public function getType(): EditableNode {
-    return $this->_type;
+  public function getType(): ITypeSpecifier {
+    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
   }
 
   /**
@@ -458,7 +458,7 @@ final class AliasDeclaration extends EditableNode {
    * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
    * TupleTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
-  public function getTypex(): EditableNode {
+  public function getTypex(): ITypeSpecifier {
     return $this->getType();
   }
 

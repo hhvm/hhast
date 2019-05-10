@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b603ba10820c26d0beb9e0f66dbff4e9>>
+ * @generated SignedSource<<5cecf2643621c5fb609e7ebc3791b74a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class XHPEnumType extends EditableNode {
+final class XHPEnumType extends EditableNode implements ITypeSpecifier {
 
   private EditableNode $_optional;
   private EditableNode $_keyword;

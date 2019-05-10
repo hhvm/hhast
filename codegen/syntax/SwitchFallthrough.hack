@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0bc9f4fbb8b02326e2dc6fe35b860d12>>
+ * @generated SignedSource<<d67092abc225083363228f185d898249>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class SwitchFallthrough extends EditableNode {
+final class SwitchFallthrough extends EditableNode implements IStatement {
 
   private EditableNode $_keyword;
   private EditableNode $_semicolon;

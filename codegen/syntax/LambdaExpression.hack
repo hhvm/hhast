@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<635f25e7cd5a9979094e2b43d189f215>>
+ * @generated SignedSource<<c2e39a58aad3343ece01eba2a53a3357>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class LambdaExpression extends EditableNode implements IExpression {
+final class LambdaExpression
+  extends EditableNode
+  implements IHasFunctionBody, IHasAttributeSpec, IExpression {
 
   private EditableNode $_attribute_spec;
   private EditableNode $_async;

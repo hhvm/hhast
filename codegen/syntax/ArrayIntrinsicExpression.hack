@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<21a20280790fec28275537d756ad839b>>
+ * @generated SignedSource<<a8898c6115312749ed50fb225fb206bd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -205,10 +205,11 @@ final class ArrayIntrinsicExpression
    * EditableList<ArrayCreationExpression> |
    * EditableList<ArrayIntrinsicExpression> | EditableList<EditableNode> |
    * EditableList<AwaitableCreationExpression> | EditableList<BinaryExpression>
-   * | EditableList<CastExpression> | EditableList<CollectionLiteralExpression>
-   * | EditableList<ElementInitializer> | EditableList<FunctionCallExpression>
-   * | EditableList<LiteralExpression> |
-   * EditableList<MemberSelectionExpression> |
+   * | EditableList<IHasOperator> | EditableList<CastExpression> |
+   * EditableList<CollectionLiteralExpression> |
+   * EditableList<ElementInitializer> | EditableList<FunctionCallExpression> |
+   * EditableList<IFunctionCallishExpression> | EditableList<LiteralExpression>
+   * | EditableList<MemberSelectionExpression> |
    * EditableList<ObjectCreationExpression> |
    * EditableList<PrefixUnaryExpression> | EditableList<QualifiedName> |
    * EditableList<ScopeResolutionExpression> |
@@ -228,10 +229,11 @@ final class ArrayIntrinsicExpression
    * EditableList<ArrayCreationExpression> |
    * EditableList<ArrayIntrinsicExpression> | EditableList<EditableNode> |
    * EditableList<AwaitableCreationExpression> | EditableList<BinaryExpression>
-   * | EditableList<CastExpression> | EditableList<CollectionLiteralExpression>
-   * | EditableList<ElementInitializer> | EditableList<FunctionCallExpression>
-   * | EditableList<LiteralExpression> |
-   * EditableList<MemberSelectionExpression> |
+   * | EditableList<IHasOperator> | EditableList<CastExpression> |
+   * EditableList<CollectionLiteralExpression> |
+   * EditableList<ElementInitializer> | EditableList<FunctionCallExpression> |
+   * EditableList<IFunctionCallishExpression> | EditableList<LiteralExpression>
+   * | EditableList<MemberSelectionExpression> |
    * EditableList<ObjectCreationExpression> |
    * EditableList<PrefixUnaryExpression> | EditableList<QualifiedName> |
    * EditableList<ScopeResolutionExpression> |

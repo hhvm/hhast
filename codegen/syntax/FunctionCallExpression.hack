@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f49cef49b83a5fa0f890ccf1ecf4250d>>
+ * @generated SignedSource<<10f1982ee2dc7e418ed7c1884e4fbc44>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class FunctionCallExpression extends EditableNode implements IExpression {
+final class FunctionCallExpression
+  extends EditableNode
+  implements IFunctionCallishExpression, IExpression {
 
   private EditableNode $_receiver;
   private EditableNode $_type_args;
@@ -270,17 +272,20 @@ final class FunctionCallExpression extends EditableNode implements IExpression {
    * EditableList<ArrayCreationExpression> |
    * EditableList<ArrayIntrinsicExpression> | EditableList<AsExpression> |
    * EditableList<AwaitableCreationExpression> | EditableList<BinaryExpression>
-   * | EditableList<CastExpression> | EditableList<CollectionLiteralExpression>
-   * | EditableList<ConditionalExpression> |
+   * | EditableList<IHasOperator> | EditableList<CastExpression> |
+   * EditableList<CollectionLiteralExpression> |
+   * EditableList<ConditionalExpression> |
    * EditableList<DarrayIntrinsicExpression> |
    * EditableList<DecoratedExpression> |
    * EditableList<DictionaryIntrinsicExpression> | EditableList<IHackArray> |
    * EditableList<EmptyExpression> | EditableList<EvalExpression> |
-   * EditableList<FunctionCallExpression> | EditableList<InstanceofExpression>
-   * | EditableList<IsExpression> | EditableList<IssetExpression> |
-   * EditableList<KeysetIntrinsicExpression> | EditableList<LambdaExpression> |
-   * EditableList<LiteralExpression> | EditableList<MemberSelectionExpression>
-   * | EditableList<ObjectCreationExpression> |
+   * EditableList<FunctionCallExpression> |
+   * EditableList<IFunctionCallishExpression> |
+   * EditableList<InstanceofExpression> | EditableList<IsExpression> |
+   * EditableList<IssetExpression> | EditableList<KeysetIntrinsicExpression> |
+   * EditableList<LambdaExpression> | EditableList<LiteralExpression> |
+   * EditableList<MemberSelectionExpression> |
+   * EditableList<ObjectCreationExpression> |
    * EditableList<ParenthesizedExpression> |
    * EditableList<PipeVariableExpression> |
    * EditableList<PostfixUnaryExpression> | EditableList<PrefixUnaryExpression>
@@ -305,17 +310,20 @@ final class FunctionCallExpression extends EditableNode implements IExpression {
    * EditableList<ArrayCreationExpression> |
    * EditableList<ArrayIntrinsicExpression> | EditableList<AsExpression> |
    * EditableList<AwaitableCreationExpression> | EditableList<BinaryExpression>
-   * | EditableList<CastExpression> | EditableList<CollectionLiteralExpression>
-   * | EditableList<ConditionalExpression> |
+   * | EditableList<IHasOperator> | EditableList<CastExpression> |
+   * EditableList<CollectionLiteralExpression> |
+   * EditableList<ConditionalExpression> |
    * EditableList<DarrayIntrinsicExpression> |
    * EditableList<DecoratedExpression> |
    * EditableList<DictionaryIntrinsicExpression> | EditableList<IHackArray> |
    * EditableList<EmptyExpression> | EditableList<EvalExpression> |
-   * EditableList<FunctionCallExpression> | EditableList<InstanceofExpression>
-   * | EditableList<IsExpression> | EditableList<IssetExpression> |
-   * EditableList<KeysetIntrinsicExpression> | EditableList<LambdaExpression> |
-   * EditableList<LiteralExpression> | EditableList<MemberSelectionExpression>
-   * | EditableList<ObjectCreationExpression> |
+   * EditableList<FunctionCallExpression> |
+   * EditableList<IFunctionCallishExpression> |
+   * EditableList<InstanceofExpression> | EditableList<IsExpression> |
+   * EditableList<IssetExpression> | EditableList<KeysetIntrinsicExpression> |
+   * EditableList<LambdaExpression> | EditableList<LiteralExpression> |
+   * EditableList<MemberSelectionExpression> |
+   * EditableList<ObjectCreationExpression> |
    * EditableList<ParenthesizedExpression> |
    * EditableList<PipeVariableExpression> |
    * EditableList<PostfixUnaryExpression> | EditableList<PrefixUnaryExpression>

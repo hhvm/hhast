@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2aa2a604cdaeb935fd1f75a3b4997f7a>>
+ * @generated SignedSource<<31da5e300f156c19cd97b3de02017dfa>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class XHPSimpleAttribute extends EditableNode {
+final class XHPSimpleAttribute extends EditableNode implements IXHPAttribute {
 
   private EditableNode $_name;
   private EditableNode $_equal;

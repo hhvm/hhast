@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4158f09b809c634dba62081974d1bd00>>
+ * @generated SignedSource<<cac49cbd7e5801879b3161f186fd2614>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class TraitUseConflictResolution extends EditableNode {
+final class TraitUseConflictResolution
+  extends EditableNode
+  implements IClassBodyDeclaration {
 
   private EditableNode $_keyword;
   private EditableNode $_names;
@@ -251,10 +253,10 @@ final class TraitUseConflictResolution extends EditableNode {
   }
 
   /**
-   * @return EditableList<TraitUseAliasItem> | EditableList<EditableNode> |
+   * @return EditableList<TraitUseAliasItem> | EditableList<ITraitUseItem> |
    * EditableList<TraitUsePrecedenceItem> | null
    */
-  public function getClauses(): ?EditableList<EditableNode> {
+  public function getClauses(): ?EditableList<ITraitUseItem> {
     if ($this->_clauses->isMissing()) {
       return null;
     }
@@ -262,10 +264,10 @@ final class TraitUseConflictResolution extends EditableNode {
   }
 
   /**
-   * @return EditableList<TraitUseAliasItem> | EditableList<EditableNode> |
+   * @return EditableList<TraitUseAliasItem> | EditableList<ITraitUseItem> |
    * EditableList<TraitUsePrecedenceItem>
    */
-  public function getClausesx(): EditableList<EditableNode> {
+  public function getClausesx(): EditableList<ITraitUseItem> {
     return TypeAssert\not_null($this->getClauses());
   }
 

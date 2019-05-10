@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9d9f233729e24a885e8e71ad805f2008>>
+ * @generated SignedSource<<b0bc9013a51feaee66a9a3bf4376b0c9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class ClosureTypeSpecifier extends EditableNode {
+final class ClosureTypeSpecifier
+  extends EditableNode
+  implements ITypeSpecifier {
 
   private EditableNode $_outer_left_paren;
   private EditableNode $_coroutine;
@@ -385,9 +387,9 @@ final class ClosureTypeSpecifier extends EditableNode {
 
   /**
    * @return EditableList<ClosureParameterTypeSpecifier> |
-   * EditableList<EditableNode> | EditableList<VariadicParameter> | null
+   * EditableList<ITypeSpecifier> | EditableList<VariadicParameter> | null
    */
-  public function getParameterList(): ?EditableList<EditableNode> {
+  public function getParameterList(): ?EditableList<ITypeSpecifier> {
     if ($this->_parameter_list->isMissing()) {
       return null;
     }
@@ -396,9 +398,9 @@ final class ClosureTypeSpecifier extends EditableNode {
 
   /**
    * @return EditableList<ClosureParameterTypeSpecifier> |
-   * EditableList<EditableNode> | EditableList<VariadicParameter>
+   * EditableList<ITypeSpecifier> | EditableList<VariadicParameter>
    */
-  public function getParameterListx(): EditableList<EditableNode> {
+  public function getParameterListx(): EditableList<ITypeSpecifier> {
     return TypeAssert\not_null($this->getParameterList());
   }
 
@@ -512,15 +514,15 @@ final class ClosureTypeSpecifier extends EditableNode {
    * @return ClosureTypeSpecifier | GenericTypeSpecifier | LikeTypeSpecifier |
    * NullableTypeSpecifier | SimpleTypeSpecifier | VectorTypeSpecifier
    */
-  public function getReturnType(): EditableNode {
-    return $this->_return_type;
+  public function getReturnType(): ITypeSpecifier {
+    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_return_type);
   }
 
   /**
    * @return ClosureTypeSpecifier | GenericTypeSpecifier | LikeTypeSpecifier |
    * NullableTypeSpecifier | SimpleTypeSpecifier | VectorTypeSpecifier
    */
-  public function getReturnTypex(): EditableNode {
+  public function getReturnTypex(): ITypeSpecifier {
     return $this->getReturnType();
   }
 

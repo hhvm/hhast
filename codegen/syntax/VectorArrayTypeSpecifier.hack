@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ae7ee79ac2cc1dbbcac1b1bdd7c36431>>
+ * @generated SignedSource<<96fb0a4d7509d7935e945985f23c716c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class VectorArrayTypeSpecifier extends EditableNode {
+final class VectorArrayTypeSpecifier
+  extends EditableNode
+  implements ITypeSpecifier {
 
   private EditableNode $_keyword;
   private EditableNode $_left_angle;
@@ -197,8 +199,8 @@ final class VectorArrayTypeSpecifier extends EditableNode {
    * | NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
    * TupleTypeSpecifier | VarrayTypeSpecifier | VectorArrayTypeSpecifier
    */
-  public function getType(): EditableNode {
-    return $this->_type;
+  public function getType(): ITypeSpecifier {
+    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
   }
 
   /**
@@ -206,7 +208,7 @@ final class VectorArrayTypeSpecifier extends EditableNode {
    * | NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
    * TupleTypeSpecifier | VarrayTypeSpecifier | VectorArrayTypeSpecifier
    */
-  public function getTypex(): EditableNode {
+  public function getTypex(): ITypeSpecifier {
     return $this->getType();
   }
 

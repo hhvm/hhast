@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1bde12f6b6123362edf57b333cbf3858>>
+ * @generated SignedSource<<7c9e77b992c5a6c85a5b730fae7e81f7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,15 +123,15 @@ final class ElseClause extends EditableNode implements IControlFlowStatement {
    * @return CompoundStatement | EchoStatement | ExpressionStatement |
    * IfStatement | ReturnStatement
    */
-  public function getStatement(): EditableNode {
-    return $this->_statement;
+  public function getStatement(): IStatement {
+    return TypeAssert\instance_of(IStatement::class, $this->_statement);
   }
 
   /**
    * @return CompoundStatement | EchoStatement | ExpressionStatement |
    * IfStatement | ReturnStatement
    */
-  public function getStatementx(): EditableNode {
+  public function getStatementx(): IStatement {
     return $this->getStatement();
   }
 }

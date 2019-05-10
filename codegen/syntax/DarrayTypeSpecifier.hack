@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<35227e65c2e61830226f4190968ecca9>>
+ * @generated SignedSource<<de193af63b43b1a25963e6d345bdea86>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class DarrayTypeSpecifier extends EditableNode {
+final class DarrayTypeSpecifier extends EditableNode implements ITypeSpecifier {
 
   private EditableNode $_keyword;
   private EditableNode $_left_angle;
@@ -335,15 +335,15 @@ final class DarrayTypeSpecifier extends EditableNode {
    * @return DarrayTypeSpecifier | SimpleTypeSpecifier | VarrayTypeSpecifier |
    * VectorArrayTypeSpecifier
    */
-  public function getValue(): EditableNode {
-    return $this->_value;
+  public function getValue(): ITypeSpecifier {
+    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_value);
   }
 
   /**
    * @return DarrayTypeSpecifier | SimpleTypeSpecifier | VarrayTypeSpecifier |
    * VectorArrayTypeSpecifier
    */
-  public function getValuex(): EditableNode {
+  public function getValuex(): ITypeSpecifier {
     return $this->getValue();
   }
 

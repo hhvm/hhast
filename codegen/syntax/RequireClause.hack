@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<976f0abc0a7098544d8cd58e71be96f2>>
+ * @generated SignedSource<<94f27630bd91ccbbcb0ef28c1ba20c05>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class RequireClause extends EditableNode {
+final class RequireClause
+  extends EditableNode
+  implements IClassBodyDeclaration {
 
   private EditableNode $_keyword;
   private EditableNode $_kind;
@@ -180,14 +182,17 @@ final class RequireClause extends EditableNode {
   /**
    * @return GenericTypeSpecifier | SimpleTypeSpecifier
    */
-  public function getName(): EditableNode {
-    return $this->_name;
+  public function getName(): ISimpleCreationSpecifier {
+    return TypeAssert\instance_of(
+      ISimpleCreationSpecifier::class,
+      $this->_name,
+    );
   }
 
   /**
    * @return GenericTypeSpecifier | SimpleTypeSpecifier
    */
-  public function getNamex(): EditableNode {
+  public function getNamex(): ISimpleCreationSpecifier {
     return $this->getName();
   }
 

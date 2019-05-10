@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<504a4eaf98a06fdc92f6e3e410c20f09>>
+ * @generated SignedSource<<2c74e769030df5c523c5a060a1d7640e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class NullableTypeSpecifier extends EditableNode {
+final class NullableTypeSpecifier
+  extends EditableNode
+  implements ITypeSpecifier {
 
   private EditableNode $_question;
   private EditableNode $_type;
@@ -126,8 +128,8 @@ final class NullableTypeSpecifier extends EditableNode {
    * TupleTypeSpecifier | TypeConstant | VectorArrayTypeSpecifier |
    * VectorTypeSpecifier
    */
-  public function getType(): EditableNode {
-    return $this->_type;
+  public function getType(): ITypeSpecifier {
+    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
   }
 
   /**
@@ -137,7 +139,7 @@ final class NullableTypeSpecifier extends EditableNode {
    * TupleTypeSpecifier | TypeConstant | VectorArrayTypeSpecifier |
    * VectorTypeSpecifier
    */
-  public function getTypex(): EditableNode {
+  public function getTypex(): ITypeSpecifier {
     return $this->getType();
   }
 }

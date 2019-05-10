@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eb48e3102ce28f210889e66a339b483c>>
+ * @generated SignedSource<<df5862988bd15671622954aee9f821a9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class TypeConstDeclaration extends EditableNode {
+final class TypeConstDeclaration
+  extends EditableNode
+  implements IClassBodyDeclaration {
 
   private EditableNode $_attribute_spec;
   private EditableNode $_abstract;
@@ -575,11 +577,14 @@ final class TypeConstDeclaration extends EditableNode {
    * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
    * TupleTypeSpecifier | TypeConstant | VectorTypeSpecifier
    */
-  public function getTypeSpecifier(): ?EditableNode {
+  public function getTypeSpecifier(): ?ITypeSpecifier {
     if ($this->_type_specifier->isMissing()) {
       return null;
     }
-    return $this->_type_specifier;
+    return TypeAssert\instance_of(
+      ITypeSpecifier::class,
+      $this->_type_specifier,
+    );
   }
 
   /**
@@ -588,7 +593,7 @@ final class TypeConstDeclaration extends EditableNode {
    * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
    * TupleTypeSpecifier | TypeConstant | VectorTypeSpecifier
    */
-  public function getTypeSpecifierx(): EditableNode {
+  public function getTypeSpecifierx(): ITypeSpecifier {
     return TypeAssert\not_null($this->getTypeSpecifier());
   }
 
