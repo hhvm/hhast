@@ -9,6 +9,6 @@
 
  namespace Facebook\HHAST;
 
- interface IExpression extends ILambdaBody {
+ interface IExpression {
    require extends EditableNode;
  }
