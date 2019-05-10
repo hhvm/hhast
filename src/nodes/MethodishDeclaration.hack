@@ -13,18 +13,22 @@ namespace Facebook\HHAST;
 final class MethodishDeclaration extends MethodishDeclarationGeneratedBase {
   use AttributeAsAttributeSpecTrait;
 
+  <<__Override>>
   public function hasBody(): bool {
     return $this->hasFunctionBody();
   }
 
+  <<__Override>>
   public function getBodyUNTYPED(): EditableNode {
     return $this->getFunctionBodyUNTYPED();
   }
 
+  <<__Override>>
   public function getBodyx(): CompoundStatement {
     return $this->getFunctionBodyx();
   }
 
+  <<__Override>>
   public function getBody(): ?CompoundStatement {
     return $this->getFunctionBody();
   }
