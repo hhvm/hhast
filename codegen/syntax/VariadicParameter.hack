@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cda19e0614f9c9f2c2f0b1a11b800214>>
+ * @generated SignedSource<<14a32516edf6dca60b9eb859165bb195>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class VariadicParameter
   extends EditableNode
-  implements IParameter, ITypeSpecifier {
+  implements IHasTypeHint, IParameter, ITypeSpecifier {
 
   private EditableNode $_call_convention;
   private EditableNode $_type;

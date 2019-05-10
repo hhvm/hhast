@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a9c612362a6625087b7104e0d41be97b>>
+ * @generated SignedSource<<ba7f98129ff2cb6ebc2689b35fe76595>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class PocketAtomExpression extends EditableNode implements IExpression {
+final class PocketAtomExpression
+  extends EditableNode
+  implements ILambdaBody, IExpression {
 
   private EditableNode $_glyph;
   private EditableNode $_expression;

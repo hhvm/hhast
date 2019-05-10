@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e060dd0c2bcf35149cbec935083c2250>>
+ * @generated SignedSource<<7c742a9c9ed63b7e8e1031fb16e4b4ee>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class ArrayCreationExpression
   extends EditableNode
-  implements IPHPArray, IExpression {
+  implements IPHPArray, IContainer, ILambdaBody, IExpression {
 
   private EditableNode $_left_bracket;
   private EditableNode $_members;
@@ -143,8 +143,8 @@ final class ArrayCreationExpression
   /**
    * @return EditableList<AnonymousFunction> | EditableList<IExpression> |
    * EditableList<ArrayCreationExpression> | EditableList<IPHPArray> |
-   * EditableList<EditableNode> | EditableList<BinaryExpression> |
-   * EditableList<ConditionalExpression> |
+   * EditableList<IContainer> | EditableList<EditableNode> |
+   * EditableList<BinaryExpression> | EditableList<ConditionalExpression> |
    * EditableList<DictionaryIntrinsicExpression> | EditableList<IHackArray> |
    * EditableList<ElementInitializer> | EditableList<FunctionCallExpression> |
    * EditableList<KeysetIntrinsicExpression> | EditableList<LiteralExpression>
@@ -166,8 +166,8 @@ final class ArrayCreationExpression
   /**
    * @return EditableList<AnonymousFunction> | EditableList<IExpression> |
    * EditableList<ArrayCreationExpression> | EditableList<IPHPArray> |
-   * EditableList<EditableNode> | EditableList<BinaryExpression> |
-   * EditableList<ConditionalExpression> |
+   * EditableList<IContainer> | EditableList<EditableNode> |
+   * EditableList<BinaryExpression> | EditableList<ConditionalExpression> |
    * EditableList<DictionaryIntrinsicExpression> | EditableList<IHackArray> |
    * EditableList<ElementInitializer> | EditableList<FunctionCallExpression> |
    * EditableList<KeysetIntrinsicExpression> | EditableList<LiteralExpression>

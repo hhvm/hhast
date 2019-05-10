@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ba9b6e7169c5c34ff379e663d9bbe15c>>
+ * @generated SignedSource<<ca067866d158b1775cfd583645c9d87b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class DarrayIntrinsicExpression
   extends EditableNode
-  implements IExpression {
+  implements ILambdaBody, IExpression {
 
   private EditableNode $_keyword;
   private EditableNode $_explicit_type;

@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<50c8ef4cdeb9f91d10502ec3efe5de45>>
+ * @generated SignedSource<<5bc478dccdeaa81a1b2c7539654e68eb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class BracedExpression extends EditableNode implements IExpression {
+final class BracedExpression
+  extends EditableNode
+  implements ILambdaBody, IExpression {
 
   private EditableNode $_left_brace;
   private EditableNode $_expression;

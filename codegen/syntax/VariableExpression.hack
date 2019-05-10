@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cde3f76e8243d2530c63c08a18996fed>>
+ * @generated SignedSource<<18124b8c6ede796369ac7435d5201e33>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class VariableExpression
   extends EditableNode
-  implements ILambdaSignature, IExpression {
+  implements ILambdaBody, ILambdaSignature, IExpression {
 
   private EditableNode $_expression;
 

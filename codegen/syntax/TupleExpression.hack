@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dd20e6edd2b307374555259fd32f9af7>>
+ * @generated SignedSource<<694eba42b7e8970fe96d5b5c2c1a9f94>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class TupleExpression extends EditableNode implements IExpression {
+final class TupleExpression
+  extends EditableNode
+  implements ILambdaBody, IExpression {
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;
@@ -193,9 +195,10 @@ final class TupleExpression extends EditableNode implements IExpression {
   }
 
   /**
-   * @return EditableList<ArrayCreationExpression> | EditableList<IExpression>
-   * | EditableList<ArrayIntrinsicExpression> | EditableList<BinaryExpression>
-   * | EditableList<CastExpression> | EditableList<DarrayIntrinsicExpression> |
+   * @return EditableList<ArrayCreationExpression> | EditableList<IContainer> |
+   * EditableList<IExpression> | EditableList<ArrayIntrinsicExpression> |
+   * EditableList<BinaryExpression> | EditableList<CastExpression> |
+   * EditableList<DarrayIntrinsicExpression> |
    * EditableList<FunctionCallExpression> | EditableList<LiteralExpression> |
    * EditableList<ObjectCreationExpression> | EditableList<SubscriptExpression>
    * | EditableList<VariableExpression> |
@@ -210,9 +213,10 @@ final class TupleExpression extends EditableNode implements IExpression {
   }
 
   /**
-   * @return EditableList<ArrayCreationExpression> | EditableList<IExpression>
-   * | EditableList<ArrayIntrinsicExpression> | EditableList<BinaryExpression>
-   * | EditableList<CastExpression> | EditableList<DarrayIntrinsicExpression> |
+   * @return EditableList<ArrayCreationExpression> | EditableList<IContainer> |
+   * EditableList<IExpression> | EditableList<ArrayIntrinsicExpression> |
+   * EditableList<BinaryExpression> | EditableList<CastExpression> |
+   * EditableList<DarrayIntrinsicExpression> |
    * EditableList<FunctionCallExpression> | EditableList<LiteralExpression> |
    * EditableList<ObjectCreationExpression> | EditableList<SubscriptExpression>
    * | EditableList<VariableExpression> |
