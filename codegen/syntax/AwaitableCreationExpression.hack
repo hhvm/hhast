@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<affcdca53c0d7790e3ad9c27e55da65c>>
+ * @generated SignedSource<<47f790fa0e4b53efe72db69e5699bf0a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class AwaitableCreationExpression
+abstract class AwaitableCreationExpressionGeneratedBase
   extends EditableNode
   implements IHasFunctionBody, ILambdaBody, IHasAttributeSpec, IExpression {
 

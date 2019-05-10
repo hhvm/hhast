@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6af04d59dff18797692b0112a1fd7383>>
+ * @generated SignedSource<<cc721cafa352556c32e17d0d35091db0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class ParameterDeclaration
+abstract class ParameterDeclarationGeneratedBase
   extends EditableNode
   implements IHasTypeHint, IHasAttributeSpec, IParameter {
 
