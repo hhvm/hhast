@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<33ec1fcef7b0ae1748e7fb2dd5dbd55b>>
+ * @generated SignedSource<<83d21fd12575b6e3eabc2f310c9941a1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -128,8 +128,9 @@ final class DecoratedExpression
    * DecoratedExpression | FunctionCallExpression | ScopeResolutionExpression |
    * SubscriptExpression | VariableToken | VariableExpression
    */
-  public function getExpression(): EditableNode {
-    return $this->_expression;
+  <<__Memoize>>
+  public function getExpression(): IExpression {
+    return __Private\Wrap\wrap_IExpression($this->_expression);
   }
 
   /**
@@ -137,7 +138,7 @@ final class DecoratedExpression
    * DecoratedExpression | FunctionCallExpression | ScopeResolutionExpression |
    * SubscriptExpression | VariableToken | VariableExpression
    */
-  public function getExpressionx(): EditableNode {
+  public function getExpressionx(): IExpression {
     return $this->getExpression();
   }
 }
