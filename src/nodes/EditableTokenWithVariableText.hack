@@ -19,7 +19,7 @@ abstract class EditableTokenWithVariableText extends EditableToken {
     EditableNode $trailing,
     string $token_text,
     ?__Private\SourceRef $ref,
-  ){
+  ) {
     parent::__construct(static::KIND, $leading, $trailing, $token_text, $ref);
   }
 

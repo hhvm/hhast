@@ -20,7 +20,7 @@ abstract class EditableTokenWithFixedText extends EditableToken {
     EditableNode $leading,
     EditableNode $trailing,
     ?__Private\SourceRef $ref,
-  ){
+  ) {
     parent::__construct(static::KIND, $leading, $trailing, static::TEXT, $ref);
   }
 

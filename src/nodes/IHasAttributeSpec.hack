@@ -7,13 +7,13 @@
  *
  */
 
- namespace Facebook\HHAST;
+namespace Facebook\HHAST;
 
- interface IHasAttributeSpec {
-   require extends EditableNode;
+interface IHasAttributeSpec {
+  require extends EditableNode;
 
   public function hasAttributeSpec(): bool;
   public function getAttributeSpec(): ?AttributeSpecification;
   public function getAttributeSpecx(): AttributeSpecification;
   public function getAttributeSpecUNTYPED(): EditableNode;
- }
+}

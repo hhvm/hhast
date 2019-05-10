@@ -7,8 +7,8 @@
  *
  */
 
- namespace Facebook\HHAST;
+namespace Facebook\HHAST;
 
- interface IControlFlowStatement {
-   require extends EditableNode;
- }
+interface IControlFlowStatement {
+  require extends EditableNode;
+}

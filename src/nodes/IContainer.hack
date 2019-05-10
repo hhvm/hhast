@@ -7,7 +7,7 @@
  *
  */
 
- namespace Facebook\HHAST;
+namespace Facebook\HHAST;
 
- interface IContainer extends IExpression {
- }
+interface IContainer extends IExpression {
+}

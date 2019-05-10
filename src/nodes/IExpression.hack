@@ -7,8 +7,8 @@
  *
  */
 
- namespace Facebook\HHAST;
+namespace Facebook\HHAST;
 
- interface IExpression {
-   require extends EditableNode;
- }
+interface IExpression {
+  require extends EditableNode;
+}

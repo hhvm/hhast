@@ -7,8 +7,8 @@
  *
  */
 
- namespace Facebook\HHAST;
+namespace Facebook\HHAST;
 
- interface IStringLiteral {
-   require extends EditableToken;
- }
+interface IStringLiteral {
+  require extends EditableToken;
+}
