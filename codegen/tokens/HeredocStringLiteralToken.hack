@@ -1,11 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<60a06d1a0783d916cd784578f126f20a>>
+ * @generated SignedSource<<899c79223b9d552b5f5c6c7ebccd54e1>>
  */
 namespace Facebook\HHAST;
 
-final class HeredocStringLiteralToken extends EditableTokenWithVariableText {
+final class HeredocStringLiteralToken
+  extends EditableTokenWithVariableText
+  implements IStringLiteral {
 
   const string KIND = 'heredoc_string_literal';
 

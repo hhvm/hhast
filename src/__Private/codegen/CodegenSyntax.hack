@@ -157,7 +157,7 @@ final class CodegenSyntax extends CodegenBase {
       // IExpression, and we want INameish
       return Dict\map(
         $intersected,
-        $if ==> C\count($this->getMarkerInterfaces()[$if]),
+        $if ==> C\count($this->getMarkerInterfacesByInterface()[$if]),
       )
         |> Dict\sort($$)
         |> C\first_keyx($$);
@@ -617,70 +617,6 @@ final class CodegenSyntax extends CodegenBase {
     invariant($token !== null, 'Failed to find token for "%s"', $child);
 
     return $token['token_kind'].'Token';
-  }
-
-  private function getMarkerInterfaces(): dict<string, keyset<string>> {
-    return dict[
-      'IControlFlowStatement' => keyset[
-        'AlternateElseClause',
-        'AlternateElseifClause',
-        'AlternateElseifStatement',
-        'AlternateLoopStatement',
-        'AlternateSwitchStatement',
-        'ElseClause',
-        'ElseifClause',
-        'IfStatement',
-        'DoStatement',
-        'ForStatement',
-        'ForeachStatement',
-        'SwitchStatement',
-        'WhileStatement',
-      ],
-      'IFunctionishDeclaration' => keyset[
-        'FunctionDeclaration',
-        'MethodishDeclaration',
-      ],
-      'ILoopStatement' => keyset[
-        'AlternateLoopStatement',
-        'DoStatement',
-        'ForStatement',
-        'ForeachStatement',
-        'WhileStatement',
-      ],
-      'INameishNode' => keyset[
-        'NameToken',
-        'QualifiedName',
-      ],
-      'INamespaceUseDeclaration' => keyset[
-        'NamespaceUseDeclaration',
-        'NamespaceGroupUseDeclaration',
-      ],
-      'IExpression' => Keyset\union(
-        keyset[
-          'AnonymousFunction',
-          'Php7AnonymousFunction',
-          'Variable',
-        ],
-        Vec\filter(
-          $this->getSchema()['AST'],
-          $node ==> Str\ends_with($node['kind_name'], 'Expression'),
-        )
-          |> Keyset\map($$, $node ==> $node['kind_name']),
-      ),
-    ];
-  }
-
-  <<__Memoize>>
-  private function getMarkerInterfacesByImplementingClass(
-  ): dict<string, keyset<string>> {
-    $by_implementation = dict[];
-    foreach ($this->getMarkerInterfaces() as $if => $classes) {
-      foreach ($classes as $class) {
-        $by_implementation[$class] ??= keyset[];
-        $by_implementation[$class][] = $if;
-      }
-    }
-    return $by_implementation;
   }
 
   private function needsInterfaceWrapper(string $kind): bool {

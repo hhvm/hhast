@@ -27,7 +27,7 @@ final class CodegenTokens extends CodegenBase {
       'name' => string,
       'type' => string,
       'override' => bool,
-    )>
+    )>,
   );
 
   private function getTokenSpecs(): vec<self::TTokenSpec> {
@@ -60,7 +60,7 @@ final class CodegenTokens extends CodegenBase {
       $tokens['fixedText'],
       $token ==> shape(
         'kind' => $token['token_kind'],
-        'description' => (string) $token['token_text'],
+        'description' => (string)$token['token_text'],
         'text' => $token['token_text'],
         'fields' => $leading_trailing,
       ),
@@ -83,11 +83,7 @@ final class CodegenTokens extends CodegenBase {
       ),
     );
 
-    return Vec\concat(
-      $no_text,
-      $fixed_text,
-      $variable_text,
-    );
+    return Vec\concat($no_text, $fixed_text, $variable_text);
   }
 
   <<__Override>>
@@ -98,19 +94,16 @@ final class CodegenTokens extends CodegenBase {
     foreach ($tokens as $token) {
       $cg
         ->codegenFile(
-          $this->getOutputDirectory().
-          '/tokens/'.$token['kind'].'Token.hack',
+          $this->getOutputDirectory().'/tokens/'.$token['kind'].'Token.hack',
         )
         ->setFileType(CodegenFileType::DOT_HACK)
         ->setNamespace('Facebook\\HHAST')
         ->addClass($this->generateClassForToken($token))
         ->save();
-      }
+    }
   }
 
-  public function generateClassForToken(
-    self::TTokenSpec $token,
-  ): CodegenClass {
+  public function generateClassForToken(self::TTokenSpec $token): CodegenClass {
     $cg = $this->getCodegenFactory();
     $cc = $cg
       ->codegenClass($token['kind'].'Token')
@@ -119,15 +112,21 @@ final class CodegenTokens extends CodegenBase {
       ->addConstant(
         $cg->codegenClassConstant('KIND')
           ->setType('string')
-          ->setValue($token['description'], HackBuilderValues::export())
+          ->setValue($token['description'], HackBuilderValues::export()),
       )
       ->setConstructor($this->generateConstructor($token))
       ->addMethods($this->generateFieldMethods($token))
       ->addMethod($this->generateRewriteChildrenMethod($token));
 
-    if ($token['kind'] === 'Name') {
-      $cc->addInterface($cg->codegenImplementsInterface('INameishNode'));
-    }
+    $cc->addInterfaces(
+      Vec\map(
+        $this->getMarkerInterfacesByImplementingClass()[
+          $token['kind'].'Token'
+        ] ??
+          vec[],
+        $interface ==> $cg->codegenImplementsInterface($interface),
+      ),
+    );
 
     $text = $token['text'];
     if ($text !== null) {
@@ -143,9 +142,7 @@ final class CodegenTokens extends CodegenBase {
     return $cc;
   }
 
-  public function generateExtends(
-    self::TTokenSpec $token,
-  ): string {
+  public function generateExtends(self::TTokenSpec $token): string {
 
     $cls = 'EditableTokenWithFixedText';
     $text = $token['text'];
@@ -153,7 +150,7 @@ final class CodegenTokens extends CodegenBase {
       $cls = 'EditableTokenWithVariableText';
     } else {
       foreach ($token['fields'] as $field) {
-        if ($field['name'] === 'text'){
+        if ($field['name'] === 'text') {
           $cls = 'EditableTokenWithVariableText';
         }
       }
@@ -170,25 +167,15 @@ final class CodegenTokens extends CodegenBase {
       ->addParameters(
         Vec\map(
           $token['fields'],
-          $field ==> Str\format(
-            '%s $%s',
-            $field['type'],
-            $field['name'],
-          ),
-        )
+          $field ==> Str\format('%s $%s', $field['type'], $field['name']),
+        ),
       );
 
-    $parent_args = Vec\map(
-        $token['fields'],
-        $field ==> '$'.$field['name'],
-    );
+    $parent_args = Vec\map($token['fields'], $field ==> '$'.$field['name']);
     $text = $token['text'];
     if ($text !== null) {
       if (Str\uppercase($text) !== Str\lowercase($text)) {
-        $it->addParameterf(
-          'string $token_text = %s',
-          \var_export($text, true),
-        );
+        $it->addParameterf('string $token_text = %s', \var_export($text, true));
         $parent_args[] = '$token_text';
       }
     }
@@ -198,10 +185,7 @@ final class CodegenTokens extends CodegenBase {
 
     $it->setBody(
       $cg->codegenHackBuilder()
-        ->addMultilineCall(
-          'parent::__construct',
-          $parent_args,
-        )
+        ->addMultilineCall('parent::__construct', $parent_args)
         ->getCode(),
     );
 
@@ -220,19 +204,13 @@ final class CodegenTokens extends CodegenBase {
         yield $cg
           ->codegenMethodf('has%s', $upper_camel)
           ->setReturnType('bool')
-          ->setBodyf(
-            'return !$this->get%s()->isMissing();',
-            $upper_camel,
-          );
+          ->setBodyf('return !$this->get%s()->isMissing();', $upper_camel);
       }
 
       yield $cg
         ->codegenMethodf('with%s', $upper_camel)
         ->setIsOverride($field['override'])
-        ->addParameterf(
-          '%s $value',
-          $field['type'],
-        )
+        ->addParameterf('%s $value', $field['type'])
         ->setReturnType('this')
         ->setBody(
           $cg->codegenHackBuilder()
@@ -246,10 +224,10 @@ final class CodegenTokens extends CodegenBase {
                 $token['fields'],
                 $inner ==> $inner === $field
                   ? '$value'
-                  : '$this->get'.StrP\upper_camel($inner['name']).'()'
+                  : '$this->get'.StrP\upper_camel($inner['name']).'()',
               ),
             )
-            ->getCode()
+            ->getCode(),
         );
     }
   }
@@ -271,15 +249,15 @@ final class CodegenTokens extends CodegenBase {
               $token['fields'],
               $field ==> $field['type'] === 'string'
                 ? Str\format(
-                  '$%s = $this->get%s();',
-                  $field['name'],
-                  StrP\upper_camel($field['name']),
-                )
+                    '$%s = $this->get%s();',
+                    $field['name'],
+                    StrP\upper_camel($field['name']),
+                  )
                 : Str\format(
-                  '$%s = $rewriter($this->get%s(), $parents);',
-                  $field['name'],
-                  StrP\upper_camel($field['name']),
-                )
+                    '$%s = $rewriter($this->get%s(), $parents);',
+                    $field['name'],
+                    StrP\upper_camel($field['name']),
+                  ),
             ),
           )
           ->addLine('if (')
@@ -293,13 +271,13 @@ final class CodegenTokens extends CodegenBase {
                 StrP\upper_camel($field['name']),
               ),
             )
-            |> (
-              (vec<string> $lines) ==> {
-                $idx = C\last_keyx($lines);
-                $lines[$idx] = Str\strip_suffix($lines[$idx], ' &&');
-                return $lines;
-              }
-            )($$)
+              |> (
+                (vec<string> $lines) ==> {
+                  $idx = C\last_keyx($lines);
+                  $lines[$idx] = Str\strip_suffix($lines[$idx], ' &&');
+                  return $lines;
+                }
+              )($$),
           )
           ->unindent()
           ->addLine(') {')
@@ -310,10 +288,7 @@ final class CodegenTokens extends CodegenBase {
           ->add('return ')
           ->addMultilineCall(
             'new self',
-            Vec\map(
-              $token['fields'],
-              $field ==> '$'.$field['name'],
-            ),
+            Vec\map($token['fields'], $field ==> '$'.$field['name']),
           )
           ->getCode(),
       );

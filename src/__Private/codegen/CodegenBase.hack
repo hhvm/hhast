@@ -15,7 +15,7 @@ use type Facebook\HackCodegen\{
   HackfmtFormatter,
 };
 
-use namespace HH\Lib\{C, Dict, Vec};
+use namespace HH\Lib\{C, Dict, Keyset, Str, Vec};
 
 abstract class CodegenBase {
   private Schema\TSchema $schema;
@@ -40,7 +40,7 @@ abstract class CodegenBase {
 
   private bool $useHackfmt = true;
 
-  public function withoutHackfmt(): this {
+  final public function withoutHackfmt(): this {
     invariant($this->useHackfmt, "can't disable hackfmt twice");
     $new = clone $this;
     $new->useHackfmt = false;
@@ -63,7 +63,7 @@ abstract class CodegenBase {
     return $this->relationships;
   }
 
-  protected function getSchemaTokens(
+  final protected function getSchemaTokens(
   ): shape(
     'noText' => vec<Schema\TToken>,
     'fixedText' => vec<Schema\TToken>,
@@ -90,11 +90,86 @@ abstract class CodegenBase {
   }
 
   <<__Memoize>>
-  protected function getSchemaASTByKindName(): dict<string, Schema\TAST> {
+  final protected function getSchemaASTByKindName(): dict<string, Schema\TAST> {
     return Dict\pull($this->schema['AST'], $v ==> $v, $v ==> $v['kind_name']);
   }
 
-  protected static function getHandWrittenSyntaxKinds(): keyset<string> {
+  final protected static function getHandWrittenSyntaxKinds(): keyset<string> {
     return keyset['Missing', 'SyntaxList', 'Token'];
+  }
+
+  <<__Memoize>>
+  final protected function getMarkerInterfacesByImplementingClass(
+  ): dict<string, keyset<string>> {
+    $by_implementation = dict[];
+    foreach ($this->getMarkerInterfacesByInterface() as $if => $classes) {
+      foreach ($classes as $class) {
+        $by_implementation[$class] ??= keyset[];
+        $by_implementation[$class][] = $if;
+      }
+    }
+    return $by_implementation;
+  }
+
+  <<__Memoize>>
+  final protected function getMarkerInterfacesByInterface(): dict<string, keyset<string>> {
+    return dict[
+      'IControlFlowStatement' => keyset[
+        'AlternateElseClause',
+        'AlternateElseifClause',
+        'AlternateElseifStatement',
+        'AlternateLoopStatement',
+        'AlternateSwitchStatement',
+        'ElseClause',
+        'ElseifClause',
+        'IfStatement',
+        'DoStatement',
+        'ForStatement',
+        'ForeachStatement',
+        'SwitchStatement',
+        'WhileStatement',
+      ],
+      'IComment' => keyset[
+        'SingleLineComment',
+        'DelimitedComment',
+      ],
+      'IFunctionishDeclaration' => keyset[
+        'FunctionDeclaration',
+        'MethodishDeclaration',
+      ],
+      'ILoopStatement' => keyset[
+        'AlternateLoopStatement',
+        'DoStatement',
+        'ForStatement',
+        'ForeachStatement',
+        'WhileStatement',
+      ],
+      'INameishNode' => keyset[
+        'NameToken',
+        'QualifiedName',
+      ],
+      'INamespaceUseDeclaration' => keyset[
+        'NamespaceUseDeclaration',
+        'NamespaceGroupUseDeclaration',
+      ],
+      'IExpression' => Keyset\union(
+        keyset[
+          'AnonymousFunction',
+          'Php7AnonymousFunction',
+          'Variable',
+        ],
+        Vec\filter(
+          $this->getSchema()['AST'],
+          $node ==> Str\ends_with($node['kind_name'], 'Expression'),
+        )
+          |> Keyset\map($$, $node ==> $node['kind_name']),
+      ),
+      'IStringLiteral' => keyset[
+        'SingleQuotedStringLiteralToken',
+        'DoubleQuotedStringLiteralToken',
+        'HeredocStringLiteralToken',
+        'NowdocStringLiteralToken',
+      ],
+    ];
   }
 }

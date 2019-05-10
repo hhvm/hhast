@@ -1,12 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<db33daa44fb082ffff237168790c3605>>
+ * @generated SignedSource<<883b6510ed462eb13058607a09152c55>>
  */
 namespace Facebook\HHAST;
 
 final class DoubleQuotedStringLiteralToken
-  extends EditableTokenWithVariableText {
+  extends EditableTokenWithVariableText
+  implements IStringLiteral {
 
   const string KIND = 'double_quoted_string_literal';
 

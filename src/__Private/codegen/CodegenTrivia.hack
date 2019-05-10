@@ -29,8 +29,12 @@ final class CodegenTrivia extends CodegenBase {
           ->setIsFinal()
           ->setExtends('EditableTrivia')
           ->setInterfaces(
-            (self::getMarkerInterfaces()[$trivia['trivia_kind_name']] ?? vec[])
-            |> Vec\map($$, $if ==> $cg->codegenImplementsInterface($if)),
+            (
+              $this
+                ->getMarkerInterfacesByImplementingClass()[$trivia['trivia_kind_name']] ??
+              vec[]
+            )
+              |> Vec\map($$, $if ==> $cg->codegenImplementsInterface($if)),
           )
           ->setConstructor(
             $cg
@@ -54,19 +58,12 @@ final class CodegenTrivia extends CodegenBase {
                   ->addReturnf('$this')
                   ->endIfBlock()
                   ->addReturnf('new self($text)')
-                  ->getCode()
-              )
-          )
+                  ->getCode(),
+              ),
+          ),
       );
     }
 
     $file->save();
-  }
-
-  private static function getMarkerInterfaces(): dict<string, keyset<string>> {
-    return dict[
-      'SingleLineComment' => keyset['IComment'],
-      'DelimitedComment' => keyset['IComment'],
-    ];
   }
 }
