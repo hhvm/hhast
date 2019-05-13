@@ -10,6 +10,7 @@
 namespace Facebook\HHAST\__Private;
 
 use namespace HH\Lib\{C, Dict, Keyset, Str, Tuple, Vec};
+use namespace HH\Lib\Experimental\Async;
 use type Facebook\HackCodegen\{
   CodegenFileType,
   HackBuilderKeys,
@@ -38,52 +39,41 @@ final class CodegenRelations extends CodegenBase {
     print("Infering relationships, this can take a long time...\n");
     $done = new Ref(0);
     $start = \microtime(true);
-    $queue = new ConcurrentAsyncQueue(32);
 
     $relationships = new Ref(dict[]);
+    $queue = new Async\Semaphore(
+      /* limit = */ 32,
+      async $file ==> {
+        try {
+          $links = await $this->getRelationsInFileAsync($file);
+          $new = dict[];
+          foreach ($links as $key => $children) {
+            $relationships->v[$key] ??= keyset[];
+            $new_children = Keyset\diff($children, $relationships->v[$key]);
+            if ($new_children) {
+              $new[$key] = $children;
+            }
+          }
+          if ($new) {
+            await execute_async('hhvm', '-vEval.EnablePHP=true', '-l', $file);
+            foreach ($new as $key => $children) {
+              $relationships->v[$key] = Keyset\union(
+                $relationships->v[$key],
+                $children,
+              );
+            }
+          }
+        } catch (\Throwable $_) {
+          // HHVM and Hack tests intentionally include lots of invalid
+          // files
+        } finally {
+          $done->v++;
+        }
+
+      },
+    );
     await Tuple\from_async(
-      Dict\map_async(
-        $files,
-        async $file ==> {
-          return await $queue->enqueueAndWaitForAsync(
-            async () ==> {
-              try {
-                $links = await $this->getRelationsInFileAsync($file);
-                $new = dict[];
-                foreach ($links as $key => $children) {
-                  $relationships->v[$key] ??= keyset[];
-                  $new_children = Keyset\diff(
-                    $children,
-                    $relationships->v[$key],
-                  );
-                  if ($new_children) {
-                    $new[$key] = $children;
-                  }
-                }
-                if ($new) {
-                  await execute_async(
-                    'hhvm',
-                    '-vEval.EnablePHP=true',
-                    '-l',
-                    $file,
-                  );
-                  foreach ($new as $key => $children) {
-                    $relationships->v[$key] = Keyset\union(
-                      $relationships->v[$key],
-                      $children,
-                    );
-                  }
-                }
-              } catch (\Throwable $_) {
-                // HHVM and Hack tests intentionally include lots of invalid
-                // files
-              } finally {
-                $done->v++;
-              }
-            },
-          );
-        },
-      ),
+      Dict\map_async($files, async $file ==> await $queue->waitForAsync($file)),
       async {
         $total = C\count($files);
         while ($done->v < $total) {
@@ -98,13 +88,12 @@ final class CodegenRelations extends CodegenBase {
           $end = $start + ($total / $rate);
           \fprintf(
             \STDERR,
-            "%d%%\t(%d / %d)\tExpected finish in %ds at %s - concurrency: %d\n",
+            "%d%%\t(%d / %d)\tExpected finish in %ds at %s\n",
             (int)($ratio * 100),
             $done->v,
             $total,
             (int)($end - $now),
             \strftime('%H:%M:%S', (int)$end),
-            $queue->getCurrentConcurrency(),
           );
         }
       },

@@ -9,14 +9,31 @@
 
 namespace Facebook\HHAST\__Private;
 
-final class ParserQueue extends ConcurrentAsyncQueue {
+use namespace HH\Lib\Experimental\Async;
+
+
+final class ParserQueue {
+  private Async\Semaphore<vec<string>, vec<string>> $impl;
+  protected function __construct() {
+    $this->impl = new Async\Semaphore(
+      self::LIMIT,
+      async $args ==> await execute_async('hh_parse', ...$args),
+    );
+  }
+
   // Random number; it might seem high, but it's likely that `hh_parse` will
   // execute quick enough that most of the processes are waiting to be cleaned
   // up
   const int LIMIT = 32;
 
   <<__Memoize>>
-  public static function get(): ConcurrentAsyncQueue {
-    return new ConcurrentAsyncQueue(self::LIMIT);
+  public static function get(): ParserQueue {
+    return new ParserQueue();
+  }
+
+  public async function waitForAsync(
+    vec<string> $args,
+  ): Awaitable<vec<string>> {
+    return await $this->impl->waitForAsync($args);
   }
 }

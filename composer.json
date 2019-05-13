@@ -22,6 +22,7 @@
     "require": {
         "hhvm": "^4.3",
         "hhvm/hsl": "^4.0",
+        "hhvm/hsl-experimental": "^4.5",
         "hhvm/hhvm-autoload": "^2.0.4",
         "hhvm/type-assert": "^3.1",
         "facebook/hh-clilib": "^2.0.0",

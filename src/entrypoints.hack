@@ -37,16 +37,14 @@ async function json_from_file_args_async(
   string $file,
   Traversable<string> $parse_args,
 ): Awaitable<dict<string, mixed>> {
-  $cmd = Vec\concat(
-    vec['hh_parse', '--php5-compat-mode', '--full-fidelity-json'],
+  $args = Vec\concat(
+    vec['--php5-compat-mode', '--full-fidelity-json'],
     vec($parse_args),
     vec[$file],
   );
 
   try {
-    $results = await __Private\ParserQueue::get()->enqueueAndWaitForAsync(
-      async () ==> await __Private\execute_async(...$cmd),
-    );
+    $results = await __Private\ParserQueue::get()->waitForAsync($args);
   } catch (__Private\SubprocessException $e) {
     throw new HHParseError(
       $file,
