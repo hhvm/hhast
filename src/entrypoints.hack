@@ -39,7 +39,7 @@ async function json_from_file_args_async(
 ): Awaitable<dict<string, mixed>> {
   $cmd = Vec\concat(
     vec['hh_parse', '--php5-compat-mode', '--full-fidelity-json'],
-    $parse_args,
+    vec($parse_args),
     vec[$file],
   );
 
