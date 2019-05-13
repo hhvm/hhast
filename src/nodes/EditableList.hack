@@ -11,7 +11,7 @@ namespace Facebook\HHAST;
 
 use namespace HH\Lib\{C, Dict, Vec};
 
-final class EditableList<Titem as ?EditableNode> extends EditableNode {
+final class EditableList<+Titem as ?EditableNode> extends EditableNode {
   /**
    * Use `EditableList::createMaybeEmptyList()` or
    * `EditableList::createNonEmptyListOrMissing()` instead to be explicit
