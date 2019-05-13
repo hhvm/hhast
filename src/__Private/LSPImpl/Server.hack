@@ -10,13 +10,13 @@
 namespace Facebook\HHAST\__Private\LSPImpl;
 
 use type Facebook\HHAST\__Private\{
-  Asio\AsyncPoll,
   LintRunLSPPublishDiagnosticsEventHandler,
   LintRun,
 };
 use namespace Facebook\HHAST\__Private\{LSPImpl, LSPLib};
 use type Facebook\CLILib\{ExitException, ITerminal};
 use namespace HH\Lib\Str;
+use namespace HH\Lib\Experimental\Async;
 
 final class Server extends LSPLib\Server<ServerState> {
   public function __construct(private ITerminal $terminal) {
@@ -93,7 +93,7 @@ final class Server extends LSPLib\Server<ServerState> {
 
   private async function mainLoopAsync(): Awaitable<void> {
     $stdin = $this->terminal->getStdin();
-    $poll = AsyncPoll::create();
+    $poll = Async\Poll::create();
     $poll->add($this->lintProjectAsync());
     $debug = (bool)\getenv('HHAST_LSP_DEBUG') ?? false;
     $verbose = $debug ? $this->terminal->getStderr() : null;
