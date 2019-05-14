@@ -73,7 +73,7 @@ async function from_file_async(
 
   // Use the raw source rather than the re-encoded, as byte offsets may have
   // changed while re-encoding
-  $data['program_text'] = \file_get_contents($path);
+  $data['program_text'] = $file->getContents();
   if ($args === vec[]) {
     $cache->store($file, $data);
   }
