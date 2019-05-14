@@ -41,7 +41,7 @@ final class MustUseOverrideAttributeLinter
   public function getLintErrorForNode(
     MethodishDeclaration $node,
   ): ?ASTLintError<MethodishDeclaration> {
-    $parents = $this->getNodeAncestors($node);
+    $parents = $this->getAST()->getAncestorsOfDescendant($node);
     $class = $parents
       |> Vec\filter($$, $x ==> $x instanceof ClassishDeclaration)
       |> C\lastx($$)

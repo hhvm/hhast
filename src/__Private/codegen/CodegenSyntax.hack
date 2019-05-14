@@ -642,6 +642,7 @@ final class CodegenSyntax extends CodegenBase {
       HHAST\MethodishDeclaration::class,
       HHAST\NamespaceDeclaration::class,
       HHAST\ParameterDeclaration::class,
+      HHAST\Script::class,
     ] |> Keyset\map($$, $class ==> Str\strip_prefix($class, "Facebook\\HHAST\\"));
   }
 

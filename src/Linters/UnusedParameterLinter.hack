@@ -45,7 +45,7 @@ final class UnusedParameterLinter
       return null;
     }
 
-    $parents = $this->getNodeAncestors($node);
+    $parents = $this->getAST()->getAncestorsOfDescendant($node);
     $functionish =
       C\find($parents, $p ==> $p instanceof IFunctionishDeclaration);
 

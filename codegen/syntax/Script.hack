@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e96f21950dfa36bb0242b81f2def3dd3>>
+ * @generated SignedSource<<4be8b5417916b512db5384d4d10bb1b0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class Script extends EditableNode {
+abstract class ScriptGeneratedBase extends EditableNode {
 
   private EditableNode $_declarations;
 

@@ -9,13 +9,13 @@
 
 namespace Facebook\HHAST\__Private;
 
-use type Facebook\HHAST\{EditableNode, SchemaVersionError};
+use type Facebook\HHAST\{EditableNode, SchemaVersionError, Script};
 use const Facebook\HHAST\SCHEMA_VERSION;
 
 function from_decoded_json(
   dict<string, mixed> $json,
   ?string $file = null,
-): EditableNode {
+): Script {
   $version = $json['version'] ?? null;
   if ($version is string && $version !== SCHEMA_VERSION) {
     throw new SchemaVersionError($file ?? '! no file !', $version);
@@ -25,5 +25,5 @@ function from_decoded_json(
     $file ?? '! no file !',
     0,
     /* HH_IGNORE_ERROR[4110] */ $json['program_text'],
-  );
+  ) as Script;
 }

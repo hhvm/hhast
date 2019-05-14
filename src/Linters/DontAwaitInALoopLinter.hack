@@ -35,7 +35,7 @@ final class DontAwaitInALoopLinter
     if (!$node->getOperator() instanceof AwaitToken) {
       return null;
     }
-    $parents = $this->getNodeAncestors($node);
+    $parents = $this->getAST()->getAncestorsOfDescendant($node);
     $parents = Vec\reverse($parents);
     $loops = vec[];
     foreach ($parents as $parent) {
@@ -68,7 +68,7 @@ final class DontAwaitInALoopLinter
   public function getPrettyTextForNode(
     PrefixUnaryExpression $blame,
   ): string {
-    $loops = $this->getNodeAncestors($blame)
+    $loops = $this->getAST()->getAncestorsOfDescendant($blame)
       |> Vec\map($$, $x ==> $x instanceof ILoopStatement ? $x : null)
       |> Vec\filter_nulls($$);
 

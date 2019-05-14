@@ -9,20 +9,18 @@
 
 namespace Facebook\HHAST\Linters;
 
-use type Facebook\HHAST\EditableNode;
 use namespace Facebook\HHAST;
 use namespace Facebook\HHAST\Linters\SuppressASTLinter;
-use namespace HH\Lib\{C, Vec};
 
 abstract class ASTLinter<Tnode as HHAST\EditableNode> extends BaseLinter {
-  private ?HHAST\EditableNode $ast;
+  private ?HHAST\Script $ast;
 
-  private static ?shape('hash' => string, 'ast' => HHAST\EditableNode)
+  private static ?shape('hash' => string, 'ast' => HHAST\Script)
     $lastFileCache = null;
 
   private static async function getASTFromFileAsync(
     HHAST\File $file,
-  ): Awaitable<HHAST\EditableNode> {
+  ): Awaitable<HHAST\Script> {
     $cache = self::$lastFileCache;
     $hash = $file->getHash();
     if ($cache is nonnull && $cache['hash'] === $hash) {
@@ -99,7 +97,7 @@ abstract class ASTLinter<Tnode as HHAST\EditableNode> extends BaseLinter {
         !SuppressASTLinter\is_linter_error_suppressed(
           $this,
           $node,
-          $this->getNodeAncestors($node),
+          $ast->getAncestorsOfDescendant($node),
           $error,
         )
       ) {
@@ -109,27 +107,8 @@ abstract class ASTLinter<Tnode as HHAST\EditableNode> extends BaseLinter {
     return $errors;
   }
 
-  protected function getNodeAncestors(Tnode $node): vec<EditableNode> {
-    $ast = $this->getAST();
-    invariant($ast->isAncestorOf($node), "Do not have full AST for node");
-    $stack = vec[$ast];
-    $children = $ast->getChildren();
-    while ($children) {
-      $child = C\firstx($children);
-      $children = Vec\drop($children, 1);
-      if ($child === $node) {
-        break;
-      }
-      if (!$child->isAncestorOf($node)) {
-        continue;
-      }
-      $stack[] = $child;
-      $children = $child->getChildren();
-    }
-    return $stack;
-  }
 
-  final public function getAST(): HHAST\EditableNode {
+  final public function getAST(): HHAST\Script {
     $ast = $this->ast;
     invariant($ast !== null, "Calling getAST before it was initialized");
     return $ast;

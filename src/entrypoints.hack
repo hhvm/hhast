@@ -14,7 +14,7 @@ use namespace HH\Lib\{Str, Vec};
 async function from_file_async(
   File $file,
   vec<string> $user_args = vec[],
-): Awaitable<EditableNode> {
+): Awaitable<Script> {
   $cache = __Private\ParserCache::get();
   $data = ($user_args === vec[]) ? $cache->fetch($file) : null;
   if ($data is nonnull) {

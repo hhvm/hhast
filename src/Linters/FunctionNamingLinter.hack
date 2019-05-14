@@ -125,7 +125,7 @@ abstract class FunctionNamingLinter
       return null;
     }
 
-    $parents = $this->getNodeAncestors($node);
+    $parents = $this->getAST()->getAncestorsOfDescendant($node);
     $ns = HHAST\__Private\Resolution\get_current_namespace($node, $parents);
     if ($node instanceof FunctionDeclaration) {
       $class = null;
