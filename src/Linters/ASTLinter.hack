@@ -15,27 +15,6 @@ use namespace Facebook\HHAST\Linters\SuppressASTLinter;
 abstract class ASTLinter<Tnode as HHAST\EditableNode> extends BaseLinter {
   private ?HHAST\Script $ast;
 
-  private static ?shape('hash' => string, 'ast' => HHAST\Script)
-    $lastFileCache = null;
-
-  private static async function getASTFromFileAsync(
-    HHAST\File $file,
-  ): Awaitable<HHAST\Script> {
-    $cache = self::$lastFileCache;
-    $hash = $file->getHash();
-    if ($cache is nonnull && $cache['hash'] === $hash) {
-      return $cache['ast'];
-    }
-
-    $ast = await HHAST\from_file_async($file);
-
-    self::$lastFileCache = shape(
-      'hash' => $hash,
-      'ast' => $ast,
-    );
-    return $ast;
-  }
-
   abstract protected static function getTargetType(): classname<Tnode>;
 
   abstract protected function getLintErrorForNode(
@@ -53,7 +32,7 @@ abstract class ASTLinter<Tnode as HHAST\EditableNode> extends BaseLinter {
   <<__Override>>
   final public async function getLintErrorsAsync(
   ): Awaitable<vec<ASTLintError<Tnode>>> {
-    $ast = await self::getASTFromFileAsync($this->getFile());
+    $ast = await HHAST\__Private\ASTCache::get()->fetchAsync($this->getFile());
     $this->ast = $ast;
     $target = static::getTargetType();
 

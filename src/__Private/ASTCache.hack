@@ -9,10 +9,10 @@
 
 namespace Facebook\HHAST\__Private;
 
-use type Facebook\HHAST\{EditableNode, File};
+use type Facebook\HHAST\{Script, File};
 
 final class ASTCache extends InMemoryFileKeyedCache {
-  const type TResult = EditableNode;
+  const type TResult = Script;
   const int COMPLETE_LIMIT = 10;
 
   <<__Memoize>>
@@ -21,7 +21,7 @@ final class ASTCache extends InMemoryFileKeyedCache {
   }
 
   <<__Override>>
-  protected function fetchUncachedAsync(File $file): Awaitable<EditableNode> {
+  protected function fetchUncachedAsync(File $file): Awaitable<Script> {
     return \Facebook\HHAST\from_file_async($file);
   }
 }
