@@ -40,4 +40,12 @@ final class File {
   public static function fromPathAndContents(string $path, string $contents): this {
     return new File($path, $contents, /* dirty = */ true);
   }
+
+  <<__Memoize>>
+  public function getHash(): string {
+    return \sodium_crypto_generichash(
+      $this->contents,
+      \Facebook\HHAST\SCHEMA_VERSION,
+    );
+  }
 }
