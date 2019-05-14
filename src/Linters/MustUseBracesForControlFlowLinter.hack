@@ -18,18 +18,20 @@ use type Facebook\HHAST\{
   ElseifClause,
   EndOfLine,
   ForeachStatement,
+  IControlFlowStatement,
   IfStatement,
   LeftBraceToken,
-  IControlFlowStatement,
   RightBraceToken,
+  Script,
   WhileStatement,
-  WhiteSpace
+  WhiteSpace,
 };
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
 
 class MustUseBracesForControlFlowLinter
   extends AutoFixingASTLinter<IControlFlowStatement> {
+  const type TContext = Script;
   <<__Override>>
   protected static function getTargetType(): classname<IControlFlowStatement> {
     return IControlFlowStatement::class;
@@ -37,6 +39,7 @@ class MustUseBracesForControlFlowLinter
 
   <<__Override>>
   public function getLintErrorForNode(
+    Script $_context,
     IControlFlowStatement $node,
   ): ?ASTLintError<IControlFlowStatement> {
     $body = $this->getBody($node);

@@ -29,8 +29,11 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter<Script> {
     return Script::class;
   }
 
+  const type TContext = Script;
+
   <<__Override>>
   public function getLintErrorForNode(
+    Script $_context,
     Script $script,
   ): ?ASTLintError<Script> {
     $decls = $script->getDeclarations()->getItems();

@@ -16,6 +16,7 @@ use type Facebook\HHAST\{
   ExclamationEqualToken,
   ExclamationEqualEqualToken,
   LessThanGreaterThanToken,
+  Script,
 };
 use namespace HH\Lib\Str;
 
@@ -39,8 +40,11 @@ final class NoPHPEqualityLinter
     );
   }
 
+  const type TContext = Script;
+
   <<__Override>>
   public function getLintErrorForNode(
+    Script $_context,
     BinaryExpression $expr,
   ): ?ASTLintError<BinaryExpression> {
     $token = $expr->getOperator();

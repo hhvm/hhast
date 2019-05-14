@@ -37,20 +37,17 @@ final class MustUseOverrideAttributeLinter
     return 'Add __Override attribute';
   }
 
+  const type TContext = ClassishDeclaration;
   <<__Override>>
   public function getLintErrorForNode(
+    ClassishDeclaration $class,
     MethodishDeclaration $node,
   ): ?ASTLintError<MethodishDeclaration> {
-    $parents = $this->getAST()->getAncestorsOfDescendant($node);
-    $class = $parents
-      |> Vec\filter($$, $x ==> $x instanceof ClassishDeclaration)
-      |> C\lastx($$)
-      |> TypeAssert\instance_of(ClassishDeclaration::class, $$);
-
     if ($this->canIgnoreMethod($class, $node)) {
       return null;
     }
 
+    $parents = $this->getAST()->getAncestorsOfDescendant($node);
     $super = self::findSuper($class, $parents);
     try {
       $method = $node->getFunctionDeclHeader()->getName()->getCode()

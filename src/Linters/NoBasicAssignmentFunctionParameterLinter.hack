@@ -10,13 +10,14 @@
 namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
-  EditableList,
-  FunctionCallExpression,
   BinaryExpression,
-  EqualToken,
-  DelimitedComment,
-  ListItem,
   CommaToken,
+  DelimitedComment,
+  EditableList,
+  EqualToken,
+  FunctionCallExpression,
+  ListItem,
+  Script,
   WhiteSpace,
 };
 
@@ -30,8 +31,11 @@ class NoBasicAssignmentFunctionParameterLinter
     return FunctionCallExpression::class;
   }
 
+  const type TContext = Script;
+
   <<__Override>>
   public function getLintErrorForNode(
+    Script $_context,
     FunctionCallExpression $node,
   ): ?ASTLintError<FunctionCallExpression> {
     $exps = $node

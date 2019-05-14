@@ -14,6 +14,7 @@ use type Facebook\HHAST\{
   EditableToken,
   EditableNode,
   EditableList,
+  Script,
 };
 
 use namespace Facebook\HHAST;
@@ -30,8 +31,11 @@ final class NoEmptyStatementsLinter
     return 'Remove statement';
   }
 
+  const type TContext = Script;
+
   <<__Override>>
   public function getLintErrorForNode(
+    Script $_context,
     ExpressionStatement $stmt,
   ): ?ASTLintError<ExpressionStatement> {
 

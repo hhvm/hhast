@@ -11,18 +11,18 @@ namespace Facebook\HHAST\Linters;
 
 use namespace HH\Lib\{C, Vec, Str};
 use type Facebook\HHAST\{
-  AnonymousFunction,
-  AwaitableCreationExpression,
   AwaitToken,
-  EditableNode,
+  IHasFunctionBody,
   ILoopStatement,
-  LambdaExpression,
   PrefixUnaryExpression,
 };
 use function Facebook\HHAST\find_position;
 
 final class DontAwaitInALoopLinter
   extends ASTLinter<PrefixUnaryExpression> {
+
+  const type TContext = ILoopStatement;
+
   <<__Override>>
   protected static function getTargetType(): classname<PrefixUnaryExpression> {
     return PrefixUnaryExpression::class;
@@ -30,23 +30,14 @@ final class DontAwaitInALoopLinter
 
   <<__Override>>
   public function getLintErrorForNode(
+    ILoopStatement $context,
     PrefixUnaryExpression $node,
   ): ?ASTLintError<PrefixUnaryExpression> {
     if (!$node->getOperator() instanceof AwaitToken) {
       return null;
     }
-    $parents = $this->getAST()->getAncestorsOfDescendant($node);
-    $parents = Vec\reverse($parents);
-    $loops = vec[];
-    foreach ($parents as $parent) {
-      if (self::isAsyncBoundary($parent)) {
-        return null;
-      }
-      if ($parent instanceof ILoopStatement) {
-        $loops[] = $parent;
-      }
-    }
-    if (C\is_empty($loops)) {
+    $parents = $context->getAncestorsOfDescendant($node);
+    if (C\any($parents, $p ==> $p instanceof IHasFunctionBody)) {
       return null;
     }
 
@@ -55,13 +46,6 @@ final class DontAwaitInALoopLinter
       "Don't use await in a loop",
       $node,
     );
-  }
-
-  private static function isAsyncBoundary(EditableNode $node): bool {
-    return
-      $node instanceof AnonymousFunction
-      || $node instanceof AwaitableCreationExpression
-      || $node instanceof LambdaExpression;
   }
 
   <<__Override>>

@@ -14,6 +14,7 @@ use type Facebook\HHAST\{
   EndOfLine,
   MarkupSuffix,
   SingleLineComment,
+  Script,
   WhiteSpace,
 };
 
@@ -23,8 +24,11 @@ class StrictModeOnlyLinter extends AutoFixingASTLinter<MarkupSuffix> {
     return MarkupSuffix::class;
   }
 
+  const type TContext = Script;
+
   <<__Override>>
   public function getLintErrorForNode(
+    Script $_context,
     MarkupSuffix $node,
   ): ?ASTLintError<MarkupSuffix> {
     $name = $node->getName();

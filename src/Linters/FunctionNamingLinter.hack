@@ -20,6 +20,7 @@ use type Facebook\HHAST\{
   FunctionDeclaration,
   IFunctionishDeclaration,
   MethodishDeclaration,
+  Script,
   StaticToken,
 };
 use namespace Facebook\HHAST;
@@ -27,6 +28,7 @@ use namespace HH\Lib\{C, Str, Vec};
 
 abstract class FunctionNamingLinter
   extends ASTLinter<IFunctionishDeclaration> {
+  const type TContext = Script;
   abstract public function getSuggestedNameForFunction(
     string $name,
     FunctionDeclaration $fun,
@@ -88,6 +90,7 @@ abstract class FunctionNamingLinter
 
   <<__Override>>
   final public function getLintErrorForNode(
+    Script $_context,
     IFunctionishDeclaration $node,
   ): ?FunctionNamingLintError {
     $token = $this->getCurrentNameNodeForFunctionOrMethod($node);

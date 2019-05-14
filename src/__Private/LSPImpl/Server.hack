@@ -25,12 +25,7 @@ final class Server extends LSPLib\Server<ServerState> {
     // but lets make all errors/notices/warnings etc go through the same
     // mechanism
     \set_error_handler(
-      function(
-        int $severity,
-        string $message,
-        string $file,
-        int $line,
-      ): bool {
+      function(int $severity, string $message, string $file, int $line): bool {
         throw new \ErrorException(
           $message, /* code = */
           0,
@@ -61,7 +56,10 @@ final class Server extends LSPLib\Server<ServerState> {
         $this->client,
         $this->state,
       ),
-      new LSPImpl\DidChangeTextDocumentNotification($this->client, $this->state),
+      new LSPImpl\DidChangeTextDocumentNotification(
+        $this->client,
+        $this->state,
+      ),
       new LSPImpl\DidSaveTextDocumentNotification($this->client, $this->state),
       new LSPImpl\DidOpenTextDocumentNotification($this->client, $this->state),
       new LSPImpl\DidCloseTextDocumentNotification($this->client, $this->state),
@@ -100,8 +98,11 @@ final class Server extends LSPLib\Server<ServerState> {
     $poll->add(
       async {
         while (!$stdin->isEndOfFile()) {
+          /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
           await $verbose?->writeAsync("< [waiting]\n");
+          /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
           $body = await $this->readMessageAsync();
+          /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
           await $verbose?->writeAsync("> [dispatch]\n");
           $poll->add(async {
             await $verbose?->writeAsync("> [start]\n");
@@ -126,8 +127,10 @@ final class Server extends LSPLib\Server<ServerState> {
       return;
     }
 
-    $handler =
-      new LintRunLSPPublishDiagnosticsEventHandler($this->client, $this->state);
+    $handler = new LintRunLSPPublishDiagnosticsEventHandler(
+      $this->client,
+      $this->state,
+    );
     await (
       new LintRun(
         $this->state->config,

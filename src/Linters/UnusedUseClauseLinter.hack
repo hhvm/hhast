@@ -21,6 +21,7 @@ use type Facebook\HHAST\{
   NamespaceUseClause,
   NamespaceToken,
   NameToken,
+  Script,
   TypeToken,
   QualifiedName,
 };
@@ -35,8 +36,11 @@ final class UnusedUseClauseLinter
     return INamespaceUseDeclaration::class;
   }
 
+  const type TContext = Script;
+
   <<__Override>>
   public function getLintErrorForNode(
+    Script $_context,
     INamespaceUseDeclaration $node,
   ): ?ASTLintError<INamespaceUseDeclaration> {
     $clauses = $node->getClauses()->getItems();

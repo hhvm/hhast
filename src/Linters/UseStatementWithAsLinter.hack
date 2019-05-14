@@ -9,16 +9,19 @@
 
 namespace Facebook\HHAST\Linters;
 
-use type Facebook\HHAST\NamespaceUseClause;
+use type Facebook\HHAST\{NamespaceUseClause, Script};
 
-class UseStatementWithAsLinter extends ASTLinter<NamespaceUseClause> {
+final class UseStatementWithAsLinter extends ASTLinter<NamespaceUseClause> {
   <<__Override>>
   protected static function getTargetType(): classname<NamespaceUseClause> {
     return NamespaceUseClause::class;
   }
 
+  const type TContext = Script;
+
   <<__Override>>
   public function getLintErrorForNode(
+    Script $_context,
     NamespaceUseClause $node,
   ): ?ASTLintError<NamespaceUseClause> {
     if (!$node->hasAlias()) {

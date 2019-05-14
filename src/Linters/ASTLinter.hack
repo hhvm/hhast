@@ -11,13 +11,17 @@ namespace Facebook\HHAST\Linters;
 
 use namespace Facebook\HHAST;
 use namespace Facebook\HHAST\Linters\SuppressASTLinter;
+use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Vec;
 
 abstract class ASTLinter<Tnode as HHAST\EditableNode> extends BaseLinter {
+  abstract const type TContext as HHAST\EditableNode;
   private ?HHAST\Script $ast;
 
   abstract protected static function getTargetType(): classname<Tnode>;
 
   abstract protected function getLintErrorForNode(
+    this::TContext $context,
     Tnode $node,
   ): ?ASTLintError<Tnode>;
 
@@ -29,17 +33,39 @@ abstract class ASTLinter<Tnode as HHAST\EditableNode> extends BaseLinter {
     return $node->getCode();
   }
 
+  <<__MemoizeLSB>>
+  protected static function getAncestorType(): classname<this::TContext> {
+    return \type_structure(static::class, 'TContext')['classname'];
+  }
+
   <<__Override>>
   final public async function getLintErrorsAsync(
   ): Awaitable<vec<ASTLintError<Tnode>>> {
     $ast = await HHAST\__Private\ASTCache::get()->fetchAsync($this->getFile());
     $this->ast = $ast;
+    $targets = dict[];
+    $ancestor = static::getAncestorType();
     $target = static::getTargetType();
+    if ($ancestor === HHAST\Script::class) {
+      $context = TypeAssert\instance_of($ancestor, $ast);
+      $targets = Vec\map(
+        $ast->getDescendantsOfType($target),
+        $node ==> tuple($context, $node),
+      );
+    } else {
+      foreach (
+        $ast->getDescendantsOfType(static::getAncestorType()) as $context
+      ) {
+        foreach ($context->getDescendantsOfType($target) as $node) {
+          $targets[$node->getUniqueID()] = tuple($context, $node);
+        }
+      }
+    }
 
     $errors = vec[];
-    foreach ($ast->getDescendantsOfType($target) as $node) {
+    foreach ($targets as list($context, $node)) {
       try {
-        $error = $this->getLintErrorForNode($node);
+        $error = $this->getLintErrorForNode($context, $node);
       } catch (LinterException $e) {
         if ($e->getPosition() !== null) {
           throw $e;
@@ -76,7 +102,7 @@ abstract class ASTLinter<Tnode as HHAST\EditableNode> extends BaseLinter {
         !SuppressASTLinter\is_linter_error_suppressed(
           $this,
           $node,
-          $ast->getAncestorsOfDescendant($node),
+          vec[],
           $error,
         )
       ) {

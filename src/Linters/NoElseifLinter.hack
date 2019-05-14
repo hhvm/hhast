@@ -15,6 +15,7 @@ use type Facebook\HHAST\{
   IfToken,
   EditableList,
   EditableNode,
+  Script,
   WhiteSpace,
 };
 use function Facebook\HHAST\Missing;
@@ -26,8 +27,11 @@ final class NoElseifLinter
     return ElseifToken::class;
   }
 
+  const type TContext = Script;
+
   <<__Override>>
   public function getLintErrorForNode(
+    Script $_context,
     ElseifToken $expr,
   ): ?ASTLintError<ElseifToken> {
     return new ASTLintError(

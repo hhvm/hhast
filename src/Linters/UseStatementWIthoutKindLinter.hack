@@ -13,6 +13,7 @@ use type Facebook\HHAST\{
   INamespaceUseDeclaration,
   NamespaceToken,
   NameToken,
+  Script,
   TypeToken,
   QualifiedName,
 };
@@ -27,8 +28,11 @@ final class UseStatementWithoutKindLinter
     return INamespaceUseDeclaration::class;
   }
 
+  const type TContext = Script;
+
   <<__Override>>
   public function getLintErrorForNode(
+    Script $_context,
     INamespaceUseDeclaration $node,
   ): ?ASTLintError<INamespaceUseDeclaration> {
     if ($node->hasKind()) {

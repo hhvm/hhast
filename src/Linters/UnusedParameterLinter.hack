@@ -28,8 +28,11 @@ final class UnusedParameterLinter
     return ParameterDeclaration::class;
   }
 
+  const type TContext = IFunctionishDeclaration;
+
   <<__Override>>
   public function getLintErrorForNode(
+    IFunctionishDeclaration $functionish,
     ParameterDeclaration $node,
   ): ?ASTLintError<ParameterDeclaration> {
     if ($node->getVisibility() !== null) {
@@ -44,10 +47,6 @@ final class UnusedParameterLinter
     if (Str\starts_with($name->getText(), '$_')) {
       return null;
     }
-
-    $parents = $this->getAST()->getAncestorsOfDescendant($node);
-    $functionish =
-      C\find($parents, $p ==> $p instanceof IFunctionishDeclaration);
 
     if ($functionish instanceof FunctionDeclaration) {
       $body = $functionish->getBody();

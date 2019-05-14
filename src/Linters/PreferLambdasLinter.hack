@@ -19,6 +19,7 @@ use type Facebook\HHAST\{
   LambdaSignature,
   LeftParenToken,
   PrefixUnaryExpression,
+  Script,
   WhiteSpace,
 };
 use function Facebook\HHAST\Missing;
@@ -35,8 +36,11 @@ final class PreferLambdasLinter extends AutoFixingASTLinter<AnonymousFunction> {
     return 'Convert to lambda';
   }
 
+  const type TContext = Script;
+
   <<__Override>>
   public function getLintErrorForNode(
+    Script $_context,
     AnonymousFunction $node,
   ): ?ASTLintError<AnonymousFunction> {
 

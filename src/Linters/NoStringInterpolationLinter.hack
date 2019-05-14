@@ -21,6 +21,7 @@ use type Facebook\HHAST\{
   HeredocStringLiteralHeadToken,
   LiteralExpression,
   NameToken,
+  Script,
   StringLiteralBodyToken,
   VariableToken,
 };
@@ -34,8 +35,11 @@ final class NoStringInterpolationLinter
     return LiteralExpression::class;
   }
 
+  const type TContext = Script;
+
   <<__Override>>
   public function getLintErrorForNode(
+    Script $_context,
     LiteralExpression $root_expr,
   ): ?ASTLintError<LiteralExpression> {
     $expr = $root_expr->getExpression();

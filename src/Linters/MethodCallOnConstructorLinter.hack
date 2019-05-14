@@ -12,9 +12,10 @@ namespace Facebook\HHAST\Linters;
 use type Facebook\HHAST\{
   LeftParenToken,
   MemberSelectionExpression,
-  RightParenToken,
   ObjectCreationExpression,
   ParenthesizedExpression,
+  RightParenToken,
+  Script,
 };
 use function Facebook\HHAST\Missing;
 
@@ -26,8 +27,11 @@ final class MethodCallOnConstructorLinter
     return MemberSelectionExpression::class;
   }
 
+  const type TContext = Script;
+
   <<__Override>>
   public function getLintErrorForNode(
+    Script $_context,
     MemberSelectionExpression $node,
   ): ?ASTLintError<MemberSelectionExpression> {
     $obj = $node->getObject();

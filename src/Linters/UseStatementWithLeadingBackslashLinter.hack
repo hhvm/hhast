@@ -15,6 +15,7 @@ use type Facebook\HHAST\{
   NamespaceGroupUseDeclaration,
   NamespaceUseDeclaration,
   NamespaceUseClause,
+  Script,
 };
 
 final class UseStatementWithLeadingBackslashLinter
@@ -25,8 +26,11 @@ final class UseStatementWithLeadingBackslashLinter
     return INamespaceUseDeclaration::class;
   }
 
+  const type TContext = Script;
+
   <<__Override>>
   public function getLintErrorForNode(
+    Script $_context,
     INamespaceUseDeclaration $node,
   ): ?ASTLintError<INamespaceUseDeclaration> {
     $matched = false;

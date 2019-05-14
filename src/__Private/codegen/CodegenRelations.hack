@@ -77,6 +77,7 @@ final class CodegenRelations extends CodegenBase {
       async {
         $total = C\count($files);
         while ($done->v < $total) {
+          /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
           await \HH\Asio\usleep(1000 * 1000);
           if ($done->v === 0) {
             continue;
