@@ -68,7 +68,7 @@ final class DontAwaitInALoopLinter
   public function getPrettyTextForNode(
     PrefixUnaryExpression $blame,
   ): string {
-    $loops = $this->getAST()->findWithParents($node ==> $node === $blame)
+    $loops = $this->getNodeAncestors($blame)
       |> Vec\map($$, $x ==> $x instanceof ILoopStatement ? $x : null)
       |> Vec\filter_nulls($$);
 
