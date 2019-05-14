@@ -28,7 +28,11 @@ abstract class ASTLinter<Tnode as HHAST\EditableNode> extends BaseLinter {
       return $cache['ast'];
     }
 
-    $ast = await HHAST\from_code_async($file->getContents());
+    if ($file->isDirty()) {
+      $ast = await HHAST\from_code_async($file->getContents());
+    } else {
+      $ast = await HHAST\from_file_async($file->getPath());
+    }
 
     self::$lastFileCache = shape(
       'hash' => $hash,

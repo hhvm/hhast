@@ -24,7 +24,7 @@ abstract class BaseLinter {
   }
 
   final public static function fromPath(string $path): this {
-    return new static(new File($path, \file_get_contents($path)));
+    return new static(File::fromPath($path));
   }
 
   final public function getFile(): File {

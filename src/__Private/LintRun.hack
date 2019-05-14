@@ -28,7 +28,7 @@ final class LintRun {
   }
 
 	private function getFileForPath(string $path): File {
-    return $this->files[$path] ?? new File($path, \file_get_contents($path));
+    return $this->files[$path] ?? File::fromPath($path);
 	}
 
   private static function worstResult(

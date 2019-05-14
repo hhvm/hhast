@@ -10,7 +10,12 @@
 namespace Facebook\HHAST\Linters;
 
 final class File {
-  public function __construct(private string $path, private string $contents) {
+  private function __construct(
+    private string $path, private string $contents, private bool $isDirty) {
+  }
+
+  public function isDirty(): bool {
+    return $this->isDirty;
   }
 
   public function getPath(): string {
@@ -25,6 +30,14 @@ final class File {
     if ($contents === $this->contents) {
       return $this;
     }
-    return new self($this->path, $contents);
+    return new self($this->path, $contents, /* dirty = */ true);
+  }
+
+  public static function fromPath(string $path): this {
+    return new File($path, \file_get_contents($path), /* dirty = */ false);
+  }
+
+  public static function fromPathAndContents(string $path, string $contents): this {
+    return new File($path, $contents, /* dirty = */ true);
   }
 }

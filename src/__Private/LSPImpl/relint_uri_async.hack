@@ -9,11 +9,7 @@
 
 namespace Facebook\HHAST\__Private\LSPImpl;
 
-use type Facebook\HHAST\__Private\{
-  LintRun,
-  LintRunConfig,
-  LintRunEventHandler,
-};
+use type Facebook\HHAST\__Private\{LintRun, LintRunConfig, LintRunEventHandler};
 use type Facebook\HHAST\Linters\File;
 use namespace HH\Lib\Str;
 
@@ -28,7 +24,7 @@ async function relint_uri_async(
 
   $lint_run = new LintRun($config, $handler, vec[$path]);
   if ($content !== null) {
-    $lint_run = $lint_run->withFile(new File($path, $content));
+    $lint_run = $lint_run->withFile(File::fromPathAndContents($path, $content));
   }
   await $lint_run->runAsync();
 }
