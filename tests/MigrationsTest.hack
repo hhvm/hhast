@@ -177,7 +177,7 @@ final class MigrationsTest extends TestCase {
     classname<Migrations\BaseMigration> $migration,
     string $fixture,
   ): Awaitable<void> {
-    using $temp = new TestLib\TemporaryProject(
+    await using $temp = new TestLib\TemporaryProject(
       __DIR__.'/fixtures/'.$fixture.'.in',
     );
     $file = $temp->getFilePath();
@@ -195,7 +195,7 @@ final class MigrationsTest extends TestCase {
     classname<Migrations\BaseMigration> $migration,
     string $fixture,
   ): Awaitable<void> {
-    using $temp = new TestLib\TemporaryProject(
+    await using $temp = new TestLib\TemporaryProject(
       __DIR__.'/fixtures/'.$fixture.'.in',
     );
     $file = $temp->getFilePath();

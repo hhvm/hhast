@@ -12,7 +12,7 @@ namespace Facebook\HHAST\TestLib;
 
 use namespace HH\Lib\Str;
 
-final class TemporaryProject implements \IDisposable {
+final class TemporaryProject implements \IAsyncDisposable {
   private resource $hhServer;
   private string $path;
   public function __construct(
@@ -52,10 +52,13 @@ final class TemporaryProject implements \IDisposable {
     return $this->path.'/test.php';
   }
 
-  public function __dispose(): void {
+  public async function __disposeAsync(): Awaitable<void> {
     \proc_terminate($this->hhServer);
-    \unlink($this->getFilePath());
-    \unlink($this->path.'/.hhconfig');
-    \rmdir($this->path);
+    await \Facebook\HHAST\__Private\execute_async(
+      'rm',
+      '-rf',
+      '--',
+      $this->path,
+    );
   }
 }
