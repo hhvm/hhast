@@ -11,7 +11,6 @@ namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
   BinaryExpression,
-  EditableNode,
   EqualEqualToken,
   EqualEqualEqualToken,
   ExclamationEqualToken,
@@ -43,7 +42,6 @@ final class NoPHPEqualityLinter
   <<__Override>>
   public function getLintErrorForNode(
     BinaryExpression $expr,
-    vec<EditableNode> $_parents,
   ): ?ASTLintError<BinaryExpression> {
     $token = $expr->getOperator();
     $replacement = null;

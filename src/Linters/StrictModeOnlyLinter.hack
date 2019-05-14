@@ -11,7 +11,6 @@ namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
   EditableList,
-  EditableNode,
   EndOfLine,
   MarkupSuffix,
   SingleLineComment,
@@ -27,7 +26,6 @@ class StrictModeOnlyLinter extends AutoFixingASTLinter<MarkupSuffix> {
   <<__Override>>
   public function getLintErrorForNode(
     MarkupSuffix $node,
-    vec<EditableNode> $_,
   ): ?ASTLintError<MarkupSuffix> {
     $name = $node->getName();
     if ($name === null) {

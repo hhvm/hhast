@@ -12,6 +12,7 @@ namespace Facebook\HHAST\Linters;
 use type Facebook\HHAST\EditableNode;
 use namespace Facebook\HHAST;
 use namespace Facebook\HHAST\Linters\SuppressASTLinter;
+use namespace HH\Lib\{C, Vec};
 
 abstract class ASTLinter<Tnode as HHAST\EditableNode> extends BaseLinter {
   private ?HHAST\EditableNode $ast;
@@ -37,92 +38,95 @@ abstract class ASTLinter<Tnode as HHAST\EditableNode> extends BaseLinter {
     return $ast;
   }
 
-  private static ?vec<(EditableNode, vec<EditableNode>)> $parentsCache = null;
-
-  private function getASTWithParents(): vec<(EditableNode, vec<EditableNode>)> {
-    $cache = self::$parentsCache;
-    $ast = $this->getAST();
-    if ($cache is nonnull && ($cache[0][0] ?? null) === $ast) {
-      return $cache;
-    }
-    $result = $ast->traverseWithParents();
-    self::$parentsCache = $result;
-    return $result;
-  }
-
   abstract protected static function getTargetType(): classname<Tnode>;
 
   abstract protected function getLintErrorForNode(
     Tnode $node,
-    vec<EditableNode> $parents,
   ): ?ASTLintError<Tnode>;
 
   /**
    * Some parts of the node may be irrelevant to the actual error; strip them
    * out here to display more concise messages to humans.
    */
-  public function getPrettyTextForNode(
-    Tnode $node,
-  ): string {
+  public function getPrettyTextForNode(Tnode $node): string {
     return $node->getCode();
   }
 
   <<__Override>>
   final public async function getLintErrorsAsync(
   ): Awaitable<vec<ASTLintError<Tnode>>> {
-    $this->ast = await self::getASTFromFileAsync($this->getFile());
+    $ast = await self::getASTFromFileAsync($this->getFile());
+    $this->ast = $ast;
     $target = static::getTargetType();
 
     $errors = vec[];
-    foreach ($this->getASTWithParents() as list($node, $parents)) {
-      if ($node instanceof $target) {
+    foreach ($ast->getDescendantsOfType($target) as $node) {
+      try {
+        $error = $this->getLintErrorForNode($node);
+      } catch (LinterException $e) {
+        if ($e->getPosition() !== null) {
+          throw $e;
+        }
         try {
-          $error = $this->getLintErrorForNode($node, $parents);
-        } catch (LinterException $e) {
-          if ($e->getPosition() !== null) {
-            throw $e;
-          }
-          try {
-            $position = HHAST\find_position($this->getAST(), $node);
-          } catch (\Throwable $_) {
-            throw $e;
-          }
-          throw new LinterException(
-            $e->getLinterClass(),
-            $e->getFileBeingLinted(),
-            $e->getRawMessage(),
-            $position,
-            $e->getPrevious(),
-          );
-        } catch (\Throwable $t) {
-          try {
-            $position = HHAST\find_position($this->getAST(), $node);
-          } catch (\Throwable $_) {
-            throw $t;
-          }
-          throw new LinterException(
-            static::class,
-            $this->getFile()->getPath(),
-            $t->getMessage(),
-            $position,
-            $t,
-          );
+          $position = HHAST\find_position($this->getAST(), $node);
+        } catch (\Throwable $_) {
+          throw $e;
         }
+        throw new LinterException(
+          $e->getLinterClass(),
+          $e->getFileBeingLinted(),
+          $e->getRawMessage(),
+          $position,
+          $e->getPrevious(),
+        );
+      } catch (\Throwable $t) {
+        try {
+          $position = HHAST\find_position($this->getAST(), $node);
+        } catch (\Throwable $_) {
+          throw $t;
+        }
+        throw new LinterException(
+          static::class,
+          $this->getFile()->getPath(),
+          $t->getMessage(),
+          $position,
+          $t,
+        );
+      }
 
-        if (
-          $error !== null &&
-          !SuppressASTLinter\is_linter_error_suppressed(
-            $this,
-            $node,
-            $parents,
-            $error,
-          )
-        ) {
-          $errors[] = $error;
-        }
+      if (
+        $error !== null &&
+        !SuppressASTLinter\is_linter_error_suppressed(
+          $this,
+          $node,
+          $this->getNodeAncestors($node),
+          $error,
+        )
+      ) {
+        $errors[] = $error;
       }
     }
     return $errors;
+  }
+
+  protected function getNodeAncestors(Tnode $node): vec<EditableNode> {
+    $ast = $this->getAST();
+    invariant($ast->isAncestorOf($node), "Do not have full AST for node");
+    $stack = vec[$ast];
+    $children = $ast->getChildren();
+    while ($children) {
+      $child = C\firstx($children);
+      $children = Vec\drop($children, 1);
+      if ($child === $node) {
+        break;
+      }
+      if (!$child->isAncestorOf($node)) {
+        continue;
+      }
+      $stack[] = $child;
+      $children = $child->getChildren();
+    }
+    return $stack;
   }
 
   final public function getAST(): HHAST\EditableNode {

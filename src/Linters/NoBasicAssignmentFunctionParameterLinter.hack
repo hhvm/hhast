@@ -10,7 +10,6 @@
 namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
-  EditableNode,
   EditableList,
   FunctionCallExpression,
   BinaryExpression,
@@ -34,7 +33,6 @@ class NoBasicAssignmentFunctionParameterLinter
   <<__Override>>
   public function getLintErrorForNode(
     FunctionCallExpression $node,
-    vec<EditableNode> $_parents,
   ): ?ASTLintError<FunctionCallExpression> {
     $exps = $node
       ->getArgumentList()

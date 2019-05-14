@@ -11,7 +11,6 @@ namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
   BackslashToken,
-  EditableNode,
   INamespaceUseDeclaration,
   NamespaceGroupUseDeclaration,
   NamespaceUseDeclaration,
@@ -29,7 +28,6 @@ final class UseStatementWithLeadingBackslashLinter
   <<__Override>>
   public function getLintErrorForNode(
     INamespaceUseDeclaration $node,
-    vec<EditableNode> $_context,
   ): ?ASTLintError<INamespaceUseDeclaration> {
     $matched = false;
     if ($node instanceof NamespaceGroupUseDeclaration) {

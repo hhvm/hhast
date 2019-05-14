@@ -89,7 +89,6 @@ abstract class FunctionNamingLinter
   <<__Override>>
   final public function getLintErrorForNode(
     IFunctionishDeclaration $node,
-    vec<EditableNode> $parents,
   ): ?FunctionNamingLintError {
     $token = $this->getCurrentNameNodeForFunctionOrMethod($node);
     if ($token === null) {
@@ -126,6 +125,7 @@ abstract class FunctionNamingLinter
       return null;
     }
 
+    $parents = $this->getNodeAncestors($node);
     $ns = HHAST\__Private\Resolution\get_current_namespace($node, $parents);
     if ($node instanceof FunctionDeclaration) {
       $class = null;

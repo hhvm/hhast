@@ -10,7 +10,6 @@
 namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
-  EditableNode,
   LeftParenToken,
   MemberSelectionExpression,
   RightParenToken,
@@ -30,7 +29,6 @@ final class MethodCallOnConstructorLinter
   <<__Override>>
   public function getLintErrorForNode(
     MemberSelectionExpression $node,
-    vec<EditableNode> $_,
   ): ?ASTLintError<MemberSelectionExpression> {
     $obj = $node->getObject();
     if (!$obj instanceof ObjectCreationExpression) {

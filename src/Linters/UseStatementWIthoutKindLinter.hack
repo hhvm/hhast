@@ -10,7 +10,6 @@
 namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
-  EditableNode,
   INamespaceUseDeclaration,
   NamespaceToken,
   NameToken,
@@ -31,7 +30,6 @@ final class UseStatementWithoutKindLinter
   <<__Override>>
   public function getLintErrorForNode(
     INamespaceUseDeclaration $node,
-    vec<EditableNode> $_context,
   ): ?ASTLintError<INamespaceUseDeclaration> {
     if ($node->hasKind()) {
       return null;

@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST\Linters;
 
-use type Facebook\HHAST\{EditableNode, NamespaceUseClause};
+use type Facebook\HHAST\NamespaceUseClause;
 
 class UseStatementWithAsLinter extends ASTLinter<NamespaceUseClause> {
   <<__Override>>
@@ -20,7 +20,6 @@ class UseStatementWithAsLinter extends ASTLinter<NamespaceUseClause> {
   <<__Override>>
   public function getLintErrorForNode(
     NamespaceUseClause $node,
-    vec<EditableNode> $_parents,
   ): ?ASTLintError<NamespaceUseClause> {
     if (!$node->hasAlias()) {
       return null;

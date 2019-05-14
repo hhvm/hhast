@@ -11,7 +11,6 @@ namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
   CompoundStatement,
-  EditableNode,
   FunctionDeclaration,
   IFunctionishDeclaration,
   MethodishDeclaration,
@@ -32,7 +31,6 @@ final class UnusedParameterLinter
   <<__Override>>
   public function getLintErrorForNode(
     ParameterDeclaration $node,
-    vec<EditableNode> $parents,
   ): ?ASTLintError<ParameterDeclaration> {
     if ($node->getVisibility() !== null) {
       // Constructor parameter promotion
@@ -47,6 +45,7 @@ final class UnusedParameterLinter
       return null;
     }
 
+    $parents = $this->getNodeAncestors($node);
     $functionish =
       C\find($parents, $p ==> $p instanceof IFunctionishDeclaration);
 

@@ -37,7 +37,6 @@ final class NoStringInterpolationLinter
   <<__Override>>
   public function getLintErrorForNode(
     LiteralExpression $root_expr,
-    vec<EditableNode> $_parents,
   ): ?ASTLintError<LiteralExpression> {
     $expr = $root_expr->getExpression();
     if (!$expr instanceof EditableList) {

@@ -33,7 +33,6 @@ final class NoEmptyStatementsLinter
   <<__Override>>
   public function getLintErrorForNode(
     ExpressionStatement $stmt,
-    vec<EditableNode> $_parents,
   ): ?ASTLintError<ExpressionStatement> {
 
     $expr = $stmt->getExpression();

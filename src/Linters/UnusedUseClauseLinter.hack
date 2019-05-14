@@ -38,7 +38,6 @@ final class UnusedUseClauseLinter
   <<__Override>>
   public function getLintErrorForNode(
     INamespaceUseDeclaration $node,
-    vec<EditableNode> $_context,
   ): ?ASTLintError<INamespaceUseDeclaration> {
     $clauses = $node->getClauses()->getItems();
     $unused = $this->getUnusedClauses($node->getKind(), $clauses);

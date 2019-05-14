@@ -31,11 +31,11 @@ final class DontAwaitInALoopLinter
   <<__Override>>
   public function getLintErrorForNode(
     PrefixUnaryExpression $node,
-    vec<EditableNode> $parents,
   ): ?ASTLintError<PrefixUnaryExpression> {
     if (!$node->getOperator() instanceof AwaitToken) {
       return null;
     }
+    $parents = $this->getNodeAncestors($node);
     $parents = Vec\reverse($parents);
     $loops = vec[];
     foreach ($parents as $parent) {

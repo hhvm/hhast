@@ -12,7 +12,6 @@ namespace Facebook\HHAST\Linters;
 use type Facebook\HHAST\{
   DelimitedComment,
   EditableList,
-  EditableNode,
   EndOfFile,
   EndOfLine,
   File,
@@ -33,7 +32,6 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter<Script> {
   <<__Override>>
   public function getLintErrorForNode(
     Script $script,
-    vec<EditableNode> $_parents,
   ): ?ASTLintError<Script> {
     $decls = $script->getDeclarations()->getItems();
     $first = C\first($decls);

@@ -38,7 +38,6 @@ final class PreferLambdasLinter extends AutoFixingASTLinter<AnonymousFunction> {
   <<__Override>>
   public function getLintErrorForNode(
     AnonymousFunction $node,
-    vec<EditableNode> $_parents,
   ): ?ASTLintError<AnonymousFunction> {
 
     $use_expr = $node->getUse();

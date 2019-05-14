@@ -29,7 +29,6 @@ final class NoElseifLinter
   <<__Override>>
   public function getLintErrorForNode(
     ElseifToken $expr,
-    vec<EditableNode> $_parents,
   ): ?ASTLintError<ElseifToken> {
     return new ASTLintError(
       $this,

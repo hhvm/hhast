@@ -11,7 +11,6 @@ namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
   ClassishDeclaration,
-  EditableNode,
   FinalToken,
   AbstractToken,
   ClassToken,
@@ -31,7 +30,6 @@ final class FinalOrAbstractClassLinter extends ASTLinter<ClassishDeclaration> {
   <<__Override>>
   public function getLintErrorForNode(
     ClassishDeclaration $node,
-    vec<EditableNode> $_parents,
   ): ?ASTLintError<ClassishDeclaration> {
     // ensure we are looking at a class declaration
     if (!($node->getKeyword() is ClassToken)) {
