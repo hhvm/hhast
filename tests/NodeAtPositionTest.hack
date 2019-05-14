@@ -13,7 +13,8 @@ use function Facebook\FBExpect\expect;
 use type Facebook\HackTest\DataProvider;
 
 final class NodeAtPositionTest extends TestCase {
-  public function getExamples(): array<(string, (int, int), classname<EditableNode>, string)> {
+  public function getExamples(
+  ): array<(string, (int, int), classname<EditableNode>, string)> {
     return [
       tuple(
         "<?hh\nreturn 123;\n",
@@ -31,15 +32,17 @@ final class NodeAtPositionTest extends TestCase {
   }
 
   <<DataProvider('getExamples')>>
-  public function testNodeAtPosition(
+  public async function testNodeAtPosition(
     string $code,
     (int, int) $position,
     classname<EditableNode> $node_class,
     string $node_code,
-  ): void {
+  ): Awaitable<void> {
     list($line, $column) = $position;
 
-    $root = from_code($code);
+    $root = await from_file_async(
+      File::fromPathAndContents('/dev/null', $code),
+    );
     $node = find_node_at_position($root, $line, $column);
 
     expect($node)->toBeInstanceOf($node_class);

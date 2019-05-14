@@ -15,9 +15,11 @@ use namespace HH\Lib\Str;
 /**
  * Test that we can parse files in unusual charsets */
 final class EncodingTest extends TestCase {
-  public function testEucJp(): void {
+  public async function testEucJp(): Awaitable<void> {
     // Make sure that we can handle EUC-JP in output from `hh_parse`
-    $ast = from_file(__DIR__.'/fixtures/eucjp2sjis.php');
+    $ast = await from_file_async(
+      File::fromPath(__DIR__.'/fixtures/eucjp2sjis.php'),
+    );
     $str = $ast->getDescendantsOfType(DoubleQuotedStringLiteralToken::class)[0];
 
     // Make sure that we get the same binary string back, not converted...

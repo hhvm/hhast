@@ -23,14 +23,14 @@ final class OffsetFromPositionTest extends TestCase {
   }
 
   <<DataProvider('getExamples')>>
-  public function testOffsetFromPosition(
+  public async function testOffsetFromPosition(
     string $code,
     (int, int) $position,
     int $expected_offset,
-  ): void {
+  ): Awaitable<void> {
     list($line, $column) = $position;
 
-    $root = from_code($code);
+    $root = await from_file_async(File::fromPathAndContents('/dev/null', $code));
     $actual_offset = offset_from_position($root, $line, $column);
     expect($actual_offset)->toBeSame(
       $expected_offset,

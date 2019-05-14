@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST\Linters;
 
-use type Facebook\HHAST\EditableNode;
+use type Facebook\HHAST\{EditableNode, File};
 
 abstract class AutoFixingASTLinter<Tnode as EditableNode> extends ASTLinter<Tnode> {
   abstract public function getFixedNode(Tnode $node): ?EditableNode;

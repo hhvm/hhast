@@ -9,6 +9,7 @@
 
 namespace Facebook\HHAST\Linters;
 
+use type Facebook\HHAST\File;
 use namespace Facebook\HHAST\__Private\LSP;
 
 interface AutoFixingLinter<Terror as LintError> {

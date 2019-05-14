@@ -16,11 +16,7 @@ use namespace Facebook\HHAST;
 
 final class RewriteBehaviorTest extends TestCase {
   public function testTokenIdentity(): void {
-    $node = new HHAST\VariableToken(
-      HHAST\Missing(),
-      HHAST\Missing(),
-      '$var',
-    );
+    $node = new HHAST\VariableToken(HHAST\Missing(), HHAST\Missing(), '$var');
 
     expect($node->rewrite(($x, $_) ==> $x))
       ->toBeSame($node);
@@ -60,7 +56,7 @@ final class RewriteBehaviorTest extends TestCase {
     $orig = new HHAST\EditableList(
       vec[
         new HHAST\SingleLineComment('foo'),
-      ]
+      ],
     );
 
     $new = $orig->rewrite(
@@ -69,7 +65,7 @@ final class RewriteBehaviorTest extends TestCase {
           return $x;
         }
         return new HHAST\DelimitedComment('bar');
-      }
+      },
     );
 
     expect($orig)->toNotBeSame($new);
@@ -80,7 +76,7 @@ final class RewriteBehaviorTest extends TestCase {
     $orig = new HHAST\EditableList(
       vec[
         new HHAST\SingleLineComment('foo'),
-      ]
+      ],
     );
 
     $new = $orig->rewrite(
@@ -89,7 +85,7 @@ final class RewriteBehaviorTest extends TestCase {
           return $x;
         }
         return $x->withText('bar');
-      }
+      },
     );
 
     expect($orig)->toNotBeSame($new);
@@ -114,7 +110,7 @@ final class RewriteBehaviorTest extends TestCase {
           return $node;
         }
         return $node->withText('/* bar */');
-      }
+      },
     );
 
     expect($orig)->toNotBeSame($new);
@@ -139,7 +135,7 @@ final class RewriteBehaviorTest extends TestCase {
           return $node;
         }
         return HHAST\Missing();
-      }
+      },
     )
       |> expect($$)->toBeInstanceOf(HHAST\VariableToken::class);
 
@@ -148,25 +144,30 @@ final class RewriteBehaviorTest extends TestCase {
       ->toBeInstanceOf(HHAST\Missing::class);
   }
 
-  public function testRewritePreservesCaseOfFixedTextTokens(): void {
+  public async function testRewritePreservesCaseOfFixedTextTokens(
+  ): Awaitable<void> {
     $code = "<?hh NuLl; aRrAy; aNd; oR; cAsE";
-    expect(HHAST\from_code($code)->getCode())->toBeSame($code);
+    $ast = await HHAST\from_file_async(
+      HHAST\File::fromPathAndContents('/dev/null', $code),
+    );
+    expect($ast->getCode())->toBeSame($code);
   }
 
-  public function testRewritesNewChildren(): void {
+  public async function testRewritesNewChildren(): Awaitable<void> {
     $code = "<?hh type T = shape('subshape' => shape('subfield' => string));";
-    $orig = HHAST\from_code($code);
+    $orig = await HHAST\from_file_async(
+      HHAST\File::fromPathAndContents('/dev/null', $code),
+    );
     expect($orig->getCode())->toBeSame($code);
 
     $new = $orig->rewrite(
       ($shape, $_) ==> {
         if (!$shape instanceof HHAST\ShapeTypeSpecifier) {
-          return $shape ;
+          return $shape;
         }
 
-        $fields = $shape->getFieldsx()->getDescendantsOfType(
-          HHAST\FieldSpecifier::class,
-        );
+        $fields = $shape->getFieldsx()
+          ->getDescendantsOfType(HHAST\FieldSpecifier::class);
 
         return $shape->withFields(
           new HHAST\EditableList(
@@ -182,18 +183,23 @@ final class RewriteBehaviorTest extends TestCase {
 
                 $name = $field->getName()->getDescendantsOfType(
                   HHAST\SingleQuotedStringLiteralToken::class,
-                ) |> C\first($$);
+                )
+                  |> C\first($$);
                 if ($name === null) {
                   return $field;
                 }
 
                 return $field->withName(
                   $name->withText(
-                    Str\slice($name->getText(), 1, Str\length($name->getText()) - 2)
-                    |> \sprintf("'%s_new'", $$),
+                    Str\slice(
+                      $name->getText(),
+                      1,
+                      Str\length($name->getText()) - 2,
+                    )
+                      |> \sprintf("'%s_new'", $$),
                   ),
                 );
-              }
+              },
             ),
           ),
         );

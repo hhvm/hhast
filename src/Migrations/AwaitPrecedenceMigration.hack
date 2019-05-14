@@ -9,10 +9,11 @@
 
 namespace Facebook\HHAST\Migrations;
 
-use function Facebook\HHAST\{Missing, from_file_args};
+use function Facebook\HHAST\{Missing, from_file_async};
 use type Facebook\HHAST\{
   AwaitToken,
   EditableNode,
+  File,
   LeftParenToken,
   ParenthesizedExpression,
   PrefixUnaryExpression,
@@ -32,7 +33,9 @@ final class AwaitPrecedenceMigration extends BaseMigration {
 
     // Figure out how this parses with stronger await precedence.
     //  If this throws a parse error, just let the caller deal with it.
-    $stronger_nodes = from_file_args($path, vec['--stronger-await-binding'])
+    $stronger_nodes = \HH\Asio\join(
+      from_file_async(File::fromPath($path), vec['--stronger-await-binding']),
+    )
       |> $$->getDescendantsOfType(PrefixUnaryExpression::class)
       |> Vec\filter($$, $n ==> $n->getOperator() is AwaitToken);
 

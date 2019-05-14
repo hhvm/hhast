@@ -54,7 +54,7 @@ final class InspectorCLI extends CLIWithRequiredArguments {
       return 1;
     }
 
-    $ast = HHAST\from_file($input);
+    $ast = await HHAST\from_file_async(HHAST\File::fromPath($input));
 
     // No XHP as XHP currently doesn't support namespaces
     $output = $this->outputPath ??

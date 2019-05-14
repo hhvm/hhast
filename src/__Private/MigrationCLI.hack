@@ -219,7 +219,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
         $file,
       );
     }
-    $ast = HHAST\from_file($file);
+    $ast = \HH\Asio\join(HHAST\from_file_async(HHAST\File::fromPath($file)));
     foreach ($migrations as $migration) {
       $new_ast = $migration->migrateFile($file, $ast);
       if ($ast !== $new_ast) {

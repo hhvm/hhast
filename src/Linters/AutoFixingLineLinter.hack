@@ -9,6 +9,7 @@
 
 namespace Facebook\HHAST\Linters;
 
+use type Facebook\HHAST\File;
 use namespace HH\Lib\Str;
 
 abstract class AutoFixingLineLinter<Terr as LineLintError>

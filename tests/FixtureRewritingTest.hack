@@ -17,9 +17,9 @@ use namespace HH\Lib\{C, Str};
 final class FixtureRewritingTest extends TestCase {
   /** Add a comment just before the try body and just inside
    * the catch body */
-  public function testInsert(): void {
-    $original = HHAST\from_file(
-      __DIR__.'/fixtures/insert.php.in',
+  public async function testInsert(): Awaitable<void> {
+    $original = await HHAST\from_file_async(
+      File::fromPath(__DIR__.'/fixtures/insert.php.in'),
     );
 
     $comment = new HHAST\DelimitedComment('/* HELLO WORLD */');
@@ -38,7 +38,7 @@ final class FixtureRewritingTest extends TestCase {
     expect($code)->toMatchExpectFile('insert.php.expect');
   }
 
-  public function testRewriteComments(): void {
+  public async function testRewriteComments(): Awaitable<void> {
     $rewriter = (
       HHAST\EditableNode $node,
       ?vec<HHAST\EditableNode> $_parents,
@@ -55,16 +55,17 @@ final class FixtureRewritingTest extends TestCase {
       return $node;
     };
 
-    $code = HHAST\from_file(
-      __DIR__.'/fixtures/rewrite_comments.php.in',
-    )
-      ->rewrite($rewriter)
-      ->getCode();
+    $ast = await HHAST\from_file_async(
+      HHAST\File::fromPath(__DIR__.'/fixtures/rewrite_comments.php.in'),
+    );
+    $code = $ast->rewrite($rewriter)->getCode();
     expect($code)->toMatchExpectFile('rewrite_comments.php.expect');
   }
 
-  public function testRemove(): void {
-    $ast = HHAST\from_file(__DIR__.'/fixtures/remove.php.in');
+  public async function testRemove(): Awaitable<void> {
+    $ast = await HHAST\from_file_async(
+      HHAST\File::fromPath(__DIR__.'/fixtures/remove.php.in'),
+    );
 
     // Remove all try statements
     $ast = $ast->removeWhere(

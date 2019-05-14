@@ -7,11 +7,14 @@
  *
  */
 
-namespace Facebook\HHAST\Linters;
+namespace Facebook\HHAST;
 
 final class File {
   private function __construct(
-    private string $path, private string $contents, private bool $isDirty) {
+    private string $path,
+    private string $contents,
+    private bool $isDirty,
+  ) {
   }
 
   public function isDirty(): bool {
@@ -37,7 +40,10 @@ final class File {
     return new File($path, \file_get_contents($path), /* dirty = */ false);
   }
 
-  public static function fromPathAndContents(string $path, string $contents): this {
+  public static function fromPathAndContents(
+    string $path,
+    string $contents,
+  ): this {
     return new File($path, $contents, /* dirty = */ true);
   }
 
@@ -45,7 +51,16 @@ final class File {
   public function getHash(): string {
     return \sodium_crypto_generichash(
       $this->contents,
-      \Facebook\HHAST\SCHEMA_VERSION,
+      self::getHashKey(),
+    );
+  }
+
+  <<__Memoize>>
+  private static function getHashKey(): string {
+    return \sodium_crypto_generichash(
+        SCHEMA_VERSION,
+        null,
+        \SODIUM_CRYPTO_GENERICHASH_KEYBYTES,
     );
   }
 }

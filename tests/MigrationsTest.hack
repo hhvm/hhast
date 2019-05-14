@@ -131,8 +131,10 @@ final class MigrationsTest extends TestCase {
       if (!$instance instanceof Migrations\StepBasedMigration) {
         continue;
       }
-      $refined =
-        TypeAssert\classname_of(Migrations\StepBasedMigration::class, $class);
+      $refined = TypeAssert\classname_of(
+        Migrations\StepBasedMigration::class,
+        $class,
+      );
       foreach ($instance->getSteps() as $step) {
         $out[] = tuple($refined, $step, $fixture);
       }
@@ -142,16 +144,18 @@ final class MigrationsTest extends TestCase {
 
 
   <<DataProvider('getMigrationSteps')>>
-  public function testMigrationStepsAreIdempotent(
+  public async function testMigrationStepsAreIdempotent(
     classname<Migrations\StepBasedMigration> $migration,
     Migrations\IMigrationStep $step,
     string $fixture,
-  ): void {
+  ): Awaitable<void> {
     $rewrite = (HHAST\EditableNode $ast) ==>
       $ast->rewrite(($n, $_) ==> $step->rewrite($n));
 
-    $ast = HHAST\from_file(__DIR__.'/fixtures/'.$fixture.'.in')
-      |> $rewrite($$);
+    $ast = await HHAST\from_file_async(
+      HHAST\File::fromPath(__DIR__.'/fixtures/'.$fixture.'.in'),
+    );
+    $ast = $rewrite($ast);
 
     expect($rewrite($ast)->getCode())->toBeSame(
       $ast->getCode(),
@@ -169,14 +173,15 @@ final class MigrationsTest extends TestCase {
   }
 
   <<DataProvider('getMigrations')>>
-  public function testMigrationHasExpectedOutput(
+  public async function testMigrationHasExpectedOutput(
     classname<Migrations\BaseMigration> $migration,
     string $fixture,
-  ): void {
-    using $temp =
-      new TestLib\TemporaryProject(__DIR__.'/fixtures/'.$fixture.'.in');
+  ): Awaitable<void> {
+    using $temp = new TestLib\TemporaryProject(
+      __DIR__.'/fixtures/'.$fixture.'.in',
+    );
     $file = $temp->getFilePath();
-    $ast = HHAST\from_file($file);
+    $ast = await HHAST\from_file_async(HHAST\File::fromPath($file));
 
     $migration = new $migration($temp->getRootPath());
 
@@ -186,14 +191,15 @@ final class MigrationsTest extends TestCase {
   }
 
   <<DataProvider('getMigrations')>>
-  public function testMigrationIsIdempotent(
+  public async function testMigrationIsIdempotent(
     classname<Migrations\BaseMigration> $migration,
     string $fixture,
-  ): void {
-    using $temp =
-      new TestLib\TemporaryProject(__DIR__.'/fixtures/'.$fixture.'.in');
+  ): Awaitable<void> {
+    using $temp = new TestLib\TemporaryProject(
+      __DIR__.'/fixtures/'.$fixture.'.in',
+    );
     $file = $temp->getFilePath();
-    $ast = HHAST\from_file($file);
+    $ast = await HHAST\from_file_async(HHAST\File::fromPath($file));
 
     $root = $temp->getRootPath();
     $migration = () ==> new $migration($root);

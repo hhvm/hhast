@@ -9,6 +9,8 @@
 
 namespace Facebook\HHAST\Linters;
 
+use type Facebook\HHAST\File;
+
 class LintError {
   public function __construct(
     private BaseLinter $linter,

@@ -13,10 +13,10 @@ namespace Facebook\HHAST;
 use namespace HH\Lib\C;
 
 abstract class TestCase extends \Facebook\HackTest\HackTest {
-  protected static function getNodeAndParents(
+  protected static async function getNodeAndParentsAsync(
     string $code,
-  ): (EditableNode, vec<EditableNode>) {
-    $ast = from_code($code);
+  ): Awaitable<(EditableNode, vec<EditableNode>)> {
+    $ast = await from_file_async(File::fromPathAndContents('/dev/null', $code));
     $node = $ast->getDescendantsOfType(ClassishDeclaration::class) |> C\firstx($$);
     $parents = vec($ast->findWithParents($x ==> $x === $node));
     return tuple($node, $parents);

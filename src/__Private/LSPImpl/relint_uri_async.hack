@@ -10,7 +10,7 @@
 namespace Facebook\HHAST\__Private\LSPImpl;
 
 use type Facebook\HHAST\__Private\{LintRun, LintRunConfig, LintRunEventHandler};
-use type Facebook\HHAST\Linters\File;
+use type Facebook\HHAST\File;
 use namespace HH\Lib\Str;
 
 async function relint_uri_async(

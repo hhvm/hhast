@@ -11,35 +11,16 @@ namespace Facebook\HHAST;
 
 use namespace HH\Lib\{Str, Vec};
 
-function from_json(
-  dict<string, mixed> $json,
-  ?string $file = null,
-): EditableNode {
-  $version = $json['version'] ?? null;
-  if ($version is string && $version !== SCHEMA_VERSION) {
-    throw new SchemaVersionError($file ?? '! no file !', $version);
-  }
-  return EditableNode::fromJSON(
-    /* HH_IGNORE_ERROR[4110] */ $json['parse_tree'],
-    $file ?? '! no file !',
-    0,
-    /* HH_IGNORE_ERROR[4110] */ $json['program_text'],
-  );
-}
+async function from_file_async(
+  File $file,
+  vec<string> $args = vec[],
+): Awaitable<EditableNode> {
+  using $odf = new __Private\OnDiskFile($file);
+  $file = $odf->getPath();
 
-async function json_from_file_async(
-  string $file,
-): Awaitable<dict<string, mixed>> {
-  return await json_from_file_args_async($file, vec[]);
-}
-
-async function json_from_file_args_async(
-  string $file,
-  Traversable<string> $parse_args,
-): Awaitable<dict<string, mixed>> {
   $args = Vec\concat(
     vec['--php5-compat-mode', '--full-fidelity-json'],
-    vec($parse_args),
+    $args,
     vec[$file],
   );
 
@@ -88,69 +69,5 @@ async function json_from_file_args_async(
   // Use the raw source rather than the re-encoded, as byte offsets may have
   // changed while re-encoding
   $data['program_text'] = \file_get_contents($file);
-  return $data;
-}
-
-function json_from_file(string $file): dict<string, mixed> {
-  return \HH\Asio\join(json_from_file_async($file));
-}
-
-async function from_file_async(string $file): Awaitable<EditableNode> {
-  $json = await json_from_file_async($file);
-  return from_json($json, $file);
-}
-
-async function from_file_args_async(
-  string $file,
-  Traversable<string> $parse_args,
-): Awaitable<EditableNode> {
-  $json = await json_from_file_args_async($file, $parse_args);
-  return from_json($json, $file);
-}
-
-function from_file(string $file): EditableNode {
-  return \HH\Asio\join(from_file_async($file));
-}
-
-function from_file_args(
-  string $file,
-  Traversable<string> $parse_args,
-): EditableNode {
-  return \HH\Asio\join(from_file_args_async($file, $parse_args));
-}
-
-async function json_from_text_async(
-  string $text,
-): Awaitable<dict<string, mixed>> {
-  $file = \sys_get_temp_dir().'/hhast-tmp-'.\bin2hex(\random_bytes(16));
-  if (
-    Str\starts_with($text, '<?') ||
-    Str\starts_with(Str\split($text, "\n")[1] ?? '', '<?')
-  ) {
-    $file .= '.php';
-  } else {
-    $file .= '.hack';
-  }
-  $handle = \fopen($file, "w");
-  \fwrite($handle, $text);
-  \fclose($handle);
-  try {
-    $json = await json_from_file_async($file);
-  } finally {
-    \unlink($file);
-  }
-  return $json;
-}
-
-function json_from_text(string $text): dict<string, mixed> {
-  return \HH\Asio\join(json_from_text_async($text));
-}
-
-async function from_code_async(string $text): Awaitable<EditableNode> {
-  $json = await json_from_text_async($text);
-  return from_json($json);
-}
-
-function from_code(string $text): EditableNode {
-  return \HH\Asio\join(from_code_async($text));
+  return /* HH_FIXME[4110] */ __Private\from_decoded_json($data);
 }

@@ -15,6 +15,7 @@ use type Facebook\HHAST\{
   EditableNode,
   EndOfFile,
   EndOfLine,
+  File,
   MarkupSection,
   Script,
 };
