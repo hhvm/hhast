@@ -15,7 +15,7 @@ final class Script extends ScriptGeneratedBase {
   final public function getAncestorsOfDescendant(
     EditableNode $node,
   ): vec<EditableNode> {
-    if ($node == $this) {
+    if ($node === $this) {
       return vec[];
     }
 
