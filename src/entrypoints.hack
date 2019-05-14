@@ -16,7 +16,7 @@ async function from_file_async(
   vec<string> $args = vec[],
 ): Awaitable<EditableNode> {
   $cache = __Private\ParserCache::get();
-  $data = $cache->fetch($file);
+  $data = ($args === vec[]) ? $cache->fetch($file) : null;
   if ($data is nonnull) {
     return __Private\from_decoded_json($data);
   }
@@ -74,6 +74,8 @@ async function from_file_async(
   // Use the raw source rather than the re-encoded, as byte offsets may have
   // changed while re-encoding
   $data['program_text'] = \file_get_contents($path);
-  $cache->store($file, $data);
+  if ($args === vec[]) {
+    $cache->store($file, $data);
+  }
   return /* HH_FIXME[4110] */ __Private\from_decoded_json($data);
 }
