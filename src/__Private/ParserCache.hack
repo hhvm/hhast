@@ -33,7 +33,7 @@ final class ParserCache {
     }
 
     try {
-      $cache = \unserialize(\file_get_contents($path))
+      $cache = \unserialize(\gzinflate(\file_get_contents($path)) as string)
         |> TypeAssert\matches_type_structure(self::getCacheTS(), $$);
     } catch (\Exception $_) {
       \unlink($path);
@@ -61,10 +61,10 @@ final class ParserCache {
     unset($ast['program_text']);
     \file_put_contents(
       $path,
-      \serialize(shape(
+      \gzdeflate(\serialize(shape(
         'hash' => \bin2hex($file->getHash()),
         'ast' => $ast,
-      )),
+      ))),
     );
   }
 
