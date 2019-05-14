@@ -26,6 +26,7 @@ final class Script extends ScriptGeneratedBase {
       $child = C\firstx($children);
       $children = Vec\drop($children, 1);
       if ($child === $node) {
+        $stack[] = $child;
         return $stack;
       }
       if (!$child->isAncestorOf($node)) {

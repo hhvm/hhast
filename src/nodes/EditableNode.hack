@@ -93,27 +93,6 @@ abstract class EditableNode {
     );
   }
 
-  private function traverseImpl(
-    vec<EditableNode> $parents,
-  ): vec<(EditableNode, vec<EditableNode>)> {
-    $new_parents = vec($parents);
-    $new_parents[] = $this;
-    $out = vec[tuple($this, $parents)];
-    foreach ($this->getChildren() as $child) {
-      foreach (
-        $child->traverseImpl($new_parents) as list($child, $child_parents)
-      ) {
-        $out[] = tuple($child, $child_parents);
-      }
-    }
-    return $out;
-  }
-
-  public function traverseWithParents(
-  ): vec<(EditableNode, vec<EditableNode>)> {
-    return $this->traverseImpl(vec[]);
-  }
-
   public function isToken(): bool {
     return false;
   }
@@ -174,38 +153,6 @@ abstract class EditableNode {
     return vec[$this];
   }
 
-  // Returns all the parents (and the node itself) of the first node
-  // that matches a predicate, or [] if there is no such node.
-  public function findWithParents(
-    (function(EditableNode): bool) $predicate,
-    vec<EditableNode> $parents = vec[],
-  ): vec<EditableNode> {
-    $new_parents = $parents;
-    $new_parents[] = $this;
-    if ($predicate($this)) {
-      return $new_parents;
-    }
-    foreach ($this->getChildren() as $child) {
-      $result = $child->findWithParents($predicate, $new_parents);
-      if (C\count($result) !== 0) {
-        return $result;
-      }
-    }
-    return vec[];
-  }
-
-  public function getDescendantsWhere(
-    (function(EditableNode, vec<EditableNode>): bool) $filter,
-  ): vec<EditableNode> {
-    $out = vec[];
-    foreach ($this->traverseWithParents() as list($node, $parents)) {
-      if ($filter($node, $parents)) {
-        $out[] = $node;
-      }
-    }
-    return $out;
-  }
-
   public function getDescendantsOfType<T as EditableNode>(
     classname<T> $what,
   ): vec<T> {
@@ -220,14 +167,14 @@ abstract class EditableNode {
 
   public function removeWhere(
     (function(EditableNode, ?vec<EditableNode>): bool) $predicate,
-  ): EditableNode {
-    return $this->rewrite(
+  ): this {
+    return $this->rewriteDescendants(
       ($node, $parents) ==>
         $predicate($node, $parents) ? Missing::getInstance() : $node,
     );
   }
 
-  public function without(EditableNode $target): EditableNode {
+  public function without(EditableNode $target): this {
     return $this->removeWhere(($node, $parents) ==> $node === $target);
   }
 

@@ -17,7 +17,7 @@ use type Facebook\HHAST\__Private\TTypecheckerError;
 use type Facebook\HHAST\{
   AmpersandToken,
   EditableList,
-  EditableNode,
+  Script,
 };
 use namespace HH\Lib\{C, Vec};
 
@@ -34,8 +34,8 @@ final class CallTimePassByReferenceMigration extends BaseMigration {
   <<__Override>>
   public function migrateFile(
     string $path,
-    EditableNode $root,
-  ): EditableNode {
+    Script $root,
+  ): Script {
     $nodes = $this->getTypecheckerErrorsForFile($path)
       |> Vec\map($$, $err ==> C\firstx($err['message']))
       |> Vec\map(

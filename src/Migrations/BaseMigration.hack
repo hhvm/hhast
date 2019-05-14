@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST\Migrations;
 
-use type Facebook\HHAST\EditableNode;
+use type Facebook\HHAST\Script;
 
 <<__ConsistentConstruct>>
 abstract class BaseMigration {
@@ -22,6 +22,6 @@ abstract class BaseMigration {
 
   abstract public function migrateFile(
     string $path,
-    EditableNode $ast,
-  ): EditableNode;
+    Script $ast,
+  ): Script;
 }

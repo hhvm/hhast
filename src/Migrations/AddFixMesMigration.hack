@@ -13,10 +13,10 @@ use function Facebook\HHAST\find_node_at_position;
 use type Facebook\HHAST\__Private\TTypecheckerError;
 use type Facebook\HHAST\{
   EditableList,
-  EditableNode,
   FixMe,
   Missing,
   WhiteSpace,
+  Script,
 };
 use namespace HH\Lib\{C, Dict, Keyset, Str, Vec};
 
@@ -30,8 +30,8 @@ final class AddFixMesMigration extends BaseMigration {
   <<__Override>>
   public function migrateFile(
     string $path,
-    EditableNode $root,
-  ): EditableNode {
+    Script $root,
+  ): Script {
     $errors_by_position = $this->getTypecheckerErrorsForFile($path)
       |> Vec\map($$, $error ==> C\firstx($error['message']))
       |> Dict\group_by($$, $error ==> ($error['line'] << 32) + $error['start']);

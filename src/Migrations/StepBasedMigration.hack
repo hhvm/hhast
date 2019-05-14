@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST\Migrations;
 
-use type Facebook\HHAST\EditableNode;
+use type Facebook\HHAST\Script;
 
 abstract class StepBasedMigration extends BaseMigration {
   abstract public function getSteps(): Traversable<IMigrationStep>;
@@ -17,10 +17,10 @@ abstract class StepBasedMigration extends BaseMigration {
   <<__Override>>
   final public function migrateFile(
     string $_path,
-    EditableNode $ast,
-  ): EditableNode {
+    Script $ast,
+  ): Script {
     foreach ($this->getSteps() as $step) {
-      $ast = $ast->rewrite(($node, $_) ==> $step->rewrite($node));
+      $ast = $ast->rewrite(($node, $_) ==> $step->rewrite($node)) as Script;
     }
     return $ast;
   }

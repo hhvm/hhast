@@ -16,8 +16,8 @@ final class IsRefinementMigration extends BaseMigration {
   <<__Override>>
   public function migrateFile(
     string $_path,
-    HHAST\EditableNode $ast,
-  ): HHAST\EditableNode {
+    HHAST\Script $ast,
+  ): HHAST\Script {
     $m = HHAST\Missing();
     $map = dict[
       'is_string' => () ==> new HHAST\StringToken($m, $m),
@@ -53,7 +53,7 @@ final class IsRefinementMigration extends BaseMigration {
       ),
     ];
 
-    return $ast->rewrite(($node, $parents) ==> {
+    return $ast->rewriteDescendants(($node, $parents) ==> {
       if (!$node is HHAST\FunctionCallExpression) {
         return $node;
       }

@@ -13,35 +13,34 @@ use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec, Math, Keyset};
 
 use type Facebook\HHAST\{
-  EditableNode,
-  FunctionCallExpression,
-  NameToken,
-  EditableList,
-  BinaryExpression,
-  LiteralExpression,
-  BooleanLiteralToken,
-  NullLiteralToken,
-  NamespaceGroupUseDeclaration,
-  NamespaceUseDeclaration,
-  QualifiedName,
-  Script,
-  INamespaceUseDeclaration,
-  NamespaceUseClause,
-  NamespaceToken,
-  ListItem,
-  PrefixUnaryExpression,
-  MinusToken,
-  DecimalLiteralToken,
-  LiteralExpression,
-  ExpressionStatement,
-  OctalLiteralToken,
-  CommaToken,
-  WhiteSpace,
   BackslashToken,
+  BinaryExpression,
+  BooleanLiteralToken,
+  CommaToken,
+  DecimalLiteralToken,
+  EditableList,
+  EditableNode,
+  ExpressionStatement,
+  FunctionCallExpression,
+  INamespaceUseDeclaration,
+  ListItem,
+  LiteralExpression,
   MarkupSection,
+  MinusToken,
+  NameToken,
+  NamespaceBody,
   NamespaceDeclaration,
   NamespaceEmptyBody,
-  NamespaceBody,
+  NamespaceGroupUseDeclaration,
+  NamespaceToken,
+  NamespaceUseClause,
+  NamespaceUseDeclaration,
+  NullLiteralToken,
+  OctalLiteralToken,
+  PrefixUnaryExpression,
+  QualifiedName,
+  Script,
+  WhiteSpace,
 };
 
 use function Facebook\HHAST\__Private\find_type_for_node_async;
@@ -188,7 +187,7 @@ final class HSLMigration extends BaseMigration {
 
 
   <<__Override>>
-  public function migrateFile(string $path, EditableNode $root): EditableNode {
+  public function migrateFile(string $path, Script $root): Script {
     // find all the function calls
     $nodes = $root->getDescendantsOfType(FunctionCallExpression::class);
 
@@ -509,12 +508,12 @@ final class HSLMigration extends BaseMigration {
   // many PHP functions can return false, and their HSL counterparts return null instead
   // this will replace false with null in binary expressions like === false and !=== false
   protected function maybeChangeFalseToNull(
-    EditableNode $root,
+    Script $root,
     FunctionCallExpression $node,
-  ): EditableNode {
+  ): Script {
     $parents = null;
     $found = false;
-    $stack = $root->findWithParents($it ==> $it === $node);
+    $stack = $root->getAncestorsOfDescendant($node);
     invariant(!C\is_empty($stack), 'did not find node in root');
     invariant(C\lastx($stack) === $node, 'expected node at top of stack');
     $stack_count = C\count($stack);

@@ -33,7 +33,7 @@ final class ResolutionTest extends TestCase {
     ]);
     $class_names = $ast->getDescendantsOfType(ClassishDeclaration::class)
       |> Vec\map($$, $class ==> {
-        $parents = $ast->findWithParents($x ==> $x === $class);
+        $parents = $ast->getAncestorsOfDescendant($class);
         return Resolution\get_current_namespace($class, $parents).
           "\\".
           ($class->getName() as EditableToken)->getText();

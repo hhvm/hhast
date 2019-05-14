@@ -17,7 +17,7 @@ use type Facebook\HHAST\__Private\TTypecheckerError;
 use type Facebook\HHAST\{
   BackslashToken,
   EditableList,
-  EditableNode,
+  Script,
 };
 use function Facebook\HHAST\__Private\execute_async;
 use namespace Facebook\TypeAssert;
@@ -39,8 +39,8 @@ final class NamespaceFallbackMigration extends BaseMigration {
   <<__Override>>
   public function migrateFile(
     string $path,
-    EditableNode $root,
-  ): EditableNode {
+    Script $root,
+  ): Script {
     $nodes = $this->getTypecheckerErrorsForFile($path)
       |> Vec\map($$, $error ==> C\firstx($error['message']))
       |> Vec\unique_by(

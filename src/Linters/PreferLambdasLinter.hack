@@ -43,11 +43,9 @@ final class PreferLambdasLinter extends AutoFixingASTLinter<AnonymousFunction> {
     $use_expr = $node->getUse();
 
     $uses_references = $use_expr is nonnull &&
-      !C\is_empty(
-        $use_expr->getDescendantsWhere(
-          ($node, $_) ==> $node is PrefixUnaryExpression &&
-            $node->getOperator() is AmpersandToken,
-        ),
+      C\any(
+        $use_expr->getDescendantsOfType(PrefixUnaryExpression::class),
+        $expr ==> $expr->getOperator() instanceof AmpersandToken,
       );
 
     if ($uses_references) {
@@ -67,8 +65,10 @@ final class PreferLambdasLinter extends AutoFixingASTLinter<AnonymousFunction> {
     $async = $node->getAsyncKeyword();
     $coroutine = $node->getCoroutineKeyword();
     $parameters = $node->getParameters();
-    $left_paren =
-      new LeftParenToken($node->getFunctionKeyword()->getLeading(), Missing());
+    $left_paren = new LeftParenToken(
+      $node->getFunctionKeyword()->getLeading(),
+      Missing(),
+    );
     $right_paren = $node->getRightParen();
     $colon = $node->getColon();
     $type = $node->getType();

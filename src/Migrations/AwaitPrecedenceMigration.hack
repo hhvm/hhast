@@ -12,18 +12,18 @@ namespace Facebook\HHAST\Migrations;
 use function Facebook\HHAST\{Missing, from_file_async};
 use type Facebook\HHAST\{
   AwaitToken,
-  EditableNode,
   File,
   LeftParenToken,
   ParenthesizedExpression,
   PrefixUnaryExpression,
   RightParenToken,
+  Script,
 };
 use namespace HH\Lib\{Vec, C};
 
 final class AwaitPrecedenceMigration extends BaseMigration {
   <<__Override>>
-  public function migrateFile(string $path, EditableNode $ast): EditableNode {
+  public function migrateFile(string $path, Script $ast): Script {
     // Find our targets - await calls.
     $nodes = $ast->getDescendantsOfType(PrefixUnaryExpression::class)
       |> Vec\filter($$, $n ==> $n->getOperator() is AwaitToken);
