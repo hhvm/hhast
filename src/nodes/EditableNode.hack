@@ -30,11 +30,7 @@ abstract class EditableNode {
     $this->_syntax_kind = $syntax_kind;
     $this->_descendants = Vec\map(
       $this->getChildren(),
-      $child ==> {
-        $with_child = $child->_descendants;
-        $with_child[] = $child->getUniqueID();
-        return $with_child;
-      },
+      $child ==> Vec\concat(vec[$child->getUniqueID()], $child->_descendants),
     )
       |> Vec\flatten($$)
       |> keyset($$);
