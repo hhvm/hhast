@@ -15,20 +15,25 @@ async function from_file_async(
   File $file,
   vec<string> $args = vec[],
 ): Awaitable<EditableNode> {
+  $cache = __Private\ParserCache::get();
+  $data = $cache->fetch($file);
+  if ($data is nonnull) {
+    return __Private\from_decoded_json($data);
+  }
   using $odf = new __Private\OnDiskFile($file);
-  $file = $odf->getPath();
+  $path = $odf->getPath();
 
   $args = Vec\concat(
     vec['--php5-compat-mode', '--full-fidelity-json'],
     $args,
-    vec[$file],
+    vec[$path],
   );
 
   try {
     $results = await __Private\ParserQueue::get()->waitForAsync($args);
   } catch (__Private\SubprocessException $e) {
     throw new HHParseError(
-      $file,
+      $path,
       'hh_parse failed - exit code: '.$e->getExitCode(),
     );
   }
@@ -63,11 +68,12 @@ async function from_file_async(
     $no_type_refinement_please = $data;
   }
   if (!is_dict($no_type_refinement_please)) {
-    throw new HHParseError($file, 'hh_parse did not output valid JSON');
+    throw new HHParseError($path, 'hh_parse did not output valid JSON');
   }
 
   // Use the raw source rather than the re-encoded, as byte offsets may have
   // changed while re-encoding
-  $data['program_text'] = \file_get_contents($file);
+  $data['program_text'] = \file_get_contents($path);
+  $cache->store($file, $data);
   return /* HH_FIXME[4110] */ __Private\from_decoded_json($data);
 }

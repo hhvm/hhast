@@ -5,3 +5,4 @@ tests/fixtures/**/*.out
 tests/lsp/*.out
 *.swo
 .DS_Store
+*.hhast.parser-cache
