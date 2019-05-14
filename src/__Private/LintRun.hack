@@ -70,22 +70,30 @@ final class LintRun {
     File $file,
   ): Awaitable<LintRunResult> {
     $config = $config->getConfigForFile($file->getPath());
-    $result = LintRunResult::NO_ERRORS;
+    $result = new Ref(LintRunResult::NO_ERRORS);
 
-    foreach ($config['linters'] as $class) {
+    await Vec\map_async($config['linters'], async $class ==> {
       try {
-        /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
-        $this_result =
-          await $this->runLinterOnFileImplAsync($config, $class, $file);
-        $result = self::worstResult($result, $this_result);
+        $this_result = await $this->runLinterOnFileImplAsync(
+          $config,
+          $class,
+          $file,
+        );
+        $result->v = self::worstResult($result->v, $this_result);
       } catch (LinterException $e) {
         throw $e;
       } catch (\Throwable $t) {
-        throw new LinterException($class, $file->getPath(), $t->getMessage(), null, $t);
+        throw new LinterException(
+          $class,
+          $file->getPath(),
+          $t->getMessage(),
+          null,
+          $t,
+        );
       }
-    }
-    await $this->handler->finishedFileAsync($file->getPath(), $result);
-    return $result;
+    });
+    await $this->handler->finishedFileAsync($file->getPath(), $result->v);
+    return $result->v;
   }
 
   private async function runLinterOnFileImplAsync(
