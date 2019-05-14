@@ -35,15 +35,19 @@ use namespace HH\Lib\{C, Str, Vec};
 function is_linter_error_suppressed(
   BaseLinter $linter,
   EditableNode $node,
-  vec<EditableNode> $parents,
+  (function(): vec<EditableNode>) $parents,
   LintError $_error,
 ): bool {
   $token = $node->getFirstToken();
   $fixme = $linter->getFixmeMarker();
   $ignore = $linter->getIgnoreSingleErrorMarker();
 
-  return is_linter_suppressed_in_current_node($token, $fixme, $ignore) ||
-    is_linter_suppressed_in_sibling_node($parents, $fixme, $ignore) ||
+  if (is_linter_suppressed_in_current_node($token, $fixme, $ignore)) {
+    return true;
+  }
+
+  $parents = $parents();
+  return is_linter_suppressed_in_sibling_node($parents, $fixme, $ignore) ||
     is_linter_suppressed_up_to_statement($parents, $fixme, $ignore);
 }
 
