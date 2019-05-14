@@ -13,10 +13,10 @@ use namespace HH\Lib\{Str, Vec};
 
 async function from_file_async(
   File $file,
-  vec<string> $args = vec[],
+  vec<string> $user_args = vec[],
 ): Awaitable<EditableNode> {
   $cache = __Private\ParserCache::get();
-  $data = ($args === vec[]) ? $cache->fetch($file) : null;
+  $data = ($user_args === vec[]) ? $cache->fetch($file) : null;
   if ($data is nonnull) {
     return __Private\from_decoded_json($data);
   }
@@ -25,7 +25,7 @@ async function from_file_async(
 
   $args = Vec\concat(
     vec['--php5-compat-mode', '--full-fidelity-json'],
-    $args,
+    $user_args,
     vec[$path],
   );
 
@@ -74,7 +74,7 @@ async function from_file_async(
   // Use the raw source rather than the re-encoded, as byte offsets may have
   // changed while re-encoding
   $data['program_text'] = $file->getContents();
-  if ($args === vec[]) {
+  if ($user_args === vec[]) {
     $cache->store($file, $data);
   }
   return /* HH_FIXME[4110] */ __Private\from_decoded_json($data);
