@@ -209,9 +209,8 @@ abstract class EditableNode {
   public function getDescendantsOfType<T as EditableNode>(
     classname<T> $what,
   ): vec<T> {
-    $out = ($this instanceof $what) ? vec[$this] : vec[];
-    foreach ($this->_descendants as $id) {
-      $node = self::$byID[$id];
+    $out = vec[];
+    foreach ($this->traverse() as $node) {
       if ($node instanceof $what) {
         $out[] = $node;
       }
