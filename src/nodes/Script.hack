@@ -15,6 +15,10 @@ final class Script extends ScriptGeneratedBase {
   final public function getAncestorsOfDescendant(
     EditableNode $node,
   ): vec<EditableNode> {
+    if ($node == $this) {
+      return vec[];
+    }
+
     invariant($this->isAncestorOf($node), "Node is not a descendant");
     $stack = vec[$this];
     $children = $this->getChildren();
