@@ -56,7 +56,7 @@ abstract class EditableNode {
   private static int $_maxID = 0;
 
   <<__Memoize>>
-  private function getUniqueID(): int {
+  public function getUniqueID(): int {
     $id = self::$_maxID;
     self::$_maxID++;
     return $id;
@@ -213,10 +213,11 @@ abstract class EditableNode {
   public function getDescendantsOfType<T as EditableNode>(
     classname<T> $what,
   ): vec<T> {
-    $out = vec[];
-    foreach ($this->traverse() as $child) {
-      if ($child instanceof $what) {
-        $out[] = $child;
+    $out = ($this instanceof $what) ? vec[$this] : vec[];
+    foreach ($this->_descendants as $id) {
+      $node = self::$byID[$id];
+      if ($node instanceof $what) {
+        $out[] = $node;
       }
     }
     return $out;
