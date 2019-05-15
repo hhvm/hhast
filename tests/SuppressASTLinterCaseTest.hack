@@ -22,8 +22,8 @@ final class SuppressASTLinterCaseTest extends TestCase {
 
   public function getCleanExamples(): array<array<string>> {
     return [
-      ['<?hh '.
-       '/* HHAST_FIXME[CamelCasedMethodsUnderscoredFunctions] */. '.
+      ["<?hh\n".
+       '/* HHAST_FIXME[CamelCasedMethodsUnderscoredFunctions] */ '.
        'function CamelCasing() { return null; }'
       ],
     ];
