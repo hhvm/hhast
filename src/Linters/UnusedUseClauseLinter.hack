@@ -189,16 +189,13 @@ final class UnusedUseClauseLinter
         $node->getSemicolon() ?? HHAST\Missing(),
       );
     } else {
-      $fixed = $node->rewriteDescendants(
-        ($c, $_) ==> {
-          if (
-            $c instanceof HHAST\ListItem && C\contains($unused, $c->getItem())
-          ) {
-            return HHAST\Missing();
-          }
-          return $c;
-        },
-      );
+      $fixed = $node;
+      $list = $node->getClausesx();
+      foreach ($unused as $clause) {
+        $li = $list->getAncestorsOfDescendant($clause)
+          |> C\find($$, $li ==> $li instanceof HHAST\ListItem) as nonnull;
+        $fixed = $fixed->without($li);
+      }
     }
     $last =
       C\lastx($fixed->getClauses()->getChildrenOfType(HHAST\ListItem::class));
