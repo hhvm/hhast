@@ -193,7 +193,7 @@ abstract class EditableNode {
   ): this {
     return $this->rewriteChildren(
       ($child, $_) ==> {
-        if ($child->getUniqueID() == $old_id) {
+        if ($child->getUniqueID() === $old_id) {
           return $new;
         }
         if (!C\contains_key($child->_descendants, $old_id)) {
