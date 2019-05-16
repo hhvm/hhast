@@ -186,6 +186,13 @@ final class MustUseOverrideAttributeLinter
     }
 
     $list = $attrs->getAttributes()->toVec();
+    $last_idx = C\count($list) - 1;
+    $last = $list[$last_idx] as HHAST\ListItem;
+    if (!$last->hasSeparator()) {
+      $list[$last_idx] = $last->withSeparator(
+        new HHAST\CommaToken(HHAST\Missing(), new HHAST\WhiteSpace(' ')),
+      );
+    }
     $list[] = new HHAST\NameToken(
       HHAST\Missing(),
       HHAST\Missing(),
@@ -193,23 +200,7 @@ final class MustUseOverrideAttributeLinter
     );
 
     return $node->withAttribute(
-      $attrs->withAttributes(new HHAST\EditableList($list))
-        ->rewrite(
-          ($child, $parents) ==> {
-            if (!$child instanceof HHAST\ListItem) {
-              return $child;
-            }
-            if (!$child->getItem() instanceof HHAST\ConstructorCall) {
-              return $child;
-            }
-            if ($child->hasSeparator()) {
-              return $child;
-            }
-            return $child->withSeparator(
-              new HHAST\CommaToken(HHAST\Missing(), new HHAST\WhiteSpace(' ')),
-            );
-          },
-        ),
+      $attrs->withAttributes(new HHAST\EditableList($list)),
     );
   }
 }
