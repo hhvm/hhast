@@ -318,14 +318,14 @@ abstract class EditableNode {
     EditableNode $node,
   ): vec<EditableNode> {
     if ($node === $this) {
-      return vec[];
+      return vec[$this];
     }
 
     invariant($this->isAncestorOf($node), "Node is not a descendant");
     $stack = vec[$this];
     foreach ($this->getChildren() as $child) {
       if ($child === $node) {
-        return vec[$this];
+        return vec[$this, $node];
       }
       if (!$child->isAncestorOf($node)) {
         continue;
