@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7a6c94c7819641ac5dee97517edbf6e2>>
+ * @generated SignedSource<<cab2bcd66f5a387cf523d85208d24cfd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class TupleTypeExplicitSpecifier
   extends EditableNode
   implements ITypeSpecifier {
 
-  const string SYNTAX_KIND = 'TupleTypeExplicitSpecifier';
+  const string SYNTAX_KIND = 'tuple_type_explicit_specifier';
 
   private EditableNode $_keyword;
   private EditableNode $_left_angle;

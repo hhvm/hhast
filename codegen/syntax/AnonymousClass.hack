@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f0f9da6b36f069b7fece71bc8a1a5e31>>
+ * @generated SignedSource<<b8e1c5869806c9566f4b961ab7d9c2aa>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class AnonymousClass extends EditableNode {
 
-  const string SYNTAX_KIND = 'AnonymousClass';
+  const string SYNTAX_KIND = 'anonymous_class';
 
   private EditableNode $_class_keyword;
   private EditableNode $_left_paren;

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4ab98100e2112cc8fec3bc6dab8609cf>>
+ * @generated SignedSource<<d51743b373d197266b13b6b64ec04356>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class RequireClause
   extends EditableNode
   implements IClassBodyDeclaration {
 
-  const string SYNTAX_KIND = 'RequireClause';
+  const string SYNTAX_KIND = 'require_clause';
 
   private EditableNode $_keyword;
   private EditableNode $_kind;

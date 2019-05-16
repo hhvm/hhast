@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b028d6a25ae7d5c5ff2134a643df51a8>>
+ * @generated SignedSource<<00a76253ef7be0b3f61bbe399f924e3e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class TypeConstDeclaration
   extends EditableNode
   implements IClassBodyDeclaration {
 
-  const string SYNTAX_KIND = 'TypeConstDeclaration';
+  const string SYNTAX_KIND = 'type_const_declaration';
 
   private EditableNode $_attribute_spec;
   private EditableNode $_abstract;

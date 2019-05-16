@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8d232f271761324f06f491e215334733>>
+ * @generated SignedSource<<6958ad6e205e4785b4efaae2495e6572>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class LambdaExpression
   extends EditableNode
   implements IHasFunctionBody, ILambdaBody, IHasAttributeSpec, IExpression {
 
-  const string SYNTAX_KIND = 'LambdaExpression';
+  const string SYNTAX_KIND = 'lambda_expression';
 
   private EditableNode $_attribute_spec;
   private EditableNode $_async;

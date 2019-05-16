@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6333c33690e940208e665eebadc25135>>
+ * @generated SignedSource<<b4846de9b0676f9aadba7a245e51e53e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class SwitchFallthrough extends EditableNode implements IStatement {
 
-  const string SYNTAX_KIND = 'SwitchFallthrough';
+  const string SYNTAX_KIND = 'switch_fallthrough';
 
   private EditableNode $_keyword;
   private EditableNode $_semicolon;

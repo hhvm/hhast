@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9f672f6259d262b35a260a649f6ff4e6>>
+ * @generated SignedSource<<186eee5957f8a93226f13675b326bf23>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class ClassnameTypeSpecifier
   extends EditableNode
   implements ITypeSpecifier {
 
-  const string SYNTAX_KIND = 'ClassnameTypeSpecifier';
+  const string SYNTAX_KIND = 'classname_type_specifier';
 
   private EditableNode $_keyword;
   private EditableNode $_left_angle;

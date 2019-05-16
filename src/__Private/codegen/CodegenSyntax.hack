@@ -76,7 +76,7 @@ final class CodegenSyntax extends CodegenBase {
       ->addConstant(
         $cg->codegenClassConstant('SYNTAX_KIND')
           ->setType('string')
-          ->setValue($syntax['kind_name'], HackBuilderValues::export()),
+          ->setValue($syntax['type_name'], HackBuilderValues::export()),
       )
       ->setConstructor($this->generateConstructor($syntax))
       ->addMethod($this->generateFromJSONMethod($syntax))

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4bb746bc703c744865e47297d897ea7d>>
+ * @generated SignedSource<<323ad03ea7b2e873b2607fd8915ff34f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class MarkupSection extends EditableNode {
 
-  const string SYNTAX_KIND = 'MarkupSection';
+  const string SYNTAX_KIND = 'markup_section';
 
   private EditableNode $_prefix;
   private EditableNode $_text;

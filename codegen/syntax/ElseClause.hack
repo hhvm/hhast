@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f046a7a048a39ddda3e179904e5ce639>>
+ * @generated SignedSource<<e20e710b279ecc7feb8c78721cbc481e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class ElseClause extends EditableNode implements IControlFlowStatement {
 
-  const string SYNTAX_KIND = 'ElseClause';
+  const string SYNTAX_KIND = 'else_clause';
 
   private EditableNode $_keyword;
   private EditableNode $_statement;

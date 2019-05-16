@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ff5fb482dd81dc3037ecf998b1d121fb>>
+ * @generated SignedSource<<981d7437247c12745b973cb0d056a241>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ abstract class ClassishDeclarationGeneratedBase
   extends EditableNode
   implements IHasAttributeSpec {
 
-  const string SYNTAX_KIND = 'ClassishDeclaration';
+  const string SYNTAX_KIND = 'classish_declaration';
 
   private EditableNode $_attribute;
   private EditableNode $_modifiers;

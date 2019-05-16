@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5e15da6e35120033fa6eb39a13ea769a>>
+ * @generated SignedSource<<073db91fd5c8f3325722d769d4fc9337>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class AliasDeclaration extends EditableNode implements IHasAttributeSpec {
 
-  const string SYNTAX_KIND = 'AliasDeclaration';
+  const string SYNTAX_KIND = 'alias_declaration';
 
   private EditableNode $_attribute_spec;
   private EditableNode $_keyword;

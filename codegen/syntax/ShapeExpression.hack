@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3f9baf323b24d0784464f59ee158cf51>>
+ * @generated SignedSource<<e60fd456380056b5630485256f70ce65>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class ShapeExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
 
-  const string SYNTAX_KIND = 'ShapeExpression';
+  const string SYNTAX_KIND = 'shape_expression';
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<824c7a55a3b0c204c9a358f56faabd52>>
+ * @generated SignedSource<<c8a026fee99b21269aeaec75e3049cc0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class EchoStatement extends EditableNode implements IStatement {
 
-  const string SYNTAX_KIND = 'EchoStatement';
+  const string SYNTAX_KIND = 'echo_statement';
 
   private EditableNode $_keyword;
   private EditableNode $_expressions;

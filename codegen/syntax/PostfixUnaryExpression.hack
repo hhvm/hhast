@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5ddf933eb05f976076c9c0f277b34252>>
+ * @generated SignedSource<<cf209f6d1eb6084b67147dc38ff03466>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class PostfixUnaryExpression
   extends EditableNode
   implements IHasOperator, ILambdaBody, IExpression {
 
-  const string SYNTAX_KIND = 'PostfixUnaryExpression';
+  const string SYNTAX_KIND = 'postfix_unary_expression';
 
   private EditableNode $_operand;
   private EditableNode $_operator;

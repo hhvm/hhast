@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<af9fd79b2c033cd8120d4ea44dcd4c7f>>
+ * @generated SignedSource<<58259801303e23992a3b6203aadff886>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class ConcurrentStatement extends EditableNode implements IStatement {
 
-  const string SYNTAX_KIND = 'ConcurrentStatement';
+  const string SYNTAX_KIND = 'concurrent_statement';
 
   private EditableNode $_keyword;
   private EditableNode $_statement;

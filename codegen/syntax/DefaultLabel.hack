@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<87749dbc755119dc33f443dab50003f2>>
+ * @generated SignedSource<<45a102f4694ea14a581e7583aa4f6f41>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class DefaultLabel extends EditableNode implements ISwitchLabel {
 
-  const string SYNTAX_KIND = 'DefaultLabel';
+  const string SYNTAX_KIND = 'default_label';
 
   private EditableNode $_keyword;
   private EditableNode $_colon;

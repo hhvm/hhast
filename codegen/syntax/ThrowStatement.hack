@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dd99fad680386365e5d1e7988d1c1b39>>
+ * @generated SignedSource<<774336f7144f8c083f200f02de68fa55>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class ThrowStatement extends EditableNode implements IStatement {
 
-  const string SYNTAX_KIND = 'ThrowStatement';
+  const string SYNTAX_KIND = 'throw_statement';
 
   private EditableNode $_keyword;
   private EditableNode $_expression;

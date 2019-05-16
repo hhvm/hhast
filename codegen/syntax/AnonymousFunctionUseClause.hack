@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2d88967c1307298ffafd7a6f9daf097f>>
+ * @generated SignedSource<<5097fc7ce486c38137d61bc7ca2190cc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class AnonymousFunctionUseClause extends EditableNode {
 
-  const string SYNTAX_KIND = 'AnonymousFunctionUseClause';
+  const string SYNTAX_KIND = 'anonymous_function_use_clause';
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;

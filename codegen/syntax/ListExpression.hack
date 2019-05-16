@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bbcd4ac5d44a03f676a2e894a251ebf9>>
+ * @generated SignedSource<<d0084456a3270c2b7ab914c00c6942a4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class ListExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
 
-  const string SYNTAX_KIND = 'ListExpression';
+  const string SYNTAX_KIND = 'list_expression';
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;

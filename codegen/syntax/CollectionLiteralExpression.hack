@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<40d2a26dbd06bc675bcd319dc9aabd0d>>
+ * @generated SignedSource<<303627c88421e14fb97c833c25f79c35>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class CollectionLiteralExpression
   extends EditableNode
   implements IContainer, ILambdaBody, IExpression {
 
-  const string SYNTAX_KIND = 'CollectionLiteralExpression';
+  const string SYNTAX_KIND = 'collection_literal_expression';
 
   private EditableNode $_name;
   private EditableNode $_left_brace;

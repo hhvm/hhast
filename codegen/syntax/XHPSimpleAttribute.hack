@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8db7be06180bca7724dd985c6f79ebd0>>
+ * @generated SignedSource<<6aa8fa40f5e7a44ff71e854d1ec66323>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class XHPSimpleAttribute extends EditableNode implements IXHPAttribute {
 
-  const string SYNTAX_KIND = 'XHPSimpleAttribute';
+  const string SYNTAX_KIND = 'xhp_simple_attribute';
 
   private EditableNode $_name;
   private EditableNode $_equal;

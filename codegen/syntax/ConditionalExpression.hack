@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<68ec5d948f98655c3b2afbdf6e07bd9a>>
+ * @generated SignedSource<<dc80591d91e4e1fe8a3f31ff44b671c9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class ConditionalExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
 
-  const string SYNTAX_KIND = 'ConditionalExpression';
+  const string SYNTAX_KIND = 'conditional_expression';
 
   private EditableNode $_test;
   private EditableNode $_question;

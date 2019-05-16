@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ff80c634e1a0108df957c64875d511f0>>
+ * @generated SignedSource<<b5c84d427b103e1c4f3833da6b531996>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class SimpleTypeSpecifier
   extends EditableNode
   implements ISimpleCreationSpecifier, ITypeSpecifier {
 
-  const string SYNTAX_KIND = 'SimpleTypeSpecifier';
+  const string SYNTAX_KIND = 'simple_type_specifier';
 
   private EditableNode $_specifier;
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1ba90ebf6f439053aa3396bf19e3be14>>
+ * @generated SignedSource<<2edda3c9c09d08ee2a0898c6ce7fc33c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class UnsetStatement extends EditableNode implements IStatement {
 
-  const string SYNTAX_KIND = 'UnsetStatement';
+  const string SYNTAX_KIND = 'unset_statement';
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;

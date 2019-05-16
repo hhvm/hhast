@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<05d7d1bdca50082e559c642919768713>>
+ * @generated SignedSource<<b09566ae9ebf8453da7800a8171b4692>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class WhileStatement
   extends EditableNode
   implements IControlFlowStatement, ILoopStatement, IStatement {
 
-  const string SYNTAX_KIND = 'WhileStatement';
+  const string SYNTAX_KIND = 'while_statement';
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ab710af1a924ffa805fd9b0bc1a5609f>>
+ * @generated SignedSource<<9c55a8bec7aff06d91860e0dd081637a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class Php7AnonymousFunction
   extends EditableNode
   implements IHasFunctionBody, ILambdaBody, IExpression {
 
-  const string SYNTAX_KIND = 'Php7AnonymousFunction';
+  const string SYNTAX_KIND = 'php7_anonymous_function';
 
   private EditableNode $_attribute_spec;
   private EditableNode $_static_keyword;

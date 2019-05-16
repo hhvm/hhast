@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<127f95e6d8adcdac3c1be52aefa2dd31>>
+ * @generated SignedSource<<ffde629a7a8453b024c7fc31257c94ce>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class TraitUse extends EditableNode implements IClassBodyDeclaration {
 
-  const string SYNTAX_KIND = 'TraitUse';
+  const string SYNTAX_KIND = 'trait_use';
 
   private EditableNode $_keyword;
   private EditableNode $_names;

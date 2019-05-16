@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7c76f78c90d8a58fd193ba99da05f0f9>>
+ * @generated SignedSource<<f49aa403d331e7532f8c1219b943e48a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class VectorArrayTypeSpecifier
   extends EditableNode
   implements ITypeSpecifier {
 
-  const string SYNTAX_KIND = 'VectorArrayTypeSpecifier';
+  const string SYNTAX_KIND = 'vector_array_type_specifier';
 
   private EditableNode $_keyword;
   private EditableNode $_left_angle;

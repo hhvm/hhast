@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6b249906b3b399581bd9a88d63b92229>>
+ * @generated SignedSource<<e68f9ec422c375bd5ee8409344951190>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class QualifiedName extends EditableNode implements INameishNode {
 
-  const string SYNTAX_KIND = 'QualifiedName';
+  const string SYNTAX_KIND = 'qualified_name';
 
   private EditableNode $_parts;
 

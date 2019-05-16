@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<27d9e2717018fc23feff0ea514113a47>>
+ * @generated SignedSource<<aa00b51fc18a186e5d8f016316f3e4af>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class TraitUsePrecedenceItem
   extends EditableNode
   implements ITraitUseItem {
 
-  const string SYNTAX_KIND = 'TraitUsePrecedenceItem';
+  const string SYNTAX_KIND = 'trait_use_precedence_item';
 
   private EditableNode $_name;
   private EditableNode $_keyword;

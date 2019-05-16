@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<39bf59353349ae32971cb461141bfa3c>>
+ * @generated SignedSource<<fdd3f1431483bc6106653b2d0e949998>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class ErrorSyntax extends EditableNode {
 
-  const string SYNTAX_KIND = 'ErrorSyntax';
+  const string SYNTAX_KIND = 'error';
 
   private EditableNode $_error;
 

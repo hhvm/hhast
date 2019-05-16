@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cc4b3ce200685ad413c7c6d07aaaef32>>
+ * @generated SignedSource<<920d1151c90f78f18af31c4decb8e6a7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class InclusionExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
 
-  const string SYNTAX_KIND = 'InclusionExpression';
+  const string SYNTAX_KIND = 'inclusion_expression';
 
   private EditableNode $_require;
   private EditableNode $_filename;

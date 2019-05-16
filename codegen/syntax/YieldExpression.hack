@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2077b71964e806dc9569066a452893a9>>
+ * @generated SignedSource<<5f0092845d08662a4a9ba05a501cc42f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class YieldExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
 
-  const string SYNTAX_KIND = 'YieldExpression';
+  const string SYNTAX_KIND = 'yield_expression';
 
   private EditableNode $_keyword;
   private EditableNode $_operand;

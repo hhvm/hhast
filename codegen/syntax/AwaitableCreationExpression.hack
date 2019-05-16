@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e66c2610a9a1933c309938a95110834e>>
+ * @generated SignedSource<<f9600a150cbecb94dc32c395871dd1e7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ abstract class AwaitableCreationExpressionGeneratedBase
   extends EditableNode
   implements IHasFunctionBody, ILambdaBody, IHasAttributeSpec, IExpression {
 
-  const string SYNTAX_KIND = 'AwaitableCreationExpression';
+  const string SYNTAX_KIND = 'awaitable_creation_expression';
 
   private EditableNode $_attribute_spec;
   private EditableNode $_async;

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7115f35404fd34152dd4815d23c26527>>
+ * @generated SignedSource<<709dbaa6fb3bfcc5736168ce5badff53>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ abstract class ParameterDeclarationGeneratedBase
   extends EditableNode
   implements IHasTypeHint, IHasAttributeSpec, IParameter {
 
-  const string SYNTAX_KIND = 'ParameterDeclaration';
+  const string SYNTAX_KIND = 'parameter_declaration';
 
   private EditableNode $_attribute;
   private EditableNode $_visibility;

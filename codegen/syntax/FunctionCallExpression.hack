@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<41292cec977609d74cdd8ed8dd0fa22f>>
+ * @generated SignedSource<<7b6e593ac155831be198616c624f9f21>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class FunctionCallExpression
   extends EditableNode
   implements IFunctionCallishExpression, ILambdaBody, IExpression {
 
-  const string SYNTAX_KIND = 'FunctionCallExpression';
+  const string SYNTAX_KIND = 'function_call_expression';
 
   private EditableNode $_receiver;
   private EditableNode $_type_args;

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2e4ed63ef25fcb0a9820225c85e0c07a>>
+ * @generated SignedSource<<6cb325a8cbbf10d5e7e62124133d2d0d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class DeclareDirectiveStatement
   extends EditableNode
   implements IStatement {
 
-  const string SYNTAX_KIND = 'DeclareDirectiveStatement';
+  const string SYNTAX_KIND = 'declare_directive_statement';
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;

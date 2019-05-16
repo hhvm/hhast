@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3683d4405bd1941aa92ae68337516f4c>>
+ * @generated SignedSource<<16703a0e125ab67b88eab5c4cc01f358>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class ConstructorCall extends EditableNode {
 
-  const string SYNTAX_KIND = 'ConstructorCall';
+  const string SYNTAX_KIND = 'constructor_call';
 
   private EditableNode $_type;
   private EditableNode $_left_paren;

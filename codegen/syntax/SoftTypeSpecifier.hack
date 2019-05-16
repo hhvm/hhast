@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0555d0072db9e21c375d087dd9010b4b>>
+ * @generated SignedSource<<2e39aebfa18dc71a2bbcb3b2d8e9c116>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class SoftTypeSpecifier extends EditableNode implements ITypeSpecifier {
 
-  const string SYNTAX_KIND = 'SoftTypeSpecifier';
+  const string SYNTAX_KIND = 'soft_type_specifier';
 
   private EditableNode $_at;
   private EditableNode $_type;

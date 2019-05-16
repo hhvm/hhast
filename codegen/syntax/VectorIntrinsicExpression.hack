@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<76c629fd4b582da2a5c36a84d79aa67d>>
+ * @generated SignedSource<<ea84f9096ed8dc2f1fade0fa516b362e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class VectorIntrinsicExpression
   extends EditableNode
   implements IHackArray, IContainer, ILambdaBody, IExpression {
 
-  const string SYNTAX_KIND = 'VectorIntrinsicExpression';
+  const string SYNTAX_KIND = 'vector_intrinsic_expression';
 
   private EditableNode $_keyword;
   private EditableNode $_explicit_type;

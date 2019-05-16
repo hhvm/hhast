@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<10efa917e63b627465a3d05c5910ff5e>>
+ * @generated SignedSource<<c23e038222c7d47ff9becde2795343f2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class EvalExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
 
-  const string SYNTAX_KIND = 'EvalExpression';
+  const string SYNTAX_KIND = 'eval_expression';
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;

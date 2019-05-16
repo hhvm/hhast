@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<348d0e435ab59abe438247f156fe47c8>>
+ * @generated SignedSource<<f44132358dd719a5f7e4613352fdaa06>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class SwitchSection extends EditableNode {
 
-  const string SYNTAX_KIND = 'SwitchSection';
+  const string SYNTAX_KIND = 'switch_section';
 
   private EditableNode $_labels;
   private EditableNode $_statements;

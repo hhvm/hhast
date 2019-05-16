@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9869338b02297f8705145f7463fdc7a7>>
+ * @generated SignedSource<<5cee2d96caacb198aa2ab932dcc3d179>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class LetStatement extends EditableNode implements IStatement {
 
-  const string SYNTAX_KIND = 'LetStatement';
+  const string SYNTAX_KIND = 'let_statement';
 
   private EditableNode $_keyword;
   private EditableNode $_name;

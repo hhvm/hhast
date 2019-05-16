@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<699b8741c0c1699bb9a84f222238b61a>>
+ * @generated SignedSource<<1fe15985869d550174737961d2182a66>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class XHPClassAttributeDeclaration
   extends EditableNode
   implements IClassBodyDeclaration {
 
-  const string SYNTAX_KIND = 'XHPClassAttributeDeclaration';
+  const string SYNTAX_KIND = 'xhp_class_attribute_declaration';
 
   private EditableNode $_keyword;
   private EditableNode $_attributes;

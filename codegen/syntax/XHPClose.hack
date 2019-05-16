@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f90b2334bc006a5cefb3ad2ab88c3d97>>
+ * @generated SignedSource<<80236d9759857ab9964cc4bd116b3237>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class XHPClose extends EditableNode {
 
-  const string SYNTAX_KIND = 'XHPClose';
+  const string SYNTAX_KIND = 'xhp_close';
 
   private EditableNode $_left_angle;
   private EditableNode $_name;

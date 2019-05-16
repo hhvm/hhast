@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<daa4155ccb0e86348ecd6809a29e1e44>>
+ * @generated SignedSource<<ed21aac15b1be40ac6bd827e14580995>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class InclusionDirective extends EditableNode implements IStatement {
 
-  const string SYNTAX_KIND = 'InclusionDirective';
+  const string SYNTAX_KIND = 'inclusion_directive';
 
   private EditableNode $_expression;
   private EditableNode $_semicolon;

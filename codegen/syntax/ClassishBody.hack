@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c36036216a650bf3d24982b56acd5a6f>>
+ * @generated SignedSource<<67af158fdb958e0c6e31029d35ae1d3d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class ClassishBody extends EditableNode {
 
-  const string SYNTAX_KIND = 'ClassishBody';
+  const string SYNTAX_KIND = 'classish_body';
 
   private EditableNode $_left_brace;
   private EditableNode $_elements;

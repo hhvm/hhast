@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<045cabd54f1eaf8c0592b4c544c8cb89>>
+ * @generated SignedSource<<c5b664339976067af5e5d052c69c50ea>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ abstract class AlternateLoopStatementGeneratedBase
   extends EditableNode
   implements IControlFlowStatement, ILoopStatement, IStatement {
 
-  const string SYNTAX_KIND = 'AlternateLoopStatement';
+  const string SYNTAX_KIND = 'alternate_loop_statement';
 
   private EditableNode $_opening_colon;
   private EditableNode $_statements;

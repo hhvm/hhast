@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3afd176796cfc31ff9f4c72221c6977a>>
+ * @generated SignedSource<<46c7ae6f5031ebe41f79762fb321c975>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class PropertyDeclarator extends EditableNode {
 
-  const string SYNTAX_KIND = 'PropertyDeclarator';
+  const string SYNTAX_KIND = 'property_declarator';
 
   private EditableNode $_name;
   private EditableNode $_initializer;

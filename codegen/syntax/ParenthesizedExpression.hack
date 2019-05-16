@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<84db28eaf4981e5f56ebfad74ec8901f>>
+ * @generated SignedSource<<a6dab57b9ba917fbd10b7849c94e151a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class ParenthesizedExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
 
-  const string SYNTAX_KIND = 'ParenthesizedExpression';
+  const string SYNTAX_KIND = 'parenthesized_expression';
 
   private EditableNode $_left_paren;
   private EditableNode $_expression;

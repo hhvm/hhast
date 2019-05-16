@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2a81190c409aa589718500faea08c8c0>>
+ * @generated SignedSource<<5a507915ba94c6e2e94bf67581a8c605>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class IssetExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
 
-  const string SYNTAX_KIND = 'IssetExpression';
+  const string SYNTAX_KIND = 'isset_expression';
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;

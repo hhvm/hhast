@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a74d179b7c79456b409fa6acf203622d>>
+ * @generated SignedSource<<f372c7d6bb7454cfc64e7f9f57fd01e1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class EndOfFile extends EditableNode {
 
-  const string SYNTAX_KIND = 'EndOfFile';
+  const string SYNTAX_KIND = 'end_of_file';
 
   private EditableNode $_token;
 

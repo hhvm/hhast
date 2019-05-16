@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c0ce72866aed68613bc8f74a6f4e7a73>>
+ * @generated SignedSource<<e4329a484c15ea3f2ee8296d297c627f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class ClosureParameterTypeSpecifier
   extends EditableNode
   implements ITypeSpecifier {
 
-  const string SYNTAX_KIND = 'ClosureParameterTypeSpecifier';
+  const string SYNTAX_KIND = 'closure_parameter_type_specifier';
 
   private EditableNode $_call_convention;
   private EditableNode $_type;

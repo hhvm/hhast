@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<954c84d804acce425e2b0de33867d7f9>>
+ * @generated SignedSource<<f84ec0eb840162b6c4a73e927ce99f89>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class DarrayTypeSpecifier extends EditableNode implements ITypeSpecifier {
 
-  const string SYNTAX_KIND = 'DarrayTypeSpecifier';
+  const string SYNTAX_KIND = 'darray_type_specifier';
 
   private EditableNode $_keyword;
   private EditableNode $_left_angle;

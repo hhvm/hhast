@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<886f2b1208dc1c752da5edc0af5c9056>>
+ * @generated SignedSource<<9a69a8031ebd1593dc9c7723ef2492a2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class WhereClause extends EditableNode {
 
-  const string SYNTAX_KIND = 'WhereClause';
+  const string SYNTAX_KIND = 'where_clause';
 
   private EditableNode $_keyword;
   private EditableNode $_constraints;

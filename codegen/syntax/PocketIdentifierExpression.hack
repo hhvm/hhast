@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cd1319b6281581e2a3ef01eff67e690c>>
+ * @generated SignedSource<<055b05625d5217a9bcf16682f3444ba9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class PocketIdentifierExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
 
-  const string SYNTAX_KIND = 'PocketIdentifierExpression';
+  const string SYNTAX_KIND = 'pocket_identifier_expression';
 
   private EditableNode $_qualifier;
   private EditableNode $_pu_operator;

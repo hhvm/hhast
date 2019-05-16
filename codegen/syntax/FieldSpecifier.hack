@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c031364c4715c9ec1e17d0d6153a50d5>>
+ * @generated SignedSource<<973639ca1528edc2d85def7e5a91dd2a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class FieldSpecifier extends EditableNode implements ITypeSpecifier {
 
-  const string SYNTAX_KIND = 'FieldSpecifier';
+  const string SYNTAX_KIND = 'field_specifier';
 
   private EditableNode $_question;
   private EditableNode $_name;

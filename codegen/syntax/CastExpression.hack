@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4a4627281781e94f2c2d118eea1421aa>>
+ * @generated SignedSource<<04776fd93d8893e1ebe7293f39ce029a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class CastExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
 
-  const string SYNTAX_KIND = 'CastExpression';
+  const string SYNTAX_KIND = 'cast_expression';
 
   private EditableNode $_left_paren;
   private EditableNode $_type;

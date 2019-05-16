@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<386d6464efde32c3f8fe102887c5b281>>
+ * @generated SignedSource<<4df77f17b1aeeb73cd902e160c84b45c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class DecoratedExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
 
-  const string SYNTAX_KIND = 'DecoratedExpression';
+  const string SYNTAX_KIND = 'decorated_expression';
 
   private EditableNode $_decorator;
   private EditableNode $_expression;

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6e989277743d42a8b74ac159a9c5d25e>>
+ * @generated SignedSource<<f226530098a8d27ed09cd9ccab21938c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class CaseLabel extends EditableNode implements ISwitchLabel {
 
-  const string SYNTAX_KIND = 'CaseLabel';
+  const string SYNTAX_KIND = 'case_label';
 
   private EditableNode $_keyword;
   private EditableNode $_expression;

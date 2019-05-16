@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0ab91eb4b028410df2abd1ec544f33b2>>
+ * @generated SignedSource<<986ab1aee5a3f05abce69d968c92d5fc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class NullableTypeSpecifier
   extends EditableNode
   implements ITypeSpecifier {
 
-  const string SYNTAX_KIND = 'NullableTypeSpecifier';
+  const string SYNTAX_KIND = 'nullable_type_specifier';
 
   private EditableNode $_question;
   private EditableNode $_type;

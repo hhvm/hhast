@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f79fd4c28afbe2744980cc63a34f3995>>
+ * @generated SignedSource<<ec509fbb69495d89ee4ac0130a893508>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class TupleExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
 
-  const string SYNTAX_KIND = 'TupleExpression';
+  const string SYNTAX_KIND = 'tuple_expression';
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;

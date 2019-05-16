@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7e3b82af9442f5110bb20e9ab37a7f80>>
+ * @generated SignedSource<<c5a9f3deb2d92693fd286e76015f9ea5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class XHPChildrenDeclaration
   extends EditableNode
   implements IClassBodyDeclaration {
 
-  const string SYNTAX_KIND = 'XHPChildrenDeclaration';
+  const string SYNTAX_KIND = 'xhp_children_declaration';
 
   private EditableNode $_keyword;
   private EditableNode $_expression;

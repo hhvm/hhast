@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6776bc001d56b5b9b13997de5b717751>>
+ * @generated SignedSource<<5ed320266e61d249b54d81b15f90a81e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class XHPChildrenParenthesizedList extends EditableNode {
 
-  const string SYNTAX_KIND = 'XHPChildrenParenthesizedList';
+  const string SYNTAX_KIND = 'xhp_children_parenthesized_list';
 
   private EditableNode $_left_paren;
   private EditableNode $_xhp_children;

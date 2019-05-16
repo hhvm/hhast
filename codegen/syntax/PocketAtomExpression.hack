@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8c1166ff47ff08a493419a48545c14f5>>
+ * @generated SignedSource<<3e10c2dc15b6a8ef8c35cbd3ebcf4dac>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class PocketAtomExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
 
-  const string SYNTAX_KIND = 'PocketAtomExpression';
+  const string SYNTAX_KIND = 'pocket_atom_expression';
 
   private EditableNode $_glyph;
   private EditableNode $_expression;

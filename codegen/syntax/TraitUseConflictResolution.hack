@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e3751e25125bb09fb0cce940362e9558>>
+ * @generated SignedSource<<c8340c9d8e9083330fcc27e19006e6a1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class TraitUseConflictResolution
   extends EditableNode
   implements IClassBodyDeclaration {
 
-  const string SYNTAX_KIND = 'TraitUseConflictResolution';
+  const string SYNTAX_KIND = 'trait_use_conflict_resolution';
 
   private EditableNode $_keyword;
   private EditableNode $_names;

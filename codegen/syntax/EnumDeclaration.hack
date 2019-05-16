@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<caa626cfc58d6a9b05b8f93178423f47>>
+ * @generated SignedSource<<ad2d61b84201b7750409236fdf4a8dae>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class EnumDeclaration extends EditableNode implements IHasAttributeSpec {
 
-  const string SYNTAX_KIND = 'EnumDeclaration';
+  const string SYNTAX_KIND = 'enum_declaration';
 
   private EditableNode $_attribute_spec;
   private EditableNode $_keyword;

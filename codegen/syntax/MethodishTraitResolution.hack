@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<51c4cad320082e957dfcca72c4fcadba>>
+ * @generated SignedSource<<a9f1310940d4bca3e6553712d3e388bf>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class MethodishTraitResolution
   extends EditableNode
   implements IClassBodyDeclaration {
 
-  const string SYNTAX_KIND = 'MethodishTraitResolution';
+  const string SYNTAX_KIND = 'methodish_trait_resolution';
 
   private EditableNode $_attribute;
   private EditableNode $_function_decl_header;

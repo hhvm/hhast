@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c9d17a2fa334210f37399b7e78f6aa55>>
+ * @generated SignedSource<<d610d859eb514dc0239a3e8dd4f03250>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class GotoStatement extends EditableNode implements IStatement {
 
-  const string SYNTAX_KIND = 'GotoStatement';
+  const string SYNTAX_KIND = 'goto_statement';
 
   private EditableNode $_keyword;
   private EditableNode $_label_name;

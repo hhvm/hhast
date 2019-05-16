@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0cc9a9acb180a562408baf57feaa512b>>
+ * @generated SignedSource<<d92797176fb20b0b10f8bac8f9682c8c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class ForeachStatement
   extends EditableNode
   implements IControlFlowStatement, ILoopStatement, IStatement {
 
-  const string SYNTAX_KIND = 'ForeachStatement';
+  const string SYNTAX_KIND = 'foreach_statement';
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<427556b7209cccc9a56ed74b73ade1d5>>
+ * @generated SignedSource<<25d1945584f1ffee67cdf31de18420a9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class ListItem extends EditableNode {
 
-  const string SYNTAX_KIND = 'ListItem';
+  const string SYNTAX_KIND = 'list_item';
 
   private EditableNode $_item;
   private EditableNode $_separator;

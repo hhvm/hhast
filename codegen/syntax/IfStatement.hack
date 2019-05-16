@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b662b671924e8b4b5a1148305373083f>>
+ * @generated SignedSource<<cb3828260f65bceba7a169641e87e174>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class IfStatement
   extends EditableNode
   implements IControlFlowStatement, IStatement {
 
-  const string SYNTAX_KIND = 'IfStatement';
+  const string SYNTAX_KIND = 'if_statement';
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;

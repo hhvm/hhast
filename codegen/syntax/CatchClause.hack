@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7a7f9485d46a409da478a5ea1f347cb3>>
+ * @generated SignedSource<<9e9a2021a6b49171db8534b562be5d9e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class CatchClause extends EditableNode {
 
-  const string SYNTAX_KIND = 'CatchClause';
+  const string SYNTAX_KIND = 'catch_clause';
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;

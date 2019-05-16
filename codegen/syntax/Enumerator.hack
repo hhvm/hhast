@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<320b6bc2aeff68a6ea5a72acf8c69cdc>>
+ * @generated SignedSource<<5db3b734ccc6b9a2b6ef5e3ca33ba62b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class Enumerator extends EditableNode {
 
-  const string SYNTAX_KIND = 'Enumerator';
+  const string SYNTAX_KIND = 'enumerator';
 
   private EditableNode $_name;
   private EditableNode $_equal;

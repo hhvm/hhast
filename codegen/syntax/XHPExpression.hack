@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7fc069e0cc80cf090fc5b1d46c85c9d5>>
+ * @generated SignedSource<<415fe606df288c13752fa471bfb7f1c2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class XHPExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
 
-  const string SYNTAX_KIND = 'XHPExpression';
+  const string SYNTAX_KIND = 'xhp_expression';
 
   private EditableNode $_open;
   private EditableNode $_body;

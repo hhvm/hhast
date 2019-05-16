@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b40077573ee88366c054a1c931bcf0d0>>
+ * @generated SignedSource<<409915505dc7ae20455e6d52569f4b31>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class ConstantDeclarator extends EditableNode {
 
-  const string SYNTAX_KIND = 'ConstantDeclarator';
+  const string SYNTAX_KIND = 'constant_declarator';
 
   private EditableNode $_name;
   private EditableNode $_initializer;

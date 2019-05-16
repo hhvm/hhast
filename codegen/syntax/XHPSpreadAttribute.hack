@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1265b73369fa6c7e1491fadd80848240>>
+ * @generated SignedSource<<126741b959a353efbddd0879c917d948>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class XHPSpreadAttribute extends EditableNode {
 
-  const string SYNTAX_KIND = 'XHPSpreadAttribute';
+  const string SYNTAX_KIND = 'xhp_spread_attribute';
 
   private EditableNode $_left_brace;
   private EditableNode $_spread_operator;

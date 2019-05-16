@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cd8a4ff9d335f8eb190e8fcd1473d0cb>>
+ * @generated SignedSource<<9d3b604a728b190a78921e6467f66946>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class EmbeddedBracedExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
 
-  const string SYNTAX_KIND = 'EmbeddedBracedExpression';
+  const string SYNTAX_KIND = 'embedded_braced_expression';
 
   private EditableNode $_left_brace;
   private EditableNode $_expression;

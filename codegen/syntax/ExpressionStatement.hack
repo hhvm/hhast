@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<70634dc848a06e96fec718da470e2fd7>>
+ * @generated SignedSource<<6b32957b6b1d2e5fe0e6cb9756a92939>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class ExpressionStatement extends EditableNode implements IStatement {
 
-  const string SYNTAX_KIND = 'ExpressionStatement';
+  const string SYNTAX_KIND = 'expression_statement';
 
   private EditableNode $_expression;
   private EditableNode $_semicolon;

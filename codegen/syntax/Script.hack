@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4eaf4eaa9c4c9cbbc59a20f6b67e6c90>>
+ * @generated SignedSource<<72ab29c7757b6d04a0a43ca204d3cfe5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class Script extends EditableNode {
 
-  const string SYNTAX_KIND = 'Script';
+  const string SYNTAX_KIND = 'script';
 
   private EditableNode $_declarations;
 

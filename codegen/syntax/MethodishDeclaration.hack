@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5534092607a7828307ef606f8d08154e>>
+ * @generated SignedSource<<ff145dab10eb74d1e433347d651c54ad>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -15,7 +15,7 @@ abstract class MethodishDeclarationGeneratedBase
     IHasFunctionBody,
     IHasAttributeSpec {
 
-  const string SYNTAX_KIND = 'MethodishDeclaration';
+  const string SYNTAX_KIND = 'methodish_declaration';
 
   private EditableNode $_attribute;
   private EditableNode $_function_decl_header;

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<af2017eac22cd87f3973476c9b7c7bc5>>
+ * @generated SignedSource<<1c882eec7f08d5276718b22cbad59197>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class NullableAsExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
 
-  const string SYNTAX_KIND = 'NullableAsExpression';
+  const string SYNTAX_KIND = 'nullable_as_expression';
 
   private EditableNode $_left_operand;
   private EditableNode $_operator;

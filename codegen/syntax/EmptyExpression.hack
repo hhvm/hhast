@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<81187896a021092a9ec629d94898b703>>
+ * @generated SignedSource<<93ea114bc3e125da29ce6c82abade3b5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class EmptyExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
 
-  const string SYNTAX_KIND = 'EmptyExpression';
+  const string SYNTAX_KIND = 'empty_expression';
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;

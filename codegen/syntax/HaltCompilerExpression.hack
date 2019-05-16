@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e684ff74e52e6b91bce56d7d49541540>>
+ * @generated SignedSource<<0004db9172ab42ad738330d109145bb4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class HaltCompilerExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
 
-  const string SYNTAX_KIND = 'HaltCompilerExpression';
+  const string SYNTAX_KIND = 'halt_compiler_expression';
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;

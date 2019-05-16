@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e40f2d45b8a4f697840c3265a2591c24>>
+ * @generated SignedSource<<6e182d3b7a700b4b49ba8080d1f60063>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class XHPRequired extends EditableNode {
 
-  const string SYNTAX_KIND = 'XHPRequired';
+  const string SYNTAX_KIND = 'xhp_required';
 
   private EditableNode $_at;
   private EditableNode $_keyword;

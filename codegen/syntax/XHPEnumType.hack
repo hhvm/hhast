@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2cd200a1b4c04dfa7eb61c03e539b2fc>>
+ * @generated SignedSource<<83a1b7d7b1eeef095f4b1cb324525800>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class XHPEnumType extends EditableNode implements ITypeSpecifier {
 
-  const string SYNTAX_KIND = 'XHPEnumType';
+  const string SYNTAX_KIND = 'xhp_enum_type';
 
   private EditableNode $_optional;
   private EditableNode $_keyword;

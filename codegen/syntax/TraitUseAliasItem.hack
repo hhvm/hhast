@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<98e46ff47af0f3aca5b23bce0a235e74>>
+ * @generated SignedSource<<dc8dc8a1c83c1e3f8fd3d138a46107c2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class TraitUseAliasItem extends EditableNode implements ITraitUseItem {
 
-  const string SYNTAX_KIND = 'TraitUseAliasItem';
+  const string SYNTAX_KIND = 'trait_use_alias_item';
 
   private EditableNode $_aliasing_name;
   private EditableNode $_keyword;

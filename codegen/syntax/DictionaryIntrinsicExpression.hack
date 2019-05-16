@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1266ef153c78e77101200d78cfc67357>>
+ * @generated SignedSource<<da56b6dcbe15f5f84eb2e8b16b09f10d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class DictionaryIntrinsicExpression
   extends EditableNode
   implements IHackArray, IContainer, ILambdaBody, IExpression {
 
-  const string SYNTAX_KIND = 'DictionaryIntrinsicExpression';
+  const string SYNTAX_KIND = 'dictionary_intrinsic_expression';
 
   private EditableNode $_keyword;
   private EditableNode $_explicit_type;

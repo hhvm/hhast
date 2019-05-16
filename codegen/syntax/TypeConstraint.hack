@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<25c9390e509bec29bba99449bc5ec2d0>>
+ * @generated SignedSource<<fc60c5c3ece5cfe82e2cf79fc583014f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class TypeConstraint extends EditableNode {
 
-  const string SYNTAX_KIND = 'TypeConstraint';
+  const string SYNTAX_KIND = 'type_constraint';
 
   private EditableNode $_keyword;
   private EditableNode $_type;

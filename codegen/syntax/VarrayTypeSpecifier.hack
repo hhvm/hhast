@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8ff020e79e912464d36aa6e40799e7f6>>
+ * @generated SignedSource<<09403050cac1754247b333468d203454>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class VarrayTypeSpecifier extends EditableNode implements ITypeSpecifier {
 
-  const string SYNTAX_KIND = 'VarrayTypeSpecifier';
+  const string SYNTAX_KIND = 'varray_type_specifier';
 
   private EditableNode $_keyword;
   private EditableNode $_left_angle;

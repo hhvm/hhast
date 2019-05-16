@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<168615c22563a30712dd60414111163b>>
+ * @generated SignedSource<<7a49a87f1062eec57e655c2283223925>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class ArrayCreationExpression
   extends EditableNode
   implements IPHPArray, IContainer, ILambdaBody, IExpression {
 
-  const string SYNTAX_KIND = 'ArrayCreationExpression';
+  const string SYNTAX_KIND = 'array_creation_expression';
 
   private EditableNode $_left_bracket;
   private EditableNode $_members;

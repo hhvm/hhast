@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<15827e77eaf8234856fe54dafd2acbd4>>
+ * @generated SignedSource<<2c9ddeac2e54336b40d87bfe630261a6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class PrefixedStringExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
 
-  const string SYNTAX_KIND = 'PrefixedStringExpression';
+  const string SYNTAX_KIND = 'prefixed_string_expression';
 
   private EditableNode $_name;
   private EditableNode $_str;

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5e099611b0257f779c596aff6a0800f4>>
+ * @generated SignedSource<<3bd50728e5f477c8ce3e6a11802a1e16>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class TypeArguments extends EditableNode {
 
-  const string SYNTAX_KIND = 'TypeArguments';
+  const string SYNTAX_KIND = 'type_arguments';
 
   private EditableNode $_left_angle;
   private EditableNode $_types;

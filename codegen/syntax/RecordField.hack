@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e8c6b83f5fc0fb6da17586a563421e8b>>
+ * @generated SignedSource<<bfc496d29f491b48d499f50ba108b09e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class RecordField extends EditableNode {
 
-  const string SYNTAX_KIND = 'RecordField';
+  const string SYNTAX_KIND = 'record_field';
 
   private EditableNode $_name;
   private EditableNode $_colon;

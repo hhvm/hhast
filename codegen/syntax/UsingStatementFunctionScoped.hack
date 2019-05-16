@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f06a1a032cee981e2f0204bd874257fe>>
+ * @generated SignedSource<<0bd62363f784382b32f57119b6a4a5d4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class UsingStatementFunctionScoped
   extends EditableNode
   implements IStatement {
 
-  const string SYNTAX_KIND = 'UsingStatementFunctionScoped';
+  const string SYNTAX_KIND = 'using_statement_function_scoped';
 
   private EditableNode $_await_keyword;
   private EditableNode $_using_keyword;

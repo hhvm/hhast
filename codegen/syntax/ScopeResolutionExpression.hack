@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b941b6a019a249537076d48127c9b738>>
+ * @generated SignedSource<<3bd0cbb0ee9500aae763583f7f110cc6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class ScopeResolutionExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
 
-  const string SYNTAX_KIND = 'ScopeResolutionExpression';
+  const string SYNTAX_KIND = 'scope_resolution_expression';
 
   private EditableNode $_qualifier;
   private EditableNode $_operator;

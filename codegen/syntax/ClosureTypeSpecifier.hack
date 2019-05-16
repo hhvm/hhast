@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3022dbc96e34332079cd58b602ffadd3>>
+ * @generated SignedSource<<334eb8c32ada9ae14a4da304c19598e3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class ClosureTypeSpecifier
   extends EditableNode
   implements ITypeSpecifier {
 
-  const string SYNTAX_KIND = 'ClosureTypeSpecifier';
+  const string SYNTAX_KIND = 'closure_type_specifier';
 
   private EditableNode $_outer_left_paren;
   private EditableNode $_coroutine;

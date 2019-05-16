@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b46e665cc5832d0dd8be2f3743018c35>>
+ * @generated SignedSource<<07c978a67adbed12fe8378f739a83dbe>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class BreakStatement extends EditableNode implements IStatement {
 
-  const string SYNTAX_KIND = 'BreakStatement';
+  const string SYNTAX_KIND = 'break_statement';
 
   private EditableNode $_keyword;
   private EditableNode $_level;

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0439e0c6984f049e9473b1fe64a04326>>
+ * @generated SignedSource<<5ecba2de902cbb665d4bdf654af2023e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class RecordCreationExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
 
-  const string SYNTAX_KIND = 'RecordCreationExpression';
+  const string SYNTAX_KIND = 'record_creation_expression';
 
   private EditableNode $_type;
   private EditableNode $_left_bracket;

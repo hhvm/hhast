@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<be0ab1f0a83b66b0e63ff5568162c156>>
+ * @generated SignedSource<<a3720905a7c78b36720e9f40890fb576>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class FinallyClause extends EditableNode {
 
-  const string SYNTAX_KIND = 'FinallyClause';
+  const string SYNTAX_KIND = 'finally_clause';
 
   private EditableNode $_keyword;
   private EditableNode $_body;

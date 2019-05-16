@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9550b9b77d267c0817a1adf04db3333c>>
+ * @generated SignedSource<<bfe8f38815f72d0e5dac2ad76d63ba04>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class LikeTypeSpecifier extends EditableNode implements ITypeSpecifier {
 
-  const string SYNTAX_KIND = 'LikeTypeSpecifier';
+  const string SYNTAX_KIND = 'like_type_specifier';
 
   private EditableNode $_tilde;
   private EditableNode $_type;

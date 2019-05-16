@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3b02d68648a84532a686e9c6889c71ba>>
+ * @generated SignedSource<<3b2ca9621055b9c55729dec1625541f2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class KeysetTypeSpecifier extends EditableNode implements ITypeSpecifier {
 
-  const string SYNTAX_KIND = 'KeysetTypeSpecifier';
+  const string SYNTAX_KIND = 'keyset_type_specifier';
 
   private EditableNode $_keyword;
   private EditableNode $_left_angle;

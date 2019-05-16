@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0d48dfaaf5879745ab55d19ad235b529>>
+ * @generated SignedSource<<11c81760167674f5b6e115ae6442f3df>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class PocketFieldTypeDeclaration extends EditableNode {
 
-  const string SYNTAX_KIND = 'PocketFieldTypeDeclaration';
+  const string SYNTAX_KIND = 'pocket_field_type_declaration';
 
   private EditableNode $_case;
   private EditableNode $_type;

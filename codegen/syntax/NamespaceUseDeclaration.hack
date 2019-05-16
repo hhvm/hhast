@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d8263d32df7db30ca5c0f6d7f9a56bf1>>
+ * @generated SignedSource<<8fea836c2e3fc11534ad51c241d230fd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class NamespaceUseDeclaration
   extends EditableNode
   implements INamespaceUseDeclaration {
 
-  const string SYNTAX_KIND = 'NamespaceUseDeclaration';
+  const string SYNTAX_KIND = 'namespace_use_declaration';
 
   private EditableNode $_keyword;
   private EditableNode $_kind;

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b19d46d4ed3926ae1e9d6d840ed13713>>
+ * @generated SignedSource<<085347b4e4a12030377f7b4a0157a208>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class NamespaceEmptyBody extends EditableNode implements INamespaceBody {
 
-  const string SYNTAX_KIND = 'NamespaceEmptyBody';
+  const string SYNTAX_KIND = 'namespace_empty_body';
 
   private EditableNode $_semicolon;
 

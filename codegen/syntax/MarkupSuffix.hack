@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<73850a048761c065e7a789fd9d4b5d76>>
+ * @generated SignedSource<<86347c07e0fb4e0dbb104c5c66f9204a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class MarkupSuffix extends EditableNode {
 
-  const string SYNTAX_KIND = 'MarkupSuffix';
+  const string SYNTAX_KIND = 'markup_suffix';
 
   private EditableNode $_less_than_question;
   private EditableNode $_name;

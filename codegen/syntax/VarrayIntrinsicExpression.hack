@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a678a3fa66154537f2da308fbe2743a9>>
+ * @generated SignedSource<<97a4edc5ab8cace4d8d78f59e6be7d7d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class VarrayIntrinsicExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
 
-  const string SYNTAX_KIND = 'VarrayIntrinsicExpression';
+  const string SYNTAX_KIND = 'varray_intrinsic_expression';
 
   private EditableNode $_keyword;
   private EditableNode $_explicit_type;

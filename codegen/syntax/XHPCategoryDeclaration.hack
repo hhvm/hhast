@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a002d632023c7c50ecce727c04f4c468>>
+ * @generated SignedSource<<1d11cf1d077230f321a437ebb8b4c06f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class XHPCategoryDeclaration
   extends EditableNode
   implements IClassBodyDeclaration {
 
-  const string SYNTAX_KIND = 'XHPCategoryDeclaration';
+  const string SYNTAX_KIND = 'xhp_category_declaration';
 
   private EditableNode $_keyword;
   private EditableNode $_categories;

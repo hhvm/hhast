@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f7b8a31508d11595e79cd59ce14cd211>>
+ * @generated SignedSource<<38015f9d7ef3a2923a34780185931580>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class DeclareBlockStatement extends EditableNode implements IStatement {
 
-  const string SYNTAX_KIND = 'DeclareBlockStatement';
+  const string SYNTAX_KIND = 'declare_block_statement';
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d5bfac9afe6cc4e8d44f900401a5633f>>
+ * @generated SignedSource<<608637a11d134e9103538bdd0bd2d375>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class LambdaSignature extends EditableNode implements ILambdaSignature {
 
-  const string SYNTAX_KIND = 'LambdaSignature';
+  const string SYNTAX_KIND = 'lambda_signature';
 
   private EditableNode $_left_paren;
   private EditableNode $_parameters;

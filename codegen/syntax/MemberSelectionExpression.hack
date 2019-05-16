@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<47e2adb6abb986eab387b60c3f625285>>
+ * @generated SignedSource<<2b242358f5bd8eba9a1846c594b6faed>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class MemberSelectionExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
 
-  const string SYNTAX_KIND = 'MemberSelectionExpression';
+  const string SYNTAX_KIND = 'member_selection_expression';
 
   private EditableNode $_object;
   private EditableNode $_operator;

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<88d57fffb93060ffda68cb14befa6b68>>
+ * @generated SignedSource<<e4f08299924359035aae5a8239558e02>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class NamespaceBody extends EditableNode implements INamespaceBody {
 
-  const string SYNTAX_KIND = 'NamespaceBody';
+  const string SYNTAX_KIND = 'namespace_body';
 
   private EditableNode $_left_brace;
   private EditableNode $_declarations;

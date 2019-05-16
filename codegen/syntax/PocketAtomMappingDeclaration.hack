@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c3ae3fee6b3b3996a6b29689c23fe0e5>>
+ * @generated SignedSource<<0aa9033a6c80919e339ebf7fa955383d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class PocketAtomMappingDeclaration extends EditableNode {
 
-  const string SYNTAX_KIND = 'PocketAtomMappingDeclaration';
+  const string SYNTAX_KIND = 'pocket_atom_mapping_declaration';
 
   private EditableNode $_glyph;
   private EditableNode $_name;

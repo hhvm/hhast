@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6fdbcaeca284077cd596779376e7aa2c>>
+ * @generated SignedSource<<b76069cf306e13fedcb6737a587d6d71>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class DoStatement
   extends EditableNode
   implements IControlFlowStatement, ILoopStatement, IStatement {
 
-  const string SYNTAX_KIND = 'DoStatement';
+  const string SYNTAX_KIND = 'do_statement';
 
   private EditableNode $_keyword;
   private EditableNode $_body;

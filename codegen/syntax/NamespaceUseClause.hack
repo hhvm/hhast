@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<04ec73f236512bc406184d219df579be>>
+ * @generated SignedSource<<5c1af8667d27a8be00103b27b3a81ceb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class NamespaceUseClause extends EditableNode {
 
-  const string SYNTAX_KIND = 'NamespaceUseClause';
+  const string SYNTAX_KIND = 'namespace_use_clause';
 
   private EditableNode $_clause_kind;
   private EditableNode $_name;

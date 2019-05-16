@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<954133edd1e8fbe04eecd9974879c12a>>
+ * @generated SignedSource<<ee29aff40f81ce16b51fff7cda8d1a91>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class PipeVariableExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
 
-  const string SYNTAX_KIND = 'PipeVariableExpression';
+  const string SYNTAX_KIND = 'pipe_variable_expression';
 
   private EditableNode $_expression;
 

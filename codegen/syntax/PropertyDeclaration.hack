@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4c7793b72108141fa17721be24782a37>>
+ * @generated SignedSource<<72103f5be4f705b71e683952397620c0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class PropertyDeclaration
   extends EditableNode
   implements IClassBodyDeclaration, IHasTypeHint, IHasAttributeSpec {
 
-  const string SYNTAX_KIND = 'PropertyDeclaration';
+  const string SYNTAX_KIND = 'property_declaration';
 
   private EditableNode $_attribute_spec;
   private EditableNode $_modifiers;

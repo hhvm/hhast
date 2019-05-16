@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fd4c4b555814bf6425a469849a027f29>>
+ * @generated SignedSource<<9df02d5c3581b84c40a4e22fc74de9b4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class ReifiedTypeArgument extends EditableNode implements ITypeSpecifier {
 
-  const string SYNTAX_KIND = 'ReifiedTypeArgument';
+  const string SYNTAX_KIND = 'reified_type_argument';
 
   private EditableNode $_reified;
   private EditableNode $_type;

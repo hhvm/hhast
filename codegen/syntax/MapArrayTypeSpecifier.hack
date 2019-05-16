@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1329f9b903f3b6c89372967be2ba2fb9>>
+ * @generated SignedSource<<34e22554d1b8ee29b77435f27f0198e7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class MapArrayTypeSpecifier
   extends EditableNode
   implements ITypeSpecifier {
 
-  const string SYNTAX_KIND = 'MapArrayTypeSpecifier';
+  const string SYNTAX_KIND = 'map_array_type_specifier';
 
   private EditableNode $_keyword;
   private EditableNode $_left_angle;

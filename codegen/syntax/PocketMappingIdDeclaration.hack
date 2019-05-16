@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6f08661f29dddc4145f901cdb749b2c8>>
+ * @generated SignedSource<<35a63b41c147dda7825de696abd3e1a5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class PocketMappingIdDeclaration extends EditableNode {
 
-  const string SYNTAX_KIND = 'PocketMappingIdDeclaration';
+  const string SYNTAX_KIND = 'pocket_mapping_id_declaration';
 
   private EditableNode $_name;
   private EditableNode $_initializer;

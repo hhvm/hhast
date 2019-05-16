@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<971c3cb5c67f0681ecbad22f5d88f370>>
+ * @generated SignedSource<<6344617fe8459cac512eb34f7bc9bc1c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class FileAttributeSpecification extends EditableNode {
 
-  const string SYNTAX_KIND = 'FileAttributeSpecification';
+  const string SYNTAX_KIND = 'file_attribute_specification';
 
   private EditableNode $_left_double_angle;
   private EditableNode $_keyword;

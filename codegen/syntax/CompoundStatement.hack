@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<60d584e67eab7852d6972c20df4c963a>>
+ * @generated SignedSource<<245444174cb0fd3c2023b128e860310f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class CompoundStatement
   extends EditableNode
   implements ILambdaBody, IStatement {
 
-  const string SYNTAX_KIND = 'CompoundStatement';
+  const string SYNTAX_KIND = 'compound_statement';
 
   private EditableNode $_left_brace;
   private EditableNode $_statements;

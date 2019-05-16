@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<87dab95013bd288577a10dd5ba862478>>
+ * @generated SignedSource<<80a6827a3706fc373d0db7d6868ddda2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class VectorTypeSpecifier extends EditableNode implements ITypeSpecifier {
 
-  const string SYNTAX_KIND = 'VectorTypeSpecifier';
+  const string SYNTAX_KIND = 'vector_type_specifier';
 
   private EditableNode $_keyword;
   private EditableNode $_left_angle;

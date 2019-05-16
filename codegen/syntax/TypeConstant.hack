@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<269497c2c64db83e511c97f165d586fb>>
+ * @generated SignedSource<<c8bcc0194d333ba4143ae7e88cc40d60>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class TypeConstant extends EditableNode implements ITypeSpecifier {
 
-  const string SYNTAX_KIND = 'TypeConstant';
+  const string SYNTAX_KIND = 'type_constant';
 
   private EditableNode $_left_type;
   private EditableNode $_separator;

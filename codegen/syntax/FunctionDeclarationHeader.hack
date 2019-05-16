@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<427dc1db69f31ff87973b388c792c205>>
+ * @generated SignedSource<<9c0e176272420a64be840b3ec1ec1647>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class FunctionDeclarationHeader extends EditableNode {
 
-  const string SYNTAX_KIND = 'FunctionDeclarationHeader';
+  const string SYNTAX_KIND = 'function_declaration_header';
 
   private EditableNode $_modifiers;
   private EditableNode $_keyword;

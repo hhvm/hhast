@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ab613e6ace7fcf6e96a67aab3124d057>>
+ * @generated SignedSource<<6737562ba0bfe9486eb6f3cb19dd77fd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class SubscriptExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
 
-  const string SYNTAX_KIND = 'SubscriptExpression';
+  const string SYNTAX_KIND = 'subscript_expression';
 
   private EditableNode $_receiver;
   private EditableNode $_left_bracket;

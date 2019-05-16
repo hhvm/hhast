@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<015514b489107c23d9375d126a5415ca>>
+ * @generated SignedSource<<e4741fab52852e786186d00fb883ab49>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class ShapeTypeSpecifier extends EditableNode implements ITypeSpecifier {
 
-  const string SYNTAX_KIND = 'ShapeTypeSpecifier';
+  const string SYNTAX_KIND = 'shape_type_specifier';
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;

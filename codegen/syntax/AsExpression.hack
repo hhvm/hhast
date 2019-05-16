@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<68bbe842335fe06d41c85937fbd216fb>>
+ * @generated SignedSource<<2e28c36c08c0edb206dcf21ed2a957ce>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,7 +11,7 @@ final class AsExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
 
-  const string SYNTAX_KIND = 'AsExpression';
+  const string SYNTAX_KIND = 'as_expression';
 
   private EditableNode $_left_operand;
   private EditableNode $_operator;

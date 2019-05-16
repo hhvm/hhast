@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dcfc079f5a87a9eec4aff25898290618>>
+ * @generated SignedSource<<05fb2821fcb81307d0321e0ae9adc7c9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class XHPOpen extends EditableNode {
 
-  const string SYNTAX_KIND = 'XHPOpen';
+  const string SYNTAX_KIND = 'xhp_open';
 
   private EditableNode $_left_angle;
   private EditableNode $_name;

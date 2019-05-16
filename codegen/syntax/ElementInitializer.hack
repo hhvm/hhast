@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e84f8fad7b8b7a2baefd36b63bc1c872>>
+ * @generated SignedSource<<ae4e61a01c5f5709c3b5b5443d10cccc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class ElementInitializer extends EditableNode {
 
-  const string SYNTAX_KIND = 'ElementInitializer';
+  const string SYNTAX_KIND = 'element_initializer';
 
   private EditableNode $_key;
   private EditableNode $_arrow;

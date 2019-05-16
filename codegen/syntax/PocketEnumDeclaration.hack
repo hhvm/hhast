@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<03cef53355a39d7f6bdafee22514292f>>
+ * @generated SignedSource<<4738cd80675a76122b8d8016111bd6b9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class PocketEnumDeclaration extends EditableNode {
 
-  const string SYNTAX_KIND = 'PocketEnumDeclaration';
+  const string SYNTAX_KIND = 'pocket_enum_declaration';
 
   private EditableNode $_modifiers;
   private EditableNode $_enum;
