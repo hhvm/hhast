@@ -60,9 +60,9 @@ final class MustUseOverrideAttributeLinter
         Str\format(
           '%s::%s() overrides %s::%s() without <<__Override>>',
           $class->getNamex()->getCode()
-          |> Str\trim($$)
-          |> resolve_type($$, $node, $parents)
-          |> TypeAssert\not_null($$),
+            |> Str\trim($$)
+            |> resolve_type($$, $node, $parents)
+            |> TypeAssert\not_null($$),
           $method,
           $reflection_method->getDeclaringClass()->getName(),
           $method,
@@ -132,9 +132,7 @@ final class MustUseOverrideAttributeLinter
   }
 
   <<__Override>>
-  public function getPrettyTextForNode(
-    MethodishDeclaration $node,
-  ): string {
+  public function getPrettyTextForNode(MethodishDeclaration $node): string {
     $body = $node->getFunctionBody();
     if ($body === null) {
       return $node->getCode();
@@ -179,18 +177,20 @@ final class MustUseOverrideAttributeLinter
           ),
         ),
       )
-        ->rewriteDescendants(
-          ($n, $_) ==> $n === $first_token
-            ? $first_token->withLeading(
-              C\lastx($first_token->getLeading()->getChildren()),
-            )
-            : $n,
+        ->replace(
+          $first_token,
+          $first_token->withLeading(
+            C\lastx($first_token->getLeading()->getChildren()),
+          ),
         );
     }
 
     $list = $attrs->getAttributes()->toVec();
-    $list[] =
-      new HHAST\NameToken(HHAST\Missing(), HHAST\Missing(), '__Override');
+    $list[] = new HHAST\NameToken(
+      HHAST\Missing(),
+      HHAST\Missing(),
+      '__Override',
+    );
 
     return $node->withAttribute(
       $attrs->withAttributes(new HHAST\EditableList($list))
