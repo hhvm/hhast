@@ -64,17 +64,17 @@ abstract class EditableNode {
     return static::SYNTAX_KIND;
   }
 
-  public abstract function getChildren(): dict<string, EditableNode>;
+  public abstract function getChildren(): KeyedContainer<arraykey, EditableNode>;
 
-  public function getChildrenWhere(
+  final public function getChildrenWhere(
     (function(EditableNode): bool) $filter,
-  ): dict<string, EditableNode> {
+  ): KeyedContainer<arraykey, EditableNode> {
     return Dict\filter($this->getChildren(), $child ==> $filter($child));
   }
 
   final public function getChildrenOfType<T as EditableNode>(
     classname<T> $what,
-  ): dict<string, T> {
+  ): KeyedContainer<arraykey, T> {
     $out = dict[];
     foreach ($this->getChildren() as $k => $node) {
       if ($node instanceof $what) {

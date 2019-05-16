@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\{C, Dict, Vec};
+use namespace HH\Lib\{C, Vec};
 
 final class EditableList<+Titem as ?EditableNode> extends EditableNode {
   const string SYNTAX_KIND = 'list';
@@ -37,12 +37,8 @@ final class EditableList<+Titem as ?EditableNode> extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
-    return Dict\pull_with_key(
-      $this->_children,
-      ($_, $v) ==> $v,
-      ($k, $_) ==> (string)$k,
-    );
+  public function getChildren(): vec<EditableNode> {
+    return $this->_children;
   }
 
   final public function getItems(): vec<Titem> {

@@ -128,7 +128,7 @@ final class InspectorCLI extends CLIWithRequiredArguments {
           $$,
           ($key, $child) ==> Str\format(
             '<span data-field="%s">%s</span>',
-            $key,
+            (string) $key,
             $this->getHTMLForNode($child),
           ),
         )
