@@ -19,19 +19,18 @@ abstract class EditableNode {
     ?vec<EditableNode>,
   ): EditableNode);
 
-  protected keyset<int> $_descendants = keyset[];
-  private static dict<int, EditableNode> $byID = dict[];
+  protected dict<int, EditableNode> $_descendants = dict[];
   protected ?int $_width;
 
   public function __construct(
     protected ?__Private\SourceRef $sourceRef,
   ) {
-    $this->_descendants = Vec\map(
-      $this->getChildren(),
-      $child ==> Vec\concat(vec[$child->getUniqueID()], $child->_descendants),
-    )
-      |> Vec\flatten($$)
-      |> keyset($$);
+    $descendants = dict[$this->getUniqueID() => $this];
+    foreach ($this->getChildren() as $child) {
+      $descendants = Dict\merge($descendants, $child->_descendants);
+    }
+    $this->_descendants = $descendants;
+
     /* handy for debugging :)
     if ($sourceRef !== null) {
       $code = $this->getCode();
@@ -44,7 +43,6 @@ abstract class EditableNode {
       );
     }
     */
-    self::$byID[$this->getUniqueID()] = $this;
   }
 
   private static int $_maxID = 0;
@@ -84,12 +82,8 @@ abstract class EditableNode {
     return $out;
   }
 
-  <<__Memoize>>
-  final public function traverse(): vec<EditableNode> {
-    return Vec\concat(
-      vec[$this],
-      Vec\map($this->_descendants, $id ==> self::$byID[$id]),
-    );
+  final public function traverse(): Container<EditableNode> {
+    return $this->_descendants;
   }
 
   public function isToken(): bool {
@@ -156,7 +150,7 @@ abstract class EditableNode {
     classname<T> $what,
   ): vec<T> {
     $out = vec[];
-    foreach ($this->traverse() as $node) {
+    foreach ($this->_descendants as $node) {
       if ($node instanceof $what) {
         $out[] = $node;
       }
