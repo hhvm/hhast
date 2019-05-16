@@ -84,7 +84,8 @@ abstract class EditableNode {
     return $out;
   }
 
-  public function traverse(): vec<EditableNode> {
+  <<__Memoize>>
+  final public function traverse(): vec<EditableNode> {
     return Vec\concat(
       vec[$this],
       Vec\map($this->_descendants, $id ==> self::$byID[$id]),
