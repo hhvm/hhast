@@ -14,7 +14,6 @@ use type Facebook\HHAST\{
   INamespaceUseDeclaration,
   NamespaceGroupUseDeclaration,
   NamespaceUseDeclaration,
-  NamespaceUseClause,
   Script,
 };
 
@@ -69,16 +68,15 @@ final class UseStatementWithLeadingBackslashLinter
     INamespaceUseDeclaration $node,
   ): INamespaceUseDeclaration {
     if ($node instanceof NamespaceUseDeclaration) {
-      return $node->rewriteDescendants(($n, $_p) ==> {
-        if (!$n instanceof NamespaceUseClause) {
-          return $n;
+      $clauses = $node->getClauses();
+      foreach ($clauses->getItems() as $clause) {
+        $t = $clause->getName()->getFirstTokenx();
+        if (!$t instanceof BackslashToken) {
+          continue;
         }
-        $first = $n->getName()->getFirstToken();
-        if (!$first instanceof BackslashToken) {
-          return $n;
-        }
-        return $n->without($first);
-      });
+        $clauses = $clauses->without($t);
+      }
+      return $node->withClauses($clauses);
     }
 
     invariant(
