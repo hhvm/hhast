@@ -165,19 +165,18 @@ final class EditableList<+Titem as ?EditableNode> extends EditableNode {
 
   <<__Override>>
   protected function replaceImpl(
-    EditableNode $old,
+    int $old_id,
     EditableNode $new,
   ): this {
-    $old_id = $old->getUniqueID();
     $children = $this->_children;
     foreach ($children as $idx => $child) {
-      if ($child === $old) {
+      if ($child->getUniqueID() === $old_id) {
         $children[$idx] = $new;
       }
       if (!C\contains_key($child->_descendants, $old_id)) {
         continue;
       }
-      $children[$idx] = $child->replaceImpl($old, $new);
+      $children[$idx] = $child->replaceImpl($old_id, $new);
       break;
     }
     return new self(Vec\filter($children, $child ==> $child->isMissing()));

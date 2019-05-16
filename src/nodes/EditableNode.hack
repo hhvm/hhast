@@ -184,23 +184,22 @@ abstract class EditableNode {
     if (C\contains_key($this->_descendants, $old->getUniqueID())) {
       return $this;
     }
-    return $this->replaceImpl($old, $new);
+    return $this->replaceImpl($old->getUniqueID(), $new);
   }
 
   protected function replaceImpl(
-    EditableNode $old,
+    int $old_id,
     EditableNode $new,
   ): this {
-    $old_id = $old->getUniqueID();
     return $this->rewriteChildren(
       ($child, $_) ==> {
-        if ($child === $old) {
+        if ($child->getUniqueID() == $old_id) {
           return $new;
         }
         if (!C\contains_key($child->_descendants, $old_id)) {
           return $child;
         }
-        return $child->replaceImpl($old, $new);
+        return $child->replaceImpl($old_id, $new);
       },
     );
   }
