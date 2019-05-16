@@ -164,6 +164,26 @@ final class EditableList<+Titem as ?EditableNode> extends EditableNode {
   }
 
   <<__Override>>
+  protected function replaceImpl(
+    EditableNode $old,
+    EditableNode $new,
+  ): this {
+    $old_id = $old->getUniqueID();
+    $children = $this->_children;
+    foreach ($children as $idx => $child) {
+      if ($child === $old) {
+        $children[$idx] = $new;
+      }
+      if (!C\contains_key($child->_descendants, $old_id)) {
+        continue;
+      }
+      $children[$idx] = $child->replaceImpl($old, $new);
+      break;
+    }
+    return new self(Vec\filter($children, $child ==> $child->isMissing()));
+  }
+
+  <<__Override>>
   public function rewrite(
     self::TRewriter $rewriter,
     vec<EditableNode> $parents = vec[],

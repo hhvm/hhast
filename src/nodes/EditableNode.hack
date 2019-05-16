@@ -19,7 +19,7 @@ abstract class EditableNode {
     ?vec<EditableNode>,
   ): EditableNode);
 
-  private keyset<int> $_descendants = keyset[];
+  protected keyset<int> $_descendants = keyset[];
   private static dict<int, EditableNode> $byID = dict[];
   protected ?int $_width;
 
@@ -181,19 +181,23 @@ abstract class EditableNode {
     if ($old === $new) {
       return $this;
     }
+    if (C\contains_key($this->_descendants, $old->getUniqueID())) {
+      return $this;
+    }
     return $this->replaceImpl($old, $new);
   }
 
-  final private function replaceImpl(
+  protected function replaceImpl(
     EditableNode $old,
     EditableNode $new,
   ): this {
+    $old_id = $old->getUniqueID();
     return $this->rewriteChildren(
       ($child, $_) ==> {
         if ($child === $old) {
           return $new;
         }
-        if (!C\contains_key($child->_descendants, $old->getUniqueID())) {
+        if (!C\contains_key($child->_descendants, $old_id)) {
           return $child;
         }
         return $child->replaceImpl($old, $new);
