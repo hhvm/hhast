@@ -172,6 +172,7 @@ final class EditableList<+Titem as ?EditableNode> extends EditableNode {
     foreach ($children as $idx => $child) {
       if ($child->getUniqueID() === $old_id) {
         $children[$idx] = $new;
+        break;
       }
       if (!C\contains_key($child->_descendants, $old_id)) {
         continue;
@@ -179,7 +180,7 @@ final class EditableList<+Titem as ?EditableNode> extends EditableNode {
       $children[$idx] = $child->replaceImpl($old_id, $new);
       break;
     }
-    return new self(Vec\filter($children, $child ==> $child->isMissing()));
+    return new self(Vec\filter($children, $child ==> !$child->isMissing()));
   }
 
   <<__Override>>

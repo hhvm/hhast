@@ -181,10 +181,11 @@ abstract class EditableNode {
     if ($old === $new) {
       return $this;
     }
-    if (C\contains_key($this->_descendants, $old->getUniqueID())) {
+    $old_id = $old->getUniqueID();
+    if (!C\contains_key($this->_descendants, $old_id)) {
       return $this;
     }
-    return $this->replaceImpl($old->getUniqueID(), $new);
+    return $this->replaceImpl($old_id, $new);
   }
 
   protected function replaceImpl(
