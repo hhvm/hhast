@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<142991ea647f458dd1aabbf600908baa>>
+ * @generated SignedSource<<2a81190c409aa589718500faea08c8c0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class IssetExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
+
+  const string SYNTAX_KIND = 'IssetExpression';
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;
@@ -27,7 +29,7 @@ final class IssetExpression
     $this->_left_paren = $left_paren;
     $this->_argument_list = $argument_list;
     $this->_right_paren = $right_paren;
-    parent::__construct('isset_expression', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

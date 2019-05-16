@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d67092abc225083363228f185d898249>>
+ * @generated SignedSource<<6333c33690e940208e665eebadc25135>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class SwitchFallthrough extends EditableNode implements IStatement {
+
+  const string SYNTAX_KIND = 'SwitchFallthrough';
 
   private EditableNode $_keyword;
   private EditableNode $_semicolon;
@@ -19,7 +21,7 @@ final class SwitchFallthrough extends EditableNode implements IStatement {
   ) {
     $this->_keyword = $keyword;
     $this->_semicolon = $semicolon;
-    parent::__construct('switch_fallthrough', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

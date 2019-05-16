@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f743f9e4325663858e9f0031ef19f541>>
+ * @generated SignedSource<<6776bc001d56b5b9b13997de5b717751>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class XHPChildrenParenthesizedList extends EditableNode {
+
+  const string SYNTAX_KIND = 'XHPChildrenParenthesizedList';
 
   private EditableNode $_left_paren;
   private EditableNode $_xhp_children;
@@ -22,7 +24,7 @@ final class XHPChildrenParenthesizedList extends EditableNode {
     $this->_left_paren = $left_paren;
     $this->_xhp_children = $xhp_children;
     $this->_right_paren = $right_paren;
-    parent::__construct('xhp_children_parenthesized_list', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

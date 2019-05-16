@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cc380a570c349b77072acef470894f68>>
+ * @generated SignedSource<<3afd176796cfc31ff9f4c72221c6977a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class PropertyDeclarator extends EditableNode {
+
+  const string SYNTAX_KIND = 'PropertyDeclarator';
 
   private EditableNode $_name;
   private EditableNode $_initializer;
@@ -19,7 +21,7 @@ final class PropertyDeclarator extends EditableNode {
   ) {
     $this->_name = $name;
     $this->_initializer = $initializer;
-    parent::__construct('property_declarator', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

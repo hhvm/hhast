@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<747a9a60e87a0c7e1a6b51294ee7f911>>
+ * @generated SignedSource<<b5c6fceed8e97e507997a8a294f1ae6d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class TryStatement extends EditableNode implements IStatement {
+
+  const string SYNTAX_KIND = 'TryStatement';
 
   private EditableNode $_keyword;
   private EditableNode $_compound_statement;
@@ -25,7 +27,7 @@ final class TryStatement extends EditableNode implements IStatement {
     $this->_compound_statement = $compound_statement;
     $this->_catch_clauses = $catch_clauses;
     $this->_finally_clause = $finally_clause;
-    parent::__construct('try_statement', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

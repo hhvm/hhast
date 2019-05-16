@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<96fb0a4d7509d7935e945985f23c716c>>
+ * @generated SignedSource<<7c76f78c90d8a58fd193ba99da05f0f9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class VectorArrayTypeSpecifier
   extends EditableNode
   implements ITypeSpecifier {
+
+  const string SYNTAX_KIND = 'VectorArrayTypeSpecifier';
 
   private EditableNode $_keyword;
   private EditableNode $_left_angle;
@@ -27,7 +29,7 @@ final class VectorArrayTypeSpecifier
     $this->_left_angle = $left_angle;
     $this->_type = $type;
     $this->_right_angle = $right_angle;
-    parent::__construct('vector_array_type_specifier', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

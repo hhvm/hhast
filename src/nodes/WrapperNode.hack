@@ -11,13 +11,14 @@ namespace Facebook\HHAST;
 
 <<__ConsistentConstruct>>
 abstract class WrapperNode extends EditableNode {
+  const string SYNTAX_KIND = 'hhhast_wrapper';
   abstract const type TWrapped as EditableNode;
 
   abstract public function getWrappedNode(): this::TWrapped;
 
   <<__Override>>
   final public function __construct(protected EditableNode $wrapped) {
-    parent::__construct($wrapped->getSyntaxKind(), $wrapped->sourceRef);
+    parent::__construct($wrapped->sourceRef);
   }
 
   <<__Override>>

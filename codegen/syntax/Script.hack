@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e96f21950dfa36bb0242b81f2def3dd3>>
+ * @generated SignedSource<<4eaf4eaa9c4c9cbbc59a20f6b67e6c90>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class Script extends EditableNode {
+
+  const string SYNTAX_KIND = 'Script';
 
   private EditableNode $_declarations;
 
@@ -16,7 +18,7 @@ final class Script extends EditableNode {
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_declarations = $declarations;
-    parent::__construct('script', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

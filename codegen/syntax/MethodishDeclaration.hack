@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0ca1e8fd353572474ef02efff4c1fa8f>>
+ * @generated SignedSource<<5534092607a7828307ef606f8d08154e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -14,6 +14,8 @@ abstract class MethodishDeclarationGeneratedBase
     IFunctionishDeclaration,
     IHasFunctionBody,
     IHasAttributeSpec {
+
+  const string SYNTAX_KIND = 'MethodishDeclaration';
 
   private EditableNode $_attribute;
   private EditableNode $_function_decl_header;
@@ -31,7 +33,7 @@ abstract class MethodishDeclarationGeneratedBase
     $this->_function_decl_header = $function_decl_header;
     $this->_function_body = $function_body;
     $this->_semicolon = $semicolon;
-    parent::__construct('methodish_declaration', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

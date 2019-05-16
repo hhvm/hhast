@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<60a4ee6f54ded383443ba253f640418f>>
+ * @generated SignedSource<<87749dbc755119dc33f443dab50003f2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class DefaultLabel extends EditableNode implements ISwitchLabel {
+
+  const string SYNTAX_KIND = 'DefaultLabel';
 
   private EditableNode $_keyword;
   private EditableNode $_colon;
@@ -19,7 +21,7 @@ final class DefaultLabel extends EditableNode implements ISwitchLabel {
   ) {
     $this->_keyword = $keyword;
     $this->_colon = $colon;
-    parent::__construct('default_label', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

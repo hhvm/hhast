@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4deb437a8b803a3420e58d79daa85c65>>
+ * @generated SignedSource<<9e843670fc82039e6389e199cb28fdf0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class TypeParameter extends EditableNode {
+
+  const string SYNTAX_KIND = 'TypeParameter';
 
   private EditableNode $_attribute_spec;
   private EditableNode $_reified;
@@ -28,7 +30,7 @@ final class TypeParameter extends EditableNode {
     $this->_variance = $variance;
     $this->_name = $name;
     $this->_constraints = $constraints;
-    parent::__construct('type_parameter', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

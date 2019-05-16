@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<560b0c505a910c8e43d37d7807ba8e97>>
+ * @generated SignedSource<<4c7793b72108141fa17721be24782a37>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class PropertyDeclaration
   extends EditableNode
   implements IClassBodyDeclaration, IHasTypeHint, IHasAttributeSpec {
+
+  const string SYNTAX_KIND = 'PropertyDeclaration';
 
   private EditableNode $_attribute_spec;
   private EditableNode $_modifiers;
@@ -30,7 +32,7 @@ final class PropertyDeclaration
     $this->_type = $type;
     $this->_declarators = $declarators;
     $this->_semicolon = $semicolon;
-    parent::__construct('property_declaration', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

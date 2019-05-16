@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<55fccfdb1d02bcd4e3d3b3c627b47e66>>
+ * @generated SignedSource<<082ead0644514cb39870eef0927c8d43>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class TypeParameters extends EditableNode {
+
+  const string SYNTAX_KIND = 'TypeParameters';
 
   private EditableNode $_left_angle;
   private EditableNode $_parameters;
@@ -22,7 +24,7 @@ final class TypeParameters extends EditableNode {
     $this->_left_angle = $left_angle;
     $this->_parameters = $parameters;
     $this->_right_angle = $right_angle;
-    parent::__construct('type_parameters', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

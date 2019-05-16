@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1bbab58fb907bfb03caebe089e37d01a>>
+ * @generated SignedSource<<127f95e6d8adcdac3c1be52aefa2dd31>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class TraitUse extends EditableNode implements IClassBodyDeclaration {
+
+  const string SYNTAX_KIND = 'TraitUse';
 
   private EditableNode $_keyword;
   private EditableNode $_names;
@@ -22,7 +24,7 @@ final class TraitUse extends EditableNode implements IClassBodyDeclaration {
     $this->_keyword = $keyword;
     $this->_names = $names;
     $this->_semicolon = $semicolon;
-    parent::__construct('trait_use', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

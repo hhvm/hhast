@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<42087c5d69c0c2efeb110336ca680687>>
+ * @generated SignedSource<<87dab95013bd288577a10dd5ba862478>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class VectorTypeSpecifier extends EditableNode implements ITypeSpecifier {
+
+  const string SYNTAX_KIND = 'VectorTypeSpecifier';
 
   private EditableNode $_keyword;
   private EditableNode $_left_angle;
@@ -28,7 +30,7 @@ final class VectorTypeSpecifier extends EditableNode implements ITypeSpecifier {
     $this->_type = $type;
     $this->_trailing_comma = $trailing_comma;
     $this->_right_angle = $right_angle;
-    parent::__construct('vector_type_specifier', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

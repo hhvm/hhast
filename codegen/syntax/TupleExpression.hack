@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<694eba42b7e8970fe96d5b5c2c1a9f94>>
+ * @generated SignedSource<<f79fd4c28afbe2744980cc63a34f3995>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class TupleExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
+
+  const string SYNTAX_KIND = 'TupleExpression';
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;
@@ -27,7 +29,7 @@ final class TupleExpression
     $this->_left_paren = $left_paren;
     $this->_items = $items;
     $this->_right_paren = $right_paren;
-    parent::__construct('tuple_expression', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

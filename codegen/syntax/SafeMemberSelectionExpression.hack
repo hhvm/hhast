@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<28649355096b555c642560b4ed3883c4>>
+ * @generated SignedSource<<a4ea1bca03aff90a7544c57f9f52d5df>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class SafeMemberSelectionExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
+
+  const string SYNTAX_KIND = 'SafeMemberSelectionExpression';
 
   private EditableNode $_object;
   private EditableNode $_operator;
@@ -24,7 +26,7 @@ final class SafeMemberSelectionExpression
     $this->_object = $object;
     $this->_operator = $operator;
     $this->_name = $name;
-    parent::__construct('safe_member_selection_expression', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

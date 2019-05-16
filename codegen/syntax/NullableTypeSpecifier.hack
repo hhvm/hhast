@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2c74e769030df5c523c5a060a1d7640e>>
+ * @generated SignedSource<<0ab91eb4b028410df2abd1ec544f33b2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class NullableTypeSpecifier
   extends EditableNode
   implements ITypeSpecifier {
+
+  const string SYNTAX_KIND = 'NullableTypeSpecifier';
 
   private EditableNode $_question;
   private EditableNode $_type;
@@ -21,7 +23,7 @@ final class NullableTypeSpecifier
   ) {
     $this->_question = $question;
     $this->_type = $type;
-    parent::__construct('nullable_type_specifier', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

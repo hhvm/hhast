@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<977aebc9a63dcb98e300a8b758e6344b>>
+ * @generated SignedSource<<785e896b0aebac71489f8bafbd6e141c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 abstract class NamespaceDeclarationGeneratedBase extends EditableNode {
+
+  const string SYNTAX_KIND = 'NamespaceDeclaration';
 
   private EditableNode $_keyword;
   private EditableNode $_name;
@@ -22,7 +24,7 @@ abstract class NamespaceDeclarationGeneratedBase extends EditableNode {
     $this->_keyword = $keyword;
     $this->_name = $name;
     $this->_body = $body;
-    parent::__construct('namespace_declaration', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

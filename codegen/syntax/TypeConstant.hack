@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9089ecd3a7321e1b8218c83ebe460a15>>
+ * @generated SignedSource<<269497c2c64db83e511c97f165d586fb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class TypeConstant extends EditableNode implements ITypeSpecifier {
+
+  const string SYNTAX_KIND = 'TypeConstant';
 
   private EditableNode $_left_type;
   private EditableNode $_separator;
@@ -22,7 +24,7 @@ final class TypeConstant extends EditableNode implements ITypeSpecifier {
     $this->_left_type = $left_type;
     $this->_separator = $separator;
     $this->_right_type = $right_type;
-    parent::__construct('type_constant', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cc721cafa352556c32e17d0d35091db0>>
+ * @generated SignedSource<<7115f35404fd34152dd4815d23c26527>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 abstract class ParameterDeclarationGeneratedBase
   extends EditableNode
   implements IHasTypeHint, IHasAttributeSpec, IParameter {
+
+  const string SYNTAX_KIND = 'ParameterDeclaration';
 
   private EditableNode $_attribute;
   private EditableNode $_visibility;
@@ -33,7 +35,7 @@ abstract class ParameterDeclarationGeneratedBase
     $this->_type = $type;
     $this->_name = $name;
     $this->_default_value = $default_value;
-    parent::__construct('parameter_declaration', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

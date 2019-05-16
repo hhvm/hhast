@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d524c261bf6ef5c8808d4356fba478b8>>
+ * @generated SignedSource<<60d584e67eab7852d6972c20df4c963a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class CompoundStatement
   extends EditableNode
   implements ILambdaBody, IStatement {
+
+  const string SYNTAX_KIND = 'CompoundStatement';
 
   private EditableNode $_left_brace;
   private EditableNode $_statements;
@@ -24,7 +26,7 @@ final class CompoundStatement
     $this->_left_brace = $left_brace;
     $this->_statements = $statements;
     $this->_right_brace = $right_brace;
-    parent::__construct('compound_statement', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

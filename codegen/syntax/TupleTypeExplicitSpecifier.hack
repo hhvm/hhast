@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<03bd22e2024cbfd3dff1256cf992259e>>
+ * @generated SignedSource<<7a6c94c7819641ac5dee97517edbf6e2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class TupleTypeExplicitSpecifier
   extends EditableNode
   implements ITypeSpecifier {
+
+  const string SYNTAX_KIND = 'TupleTypeExplicitSpecifier';
 
   private EditableNode $_keyword;
   private EditableNode $_left_angle;
@@ -27,7 +29,7 @@ final class TupleTypeExplicitSpecifier
     $this->_left_angle = $left_angle;
     $this->_types = $types;
     $this->_right_angle = $right_angle;
-    parent::__construct('tuple_type_explicit_specifier', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

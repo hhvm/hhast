@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<de193af63b43b1a25963e6d345bdea86>>
+ * @generated SignedSource<<954c84d804acce425e2b0de33867d7f9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class DarrayTypeSpecifier extends EditableNode implements ITypeSpecifier {
+
+  const string SYNTAX_KIND = 'DarrayTypeSpecifier';
 
   private EditableNode $_keyword;
   private EditableNode $_left_angle;
@@ -34,7 +36,7 @@ final class DarrayTypeSpecifier extends EditableNode implements ITypeSpecifier {
     $this->_value = $value;
     $this->_trailing_comma = $trailing_comma;
     $this->_right_angle = $right_angle;
-    parent::__construct('darray_type_specifier', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

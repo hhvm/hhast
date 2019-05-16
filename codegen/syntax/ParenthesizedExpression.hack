@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2cf8815d90bd906166ff31cbc00472a7>>
+ * @generated SignedSource<<84db28eaf4981e5f56ebfad74ec8901f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class ParenthesizedExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
+
+  const string SYNTAX_KIND = 'ParenthesizedExpression';
 
   private EditableNode $_left_paren;
   private EditableNode $_expression;
@@ -24,7 +26,7 @@ final class ParenthesizedExpression
     $this->_left_paren = $left_paren;
     $this->_expression = $expression;
     $this->_right_paren = $right_paren;
-    parent::__construct('parenthesized_expression', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

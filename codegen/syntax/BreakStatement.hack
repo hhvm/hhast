@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fa9a26cf1dbcb67da99020ed6c2112df>>
+ * @generated SignedSource<<b46e665cc5832d0dd8be2f3743018c35>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class BreakStatement extends EditableNode implements IStatement {
+
+  const string SYNTAX_KIND = 'BreakStatement';
 
   private EditableNode $_keyword;
   private EditableNode $_level;
@@ -22,7 +24,7 @@ final class BreakStatement extends EditableNode implements IStatement {
     $this->_keyword = $keyword;
     $this->_level = $level;
     $this->_semicolon = $semicolon;
-    parent::__construct('break_statement', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

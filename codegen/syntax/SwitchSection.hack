@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a2d7b69cd7db634dd754677aa9a62d90>>
+ * @generated SignedSource<<348d0e435ab59abe438247f156fe47c8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class SwitchSection extends EditableNode {
+
+  const string SYNTAX_KIND = 'SwitchSection';
 
   private EditableNode $_labels;
   private EditableNode $_statements;
@@ -22,7 +24,7 @@ final class SwitchSection extends EditableNode {
     $this->_labels = $labels;
     $this->_statements = $statements;
     $this->_fallthrough = $fallthrough;
-    parent::__construct('switch_section', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

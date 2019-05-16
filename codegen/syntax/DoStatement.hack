@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<22376d4e6a6f5a47cef4e3b806575659>>
+ * @generated SignedSource<<6fdbcaeca284077cd596779376e7aa2c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class DoStatement
   extends EditableNode
   implements IControlFlowStatement, ILoopStatement, IStatement {
+
+  const string SYNTAX_KIND = 'DoStatement';
 
   private EditableNode $_keyword;
   private EditableNode $_body;
@@ -36,7 +38,7 @@ final class DoStatement
     $this->_condition = $condition;
     $this->_right_paren = $right_paren;
     $this->_semicolon = $semicolon;
-    parent::__construct('do_statement', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

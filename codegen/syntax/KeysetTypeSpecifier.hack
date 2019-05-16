@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<acea004dc71a71ea06abb72749e6c5bf>>
+ * @generated SignedSource<<3b02d68648a84532a686e9c6889c71ba>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class KeysetTypeSpecifier extends EditableNode implements ITypeSpecifier {
+
+  const string SYNTAX_KIND = 'KeysetTypeSpecifier';
 
   private EditableNode $_keyword;
   private EditableNode $_left_angle;
@@ -28,7 +30,7 @@ final class KeysetTypeSpecifier extends EditableNode implements ITypeSpecifier {
     $this->_type = $type;
     $this->_trailing_comma = $trailing_comma;
     $this->_right_angle = $right_angle;
-    parent::__construct('keyset_type_specifier', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

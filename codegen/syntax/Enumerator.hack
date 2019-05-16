@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<aafed26739bd3c68460795da568a045f>>
+ * @generated SignedSource<<320b6bc2aeff68a6ea5a72acf8c69cdc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class Enumerator extends EditableNode {
+
+  const string SYNTAX_KIND = 'Enumerator';
 
   private EditableNode $_name;
   private EditableNode $_equal;
@@ -25,7 +27,7 @@ final class Enumerator extends EditableNode {
     $this->_equal = $equal;
     $this->_value = $value;
     $this->_semicolon = $semicolon;
-    parent::__construct('enumerator', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

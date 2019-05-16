@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<da1b0b041854f2a468143de7b1c4b052>>
+ * @generated SignedSource<<824c7a55a3b0c204c9a358f56faabd52>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class EchoStatement extends EditableNode implements IStatement {
+
+  const string SYNTAX_KIND = 'EchoStatement';
 
   private EditableNode $_keyword;
   private EditableNode $_expressions;
@@ -22,7 +24,7 @@ final class EchoStatement extends EditableNode implements IStatement {
     $this->_keyword = $keyword;
     $this->_expressions = $expressions;
     $this->_semicolon = $semicolon;
-    parent::__construct('echo_statement', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

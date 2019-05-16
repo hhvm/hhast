@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5cecf2643621c5fb609e7ebc3791b74a>>
+ * @generated SignedSource<<2cd200a1b4c04dfa7eb61c03e539b2fc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class XHPEnumType extends EditableNode implements ITypeSpecifier {
+
+  const string SYNTAX_KIND = 'XHPEnumType';
 
   private EditableNode $_optional;
   private EditableNode $_keyword;
@@ -28,7 +30,7 @@ final class XHPEnumType extends EditableNode implements ITypeSpecifier {
     $this->_left_brace = $left_brace;
     $this->_values = $values;
     $this->_right_brace = $right_brace;
-    parent::__construct('xhp_enum_type', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

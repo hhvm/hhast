@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9cac26260ef2ab6773402abe027fb206>>
+ * @generated SignedSource<<ab710af1a924ffa805fd9b0bc1a5609f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class Php7AnonymousFunction
   extends EditableNode
   implements IHasFunctionBody, ILambdaBody, IExpression {
+
+  const string SYNTAX_KIND = 'Php7AnonymousFunction';
 
   private EditableNode $_attribute_spec;
   private EditableNode $_static_keyword;
@@ -51,7 +53,7 @@ final class Php7AnonymousFunction
     $this->_colon = $colon;
     $this->_type = $type;
     $this->_body = $body;
-    parent::__construct('php7_anonymous_function', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

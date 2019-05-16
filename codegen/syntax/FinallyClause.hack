@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d038efbd1370b3e4dc26ec98f91c7d19>>
+ * @generated SignedSource<<be0ab1f0a83b66b0e63ff5568162c156>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class FinallyClause extends EditableNode {
+
+  const string SYNTAX_KIND = 'FinallyClause';
 
   private EditableNode $_keyword;
   private EditableNode $_body;
@@ -19,7 +21,7 @@ final class FinallyClause extends EditableNode {
   ) {
     $this->_keyword = $keyword;
     $this->_body = $body;
-    parent::__construct('finally_clause', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

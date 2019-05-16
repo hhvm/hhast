@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ef6fc8bc05356b4ed7d1cafa31470fd7>>
+ * @generated SignedSource<<c133b21ed250d0002d014d2933ef2a47>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class TupleTypeSpecifier extends EditableNode implements ITypeSpecifier {
+
+  const string SYNTAX_KIND = 'TupleTypeSpecifier';
 
   private EditableNode $_left_paren;
   private EditableNode $_types;
@@ -22,7 +24,7 @@ final class TupleTypeSpecifier extends EditableNode implements ITypeSpecifier {
     $this->_left_paren = $left_paren;
     $this->_types = $types;
     $this->_right_paren = $right_paren;
-    parent::__construct('tuple_type_specifier', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

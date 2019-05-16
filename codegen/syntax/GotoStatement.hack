@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<769df4c5048dc98257848aca8adec0e3>>
+ * @generated SignedSource<<c9d17a2fa334210f37399b7e78f6aa55>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class GotoStatement extends EditableNode implements IStatement {
+
+  const string SYNTAX_KIND = 'GotoStatement';
 
   private EditableNode $_keyword;
   private EditableNode $_label_name;
@@ -22,7 +24,7 @@ final class GotoStatement extends EditableNode implements IStatement {
     $this->_keyword = $keyword;
     $this->_label_name = $label_name;
     $this->_semicolon = $semicolon;
-    parent::__construct('goto_statement', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

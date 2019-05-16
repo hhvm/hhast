@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7b7f8dd51a888bbe8ca879f2b552adfc>>
+ * @generated SignedSource<<6f08661f29dddc4145f901cdb749b2c8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class PocketMappingIdDeclaration extends EditableNode {
+
+  const string SYNTAX_KIND = 'PocketMappingIdDeclaration';
 
   private EditableNode $_name;
   private EditableNode $_initializer;
@@ -19,7 +21,7 @@ final class PocketMappingIdDeclaration extends EditableNode {
   ) {
     $this->_name = $name;
     $this->_initializer = $initializer;
-    parent::__construct('pocket_mapping_id_declaration', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

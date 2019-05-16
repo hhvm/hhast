@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<13a80e018cf2df8c635374f28b2eb26e>>
+ * @generated SignedSource<<ff80c634e1a0108df957c64875d511f0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,6 +11,8 @@ final class SimpleTypeSpecifier
   extends EditableNode
   implements ISimpleCreationSpecifier, ITypeSpecifier {
 
+  const string SYNTAX_KIND = 'SimpleTypeSpecifier';
+
   private EditableNode $_specifier;
 
   public function __construct(
@@ -18,7 +20,7 @@ final class SimpleTypeSpecifier
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_specifier = $specifier;
-    parent::__construct('simple_type_specifier', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

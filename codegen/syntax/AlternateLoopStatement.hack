@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<adcace381fba1e58f445e941687c994d>>
+ * @generated SignedSource<<045cabd54f1eaf8c0592b4c544c8cb89>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 abstract class AlternateLoopStatementGeneratedBase
   extends EditableNode
   implements IControlFlowStatement, ILoopStatement, IStatement {
+
+  const string SYNTAX_KIND = 'AlternateLoopStatement';
 
   private EditableNode $_opening_colon;
   private EditableNode $_statements;
@@ -27,7 +29,7 @@ abstract class AlternateLoopStatementGeneratedBase
     $this->_statements = $statements;
     $this->_closing_keyword = $closing_keyword;
     $this->_closing_semicolon = $closing_semicolon;
-    parent::__construct('alternate_loop_statement', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

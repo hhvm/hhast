@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<94f27630bd91ccbbcb0ef28c1ba20c05>>
+ * @generated SignedSource<<4ab98100e2112cc8fec3bc6dab8609cf>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class RequireClause
   extends EditableNode
   implements IClassBodyDeclaration {
+
+  const string SYNTAX_KIND = 'RequireClause';
 
   private EditableNode $_keyword;
   private EditableNode $_kind;
@@ -27,7 +29,7 @@ final class RequireClause
     $this->_kind = $kind;
     $this->_name = $name;
     $this->_semicolon = $semicolon;
-    parent::__construct('require_clause', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

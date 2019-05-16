@@ -73,6 +73,11 @@ final class CodegenSyntax extends CodegenBase {
         )
           |> Vec\map($$, $if ==> $cg->codegenImplementsInterface($if)),
       )
+      ->addConstant(
+        $cg->codegenClassConstant('SYNTAX_KIND')
+          ->setType('string')
+          ->setValue($syntax['kind_name'], HackBuilderValues::export()),
+      )
       ->setConstructor($this->generateConstructor($syntax))
       ->addMethod($this->generateFromJSONMethod($syntax))
       ->addMethod($this->generateChildrenMethod($syntax))
@@ -310,10 +315,7 @@ final class CodegenSyntax extends CodegenBase {
               ),
             ),
           )
-          ->addLinef(
-            'parent::__construct(%s, $source_ref);',
-            \var_export($syntax['type_name'], true),
-          )
+          ->addLine('parent::__construct($source_ref);')
           ->getCode(),
       );
   }
@@ -642,7 +644,11 @@ final class CodegenSyntax extends CodegenBase {
       HHAST\MethodishDeclaration::class,
       HHAST\NamespaceDeclaration::class,
       HHAST\ParameterDeclaration::class,
-    ] |> Keyset\map($$, $class ==> Str\strip_prefix($class, "Facebook\\HHAST\\"));
+    ]
+      |> Keyset\map(
+        $$,
+        $class ==> Str\strip_prefix($class, "Facebook\\HHAST\\"),
+      );
   }
 
   private function getHardcodedTypes(

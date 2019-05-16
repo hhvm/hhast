@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<df781e3e21e10d4f8243bead532972f0>>
+ * @generated SignedSource<<699b8741c0c1699bb9a84f222238b61a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class XHPClassAttributeDeclaration
   extends EditableNode
   implements IClassBodyDeclaration {
+
+  const string SYNTAX_KIND = 'XHPClassAttributeDeclaration';
 
   private EditableNode $_keyword;
   private EditableNode $_attributes;
@@ -24,7 +26,7 @@ final class XHPClassAttributeDeclaration
     $this->_keyword = $keyword;
     $this->_attributes = $attributes;
     $this->_semicolon = $semicolon;
-    parent::__construct('xhp_class_attribute_declaration', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

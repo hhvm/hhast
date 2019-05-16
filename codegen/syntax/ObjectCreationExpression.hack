@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<171b877a449174a731b801d05cf5b7b6>>
+ * @generated SignedSource<<3b8d9a0c61523e2830769d66743fbc36>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class ObjectCreationExpression
   extends EditableNode
   implements IFunctionCallishExpression, ILambdaBody, IExpression {
+
+  const string SYNTAX_KIND = 'ObjectCreationExpression';
 
   private EditableNode $_new_keyword;
   private EditableNode $_object;
@@ -21,7 +23,7 @@ final class ObjectCreationExpression
   ) {
     $this->_new_keyword = $new_keyword;
     $this->_object = $object;
-    parent::__construct('object_creation_expression', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

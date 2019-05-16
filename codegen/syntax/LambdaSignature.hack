@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e9d00bebe33dea82d3cdd15c491da163>>
+ * @generated SignedSource<<d5bfac9afe6cc4e8d44f900401a5633f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class LambdaSignature extends EditableNode implements ILambdaSignature {
+
+  const string SYNTAX_KIND = 'LambdaSignature';
 
   private EditableNode $_left_paren;
   private EditableNode $_parameters;
@@ -28,7 +30,7 @@ final class LambdaSignature extends EditableNode implements ILambdaSignature {
     $this->_right_paren = $right_paren;
     $this->_colon = $colon;
     $this->_type = $type;
-    parent::__construct('lambda_signature', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

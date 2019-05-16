@@ -12,6 +12,7 @@ namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Dict, Vec};
 
 final class EditableList<+Titem as ?EditableNode> extends EditableNode {
+  const string SYNTAX_KIND = 'list';
   /**
    * Use `EditableList::createMaybeEmptyList()` or
    * `EditableList::createNonEmptyListOrMissing()` instead to be explicit
@@ -22,7 +23,7 @@ final class EditableList<+Titem as ?EditableNode> extends EditableNode {
     private vec<EditableNode> $_children,
     ?__Private\SourceRef $ref = null,
   ) {
-    parent::__construct('list', $ref);
+    parent::__construct($ref);
   }
 
   <<__Override>>

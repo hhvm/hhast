@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<317c2c4cf56fe0cd6b766147c454fa42>>
+ * @generated SignedSource<<73850a048761c065e7a789fd9d4b5d76>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class MarkupSuffix extends EditableNode {
+
+  const string SYNTAX_KIND = 'MarkupSuffix';
 
   private EditableNode $_less_than_question;
   private EditableNode $_name;
@@ -19,7 +21,7 @@ final class MarkupSuffix extends EditableNode {
   ) {
     $this->_less_than_question = $less_than_question;
     $this->_name = $name;
-    parent::__construct('markup_suffix', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

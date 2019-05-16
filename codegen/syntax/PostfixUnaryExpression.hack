@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<15fa4f1ea2571d7a33fc6e0dcf709961>>
+ * @generated SignedSource<<5ddf933eb05f976076c9c0f277b34252>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class PostfixUnaryExpression
   extends EditableNode
   implements IHasOperator, ILambdaBody, IExpression {
+
+  const string SYNTAX_KIND = 'PostfixUnaryExpression';
 
   private EditableNode $_operand;
   private EditableNode $_operator;
@@ -21,7 +23,7 @@ final class PostfixUnaryExpression
   ) {
     $this->_operand = $operand;
     $this->_operator = $operator;
-    parent::__construct('postfix_unary_expression', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

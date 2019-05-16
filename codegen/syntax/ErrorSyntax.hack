@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<138b6dec96606bf79224534c74908ce1>>
+ * @generated SignedSource<<39bf59353349ae32971cb461141bfa3c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class ErrorSyntax extends EditableNode {
+
+  const string SYNTAX_KIND = 'ErrorSyntax';
 
   private EditableNode $_error;
 
@@ -16,7 +18,7 @@ final class ErrorSyntax extends EditableNode {
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_error = $error;
-    parent::__construct('error', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

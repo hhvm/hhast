@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<acf4fabbcd44bd1727a6a94c858e011f>>
+ * @generated SignedSource<<b40077573ee88366c054a1c931bcf0d0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class ConstantDeclarator extends EditableNode {
+
+  const string SYNTAX_KIND = 'ConstantDeclarator';
 
   private EditableNode $_name;
   private EditableNode $_initializer;
@@ -19,7 +21,7 @@ final class ConstantDeclarator extends EditableNode {
   ) {
     $this->_name = $name;
     $this->_initializer = $initializer;
-    parent::__construct('constant_declarator', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

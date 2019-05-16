@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ba7f98129ff2cb6ebc2689b35fe76595>>
+ * @generated SignedSource<<8c1166ff47ff08a493419a48545c14f5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class PocketAtomExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
+
+  const string SYNTAX_KIND = 'PocketAtomExpression';
 
   private EditableNode $_glyph;
   private EditableNode $_expression;
@@ -21,7 +23,7 @@ final class PocketAtomExpression
   ) {
     $this->_glyph = $glyph;
     $this->_expression = $expression;
-    parent::__construct('pocket_atom_expression', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

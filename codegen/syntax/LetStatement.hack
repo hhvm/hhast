@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<169ceeb1d301bcdf910d435078800a7f>>
+ * @generated SignedSource<<9869338b02297f8705145f7463fdc7a7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class LetStatement extends EditableNode implements IStatement {
+
+  const string SYNTAX_KIND = 'LetStatement';
 
   private EditableNode $_keyword;
   private EditableNode $_name;
@@ -31,7 +33,7 @@ final class LetStatement extends EditableNode implements IStatement {
     $this->_type = $type;
     $this->_initializer = $initializer;
     $this->_semicolon = $semicolon;
-    parent::__construct('let_statement', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

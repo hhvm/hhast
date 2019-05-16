@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d79e8ddcd1a785e12543494cd713ff48>>
+ * @generated SignedSource<<c3ae3fee6b3b3996a6b29689c23fe0e5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class PocketAtomMappingDeclaration extends EditableNode {
+
+  const string SYNTAX_KIND = 'PocketAtomMappingDeclaration';
 
   private EditableNode $_glyph;
   private EditableNode $_name;
@@ -31,7 +33,7 @@ final class PocketAtomMappingDeclaration extends EditableNode {
     $this->_mappings = $mappings;
     $this->_right_paren = $right_paren;
     $this->_semicolon = $semicolon;
-    parent::__construct('pocket_atom_mapping_declaration', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

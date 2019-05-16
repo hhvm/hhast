@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a6f25b7753021a3a3eb3ed2296cee849>>
+ * @generated SignedSource<<1bf252bd89e21a09e3458f6e8bee78c1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class GenericTypeSpecifier
   extends EditableNode
   implements ISimpleCreationSpecifier, ITypeSpecifier {
+
+  const string SYNTAX_KIND = 'GenericTypeSpecifier';
 
   private EditableNode $_class_type;
   private EditableNode $_argument_list;
@@ -21,7 +23,7 @@ final class GenericTypeSpecifier
   ) {
     $this->_class_type = $class_type;
     $this->_argument_list = $argument_list;
-    parent::__construct('generic_type_specifier', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<368f6b5741536d098ac7bfa60df559ea>>
+ * @generated SignedSource<<daa4155ccb0e86348ecd6809a29e1e44>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class InclusionDirective extends EditableNode implements IStatement {
+
+  const string SYNTAX_KIND = 'InclusionDirective';
 
   private EditableNode $_expression;
   private EditableNode $_semicolon;
@@ -19,7 +21,7 @@ final class InclusionDirective extends EditableNode implements IStatement {
   ) {
     $this->_expression = $expression;
     $this->_semicolon = $semicolon;
-    parent::__construct('inclusion_directive', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

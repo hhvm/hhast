@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b1da25d8289454bd38d4026a3689050c>>
+ * @generated SignedSource<<e4f515cc06d3f8008db8401372fcf08c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class ForStatement
   extends EditableNode
   implements IControlFlowStatement, ILoopStatement, IStatement {
+
+  const string SYNTAX_KIND = 'ForStatement';
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;
@@ -42,7 +44,7 @@ final class ForStatement
     $this->_end_of_loop = $end_of_loop;
     $this->_right_paren = $right_paren;
     $this->_body = $body;
-    parent::__construct('for_statement', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

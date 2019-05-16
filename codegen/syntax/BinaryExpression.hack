@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<71b22b3c5415f1d473c2ea4c0699a950>>
+ * @generated SignedSource<<c86fdd77953fbd772b40075f1c6bd5c0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class BinaryExpression
   extends EditableNode
   implements IHasOperator, ILambdaBody, IExpression {
+
+  const string SYNTAX_KIND = 'BinaryExpression';
 
   private EditableNode $_left_operand;
   private EditableNode $_operator;
@@ -24,7 +26,7 @@ final class BinaryExpression
     $this->_left_operand = $left_operand;
     $this->_operator = $operator;
     $this->_right_operand = $right_operand;
-    parent::__construct('binary_expression', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

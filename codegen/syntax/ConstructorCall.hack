@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0f22283dc8e165eca7c06d012164dc75>>
+ * @generated SignedSource<<3683d4405bd1941aa92ae68337516f4c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class ConstructorCall extends EditableNode {
+
+  const string SYNTAX_KIND = 'ConstructorCall';
 
   private EditableNode $_type;
   private EditableNode $_left_paren;
@@ -25,7 +27,7 @@ final class ConstructorCall extends EditableNode {
     $this->_left_paren = $left_paren;
     $this->_argument_list = $argument_list;
     $this->_right_paren = $right_paren;
-    parent::__construct('constructor_call', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

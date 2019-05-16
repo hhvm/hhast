@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4db591acd10c3cc8dedae04131ba7f53>>
+ * @generated SignedSource<<427556b7209cccc9a56ed74b73ade1d5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class ListItem extends EditableNode {
+
+  const string SYNTAX_KIND = 'ListItem';
 
   private EditableNode $_item;
   private EditableNode $_separator;
@@ -19,7 +21,7 @@ final class ListItem extends EditableNode {
   ) {
     $this->_item = $item;
     $this->_separator = $separator;
-    parent::__construct('list_item', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

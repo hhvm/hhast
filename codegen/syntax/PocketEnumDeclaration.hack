@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8d8f90671dfa72e0175fb50adb99ef62>>
+ * @generated SignedSource<<03cef53355a39d7f6bdafee22514292f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class PocketEnumDeclaration extends EditableNode {
+
+  const string SYNTAX_KIND = 'PocketEnumDeclaration';
 
   private EditableNode $_modifiers;
   private EditableNode $_enum;
@@ -31,7 +33,7 @@ final class PocketEnumDeclaration extends EditableNode {
     $this->_left_brace = $left_brace;
     $this->_fields = $fields;
     $this->_right_brace = $right_brace;
-    parent::__construct('pocket_enum_declaration', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

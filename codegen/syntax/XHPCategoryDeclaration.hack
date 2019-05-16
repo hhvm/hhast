@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<aa7247a2fd4b2357fbc75bf37f3ec961>>
+ * @generated SignedSource<<a002d632023c7c50ecce727c04f4c468>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class XHPCategoryDeclaration
   extends EditableNode
   implements IClassBodyDeclaration {
+
+  const string SYNTAX_KIND = 'XHPCategoryDeclaration';
 
   private EditableNode $_keyword;
   private EditableNode $_categories;
@@ -24,7 +26,7 @@ final class XHPCategoryDeclaration
     $this->_keyword = $keyword;
     $this->_categories = $categories;
     $this->_semicolon = $semicolon;
-    parent::__construct('xhp_category_declaration', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

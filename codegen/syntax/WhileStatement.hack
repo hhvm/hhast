@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ebd2b06dcc84deea812db8f9c86027de>>
+ * @generated SignedSource<<05d7d1bdca50082e559c642919768713>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class WhileStatement
   extends EditableNode
   implements IControlFlowStatement, ILoopStatement, IStatement {
+
+  const string SYNTAX_KIND = 'WhileStatement';
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;
@@ -30,7 +32,7 @@ final class WhileStatement
     $this->_condition = $condition;
     $this->_right_paren = $right_paren;
     $this->_body = $body;
-    parent::__construct('while_statement', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

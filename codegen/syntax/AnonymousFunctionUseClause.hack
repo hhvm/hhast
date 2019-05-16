@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d8c3fc7d691b20c8e7e714663ecf9181>>
+ * @generated SignedSource<<2d88967c1307298ffafd7a6f9daf097f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class AnonymousFunctionUseClause extends EditableNode {
+
+  const string SYNTAX_KIND = 'AnonymousFunctionUseClause';
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;
@@ -25,7 +27,7 @@ final class AnonymousFunctionUseClause extends EditableNode {
     $this->_left_paren = $left_paren;
     $this->_variables = $variables;
     $this->_right_paren = $right_paren;
-    parent::__construct('anonymous_function_use_clause', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

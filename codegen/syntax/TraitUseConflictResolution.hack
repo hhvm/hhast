@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cac49cbd7e5801879b3161f186fd2614>>
+ * @generated SignedSource<<e3751e25125bb09fb0cce940362e9558>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class TraitUseConflictResolution
   extends EditableNode
   implements IClassBodyDeclaration {
+
+  const string SYNTAX_KIND = 'TraitUseConflictResolution';
 
   private EditableNode $_keyword;
   private EditableNode $_names;
@@ -30,7 +32,7 @@ final class TraitUseConflictResolution
     $this->_left_brace = $left_brace;
     $this->_clauses = $clauses;
     $this->_right_brace = $right_brace;
-    parent::__construct('trait_use_conflict_resolution', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

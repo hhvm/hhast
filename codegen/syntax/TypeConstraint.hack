@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2907a3bb933fe19681506edf3e558657>>
+ * @generated SignedSource<<25c9390e509bec29bba99449bc5ec2d0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class TypeConstraint extends EditableNode {
+
+  const string SYNTAX_KIND = 'TypeConstraint';
 
   private EditableNode $_keyword;
   private EditableNode $_type;
@@ -19,7 +21,7 @@ final class TypeConstraint extends EditableNode {
   ) {
     $this->_keyword = $keyword;
     $this->_type = $type;
-    parent::__construct('type_constraint', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7c9e77b992c5a6c85a5b730fae7e81f7>>
+ * @generated SignedSource<<f046a7a048a39ddda3e179904e5ce639>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class ElseClause extends EditableNode implements IControlFlowStatement {
+
+  const string SYNTAX_KIND = 'ElseClause';
 
   private EditableNode $_keyword;
   private EditableNode $_statement;
@@ -19,7 +21,7 @@ final class ElseClause extends EditableNode implements IControlFlowStatement {
   ) {
     $this->_keyword = $keyword;
     $this->_statement = $statement;
-    parent::__construct('else_clause', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

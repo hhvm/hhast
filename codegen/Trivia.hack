@@ -1,17 +1,19 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<665e8a082776f9b3a6a91aef9d8377c1>>
+ * @generated SignedSource<<6fb07050021768afe6167fb559372d11>>
  */
 namespace Facebook\HHAST;
 
 final class AfterHaltCompiler extends EditableTrivia {
 
+  const string SYNTAX_KIND = 'after_halt_compiler';
+
   public function __construct(
     string $text,
     ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('after_halt_compiler', $text, $source_ref);
+    parent::__construct($text, $source_ref);
   }
 
   public function withText(string $text): this {
@@ -24,11 +26,13 @@ final class AfterHaltCompiler extends EditableTrivia {
 
 final class DelimitedComment extends EditableTrivia implements IComment {
 
+  const string SYNTAX_KIND = 'delimited_comment';
+
   public function __construct(
     string $text,
     ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('delimited_comment', $text, $source_ref);
+    parent::__construct($text, $source_ref);
   }
 
   public function withText(string $text): this {
@@ -41,11 +45,13 @@ final class DelimitedComment extends EditableTrivia implements IComment {
 
 final class EndOfLine extends EditableTrivia {
 
+  const string SYNTAX_KIND = 'end_of_line';
+
   public function __construct(
     string $text,
     ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('end_of_line', $text, $source_ref);
+    parent::__construct($text, $source_ref);
   }
 
   public function withText(string $text): this {
@@ -58,11 +64,13 @@ final class EndOfLine extends EditableTrivia {
 
 final class ExtraTokenError extends EditableTrivia {
 
+  const string SYNTAX_KIND = 'extra_token_error';
+
   public function __construct(
     string $text,
     ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('extra_token_error', $text, $source_ref);
+    parent::__construct($text, $source_ref);
   }
 
   public function withText(string $text): this {
@@ -75,11 +83,13 @@ final class ExtraTokenError extends EditableTrivia {
 
 final class FallThrough extends EditableTrivia {
 
+  const string SYNTAX_KIND = 'fall_through';
+
   public function __construct(
     string $text,
     ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('fall_through', $text, $source_ref);
+    parent::__construct($text, $source_ref);
   }
 
   public function withText(string $text): this {
@@ -92,11 +102,13 @@ final class FallThrough extends EditableTrivia {
 
 final class FixMe extends EditableTrivia {
 
+  const string SYNTAX_KIND = 'fix_me';
+
   public function __construct(
     string $text,
     ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('fix_me', $text, $source_ref);
+    parent::__construct($text, $source_ref);
   }
 
   public function withText(string $text): this {
@@ -109,11 +121,13 @@ final class FixMe extends EditableTrivia {
 
 final class IgnoreError extends EditableTrivia {
 
+  const string SYNTAX_KIND = 'ignore_error';
+
   public function __construct(
     string $text,
     ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('ignore_error', $text, $source_ref);
+    parent::__construct($text, $source_ref);
   }
 
   public function withText(string $text): this {
@@ -126,11 +140,13 @@ final class IgnoreError extends EditableTrivia {
 
 final class SingleLineComment extends EditableTrivia implements IComment {
 
+  const string SYNTAX_KIND = 'single_line_comment';
+
   public function __construct(
     string $text,
     ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('single_line_comment', $text, $source_ref);
+    parent::__construct($text, $source_ref);
   }
 
   public function withText(string $text): this {
@@ -143,11 +159,13 @@ final class SingleLineComment extends EditableTrivia implements IComment {
 
 final class Unsafe extends EditableTrivia {
 
+  const string SYNTAX_KIND = 'unsafe';
+
   public function __construct(
     string $text,
     ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('unsafe', $text, $source_ref);
+    parent::__construct($text, $source_ref);
   }
 
   public function withText(string $text): this {
@@ -160,11 +178,13 @@ final class Unsafe extends EditableTrivia {
 
 final class UnsafeExpression extends EditableTrivia {
 
+  const string SYNTAX_KIND = 'unsafe_expression';
+
   public function __construct(
     string $text,
     ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('unsafe_expression', $text, $source_ref);
+    parent::__construct($text, $source_ref);
   }
 
   public function withText(string $text): this {
@@ -177,11 +197,13 @@ final class UnsafeExpression extends EditableTrivia {
 
 final class WhiteSpace extends EditableTrivia {
 
+  const string SYNTAX_KIND = 'whitespace';
+
   public function __construct(
     string $text,
     ?__Private\SourceRef $source_ref = null,
   ) {
-    parent::__construct('whitespace', $text, $source_ref);
+    parent::__construct($text, $source_ref);
   }
 
   public function withText(string $text): this {

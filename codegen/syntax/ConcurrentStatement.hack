@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3cb463a8950abb98c04f975fd0ad69b9>>
+ * @generated SignedSource<<af9fd79b2c033cd8120d4ea44dcd4c7f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class ConcurrentStatement extends EditableNode implements IStatement {
+
+  const string SYNTAX_KIND = 'ConcurrentStatement';
 
   private EditableNode $_keyword;
   private EditableNode $_statement;
@@ -19,7 +21,7 @@ final class ConcurrentStatement extends EditableNode implements IStatement {
   ) {
     $this->_keyword = $keyword;
     $this->_statement = $statement;
-    parent::__construct('concurrent_statement', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

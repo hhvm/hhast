@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<949e590bcce0ae65488fd45835ea7593>>
+ * @generated SignedSource<<2e2ac45bd7bfca4fdb641e79e73c54d1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class EmbeddedSubscriptExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
+
+  const string SYNTAX_KIND = 'EmbeddedSubscriptExpression';
 
   private EditableNode $_receiver;
   private EditableNode $_left_bracket;
@@ -27,7 +29,7 @@ final class EmbeddedSubscriptExpression
     $this->_left_bracket = $left_bracket;
     $this->_index = $index;
     $this->_right_bracket = $right_bracket;
-    parent::__construct('embedded_subscript_expression', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

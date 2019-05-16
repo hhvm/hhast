@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e79f1d1f1c3575e32b9613591c8d341e>>
+ * @generated SignedSource<<8d232f271761324f06f491e215334733>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class LambdaExpression
   extends EditableNode
   implements IHasFunctionBody, ILambdaBody, IHasAttributeSpec, IExpression {
+
+  const string SYNTAX_KIND = 'LambdaExpression';
 
   private EditableNode $_attribute_spec;
   private EditableNode $_async;
@@ -33,7 +35,7 @@ final class LambdaExpression
     $this->_signature = $signature;
     $this->_arrow = $arrow;
     $this->_body = $body;
-    parent::__construct('lambda_expression', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

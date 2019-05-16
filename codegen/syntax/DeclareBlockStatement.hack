@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<48f8e5e54a52baee72ec762cdb7b1f75>>
+ * @generated SignedSource<<f7b8a31508d11595e79cd59ce14cd211>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class DeclareBlockStatement extends EditableNode implements IStatement {
+
+  const string SYNTAX_KIND = 'DeclareBlockStatement';
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;
@@ -28,7 +30,7 @@ final class DeclareBlockStatement extends EditableNode implements IStatement {
     $this->_expression = $expression;
     $this->_right_paren = $right_paren;
     $this->_body = $body;
-    parent::__construct('declare_block_statement', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

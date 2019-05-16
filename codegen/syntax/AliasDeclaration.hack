@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b7a5ca90bdcd1bb24b96fbc84144b2f8>>
+ * @generated SignedSource<<5e15da6e35120033fa6eb39a13ea769a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class AliasDeclaration extends EditableNode implements IHasAttributeSpec {
+
+  const string SYNTAX_KIND = 'AliasDeclaration';
 
   private EditableNode $_attribute_spec;
   private EditableNode $_keyword;
@@ -37,7 +39,7 @@ final class AliasDeclaration extends EditableNode implements IHasAttributeSpec {
     $this->_equal = $equal;
     $this->_type = $type;
     $this->_semicolon = $semicolon;
-    parent::__construct('alias_declaration', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

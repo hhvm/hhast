@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6460d8a965fe365bc9fecbde17f25816>>
+ * @generated SignedSource<<f0f9da6b36f069b7fece71bc8a1a5e31>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class AnonymousClass extends EditableNode {
+
+  const string SYNTAX_KIND = 'AnonymousClass';
 
   private EditableNode $_class_keyword;
   private EditableNode $_left_paren;
@@ -40,7 +42,7 @@ final class AnonymousClass extends EditableNode {
     $this->_implements_keyword = $implements_keyword;
     $this->_implements_list = $implements_list;
     $this->_body = $body;
-    parent::__construct('anonymous_class', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

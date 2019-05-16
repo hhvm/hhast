@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c3a0136b8414dd107afd101dc797f1ff>>
+ * @generated SignedSource<<ff5fb482dd81dc3037ecf998b1d121fb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 abstract class ClassishDeclarationGeneratedBase
   extends EditableNode
   implements IHasAttributeSpec {
+
+  const string SYNTAX_KIND = 'ClassishDeclaration';
 
   private EditableNode $_attribute;
   private EditableNode $_modifiers;
@@ -45,7 +47,7 @@ abstract class ClassishDeclarationGeneratedBase
     $this->_implements_keyword = $implements_keyword;
     $this->_implements_list = $implements_list;
     $this->_body = $body;
-    parent::__construct('classish_declaration', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

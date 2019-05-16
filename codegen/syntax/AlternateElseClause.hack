@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dc76e7a439d6f015db5b893387b246dd>>
+ * @generated SignedSource<<85f26e2b6c21a66d7d84f606a7986d0e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class AlternateElseClause
   extends EditableNode
   implements IControlFlowStatement {
+
+  const string SYNTAX_KIND = 'AlternateElseClause';
 
   private EditableNode $_keyword;
   private EditableNode $_colon;
@@ -24,7 +26,7 @@ final class AlternateElseClause
     $this->_keyword = $keyword;
     $this->_colon = $colon;
     $this->_statement = $statement;
-    parent::__construct('alternate_else_clause', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

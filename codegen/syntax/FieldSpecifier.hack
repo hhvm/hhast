@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2d50846052be31cc7ae43750991336ae>>
+ * @generated SignedSource<<c031364c4715c9ec1e17d0d6153a50d5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class FieldSpecifier extends EditableNode implements ITypeSpecifier {
+
+  const string SYNTAX_KIND = 'FieldSpecifier';
 
   private EditableNode $_question;
   private EditableNode $_name;
@@ -25,7 +27,7 @@ final class FieldSpecifier extends EditableNode implements ITypeSpecifier {
     $this->_name = $name;
     $this->_arrow = $arrow;
     $this->_type = $type;
-    parent::__construct('field_specifier', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

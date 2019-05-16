@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bcb8ec6d609f0ac8de76f86499af6773>>
+ * @generated SignedSource<<cc4b3ce200685ad413c7c6d07aaaef32>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class InclusionExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
+
+  const string SYNTAX_KIND = 'InclusionExpression';
 
   private EditableNode $_require;
   private EditableNode $_filename;
@@ -21,7 +23,7 @@ final class InclusionExpression
   ) {
     $this->_require = $require;
     $this->_filename = $filename;
-    parent::__construct('inclusion_expression', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

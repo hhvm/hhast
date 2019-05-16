@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c6d08ddfb3e03e870dd20c1513ca44b0>>
+ * @generated SignedSource<<bbcd4ac5d44a03f676a2e894a251ebf9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class ListExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
+
+  const string SYNTAX_KIND = 'ListExpression';
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;
@@ -27,7 +29,7 @@ final class ListExpression
     $this->_left_paren = $left_paren;
     $this->_members = $members;
     $this->_right_paren = $right_paren;
-    parent::__construct('list_expression', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

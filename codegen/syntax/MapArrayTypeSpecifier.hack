@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d4ff8345716e522f193ad720c7a408c9>>
+ * @generated SignedSource<<1329f9b903f3b6c89372967be2ba2fb9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class MapArrayTypeSpecifier
   extends EditableNode
   implements ITypeSpecifier {
+
+  const string SYNTAX_KIND = 'MapArrayTypeSpecifier';
 
   private EditableNode $_keyword;
   private EditableNode $_left_angle;
@@ -33,7 +35,7 @@ final class MapArrayTypeSpecifier
     $this->_comma = $comma;
     $this->_value = $value;
     $this->_right_angle = $right_angle;
-    parent::__construct('map_array_type_specifier', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

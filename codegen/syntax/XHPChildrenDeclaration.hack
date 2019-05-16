@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8458d46e120679185a6dcd2f0d125a86>>
+ * @generated SignedSource<<7e3b82af9442f5110bb20e9ab37a7f80>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class XHPChildrenDeclaration
   extends EditableNode
   implements IClassBodyDeclaration {
+
+  const string SYNTAX_KIND = 'XHPChildrenDeclaration';
 
   private EditableNode $_keyword;
   private EditableNode $_expression;
@@ -24,7 +26,7 @@ final class XHPChildrenDeclaration
     $this->_keyword = $keyword;
     $this->_expression = $expression;
     $this->_semicolon = $semicolon;
-    parent::__construct('xhp_children_declaration', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

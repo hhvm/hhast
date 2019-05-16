@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<408e6e01d67fb8a770d14182543ef78b>>
+ * @generated SignedSource<<bcef9ee1f7ef1e75de7e1ad80ea9b092>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class ConstDeclaration
   extends EditableNode
   implements IClassBodyDeclaration {
+
+  const string SYNTAX_KIND = 'ConstDeclaration';
 
   private EditableNode $_visibility;
   private EditableNode $_abstract;
@@ -33,7 +35,7 @@ final class ConstDeclaration
     $this->_type_specifier = $type_specifier;
     $this->_declarators = $declarators;
     $this->_semicolon = $semicolon;
-    parent::__construct('const_declaration', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

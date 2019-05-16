@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cfcc8c378d2f701b9a14242c5ee3bd31>>
+ * @generated SignedSource<<2164130980701f33ce4841232c834647>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class AlternateSwitchStatement
   extends EditableNode
   implements IControlFlowStatement, IStatement {
+
+  const string SYNTAX_KIND = 'AlternateSwitchStatement';
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;
@@ -39,7 +41,7 @@ final class AlternateSwitchStatement
     $this->_sections = $sections;
     $this->_closing_endswitch = $closing_endswitch;
     $this->_closing_semicolon = $closing_semicolon;
-    parent::__construct('alternate_switch_statement', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

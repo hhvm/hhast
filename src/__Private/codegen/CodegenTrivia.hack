@@ -10,7 +10,7 @@
 namespace Facebook\HHAST\__Private;
 
 use namespace HH\Lib\Vec;
-use type Facebook\HackCodegen\CodegenFileType;
+use type Facebook\HackCodegen\{CodegenFileType, HackBuilderValues};
 
 final class CodegenTrivia extends CodegenBase {
   <<__Override>>
@@ -22,6 +22,7 @@ final class CodegenTrivia extends CodegenBase {
       ->setFileType(CodegenFileType::DOT_HACK)
       ->setNamespace('Facebook\\HHAST');
 
+    $interfaces = $this->getMarkerInterfacesByImplementingClass();
     foreach ($this->getSchema()['trivia'] as $trivia) {
       $file->addClass(
         $cg
@@ -29,22 +30,25 @@ final class CodegenTrivia extends CodegenBase {
           ->setIsFinal()
           ->setExtends('EditableTrivia')
           ->setInterfaces(
-            (
-              $this
-                ->getMarkerInterfacesByImplementingClass()[$trivia['trivia_kind_name']] ??
-              vec[]
-            )
-              |> Vec\map($$, $if ==> $cg->codegenImplementsInterface($if)),
+            Vec\map(
+              $interfaces[$trivia['trivia_kind_name']] ?? vec[],
+              $if ==> $cg->codegenImplementsInterface($if),
+            ),
+          )
+          ->addConstant(
+            $cg->codegenClassConstant('SYNTAX_KIND')
+              ->setType('string')
+              ->setValue(
+                $trivia['trivia_type_name'],
+                HackBuilderValues::export(),
+              ),
           )
           ->setConstructor(
             $cg
               ->codegenConstructor()
               ->addParameter('string $text')
               ->addParameter('?__Private\\SourceRef $source_ref = null')
-              ->setBodyf(
-                'parent::__construct(%s, $text, $source_ref);',
-                \var_export($trivia['trivia_type_name'], true),
-              ),
+              ->setBody('parent::__construct($text, $source_ref);'),
           )
           ->addMethod(
             $cg

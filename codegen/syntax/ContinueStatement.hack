@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e86f3038ddd3a13af038c3dd976440e6>>
+ * @generated SignedSource<<c0921f75343857b464e2306fc76bc06d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class ContinueStatement extends EditableNode implements IStatement {
+
+  const string SYNTAX_KIND = 'ContinueStatement';
 
   private EditableNode $_keyword;
   private EditableNode $_level;
@@ -22,7 +24,7 @@ final class ContinueStatement extends EditableNode implements IStatement {
     $this->_keyword = $keyword;
     $this->_level = $level;
     $this->_semicolon = $semicolon;
-    parent::__construct('continue_statement', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<834f6575005221d8feedc3a1fe65cca4>>
+ * @generated SignedSource<<1266ef153c78e77101200d78cfc67357>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class DictionaryIntrinsicExpression
   extends EditableNode
   implements IHackArray, IContainer, ILambdaBody, IExpression {
+
+  const string SYNTAX_KIND = 'DictionaryIntrinsicExpression';
 
   private EditableNode $_keyword;
   private EditableNode $_explicit_type;
@@ -30,7 +32,7 @@ final class DictionaryIntrinsicExpression
     $this->_left_bracket = $left_bracket;
     $this->_members = $members;
     $this->_right_bracket = $right_bracket;
-    parent::__construct('dictionary_intrinsic_expression', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

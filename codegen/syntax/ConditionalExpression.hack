@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6e37a81d8a2a3f2ed76107d8dee0f06c>>
+ * @generated SignedSource<<68ec5d948f98655c3b2afbdf6e07bd9a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class ConditionalExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
+
+  const string SYNTAX_KIND = 'ConditionalExpression';
 
   private EditableNode $_test;
   private EditableNode $_question;
@@ -30,7 +32,7 @@ final class ConditionalExpression
     $this->_consequence = $consequence;
     $this->_colon = $colon;
     $this->_alternative = $alternative;
-    parent::__construct('conditional_expression', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

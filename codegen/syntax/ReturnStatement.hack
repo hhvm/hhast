@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<28cfab751d93989310434b057f64d721>>
+ * @generated SignedSource<<2fddf8c342ad3be13cf8a29930aa77da>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class ReturnStatement extends EditableNode implements IStatement {
+
+  const string SYNTAX_KIND = 'ReturnStatement';
 
   private EditableNode $_keyword;
   private EditableNode $_expression;
@@ -22,7 +24,7 @@ final class ReturnStatement extends EditableNode implements IStatement {
     $this->_keyword = $keyword;
     $this->_expression = $expression;
     $this->_semicolon = $semicolon;
-    parent::__construct('return_statement', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

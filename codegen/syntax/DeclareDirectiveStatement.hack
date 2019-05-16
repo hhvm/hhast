@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0da11859d8c8accb32bb168088478a28>>
+ * @generated SignedSource<<2e4ed63ef25fcb0a9820225c85e0c07a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class DeclareDirectiveStatement
   extends EditableNode
   implements IStatement {
+
+  const string SYNTAX_KIND = 'DeclareDirectiveStatement';
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;
@@ -30,7 +32,7 @@ final class DeclareDirectiveStatement
     $this->_expression = $expression;
     $this->_right_paren = $right_paren;
     $this->_semicolon = $semicolon;
-    parent::__construct('declare_directive_statement', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

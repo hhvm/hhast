@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<18124b8c6ede796369ac7435d5201e33>>
+ * @generated SignedSource<<5b644a144ccc975ba77e8c4cc3ce2d4b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,6 +11,8 @@ final class VariableExpression
   extends EditableNode
   implements ILambdaBody, ILambdaSignature, IExpression {
 
+  const string SYNTAX_KIND = 'VariableExpression';
+
   private EditableNode $_expression;
 
   public function __construct(
@@ -18,7 +20,7 @@ final class VariableExpression
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_expression = $expression;
-    parent::__construct('variable_expression', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

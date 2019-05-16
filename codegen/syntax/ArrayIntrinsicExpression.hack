@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6603f653231fce585bcede52bc9d0639>>
+ * @generated SignedSource<<9d0f3b01b7fa5eaecf6028e8236b3f1c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class ArrayIntrinsicExpression
   extends EditableNode
   implements IPHPArray, IContainer, ILambdaBody, IExpression {
+
+  const string SYNTAX_KIND = 'ArrayIntrinsicExpression';
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;
@@ -27,7 +29,7 @@ final class ArrayIntrinsicExpression
     $this->_left_paren = $left_paren;
     $this->_members = $members;
     $this->_right_paren = $right_paren;
-    parent::__construct('array_intrinsic_expression', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

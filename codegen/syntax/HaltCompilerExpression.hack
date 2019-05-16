@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d307b4e5886b32ccaa5e6c750f99091a>>
+ * @generated SignedSource<<e684ff74e52e6b91bce56d7d49541540>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class HaltCompilerExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
+
+  const string SYNTAX_KIND = 'HaltCompilerExpression';
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;
@@ -27,7 +29,7 @@ final class HaltCompilerExpression
     $this->_left_paren = $left_paren;
     $this->_argument_list = $argument_list;
     $this->_right_paren = $right_paren;
-    parent::__construct('halt_compiler_expression', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ef4e7788749a7022f56ba96784becf4c>>
+ * @generated SignedSource<<15827e77eaf8234856fe54dafd2acbd4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class PrefixedStringExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
+
+  const string SYNTAX_KIND = 'PrefixedStringExpression';
 
   private EditableNode $_name;
   private EditableNode $_str;
@@ -21,7 +23,7 @@ final class PrefixedStringExpression
   ) {
     $this->_name = $name;
     $this->_str = $str;
-    parent::__construct('prefixed_string_expression', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

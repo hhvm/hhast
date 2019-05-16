@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a50cda7c664b982c912be51483a7bea9>>
+ * @generated SignedSource<<4a4627281781e94f2c2d118eea1421aa>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class CastExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
+
+  const string SYNTAX_KIND = 'CastExpression';
 
   private EditableNode $_left_paren;
   private EditableNode $_type;
@@ -27,7 +29,7 @@ final class CastExpression
     $this->_type = $type;
     $this->_right_paren = $right_paren;
     $this->_operand = $operand;
-    parent::__construct('cast_expression', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

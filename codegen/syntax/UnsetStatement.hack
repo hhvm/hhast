@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a6cb28805d770789e2fee1f92536407f>>
+ * @generated SignedSource<<1ba90ebf6f439053aa3396bf19e3be14>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class UnsetStatement extends EditableNode implements IStatement {
+
+  const string SYNTAX_KIND = 'UnsetStatement';
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;
@@ -28,7 +30,7 @@ final class UnsetStatement extends EditableNode implements IStatement {
     $this->_variables = $variables;
     $this->_right_paren = $right_paren;
     $this->_semicolon = $semicolon;
-    parent::__construct('unset_statement', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

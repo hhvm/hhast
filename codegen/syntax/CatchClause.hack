@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<37d07cb874c9967492da59b30f13b460>>
+ * @generated SignedSource<<7a7f9485d46a409da478a5ea1f347cb3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class CatchClause extends EditableNode {
+
+  const string SYNTAX_KIND = 'CatchClause';
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;
@@ -31,7 +33,7 @@ final class CatchClause extends EditableNode {
     $this->_variable = $variable;
     $this->_right_paren = $right_paren;
     $this->_body = $body;
-    parent::__construct('catch_clause', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

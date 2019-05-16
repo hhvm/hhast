@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<63171c7c2b03a21fb204c5d7d714b0b2>>
+ * @generated SignedSource<<b19d46d4ed3926ae1e9d6d840ed13713>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class NamespaceEmptyBody extends EditableNode implements INamespaceBody {
+
+  const string SYNTAX_KIND = 'NamespaceEmptyBody';
 
   private EditableNode $_semicolon;
 
@@ -16,7 +18,7 @@ final class NamespaceEmptyBody extends EditableNode implements INamespaceBody {
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_semicolon = $semicolon;
-    parent::__construct('namespace_empty_body', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

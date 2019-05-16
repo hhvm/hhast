@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e3d2347cf44dd0abf1a51275e22525ae>>
+ * @generated SignedSource<<41292cec977609d74cdd8ed8dd0fa22f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class FunctionCallExpression
   extends EditableNode
   implements IFunctionCallishExpression, ILambdaBody, IExpression {
+
+  const string SYNTAX_KIND = 'FunctionCallExpression';
 
   private EditableNode $_receiver;
   private EditableNode $_type_args;
@@ -30,7 +32,7 @@ final class FunctionCallExpression
     $this->_left_paren = $left_paren;
     $this->_argument_list = $argument_list;
     $this->_right_paren = $right_paren;
-    parent::__construct('function_call_expression', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

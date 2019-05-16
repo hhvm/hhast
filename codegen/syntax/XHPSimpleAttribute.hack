@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<31da5e300f156c19cd97b3de02017dfa>>
+ * @generated SignedSource<<8db7be06180bca7724dd985c6f79ebd0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class XHPSimpleAttribute extends EditableNode implements IXHPAttribute {
+
+  const string SYNTAX_KIND = 'XHPSimpleAttribute';
 
   private EditableNode $_name;
   private EditableNode $_equal;
@@ -22,7 +24,7 @@ final class XHPSimpleAttribute extends EditableNode implements IXHPAttribute {
     $this->_name = $name;
     $this->_equal = $equal;
     $this->_expression = $expression;
-    parent::__construct('xhp_simple_attribute', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

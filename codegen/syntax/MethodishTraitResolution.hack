@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<56b7024c80373d2714bb5e9bd75964ad>>
+ * @generated SignedSource<<51c4cad320082e957dfcca72c4fcadba>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class MethodishTraitResolution
   extends EditableNode
   implements IClassBodyDeclaration {
+
+  const string SYNTAX_KIND = 'MethodishTraitResolution';
 
   private EditableNode $_attribute;
   private EditableNode $_function_decl_header;
@@ -30,7 +32,7 @@ final class MethodishTraitResolution
     $this->_equal = $equal;
     $this->_name = $name;
     $this->_semicolon = $semicolon;
-    parent::__construct('methodish_trait_resolution', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

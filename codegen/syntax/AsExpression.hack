@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4816907bb42b814a4491f1443a7e5284>>
+ * @generated SignedSource<<68bbe842335fe06d41c85937fbd216fb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class AsExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
+
+  const string SYNTAX_KIND = 'AsExpression';
 
   private EditableNode $_left_operand;
   private EditableNode $_operator;
@@ -24,7 +26,7 @@ final class AsExpression
     $this->_left_operand = $left_operand;
     $this->_operator = $operator;
     $this->_right_operand = $right_operand;
-    parent::__construct('as_expression', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

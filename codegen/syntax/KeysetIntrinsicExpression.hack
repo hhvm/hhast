@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<99a30961b40a0ceba073b648ba80ab1f>>
+ * @generated SignedSource<<835e8c906febc787d73a37fe8f331cad>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class KeysetIntrinsicExpression
   extends EditableNode
   implements IHackArray, IContainer, ILambdaBody, IExpression {
+
+  const string SYNTAX_KIND = 'KeysetIntrinsicExpression';
 
   private EditableNode $_keyword;
   private EditableNode $_explicit_type;
@@ -30,7 +32,7 @@ final class KeysetIntrinsicExpression
     $this->_left_bracket = $left_bracket;
     $this->_members = $members;
     $this->_right_bracket = $right_bracket;
-    parent::__construct('keyset_intrinsic_expression', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

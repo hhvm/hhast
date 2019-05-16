@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a9d9d22b7601d5b2803bdcf87287e284>>
+ * @generated SignedSource<<954133edd1e8fbe04eecd9974879c12a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,6 +11,8 @@ final class PipeVariableExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
 
+  const string SYNTAX_KIND = 'PipeVariableExpression';
+
   private EditableNode $_expression;
 
   public function __construct(
@@ -18,7 +20,7 @@ final class PipeVariableExpression
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_expression = $expression;
-    parent::__construct('pipe_variable_expression', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

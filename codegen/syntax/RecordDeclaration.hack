@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3fa92e56e4f9138c5e2bfd048fa24c10>>
+ * @generated SignedSource<<ed95810096350b50cef58aa8ff40be51>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class RecordDeclaration extends EditableNode {
+
+  const string SYNTAX_KIND = 'RecordDeclaration';
 
   private EditableNode $_attribute_spec;
   private EditableNode $_keyword;
@@ -31,7 +33,7 @@ final class RecordDeclaration extends EditableNode {
     $this->_left_brace = $left_brace;
     $this->_fields = $fields;
     $this->_right_brace = $right_brace;
-    parent::__construct('record_declaration', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

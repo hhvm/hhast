@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5bc478dccdeaa81a1b2c7539654e68eb>>
+ * @generated SignedSource<<c31839bdf79264bddde00948daf76758>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class BracedExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
+
+  const string SYNTAX_KIND = 'BracedExpression';
 
   private EditableNode $_left_brace;
   private EditableNode $_expression;
@@ -24,7 +26,7 @@ final class BracedExpression
     $this->_left_brace = $left_brace;
     $this->_expression = $expression;
     $this->_right_brace = $right_brace;
-    parent::__construct('braced_expression', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<78f02236a5e441abda76c55bf411da7d>>
+ * @generated SignedSource<<c3cbbd3c2ba80e4728143db2b8baa3e8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class GotoLabel extends EditableNode implements IStatement {
+
+  const string SYNTAX_KIND = 'GotoLabel';
 
   private EditableNode $_name;
   private EditableNode $_colon;
@@ -19,7 +21,7 @@ final class GotoLabel extends EditableNode implements IStatement {
   ) {
     $this->_name = $name;
     $this->_colon = $colon;
-    parent::__construct('goto_label', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

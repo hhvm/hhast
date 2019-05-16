@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<87110eae3c9f99f38bafd9de748a0399>>
+ * @generated SignedSource<<cd1319b6281581e2a3ef01eff67e690c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class PocketIdentifierExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
+
+  const string SYNTAX_KIND = 'PocketIdentifierExpression';
 
   private EditableNode $_qualifier;
   private EditableNode $_pu_operator;
@@ -30,7 +32,7 @@ final class PocketIdentifierExpression
     $this->_field = $field;
     $this->_operator = $operator;
     $this->_name = $name;
-    parent::__construct('pocket_identifier_expression', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

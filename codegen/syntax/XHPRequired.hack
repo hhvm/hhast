@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d9946d68f1787cd99acd1fae028bf6de>>
+ * @generated SignedSource<<e40f2d45b8a4f697840c3265a2591c24>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class XHPRequired extends EditableNode {
+
+  const string SYNTAX_KIND = 'XHPRequired';
 
   private EditableNode $_at;
   private EditableNode $_keyword;
@@ -19,7 +21,7 @@ final class XHPRequired extends EditableNode {
   ) {
     $this->_at = $at;
     $this->_keyword = $keyword;
-    parent::__construct('xhp_required', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

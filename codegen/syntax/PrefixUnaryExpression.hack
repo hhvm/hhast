@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<09699d1c92c8d355e0ed6c10e6c37418>>
+ * @generated SignedSource<<5c192c3672e75f786fdd8173f1bac93d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class PrefixUnaryExpression
   extends EditableNode
   implements IHasOperator, ILambdaBody, IExpression {
+
+  const string SYNTAX_KIND = 'PrefixUnaryExpression';
 
   private EditableNode $_operator;
   private EditableNode $_operand;
@@ -21,7 +23,7 @@ final class PrefixUnaryExpression
   ) {
     $this->_operator = $operator;
     $this->_operand = $operand;
-    parent::__construct('prefix_unary_expression', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

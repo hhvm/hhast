@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7bfcb3e9d07ff9c5d6e97145798bc039>>
+ * @generated SignedSource<<27d9e2717018fc23feff0ea514113a47>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class TraitUsePrecedenceItem
   extends EditableNode
   implements ITraitUseItem {
+
+  const string SYNTAX_KIND = 'TraitUsePrecedenceItem';
 
   private EditableNode $_name;
   private EditableNode $_keyword;
@@ -24,7 +26,7 @@ final class TraitUsePrecedenceItem
     $this->_name = $name;
     $this->_keyword = $keyword;
     $this->_removed_names = $removed_names;
-    parent::__construct('trait_use_precedence_item', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

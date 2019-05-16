@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1cae3204753dd869adfab6615d3b09ef>>
+ * @generated SignedSource<<f90b2334bc006a5cefb3ad2ab88c3d97>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class XHPClose extends EditableNode {
+
+  const string SYNTAX_KIND = 'XHPClose';
 
   private EditableNode $_left_angle;
   private EditableNode $_name;
@@ -22,7 +24,7 @@ final class XHPClose extends EditableNode {
     $this->_left_angle = $left_angle;
     $this->_name = $name;
     $this->_right_angle = $right_angle;
-    parent::__construct('xhp_close', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

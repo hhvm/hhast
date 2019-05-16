@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c93a9587b7c8e0e1ae0cfddc04a045d5>>
+ * @generated SignedSource<<3297ab80c8188481eace3892ff6b914a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class NamespaceGroupUseDeclaration
   extends EditableNode
   implements INamespaceUseDeclaration {
+
+  const string SYNTAX_KIND = 'NamespaceGroupUseDeclaration';
 
   private EditableNode $_keyword;
   private EditableNode $_kind;
@@ -36,7 +38,7 @@ final class NamespaceGroupUseDeclaration
     $this->_clauses = $clauses;
     $this->_right_brace = $right_brace;
     $this->_semicolon = $semicolon;
-    parent::__construct('namespace_group_use_declaration', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

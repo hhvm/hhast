@@ -13,6 +13,7 @@ use type Facebook\HHAST\EditableNode;
 
 /* HH_IGNORE_ERROR[4047] not implementing abstract methods */
 abstract final class NodeImplementationDetails extends EditableNode {
+  const string SYNTAX_KIND = 'hhast_nonimplementable';
   public static function getSourceRef(
     EditableNode $node,
   ): ?SourceRef {

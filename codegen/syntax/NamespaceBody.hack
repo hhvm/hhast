@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4eb0691d422fd14c07814676ede66c26>>
+ * @generated SignedSource<<88d57fffb93060ffda68cb14befa6b68>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class NamespaceBody extends EditableNode implements INamespaceBody {
+
+  const string SYNTAX_KIND = 'NamespaceBody';
 
   private EditableNode $_left_brace;
   private EditableNode $_declarations;
@@ -22,7 +24,7 @@ final class NamespaceBody extends EditableNode implements INamespaceBody {
     $this->_left_brace = $left_brace;
     $this->_declarations = $declarations;
     $this->_right_brace = $right_brace;
-    parent::__construct('namespace_body', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

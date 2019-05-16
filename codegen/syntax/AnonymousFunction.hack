@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eb0a6f31aa3a33c91c58f8b9cc34eb18>>
+ * @generated SignedSource<<86d1e2f8bc06f9f1daf23235c61e8585>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class AnonymousFunction
   extends EditableNode
   implements IHasFunctionBody, ILambdaBody, IHasAttributeSpec, IExpression {
+
+  const string SYNTAX_KIND = 'AnonymousFunction';
 
   private EditableNode $_attribute_spec;
   private EditableNode $_static_keyword;
@@ -51,7 +53,7 @@ final class AnonymousFunction
     $this->_type = $type;
     $this->_use = $use;
     $this->_body = $body;
-    parent::__construct('anonymous_function', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

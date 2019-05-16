@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5ee295858ef65b9d728ecad0ae5e0b25>>
+ * @generated SignedSource<<a678a3fa66154537f2da308fbe2743a9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class VarrayIntrinsicExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
+
+  const string SYNTAX_KIND = 'VarrayIntrinsicExpression';
 
   private EditableNode $_keyword;
   private EditableNode $_explicit_type;
@@ -30,7 +32,7 @@ final class VarrayIntrinsicExpression
     $this->_left_bracket = $left_bracket;
     $this->_members = $members;
     $this->_right_bracket = $right_bracket;
-    parent::__construct('varray_intrinsic_expression', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

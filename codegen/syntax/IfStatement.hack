@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4e17b48b22c23c726b4908e651714474>>
+ * @generated SignedSource<<b662b671924e8b4b5a1148305373083f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class IfStatement
   extends EditableNode
   implements IControlFlowStatement, IStatement {
+
+  const string SYNTAX_KIND = 'IfStatement';
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;
@@ -36,7 +38,7 @@ final class IfStatement
     $this->_statement = $statement;
     $this->_elseif_clauses = $elseif_clauses;
     $this->_else_clause = $else_clause;
-    parent::__construct('if_statement', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

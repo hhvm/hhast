@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<63690fa4e9d6f31dad72e6114f3d1f40>>
+ * @generated SignedSource<<015514b489107c23d9375d126a5415ca>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class ShapeTypeSpecifier extends EditableNode implements ITypeSpecifier {
+
+  const string SYNTAX_KIND = 'ShapeTypeSpecifier';
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;
@@ -28,7 +30,7 @@ final class ShapeTypeSpecifier extends EditableNode implements ITypeSpecifier {
     $this->_fields = $fields;
     $this->_ellipsis = $ellipsis;
     $this->_right_paren = $right_paren;
-    parent::__construct('shape_type_specifier', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

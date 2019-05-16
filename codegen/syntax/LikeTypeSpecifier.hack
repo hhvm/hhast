@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<78ba57b395ffdc6b00e96c89087447ff>>
+ * @generated SignedSource<<9550b9b77d267c0817a1adf04db3333c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class LikeTypeSpecifier extends EditableNode implements ITypeSpecifier {
+
+  const string SYNTAX_KIND = 'LikeTypeSpecifier';
 
   private EditableNode $_tilde;
   private EditableNode $_type;
@@ -19,7 +21,7 @@ final class LikeTypeSpecifier extends EditableNode implements ITypeSpecifier {
   ) {
     $this->_tilde = $tilde;
     $this->_type = $type;
-    parent::__construct('like_type_specifier', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

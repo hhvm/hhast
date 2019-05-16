@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bed5fdaf9b7265bf7eab0d50daa3203f>>
+ * @generated SignedSource<<04ec73f236512bc406184d219df579be>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class NamespaceUseClause extends EditableNode {
+
+  const string SYNTAX_KIND = 'NamespaceUseClause';
 
   private EditableNode $_clause_kind;
   private EditableNode $_name;
@@ -25,7 +27,7 @@ final class NamespaceUseClause extends EditableNode {
     $this->_name = $name;
     $this->_as = $as;
     $this->_alias = $alias;
-    parent::__construct('namespace_use_clause', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

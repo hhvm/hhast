@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9efe5cb276eb4c486c50225d01d8839f>>
+ * @generated SignedSource<<9f672f6259d262b35a260a649f6ff4e6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class ClassnameTypeSpecifier
   extends EditableNode
   implements ITypeSpecifier {
+
+  const string SYNTAX_KIND = 'ClassnameTypeSpecifier';
 
   private EditableNode $_keyword;
   private EditableNode $_left_angle;
@@ -30,7 +32,7 @@ final class ClassnameTypeSpecifier
     $this->_type = $type;
     $this->_trailing_comma = $trailing_comma;
     $this->_right_angle = $right_angle;
-    parent::__construct('classname_type_specifier', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

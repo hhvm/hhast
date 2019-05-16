@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c5def867b78f0edc6c166b32b83382e4>>
+ * @generated SignedSource<<fb0fd6680a0196685804a6c03982d4d1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class AttributeSpecification extends EditableNode {
+
+  const string SYNTAX_KIND = 'AttributeSpecification';
 
   private EditableNode $_left_double_angle;
   private EditableNode $_attributes;
@@ -22,7 +24,7 @@ final class AttributeSpecification extends EditableNode {
     $this->_left_double_angle = $left_double_angle;
     $this->_attributes = $attributes;
     $this->_right_double_angle = $right_double_angle;
-    parent::__construct('attribute_specification', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

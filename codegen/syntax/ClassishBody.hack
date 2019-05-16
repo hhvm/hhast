@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<22aaf8e8900e32a5c5909b124c465436>>
+ * @generated SignedSource<<c36036216a650bf3d24982b56acd5a6f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class ClassishBody extends EditableNode {
+
+  const string SYNTAX_KIND = 'ClassishBody';
 
   private EditableNode $_left_brace;
   private EditableNode $_elements;
@@ -22,7 +24,7 @@ final class ClassishBody extends EditableNode {
     $this->_left_brace = $left_brace;
     $this->_elements = $elements;
     $this->_right_brace = $right_brace;
-    parent::__construct('classish_body', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2b2f436cb76fd6dca56abe8a90f86fef>>
+ * @generated SignedSource<<0d48dfaaf5879745ab55d19ad235b529>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class PocketFieldTypeDeclaration extends EditableNode {
+
+  const string SYNTAX_KIND = 'PocketFieldTypeDeclaration';
 
   private EditableNode $_case;
   private EditableNode $_type;
@@ -25,7 +27,7 @@ final class PocketFieldTypeDeclaration extends EditableNode {
     $this->_type = $type;
     $this->_name = $name;
     $this->_semicolon = $semicolon;
-    parent::__construct('pocket_field_type_declaration', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

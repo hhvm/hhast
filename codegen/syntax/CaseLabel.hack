@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7cb742f3de327383945c3e4ff7ab5cb7>>
+ * @generated SignedSource<<6e989277743d42a8b74ac159a9c5d25e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class CaseLabel extends EditableNode implements ISwitchLabel {
+
+  const string SYNTAX_KIND = 'CaseLabel';
 
   private EditableNode $_keyword;
   private EditableNode $_expression;
@@ -22,7 +24,7 @@ final class CaseLabel extends EditableNode implements ISwitchLabel {
     $this->_keyword = $keyword;
     $this->_expression = $expression;
     $this->_colon = $colon;
-    parent::__construct('case_label', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

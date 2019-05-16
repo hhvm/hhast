@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<47f790fa0e4b53efe72db69e5699bf0a>>
+ * @generated SignedSource<<e66c2610a9a1933c309938a95110834e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 abstract class AwaitableCreationExpressionGeneratedBase
   extends EditableNode
   implements IHasFunctionBody, ILambdaBody, IHasAttributeSpec, IExpression {
+
+  const string SYNTAX_KIND = 'AwaitableCreationExpression';
 
   private EditableNode $_attribute_spec;
   private EditableNode $_async;
@@ -27,7 +29,7 @@ abstract class AwaitableCreationExpressionGeneratedBase
     $this->_async = $async;
     $this->_coroutine = $coroutine;
     $this->_compound_statement = $compound_statement;
-    parent::__construct('awaitable_creation_expression', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

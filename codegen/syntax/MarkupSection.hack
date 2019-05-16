@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<861df99213599a1e17b75c09e2422315>>
+ * @generated SignedSource<<4bb746bc703c744865e47297d897ea7d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class MarkupSection extends EditableNode {
+
+  const string SYNTAX_KIND = 'MarkupSection';
 
   private EditableNode $_prefix;
   private EditableNode $_text;
@@ -25,7 +27,7 @@ final class MarkupSection extends EditableNode {
     $this->_text = $text;
     $this->_suffix = $suffix;
     $this->_expression = $expression;
-    parent::__construct('markup_section', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<95de2f30c78b4100ae3635f31a1540c1>>
+ * @generated SignedSource<<98e46ff47af0f3aca5b23bce0a235e74>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class TraitUseAliasItem extends EditableNode implements ITraitUseItem {
+
+  const string SYNTAX_KIND = 'TraitUseAliasItem';
 
   private EditableNode $_aliasing_name;
   private EditableNode $_keyword;
@@ -25,7 +27,7 @@ final class TraitUseAliasItem extends EditableNode implements ITraitUseItem {
     $this->_keyword = $keyword;
     $this->_modifiers = $modifiers;
     $this->_aliased_name = $aliased_name;
-    parent::__construct('trait_use_alias_item', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<707928b6c769f041dac886765e5d73e0>>
+ * @generated SignedSource<<0439e0c6984f049e9473b1fe64a04326>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class RecordCreationExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
+
+  const string SYNTAX_KIND = 'RecordCreationExpression';
 
   private EditableNode $_type;
   private EditableNode $_left_bracket;
@@ -27,7 +29,7 @@ final class RecordCreationExpression
     $this->_left_bracket = $left_bracket;
     $this->_members = $members;
     $this->_right_bracket = $right_bracket;
-    parent::__construct('record_creation_expression', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

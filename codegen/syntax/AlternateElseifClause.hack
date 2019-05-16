@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bb4e1b6d1a5edcd2e78a507cd793aee2>>
+ * @generated SignedSource<<502188c438b53e3e2fec451b4ed64d9c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class AlternateElseifClause
   extends EditableNode
   implements IControlFlowStatement {
+
+  const string SYNTAX_KIND = 'AlternateElseifClause';
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;
@@ -33,7 +35,7 @@ final class AlternateElseifClause
     $this->_right_paren = $right_paren;
     $this->_colon = $colon;
     $this->_statement = $statement;
-    parent::__construct('alternate_elseif_clause', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

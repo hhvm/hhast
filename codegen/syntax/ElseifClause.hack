@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<669046dc582ef0581f6eadac61c534ae>>
+ * @generated SignedSource<<844d7dc224a154fd5bc7eebbc5d8bcb9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class ElseifClause extends EditableNode implements IControlFlowStatement {
+
+  const string SYNTAX_KIND = 'ElseifClause';
 
   private EditableNode $_keyword;
   private EditableNode $_left_paren;
@@ -28,7 +30,7 @@ final class ElseifClause extends EditableNode implements IControlFlowStatement {
     $this->_condition = $condition;
     $this->_right_paren = $right_paren;
     $this->_statement = $statement;
-    parent::__construct('elseif_clause', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

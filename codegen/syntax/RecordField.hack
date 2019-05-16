@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<57a306c2a0439110c22235f522335bc1>>
+ * @generated SignedSource<<e8c6b83f5fc0fb6da17586a563421e8b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class RecordField extends EditableNode {
+
+  const string SYNTAX_KIND = 'RecordField';
 
   private EditableNode $_name;
   private EditableNode $_colon;
@@ -28,7 +30,7 @@ final class RecordField extends EditableNode {
     $this->_type = $type;
     $this->_init = $init;
     $this->_comma = $comma;
-    parent::__construct('record_field', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

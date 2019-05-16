@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a766f571289c24f273449132d6c3a18f>>
+ * @generated SignedSource<<971c3cb5c67f0681ecbad22f5d88f370>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class FileAttributeSpecification extends EditableNode {
+
+  const string SYNTAX_KIND = 'FileAttributeSpecification';
 
   private EditableNode $_left_double_angle;
   private EditableNode $_keyword;
@@ -28,7 +30,7 @@ final class FileAttributeSpecification extends EditableNode {
     $this->_colon = $colon;
     $this->_attributes = $attributes;
     $this->_right_double_angle = $right_double_angle;
-    parent::__construct('file_attribute_specification', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<97ec51f2a258d3b225515f3c6e4be26e>>
+ * @generated SignedSource<<76c629fd4b582da2a5c36a84d79aa67d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class VectorIntrinsicExpression
   extends EditableNode
   implements IHackArray, IContainer, ILambdaBody, IExpression {
+
+  const string SYNTAX_KIND = 'VectorIntrinsicExpression';
 
   private EditableNode $_keyword;
   private EditableNode $_explicit_type;
@@ -30,7 +32,7 @@ final class VectorIntrinsicExpression
     $this->_left_bracket = $left_bracket;
     $this->_members = $members;
     $this->_right_bracket = $right_bracket;
-    parent::__construct('vector_intrinsic_expression', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

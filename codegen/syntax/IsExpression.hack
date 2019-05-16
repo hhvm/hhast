@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<57a18ffba0178b62b63c5d7eef4a2d67>>
+ * @generated SignedSource<<d275bb913519f88502a9535cb0356da4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class IsExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
+
+  const string SYNTAX_KIND = 'IsExpression';
 
   private EditableNode $_left_operand;
   private EditableNode $_operator;
@@ -24,7 +26,7 @@ final class IsExpression
     $this->_left_operand = $left_operand;
     $this->_operator = $operator;
     $this->_right_operand = $right_operand;
-    parent::__construct('is_expression', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

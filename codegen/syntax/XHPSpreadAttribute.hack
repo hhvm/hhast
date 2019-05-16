@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d7ebda108c0105e9730ad05a9ca38878>>
+ * @generated SignedSource<<1265b73369fa6c7e1491fadd80848240>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class XHPSpreadAttribute extends EditableNode {
+
+  const string SYNTAX_KIND = 'XHPSpreadAttribute';
 
   private EditableNode $_left_brace;
   private EditableNode $_spread_operator;
@@ -25,7 +27,7 @@ final class XHPSpreadAttribute extends EditableNode {
     $this->_spread_operator = $spread_operator;
     $this->_expression = $expression;
     $this->_right_brace = $right_brace;
-    parent::__construct('xhp_spread_attribute', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

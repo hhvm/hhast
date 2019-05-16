@@ -15,12 +15,11 @@ abstract class EditableTrivia extends EditableNode {
   private string $_text;
   <<__Override>>
   public function __construct(
-    string $trivia_kind,
     string $text,
     ?__Private\SourceRef $ref,
   ) {
     $this->_text = $text;
-    parent::__construct($trivia_kind, $ref);
+    parent::__construct($ref);
   }
 
   public function getText(): string {

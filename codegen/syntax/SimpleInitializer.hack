@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<65064eeccabdbbf08d1227bee0d99024>>
+ * @generated SignedSource<<8a7984615730ad6f78b7d99693e40e4b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class SimpleInitializer extends EditableNode {
+
+  const string SYNTAX_KIND = 'SimpleInitializer';
 
   private EditableNode $_equal;
   private EditableNode $_value;
@@ -19,7 +21,7 @@ final class SimpleInitializer extends EditableNode {
   ) {
     $this->_equal = $equal;
     $this->_value = $value;
-    parent::__construct('simple_initializer', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

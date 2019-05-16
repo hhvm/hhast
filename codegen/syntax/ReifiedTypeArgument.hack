@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1b95f5789e426bf0a7815f34f6776f17>>
+ * @generated SignedSource<<fd4c4b555814bf6425a469849a027f29>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class ReifiedTypeArgument extends EditableNode implements ITypeSpecifier {
+
+  const string SYNTAX_KIND = 'ReifiedTypeArgument';
 
   private EditableNode $_reified;
   private EditableNode $_type;
@@ -19,7 +21,7 @@ final class ReifiedTypeArgument extends EditableNode implements ITypeSpecifier {
   ) {
     $this->_reified = $reified;
     $this->_type = $type;
-    parent::__construct('reified_type_argument', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

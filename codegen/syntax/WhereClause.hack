@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9533bda4821dcaeef0d026032b9b9b33>>
+ * @generated SignedSource<<886f2b1208dc1c752da5edc0af5c9056>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class WhereClause extends EditableNode {
+
+  const string SYNTAX_KIND = 'WhereClause';
 
   private EditableNode $_keyword;
   private EditableNode $_constraints;
@@ -19,7 +21,7 @@ final class WhereClause extends EditableNode {
   ) {
     $this->_keyword = $keyword;
     $this->_constraints = $constraints;
-    parent::__construct('where_clause', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

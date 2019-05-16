@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1a39a273eed01626a37e4bb4f5683ea4>>
+ * @generated SignedSource<<2077b71964e806dc9569066a452893a9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class YieldExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
+
+  const string SYNTAX_KIND = 'YieldExpression';
 
   private EditableNode $_keyword;
   private EditableNode $_operand;
@@ -21,7 +23,7 @@ final class YieldExpression
   ) {
     $this->_keyword = $keyword;
     $this->_operand = $operand;
-    parent::__construct('yield_expression', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

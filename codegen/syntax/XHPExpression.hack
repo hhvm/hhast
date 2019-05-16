@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2c2c8f3a131c3401984dc56612218119>>
+ * @generated SignedSource<<7fc069e0cc80cf090fc5b1d46c85c9d5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class XHPExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
+
+  const string SYNTAX_KIND = 'XHPExpression';
 
   private EditableNode $_open;
   private EditableNode $_body;
@@ -24,7 +26,7 @@ final class XHPExpression
     $this->_open = $open;
     $this->_body = $body;
     $this->_close = $close;
-    parent::__construct('xhp_expression', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

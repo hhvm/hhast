@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0fddcbc64af0c1120d0c9f446138a555>>
+ * @generated SignedSource<<6b249906b3b399581bd9a88d63b92229>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class QualifiedName extends EditableNode implements INameishNode {
+
+  const string SYNTAX_KIND = 'QualifiedName';
 
   private EditableNode $_parts;
 
@@ -16,7 +18,7 @@ final class QualifiedName extends EditableNode implements INameishNode {
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_parts = $parts;
-    parent::__construct('qualified_name', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

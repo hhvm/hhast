@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f8d193338e681aa3a103bdd87ac85c92>>
+ * @generated SignedSource<<f9596cc9092f7778d36da02a9ddfb51c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class FunctionDeclaration
   extends EditableNode
   implements IFunctionishDeclaration, IHasFunctionBody, IHasAttributeSpec {
+
+  const string SYNTAX_KIND = 'FunctionDeclaration';
 
   private EditableNode $_attribute_spec;
   private EditableNode $_declaration_header;
@@ -24,7 +26,7 @@ final class FunctionDeclaration
     $this->_attribute_spec = $attribute_spec;
     $this->_declaration_header = $declaration_header;
     $this->_body = $body;
-    parent::__construct('function_declaration', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

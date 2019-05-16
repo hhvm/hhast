@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<27923454ed213ff9d233dd5bb29f8bbb>>
+ * @generated SignedSource<<5995b672548fbdab202f65806710247c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -11,6 +11,8 @@ final class LiteralExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
 
+  const string SYNTAX_KIND = 'LiteralExpression';
+
   private EditableNode $_expression;
 
   public function __construct(
@@ -18,7 +20,7 @@ final class LiteralExpression
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_expression = $expression;
-    parent::__construct('literal_expression', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

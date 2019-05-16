@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<761349b25f48395b66646f10c01fb9e6>>
+ * @generated SignedSource<<caa626cfc58d6a9b05b8f93178423f47>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class EnumDeclaration extends EditableNode implements IHasAttributeSpec {
+
+  const string SYNTAX_KIND = 'EnumDeclaration';
 
   private EditableNode $_attribute_spec;
   private EditableNode $_keyword;
@@ -40,7 +42,7 @@ final class EnumDeclaration extends EditableNode implements IHasAttributeSpec {
     $this->_left_brace = $left_brace;
     $this->_enumerators = $enumerators;
     $this->_right_brace = $right_brace;
-    parent::__construct('enum_declaration', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

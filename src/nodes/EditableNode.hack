@@ -13,6 +13,7 @@ use namespace HH\Lib\{Dict, Vec, C, Str};
 use namespace Facebook\TypeAssert;
 
 abstract class EditableNode {
+  abstract const string SYNTAX_KIND;
   const type TRewriter = (function(
     EditableNode,
     ?vec<EditableNode>,
@@ -20,14 +21,11 @@ abstract class EditableNode {
 
   private keyset<int> $_descendants = keyset[];
   private static dict<int, EditableNode> $byID = dict[];
-  private string $_syntax_kind;
   protected ?int $_width;
 
   public function __construct(
-    string $syntax_kind,
     protected ?__Private\SourceRef $sourceRef,
   ) {
-    $this->_syntax_kind = $syntax_kind;
     $this->_descendants = Vec\map(
       $this->getChildren(),
       $child ==> Vec\concat(vec[$child->getUniqueID()], $child->_descendants),
@@ -58,12 +56,12 @@ abstract class EditableNode {
     return $id;
   }
 
-  public function isAncestorOf(EditableNode $other): bool {
+  final public function isAncestorOf(EditableNode $other): bool {
     return C\contains_key($this->_descendants, $other->getUniqueID());
   }
 
-  public function getSyntaxKind(): string {
-    return $this->_syntax_kind;
+  final public function getSyntaxKind(): string {
+    return static::SYNTAX_KIND;
   }
 
   public abstract function getChildren(): dict<string, EditableNode>;

@@ -10,9 +10,10 @@
 namespace Facebook\HHAST;
 
 final class Missing extends EditableNode {
+  const string SYNTAX_KIND = 'missing';
   <<__Override>>
   public function __construct() {
-    parent::__construct('missing', null);
+    parent::__construct(null);
   }
 
   <<__Override>>

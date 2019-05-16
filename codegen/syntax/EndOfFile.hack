@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b1951ea7034221391e1d3e5e473c747a>>
+ * @generated SignedSource<<a74d179b7c79456b409fa6acf203622d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class EndOfFile extends EditableNode {
+
+  const string SYNTAX_KIND = 'EndOfFile';
 
   private EditableNode $_token;
 
@@ -16,7 +18,7 @@ final class EndOfFile extends EditableNode {
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_token = $token;
-    parent::__construct('end_of_file', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

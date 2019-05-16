@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6c9f245816e95b2490f0e29b86173926>>
+ * @generated SignedSource<<dd99fad680386365e5d1e7988d1c1b39>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class ThrowStatement extends EditableNode implements IStatement {
+
+  const string SYNTAX_KIND = 'ThrowStatement';
 
   private EditableNode $_keyword;
   private EditableNode $_expression;
@@ -22,7 +24,7 @@ final class ThrowStatement extends EditableNode implements IStatement {
     $this->_keyword = $keyword;
     $this->_expression = $expression;
     $this->_semicolon = $semicolon;
-    parent::__construct('throw_statement', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

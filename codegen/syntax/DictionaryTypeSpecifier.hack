@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fa27dc4cbd935743aa9a105b1eb3f8a3>>
+ * @generated SignedSource<<7ac62e8ecafaca0a8bb41dbf44d76789>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class DictionaryTypeSpecifier
   extends EditableNode
   implements ITypeSpecifier {
+
+  const string SYNTAX_KIND = 'DictionaryTypeSpecifier';
 
   private EditableNode $_keyword;
   private EditableNode $_left_angle;
@@ -27,7 +29,7 @@ final class DictionaryTypeSpecifier
     $this->_left_angle = $left_angle;
     $this->_members = $members;
     $this->_right_angle = $right_angle;
-    parent::__construct('dictionary_type_specifier', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

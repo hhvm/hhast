@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b0bc9013a51feaee66a9a3bf4376b0c9>>
+ * @generated SignedSource<<3022dbc96e34332079cd58b602ffadd3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class ClosureTypeSpecifier
   extends EditableNode
   implements ITypeSpecifier {
+
+  const string SYNTAX_KIND = 'ClosureTypeSpecifier';
 
   private EditableNode $_outer_left_paren;
   private EditableNode $_coroutine;
@@ -42,7 +44,7 @@ final class ClosureTypeSpecifier
     $this->_colon = $colon;
     $this->_return_type = $return_type;
     $this->_outer_right_paren = $outer_right_paren;
-    parent::__construct('closure_type_specifier', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

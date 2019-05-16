@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<35c18ac3ae88b05a0000de8aedf1cc67>>
+ * @generated SignedSource<<427dc1db69f31ff87973b388c792c205>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class FunctionDeclarationHeader extends EditableNode {
+
+  const string SYNTAX_KIND = 'FunctionDeclarationHeader';
 
   private EditableNode $_modifiers;
   private EditableNode $_keyword;
@@ -43,7 +45,7 @@ final class FunctionDeclarationHeader extends EditableNode {
     $this->_colon = $colon;
     $this->_type = $type;
     $this->_where_clause = $where_clause;
-    parent::__construct('function_declaration_header', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

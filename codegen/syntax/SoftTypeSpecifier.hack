@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<16714f1f7a5d88e8d45b6b736e61bc5c>>
+ * @generated SignedSource<<0555d0072db9e21c375d087dd9010b4b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class SoftTypeSpecifier extends EditableNode implements ITypeSpecifier {
+
+  const string SYNTAX_KIND = 'SoftTypeSpecifier';
 
   private EditableNode $_at;
   private EditableNode $_type;
@@ -19,7 +21,7 @@ final class SoftTypeSpecifier extends EditableNode implements ITypeSpecifier {
   ) {
     $this->_at = $at;
     $this->_type = $type;
-    parent::__construct('soft_type_specifier', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

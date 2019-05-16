@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<843accae58a6ef8aa10d9750a54ec388>>
+ * @generated SignedSource<<b941b6a019a249537076d48127c9b738>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class ScopeResolutionExpression
   extends EditableNode
   implements ILambdaBody, IExpression {
+
+  const string SYNTAX_KIND = 'ScopeResolutionExpression';
 
   private EditableNode $_qualifier;
   private EditableNode $_operator;
@@ -24,7 +26,7 @@ final class ScopeResolutionExpression
     $this->_qualifier = $qualifier;
     $this->_operator = $operator;
     $this->_name = $name;
-    parent::__construct('scope_resolution_expression', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2973cc488aabcb8acf24cfc7068c7d77>>
+ * @generated SignedSource<<d47a576af2dcfd97eadbfe74a5b064be>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class UsingStatementBlockScoped
   extends EditableNode
   implements IStatement {
+
+  const string SYNTAX_KIND = 'UsingStatementBlockScoped';
 
   private EditableNode $_await_keyword;
   private EditableNode $_using_keyword;
@@ -33,7 +35,7 @@ final class UsingStatementBlockScoped
     $this->_expressions = $expressions;
     $this->_right_paren = $right_paren;
     $this->_body = $body;
-    parent::__construct('using_statement_block_scoped', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>

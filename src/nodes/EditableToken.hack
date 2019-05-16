@@ -18,6 +18,8 @@ abstract class EditableToken extends EditableNode {
   private EditableNode $_trailing;
   private string $_text;
 
+  const string SYNTAX_KIND = 'token';
+
   public function __construct(
     string $token_kind,
     EditableNode $leading,
@@ -32,7 +34,7 @@ abstract class EditableToken extends EditableNode {
     $this->_width = Str\length($text) +
       $leading->getWidth() +
       $trailing->getWidth();
-    parent::__construct('token', $ref);
+    parent::__construct($ref);
   }
 
   public function getTokenKind(): string {

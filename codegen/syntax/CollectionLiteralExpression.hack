@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eb67cc7c68f70f62cfd87a1558744d2f>>
+ * @generated SignedSource<<40d2a26dbd06bc675bcd319dc9aabd0d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,6 +10,8 @@ use namespace Facebook\TypeAssert;
 final class CollectionLiteralExpression
   extends EditableNode
   implements IContainer, ILambdaBody, IExpression {
+
+  const string SYNTAX_KIND = 'CollectionLiteralExpression';
 
   private EditableNode $_name;
   private EditableNode $_left_brace;
@@ -27,7 +29,7 @@ final class CollectionLiteralExpression
     $this->_left_brace = $left_brace;
     $this->_initializers = $initializers;
     $this->_right_brace = $right_brace;
-    parent::__construct('collection_literal_expression', $source_ref);
+    parent::__construct($source_ref);
   }
 
   <<__Override>>
