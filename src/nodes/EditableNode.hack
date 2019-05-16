@@ -183,6 +183,7 @@ abstract class EditableNode {
     }
     return $this->replaceImpl($old, $new);
   }
+
   final private function replaceImpl(
     EditableNode $old,
     EditableNode $new,
