@@ -137,7 +137,7 @@ final class EditableList<+Titem as ?EditableNode> extends EditableNode {
     vec<EditableNode> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $old_children = vec($this->getChildren());
+    $old_children = $this->_children;
     $new_children = vec[];
     foreach ($old_children as $old) {
       $new = $rewriter($old, $parents);
@@ -145,10 +145,10 @@ final class EditableList<+Titem as ?EditableNode> extends EditableNode {
         $new_children[] = $old;
         continue;
       }
-      if ($new is Missing) {
+      if ($new->isMissing()) {
         continue;
       }
-      if ($new is EditableList<_>) {
+      if ($new instanceof EditableList) {
         $new_children = Vec\concat($new_children, $new->getChildren());
         continue;
       }
