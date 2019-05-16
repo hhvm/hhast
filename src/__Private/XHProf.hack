@@ -86,7 +86,7 @@ final abstract class XHProf {
     $counters = Dict\sort_by($counters, $row ==> -$row['inclusive']);
     $scale = 1000000.0; // usec to sec
     $out = "Digraph D {\n";
-    $cull_rate = 0.05;
+    $cull_rate = 0.01;
     $alert_rate = 0.3;
 
     $node_count = 0;
