@@ -175,7 +175,7 @@ abstract class EditableNode {
   }
 
   public function without(EditableNode $target): this {
-    return $this->removeWhere(($node, $parents) ==> $node === $target);
+    return $this->replace($target, Missing::getInstance());
   }
 
   final public function replace(EditableNode $old, EditableNode $new): this {
