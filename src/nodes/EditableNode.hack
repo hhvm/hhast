@@ -323,19 +323,14 @@ abstract class EditableNode {
 
     invariant($this->isAncestorOf($node), "Node is not a descendant");
     $stack = vec[$this];
-    $children = $this->getChildren();
-    while ($children) {
-      $child = C\firstx($children);
-      $children = Vec\drop($children, 1);
+    foreach ($this->getChildren() as $child) {
       if ($child === $node) {
-        $stack[] = $child;
-        return $stack;
+        return vec[$this];
       }
       if (!$child->isAncestorOf($node)) {
         continue;
       }
-      $stack[] = $child;
-      $children = $child->getChildren();
+      return Vec\concat(vec[$this], $child->getAncestorsOfDescendant($node));
     }
     invariant_violation('unreachable');
   }
