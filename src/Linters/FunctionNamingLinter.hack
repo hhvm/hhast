@@ -26,8 +26,7 @@ use type Facebook\HHAST\{
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
 
-abstract class FunctionNamingLinter
-  extends ASTLinter<IFunctionishDeclaration> {
+abstract class FunctionNamingLinter extends ASTLinter<IFunctionishDeclaration> {
   const type TContext = Script;
   abstract public function getSuggestedNameForFunction(
     string $name,
@@ -90,7 +89,7 @@ abstract class FunctionNamingLinter
 
   <<__Override>>
   final public function getLintErrorForNode(
-    Script $_context,
+    Script $root,
     IFunctionishDeclaration $node,
   ): ?FunctionNamingLintError {
     $token = $this->getCurrentNameNodeForFunctionOrMethod($node);
@@ -128,21 +127,16 @@ abstract class FunctionNamingLinter
       return null;
     }
 
-    $ns = HHAST\__Private\Resolution\get_current_namespace(
-      $this->getAST(),
-      $node,
-    );
+    $ns = HHAST\__Private\Resolution\get_current_namespace($root, $node);
     if ($node instanceof FunctionDeclaration) {
       $class = null;
     } else {
-      $parents = $this->getAST()->getAncestorsOfDescendant($node);
-      $class =
-        C\find(Vec\reverse($parents), $c ==> $c instanceof ClassishDeclaration);
-      invariant(
-        $class instanceof ClassishDeclaration,
-        'failed to find a class for a method',
-      );
-      $class = $class->getName()->getText();
+      $class = (
+        $root->getFirstAncestorOfDescendantWhere(
+          $node,
+          $c ==> $c instanceof ClassishDeclaration,
+        ) as ClassishDeclaration
+      )->getName()->getText();
     }
 
     return new FunctionNamingLintError(
@@ -157,9 +151,7 @@ abstract class FunctionNamingLinter
   }
 
   <<__Override>>
-  public function getPrettyTextForNode(
-    IFunctionishDeclaration $node,
-  ): string {
+  public function getPrettyTextForNode(IFunctionishDeclaration $node): string {
     if ($node instanceof FunctionDeclaration) {
       $node = $node->withBody(HHAST\Missing());
     } else if ($node instanceof MethodishDeclaration) {

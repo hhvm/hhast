@@ -18,8 +18,7 @@ use type Facebook\HHAST\{
 };
 use function Facebook\HHAST\find_position;
 
-final class DontAwaitInALoopLinter
-  extends ASTLinter<PrefixUnaryExpression> {
+final class DontAwaitInALoopLinter extends ASTLinter<PrefixUnaryExpression> {
 
   const type TContext = ILoopStatement;
 
@@ -36,38 +35,29 @@ final class DontAwaitInALoopLinter
     if (!$node->getOperator() instanceof AwaitToken) {
       return null;
     }
-    $parents = $context->getAncestorsOfDescendant($node);
-    if (C\any($parents, $p ==> $p instanceof IHasFunctionBody)) {
+    $boundary = $context->getFirstAncestorOfDescendantWhere(
+      $node,
+      $a ==> $a instanceof IHasFunctionBody,
+    );
+    if ($boundary !== null) {
       return null;
     }
 
-    return new ASTLintError(
-      $this,
-      "Don't use await in a loop",
-      $node,
-    );
+    return new ASTLintError($this, "Don't use await in a loop", $node);
   }
 
   <<__Override>>
-  public function getPrettyTextForNode(
-    PrefixUnaryExpression $blame,
-  ): string {
+  public function getPrettyTextForNode(PrefixUnaryExpression $blame): string {
     $loops = $this->getAST()->getAncestorsOfDescendant($blame)
       |> Vec\map($$, $x ==> $x instanceof ILoopStatement ? $x : null)
       |> Vec\filter_nulls($$);
 
     $lines = $this->getFile()->getContents() |> Str\split($$, "\n");
 
-    list(
-      $blame_line,
-      $_col,
-    ) = find_position($this->getAST(), $blame);
+    list($blame_line, $_col) = find_position($this->getAST(), $blame);
 
     if (C\count($loops) === 1) {
-      list(
-        $line,
-        $_col,
-      ) = find_position($this->getAST(), C\onlyx($loops));
+      list($line, $_col) = find_position($this->getAST(), C\onlyx($loops));
       if ($line === $blame_line) {
         return $lines[$line - 1];
       }
@@ -75,10 +65,7 @@ final class DontAwaitInALoopLinter
 
     $output = vec[];
     foreach ($loops as $loop) {
-      list(
-        $line,
-        $_col,
-      ) = find_position($this->getAST(), $loop);
+      list($line, $_col) = find_position($this->getAST(), $loop);
       $output[] = 'Line '.$line.': '.$lines[$line - 1];
     }
     $output[] = 'Line '.$blame_line.': '.$lines[$blame_line - 1];

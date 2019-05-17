@@ -331,4 +331,29 @@ abstract class EditableNode {
     }
     invariant_violation('unreachable');
   }
+
+  final public function getFirstAncestorOfDescendantWhere(
+    EditableNode $node,
+    (function(EditableNode): bool) $predicate,
+  ): ?EditableNode {
+    if ($predicate($this)) {
+      return $this;
+    }
+    $children = $this->getChildren();
+    while ($children) {
+    $child = C\firstx($children);
+      if ($child === $node) {
+        return null;
+      }
+      if (!$child->isAncestorOf($node)) {
+        $children = Vec\drop($children, 1);
+        continue;
+      }
+      if ($predicate($child)) {
+        return $child;
+      }
+      $children = $child->getChildren();
+    }
+    return null;
+  }
 }
