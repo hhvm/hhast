@@ -20,14 +20,13 @@ final class ResolutionTest extends TestCase {
     string $code,
   ): Awaitable<(Script, ClassishDeclaration)> {
     $ast = await from_file_async(File::fromPathAndContents('/dev/null', $code));
-    $node = $ast->getDescendantsOfType(ClassishDeclaration::class) |> C\firstx($$);
+    $node = $ast->getDescendantsOfType(ClassishDeclaration::class)
+      |> C\firstx($$);
     return tuple($ast, $node);
   }
 
   public async function testWithoutNamespaces(): Awaitable<void> {
-    list($root, $node) = await self::getRootAndNodeAsync(
-      '<?hh class Foo {}',
-    );
+    list($root, $node) = await self::getRootAndNodeAsync('<?hh class Foo {}');
     expect(Resolution\get_current_namespace($root, $node))->toBeNull();
   }
 
@@ -121,14 +120,6 @@ final class ResolutionTest extends TestCase {
         ),
       ),
       tuple(
-        '<?hh use type Foo;'.
-        'namespace Bar { use type Herp\\Derp; } class Target {}',
-        shape(
-          'namespaces' => dict[],
-          'types' => dict['Foo' => 'Foo'],
-        ),
-      ),
-      tuple(
         '<?hh use type NS\\{Foo, Bar}; class Target{}',
         shape(
           'namespaces' => dict[],
@@ -147,7 +138,11 @@ final class ResolutionTest extends TestCase {
     ) $expected,
   ): Awaitable<void> {
     list($root, $node) = await self::getRootAndNodeAsync($code);
-    expect(Resolution\get_current_uses($root, $node))->toBeSame($expected);
+    expect(Resolution\get_current_uses($root, $node))->toBeSame(
+      $expected,
+      "Source: %s",
+      $code,
+    );
   }
 
   public function getTypeResolutionExamples(): array<(string, string, string)> {
