@@ -64,14 +64,11 @@ function is_linter_suppressed_in_sibling_node(
   string $fixme,
   string $ignore,
 ): bool {
-  $tokens = $root->getTokens();
-  $first_token = $node->getFirstTokenx();
-  $idx = C\find_key($tokens, $t ==> $t === $first_token) as nonnull;
-  if ($idx === 0) {
+  $token = $root->getPreviousToken($node->getFirstTokenx());
+  if ($token === null) {
     return false;
   }
-  $previous = $tokens[$idx - 1];
-  $trailing = $previous->getLastTokenx()->getTrailing()->getCode();
+  $trailing = $token->getTrailing()->getCode();
   return Str\contains($trailing, $fixme) || Str\contains($trailing, $ignore);
 }
 
