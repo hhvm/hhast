@@ -9,11 +9,11 @@
 
 namespace Facebook\HHAST\Linters\SuppressASTLinter;
 
-use type Facebook\HHAST\{EditableNode, EditableToken, IStatement, Script};
+use type Facebook\HHAST\{EditableNode, IStatement, Script};
 
-use type Facebook\HHAST\Linters\{BaseLinter, LintError};
+use type Facebook\HHAST\Linters\BaseLinter;
 
-use namespace HH\Lib\{C, Str};
+use namespace HH\Lib\{C, Str, Vec};
 
 /**
  * Allow users to suppress specific cases where a linter is used.
@@ -21,34 +21,26 @@ use namespace HH\Lib\{C, Str};
 function is_linter_error_suppressed(
   BaseLinter $linter,
   EditableNode $node,
-  (function(): vec<EditableNode>) $parents,
-  LintError $_error,
+  Script $root,
 ): bool {
-  $token = $node->getFirstToken();
   $fixme = $linter->getFixmeMarker();
   $ignore = $linter->getIgnoreSingleErrorMarker();
 
-  if (is_linter_suppressed_in_current_node($token, $fixme, $ignore)) {
+  if (is_linter_suppressed_in_current_node($node, $fixme, $ignore)) {
     return true;
   }
 
-
-  $parents = $parents();
-  return is_linter_suppressed_in_sibling_node(
-    $node,
-    $parents[0] as Script,
-    $fixme,
-    $ignore,
-  ) ||
-    is_linter_suppressed_up_to_statement($parents, $fixme, $ignore);
+  return is_linter_suppressed_in_sibling_node($node, $root, $fixme, $ignore) ||
+    is_linter_suppressed_up_to_statement($node, $root, $fixme, $ignore);
 }
 
 // Check the current token's leading trivia. For example a comment on the line before
 function is_linter_suppressed_in_current_node(
-  ?EditableToken $token,
+  EditableNode $node,
   string $fixme,
   string $ignore,
 ): bool {
+  $token = $node->getFirstToken();
   if ($token === null) {
     return false;
   }
@@ -74,34 +66,33 @@ function is_linter_suppressed_in_sibling_node(
 
 // Walk up the parents and check the leading trivia until we hit a Statement type node.
 function is_linter_suppressed_up_to_statement(
-  vec<EditableNode> $parents,
+  EditableNode $node,
+  Script $root,
   string $fixme,
   string $ignore,
 ): bool {
-  for ($idx = C\count($parents) - 1; $idx >= 0; --$idx) {
-    $parent = $parents[$idx];
-    if ($parent instanceof IStatement) {
-      return is_linter_suppressed_in_current_node(
-        $parent->getFirstToken(),
-        $fixme,
-        $ignore,
-      ) ||
-        is_linter_suppressed_in_sibling_node(
-          $parent,
-          $parents[0] as Script,
-          $fixme,
-          $ignore,
-        );
+  if ($node instanceof IStatement) {
+    return false;
+  }
+  $children = $root->getChildren();
+  $statement = null;
+  while ($children) {
+    $child = C\firstx($children);
+    if ($child === $node) {
+      break;
     }
-
-    $token = $parent->getFirstToken();
-    if ($token !== null) {
-      $leading = $token->getCode();
-      if (Str\contains($leading, $fixme) || Str\contains($leading, $ignore)) {
-        return true;
-      }
+    if (!$child->isAncestorOf($node)) {
+      $children = Vec\drop($children, 1);
+      continue;
+    }
+    $children = $child->getChildren();
+    if ($child instanceof IStatement) {
+      $statement = $child;
     }
   }
-
-  return false;
+  if ($statement === null) {
+    return false;
+  }
+  return is_linter_suppressed_in_current_node($statement, $fixme, $ignore) ||
+    is_linter_suppressed_in_sibling_node($statement, $root, $fixme, $ignore);
 }

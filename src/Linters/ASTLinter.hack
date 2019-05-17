@@ -99,12 +99,7 @@ abstract class ASTLinter<Tnode as HHAST\EditableNode> extends BaseLinter {
 
       if (
         $error !== null &&
-        !SuppressASTLinter\is_linter_error_suppressed(
-          $this,
-          $node,
-          () ==> $ast->getAncestorsOfDescendant($node),
-          $error,
-        )
+        !SuppressASTLinter\is_linter_error_suppressed($this, $node, $ast)
       ) {
         $errors[] = $error;
       }
