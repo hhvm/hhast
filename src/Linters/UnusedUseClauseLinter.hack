@@ -192,13 +192,17 @@ final class UnusedUseClauseLinter
       $fixed = $node;
       $list = $node->getClausesx();
       foreach ($unused as $clause) {
-        $li = $list->getAncestorsOfDescendant($clause)
-          |> C\find($$, $li ==> $li instanceof HHAST\ListItem) as nonnull;
-        $fixed = $fixed->without($li);
+        $fixed = $fixed->without(
+          $list->getFirstAncestorOfDescendantWhere(
+            $clause,
+            $it ==> $it instanceof HHAST\ListItem,
+          ) as nonnull,
+        );
       }
     }
-    $last =
-      C\lastx($fixed->getClauses()->getChildrenOfType(HHAST\ListItem::class));
+    $last = C\lastx(
+      $fixed->getClauses()->getChildrenOfType(HHAST\ListItem::class),
+    );
     $sep = $last->getSeparator();
 
     if ($sep && !Str\contains($sep->getTrailing()->getCode(), "\n")) {

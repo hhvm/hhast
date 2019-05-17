@@ -18,7 +18,7 @@ use type Facebook\HHAST\{
   SemicolonToken,
   VariableToken,
 };
-use namespace HH\Lib\{C, Str};
+use namespace HH\Lib\Str;
 
 final class UnusedParameterLinter
   extends AutoFixingASTLinter<ParameterDeclaration> {
@@ -63,10 +63,14 @@ final class UnusedParameterLinter
 
     $statements = ($body as CompoundStatement)->getStatements();
     if ($statements !== null) {
-      $match = $statements->getDescendantsOfType(VariableToken::class)
-        |> C\find($$, $x ==> $x->getText() === $name->getText());
-      if ($match !== null) {
-        return null;
+      $name = $name->getText();
+      foreach ($statements->traverse() as $var) {
+        if (!$var instanceof VariableToken) {
+          continue;
+        }
+        if ($var->getText() === $name) {
+          return null;
+        }
       }
     }
 
