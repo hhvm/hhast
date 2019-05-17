@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<72ab29c7757b6d04a0a43ca204d3cfe5>>
+ * @generated SignedSource<<7da33ffe24a7379d74f8da1110b2e217>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class Script extends EditableNode {
+abstract class ScriptGeneratedBase extends EditableNode {
 
   const string SYNTAX_KIND = 'script';
 
@@ -19,11 +19,6 @@ final class Script extends EditableNode {
   ) {
     $this->_declarations = $declarations;
     parent::__construct($source_ref);
-  }
-
-  <<__Memoize>>
-  public function getTokens(): vec<EditableToken> {
-    return $this->getDescendantsOfType(EditableToken::class);
   }
 
   <<__Override>>
