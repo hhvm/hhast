@@ -13,14 +13,22 @@ namespace Facebook\HHAST;
 use function Facebook\FBExpect\expect;
 use namespace Facebook\HHAST\__Private\Resolution;
 use type Facebook\HackTest\DataProvider;
-use namespace HH\Lib\Vec;
+use namespace HH\Lib\{C, Vec};
 
 final class ResolutionTest extends TestCase {
+  private static async function getRootAndNodeAsync(
+    string $code,
+  ): Awaitable<(Script, ClassishDeclaration)> {
+    $ast = await from_file_async(File::fromPathAndContents('/dev/null', $code));
+    $node = $ast->getDescendantsOfType(ClassishDeclaration::class) |> C\firstx($$);
+    return tuple($ast, $node);
+  }
+
   public async function testWithoutNamespaces(): Awaitable<void> {
-    list($node, $parents) = await self::getNodeAndParentsAsync(
+    list($root, $node) = await self::getRootAndNodeAsync(
       '<?hh class Foo {}',
     );
-    expect(Resolution\get_current_namespace($node, $parents))->toBeNull();
+    expect(Resolution\get_current_namespace($root, $node))->toBeNull();
   }
 
   public async function testMultipleClassesInNamespaceBlock(): Awaitable<void> {
@@ -33,8 +41,7 @@ final class ResolutionTest extends TestCase {
     ]);
     $class_names = $ast->getDescendantsOfType(ClassishDeclaration::class)
       |> Vec\map($$, $class ==> {
-        $parents = $ast->getAncestorsOfDescendant($class);
-        return Resolution\get_current_namespace($class, $parents).
+        return Resolution\get_current_namespace($ast, $class).
           "\\".
           ($class->getName() as EditableToken)->getText();
       });
@@ -45,26 +52,26 @@ final class ResolutionTest extends TestCase {
   }
 
   public async function testWithNamespaceStatement(): Awaitable<void> {
-    list($node, $parents) = await self::getNodeAndParentsAsync(
+    list($root, $node) = await self::getRootAndNodeAsync(
       '<?hh namespace MyNS\\SubNS; class Foo {}',
     );
-    expect(Resolution\get_current_namespace($node, $parents))
+    expect(Resolution\get_current_namespace($root, $node))
       ->toBeSame('MyNS\\SubNS');
   }
 
   public async function testWithNamespaceBlock(): Awaitable<void> {
-    list($node, $parents) = await self::getNodeAndParentsAsync(
+    list($root, $node) = await self::getRootAndNodeAsync(
       '<?hh namespace MyNS\\SubNS { class Foo {} }',
     );
-    expect(Resolution\get_current_namespace($node, $parents))
+    expect(Resolution\get_current_namespace($root, $node))
       ->toBeSame('MyNS\\SubNS');
   }
 
   public async function testWithUnrelatedNamespaceBlock(): Awaitable<void> {
-    list($node, $parents) = await self::getNodeAndParentsAsync(
+    list($root, $node) = await self::getRootAndNodeAsync(
       '<?hh namespace \\MyNS { } namespace { class Foo {} }',
     );
-    expect(Resolution\get_current_namespace($node, $parents))->toBeNull();
+    expect(Resolution\get_current_namespace($root, $node))->toBeNull();
   }
 
   public function getUseStatementExamples(
@@ -139,8 +146,8 @@ final class ResolutionTest extends TestCase {
       'types' => dict<string, string>,
     ) $expected,
   ): Awaitable<void> {
-    list($node, $parents) = await self::getNodeAndParentsAsync($code);
-    expect(Resolution\get_current_uses($node, $parents))->toBeSame($expected);
+    list($root, $node) = await self::getRootAndNodeAsync($code);
+    expect(Resolution\get_current_uses($root, $node))->toBeSame($expected);
   }
 
   public function getTypeResolutionExamples(): array<(string, string, string)> {
@@ -173,8 +180,8 @@ final class ResolutionTest extends TestCase {
     string $type,
     string $expected,
   ): Awaitable<void> {
-    list($node, $parents) = await self::getNodeAndParentsAsync($code);
-    expect(resolve_type($type, $node, $parents))
+    list($root, $node) = await self::getRootAndNodeAsync($code);
+    expect(resolve_type($type, $root, $node))
       ->toBeSame($expected);
   }
 }

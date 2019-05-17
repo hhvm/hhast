@@ -11,50 +11,27 @@ namespace Facebook\HHAST\__Private\Resolution;
 
 use type Facebook\HHAST\{
   EditableNode,
-  NamespaceDeclaration,
-  NamespaceEmptyBody,
   Script,
 };
-use namespace Facebook\TypeAssert;
-use namespace HH\Lib\{C, Str, Vec};
+use namespace HH\Lib\C;
 
 function get_current_namespace(
-  EditableNode $_node,
-  vec<EditableNode> $parents,
+  Script $root,
+  EditableNode $node,
 ): ?string {
-  $parents = vec($parents);
-
-  $namespaces =
-    Vec\filter($parents, $parent ==> $parent instanceof NamespaceDeclaration);
-
-  invariant(C\count($namespaces) <= 1, "Can't nest namespace blocks");
-
-  // No blocks, just a declaration;
+  $namespaces = $root->getNamespaces();
   if (C\is_empty($namespaces)) {
-    $root = $parents
-      |> C\firstx($$)
-      |> TypeAssert\instance_of(Script::class, $$);
-    $ns = $root
-      ->getDeclarations()
-      ->getChildrenOfType(NamespaceDeclaration::class)
-      |> C\first($$);
-    if ($ns === null) {
-      return null;
-    }
-    $body = $ns->getBody();
-    invariant(
-      $body->isMissing() || $body instanceof NamespaceEmptyBody,
-      "if using namespace blocks, all code must be in a NS block - got %s",
-      \get_class($body),
-    );
-    return $ns->getQualifiedNameAsString();
+    return null;
+  }
+  if ($namespaces[0]['statement']) {
+    return $namespaces[0]['decl']->getQualifiedNameAsString();
   }
 
-  return $namespaces
-    |> C\firstx($$)
-    |> TypeAssert\instance_of(NamespaceDeclaration::class, $$)
-    |> $$->getName()?->getCode() ?? ''
-    |> Str\trim($$)
-    |> Str\strip_prefix($$, '\\')
-    |> $$ === '' ? null : $$;
+  foreach ($namespaces as $ns) {
+    $ns = $ns['decl'];
+    if ($ns->isAncestorOf($node)) {
+      return $ns->getQualifiedNameAsString();
+    }
+  }
+  return null;
 }

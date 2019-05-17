@@ -128,11 +128,14 @@ abstract class FunctionNamingLinter
       return null;
     }
 
-    $parents = $this->getAST()->getAncestorsOfDescendant($node);
-    $ns = HHAST\__Private\Resolution\get_current_namespace($node, $parents);
+    $ns = HHAST\__Private\Resolution\get_current_namespace(
+      $this->getAST(),
+      $node,
+    );
     if ($node instanceof FunctionDeclaration) {
       $class = null;
     } else {
+      $parents = $this->getAST()->getAncestorsOfDescendant($node);
       $class =
         C\find(Vec\reverse($parents), $c ==> $c instanceof ClassishDeclaration);
       invariant(

@@ -9,15 +9,14 @@
 
 namespace Facebook\HHAST;
 
-use type Facebook\HHAST\EditableNode;
 use namespace HH\Lib\{C, Str, Vec};
 use namespace Facebook\HHAST\__Private\Resolution;
 
 function resolve_type(
   string $type,
+  Script $root,
   EditableNode $node,
-  vec<EditableNode> $parents,
-): ?string {
+): string {
   if (Str\starts_with($type, '\\')) {
     return Str\strip_prefix($type, '\\');
   }
@@ -26,8 +25,8 @@ function resolve_type(
     'Call on the class name without generics',
   );
 
-  $ns = Resolution\get_current_namespace($node, $parents);
-  $uses = Resolution\get_current_uses($node, $parents);
+  $ns = Resolution\get_current_namespace($root, $node);
+  $uses = Resolution\get_current_uses($root, $node);
 
   if (Str\contains($type, '\\')) {
     $maybe_aliased = $type

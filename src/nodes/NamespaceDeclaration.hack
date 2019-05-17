@@ -12,6 +12,7 @@ namespace Facebook\HHAST;
 use namespace HH\Lib\{Str, Vec};
 
 final class NamespaceDeclaration extends NamespaceDeclarationGeneratedBase {
+  <<__Memoize>>
   public function getQualifiedNameAsString(): string {
     $name = $this->getName();
     if ($name instanceof NameToken) {

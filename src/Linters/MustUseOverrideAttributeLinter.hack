@@ -13,14 +13,13 @@ use type Facebook\HHAST\{
   AttributeSpecification,
   ClassishDeclaration,
   ClassToken,
-  EditableNode,
   GenericTypeSpecifier,
   ListItem,
   MethodishDeclaration,
   NameToken,
   PrivateToken,
+  Script,
 };
-use namespace Facebook\TypeAssert;
 use function Facebook\HHAST\resolve_type;
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
@@ -47,8 +46,8 @@ final class MustUseOverrideAttributeLinter
       return null;
     }
 
-    $parents = $this->getAST()->getAncestorsOfDescendant($node);
-    $super = self::findSuper($class, $parents);
+    $root = $this->getAST();
+    $super = self::findSuper($root, $class);
     try {
       $method = $node->getFunctionDeclHeader()->getName()->getCode()
         |> Str\trim($$);
@@ -61,8 +60,7 @@ final class MustUseOverrideAttributeLinter
           '%s::%s() overrides %s::%s() without <<__Override>>',
           $class->getNamex()->getCode()
             |> Str\trim($$)
-            |> resolve_type($$, $node, $parents)
-            |> TypeAssert\not_null($$),
+            |> resolve_type($$, $root, $node),
           $method,
           $reflection_method->getDeclaringClass()->getName(),
           $method,
@@ -77,8 +75,8 @@ final class MustUseOverrideAttributeLinter
   }
 
   private static function findSuper(
+    Script $root,
     ClassishDeclaration $class,
-    vec<EditableNode> $parents,
   ): string {
     $super = C\onlyx($class->getExtendsListx()->getChildren());
     if ($super instanceof ListItem) {
@@ -89,8 +87,7 @@ final class MustUseOverrideAttributeLinter
     }
     return $super->getCode()
       |> Str\trim($$)
-      |> resolve_type($$, $class, $parents)
-      |> TypeAssert\not_null($$);
+      |> resolve_type($$, $root, $class);
   }
 
   private function canIgnoreMethod(

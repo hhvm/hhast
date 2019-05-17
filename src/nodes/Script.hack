@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\Dict;
+use namespace HH\Lib\{C, Dict, Vec};
 
 final class Script extends ScriptGeneratedBase {
   <<__Memoize>>
@@ -32,5 +32,47 @@ final class Script extends ScriptGeneratedBase {
       return null;
     }
     return $this->getTokens()[$idx - 1];
+  }
+
+  const type TNamespace = shape(
+    'decl' => NamespaceDeclaration,
+    'statement' => bool,
+    'uses' => shape(
+      'namespaces' => dict<string, string>,
+      'types' => dict<string, string>,
+    ),
+  );
+
+  <<__Memoize>>
+  public function getNamespaces(): vec<this::TNamespace> {
+    $namespaces = $this->getDeclarationsx()
+      ->getItemsOfType(NamespaceDeclaration::class);
+    $count = C\count($namespaces);
+    if ($count === 0) {
+      return vec[];
+    }
+
+    if (
+      $count === 1 && $namespaces[0]->getBody() instanceof NamespaceEmptyBody
+    ) {
+      return vec[shape(
+        'statement' => true,
+        'decl' => $namespaces[0],
+        'uses' => __Private\Resolution\get_uses_directly_in_scope(
+          $this->getDeclarationsx(),
+        ),
+      )];
+    }
+
+    return Vec\map(
+      $namespaces,
+      $ns ==> shape(
+        'statement' => false,
+        'decl' => $ns,
+        'uses' => __Private\Resolution\get_uses_directly_in_scope(
+          ($ns->getBody() as NamespaceBody)->getDeclarationsx(),
+        ),
+      ),
+    );
   }
 }

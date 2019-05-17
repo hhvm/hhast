@@ -11,37 +11,29 @@ namespace Facebook\HHAST\__Private\Resolution;
 
 use type Facebook\HHAST\{
   EditableNode,
-  NamespaceBody,
   Script,
 };
-use namespace Facebook\TypeAssert;
-use namespace HH\Lib\{C, Dict, Vec};
 
 function get_current_uses(
-  EditableNode $_node,
-  vec<EditableNode> $parents,
+  Script $root,
+  EditableNode $node,
 ): shape(
   'namespaces' => dict<string, string>,
   'types' => dict<string, string>,
 ) {
-  $root = $parents[0];
-  invariant(
-    $root instanceof Script,
-    'Expected first parent to be a Script, got %s',
-    \get_class($root),
-  );
-  $uses = get_uses_directly_in_scope($root->getDeclarations());
-
-  $namespace =
-    Vec\filter($parents, $parent ==> $parent instanceof NamespaceBody)
-    |> C\first($$);
-  if ($namespace) {
-    $namespace = TypeAssert\instance_of(NamespaceBody::class, $namespace);
-    $inner_uses = get_uses_directly_in_scope($namespace->getDeclarationsx());
-    $uses['namespaces'] =
-      Dict\merge($uses['namespaces'], $inner_uses['namespaces']);
-    $uses['types'] = Dict\merge($uses['types'], $inner_uses['types']);
+  $namespaces = $root->getNamespaces();
+  if (!$namespaces) {
+    return get_uses_directly_in_scope($root->getDeclarations());
+  }
+  if ($namespaces[0]['statement']) {
+    return $namespaces[0]['uses'];
   }
 
-  return $uses;
+  foreach ($namespaces as $ns) {
+    if ($ns['decl']->isAncestorOf($node)) {
+      return $ns['uses'];
+    }
+  }
+
+  return shape('namespaces' => dict[], 'types' => dict[]);
 }

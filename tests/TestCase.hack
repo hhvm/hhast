@@ -10,15 +10,5 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\C;
-
 abstract class TestCase extends \Facebook\HackTest\HackTest {
-  protected static async function getNodeAndParentsAsync(
-    string $code,
-  ): Awaitable<(EditableNode, vec<EditableNode>)> {
-    $ast = await from_file_async(File::fromPathAndContents('/dev/null', $code));
-    $node = $ast->getDescendantsOfType(ClassishDeclaration::class) |> C\firstx($$);
-    $parents = $ast->getAncestorsOfDescendant($node);
-    return tuple($node, $parents);
-  }
 }
