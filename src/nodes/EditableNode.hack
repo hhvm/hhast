@@ -25,11 +25,10 @@ abstract class EditableNode {
   public function __construct(
     protected ?__Private\SourceRef $sourceRef,
   ) {
-    $descendants = dict[$this->getUniqueID() => $this];
-    foreach ($this->getChildren() as $child) {
-      $descendants = Dict\merge($descendants, $child->_descendants);
-    }
-    $this->_descendants = $descendants;
+    $this->_descendants = Dict\merge(
+      dict[$this->getUniqueID() => $this],
+      ...Vec\map($this->getChildren(), $c ==> $c->_descendants)
+    );
 
     /* handy for debugging :)
     if ($sourceRef !== null) {
