@@ -22,9 +22,26 @@ final class SuppressASTLinterCaseTest extends TestCase {
 
   public function getCleanExamples(): array<array<string>> {
     return [
-      ["<?hh\n".
-       '/* HHAST_FIXME[CamelCasedMethodsUnderscoredFunctions] */ '.
-       'function CamelCasing() { return null; }'
+      [
+        "<?hh\n".
+        '/* HHAST_FIXME[CamelCasedMethodsUnderscoredFunctions] */ '.
+        'function CamelCasing() { return null; }',
+      ],
+      [
+        "<?hh ".
+        '/* HHAST_FIXME[CamelCasedMethodsUnderscoredFunctions] */ '.
+        'function CamelCasing() { return null; }',
+      ],
+      [
+        "<?hh\n".
+        'foo(); /* HHAST_FIXME[CamelCasedMethodsUnderscoredFunctions] */ '.
+        'function CamelCasing() { return null; }',
+      ],
+      [
+        "<?hh\n".
+        'foo(); '.
+        'bar(); /* HHAST_FIXME[CamelCasedMethodsUnderscoredFunctions] */ '.
+        'function CamelCasing() { return null; }',
       ],
     ];
   }

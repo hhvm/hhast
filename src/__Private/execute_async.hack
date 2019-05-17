@@ -32,7 +32,6 @@ async function execute_async(string ...$args): Awaitable<vec<string>> {
   $exit_code = -2;
   $output = '';
   while (true) {
-    /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
     $chunk = \stream_get_contents($stdout);
     $output .= $chunk;
     $status = \proc_get_status($proc);
@@ -40,6 +39,7 @@ async function execute_async(string ...$args): Awaitable<vec<string>> {
       $exit_code = $status['exitcode'];
       break;
     }
+    /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
     await \stream_await($stdout, \STREAM_AWAIT_READ | \STREAM_AWAIT_ERROR);
   }
   $output .= \stream_get_contents($stdout);

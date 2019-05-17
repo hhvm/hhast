@@ -9,23 +9,9 @@
 
 namespace Facebook\HHAST\Linters\SuppressASTLinter;
 
-use type Facebook\HHAST\{
-  BreakStatement,
-  ContinueStatement,
-  EchoStatement,
-  EditableNode,
-  EditableToken,
-  GotoStatement,
-  IControlFlowStatement,
-  ReturnStatement,
-  ThrowStatement,
-  TryStatement,
-  UnsetStatement
-};
-use type Facebook\HHAST\Linters\{
-  BaseLinter,
-  LintError,
-};
+use type Facebook\HHAST\{EditableNode, EditableToken, IStatement};
+
+use type Facebook\HHAST\Linters\{BaseLinter, LintError};
 
 use namespace HH\Lib\{C, Str, Vec};
 
@@ -46,8 +32,14 @@ function is_linter_error_suppressed(
     return true;
   }
 
+
   $parents = $parents();
-  return is_linter_suppressed_in_sibling_node($parents, $fixme, $ignore) ||
+  return is_linter_suppressed_in_sibling_node(
+    $node,
+    $parents,
+    $fixme,
+    $ignore,
+  ) ||
     is_linter_suppressed_up_to_statement($parents, $fixme, $ignore);
 }
 
@@ -67,19 +59,22 @@ function is_linter_suppressed_in_current_node(
 
 // Check sibling node as the comment might be attached there instead of on the current node
 function is_linter_suppressed_in_sibling_node(
+  EditableNode $node,
   vec<EditableNode> $parents,
   string $fixme,
   string $ignore,
 ): bool {
-  $parent = C\last($parents);
-  if ($parent === null) {
+  $count = C\count($parents);
+  if ($count === 1) {
     return false;
   }
-
-  $sibling = C\first($parent->getChildren());
-  if ($sibling === null) {
+  $parent = $parents[$count - 2];
+  $siblings = vec($parent->getChildren());
+  $idx = C\find_key($siblings, $x ==> $x === $node) as nonnull;
+  if ($idx === 0) {
     return false;
   }
+  $sibling = $siblings[$idx - 1];
 
   $token = $sibling->getLastToken();
   if ($token !== null) {
@@ -103,21 +98,20 @@ function is_linter_suppressed_up_to_statement(
   string $fixme,
   string $ignore,
 ): bool {
-  $parents = Vec\reverse($parents);
-
-  foreach ($parents as $parent) {
-    if (
-      $parent instanceof IControlFlowStatement ||
-      $parent instanceof BreakStatement ||
-      $parent instanceof ContinueStatement ||
-      $parent instanceof EchoStatement ||
-      $parent instanceof GotoStatement ||
-      $parent instanceof ReturnStatement ||
-      $parent instanceof ThrowStatement ||
-      $parent instanceof TryStatement ||
-      $parent instanceof UnsetStatement
-    ) {
-      return false;
+  for ($idx = C\count($parents) - 1; $idx >= 0; --$idx) {
+    $parent = $parents[$idx];
+    if ($parent instanceof IStatement) {
+      return is_linter_suppressed_in_current_node(
+        $parent->getFirstToken(),
+        $fixme,
+        $ignore,
+      ) ||
+        is_linter_suppressed_in_sibling_node(
+          $parent,
+          Vec\take($parents, $idx + 1),
+          $fixme,
+          $ignore,
+        );
     }
 
     $token = $parent->getFirstToken();
