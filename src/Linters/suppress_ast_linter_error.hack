@@ -9,11 +9,11 @@
 
 namespace Facebook\HHAST\Linters\SuppressASTLinter;
 
-use type Facebook\HHAST\{EditableNode, EditableToken, IStatement};
+use type Facebook\HHAST\{EditableNode, EditableToken, IStatement, Script};
 
 use type Facebook\HHAST\Linters\{BaseLinter, LintError};
 
-use namespace HH\Lib\{C, Str, Vec};
+use namespace HH\Lib\{C, Str};
 
 /**
  * Allow users to suppress specific cases where a linter is used.
@@ -36,7 +36,7 @@ function is_linter_error_suppressed(
   $parents = $parents();
   return is_linter_suppressed_in_sibling_node(
     $node,
-    $parents,
+    $parents[0] as Script,
     $fixme,
     $ignore,
   ) ||
@@ -60,36 +60,19 @@ function is_linter_suppressed_in_current_node(
 // Check sibling node as the comment might be attached there instead of on the current node
 function is_linter_suppressed_in_sibling_node(
   EditableNode $node,
-  vec<EditableNode> $parents,
+  Script $root,
   string $fixme,
   string $ignore,
 ): bool {
-  $count = C\count($parents);
-  if ($count === 1) {
-    return false;
-  }
-  $parent = $parents[$count - 2];
-  $siblings = vec($parent->getChildren());
-  $idx = C\find_key($siblings, $x ==> $x === $node) as nonnull;
+  $tokens = $root->getTokens();
+  $first_token = $node->getFirstTokenx();
+  $idx = C\find_key($tokens, $t ==> $t === $first_token) as nonnull;
   if ($idx === 0) {
     return false;
   }
-  $sibling = $siblings[$idx - 1];
-
-  $token = $sibling->getLastToken();
-  if ($token !== null) {
-    $trailing = $token->getTrailing()->getCode();
-    if (Str\contains($trailing, $fixme) || Str\contains($trailing, $ignore)) {
-      return true;
-    }
-
-    $leading = $token->getLeading()->getCode();
-    if (Str\contains($leading, $fixme) || Str\contains($leading, $ignore)) {
-      return true;
-    }
-  }
-
-  return false;
+  $previous = $tokens[$idx - 1];
+  $trailing = $previous->getLastTokenx()->getTrailing()->getCode();
+  return Str\contains($trailing, $fixme) || Str\contains($trailing, $ignore);
 }
 
 // Walk up the parents and check the leading trivia until we hit a Statement type node.
@@ -108,7 +91,7 @@ function is_linter_suppressed_up_to_statement(
       ) ||
         is_linter_suppressed_in_sibling_node(
           $parent,
-          Vec\take($parents, $idx + 1),
+          $parents[0] as Script,
           $fixme,
           $ignore,
         );

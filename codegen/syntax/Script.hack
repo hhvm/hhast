@@ -21,6 +21,11 @@ final class Script extends EditableNode {
     parent::__construct($source_ref);
   }
 
+  <<__Memoize>>
+  public function getTokens(): vec<EditableToken> {
+    return $this->getDescendantsOfType(EditableToken::class);
+  }
+
   <<__Override>>
   public static function fromJSON(
     dict<string, mixed> $json,
