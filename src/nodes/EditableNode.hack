@@ -145,7 +145,7 @@ abstract class EditableNode {
     return vec[$this];
   }
 
-  public function getDescendantsOfType<T as EditableNode>(
+  final public function getDescendantsOfType<T as EditableNode>(
     classname<T> $what,
   ): vec<T> {
     $out = vec[];

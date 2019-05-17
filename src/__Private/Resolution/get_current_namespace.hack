@@ -30,7 +30,8 @@ function get_current_namespace(
   foreach ($namespaces as $ns) {
     $ns = $ns['decl'];
     if ($ns->isAncestorOf($node)) {
-      return $ns->getQualifiedNameAsString();
+      $ns = $ns->getQualifiedNameAsString();
+      return ($ns === '') ? null : $ns;
     }
   }
   return null;

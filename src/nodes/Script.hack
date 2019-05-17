@@ -20,9 +20,9 @@ final class Script extends ScriptGeneratedBase {
   <<__Memoize>>
   private function getTokenIndices(): dict<int, int> {
     return Dict\pull_with_key(
-        $this->getTokens(),
-        ($k, $_v) ==> $k,
-        ($_k, $v) ==> $v->getUniqueID(),
+      $this->getTokens(),
+      ($k, $_v) ==> $k,
+      ($_k, $v) ==> $v->getUniqueID(),
     );
   }
 
@@ -51,6 +51,9 @@ final class Script extends ScriptGeneratedBase {
     if ($count === 0) {
       return vec[];
     }
+    $outer = __Private\Resolution\get_uses_directly_in_scope(
+      $this->getDeclarationsx(),
+    );
 
     if (
       $count === 1 && $namespaces[0]->getBody() instanceof NamespaceEmptyBody
@@ -58,21 +61,26 @@ final class Script extends ScriptGeneratedBase {
       return vec[shape(
         'statement' => true,
         'decl' => $namespaces[0],
-        'uses' => __Private\Resolution\get_uses_directly_in_scope(
-          $this->getDeclarationsx(),
-        ),
+        'uses' => $outer,
       )];
     }
 
     return Vec\map(
       $namespaces,
-      $ns ==> shape(
-        'statement' => false,
-        'decl' => $ns,
-        'uses' => __Private\Resolution\get_uses_directly_in_scope(
+      $ns ==> {
+        $inner = __Private\Resolution\get_uses_directly_in_scope(
           ($ns->getBody() as NamespaceBody)->getDeclarationsx(),
-        ),
-      ),
+        );
+        return shape(
+          'statement' => false,
+          'decl' => $ns,
+          'uses' => shape(
+            'namespaces' =>
+              Dict\merge($outer['namespaces'], $inner['namespaces']),
+            'types' => Dict\merge($outer['types'], $inner['types']),
+          ),
+        );
+      },
     );
   }
 }
