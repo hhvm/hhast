@@ -29,19 +29,15 @@ use type Facebook\HHAST\{
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
 
-class MustUseBracesForControlFlowLinter
-  extends AutoFixingASTLinter<IControlFlowStatement> {
+class MustUseBracesForControlFlowLinter extends AutoFixingASTLinter {
+  const type TNode = IControlFlowStatement;
   const type TContext = Script;
-  <<__Override>>
-  protected static function getTargetType(): classname<IControlFlowStatement> {
-    return IControlFlowStatement::class;
-  }
 
   <<__Override>>
   public function getLintErrorForNode(
     Script $_context,
     IControlFlowStatement $node,
-  ): ?ASTLintError<IControlFlowStatement> {
+  ): ?ASTLintError {
     $body = $this->getBody($node);
     if ($body === null) {
       return null;
@@ -65,6 +61,7 @@ class MustUseBracesForControlFlowLinter
         $node->getSyntaxKind() |> Str\replace($$, '_', ' '),
       ),
       $node,
+      () ==> $this->getFixedNode($node),
     );
   }
 
@@ -113,7 +110,6 @@ class MustUseBracesForControlFlowLinter
     );
   }
 
-  <<__Override>>
   public function getFixedNode(IControlFlowStatement $node): IControlFlowStatement {
     $body = $this->getBody($node);
     invariant(

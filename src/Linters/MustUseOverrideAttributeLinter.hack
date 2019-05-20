@@ -24,12 +24,8 @@ use function Facebook\HHAST\resolve_type;
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
 
-final class MustUseOverrideAttributeLinter
-  extends AutoFixingASTLinter<MethodishDeclaration> {
-  <<__Override>>
-  protected static function getTargetType(): classname<MethodishDeclaration> {
-    return MethodishDeclaration::class;
-  }
+final class MustUseOverrideAttributeLinter extends AutoFixingASTLinter {
+  const type TNode = MethodishDeclaration;
 
   <<__Override>>
   public function getTitleForFix(LintError $_): string {
@@ -37,11 +33,12 @@ final class MustUseOverrideAttributeLinter
   }
 
   const type TContext = ClassishDeclaration;
+
   <<__Override>>
   public function getLintErrorForNode(
     ClassishDeclaration $class,
     MethodishDeclaration $node,
-  ): ?ASTLintError<MethodishDeclaration> {
+  ): ?ASTLintError {
     if ($this->canIgnoreMethod($class, $node)) {
       return null;
     }
@@ -66,6 +63,7 @@ final class MustUseOverrideAttributeLinter
           $method,
         ),
         $node,
+        () ==> $this->getFixedNode($node),
       );
     } catch (\ReflectionException $e) {
       $method = $node->getFunctionDeclHeader()->getName()->getCode()
@@ -144,7 +142,6 @@ final class MustUseOverrideAttributeLinter
       ->getCode();
   }
 
-  <<__Override>>
   public function getFixedNode(
     MethodishDeclaration $node,
   ): MethodishDeclaration {

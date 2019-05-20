@@ -21,23 +21,27 @@ use type Facebook\HHAST\{
 use function Facebook\HHAST\Missing;
 
 final class NoElseifLinter
-  extends AutoFixingASTLinter {
-  const type TNode = ElseifToken;
+  extends AutoFixingASTLinter<ElseifToken> {
+  <<__Override>>
+  protected static function getTargetType(): classname<ElseifToken> {
+    return ElseifToken::class;
+  }
+
   const type TContext = Script;
 
   <<__Override>>
   public function getLintErrorForNode(
     Script $_context,
     ElseifToken $expr,
-  ): ?ASTLintError {
+  ): ?ASTLintError<ElseifToken> {
     return new ASTLintError(
       $this,
       'Do not use "elseif", use "else if" instead.',
       $expr,
-      () ==> $this->getFixedNode($expr),
     );
   }
 
+  <<__Override>>
   public function getFixedNode(ElseifToken $expr): EditableNode {
     return new EditableList(vec[
       new ElseToken($expr->getLeading(), new WhiteSpace(' ')),

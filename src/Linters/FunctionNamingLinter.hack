@@ -26,8 +26,10 @@ use type Facebook\HHAST\{
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
 
-abstract class FunctionNamingLinter extends ASTLinter<IFunctionishDeclaration> {
+abstract class FunctionNamingLinter extends ASTLinter {
+  const type TNode = IFunctionishDeclaration;
   const type TContext = Script;
+
   abstract public function getSuggestedNameForFunction(
     string $name,
     FunctionDeclaration $fun,
@@ -65,12 +67,6 @@ abstract class FunctionNamingLinter extends ASTLinter<IFunctionishDeclaration> {
       $class,
       $suggestion,
     );
-  }
-
-  <<__Override>>
-  final protected static function getTargetType(
-  ): classname<IFunctionishDeclaration> {
-    return IFunctionishDeclaration::class;
   }
 
   private function getCurrentNameNodeForFunctionOrMethod(

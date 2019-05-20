@@ -28,21 +28,15 @@ use type Facebook\HHAST\{
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
 
-final class UnusedUseClauseLinter
-  extends AutoFixingASTLinter<INamespaceUseDeclaration> {
-  <<__Override>>
-  protected static function getTargetType(
-  ): classname<INamespaceUseDeclaration> {
-    return INamespaceUseDeclaration::class;
-  }
-
+final class UnusedUseClauseLinter extends AutoFixingASTLinter {
+  const type TNode = INamespaceUseDeclaration;
   const type TContext = Script;
 
   <<__Override>>
   public function getLintErrorForNode(
     Script $_context,
     INamespaceUseDeclaration $node,
-  ): ?ASTLintError<INamespaceUseDeclaration> {
+  ): ?ASTLintError {
     $clauses = $node->getClauses()->getItems();
     $unused = $this->getUnusedClauses($node->getKind(), $clauses);
 
@@ -57,6 +51,7 @@ final class UnusedUseClauseLinter
         |> Str\join($$, ', ')
         |> $$.((C\count($unused) === 1) ? ' is' : ' are').' not used',
       $node,
+      () ==> $this->getFixedNode($node),
     );
   }
 
@@ -118,10 +113,8 @@ final class UnusedUseClauseLinter
   }
 
   <<__Override>>
-  protected function getTitleForFix(
-    ASTLintError<INamespaceUseDeclaration> $error,
-  ): string {
-    $node = $error->getBlameNode();
+  protected function getTitleForFix(ASTLintError $error): string {
+    $node = $error->getBlameNode() as this::TNode;
     $clauses = $node->getClauses()->getItems();
     $unused = $this->getUnusedClauses($node->getKind(), $clauses);
     if (C\count($clauses) === C\count($unused)) {
@@ -134,7 +127,6 @@ final class UnusedUseClauseLinter
       |> 'Remove '.$$;
   }
 
-  <<__Override>>
   public function getFixedNode(INamespaceUseDeclaration $node): EditableNode {
     $clauses = $node->getClauses()->getItems();
     $clause_count = C\count($clauses);

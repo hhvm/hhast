@@ -12,7 +12,7 @@ namespace Facebook\HHAST\Linters;
 use type Facebook\HHAST\IFunctionishDeclaration;
 
 final class FunctionNamingLintError
-extends ASTLintError<IFunctionishDeclaration> {
+extends ASTLintError {
   private string $old;
   private string $new;
 

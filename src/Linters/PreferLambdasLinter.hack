@@ -25,24 +25,20 @@ use type Facebook\HHAST\{
 use function Facebook\HHAST\Missing;
 use namespace HH\Lib\C;
 
-final class PreferLambdasLinter extends AutoFixingASTLinter<AnonymousFunction> {
-  <<__Override>>
-  protected static function getTargetType(): classname<AnonymousFunction> {
-    return AnonymousFunction::class;
-  }
+final class PreferLambdasLinter extends AutoFixingASTLinter {
+  const type TContext = Script;
+  const type TNode = AnonymousFunction;
 
   <<__Override>>
   protected function getTitleForFix(LintError $_): string {
     return 'Convert to lambda';
   }
 
-  const type TContext = Script;
-
   <<__Override>>
   public function getLintErrorForNode(
     Script $_context,
     AnonymousFunction $node,
-  ): ?ASTLintError<AnonymousFunction> {
+  ): ?ASTLintError {
 
     $use_expr = $node->getUse();
 
@@ -60,10 +56,10 @@ final class PreferLambdasLinter extends AutoFixingASTLinter<AnonymousFunction> {
       $this,
       'Use lambdas instead of PHP anonymous functions',
       $node,
+      () ==> $this->getFixedNode($node),
     );
   }
 
-  <<__Override>>
   public function getFixedNode(AnonymousFunction $node): ?EditableNode {
     $attribute_spec = $node->getAttributeSpec();
     $async = $node->getAsyncKeyword();

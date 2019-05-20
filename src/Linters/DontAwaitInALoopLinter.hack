@@ -18,20 +18,15 @@ use type Facebook\HHAST\{
 };
 use function Facebook\HHAST\find_position;
 
-final class DontAwaitInALoopLinter extends ASTLinter<PrefixUnaryExpression> {
-
+final class DontAwaitInALoopLinter extends ASTLinter {
+  const type TNode = PrefixUnaryExpression;
   const type TContext = ILoopStatement;
-
-  <<__Override>>
-  protected static function getTargetType(): classname<PrefixUnaryExpression> {
-    return PrefixUnaryExpression::class;
-  }
 
   <<__Override>>
   public function getLintErrorForNode(
     ILoopStatement $context,
     PrefixUnaryExpression $node,
-  ): ?ASTLintError<PrefixUnaryExpression> {
+  ): ?ASTLintError {
     if (!$node->getOperator() instanceof AwaitToken) {
       return null;
     }

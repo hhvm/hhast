@@ -28,20 +28,15 @@ use type Facebook\HHAST\{
 use function Facebook\HHAST\Missing;
 use namespace HH\Lib\{C, Vec};
 
-final class NoStringInterpolationLinter
-  extends AutoFixingASTLinter<LiteralExpression> {
-  <<__Override>>
-  protected static function getTargetType(): classname<LiteralExpression> {
-    return LiteralExpression::class;
-  }
-
+final class NoStringInterpolationLinter extends AutoFixingASTLinter {
+  const type TNode = LiteralExpression;
   const type TContext = Script;
 
   <<__Override>>
   public function getLintErrorForNode(
     Script $_context,
     LiteralExpression $root_expr,
-  ): ?ASTLintError<LiteralExpression> {
+  ): ?ASTLintError {
     $expr = $root_expr->getExpression();
     if (!$expr instanceof EditableList) {
       return null;
@@ -52,6 +47,7 @@ final class NoStringInterpolationLinter
       'Do not use string interpolation - consider concatenation or '.
       'Str\format() instead ',
       $root_expr,
+      () ==> $this->getFixedNode($root_expr),
     );
   }
 
@@ -60,7 +56,6 @@ final class NoStringInterpolationLinter
     return 'Replace interpolation with concatenation';
   }
 
-  <<__Override>>
   public function getFixedNode(LiteralExpression $root_expr): ?EditableNode {
     $expr = $root_expr->getExpression();
     invariant(

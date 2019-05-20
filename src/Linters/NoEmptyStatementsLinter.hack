@@ -19,12 +19,8 @@ use type Facebook\HHAST\{
 
 use namespace Facebook\HHAST;
 
-final class NoEmptyStatementsLinter
-  extends AutoFixingASTLinter<ExpressionStatement> {
-  <<__Override>>
-  protected static function getTargetType(): classname<ExpressionStatement> {
-    return ExpressionStatement::class;
-  }
+final class NoEmptyStatementsLinter extends AutoFixingASTLinter {
+  const type TNode = ExpressionStatement;
 
   <<__Override>>
   public function getTitleForFix(LintError $_): string {
@@ -37,11 +33,16 @@ final class NoEmptyStatementsLinter
   public function getLintErrorForNode(
     Script $_context,
     ExpressionStatement $stmt,
-  ): ?ASTLintError<ExpressionStatement> {
+  ): ?ASTLintError {
 
     $expr = $stmt->getExpression();
     if ($expr === null) {
-      return new ASTLintError($this, 'This statement is empty', $stmt);
+      return new ASTLintError(
+        $this,
+        'This statement is empty',
+        $stmt,
+        () ==> $this->getFixedNode($stmt),
+      );
     }
 
     if ($this->isEmptyExpression($expr)) {
@@ -49,13 +50,13 @@ final class NoEmptyStatementsLinter
         $this,
         'This statement includes an expression that has no effect',
         $stmt,
+        () ==> $this->getFixedNode($stmt),
       );
     }
 
     return null;
   }
 
-  <<__Override>>
   public function getFixedNode(ExpressionStatement $stmt): EditableNode {
     // Only offer a fix if the node is literally empty
     if ($stmt->getExpression() !== null) {

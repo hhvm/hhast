@@ -113,6 +113,10 @@ final class MigrationsTest extends TestCase {
         Migrations\ExplicitPartialModeMigration::class,
         'migrations/ExplicitPartialMode/extra_comments.php',
       ),
+      tuple(
+        Migrations\LinterGenericsToTypeConstantsMigration::class,
+        'migrations/LinterGenericsToTypeConstants/NoElseIfLinter.hack',
+      ),
     ];
   }
 

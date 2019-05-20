@@ -10,9 +10,7 @@
 namespace Facebook\HHAST;
 
 final class UnusedParameterLinterTest extends TestCase {
-  use AutoFixingLinterTestTrait<
-    Linters\ASTLintError<ParameterDeclaration>,
-  >;
+  use AutoFixingLinterTestTrait<Linters\ASTLintError>;
 
   protected function getLinter(string $file): Linters\UnusedParameterLinter {
     return Linters\UnusedParameterLinter::fromPath($file);

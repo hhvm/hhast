@@ -20,21 +20,15 @@ use type Facebook\HHAST\{
 };
 use namespace HH\Lib\Str;
 
-final class UnusedParameterLinter
-  extends AutoFixingASTLinter<ParameterDeclaration> {
-  <<__Override>>
-  protected static function getTargetType(
-  ): classname<ParameterDeclaration> {
-    return ParameterDeclaration::class;
-  }
-
+final class UnusedParameterLinter extends AutoFixingASTLinter {
+  const type TNode = ParameterDeclaration;
   const type TContext = IFunctionishDeclaration;
 
   <<__Override>>
   public function getLintErrorForNode(
     IFunctionishDeclaration $functionish,
     ParameterDeclaration $node,
-  ): ?ASTLintError<ParameterDeclaration> {
+  ): ?ASTLintError {
     if ($node->getVisibility() !== null) {
       // Constructor parameter promotion
       return null;
@@ -78,10 +72,10 @@ final class UnusedParameterLinter
       $this,
       "Parameter is unused",
       $node,
+      () ==> $this->getFixedNode($node),
     );
   }
 
-  <<__Override>>
   public function getFixedNode(
     ParameterDeclaration $node,
   ): ParameterDeclaration {
@@ -95,10 +89,8 @@ final class UnusedParameterLinter
   }
 
   <<__Override>>
-  public function getTitleForFix(
-    ASTLintError<ParameterDeclaration> $err,
-  ): string {
-    $name = $err->getBlameNode()->getName();
+  public function getTitleForFix(ASTLintError $err): string {
+    $name = ($err->getBlameNode() as this::TNode)->getName();
     invariant($name instanceof VariableToken, 'unhandled type');
     $new_name = '$_'.Str\strip_prefix($name->getText(), '$');
     return Str\format('Rename to `%s`', $new_name);

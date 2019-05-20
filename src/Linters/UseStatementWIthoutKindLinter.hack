@@ -20,21 +20,15 @@ use type Facebook\HHAST\{
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Keyset};
 
-final class UseStatementWithoutKindLinter
-  extends AutoFixingASTLinter<INamespaceUseDeclaration> {
-  <<__Override>>
-  protected static function getTargetType(
-  ): classname<INamespaceUseDeclaration> {
-    return INamespaceUseDeclaration::class;
-  }
-
+final class UseStatementWithoutKindLinter extends AutoFixingASTLinter {
+  const type TNode = INamespaceUseDeclaration;
   const type TContext = Script;
 
   <<__Override>>
   public function getLintErrorForNode(
     Script $_context,
     INamespaceUseDeclaration $node,
-  ): ?ASTLintError<INamespaceUseDeclaration> {
+  ): ?ASTLintError {
     if ($node->hasKind()) {
       return null;
     }
@@ -43,14 +37,13 @@ final class UseStatementWithoutKindLinter
       $this,
       "Use `use type` or `use namespace`",
       $node,
+      () ==> $this->getFixedNode($node),
     );
   }
 
   <<__Override>>
-  protected function getTitleForFix(
-    ASTLintError<INamespaceUseDeclaration> $e,
-  ): string {
-    $fixed = $this->getFixedNode($e->getBlameNode());
+  protected function getTitleForFix(ASTLintError $e): string {
+    $fixed = $this->getFixedNode($e->getBlameNode() as this::TNode);
     invariant(
       $fixed !== null,
       "Shouldn't be asked to provide a fix title when there is no fix",
@@ -58,7 +51,6 @@ final class UseStatementWithoutKindLinter
     return 'Switch to `use '.$fixed->getKindx()->getText().'`';
   }
 
-  <<__Override>>
   public function getFixedNode(
     INamespaceUseDeclaration $node,
   ): ?INamespaceUseDeclaration {

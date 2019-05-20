@@ -23,21 +23,15 @@ use type Facebook\HHAST\{
 
 use namespace HH\Lib\C;
 
-class NoBasicAssignmentFunctionParameterLinter
-  extends AutoFixingASTLinter<FunctionCallExpression> {
-
-  <<__Override>>
-  protected static function getTargetType(): classname<FunctionCallExpression> {
-    return FunctionCallExpression::class;
-  }
-
+class NoBasicAssignmentFunctionParameterLinter extends AutoFixingASTLinter {
+  const type TNode = FunctionCallExpression;
   const type TContext = Script;
 
   <<__Override>>
   public function getLintErrorForNode(
     Script $_context,
     FunctionCallExpression $node,
-  ): ?ASTLintError<FunctionCallExpression> {
+  ): ?ASTLintError {
     $exps = $node
       ->getArgumentList()
       ?->getItemsOfType(BinaryExpression::class);
@@ -61,6 +55,7 @@ class NoBasicAssignmentFunctionParameterLinter
       "\n\t1) unexpected that it sets a local variable in the containing scope".
       "\n\t2) wrongly assumed that the variables are named parameters",
       $node,
+      () ==> $this->getFixedNode($node),
     );
   }
 
@@ -69,8 +64,6 @@ class NoBasicAssignmentFunctionParameterLinter
     return 'Replace assignment with comment';
   }
 
-
-  <<__Override>>
   public function getFixedNode(
     FunctionCallExpression $node,
   ): FunctionCallExpression {

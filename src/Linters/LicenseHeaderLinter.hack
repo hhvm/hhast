@@ -21,13 +21,10 @@ use type Facebook\HHAST\{
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Str, Vec};
 
-final class LicenseHeaderLinter extends AutoFixingASTLinter<Script> {
-  public static ?string $forcedHeader = null;
+final class LicenseHeaderLinter extends AutoFixingASTLinter {
+  const type TNode = Script;
 
-  <<__Override>>
-  protected static function getTargetType(): classname<Script> {
-    return Script::class;
-  }
+  public static ?string $forcedHeader = null;
 
   const type TContext = Script;
 
@@ -35,7 +32,7 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter<Script> {
   public function getLintErrorForNode(
     Script $_context,
     Script $script,
-  ): ?ASTLintError<Script> {
+  ): ?ASTLintError {
     $decls = $script->getDeclarations()->getItems();
     $first = C\first($decls);
     if ($first is MarkupSection) {
@@ -65,6 +62,7 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter<Script> {
       $this,
       'Incorrect or missing license header',
       $script,
+      () ==> $this->getFixedNode($script),
     );
   }
 
@@ -79,14 +77,13 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter<Script> {
   }
 
   <<__Override>>
-  protected function getTitleForFix(ASTLintError<Script> $e): string {
+  protected function getTitleForFix(ASTLintError $e): string {
     if (Str\contains_ci($e->getBlameCode(), 'copyright')) {
       return 'Replace license header';
     }
     return 'Add license header';
   }
 
-  <<__Override>>
   public function getFixedNode(Script $node): Script {
     $first = $node->getDeclarations()->getItems()[1]->getFirstTokenx();
     $leading = $first->getLeading();

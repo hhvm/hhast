@@ -14,33 +14,37 @@ use namespace Facebook\HHAST\Linters\SuppressASTLinter;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Vec;
 
-abstract class ASTLinter<Tnode as HHAST\EditableNode> extends BaseLinter {
+abstract class ASTLinter extends BaseLinter {
   abstract const type TContext as HHAST\EditableNode;
+  abstract const type TNode as HHAST\EditableNode;
   private ?HHAST\Script $ast;
-
-  abstract protected static function getTargetType(): classname<Tnode>;
 
   abstract protected function getLintErrorForNode(
     this::TContext $context,
-    Tnode $node,
-  ): ?ASTLintError<Tnode>;
+    this::TNode $node,
+  ): ?ASTLintError;
 
   /**
    * Some parts of the node may be irrelevant to the actual error; strip them
    * out here to display more concise messages to humans.
    */
-  public function getPrettyTextForNode(Tnode $node): string {
+  public function getPrettyTextForNode(this::TNode $node): string {
     return $node->getCode();
   }
 
   <<__MemoizeLSB>>
-  protected static function getAncestorType(): classname<this::TContext> {
+  final protected static function getAncestorType(): classname<this::TContext> {
     return \type_structure(static::class, 'TContext')['classname'];
+  }
+
+  <<__MemoizeLSB>>
+  final protected static function getTargetType(): classname<this::TNode> {
+    return \type_structure(static::class, 'TNode')['classname'];
   }
 
   <<__Override>>
   final public async function getLintErrorsAsync(
-  ): Awaitable<vec<ASTLintError<Tnode>>> {
+  ): Awaitable<vec<ASTLintError>> {
     $ast = await HHAST\__Private\ASTCache::get()->fetchAsync($this->getFile());
     $this->ast = $ast;
     $targets = dict[];

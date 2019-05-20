@@ -22,18 +22,15 @@ use type Facebook\HHAST\Linters\{ASTLinter, ASTLintError};
 /*
  * This linter ensures we always qualify classes as final or abstract
  */
-final class FinalOrAbstractClassLinter extends ASTLinter<ClassishDeclaration> {
+final class FinalOrAbstractClassLinter extends ASTLinter {
+  const type TNode = ClassishDeclaration;
   const type TContext = Script;
-  <<__Override>>
-  protected static function getTargetType(): classname<ClassishDeclaration> {
-    return ClassishDeclaration::class;
-  }
 
   <<__Override>>
   public function getLintErrorForNode(
     Script $_context,
     ClassishDeclaration $node,
-  ): ?ASTLintError<ClassishDeclaration> {
+  ): ?ASTLintError {
     // ensure we are looking at a class declaration
     if (!($node->getKeyword() is ClassToken)) {
       return null;

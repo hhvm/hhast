@@ -13,18 +13,27 @@ use type Facebook\HHAST\EditableNode;
 use function Facebook\HHAST\find_position;
 use namespace HH\Lib\Str;
 
-class ASTLintError<Tnode as EditableNode> extends LintError {
+class ASTLintError extends LintError {
   <<__Override>>
   public function __construct(
-    protected ASTLinter<Tnode> $linter,
+    protected ASTLinter $linter,
     string $description,
-    protected Tnode $node,
+    protected EditableNode $node,
+    private ?(function(): ?EditableNode) $fixer = null,
   ) {
     parent::__construct($linter, $description);
   }
 
-  final public function getBlameNode(): Tnode {
+  final public function getBlameNode(): EditableNode {
     return $this->node;
+  }
+
+  final public function getFixedNode(): ?EditableNode {
+    $fixer = $this->fixer;
+    if ($fixer) {
+      return $fixer();
+    }
+    return null;
   }
 
   <<__Override>>
@@ -52,6 +61,6 @@ class ASTLintError<Tnode as EditableNode> extends LintError {
 
   <<__Memoize, __Override>>
   final public function getPrettyBlame(): string {
-    return $this->linter->getPrettyTextForNode($this->node);
+    return $this->linter->getPrettyTextForNode(/* HH_FIXME[4110] */$this->node);
   }
 }

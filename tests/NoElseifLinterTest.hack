@@ -10,7 +10,7 @@
 namespace Facebook\HHAST;
 
 final class NoElseifLinterTest extends TestCase {
-  use AutoFixingLinterTestTrait<Linters\ASTLintError<ElseifToken>>;
+  use AutoFixingLinterTestTrait<Linters\ASTLintError>;
 
   protected function getLinter(
     string $file,

@@ -10,7 +10,7 @@
 namespace Facebook\HHAST;
 
 final class NoPHPEqualityLinterTest extends TestCase {
-  use AutoFixingLinterTestTrait<Linters\ASTLintError<BinaryExpression>>;
+  use AutoFixingLinterTestTrait<Linters\ASTLintError>;
 
   protected function getLinter(
     string $file,

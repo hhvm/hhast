@@ -10,10 +10,8 @@
 
 namespace Facebook\HHAST;
 
-use type Facebook\HHAST\AnonymousFunction;
-
 final class PreferLambdasLinterTest extends TestCase {
-  use AutoFixingLinterTestTrait<Linters\ASTLintError<AnonymousFunction>>;
+  use AutoFixingLinterTestTrait<Linters\ASTLintError>;
 
   protected function getLinter(string $file): Linters\PreferLambdasLinter {
     return Linters\PreferLambdasLinter::fromPath($file);

@@ -10,7 +10,7 @@
 namespace Facebook\HHAST;
 
 final class NoStringInterpolationLinterTest extends TestCase {
-  use AutoFixingLinterTestTrait<Linters\ASTLintError<LiteralExpression>>;
+  use AutoFixingLinterTestTrait<Linters\ASTLintError>;
 
   protected function getLinter(
     string $file,

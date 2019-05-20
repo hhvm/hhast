@@ -18,19 +18,15 @@ use type Facebook\HHAST\{
   WhiteSpace,
 };
 
-class StrictModeOnlyLinter extends AutoFixingASTLinter<MarkupSuffix> {
-  <<__Override>>
-  protected static function getTargetType(): classname<MarkupSuffix> {
-    return MarkupSuffix::class;
-  }
-
+class StrictModeOnlyLinter extends AutoFixingASTLinter {
+  const type TNode = MarkupSuffix;
   const type TContext = Script;
 
   <<__Override>>
   public function getLintErrorForNode(
     Script $_context,
     MarkupSuffix $node,
-  ): ?ASTLintError<MarkupSuffix> {
+  ): ?ASTLintError {
     $name = $node->getName();
     if ($name === null) {
       // '<?'
@@ -45,7 +41,12 @@ class StrictModeOnlyLinter extends AutoFixingASTLinter<MarkupSuffix> {
       return null;
     }
 
-    return new ASTLintError($this, 'Use `<?hh // strict`', $node);
+    return new ASTLintError(
+      $this,
+      'Use `<?hh // strict`',
+      $node,
+      () ==> $this->getFixedNode($node),
+    );
   }
 
   <<__Override>>
@@ -53,7 +54,6 @@ class StrictModeOnlyLinter extends AutoFixingASTLinter<MarkupSuffix> {
     return 'Use `<?hh // strict`';
   }
 
-  <<__Override>>
   public function getFixedNode(MarkupSuffix $node): MarkupSuffix {
     $name = $node->getName();
     invariant($name !== null, "Shouldn't be asked to fix a `<?hh`'");
@@ -61,6 +61,7 @@ class StrictModeOnlyLinter extends AutoFixingASTLinter<MarkupSuffix> {
       new WhiteSpace(' '),
       new SingleLineComment('// strict'),
       new EndOfLine("\n"),
-    ])) |> $node->withName($$);
+    ]))
+      |> $node->withName($$);
   }
 }

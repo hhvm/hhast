@@ -17,21 +17,15 @@ use type Facebook\HHAST\{
   Script,
 };
 
-final class UseStatementWithLeadingBackslashLinter
-  extends AutoFixingASTLinter<INamespaceUseDeclaration> {
-  <<__Override>>
-  protected static function getTargetType(
-  ): classname<INamespaceUseDeclaration> {
-    return INamespaceUseDeclaration::class;
-  }
-
+final class UseStatementWithLeadingBackslashLinter extends AutoFixingASTLinter {
+  const type TNode = INamespaceUseDeclaration;
   const type TContext = Script;
 
   <<__Override>>
   public function getLintErrorForNode(
     Script $_context,
     INamespaceUseDeclaration $node,
-  ): ?ASTLintError<INamespaceUseDeclaration> {
+  ): ?ASTLintError {
     $matched = false;
     if ($node instanceof NamespaceGroupUseDeclaration) {
       $prefix = $node->getPrefix()->getFirstToken();
@@ -55,6 +49,7 @@ final class UseStatementWithLeadingBackslashLinter
       $this,
       "Leading backslashes on `use` statements do nothing",
       $node,
+      () ==> $this->getFixedNode($node),
     );
   }
 
@@ -63,7 +58,6 @@ final class UseStatementWithLeadingBackslashLinter
     return 'Remove leading backslash';
   }
 
-  <<__Override>>
   public function getFixedNode(
     INamespaceUseDeclaration $node,
   ): INamespaceUseDeclaration {

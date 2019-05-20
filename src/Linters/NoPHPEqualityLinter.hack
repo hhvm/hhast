@@ -20,19 +20,13 @@ use type Facebook\HHAST\{
 };
 use namespace HH\Lib\Str;
 
-final class NoPHPEqualityLinter
-  extends AutoFixingASTLinter<BinaryExpression> {
-  <<__Override>>
-  protected static function getTargetType(): classname<BinaryExpression> {
-    return BinaryExpression::class;
-  }
+final class NoPHPEqualityLinter extends AutoFixingASTLinter {
+  const type TNode = BinaryExpression;
 
   <<__Override>>
-  protected function getTitleForFix(
-    ASTLintError<BinaryExpression> $err,
-  ): string {
-    $blame = $err->getBlameNode();
-    $fixed = $this->getFixedNode($blame);
+  protected function getTitleForFix(ASTLintError $err): string {
+    $blame = $err->getBlameNode() as this::TNode;
+    $fixed = $err->getFixedNode() as this::TNode;
     return Str\format(
       'Replace `%s` with `%s`',
       $blame->getOperator()->getText(),
@@ -46,7 +40,7 @@ final class NoPHPEqualityLinter
   public function getLintErrorForNode(
     Script $_context,
     BinaryExpression $expr,
-  ): ?ASTLintError<BinaryExpression> {
+  ): ?ASTLintError {
     $token = $expr->getOperator();
     $replacement = null;
     if ($token instanceof EqualEqualToken) {
@@ -63,10 +57,10 @@ final class NoPHPEqualityLinter
       $this,
       'Do not use PHP equality - use "'.$replacement.'" instead.',
       $expr,
+      () ==> $this->getFixedNode($expr),
     );
   }
 
-  <<__Override>>
   public function getFixedNode(BinaryExpression $expr): BinaryExpression {
     $op = $expr->getOperator();
     if ($op instanceof EqualEqualToken) {

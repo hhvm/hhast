@@ -9,15 +9,13 @@
 
 namespace Facebook\HHAST\Linters;
 
-use type Facebook\HHAST\{EditableNode, File};
+use type Facebook\HHAST\File;
 
-abstract class AutoFixingASTLinter<Tnode as EditableNode> extends ASTLinter<Tnode> {
-  abstract public function getFixedNode(Tnode $node): ?EditableNode;
-
-  use AutoFixingLinterTrait<ASTLintError<Tnode>>;
+abstract class AutoFixingASTLinter extends ASTLinter {
+  use AutoFixingLinterTrait<ASTLintError>;
 
   final public function getFixedFile(
-    Traversable<ASTLintError<Tnode>> $errors,
+    Traversable<ASTLintError> $errors,
   ): File {
     $ast = $this->getAST();
     foreach ($errors as $error) {
@@ -30,7 +28,7 @@ abstract class AutoFixingASTLinter<Tnode as EditableNode> extends ASTLinter<Tnod
         "Can't fix errors from another linter",
       );
       $old = $error->getBlameNode();
-      $new = $this->getFixedNode($old);
+      $new = $error->getFixedNode();
       if ($new === null) {
         continue;
       }

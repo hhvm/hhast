@@ -12,9 +12,7 @@ namespace Facebook\HHAST;
 
 
 final class MustUseBracesForControlFlowLinterTest extends TestCase {
-  use AutoFixingLinterTestTrait<
-    Linters\ASTLintError<IControlFlowStatement>
-  >;
+  use AutoFixingLinterTestTrait<Linters\ASTLintError>;
 
 
   protected function getLinter(

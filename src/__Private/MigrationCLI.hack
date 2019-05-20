@@ -22,6 +22,7 @@ use type Facebook\HHAST\Migrations\{
   IMigrationWithFileList,
   ImplicitShapeSubtypesMigration,
   IsRefinementMigration,
+  LinterGenericsToTypeConstantsMigration,
   OptionalShapeFieldsMigration,
   NamespaceFallbackMigration,
   PHPUnitToHackTestMigration,
@@ -165,6 +166,13 @@ class MigrationCLI extends CLIWithRequiredArguments {
         },
         'Apply all migrations for moving from 4.0 to 4.1',
         '--hhvm-4.0-to-4.1',
+      ),
+      CLIOptions\flag(
+        () ==> {
+          $this->migrations[] = LinterGenericsToTypeConstantsMigration::class;
+        },
+        'Migrate HHAST 4.5 linter to 4.6',
+        '--hhast-4.5-linter-to-4.6',
       ),
       CLIOptions\flag(
         () ==> {
