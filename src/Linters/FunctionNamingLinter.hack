@@ -11,24 +11,21 @@ namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
   ClassishDeclaration,
-  ConstructToken,
-  DestructToken,
-  EditableList,
   EditableNode,
   EditableToken,
-  EndOfLine,
   FunctionDeclaration,
+  FunctionDeclarationHeader,
   IFunctionishDeclaration,
   MethodishDeclaration,
-  Script,
+  NameToken,
   StaticToken,
 };
 use namespace Facebook\HHAST;
-use namespace HH\Lib\{C, Str, Vec};
+use namespace HH\Lib\{C, Str};
 
-abstract class FunctionNamingLinter extends ASTLinter {
-  const type TNode = IFunctionishDeclaration;
-  const type TContext = Script;
+abstract class FunctionNamingLinter extends AutoFixingASTLinter {
+  const type TContext = IFunctionishDeclaration;
+  const type TNode = FunctionDeclarationHeader;
 
   abstract public function getSuggestedNameForFunction(
     string $name,
@@ -85,51 +82,48 @@ abstract class FunctionNamingLinter extends ASTLinter {
 
   <<__Override>>
   final public function getLintErrorForNode(
-    Script $root,
-    IFunctionishDeclaration $node,
+    this::TContext $func,
+    this::TNode $header,
   ): ?FunctionNamingLintError {
-    $token = $this->getCurrentNameNodeForFunctionOrMethod($node);
-    if ($token === null) {
-      return null;
-    }
-    if ($token instanceof ConstructToken || $token instanceof DestructToken) {
+    $token = $header->getName();
+    if (!$token instanceof NameToken) {
       return null;
     }
     $old = $token->getText();
     if (Str\starts_with($old, '__')) {
       return null;
     }
-    if ($node instanceof FunctionDeclaration) {
+    if ($func instanceof FunctionDeclaration) {
       $what = 'Function';
-      $new = $this->getSuggestedNameForFunction($old, $node);
-    } else if ($node instanceof MethodishDeclaration) {
+      $new = $this->getSuggestedNameForFunction($old, $func);
+    } else if ($func instanceof MethodishDeclaration) {
       if (
-        $node->getFunctionDeclHeader()
-          ->getModifiers()
+          $header->getModifiers()
           ?->getDescendantsOfType(StaticToken::class)
         |> ($$ ?? vec[])
         |> C\is_empty(vec($$))
       ) {
         $what = 'Method';
-        $new = $this->getSuggestedNameForInstanceMethod($old, $node);
+        $new = $this->getSuggestedNameForInstanceMethod($old, $func);
       } else {
         $what = 'Static method';
-        $new = $this->getSuggestedNameForStaticMethod($old, $node);
+        $new = $this->getSuggestedNameForStaticMethod($old, $func);
       }
     } else {
-      invariant_violation("Can't handle type %s", \get_class($node));
+      invariant_violation("Can't handle type %s", \get_class($func));
     }
     if ($old === $new) {
       return null;
     }
 
-    $ns = HHAST\__Private\Resolution\get_current_namespace($root, $node);
-    if ($node instanceof FunctionDeclaration) {
+    $root = $this->getAST();
+    $ns = HHAST\__Private\Resolution\get_current_namespace($root, $func);
+    if ($func instanceof FunctionDeclaration) {
       $class = null;
     } else {
       $class = (
         $root->getFirstAncestorOfDescendantWhere(
-          $node,
+          $func,
           $c ==> $c instanceof ClassishDeclaration,
         ) as ClassishDeclaration
       )->getName()->getText();
@@ -142,34 +136,7 @@ abstract class FunctionNamingLinter extends ASTLinter {
       $class,
       $old,
       $new,
-      $node,
+      $header,
     );
-  }
-
-  <<__Override>>
-  public function getPrettyTextForNode(IFunctionishDeclaration $node): string {
-    if ($node instanceof FunctionDeclaration) {
-      $node = $node->withBody(HHAST\Missing());
-    } else if ($node instanceof MethodishDeclaration) {
-      $node = $node->withFunctionBody(HHAST\Missing());
-    } else {
-      invariant_violation('unhandled type: %s', \get_class($node));
-    }
-    $leading = $node->getFirstTokenx()->getLeading();
-    if ($leading instanceof EditableList) {
-      $new = vec[];
-      foreach (Vec\reverse($leading->toVec()) as $child) {
-        $new[] = $child;
-        if ($child instanceof EndOfLine) {
-          break;
-        }
-      }
-      $leading = EditableList::createNonEmptyListOrMissing(Vec\reverse($new));
-    }
-    return $node->replace(
-      $node->getFirstTokenx(),
-      $node->getFirstTokenx()->withLeading($leading),
-    )
-      ->getCode();
   }
 }

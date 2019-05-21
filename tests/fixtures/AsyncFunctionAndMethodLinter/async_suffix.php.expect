@@ -1,16 +1,16 @@
 [
     {
-        "blame": "  public function fooBarUNTYPED(): Awaitable<void> {}\n",
+        "blame": "  public function fooBarUNTYPED(): Awaitable<void> ",
         "blame_pretty": "  public function fooBarUNTYPED(): Awaitable<void> ",
         "description": "Method \"fooBarUNTYPED()\" in class \"Foo\" does not match conventions; consider renaming to \"fooBarAsyncUNTYPED\""
     },
     {
-        "blame": "  public static function herpDerpBLAH(): Awaitable<int> {}\n",
+        "blame": "  public static function herpDerpBLAH(): Awaitable<int> ",
         "blame_pretty": "  public static function herpDerpBLAH(): Awaitable<int> ",
         "description": "Static method \"herpDerpBLAH()\" in class \"Foo\" does not match conventions; consider renaming to \"herpDerpBLAHAsync\""
     },
     {
-        "blame": "\nfunction foo_bar_DEPRECATED(): Awaitable<string> {\n}\n",
+        "blame": "\nfunction foo_bar_DEPRECATED(): Awaitable<string> ",
         "blame_pretty": "\nfunction foo_bar_DEPRECATED(): Awaitable<string> ",
         "description": "Function \"foo_bar_DEPRECATED()\" does not match conventions; consider renaming to \"foo_bar_async_DEPRECATED\""
     }

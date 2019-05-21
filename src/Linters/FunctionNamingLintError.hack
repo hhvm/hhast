@@ -9,10 +9,9 @@
 
 namespace Facebook\HHAST\Linters;
 
-use type Facebook\HHAST\IFunctionishDeclaration;
+use type Facebook\HHAST\{FunctionDeclarationHeader, NameToken};
 
-final class FunctionNamingLintError
-extends ASTLintError {
+final class FunctionNamingLintError extends ASTLintError {
   private string $old;
   private string $new;
 
@@ -24,9 +23,8 @@ extends ASTLintError {
     ?string $class,
     string $old,
     string $new,
-    IFunctionishDeclaration $node,
+    FunctionDeclarationHeader $node,
   ) {
-    parent::__construct($linter, $description, $node);
     $ns = $ns === null ? '' : $ns.'\\';
     if ($class === null) {
       $this->old = $ns.$old;
@@ -35,5 +33,11 @@ extends ASTLintError {
       $this->old = $ns.$class.'::'.$old;
       $this->new = $ns.$class.'::'.$new;
     }
+    parent::__construct(
+      $linter,
+      $description,
+      $node,
+      () ==> $node->withName(($node->getName() as NameToken)->withText($new)),
+    );
   }
 }

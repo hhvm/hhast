@@ -1,11 +1,11 @@
 [
     {
-        "blame": "  public static function FooBar(): void {}\n",
+        "blame": "  public static function FooBar(): void ",
         "blame_pretty": "  public static function FooBar(): void ",
         "description": "Static method \"FooBar()\" in class \"MyClass\" does not match conventions; consider renaming to \"fooBar\""
     },
     {
-        "blame": "  public function HerpDerp(): void {}\n",
+        "blame": "  public function HerpDerp(): void ",
         "blame_pretty": "  public function HerpDerp(): void ",
         "description": "Method \"HerpDerp()\" in class \"MyClass\" does not match conventions; consider renaming to \"herpDerp\""
     }
