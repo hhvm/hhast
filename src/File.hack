@@ -49,18 +49,20 @@ final class File {
 
   <<__Memoize>>
   public function getHash(): string {
-    return \sodium_crypto_generichash(
-      $this->contents,
-      self::getHashKey(),
-    );
+    return \sodium_crypto_generichash($this->contents, self::getHashKey());
   }
 
   <<__Memoize>>
   private static function getHashKey(): string {
+    // If the way we parse things is changed without changing the actual nodes
+    // (e.g. await precendence changes for await-as-an-expression), the parser
+    // schema version may be unchanged, but HHVM_REPO_SCHEMA will be changed.
     return \sodium_crypto_generichash(
-        SCHEMA_VERSION,
-        null,
-        \SODIUM_CRYPTO_GENERICHASH_KEYBYTES,
+      SCHEMA_VERSION.
+      '!'.
+      /* HH_FIXME[4106] */ /* HH_FIXME[2049] */\HHVM_REPO_SCHEMA,
+      null,
+      \SODIUM_CRYPTO_GENERICHASH_KEYBYTES,
     );
   }
 }
