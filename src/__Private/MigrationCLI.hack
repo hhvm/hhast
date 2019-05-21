@@ -14,7 +14,6 @@ use namespace HH\Lib\{C, Str, Vec};
 use type Facebook\HHAST\Migrations\{
   AddFixMesMigration,
   AssertToExpectMigration,
-  AwaitPrecedenceMigration,
   BaseMigration,
   CallTimePassByReferenceMigration,
   ExplicitPartialModeMigration,
@@ -28,7 +27,7 @@ use type Facebook\HHAST\Migrations\{
   PHPUnitToHackTestMigration,
 };
 
-use type Facebook\CLILib\CLIWithRequiredArguments;
+use type Facebook\CLILib\{CLIWithRequiredArguments, ExitException};
 use namespace Facebook\CLILib\CLIOptions;
 
 class MigrationCLI extends CLIWithRequiredArguments {
@@ -104,21 +103,21 @@ class MigrationCLI extends CLIWithRequiredArguments {
       ),
       CLIOptions\flag(
         () ==> {
-          invariant_violation("Use HHAST 4.2.* or below for this migration");
+          throw new ExitException(1, "Use HHAST 4.2.* or below for this migration");
         },
         'no longer supported',
         '--hhvm-4.2-to-4.3',
       ),
       CLIOptions\flag(
         () ==> {
-          invariant_violation("Use HHAST 4.2.* or below for this migration");
+          throw new ExitException(1, "Use HHAST 4.2.* or below for this migration");
         },
         'no longer supported',
         '--ltgt-to-ne',
       ),
       CLIOptions\flag(
         () ==> {
-          invariant_violation("Use HHAST 4.2.* or below for this migration");
+          throw new ExitException(1, "Use HHAST 4.2.* or below for this migration");
         },
         'no longer supported',
         '--hhvm-3.28-to-3.29',
@@ -176,6 +175,20 @@ class MigrationCLI extends CLIWithRequiredArguments {
       ),
       CLIOptions\flag(
         () ==> {
+          throw new ExitException(1, "Use HHAST 4.5.2 for this migration");
+        },
+        'no longer supported',
+        '--await-precedence',
+      ),
+      CLIOptions\flag(
+        () ==> {
+          throw new ExitException(1, "Use HHAST 4.5.2 for this migration");
+        },
+        'no longer supported',
+        '--hhvm-4.5-to-4.6',
+      ),
+      CLIOptions\flag(
+        () ==> {
           $this->migrations[] = AddFixMesMigration::class;
         },
         'Add /* HH_FIXME[] */ comments where needed',
@@ -196,16 +209,6 @@ class MigrationCLI extends CLIWithRequiredArguments {
         '--xhprof',
       ),
     ];
-
-    if (\HHVM_VERSION_ID >= 33100) {
-      $options[] = CLIOptions\flag(
-        () ==> {
-          $this->migrations[] = AwaitPrecedenceMigration::class;
-        },
-        'Parenthesize await operands that would break if precedence of await changes',
-        '--await-precedence',
-      );
-    }
 
     $options[] = $this->getVerbosityOption();
     return $options;

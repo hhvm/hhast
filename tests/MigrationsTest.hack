@@ -82,10 +82,6 @@ final class MigrationsTest extends TestCase {
         'migrations/is_refinement.php',
       ),
       tuple(
-        Migrations\AwaitPrecedenceMigration::class,
-        'migrations/await_precedence.php',
-      ),
-      tuple(
         Migrations\ExplicitPartialModeMigration::class,
         'migrations/ExplicitPartialMode/strict.php',
       ),
