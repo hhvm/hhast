@@ -159,14 +159,14 @@ final class LinterCLI extends CLIWithArguments {
       if ($pos !== null && \is_readable($e->getFileBeingLinted())) {
         list($line, $column) = $pos;
         $content = \file_get_contents($e->getFileBeingLinted());
-        await \file_get_contents($e->getFileBeingLinted())
+        await (\file_get_contents($e->getFileBeingLinted())
           |> Str\split($$, "\n")
           |> Vec\take($$, $line)
           |> Vec\slice($$, Math\maxva($line - 3, 0))
           |> Vec\map($$, $line ==> '    > '.$line)
           |> Str\join($$, "\n")
           |> Str\format("%s\n      %s^ HERE\n", $$, Str\repeat(' ', $column))
-          |> $err->writeAsync($$);
+          |> $err->writeAsync($$));
       }
       await $err->writeAsync(Str\format(
         "  Exception: %s\n"."  Message: %s\n",
