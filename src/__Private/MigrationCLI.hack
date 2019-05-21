@@ -168,6 +168,20 @@ class MigrationCLI extends CLIWithRequiredArguments {
       ),
       CLIOptions\flag(
         () ==> {
+          $this->migrations[] = AwaitPrecedenceMigration::class;
+        },
+        'Parenthesize await operands that would break if precedence of await changes',
+        '--await-precedence',
+      ),
+      CLIOptions\flag(
+        () ==> {
+          $this->migrations[] = AwaitPrecedenceMigration::class;
+        },
+        'Apply all migrations for moving from 4.5 to 4.6',
+        '--hhvm-4.5-to-4.6',
+      ),
+      CLIOptions\flag(
+        () ==> {
           $this->migrations[] = AddFixMesMigration::class;
         },
         'Add /* HH_FIXME[] */ comments where needed',
@@ -188,16 +202,6 @@ class MigrationCLI extends CLIWithRequiredArguments {
         '--xhprof',
       ),
     ];
-
-    if (\HHVM_VERSION_ID >= 33100) {
-      $options[] = CLIOptions\flag(
-        () ==> {
-          $this->migrations[] = AwaitPrecedenceMigration::class;
-        },
-        'Parenthesize await operands that would break if precedence of await changes',
-        '--await-precedence',
-      );
-    }
 
     $options[] = $this->getVerbosityOption();
     return $options;
@@ -350,7 +354,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
   private static ?(string, bool) $lastFileIsHack = null;
 
   private static function isHackFile(string $file): bool {
-    if (self::$lastFileIsHack is nonnull){
+    if (self::$lastFileIsHack is nonnull) {
       list($cache_file, $cache_result) = self::$lastFileIsHack;
       if ($cache_file === $file) {
         return $cache_result;
