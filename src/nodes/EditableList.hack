@@ -51,8 +51,11 @@ final class EditableList<+Titem as ?EditableNode> extends EditableNode {
      * reified generics */
     return Vec\map(
       $this->_children,
-      $child ==> $child instanceof ListItem ? $child->getItem() : $child,
-    ); // |> Vec\filter_nulls($$);
+      $child ==>
+        /* HH_FIXME[4110] Generic ListItem? */ $child instanceof ListItem
+        ? $child->getItem()
+        : $child,
+    );
   }
 
   final public function getItemsOfType<T as EditableNode>(
@@ -160,10 +163,7 @@ final class EditableList<+Titem as ?EditableNode> extends EditableNode {
   }
 
   <<__Override>>
-  protected function replaceImpl(
-    int $old_id,
-    EditableNode $new,
-  ): this {
+  protected function replaceImpl(int $old_id, EditableNode $new): this {
     $children = $this->_children;
     foreach ($children as $idx => $child) {
       if ($child->getUniqueID() === $old_id) {

@@ -45,7 +45,9 @@ final class CodeActionCommand extends LSPLib\CodeActionCommand {
           }
 
           try {
-            $ca = $linter->getCodeActionForError($e);
+            $ca = $linter->getCodeActionForError(
+              /* HH_FIXME[4110] unsafe generic */ $e,
+            );
           } catch (\Exception $_) {
             // usually some form of parse error, especially with as-you-type.
             // Don't crash the LSP server.

@@ -17,7 +17,7 @@ final class ParserQueue {
   protected function __construct() {
     $this->impl = new Async\Semaphore(
       self::LIMIT,
-      async $args ==> await execute_async('hh_parse', ...$args),
+      async (vec<string> $args) ==> await execute_async('hh_parse', ...$args),
     );
   }
 
