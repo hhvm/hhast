@@ -658,7 +658,7 @@ final class CodegenSyntax extends CodegenBase {
       'class' => 'EditableNode',
       'needsWrapper' => false,
       'nullable' => $nullable,
-      'possibleTypes' => $this->getRelationships()[$key],
+      'possibleTypes' => $this->getRelationships()[$key] ?? keyset['unknown'],
     );
     return dict[
       'FunctionCallExpression' => dict[
