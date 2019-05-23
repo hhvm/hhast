@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ec509fbb69495d89ee4ac0130a893508>>
+ * @generated SignedSource<<647c477759e04b572f1ceb1a0cf4026b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -198,9 +198,8 @@ final class TupleExpression
 
   /**
    * @return EditableList<ArrayCreationExpression> | EditableList<IContainer> |
-   * EditableList<IExpression> | EditableList<ArrayIntrinsicExpression> |
-   * EditableList<BinaryExpression> | EditableList<CastExpression> |
-   * EditableList<DarrayIntrinsicExpression> |
+   * EditableList<IExpression> | EditableList<BinaryExpression> |
+   * EditableList<CastExpression> | EditableList<DarrayIntrinsicExpression> |
    * EditableList<FunctionCallExpression> | EditableList<LiteralExpression> |
    * EditableList<ObjectCreationExpression> | EditableList<SubscriptExpression>
    * | EditableList<VariableExpression> |
@@ -216,9 +215,8 @@ final class TupleExpression
 
   /**
    * @return EditableList<ArrayCreationExpression> | EditableList<IContainer> |
-   * EditableList<IExpression> | EditableList<ArrayIntrinsicExpression> |
-   * EditableList<BinaryExpression> | EditableList<CastExpression> |
-   * EditableList<DarrayIntrinsicExpression> |
+   * EditableList<IExpression> | EditableList<BinaryExpression> |
+   * EditableList<CastExpression> | EditableList<DarrayIntrinsicExpression> |
    * EditableList<FunctionCallExpression> | EditableList<LiteralExpression> |
    * EditableList<ObjectCreationExpression> | EditableList<SubscriptExpression>
    * | EditableList<VariableExpression> |

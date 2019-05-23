@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fc60c5c3ece5cfe82e2cf79fc583014f>>
+ * @generated SignedSource<<9a3c97f6352eef5f00bedc07359cb771>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,9 +123,9 @@ final class TypeConstraint extends EditableNode {
 
   /**
    * @return ClassnameTypeSpecifier | ClosureTypeSpecifier |
-   * GenericTypeSpecifier | NullableTypeSpecifier | ShapeTypeSpecifier |
-   * SimpleTypeSpecifier | TypeConstant | VectorArrayTypeSpecifier |
-   * VectorTypeSpecifier
+   * GenericTypeSpecifier | LikeTypeSpecifier | NullableTypeSpecifier |
+   * ShapeTypeSpecifier | SimpleTypeSpecifier | TypeConstant |
+   * VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getType(): ITypeSpecifier {
     return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
@@ -133,9 +133,9 @@ final class TypeConstraint extends EditableNode {
 
   /**
    * @return ClassnameTypeSpecifier | ClosureTypeSpecifier |
-   * GenericTypeSpecifier | NullableTypeSpecifier | ShapeTypeSpecifier |
-   * SimpleTypeSpecifier | TypeConstant | VectorArrayTypeSpecifier |
-   * VectorTypeSpecifier
+   * GenericTypeSpecifier | LikeTypeSpecifier | NullableTypeSpecifier |
+   * ShapeTypeSpecifier | SimpleTypeSpecifier | TypeConstant |
+   * VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getTypex(): ITypeSpecifier {
     return $this->getType();

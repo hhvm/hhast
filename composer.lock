@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8320712616a7005614049396a27c8011",
+    "content-hash": "9384e3444318c04fa8208579e6f8d411",
     "packages": [
         {
             "name": "facebook/difflib",
@@ -197,20 +197,20 @@
         },
         {
             "name": "hhvm/type-assert",
-            "version": "v3.3.2",
+            "version": "v3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/type-assert.git",
-                "reference": "92f95a5726d705d219e703ab0baa3910d7565fe9"
+                "reference": "bc266f1e5a9f0797094a740a5988b8a442f1b46f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/type-assert/zipball/92f95a5726d705d219e703ab0baa3910d7565fe9",
-                "reference": "92f95a5726d705d219e703ab0baa3910d7565fe9",
+                "url": "https://api.github.com/repos/hhvm/type-assert/zipball/bc266f1e5a9f0797094a740a5988b8a442f1b46f",
+                "reference": "bc266f1e5a9f0797094a740a5988b8a442f1b46f",
                 "shasum": ""
             },
             "require": {
-                "hhvm": "^4.0",
+                "hhvm": "^4.1",
                 "hhvm/hsl": "^4.0"
             },
             "require-dev": {
@@ -234,7 +234,7 @@
                 "TypeAssert",
                 "hack"
             ],
-            "time": "2019-03-22T20:19:06+00:00"
+            "time": "2019-05-23T18:10:19+00:00"
         }
     ],
     "packages-dev": [
@@ -272,16 +272,16 @@
         },
         {
             "name": "facebook/hack-codegen",
-            "version": "v4.2.4",
+            "version": "v4.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/hack-codegen.git",
-                "reference": "efc714aeb356ea662c6b6ca81c10aaf9db3333b0"
+                "reference": "dfa1eff105ce6136dbe2b4014554045e9387f6b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/hack-codegen/zipball/efc714aeb356ea662c6b6ca81c10aaf9db3333b0",
-                "reference": "efc714aeb356ea662c6b6ca81c10aaf9db3333b0",
+                "url": "https://api.github.com/repos/hhvm/hack-codegen/zipball/dfa1eff105ce6136dbe2b4014554045e9387f6b3",
+                "reference": "dfa1eff105ce6136dbe2b4014554045e9387f6b3",
                 "shasum": ""
             },
             "require": {
@@ -329,7 +329,7 @@
                 "code generation",
                 "hack"
             ],
-            "time": "2019-05-13T18:23:04+00:00"
+            "time": "2019-05-23T18:24:48+00:00"
         },
         {
             "name": "hhvm/hacktest",
@@ -380,7 +380,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "hhvm": "^4.3"
+        "hhvm": "^4.7"
     },
     "platform-dev": []
 }

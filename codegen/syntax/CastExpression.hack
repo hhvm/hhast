@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<04776fd93d8893e1ebe7293f39ce029a>>
+ * @generated SignedSource<<27bb77f28cb84dbd03e0e55668ccb468>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -164,8 +164,8 @@ final class CastExpression
 
   /**
    * @return ArrayToken | BinaryToken | BoolToken | BooleanToken | DoubleToken
-   * | FloatToken | IntToken | IntegerToken | ObjectToken | RealToken |
-   * StringToken | UnsetToken
+   * | FloatToken | IntToken | IntegerToken | ObjectToken | StringToken |
+   * UnsetToken
    */
   public function getType(): EditableToken {
     return TypeAssert\instance_of(EditableToken::class, $this->_type);
@@ -173,8 +173,8 @@ final class CastExpression
 
   /**
    * @return ArrayToken | BinaryToken | BoolToken | BooleanToken | DoubleToken
-   * | FloatToken | IntToken | IntegerToken | ObjectToken | RealToken |
-   * StringToken | UnsetToken
+   * | FloatToken | IntToken | IntegerToken | ObjectToken | StringToken |
+   * UnsetToken
    */
   public function getTypex(): EditableToken {
     return $this->getType();

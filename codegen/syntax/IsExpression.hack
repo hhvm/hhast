@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8b8ff40def56ba766d12d970b9e9f19a>>
+ * @generated SignedSource<<3933f6c40a7f82f04b36f7167e6392f5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -112,7 +112,8 @@ final class IsExpression
 
   /**
    * @return FunctionCallExpression | MemberSelectionExpression |
-   * PipeVariableExpression | PrefixUnaryExpression | VariableExpression
+   * ObjectCreationExpression | PipeVariableExpression | PrefixUnaryExpression
+   * | VariableExpression
    */
   <<__Memoize>>
   public function getLeftOperand(): IExpression {
@@ -121,7 +122,8 @@ final class IsExpression
 
   /**
    * @return FunctionCallExpression | MemberSelectionExpression |
-   * PipeVariableExpression | PrefixUnaryExpression | VariableExpression
+   * ObjectCreationExpression | PipeVariableExpression | PrefixUnaryExpression
+   * | VariableExpression
    */
   public function getLeftOperandx(): IExpression {
     return $this->getLeftOperand();

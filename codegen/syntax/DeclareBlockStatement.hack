@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<38015f9d7ef3a2923a34780185931580>>
+ * @generated SignedSource<<9368395755e95dd19106c47347699ec0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -148,16 +148,16 @@ final class DeclareBlockStatement extends EditableNode implements IStatement {
   }
 
   /**
-   * @return DeclareToken
+   * @return unknown
    */
-  public function getKeyword(): DeclareToken {
-    return TypeAssert\instance_of(DeclareToken::class, $this->_keyword);
+  public function getKeyword(): EditableNode {
+    return $this->_keyword;
   }
 
   /**
-   * @return DeclareToken
+   * @return unknown
    */
-  public function getKeywordx(): DeclareToken {
+  public function getKeywordx(): EditableNode {
     return $this->getKeyword();
   }
 
@@ -183,16 +183,16 @@ final class DeclareBlockStatement extends EditableNode implements IStatement {
   }
 
   /**
-   * @return LeftParenToken
+   * @return unknown
    */
-  public function getLeftParen(): LeftParenToken {
-    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
+  public function getLeftParen(): EditableNode {
+    return $this->_left_paren;
   }
 
   /**
-   * @return LeftParenToken
+   * @return unknown
    */
-  public function getLeftParenx(): LeftParenToken {
+  public function getLeftParenx(): EditableNode {
     return $this->getLeftParen();
   }
 
@@ -218,16 +218,16 @@ final class DeclareBlockStatement extends EditableNode implements IStatement {
   }
 
   /**
-   * @return BinaryExpression
+   * @return unknown
    */
-  public function getExpression(): BinaryExpression {
-    return TypeAssert\instance_of(BinaryExpression::class, $this->_expression);
+  public function getExpression(): EditableNode {
+    return $this->_expression;
   }
 
   /**
-   * @return BinaryExpression
+   * @return unknown
    */
-  public function getExpressionx(): BinaryExpression {
+  public function getExpressionx(): EditableNode {
     return $this->getExpression();
   }
 
@@ -253,16 +253,16 @@ final class DeclareBlockStatement extends EditableNode implements IStatement {
   }
 
   /**
-   * @return RightParenToken
+   * @return unknown
    */
-  public function getRightParen(): RightParenToken {
-    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
+  public function getRightParen(): EditableNode {
+    return $this->_right_paren;
   }
 
   /**
-   * @return RightParenToken
+   * @return unknown
    */
-  public function getRightParenx(): RightParenToken {
+  public function getRightParenx(): EditableNode {
     return $this->getRightParen();
   }
 
@@ -288,16 +288,16 @@ final class DeclareBlockStatement extends EditableNode implements IStatement {
   }
 
   /**
-   * @return AlternateLoopStatement | CompoundStatement
+   * @return unknown
    */
-  public function getBody(): IStatement {
-    return TypeAssert\instance_of(IStatement::class, $this->_body);
+  public function getBody(): EditableNode {
+    return $this->_body;
   }
 
   /**
-   * @return AlternateLoopStatement | CompoundStatement
+   * @return unknown
    */
-  public function getBodyx(): IStatement {
+  public function getBodyx(): EditableNode {
     return $this->getBody();
   }
 }

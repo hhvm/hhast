@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f84ec0eb840162b6c4a73e927ce99f89>>
+ * @generated SignedSource<<d7b8080a3aca8acae1790b28fffcecf9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -334,16 +334,16 @@ final class DarrayTypeSpecifier extends EditableNode implements ITypeSpecifier {
   }
 
   /**
-   * @return DarrayTypeSpecifier | SimpleTypeSpecifier | VarrayTypeSpecifier |
-   * VectorArrayTypeSpecifier
+   * @return DarrayTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier
+   * | VarrayTypeSpecifier | VectorArrayTypeSpecifier
    */
   public function getValue(): ITypeSpecifier {
     return TypeAssert\instance_of(ITypeSpecifier::class, $this->_value);
   }
 
   /**
-   * @return DarrayTypeSpecifier | SimpleTypeSpecifier | VarrayTypeSpecifier |
-   * VectorArrayTypeSpecifier
+   * @return DarrayTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier
+   * | VarrayTypeSpecifier | VectorArrayTypeSpecifier
    */
   public function getValuex(): ITypeSpecifier {
     return $this->getValue();

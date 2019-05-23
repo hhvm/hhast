@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<58259801303e23992a3b6203aadff886>>
+ * @generated SignedSource<<bf7882c8eeda519abda725c234dc18f9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -93,16 +93,16 @@ final class ConcurrentStatement extends EditableNode implements IStatement {
   }
 
   /**
-   * @return
+   * @return ConcurrentToken
    */
-  public function getKeyword(): EditableNode {
-    return $this->_keyword;
+  public function getKeyword(): ConcurrentToken {
+    return TypeAssert\instance_of(ConcurrentToken::class, $this->_keyword);
   }
 
   /**
-   * @return
+   * @return ConcurrentToken
    */
-  public function getKeywordx(): EditableNode {
+  public function getKeywordx(): ConcurrentToken {
     return $this->getKeyword();
   }
 
@@ -122,16 +122,16 @@ final class ConcurrentStatement extends EditableNode implements IStatement {
   }
 
   /**
-   * @return
+   * @return CompoundStatement
    */
-  public function getStatement(): EditableNode {
-    return $this->_statement;
+  public function getStatement(): CompoundStatement {
+    return TypeAssert\instance_of(CompoundStatement::class, $this->_statement);
   }
 
   /**
-   * @return
+   * @return CompoundStatement
    */
-  public function getStatementx(): EditableNode {
+  public function getStatementx(): CompoundStatement {
     return $this->getStatement();
   }
 }

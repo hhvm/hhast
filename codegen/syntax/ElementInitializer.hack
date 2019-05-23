@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ae4e61a01c5f5709c3b5b5443d10cccc>>
+ * @generated SignedSource<<c46a0d228074565490c111eaf7337c1f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -179,8 +179,8 @@ final class ElementInitializer extends EditableNode {
 
   /**
    * @return AnonymousFunction | ArrayCreationExpression |
-   * ArrayIntrinsicExpression | BinaryExpression | CastExpression |
-   * CollectionLiteralExpression | ConditionalExpression |
+   * ArrayIntrinsicExpression | AwaitableCreationExpression | BinaryExpression
+   * | CastExpression | CollectionLiteralExpression | ConditionalExpression |
    * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
    * FunctionCallExpression | IssetExpression | KeysetIntrinsicExpression |
    * LambdaExpression | LiteralExpression | MemberSelectionExpression |
@@ -196,8 +196,8 @@ final class ElementInitializer extends EditableNode {
 
   /**
    * @return AnonymousFunction | ArrayCreationExpression |
-   * ArrayIntrinsicExpression | BinaryExpression | CastExpression |
-   * CollectionLiteralExpression | ConditionalExpression |
+   * ArrayIntrinsicExpression | AwaitableCreationExpression | BinaryExpression
+   * | CastExpression | CollectionLiteralExpression | ConditionalExpression |
    * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
    * FunctionCallExpression | IssetExpression | KeysetIntrinsicExpression |
    * LambdaExpression | LiteralExpression | MemberSelectionExpression |

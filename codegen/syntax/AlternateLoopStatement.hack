@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c5b664339976067af5e5d052c69c50ea>>
+ * @generated SignedSource<<9c7f420d963cc1d34a4da00f49577202>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -174,12 +174,9 @@ abstract class AlternateLoopStatementGeneratedBase
   }
 
   /**
-   * @return EditableList<EditableNode> | null
+   * @return EditableList<EditableNode>
    */
-  public function getStatements(): ?EditableList<EditableNode> {
-    if ($this->_statements->isMissing()) {
-      return null;
-    }
+  public function getStatements(): EditableList<EditableNode> {
     return TypeAssert\instance_of(EditableList::class, $this->_statements);
   }
 
@@ -187,7 +184,7 @@ abstract class AlternateLoopStatementGeneratedBase
    * @return EditableList<EditableNode>
    */
   public function getStatementsx(): EditableList<EditableNode> {
-    return TypeAssert\not_null($this->getStatements());
+    return $this->getStatements();
   }
 
   public function getClosingKeywordUNTYPED(): EditableNode {
@@ -211,7 +208,7 @@ abstract class AlternateLoopStatementGeneratedBase
   }
 
   /**
-   * @return EnddeclareToken | EndforToken | EndforeachToken | EndwhileToken
+   * @return EndforToken | EndforeachToken | EndwhileToken
    */
   public function getClosingKeyword(): EditableToken {
     return TypeAssert\instance_of(
@@ -221,7 +218,7 @@ abstract class AlternateLoopStatementGeneratedBase
   }
 
   /**
-   * @return EnddeclareToken | EndforToken | EndforeachToken | EndwhileToken
+   * @return EndforToken | EndforeachToken | EndwhileToken
    */
   public function getClosingKeywordx(): EditableToken {
     return $this->getClosingKeyword();

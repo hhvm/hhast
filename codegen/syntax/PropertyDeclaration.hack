@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<72103f5be4f705b71e683952397620c0>>
+ * @generated SignedSource<<3da9c3aaaf069e5bdba4b713b0aee6a6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -232,11 +232,11 @@ final class PropertyDeclaration
   }
 
   /**
-   * @return ClosureTypeSpecifier | DarrayTypeSpecifier | GenericTypeSpecifier
-   * | LikeTypeSpecifier | MapArrayTypeSpecifier | null | NullableTypeSpecifier
-   * | SimpleTypeSpecifier | SoftTypeSpecifier | TupleTypeSpecifier |
-   * TypeConstant | VarrayTypeSpecifier | VectorArrayTypeSpecifier |
-   * VectorTypeSpecifier
+   * @return ClosureTypeSpecifier | DarrayTypeSpecifier |
+   * DictionaryTypeSpecifier | GenericTypeSpecifier | LikeTypeSpecifier |
+   * MapArrayTypeSpecifier | null | NullableTypeSpecifier | SimpleTypeSpecifier
+   * | SoftTypeSpecifier | TupleTypeSpecifier | TypeConstant |
+   * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getType(): ?ITypeSpecifier {
     if ($this->_type->isMissing()) {
@@ -246,11 +246,11 @@ final class PropertyDeclaration
   }
 
   /**
-   * @return ClosureTypeSpecifier | DarrayTypeSpecifier | GenericTypeSpecifier
-   * | LikeTypeSpecifier | MapArrayTypeSpecifier | NullableTypeSpecifier |
-   * SimpleTypeSpecifier | SoftTypeSpecifier | TupleTypeSpecifier |
-   * TypeConstant | VarrayTypeSpecifier | VectorArrayTypeSpecifier |
-   * VectorTypeSpecifier
+   * @return ClosureTypeSpecifier | DarrayTypeSpecifier |
+   * DictionaryTypeSpecifier | GenericTypeSpecifier | LikeTypeSpecifier |
+   * MapArrayTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier |
+   * SoftTypeSpecifier | TupleTypeSpecifier | TypeConstant |
+   * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getTypex(): ITypeSpecifier {
     return TypeAssert\not_null($this->getType());

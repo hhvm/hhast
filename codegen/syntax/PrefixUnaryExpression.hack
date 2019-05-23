@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d213774f38e13908b9a9d012b3523909>>
+ * @generated SignedSource<<18dd1e7d481b8532b3bfdf3a9fc5f39b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -134,9 +134,9 @@ final class PrefixUnaryExpression
    * | FunctionCallExpression | InclusionExpression | InstanceofExpression |
    * IsExpression | IssetExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | PipeVariableExpression | PostfixUnaryExpression
-   * | PrefixUnaryExpression | QualifiedName | ScopeResolutionExpression |
-   * SubscriptExpression | NameToken | VariableExpression
+   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
+   * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
+   * NameToken | VariableExpression
    */
   <<__Memoize>>
   public function getOperand(): IExpression {
@@ -150,9 +150,9 @@ final class PrefixUnaryExpression
    * | FunctionCallExpression | InclusionExpression | InstanceofExpression |
    * IsExpression | IssetExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | PipeVariableExpression | PostfixUnaryExpression
-   * | PrefixUnaryExpression | QualifiedName | ScopeResolutionExpression |
-   * SubscriptExpression | NameToken | VariableExpression
+   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
+   * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
+   * NameToken | VariableExpression
    */
   public function getOperandx(): IExpression {
     return $this->getOperand();
