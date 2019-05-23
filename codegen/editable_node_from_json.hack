@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<021e515c858787721995d8e44a492ef7>>
+ * @generated SignedSource<<acb48c3e84a5ad131c228a144c95eb8b>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -71,8 +71,6 @@ function editable_node_from_json(
     'continue_statement' => HHAST\ContinueStatement::class,
     'darray_intrinsic_expression' => HHAST\DarrayIntrinsicExpression::class,
     'darray_type_specifier' => HHAST\DarrayTypeSpecifier::class,
-    'declare_block_statement' => HHAST\DeclareBlockStatement::class,
-    'declare_directive_statement' => HHAST\DeclareDirectiveStatement::class,
     'decorated_expression' => HHAST\DecoratedExpression::class,
     'default_label' => HHAST\DefaultLabel::class,
     'define_expression' => HHAST\DefineExpression::class,

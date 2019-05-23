@@ -15,7 +15,6 @@ use type Facebook\HHAST\{
   EqualEqualEqualToken,
   ExclamationEqualToken,
   ExclamationEqualEqualToken,
-  LessThanGreaterThanToken,
   Script,
 };
 use namespace HH\Lib\Str;
@@ -45,9 +44,7 @@ final class NoPHPEqualityLinter extends AutoFixingASTLinter {
     $replacement = null;
     if ($token instanceof EqualEqualToken) {
       $replacement = '===';
-    } else if (
-      $token instanceof ExclamationEqualToken
-      || $token instanceof LessThanGreaterThanToken) {
+    } else if ($token instanceof ExclamationEqualToken) {
       $replacement = '!==';
     } else {
       return null;
@@ -65,12 +62,11 @@ final class NoPHPEqualityLinter extends AutoFixingASTLinter {
     $op = $expr->getOperator();
     if ($op instanceof EqualEqualToken) {
       $op = new EqualEqualEqualToken($op->getLeading(), $op->getTrailing());
-    } else if (
-      $op instanceof ExclamationEqualToken
-      || $op instanceof LessThanGreaterThanToken
-    ) {
-      $op =
-        new ExclamationEqualEqualToken($op->getLeading(), $op->getTrailing());
+    } else if ($op instanceof ExclamationEqualToken) {
+      $op = new ExclamationEqualEqualToken(
+        $op->getLeading(),
+        $op->getTrailing(),
+      );
     } else {
       invariant_violation("Shouldn't be asked to fix non-equality operators");
     }

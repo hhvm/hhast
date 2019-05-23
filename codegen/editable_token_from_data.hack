@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<182ad94e23e88b11f3d2b3aa604e22fe>>
+ * @generated SignedSource<<eb245d95f87d64cf5869858f420109b9>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -59,7 +59,6 @@ class TokenClassMap {
     'continue' => HHAST\ContinueToken::class,
     'coroutine' => HHAST\CoroutineToken::class,
     'darray' => HHAST\DarrayToken::class,
-    'declare' => HHAST\DeclareToken::class,
     'default' => HHAST\DefaultToken::class,
     'define' => HHAST\DefineToken::class,
     '__destruct' => HHAST\DestructToken::class,
@@ -70,7 +69,6 @@ class TokenClassMap {
     'else' => HHAST\ElseToken::class,
     'elseif' => HHAST\ElseifToken::class,
     'empty' => HHAST\EmptyToken::class,
-    'enddeclare' => HHAST\EnddeclareToken::class,
     'endfor' => HHAST\EndforToken::class,
     'endforeach' => HHAST\EndforeachToken::class,
     'endif' => HHAST\EndifToken::class,
@@ -225,7 +223,6 @@ class TokenClassMap {
       '<' => HHAST\LessThanToken::class,
       '<=' => HHAST\LessThanEqualToken::class,
       '<=>' => HHAST\LessThanEqualGreaterThanToken::class,
-      '<>' => HHAST\LessThanGreaterThanToken::class,
       '<<' => HHAST\LessThanLessThanToken::class,
       '<<=' => HHAST\LessThanLessThanEqualToken::class,
       '<?' => HHAST\LessThanQuestionToken::class,
