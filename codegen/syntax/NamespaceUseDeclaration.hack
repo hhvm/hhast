@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8fea836c2e3fc11534ad51c241d230fd>>
+ * @generated SignedSource<<11915a4897ab84fe06d944533e7a491d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,28 +41,28 @@ final class NamespaceUseDeclaration
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['namespace_use_keyword'],
+      /* HH_FIXME[4110] */ $json['namespace_use_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $kind = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['namespace_use_kind'],
+      /* HH_FIXME[4110] */ $json['namespace_use_kind'],
       $file,
       $offset,
       $source,
     );
     $offset += $kind->getWidth();
     $clauses = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['namespace_use_clauses'],
+      /* HH_FIXME[4110] */ $json['namespace_use_clauses'],
       $file,
       $offset,
       $source,
     );
     $offset += $clauses->getWidth();
     $semicolon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['namespace_use_semicolon'],
+      /* HH_FIXME[4110] */ $json['namespace_use_semicolon'],
       $file,
       $offset,
       $source,

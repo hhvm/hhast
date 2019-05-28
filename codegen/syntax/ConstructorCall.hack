@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<16703a0e125ab67b88eab5c4cc01f358>>
+ * @generated SignedSource<<67c87ee3259a0811b970516ebad0df0d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,28 +39,28 @@ final class ConstructorCall extends EditableNode {
   ): this {
     $offset = $initial_offset;
     $type = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['constructor_call_type'],
+      /* HH_FIXME[4110] */ $json['constructor_call_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $type->getWidth();
     $left_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['constructor_call_left_paren'],
+      /* HH_FIXME[4110] */ $json['constructor_call_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
     $argument_list = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['constructor_call_argument_list'],
+      /* HH_FIXME[4110] */ $json['constructor_call_argument_list'],
       $file,
       $offset,
       $source,
     );
     $offset += $argument_list->getWidth();
     $right_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['constructor_call_right_paren'],
+      /* HH_FIXME[4110] */ $json['constructor_call_right_paren'],
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d7b8080a3aca8acae1790b28fffcecf9>>
+ * @generated SignedSource<<d45dd30950b6509ff384ada1b32c9352>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -48,49 +48,49 @@ final class DarrayTypeSpecifier extends EditableNode implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['darray_keyword'],
+      /* HH_FIXME[4110] */ $json['darray_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $left_angle = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['darray_left_angle'],
+      /* HH_FIXME[4110] */ $json['darray_left_angle'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_angle->getWidth();
     $key = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['darray_key'],
+      /* HH_FIXME[4110] */ $json['darray_key'],
       $file,
       $offset,
       $source,
     );
     $offset += $key->getWidth();
     $comma = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['darray_comma'],
+      /* HH_FIXME[4110] */ $json['darray_comma'],
       $file,
       $offset,
       $source,
     );
     $offset += $comma->getWidth();
     $value = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['darray_value'],
+      /* HH_FIXME[4110] */ $json['darray_value'],
       $file,
       $offset,
       $source,
     );
     $offset += $value->getWidth();
     $trailing_comma = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['darray_trailing_comma'],
+      /* HH_FIXME[4110] */ $json['darray_trailing_comma'],
       $file,
       $offset,
       $source,
     );
     $offset += $trailing_comma->getWidth();
     $right_angle = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['darray_right_angle'],
+      /* HH_FIXME[4110] */ $json['darray_right_angle'],
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a7be6ecef5097938b324f80a3b86ef3a>>
+ * @generated SignedSource<<665f749e5d6757ce87687a4bc9d52fe4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -35,14 +35,14 @@ final class GenericTypeSpecifier
   ): this {
     $offset = $initial_offset;
     $class_type = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['generic_class_type'],
+      /* HH_FIXME[4110] */ $json['generic_class_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $class_type->getWidth();
     $argument_list = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['generic_argument_list'],
+      /* HH_FIXME[4110] */ $json['generic_argument_list'],
       $file,
       $offset,
       $source,

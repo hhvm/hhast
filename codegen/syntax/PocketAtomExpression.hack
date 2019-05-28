@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3e10c2dc15b6a8ef8c35cbd3ebcf4dac>>
+ * @generated SignedSource<<dd33d93b83a23ab65896a77d8466d583>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -35,14 +35,14 @@ final class PocketAtomExpression
   ): this {
     $offset = $initial_offset;
     $glyph = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['pocket_atom_glyph'],
+      /* HH_FIXME[4110] */ $json['pocket_atom_glyph'],
       $file,
       $offset,
       $source,
     );
     $offset += $glyph->getWidth();
     $expression = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['pocket_atom_expression'],
+      /* HH_FIXME[4110] */ $json['pocket_atom_expression'],
       $file,
       $offset,
       $source,

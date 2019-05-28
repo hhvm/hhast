@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1c882eec7f08d5276718b22cbad59197>>
+ * @generated SignedSource<<f76e24cd7cc8f3b603506dff411029a2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -38,21 +38,21 @@ final class NullableAsExpression
   ): this {
     $offset = $initial_offset;
     $left_operand = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['nullable_as_left_operand'],
+      /* HH_FIXME[4110] */ $json['nullable_as_left_operand'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_operand->getWidth();
     $operator = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['nullable_as_operator'],
+      /* HH_FIXME[4110] */ $json['nullable_as_operator'],
       $file,
       $offset,
       $source,
     );
     $offset += $operator->getWidth();
     $right_operand = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['nullable_as_right_operand'],
+      /* HH_FIXME[4110] */ $json['nullable_as_right_operand'],
       $file,
       $offset,
       $source,

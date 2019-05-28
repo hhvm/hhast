@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7a49a87f1062eec57e655c2283223925>>
+ * @generated SignedSource<<f37446e33ff7c4795f4a3ac856e2452f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -38,21 +38,21 @@ final class ArrayCreationExpression
   ): this {
     $offset = $initial_offset;
     $left_bracket = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['array_creation_left_bracket'],
+      /* HH_FIXME[4110] */ $json['array_creation_left_bracket'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_bracket->getWidth();
     $members = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['array_creation_members'],
+      /* HH_FIXME[4110] */ $json['array_creation_members'],
       $file,
       $offset,
       $source,
     );
     $offset += $members->getWidth();
     $right_bracket = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['array_creation_right_bracket'],
+      /* HH_FIXME[4110] */ $json['array_creation_right_bracket'],
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6e182d3b7a700b4b49ba8080d1f60063>>
+ * @generated SignedSource<<5c40bdd384262ae94947405e191d2748>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,14 +33,14 @@ final class XHPRequired extends EditableNode {
   ): this {
     $offset = $initial_offset;
     $at = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['xhp_required_at'],
+      /* HH_FIXME[4110] */ $json['xhp_required_at'],
       $file,
       $offset,
       $source,
     );
     $offset += $at->getWidth();
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['xhp_required_keyword'],
+      /* HH_FIXME[4110] */ $json['xhp_required_keyword'],
       $file,
       $offset,
       $source,

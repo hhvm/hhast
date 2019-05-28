@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a6dab57b9ba917fbd10b7849c94e151a>>
+ * @generated SignedSource<<5bd203fb7a956886337761915973e2cc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -38,21 +38,21 @@ final class ParenthesizedExpression
   ): this {
     $offset = $initial_offset;
     $left_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['parenthesized_expression_left_paren'],
+      /* HH_FIXME[4110] */ $json['parenthesized_expression_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
     $expression = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['parenthesized_expression_expression'],
+      /* HH_FIXME[4110] */ $json['parenthesized_expression_expression'],
       $file,
       $offset,
       $source,
     );
     $offset += $expression->getWidth();
     $right_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['parenthesized_expression_right_paren'],
+      /* HH_FIXME[4110] */ $json['parenthesized_expression_right_paren'],
       $file,
       $offset,
       $source,

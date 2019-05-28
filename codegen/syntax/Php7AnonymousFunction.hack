@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9c55a8bec7aff06d91860e0dd081637a>>
+ * @generated SignedSource<<248ce67fd8c60acc64c52b44cb4cf2aa>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -65,84 +65,84 @@ final class Php7AnonymousFunction
   ): this {
     $offset = $initial_offset;
     $attribute_spec = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['php7_anonymous_attribute_spec'],
+      /* HH_FIXME[4110] */ $json['php7_anonymous_attribute_spec'],
       $file,
       $offset,
       $source,
     );
     $offset += $attribute_spec->getWidth();
     $static_keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['php7_anonymous_static_keyword'],
+      /* HH_FIXME[4110] */ $json['php7_anonymous_static_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $static_keyword->getWidth();
     $async_keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['php7_anonymous_async_keyword'],
+      /* HH_FIXME[4110] */ $json['php7_anonymous_async_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $async_keyword->getWidth();
     $coroutine_keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['php7_anonymous_coroutine_keyword'],
+      /* HH_FIXME[4110] */ $json['php7_anonymous_coroutine_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $coroutine_keyword->getWidth();
     $function_keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['php7_anonymous_function_keyword'],
+      /* HH_FIXME[4110] */ $json['php7_anonymous_function_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $function_keyword->getWidth();
     $left_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['php7_anonymous_left_paren'],
+      /* HH_FIXME[4110] */ $json['php7_anonymous_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
     $parameters = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['php7_anonymous_parameters'],
+      /* HH_FIXME[4110] */ $json['php7_anonymous_parameters'],
       $file,
       $offset,
       $source,
     );
     $offset += $parameters->getWidth();
     $right_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['php7_anonymous_right_paren'],
+      /* HH_FIXME[4110] */ $json['php7_anonymous_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_paren->getWidth();
     $use = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['php7_anonymous_use'],
+      /* HH_FIXME[4110] */ $json['php7_anonymous_use'],
       $file,
       $offset,
       $source,
     );
     $offset += $use->getWidth();
     $colon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['php7_anonymous_colon'],
+      /* HH_FIXME[4110] */ $json['php7_anonymous_colon'],
       $file,
       $offset,
       $source,
     );
     $offset += $colon->getWidth();
     $type = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['php7_anonymous_type'],
+      /* HH_FIXME[4110] */ $json['php7_anonymous_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $type->getWidth();
     $body = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['php7_anonymous_body'],
+      /* HH_FIXME[4110] */ $json['php7_anonymous_body'],
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<986ab1aee5a3f05abce69d968c92d5fc>>
+ * @generated SignedSource<<e2d0c6d6becbbeb63563d95b6cd1e824>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -35,14 +35,14 @@ final class NullableTypeSpecifier
   ): this {
     $offset = $initial_offset;
     $question = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['nullable_question'],
+      /* HH_FIXME[4110] */ $json['nullable_question'],
       $file,
       $offset,
       $source,
     );
     $offset += $question->getWidth();
     $type = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['nullable_type'],
+      /* HH_FIXME[4110] */ $json['nullable_type'],
       $file,
       $offset,
       $source,

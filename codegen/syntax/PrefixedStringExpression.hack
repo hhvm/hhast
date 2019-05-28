@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2c9ddeac2e54336b40d87bfe630261a6>>
+ * @generated SignedSource<<a2d35e9cedfaec3c7757f95438715343>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -35,14 +35,14 @@ final class PrefixedStringExpression
   ): this {
     $offset = $initial_offset;
     $name = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['prefixed_string_name'],
+      /* HH_FIXME[4110] */ $json['prefixed_string_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
     $str = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['prefixed_string_str'],
+      /* HH_FIXME[4110] */ $json['prefixed_string_str'],
       $file,
       $offset,
       $source,

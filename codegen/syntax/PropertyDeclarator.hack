@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<46c7ae6f5031ebe41f79762fb321c975>>
+ * @generated SignedSource<<b196a077532b67a23a1ded5f87ace6ec>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,14 +33,14 @@ final class PropertyDeclarator extends EditableNode {
   ): this {
     $offset = $initial_offset;
     $name = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['property_name'],
+      /* HH_FIXME[4110] */ $json['property_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
     $initializer = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['property_initializer'],
+      /* HH_FIXME[4110] */ $json['property_initializer'],
       $file,
       $offset,
       $source,

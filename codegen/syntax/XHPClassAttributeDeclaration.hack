@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1fe15985869d550174737961d2182a66>>
+ * @generated SignedSource<<b27fb9d0ce5b9c46f2c0e9ce30ccd671>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -38,21 +38,21 @@ final class XHPClassAttributeDeclaration
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['xhp_attribute_keyword'],
+      /* HH_FIXME[4110] */ $json['xhp_attribute_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $attributes = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['xhp_attribute_attributes'],
+      /* HH_FIXME[4110] */ $json['xhp_attribute_attributes'],
       $file,
       $offset,
       $source,
     );
     $offset += $attributes->getWidth();
     $semicolon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['xhp_attribute_semicolon'],
+      /* HH_FIXME[4110] */ $json['xhp_attribute_semicolon'],
       $file,
       $offset,
       $source,

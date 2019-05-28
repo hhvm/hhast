@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<06f6a4ace0e934807102a342aa80da53>>
+ * @generated SignedSource<<9c12849e8facae500eb6d24a088425b9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -38,21 +38,21 @@ final class InstanceofExpression
   ): this {
     $offset = $initial_offset;
     $left_operand = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['instanceof_left_operand'],
+      /* HH_FIXME[4110] */ $json['instanceof_left_operand'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_operand->getWidth();
     $operator = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['instanceof_operator'],
+      /* HH_FIXME[4110] */ $json['instanceof_operator'],
       $file,
       $offset,
       $source,
     );
     $offset += $operator->getWidth();
     $right_operand = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['instanceof_right_operand'],
+      /* HH_FIXME[4110] */ $json['instanceof_right_operand'],
       $file,
       $offset,
       $source,

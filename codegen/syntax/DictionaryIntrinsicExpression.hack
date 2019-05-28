@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<da56b6dcbe15f5f84eb2e8b16b09f10d>>
+ * @generated SignedSource<<59ebdf9e40cc317b236a279898236a57>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -44,35 +44,35 @@ final class DictionaryIntrinsicExpression
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['dictionary_intrinsic_keyword'],
+      /* HH_FIXME[4110] */ $json['dictionary_intrinsic_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $explicit_type = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['dictionary_intrinsic_explicit_type'],
+      /* HH_FIXME[4110] */ $json['dictionary_intrinsic_explicit_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $explicit_type->getWidth();
     $left_bracket = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['dictionary_intrinsic_left_bracket'],
+      /* HH_FIXME[4110] */ $json['dictionary_intrinsic_left_bracket'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_bracket->getWidth();
     $members = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['dictionary_intrinsic_members'],
+      /* HH_FIXME[4110] */ $json['dictionary_intrinsic_members'],
       $file,
       $offset,
       $source,
     );
     $offset += $members->getWidth();
     $right_bracket = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['dictionary_intrinsic_right_bracket'],
+      /* HH_FIXME[4110] */ $json['dictionary_intrinsic_right_bracket'],
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f9600a150cbecb94dc32c395871dd1e7>>
+ * @generated SignedSource<<88703017bc065886f51b58c979171b95>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,28 +41,28 @@ abstract class AwaitableCreationExpressionGeneratedBase
   ): this {
     $offset = $initial_offset;
     $attribute_spec = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['awaitable_attribute_spec'],
+      /* HH_FIXME[4110] */ $json['awaitable_attribute_spec'],
       $file,
       $offset,
       $source,
     );
     $offset += $attribute_spec->getWidth();
     $async = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['awaitable_async'],
+      /* HH_FIXME[4110] */ $json['awaitable_async'],
       $file,
       $offset,
       $source,
     );
     $offset += $async->getWidth();
     $coroutine = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['awaitable_coroutine'],
+      /* HH_FIXME[4110] */ $json['awaitable_coroutine'],
       $file,
       $offset,
       $source,
     );
     $offset += $coroutine->getWidth();
     $compound_statement = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['awaitable_compound_statement'],
+      /* HH_FIXME[4110] */ $json['awaitable_compound_statement'],
       $file,
       $offset,
       $source,

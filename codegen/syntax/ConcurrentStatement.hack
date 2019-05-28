@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bf7882c8eeda519abda725c234dc18f9>>
+ * @generated SignedSource<<12027129c671964676cdbfe10b3763d4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,14 +33,14 @@ final class ConcurrentStatement extends EditableNode implements IStatement {
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['concurrent_keyword'],
+      /* HH_FIXME[4110] */ $json['concurrent_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $statement = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['concurrent_statement'],
+      /* HH_FIXME[4110] */ $json['concurrent_statement'],
       $file,
       $offset,
       $source,

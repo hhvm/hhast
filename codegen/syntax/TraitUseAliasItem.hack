@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dc8dc8a1c83c1e3f8fd3d138a46107c2>>
+ * @generated SignedSource<<9d37dc354e4c4f2658637e7a60262980>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,28 +39,28 @@ final class TraitUseAliasItem extends EditableNode implements ITraitUseItem {
   ): this {
     $offset = $initial_offset;
     $aliasing_name = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['trait_use_alias_item_aliasing_name'],
+      /* HH_FIXME[4110] */ $json['trait_use_alias_item_aliasing_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $aliasing_name->getWidth();
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['trait_use_alias_item_keyword'],
+      /* HH_FIXME[4110] */ $json['trait_use_alias_item_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $modifiers = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['trait_use_alias_item_modifiers'],
+      /* HH_FIXME[4110] */ $json['trait_use_alias_item_modifiers'],
       $file,
       $offset,
       $source,
     );
     $offset += $modifiers->getWidth();
     $aliased_name = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['trait_use_alias_item_aliased_name'],
+      /* HH_FIXME[4110] */ $json['trait_use_alias_item_aliased_name'],
       $file,
       $offset,
       $source,

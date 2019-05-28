@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4df77f17b1aeeb73cd902e160c84b45c>>
+ * @generated SignedSource<<e39effbc7828ae1d508ed09f405e7798>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -35,14 +35,14 @@ final class DecoratedExpression
   ): this {
     $offset = $initial_offset;
     $decorator = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['decorated_expression_decorator'],
+      /* HH_FIXME[4110] */ $json['decorated_expression_decorator'],
       $file,
       $offset,
       $source,
     );
     $offset += $decorator->getWidth();
     $expression = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['decorated_expression_expression'],
+      /* HH_FIXME[4110] */ $json['decorated_expression_expression'],
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<415fe606df288c13752fa471bfb7f1c2>>
+ * @generated SignedSource<<6c2c59e287262684c0db43806a928782>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -38,21 +38,21 @@ final class XHPExpression
   ): this {
     $offset = $initial_offset;
     $open = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['xhp_open'],
+      /* HH_FIXME[4110] */ $json['xhp_open'],
       $file,
       $offset,
       $source,
     );
     $offset += $open->getWidth();
     $body = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['xhp_body'],
+      /* HH_FIXME[4110] */ $json['xhp_body'],
       $file,
       $offset,
       $source,
     );
     $offset += $body->getWidth();
     $close = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['xhp_close'],
+      /* HH_FIXME[4110] */ $json['xhp_close'],
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<97a4edc5ab8cace4d8d78f59e6be7d7d>>
+ * @generated SignedSource<<a87f90de3483a45d3521a3bf35de6203>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -44,35 +44,35 @@ final class VarrayIntrinsicExpression
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['varray_intrinsic_keyword'],
+      /* HH_FIXME[4110] */ $json['varray_intrinsic_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $explicit_type = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['varray_intrinsic_explicit_type'],
+      /* HH_FIXME[4110] */ $json['varray_intrinsic_explicit_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $explicit_type->getWidth();
     $left_bracket = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['varray_intrinsic_left_bracket'],
+      /* HH_FIXME[4110] */ $json['varray_intrinsic_left_bracket'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_bracket->getWidth();
     $members = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['varray_intrinsic_members'],
+      /* HH_FIXME[4110] */ $json['varray_intrinsic_members'],
       $file,
       $offset,
       $source,
     );
     $offset += $members->getWidth();
     $right_bracket = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['varray_intrinsic_right_bracket'],
+      /* HH_FIXME[4110] */ $json['varray_intrinsic_right_bracket'],
       $file,
       $offset,
       $source,

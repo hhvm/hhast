@@ -113,7 +113,7 @@ final class EditableList<+Titem as ?EditableNode> extends EditableNode {
   ): this {
     $children = vec[];
     $current_position = $offset;
-    foreach (/* UNSAFE_EXPR */$json['elements'] as $element) {
+    foreach (/* HH_FIXME[4110] */ $json['elements'] as $element) {
       $child = EditableNode::fromJSON(
         $element,
         $file,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<765df772a8b80c8d2f8d9cfc069f1aba>>
+ * @generated SignedSource<<f0da4b015c6d0857bbfe880f3ff900dc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -47,42 +47,42 @@ final class ConstDeclaration
   ): this {
     $offset = $initial_offset;
     $visibility = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['const_visibility'],
+      /* HH_FIXME[4110] */ $json['const_visibility'],
       $file,
       $offset,
       $source,
     );
     $offset += $visibility->getWidth();
     $abstract = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['const_abstract'],
+      /* HH_FIXME[4110] */ $json['const_abstract'],
       $file,
       $offset,
       $source,
     );
     $offset += $abstract->getWidth();
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['const_keyword'],
+      /* HH_FIXME[4110] */ $json['const_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $type_specifier = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['const_type_specifier'],
+      /* HH_FIXME[4110] */ $json['const_type_specifier'],
       $file,
       $offset,
       $source,
     );
     $offset += $type_specifier->getWidth();
     $declarators = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['const_declarators'],
+      /* HH_FIXME[4110] */ $json['const_declarators'],
       $file,
       $offset,
       $source,
     );
     $offset += $declarators->getWidth();
     $semicolon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['const_semicolon'],
+      /* HH_FIXME[4110] */ $json['const_semicolon'],
       $file,
       $offset,
       $source,

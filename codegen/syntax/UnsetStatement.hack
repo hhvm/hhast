@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2edda3c9c09d08ee2a0898c6ce7fc33c>>
+ * @generated SignedSource<<af20462b78f78b6496b61e04d1326d72>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -42,35 +42,35 @@ final class UnsetStatement extends EditableNode implements IStatement {
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['unset_keyword'],
+      /* HH_FIXME[4110] */ $json['unset_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $left_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['unset_left_paren'],
+      /* HH_FIXME[4110] */ $json['unset_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
     $variables = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['unset_variables'],
+      /* HH_FIXME[4110] */ $json['unset_variables'],
       $file,
       $offset,
       $source,
     );
     $offset += $variables->getWidth();
     $right_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['unset_right_paren'],
+      /* HH_FIXME[4110] */ $json['unset_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_paren->getWidth();
     $semicolon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['unset_semicolon'],
+      /* HH_FIXME[4110] */ $json['unset_semicolon'],
       $file,
       $offset,
       $source,

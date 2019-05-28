@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5a76da61a2fc9e1b459f830206616ea2>>
+ * @generated SignedSource<<ed0418b7c1faccbedc72f41d5f8e3720>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,21 +36,21 @@ final class TupleTypeSpecifier extends EditableNode implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $left_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['tuple_left_paren'],
+      /* HH_FIXME[4110] */ $json['tuple_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
     $types = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['tuple_types'],
+      /* HH_FIXME[4110] */ $json['tuple_types'],
       $file,
       $offset,
       $source,
     );
     $offset += $types->getWidth();
     $right_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['tuple_right_paren'],
+      /* HH_FIXME[4110] */ $json['tuple_right_paren'],
       $file,
       $offset,
       $source,

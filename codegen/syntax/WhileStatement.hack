@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b09566ae9ebf8453da7800a8171b4692>>
+ * @generated SignedSource<<1e45c93d5d2df0ce0bf4ea9604768b40>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -44,35 +44,35 @@ final class WhileStatement
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['while_keyword'],
+      /* HH_FIXME[4110] */ $json['while_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $left_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['while_left_paren'],
+      /* HH_FIXME[4110] */ $json['while_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
     $condition = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['while_condition'],
+      /* HH_FIXME[4110] */ $json['while_condition'],
       $file,
       $offset,
       $source,
     );
     $offset += $condition->getWidth();
     $right_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['while_right_paren'],
+      /* HH_FIXME[4110] */ $json['while_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_paren->getWidth();
     $body = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['while_body'],
+      /* HH_FIXME[4110] */ $json['while_body'],
       $file,
       $offset,
       $source,

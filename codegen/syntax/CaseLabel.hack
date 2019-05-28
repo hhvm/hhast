@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f226530098a8d27ed09cd9ccab21938c>>
+ * @generated SignedSource<<bfacebe53fc33863d14284d95062c7cd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,21 +36,21 @@ final class CaseLabel extends EditableNode implements ISwitchLabel {
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['case_keyword'],
+      /* HH_FIXME[4110] */ $json['case_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $expression = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['case_expression'],
+      /* HH_FIXME[4110] */ $json['case_expression'],
       $file,
       $offset,
       $source,
     );
     $offset += $expression->getWidth();
     $colon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['case_colon'],
+      /* HH_FIXME[4110] */ $json['case_colon'],
       $file,
       $offset,
       $source,

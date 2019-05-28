@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<44b55d2078ef49ad03a866a71f112256>>
+ * @generated SignedSource<<4cefac952b5e5ff6db7787fd01b9d43e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -32,7 +32,7 @@ final class LiteralExpression
   ): this {
     $offset = $initial_offset;
     $expression = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['literal_expression'],
+      /* HH_FIXME[4110] */ $json['literal_expression'],
       $file,
       $offset,
       $source,

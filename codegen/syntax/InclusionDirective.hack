@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ed21aac15b1be40ac6bd827e14580995>>
+ * @generated SignedSource<<97481cfb6fb45b8073a649fe460b9c36>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,14 +33,14 @@ final class InclusionDirective extends EditableNode implements IStatement {
   ): this {
     $offset = $initial_offset;
     $expression = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['inclusion_expression'],
+      /* HH_FIXME[4110] */ $json['inclusion_expression'],
       $file,
       $offset,
       $source,
     );
     $offset += $expression->getWidth();
     $semicolon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['inclusion_semicolon'],
+      /* HH_FIXME[4110] */ $json['inclusion_semicolon'],
       $file,
       $offset,
       $source,

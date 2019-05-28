@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5ed320266e61d249b54d81b15f90a81e>>
+ * @generated SignedSource<<3aec1d9ee9cba7b05a4fd416174bf8a0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,21 +36,21 @@ final class XHPChildrenParenthesizedList extends EditableNode {
   ): this {
     $offset = $initial_offset;
     $left_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['xhp_children_list_left_paren'],
+      /* HH_FIXME[4110] */ $json['xhp_children_list_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
     $xhp_children = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['xhp_children_list_xhp_children'],
+      /* HH_FIXME[4110] */ $json['xhp_children_list_xhp_children'],
       $file,
       $offset,
       $source,
     );
     $offset += $xhp_children->getWidth();
     $right_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['xhp_children_list_right_paren'],
+      /* HH_FIXME[4110] */ $json['xhp_children_list_right_paren'],
       $file,
       $offset,
       $source,

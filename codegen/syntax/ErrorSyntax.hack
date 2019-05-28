@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fdd3f1431483bc6106653b2d0e949998>>
+ * @generated SignedSource<<5fdf92f4bfa1b4db3a44f4a48b47b4ca>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,7 +30,7 @@ final class ErrorSyntax extends EditableNode {
   ): this {
     $offset = $initial_offset;
     $error = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['error_error'],
+      /* HH_FIXME[4110] */ $json['error_error'],
       $file,
       $offset,
       $source,

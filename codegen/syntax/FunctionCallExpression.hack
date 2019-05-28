@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7b6e593ac155831be198616c624f9f21>>
+ * @generated SignedSource<<fb5d8fbd54da7edffc58ee6a00fb6c25>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -44,35 +44,35 @@ final class FunctionCallExpression
   ): this {
     $offset = $initial_offset;
     $receiver = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['function_call_receiver'],
+      /* HH_FIXME[4110] */ $json['function_call_receiver'],
       $file,
       $offset,
       $source,
     );
     $offset += $receiver->getWidth();
     $type_args = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['function_call_type_args'],
+      /* HH_FIXME[4110] */ $json['function_call_type_args'],
       $file,
       $offset,
       $source,
     );
     $offset += $type_args->getWidth();
     $left_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['function_call_left_paren'],
+      /* HH_FIXME[4110] */ $json['function_call_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
     $argument_list = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['function_call_argument_list'],
+      /* HH_FIXME[4110] */ $json['function_call_argument_list'],
       $file,
       $offset,
       $source,
     );
     $offset += $argument_list->getWidth();
     $right_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['function_call_right_paren'],
+      /* HH_FIXME[4110] */ $json['function_call_right_paren'],
       $file,
       $offset,
       $source,

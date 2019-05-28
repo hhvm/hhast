@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<085347b4e4a12030377f7b4a0157a208>>
+ * @generated SignedSource<<ba17c82340c189f1e40aa2324dd37ae2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,7 +30,7 @@ final class NamespaceEmptyBody extends EditableNode implements INamespaceBody {
   ): this {
     $offset = $initial_offset;
     $semicolon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['namespace_semicolon'],
+      /* HH_FIXME[4110] */ $json['namespace_semicolon'],
       $file,
       $offset,
       $source,

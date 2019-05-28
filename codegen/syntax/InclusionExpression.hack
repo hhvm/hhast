@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<920d1151c90f78f18af31c4decb8e6a7>>
+ * @generated SignedSource<<c7648dd461e49cf5d613d5bdc7241162>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -35,14 +35,14 @@ final class InclusionExpression
   ): this {
     $offset = $initial_offset;
     $require = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['inclusion_require'],
+      /* HH_FIXME[4110] */ $json['inclusion_require'],
       $file,
       $offset,
       $source,
     );
     $offset += $require->getWidth();
     $filename = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['inclusion_filename'],
+      /* HH_FIXME[4110] */ $json['inclusion_filename'],
       $file,
       $offset,
       $source,

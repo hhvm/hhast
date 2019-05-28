@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b09435e594686978f9a856f17ca1a1af>>
+ * @generated SignedSource<<2667e332646e0c86fc2d4e6090019537>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,14 +33,14 @@ final class GotoLabel extends EditableNode implements IStatement {
   ): this {
     $offset = $initial_offset;
     $name = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['goto_label_name'],
+      /* HH_FIXME[4110] */ $json['goto_label_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
     $colon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['goto_label_colon'],
+      /* HH_FIXME[4110] */ $json['goto_label_colon'],
       $file,
       $offset,
       $source,

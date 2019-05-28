@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d7b4f206df62ef83875827d68a9c3eaa>>
+ * @generated SignedSource<<23a1a0f6688a3d4b75e4d64c23eec0c7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -38,21 +38,21 @@ final class EmbeddedMemberSelectionExpression
   ): this {
     $offset = $initial_offset;
     $object = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['embedded_member_object'],
+      /* HH_FIXME[4110] */ $json['embedded_member_object'],
       $file,
       $offset,
       $source,
     );
     $offset += $object->getWidth();
     $operator = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['embedded_member_operator'],
+      /* HH_FIXME[4110] */ $json['embedded_member_operator'],
       $file,
       $offset,
       $source,
     );
     $offset += $operator->getWidth();
     $name = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['embedded_member_name'],
+      /* HH_FIXME[4110] */ $json['embedded_member_name'],
       $file,
       $offset,
       $source,

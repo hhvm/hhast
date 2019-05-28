@@ -240,26 +240,26 @@
     "packages-dev": [
         {
             "name": "facebook/fbexpect",
-            "version": "v2.5.6",
+            "version": "v2.5.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/fbexpect.git",
-                "reference": "56c0b9a3473933af2056c795e4c2378f5af95529"
+                "reference": "3f75b474adde4f64e033e9e876359a171c402546"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/fbexpect/zipball/56c0b9a3473933af2056c795e4c2378f5af95529",
-                "reference": "56c0b9a3473933af2056c795e4c2378f5af95529",
+                "url": "https://api.github.com/repos/hhvm/fbexpect/zipball/3f75b474adde4f64e033e9e876359a171c402546",
+                "reference": "3f75b474adde4f64e033e9e876359a171c402546",
                 "shasum": ""
             },
             "require": {
                 "facebook/difflib": "^1.0.0",
-                "hhvm": "^4.0",
+                "hhvm": "^4.1",
                 "hhvm/hacktest": "^1.0",
                 "hhvm/hsl": "^4.0"
             },
             "require-dev": {
-                "hhvm/hhast": "^4.1",
+                "hhvm/hhast": "^4.0",
                 "hhvm/hhvm-autoload": "^2.0"
             },
             "type": "library",
@@ -268,7 +268,7 @@
                 "MIT"
             ],
             "description": "Unit test helpers for Facebook projects",
-            "time": "2019-03-22T20:12:49+00:00"
+            "time": "2019-05-28T16:16:14+00:00"
         },
         {
             "name": "facebook/hack-codegen",

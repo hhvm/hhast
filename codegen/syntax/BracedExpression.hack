@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<291f10ea07cf9b754a8bfe5a2c108f52>>
+ * @generated SignedSource<<239eebdba7eb9ab665a0c261a0c196f4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -38,21 +38,21 @@ final class BracedExpression
   ): this {
     $offset = $initial_offset;
     $left_brace = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['braced_expression_left_brace'],
+      /* HH_FIXME[4110] */ $json['braced_expression_left_brace'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_brace->getWidth();
     $expression = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['braced_expression_expression'],
+      /* HH_FIXME[4110] */ $json['braced_expression_expression'],
       $file,
       $offset,
       $source,
     );
     $offset += $expression->getWidth();
     $right_brace = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['braced_expression_right_brace'],
+      /* HH_FIXME[4110] */ $json['braced_expression_right_brace'],
       $file,
       $offset,
       $source,

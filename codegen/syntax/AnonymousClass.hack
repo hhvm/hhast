@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b8e1c5869806c9566f4b961ab7d9c2aa>>
+ * @generated SignedSource<<a9d75a7acbbe83d48162c676e6a8e702>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -54,63 +54,63 @@ final class AnonymousClass extends EditableNode {
   ): this {
     $offset = $initial_offset;
     $class_keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['anonymous_class_class_keyword'],
+      /* HH_FIXME[4110] */ $json['anonymous_class_class_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $class_keyword->getWidth();
     $left_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['anonymous_class_left_paren'],
+      /* HH_FIXME[4110] */ $json['anonymous_class_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
     $argument_list = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['anonymous_class_argument_list'],
+      /* HH_FIXME[4110] */ $json['anonymous_class_argument_list'],
       $file,
       $offset,
       $source,
     );
     $offset += $argument_list->getWidth();
     $right_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['anonymous_class_right_paren'],
+      /* HH_FIXME[4110] */ $json['anonymous_class_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_paren->getWidth();
     $extends_keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['anonymous_class_extends_keyword'],
+      /* HH_FIXME[4110] */ $json['anonymous_class_extends_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $extends_keyword->getWidth();
     $extends_list = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['anonymous_class_extends_list'],
+      /* HH_FIXME[4110] */ $json['anonymous_class_extends_list'],
       $file,
       $offset,
       $source,
     );
     $offset += $extends_list->getWidth();
     $implements_keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['anonymous_class_implements_keyword'],
+      /* HH_FIXME[4110] */ $json['anonymous_class_implements_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $implements_keyword->getWidth();
     $implements_list = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['anonymous_class_implements_list'],
+      /* HH_FIXME[4110] */ $json['anonymous_class_implements_list'],
       $file,
       $offset,
       $source,
     );
     $offset += $implements_list->getWidth();
     $body = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['anonymous_class_body'],
+      /* HH_FIXME[4110] */ $json['anonymous_class_body'],
       $file,
       $offset,
       $source,

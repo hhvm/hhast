@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b4846de9b0676f9aadba7a245e51e53e>>
+ * @generated SignedSource<<8c092188386da0502acc39b95af8d8d1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,14 +33,14 @@ final class SwitchFallthrough extends EditableNode implements IStatement {
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['fallthrough_keyword'],
+      /* HH_FIXME[4110] */ $json['fallthrough_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $semicolon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['fallthrough_semicolon'],
+      /* HH_FIXME[4110] */ $json['fallthrough_semicolon'],
       $file,
       $offset,
       $source,

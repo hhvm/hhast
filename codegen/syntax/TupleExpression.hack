@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<647c477759e04b572f1ceb1a0cf4026b>>
+ * @generated SignedSource<<172189ca02b5f2d939306b2e489c7a14>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,28 +41,28 @@ final class TupleExpression
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['tuple_expression_keyword'],
+      /* HH_FIXME[4110] */ $json['tuple_expression_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $left_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['tuple_expression_left_paren'],
+      /* HH_FIXME[4110] */ $json['tuple_expression_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
     $items = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['tuple_expression_items'],
+      /* HH_FIXME[4110] */ $json['tuple_expression_items'],
       $file,
       $offset,
       $source,
     );
     $offset += $items->getWidth();
     $right_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['tuple_expression_right_paren'],
+      /* HH_FIXME[4110] */ $json['tuple_expression_right_paren'],
       $file,
       $offset,
       $source,

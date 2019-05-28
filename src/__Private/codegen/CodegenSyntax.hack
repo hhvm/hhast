@@ -336,7 +336,7 @@ final class CodegenSyntax extends CodegenBase {
           'EditableNode::fromJSON',
           vec[
             Str\format(
-              '/* UNSAFE_EXPR */ $json[\'%s_%s\']',
+              '/* HH_FIXME[4110] */ $json[\'%s_%s\']',
               $syntax['prefix'],
               $field['field_name'],
             ),

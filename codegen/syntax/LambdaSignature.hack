@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<608637a11d134e9103538bdd0bd2d375>>
+ * @generated SignedSource<<c8883caac40dcb164cac4e1b444ad7cc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -42,35 +42,35 @@ final class LambdaSignature extends EditableNode implements ILambdaSignature {
   ): this {
     $offset = $initial_offset;
     $left_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['lambda_left_paren'],
+      /* HH_FIXME[4110] */ $json['lambda_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
     $parameters = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['lambda_parameters'],
+      /* HH_FIXME[4110] */ $json['lambda_parameters'],
       $file,
       $offset,
       $source,
     );
     $offset += $parameters->getWidth();
     $right_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['lambda_right_paren'],
+      /* HH_FIXME[4110] */ $json['lambda_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_paren->getWidth();
     $colon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['lambda_colon'],
+      /* HH_FIXME[4110] */ $json['lambda_colon'],
       $file,
       $offset,
       $source,
     );
     $offset += $colon->getWidth();
     $type = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['lambda_type'],
+      /* HH_FIXME[4110] */ $json['lambda_type'],
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d51743b373d197266b13b6b64ec04356>>
+ * @generated SignedSource<<bfbae6eea30a5ed49cf842e465b4ec7a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,28 +41,28 @@ final class RequireClause
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['require_keyword'],
+      /* HH_FIXME[4110] */ $json['require_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $kind = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['require_kind'],
+      /* HH_FIXME[4110] */ $json['require_kind'],
       $file,
       $offset,
       $source,
     );
     $offset += $kind->getWidth();
     $name = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['require_name'],
+      /* HH_FIXME[4110] */ $json['require_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
     $semicolon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['require_semicolon'],
+      /* HH_FIXME[4110] */ $json['require_semicolon'],
       $file,
       $offset,
       $source,

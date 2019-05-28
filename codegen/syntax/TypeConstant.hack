@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c8bcc0194d333ba4143ae7e88cc40d60>>
+ * @generated SignedSource<<280bdd4ef693118b4039e77153f01550>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,21 +36,21 @@ final class TypeConstant extends EditableNode implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $left_type = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['type_constant_left_type'],
+      /* HH_FIXME[4110] */ $json['type_constant_left_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_type->getWidth();
     $separator = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['type_constant_separator'],
+      /* HH_FIXME[4110] */ $json['type_constant_separator'],
       $file,
       $offset,
       $source,
     );
     $offset += $separator->getWidth();
     $right_type = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['type_constant_right_type'],
+      /* HH_FIXME[4110] */ $json['type_constant_right_type'],
       $file,
       $offset,
       $source,

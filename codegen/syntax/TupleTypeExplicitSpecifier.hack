@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cab2bcd66f5a387cf523d85208d24cfd>>
+ * @generated SignedSource<<29491a60e193628590a437a498033b52>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,28 +41,28 @@ final class TupleTypeExplicitSpecifier
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['tuple_type_keyword'],
+      /* HH_FIXME[4110] */ $json['tuple_type_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $left_angle = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['tuple_type_left_angle'],
+      /* HH_FIXME[4110] */ $json['tuple_type_left_angle'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_angle->getWidth();
     $types = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['tuple_type_types'],
+      /* HH_FIXME[4110] */ $json['tuple_type_types'],
       $file,
       $offset,
       $source,
     );
     $offset += $types->getWidth();
     $right_angle = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['tuple_type_right_angle'],
+      /* HH_FIXME[4110] */ $json['tuple_type_right_angle'],
       $file,
       $offset,
       $source,

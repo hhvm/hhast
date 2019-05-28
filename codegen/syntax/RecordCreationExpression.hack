@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5ecba2de902cbb665d4bdf654af2023e>>
+ * @generated SignedSource<<8117a6d305e19930dd7afbc8abfc8159>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,28 +41,28 @@ final class RecordCreationExpression
   ): this {
     $offset = $initial_offset;
     $type = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['record_creation_type'],
+      /* HH_FIXME[4110] */ $json['record_creation_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $type->getWidth();
     $left_bracket = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['record_creation_left_bracket'],
+      /* HH_FIXME[4110] */ $json['record_creation_left_bracket'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_bracket->getWidth();
     $members = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['record_creation_members'],
+      /* HH_FIXME[4110] */ $json['record_creation_members'],
       $file,
       $offset,
       $source,
     );
     $offset += $members->getWidth();
     $right_bracket = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['record_creation_right_bracket'],
+      /* HH_FIXME[4110] */ $json['record_creation_right_bracket'],
       $file,
       $offset,
       $source,

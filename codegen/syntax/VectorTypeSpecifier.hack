@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fc6da393f268f23f11b151ac0fa9d4ed>>
+ * @generated SignedSource<<a2b8cfcf894a1d898778affd57c5646f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -42,35 +42,35 @@ final class VectorTypeSpecifier extends EditableNode implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['vector_type_keyword'],
+      /* HH_FIXME[4110] */ $json['vector_type_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $left_angle = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['vector_type_left_angle'],
+      /* HH_FIXME[4110] */ $json['vector_type_left_angle'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_angle->getWidth();
     $type = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['vector_type_type'],
+      /* HH_FIXME[4110] */ $json['vector_type_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $type->getWidth();
     $trailing_comma = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['vector_type_trailing_comma'],
+      /* HH_FIXME[4110] */ $json['vector_type_trailing_comma'],
       $file,
       $offset,
       $source,
     );
     $offset += $trailing_comma->getWidth();
     $right_angle = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['vector_type_right_angle'],
+      /* HH_FIXME[4110] */ $json['vector_type_right_angle'],
       $file,
       $offset,
       $source,

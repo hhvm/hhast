@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<64c01b98eb0e1a3bb0a27ffbcc18f233>>
+ * @generated SignedSource<<7f546f9237a8905590ffc5e5aed575c7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -38,21 +38,21 @@ final class YieldFromExpression
   ): this {
     $offset = $initial_offset;
     $yield_keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['yield_from_yield_keyword'],
+      /* HH_FIXME[4110] */ $json['yield_from_yield_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $yield_keyword->getWidth();
     $from_keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['yield_from_from_keyword'],
+      /* HH_FIXME[4110] */ $json['yield_from_from_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $from_keyword->getWidth();
     $operand = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['yield_from_operand'],
+      /* HH_FIXME[4110] */ $json['yield_from_operand'],
       $file,
       $offset,
       $source,

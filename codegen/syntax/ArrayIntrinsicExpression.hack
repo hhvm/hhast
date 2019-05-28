@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8d319f5d837d59ef5b9700c34adc735b>>
+ * @generated SignedSource<<9de83f09525892c2e49cd3041376fa64>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,28 +41,28 @@ final class ArrayIntrinsicExpression
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['array_intrinsic_keyword'],
+      /* HH_FIXME[4110] */ $json['array_intrinsic_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $left_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['array_intrinsic_left_paren'],
+      /* HH_FIXME[4110] */ $json['array_intrinsic_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
     $members = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['array_intrinsic_members'],
+      /* HH_FIXME[4110] */ $json['array_intrinsic_members'],
       $file,
       $offset,
       $source,
     );
     $offset += $members->getWidth();
     $right_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['array_intrinsic_right_paren'],
+      /* HH_FIXME[4110] */ $json['array_intrinsic_right_paren'],
       $file,
       $offset,
       $source,

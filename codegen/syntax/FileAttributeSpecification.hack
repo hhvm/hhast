@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6344617fe8459cac512eb34f7bc9bc1c>>
+ * @generated SignedSource<<320538fb9ddc53d2d96edd67681b9692>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -42,35 +42,35 @@ final class FileAttributeSpecification extends EditableNode {
   ): this {
     $offset = $initial_offset;
     $left_double_angle = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['file_attribute_specification_left_double_angle'],
+      /* HH_FIXME[4110] */ $json['file_attribute_specification_left_double_angle'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_double_angle->getWidth();
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['file_attribute_specification_keyword'],
+      /* HH_FIXME[4110] */ $json['file_attribute_specification_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $colon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['file_attribute_specification_colon'],
+      /* HH_FIXME[4110] */ $json['file_attribute_specification_colon'],
       $file,
       $offset,
       $source,
     );
     $offset += $colon->getWidth();
     $attributes = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['file_attribute_specification_attributes'],
+      /* HH_FIXME[4110] */ $json['file_attribute_specification_attributes'],
       $file,
       $offset,
       $source,
     );
     $offset += $attributes->getWidth();
     $right_double_angle = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['file_attribute_specification_right_double_angle'],
+      /* HH_FIXME[4110] */ $json['file_attribute_specification_right_double_angle'],
       $file,
       $offset,
       $source,

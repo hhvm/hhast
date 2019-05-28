@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<431ef3df54ea74facb4376441f4f4f4c>>
+ * @generated SignedSource<<d2cad3df7f105c83efb310ee5f713b14>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,28 +39,28 @@ final class XHPClassAttribute extends EditableNode implements IXHPAttribute {
   ): this {
     $offset = $initial_offset;
     $type = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['xhp_attribute_decl_type'],
+      /* HH_FIXME[4110] */ $json['xhp_attribute_decl_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $type->getWidth();
     $name = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['xhp_attribute_decl_name'],
+      /* HH_FIXME[4110] */ $json['xhp_attribute_decl_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
     $initializer = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['xhp_attribute_decl_initializer'],
+      /* HH_FIXME[4110] */ $json['xhp_attribute_decl_initializer'],
       $file,
       $offset,
       $source,
     );
     $offset += $initializer->getWidth();
     $required = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['xhp_attribute_decl_required'],
+      /* HH_FIXME[4110] */ $json['xhp_attribute_decl_required'],
       $file,
       $offset,
       $source,

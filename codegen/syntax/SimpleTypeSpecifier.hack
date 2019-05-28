@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b5c84d427b103e1c4f3833da6b531996>>
+ * @generated SignedSource<<7ad4636d35aa5f5476e3d07c109cf0b9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -32,7 +32,7 @@ final class SimpleTypeSpecifier
   ): this {
     $offset = $initial_offset;
     $specifier = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['simple_type_specifier'],
+      /* HH_FIXME[4110] */ $json['simple_type_specifier'],
       $file,
       $offset,
       $source,

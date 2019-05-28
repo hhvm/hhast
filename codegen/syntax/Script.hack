@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7da33ffe24a7379d74f8da1110b2e217>>
+ * @generated SignedSource<<48d0bebf6ba2b4ac756f253bc2037b2f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,7 +30,7 @@ abstract class ScriptGeneratedBase extends EditableNode {
   ): this {
     $offset = $initial_offset;
     $declarations = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['script_declarations'],
+      /* HH_FIXME[4110] */ $json['script_declarations'],
       $file,
       $offset,
       $source,

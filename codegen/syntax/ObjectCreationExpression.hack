@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5f56c02e3d7bf75e4c9a24baababc08f>>
+ * @generated SignedSource<<2267101ec2a3d10a7b81bd70e0fd7e77>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -35,14 +35,14 @@ final class ObjectCreationExpression
   ): this {
     $offset = $initial_offset;
     $new_keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['object_creation_new_keyword'],
+      /* HH_FIXME[4110] */ $json['object_creation_new_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $new_keyword->getWidth();
     $object = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['object_creation_object'],
+      /* HH_FIXME[4110] */ $json['object_creation_object'],
       $file,
       $offset,
       $source,

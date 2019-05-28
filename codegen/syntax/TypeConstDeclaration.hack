@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5a9ff343d1f04b0b046c473bd0739354>>
+ * @generated SignedSource<<655722b287e811fa2f4331ff656c55ae>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -59,70 +59,70 @@ final class TypeConstDeclaration
   ): this {
     $offset = $initial_offset;
     $attribute_spec = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['type_const_attribute_spec'],
+      /* HH_FIXME[4110] */ $json['type_const_attribute_spec'],
       $file,
       $offset,
       $source,
     );
     $offset += $attribute_spec->getWidth();
     $abstract = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['type_const_abstract'],
+      /* HH_FIXME[4110] */ $json['type_const_abstract'],
       $file,
       $offset,
       $source,
     );
     $offset += $abstract->getWidth();
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['type_const_keyword'],
+      /* HH_FIXME[4110] */ $json['type_const_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $type_keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['type_const_type_keyword'],
+      /* HH_FIXME[4110] */ $json['type_const_type_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $type_keyword->getWidth();
     $name = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['type_const_name'],
+      /* HH_FIXME[4110] */ $json['type_const_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
     $type_parameters = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['type_const_type_parameters'],
+      /* HH_FIXME[4110] */ $json['type_const_type_parameters'],
       $file,
       $offset,
       $source,
     );
     $offset += $type_parameters->getWidth();
     $type_constraint = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['type_const_type_constraint'],
+      /* HH_FIXME[4110] */ $json['type_const_type_constraint'],
       $file,
       $offset,
       $source,
     );
     $offset += $type_constraint->getWidth();
     $equal = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['type_const_equal'],
+      /* HH_FIXME[4110] */ $json['type_const_equal'],
       $file,
       $offset,
       $source,
     );
     $offset += $equal->getWidth();
     $type_specifier = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['type_const_type_specifier'],
+      /* HH_FIXME[4110] */ $json['type_const_type_specifier'],
       $file,
       $offset,
       $source,
     );
     $offset += $type_specifier->getWidth();
     $semicolon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['type_const_semicolon'],
+      /* HH_FIXME[4110] */ $json['type_const_semicolon'],
       $file,
       $offset,
       $source,

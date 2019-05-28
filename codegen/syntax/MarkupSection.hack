@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<323ad03ea7b2e873b2607fd8915ff34f>>
+ * @generated SignedSource<<7b4b5f14e1f5fd4a1a70f5ab202a2426>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,28 +39,28 @@ final class MarkupSection extends EditableNode {
   ): this {
     $offset = $initial_offset;
     $prefix = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['markup_prefix'],
+      /* HH_FIXME[4110] */ $json['markup_prefix'],
       $file,
       $offset,
       $source,
     );
     $offset += $prefix->getWidth();
     $text = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['markup_text'],
+      /* HH_FIXME[4110] */ $json['markup_text'],
       $file,
       $offset,
       $source,
     );
     $offset += $text->getWidth();
     $suffix = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['markup_suffix'],
+      /* HH_FIXME[4110] */ $json['markup_suffix'],
       $file,
       $offset,
       $source,
     );
     $offset += $suffix->getWidth();
     $expression = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['markup_expression'],
+      /* HH_FIXME[4110] */ $json['markup_expression'],
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5cee2d96caacb198aa2ab932dcc3d179>>
+ * @generated SignedSource<<c95172cd7231370b857a5a4ac65781a2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -45,42 +45,42 @@ final class LetStatement extends EditableNode implements IStatement {
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['let_statement_keyword'],
+      /* HH_FIXME[4110] */ $json['let_statement_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $name = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['let_statement_name'],
+      /* HH_FIXME[4110] */ $json['let_statement_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
     $colon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['let_statement_colon'],
+      /* HH_FIXME[4110] */ $json['let_statement_colon'],
       $file,
       $offset,
       $source,
     );
     $offset += $colon->getWidth();
     $type = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['let_statement_type'],
+      /* HH_FIXME[4110] */ $json['let_statement_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $type->getWidth();
     $initializer = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['let_statement_initializer'],
+      /* HH_FIXME[4110] */ $json['let_statement_initializer'],
       $file,
       $offset,
       $source,
     );
     $offset += $initializer->getWidth();
     $semicolon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['let_statement_semicolon'],
+      /* HH_FIXME[4110] */ $json['let_statement_semicolon'],
       $file,
       $offset,
       $source,

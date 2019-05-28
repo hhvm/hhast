@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<34e22554d1b8ee29b77435f27f0198e7>>
+ * @generated SignedSource<<85d8295715a9d0018d3010bc06e6d3c1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -47,42 +47,42 @@ final class MapArrayTypeSpecifier
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['map_array_keyword'],
+      /* HH_FIXME[4110] */ $json['map_array_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $left_angle = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['map_array_left_angle'],
+      /* HH_FIXME[4110] */ $json['map_array_left_angle'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_angle->getWidth();
     $key = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['map_array_key'],
+      /* HH_FIXME[4110] */ $json['map_array_key'],
       $file,
       $offset,
       $source,
     );
     $offset += $key->getWidth();
     $comma = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['map_array_comma'],
+      /* HH_FIXME[4110] */ $json['map_array_comma'],
       $file,
       $offset,
       $source,
     );
     $offset += $comma->getWidth();
     $value = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['map_array_value'],
+      /* HH_FIXME[4110] */ $json['map_array_value'],
       $file,
       $offset,
       $source,
     );
     $offset += $value->getWidth();
     $right_angle = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['map_array_right_angle'],
+      /* HH_FIXME[4110] */ $json['map_array_right_angle'],
       $file,
       $offset,
       $source,

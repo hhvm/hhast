@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bfc496d29f491b48d499f50ba108b09e>>
+ * @generated SignedSource<<32d9e7ca46ea0380ed5d408f4e84c5d9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -42,35 +42,35 @@ final class RecordField extends EditableNode {
   ): this {
     $offset = $initial_offset;
     $name = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['record_field_name'],
+      /* HH_FIXME[4110] */ $json['record_field_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
     $colon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['record_field_colon'],
+      /* HH_FIXME[4110] */ $json['record_field_colon'],
       $file,
       $offset,
       $source,
     );
     $offset += $colon->getWidth();
     $type = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['record_field_type'],
+      /* HH_FIXME[4110] */ $json['record_field_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $type->getWidth();
     $init = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['record_field_init'],
+      /* HH_FIXME[4110] */ $json['record_field_init'],
       $file,
       $offset,
       $source,
     );
     $offset += $init->getWidth();
     $comma = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['record_field_comma'],
+      /* HH_FIXME[4110] */ $json['record_field_comma'],
       $file,
       $offset,
       $source,

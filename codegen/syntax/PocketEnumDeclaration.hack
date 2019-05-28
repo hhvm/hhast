@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4738cd80675a76122b8d8016111bd6b9>>
+ * @generated SignedSource<<de844b1839af9a9ec014505191f960ce>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -45,42 +45,42 @@ final class PocketEnumDeclaration extends EditableNode {
   ): this {
     $offset = $initial_offset;
     $modifiers = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['pocket_enum_modifiers'],
+      /* HH_FIXME[4110] */ $json['pocket_enum_modifiers'],
       $file,
       $offset,
       $source,
     );
     $offset += $modifiers->getWidth();
     $enum = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['pocket_enum_enum'],
+      /* HH_FIXME[4110] */ $json['pocket_enum_enum'],
       $file,
       $offset,
       $source,
     );
     $offset += $enum->getWidth();
     $name = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['pocket_enum_name'],
+      /* HH_FIXME[4110] */ $json['pocket_enum_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
     $left_brace = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['pocket_enum_left_brace'],
+      /* HH_FIXME[4110] */ $json['pocket_enum_left_brace'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_brace->getWidth();
     $fields = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['pocket_enum_fields'],
+      /* HH_FIXME[4110] */ $json['pocket_enum_fields'],
       $file,
       $offset,
       $source,
     );
     $offset += $fields->getWidth();
     $right_brace = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['pocket_enum_right_brace'],
+      /* HH_FIXME[4110] */ $json['pocket_enum_right_brace'],
       $file,
       $offset,
       $source,

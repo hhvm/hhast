@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<245444174cb0fd3c2023b128e860310f>>
+ * @generated SignedSource<<4605e95c3c35b810c62e0c81ed277c3a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -38,21 +38,21 @@ final class CompoundStatement
   ): this {
     $offset = $initial_offset;
     $left_brace = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['compound_left_brace'],
+      /* HH_FIXME[4110] */ $json['compound_left_brace'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_brace->getWidth();
     $statements = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['compound_statements'],
+      /* HH_FIXME[4110] */ $json['compound_statements'],
       $file,
       $offset,
       $source,
     );
     $offset += $statements->getWidth();
     $right_brace = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['compound_right_brace'],
+      /* HH_FIXME[4110] */ $json['compound_right_brace'],
       $file,
       $offset,
       $source,

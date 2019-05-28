@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ba5574c10d3f48841f6ddf48d2b86679>>
+ * @generated SignedSource<<4f00db7474305197c0e219764996f326>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,28 +39,28 @@ final class PocketFieldTypeExprDeclaration extends EditableNode {
   ): this {
     $offset = $initial_offset;
     $case = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['pocket_field_type_expr_case'],
+      /* HH_FIXME[4110] */ $json['pocket_field_type_expr_case'],
       $file,
       $offset,
       $source,
     );
     $offset += $case->getWidth();
     $type = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['pocket_field_type_expr_type'],
+      /* HH_FIXME[4110] */ $json['pocket_field_type_expr_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $type->getWidth();
     $name = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['pocket_field_type_expr_name'],
+      /* HH_FIXME[4110] */ $json['pocket_field_type_expr_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
     $semicolon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['pocket_field_type_expr_semicolon'],
+      /* HH_FIXME[4110] */ $json['pocket_field_type_expr_semicolon'],
       $file,
       $offset,
       $source,

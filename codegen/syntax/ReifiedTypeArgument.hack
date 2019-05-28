@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9df02d5c3581b84c40a4e22fc74de9b4>>
+ * @generated SignedSource<<9882234588f1c66efb8f901aa86368f3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,14 +33,14 @@ final class ReifiedTypeArgument extends EditableNode implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $reified = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['reified_type_argument_reified'],
+      /* HH_FIXME[4110] */ $json['reified_type_argument_reified'],
       $file,
       $offset,
       $source,
     );
     $offset += $reified->getWidth();
     $type = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['reified_type_argument_type'],
+      /* HH_FIXME[4110] */ $json['reified_type_argument_type'],
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dbd08d1d8f73368878a078c4effdb3ae>>
+ * @generated SignedSource<<761294bf74578e8b236d82d1474badee>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,21 +36,21 @@ final class WhereConstraint extends EditableNode {
   ): this {
     $offset = $initial_offset;
     $left_type = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['where_constraint_left_type'],
+      /* HH_FIXME[4110] */ $json['where_constraint_left_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_type->getWidth();
     $operator = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['where_constraint_operator'],
+      /* HH_FIXME[4110] */ $json['where_constraint_operator'],
       $file,
       $offset,
       $source,
     );
     $offset += $operator->getWidth();
     $right_type = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['where_constraint_right_type'],
+      /* HH_FIXME[4110] */ $json['where_constraint_right_type'],
       $file,
       $offset,
       $source,

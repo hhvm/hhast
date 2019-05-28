@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eeebf82bb7e4c3343ccf41d3645a7483>>
+ * @generated SignedSource<<5a2b18be650eae6e621e55a466e58274>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -50,49 +50,49 @@ final class NamespaceGroupUseDeclaration
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['namespace_group_use_keyword'],
+      /* HH_FIXME[4110] */ $json['namespace_group_use_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $kind = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['namespace_group_use_kind'],
+      /* HH_FIXME[4110] */ $json['namespace_group_use_kind'],
       $file,
       $offset,
       $source,
     );
     $offset += $kind->getWidth();
     $prefix = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['namespace_group_use_prefix'],
+      /* HH_FIXME[4110] */ $json['namespace_group_use_prefix'],
       $file,
       $offset,
       $source,
     );
     $offset += $prefix->getWidth();
     $left_brace = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['namespace_group_use_left_brace'],
+      /* HH_FIXME[4110] */ $json['namespace_group_use_left_brace'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_brace->getWidth();
     $clauses = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['namespace_group_use_clauses'],
+      /* HH_FIXME[4110] */ $json['namespace_group_use_clauses'],
       $file,
       $offset,
       $source,
     );
     $offset += $clauses->getWidth();
     $right_brace = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['namespace_group_use_right_brace'],
+      /* HH_FIXME[4110] */ $json['namespace_group_use_right_brace'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_brace->getWidth();
     $semicolon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['namespace_group_use_semicolon'],
+      /* HH_FIXME[4110] */ $json['namespace_group_use_semicolon'],
       $file,
       $offset,
       $source,

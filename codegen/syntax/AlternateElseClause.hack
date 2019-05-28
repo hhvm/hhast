@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5e7f8c37dd8cd237a28da1df4f8a5756>>
+ * @generated SignedSource<<0aa5bb1cea4283fec109aeeb8e725ebb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -38,21 +38,21 @@ final class AlternateElseClause
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['alternate_else_keyword'],
+      /* HH_FIXME[4110] */ $json['alternate_else_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $colon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['alternate_else_colon'],
+      /* HH_FIXME[4110] */ $json['alternate_else_colon'],
       $file,
       $offset,
       $source,
     );
     $offset += $colon->getWidth();
     $statement = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['alternate_else_statement'],
+      /* HH_FIXME[4110] */ $json['alternate_else_statement'],
       $file,
       $offset,
       $source,

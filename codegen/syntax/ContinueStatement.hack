@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<538f80c2443ec996212ecb3354e9e2a6>>
+ * @generated SignedSource<<0404278a975375eee91f7bfe58d9251b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,21 +36,21 @@ final class ContinueStatement extends EditableNode implements IStatement {
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['continue_keyword'],
+      /* HH_FIXME[4110] */ $json['continue_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $level = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['continue_level'],
+      /* HH_FIXME[4110] */ $json['continue_level'],
       $file,
       $offset,
       $source,
     );
     $offset += $level->getWidth();
     $semicolon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['continue_semicolon'],
+      /* HH_FIXME[4110] */ $json['continue_semicolon'],
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5db3b734ccc6b9a2b6ef5e3ca33ba62b>>
+ * @generated SignedSource<<0ac0330febea8645a1ad59465e457d37>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,28 +39,28 @@ final class Enumerator extends EditableNode {
   ): this {
     $offset = $initial_offset;
     $name = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['enumerator_name'],
+      /* HH_FIXME[4110] */ $json['enumerator_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
     $equal = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['enumerator_equal'],
+      /* HH_FIXME[4110] */ $json['enumerator_equal'],
       $file,
       $offset,
       $source,
     );
     $offset += $equal->getWidth();
     $value = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['enumerator_value'],
+      /* HH_FIXME[4110] */ $json['enumerator_value'],
       $file,
       $offset,
       $source,
     );
     $offset += $value->getWidth();
     $semicolon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['enumerator_semicolon'],
+      /* HH_FIXME[4110] */ $json['enumerator_semicolon'],
       $file,
       $offset,
       $source,

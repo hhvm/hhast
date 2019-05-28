@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9a69a8031ebd1593dc9c7723ef2492a2>>
+ * @generated SignedSource<<4f1e2ffe54f23e3555ab165584a8f513>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,14 +33,14 @@ final class WhereClause extends EditableNode {
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['where_clause_keyword'],
+      /* HH_FIXME[4110] */ $json['where_clause_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $constraints = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['where_clause_constraints'],
+      /* HH_FIXME[4110] */ $json['where_clause_constraints'],
       $file,
       $offset,
       $source,

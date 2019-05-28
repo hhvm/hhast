@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6958ad6e205e4785b4efaae2495e6572>>
+ * @generated SignedSource<<cfd5b847704efdda83a17ee0d5ae189e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -47,42 +47,42 @@ final class LambdaExpression
   ): this {
     $offset = $initial_offset;
     $attribute_spec = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['lambda_attribute_spec'],
+      /* HH_FIXME[4110] */ $json['lambda_attribute_spec'],
       $file,
       $offset,
       $source,
     );
     $offset += $attribute_spec->getWidth();
     $async = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['lambda_async'],
+      /* HH_FIXME[4110] */ $json['lambda_async'],
       $file,
       $offset,
       $source,
     );
     $offset += $async->getWidth();
     $coroutine = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['lambda_coroutine'],
+      /* HH_FIXME[4110] */ $json['lambda_coroutine'],
       $file,
       $offset,
       $source,
     );
     $offset += $coroutine->getWidth();
     $signature = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['lambda_signature'],
+      /* HH_FIXME[4110] */ $json['lambda_signature'],
       $file,
       $offset,
       $source,
     );
     $offset += $signature->getWidth();
     $arrow = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['lambda_arrow'],
+      /* HH_FIXME[4110] */ $json['lambda_arrow'],
       $file,
       $offset,
       $source,
     );
     $offset += $arrow->getWidth();
     $body = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['lambda_body'],
+      /* HH_FIXME[4110] */ $json['lambda_body'],
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ffde629a7a8453b024c7fc31257c94ce>>
+ * @generated SignedSource<<f48b8728bd977d69dcf68aa44cf9678d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,21 +36,21 @@ final class TraitUse extends EditableNode implements IClassBodyDeclaration {
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['trait_use_keyword'],
+      /* HH_FIXME[4110] */ $json['trait_use_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $names = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['trait_use_names'],
+      /* HH_FIXME[4110] */ $json['trait_use_names'],
       $file,
       $offset,
       $source,
     );
     $offset += $names->getWidth();
     $semicolon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['trait_use_semicolon'],
+      /* HH_FIXME[4110] */ $json['trait_use_semicolon'],
       $file,
       $offset,
       $source,

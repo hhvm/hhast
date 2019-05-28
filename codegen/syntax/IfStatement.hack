@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cb3828260f65bceba7a169641e87e174>>
+ * @generated SignedSource<<dc860a40b7280c0efc556615f22d1569>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -50,49 +50,49 @@ final class IfStatement
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['if_keyword'],
+      /* HH_FIXME[4110] */ $json['if_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $left_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['if_left_paren'],
+      /* HH_FIXME[4110] */ $json['if_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
     $condition = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['if_condition'],
+      /* HH_FIXME[4110] */ $json['if_condition'],
       $file,
       $offset,
       $source,
     );
     $offset += $condition->getWidth();
     $right_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['if_right_paren'],
+      /* HH_FIXME[4110] */ $json['if_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_paren->getWidth();
     $statement = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['if_statement'],
+      /* HH_FIXME[4110] */ $json['if_statement'],
       $file,
       $offset,
       $source,
     );
     $offset += $statement->getWidth();
     $elseif_clauses = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['if_elseif_clauses'],
+      /* HH_FIXME[4110] */ $json['if_elseif_clauses'],
       $file,
       $offset,
       $source,
     );
     $offset += $elseif_clauses->getWidth();
     $else_clause = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['if_else_clause'],
+      /* HH_FIXME[4110] */ $json['if_else_clause'],
       $file,
       $offset,
       $source,

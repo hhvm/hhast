@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<00a5769d67d45768d434da528d511d55>>
+ * @generated SignedSource<<c72bd1811411849a8cabaec0b1f01e74>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -38,21 +38,21 @@ final class FunctionDeclaration
   ): this {
     $offset = $initial_offset;
     $attribute_spec = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['function_attribute_spec'],
+      /* HH_FIXME[4110] */ $json['function_attribute_spec'],
       $file,
       $offset,
       $source,
     );
     $offset += $attribute_spec->getWidth();
     $declaration_header = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['function_declaration_header'],
+      /* HH_FIXME[4110] */ $json['function_declaration_header'],
       $file,
       $offset,
       $source,
     );
     $offset += $declaration_header->getWidth();
     $body = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['function_body'],
+      /* HH_FIXME[4110] */ $json['function_body'],
       $file,
       $offset,
       $source,

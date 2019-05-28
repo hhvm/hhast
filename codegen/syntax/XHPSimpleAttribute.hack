@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6aa8fa40f5e7a44ff71e854d1ec66323>>
+ * @generated SignedSource<<bff0b737d3a22d01e946ef1cf444dcf1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,21 +36,21 @@ final class XHPSimpleAttribute extends EditableNode implements IXHPAttribute {
   ): this {
     $offset = $initial_offset;
     $name = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['xhp_simple_attribute_name'],
+      /* HH_FIXME[4110] */ $json['xhp_simple_attribute_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
     $equal = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['xhp_simple_attribute_equal'],
+      /* HH_FIXME[4110] */ $json['xhp_simple_attribute_equal'],
       $file,
       $offset,
       $source,
     );
     $offset += $equal->getWidth();
     $expression = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['xhp_simple_attribute_expression'],
+      /* HH_FIXME[4110] */ $json['xhp_simple_attribute_expression'],
       $file,
       $offset,
       $source,

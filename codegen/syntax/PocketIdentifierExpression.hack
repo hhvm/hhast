@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<055b05625d5217a9bcf16682f3444ba9>>
+ * @generated SignedSource<<ada3e1350672248f6b5ad8f801812c95>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -44,35 +44,35 @@ final class PocketIdentifierExpression
   ): this {
     $offset = $initial_offset;
     $qualifier = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['pocket_identifier_qualifier'],
+      /* HH_FIXME[4110] */ $json['pocket_identifier_qualifier'],
       $file,
       $offset,
       $source,
     );
     $offset += $qualifier->getWidth();
     $pu_operator = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['pocket_identifier_pu_operator'],
+      /* HH_FIXME[4110] */ $json['pocket_identifier_pu_operator'],
       $file,
       $offset,
       $source,
     );
     $offset += $pu_operator->getWidth();
     $field = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['pocket_identifier_field'],
+      /* HH_FIXME[4110] */ $json['pocket_identifier_field'],
       $file,
       $offset,
       $source,
     );
     $offset += $field->getWidth();
     $operator = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['pocket_identifier_operator'],
+      /* HH_FIXME[4110] */ $json['pocket_identifier_operator'],
       $file,
       $offset,
       $source,
     );
     $offset += $operator->getWidth();
     $name = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['pocket_identifier_name'],
+      /* HH_FIXME[4110] */ $json['pocket_identifier_name'],
       $file,
       $offset,
       $source,

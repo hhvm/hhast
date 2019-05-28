@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<409915505dc7ae20455e6d52569f4b31>>
+ * @generated SignedSource<<630a1a3488f991abf40998ee1515d711>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,14 +33,14 @@ final class ConstantDeclarator extends EditableNode {
   ): this {
     $offset = $initial_offset;
     $name = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['constant_declarator_name'],
+      /* HH_FIXME[4110] */ $json['constant_declarator_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
     $initializer = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['constant_declarator_initializer'],
+      /* HH_FIXME[4110] */ $json['constant_declarator_initializer'],
       $file,
       $offset,
       $source,

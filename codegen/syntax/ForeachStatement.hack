@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d92797176fb20b0b10f8bac8f9682c8c>>
+ * @generated SignedSource<<ac0ba09f8e08de04021439065764cee9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -59,70 +59,70 @@ final class ForeachStatement
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['foreach_keyword'],
+      /* HH_FIXME[4110] */ $json['foreach_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $left_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['foreach_left_paren'],
+      /* HH_FIXME[4110] */ $json['foreach_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
     $collection = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['foreach_collection'],
+      /* HH_FIXME[4110] */ $json['foreach_collection'],
       $file,
       $offset,
       $source,
     );
     $offset += $collection->getWidth();
     $await_keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['foreach_await_keyword'],
+      /* HH_FIXME[4110] */ $json['foreach_await_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $await_keyword->getWidth();
     $as = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['foreach_as'],
+      /* HH_FIXME[4110] */ $json['foreach_as'],
       $file,
       $offset,
       $source,
     );
     $offset += $as->getWidth();
     $key = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['foreach_key'],
+      /* HH_FIXME[4110] */ $json['foreach_key'],
       $file,
       $offset,
       $source,
     );
     $offset += $key->getWidth();
     $arrow = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['foreach_arrow'],
+      /* HH_FIXME[4110] */ $json['foreach_arrow'],
       $file,
       $offset,
       $source,
     );
     $offset += $arrow->getWidth();
     $value = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['foreach_value'],
+      /* HH_FIXME[4110] */ $json['foreach_value'],
       $file,
       $offset,
       $source,
     );
     $offset += $value->getWidth();
     $right_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['foreach_right_paren'],
+      /* HH_FIXME[4110] */ $json['foreach_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_paren->getWidth();
     $body = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['foreach_body'],
+      /* HH_FIXME[4110] */ $json['foreach_body'],
       $file,
       $offset,
       $source,

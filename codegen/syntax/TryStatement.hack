@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5405d85273322f5b0d835341a4e32f83>>
+ * @generated SignedSource<<eb8eff8ae7c3a168172fc427701e85c2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,28 +39,28 @@ final class TryStatement extends EditableNode implements IStatement {
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['try_keyword'],
+      /* HH_FIXME[4110] */ $json['try_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $compound_statement = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['try_compound_statement'],
+      /* HH_FIXME[4110] */ $json['try_compound_statement'],
       $file,
       $offset,
       $source,
     );
     $offset += $compound_statement->getWidth();
     $catch_clauses = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['try_catch_clauses'],
+      /* HH_FIXME[4110] */ $json['try_catch_clauses'],
       $file,
       $offset,
       $source,
     );
     $offset += $catch_clauses->getWidth();
     $finally_clause = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['try_finally_clause'],
+      /* HH_FIXME[4110] */ $json['try_finally_clause'],
       $file,
       $offset,
       $source,

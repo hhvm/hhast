@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e60fd456380056b5630485256f70ce65>>
+ * @generated SignedSource<<254705985011128d25181c1ce970a422>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,28 +41,28 @@ final class ShapeExpression
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['shape_expression_keyword'],
+      /* HH_FIXME[4110] */ $json['shape_expression_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $left_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['shape_expression_left_paren'],
+      /* HH_FIXME[4110] */ $json['shape_expression_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
     $fields = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['shape_expression_fields'],
+      /* HH_FIXME[4110] */ $json['shape_expression_fields'],
       $file,
       $offset,
       $source,
     );
     $offset += $fields->getWidth();
     $right_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['shape_expression_right_paren'],
+      /* HH_FIXME[4110] */ $json['shape_expression_right_paren'],
       $file,
       $offset,
       $source,

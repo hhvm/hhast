@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<18dd1e7d481b8532b3bfdf3a9fc5f39b>>
+ * @generated SignedSource<<0c8f5fe4b2ba8f3a61f81b99db9032f5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -35,14 +35,14 @@ final class PrefixUnaryExpression
   ): this {
     $offset = $initial_offset;
     $operator = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['prefix_unary_operator'],
+      /* HH_FIXME[4110] */ $json['prefix_unary_operator'],
       $file,
       $offset,
       $source,
     );
     $offset += $operator->getWidth();
     $operand = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['prefix_unary_operand'],
+      /* HH_FIXME[4110] */ $json['prefix_unary_operand'],
       $file,
       $offset,
       $source,

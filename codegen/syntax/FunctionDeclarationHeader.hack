@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9c0e176272420a64be840b3ec1ec1647>>
+ * @generated SignedSource<<91975441f8b7213120a3ef9c38484ba6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -57,70 +57,70 @@ final class FunctionDeclarationHeader extends EditableNode {
   ): this {
     $offset = $initial_offset;
     $modifiers = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['function_modifiers'],
+      /* HH_FIXME[4110] */ $json['function_modifiers'],
       $file,
       $offset,
       $source,
     );
     $offset += $modifiers->getWidth();
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['function_keyword'],
+      /* HH_FIXME[4110] */ $json['function_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $name = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['function_name'],
+      /* HH_FIXME[4110] */ $json['function_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
     $type_parameter_list = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['function_type_parameter_list'],
+      /* HH_FIXME[4110] */ $json['function_type_parameter_list'],
       $file,
       $offset,
       $source,
     );
     $offset += $type_parameter_list->getWidth();
     $left_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['function_left_paren'],
+      /* HH_FIXME[4110] */ $json['function_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
     $parameter_list = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['function_parameter_list'],
+      /* HH_FIXME[4110] */ $json['function_parameter_list'],
       $file,
       $offset,
       $source,
     );
     $offset += $parameter_list->getWidth();
     $right_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['function_right_paren'],
+      /* HH_FIXME[4110] */ $json['function_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_paren->getWidth();
     $colon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['function_colon'],
+      /* HH_FIXME[4110] */ $json['function_colon'],
       $file,
       $offset,
       $source,
     );
     $offset += $colon->getWidth();
     $type = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['function_type'],
+      /* HH_FIXME[4110] */ $json['function_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $type->getWidth();
     $where_clause = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['function_where_clause'],
+      /* HH_FIXME[4110] */ $json['function_where_clause'],
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<334eb8c32ada9ae14a4da304c19598e3>>
+ * @generated SignedSource<<05f665059a7c68a59cf88a56ec8959f5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -56,63 +56,63 @@ final class ClosureTypeSpecifier
   ): this {
     $offset = $initial_offset;
     $outer_left_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['closure_outer_left_paren'],
+      /* HH_FIXME[4110] */ $json['closure_outer_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $outer_left_paren->getWidth();
     $coroutine = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['closure_coroutine'],
+      /* HH_FIXME[4110] */ $json['closure_coroutine'],
       $file,
       $offset,
       $source,
     );
     $offset += $coroutine->getWidth();
     $function_keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['closure_function_keyword'],
+      /* HH_FIXME[4110] */ $json['closure_function_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $function_keyword->getWidth();
     $inner_left_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['closure_inner_left_paren'],
+      /* HH_FIXME[4110] */ $json['closure_inner_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $inner_left_paren->getWidth();
     $parameter_list = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['closure_parameter_list'],
+      /* HH_FIXME[4110] */ $json['closure_parameter_list'],
       $file,
       $offset,
       $source,
     );
     $offset += $parameter_list->getWidth();
     $inner_right_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['closure_inner_right_paren'],
+      /* HH_FIXME[4110] */ $json['closure_inner_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $inner_right_paren->getWidth();
     $colon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['closure_colon'],
+      /* HH_FIXME[4110] */ $json['closure_colon'],
       $file,
       $offset,
       $source,
     );
     $offset += $colon->getWidth();
     $return_type = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['closure_return_type'],
+      /* HH_FIXME[4110] */ $json['closure_return_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $return_type->getWidth();
     $outer_right_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['closure_outer_right_paren'],
+      /* HH_FIXME[4110] */ $json['closure_outer_right_paren'],
       $file,
       $offset,
       $source,

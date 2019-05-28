@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0bd62363f784382b32f57119b6a4a5d4>>
+ * @generated SignedSource<<9f10a3d26b8acb1724fe9a4f1cd6fdc5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,28 +41,28 @@ final class UsingStatementFunctionScoped
   ): this {
     $offset = $initial_offset;
     $await_keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['using_function_await_keyword'],
+      /* HH_FIXME[4110] */ $json['using_function_await_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $await_keyword->getWidth();
     $using_keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['using_function_using_keyword'],
+      /* HH_FIXME[4110] */ $json['using_function_using_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $using_keyword->getWidth();
     $expression = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['using_function_expression'],
+      /* HH_FIXME[4110] */ $json['using_function_expression'],
       $file,
       $offset,
       $source,
     );
     $offset += $expression->getWidth();
     $semicolon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['using_function_semicolon'],
+      /* HH_FIXME[4110] */ $json['using_function_semicolon'],
       $file,
       $offset,
       $source,

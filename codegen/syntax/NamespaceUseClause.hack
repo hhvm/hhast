@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5c1af8667d27a8be00103b27b3a81ceb>>
+ * @generated SignedSource<<d37acc76db723d4ead32fba276a82b58>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,28 +39,28 @@ final class NamespaceUseClause extends EditableNode {
   ): this {
     $offset = $initial_offset;
     $clause_kind = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['namespace_use_clause_kind'],
+      /* HH_FIXME[4110] */ $json['namespace_use_clause_kind'],
       $file,
       $offset,
       $source,
     );
     $offset += $clause_kind->getWidth();
     $name = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['namespace_use_name'],
+      /* HH_FIXME[4110] */ $json['namespace_use_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
     $as = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['namespace_use_as'],
+      /* HH_FIXME[4110] */ $json['namespace_use_as'],
       $file,
       $offset,
       $source,
     );
     $offset += $as->getWidth();
     $alias = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['namespace_use_alias'],
+      /* HH_FIXME[4110] */ $json['namespace_use_alias'],
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<606fad1024ead55e3d95a70d54c3215c>>
+ * @generated SignedSource<<cf04e772ee4ae1fbd37c62b9c09659ac>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,28 +39,28 @@ final class PocketMappingTypeDeclaration extends EditableNode {
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['pocket_mapping_type_keyword'],
+      /* HH_FIXME[4110] */ $json['pocket_mapping_type_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $name = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['pocket_mapping_type_name'],
+      /* HH_FIXME[4110] */ $json['pocket_mapping_type_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
     $equal = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['pocket_mapping_type_equal'],
+      /* HH_FIXME[4110] */ $json['pocket_mapping_type_equal'],
       $file,
       $offset,
       $source,
     );
     $offset += $equal->getWidth();
     $type = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['pocket_mapping_type_type'],
+      /* HH_FIXME[4110] */ $json['pocket_mapping_type_type'],
       $file,
       $offset,
       $source,

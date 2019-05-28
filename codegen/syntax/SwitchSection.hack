@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f44132358dd719a5f7e4613352fdaa06>>
+ * @generated SignedSource<<fd6219283e5e7cc3382798901d1bc611>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,21 +36,21 @@ final class SwitchSection extends EditableNode {
   ): this {
     $offset = $initial_offset;
     $labels = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['switch_section_labels'],
+      /* HH_FIXME[4110] */ $json['switch_section_labels'],
       $file,
       $offset,
       $source,
     );
     $offset += $labels->getWidth();
     $statements = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['switch_section_statements'],
+      /* HH_FIXME[4110] */ $json['switch_section_statements'],
       $file,
       $offset,
       $source,
     );
     $offset += $statements->getWidth();
     $fallthrough = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['switch_section_fallthrough'],
+      /* HH_FIXME[4110] */ $json['switch_section_fallthrough'],
       $file,
       $offset,
       $source,

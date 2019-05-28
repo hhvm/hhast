@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ee29aff40f81ce16b51fff7cda8d1a91>>
+ * @generated SignedSource<<7f281e2b8cd8e086ef1e904c59b22291>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -32,7 +32,7 @@ final class PipeVariableExpression
   ): this {
     $offset = $initial_offset;
     $expression = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['pipe_variable_expression'],
+      /* HH_FIXME[4110] */ $json['pipe_variable_expression'],
       $file,
       $offset,
       $source,

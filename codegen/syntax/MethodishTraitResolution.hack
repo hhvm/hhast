@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a9f1310940d4bca3e6553712d3e388bf>>
+ * @generated SignedSource<<48771ad837f9a28f1bcab120998962cd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -44,35 +44,35 @@ final class MethodishTraitResolution
   ): this {
     $offset = $initial_offset;
     $attribute = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['methodish_trait_attribute'],
+      /* HH_FIXME[4110] */ $json['methodish_trait_attribute'],
       $file,
       $offset,
       $source,
     );
     $offset += $attribute->getWidth();
     $function_decl_header = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['methodish_trait_function_decl_header'],
+      /* HH_FIXME[4110] */ $json['methodish_trait_function_decl_header'],
       $file,
       $offset,
       $source,
     );
     $offset += $function_decl_header->getWidth();
     $equal = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['methodish_trait_equal'],
+      /* HH_FIXME[4110] */ $json['methodish_trait_equal'],
       $file,
       $offset,
       $source,
     );
     $offset += $equal->getWidth();
     $name = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['methodish_trait_name'],
+      /* HH_FIXME[4110] */ $json['methodish_trait_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
     $semicolon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['methodish_trait_semicolon'],
+      /* HH_FIXME[4110] */ $json['methodish_trait_semicolon'],
       $file,
       $offset,
       $source,

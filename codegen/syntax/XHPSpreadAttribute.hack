@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<126741b959a353efbddd0879c917d948>>
+ * @generated SignedSource<<c7706e5ad11e78f603bde0cd7f83e6d6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,28 +39,28 @@ final class XHPSpreadAttribute extends EditableNode {
   ): this {
     $offset = $initial_offset;
     $left_brace = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['xhp_spread_attribute_left_brace'],
+      /* HH_FIXME[4110] */ $json['xhp_spread_attribute_left_brace'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_brace->getWidth();
     $spread_operator = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['xhp_spread_attribute_spread_operator'],
+      /* HH_FIXME[4110] */ $json['xhp_spread_attribute_spread_operator'],
       $file,
       $offset,
       $source,
     );
     $offset += $spread_operator->getWidth();
     $expression = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['xhp_spread_attribute_expression'],
+      /* HH_FIXME[4110] */ $json['xhp_spread_attribute_expression'],
       $file,
       $offset,
       $source,
     );
     $offset += $expression->getWidth();
     $right_brace = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['xhp_spread_attribute_right_brace'],
+      /* HH_FIXME[4110] */ $json['xhp_spread_attribute_right_brace'],
       $file,
       $offset,
       $source,

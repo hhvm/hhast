@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<25d1945584f1ffee67cdf31de18420a9>>
+ * @generated SignedSource<<1106d5d6e9ff88bbef17b340384c09ce>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,14 +33,14 @@ final class ListItem extends EditableNode {
   ): this {
     $offset = $initial_offset;
     $item = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['list_item'],
+      /* HH_FIXME[4110] */ $json['list_item'],
       $file,
       $offset,
       $source,
     );
     $offset += $item->getWidth();
     $separator = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['list_separator'],
+      /* HH_FIXME[4110] */ $json['list_separator'],
       $file,
       $offset,
       $source,

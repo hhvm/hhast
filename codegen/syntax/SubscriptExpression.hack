@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6737562ba0bfe9486eb6f3cb19dd77fd>>
+ * @generated SignedSource<<547c7c9b2945fba2b3af2a784c01d8bd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,28 +41,28 @@ final class SubscriptExpression
   ): this {
     $offset = $initial_offset;
     $receiver = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['subscript_receiver'],
+      /* HH_FIXME[4110] */ $json['subscript_receiver'],
       $file,
       $offset,
       $source,
     );
     $offset += $receiver->getWidth();
     $left_bracket = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['subscript_left_bracket'],
+      /* HH_FIXME[4110] */ $json['subscript_left_bracket'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_bracket->getWidth();
     $index = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['subscript_index'],
+      /* HH_FIXME[4110] */ $json['subscript_index'],
       $file,
       $offset,
       $source,
     );
     $offset += $index->getWidth();
     $right_bracket = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['subscript_right_bracket'],
+      /* HH_FIXME[4110] */ $json['subscript_right_bracket'],
       $file,
       $offset,
       $source,

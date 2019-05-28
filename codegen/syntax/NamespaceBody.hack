@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e4f08299924359035aae5a8239558e02>>
+ * @generated SignedSource<<fc4a13fad45d7107206a20de36289990>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,21 +36,21 @@ final class NamespaceBody extends EditableNode implements INamespaceBody {
   ): this {
     $offset = $initial_offset;
     $left_brace = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['namespace_left_brace'],
+      /* HH_FIXME[4110] */ $json['namespace_left_brace'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_brace->getWidth();
     $declarations = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['namespace_declarations'],
+      /* HH_FIXME[4110] */ $json['namespace_declarations'],
       $file,
       $offset,
       $source,
     );
     $offset += $declarations->getWidth();
     $right_brace = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['namespace_right_brace'],
+      /* HH_FIXME[4110] */ $json['namespace_right_brace'],
       $file,
       $offset,
       $source,

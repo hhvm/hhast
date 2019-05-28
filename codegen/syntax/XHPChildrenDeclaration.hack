@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c5a9f3deb2d92693fd286e76015f9ea5>>
+ * @generated SignedSource<<c0c9cef356d1850f7e3ad74bfdd3185a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -38,21 +38,21 @@ final class XHPChildrenDeclaration
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['xhp_children_keyword'],
+      /* HH_FIXME[4110] */ $json['xhp_children_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $expression = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['xhp_children_expression'],
+      /* HH_FIXME[4110] */ $json['xhp_children_expression'],
       $file,
       $offset,
       $source,
     );
     $offset += $expression->getWidth();
     $semicolon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['xhp_children_semicolon'],
+      /* HH_FIXME[4110] */ $json['xhp_children_semicolon'],
       $file,
       $offset,
       $source,

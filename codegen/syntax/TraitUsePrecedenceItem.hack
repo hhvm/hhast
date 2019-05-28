@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<aa00b51fc18a186e5d8f016316f3e4af>>
+ * @generated SignedSource<<74aae09148c9486ecf1d11b2fe90a9e7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -38,21 +38,21 @@ final class TraitUsePrecedenceItem
   ): this {
     $offset = $initial_offset;
     $name = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['trait_use_precedence_item_name'],
+      /* HH_FIXME[4110] */ $json['trait_use_precedence_item_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['trait_use_precedence_item_keyword'],
+      /* HH_FIXME[4110] */ $json['trait_use_precedence_item_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $removed_names = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['trait_use_precedence_item_removed_names'],
+      /* HH_FIXME[4110] */ $json['trait_use_precedence_item_removed_names'],
       $file,
       $offset,
       $source,

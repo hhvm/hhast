@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7c60202754c360f00af49f596097da89>>
+ * @generated SignedSource<<502ba0b24db463adc5fe9da46b5c68f0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -50,49 +50,49 @@ final class SwitchStatement
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['switch_keyword'],
+      /* HH_FIXME[4110] */ $json['switch_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $left_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['switch_left_paren'],
+      /* HH_FIXME[4110] */ $json['switch_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
     $expression = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['switch_expression'],
+      /* HH_FIXME[4110] */ $json['switch_expression'],
       $file,
       $offset,
       $source,
     );
     $offset += $expression->getWidth();
     $right_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['switch_right_paren'],
+      /* HH_FIXME[4110] */ $json['switch_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_paren->getWidth();
     $left_brace = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['switch_left_brace'],
+      /* HH_FIXME[4110] */ $json['switch_left_brace'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_brace->getWidth();
     $sections = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['switch_sections'],
+      /* HH_FIXME[4110] */ $json['switch_sections'],
       $file,
       $offset,
       $source,
     );
     $offset += $sections->getWidth();
     $right_brace = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['switch_right_brace'],
+      /* HH_FIXME[4110] */ $json['switch_right_brace'],
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9c7f420d963cc1d34a4da00f49577202>>
+ * @generated SignedSource<<f45b71c9f5472c300b7485258b2eb795>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,28 +41,28 @@ abstract class AlternateLoopStatementGeneratedBase
   ): this {
     $offset = $initial_offset;
     $opening_colon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['alternate_loop_opening_colon'],
+      /* HH_FIXME[4110] */ $json['alternate_loop_opening_colon'],
       $file,
       $offset,
       $source,
     );
     $offset += $opening_colon->getWidth();
     $statements = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['alternate_loop_statements'],
+      /* HH_FIXME[4110] */ $json['alternate_loop_statements'],
       $file,
       $offset,
       $source,
     );
     $offset += $statements->getWidth();
     $closing_keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['alternate_loop_closing_keyword'],
+      /* HH_FIXME[4110] */ $json['alternate_loop_closing_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $closing_keyword->getWidth();
     $closing_semicolon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['alternate_loop_closing_semicolon'],
+      /* HH_FIXME[4110] */ $json['alternate_loop_closing_semicolon'],
       $file,
       $offset,
       $source,

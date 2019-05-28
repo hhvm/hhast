@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3da9c3aaaf069e5bdba4b713b0aee6a6>>
+ * @generated SignedSource<<6b214b5ed9b5ee13487fb22e2a911d6c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -44,35 +44,35 @@ final class PropertyDeclaration
   ): this {
     $offset = $initial_offset;
     $attribute_spec = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['property_attribute_spec'],
+      /* HH_FIXME[4110] */ $json['property_attribute_spec'],
       $file,
       $offset,
       $source,
     );
     $offset += $attribute_spec->getWidth();
     $modifiers = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['property_modifiers'],
+      /* HH_FIXME[4110] */ $json['property_modifiers'],
       $file,
       $offset,
       $source,
     );
     $offset += $modifiers->getWidth();
     $type = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['property_type'],
+      /* HH_FIXME[4110] */ $json['property_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $type->getWidth();
     $declarators = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['property_declarators'],
+      /* HH_FIXME[4110] */ $json['property_declarators'],
       $file,
       $offset,
       $source,
     );
     $offset += $declarators->getWidth();
     $semicolon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['property_semicolon'],
+      /* HH_FIXME[4110] */ $json['property_semicolon'],
       $file,
       $offset,
       $source,

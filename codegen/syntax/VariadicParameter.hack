@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f6213107e58ce2e561b07b1c25f4d787>>
+ * @generated SignedSource<<7d3251bad87fc3beaea6faa36b20a6cf>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -38,21 +38,21 @@ final class VariadicParameter
   ): this {
     $offset = $initial_offset;
     $call_convention = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['variadic_parameter_call_convention'],
+      /* HH_FIXME[4110] */ $json['variadic_parameter_call_convention'],
       $file,
       $offset,
       $source,
     );
     $offset += $call_convention->getWidth();
     $type = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['variadic_parameter_type'],
+      /* HH_FIXME[4110] */ $json['variadic_parameter_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $type->getWidth();
     $ellipsis = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['variadic_parameter_ellipsis'],
+      /* HH_FIXME[4110] */ $json['variadic_parameter_ellipsis'],
       $file,
       $offset,
       $source,

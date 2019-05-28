@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c48e3a6d5cf82129ad165cd82aa14061>>
+ * @generated SignedSource<<ebd9e0f2ebe11d4abf23caa72cd5a9fe>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,14 +33,14 @@ final class LikeTypeSpecifier extends EditableNode implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $tilde = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['like_tilde'],
+      /* HH_FIXME[4110] */ $json['like_tilde'],
       $file,
       $offset,
       $source,
     );
     $offset += $tilde->getWidth();
     $type = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['like_type'],
+      /* HH_FIXME[4110] */ $json['like_type'],
       $file,
       $offset,
       $source,

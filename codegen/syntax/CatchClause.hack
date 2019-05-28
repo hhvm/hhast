@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9e9a2021a6b49171db8534b562be5d9e>>
+ * @generated SignedSource<<36c1c8be8860296a53739d2b883976c9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -45,42 +45,42 @@ final class CatchClause extends EditableNode {
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['catch_keyword'],
+      /* HH_FIXME[4110] */ $json['catch_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $left_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['catch_left_paren'],
+      /* HH_FIXME[4110] */ $json['catch_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
     $type = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['catch_type'],
+      /* HH_FIXME[4110] */ $json['catch_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $type->getWidth();
     $variable = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['catch_variable'],
+      /* HH_FIXME[4110] */ $json['catch_variable'],
       $file,
       $offset,
       $source,
     );
     $offset += $variable->getWidth();
     $right_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['catch_right_paren'],
+      /* HH_FIXME[4110] */ $json['catch_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_paren->getWidth();
     $body = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['catch_body'],
+      /* HH_FIXME[4110] */ $json['catch_body'],
       $file,
       $offset,
       $source,

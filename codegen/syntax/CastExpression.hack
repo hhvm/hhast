@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<27bb77f28cb84dbd03e0e55668ccb468>>
+ * @generated SignedSource<<6279190375a72e33cbe6908280d98541>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,28 +41,28 @@ final class CastExpression
   ): this {
     $offset = $initial_offset;
     $left_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['cast_left_paren'],
+      /* HH_FIXME[4110] */ $json['cast_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
     $type = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['cast_type'],
+      /* HH_FIXME[4110] */ $json['cast_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $type->getWidth();
     $right_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['cast_right_paren'],
+      /* HH_FIXME[4110] */ $json['cast_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_paren->getWidth();
     $operand = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['cast_operand'],
+      /* HH_FIXME[4110] */ $json['cast_operand'],
       $file,
       $offset,
       $source,

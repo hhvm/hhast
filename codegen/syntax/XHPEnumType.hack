@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<83a1b7d7b1eeef095f4b1cb324525800>>
+ * @generated SignedSource<<43e0a7c97994dad03c56e2878cacb0c7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -42,35 +42,35 @@ final class XHPEnumType extends EditableNode implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $optional = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['xhp_enum_optional'],
+      /* HH_FIXME[4110] */ $json['xhp_enum_optional'],
       $file,
       $offset,
       $source,
     );
     $offset += $optional->getWidth();
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['xhp_enum_keyword'],
+      /* HH_FIXME[4110] */ $json['xhp_enum_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $left_brace = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['xhp_enum_left_brace'],
+      /* HH_FIXME[4110] */ $json['xhp_enum_left_brace'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_brace->getWidth();
     $values = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['xhp_enum_values'],
+      /* HH_FIXME[4110] */ $json['xhp_enum_values'],
       $file,
       $offset,
       $source,
     );
     $offset += $values->getWidth();
     $right_brace = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['xhp_enum_right_brace'],
+      /* HH_FIXME[4110] */ $json['xhp_enum_right_brace'],
       $file,
       $offset,
       $source,

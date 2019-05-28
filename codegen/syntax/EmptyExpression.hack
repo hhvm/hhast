@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<93ea114bc3e125da29ce6c82abade3b5>>
+ * @generated SignedSource<<51d2e49152a02194546160abc3d53f04>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,28 +41,28 @@ final class EmptyExpression
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['empty_keyword'],
+      /* HH_FIXME[4110] */ $json['empty_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $left_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['empty_left_paren'],
+      /* HH_FIXME[4110] */ $json['empty_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
     $argument = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['empty_argument'],
+      /* HH_FIXME[4110] */ $json['empty_argument'],
       $file,
       $offset,
       $source,
     );
     $offset += $argument->getWidth();
     $right_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['empty_right_paren'],
+      /* HH_FIXME[4110] */ $json['empty_right_paren'],
       $file,
       $offset,
       $source,

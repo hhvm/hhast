@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<07c978a67adbed12fe8378f739a83dbe>>
+ * @generated SignedSource<<37a788a7ec4286d6d1800d52f0ed7f45>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,21 +36,21 @@ final class BreakStatement extends EditableNode implements IStatement {
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['break_keyword'],
+      /* HH_FIXME[4110] */ $json['break_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $level = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['break_level'],
+      /* HH_FIXME[4110] */ $json['break_level'],
       $file,
       $offset,
       $source,
     );
     $offset += $level->getWidth();
     $semicolon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['break_semicolon'],
+      /* HH_FIXME[4110] */ $json['break_semicolon'],
       $file,
       $offset,
       $source,

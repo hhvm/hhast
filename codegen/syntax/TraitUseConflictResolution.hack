@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c8340c9d8e9083330fcc27e19006e6a1>>
+ * @generated SignedSource<<a9c345fcd37ee3c43131c312702c7ef1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -44,35 +44,35 @@ final class TraitUseConflictResolution
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['trait_use_conflict_resolution_keyword'],
+      /* HH_FIXME[4110] */ $json['trait_use_conflict_resolution_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $names = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['trait_use_conflict_resolution_names'],
+      /* HH_FIXME[4110] */ $json['trait_use_conflict_resolution_names'],
       $file,
       $offset,
       $source,
     );
     $offset += $names->getWidth();
     $left_brace = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['trait_use_conflict_resolution_left_brace'],
+      /* HH_FIXME[4110] */ $json['trait_use_conflict_resolution_left_brace'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_brace->getWidth();
     $clauses = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['trait_use_conflict_resolution_clauses'],
+      /* HH_FIXME[4110] */ $json['trait_use_conflict_resolution_clauses'],
       $file,
       $offset,
       $source,
     );
     $offset += $clauses->getWidth();
     $right_brace = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['trait_use_conflict_resolution_right_brace'],
+      /* HH_FIXME[4110] */ $json['trait_use_conflict_resolution_right_brace'],
       $file,
       $offset,
       $source,

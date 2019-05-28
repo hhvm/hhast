@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3bd50728e5f477c8ce3e6a11802a1e16>>
+ * @generated SignedSource<<da43de33e38a4b40ecfdccd2d8ea1fd7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,21 +36,21 @@ final class TypeArguments extends EditableNode {
   ): this {
     $offset = $initial_offset;
     $left_angle = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['type_arguments_left_angle'],
+      /* HH_FIXME[4110] */ $json['type_arguments_left_angle'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_angle->getWidth();
     $types = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['type_arguments_types'],
+      /* HH_FIXME[4110] */ $json['type_arguments_types'],
       $file,
       $offset,
       $source,
     );
     $offset += $types->getWidth();
     $right_angle = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['type_arguments_right_angle'],
+      /* HH_FIXME[4110] */ $json['type_arguments_right_angle'],
       $file,
       $offset,
       $source,

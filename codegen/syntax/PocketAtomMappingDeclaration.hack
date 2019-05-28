@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0aa9033a6c80919e339ebf7fa955383d>>
+ * @generated SignedSource<<6d1f0a3d849ce630e4e48358485905d6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -45,42 +45,42 @@ final class PocketAtomMappingDeclaration extends EditableNode {
   ): this {
     $offset = $initial_offset;
     $glyph = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['pocket_atom_mapping_glyph'],
+      /* HH_FIXME[4110] */ $json['pocket_atom_mapping_glyph'],
       $file,
       $offset,
       $source,
     );
     $offset += $glyph->getWidth();
     $name = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['pocket_atom_mapping_name'],
+      /* HH_FIXME[4110] */ $json['pocket_atom_mapping_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
     $left_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['pocket_atom_mapping_left_paren'],
+      /* HH_FIXME[4110] */ $json['pocket_atom_mapping_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
     $mappings = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['pocket_atom_mapping_mappings'],
+      /* HH_FIXME[4110] */ $json['pocket_atom_mapping_mappings'],
       $file,
       $offset,
       $source,
     );
     $offset += $mappings->getWidth();
     $right_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['pocket_atom_mapping_right_paren'],
+      /* HH_FIXME[4110] */ $json['pocket_atom_mapping_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_paren->getWidth();
     $semicolon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['pocket_atom_mapping_semicolon'],
+      /* HH_FIXME[4110] */ $json['pocket_atom_mapping_semicolon'],
       $file,
       $offset,
       $source,

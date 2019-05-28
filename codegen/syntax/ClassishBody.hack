@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<67af158fdb958e0c6e31029d35ae1d3d>>
+ * @generated SignedSource<<1b47efe01fa4bcd6c4ed44328c5681b6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,21 +36,21 @@ final class ClassishBody extends EditableNode {
   ): this {
     $offset = $initial_offset;
     $left_brace = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['classish_body_left_brace'],
+      /* HH_FIXME[4110] */ $json['classish_body_left_brace'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_brace->getWidth();
     $elements = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['classish_body_elements'],
+      /* HH_FIXME[4110] */ $json['classish_body_elements'],
       $file,
       $offset,
       $source,
     );
     $offset += $elements->getWidth();
     $right_brace = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['classish_body_right_brace'],
+      /* HH_FIXME[4110] */ $json['classish_body_right_brace'],
       $file,
       $offset,
       $source,

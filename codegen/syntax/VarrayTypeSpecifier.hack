@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<09403050cac1754247b333468d203454>>
+ * @generated SignedSource<<e7d3045ff5231c3e018903becaa5dda6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -42,35 +42,35 @@ final class VarrayTypeSpecifier extends EditableNode implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['varray_keyword'],
+      /* HH_FIXME[4110] */ $json['varray_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $left_angle = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['varray_left_angle'],
+      /* HH_FIXME[4110] */ $json['varray_left_angle'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_angle->getWidth();
     $type = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['varray_type'],
+      /* HH_FIXME[4110] */ $json['varray_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $type->getWidth();
     $trailing_comma = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['varray_trailing_comma'],
+      /* HH_FIXME[4110] */ $json['varray_trailing_comma'],
       $file,
       $offset,
       $source,
     );
     $offset += $trailing_comma->getWidth();
     $right_angle = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['varray_right_angle'],
+      /* HH_FIXME[4110] */ $json['varray_right_angle'],
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c9bfe7ae246bbee5662184bc7ac59dde>>
+ * @generated SignedSource<<e544769379238f1173059f0cccb31d6f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,7 +30,7 @@ final class XHPSimpleClassAttribute extends EditableNode {
   ): this {
     $offset = $initial_offset;
     $type = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['xhp_simple_class_attribute_type'],
+      /* HH_FIXME[4110] */ $json['xhp_simple_class_attribute_type'],
       $file,
       $offset,
       $source,

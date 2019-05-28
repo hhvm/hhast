@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ff145dab10eb74d1e433347d651c54ad>>
+ * @generated SignedSource<<705993a259087318f6a92a9bf4fff4c4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -45,28 +45,28 @@ abstract class MethodishDeclarationGeneratedBase
   ): this {
     $offset = $initial_offset;
     $attribute = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['methodish_attribute'],
+      /* HH_FIXME[4110] */ $json['methodish_attribute'],
       $file,
       $offset,
       $source,
     );
     $offset += $attribute->getWidth();
     $function_decl_header = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['methodish_function_decl_header'],
+      /* HH_FIXME[4110] */ $json['methodish_function_decl_header'],
       $file,
       $offset,
       $source,
     );
     $offset += $function_decl_header->getWidth();
     $function_body = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['methodish_function_body'],
+      /* HH_FIXME[4110] */ $json['methodish_function_body'],
       $file,
       $offset,
       $source,
     );
     $offset += $function_body->getWidth();
     $semicolon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['methodish_semicolon'],
+      /* HH_FIXME[4110] */ $json['methodish_semicolon'],
       $file,
       $offset,
       $source,

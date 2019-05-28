@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<973639ca1528edc2d85def7e5a91dd2a>>
+ * @generated SignedSource<<afed3fb3995c1310e0c23e141fedbf44>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,28 +39,28 @@ final class FieldSpecifier extends EditableNode implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $question = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['field_question'],
+      /* HH_FIXME[4110] */ $json['field_question'],
       $file,
       $offset,
       $source,
     );
     $offset += $question->getWidth();
     $name = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['field_name'],
+      /* HH_FIXME[4110] */ $json['field_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
     $arrow = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['field_arrow'],
+      /* HH_FIXME[4110] */ $json['field_arrow'],
       $file,
       $offset,
       $source,
     );
     $offset += $arrow->getWidth();
     $type = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['field_type'],
+      /* HH_FIXME[4110] */ $json['field_type'],
       $file,
       $offset,
       $source,

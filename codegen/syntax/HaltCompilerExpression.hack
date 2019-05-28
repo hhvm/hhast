@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0004db9172ab42ad738330d109145bb4>>
+ * @generated SignedSource<<5c081eb67b13c756b8e691d1c61e9263>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,28 +41,28 @@ final class HaltCompilerExpression
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['halt_compiler_keyword'],
+      /* HH_FIXME[4110] */ $json['halt_compiler_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $left_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['halt_compiler_left_paren'],
+      /* HH_FIXME[4110] */ $json['halt_compiler_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
     $argument_list = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['halt_compiler_argument_list'],
+      /* HH_FIXME[4110] */ $json['halt_compiler_argument_list'],
       $file,
       $offset,
       $source,
     );
     $offset += $argument_list->getWidth();
     $right_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['halt_compiler_right_paren'],
+      /* HH_FIXME[4110] */ $json['halt_compiler_right_paren'],
       $file,
       $offset,
       $source,

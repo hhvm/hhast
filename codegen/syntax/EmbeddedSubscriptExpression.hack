@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<56bffa7baedd48540d42ab301a47ea92>>
+ * @generated SignedSource<<3f74861e24b5f2b91d8c58c9a0f36664>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,28 +41,28 @@ final class EmbeddedSubscriptExpression
   ): this {
     $offset = $initial_offset;
     $receiver = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['embedded_subscript_receiver'],
+      /* HH_FIXME[4110] */ $json['embedded_subscript_receiver'],
       $file,
       $offset,
       $source,
     );
     $offset += $receiver->getWidth();
     $left_bracket = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['embedded_subscript_left_bracket'],
+      /* HH_FIXME[4110] */ $json['embedded_subscript_left_bracket'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_bracket->getWidth();
     $index = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['embedded_subscript_index'],
+      /* HH_FIXME[4110] */ $json['embedded_subscript_index'],
       $file,
       $offset,
       $source,
     );
     $offset += $index->getWidth();
     $right_bracket = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['embedded_subscript_right_bracket'],
+      /* HH_FIXME[4110] */ $json['embedded_subscript_right_bracket'],
       $file,
       $offset,
       $source,

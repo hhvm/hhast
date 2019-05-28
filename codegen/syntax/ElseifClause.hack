@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<01289b98dbceecc4bdcf86671cb3de24>>
+ * @generated SignedSource<<f7cc855f772c28fee9842faf2dc46be3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -42,35 +42,35 @@ final class ElseifClause extends EditableNode implements IControlFlowStatement {
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['elseif_keyword'],
+      /* HH_FIXME[4110] */ $json['elseif_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $left_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['elseif_left_paren'],
+      /* HH_FIXME[4110] */ $json['elseif_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
     $condition = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['elseif_condition'],
+      /* HH_FIXME[4110] */ $json['elseif_condition'],
       $file,
       $offset,
       $source,
     );
     $offset += $condition->getWidth();
     $right_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['elseif_right_paren'],
+      /* HH_FIXME[4110] */ $json['elseif_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_paren->getWidth();
     $statement = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['elseif_statement'],
+      /* HH_FIXME[4110] */ $json['elseif_statement'],
       $file,
       $offset,
       $source,

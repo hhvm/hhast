@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e4329a484c15ea3f2ee8296d297c627f>>
+ * @generated SignedSource<<40e09fbc4c6fbbd67d04b54e2ed13aa3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -35,14 +35,14 @@ final class ClosureParameterTypeSpecifier
   ): this {
     $offset = $initial_offset;
     $call_convention = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['closure_parameter_call_convention'],
+      /* HH_FIXME[4110] */ $json['closure_parameter_call_convention'],
       $file,
       $offset,
       $source,
     );
     $offset += $call_convention->getWidth();
     $type = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['closure_parameter_type'],
+      /* HH_FIXME[4110] */ $json['closure_parameter_type'],
       $file,
       $offset,
       $source,

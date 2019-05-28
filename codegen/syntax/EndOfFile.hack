@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f372c7d6bb7454cfc64e7f9f57fd01e1>>
+ * @generated SignedSource<<e3ed7cc480f3d97dcb5b195cd0c277aa>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,7 +30,7 @@ final class EndOfFile extends EditableNode {
   ): this {
     $offset = $initial_offset;
     $token = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['end_of_file_token'],
+      /* HH_FIXME[4110] */ $json['end_of_file_token'],
       $file,
       $offset,
       $source,

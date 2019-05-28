@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3fa59d6c0cc37d4a420666eb2e7e5891>>
+ * @generated SignedSource<<83c23638afbda5f02321a3d93e5fd6cb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,56 +53,56 @@ final class AlternateSwitchStatement
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['alternate_switch_keyword'],
+      /* HH_FIXME[4110] */ $json['alternate_switch_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $left_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['alternate_switch_left_paren'],
+      /* HH_FIXME[4110] */ $json['alternate_switch_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
     $expression = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['alternate_switch_expression'],
+      /* HH_FIXME[4110] */ $json['alternate_switch_expression'],
       $file,
       $offset,
       $source,
     );
     $offset += $expression->getWidth();
     $right_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['alternate_switch_right_paren'],
+      /* HH_FIXME[4110] */ $json['alternate_switch_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_paren->getWidth();
     $opening_colon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['alternate_switch_opening_colon'],
+      /* HH_FIXME[4110] */ $json['alternate_switch_opening_colon'],
       $file,
       $offset,
       $source,
     );
     $offset += $opening_colon->getWidth();
     $sections = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['alternate_switch_sections'],
+      /* HH_FIXME[4110] */ $json['alternate_switch_sections'],
       $file,
       $offset,
       $source,
     );
     $offset += $sections->getWidth();
     $closing_endswitch = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['alternate_switch_closing_endswitch'],
+      /* HH_FIXME[4110] */ $json['alternate_switch_closing_endswitch'],
       $file,
       $offset,
       $source,
     );
     $offset += $closing_endswitch->getWidth();
     $closing_semicolon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['alternate_switch_closing_semicolon'],
+      /* HH_FIXME[4110] */ $json['alternate_switch_closing_semicolon'],
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5097fc7ce486c38137d61bc7ca2190cc>>
+ * @generated SignedSource<<8e92ac125c2b3e55b06e0435f7cd9700>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,28 +39,28 @@ final class AnonymousFunctionUseClause extends EditableNode {
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['anonymous_use_keyword'],
+      /* HH_FIXME[4110] */ $json['anonymous_use_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $left_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['anonymous_use_left_paren'],
+      /* HH_FIXME[4110] */ $json['anonymous_use_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
     $variables = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['anonymous_use_variables'],
+      /* HH_FIXME[4110] */ $json['anonymous_use_variables'],
       $file,
       $offset,
       $source,
     );
     $offset += $variables->getWidth();
     $right_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['anonymous_use_right_paren'],
+      /* HH_FIXME[4110] */ $json['anonymous_use_right_paren'],
       $file,
       $offset,
       $source,

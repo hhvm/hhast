@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b76069cf306e13fedcb6737a587d6d71>>
+ * @generated SignedSource<<fdb39a04222a1de737cf324d2e8b54d6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -50,49 +50,49 @@ final class DoStatement
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['do_keyword'],
+      /* HH_FIXME[4110] */ $json['do_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $body = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['do_body'],
+      /* HH_FIXME[4110] */ $json['do_body'],
       $file,
       $offset,
       $source,
     );
     $offset += $body->getWidth();
     $while_keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['do_while_keyword'],
+      /* HH_FIXME[4110] */ $json['do_while_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $while_keyword->getWidth();
     $left_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['do_left_paren'],
+      /* HH_FIXME[4110] */ $json['do_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
     $condition = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['do_condition'],
+      /* HH_FIXME[4110] */ $json['do_condition'],
       $file,
       $offset,
       $source,
     );
     $offset += $condition->getWidth();
     $right_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['do_right_paren'],
+      /* HH_FIXME[4110] */ $json['do_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_paren->getWidth();
     $semicolon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['do_semicolon'],
+      /* HH_FIXME[4110] */ $json['do_semicolon'],
       $file,
       $offset,
       $source,

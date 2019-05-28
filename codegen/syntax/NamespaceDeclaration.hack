@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<186e5172d69692ea7f634f173866ee3e>>
+ * @generated SignedSource<<c5512e5f2c049d2a00c600f3ff3f205b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,21 +36,21 @@ abstract class NamespaceDeclarationGeneratedBase extends EditableNode {
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['namespace_keyword'],
+      /* HH_FIXME[4110] */ $json['namespace_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $name = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['namespace_name'],
+      /* HH_FIXME[4110] */ $json['namespace_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
     $body = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['namespace_body'],
+      /* HH_FIXME[4110] */ $json['namespace_body'],
       $file,
       $offset,
       $source,

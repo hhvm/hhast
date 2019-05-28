@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ad2d61b84201b7750409236fdf4a8dae>>
+ * @generated SignedSource<<9c54390b91797d5e79d09a628311954d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -54,63 +54,63 @@ final class EnumDeclaration extends EditableNode implements IHasAttributeSpec {
   ): this {
     $offset = $initial_offset;
     $attribute_spec = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['enum_attribute_spec'],
+      /* HH_FIXME[4110] */ $json['enum_attribute_spec'],
       $file,
       $offset,
       $source,
     );
     $offset += $attribute_spec->getWidth();
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['enum_keyword'],
+      /* HH_FIXME[4110] */ $json['enum_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $name = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['enum_name'],
+      /* HH_FIXME[4110] */ $json['enum_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
     $colon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['enum_colon'],
+      /* HH_FIXME[4110] */ $json['enum_colon'],
       $file,
       $offset,
       $source,
     );
     $offset += $colon->getWidth();
     $base = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['enum_base'],
+      /* HH_FIXME[4110] */ $json['enum_base'],
       $file,
       $offset,
       $source,
     );
     $offset += $base->getWidth();
     $type = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['enum_type'],
+      /* HH_FIXME[4110] */ $json['enum_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $type->getWidth();
     $left_brace = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['enum_left_brace'],
+      /* HH_FIXME[4110] */ $json['enum_left_brace'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_brace->getWidth();
     $enumerators = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['enum_enumerators'],
+      /* HH_FIXME[4110] */ $json['enum_enumerators'],
       $file,
       $offset,
       $source,
     );
     $offset += $enumerators->getWidth();
     $right_brace = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['enum_right_brace'],
+      /* HH_FIXME[4110] */ $json['enum_right_brace'],
       $file,
       $offset,
       $source,

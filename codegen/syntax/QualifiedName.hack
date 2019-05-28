@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e68f9ec422c375bd5ee8409344951190>>
+ * @generated SignedSource<<690c6d9fccd34972b61931ba610da9f4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,7 +30,7 @@ final class QualifiedName extends EditableNode implements INameishNode {
   ): this {
     $offset = $initial_offset;
     $parts = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['qualified_name_parts'],
+      /* HH_FIXME[4110] */ $json['qualified_name_parts'],
       $file,
       $offset,
       $source,

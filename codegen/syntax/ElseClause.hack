@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e20e710b279ecc7feb8c78721cbc481e>>
+ * @generated SignedSource<<70766deab3b0a48ea78fa4ec6bbbf268>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,14 +33,14 @@ final class ElseClause extends EditableNode implements IControlFlowStatement {
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['else_keyword'],
+      /* HH_FIXME[4110] */ $json['else_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $statement = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['else_statement'],
+      /* HH_FIXME[4110] */ $json['else_statement'],
       $file,
       $offset,
       $source,

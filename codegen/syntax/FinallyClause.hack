@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a3720905a7c78b36720e9f40890fb576>>
+ * @generated SignedSource<<3a1c56d18b430511cb0d03995c9a5559>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,14 +33,14 @@ final class FinallyClause extends EditableNode {
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['finally_keyword'],
+      /* HH_FIXME[4110] */ $json['finally_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $body = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['finally_body'],
+      /* HH_FIXME[4110] */ $json['finally_body'],
       $file,
       $offset,
       $source,

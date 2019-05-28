@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8649824b7f5f2490bfd9a8a478395b8f>>
+ * @generated SignedSource<<fc6928a0084259e950f3064f74fa4f6d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,21 +36,21 @@ final class AttributeSpecification extends EditableNode {
   ): this {
     $offset = $initial_offset;
     $left_double_angle = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['attribute_specification_left_double_angle'],
+      /* HH_FIXME[4110] */ $json['attribute_specification_left_double_angle'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_double_angle->getWidth();
     $attributes = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['attribute_specification_attributes'],
+      /* HH_FIXME[4110] */ $json['attribute_specification_attributes'],
       $file,
       $offset,
       $source,
     );
     $offset += $attributes->getWidth();
     $right_double_angle = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['attribute_specification_right_double_angle'],
+      /* HH_FIXME[4110] */ $json['attribute_specification_right_double_angle'],
       $file,
       $offset,
       $source,

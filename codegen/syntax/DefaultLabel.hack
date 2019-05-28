@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<45a102f4694ea14a581e7583aa4f6f41>>
+ * @generated SignedSource<<46cf20f189cf3ab9e91da5b147150435>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,14 +33,14 @@ final class DefaultLabel extends EditableNode implements ISwitchLabel {
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['default_keyword'],
+      /* HH_FIXME[4110] */ $json['default_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $colon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['default_colon'],
+      /* HH_FIXME[4110] */ $json['default_colon'],
       $file,
       $offset,
       $source,

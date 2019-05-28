@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<63818c2e806b8072059906c6b46222d7>>
+ * @generated SignedSource<<1697331826f63a36763d6d30b53f9142>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -56,63 +56,63 @@ final class ForStatement
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['for_keyword'],
+      /* HH_FIXME[4110] */ $json['for_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $left_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['for_left_paren'],
+      /* HH_FIXME[4110] */ $json['for_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
     $initializer = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['for_initializer'],
+      /* HH_FIXME[4110] */ $json['for_initializer'],
       $file,
       $offset,
       $source,
     );
     $offset += $initializer->getWidth();
     $first_semicolon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['for_first_semicolon'],
+      /* HH_FIXME[4110] */ $json['for_first_semicolon'],
       $file,
       $offset,
       $source,
     );
     $offset += $first_semicolon->getWidth();
     $control = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['for_control'],
+      /* HH_FIXME[4110] */ $json['for_control'],
       $file,
       $offset,
       $source,
     );
     $offset += $control->getWidth();
     $second_semicolon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['for_second_semicolon'],
+      /* HH_FIXME[4110] */ $json['for_second_semicolon'],
       $file,
       $offset,
       $source,
     );
     $offset += $second_semicolon->getWidth();
     $end_of_loop = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['for_end_of_loop'],
+      /* HH_FIXME[4110] */ $json['for_end_of_loop'],
       $file,
       $offset,
       $source,
     );
     $offset += $end_of_loop->getWidth();
     $right_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['for_right_paren'],
+      /* HH_FIXME[4110] */ $json['for_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_paren->getWidth();
     $body = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['for_body'],
+      /* HH_FIXME[4110] */ $json['for_body'],
       $file,
       $offset,
       $source,

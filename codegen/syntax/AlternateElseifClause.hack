@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<05d646d0567c621b748ee9551c3cbec7>>
+ * @generated SignedSource<<e3c3f53536fd7765c578c571670f46a0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -47,42 +47,42 @@ final class AlternateElseifClause
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['alternate_elseif_keyword'],
+      /* HH_FIXME[4110] */ $json['alternate_elseif_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $left_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['alternate_elseif_left_paren'],
+      /* HH_FIXME[4110] */ $json['alternate_elseif_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
     $condition = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['alternate_elseif_condition'],
+      /* HH_FIXME[4110] */ $json['alternate_elseif_condition'],
       $file,
       $offset,
       $source,
     );
     $offset += $condition->getWidth();
     $right_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['alternate_elseif_right_paren'],
+      /* HH_FIXME[4110] */ $json['alternate_elseif_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_paren->getWidth();
     $colon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['alternate_elseif_colon'],
+      /* HH_FIXME[4110] */ $json['alternate_elseif_colon'],
       $file,
       $offset,
       $source,
     );
     $offset += $colon->getWidth();
     $statement = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['alternate_elseif_statement'],
+      /* HH_FIXME[4110] */ $json['alternate_elseif_statement'],
       $file,
       $offset,
       $source,

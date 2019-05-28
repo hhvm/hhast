@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9a3c97f6352eef5f00bedc07359cb771>>
+ * @generated SignedSource<<77745dc9b579428b075ece1247c40096>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,14 +33,14 @@ final class TypeConstraint extends EditableNode {
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['constraint_keyword'],
+      /* HH_FIXME[4110] */ $json['constraint_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $type = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['constraint_type'],
+      /* HH_FIXME[4110] */ $json['constraint_type'],
       $file,
       $offset,
       $source,

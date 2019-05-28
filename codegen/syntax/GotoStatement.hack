@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d610d859eb514dc0239a3e8dd4f03250>>
+ * @generated SignedSource<<09ec5397add7288b8fc7d643b492cb8e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,21 +36,21 @@ final class GotoStatement extends EditableNode implements IStatement {
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['goto_statement_keyword'],
+      /* HH_FIXME[4110] */ $json['goto_statement_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $label_name = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['goto_statement_label_name'],
+      /* HH_FIXME[4110] */ $json['goto_statement_label_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $label_name->getWidth();
     $semicolon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['goto_statement_semicolon'],
+      /* HH_FIXME[4110] */ $json['goto_statement_semicolon'],
       $file,
       $offset,
       $source,

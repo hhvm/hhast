@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b8663f05f0d2f7d04c89405f67fcb5d9>>
+ * @generated SignedSource<<0a6af2752c6aba8a16d3b159e25b783e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -42,35 +42,35 @@ final class TypeParameter extends EditableNode {
   ): this {
     $offset = $initial_offset;
     $attribute_spec = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['type_attribute_spec'],
+      /* HH_FIXME[4110] */ $json['type_attribute_spec'],
       $file,
       $offset,
       $source,
     );
     $offset += $attribute_spec->getWidth();
     $reified = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['type_reified'],
+      /* HH_FIXME[4110] */ $json['type_reified'],
       $file,
       $offset,
       $source,
     );
     $offset += $reified->getWidth();
     $variance = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['type_variance'],
+      /* HH_FIXME[4110] */ $json['type_variance'],
       $file,
       $offset,
       $source,
     );
     $offset += $variance->getWidth();
     $name = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['type_name'],
+      /* HH_FIXME[4110] */ $json['type_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
     $constraints = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['type_constraints'],
+      /* HH_FIXME[4110] */ $json['type_constraints'],
       $file,
       $offset,
       $source,

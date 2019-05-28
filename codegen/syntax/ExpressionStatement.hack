@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6b32957b6b1d2e5fe0e6cb9756a92939>>
+ * @generated SignedSource<<e5b48ed56a3b03f648242270fd46a885>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,14 +33,14 @@ final class ExpressionStatement extends EditableNode implements IStatement {
   ): this {
     $offset = $initial_offset;
     $expression = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['expression_statement_expression'],
+      /* HH_FIXME[4110] */ $json['expression_statement_expression'],
       $file,
       $offset,
       $source,
     );
     $offset += $expression->getWidth();
     $semicolon = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['expression_statement_semicolon'],
+      /* HH_FIXME[4110] */ $json['expression_statement_semicolon'],
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<225891ff22a217d6dedaacba5876dfe9>>
+ * @generated SignedSource<<351a9617bc6e740eca85739dd09100b5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -45,42 +45,42 @@ final class RecordDeclaration extends EditableNode {
   ): this {
     $offset = $initial_offset;
     $attribute_spec = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['record_attribute_spec'],
+      /* HH_FIXME[4110] */ $json['record_attribute_spec'],
       $file,
       $offset,
       $source,
     );
     $offset += $attribute_spec->getWidth();
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['record_keyword'],
+      /* HH_FIXME[4110] */ $json['record_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $name = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['record_name'],
+      /* HH_FIXME[4110] */ $json['record_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
     $left_brace = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['record_left_brace'],
+      /* HH_FIXME[4110] */ $json['record_left_brace'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_brace->getWidth();
     $fields = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['record_fields'],
+      /* HH_FIXME[4110] */ $json['record_fields'],
       $file,
       $offset,
       $source,
     );
     $offset += $fields->getWidth();
     $right_brace = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['record_right_brace'],
+      /* HH_FIXME[4110] */ $json['record_right_brace'],
       $file,
       $offset,
       $source,

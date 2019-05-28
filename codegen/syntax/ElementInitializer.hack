@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c46a0d228074565490c111eaf7337c1f>>
+ * @generated SignedSource<<8ad9154edd5644fbf357612b4b3c19d0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,21 +36,21 @@ final class ElementInitializer extends EditableNode {
   ): this {
     $offset = $initial_offset;
     $key = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['element_key'],
+      /* HH_FIXME[4110] */ $json['element_key'],
       $file,
       $offset,
       $source,
     );
     $offset += $key->getWidth();
     $arrow = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['element_arrow'],
+      /* HH_FIXME[4110] */ $json['element_arrow'],
       $file,
       $offset,
       $source,
     );
     $offset += $arrow->getWidth();
     $value = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['element_value'],
+      /* HH_FIXME[4110] */ $json['element_value'],
       $file,
       $offset,
       $source,

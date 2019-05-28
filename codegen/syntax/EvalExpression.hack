@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c23e038222c7d47ff9becde2795343f2>>
+ * @generated SignedSource<<5d94d2396ce26c3a3661e2097a2bde44>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,28 +41,28 @@ final class EvalExpression
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['eval_keyword'],
+      /* HH_FIXME[4110] */ $json['eval_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $left_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['eval_left_paren'],
+      /* HH_FIXME[4110] */ $json['eval_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
     $argument = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['eval_argument'],
+      /* HH_FIXME[4110] */ $json['eval_argument'],
       $file,
       $offset,
       $source,
     );
     $offset += $argument->getWidth();
     $right_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['eval_right_paren'],
+      /* HH_FIXME[4110] */ $json['eval_right_paren'],
       $file,
       $offset,
       $source,

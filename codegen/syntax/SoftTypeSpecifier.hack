@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2e39aebfa18dc71a2bbcb3b2d8e9c116>>
+ * @generated SignedSource<<d57b7d69639a91a5aa54490723b1566f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,14 +33,14 @@ final class SoftTypeSpecifier extends EditableNode implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $at = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['soft_at'],
+      /* HH_FIXME[4110] */ $json['soft_at'],
       $file,
       $offset,
       $source,
     );
     $offset += $at->getWidth();
     $type = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['soft_type'],
+      /* HH_FIXME[4110] */ $json['soft_type'],
       $file,
       $offset,
       $source,

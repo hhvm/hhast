@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<303627c88421e14fb97c833c25f79c35>>
+ * @generated SignedSource<<4b46dc6c1c3a7daa76f87a0d9fe0daf5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,28 +41,28 @@ final class CollectionLiteralExpression
   ): this {
     $offset = $initial_offset;
     $name = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['collection_literal_name'],
+      /* HH_FIXME[4110] */ $json['collection_literal_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
     $left_brace = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['collection_literal_left_brace'],
+      /* HH_FIXME[4110] */ $json['collection_literal_left_brace'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_brace->getWidth();
     $initializers = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['collection_literal_initializers'],
+      /* HH_FIXME[4110] */ $json['collection_literal_initializers'],
       $file,
       $offset,
       $source,
     );
     $offset += $initializers->getWidth();
     $right_brace = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['collection_literal_right_brace'],
+      /* HH_FIXME[4110] */ $json['collection_literal_right_brace'],
       $file,
       $offset,
       $source,

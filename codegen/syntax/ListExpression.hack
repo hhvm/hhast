@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d0084456a3270c2b7ab914c00c6942a4>>
+ * @generated SignedSource<<d4c4321add46bf3a1712b618331dcb37>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,28 +41,28 @@ final class ListExpression
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['list_keyword'],
+      /* HH_FIXME[4110] */ $json['list_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $left_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['list_left_paren'],
+      /* HH_FIXME[4110] */ $json['list_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
     $members = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['list_members'],
+      /* HH_FIXME[4110] */ $json['list_members'],
       $file,
       $offset,
       $source,
     );
     $offset += $members->getWidth();
     $right_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['list_right_paren'],
+      /* HH_FIXME[4110] */ $json['list_right_paren'],
       $file,
       $offset,
       $source,

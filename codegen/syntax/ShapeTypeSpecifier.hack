@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e4741fab52852e786186d00fb883ab49>>
+ * @generated SignedSource<<0e6c0e4b33b6e6f8e5a807364e901b26>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -42,35 +42,35 @@ final class ShapeTypeSpecifier extends EditableNode implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['shape_type_keyword'],
+      /* HH_FIXME[4110] */ $json['shape_type_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
     $left_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['shape_type_left_paren'],
+      /* HH_FIXME[4110] */ $json['shape_type_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
     $fields = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['shape_type_fields'],
+      /* HH_FIXME[4110] */ $json['shape_type_fields'],
       $file,
       $offset,
       $source,
     );
     $offset += $fields->getWidth();
     $ellipsis = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['shape_type_ellipsis'],
+      /* HH_FIXME[4110] */ $json['shape_type_ellipsis'],
       $file,
       $offset,
       $source,
     );
     $offset += $ellipsis->getWidth();
     $right_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['shape_type_right_paren'],
+      /* HH_FIXME[4110] */ $json['shape_type_right_paren'],
       $file,
       $offset,
       $source,

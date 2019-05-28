@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1b2d328bd5b1a95f515475815fb1d20d>>
+ * @generated SignedSource<<5f77a2fcb5e3455e12b7222cb3ea9429>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -47,42 +47,42 @@ final class UsingStatementBlockScoped
   ): this {
     $offset = $initial_offset;
     $await_keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['using_block_await_keyword'],
+      /* HH_FIXME[4110] */ $json['using_block_await_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $await_keyword->getWidth();
     $using_keyword = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['using_block_using_keyword'],
+      /* HH_FIXME[4110] */ $json['using_block_using_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $using_keyword->getWidth();
     $left_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['using_block_left_paren'],
+      /* HH_FIXME[4110] */ $json['using_block_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
     $expressions = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['using_block_expressions'],
+      /* HH_FIXME[4110] */ $json['using_block_expressions'],
       $file,
       $offset,
       $source,
     );
     $offset += $expressions->getWidth();
     $right_paren = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['using_block_right_paren'],
+      /* HH_FIXME[4110] */ $json['using_block_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_paren->getWidth();
     $body = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['using_block_body'],
+      /* HH_FIXME[4110] */ $json['using_block_body'],
       $file,
       $offset,
       $source,

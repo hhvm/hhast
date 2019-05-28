@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<35a63b41c147dda7825de696abd3e1a5>>
+ * @generated SignedSource<<516ea633cb92b7e358e19067c9459d95>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,14 +33,14 @@ final class PocketMappingIdDeclaration extends EditableNode {
   ): this {
     $offset = $initial_offset;
     $name = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['pocket_mapping_id_name'],
+      /* HH_FIXME[4110] */ $json['pocket_mapping_id_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
     $initializer = EditableNode::fromJSON(
-      /* UNSAFE_EXPR */ $json['pocket_mapping_id_initializer'],
+      /* HH_FIXME[4110] */ $json['pocket_mapping_id_initializer'],
       $file,
       $offset,
       $source,
