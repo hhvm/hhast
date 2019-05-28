@@ -103,21 +103,30 @@ class MigrationCLI extends CLIWithRequiredArguments {
       ),
       CLIOptions\flag(
         () ==> {
-          throw new ExitException(1, "Use HHAST 4.2.* or below for this migration");
+          throw new ExitException(
+            1,
+            "Use HHAST 4.2.* or below for this migration",
+          );
         },
         'no longer supported',
         '--hhvm-4.2-to-4.3',
       ),
       CLIOptions\flag(
         () ==> {
-          throw new ExitException(1, "Use HHAST 4.2.* or below for this migration");
+          throw new ExitException(
+            1,
+            "Use HHAST 4.2.* or below for this migration",
+          );
         },
         'no longer supported',
         '--ltgt-to-ne',
       ),
       CLIOptions\flag(
         () ==> {
-          throw new ExitException(1, "Use HHAST 4.2.* or below for this migration");
+          throw new ExitException(
+            1,
+            "Use HHAST 4.2.* or below for this migration",
+          );
         },
         'no longer supported',
         '--hhvm-3.28-to-3.29',
@@ -186,6 +195,20 @@ class MigrationCLI extends CLIWithRequiredArguments {
         },
         'no longer supported',
         '--hhvm-4.5-to-4.6',
+      ),
+      CLIOptions\flag(
+        () ==> {
+          throw new ExitException(1, 'Use HHAST 4.6.1 for this migration');
+        },
+        'no longer supported',
+        '--empty-expression',
+      ),
+      CLIOptions\flag(
+        () ==> {
+          throw new ExitException(1, 'Use HHAST 4.6.1 for this migration');
+        },
+        'no longer supported',
+        '--hhvm-4.6-to-4.7',
       ),
       CLIOptions\flag(
         () ==> {
@@ -361,7 +384,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
   private static ?(string, bool) $lastFileIsHack = null;
 
   private static function isHackFile(string $file): bool {
-    if (self::$lastFileIsHack is nonnull){
+    if (self::$lastFileIsHack is nonnull) {
       list($cache_file, $cache_result) = self::$lastFileIsHack;
       if ($cache_file === $file) {
         return $cache_result;
