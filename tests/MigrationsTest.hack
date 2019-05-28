@@ -23,6 +23,7 @@ final class MigrationsTest extends TestCase {
         Migrations\OptionalShapeFieldsMigration::class,
         'migrations/optional_shape_fields.php',
       ),
+      tuple(Migrations\EmptyExpressionMigration::class, 'migrations/empty.php'),
       tuple(
         Migrations\ImplicitShapeSubtypesMigration::class,
         'migrations/implicit_shape_subtypes.php',

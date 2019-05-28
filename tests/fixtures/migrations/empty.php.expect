@@ -1,0 +1,16 @@
+<?hh // partial
+
+function foo($x) {
+  if (\empty($x)) {
+    \var_dump('empty function call');
+  }
+  if (namespace\empty($x)) {
+    \var_dump('empty function call');
+  }
+  if (foo\empty($x)) {
+    \var_dump('empty function call');
+  }
+  if ((!$x ?? false)) {
+    \var_dump('empty intrinsic');
+  }
+}

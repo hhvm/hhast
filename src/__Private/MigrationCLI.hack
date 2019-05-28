@@ -16,6 +16,7 @@ use type Facebook\HHAST\Migrations\{
   AssertToExpectMigration,
   BaseMigration,
   CallTimePassByReferenceMigration,
+  EmptyExpressionMigration,
   ExplicitPartialModeMigration,
   HSLMigration,
   IMigrationWithFileList,
@@ -187,6 +188,20 @@ class MigrationCLI extends CLIWithRequiredArguments {
         'no longer supported',
         '--hhvm-4.5-to-4.6',
       ),
+      CLIOptions\flag(
+        () ==> {
+          $this->migrations[] = EmptyExpressionMigration::class;
+        },
+        'replace `empty($expr)` with `(!$expr ?? false)`',
+        '--empty-expression',
+      ),
+			CLIOptions\flag(
+				() ==> {
+					$this->migrations[] = EmptyExpressionMigration::class;
+				},
+				'Apply all migraitons for moving from 4.6 to 4.7',
+				'--hhvm-4.6-to-4.7',
+			),
       CLIOptions\flag(
         () ==> {
           $this->migrations[] = AddFixMesMigration::class;
