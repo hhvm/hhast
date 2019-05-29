@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<022717070329480bb5bd8cb1ae04d15e>>
+ * @generated SignedSource<<9225194eaaec971791daa8c46b77de4b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -234,9 +234,11 @@ final class FunctionDeclarationHeader extends Node {
   }
 
   /**
-   * @return NodeList<Node> | null
+   * @return NodeList<AbstractToken> | NodeList<Token> | NodeList<AsyncToken> |
+   * NodeList<FinalToken> | NodeList<PrivateToken> | NodeList<ProtectedToken> |
+   * NodeList<PublicToken> | NodeList<StaticToken> | null
    */
-  public function getModifiers(): ?NodeList<Node> {
+  public function getModifiers(): ?NodeList<Token> {
     if ($this->_modifiers->isMissing()) {
       return null;
     }
@@ -244,9 +246,11 @@ final class FunctionDeclarationHeader extends Node {
   }
 
   /**
-   * @return NodeList<Node>
+   * @return NodeList<AbstractToken> | NodeList<Token> | NodeList<AsyncToken> |
+   * NodeList<FinalToken> | NodeList<PrivateToken> | NodeList<ProtectedToken> |
+   * NodeList<PublicToken> | NodeList<StaticToken>
    */
-  public function getModifiersx(): NodeList<Node> {
+  public function getModifiersx(): NodeList<Token> {
     return TypeAssert\not_null($this->getModifiers());
   }
 
@@ -443,10 +447,11 @@ final class FunctionDeclarationHeader extends Node {
   }
 
   /**
-   * @return NodeList<ParameterDeclaration> | NodeList<IParameter> |
-   * NodeList<VariadicParameter> | null
+   * @return NodeList<ListItem<ParameterDeclaration>> |
+   * NodeList<ListItem<IParameter>> | NodeList<ListItem<VariadicParameter>> |
+   * null
    */
-  public function getParameterList(): ?NodeList<IParameter> {
+  public function getParameterList(): ?NodeList<ListItem<IParameter>> {
     if ($this->_parameter_list->isMissing()) {
       return null;
     }
@@ -454,10 +459,10 @@ final class FunctionDeclarationHeader extends Node {
   }
 
   /**
-   * @return NodeList<ParameterDeclaration> | NodeList<IParameter> |
-   * NodeList<VariadicParameter>
+   * @return NodeList<ListItem<ParameterDeclaration>> |
+   * NodeList<ListItem<IParameter>> | NodeList<ListItem<VariadicParameter>>
    */
-  public function getParameterListx(): NodeList<IParameter> {
+  public function getParameterListx(): NodeList<ListItem<IParameter>> {
     return TypeAssert\not_null($this->getParameterList());
   }
 

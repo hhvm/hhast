@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6476ec2ecf79454cd4902f6d79ffc865>>
+ * @generated SignedSource<<88470f643ba82b71916a3a5b5fd18a0a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -270,30 +270,46 @@ final class FunctionCallExpression
   }
 
   /**
-   * @return NodeList<AnonymousFunction> | NodeList<IExpression> |
-   * NodeList<ArrayCreationExpression> | NodeList<IContainer> |
-   * NodeList<ArrayIntrinsicExpression> | NodeList<AsExpression> |
-   * NodeList<AwaitableCreationExpression> | NodeList<BinaryExpression> |
-   * NodeList<IHasOperator> | NodeList<CastExpression> |
-   * NodeList<CollectionLiteralExpression> | NodeList<ConditionalExpression> |
-   * NodeList<DarrayIntrinsicExpression> | NodeList<DecoratedExpression> |
-   * NodeList<DictionaryIntrinsicExpression> | NodeList<IHackArray> |
-   * NodeList<EmptyExpression> | NodeList<EvalExpression> |
-   * NodeList<FunctionCallExpression> | NodeList<IFunctionCallishExpression> |
-   * NodeList<InstanceofExpression> | NodeList<IsExpression> |
-   * NodeList<IssetExpression> | NodeList<KeysetIntrinsicExpression> |
-   * NodeList<LambdaExpression> | NodeList<LiteralExpression> |
-   * NodeList<MemberSelectionExpression> | NodeList<ObjectCreationExpression> |
-   * NodeList<ParenthesizedExpression> | NodeList<PipeVariableExpression> |
-   * NodeList<PostfixUnaryExpression> | NodeList<PrefixUnaryExpression> |
-   * NodeList<QualifiedName> | NodeList<SafeMemberSelectionExpression> |
-   * NodeList<ScopeResolutionExpression> | NodeList<ShapeExpression> |
-   * NodeList<SubscriptExpression> | NodeList<NameToken> |
-   * NodeList<TupleExpression> | NodeList<VariableExpression> |
-   * NodeList<VarrayIntrinsicExpression> | NodeList<VectorIntrinsicExpression>
-   * | NodeList<XHPExpression> | null
+   * @return NodeList<ListItem<AnonymousFunction>> |
+   * NodeList<ListItem<IExpression>> |
+   * NodeList<ListItem<ArrayCreationExpression>> |
+   * NodeList<ListItem<IContainer>> |
+   * NodeList<ListItem<ArrayIntrinsicExpression>> |
+   * NodeList<ListItem<AsExpression>> |
+   * NodeList<ListItem<AwaitableCreationExpression>> |
+   * NodeList<ListItem<BinaryExpression>> | NodeList<ListItem<IHasOperator>> |
+   * NodeList<ListItem<CastExpression>> |
+   * NodeList<ListItem<CollectionLiteralExpression>> |
+   * NodeList<ListItem<ConditionalExpression>> |
+   * NodeList<ListItem<DarrayIntrinsicExpression>> |
+   * NodeList<ListItem<DecoratedExpression>> |
+   * NodeList<ListItem<DictionaryIntrinsicExpression>> |
+   * NodeList<ListItem<IHackArray>> | NodeList<ListItem<EvalExpression>> |
+   * NodeList<ListItem<FunctionCallExpression>> |
+   * NodeList<ListItem<IFunctionCallishExpression>> |
+   * NodeList<ListItem<InstanceofExpression>> |
+   * NodeList<ListItem<IsExpression>> | NodeList<ListItem<IssetExpression>> |
+   * NodeList<ListItem<KeysetIntrinsicExpression>> |
+   * NodeList<ListItem<LambdaExpression>> |
+   * NodeList<ListItem<LiteralExpression>> |
+   * NodeList<ListItem<MemberSelectionExpression>> |
+   * NodeList<ListItem<ObjectCreationExpression>> |
+   * NodeList<ListItem<ParenthesizedExpression>> |
+   * NodeList<ListItem<PipeVariableExpression>> |
+   * NodeList<ListItem<PostfixUnaryExpression>> |
+   * NodeList<ListItem<PrefixUnaryExpression>> |
+   * NodeList<ListItem<QualifiedName>> |
+   * NodeList<ListItem<SafeMemberSelectionExpression>> |
+   * NodeList<ListItem<ScopeResolutionExpression>> |
+   * NodeList<ListItem<ShapeExpression>> |
+   * NodeList<ListItem<SubscriptExpression>> | NodeList<ListItem<NameToken>> |
+   * NodeList<ListItem<TupleExpression>> |
+   * NodeList<ListItem<VariableExpression>> |
+   * NodeList<ListItem<VarrayIntrinsicExpression>> |
+   * NodeList<ListItem<VectorIntrinsicExpression>> |
+   * NodeList<ListItem<XHPExpression>> | null
    */
-  public function getArgumentList(): ?NodeList<IExpression> {
+  public function getArgumentList(): ?NodeList<ListItem<IExpression>> {
     if ($this->_argument_list->isMissing()) {
       return null;
     }
@@ -301,30 +317,46 @@ final class FunctionCallExpression
   }
 
   /**
-   * @return NodeList<AnonymousFunction> | NodeList<IExpression> |
-   * NodeList<ArrayCreationExpression> | NodeList<IContainer> |
-   * NodeList<ArrayIntrinsicExpression> | NodeList<AsExpression> |
-   * NodeList<AwaitableCreationExpression> | NodeList<BinaryExpression> |
-   * NodeList<IHasOperator> | NodeList<CastExpression> |
-   * NodeList<CollectionLiteralExpression> | NodeList<ConditionalExpression> |
-   * NodeList<DarrayIntrinsicExpression> | NodeList<DecoratedExpression> |
-   * NodeList<DictionaryIntrinsicExpression> | NodeList<IHackArray> |
-   * NodeList<EmptyExpression> | NodeList<EvalExpression> |
-   * NodeList<FunctionCallExpression> | NodeList<IFunctionCallishExpression> |
-   * NodeList<InstanceofExpression> | NodeList<IsExpression> |
-   * NodeList<IssetExpression> | NodeList<KeysetIntrinsicExpression> |
-   * NodeList<LambdaExpression> | NodeList<LiteralExpression> |
-   * NodeList<MemberSelectionExpression> | NodeList<ObjectCreationExpression> |
-   * NodeList<ParenthesizedExpression> | NodeList<PipeVariableExpression> |
-   * NodeList<PostfixUnaryExpression> | NodeList<PrefixUnaryExpression> |
-   * NodeList<QualifiedName> | NodeList<SafeMemberSelectionExpression> |
-   * NodeList<ScopeResolutionExpression> | NodeList<ShapeExpression> |
-   * NodeList<SubscriptExpression> | NodeList<NameToken> |
-   * NodeList<TupleExpression> | NodeList<VariableExpression> |
-   * NodeList<VarrayIntrinsicExpression> | NodeList<VectorIntrinsicExpression>
-   * | NodeList<XHPExpression>
+   * @return NodeList<ListItem<AnonymousFunction>> |
+   * NodeList<ListItem<IExpression>> |
+   * NodeList<ListItem<ArrayCreationExpression>> |
+   * NodeList<ListItem<IContainer>> |
+   * NodeList<ListItem<ArrayIntrinsicExpression>> |
+   * NodeList<ListItem<AsExpression>> |
+   * NodeList<ListItem<AwaitableCreationExpression>> |
+   * NodeList<ListItem<BinaryExpression>> | NodeList<ListItem<IHasOperator>> |
+   * NodeList<ListItem<CastExpression>> |
+   * NodeList<ListItem<CollectionLiteralExpression>> |
+   * NodeList<ListItem<ConditionalExpression>> |
+   * NodeList<ListItem<DarrayIntrinsicExpression>> |
+   * NodeList<ListItem<DecoratedExpression>> |
+   * NodeList<ListItem<DictionaryIntrinsicExpression>> |
+   * NodeList<ListItem<IHackArray>> | NodeList<ListItem<EvalExpression>> |
+   * NodeList<ListItem<FunctionCallExpression>> |
+   * NodeList<ListItem<IFunctionCallishExpression>> |
+   * NodeList<ListItem<InstanceofExpression>> |
+   * NodeList<ListItem<IsExpression>> | NodeList<ListItem<IssetExpression>> |
+   * NodeList<ListItem<KeysetIntrinsicExpression>> |
+   * NodeList<ListItem<LambdaExpression>> |
+   * NodeList<ListItem<LiteralExpression>> |
+   * NodeList<ListItem<MemberSelectionExpression>> |
+   * NodeList<ListItem<ObjectCreationExpression>> |
+   * NodeList<ListItem<ParenthesizedExpression>> |
+   * NodeList<ListItem<PipeVariableExpression>> |
+   * NodeList<ListItem<PostfixUnaryExpression>> |
+   * NodeList<ListItem<PrefixUnaryExpression>> |
+   * NodeList<ListItem<QualifiedName>> |
+   * NodeList<ListItem<SafeMemberSelectionExpression>> |
+   * NodeList<ListItem<ScopeResolutionExpression>> |
+   * NodeList<ListItem<ShapeExpression>> |
+   * NodeList<ListItem<SubscriptExpression>> | NodeList<ListItem<NameToken>> |
+   * NodeList<ListItem<TupleExpression>> |
+   * NodeList<ListItem<VariableExpression>> |
+   * NodeList<ListItem<VarrayIntrinsicExpression>> |
+   * NodeList<ListItem<VectorIntrinsicExpression>> |
+   * NodeList<ListItem<XHPExpression>>
    */
-  public function getArgumentListx(): NodeList<IExpression> {
+  public function getArgumentListx(): NodeList<ListItem<IExpression>> {
     return TypeAssert\not_null($this->getArgumentList());
   }
 

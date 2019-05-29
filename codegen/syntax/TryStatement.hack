@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f21f10428c60ac8e5b732addef3336ba>>
+ * @generated SignedSource<<55b080d7b80c341a59ec6858e0143ff9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -209,9 +209,9 @@ final class TryStatement extends Node implements IStatement {
   }
 
   /**
-   * @return NodeList<Node> | null
+   * @return NodeList<CatchClause> | null
    */
-  public function getCatchClauses(): ?NodeList<Node> {
+  public function getCatchClauses(): ?NodeList<CatchClause> {
     if ($this->_catch_clauses->isMissing()) {
       return null;
     }
@@ -219,9 +219,9 @@ final class TryStatement extends Node implements IStatement {
   }
 
   /**
-   * @return NodeList<Node>
+   * @return NodeList<CatchClause>
    */
-  public function getCatchClausesx(): NodeList<Node> {
+  public function getCatchClausesx(): NodeList<CatchClause> {
     return TypeAssert\not_null($this->getCatchClauses());
   }
 

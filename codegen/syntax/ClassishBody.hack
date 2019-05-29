@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2d4a5542098ae77375d47683540c7086>>
+ * @generated SignedSource<<6558c22af6e2283fe48b8d74f3d91fc3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -138,9 +138,14 @@ final class ClassishBody extends Node {
   }
 
   /**
-   * @return NodeList<Node> | null
+   * @return NodeList<ConstDeclaration> | NodeList<IClassBodyDeclaration> |
+   * NodeList<MethodishDeclaration> | NodeList<IHasAttributeSpec> |
+   * NodeList<PropertyDeclaration> | NodeList<RequireClause> |
+   * NodeList<TraitUse> | NodeList<TraitUseConflictResolution> |
+   * NodeList<TypeConstDeclaration> | NodeList<XHPClassAttributeDeclaration> |
+   * null
    */
-  public function getElements(): ?NodeList<Node> {
+  public function getElements(): ?NodeList<IClassBodyDeclaration> {
     if ($this->_elements->isMissing()) {
       return null;
     }
@@ -148,9 +153,13 @@ final class ClassishBody extends Node {
   }
 
   /**
-   * @return NodeList<Node>
+   * @return NodeList<ConstDeclaration> | NodeList<IClassBodyDeclaration> |
+   * NodeList<MethodishDeclaration> | NodeList<IHasAttributeSpec> |
+   * NodeList<PropertyDeclaration> | NodeList<RequireClause> |
+   * NodeList<TraitUse> | NodeList<TraitUseConflictResolution> |
+   * NodeList<TypeConstDeclaration> | NodeList<XHPClassAttributeDeclaration>
    */
-  public function getElementsx(): NodeList<Node> {
+  public function getElementsx(): NodeList<IClassBodyDeclaration> {
     return TypeAssert\not_null($this->getElements());
   }
 

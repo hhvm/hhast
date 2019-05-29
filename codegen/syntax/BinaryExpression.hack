@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6382921cce40ad3541583a130546d198>>
+ * @generated SignedSource<<18e1f579787b789f3e315a1b64494243>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -114,7 +114,7 @@ final class BinaryExpression
    * @return ArrayCreationExpression | ArrayIntrinsicExpression |
    * AwaitableCreationExpression | BinaryExpression | CastExpression |
    * CollectionLiteralExpression | DarrayIntrinsicExpression |
-   * DictionaryIntrinsicExpression | EmptyExpression | FunctionCallExpression |
+   * DictionaryIntrinsicExpression | FunctionCallExpression |
    * InstanceofExpression | IsExpression | IssetExpression |
    * KeysetIntrinsicExpression | ListExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
@@ -132,7 +132,7 @@ final class BinaryExpression
    * @return ArrayCreationExpression | ArrayIntrinsicExpression |
    * AwaitableCreationExpression | BinaryExpression | CastExpression |
    * CollectionLiteralExpression | DarrayIntrinsicExpression |
-   * DictionaryIntrinsicExpression | EmptyExpression | FunctionCallExpression |
+   * DictionaryIntrinsicExpression | FunctionCallExpression |
    * InstanceofExpression | IsExpression | IssetExpression |
    * KeysetIntrinsicExpression | ListExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
@@ -216,18 +216,17 @@ final class BinaryExpression
    * ArrayIntrinsicExpression | AsExpression | AwaitableCreationExpression |
    * BinaryExpression | CastExpression | CollectionLiteralExpression |
    * ConditionalExpression | DarrayIntrinsicExpression |
-   * DictionaryIntrinsicExpression | EmptyExpression | EvalExpression |
-   * FunctionCallExpression | InclusionExpression | InstanceofExpression |
-   * IsExpression | IssetExpression | KeysetIntrinsicExpression |
-   * LambdaExpression | LiteralExpression | MemberSelectionExpression |
-   * NullableAsExpression | ObjectCreationExpression | ParenthesizedExpression
-   * | Php7AnonymousFunction | PipeVariableExpression | PostfixUnaryExpression
-   * | PrefixUnaryExpression | PrefixedStringExpression | QualifiedName |
-   * RecordCreationExpression | SafeMemberSelectionExpression |
-   * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
-   * NameToken | TupleExpression | VariableExpression |
-   * VarrayIntrinsicExpression | VectorIntrinsicExpression | XHPExpression |
-   * YieldExpression | YieldFromExpression
+   * DictionaryIntrinsicExpression | EvalExpression | FunctionCallExpression |
+   * InclusionExpression | InstanceofExpression | IsExpression |
+   * IssetExpression | KeysetIntrinsicExpression | LambdaExpression |
+   * LiteralExpression | MemberSelectionExpression | NullableAsExpression |
+   * ObjectCreationExpression | ParenthesizedExpression | Php7AnonymousFunction
+   * | PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression
+   * | PrefixedStringExpression | QualifiedName | RecordCreationExpression |
+   * SafeMemberSelectionExpression | ScopeResolutionExpression |
+   * ShapeExpression | SubscriptExpression | NameToken | TupleExpression |
+   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
+   * | XHPExpression | YieldExpression | YieldFromExpression
    */
   <<__Memoize>>
   public function getRightOperand(): IExpression {
@@ -239,18 +238,17 @@ final class BinaryExpression
    * ArrayIntrinsicExpression | AsExpression | AwaitableCreationExpression |
    * BinaryExpression | CastExpression | CollectionLiteralExpression |
    * ConditionalExpression | DarrayIntrinsicExpression |
-   * DictionaryIntrinsicExpression | EmptyExpression | EvalExpression |
-   * FunctionCallExpression | InclusionExpression | InstanceofExpression |
-   * IsExpression | IssetExpression | KeysetIntrinsicExpression |
-   * LambdaExpression | LiteralExpression | MemberSelectionExpression |
-   * NullableAsExpression | ObjectCreationExpression | ParenthesizedExpression
-   * | Php7AnonymousFunction | PipeVariableExpression | PostfixUnaryExpression
-   * | PrefixUnaryExpression | PrefixedStringExpression | QualifiedName |
-   * RecordCreationExpression | SafeMemberSelectionExpression |
-   * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
-   * NameToken | TupleExpression | VariableExpression |
-   * VarrayIntrinsicExpression | VectorIntrinsicExpression | XHPExpression |
-   * YieldExpression | YieldFromExpression
+   * DictionaryIntrinsicExpression | EvalExpression | FunctionCallExpression |
+   * InclusionExpression | InstanceofExpression | IsExpression |
+   * IssetExpression | KeysetIntrinsicExpression | LambdaExpression |
+   * LiteralExpression | MemberSelectionExpression | NullableAsExpression |
+   * ObjectCreationExpression | ParenthesizedExpression | Php7AnonymousFunction
+   * | PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression
+   * | PrefixedStringExpression | QualifiedName | RecordCreationExpression |
+   * SafeMemberSelectionExpression | ScopeResolutionExpression |
+   * ShapeExpression | SubscriptExpression | NameToken | TupleExpression |
+   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
+   * | XHPExpression | YieldExpression | YieldFromExpression
    */
   public function getRightOperandx(): IExpression {
     return $this->getRightOperand();

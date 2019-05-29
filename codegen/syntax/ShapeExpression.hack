@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7468cbf37886bec0d1c6a9a859e93adf>>
+ * @generated SignedSource<<19a1beac96305cdd7a262e3947d4c6e2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -201,9 +201,9 @@ final class ShapeExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return NodeList<FieldInitializer> | null
+   * @return NodeList<ListItem<FieldInitializer>> | null
    */
-  public function getFields(): ?NodeList<FieldInitializer> {
+  public function getFields(): ?NodeList<ListItem<FieldInitializer>> {
     if ($this->_fields->isMissing()) {
       return null;
     }
@@ -211,9 +211,9 @@ final class ShapeExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return NodeList<FieldInitializer>
+   * @return NodeList<ListItem<FieldInitializer>>
    */
-  public function getFieldsx(): NodeList<FieldInitializer> {
+  public function getFieldsx(): NodeList<ListItem<FieldInitializer>> {
     return TypeAssert\not_null($this->getFields());
   }
 

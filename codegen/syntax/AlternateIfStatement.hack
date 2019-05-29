@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<36dfa24bccbd9c30560a1bf47f43f495>>
+ * @generated SignedSource<<410bc17ce82f53eb8d9bbf5837941404>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -437,16 +437,16 @@ final class AlternateIfStatement
   }
 
   /**
-   * @return NodeList<Node>
+   * @return NodeList<EchoStatement> | NodeList<ExpressionStatement>
    */
-  public function getStatement(): NodeList<Node> {
+  public function getStatement(): NodeList<IStatement> {
     return TypeAssert\instance_of(NodeList::class, $this->_statement);
   }
 
   /**
-   * @return NodeList<Node>
+   * @return NodeList<EchoStatement> | NodeList<ExpressionStatement>
    */
-  public function getStatementx(): NodeList<Node> {
+  public function getStatementx(): NodeList<IStatement> {
     return $this->getStatement();
   }
 
@@ -477,9 +477,9 @@ final class AlternateIfStatement
   }
 
   /**
-   * @return NodeList<Node> | null
+   * @return NodeList<AlternateElseifClause> | null
    */
-  public function getElseifClauses(): ?NodeList<Node> {
+  public function getElseifClauses(): ?NodeList<AlternateElseifClause> {
     if ($this->_elseif_clauses->isMissing()) {
       return null;
     }
@@ -487,9 +487,9 @@ final class AlternateIfStatement
   }
 
   /**
-   * @return NodeList<Node>
+   * @return NodeList<AlternateElseifClause>
    */
-  public function getElseifClausesx(): NodeList<Node> {
+  public function getElseifClausesx(): NodeList<AlternateElseifClause> {
     return TypeAssert\not_null($this->getElseifClauses());
   }
 

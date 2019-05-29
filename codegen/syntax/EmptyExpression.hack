@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<36f58b8b6751d8e93482ee821ff8c662>>
+ * @generated SignedSource<<987a597c6511572ed1e84b986255b2e0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -133,16 +133,16 @@ final class EmptyExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return EmptyToken
+   * @return unknown
    */
-  public function getKeyword(): EmptyToken {
-    return TypeAssert\instance_of(EmptyToken::class, $this->_keyword);
+  public function getKeyword(): Node {
+    return $this->_keyword;
   }
 
   /**
-   * @return EmptyToken
+   * @return unknown
    */
-  public function getKeywordx(): EmptyToken {
+  public function getKeywordx(): Node {
     return $this->getKeyword();
   }
 
@@ -167,16 +167,16 @@ final class EmptyExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return LeftParenToken
+   * @return unknown
    */
-  public function getLeftParen(): LeftParenToken {
-    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
+  public function getLeftParen(): Node {
+    return $this->_left_paren;
   }
 
   /**
-   * @return LeftParenToken
+   * @return unknown
    */
-  public function getLeftParenx(): LeftParenToken {
+  public function getLeftParenx(): Node {
     return $this->getLeftParen();
   }
 
@@ -201,27 +201,16 @@ final class EmptyExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return ArrayCreationExpression | ArrayIntrinsicExpression |
-   * BinaryExpression | CollectionLiteralExpression | FunctionCallExpression |
-   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | PrefixUnaryExpression |
-   * ScopeResolutionExpression | SubscriptExpression | VariableExpression |
-   * XHPExpression
+   * @return unknown
    */
-  <<__Memoize>>
-  public function getArgument(): IExpression {
-    return __Private\Wrap\wrap_IExpression($this->_argument);
+  public function getArgument(): Node {
+    return $this->_argument;
   }
 
   /**
-   * @return ArrayCreationExpression | ArrayIntrinsicExpression |
-   * BinaryExpression | CollectionLiteralExpression | FunctionCallExpression |
-   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | PrefixUnaryExpression |
-   * ScopeResolutionExpression | SubscriptExpression | VariableExpression |
-   * XHPExpression
+   * @return unknown
    */
-  public function getArgumentx(): IExpression {
+  public function getArgumentx(): Node {
     return $this->getArgument();
   }
 
@@ -246,16 +235,16 @@ final class EmptyExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return RightParenToken
+   * @return unknown
    */
-  public function getRightParen(): RightParenToken {
-    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
+  public function getRightParen(): Node {
+    return $this->_right_paren;
   }
 
   /**
-   * @return RightParenToken
+   * @return unknown
    */
-  public function getRightParenx(): RightParenToken {
+  public function getRightParenx(): Node {
     return $this->getRightParen();
   }
 }

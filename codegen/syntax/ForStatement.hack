@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<07496ae879ed8b500d5e7d44ce199be2>>
+ * @generated SignedSource<<bc564c5d626e713a6c1fdcaa12040bcf>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -298,10 +298,12 @@ final class ForStatement
   }
 
   /**
-   * @return NodeList<BinaryExpression> | NodeList<IExpression> |
-   * NodeList<FunctionCallExpression> | NodeList<LiteralExpression> | null
+   * @return NodeList<ListItem<BinaryExpression>> |
+   * NodeList<ListItem<IExpression>> |
+   * NodeList<ListItem<FunctionCallExpression>> |
+   * NodeList<ListItem<LiteralExpression>> | null
    */
-  public function getInitializer(): ?NodeList<IExpression> {
+  public function getInitializer(): ?NodeList<ListItem<IExpression>> {
     if ($this->_initializer->isMissing()) {
       return null;
     }
@@ -309,10 +311,12 @@ final class ForStatement
   }
 
   /**
-   * @return NodeList<BinaryExpression> | NodeList<IExpression> |
-   * NodeList<FunctionCallExpression> | NodeList<LiteralExpression>
+   * @return NodeList<ListItem<BinaryExpression>> |
+   * NodeList<ListItem<IExpression>> |
+   * NodeList<ListItem<FunctionCallExpression>> |
+   * NodeList<ListItem<LiteralExpression>>
    */
-  public function getInitializerx(): NodeList<IExpression> {
+  public function getInitializerx(): NodeList<ListItem<IExpression>> {
     return TypeAssert\not_null($this->getInitializer());
   }
 
@@ -384,11 +388,14 @@ final class ForStatement
   }
 
   /**
-   * @return NodeList<BinaryExpression> | NodeList<IHasOperator> |
-   * NodeList<ConditionalExpression> | NodeList<FunctionCallExpression> |
-   * NodeList<PrefixUnaryExpression> | NodeList<VariableExpression> | null
+   * @return NodeList<ListItem<BinaryExpression>> |
+   * NodeList<ListItem<IHasOperator>> |
+   * NodeList<ListItem<ConditionalExpression>> |
+   * NodeList<ListItem<FunctionCallExpression>> |
+   * NodeList<ListItem<PrefixUnaryExpression>> |
+   * NodeList<ListItem<VariableExpression>> | null
    */
-  public function getControl(): ?NodeList<IExpression> {
+  public function getControl(): ?NodeList<ListItem<IExpression>> {
     if ($this->_control->isMissing()) {
       return null;
     }
@@ -396,11 +403,14 @@ final class ForStatement
   }
 
   /**
-   * @return NodeList<BinaryExpression> | NodeList<IHasOperator> |
-   * NodeList<ConditionalExpression> | NodeList<FunctionCallExpression> |
-   * NodeList<PrefixUnaryExpression> | NodeList<VariableExpression>
+   * @return NodeList<ListItem<BinaryExpression>> |
+   * NodeList<ListItem<IHasOperator>> |
+   * NodeList<ListItem<ConditionalExpression>> |
+   * NodeList<ListItem<FunctionCallExpression>> |
+   * NodeList<ListItem<PrefixUnaryExpression>> |
+   * NodeList<ListItem<VariableExpression>>
    */
-  public function getControlx(): NodeList<IExpression> {
+  public function getControlx(): NodeList<ListItem<IExpression>> {
     return TypeAssert\not_null($this->getControl());
   }
 
@@ -472,11 +482,13 @@ final class ForStatement
   }
 
   /**
-   * @return NodeList<BinaryExpression> | NodeList<IHasOperator> |
-   * NodeList<FunctionCallExpression> | NodeList<PostfixUnaryExpression> |
-   * NodeList<PrefixUnaryExpression> | null
+   * @return NodeList<ListItem<BinaryExpression>> |
+   * NodeList<ListItem<IHasOperator>> |
+   * NodeList<ListItem<FunctionCallExpression>> |
+   * NodeList<ListItem<PostfixUnaryExpression>> |
+   * NodeList<ListItem<PrefixUnaryExpression>> | null
    */
-  public function getEndOfLoop(): ?NodeList<IExpression> {
+  public function getEndOfLoop(): ?NodeList<ListItem<IExpression>> {
     if ($this->_end_of_loop->isMissing()) {
       return null;
     }
@@ -484,11 +496,13 @@ final class ForStatement
   }
 
   /**
-   * @return NodeList<BinaryExpression> | NodeList<IHasOperator> |
-   * NodeList<FunctionCallExpression> | NodeList<PostfixUnaryExpression> |
-   * NodeList<PrefixUnaryExpression>
+   * @return NodeList<ListItem<BinaryExpression>> |
+   * NodeList<ListItem<IHasOperator>> |
+   * NodeList<ListItem<FunctionCallExpression>> |
+   * NodeList<ListItem<PostfixUnaryExpression>> |
+   * NodeList<ListItem<PrefixUnaryExpression>>
    */
-  public function getEndOfLoopx(): NodeList<IExpression> {
+  public function getEndOfLoopx(): NodeList<ListItem<IExpression>> {
     return TypeAssert\not_null($this->getEndOfLoop());
   }
 

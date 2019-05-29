@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d84ca48ee358d8e14cd11db527aee7cc>>
+ * @generated SignedSource<<d1debfb76515cd9b1f26a3e84ac8b925>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -267,14 +267,18 @@ final class VarrayIntrinsicExpression
   }
 
   /**
-   * @return NodeList<IExpression> | NodeList<ArrayIntrinsicExpression> |
-   * NodeList<DarrayIntrinsicExpression> | NodeList<FunctionCallExpression> |
-   * NodeList<LiteralExpression> | NodeList<MemberSelectionExpression> |
-   * NodeList<ScopeResolutionExpression> | NodeList<NameToken> |
-   * NodeList<VariableExpression> | NodeList<VarrayIntrinsicExpression> |
-   * NodeList<VectorIntrinsicExpression> | null
+   * @return NodeList<ListItem<IExpression>> |
+   * NodeList<ListItem<ArrayIntrinsicExpression>> |
+   * NodeList<ListItem<DarrayIntrinsicExpression>> |
+   * NodeList<ListItem<FunctionCallExpression>> |
+   * NodeList<ListItem<LiteralExpression>> |
+   * NodeList<ListItem<MemberSelectionExpression>> |
+   * NodeList<ListItem<ScopeResolutionExpression>> |
+   * NodeList<ListItem<NameToken>> | NodeList<ListItem<VariableExpression>> |
+   * NodeList<ListItem<VarrayIntrinsicExpression>> |
+   * NodeList<ListItem<VectorIntrinsicExpression>> | null
    */
-  public function getMembers(): ?NodeList<IExpression> {
+  public function getMembers(): ?NodeList<ListItem<IExpression>> {
     if ($this->_members->isMissing()) {
       return null;
     }
@@ -282,14 +286,18 @@ final class VarrayIntrinsicExpression
   }
 
   /**
-   * @return NodeList<IExpression> | NodeList<ArrayIntrinsicExpression> |
-   * NodeList<DarrayIntrinsicExpression> | NodeList<FunctionCallExpression> |
-   * NodeList<LiteralExpression> | NodeList<MemberSelectionExpression> |
-   * NodeList<ScopeResolutionExpression> | NodeList<NameToken> |
-   * NodeList<VariableExpression> | NodeList<VarrayIntrinsicExpression> |
-   * NodeList<VectorIntrinsicExpression>
+   * @return NodeList<ListItem<IExpression>> |
+   * NodeList<ListItem<ArrayIntrinsicExpression>> |
+   * NodeList<ListItem<DarrayIntrinsicExpression>> |
+   * NodeList<ListItem<FunctionCallExpression>> |
+   * NodeList<ListItem<LiteralExpression>> |
+   * NodeList<ListItem<MemberSelectionExpression>> |
+   * NodeList<ListItem<ScopeResolutionExpression>> |
+   * NodeList<ListItem<NameToken>> | NodeList<ListItem<VariableExpression>> |
+   * NodeList<ListItem<VarrayIntrinsicExpression>> |
+   * NodeList<ListItem<VectorIntrinsicExpression>>
    */
-  public function getMembersx(): NodeList<IExpression> {
+  public function getMembersx(): NodeList<ListItem<IExpression>> {
     return TypeAssert\not_null($this->getMembers());
   }
 

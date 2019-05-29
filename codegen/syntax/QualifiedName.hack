@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7ac8e17a37d886e765d4382176dcc884>>
+ * @generated SignedSource<<7c14907c38daf863c293ca7729c2e0fb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -81,16 +81,16 @@ final class QualifiedName extends Node implements INameishNode {
   }
 
   /**
-   * @return NodeList<?NameToken> | NodeList<NameToken>
+   * @return NodeList<ListItem<?NameToken>> | NodeList<ListItem<NameToken>>
    */
-  public function getParts(): NodeList<?NameToken> {
+  public function getParts(): NodeList<ListItem<?NameToken>> {
     return TypeAssert\instance_of(NodeList::class, $this->_parts);
   }
 
   /**
-   * @return NodeList<?NameToken> | NodeList<NameToken>
+   * @return NodeList<ListItem<?NameToken>> | NodeList<ListItem<NameToken>>
    */
-  public function getPartsx(): NodeList<?NameToken> {
+  public function getPartsx(): NodeList<ListItem<?NameToken>> {
     return $this->getParts();
   }
 }

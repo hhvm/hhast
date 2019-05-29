@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ba77808d15bb3471ac46fdfc51419a35>>
+ * @generated SignedSource<<dcea8eae32ea7b388a76d113ed488fe4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -386,10 +386,11 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return NodeList<ClosureParameterTypeSpecifier> | NodeList<ITypeSpecifier>
-   * | NodeList<VariadicParameter> | null
+   * @return NodeList<ListItem<ClosureParameterTypeSpecifier>> |
+   * NodeList<ListItem<ITypeSpecifier>> | NodeList<ListItem<VariadicParameter>>
+   * | null
    */
-  public function getParameterList(): ?NodeList<ITypeSpecifier> {
+  public function getParameterList(): ?NodeList<ListItem<ITypeSpecifier>> {
     if ($this->_parameter_list->isMissing()) {
       return null;
     }
@@ -397,10 +398,10 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return NodeList<ClosureParameterTypeSpecifier> | NodeList<ITypeSpecifier>
-   * | NodeList<VariadicParameter>
+   * @return NodeList<ListItem<ClosureParameterTypeSpecifier>> |
+   * NodeList<ListItem<ITypeSpecifier>> | NodeList<ListItem<VariadicParameter>>
    */
-  public function getParameterListx(): NodeList<ITypeSpecifier> {
+  public function getParameterListx(): NodeList<ListItem<ITypeSpecifier>> {
     return TypeAssert\not_null($this->getParameterList());
   }
 

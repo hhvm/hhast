@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<56ac35e40604fb72eddf0b2c71faaeac>>
+ * @generated SignedSource<<aa9cf34d745a6dab394a4c0b13fbc3d3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -267,11 +267,14 @@ final class KeysetIntrinsicExpression
   }
 
   /**
-   * @return NodeList<IExpression> | NodeList<ConditionalExpression> |
-   * NodeList<FunctionCallExpression> | NodeList<LiteralExpression> |
-   * NodeList<ScopeResolutionExpression> | NodeList<NameToken> | null
+   * @return NodeList<ListItem<IExpression>> |
+   * NodeList<ListItem<ConditionalExpression>> |
+   * NodeList<ListItem<FunctionCallExpression>> |
+   * NodeList<ListItem<LiteralExpression>> |
+   * NodeList<ListItem<ScopeResolutionExpression>> |
+   * NodeList<ListItem<NameToken>> | null
    */
-  public function getMembers(): ?NodeList<IExpression> {
+  public function getMembers(): ?NodeList<ListItem<IExpression>> {
     if ($this->_members->isMissing()) {
       return null;
     }
@@ -279,11 +282,14 @@ final class KeysetIntrinsicExpression
   }
 
   /**
-   * @return NodeList<IExpression> | NodeList<ConditionalExpression> |
-   * NodeList<FunctionCallExpression> | NodeList<LiteralExpression> |
-   * NodeList<ScopeResolutionExpression> | NodeList<NameToken>
+   * @return NodeList<ListItem<IExpression>> |
+   * NodeList<ListItem<ConditionalExpression>> |
+   * NodeList<ListItem<FunctionCallExpression>> |
+   * NodeList<ListItem<LiteralExpression>> |
+   * NodeList<ListItem<ScopeResolutionExpression>> |
+   * NodeList<ListItem<NameToken>>
    */
-  public function getMembersx(): NodeList<IExpression> {
+  public function getMembersx(): NodeList<ListItem<IExpression>> {
     return TypeAssert\not_null($this->getMembers());
   }
 

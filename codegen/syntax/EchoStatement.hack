@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f912ef90d54f7aa0e03762d0c4ce4c3e>>
+ * @generated SignedSource<<c597b24b32483ea76f7044ea946b97df>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -138,32 +138,44 @@ final class EchoStatement extends Node implements IStatement {
   }
 
   /**
-   * @return NodeList<IExpression> | NodeList<BinaryExpression> |
-   * NodeList<CastExpression> | NodeList<ConditionalExpression> |
-   * NodeList<FunctionCallExpression> | NodeList<IssetExpression> |
-   * NodeList<LiteralExpression> | NodeList<MemberSelectionExpression> |
-   * NodeList<ObjectCreationExpression> | NodeList<ParenthesizedExpression> |
-   * NodeList<PostfixUnaryExpression> | NodeList<PrefixUnaryExpression> |
-   * NodeList<QualifiedName> | NodeList<ScopeResolutionExpression> |
-   * NodeList<SubscriptExpression> | NodeList<NameToken> |
-   * NodeList<VariableExpression> | NodeList<XHPExpression>
+   * @return NodeList<ListItem<IExpression>> |
+   * NodeList<ListItem<BinaryExpression>> | NodeList<ListItem<CastExpression>>
+   * | NodeList<ListItem<ConditionalExpression>> |
+   * NodeList<ListItem<FunctionCallExpression>> |
+   * NodeList<ListItem<IssetExpression>> |
+   * NodeList<ListItem<LiteralExpression>> |
+   * NodeList<ListItem<MemberSelectionExpression>> |
+   * NodeList<ListItem<ObjectCreationExpression>> |
+   * NodeList<ListItem<ParenthesizedExpression>> |
+   * NodeList<ListItem<PostfixUnaryExpression>> |
+   * NodeList<ListItem<PrefixUnaryExpression>> |
+   * NodeList<ListItem<QualifiedName>> |
+   * NodeList<ListItem<ScopeResolutionExpression>> |
+   * NodeList<ListItem<SubscriptExpression>> | NodeList<ListItem<NameToken>> |
+   * NodeList<ListItem<VariableExpression>> | NodeList<ListItem<XHPExpression>>
    */
-  public function getExpressions(): NodeList<IExpression> {
+  public function getExpressions(): NodeList<ListItem<IExpression>> {
     return TypeAssert\instance_of(NodeList::class, $this->_expressions);
   }
 
   /**
-   * @return NodeList<IExpression> | NodeList<BinaryExpression> |
-   * NodeList<CastExpression> | NodeList<ConditionalExpression> |
-   * NodeList<FunctionCallExpression> | NodeList<IssetExpression> |
-   * NodeList<LiteralExpression> | NodeList<MemberSelectionExpression> |
-   * NodeList<ObjectCreationExpression> | NodeList<ParenthesizedExpression> |
-   * NodeList<PostfixUnaryExpression> | NodeList<PrefixUnaryExpression> |
-   * NodeList<QualifiedName> | NodeList<ScopeResolutionExpression> |
-   * NodeList<SubscriptExpression> | NodeList<NameToken> |
-   * NodeList<VariableExpression> | NodeList<XHPExpression>
+   * @return NodeList<ListItem<IExpression>> |
+   * NodeList<ListItem<BinaryExpression>> | NodeList<ListItem<CastExpression>>
+   * | NodeList<ListItem<ConditionalExpression>> |
+   * NodeList<ListItem<FunctionCallExpression>> |
+   * NodeList<ListItem<IssetExpression>> |
+   * NodeList<ListItem<LiteralExpression>> |
+   * NodeList<ListItem<MemberSelectionExpression>> |
+   * NodeList<ListItem<ObjectCreationExpression>> |
+   * NodeList<ListItem<ParenthesizedExpression>> |
+   * NodeList<ListItem<PostfixUnaryExpression>> |
+   * NodeList<ListItem<PrefixUnaryExpression>> |
+   * NodeList<ListItem<QualifiedName>> |
+   * NodeList<ListItem<ScopeResolutionExpression>> |
+   * NodeList<ListItem<SubscriptExpression>> | NodeList<ListItem<NameToken>> |
+   * NodeList<ListItem<VariableExpression>> | NodeList<ListItem<XHPExpression>>
    */
-  public function getExpressionsx(): NodeList<IExpression> {
+  public function getExpressionsx(): NodeList<ListItem<IExpression>> {
     return $this->getExpressions();
   }
 

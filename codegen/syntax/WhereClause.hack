@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<06ef11a98059ad040802692c737b2846>>
+ * @generated SignedSource<<25dce71f555b2388d692c926ee6224a4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -122,16 +122,16 @@ final class WhereClause extends Node {
   }
 
   /**
-   * @return NodeList<WhereConstraint>
+   * @return NodeList<ListItem<WhereConstraint>>
    */
-  public function getConstraints(): NodeList<WhereConstraint> {
+  public function getConstraints(): NodeList<ListItem<WhereConstraint>> {
     return TypeAssert\instance_of(NodeList::class, $this->_constraints);
   }
 
   /**
-   * @return NodeList<WhereConstraint>
+   * @return NodeList<ListItem<WhereConstraint>>
    */
-  public function getConstraintsx(): NodeList<WhereConstraint> {
+  public function getConstraintsx(): NodeList<ListItem<WhereConstraint>> {
     return $this->getConstraints();
   }
 }

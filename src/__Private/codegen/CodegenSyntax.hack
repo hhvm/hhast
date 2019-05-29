@@ -143,6 +143,17 @@ final class CodegenSyntax extends CodegenBase {
         |> 'NodeList<'.$$.'>';
     }
 
+    if (C\every($types, $t ==> Str\starts_with($t, 'list_item<'))) {
+      return Keyset\map(
+        $types,
+        $t ==> $t
+          |> Str\strip_prefix($$, 'list_item<')
+          |> Str\strip_suffix($$, '>'),
+      )
+        |> $this->getUnifiedSyntaxClass($$)
+        |> 'ListItem<'.$$.'>';
+    }
+
     $expanded = $types
       |> Vec\map($$, $t ==> $this->getSyntaxClass($t))
       |> Vec\map(
@@ -296,10 +307,7 @@ final class CodegenSyntax extends CodegenBase {
 
     return $cg->codegenConstructor()
       ->addParameters(
-        Vec\map(
-          $syntax['fields'],
-          $field ==> 'Node $'.$field['field_name'],
-        ),
+        Vec\map($syntax['fields'], $field ==> 'Node $'.$field['field_name']),
       )
       ->addParameter('?__Private\\SourceRef $source_ref = null')
       ->setBody(
@@ -582,13 +590,19 @@ final class CodegenSyntax extends CodegenBase {
     if ($child === 'list<>') {
       return 'NodeList<Node>';
     }
-    if (Str\starts_with_ci($child, 'list<')) {
+    if (Str\starts_with($child, 'list<')) {
       return $child
         |> Str\strip_prefix($$, 'list<')
         |> Str\strip_suffix($$, '>')
         |> Str\split($$, '|')
         |> keyset($$)
         |> 'NodeList<'.$this->getUnifiedSyntaxClass($$).'>';
+    }
+    if (Str\starts_with($child, 'list_item<')) {
+      return $child
+        |> Str\strip_prefix($$, 'list_item<')
+        |> Str\strip_suffix($$, '>')
+        |> 'ListItem<'.$this->getSyntaxClass($$).'>';
     }
 
     if (Str\starts_with($child, 'token')) {
@@ -662,18 +676,14 @@ final class CodegenSyntax extends CodegenBase {
     );
     return dict[
       'FunctionCallExpression' => dict[
-        'receiver' => $node(
-          false,
-          'function_call_expression.function_call_receiver',
-        ),
+        'receiver' =>
+          $node(false, 'function_call_expression.function_call_receiver'),
       ],
       // Not an IExpression: IExpression | classname | xhp classname; name
       // tokens are referencing class names, not constants.
       'InstanceofExpression' => dict[
-        'right_operand' => $node(
-          false,
-          'instanceof_expression.instanceof_right_operand',
-        ),
+        'right_operand' =>
+          $node(false, 'instanceof_expression.instanceof_right_operand'),
       ],
     ];
   }

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e783f4d8d350447267849c2c1f32bb34>>
+ * @generated SignedSource<<f1e490e84791d0f638963584ab260494>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -195,15 +195,19 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return NodeList<ArrayCreationExpression> | NodeList<IContainer> |
-   * NodeList<IExpression> | NodeList<BinaryExpression> |
-   * NodeList<CastExpression> | NodeList<DarrayIntrinsicExpression> |
-   * NodeList<FunctionCallExpression> | NodeList<LiteralExpression> |
-   * NodeList<ObjectCreationExpression> | NodeList<SubscriptExpression> |
-   * NodeList<VariableExpression> | NodeList<VarrayIntrinsicExpression> |
-   * NodeList<VectorIntrinsicExpression> | null
+   * @return NodeList<ListItem<ArrayCreationExpression>> |
+   * NodeList<ListItem<IContainer>> | NodeList<ListItem<IExpression>> |
+   * NodeList<ListItem<BinaryExpression>> | NodeList<ListItem<CastExpression>>
+   * | NodeList<ListItem<DarrayIntrinsicExpression>> |
+   * NodeList<ListItem<FunctionCallExpression>> |
+   * NodeList<ListItem<LiteralExpression>> |
+   * NodeList<ListItem<ObjectCreationExpression>> |
+   * NodeList<ListItem<SubscriptExpression>> |
+   * NodeList<ListItem<VariableExpression>> |
+   * NodeList<ListItem<VarrayIntrinsicExpression>> |
+   * NodeList<ListItem<VectorIntrinsicExpression>> | null
    */
-  public function getItems(): ?NodeList<IExpression> {
+  public function getItems(): ?NodeList<ListItem<IExpression>> {
     if ($this->_items->isMissing()) {
       return null;
     }
@@ -211,15 +215,19 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return NodeList<ArrayCreationExpression> | NodeList<IContainer> |
-   * NodeList<IExpression> | NodeList<BinaryExpression> |
-   * NodeList<CastExpression> | NodeList<DarrayIntrinsicExpression> |
-   * NodeList<FunctionCallExpression> | NodeList<LiteralExpression> |
-   * NodeList<ObjectCreationExpression> | NodeList<SubscriptExpression> |
-   * NodeList<VariableExpression> | NodeList<VarrayIntrinsicExpression> |
-   * NodeList<VectorIntrinsicExpression>
+   * @return NodeList<ListItem<ArrayCreationExpression>> |
+   * NodeList<ListItem<IContainer>> | NodeList<ListItem<IExpression>> |
+   * NodeList<ListItem<BinaryExpression>> | NodeList<ListItem<CastExpression>>
+   * | NodeList<ListItem<DarrayIntrinsicExpression>> |
+   * NodeList<ListItem<FunctionCallExpression>> |
+   * NodeList<ListItem<LiteralExpression>> |
+   * NodeList<ListItem<ObjectCreationExpression>> |
+   * NodeList<ListItem<SubscriptExpression>> |
+   * NodeList<ListItem<VariableExpression>> |
+   * NodeList<ListItem<VarrayIntrinsicExpression>> |
+   * NodeList<ListItem<VectorIntrinsicExpression>>
    */
-  public function getItemsx(): NodeList<IExpression> {
+  public function getItemsx(): NodeList<ListItem<IExpression>> {
     return TypeAssert\not_null($this->getItems());
   }
 

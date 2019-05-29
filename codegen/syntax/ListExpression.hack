@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<775a1ff180503add326884e97a0b003e>>
+ * @generated SignedSource<<a91fa65bebaeb5f7f450ac4a7d00bc86>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -201,13 +201,15 @@ final class ListExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return NodeList<ListExpression> | NodeList<IExpression> |
-   * NodeList<?IExpression> | NodeList<MemberSelectionExpression> |
-   * NodeList<?Node> | NodeList<?VariableExpression> |
-   * NodeList<ScopeResolutionExpression> | NodeList<SubscriptExpression> |
-   * NodeList<VariableExpression> | null
+   * @return NodeList<ListItem<ListExpression>> |
+   * NodeList<ListItem<IExpression>> | NodeList<ListItem<?IExpression>> |
+   * NodeList<ListItem<MemberSelectionExpression>> |
+   * NodeList<ListItem<Missing>> | NodeList<ListItem<?VariableExpression>> |
+   * NodeList<ListItem<ScopeResolutionExpression>> |
+   * NodeList<ListItem<SubscriptExpression>> |
+   * NodeList<ListItem<VariableExpression>> | null
    */
-  public function getMembers(): ?NodeList<?IExpression> {
+  public function getMembers(): ?NodeList<ListItem<?IExpression>> {
     if ($this->_members->isMissing()) {
       return null;
     }
@@ -215,13 +217,15 @@ final class ListExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return NodeList<ListExpression> | NodeList<IExpression> |
-   * NodeList<?IExpression> | NodeList<MemberSelectionExpression> |
-   * NodeList<?Node> | NodeList<?VariableExpression> |
-   * NodeList<ScopeResolutionExpression> | NodeList<SubscriptExpression> |
-   * NodeList<VariableExpression>
+   * @return NodeList<ListItem<ListExpression>> |
+   * NodeList<ListItem<IExpression>> | NodeList<ListItem<?IExpression>> |
+   * NodeList<ListItem<MemberSelectionExpression>> |
+   * NodeList<ListItem<Missing>> | NodeList<ListItem<?VariableExpression>> |
+   * NodeList<ListItem<ScopeResolutionExpression>> |
+   * NodeList<ListItem<SubscriptExpression>> |
+   * NodeList<ListItem<VariableExpression>>
    */
-  public function getMembersx(): NodeList<?IExpression> {
+  public function getMembersx(): NodeList<ListItem<?IExpression>> {
     return TypeAssert\not_null($this->getMembers());
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<307328eb4b268f49ecd982a5c447bc34>>
+ * @generated SignedSource<<4c19dec084a54ea49c29d50fd5bc4211>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -138,7 +138,9 @@ final class XHPExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return NodeList<Node> | null
+   * @return NodeList<BracedExpression> | NodeList<Node> |
+   * NodeList<XHPBodyToken> | NodeList<XHPCommentToken> |
+   * NodeList<XHPExpression> | null
    */
   public function getBody(): ?NodeList<Node> {
     if ($this->_body->isMissing()) {
@@ -148,7 +150,9 @@ final class XHPExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return NodeList<Node>
+   * @return NodeList<BracedExpression> | NodeList<Node> |
+   * NodeList<XHPBodyToken> | NodeList<XHPCommentToken> |
+   * NodeList<XHPExpression>
    */
   public function getBodyx(): NodeList<Node> {
     return TypeAssert\not_null($this->getBody());

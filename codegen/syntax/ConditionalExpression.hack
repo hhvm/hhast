@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<96b2276fab12123ca27707248a844f5b>>
+ * @generated SignedSource<<0bea6749ad282b20a3ce20c943ba9b0e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -150,12 +150,12 @@ final class ConditionalExpression
   }
 
   /**
-   * @return BinaryExpression | ConditionalExpression | EmptyExpression |
-   * FunctionCallExpression | InstanceofExpression | IsExpression |
-   * IssetExpression | LiteralExpression | MemberSelectionExpression |
-   * ParenthesizedExpression | PipeVariableExpression | PostfixUnaryExpression
-   * | PrefixUnaryExpression | ScopeResolutionExpression | SubscriptExpression
-   * | NameToken | VariableExpression
+   * @return BinaryExpression | ConditionalExpression | FunctionCallExpression
+   * | InstanceofExpression | IsExpression | IssetExpression |
+   * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
+   * PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression |
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * VariableExpression
    */
   <<__Memoize>>
   public function getTest(): IExpression {
@@ -163,12 +163,12 @@ final class ConditionalExpression
   }
 
   /**
-   * @return BinaryExpression | ConditionalExpression | EmptyExpression |
-   * FunctionCallExpression | InstanceofExpression | IsExpression |
-   * IssetExpression | LiteralExpression | MemberSelectionExpression |
-   * ParenthesizedExpression | PipeVariableExpression | PostfixUnaryExpression
-   * | PrefixUnaryExpression | ScopeResolutionExpression | SubscriptExpression
-   * | NameToken | VariableExpression
+   * @return BinaryExpression | ConditionalExpression | FunctionCallExpression
+   * | InstanceofExpression | IsExpression | IssetExpression |
+   * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
+   * PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression |
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * VariableExpression
    */
   public function getTestx(): IExpression {
     return $this->getTest();

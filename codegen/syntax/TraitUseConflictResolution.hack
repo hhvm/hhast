@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fb5640dafd6c3abcb0e5dc62ce455fb5>>
+ * @generated SignedSource<<9d2ebf81ea78cfd40618da9c5532d88e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -185,16 +185,16 @@ final class TraitUseConflictResolution
   }
 
   /**
-   * @return NodeList<SimpleTypeSpecifier>
+   * @return NodeList<ListItem<SimpleTypeSpecifier>>
    */
-  public function getNames(): NodeList<SimpleTypeSpecifier> {
+  public function getNames(): NodeList<ListItem<SimpleTypeSpecifier>> {
     return TypeAssert\instance_of(NodeList::class, $this->_names);
   }
 
   /**
-   * @return NodeList<SimpleTypeSpecifier>
+   * @return NodeList<ListItem<SimpleTypeSpecifier>>
    */
-  public function getNamesx(): NodeList<SimpleTypeSpecifier> {
+  public function getNamesx(): NodeList<ListItem<SimpleTypeSpecifier>> {
     return $this->getNames();
   }
 
@@ -255,10 +255,11 @@ final class TraitUseConflictResolution
   }
 
   /**
-   * @return NodeList<TraitUseAliasItem> | NodeList<ITraitUseItem> |
-   * NodeList<TraitUsePrecedenceItem> | null
+   * @return NodeList<ListItem<TraitUseAliasItem>> |
+   * NodeList<ListItem<ITraitUseItem>> |
+   * NodeList<ListItem<TraitUsePrecedenceItem>> | null
    */
-  public function getClauses(): ?NodeList<ITraitUseItem> {
+  public function getClauses(): ?NodeList<ListItem<ITraitUseItem>> {
     if ($this->_clauses->isMissing()) {
       return null;
     }
@@ -266,10 +267,11 @@ final class TraitUseConflictResolution
   }
 
   /**
-   * @return NodeList<TraitUseAliasItem> | NodeList<ITraitUseItem> |
-   * NodeList<TraitUsePrecedenceItem>
+   * @return NodeList<ListItem<TraitUseAliasItem>> |
+   * NodeList<ListItem<ITraitUseItem>> |
+   * NodeList<ListItem<TraitUsePrecedenceItem>>
    */
-  public function getClausesx(): NodeList<ITraitUseItem> {
+  public function getClausesx(): NodeList<ListItem<ITraitUseItem>> {
     return TypeAssert\not_null($this->getClauses());
   }
 

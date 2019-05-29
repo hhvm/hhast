@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6c56108c488a5403d383916e30b01439>>
+ * @generated SignedSource<<a94d686782758f5d62a7cf79b6bcccd9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -170,16 +170,16 @@ final class TraitUsePrecedenceItem extends Node implements ITraitUseItem {
   }
 
   /**
-   * @return NodeList<SimpleTypeSpecifier>
+   * @return NodeList<ListItem<SimpleTypeSpecifier>>
    */
-  public function getRemovedNames(): NodeList<SimpleTypeSpecifier> {
+  public function getRemovedNames(): NodeList<ListItem<SimpleTypeSpecifier>> {
     return TypeAssert\instance_of(NodeList::class, $this->_removed_names);
   }
 
   /**
-   * @return NodeList<SimpleTypeSpecifier>
+   * @return NodeList<ListItem<SimpleTypeSpecifier>>
    */
-  public function getRemovedNamesx(): NodeList<SimpleTypeSpecifier> {
+  public function getRemovedNamesx(): NodeList<ListItem<SimpleTypeSpecifier>> {
     return $this->getRemovedNames();
   }
 }

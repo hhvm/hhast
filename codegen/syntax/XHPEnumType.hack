@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eb95839d2506fbef98cd817372ffe1da>>
+ * @generated SignedSource<<92d947291afda1e0dca7fad20a566a41>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -256,16 +256,16 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return NodeList<LiteralExpression>
+   * @return NodeList<ListItem<LiteralExpression>>
    */
-  public function getValues(): NodeList<LiteralExpression> {
+  public function getValues(): NodeList<ListItem<LiteralExpression>> {
     return TypeAssert\instance_of(NodeList::class, $this->_values);
   }
 
   /**
-   * @return NodeList<LiteralExpression>
+   * @return NodeList<ListItem<LiteralExpression>>
    */
-  public function getValuesx(): NodeList<LiteralExpression> {
+  public function getValuesx(): NodeList<ListItem<LiteralExpression>> {
     return $this->getValues();
   }
 

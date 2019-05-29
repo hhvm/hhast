@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<527d91e0c5479264c4abc7313d490cdf>>
+ * @generated SignedSource<<c8936d41f858f428e73f4da212e45b36>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -201,16 +201,18 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return NodeList<ITypeSpecifier> | NodeList<SimpleTypeSpecifier>
+   * @return NodeList<ListItem<ITypeSpecifier>> |
+   * NodeList<ListItem<SimpleTypeSpecifier>>
    */
-  public function getMembers(): NodeList<ITypeSpecifier> {
+  public function getMembers(): NodeList<ListItem<ITypeSpecifier>> {
     return TypeAssert\instance_of(NodeList::class, $this->_members);
   }
 
   /**
-   * @return NodeList<ITypeSpecifier> | NodeList<SimpleTypeSpecifier>
+   * @return NodeList<ListItem<ITypeSpecifier>> |
+   * NodeList<ListItem<SimpleTypeSpecifier>>
    */
-  public function getMembersx(): NodeList<ITypeSpecifier> {
+  public function getMembersx(): NodeList<ListItem<ITypeSpecifier>> {
     return $this->getMembers();
   }
 

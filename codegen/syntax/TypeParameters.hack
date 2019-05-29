@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1bfc9360cc51b8f4088a587f731134d3>>
+ * @generated SignedSource<<bd3e271b25feed4e3ae6ddc11ac7e382>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -138,16 +138,16 @@ final class TypeParameters extends Node {
   }
 
   /**
-   * @return NodeList<TypeParameter>
+   * @return NodeList<ListItem<TypeParameter>>
    */
-  public function getParameters(): NodeList<TypeParameter> {
+  public function getParameters(): NodeList<ListItem<TypeParameter>> {
     return TypeAssert\instance_of(NodeList::class, $this->_parameters);
   }
 
   /**
-   * @return NodeList<TypeParameter>
+   * @return NodeList<ListItem<TypeParameter>>
    */
-  public function getParametersx(): NodeList<TypeParameter> {
+  public function getParametersx(): NodeList<ListItem<TypeParameter>> {
     return $this->getParameters();
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<23f541eb245ee5f8db2674aa5e7d8aac>>
+ * @generated SignedSource<<0043a07bd0f6609dd2008f0886f74b82>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -206,18 +206,25 @@ final class CollectionLiteralExpression
   }
 
   /**
-   * @return NodeList<AnonymousFunction> | NodeList<ArrayCreationExpression> |
-   * NodeList<ArrayIntrinsicExpression> | NodeList<IContainer> |
-   * NodeList<IExpression> | NodeList<CastExpression> |
-   * NodeList<CollectionLiteralExpression> | NodeList<ElementInitializer> |
-   * NodeList<FunctionCallExpression> | NodeList<LambdaExpression> |
-   * NodeList<LiteralExpression> | NodeList<ObjectCreationExpression> |
-   * NodeList<ScopeResolutionExpression> | NodeList<ShapeExpression> |
-   * NodeList<SubscriptExpression> | NodeList<NameToken> |
-   * NodeList<TupleExpression> | NodeList<VariableExpression> |
-   * NodeList<VarrayIntrinsicExpression> | null
+   * @return NodeList<ListItem<AnonymousFunction>> |
+   * NodeList<ListItem<ArrayCreationExpression>> |
+   * NodeList<ListItem<ArrayIntrinsicExpression>> |
+   * NodeList<ListItem<IContainer>> | NodeList<ListItem<IExpression>> |
+   * NodeList<ListItem<CastExpression>> |
+   * NodeList<ListItem<CollectionLiteralExpression>> |
+   * NodeList<ListItem<ElementInitializer>> |
+   * NodeList<ListItem<FunctionCallExpression>> |
+   * NodeList<ListItem<LambdaExpression>> |
+   * NodeList<ListItem<LiteralExpression>> |
+   * NodeList<ListItem<ObjectCreationExpression>> |
+   * NodeList<ListItem<ScopeResolutionExpression>> |
+   * NodeList<ListItem<ShapeExpression>> |
+   * NodeList<ListItem<SubscriptExpression>> | NodeList<ListItem<NameToken>> |
+   * NodeList<ListItem<TupleExpression>> |
+   * NodeList<ListItem<VariableExpression>> |
+   * NodeList<ListItem<VarrayIntrinsicExpression>> | null
    */
-  public function getInitializers(): ?NodeList<Node> {
+  public function getInitializers(): ?NodeList<ListItem<Node>> {
     if ($this->_initializers->isMissing()) {
       return null;
     }
@@ -225,18 +232,25 @@ final class CollectionLiteralExpression
   }
 
   /**
-   * @return NodeList<AnonymousFunction> | NodeList<ArrayCreationExpression> |
-   * NodeList<ArrayIntrinsicExpression> | NodeList<IContainer> |
-   * NodeList<IExpression> | NodeList<CastExpression> |
-   * NodeList<CollectionLiteralExpression> | NodeList<ElementInitializer> |
-   * NodeList<FunctionCallExpression> | NodeList<LambdaExpression> |
-   * NodeList<LiteralExpression> | NodeList<ObjectCreationExpression> |
-   * NodeList<ScopeResolutionExpression> | NodeList<ShapeExpression> |
-   * NodeList<SubscriptExpression> | NodeList<NameToken> |
-   * NodeList<TupleExpression> | NodeList<VariableExpression> |
-   * NodeList<VarrayIntrinsicExpression>
+   * @return NodeList<ListItem<AnonymousFunction>> |
+   * NodeList<ListItem<ArrayCreationExpression>> |
+   * NodeList<ListItem<ArrayIntrinsicExpression>> |
+   * NodeList<ListItem<IContainer>> | NodeList<ListItem<IExpression>> |
+   * NodeList<ListItem<CastExpression>> |
+   * NodeList<ListItem<CollectionLiteralExpression>> |
+   * NodeList<ListItem<ElementInitializer>> |
+   * NodeList<ListItem<FunctionCallExpression>> |
+   * NodeList<ListItem<LambdaExpression>> |
+   * NodeList<ListItem<LiteralExpression>> |
+   * NodeList<ListItem<ObjectCreationExpression>> |
+   * NodeList<ListItem<ScopeResolutionExpression>> |
+   * NodeList<ListItem<ShapeExpression>> |
+   * NodeList<ListItem<SubscriptExpression>> | NodeList<ListItem<NameToken>> |
+   * NodeList<ListItem<TupleExpression>> |
+   * NodeList<ListItem<VariableExpression>> |
+   * NodeList<ListItem<VarrayIntrinsicExpression>>
    */
-  public function getInitializersx(): NodeList<Node> {
+  public function getInitializersx(): NodeList<ListItem<Node>> {
     return TypeAssert\not_null($this->getInitializers());
   }
 

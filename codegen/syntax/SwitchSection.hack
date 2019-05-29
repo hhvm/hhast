@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<642a9940ef8f1c4cb38bee2cb9881e26>>
+ * @generated SignedSource<<9c01d700da9f1cc3d7c57d691abc7502>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -109,16 +109,18 @@ final class SwitchSection extends Node {
   }
 
   /**
-   * @return NodeList<Node>
+   * @return NodeList<CaseLabel> | NodeList<ISwitchLabel> |
+   * NodeList<DefaultLabel>
    */
-  public function getLabels(): NodeList<Node> {
+  public function getLabels(): NodeList<ISwitchLabel> {
     return TypeAssert\instance_of(NodeList::class, $this->_labels);
   }
 
   /**
-   * @return NodeList<Node>
+   * @return NodeList<CaseLabel> | NodeList<ISwitchLabel> |
+   * NodeList<DefaultLabel>
    */
-  public function getLabelsx(): NodeList<Node> {
+  public function getLabelsx(): NodeList<ISwitchLabel> {
     return $this->getLabels();
   }
 
@@ -138,9 +140,13 @@ final class SwitchSection extends Node {
   }
 
   /**
-   * @return NodeList<Node> | null
+   * @return NodeList<BreakStatement> | NodeList<IStatement> |
+   * NodeList<DoStatement> | NodeList<EchoStatement> |
+   * NodeList<ExpressionStatement> | NodeList<ForeachStatement> |
+   * NodeList<GotoStatement> | NodeList<IfStatement> |
+   * NodeList<ReturnStatement> | NodeList<ThrowStatement> | null
    */
-  public function getStatements(): ?NodeList<Node> {
+  public function getStatements(): ?NodeList<IStatement> {
     if ($this->_statements->isMissing()) {
       return null;
     }
@@ -148,9 +154,13 @@ final class SwitchSection extends Node {
   }
 
   /**
-   * @return NodeList<Node>
+   * @return NodeList<BreakStatement> | NodeList<IStatement> |
+   * NodeList<DoStatement> | NodeList<EchoStatement> |
+   * NodeList<ExpressionStatement> | NodeList<ForeachStatement> |
+   * NodeList<GotoStatement> | NodeList<IfStatement> |
+   * NodeList<ReturnStatement> | NodeList<ThrowStatement>
    */
-  public function getStatementsx(): NodeList<Node> {
+  public function getStatementsx(): NodeList<IStatement> {
     return TypeAssert\not_null($this->getStatements());
   }
 

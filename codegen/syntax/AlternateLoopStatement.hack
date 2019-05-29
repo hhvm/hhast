@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6cbdb29e3c98b73dcd40362371436ee2>>
+ * @generated SignedSource<<db93d43724f973c329c15c83405d54c5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -174,16 +174,18 @@ abstract class AlternateLoopStatementGeneratedBase
   }
 
   /**
-   * @return NodeList<Node>
+   * @return NodeList<EchoStatement> | NodeList<IStatement> |
+   * NodeList<ExpressionStatement>
    */
-  public function getStatements(): NodeList<Node> {
+  public function getStatements(): NodeList<IStatement> {
     return TypeAssert\instance_of(NodeList::class, $this->_statements);
   }
 
   /**
-   * @return NodeList<Node>
+   * @return NodeList<EchoStatement> | NodeList<IStatement> |
+   * NodeList<ExpressionStatement>
    */
-  public function getStatementsx(): NodeList<Node> {
+  public function getStatementsx(): NodeList<IStatement> {
     return $this->getStatements();
   }
 

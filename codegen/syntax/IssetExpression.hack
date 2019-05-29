@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<628d4e2487359e682ca9def3a24b74e3>>
+ * @generated SignedSource<<020ef5988b345353976529471cfe0f72>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -201,22 +201,26 @@ final class IssetExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return NodeList<FunctionCallExpression> |
-   * NodeList<MemberSelectionExpression> | NodeList<IExpression> |
-   * NodeList<ScopeResolutionExpression> | NodeList<SubscriptExpression> |
-   * NodeList<VariableExpression>
+   * @return NodeList<ListItem<FunctionCallExpression>> |
+   * NodeList<ListItem<MemberSelectionExpression>> |
+   * NodeList<ListItem<IExpression>> |
+   * NodeList<ListItem<ScopeResolutionExpression>> |
+   * NodeList<ListItem<SubscriptExpression>> |
+   * NodeList<ListItem<VariableExpression>>
    */
-  public function getArgumentList(): NodeList<IExpression> {
+  public function getArgumentList(): NodeList<ListItem<IExpression>> {
     return TypeAssert\instance_of(NodeList::class, $this->_argument_list);
   }
 
   /**
-   * @return NodeList<FunctionCallExpression> |
-   * NodeList<MemberSelectionExpression> | NodeList<IExpression> |
-   * NodeList<ScopeResolutionExpression> | NodeList<SubscriptExpression> |
-   * NodeList<VariableExpression>
+   * @return NodeList<ListItem<FunctionCallExpression>> |
+   * NodeList<ListItem<MemberSelectionExpression>> |
+   * NodeList<ListItem<IExpression>> |
+   * NodeList<ListItem<ScopeResolutionExpression>> |
+   * NodeList<ListItem<SubscriptExpression>> |
+   * NodeList<ListItem<VariableExpression>>
    */
-  public function getArgumentListx(): NodeList<IExpression> {
+  public function getArgumentListx(): NodeList<ListItem<IExpression>> {
     return $this->getArgumentList();
   }
 

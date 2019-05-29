@@ -216,6 +216,7 @@ final class CodegenRelations extends CodegenBase {
     ),
     ?'elements' => vec<
       shape(
+        'kind' => string,
         ?'list_item' => shape(...),
         ...
       )
@@ -289,23 +290,29 @@ final class CodegenRelations extends CodegenBase {
   }
 
   public static function getTypeString(self::TNode $node): string {
+    $ts = type_structure(self::class, 'TNode');
+
     $kind = $node['kind'];
     if ($kind === 'token') {
       return 'token:'.TypeAssert\not_null($node['token']['kind'] ?? null);
+    }
+    if ($kind === 'list_item') {
+      return 'list_item<'.
+        self::getTypeString(TypeAssert\matches_type_structure(
+          $ts,
+          Shapes::at($node, 'list_item'),
+        )).
+        '>';
     }
     if ($kind !== 'list') {
       return $kind;
     }
 
-    $ts = type_structure(self::class, 'TNode');
-
     $types = ($node['elements'] ?? vec[])
-      |> Vec\filter($$, $e ==> Shapes::keyExists($e, 'list_item'))
       |> Vec\map(
         $$,
-        $e ==> TypeAssert\matches_type_structure($ts, $e['list_item'] ?? null),
+        $e ==> self::getTypeString(TypeAssert\matches_type_structure($ts, $e))
       )
-      |> Vec\map($$, $i ==> self::getTypeString($i))
       |> Keyset\sort($$);
     return 'list<'.Str\join($types, '|').'>';
   }

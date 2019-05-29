@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<32835385be76d110abc0c5bfb1f53968>>
+ * @generated SignedSource<<37e1848f69eb5eafc31ba6f71c470a21>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -263,9 +263,9 @@ final class IfStatement
 
   /**
    * @return ArrayIntrinsicExpression | AsExpression | BinaryExpression |
-   * CastExpression | EmptyExpression | FunctionCallExpression |
-   * InstanceofExpression | IsExpression | IssetExpression | LiteralExpression
-   * | MemberSelectionExpression | ParenthesizedExpression |
+   * CastExpression | FunctionCallExpression | InstanceofExpression |
+   * IsExpression | IssetExpression | LiteralExpression |
+   * MemberSelectionExpression | ParenthesizedExpression |
    * PrefixUnaryExpression | QualifiedName | ScopeResolutionExpression |
    * SubscriptExpression | NameToken | VariableExpression
    */
@@ -276,9 +276,9 @@ final class IfStatement
 
   /**
    * @return ArrayIntrinsicExpression | AsExpression | BinaryExpression |
-   * CastExpression | EmptyExpression | FunctionCallExpression |
-   * InstanceofExpression | IsExpression | IssetExpression | LiteralExpression
-   * | MemberSelectionExpression | ParenthesizedExpression |
+   * CastExpression | FunctionCallExpression | InstanceofExpression |
+   * IsExpression | IssetExpression | LiteralExpression |
+   * MemberSelectionExpression | ParenthesizedExpression |
    * PrefixUnaryExpression | QualifiedName | ScopeResolutionExpression |
    * SubscriptExpression | NameToken | VariableExpression
    */
@@ -388,9 +388,9 @@ final class IfStatement
   }
 
   /**
-   * @return NodeList<Node> | null
+   * @return NodeList<ElseifClause> | null
    */
-  public function getElseifClauses(): ?NodeList<Node> {
+  public function getElseifClauses(): ?NodeList<ElseifClause> {
     if ($this->_elseif_clauses->isMissing()) {
       return null;
     }
@@ -398,9 +398,9 @@ final class IfStatement
   }
 
   /**
-   * @return NodeList<Node>
+   * @return NodeList<ElseifClause>
    */
-  public function getElseifClausesx(): NodeList<Node> {
+  public function getElseifClausesx(): NodeList<ElseifClause> {
     return TypeAssert\not_null($this->getElseifClauses());
   }
 

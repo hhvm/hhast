@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8aa37b8c5132b62f564720cb7b3d53a2>>
+ * @generated SignedSource<<802e189cbafd2d2d36bcce2315c85671>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -100,18 +100,17 @@ final class ListItem extends Node {
    * CollectionLiteralExpression | ConditionalExpression | ConstantDeclarator |
    * ConstructorCall | DarrayIntrinsicExpression | DarrayTypeSpecifier |
    * DecoratedExpression | DictionaryIntrinsicExpression |
-   * DictionaryTypeSpecifier | ElementInitializer | EmptyExpression |
-   * EvalExpression | FieldInitializer | FieldSpecifier |
-   * FunctionCallExpression | GenericTypeSpecifier | InstanceofExpression |
-   * IsExpression | IssetExpression | KeysetIntrinsicExpression |
-   * KeysetTypeSpecifier | LambdaExpression | LikeTypeSpecifier |
-   * ListExpression | LiteralExpression | MapArrayTypeSpecifier |
-   * MemberSelectionExpression | null | NamespaceUseClause |
-   * NullableTypeSpecifier | ObjectCreationExpression | ParameterDeclaration |
-   * ParenthesizedExpression | PipeVariableExpression | PostfixUnaryExpression
-   * | PrefixUnaryExpression | PropertyDeclarator | QualifiedName |
-   * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * ShapeExpression | ShapeTypeSpecifier | SimpleTypeSpecifier |
+   * DictionaryTypeSpecifier | ElementInitializer | EvalExpression |
+   * FieldInitializer | FieldSpecifier | FunctionCallExpression |
+   * GenericTypeSpecifier | InstanceofExpression | IsExpression |
+   * IssetExpression | KeysetIntrinsicExpression | KeysetTypeSpecifier |
+   * LambdaExpression | LikeTypeSpecifier | ListExpression | LiteralExpression
+   * | MapArrayTypeSpecifier | MemberSelectionExpression | null |
+   * NamespaceUseClause | NullableTypeSpecifier | ObjectCreationExpression |
+   * ParameterDeclaration | ParenthesizedExpression | PipeVariableExpression |
+   * PostfixUnaryExpression | PrefixUnaryExpression | PropertyDeclarator |
+   * QualifiedName | SafeMemberSelectionExpression | ScopeResolutionExpression
+   * | ShapeExpression | ShapeTypeSpecifier | SimpleTypeSpecifier |
    * SoftTypeSpecifier | SubscriptExpression | NameToken | VariableToken |
    * TraitUseAliasItem | TraitUsePrecedenceItem | TupleExpression |
    * TupleTypeSpecifier | TypeConstant | TypeParameter | VariableExpression |
@@ -135,24 +134,24 @@ final class ListItem extends Node {
    * CollectionLiteralExpression | ConditionalExpression | ConstantDeclarator |
    * ConstructorCall | DarrayIntrinsicExpression | DarrayTypeSpecifier |
    * DecoratedExpression | DictionaryIntrinsicExpression |
-   * DictionaryTypeSpecifier | ElementInitializer | EmptyExpression |
-   * EvalExpression | FieldInitializer | FieldSpecifier |
-   * FunctionCallExpression | GenericTypeSpecifier | InstanceofExpression |
-   * IsExpression | IssetExpression | KeysetIntrinsicExpression |
-   * KeysetTypeSpecifier | LambdaExpression | LikeTypeSpecifier |
-   * ListExpression | LiteralExpression | MapArrayTypeSpecifier |
-   * MemberSelectionExpression | NamespaceUseClause | NullableTypeSpecifier |
-   * ObjectCreationExpression | ParameterDeclaration | ParenthesizedExpression
-   * | PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression
-   * | PropertyDeclarator | QualifiedName | SafeMemberSelectionExpression |
-   * ScopeResolutionExpression | ShapeExpression | ShapeTypeSpecifier |
-   * SimpleTypeSpecifier | SoftTypeSpecifier | SubscriptExpression | NameToken
-   * | VariableToken | TraitUseAliasItem | TraitUsePrecedenceItem |
-   * TupleExpression | TupleTypeSpecifier | TypeConstant | TypeParameter |
-   * VariableExpression | VariadicParameter | VarrayIntrinsicExpression |
-   * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorIntrinsicExpression
-   * | VectorTypeSpecifier | WhereConstraint | XHPClassAttribute |
-   * XHPExpression | XHPSimpleClassAttribute
+   * DictionaryTypeSpecifier | ElementInitializer | EvalExpression |
+   * FieldInitializer | FieldSpecifier | FunctionCallExpression |
+   * GenericTypeSpecifier | InstanceofExpression | IsExpression |
+   * IssetExpression | KeysetIntrinsicExpression | KeysetTypeSpecifier |
+   * LambdaExpression | LikeTypeSpecifier | ListExpression | LiteralExpression
+   * | MapArrayTypeSpecifier | MemberSelectionExpression | NamespaceUseClause |
+   * NullableTypeSpecifier | ObjectCreationExpression | ParameterDeclaration |
+   * ParenthesizedExpression | PipeVariableExpression | PostfixUnaryExpression
+   * | PrefixUnaryExpression | PropertyDeclarator | QualifiedName |
+   * SafeMemberSelectionExpression | ScopeResolutionExpression |
+   * ShapeExpression | ShapeTypeSpecifier | SimpleTypeSpecifier |
+   * SoftTypeSpecifier | SubscriptExpression | NameToken | VariableToken |
+   * TraitUseAliasItem | TraitUsePrecedenceItem | TupleExpression |
+   * TupleTypeSpecifier | TypeConstant | TypeParameter | VariableExpression |
+   * VariadicParameter | VarrayIntrinsicExpression | VarrayTypeSpecifier |
+   * VectorArrayTypeSpecifier | VectorIntrinsicExpression | VectorTypeSpecifier
+   * | WhereConstraint | XHPClassAttribute | XHPExpression |
+   * XHPSimpleClassAttribute
    */
   public function getItemx(): Node {
     return TypeAssert\not_null($this->getItem());

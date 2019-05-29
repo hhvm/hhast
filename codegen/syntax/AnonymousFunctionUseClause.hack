@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6b602724aff6a49b06d00c1dee09a859>>
+ * @generated SignedSource<<b2862ec76cb0768ccba8b9c45076c07f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -201,16 +201,16 @@ final class AnonymousFunctionUseClause extends Node {
   }
 
   /**
-   * @return NodeList<VariableToken>
+   * @return NodeList<ListItem<VariableToken>>
    */
-  public function getVariables(): NodeList<VariableToken> {
+  public function getVariables(): NodeList<ListItem<VariableToken>> {
     return TypeAssert\instance_of(NodeList::class, $this->_variables);
   }
 
   /**
-   * @return NodeList<VariableToken>
+   * @return NodeList<ListItem<VariableToken>>
    */
-  public function getVariablesx(): NodeList<VariableToken> {
+  public function getVariablesx(): NodeList<ListItem<VariableToken>> {
     return $this->getVariables();
   }
 

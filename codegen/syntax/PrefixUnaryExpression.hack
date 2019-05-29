@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a1a33666811bbc04a6b0f3237d9ba357>>
+ * @generated SignedSource<<bf32fa55a39bdf54d44400868c05bb10>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -130,8 +130,8 @@ final class PrefixUnaryExpression
   /**
    * @return AnonymousFunction | ArrayIntrinsicExpression |
    * AwaitableCreationExpression | BinaryExpression | BracedExpression |
-   * CastExpression | ConditionalExpression | EmptyExpression | EvalExpression
-   * | FunctionCallExpression | InclusionExpression | InstanceofExpression |
+   * CastExpression | ConditionalExpression | EvalExpression |
+   * FunctionCallExpression | InclusionExpression | InstanceofExpression |
    * IsExpression | IssetExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
@@ -146,8 +146,8 @@ final class PrefixUnaryExpression
   /**
    * @return AnonymousFunction | ArrayIntrinsicExpression |
    * AwaitableCreationExpression | BinaryExpression | BracedExpression |
-   * CastExpression | ConditionalExpression | EmptyExpression | EvalExpression
-   * | FunctionCallExpression | InclusionExpression | InstanceofExpression |
+   * CastExpression | ConditionalExpression | EvalExpression |
+   * FunctionCallExpression | InclusionExpression | InstanceofExpression |
    * IsExpression | IssetExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |

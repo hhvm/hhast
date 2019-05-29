@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c5d41dc0bd7855269e63e3b84765367f>>
+ * @generated SignedSource<<05313c6d21da51ef093d0b67dd02e8d8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -267,17 +267,24 @@ final class VectorIntrinsicExpression
   }
 
   /**
-   * @return NodeList<IExpression> | NodeList<IContainer> |
-   * NodeList<BinaryExpression> | NodeList<CollectionLiteralExpression> |
-   * NodeList<ConditionalExpression> | NodeList<DictionaryIntrinsicExpression>
-   * | NodeList<IHackArray> | NodeList<FunctionCallExpression> |
-   * NodeList<KeysetIntrinsicExpression> | NodeList<LiteralExpression> |
-   * NodeList<ObjectCreationExpression> | NodeList<ScopeResolutionExpression> |
-   * NodeList<ShapeExpression> | NodeList<NameToken> |
-   * NodeList<TupleExpression> | NodeList<VariableExpression> |
-   * NodeList<VectorIntrinsicExpression> | NodeList<XHPExpression> | null
+   * @return NodeList<ListItem<IExpression>> | NodeList<ListItem<IContainer>> |
+   * NodeList<ListItem<BinaryExpression>> |
+   * NodeList<ListItem<CollectionLiteralExpression>> |
+   * NodeList<ListItem<ConditionalExpression>> |
+   * NodeList<ListItem<DictionaryIntrinsicExpression>> |
+   * NodeList<ListItem<IHackArray>> |
+   * NodeList<ListItem<FunctionCallExpression>> |
+   * NodeList<ListItem<KeysetIntrinsicExpression>> |
+   * NodeList<ListItem<LiteralExpression>> |
+   * NodeList<ListItem<ObjectCreationExpression>> |
+   * NodeList<ListItem<ScopeResolutionExpression>> |
+   * NodeList<ListItem<ShapeExpression>> | NodeList<ListItem<NameToken>> |
+   * NodeList<ListItem<TupleExpression>> |
+   * NodeList<ListItem<VariableExpression>> |
+   * NodeList<ListItem<VectorIntrinsicExpression>> |
+   * NodeList<ListItem<XHPExpression>> | null
    */
-  public function getMembers(): ?NodeList<IExpression> {
+  public function getMembers(): ?NodeList<ListItem<IExpression>> {
     if ($this->_members->isMissing()) {
       return null;
     }
@@ -285,17 +292,24 @@ final class VectorIntrinsicExpression
   }
 
   /**
-   * @return NodeList<IExpression> | NodeList<IContainer> |
-   * NodeList<BinaryExpression> | NodeList<CollectionLiteralExpression> |
-   * NodeList<ConditionalExpression> | NodeList<DictionaryIntrinsicExpression>
-   * | NodeList<IHackArray> | NodeList<FunctionCallExpression> |
-   * NodeList<KeysetIntrinsicExpression> | NodeList<LiteralExpression> |
-   * NodeList<ObjectCreationExpression> | NodeList<ScopeResolutionExpression> |
-   * NodeList<ShapeExpression> | NodeList<NameToken> |
-   * NodeList<TupleExpression> | NodeList<VariableExpression> |
-   * NodeList<VectorIntrinsicExpression> | NodeList<XHPExpression>
+   * @return NodeList<ListItem<IExpression>> | NodeList<ListItem<IContainer>> |
+   * NodeList<ListItem<BinaryExpression>> |
+   * NodeList<ListItem<CollectionLiteralExpression>> |
+   * NodeList<ListItem<ConditionalExpression>> |
+   * NodeList<ListItem<DictionaryIntrinsicExpression>> |
+   * NodeList<ListItem<IHackArray>> |
+   * NodeList<ListItem<FunctionCallExpression>> |
+   * NodeList<ListItem<KeysetIntrinsicExpression>> |
+   * NodeList<ListItem<LiteralExpression>> |
+   * NodeList<ListItem<ObjectCreationExpression>> |
+   * NodeList<ListItem<ScopeResolutionExpression>> |
+   * NodeList<ListItem<ShapeExpression>> | NodeList<ListItem<NameToken>> |
+   * NodeList<ListItem<TupleExpression>> |
+   * NodeList<ListItem<VariableExpression>> |
+   * NodeList<ListItem<VectorIntrinsicExpression>> |
+   * NodeList<ListItem<XHPExpression>>
    */
-  public function getMembersx(): NodeList<IExpression> {
+  public function getMembersx(): NodeList<ListItem<IExpression>> {
     return TypeAssert\not_null($this->getMembers());
   }
 

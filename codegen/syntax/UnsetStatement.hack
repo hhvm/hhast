@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<29786c72991c71f3ea52c3a10b41a323>>
+ * @generated SignedSource<<d2e8c448c3a042e43f04d00a6a237ce8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -224,20 +224,24 @@ final class UnsetStatement extends Node implements IStatement {
   }
 
   /**
-   * @return NodeList<MemberSelectionExpression> |
-   * NodeList<PrefixUnaryExpression> | NodeList<ScopeResolutionExpression> |
-   * NodeList<SubscriptExpression> | NodeList<VariableExpression>
+   * @return NodeList<ListItem<MemberSelectionExpression>> |
+   * NodeList<ListItem<PrefixUnaryExpression>> |
+   * NodeList<ListItem<ScopeResolutionExpression>> |
+   * NodeList<ListItem<SubscriptExpression>> |
+   * NodeList<ListItem<VariableExpression>>
    */
-  public function getVariables(): NodeList<IExpression> {
+  public function getVariables(): NodeList<ListItem<IExpression>> {
     return TypeAssert\instance_of(NodeList::class, $this->_variables);
   }
 
   /**
-   * @return NodeList<MemberSelectionExpression> |
-   * NodeList<PrefixUnaryExpression> | NodeList<ScopeResolutionExpression> |
-   * NodeList<SubscriptExpression> | NodeList<VariableExpression>
+   * @return NodeList<ListItem<MemberSelectionExpression>> |
+   * NodeList<ListItem<PrefixUnaryExpression>> |
+   * NodeList<ListItem<ScopeResolutionExpression>> |
+   * NodeList<ListItem<SubscriptExpression>> |
+   * NodeList<ListItem<VariableExpression>>
    */
-  public function getVariablesx(): NodeList<IExpression> {
+  public function getVariablesx(): NodeList<ListItem<IExpression>> {
     return $this->getVariables();
   }
 

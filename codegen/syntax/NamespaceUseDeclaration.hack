@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fae0f4934cb13d528f1226a32c95dd7d>>
+ * @generated SignedSource<<88410c279e201735d7746b39b21d1ec4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -190,16 +190,16 @@ final class NamespaceUseDeclaration
   }
 
   /**
-   * @return NodeList<NamespaceUseClause>
+   * @return NodeList<ListItem<NamespaceUseClause>>
    */
-  public function getClauses(): NodeList<NamespaceUseClause> {
+  public function getClauses(): NodeList<ListItem<NamespaceUseClause>> {
     return TypeAssert\instance_of(NodeList::class, $this->_clauses);
   }
 
   /**
-   * @return NodeList<NamespaceUseClause>
+   * @return NodeList<ListItem<NamespaceUseClause>>
    */
-  public function getClausesx(): NodeList<NamespaceUseClause> {
+  public function getClausesx(): NodeList<ListItem<NamespaceUseClause>> {
     return $this->getClauses();
   }
 

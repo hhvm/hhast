@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6aec25f72fb29dca85089cf2f4f737cd>>
+ * @generated SignedSource<<9726e1e8a517718b58cd49adbe29301d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -206,16 +206,16 @@ final class RecordCreationExpression
   }
 
   /**
-   * @return NodeList<ElementInitializer>
+   * @return NodeList<ListItem<ElementInitializer>>
    */
-  public function getMembers(): NodeList<ElementInitializer> {
+  public function getMembers(): NodeList<ListItem<ElementInitializer>> {
     return TypeAssert\instance_of(NodeList::class, $this->_members);
   }
 
   /**
-   * @return NodeList<ElementInitializer>
+   * @return NodeList<ListItem<ElementInitializer>>
    */
-  public function getMembersx(): NodeList<ElementInitializer> {
+  public function getMembersx(): NodeList<ListItem<ElementInitializer>> {
     return $this->getMembers();
   }
 

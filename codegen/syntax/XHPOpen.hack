@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<802257946c10f45dc7d785c278bd7002>>
+ * @generated SignedSource<<bd1407b81f17608fccc7e1421b0a60f3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -201,7 +201,8 @@ final class XHPOpen extends Node {
   }
 
   /**
-   * @return NodeList<Node> | null
+   * @return NodeList<XHPSimpleAttribute> | NodeList<Node> |
+   * NodeList<XHPSpreadAttribute> | null
    */
   public function getAttributes(): ?NodeList<Node> {
     if ($this->_attributes->isMissing()) {
@@ -211,7 +212,8 @@ final class XHPOpen extends Node {
   }
 
   /**
-   * @return NodeList<Node>
+   * @return NodeList<XHPSimpleAttribute> | NodeList<Node> |
+   * NodeList<XHPSpreadAttribute>
    */
   public function getAttributesx(): NodeList<Node> {
     return TypeAssert\not_null($this->getAttributes());

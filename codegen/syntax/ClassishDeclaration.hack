@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<45ed02fc12e29fd9e6d0cca3234e4640>>
+ * @generated SignedSource<<71ea432759231ca3aa9de36157081da8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -282,9 +282,10 @@ abstract class ClassishDeclarationGeneratedBase
   }
 
   /**
-   * @return NodeList<Node> | null
+   * @return NodeList<AbstractToken> | NodeList<Token> | NodeList<FinalToken> |
+   * null
    */
-  public function getModifiers(): ?NodeList<Node> {
+  public function getModifiers(): ?NodeList<Token> {
     if ($this->_modifiers->isMissing()) {
       return null;
     }
@@ -292,9 +293,9 @@ abstract class ClassishDeclarationGeneratedBase
   }
 
   /**
-   * @return NodeList<Node>
+   * @return NodeList<AbstractToken> | NodeList<Token> | NodeList<FinalToken>
    */
-  public function getModifiersx(): NodeList<Node> {
+  public function getModifiersx(): NodeList<Token> {
     return TypeAssert\not_null($this->getModifiers());
   }
 
@@ -494,10 +495,12 @@ abstract class ClassishDeclarationGeneratedBase
   }
 
   /**
-   * @return NodeList<GenericTypeSpecifier> |
-   * NodeList<ISimpleCreationSpecifier> | NodeList<SimpleTypeSpecifier> | null
+   * @return NodeList<ListItem<GenericTypeSpecifier>> |
+   * NodeList<ListItem<ISimpleCreationSpecifier>> |
+   * NodeList<ListItem<SimpleTypeSpecifier>> | null
    */
-  public function getExtendsList(): ?NodeList<ISimpleCreationSpecifier> {
+  public function getExtendsList(
+  ): ?NodeList<ListItem<ISimpleCreationSpecifier>> {
     if ($this->_extends_list->isMissing()) {
       return null;
     }
@@ -505,10 +508,12 @@ abstract class ClassishDeclarationGeneratedBase
   }
 
   /**
-   * @return NodeList<GenericTypeSpecifier> |
-   * NodeList<ISimpleCreationSpecifier> | NodeList<SimpleTypeSpecifier>
+   * @return NodeList<ListItem<GenericTypeSpecifier>> |
+   * NodeList<ListItem<ISimpleCreationSpecifier>> |
+   * NodeList<ListItem<SimpleTypeSpecifier>>
    */
-  public function getExtendsListx(): NodeList<ISimpleCreationSpecifier> {
+  public function getExtendsListx(
+  ): NodeList<ListItem<ISimpleCreationSpecifier>> {
     return TypeAssert\not_null($this->getExtendsList());
   }
 
@@ -585,10 +590,12 @@ abstract class ClassishDeclarationGeneratedBase
   }
 
   /**
-   * @return NodeList<GenericTypeSpecifier> |
-   * NodeList<ISimpleCreationSpecifier> | NodeList<SimpleTypeSpecifier> | null
+   * @return NodeList<ListItem<GenericTypeSpecifier>> |
+   * NodeList<ListItem<ISimpleCreationSpecifier>> |
+   * NodeList<ListItem<SimpleTypeSpecifier>> | null
    */
-  public function getImplementsList(): ?NodeList<ISimpleCreationSpecifier> {
+  public function getImplementsList(
+  ): ?NodeList<ListItem<ISimpleCreationSpecifier>> {
     if ($this->_implements_list->isMissing()) {
       return null;
     }
@@ -596,10 +603,12 @@ abstract class ClassishDeclarationGeneratedBase
   }
 
   /**
-   * @return NodeList<GenericTypeSpecifier> |
-   * NodeList<ISimpleCreationSpecifier> | NodeList<SimpleTypeSpecifier>
+   * @return NodeList<ListItem<GenericTypeSpecifier>> |
+   * NodeList<ListItem<ISimpleCreationSpecifier>> |
+   * NodeList<ListItem<SimpleTypeSpecifier>>
    */
-  public function getImplementsListx(): NodeList<ISimpleCreationSpecifier> {
+  public function getImplementsListx(
+  ): NodeList<ListItem<ISimpleCreationSpecifier>> {
     return TypeAssert\not_null($this->getImplementsList());
   }
 

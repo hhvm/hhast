@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bd61f64e381cad8814aeade4736f9cb6>>
+ * @generated SignedSource<<b420b9f5f338c99ad98e9db3a56087d3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -267,9 +267,9 @@ final class DarrayIntrinsicExpression
   }
 
   /**
-   * @return NodeList<ElementInitializer> | null
+   * @return NodeList<ListItem<ElementInitializer>> | null
    */
-  public function getMembers(): ?NodeList<ElementInitializer> {
+  public function getMembers(): ?NodeList<ListItem<ElementInitializer>> {
     if ($this->_members->isMissing()) {
       return null;
     }
@@ -277,9 +277,9 @@ final class DarrayIntrinsicExpression
   }
 
   /**
-   * @return NodeList<ElementInitializer>
+   * @return NodeList<ListItem<ElementInitializer>>
    */
-  public function getMembersx(): NodeList<ElementInitializer> {
+  public function getMembersx(): NodeList<ListItem<ElementInitializer>> {
     return TypeAssert\not_null($this->getMembers());
   }
 

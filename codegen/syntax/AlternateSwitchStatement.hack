@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a55ce399012a11e981d2f1f5634230e6>>
+ * @generated SignedSource<<3b1effc3f028c9b752a414040ef1b83e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -397,9 +397,9 @@ final class AlternateSwitchStatement
   }
 
   /**
-   * @return NodeList<Node> | null
+   * @return NodeList<SwitchSection> | null
    */
-  public function getSections(): ?NodeList<Node> {
+  public function getSections(): ?NodeList<SwitchSection> {
     if ($this->_sections->isMissing()) {
       return null;
     }
@@ -407,9 +407,9 @@ final class AlternateSwitchStatement
   }
 
   /**
-   * @return NodeList<Node>
+   * @return NodeList<SwitchSection>
    */
-  public function getSectionsx(): NodeList<Node> {
+  public function getSectionsx(): NodeList<SwitchSection> {
     return TypeAssert\not_null($this->getSections());
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<014ede1ee8b7f59a21a971f8463af952>>
+ * @generated SignedSource<<041dba44baf6fe1e20ac4ac364ec05d6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -538,9 +538,10 @@ final class AnonymousFunction
   }
 
   /**
-   * @return NodeList<ParameterDeclaration> | NodeList<VariadicParameter> | null
+   * @return NodeList<ListItem<ParameterDeclaration>> |
+   * NodeList<ListItem<VariadicParameter>> | null
    */
-  public function getParameters(): ?NodeList<IParameter> {
+  public function getParameters(): ?NodeList<ListItem<IParameter>> {
     if ($this->_parameters->isMissing()) {
       return null;
     }
@@ -548,9 +549,10 @@ final class AnonymousFunction
   }
 
   /**
-   * @return NodeList<ParameterDeclaration> | NodeList<VariadicParameter>
+   * @return NodeList<ListItem<ParameterDeclaration>> |
+   * NodeList<ListItem<VariadicParameter>>
    */
-  public function getParametersx(): NodeList<IParameter> {
+  public function getParametersx(): NodeList<ListItem<IParameter>> {
     return TypeAssert\not_null($this->getParameters());
   }
 

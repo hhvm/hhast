@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fa71f4d97ee98f3b7264485f16602d80>>
+ * @generated SignedSource<<5b83391d4a301984615f746d3370aa0a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -332,16 +332,16 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
   }
 
   /**
-   * @return NodeList<ConstantDeclarator>
+   * @return NodeList<ListItem<ConstantDeclarator>>
    */
-  public function getDeclarators(): NodeList<ConstantDeclarator> {
+  public function getDeclarators(): NodeList<ListItem<ConstantDeclarator>> {
     return TypeAssert\instance_of(NodeList::class, $this->_declarators);
   }
 
   /**
-   * @return NodeList<ConstantDeclarator>
+   * @return NodeList<ListItem<ConstantDeclarator>>
    */
-  public function getDeclaratorsx(): NodeList<ConstantDeclarator> {
+  public function getDeclaratorsx(): NodeList<ListItem<ConstantDeclarator>> {
     return $this->getDeclarators();
   }
 

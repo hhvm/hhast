@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0c173085dc42f10444f3a7c242e5e3bf>>
+ * @generated SignedSource<<8259505aba81bc48aeea6931821156d7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -210,22 +210,33 @@ final class ConstructorCall extends Node {
   }
 
   /**
-   * @return NodeList<AnonymousFunction> | NodeList<IExpression> |
-   * NodeList<ArrayCreationExpression> | NodeList<ArrayIntrinsicExpression> |
-   * NodeList<BinaryExpression> | NodeList<CastExpression> |
-   * NodeList<CollectionLiteralExpression> | NodeList<ConditionalExpression> |
-   * NodeList<DarrayIntrinsicExpression> | NodeList<DecoratedExpression> |
-   * NodeList<DictionaryIntrinsicExpression> | NodeList<FunctionCallExpression>
-   * | NodeList<LambdaExpression> | NodeList<LiteralExpression> |
-   * NodeList<MemberSelectionExpression> | NodeList<ObjectCreationExpression> |
-   * NodeList<ParenthesizedExpression> | NodeList<PipeVariableExpression> |
-   * NodeList<PrefixUnaryExpression> | NodeList<ScopeResolutionExpression> |
-   * NodeList<ShapeExpression> | NodeList<SubscriptExpression> |
-   * NodeList<NameToken> | NodeList<TupleExpression> |
-   * NodeList<VariableExpression> | NodeList<VarrayIntrinsicExpression> |
-   * NodeList<VectorIntrinsicExpression> | null
+   * @return NodeList<ListItem<AnonymousFunction>> |
+   * NodeList<ListItem<IExpression>> |
+   * NodeList<ListItem<ArrayCreationExpression>> |
+   * NodeList<ListItem<ArrayIntrinsicExpression>> |
+   * NodeList<ListItem<BinaryExpression>> | NodeList<ListItem<CastExpression>>
+   * | NodeList<ListItem<CollectionLiteralExpression>> |
+   * NodeList<ListItem<ConditionalExpression>> |
+   * NodeList<ListItem<DarrayIntrinsicExpression>> |
+   * NodeList<ListItem<DecoratedExpression>> |
+   * NodeList<ListItem<DictionaryIntrinsicExpression>> |
+   * NodeList<ListItem<FunctionCallExpression>> |
+   * NodeList<ListItem<LambdaExpression>> |
+   * NodeList<ListItem<LiteralExpression>> |
+   * NodeList<ListItem<MemberSelectionExpression>> |
+   * NodeList<ListItem<ObjectCreationExpression>> |
+   * NodeList<ListItem<ParenthesizedExpression>> |
+   * NodeList<ListItem<PipeVariableExpression>> |
+   * NodeList<ListItem<PrefixUnaryExpression>> |
+   * NodeList<ListItem<ScopeResolutionExpression>> |
+   * NodeList<ListItem<ShapeExpression>> |
+   * NodeList<ListItem<SubscriptExpression>> | NodeList<ListItem<NameToken>> |
+   * NodeList<ListItem<TupleExpression>> |
+   * NodeList<ListItem<VariableExpression>> |
+   * NodeList<ListItem<VarrayIntrinsicExpression>> |
+   * NodeList<ListItem<VectorIntrinsicExpression>> | null
    */
-  public function getArgumentList(): ?NodeList<IExpression> {
+  public function getArgumentList(): ?NodeList<ListItem<IExpression>> {
     if ($this->_argument_list->isMissing()) {
       return null;
     }
@@ -233,22 +244,33 @@ final class ConstructorCall extends Node {
   }
 
   /**
-   * @return NodeList<AnonymousFunction> | NodeList<IExpression> |
-   * NodeList<ArrayCreationExpression> | NodeList<ArrayIntrinsicExpression> |
-   * NodeList<BinaryExpression> | NodeList<CastExpression> |
-   * NodeList<CollectionLiteralExpression> | NodeList<ConditionalExpression> |
-   * NodeList<DarrayIntrinsicExpression> | NodeList<DecoratedExpression> |
-   * NodeList<DictionaryIntrinsicExpression> | NodeList<FunctionCallExpression>
-   * | NodeList<LambdaExpression> | NodeList<LiteralExpression> |
-   * NodeList<MemberSelectionExpression> | NodeList<ObjectCreationExpression> |
-   * NodeList<ParenthesizedExpression> | NodeList<PipeVariableExpression> |
-   * NodeList<PrefixUnaryExpression> | NodeList<ScopeResolutionExpression> |
-   * NodeList<ShapeExpression> | NodeList<SubscriptExpression> |
-   * NodeList<NameToken> | NodeList<TupleExpression> |
-   * NodeList<VariableExpression> | NodeList<VarrayIntrinsicExpression> |
-   * NodeList<VectorIntrinsicExpression>
+   * @return NodeList<ListItem<AnonymousFunction>> |
+   * NodeList<ListItem<IExpression>> |
+   * NodeList<ListItem<ArrayCreationExpression>> |
+   * NodeList<ListItem<ArrayIntrinsicExpression>> |
+   * NodeList<ListItem<BinaryExpression>> | NodeList<ListItem<CastExpression>>
+   * | NodeList<ListItem<CollectionLiteralExpression>> |
+   * NodeList<ListItem<ConditionalExpression>> |
+   * NodeList<ListItem<DarrayIntrinsicExpression>> |
+   * NodeList<ListItem<DecoratedExpression>> |
+   * NodeList<ListItem<DictionaryIntrinsicExpression>> |
+   * NodeList<ListItem<FunctionCallExpression>> |
+   * NodeList<ListItem<LambdaExpression>> |
+   * NodeList<ListItem<LiteralExpression>> |
+   * NodeList<ListItem<MemberSelectionExpression>> |
+   * NodeList<ListItem<ObjectCreationExpression>> |
+   * NodeList<ListItem<ParenthesizedExpression>> |
+   * NodeList<ListItem<PipeVariableExpression>> |
+   * NodeList<ListItem<PrefixUnaryExpression>> |
+   * NodeList<ListItem<ScopeResolutionExpression>> |
+   * NodeList<ListItem<ShapeExpression>> |
+   * NodeList<ListItem<SubscriptExpression>> | NodeList<ListItem<NameToken>> |
+   * NodeList<ListItem<TupleExpression>> |
+   * NodeList<ListItem<VariableExpression>> |
+   * NodeList<ListItem<VarrayIntrinsicExpression>> |
+   * NodeList<ListItem<VectorIntrinsicExpression>>
    */
-  public function getArgumentListx(): NodeList<IExpression> {
+  public function getArgumentListx(): NodeList<ListItem<IExpression>> {
     return TypeAssert\not_null($this->getArgumentList());
   }
 

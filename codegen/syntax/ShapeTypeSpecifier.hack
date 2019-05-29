@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<88efeca41dd0508abcef80b809914642>>
+ * @generated SignedSource<<a195c58fdee48d5e441e57878baa4006>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -218,9 +218,9 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return NodeList<FieldSpecifier> | null
+   * @return NodeList<ListItem<FieldSpecifier>> | null
    */
-  public function getFields(): ?NodeList<FieldSpecifier> {
+  public function getFields(): ?NodeList<ListItem<FieldSpecifier>> {
     if ($this->_fields->isMissing()) {
       return null;
     }
@@ -228,9 +228,9 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return NodeList<FieldSpecifier>
+   * @return NodeList<ListItem<FieldSpecifier>>
    */
-  public function getFieldsx(): NodeList<FieldSpecifier> {
+  public function getFieldsx(): NodeList<ListItem<FieldSpecifier>> {
     return TypeAssert\not_null($this->getFields());
   }
 

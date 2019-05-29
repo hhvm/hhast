@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9ea284a7b1568a9547e85050d7d93b84>>
+ * @generated SignedSource<<921ac59972a7c3c081d182766e9bffdb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -138,9 +138,19 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
   }
 
   /**
-   * @return NodeList<Node> | null
+   * @return NodeList<IStatement> | NodeList<BreakStatement> |
+   * NodeList<CompoundStatement> | NodeList<ConcurrentStatement> |
+   * NodeList<ContinueStatement> | NodeList<DoStatement> |
+   * NodeList<ILoopStatement> | NodeList<EchoStatement> |
+   * NodeList<ExpressionStatement> | NodeList<ForStatement> |
+   * NodeList<IControlFlowStatement> | NodeList<ForeachStatement> |
+   * NodeList<GotoLabel> | NodeList<GotoStatement> | NodeList<IfStatement> |
+   * NodeList<ReturnStatement> | NodeList<SwitchStatement> |
+   * NodeList<ThrowStatement> | NodeList<TryStatement> |
+   * NodeList<UnsetStatement> | NodeList<UsingStatementBlockScoped> |
+   * NodeList<UsingStatementFunctionScoped> | NodeList<WhileStatement> | null
    */
-  public function getStatements(): ?NodeList<Node> {
+  public function getStatements(): ?NodeList<IStatement> {
     if ($this->_statements->isMissing()) {
       return null;
     }
@@ -148,9 +158,19 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
   }
 
   /**
-   * @return NodeList<Node>
+   * @return NodeList<IStatement> | NodeList<BreakStatement> |
+   * NodeList<CompoundStatement> | NodeList<ConcurrentStatement> |
+   * NodeList<ContinueStatement> | NodeList<DoStatement> |
+   * NodeList<ILoopStatement> | NodeList<EchoStatement> |
+   * NodeList<ExpressionStatement> | NodeList<ForStatement> |
+   * NodeList<IControlFlowStatement> | NodeList<ForeachStatement> |
+   * NodeList<GotoLabel> | NodeList<GotoStatement> | NodeList<IfStatement> |
+   * NodeList<ReturnStatement> | NodeList<SwitchStatement> |
+   * NodeList<ThrowStatement> | NodeList<TryStatement> |
+   * NodeList<UnsetStatement> | NodeList<UsingStatementBlockScoped> |
+   * NodeList<UsingStatementFunctionScoped> | NodeList<WhileStatement>
    */
-  public function getStatementsx(): NodeList<Node> {
+  public function getStatementsx(): NodeList<IStatement> {
     return TypeAssert\not_null($this->getStatements());
   }
 

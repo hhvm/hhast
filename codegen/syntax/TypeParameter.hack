@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a60e0ef190f639b7f49abbfcb5105ac4>>
+ * @generated SignedSource<<e38163cf72c09d2ed37a7477bf266ccd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -306,9 +306,9 @@ final class TypeParameter extends Node {
   }
 
   /**
-   * @return NodeList<Node> | null
+   * @return NodeList<TypeConstraint> | null
    */
-  public function getConstraints(): ?NodeList<Node> {
+  public function getConstraints(): ?NodeList<TypeConstraint> {
     if ($this->_constraints->isMissing()) {
       return null;
     }
@@ -316,9 +316,9 @@ final class TypeParameter extends Node {
   }
 
   /**
-   * @return NodeList<Node>
+   * @return NodeList<TypeConstraint>
    */
-  public function getConstraintsx(): NodeList<Node> {
+  public function getConstraintsx(): NodeList<TypeConstraint> {
     return TypeAssert\not_null($this->getConstraints());
   }
 }

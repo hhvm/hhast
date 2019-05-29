@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3053bae7dd62c7651407a3c7c10857cf>>
+ * @generated SignedSource<<e053f0e7be3619714cfdecbc6275f9f0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -281,22 +281,28 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
   }
 
   /**
-   * @return NodeList<AnonymousFunction> | NodeList<BinaryExpression> |
-   * NodeList<LambdaExpression> | NodeList<ObjectCreationExpression> |
-   * NodeList<IExpression> | NodeList<PrefixUnaryExpression> |
-   * NodeList<VariableExpression>
+   * @return NodeList<ListItem<AnonymousFunction>> |
+   * NodeList<ListItem<BinaryExpression>> |
+   * NodeList<ListItem<LambdaExpression>> |
+   * NodeList<ListItem<ObjectCreationExpression>> |
+   * NodeList<ListItem<IExpression>> |
+   * NodeList<ListItem<PrefixUnaryExpression>> |
+   * NodeList<ListItem<VariableExpression>>
    */
-  public function getExpressions(): NodeList<IExpression> {
+  public function getExpressions(): NodeList<ListItem<IExpression>> {
     return TypeAssert\instance_of(NodeList::class, $this->_expressions);
   }
 
   /**
-   * @return NodeList<AnonymousFunction> | NodeList<BinaryExpression> |
-   * NodeList<LambdaExpression> | NodeList<ObjectCreationExpression> |
-   * NodeList<IExpression> | NodeList<PrefixUnaryExpression> |
-   * NodeList<VariableExpression>
+   * @return NodeList<ListItem<AnonymousFunction>> |
+   * NodeList<ListItem<BinaryExpression>> |
+   * NodeList<ListItem<LambdaExpression>> |
+   * NodeList<ListItem<ObjectCreationExpression>> |
+   * NodeList<ListItem<IExpression>> |
+   * NodeList<ListItem<PrefixUnaryExpression>> |
+   * NodeList<ListItem<VariableExpression>>
    */
-  public function getExpressionsx(): NodeList<IExpression> {
+  public function getExpressionsx(): NodeList<ListItem<IExpression>> {
     return $this->getExpressions();
   }
 

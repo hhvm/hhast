@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ece5bb4f270750290d8f0aeaee068eea>>
+ * @generated SignedSource<<29ccb52d6a1df80a539a28015edd6d64>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -97,12 +97,12 @@ final class ExpressionStatement extends Node implements IStatement {
   /**
    * @return AnonymousFunction | AsExpression | BinaryExpression |
    * CastExpression | ConditionalExpression | DarrayIntrinsicExpression |
-   * DictionaryIntrinsicExpression | EmptyExpression | EvalExpression |
-   * FunctionCallExpression | HaltCompilerExpression | InclusionExpression |
-   * InstanceofExpression | IsExpression | IssetExpression | LambdaExpression |
-   * LiteralExpression | MemberSelectionExpression | null |
-   * ObjectCreationExpression | PostfixUnaryExpression | PrefixUnaryExpression
-   * | SafeMemberSelectionExpression | ScopeResolutionExpression |
+   * DictionaryIntrinsicExpression | EvalExpression | FunctionCallExpression |
+   * HaltCompilerExpression | InclusionExpression | InstanceofExpression |
+   * IsExpression | IssetExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | null | ObjectCreationExpression |
+   * PostfixUnaryExpression | PrefixUnaryExpression |
+   * SafeMemberSelectionExpression | ScopeResolutionExpression |
    * SubscriptExpression | NameToken | VariableExpression |
    * VarrayIntrinsicExpression | XHPExpression | YieldExpression |
    * YieldFromExpression
@@ -118,10 +118,10 @@ final class ExpressionStatement extends Node implements IStatement {
   /**
    * @return AnonymousFunction | AsExpression | BinaryExpression |
    * CastExpression | ConditionalExpression | DarrayIntrinsicExpression |
-   * DictionaryIntrinsicExpression | EmptyExpression | EvalExpression |
-   * FunctionCallExpression | HaltCompilerExpression | InclusionExpression |
-   * InstanceofExpression | IsExpression | IssetExpression | LambdaExpression |
-   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * DictionaryIntrinsicExpression | EvalExpression | FunctionCallExpression |
+   * HaltCompilerExpression | InclusionExpression | InstanceofExpression |
+   * IsExpression | IssetExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
    * PostfixUnaryExpression | PrefixUnaryExpression |
    * SafeMemberSelectionExpression | ScopeResolutionExpression |
    * SubscriptExpression | NameToken | VariableExpression |

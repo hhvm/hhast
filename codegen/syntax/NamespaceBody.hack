@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2bb6b9e565151a0444fd43eb65fe0f69>>
+ * @generated SignedSource<<c34a7f583858332c2129955c781f803c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -138,7 +138,14 @@ final class NamespaceBody extends Node implements INamespaceBody {
   }
 
   /**
-   * @return NodeList<Node> | null
+   * @return NodeList<Node> | NodeList<ClassishDeclaration> |
+   * NodeList<IHasAttributeSpec> | NodeList<ConstDeclaration> |
+   * NodeList<EchoStatement> | NodeList<IStatement> | NodeList<EnumDeclaration>
+   * | NodeList<ExpressionStatement> | NodeList<ForeachStatement> |
+   * NodeList<FunctionDeclaration> | NodeList<InclusionDirective> |
+   * NodeList<NamespaceGroupUseDeclaration> |
+   * NodeList<INamespaceUseDeclaration> | NodeList<NamespaceUseDeclaration> |
+   * null
    */
   public function getDeclarations(): ?NodeList<Node> {
     if ($this->_declarations->isMissing()) {
@@ -148,7 +155,13 @@ final class NamespaceBody extends Node implements INamespaceBody {
   }
 
   /**
-   * @return NodeList<Node>
+   * @return NodeList<Node> | NodeList<ClassishDeclaration> |
+   * NodeList<IHasAttributeSpec> | NodeList<ConstDeclaration> |
+   * NodeList<EchoStatement> | NodeList<IStatement> | NodeList<EnumDeclaration>
+   * | NodeList<ExpressionStatement> | NodeList<ForeachStatement> |
+   * NodeList<FunctionDeclaration> | NodeList<InclusionDirective> |
+   * NodeList<NamespaceGroupUseDeclaration> |
+   * NodeList<INamespaceUseDeclaration> | NodeList<NamespaceUseDeclaration>
    */
   public function getDeclarationsx(): NodeList<Node> {
     return TypeAssert\not_null($this->getDeclarations());

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<72164c6d7f786283e317085c1b029ded>>
+ * @generated SignedSource<<fc8134054d44f553de73ac4d01c5e5cc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -203,20 +203,29 @@ final class ArrayIntrinsicExpression
   }
 
   /**
-   * @return NodeList<AnonymousFunction> | NodeList<IExpression> |
-   * NodeList<ArrayCreationExpression> | NodeList<ArrayIntrinsicExpression> |
-   * NodeList<Node> | NodeList<AwaitableCreationExpression> |
-   * NodeList<BinaryExpression> | NodeList<IHasOperator> |
-   * NodeList<CastExpression> | NodeList<CollectionLiteralExpression> |
-   * NodeList<ElementInitializer> | NodeList<FunctionCallExpression> |
-   * NodeList<IFunctionCallishExpression> | NodeList<LiteralExpression> |
-   * NodeList<MemberSelectionExpression> | NodeList<ObjectCreationExpression> |
-   * NodeList<PrefixUnaryExpression> | NodeList<QualifiedName> |
-   * NodeList<ScopeResolutionExpression> | NodeList<SubscriptExpression> |
-   * NodeList<NameToken> | NodeList<TupleExpression> |
-   * NodeList<VariableExpression> | NodeList<VectorIntrinsicExpression> | null
+   * @return NodeList<ListItem<AnonymousFunction>> |
+   * NodeList<ListItem<IExpression>> |
+   * NodeList<ListItem<ArrayCreationExpression>> |
+   * NodeList<ListItem<ArrayIntrinsicExpression>> | NodeList<ListItem<Node>> |
+   * NodeList<ListItem<AwaitableCreationExpression>> |
+   * NodeList<ListItem<BinaryExpression>> | NodeList<ListItem<IHasOperator>> |
+   * NodeList<ListItem<CastExpression>> |
+   * NodeList<ListItem<CollectionLiteralExpression>> |
+   * NodeList<ListItem<ElementInitializer>> |
+   * NodeList<ListItem<FunctionCallExpression>> |
+   * NodeList<ListItem<IFunctionCallishExpression>> |
+   * NodeList<ListItem<LiteralExpression>> |
+   * NodeList<ListItem<MemberSelectionExpression>> |
+   * NodeList<ListItem<ObjectCreationExpression>> |
+   * NodeList<ListItem<PrefixUnaryExpression>> |
+   * NodeList<ListItem<QualifiedName>> |
+   * NodeList<ListItem<ScopeResolutionExpression>> |
+   * NodeList<ListItem<SubscriptExpression>> | NodeList<ListItem<NameToken>> |
+   * NodeList<ListItem<TupleExpression>> |
+   * NodeList<ListItem<VariableExpression>> |
+   * NodeList<ListItem<VectorIntrinsicExpression>> | null
    */
-  public function getMembers(): ?NodeList<Node> {
+  public function getMembers(): ?NodeList<ListItem<Node>> {
     if ($this->_members->isMissing()) {
       return null;
     }
@@ -224,20 +233,29 @@ final class ArrayIntrinsicExpression
   }
 
   /**
-   * @return NodeList<AnonymousFunction> | NodeList<IExpression> |
-   * NodeList<ArrayCreationExpression> | NodeList<ArrayIntrinsicExpression> |
-   * NodeList<Node> | NodeList<AwaitableCreationExpression> |
-   * NodeList<BinaryExpression> | NodeList<IHasOperator> |
-   * NodeList<CastExpression> | NodeList<CollectionLiteralExpression> |
-   * NodeList<ElementInitializer> | NodeList<FunctionCallExpression> |
-   * NodeList<IFunctionCallishExpression> | NodeList<LiteralExpression> |
-   * NodeList<MemberSelectionExpression> | NodeList<ObjectCreationExpression> |
-   * NodeList<PrefixUnaryExpression> | NodeList<QualifiedName> |
-   * NodeList<ScopeResolutionExpression> | NodeList<SubscriptExpression> |
-   * NodeList<NameToken> | NodeList<TupleExpression> |
-   * NodeList<VariableExpression> | NodeList<VectorIntrinsicExpression>
+   * @return NodeList<ListItem<AnonymousFunction>> |
+   * NodeList<ListItem<IExpression>> |
+   * NodeList<ListItem<ArrayCreationExpression>> |
+   * NodeList<ListItem<ArrayIntrinsicExpression>> | NodeList<ListItem<Node>> |
+   * NodeList<ListItem<AwaitableCreationExpression>> |
+   * NodeList<ListItem<BinaryExpression>> | NodeList<ListItem<IHasOperator>> |
+   * NodeList<ListItem<CastExpression>> |
+   * NodeList<ListItem<CollectionLiteralExpression>> |
+   * NodeList<ListItem<ElementInitializer>> |
+   * NodeList<ListItem<FunctionCallExpression>> |
+   * NodeList<ListItem<IFunctionCallishExpression>> |
+   * NodeList<ListItem<LiteralExpression>> |
+   * NodeList<ListItem<MemberSelectionExpression>> |
+   * NodeList<ListItem<ObjectCreationExpression>> |
+   * NodeList<ListItem<PrefixUnaryExpression>> |
+   * NodeList<ListItem<QualifiedName>> |
+   * NodeList<ListItem<ScopeResolutionExpression>> |
+   * NodeList<ListItem<SubscriptExpression>> | NodeList<ListItem<NameToken>> |
+   * NodeList<ListItem<TupleExpression>> |
+   * NodeList<ListItem<VariableExpression>> |
+   * NodeList<ListItem<VectorIntrinsicExpression>>
    */
-  public function getMembersx(): NodeList<Node> {
+  public function getMembersx(): NodeList<ListItem<Node>> {
     return TypeAssert\not_null($this->getMembers());
   }
 

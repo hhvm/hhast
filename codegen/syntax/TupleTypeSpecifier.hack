@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<acd76ed3993a7a09751edf326c6d331f>>
+ * @generated SignedSource<<e9abeb6a827c24dc26cb5004cfa78f29>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -138,22 +138,28 @@ final class TupleTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return NodeList<ITypeSpecifier> | NodeList<GenericTypeSpecifier> |
-   * NodeList<ISimpleCreationSpecifier> | NodeList<SimpleTypeSpecifier> |
-   * NodeList<TupleTypeSpecifier> | NodeList<VectorArrayTypeSpecifier> |
-   * NodeList<VectorTypeSpecifier>
+   * @return NodeList<ListItem<ITypeSpecifier>> |
+   * NodeList<ListItem<GenericTypeSpecifier>> |
+   * NodeList<ListItem<ISimpleCreationSpecifier>> |
+   * NodeList<ListItem<SimpleTypeSpecifier>> |
+   * NodeList<ListItem<TupleTypeSpecifier>> |
+   * NodeList<ListItem<VectorArrayTypeSpecifier>> |
+   * NodeList<ListItem<VectorTypeSpecifier>>
    */
-  public function getTypes(): NodeList<ITypeSpecifier> {
+  public function getTypes(): NodeList<ListItem<ITypeSpecifier>> {
     return TypeAssert\instance_of(NodeList::class, $this->_types);
   }
 
   /**
-   * @return NodeList<ITypeSpecifier> | NodeList<GenericTypeSpecifier> |
-   * NodeList<ISimpleCreationSpecifier> | NodeList<SimpleTypeSpecifier> |
-   * NodeList<TupleTypeSpecifier> | NodeList<VectorArrayTypeSpecifier> |
-   * NodeList<VectorTypeSpecifier>
+   * @return NodeList<ListItem<ITypeSpecifier>> |
+   * NodeList<ListItem<GenericTypeSpecifier>> |
+   * NodeList<ListItem<ISimpleCreationSpecifier>> |
+   * NodeList<ListItem<SimpleTypeSpecifier>> |
+   * NodeList<ListItem<TupleTypeSpecifier>> |
+   * NodeList<ListItem<VectorArrayTypeSpecifier>> |
+   * NodeList<ListItem<VectorTypeSpecifier>>
    */
-  public function getTypesx(): NodeList<ITypeSpecifier> {
+  public function getTypesx(): NodeList<ListItem<ITypeSpecifier>> {
     return $this->getTypes();
   }
 

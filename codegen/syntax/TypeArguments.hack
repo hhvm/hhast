@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9e31160bf531a620148a58eb4837967c>>
+ * @generated SignedSource<<dfb6e2201b0c8a36673767a7fcff0ac2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -138,32 +138,46 @@ final class TypeArguments extends Node {
   }
 
   /**
-   * @return NodeList<ClassnameTypeSpecifier> | NodeList<ClosureTypeSpecifier>
-   * | NodeList<DarrayTypeSpecifier> | NodeList<ITypeSpecifier> |
-   * NodeList<DictionaryTypeSpecifier> | NodeList<GenericTypeSpecifier> |
-   * NodeList<ISimpleCreationSpecifier> | NodeList<LikeTypeSpecifier> |
-   * NodeList<MapArrayTypeSpecifier> | NodeList<NullableTypeSpecifier> |
-   * NodeList<ShapeTypeSpecifier> | NodeList<SimpleTypeSpecifier> |
-   * NodeList<SoftTypeSpecifier> | NodeList<TupleTypeSpecifier> |
-   * NodeList<TypeConstant> | NodeList<VectorArrayTypeSpecifier> |
-   * NodeList<VectorTypeSpecifier>
+   * @return NodeList<ListItem<ClassnameTypeSpecifier>> |
+   * NodeList<ListItem<ClosureTypeSpecifier>> |
+   * NodeList<ListItem<DarrayTypeSpecifier>> |
+   * NodeList<ListItem<ITypeSpecifier>> |
+   * NodeList<ListItem<DictionaryTypeSpecifier>> |
+   * NodeList<ListItem<GenericTypeSpecifier>> |
+   * NodeList<ListItem<ISimpleCreationSpecifier>> |
+   * NodeList<ListItem<LikeTypeSpecifier>> |
+   * NodeList<ListItem<MapArrayTypeSpecifier>> |
+   * NodeList<ListItem<NullableTypeSpecifier>> |
+   * NodeList<ListItem<ShapeTypeSpecifier>> |
+   * NodeList<ListItem<SimpleTypeSpecifier>> |
+   * NodeList<ListItem<SoftTypeSpecifier>> |
+   * NodeList<ListItem<TupleTypeSpecifier>> | NodeList<ListItem<TypeConstant>>
+   * | NodeList<ListItem<VectorArrayTypeSpecifier>> |
+   * NodeList<ListItem<VectorTypeSpecifier>>
    */
-  public function getTypes(): NodeList<ITypeSpecifier> {
+  public function getTypes(): NodeList<ListItem<ITypeSpecifier>> {
     return TypeAssert\instance_of(NodeList::class, $this->_types);
   }
 
   /**
-   * @return NodeList<ClassnameTypeSpecifier> | NodeList<ClosureTypeSpecifier>
-   * | NodeList<DarrayTypeSpecifier> | NodeList<ITypeSpecifier> |
-   * NodeList<DictionaryTypeSpecifier> | NodeList<GenericTypeSpecifier> |
-   * NodeList<ISimpleCreationSpecifier> | NodeList<LikeTypeSpecifier> |
-   * NodeList<MapArrayTypeSpecifier> | NodeList<NullableTypeSpecifier> |
-   * NodeList<ShapeTypeSpecifier> | NodeList<SimpleTypeSpecifier> |
-   * NodeList<SoftTypeSpecifier> | NodeList<TupleTypeSpecifier> |
-   * NodeList<TypeConstant> | NodeList<VectorArrayTypeSpecifier> |
-   * NodeList<VectorTypeSpecifier>
+   * @return NodeList<ListItem<ClassnameTypeSpecifier>> |
+   * NodeList<ListItem<ClosureTypeSpecifier>> |
+   * NodeList<ListItem<DarrayTypeSpecifier>> |
+   * NodeList<ListItem<ITypeSpecifier>> |
+   * NodeList<ListItem<DictionaryTypeSpecifier>> |
+   * NodeList<ListItem<GenericTypeSpecifier>> |
+   * NodeList<ListItem<ISimpleCreationSpecifier>> |
+   * NodeList<ListItem<LikeTypeSpecifier>> |
+   * NodeList<ListItem<MapArrayTypeSpecifier>> |
+   * NodeList<ListItem<NullableTypeSpecifier>> |
+   * NodeList<ListItem<ShapeTypeSpecifier>> |
+   * NodeList<ListItem<SimpleTypeSpecifier>> |
+   * NodeList<ListItem<SoftTypeSpecifier>> |
+   * NodeList<ListItem<TupleTypeSpecifier>> | NodeList<ListItem<TypeConstant>>
+   * | NodeList<ListItem<VectorArrayTypeSpecifier>> |
+   * NodeList<ListItem<VectorTypeSpecifier>>
    */
-  public function getTypesx(): NodeList<ITypeSpecifier> {
+  public function getTypesx(): NodeList<ListItem<ITypeSpecifier>> {
     return $this->getTypes();
   }
 

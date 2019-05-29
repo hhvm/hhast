@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cb522316f14ced56af8c762ee9bb7d08>>
+ * @generated SignedSource<<3cb2ef422a1dfefcec33b0e300092767>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -500,9 +500,9 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
   }
 
   /**
-   * @return NodeList<Node> | null
+   * @return NodeList<Enumerator> | null
    */
-  public function getEnumerators(): ?NodeList<Node> {
+  public function getEnumerators(): ?NodeList<Enumerator> {
     if ($this->_enumerators->isMissing()) {
       return null;
     }
@@ -510,9 +510,9 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
   }
 
   /**
-   * @return NodeList<Node>
+   * @return NodeList<Enumerator>
    */
-  public function getEnumeratorsx(): NodeList<Node> {
+  public function getEnumeratorsx(): NodeList<Enumerator> {
     return TypeAssert\not_null($this->getEnumerators());
   }
 

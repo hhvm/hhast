@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e1bb00f9a17cac871fbddf7a14061970>>
+ * @generated SignedSource<<0ed95cb8772325e67f9fb29a8bb665a7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -352,16 +352,16 @@ final class AlternateElseifClause
   }
 
   /**
-   * @return NodeList<Node>
+   * @return NodeList<ExpressionStatement>
    */
-  public function getStatement(): NodeList<Node> {
+  public function getStatement(): NodeList<ExpressionStatement> {
     return TypeAssert\instance_of(NodeList::class, $this->_statement);
   }
 
   /**
-   * @return NodeList<Node>
+   * @return NodeList<ExpressionStatement>
    */
-  public function getStatementx(): NodeList<Node> {
+  public function getStatementx(): NodeList<ExpressionStatement> {
     return $this->getStatement();
   }
 }

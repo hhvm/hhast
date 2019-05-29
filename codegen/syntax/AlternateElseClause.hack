@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eea066c18a6561017d12db8f9ecc3e3c>>
+ * @generated SignedSource<<8e1fa44ede08f9ea391c5bf42d6aba29>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -167,16 +167,16 @@ final class AlternateElseClause extends Node implements IControlFlowStatement {
   }
 
   /**
-   * @return NodeList<Node>
+   * @return NodeList<EchoStatement> | NodeList<ExpressionStatement>
    */
-  public function getStatement(): NodeList<Node> {
+  public function getStatement(): NodeList<IStatement> {
     return TypeAssert\instance_of(NodeList::class, $this->_statement);
   }
 
   /**
-   * @return NodeList<Node>
+   * @return NodeList<EchoStatement> | NodeList<ExpressionStatement>
    */
-  public function getStatementx(): NodeList<Node> {
+  public function getStatementx(): NodeList<IStatement> {
     return $this->getStatement();
   }
 }

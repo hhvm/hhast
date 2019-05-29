@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b4d05cfa9a130a166f77844070d21cef>>
+ * @generated SignedSource<<0f2ecf6b6033245f50757112f91da14b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -142,9 +142,9 @@ final class ParenthesizedExpression
   /**
    * @return AnonymousFunction | ArrayIntrinsicExpression | BinaryExpression |
    * CastExpression | CollectionLiteralExpression | ConditionalExpression |
-   * EmptyExpression | FunctionCallExpression | InclusionExpression |
-   * InstanceofExpression | IsExpression | IssetExpression | LambdaExpression |
-   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * FunctionCallExpression | InclusionExpression | InstanceofExpression |
+   * IsExpression | IssetExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
    * NameToken | VariableExpression | VectorIntrinsicExpression | XHPExpression
@@ -158,9 +158,9 @@ final class ParenthesizedExpression
   /**
    * @return AnonymousFunction | ArrayIntrinsicExpression | BinaryExpression |
    * CastExpression | CollectionLiteralExpression | ConditionalExpression |
-   * EmptyExpression | FunctionCallExpression | InclusionExpression |
-   * InstanceofExpression | IsExpression | IssetExpression | LambdaExpression |
-   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * FunctionCallExpression | InclusionExpression | InstanceofExpression |
+   * IsExpression | IssetExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
    * NameToken | VariableExpression | VectorIntrinsicExpression | XHPExpression

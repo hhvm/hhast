@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<21b990a99ef4a6d8aea5fa3351e73fea>>
+ * @generated SignedSource<<e785f9d139d966c69b11799056f547d5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -150,16 +150,16 @@ final class AttributeSpecification extends Node {
   }
 
   /**
-   * @return NodeList<ConstructorCall>
+   * @return NodeList<ListItem<ConstructorCall>>
    */
-  public function getAttributes(): NodeList<ConstructorCall> {
+  public function getAttributes(): NodeList<ListItem<ConstructorCall>> {
     return TypeAssert\instance_of(NodeList::class, $this->_attributes);
   }
 
   /**
-   * @return NodeList<ConstructorCall>
+   * @return NodeList<ListItem<ConstructorCall>>
    */
-  public function getAttributesx(): NodeList<ConstructorCall> {
+  public function getAttributesx(): NodeList<ListItem<ConstructorCall>> {
     return $this->getAttributes();
   }
 

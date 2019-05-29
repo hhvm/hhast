@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<801bef5f9ee34138b44236f73d14088b>>
+ * @generated SignedSource<<576cfd514a289f2fd1f32bbb14cdb097>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -140,18 +140,18 @@ final class XHPClassAttributeDeclaration
   }
 
   /**
-   * @return NodeList<XHPClassAttribute> | NodeList<Node> |
-   * NodeList<XHPSimpleClassAttribute>
+   * @return NodeList<ListItem<XHPClassAttribute>> | NodeList<ListItem<Node>> |
+   * NodeList<ListItem<XHPSimpleClassAttribute>>
    */
-  public function getAttributes(): NodeList<Node> {
+  public function getAttributes(): NodeList<ListItem<Node>> {
     return TypeAssert\instance_of(NodeList::class, $this->_attributes);
   }
 
   /**
-   * @return NodeList<XHPClassAttribute> | NodeList<Node> |
-   * NodeList<XHPSimpleClassAttribute>
+   * @return NodeList<ListItem<XHPClassAttribute>> | NodeList<ListItem<Node>> |
+   * NodeList<ListItem<XHPSimpleClassAttribute>>
    */
-  public function getAttributesx(): NodeList<Node> {
+  public function getAttributesx(): NodeList<ListItem<Node>> {
     return $this->getAttributes();
   }
 

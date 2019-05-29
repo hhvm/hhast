@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a5015e5d09e9f0c4a416668befaa5f60>>
+ * @generated SignedSource<<243eac4f15c984749462307510c4a560>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -197,14 +197,18 @@ final class PropertyDeclaration
   }
 
   /**
-   * @return NodeList<Node> | VarToken
+   * @return NodeList<PrivateToken> | NodeList<Token> |
+   * NodeList<ProtectedToken> | NodeList<PublicToken> | NodeList<StaticToken> |
+   * VarToken
    */
   public function getModifiers(): Node {
     return $this->_modifiers;
   }
 
   /**
-   * @return NodeList<Node> | VarToken
+   * @return NodeList<PrivateToken> | NodeList<Token> |
+   * NodeList<ProtectedToken> | NodeList<PublicToken> | NodeList<StaticToken> |
+   * VarToken
    */
   public function getModifiersx(): Node {
     return $this->getModifiers();
@@ -278,16 +282,16 @@ final class PropertyDeclaration
   }
 
   /**
-   * @return NodeList<PropertyDeclarator>
+   * @return NodeList<ListItem<PropertyDeclarator>>
    */
-  public function getDeclarators(): NodeList<PropertyDeclarator> {
+  public function getDeclarators(): NodeList<ListItem<PropertyDeclarator>> {
     return TypeAssert\instance_of(NodeList::class, $this->_declarators);
   }
 
   /**
-   * @return NodeList<PropertyDeclarator>
+   * @return NodeList<ListItem<PropertyDeclarator>>
    */
-  public function getDeclaratorsx(): NodeList<PropertyDeclarator> {
+  public function getDeclaratorsx(): NodeList<ListItem<PropertyDeclarator>> {
     return $this->getDeclarators();
   }
 

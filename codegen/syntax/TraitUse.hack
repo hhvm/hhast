@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d8ad43b1cfbd9fe2e68a029463a737fa>>
+ * @generated SignedSource<<5efda498e8c3773f9d83597c704be650>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -138,18 +138,20 @@ final class TraitUse extends Node implements IClassBodyDeclaration {
   }
 
   /**
-   * @return NodeList<GenericTypeSpecifier> |
-   * NodeList<ISimpleCreationSpecifier> | NodeList<SimpleTypeSpecifier>
+   * @return NodeList<ListItem<GenericTypeSpecifier>> |
+   * NodeList<ListItem<ISimpleCreationSpecifier>> |
+   * NodeList<ListItem<SimpleTypeSpecifier>>
    */
-  public function getNames(): NodeList<ISimpleCreationSpecifier> {
+  public function getNames(): NodeList<ListItem<ISimpleCreationSpecifier>> {
     return TypeAssert\instance_of(NodeList::class, $this->_names);
   }
 
   /**
-   * @return NodeList<GenericTypeSpecifier> |
-   * NodeList<ISimpleCreationSpecifier> | NodeList<SimpleTypeSpecifier>
+   * @return NodeList<ListItem<GenericTypeSpecifier>> |
+   * NodeList<ListItem<ISimpleCreationSpecifier>> |
+   * NodeList<ListItem<SimpleTypeSpecifier>>
    */
-  public function getNamesx(): NodeList<ISimpleCreationSpecifier> {
+  public function getNamesx(): NodeList<ListItem<ISimpleCreationSpecifier>> {
     return $this->getNames();
   }
 
